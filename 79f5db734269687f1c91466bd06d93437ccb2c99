@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a509954_63db2bcb",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-04-11T00:34:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff4fd553_a78881ee",
+      "range": {
+        "startLine": 26,
+        "startChar": 10,
+        "endLine": 26,
+        "endChar": 18
+      },
+      "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b557dc0_6227143b",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-04-10T21:41:23Z",
       "side": 1,
       "message": "I don\u0027t see a write to `statusMQ` queue anywhere near, and the comment says \"wait for commands\", implying that the FMQ is empty. Why do we set `NotEmpty`?",
+      "range": {
+        "startLine": 63,
+        "startChar": 23,
+        "endLine": 63,
+        "endChar": 41
+      },
+      "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "272eb166_35ed114b",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-04-11T00:34:11Z",
+      "side": 1,
+      "message": "The reason to set `kEventFlagNotEmpty` flag here and startThread/stopThread are for command handling is to kickoff the `threadLoop` proceed to the state checking logic in line#128.\n```\nmCv.wait(l, [\u0026]() REQUIRES(mThreadMutex) { return mExit || !mStop; });\n```\nOtherwise it will depend on a write from client side to finish the command handling.\n\nPlease also refer to this reply:\nhttps://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2529223/comment/5bd39629_d1941793/",
+      "parentUuid": "5b557dc0_6227143b",
       "range": {
         "startLine": 63,
         "startChar": 23,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f88cffe_3e225a98",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-04-11T00:34:11Z",
+      "side": 1,
+      "message": "Updated comment. I meant the mEfGroup pointer itself won\u0027t change in the workerThread life cycle.\nFor each loop of workerThread, it waits until either the client indicate there is data to process, or there is a command (CommandId::START/CommandId::STOP) pending.",
+      "parentUuid": "5bd39629_d1941793",
+      "range": {
+        "startLine": 119,
+        "startChar": 56,
+        "endLine": 120,
+        "endChar": 51
+      },
+      "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de6ee2c6_d16d1b5e",
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a2219c9_bb2e9747",
+        "filename": "audio/aidl/default/include/effect-impl/EffectThread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-04-11T00:34:11Z",
+      "side": 1,
+      "message": "Yes, define this in `system/media/audio/include/system/audio_effects/aidl_effects_utils.h`",
+      "parentUuid": "de6ee2c6_d16d1b5e",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 53
+      },
+      "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96f90e3e_0ca398c1",
@@ -123,6 +219,30 @@
       "writtenOn": "2023-04-10T21:41:23Z",
       "side": 1,
       "message": "This is also fragile.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 27
+      },
+      "revId": "79f5db734269687f1c91466bd06d93437ccb2c99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc908d1e_97f8a178",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-04-11T00:34:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96f90e3e_0ca398c1",
       "range": {
         "startLine": 159,
         "startChar": 0,
