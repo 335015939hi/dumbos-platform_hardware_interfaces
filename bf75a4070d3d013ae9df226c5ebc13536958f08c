@@ -81,6 +81,30 @@
       },
       "revId": "bf75a4070d3d013ae9df226c5ebc13536958f08c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bb14cc6_0b1ca700",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-04-12T16:32:28Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s just the fact that an unlocked device is required by policy which means we should be able to safely enforce this.",
+      "parentUuid": "ff9073f6_2cc22d68",
+      "range": {
+        "startLine": 79,
+        "startChar": 46,
+        "endLine": 79,
+        "endChar": 98
+      },
+      "revId": "bf75a4070d3d013ae9df226c5ebc13536958f08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
