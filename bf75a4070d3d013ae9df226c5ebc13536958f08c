@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34a77ddc_af0e07e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-04-12T16:21:01Z",
+      "side": 1,
+      "message": "Yeah, existing tests choke when reading VB properties. Those aren\u0027t there with GSI. To be fair, VB props aren\u0027t part of CDD. That\u0027s why this test only looks at KM attestation, which to my knowledge must always be correct.",
+      "parentUuid": "a3172b02_6ddefc72",
+      "revId": "bf75a4070d3d013ae9df226c5ebc13536958f08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0d3b897_8dbd0011",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-04-12T14:21:04Z",
       "side": 1,
       "message": "Upon further investigation, it turns out that VTS must always be run on a GSI build with the bootloader unlocked, so this is indeed correct. Maybe the error message should be edited here to reflect that more specifically?",
+      "range": {
+        "startLine": 79,
+        "startChar": 46,
+        "endLine": 79,
+        "endChar": 98
+      },
+      "revId": "bf75a4070d3d013ae9df226c5ebc13536958f08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff9073f6_2cc22d68",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-04-12T16:21:01Z",
+      "side": 1,
+      "message": "I feel like GSI process is implementation detail. At the end of the day you have to flash some custom unsigned code as part of the certification process to get root.",
+      "parentUuid": "f0d3b897_8dbd0011",
       "range": {
         "startLine": 79,
         "startChar": 46,
