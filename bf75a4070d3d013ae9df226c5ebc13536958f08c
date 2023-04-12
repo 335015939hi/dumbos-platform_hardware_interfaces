@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3172b02_6ddefc72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-04-12T14:21:04Z",
+      "side": 1,
+      "message": "This test looks correct, but runs into the same issue as the already existing VB tests in VTS. Namely, that VTS gets run on GSI builds only during final approval, and GSI does not populate values for verified boot",
+      "revId": "bf75a4070d3d013ae9df226c5ebc13536958f08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0d3b897_8dbd0011",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-04-12T14:21:04Z",
+      "side": 1,
+      "message": "Upon further investigation, it turns out that VTS must always be run on a GSI build with the bootloader unlocked, so this is indeed correct. Maybe the error message should be edited here to reflect that more specifically?",
+      "range": {
+        "startLine": 79,
+        "startChar": 46,
+        "endLine": 79,
+        "endChar": 98
+      },
+      "revId": "bf75a4070d3d013ae9df226c5ebc13536958f08c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
