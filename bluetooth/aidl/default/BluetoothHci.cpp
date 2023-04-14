@@ -315,6 +315,10 @@ ndk::ScopedAStatus BluetoothHci::sendAclData(
 
 ndk::ScopedAStatus BluetoothHci::sendScoData(
     const std::vector<uint8_t>& packet) {
+  if (packet.size() == 0) {
+    ALOGE("Packet size is 0. Nothing to send");
+    return ndk::ScopedAStatus::ok();
+  }
   send(PacketType::SCO_DATA, packet);
   return ndk::ScopedAStatus::ok();
 }
@@ -326,6 +330,9 @@ ndk::ScopedAStatus BluetoothHci::sendIsoData(
 }
 
 void BluetoothHci::send(PacketType type, const std::vector<uint8_t>& v) {
+  if (mH4 == nullptr || v.data() == nullptr) {
+    return;
+  }
   mH4->Send(type, v);
 }
 
