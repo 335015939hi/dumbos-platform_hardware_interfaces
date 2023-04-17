@@ -1,0 +1,85 @@
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+cc_library {
+    name: "android.security.identity.direct_access-hal-common",
+    defaults: [
+        "identity_direct_use_latest_hal_aidl_ndk_shared",
+        "identity_use_latest_hal_aidl_ndk_shared",
+    ],
+    srcs: [
+        "common/MDocCredential.cpp",
+        "common/MDocStore.cpp",
+    ],
+    cflags: ["-O0"],
+    shared_libs: [
+        "liblog",
+        "libcrypto",
+        "libbinder_ndk",
+        "android.security.identity.direct_access-support-lib",
+    ],
+    static_libs: [
+        "libbase",
+        "libutils",
+    ],
+    export_include_dirs: [
+        ".",
+    ],
+    vendor_available: true,
+}
+
+cc_binary {
+    name: "android.security.identity.direct_access-service.example",
+    relative_install_path: "hw",
+    init_rc: ["android.security.identity.direct_access-service.rc"],
+    vintf_fragments: ["android.security.identity.direct_access-service.xml"],
+    vendor: true,
+    defaults: [
+        "identity_direct_use_latest_hal_aidl_ndk_shared",
+        "identity_use_latest_hal_aidl_ndk_shared",
+    ],
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-g",
+    ],
+    shared_libs: [
+        "liblog",
+        "libcrypto",
+        "libbinder_ndk",
+        "android.security.identity.direct_access-support-lib",
+    ],
+    static_libs: [
+        "libbase",
+        "libcppbor_external",
+        "libcppcose_rkp",
+        "libutils",
+        "libkeymaster_portable",
+        "libsoft_attestation_cert",
+        "libpuresoftkeymasterdevice",
+        "android.hardware.identity-support-lib",
+        "android.security.identity.direct_access-hal-common",
+        "android.hardware.keymaster-V3-ndk",
+    ],
+    srcs: [
+        "service.cpp",
+        "FakeSecureHardwareProxy.cpp",
+        "CredentialData.cpp",
+    ],
+    required: [
+        "android.hardware.direct_access.xml",
+    ],
+}
+
+prebuilt_etc {
+    name: "android.hardware.direct_access.xml",
+    sub_dir: "permissions",
+    vendor: true,
+    src: "android.hardware.direct_access.xml",
+}

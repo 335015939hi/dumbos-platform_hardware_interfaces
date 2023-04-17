@@ -1,0 +1,40 @@
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+cc_test {
+    name: "VtsHalIdentityDirectTargetTest",
+    defaults: [
+        "VtsHalTargetTestDefaults",
+        "identity_use_latest_hal_aidl_ndk_static",
+        "identity_direct_use_latest_hal_aidl_ndk_static",
+        "use_libaidlvintf_gtest_helper_static",
+    ],
+    cflags: [
+        "-Wno-deprecated-declarations",
+    ],
+    srcs: [
+        "DirectAccessTests.cpp",
+    ],
+    shared_libs: [
+        "libbinder",
+        "libbinder_ndk",
+        "libbase",
+        "libcrypto",
+    ],
+    static_libs: [
+        "android.hardware.identity-support-lib",
+        "libcppbor_external",
+    ],
+
+    test_suites: [
+        "general-tests",
+        "vts",
+    ],
+    require_root: true,
+}
