@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48d38903_31bf4a6d",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-04-19T19:33:31Z",
+      "side": 1,
+      "message": "these other functions call the same API, and they would need the same check",
+      "range": {
+        "startLine": 304,
+        "startChar": 33,
+        "endLine": 304,
+        "endChar": 47
+      },
+      "revId": "8575684ac5e728c1e132326d7799280f7c7dbf53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e6e838a_79df3acd",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-04-19T19:33:31Z",
+      "side": 1,
+      "message": "this check is redundant with the one on L318..L321.",
+      "range": {
+        "startLine": 333,
+        "startChar": 24,
+        "endLine": 333,
+        "endChar": 43
+      },
+      "revId": "8575684ac5e728c1e132326d7799280f7c7dbf53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3474a315_904936f7",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-04-19T19:33:31Z",
+      "side": 1,
+      "message": "We probably want to return an error in this case since initialize was not called (e.g. ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE))\n\nOne possible suggestion - switch \u0027send\u0027 to return ndk::ScopedAStatus. For instance in the header: \"[[nodiscard]] ndk::ScopedAStatus send(PacketType type, const std::vector\u003cuint8_t\u003e\u0026 v);\" - the [[nodiscard]] makes sure all users of it will check the state. Then the above functions could be \"return send(...)\" and you would only need one check.\n\nA zero-size packet should probably return EX_ILLEGAL_ARGUMENT, especially because we know it shouldn\u0027t be sent otherwise.",
+      "range": {
+        "startLine": 333,
+        "startChar": 6,
+        "endLine": 333,
+        "endChar": 20
+      },
+      "revId": "8575684ac5e728c1e132326d7799280f7c7dbf53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
