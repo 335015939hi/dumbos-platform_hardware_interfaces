@@ -22,6 +22,30 @@
       },
       "revId": "7fe17245bc0a0e7290079084084f84a0ae125205",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d6a203e_70e510f7",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1944405
+      },
+      "writtenOn": "2023-04-20T20:19:28Z",
+      "side": 1,
+      "message": "v.data() will return a nullptr is v.size() \u003d\u003d 0. v.size() could also work. I\u0027m indifferent about the approach of .size() vs .data(). The meaning will remain the same in this case where the packet is empty.\n\nUpdated the message to say packet is empty.",
+      "parentUuid": "7a3f641e_5e9cc915",
+      "range": {
+        "startLine": 332,
+        "startChar": 6,
+        "endLine": 332,
+        "endChar": 14
+      },
+      "revId": "7fe17245bc0a0e7290079084084f84a0ae125205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
