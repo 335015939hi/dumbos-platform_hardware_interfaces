@@ -66,7 +66,7 @@ class BluetoothHci : public BnBluetoothHci {
   ::android::hardware::bluetooth::async::AsyncFdWatcher mFdWatcher;
 
   int getFdFromDevPath();
-  void send(::android::hardware::bluetooth::hci::PacketType type,
+  void send(::android::hardware::bluetooth::hci::H4Parser::Idc type,
             const std::vector<uint8_t>& packet);
   std::unique_ptr<NetBluetoothMgmt> management_{};
 

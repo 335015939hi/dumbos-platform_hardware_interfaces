@@ -176,7 +176,7 @@ void BluetoothHci::reset() {
   mFdWatcher.WatchFdForNonBlockingReads(mFd,
                                         [this](int) { mH4->OnDataReady(); });
 
-  send(PacketType::COMMAND, reset);
+  send(H4Parser::Idc::kCommand, reset);
   auto status = resetFuture.wait_for(std::chrono::seconds(1));
   mFdWatcher.StopWatchingFileDescriptors();
   if (status == std::future_status::ready) {
@@ -303,29 +303,29 @@ ndk::ScopedAStatus BluetoothHci::close() {
 
 ndk::ScopedAStatus BluetoothHci::sendHciCommand(
     const std::vector<uint8_t>& packet) {
-  send(PacketType::COMMAND, packet);
+  send(H4Parser::Idc::kCommand, packet);
   return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus BluetoothHci::sendAclData(
     const std::vector<uint8_t>& packet) {
-  send(PacketType::ACL_DATA, packet);
+  send(H4Parser::Idc::kAcl, packet);
   return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus BluetoothHci::sendScoData(
     const std::vector<uint8_t>& packet) {
-  send(PacketType::SCO_DATA, packet);
+  send(H4Parser::Idc::kSco, packet);
   return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus BluetoothHci::sendIsoData(
     const std::vector<uint8_t>& packet) {
-  send(PacketType::ISO_DATA, packet);
+  send(H4Parser::Idc::kIso, packet);
   return ndk::ScopedAStatus::ok();
 }
 
-void BluetoothHci::send(PacketType type, const std::vector<uint8_t>& v) {
+void BluetoothHci::send(H4Parser::Idc type, const std::vector<uint8_t>& v) {
   mH4->Send(type, v);
 }
 
