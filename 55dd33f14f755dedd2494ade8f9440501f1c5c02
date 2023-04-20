@@ -33,6 +33,23 @@
       "message": "Eric, and Dr. No\u0027s, could you please approve. Per b/278172495, the vendor has verified the change.",
       "revId": "55dd33f14f755dedd2494ade8f9440501f1c5c02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9a4de2c_42bf494c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-04-20T16:51:32Z",
+      "side": 1,
+      "message": "Apologies, I missed the fact that the change got merged already 😊",
+      "revId": "55dd33f14f755dedd2494ade8f9440501f1c5c02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
