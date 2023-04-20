@@ -37,6 +37,11 @@ using android::hardware::bluetooth::async::AsyncFdWatcher;
 using namespace android::hardware::bluetooth::hci;
 using ::testing::Eq;
 
+static constexpr size_t kAclHeaderSize = 4;
+static constexpr size_t kScoHeaderSize = 3;
+static constexpr size_t kEventHeaderSize = 2;
+static constexpr size_t kIsoHeaderSize = 4;
+
 static char sample_data1[100] = "A point is that which has no part.";
 static char sample_data2[100] = "A line is breadthless length.";
 static char sample_data3[100] = "The ends of a line are points.";
@@ -94,7 +99,7 @@ class H4ProtocolTest : public ::testing::Test {
 
   virtual void CallDataReady() { h4_hci_->OnDataReady(); }
 
-  void SendAndReadUartOutbound(PacketType type, char* data) {
+  void SendAndReadUartOutbound(H4Parser::Idc type, char* data) {
     ALOGD("%s sending", __func__);
     int data_length = strlen(data);
     h4_hci_->Send(type, (uint8_t*)data, data_length);
@@ -121,7 +126,7 @@ class H4ProtocolTest : public ::testing::Test {
 
   void ExpectInboundAclData(char* payload, std::promise<void>* promise) {
     // h4 type[1] + handle[2] + size[2]
-    header_[0] = static_cast<uint8_t>(PacketType::ACL_DATA);
+    header_[0] = static_cast<uint8_t>(H4Parser::Idc::kAcl);
     header_[1] = 19;
     header_[2] = 92;
     int length = strlen(payload);
@@ -148,7 +153,7 @@ class H4ProtocolTest : public ::testing::Test {
 
   void ExpectInboundScoData(char* payload, std::promise<void>* promise) {
     // h4 type[1] + handle[2] + size[1]
-    header_[0] = static_cast<uint8_t>(PacketType::SCO_DATA);
+    header_[0] = static_cast<uint8_t>(H4Parser::Idc::kSco);
     header_[1] = 20;
     header_[2] = 17;
     header_[3] = strlen(payload) & 0xFF;
@@ -166,7 +171,7 @@ class H4ProtocolTest : public ::testing::Test {
 
   void ExpectInboundEvent(char* payload, std::promise<void>* promise) {
     // h4 type[1] + event_code[1] + size[1]
-    header_[0] = static_cast<uint8_t>(PacketType::EVENT);
+    header_[0] = static_cast<uint8_t>(H4Parser::Idc::kEvent);
     header_[1] = 9;
     header_[2] = strlen(payload) & 0xFF;
     EXPECT_CALL(event_cb_,
@@ -176,7 +181,7 @@ class H4ProtocolTest : public ::testing::Test {
 
   void WriteInboundEvent(char* payload) {
     // Use the header_ computed in ExpectInboundEvent
-    char preamble[3] = {static_cast<uint8_t>(PacketType::EVENT), 9, 0};
+    char preamble[3] = {static_cast<uint8_t>(H4Parser::Idc::kEvent), 9, 0};
     preamble[2] = strlen(payload) & 0xFF;
     ALOGD("%s writing", __func__);
     TEMP_FAILURE_RETRY(write(chip_uart_fd_, header_, kEventHeaderSize + 1));
@@ -185,7 +190,7 @@ class H4ProtocolTest : public ::testing::Test {
 
   void ExpectInboundIsoData(char* payload, std::promise<void>* promise) {
     // h4 type[1] + handle[2] + size[1]
-    header_[0] = static_cast<uint8_t>(PacketType::ISO_DATA);
+    header_[0] = static_cast<uint8_t>(H4Parser::Idc::kIso);
     header_[1] = 19;
     header_[2] = 92;
     int length = strlen(payload);
@@ -207,7 +212,7 @@ class H4ProtocolTest : public ::testing::Test {
   void WriteAndExpectManyInboundAclDataPackets(char* payload) {
     size_t kNumPackets = 20;
     // h4 type[1] + handle[2] + size[2]
-    char preamble[5] = {static_cast<uint8_t>(PacketType::ACL_DATA), 19, 92, 0,
+    char preamble[5] = {static_cast<uint8_t>(H4Parser::Idc::kAcl), 19, 92, 0,
                         0};
     int length = strlen(payload);
     preamble[3] = length & 0xFF;
@@ -240,10 +245,10 @@ class H4ProtocolTest : public ::testing::Test {
 
 // Test sending data sends correct data onto the UART
 TEST_F(H4ProtocolTest, TestSends) {
-  SendAndReadUartOutbound(PacketType::COMMAND, sample_data1);
-  SendAndReadUartOutbound(PacketType::ACL_DATA, sample_data2);
-  SendAndReadUartOutbound(PacketType::SCO_DATA, sample_data3);
-  SendAndReadUartOutbound(PacketType::ISO_DATA, sample_data4);
+  SendAndReadUartOutbound(H4Parser::Idc::kCommand, sample_data1);
+  SendAndReadUartOutbound(H4Parser::Idc::kAcl, sample_data2);
+  SendAndReadUartOutbound(H4Parser::Idc::kSco, sample_data3);
+  SendAndReadUartOutbound(H4Parser::Idc::kIso, sample_data4);
 }
 
 // Ensure we properly parse data coming from the UART
@@ -286,7 +291,7 @@ TEST_F(H4ProtocolTest, TestPartialWrites) {
   size_t payload_len = strlen(acl_data);
   const size_t kNumIntervals = payload_len + 1;
   // h4 type[1] + handle[2] + size[2]
-  header_[0] = static_cast<uint8_t>(PacketType::ACL_DATA);
+  header_[0] = static_cast<uint8_t>(H4Parser::Idc::kAcl);
   header_[1] = 19;
   header_[2] = 92;
   header_[3] = payload_len & 0xFF;
@@ -337,7 +342,7 @@ class H4ProtocolAsyncTest : public H4ProtocolTest {
     FAIL();
   }
 
-  void SendAndReadUartOutbound(PacketType type, char* data) {
+  void SendAndReadUartOutbound(H4Parser::Idc type, char* data) {
     ALOGD("%s sending", __func__);
     int data_length = strlen(data);
     h4_hci_->Send(type, (uint8_t*)data, data_length);
@@ -393,7 +398,7 @@ class H4ProtocolAsyncTest : public H4ProtocolTest {
   void WriteAndExpectManyInboundAclDataPackets(char* payload) {
     const size_t kNumPackets = 20;
     // h4 type[1] + handle[2] + size[2]
-    char preamble[5] = {static_cast<uint8_t>(PacketType::ACL_DATA), 19, 92, 0,
+    char preamble[5] = {static_cast<uint8_t>(H4Parser::Idc::kAcl), 19, 92, 0,
                         0};
     int length = strlen(payload);
     preamble[3] = length & 0xFF;
@@ -416,10 +421,10 @@ class H4ProtocolAsyncTest : public H4ProtocolTest {
 
 // Test sending data sends correct data onto the UART
 TEST_F(H4ProtocolAsyncTest, TestSends) {
-  SendAndReadUartOutbound(PacketType::COMMAND, sample_data1);
-  SendAndReadUartOutbound(PacketType::ACL_DATA, sample_data2);
-  SendAndReadUartOutbound(PacketType::SCO_DATA, sample_data3);
-  SendAndReadUartOutbound(PacketType::ISO_DATA, sample_data4);
+  SendAndReadUartOutbound(H4Parser::Idc::kCommand, sample_data1);
+  SendAndReadUartOutbound(H4Parser::Idc::kAcl, sample_data2);
+  SendAndReadUartOutbound(H4Parser::Idc::kSco, sample_data3);
+  SendAndReadUartOutbound(H4Parser::Idc::kIso, sample_data4);
 }
 
 // Ensure we properly parse data coming from the UART
