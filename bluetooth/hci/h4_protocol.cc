@@ -30,21 +30,33 @@ namespace android::hardware::bluetooth::hci {
 
 H4Protocol::H4Protocol(int fd, PacketReadCallback cmd_cb,
                        PacketReadCallback acl_cb, PacketReadCallback sco_cb,
-                       PacketReadCallback event_cb, PacketReadCallback iso_cb,
+                       PacketReadCallback evt_cb, PacketReadCallback iso_cb,
                        DisconnectCallback disconnect_cb)
     : uart_fd_(fd),
-      cmd_cb_(std::move(cmd_cb)),
-      acl_cb_(std::move(acl_cb)),
-      sco_cb_(std::move(sco_cb)),
-      event_cb_(std::move(event_cb)),
-      iso_cb_(std::move(iso_cb)),
-      disconnect_cb_(std::move(disconnect_cb)) {}
+      disconnect_cb_(std::move(disconnect_cb)),
+      h4_parser_([
+        cmd_cb = std::move(cmd_cb),
+        acl_cb = std::move(acl_cb),
+        sco_cb = std::move(sco_cb),
+        evt_cb = std::move(evt_cb),
+        iso_cb = std::move(iso_cb)
+      ] (H4Parser::Idc idc, std::vector<uint8_t> const& packet) {
+        switch (idc) {
+          case H4Parser::Idc::kCommand: cmd_cb(packet); break;
+          case H4Parser::Idc::kAcl: acl_cb(packet); break;
+          case H4Parser::Idc::kSco: sco_cb(packet); break;
+          case H4Parser::Idc::kEvent: evt_cb(packet); break;
+          case H4Parser::Idc::kIso: iso_cb(packet); break;
+          case H4Parser::Idc::kUnknown:
+          default: break;
+        }
+      }) {}
 
-size_t H4Protocol::Send(PacketType type, const std::vector<uint8_t>& vector) {
+size_t H4Protocol::Send(H4Parser::Idc type, const std::vector<uint8_t>& vector) {
   return Send(type, vector.data(), vector.size());
 }
 
-size_t H4Protocol::Send(PacketType type, const uint8_t* data, size_t length) {
+size_t H4Protocol::Send(H4Parser::Idc type, const uint8_t* data, size_t length) {
   /* For HCI communication over USB dongle, multiple write results in
    * response timeout as driver expect type + data at once to process
    * the command, so using "writev"(for atomicity) here.
@@ -70,53 +82,8 @@ size_t H4Protocol::Send(PacketType type, const uint8_t* data, size_t length) {
   return ret;
 }
 
-size_t H4Protocol::OnPacketReady(const std::vector<uint8_t>& packet) {
-  switch (hci_packet_type_) {
-    case PacketType::COMMAND:
-      cmd_cb_(packet);
-      break;
-    case PacketType::ACL_DATA:
-      acl_cb_(packet);
-      break;
-    case PacketType::SCO_DATA:
-      sco_cb_(packet);
-      break;
-    case PacketType::EVENT:
-      event_cb_(packet);
-      break;
-    case PacketType::ISO_DATA:
-      iso_cb_(packet);
-      break;
-    default: {
-      LOG_ALWAYS_FATAL("Bad packet type 0x%x",
-                       static_cast<int>(hci_packet_type_));
-    }
-  }
-  return packet.size();
-}
-
-void H4Protocol::SendDataToPacketizer(uint8_t* buffer, size_t length) {
-  std::vector<uint8_t> input_buffer{buffer, buffer + length};
-  size_t buffer_offset = 0;
-  while (buffer_offset < input_buffer.size()) {
-    if (hci_packet_type_ == PacketType::UNKNOWN) {
-      hci_packet_type_ =
-          static_cast<PacketType>(input_buffer.data()[buffer_offset]);
-      buffer_offset += 1;
-    } else {
-      bool packet_ready = hci_packetizer_.OnDataReady(
-          hci_packet_type_, input_buffer, buffer_offset);
-      if (packet_ready) {
-        // Call packet callback and move offset.
-        buffer_offset += OnPacketReady(hci_packetizer_.GetPacket());
-        // Get ready for the next type byte.
-        hci_packet_type_ = PacketType::UNKNOWN;
-      } else {
-        // The data was consumed, but there wasn't a packet.
-        buffer_offset = input_buffer.size();
-      }
-    }
-  }
+void H4Protocol::SendDataToPacketizer(uint8_t const* buffer, size_t length) {
+  h4_parser_.Consume(buffer, length);
 }
 
 void H4Protocol::OnDataReady() {
