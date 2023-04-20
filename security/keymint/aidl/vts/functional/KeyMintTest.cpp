@@ -26,6 +26,7 @@
 #include <openssl/ec.h>
 #include <openssl/evp.h>
 #include <openssl/mem.h>
+#include <openssl/x509.h>
 #include <openssl/x509v3.h>
 
 #include <cutils/properties.h>
@@ -590,8 +591,7 @@ string device_suffix(const string& name) {
     return name.substr(pos + 1);
 }
 
-bool matching_rp_instance(const string& km_name,
-                          std::shared_ptr<IRemotelyProvisionedComponent>* rp) {
+std::shared_ptr<IRemotelyProvisionedComponent> matching_rp_instance(const std::string& km_name) {
     string km_suffix = device_suffix(km_name);
 
     vector<string> rp_names =
@@ -601,11 +601,10 @@ bool matching_rp_instance(const string& km_name,
         // KeyMint instance, assume they match.
         if (device_suffix(rp_name) == km_suffix && AServiceManager_isDeclared(rp_name.c_str())) {
             ::ndk::SpAIBinder binder(AServiceManager_waitForService(rp_name.c_str()));
-            *rp = IRemotelyProvisionedComponent::fromBinder(binder);
-            return true;
+            return IRemotelyProvisionedComponent::fromBinder(binder);
         }
     }
-    return false;
+    return nullptr;
 }
 
 }  // namespace
@@ -1061,6 +1060,42 @@ TEST_P(NewKeyGenerationTest, RsaWithMissingValidity) {
 }
 
 /*
+ * NewKeyGenerationTest.RsaWithSpecifiedValidity
+ *
+ * Verifies that KeyMint respects specified NOT_BEFORE and NOT_AFTER certificate dates.
+ */
+TEST_P(NewKeyGenerationTest, RsaWithSpecifiedValidity) {
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::NONE)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_BEFORE,
+                                                 1183806000000 /* 2007-07-07T11:00:00Z */)
+                                  .Authorization(TAG_CERTIFICATE_NOT_AFTER,
+                                                 1916049600000 /* 2030-09-19T12:00:00Z */),
+                          &key_blob, &key_characteristics));
+    ASSERT_GT(cert_chain_.size(), 0);
+
+    X509_Ptr cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+    ASSERT_TRUE(!!cert.get());
+
+    const ASN1_TIME* not_before = X509_get0_notBefore(cert.get());
+    ASSERT_NE(not_before, nullptr);
+    time_t not_before_time;
+    ASSERT_EQ(ASN1_TIME_to_time_t(not_before, &not_before_time), 1);
+    EXPECT_EQ(not_before_time, 1183806000);
+
+    const ASN1_TIME* not_after = X509_get0_notAfter(cert.get());
+    ASSERT_NE(not_after, nullptr);
+    time_t not_after_time;
+    ASSERT_EQ(ASN1_TIME_to_time_t(not_after, &not_after_time), 1);
+    EXPECT_EQ(not_after_time, 1916049600);
+}
+
+/*
  * NewKeyGenerationTest.RsaWithAttestation
  *
  * Verifies that keymint can generate all required RSA key sizes with attestation, and that the
@@ -1140,11 +1175,14 @@ TEST_P(NewKeyGenerationTest, RsaWithRkpAttestation) {
         GTEST_SKIP() << "RKP support is not required on this platform";
     }
 
-    // There should be an IRemotelyProvisionedComponent instance associated with the KeyMint
-    // instance.
-    std::shared_ptr<IRemotelyProvisionedComponent> rp;
-    ASSERT_TRUE(matching_rp_instance(GetParam(), &rp))
-            << "No IRemotelyProvisionedComponent found that matches KeyMint device " << GetParam();
+    // Check for an IRemotelyProvisionedComponent instance associated with the
+    // KeyMint instance.
+    std::shared_ptr<IRemotelyProvisionedComponent> rp = matching_rp_instance(GetParam());
+    if (rp == nullptr && SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Encountered StrongBox implementation that does not support RKP";
+    }
+    ASSERT_NE(rp, nullptr) << "No IRemotelyProvisionedComponent found that matches KeyMint device "
+                           << GetParam();
 
     // Generate a P-256 keypair to use as an attestation key.
     MacedPublicKey macedPubKey;
@@ -1218,11 +1256,14 @@ TEST_P(NewKeyGenerationTest, EcdsaWithRkpAttestation) {
         GTEST_SKIP() << "RKP support is not required on this platform";
     }
 
-    // There should be an IRemotelyProvisionedComponent instance associated with the KeyMint
-    // instance.
-    std::shared_ptr<IRemotelyProvisionedComponent> rp;
-    ASSERT_TRUE(matching_rp_instance(GetParam(), &rp))
-            << "No IRemotelyProvisionedComponent found that matches KeyMint device " << GetParam();
+    // Check for an IRemotelyProvisionedComponent instance associated with the
+    // KeyMint instance.
+    std::shared_ptr<IRemotelyProvisionedComponent> rp = matching_rp_instance(GetParam());
+    if (rp == nullptr && SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Encountered StrongBox implementation that does not support RKP";
+    }
+    ASSERT_NE(rp, nullptr) << "No IRemotelyProvisionedComponent found that matches KeyMint device "
+                           << GetParam();
 
     // Generate a P-256 keypair to use as an attestation key.
     MacedPublicKey macedPubKey;
@@ -3077,9 +3118,6 @@ TEST_P(SigningOperationsTest, RsaPaddingNoneDoesNotAllowOther) {
  * presented.
  */
 TEST_P(SigningOperationsTest, NoUserConfirmation) {
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        GTEST_SKIP() << "Test not applicable to StrongBox device";
-    }
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                  .RsaSigningKey(1024, 65537)
                                                  .Digest(Digest::NONE)
@@ -7784,10 +7822,6 @@ TEST_P(UsageCountLimitTest, TestLimitUseRsa) {
  * in hardware.
  */
 TEST_P(UsageCountLimitTest, TestSingleUseKeyAndRollbackResistance) {
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        GTEST_SKIP() << "Test not applicable to StrongBox device";
-    }
-
     auto error = GenerateKey(AuthorizationSetBuilder()
                                      .RsaSigningKey(2048, 65537)
                                      .Digest(Digest::NONE)
