@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a3f641e_5e9cc915",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-04-20T20:01:34Z",
+      "side": 1,
+      "message": "does v.size() catch this? Checking the data pointer and saying size is 0 seems odd here.",
+      "range": {
+        "startLine": 332,
+        "startChar": 6,
+        "endLine": 332,
+        "endChar": 14
+      },
+      "revId": "7fe17245bc0a0e7290079084084f84a0ae125205",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
