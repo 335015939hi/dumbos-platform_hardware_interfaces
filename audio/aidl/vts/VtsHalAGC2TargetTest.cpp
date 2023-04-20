@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-#include <Utils.h>
 #include <aidl/Vintf.h>
-#include <android/binder_enums.h>
-#include <unordered_set>
-
 #define LOG_TAG "VtsHalAGC2ParamTest"
+#include <android-base/logging.h>
+#include <android/binder_enums.h>
 
 #include "EffectHelper.h"
 
@@ -27,9 +25,9 @@ using namespace android;
 
 using aidl::android::hardware::audio::effect::AutomaticGainControlV2;
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidAutomaticGainControlV2;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kAutomaticGainControlV2TypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
 
 enum ParamName {
@@ -166,7 +164,8 @@ INSTANTIATE_TEST_SUITE_P(
         AGC2ParamTest, AGC2ParamTest,
         ::testing::Combine(
                 testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
-                                          IFactory::descriptor, kAutomaticGainControlV2TypeUUID)),
+                                          IFactory::descriptor,
+                                          getEffectTypeUuidAutomaticGainControlV2())),
                 testing::ValuesIn(EffectHelper::getTestValueSet<
                                   AutomaticGainControlV2, int, Range::automaticGainControlV2,
                                   AutomaticGainControlV2::fixedDigitalGainMb>(

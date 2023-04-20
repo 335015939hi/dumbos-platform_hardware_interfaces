@@ -22,10 +22,11 @@
 #include <string>
 #include <vector>
 
-#define LOG_TAG "VtsHalEqualizerTest"
-
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
+#include <aidl/android/hardware/audio/effect/IEffect.h>
+#include <aidl/android/hardware/audio/effect/IFactory.h>
+#define LOG_TAG "VtsHalEqualizerTest"
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 #include <android/binder_interface_utils.h>
@@ -33,22 +34,17 @@
 #include <android/binder_process.h>
 #include <gtest/gtest.h>
 
-#include <Utils.h>
-#include <aidl/android/hardware/audio/effect/IEffect.h>
-#include <aidl/android/hardware/audio/effect/IFactory.h>
-
 #include "AudioHalBinderServiceUtil.h"
 #include "EffectHelper.h"
 #include "TestUtils.h"
-#include "effect-impl/EffectUUID.h"
 
 using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::Equalizer;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidEqualizer;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kEqualizerTypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
 
 /**
@@ -198,7 +194,7 @@ INSTANTIATE_TEST_SUITE_P(
         EqualizerTest, EqualizerTest,
         ::testing::Combine(
                 testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
-                                          IFactory::descriptor, kEqualizerTypeUUID)),
+                                          IFactory::descriptor, getEffectTypeUuidEqualizer())),
                 testing::ValuesIn(EffectHelper::getTestValueSet<Equalizer, int, Range::equalizer,
                                                                 Equalizer::preset>(
                         kDescPair, EffectHelper::expandTestValueBasic<int>)),

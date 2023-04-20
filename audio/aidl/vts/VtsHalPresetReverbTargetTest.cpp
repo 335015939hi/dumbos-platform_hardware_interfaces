@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "VtsHalPresetReverbTargetTest"
-
-#include <Utils.h>
 #include <aidl/Vintf.h>
+#define LOG_TAG "VtsHalPresetReverbTargetTest"
+#include <android-base/logging.h>
 #include <android/binder_enums.h>
+
 #include "EffectHelper.h"
 
 using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidPresetReverb;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kEffectNullUuid;
-using aidl::android::hardware::audio::effect::kPresetReverbTypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::PresetReverb;
 
@@ -132,7 +131,7 @@ TEST_P(PresetReverbParamTest, SetAndGetPresets) {
 INSTANTIATE_TEST_SUITE_P(
         PresetReverbTest, PresetReverbParamTest,
         ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
-                                   IFactory::descriptor, kPresetReverbTypeUUID)),
+                                   IFactory::descriptor, getEffectTypeUuidPresetReverb())),
                            testing::ValuesIn(kPresetsValues)),
         [](const testing::TestParamInfo<PresetReverbParamTest::ParamType>& info) {
             auto descriptor = std::get<PARAM_INSTANCE_NAME>(info.param).second;

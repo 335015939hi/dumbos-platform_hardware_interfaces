@@ -24,8 +24,8 @@ import android.hardware.audio.core.VendorParameter;
  * the vendor. It needs to be provided only if the device actually supports BT
  * A2DP.
  *
- * This interface is separate from IBluetooth interface which manages SCO & HFP.
- * The HAL module can handle both SCO and A2DP profiles or only one of them.
+ * Each of IBluetooth* interfaces is independent of each other. The HAL module
+ * can provide any combination of them.
  */
 @VintfStability
 interface IBluetoothA2dp {
@@ -55,7 +55,7 @@ interface IBluetoothA2dp {
     /**
      * Indicates whether the module supports reconfiguration of offloaded codecs.
      *
-     * Offloaded coded implementations may need to be reconfigured when the
+     * Offloaded codec implementations may need to be reconfigured when the
      * active A2DP device changes. This method indicates whether the HAL module
      * supports the reconfiguration event. The result returned from this method
      * must not change over time.
@@ -67,11 +67,11 @@ interface IBluetoothA2dp {
     /**
      * Instructs the HAL module to reconfigure offloaded codec.
      *
-     * Offloaded coded implementations may need to be reconfigured when the
+     * Offloaded codec implementations may need to be reconfigured when the
      * active A2DP device changes. This method is a notification for the HAL
      * module to commence reconfiguration.
      *
-     * Note that 'EX_UNSUPPORTED_OPERATION' may only be thrown when
+     * Note that 'EX_UNSUPPORTED_OPERATION' must be thrown if and only if
      * 'supportsOffloadReconfiguration' returns 'false'.
      *
      * @param parameter Optional vendor-specific parameters, can be left empty.

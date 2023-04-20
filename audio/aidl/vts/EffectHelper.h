@@ -23,12 +23,15 @@
 #include <unordered_map>
 #include <vector>
 
+#include <Utils.h>
 #include <aidl/android/hardware/audio/effect/IEffect.h>
 #include <aidl/android/hardware/audio/effect/IFactory.h>
 #include <aidl/android/media/audio/common/AudioChannelLayout.h>
 #include <android/binder_auto_utils.h>
 #include <fmq/AidlMessageQueue.h>
+#include <gtest/gtest.h>
 #include <system/audio_effects/aidl_effects_utils.h>
+#include <system/audio_effects/effect_uuid.h>
 
 #include "AudioHalBinderServiceUtil.h"
 #include "EffectFactoryHelper.h"
@@ -38,6 +41,7 @@ using namespace android;
 using aidl::android::hardware::audio::effect::CommandId;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
+using aidl::android::hardware::audio::effect::kEventFlagNotEmpty;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::Range;
 using aidl::android::hardware::audio::effect::State;
@@ -47,6 +51,7 @@ using aidl::android::media::audio::common::AudioFormatDescription;
 using aidl::android::media::audio::common::AudioFormatType;
 using aidl::android::media::audio::common::AudioUuid;
 using aidl::android::media::audio::common::PcmType;
+using ::android::hardware::EventFlag;
 
 const AudioFormatDescription kDefaultFormatDescription = {
         .type = AudioFormatType::PCM, .pcm = PcmType::FLOAT_32_BIT, .encoding = ""};
@@ -134,7 +139,7 @@ class EffectHelper {
     static void allocateInputData(const Parameter::Common common, std::unique_ptr<DataMQ>& mq,
                                   std::vector<float>& buffer) {
         ASSERT_NE(mq, nullptr);
-        auto frameSize = android::hardware::audio::common::getFrameSizeInBytes(
+        auto frameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(
                 common.input.base.format, common.input.base.channelMask);
         const size_t floatsToWrite = mq->availableToWrite();
         ASSERT_NE(0UL, floatsToWrite);
@@ -142,12 +147,20 @@ class EffectHelper {
         buffer.resize(floatsToWrite);
         std::fill(buffer.begin(), buffer.end(), 0x5a);
     }
-    static void writeToFmq(std::unique_ptr<DataMQ>& mq, const std::vector<float>& buffer) {
-        const size_t available = mq->availableToWrite();
+    static void writeToFmq(std::unique_ptr<StatusMQ>& statusMq, std::unique_ptr<DataMQ>& dataMq,
+                           const std::vector<float>& buffer) {
+        const size_t available = dataMq->availableToWrite();
         ASSERT_NE(0Ul, available);
         auto bufferFloats = buffer.size();
         auto floatsToWrite = std::min(available, bufferFloats);
-        ASSERT_TRUE(mq->write(buffer.data(), floatsToWrite));
+        ASSERT_TRUE(dataMq->write(buffer.data(), floatsToWrite));
+
+        EventFlag* efGroup;
+        ASSERT_EQ(::android::OK,
+                  EventFlag::createEventFlag(statusMq->getEventFlagWord(), &efGroup));
+        ASSERT_NE(nullptr, efGroup);
+        efGroup->wake(kEventFlagNotEmpty);
+        ASSERT_EQ(::android::OK, EventFlag::deleteEventFlag(&efGroup));
     }
     static void readFromFmq(std::unique_ptr<StatusMQ>& statusMq, size_t statusNum,
                             std::unique_ptr<DataMQ>& dataMq, size_t expectFloats,
@@ -225,10 +238,10 @@ class EffectHelper {
      */
     template <typename S, typename = std::enable_if_t<std::is_arithmetic_v<S>>>
     static std::set<S> expandTestValueBasic(std::set<S>& s) {
-        const auto min = *s.begin(), max = *s.rbegin();
         const auto minLimit = std::numeric_limits<S>::min(),
                    maxLimit = std::numeric_limits<S>::max();
         if (s.size()) {
+            const auto min = *s.begin(), max = *s.rbegin();
             s.insert(min + (max - min) / 2);
             if (min != minLimit) {
                 s.insert(min - 1);

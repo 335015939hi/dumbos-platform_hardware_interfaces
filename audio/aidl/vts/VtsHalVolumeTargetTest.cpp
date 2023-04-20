@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "VtsHalVolumeTest"
-
-#include <Utils.h>
 #include <aidl/Vintf.h>
+#define LOG_TAG "VtsHalVolumeTest"
+#include <android-base/logging.h>
+
 #include "EffectHelper.h"
 
 using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidVolume;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kVolumeTypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::Volume;
 
@@ -140,7 +140,7 @@ INSTANTIATE_TEST_SUITE_P(
         VolumeTest, VolumeParamTest,
         ::testing::Combine(
                 testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
-                                          IFactory::descriptor, kVolumeTypeUUID)),
+                                          IFactory::descriptor, getEffectTypeUuidVolume())),
                 testing::ValuesIn(
                         EffectHelper::getTestValueSet<Volume, int, Range::volume, Volume::levelDb>(
                                 kDescPair, EffectHelper::expandTestValueBasic<int>)),

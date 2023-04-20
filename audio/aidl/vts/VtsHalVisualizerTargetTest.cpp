@@ -14,22 +14,21 @@
  * limitations under the License.
  */
 
-#include <aidl/Vintf.h>
-
-#define LOG_TAG "VtsHalVisualizerTest"
-
-#include <Utils.h>
-#include <android/binder_enums.h>
 #include <unordered_set>
+
+#include <aidl/Vintf.h>
+#define LOG_TAG "VtsHalVisualizerTest"
+#include <android-base/logging.h>
+#include <android/binder_enums.h>
 
 #include "EffectHelper.h"
 
 using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidVisualizer;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kVisualizerTypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::Visualizer;
 
@@ -178,7 +177,7 @@ INSTANTIATE_TEST_SUITE_P(
         VisualizerParamTest, VisualizerParamTest,
         ::testing::Combine(
                 testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
-                                          IFactory::descriptor, kVisualizerTypeUUID)),
+                                          IFactory::descriptor, getEffectTypeUuidVisualizer())),
                 testing::ValuesIn(EffectHelper::getTestValueSet<Visualizer, int, Range::visualizer,
                                                                 Visualizer::captureSamples>(
                         kDescPair, EffectHelper::expandTestValueBasic<int>)),

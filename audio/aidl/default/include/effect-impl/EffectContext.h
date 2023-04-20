@@ -15,10 +15,10 @@
  */
 
 #pragma once
-#include <Utils.h>
 #include <memory>
 #include <vector>
 
+#include <Utils.h>
 #include <android-base/logging.h>
 #include <fmq/AidlMessageQueue.h>
 
@@ -46,14 +46,15 @@ class EffectContext {
         LOG_ALWAYS_FATAL_IF(output.base.format.pcm !=
                                     aidl::android::media::audio::common::PcmType::FLOAT_32_BIT,
                             "outputFormatNotFloat");
-        mInputFrameSize = ::android::hardware::audio::common::getFrameSizeInBytes(
+        mInputFrameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(
                 input.base.format, input.base.channelMask);
-        mOutputFrameSize = ::android::hardware::audio::common::getFrameSizeInBytes(
+        mOutputFrameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(
                 output.base.format, output.base.channelMask);
         // in/outBuffer size in float (FMQ data format defined for DataMQ)
         size_t inBufferSizeInFloat = input.frameCount * mInputFrameSize / sizeof(float);
         size_t outBufferSizeInFloat = output.frameCount * mOutputFrameSize / sizeof(float);
 
+        // only status FMQ use the EventFlag
         mStatusMQ = std::make_shared<StatusMQ>(statusDepth, true /*configureEventFlagWord*/);
         mInputMQ = std::make_shared<DataMQ>(inBufferSizeInFloat);
         mOutputMQ = std::make_shared<DataMQ>(outBufferSizeInFloat);
@@ -127,7 +128,7 @@ class EffectContext {
         return RetCode::SUCCESS;
     }
     virtual Parameter::Common getCommon() {
-        LOG(INFO) << __func__ << mCommon.toString();
+        LOG(DEBUG) << __func__ << mCommon.toString();
         return mCommon;
     }
 

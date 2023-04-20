@@ -49,6 +49,9 @@ namespace {
 constexpr int32_t VERSION_WITH_UNIQUE_ID_SUPPORT = 2;
 constexpr int32_t VERSION_WITHOUT_TEST_MODE = 3;
 
+constexpr uint8_t MIN_CHALLENGE_SIZE = 0;
+constexpr uint8_t MAX_CHALLENGE_SIZE = 64;
+
 #define INSTANTIATE_REM_PROV_AIDL_TEST(name)                                         \
     GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(name);                             \
     INSTANTIATE_TEST_SUITE_P(                                                        \
@@ -408,16 +411,8 @@ class CertificateRequestTest : public CertificateRequestTestBase {
         ASSERT_FALSE(HasFatalFailure());
 
         if (rpcHardwareInfo.versionNumber >= VERSION_WITHOUT_TEST_MODE) {
-            bytevec keysToSignMac;
-            DeviceInfo deviceInfo;
-            ProtectedData protectedData;
-            auto status = provisionable_->generateCertificateRequest(
-                    false, {}, {}, {}, &deviceInfo, &protectedData, &keysToSignMac);
-            if (!status.isOk() && (status.getServiceSpecificError() ==
-                                   BnRemotelyProvisionedComponent::STATUS_REMOVED)) {
-                GTEST_SKIP() << "This test case applies to RKP v3+ only if "
-                             << "generateCertificateRequest() is implemented.";
-            }
+            GTEST_SKIP() << "This test case only applies to RKP v1 and v2. "
+                         << "RKP version discovered: " << rpcHardwareInfo.versionNumber;
         }
     }
 };
@@ -701,32 +696,54 @@ class CertificateRequestV2Test : public CertificateRequestTestBase {
 };
 
 /**
- * Generate an empty certificate request, and decrypt and verify the structure and content.
+ * Generate an empty certificate request with all possible length of challenge, and decrypt and
+ * verify the structure and content.
  */
 TEST_P(CertificateRequestV2Test, EmptyRequest) {
     bytevec csr;
 
-    auto status =
-            provisionable_->generateCertificateRequestV2({} /* keysToSign */, challenge_, &csr);
-    ASSERT_TRUE(status.isOk()) << status.getMessage();
+    for (auto size = MIN_CHALLENGE_SIZE; size <= MAX_CHALLENGE_SIZE; size++) {
+        SCOPED_TRACE(testing::Message() << "challenge[" << size << "]");
+        auto challenge = randomBytes(size);
+        auto status =
+                provisionable_->generateCertificateRequestV2({} /* keysToSign */, challenge, &csr);
+        ASSERT_TRUE(status.isOk()) << status.getMessage();
 
-    auto result = verifyProductionCsr(cppbor::Array(), csr, provisionable_.get(), challenge_);
-    ASSERT_TRUE(result) << result.message();
+        auto result = verifyProductionCsr(cppbor::Array(), csr, provisionable_.get(), challenge);
+        ASSERT_TRUE(result) << result.message();
+    }
 }
 
 /**
- * Generate a non-empty certificate request.  Decrypt, parse and validate the contents.
+ * Generate a non-empty certificate request with all possible length of challenge.  Decrypt, parse
+ * and validate the contents.
  */
 TEST_P(CertificateRequestV2Test, NonEmptyRequest) {
     generateKeys(false /* testMode */, 1 /* numKeys */);
 
     bytevec csr;
 
-    auto status = provisionable_->generateCertificateRequestV2(keysToSign_, challenge_, &csr);
-    ASSERT_TRUE(status.isOk()) << status.getMessage();
+    for (auto size = MIN_CHALLENGE_SIZE; size <= MAX_CHALLENGE_SIZE; size++) {
+        SCOPED_TRACE(testing::Message() << "challenge[" << size << "]");
+        auto challenge = randomBytes(size);
+        auto status = provisionable_->generateCertificateRequestV2(keysToSign_, challenge, &csr);
+        ASSERT_TRUE(status.isOk()) << status.getMessage();
 
-    auto result = verifyProductionCsr(cborKeysToSign_, csr, provisionable_.get(), challenge_);
-    ASSERT_TRUE(result) << result.message();
+        auto result = verifyProductionCsr(cborKeysToSign_, csr, provisionable_.get(), challenge);
+        ASSERT_TRUE(result) << result.message();
+    }
+}
+
+/**
+ * Generate an empty certificate request with invalid size of challenge
+ */
+TEST_P(CertificateRequestV2Test, EmptyRequestWithInvalidChallengeFail) {
+    bytevec csr;
+
+    auto status = provisionable_->generateCertificateRequestV2(
+            /* keysToSign */ {}, randomBytes(MAX_CHALLENGE_SIZE + 1), &csr);
+    EXPECT_FALSE(status.isOk()) << status.getMessage();
+    EXPECT_EQ(status.getServiceSpecificError(), BnRemotelyProvisionedComponent::STATUS_FAILED);
 }
 
 /**
@@ -796,6 +813,20 @@ TEST_P(CertificateRequestV2Test, NonEmptyRequest_testKeyInProdCert) {
     ASSERT_FALSE(status.isOk()) << status.getMessage();
     ASSERT_EQ(status.getServiceSpecificError(),
               BnRemotelyProvisionedComponent::STATUS_TEST_KEY_IN_PRODUCTION_REQUEST);
+}
+
+/**
+ * Call generateCertificateRequest(). Make sure it's removed.
+ */
+TEST_P(CertificateRequestV2Test, CertificateRequestV1Removed) {
+    bytevec keysToSignMac;
+    DeviceInfo deviceInfo;
+    ProtectedData protectedData;
+    auto status = provisionable_->generateCertificateRequest(
+            true /* testMode */, {} /* keysToSign */, {} /* EEK chain */, challenge_, &deviceInfo,
+            &protectedData, &keysToSignMac);
+    ASSERT_FALSE(status.isOk()) << status.getMessage();
+    EXPECT_EQ(status.getServiceSpecificError(), BnRemotelyProvisionedComponent::STATUS_REMOVED);
 }
 
 void parse_root_of_trust(const vector<uint8_t>& attestation_cert,

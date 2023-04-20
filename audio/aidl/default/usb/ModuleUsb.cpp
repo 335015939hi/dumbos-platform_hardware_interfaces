@@ -22,6 +22,7 @@
 #include <android-base/logging.h>
 #include <tinyalsa/asoundlib.h>
 
+#include "UsbAlsaMixerControl.h"
 #include "UsbAlsaUtils.h"
 #include "core-impl/ModuleUsb.h"
 
@@ -29,6 +30,7 @@ extern "C" {
 #include "alsa_device_profile.h"
 }
 
+using aidl::android::hardware::audio::common::isUsbInputDeviceType;
 using aidl::android::media::audio::common::AudioChannelLayout;
 using aidl::android::media::audio::common::AudioDeviceAddress;
 using aidl::android::media::audio::common::AudioDeviceDescription;
@@ -39,7 +41,6 @@ using aidl::android::media::audio::common::AudioPort;
 using aidl::android::media::audio::common::AudioPortConfig;
 using aidl::android::media::audio::common::AudioPortExt;
 using aidl::android::media::audio::common::AudioProfile;
-using android::hardware::audio::common::isUsbInputDeviceType;
 
 namespace aidl::android::hardware::audio::core {
 
@@ -86,26 +87,6 @@ ndk::ScopedAStatus ModuleUsb::getBluetooth(std::shared_ptr<IBluetooth>* _aidl_re
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus ModuleUsb::getMasterMute(bool* _aidl_return __unused) {
-    LOG(DEBUG) << __func__ << ": is not supported";
-    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
-}
-
-ndk::ScopedAStatus ModuleUsb::setMasterMute(bool in_mute __unused) {
-    LOG(DEBUG) << __func__ << ": is not supported";
-    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
-}
-
-ndk::ScopedAStatus ModuleUsb::getMasterVolume(float* _aidl_return __unused) {
-    LOG(DEBUG) << __func__ << ": is not supported";
-    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
-}
-
-ndk::ScopedAStatus ModuleUsb::setMasterVolume(float in_volume __unused) {
-    LOG(DEBUG) << __func__ << ": is not supported";
-    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
-}
-
 ndk::ScopedAStatus ModuleUsb::getMicMute(bool* _aidl_return __unused) {
     LOG(DEBUG) << __func__ << ": is not supported";
     return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -139,7 +120,11 @@ ndk::ScopedAStatus ModuleUsb::populateConnectedDevicePort(AudioPort* audioPort) 
     const bool isInput = isUsbInputDeviceType(devicePort.device.type.type);
     alsa_device_profile profile;
     profile_init(&profile, isInput ? PCM_IN : PCM_OUT);
+    profile.card = alsaAddress[0];
+    profile.device = alsaAddress[1];
     if (!profile_read_device_info(&profile)) {
+        LOG(ERROR) << __func__ << ": failed to read device info, card=" << profile.card
+                   << ", device=" << profile.device;
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
 
@@ -147,7 +132,7 @@ ndk::ScopedAStatus ModuleUsb::populateConnectedDevicePort(AudioPort* audioPort) 
     std::vector<int> sampleRates = populateSampleRatesFromProfile(&profile);
 
     for (size_t i = 0; i < std::min(MAX_PROFILE_FORMATS, AUDIO_PORT_MAX_AUDIO_PROFILES) &&
-                       profile.formats[i] != 0;
+                       profile.formats[i] != PCM_FORMAT_INVALID;
          ++i) {
         auto audioFormatDescription =
                 usb::legacy2aidl_pcm_format_AudioFormatDescription(profile.formats[i]);
@@ -178,6 +163,28 @@ ndk::ScopedAStatus ModuleUsb::checkAudioPatchEndpointsMatch(
         }
     }
     return ndk::ScopedAStatus::ok();
+}
+
+void ModuleUsb::onExternalDeviceConnectionChanged(
+        const ::aidl::android::media::audio::common::AudioPort& audioPort, bool connected) {
+    if (audioPort.ext.getTag() != AudioPortExt::Tag::device) {
+        return;
+    }
+    const auto& address = audioPort.ext.get<AudioPortExt::Tag::device>().device.address;
+    if (address.getTag() != AudioDeviceAddress::alsa) {
+        return;
+    }
+    const int card = address.get<AudioDeviceAddress::alsa>()[0];
+    usb::UsbAlsaMixerControl::getInstance().setDeviceConnectionState(card, mMasterMute,
+                                                                     mMasterVolume, connected);
+}
+
+ndk::ScopedAStatus ModuleUsb::onMasterMuteChanged(bool mute) {
+    return usb::UsbAlsaMixerControl::getInstance().setMasterMute(mute);
+}
+
+ndk::ScopedAStatus ModuleUsb::onMasterVolumeChanged(float volume) {
+    return usb::UsbAlsaMixerControl::getInstance().setMasterVolume(volume);
 }
 
 }  // namespace aidl::android::hardware::audio::core

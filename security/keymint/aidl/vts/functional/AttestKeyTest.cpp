@@ -172,8 +172,9 @@ class AttestKeyTest : public KeyMintAidlTestBase {
     //     allowing it to be launched with Android S (or later) with Keymaster 4.0
     //     in StrongBox
     void check_skip_test(void) const {
-        if (is_attest_key_feature_disabled() && is_strongbox_enabled() &&
-            is_chipset_allowed_km4_strongbox()) {
+        // Check the chipset first as that doesn't require a round-trip to Package Manager.
+        if (is_chipset_allowed_km4_strongbox() && is_strongbox_enabled() &&
+            is_attest_key_feature_disabled()) {
             GTEST_SKIP() << "Test is not applicable";
         }
     }
@@ -1018,12 +1019,8 @@ TEST_P(AttestKeyTest, EcdsaAttestationMismatchID) {
                     .Authorization(TAG_ATTESTATION_ID_MANUFACTURER, "malformed-manufacturer")
                     .Authorization(TAG_ATTESTATION_ID_MODEL, "malicious-model");
 
-    // TODO(b/262255219): Remove this condition when StrongBox supports 2nd IMEI attestation.
-    if (SecLevel() != SecurityLevel::STRONGBOX) {
-        if (isSecondImeiIdAttestationRequired()) {
-            attestation_id_tags.Authorization(TAG_ATTESTATION_ID_SECOND_IMEI,
-                                              "invalid-second-imei");
-        }
+    if (isSecondImeiIdAttestationRequired()) {
+        attestation_id_tags.Authorization(TAG_ATTESTATION_ID_SECOND_IMEI, "invalid-second-imei");
     }
     vector<uint8_t> key_blob;
     vector<KeyCharacteristics> key_characteristics;
@@ -1058,11 +1055,6 @@ TEST_P(AttestKeyTest, SecondIMEIAttestationIDSuccess) {
         // GSI sets up a standard set of device identifiers that may not match
         // the device identifiers held by the device.
         GTEST_SKIP() << "Test not applicable under GSI";
-    }
-
-    // TODO(b/262255219): Remove this condition when StrongBox supports 2nd IMEI attestation.
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        GTEST_SKIP() << "Test not applicable for SecurityLevel::STRONGBOX";
     }
 
     // Skip the test if there is no second IMEI exists.
@@ -1141,11 +1133,6 @@ TEST_P(AttestKeyTest, MultipleIMEIAttestationIDSuccess) {
         // GSI sets up a standard set of device identifiers that may not match
         // the device identifiers held by the device.
         GTEST_SKIP() << "Test not applicable under GSI";
-    }
-
-    // TODO(b/262255219): Remove this condition when StrongBox supports 2nd IMEI attestation.
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        GTEST_SKIP() << "Test not applicable for SecurityLevel::STRONGBOX";
     }
 
     // Skip the test if there is no first IMEI exists.

@@ -37,6 +37,7 @@ cc_defaults {
         "general-tests",
         "vts",
     ],
+    srcs: [":effectCommonFile"],
 }
 
 cc_test {
@@ -83,6 +84,7 @@ cc_test {
 cc_test {
     name: "VtsHalDynamicsProcessingTargetTest",
     defaults: ["VtsHalAudioTargetTestDefaults"],
+    static_libs: ["libaudioaidlranges"],
     srcs: ["VtsHalDynamicsProcessingTest.cpp"],
 }
 

@@ -72,6 +72,7 @@ class Module : public BnModule {
     ndk::ScopedAStatus getTelephony(std::shared_ptr<ITelephony>* _aidl_return) override;
     ndk::ScopedAStatus getBluetooth(std::shared_ptr<IBluetooth>* _aidl_return) override;
     ndk::ScopedAStatus getBluetoothA2dp(std::shared_ptr<IBluetoothA2dp>* _aidl_return) override;
+    ndk::ScopedAStatus getBluetoothLe(std::shared_ptr<IBluetoothLe>* _aidl_return) override;
     ndk::ScopedAStatus connectExternalDevice(
             const ::aidl::android::media::audio::common::AudioPort& in_templateIdAndAdditionalData,
             ::aidl::android::media::audio::common::AudioPort* _aidl_return) override;
@@ -164,7 +165,7 @@ class Module : public BnModule {
     bool isMmapSupported();
 
     // This value is used for all AudioPatches.
-    static constexpr int32_t kMinimumStreamBufferSizeFrames = 16;
+    static constexpr int32_t kMinimumStreamBufferSizeFrames = 256;
     // The maximum stream buffer size is 1 GiB = 2 ** 30 bytes;
     static constexpr int32_t kMaximumStreamBufferSizeBytes = 1 << 30;
 
@@ -175,14 +176,15 @@ class Module : public BnModule {
     ChildInterface<ITelephony> mTelephony;
     ChildInterface<IBluetooth> mBluetooth;
     ChildInterface<IBluetoothA2dp> mBluetoothA2dp;
-    // ids of ports created at runtime via 'connectExternalDevice'.
-    std::set<int32_t> mConnectedDevicePorts;
+    ChildInterface<IBluetoothLe> mBluetoothLe;
+    // ids of device ports created at runtime via 'connectExternalDevice'.
+    // Also stores ids of mix ports with dynamic profiles which got populated from the connected
+    // port.
+    std::map<int32_t, std::vector<int32_t>> mConnectedDevicePorts;
     Streams mStreams;
     // Maps port ids and port config ids to patch ids.
     // Multimap because both ports and configs can be used by multiple patches.
     std::multimap<int32_t, int32_t> mPatches;
-    bool mMasterMute = false;
-    float mMasterVolume = 1.0f;
     bool mMicMute = false;
     ChildInterface<sounddose::ISoundDose> mSoundDose;
     std::optional<bool> mIsMmapSupported;
@@ -197,6 +199,13 @@ class Module : public BnModule {
     virtual ndk::ScopedAStatus checkAudioPatchEndpointsMatch(
             const std::vector<::aidl::android::media::audio::common::AudioPortConfig*>& sources,
             const std::vector<::aidl::android::media::audio::common::AudioPortConfig*>& sinks);
+    virtual void onExternalDeviceConnectionChanged(
+            const ::aidl::android::media::audio::common::AudioPort& audioPort, bool connected);
+    virtual ndk::ScopedAStatus onMasterMuteChanged(bool mute);
+    virtual ndk::ScopedAStatus onMasterVolumeChanged(float volume);
+
+    bool mMasterMute = false;
+    float mMasterVolume = 1.0f;
 };
 
 }  // namespace aidl::android::hardware::audio::core

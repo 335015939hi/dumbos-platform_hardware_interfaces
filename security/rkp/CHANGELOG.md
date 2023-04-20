@@ -31,7 +31,7 @@ This document provides an exact description of which changes have occurred in th
 * IRemotelyProvisionedComponent
   * The need for an EEK has been removed. There is no longer an encrypted portion of the CSR.
   * Keys for new CSR format must be generated with test mode set to false, effectively removing test
-    mode in the new CSR flow. Old behavior is kept unchanged for backwards compatibility.
+    mode in the new CSR flow.
   * The schema for the CSR itself has been significantly simplified, please see
     IRemotelyProvisionedComponent.aidl for more details. Notably,
     * the chain of signing, MACing, and encryption operations has been replaced with a single
@@ -42,6 +42,7 @@ This document provides an exact description of which changes have occurred in th
       `AuthenticatedRequest<T>` object representing the top level data required to authenticate
       the data provided in the payload, `T`.
   * The new CSR format supports P-384 signing keys and SHA-384 hashes in the DICE chain.
+  * The component version can now be either an int or a string.
 * RpcHardwareInfo
   * `supportedNumKeysInCsr` added to report the maximum number of keys supported in a CSR.
   * `supportedEekCurve` is no longer used, due to the removal of the EEK from the scheme.

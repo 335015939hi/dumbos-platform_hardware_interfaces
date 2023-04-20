@@ -17,6 +17,7 @@
 #pragma once
 
 #include <mutex>
+#include <vector>
 
 #include <aidl/android/media/audio/common/AudioChannelLayout.h>
 
@@ -55,7 +56,7 @@ class DriverUsb : public DriverInterface {
     std::vector<::aidl::android::media::audio::common::AudioDeviceAddress> mConnectedDevices
             GUARDED_BY(mLock);
     std::vector<std::shared_ptr<alsa_device_proxy>> mAlsaDeviceProxies GUARDED_BY(mLock);
-    bool mIsStandby = false;
+    bool mIsStandby = true;
 };
 
 class StreamInUsb final : public StreamIn {
@@ -93,6 +94,12 @@ class StreamOutUsb final : public StreamOut {
                  StreamContext&& context,
                  const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
                          offloadInfo);
+
+    ndk::ScopedAStatus getHwVolume(std::vector<float>* _aidl_return) override;
+    ndk::ScopedAStatus setHwVolume(const std::vector<float>& in_channelVolumes) override;
+
+    int mChannelCount;
+    std::vector<float> mHwVolumes;
 };
 
 }  // namespace aidl::android::hardware::audio::core

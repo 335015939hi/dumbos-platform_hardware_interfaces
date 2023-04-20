@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "VtsHalBassBoostTest"
-
-#include <Utils.h>
-#include <aidl/Vintf.h>
 #include <limits.h>
+
+#include <aidl/Vintf.h>
+#define LOG_TAG "VtsHalBassBoostTest"
+#include <android-base/logging.h>
 
 #include "EffectHelper.h"
 
@@ -27,9 +27,9 @@ using namespace android;
 using aidl::android::hardware::audio::effect::BassBoost;
 using aidl::android::hardware::audio::effect::Capability;
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidBassBoost;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kBassBoostTypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::Range;
 
@@ -138,7 +138,7 @@ INSTANTIATE_TEST_SUITE_P(
         BassBoostTest, BassBoostParamTest,
         ::testing::Combine(
                 testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
-                                          IFactory::descriptor, kBassBoostTypeUUID)),
+                                          IFactory::descriptor, getEffectTypeUuidBassBoost())),
                 testing::ValuesIn(EffectHelper::getTestValueSet<BassBoost, int, Range::bassBoost,
                                                                 BassBoost::strengthPm>(
                         kDescPair, EffectHelper::expandTestValueBasic<int>))),
