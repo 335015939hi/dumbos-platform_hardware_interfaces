@@ -22,6 +22,30 @@
       },
       "revId": "337097e326eed43aef6aca8df04bc7e40adf28c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8922f0c0_043042ec",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1944405
+      },
+      "writtenOn": "2023-04-20T21:40:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c6f71e4_c9e7f0f3",
+      "range": {
+        "startLine": 332,
+        "startChar": 6,
+        "endLine": 332,
+        "endChar": 25
+      },
+      "revId": "337097e326eed43aef6aca8df04bc7e40adf28c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
