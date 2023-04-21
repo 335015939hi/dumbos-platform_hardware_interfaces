@@ -22,6 +22,30 @@
       },
       "revId": "ed1e52179092da4e7b15bc928400d28eaeb7134c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40c38380_c972735b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-04-21T20:17:11Z",
+      "side": 1,
+      "message": "done (though it\u0027s somewhat implied b/c the project is only about HALs)",
+      "parentUuid": "1be4c6d9_009df802",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "ed1e52179092da4e7b15bc928400d28eaeb7134c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
