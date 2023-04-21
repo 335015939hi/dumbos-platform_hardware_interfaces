@@ -111,18 +111,26 @@ BluetoothHci::BluetoothHci(const std::string& dev_path) {
 }
 
 int BluetoothHci::getFdFromDevPath() {
+  char property_bytes[PROPERTY_VALUE_MAX];
+  std::string mDevType;
   int fd = open(mDevPath.c_str(), O_RDWR);
   if (fd < 0) {
     ALOGE("Could not connect to bt: %s (%s)", mDevPath.c_str(),
           strerror(errno));
     return fd;
   }
-  if (int ret = SetTerminalRaw(mFd) < 0) {
-    ALOGE("Could not make %s a raw terminal %d(%s)", mDevPath.c_str(), ret,
-          strerror(errno));
-    ::close(fd);
-    return -1;
-  }
+  // It is not all device need to do SetTerminalRaw, use a property to control vendor's choise
+
+  property_get("vendor.set.terminal", property_bytes, NULL);
+  mDevType = std::string(property_bytes);
+  if (mDevType.compare("false") == 0){
+    return fd;
+  } else if (int ret = SetTerminalRaw(fd) < 0) {
+      ALOGE("Could not make %s a raw terminal %d(%s)", mDevPath.c_str(), ret,
+            strerror(errno));
+      ::close(fd);
+      return -1;
+    }
   return fd;
 }
 
