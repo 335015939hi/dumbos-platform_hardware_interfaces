@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0269de9b_f78464c9",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-04-24T21:00:51Z",
+      "side": 1,
+      "message": "The changelog already describes test mode keys being deprecated.",
+      "revId": "f2ae193680d6f02a2394423f805aadd13a7d152b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
