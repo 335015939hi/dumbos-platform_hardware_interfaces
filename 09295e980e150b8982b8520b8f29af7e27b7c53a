@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "75eb8a01_f63a331b",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-24T15:36:20Z",
+      "side": 1,
+      "message": "I thought about this too, but it would be good to still run the test for waivered devices that have ATTEST_KEY disabled on their TEE KeyMint.",
+      "parentUuid": "b6014b5a_ad174e84",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "854cb4d3_16130afe",
         "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
         "patchSetId": 2
@@ -100,6 +118,30 @@
       "writtenOn": "2023-04-24T15:15:11Z",
       "side": 1,
       "message": "Since this check looks at strongbox specifically, shouldn\u0027t it only skip if the actual instance currently being tested is strongbox? As it is, I think the test would skip checking TEE KeyMint as well, right?",
+      "range": {
+        "startLine": 325,
+        "startChar": 4,
+        "endLine": 325,
+        "endChar": 22
+      },
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "256541a3_88b61570",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-24T15:36:20Z",
+      "side": 1,
+      "message": "AIUI the skip applies to both, unfortunately.  If a device has StrongBox Keymaster (no ATTEST_KEY possible) and TEE KeyMint (would normally be required to support ATTEST_KEY), and it\u0027s one of the specific waivered devices, then the KeyMint impl gets downgraded so that it reports UNIMPLEMENTED for ATTEST_KEY stuff.  That way, the single device-wide feature flag that indicates support of ATTEST_KEY is consistent (off) for both devices.",
+      "parentUuid": "176bbad5_380adabc",
       "range": {
         "startLine": 325,
         "startChar": 4,
