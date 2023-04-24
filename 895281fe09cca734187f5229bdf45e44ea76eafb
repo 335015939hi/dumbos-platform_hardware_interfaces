@@ -16,6 +16,24 @@
       "message": "Please add ref bug to the CL commit message",
       "revId": "895281fe09cca734187f5229bdf45e44ea76eafb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45debad8_e7ee11d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1725686
+      },
+      "writtenOn": "2023-04-24T08:34:50Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "abe93278_73a320b3",
+      "revId": "895281fe09cca734187f5229bdf45e44ea76eafb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
