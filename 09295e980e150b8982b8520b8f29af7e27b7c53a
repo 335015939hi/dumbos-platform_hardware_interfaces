@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b6014b5a_ad174e84",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-04-24T15:15:11Z",
+      "side": 1,
+      "message": "In general should we just always use the ATTEST_KEY path - why special case on StrongBox? Factory provisioning will be deprecated soon, which would necessitate doing this for all instances.",
+      "parentUuid": "a02f4aca_19873c41",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "854cb4d3_16130afe",
         "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
         "patchSetId": 2
@@ -65,6 +83,29 @@
       "writtenOn": "2023-04-24T13:34:28Z",
       "side": 1,
       "message": "nit: combine the two if tests together?",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "176bbad5_380adabc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-04-24T15:15:11Z",
+      "side": 1,
+      "message": "Since this check looks at strongbox specifically, shouldn\u0027t it only skip if the actual instance currently being tested is strongbox? As it is, I think the test would skip checking TEE KeyMint as well, right?",
+      "range": {
+        "startLine": 325,
+        "startChar": 4,
+        "endLine": 325,
+        "endChar": 22
+      },
       "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
