@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5113d65d_7ee45950",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-24T13:34:28Z",
+      "side": 1,
+      "message": "Is this needed?",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93a407fb_35020784",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-24T13:34:28Z",
+      "side": 1,
+      "message": "Is this still needed/used?",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a02f4aca_19873c41",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-24T13:34:28Z",
+      "side": 1,
+      "message": "nit: also describe what happens in this case?",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854cb4d3_16130afe",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-24T13:34:28Z",
+      "side": 1,
+      "message": "nit: combine the two if tests together?",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "967bdd02_8733c03e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-24T13:34:28Z",
+      "side": 1,
+      "message": "Now that this method has moved to the common base class it needs a more specific name.",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
