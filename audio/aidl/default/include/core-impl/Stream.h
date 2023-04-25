@@ -75,6 +75,7 @@ class StreamContext {
 
     StreamContext() = default;
     StreamContext(std::unique_ptr<CommandMQ> commandMQ, std::unique_ptr<ReplyMQ> replyMQ,
+                  int portId,
                   const ::aidl::android::media::audio::common::AudioFormatDescription& format,
                   const ::aidl::android::media::audio::common::AudioChannelLayout& channelLayout,
                   int sampleRate, std::unique_ptr<DataMQ> dataMQ,
@@ -84,6 +85,7 @@ class StreamContext {
         : mCommandMQ(std::move(commandMQ)),
           mInternalCommandCookie(std::rand()),
           mReplyMQ(std::move(replyMQ)),
+          mPortId(portId),
           mFormat(format),
           mChannelLayout(channelLayout),
           mSampleRate(sampleRate),
@@ -95,6 +97,7 @@ class StreamContext {
         : mCommandMQ(std::move(other.mCommandMQ)),
           mInternalCommandCookie(other.mInternalCommandCookie),
           mReplyMQ(std::move(other.mReplyMQ)),
+          mPortId(other.mPortId),
           mFormat(other.mFormat),
           mChannelLayout(other.mChannelLayout),
           mSampleRate(other.mSampleRate),
@@ -106,6 +109,7 @@ class StreamContext {
         mCommandMQ = std::move(other.mCommandMQ);
         mInternalCommandCookie = other.mInternalCommandCookie;
         mReplyMQ = std::move(other.mReplyMQ);
+        mPortId = std::move(other.mPortId);
         mFormat = std::move(other.mFormat);
         mChannelLayout = std::move(other.mChannelLayout);
         mSampleRate = other.mSampleRate;
@@ -130,6 +134,7 @@ class StreamContext {
     bool getForceSynchronousDrain() const { return mDebugParameters.forceSynchronousDrain; }
     size_t getFrameSize() const;
     int getInternalCommandCookie() const { return mInternalCommandCookie; }
+    int getPortId() const { return mPortId; }
     std::shared_ptr<IStreamOutEventCallback> getOutEventCallback() const {
         return mOutEventCallback;
     }
@@ -143,6 +148,7 @@ class StreamContext {
     std::unique_ptr<CommandMQ> mCommandMQ;
     int mInternalCommandCookie;  // The value used to confirm that the command was posted internally
     std::unique_ptr<ReplyMQ> mReplyMQ;
+    int mPortId;
     ::aidl::android::media::audio::common::AudioFormatDescription mFormat;
     ::aidl::android::media::audio::common::AudioChannelLayout mChannelLayout;
     int mSampleRate;
@@ -157,11 +163,12 @@ struct DriverInterface {
     virtual ~DriverInterface() = default;
     // This function is called once, on the main thread, before starting the worker thread.
     virtual ::android::status_t init() = 0;
-    // This function is called from Binder pool thread. It must be done in a thread-safe manner
-    // if this method and other methods in this interface share data.
+    // These functions are called from Binder pool thread. It must be done in a thread-safe manner
+    // if these methods and other methods in these interfaces share data.
     virtual ::android::status_t setConnectedDevices(
             const std::vector<::aidl::android::media::audio::common::AudioDevice>&
                     connectedDevices) = 0;
+    virtual ::android::status_t prepareToClose() = 0;
     // All the functions below are called on the worker thread.
     virtual ::android::status_t drain(StreamDescriptor::DrainMode mode) = 0;
     virtual ::android::status_t flush() = 0;
@@ -169,6 +176,7 @@ struct DriverInterface {
     virtual ::android::status_t transfer(void* buffer, size_t frameCount, size_t* actualFrameCount,
                                          int32_t* latencyMs) = 0;
     virtual ::android::status_t standby() = 0;
+    virtual ::android::status_t close() = 0;
 };
 
 class StreamWorkerCommonLogic : public ::android::hardware::audio::common::StreamLogic {

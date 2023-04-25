@@ -82,6 +82,13 @@ auto findById(std::vector<T>& v, int32_t id) {
     return std::find_if(v.begin(), v.end(), [&](const auto& e) { return e.id == id; });
 }
 
+// Assuming that the vector contains elements with an 'id' field,
+// find an element with the specified id.
+template <typename T>
+auto findPtrById(std::vector<T>& v, int32_t id) {
+    return std::find_if(v.begin(), v.end(), [&](const auto& e) { return e->id == id; });
+}
+
 // Return elements from the vector that have specified ids, also
 // optionally return which ids were not found.
 template <typename T>
