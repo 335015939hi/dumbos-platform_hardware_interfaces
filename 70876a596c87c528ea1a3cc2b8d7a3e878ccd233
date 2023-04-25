@@ -234,6 +234,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad027ae1_d64a0119",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-25T11:37:54Z",
+      "side": 1,
+      "message": "b/271944945 is fixed -- once the prebuilts get updated, does that mean these tests will pass against StrongBox?",
+      "parentUuid": "f04ea490_c09f986a",
+      "range": {
+        "startLine": 411,
+        "startChar": 29,
+        "endLine": 411,
+        "endChar": 55
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e049fd36_206d61eb",
         "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
         "patchSetId": 1
@@ -245,6 +269,30 @@
       "writtenOn": "2023-03-06T14:42:20Z",
       "side": 1,
       "message": "Same to #411.",
+      "range": {
+        "startLine": 670,
+        "startChar": 25,
+        "endLine": 670,
+        "endChar": 51
+      },
+      "revId": "70876a596c87c528ea1a3cc2b8d7a3e878ccd233",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83ff1196_9c39b5aa",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-25T11:37:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e049fd36_206d61eb",
       "range": {
         "startLine": 670,
         "startChar": 25,
