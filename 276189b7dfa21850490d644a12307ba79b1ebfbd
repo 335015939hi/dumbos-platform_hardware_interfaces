@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "126afa75_4b1db2e8",
+        "filename": "radio/aidl/vts/radio_aidl_hal_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-04-25T21:40:37Z",
+      "side": 1,
+      "message": "consider simpler statement?\n\n`return !(isDsDsEnabled() || isTsTsEnabled() || isDsDaEnabled());`",
+      "range": {
+        "startLine": 88,
+        "startChar": 11,
+        "endLine": 88,
+        "endChar": 68
+      },
+      "revId": "276189b7dfa21850490d644a12307ba79b1ebfbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
