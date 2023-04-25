@@ -30,10 +30,12 @@ class DriverStub : public DriverInterface {
     ::android::status_t transfer(void* buffer, size_t frameCount, size_t* actualFrameCount,
                                  int32_t* latencyMs) override;
     ::android::status_t standby() override;
+    ::android::status_t close() override;
     // Note: called on a different thread.
     ::android::status_t setConnectedDevices(
             const std::vector<::aidl::android::media::audio::common::AudioDevice>& connectedDevices)
             override;
+    ::android::status_t prepareToClose() override;
 
   private:
     const size_t mFrameSizeBytes;
