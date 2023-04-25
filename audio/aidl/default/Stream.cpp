@@ -650,6 +650,7 @@ ndk::ScopedAStatus StreamCommonImpl<Metadata>::close() {
         LOG(DEBUG) << __func__ << ": joining the worker thread...";
         mWorker->stop();
         LOG(DEBUG) << __func__ << ": worker thread joined";
+        mDriver->close();
         mContext.reset();
         mWorker->setClosed();
         return ndk::ScopedAStatus::ok();
@@ -663,7 +664,7 @@ template <class Metadata>
 ndk::ScopedAStatus StreamCommonImpl<Metadata>::prepareToClose() {
     LOG(DEBUG) << __func__;
     if (!isClosed()) {
-        return ndk::ScopedAStatus::ok();
+        return mDriver->prepareToClose();
     }
     LOG(ERROR) << __func__ << ": stream was closed";
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
