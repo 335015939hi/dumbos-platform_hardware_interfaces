@@ -57,6 +57,14 @@ DriverStub::DriverStub(const StreamContext& context, bool isInput)
     return ::android::OK;
 }
 
+::android::status_t DriverStub::prepareToClose() {
+    return ::android::OK;
+}
+
+::android::status_t DriverStub::close() {
+    return ::android::OK;
+}
+
 ::android::status_t DriverStub::transfer(void* buffer, size_t frameCount, size_t* actualFrameCount,
                                          int32_t* latencyMs) {
     static constexpr float kMicrosPerSecond = MICROS_PER_SECOND;

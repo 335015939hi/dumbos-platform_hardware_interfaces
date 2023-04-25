@@ -152,6 +152,7 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
         case Tag::halReservedExit:
             if (const int32_t cookie = command.get<Tag::halReservedExit>();
                 cookie == mInternalCommandCookie) {
+                mDriver->close();
                 setClosed();
                 // This is an internal command, no need to reply.
                 return Status::EXIT;
@@ -364,6 +365,7 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
         case Tag::halReservedExit:
             if (const int32_t cookie = command.get<Tag::halReservedExit>();
                 cookie == mInternalCommandCookie) {
+                mDriver->close();
                 setClosed();
                 // This is an internal command, no need to reply.
                 return Status::EXIT;
@@ -662,7 +664,7 @@ ndk::ScopedAStatus StreamCommonImpl<Metadata>::close() {
 template <class Metadata>
 ndk::ScopedAStatus StreamCommonImpl<Metadata>::prepareToClose() {
     LOG(DEBUG) << __func__;
-    if (!isClosed()) {
+    if (!isClosed() && ::android::OK == mDriver->prepareToClose()) {
         return ndk::ScopedAStatus::ok();
     }
     LOG(ERROR) << __func__ << ": stream was closed";

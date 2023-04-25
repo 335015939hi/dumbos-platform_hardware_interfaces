@@ -89,6 +89,10 @@ DriverUsb::DriverUsb(const StreamContext& context, bool isInput)
     return ::android::OK;
 }
 
+::android::status_t DriverUsb::prepareToClose() {
+    return ::android::OK;
+}
+
 ::android::status_t DriverUsb::drain(StreamDescriptor::DrainMode) {
     usleep(1000);
     return ::android::OK;
@@ -142,6 +146,10 @@ DriverUsb::DriverUsb(const StreamContext& context, bool isInput)
         mAlsaDeviceProxies.clear();
         mIsStandby = true;
     }
+    return ::android::OK;
+}
+
+::android::status_t DriverUsb::close() {
     return ::android::OK;
 }
 
