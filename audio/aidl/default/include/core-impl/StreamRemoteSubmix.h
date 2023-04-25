@@ -1,0 +1,148 @@
+/*
+ * Copyright (C) 2023 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#pragma once
+
+#include <mutex>
+#include <vector>
+
+#include <aidl/android/media/audio/common/AudioChannelLayout.h>
+
+#include "core-impl/Stream.h"
+
+namespace aidl::android::hardware::audio::core {
+
+// Configuration of the submix pipe.
+class PipeConfig {
+    int mSampleRate;
+    ::aidl::android::media::audio::common::AudioFormatDescription mFormat;
+    // Input stream and output stream channel masks.  This is required since input and output
+    // channel bitfields are not equivalent.
+    // TODO : maybe we can use single channel mask
+    ::aidl::android::media::audio::common::AudioChannelLayout mInputChannels;
+    ::aidl::android::media::audio::common::AudioChannelLayout mOutputChannels;
+    size_t mPipeFrameSize;     // Number of bytes in each audio frame in the pipe.
+    size_t mBufferSizeFrames;  // Size of the audio pipe in frames.
+    // Maximum number of frames buffered by the input and output streams.
+    size_t mBufferPeriodSizeFrames;
+    bool mInputOpen = false;
+    bool mOutputOpen = false;
+
+    // wall clock when recording starts
+    struct timespec mRecordStartTime;
+};
+
+class SubmixRoute {
+    String id;
+    PipeConfig config;
+    // Pipe variables: they handle the ring buffer that "pipes" audio:
+    //  - from the submix virtual audio output == what needs to be played
+    //    remotely, seen as an output for AudioFlinger
+    //  - to the virtual audio source == what is captured by the component
+    //    which "records" the submix / virtual audio source, and handles it as needed.
+    // A usecase example is one where the component capturing the audio is then sending it over
+    // Wifi for presentation on a remote Wifi Display device (e.g. a dongle attached to a TV, or a
+    // TV with Wifi Display capabilities), or to a wireless audio player.
+    sp<MonoPipe> sink;
+    sp<MonoPipeReader> source;
+};
+
+class DriverRemoteSubmix : public DriverInterface {
+  public:
+    DriverRemoteSubmix(const StreamContext& context, bool isInput);
+    ::android::status_t init() override;
+    ::android::status_t setConnectedDevices(
+            const std::vector<::aidl::android::media::audio::common::AudioDevice>& connectedDevices)
+            override;
+    ::android::status_t drain(StreamDescriptor::DrainMode) override;
+    ::android::status_t flush() override;
+    ::android::status_t pause() override;
+    ::android::status_t transfer(void* buffer, size_t frameCount, size_t* actualFrameCount,
+                                 int32_t* latencyMs) override;
+    ::android::status_t standby() override;
+
+  private:
+    ::android::status_t exitStandby();
+    bool isValidConfig(PipeConfig config);
+    bool compareConfigs(PipeConfig config);
+    size_t getPipeSizeInFrames();
+    ::android::status_t createPipe(SubmixRoute submixRoute);
+    void releasePipe(SubmixRoute submixRoute);
+    size_t getStreamPipeSizeInFrames(PipeConfig config);
+    ::android::status_t outWrite(SubmixRouteConfig submixRoute, void* buffer, size_t frameCount,
+                                 size_t* actualFrameCount);
+    ::android::status_t inRead(SubmixRouteConfig submixRoute, void* buffer, size_t frameCount,
+                               size_t* actualFrameCount);
+
+    std::mutex mLock;
+    const size_t mFrameSizeBytes;
+    ::android::status_t mStatus = ::android::NO_INIT;
+    const bool mIsInput;
+    std::vector<SubmixRouteConfig> mRouteConfigs GUARDED_BY(mLock);
+    // Cached device addresses for connected devices.
+    std::vector<::aidl::android::media::audio::common::AudioDeviceAddress> mConnectedDevices
+            GUARDED_BY(mLock);
+    bool mIsStandby = true;
+
+    static constexpr int DEFAULT_SAMPLE_RATE_HZ = 48000;
+    // Size at default sample rate
+    // NOTE: This value will be rounded up to the nearest power of 2 by MonoPipe().
+    static constexpr int DEFAULT_PIPE_SIZE_IN_FRAMES = (1024 * 4);
+    // Value used to divide the MonoPipe() buffer into segments that are written to the source and
+    // read from the sink.  The maximum latency of the device is the size of the MonoPipe's buffer
+    // the minimum latency is the MonoPipe buffer size divided by this value.
+    static constexpr int DEFAULT_PIPE_PERIOD_COUNT = 4;
+};
+
+class StreamInRemoteSubmix final : public StreamIn {
+    ndk::ScopedAStatus getActiveMicrophones(
+            std::vector<::aidl::android::media::audio::common::MicrophoneDynamicInfo>* _aidl_return)
+            override;
+
+  public:
+    static ndk::ScopedAStatus createInstance(
+            const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
+            StreamContext&& context,
+            const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones,
+            std::shared_ptr<StreamIn>* result);
+
+  private:
+    friend class ndk::SharedRefBase;
+    StreamInRemoteSubmix(
+            const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
+            StreamContext&& context,
+            const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones);
+};
+
+class StreamOutRemoteSubmix final : public StreamOut {
+  public:
+    static ndk::ScopedAStatus createInstance(
+            const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
+            StreamContext&& context,
+            const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
+                    offloadInfo,
+            std::shared_ptr<StreamOut>* result);
+
+  private:
+    friend class ndk::SharedRefBase;
+    StreamOutRemoteSubmix(
+            const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
+            StreamContext&& context,
+            const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
+                    offloadInfo);
+};
+
+}  // namespace aidl::android::hardware::audio::core

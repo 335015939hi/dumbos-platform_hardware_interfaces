@@ -75,6 +75,7 @@ class StreamContext {
 
     StreamContext() = default;
     StreamContext(std::unique_ptr<CommandMQ> commandMQ, std::unique_ptr<ReplyMQ> replyMQ,
+                  int portId,
                   const ::aidl::android::media::audio::common::AudioFormatDescription& format,
                   const ::aidl::android::media::audio::common::AudioChannelLayout& channelLayout,
                   int sampleRate, std::unique_ptr<DataMQ> dataMQ,
@@ -84,6 +85,7 @@ class StreamContext {
         : mCommandMQ(std::move(commandMQ)),
           mInternalCommandCookie(std::rand()),
           mReplyMQ(std::move(replyMQ)),
+          mPortId(portId),
           mFormat(format),
           mChannelLayout(channelLayout),
           mSampleRate(sampleRate),
@@ -95,6 +97,7 @@ class StreamContext {
         : mCommandMQ(std::move(other.mCommandMQ)),
           mInternalCommandCookie(other.mInternalCommandCookie),
           mReplyMQ(std::move(other.mReplyMQ)),
+          mPortId(other.mPortId),
           mFormat(other.mFormat),
           mChannelLayout(other.mChannelLayout),
           mSampleRate(other.mSampleRate),
@@ -106,6 +109,7 @@ class StreamContext {
         mCommandMQ = std::move(other.mCommandMQ);
         mInternalCommandCookie = other.mInternalCommandCookie;
         mReplyMQ = std::move(other.mReplyMQ);
+        mPortId = std::move(other.mPortId);
         mFormat = std::move(other.mFormat);
         mChannelLayout = std::move(other.mChannelLayout);
         mSampleRate = other.mSampleRate;
@@ -130,6 +134,7 @@ class StreamContext {
     bool getForceSynchronousDrain() const { return mDebugParameters.forceSynchronousDrain; }
     size_t getFrameSize() const;
     int getInternalCommandCookie() const { return mInternalCommandCookie; }
+    int getPortId() const { return mPortId; }
     std::shared_ptr<IStreamOutEventCallback> getOutEventCallback() const {
         return mOutEventCallback;
     }
@@ -143,6 +148,7 @@ class StreamContext {
     std::unique_ptr<CommandMQ> mCommandMQ;
     int mInternalCommandCookie;  // The value used to confirm that the command was posted internally
     std::unique_ptr<ReplyMQ> mReplyMQ;
+    int mPortId;
     ::aidl::android::media::audio::common::AudioFormatDescription mFormat;
     ::aidl::android::media::audio::common::AudioChannelLayout mChannelLayout;
     int mSampleRate;
