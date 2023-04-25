@@ -20,6 +20,8 @@
 #define LOG_TAG "AHAL_Module"
 #include <android-base/logging.h>
 #include <android/binder_ibinder_platform.h>
+#include <media/nbaio/MonoPipe.h>
+#include <media/nbaio/MonoPipeReader.h>
 
 #include <Utils.h>
 #include <aidl/android/media/audio/common/AudioInputFlags.h>
@@ -27,8 +29,10 @@
 
 #include "core-impl/Bluetooth.h"
 #include "core-impl/Module.h"
+#include "core-impl/ModuleRemoteSubmix.h"
 #include "core-impl/ModuleUsb.h"
 #include "core-impl/SoundDose.h"
+#include "core-impl/StreamRemoteSubmix.h"
 #include "core-impl/StreamStub.h"
 #include "core-impl/StreamUsb.h"
 #include "core-impl/Telephony.h"
@@ -112,8 +116,9 @@ std::shared_ptr<Module> Module::createInstance(Type type) {
     switch (type) {
         case Module::Type::USB:
             return ndk::SharedRefBase::make<ModuleUsb>(type);
-        case Type::DEFAULT:
         case Type::R_SUBMIX:
+            return ndk::SharedRefBase::make<ModuleRemoteSubmix>(type);
+        case Type::DEFAULT:
         default:
             return ndk::SharedRefBase::make<Module>(type);
     }
@@ -124,8 +129,9 @@ StreamIn::CreateInstance Module::getStreamInCreator(Type type) {
     switch (type) {
         case Type::USB:
             return StreamInUsb::createInstance;
-        case Type::DEFAULT:
         case Type::R_SUBMIX:
+            return StreamInRemoteSubmix::createInstance;
+        case Type::DEFAULT:
         default:
             return StreamInStub::createInstance;
     }
@@ -136,8 +142,9 @@ StreamOut::CreateInstance Module::getStreamOutCreator(Type type) {
     switch (type) {
         case Type::USB:
             return StreamOutUsb::createInstance;
-        case Type::DEFAULT:
         case Type::R_SUBMIX:
+            return StreamOutRemoteSubmix::createInstance;
+        case Type::DEFAULT:
         default:
             return StreamOutStub::createInstance;
     }
@@ -206,8 +213,8 @@ ndk::ScopedAStatus Module::createStreamContext(
         StreamContext temp(
                 std::make_unique<StreamContext::CommandMQ>(1, true /*configureEventFlagWord*/),
                 std::make_unique<StreamContext::ReplyMQ>(1, true /*configureEventFlagWord*/),
-                portConfigIt->format.value(), portConfigIt->channelMask.value(),
-                portConfigIt->sampleRate.value().value,
+                portConfigIt->portId, portConfigIt->format.value(),
+                portConfigIt->channelMask.value(), portConfigIt->sampleRate.value().value,
                 std::make_unique<StreamContext::DataMQ>(frameSize * in_bufferSizeFrames),
                 asyncCallback, outEventCallback, params);
         if (temp.isValid()) {
@@ -484,6 +491,17 @@ ndk::ScopedAStatus Module::connectExternalDevice(const AudioPort& in_templateIdA
         LOG(ERROR) << "Profiles of a connected port still empty after connecting external device "
                    << connectedPort.toString();
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+    }
+
+    for (auto profile : connectedPort.profiles) {
+        if (profile.channelMasks.empty()) {
+            LOG(ERROR) << __func__ << ": the profile " << profile.name << " has no channel masks";
+            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+        }
+        if (profile.sampleRates.empty()) {
+            LOG(ERROR) << __func__ << ": the profile " << profile.name << " has no sample rates";
+            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+        }
     }
 
     connectedPort.id = ++getConfig().nextPortId;
