@@ -16,6 +16,24 @@
       "message": "This new test passes against StrongBox, but we should probably hold off on submitting it until the fix for the C++ TEE implementation (aosp/2551603) has a chance to propagate.",
       "revId": "207322654aa4d0fcc60ba2d19324d7cbda41dc15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e789a12_3c1d40d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-04-25T14:04:16Z",
+      "side": 1,
+      "message": "Thanks David for the info.",
+      "parentUuid": "5d0f165b_51267723",
+      "revId": "207322654aa4d0fcc60ba2d19324d7cbda41dc15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
