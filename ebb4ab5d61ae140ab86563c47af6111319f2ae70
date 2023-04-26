@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e71ee48_a9b5e348",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-04-26T22:00:46Z",
+      "side": 1,
+      "message": "Left some comments inline. I also noticed that none of the data in the implementation is ever saved to disk (or even persisted in memory) ... which means that if the caller gets a new reference/object then that data is lost.... thoughts?",
+      "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0b4abd0_8d2c831a",
+        "filename": "security/identity_direct/aidl/default/FakeSecureElementProxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-04-26T22:00:46Z",
+      "side": 1,
+      "message": "I would use the same name as the interface but with \"Fake\" prepended. So if the interface is SecureHardwareProxy this would be FakeSecureHardwareProxy",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5da1827_b7baea1c",
+        "filename": "security/identity_direct/aidl/default/FakeSecureElementProxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-04-26T22:00:46Z",
+      "side": 1,
+      "message": "All parameters should be named",
+      "range": {
+        "startLine": 43,
+        "startChar": 40,
+        "endLine": 43,
+        "endChar": 99
+      },
+      "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40af7b73_92c49686",
+        "filename": "security/identity_direct/aidl/default/ProvisionData.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-04-26T22:00:46Z",
+      "side": 1,
+      "message": "Is CredentialSlot a better name here? I think that\u0027s what it is, right?",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 19
+      },
+      "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "751c38e9_c7c28f47",
+        "filename": "security/identity_direct/aidl/default/common/SecureHardwareDirectAccessProvisioningProxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-04-26T22:00:46Z",
+      "side": 1,
+      "message": "Should probably just call it SecureHardwareProxy since this is the only one we have?",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 49
+      },
+      "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9952aad_084fb056",
+        "filename": "security/identity_direct/aidl/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-04-26T22:00:46Z",
+      "side": 1,
+      "message": "Missing direct_access in this?",
+      "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
