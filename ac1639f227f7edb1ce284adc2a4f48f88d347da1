@@ -16,6 +16,52 @@
       "message": "I just looked for all the tests that validate a CSR. IIUC, these will validate the DICE chain using the hwtrust rust library.\n\nIf this reasoning is unsound, please lmk.",
       "revId": "ac1639f227f7edb1ce284adc2a4f48f88d347da1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3751e7c5_e15f91c0",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-04-27T19:34:31Z",
+      "side": 1,
+      "message": "This will also run through a DICE chain validation so that will also cover VSR-3.10-015?",
+      "range": {
+        "startLine": 438,
+        "startChar": 22,
+        "endLine": 438,
+        "endChar": 51
+      },
+      "revId": "ac1639f227f7edb1ce284adc2a4f48f88d347da1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64172056_42414369",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-04-27T19:34:31Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 463,
+        "startChar": 20,
+        "endLine": 463,
+        "endChar": 49
+      },
+      "revId": "ac1639f227f7edb1ce284adc2a4f48f88d347da1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
