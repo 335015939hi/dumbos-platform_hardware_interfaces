@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b372098f_eb6c52c9",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-04-27T13:26:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12c3fc9f_dcba2e26",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93a407fb_35020784",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Not used. So removed it.",
       "parentUuid": "93a407fb_35020784",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d037858_a67a579f",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-04-27T13:26:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfc77fdf_51123f7a",
       "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -142,6 +178,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b26d5929_9d8e9ff1",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-04-27T13:26:29Z",
+      "side": 1,
+      "message": "Makes sense.",
+      "parentUuid": "9a36122f_9c4e8f18",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "854cb4d3_16130afe",
@@ -173,6 +227,24 @@
       "side": 1,
       "message": "combined the two in a single condition.",
       "parentUuid": "854cb4d3_16130afe",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6379eae_243a53ec",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-04-27T13:26:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7eee1c21_2af684e5",
       "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -255,6 +327,24 @@
       "side": 1,
       "message": "Please check if this name skipAttestKeyTest() make sense.",
       "parentUuid": "967bdd02_8733c03e",
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa9d9570_d4d76859",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1626,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-04-27T13:26:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "820a7b75_8190c47d",
       "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
