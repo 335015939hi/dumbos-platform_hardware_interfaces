@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2249850f_5d51b3b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-04-27T20:15:00Z",
+      "side": 1,
+      "message": "Can we review this on AOSP?",
+      "revId": "cff684ca97b8a9eba5a32a4a260fe65f2170ee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a40556d_f7eff2ba",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-04-27T20:15:00Z",
+      "side": 1,
+      "message": "What if we just make this ALOGI and skip the close and return?\n\nThis doesn\u0027t have to be a fatal error.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 16
+      },
+      "revId": "cff684ca97b8a9eba5a32a4a260fe65f2170ee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
