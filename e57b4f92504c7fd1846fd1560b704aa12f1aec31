@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd72e46b_b8113313",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-04-27T23:49:36Z",
+      "side": 1,
+      "message": "Hi Devin, looks like the upstream aosp CL build failed for some targets.\nDo you know how to fix it? Thanks.",
+      "revId": "e57b4f92504c7fd1846fd1560b704aa12f1aec31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
