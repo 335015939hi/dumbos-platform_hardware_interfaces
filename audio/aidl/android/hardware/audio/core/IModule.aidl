@@ -233,6 +233,12 @@ interface IModule {
      * been disconnected. The 'portId' must be of a connected device port
      * instance previously instantiated using the 'connectExternalDevice'
      * method.
+     * 
+     * The framework will call this method before closing streams and resetting
+     * patches. This call can be used by the HAL module to prepare itself to
+     * device disconnection. If the HAL module indicates an error after the first
+     * call, the framework will call this method once again after closing associated
+     * streams and patches.
      *
      * @throws EX_ILLEGAL_ARGUMENT In the following cases:
      *                             - If the port can not be found by the ID.
