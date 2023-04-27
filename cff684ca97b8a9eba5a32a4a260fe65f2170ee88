@@ -105,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39dba24f_2f4f390e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2023-04-27T21:29:01Z",
+      "side": 1,
+      "message": "😊 This gerrit is already aosp gerrit.",
+      "parentUuid": "b127c6c6_cd7997ac",
+      "revId": "cff684ca97b8a9eba5a32a4a260fe65f2170ee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a40556d_f7eff2ba",
