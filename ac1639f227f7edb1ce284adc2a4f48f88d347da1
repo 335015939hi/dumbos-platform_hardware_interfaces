@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3980012_be1d628f",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-04-27T20:39:03Z",
+      "side": 1,
+      "message": "I guess you\u0027re saying that VSR-3.10-015 is meant to that mean the device does real DICE, not degenerate DICE. Works for me.",
+      "parentUuid": "0b2d3996_d100c500",
+      "range": {
+        "startLine": 438,
+        "startChar": 22,
+        "endLine": 438,
+        "endChar": 51
+      },
+      "revId": "ac1639f227f7edb1ce284adc2a4f48f88d347da1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64172056_42414369",
