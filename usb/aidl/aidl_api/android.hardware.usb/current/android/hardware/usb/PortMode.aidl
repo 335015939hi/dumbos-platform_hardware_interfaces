@@ -39,5 +39,5 @@ enum PortMode {
   DFP = 2,
   DRP = 3,
   AUDIO_ACCESSORY = 4,
-  DEBUG_ACCESSORY = 5,
+  DEBUG_ACCESSORY = 8,
 }
