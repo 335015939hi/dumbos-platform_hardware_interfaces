@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e4c74fd_fcf93825",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-04-27T06:25:27Z",
+      "side": 1,
+      "message": "LGTM but please sync with Max and/or Shawn to check the combination of assumptions about when tests should be skipped.",
+      "revId": "50fcf7d066066dd2434760f44cd6743934867165",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
