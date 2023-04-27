@@ -1950,6 +1950,27 @@ vector<uint8_t> make_name_from_str(const string& name) {
     return retval;
 }
 
+void check_mgf_digests(
+        const vector<KeyCharacteristics>& key_characteristics,
+        std::vector<android::hardware::security::keymint::Digest>& expected_mgf_digests) {
+    AuthorizationSet auths;
+    for (auto& entry : key_characteristics) {
+        auths.push_back(AuthorizationSet(entry.authorizations));
+    }
+    for (auto digest : expected_mgf_digests) {
+        ASSERT_TRUE(auths.Contains(TAG_RSA_OAEP_MGF_DIGEST, digest));
+    }
+}
+
+bool is_mgf_digest_exists(const vector<KeyCharacteristics>& key_characteristics,
+                          android::hardware::security::keymint::Digest expected_mgf_digest) {
+    AuthorizationSet auths;
+    for (auto& entry : key_characteristics) {
+        auths.push_back(AuthorizationSet(entry.authorizations));
+    }
+    return auths.Contains(TAG_RSA_OAEP_MGF_DIGEST, expected_mgf_digest);
+}
+
 namespace {
 
 void check_cose_key(const vector<uint8_t>& data, bool testMode) {
@@ -2084,7 +2105,7 @@ void device_id_attestation_vsr_check(const ErrorCode& result) {
 bool check_feature(const std::string& name) {
     ::android::sp<::android::IServiceManager> sm(::android::defaultServiceManager());
     ::android::sp<::android::IBinder> binder(
-        sm->waitForService(::android::String16("package_native")));
+            sm->waitForService(::android::String16("package_native")));
     if (binder == nullptr) {
         GTEST_LOG_(ERROR) << "waitForService package_native failed";
         return false;
