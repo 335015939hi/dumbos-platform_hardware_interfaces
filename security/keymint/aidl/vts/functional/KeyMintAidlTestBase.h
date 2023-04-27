@@ -404,6 +404,11 @@ string bin2hex(const vector<uint8_t>& data);
 X509_Ptr parse_cert_blob(const vector<uint8_t>& blob);
 ASN1_OCTET_STRING* get_attestation_record(X509* certificate);
 vector<uint8_t> make_name_from_str(const string& name);
+void check_mgf_digests(
+        const vector<KeyCharacteristics>& key_characteristics,
+        std::vector<android::hardware::security::keymint::Digest>& expected_mgf_digests);
+bool is_mgf_digest_exists(const vector<KeyCharacteristics>& key_characteristics,
+                          android::hardware::security::keymint::Digest expected_mgf_digest);
 void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
                         vector<uint8_t>* payload_value);
 void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey);
