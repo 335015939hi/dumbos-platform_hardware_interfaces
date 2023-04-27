@@ -110,6 +110,30 @@
       },
       "revId": "ac1639f227f7edb1ce284adc2a4f48f88d347da1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27745c36_ff0a30a1",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-04-27T20:42:51Z",
+      "side": 1,
+      "message": "Intentional, this is a \"test mode\" test, where I don\u0027t think we care to validate the VSR (which is about DICE).",
+      "parentUuid": "64172056_42414369",
+      "range": {
+        "startLine": 463,
+        "startChar": 20,
+        "endLine": 463,
+        "endChar": 49
+      },
+      "revId": "ac1639f227f7edb1ce284adc2a4f48f88d347da1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
