@@ -39,6 +39,30 @@
       },
       "revId": "cff684ca97b8a9eba5a32a4a260fe65f2170ee88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42a29d40_cd4d7719",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-04-27T21:23:32Z",
+      "side": 1,
+      "message": "At that point, we won\u0027t need the new sysprop, and this change will be very small.",
+      "parentUuid": "3a40556d_f7eff2ba",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 16
+      },
+      "revId": "cff684ca97b8a9eba5a32a4a260fe65f2170ee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
