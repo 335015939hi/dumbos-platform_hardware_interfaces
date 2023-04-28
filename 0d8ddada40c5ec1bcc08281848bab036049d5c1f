@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3de58070_c11ff16f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-04-28T16:37:57Z",
+      "side": 1,
+      "message": "Just need to update the commit message now, Thanks for the CL!\n\nI\u0027d suggest something like this:\n\nBluetooth AIDL: SetTerminalRaw on fd\n\nCall SetTerminalRaw on the fd that was opened, since mFD has not been set.  If SetTerminalRaw fails, log it but continue, since some platforms do not need this call.\n\nBug: 279870989\nTest: start Bluetooth on a device that doesn\u0027t need SetTerminalRaw",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "0d8ddada40c5ec1bcc08281848bab036049d5c1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "284ce0df_131f3945",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-04-28T16:37:57Z",
+      "side": 1,
+      "message": "I\u0027ll +2 when the commit message describes the updated change.  Thanks again!",
+      "revId": "0d8ddada40c5ec1bcc08281848bab036049d5c1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
