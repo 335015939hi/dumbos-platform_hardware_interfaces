@@ -52,6 +52,24 @@
       "parentUuid": "d5a439df_10be171f",
       "revId": "b37be277881d7c063b82e40c6712bcdf341098ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d425f18_9a30f06a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-04-28T07:05:18Z",
+      "side": 1,
+      "message": "The bug for this should be b/249143796 instead.\nb/237504027 looks like a duplicate of b/279549944 instead\nUpdated the commit info",
+      "parentUuid": "ef15253c_5c66d847",
+      "revId": "b37be277881d7c063b82e40c6712bcdf341098ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
