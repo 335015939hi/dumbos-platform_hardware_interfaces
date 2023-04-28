@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b922582_4afcc1b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2023-04-28T17:03:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c81e0db9_6ae076a0",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "cff684ca97b8a9eba5a32a4a260fe65f2170ee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e9b6ea6_8cc578de",
@@ -84,6 +108,30 @@
       "writtenOn": "2023-04-27T21:27:58Z",
       "side": 1,
       "message": "Please merge these two lines to one `Test: BT functions`",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 9
+      },
+      "revId": "cff684ca97b8a9eba5a32a4a260fe65f2170ee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2156e2b7_639322d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2023-04-28T17:03:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a51faaa_d460415b",
       "range": {
         "startLine": 25,
         "startChar": 0,
