@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9605f365_23ec95fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-04-28T16:41:44Z",
+      "side": 1,
+      "message": "In general, we don\u0027t increase this timeout because there are things platforms can do to improve the setup time, and if this timeout is larger, it will be difficult to start/stop Bluetooth in time.  (There are timeouts in Java for how long it takes to start Bluetooth, and this is just one part of that time)",
+      "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
