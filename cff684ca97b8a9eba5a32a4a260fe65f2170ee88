@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b10b563e_8164d736",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-04-28T16:33:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e9b6ea6_8cc578de",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 8
+      },
+      "revId": "cff684ca97b8a9eba5a32a4a260fe65f2170ee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a51faaa_d460415b",
@@ -160,6 +184,30 @@
       "side": 1,
       "message": "At that point, we won\u0027t need the new sysprop, and this change will be very small.",
       "parentUuid": "3a40556d_f7eff2ba",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 16
+      },
+      "revId": "cff684ca97b8a9eba5a32a4a260fe65f2170ee88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bfa219e_d7d78168",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-04-28T16:33:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42a29d40_cd4d7719",
       "range": {
         "startLine": 129,
         "startChar": 0,
