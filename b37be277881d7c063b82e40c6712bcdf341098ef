@@ -16,6 +16,24 @@
       "message": "How does VTS work with this change? Does it skip or fail the test if SIM card is not present?",
       "revId": "b37be277881d7c063b82e40c6712bcdf341098ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5a439df_10be171f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-04-28T05:52:13Z",
+      "side": 1,
+      "message": "yep, it should skip it according to the docs here:\nhttps://source.android.com/docs/core/tests/tradefed/architecture/advanced/sharding?hl\u003den#token_sharding",
+      "parentUuid": "5584b149_7a8b6abb",
+      "revId": "b37be277881d7c063b82e40c6712bcdf341098ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
