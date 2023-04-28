@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b55962c_e5f8be53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-04-28T17:00:59Z",
+      "side": 1,
+      "message": "2 seconds should be enough to initialize a Bluetooth chip.  Bluetooth will not have enough time to start up if it takes longer than that.",
+      "revId": "ee74d556a4c1e0f1d50b6527e94a774d5614944e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
