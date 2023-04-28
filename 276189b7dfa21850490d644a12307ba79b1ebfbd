@@ -22,6 +22,30 @@
       },
       "revId": "276189b7dfa21850490d644a12307ba79b1ebfbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0898ff22_733bb49f",
+        "filename": "radio/aidl/vts/radio_aidl_hal_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2023-04-28T18:29:17Z",
+      "side": 1,
+      "message": "Its a cherry-pick from master? we can do it in a new CL",
+      "parentUuid": "126afa75_4b1db2e8",
+      "range": {
+        "startLine": 88,
+        "startChar": 11,
+        "endLine": 88,
+        "endChar": 68
+      },
+      "revId": "276189b7dfa21850490d644a12307ba79b1ebfbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
