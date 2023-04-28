@@ -34,6 +34,24 @@
       "parentUuid": "5584b149_7a8b6abb",
       "revId": "b37be277881d7c063b82e40c6712bcdf341098ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef15253c_5c66d847",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2023-04-28T06:10:30Z",
+      "side": 1,
+      "message": "Thanks for the pointer. I wonder how this solves b/237504027#comment5 where dual SIM test cases seem to be executed on single SIM devices.",
+      "parentUuid": "d5a439df_10be171f",
+      "revId": "b37be277881d7c063b82e40c6712bcdf341098ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
