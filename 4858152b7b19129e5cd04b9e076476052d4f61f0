@@ -16,6 +16,24 @@
       "message": "In general, we don\u0027t increase this timeout because there are things platforms can do to improve the setup time, and if this timeout is larger, it will be difficult to start/stop Bluetooth in time.  (There are timeouts in Java for how long it takes to start Bluetooth, and this is just one part of that time)",
       "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7026879_36d5098d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2005725
+      },
+      "writtenOn": "2023-04-29T02:43:17Z",
+      "side": 1,
+      "message": "Hi, Myles san\n\nWe have discussed the timer of WAIT_FOR_INIT_TIMEOUT with Bluetooth IC vendor and\nthey says that current value of 2000mS is too small for their IC.\nIf this change is no accepted, all the device which uses their Bluetooth IC can not pass this VTS test.\nI am so afraid but could you please consider again to accept this change?\nThank you for your understanding.\n\nBest Regards.",
+      "parentUuid": "9605f365_23ec95fe",
+      "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
