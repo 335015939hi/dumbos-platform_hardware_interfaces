@@ -34,6 +34,24 @@
       "parentUuid": "9605f365_23ec95fe",
       "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2318c636_aedd21ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-05-01T16:25:36Z",
+      "side": 1,
+      "message": "I would be interested to discuss that with the IC vendor.  We have never seen an IC which couldn\u0027t be initialized in 2 seconds.  Is there a problem with the baud rate?",
+      "parentUuid": "c7026879_36d5098d",
+      "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
