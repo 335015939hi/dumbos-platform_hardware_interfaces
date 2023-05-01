@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a40d4943_2f0dda9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-01T21:00:25Z",
+      "side": 1,
+      "message": "Will you trigger this script from build/make/tools/finalization/finalize-aidl-vndk-sdk-resources.sh?\n\nThere is also no need to create a commit. That infra already makes commits for all of the changes themselves.\n\nTo test it - you can run the sdk_finalization git_mater-throttled-nightly build on ABDT",
+      "revId": "ff42b4245859f8666c450d160b8b05c57edd5fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
