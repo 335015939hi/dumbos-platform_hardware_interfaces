@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d05d946b_421268a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-05-01T18:00:32Z",
+      "side": 1,
+      "message": "Please consider providing a `WaitFor` call instead of a hard coded value, for the future.",
+      "revId": "7f3bd1792f35bc9319a6daea9ff22796df9a8220",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
