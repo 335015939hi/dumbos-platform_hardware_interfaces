@@ -16,6 +16,24 @@
       "message": "Please review the Lint warnings.",
       "revId": "526a3a297b6b34206fa3ebe646ad15f087c05adf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba7dad7a_0f2e2aa8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-05-01T16:59:53Z",
+      "side": 1,
+      "message": "lint +2 since we are intentionally using stoi instead of atoi.\natoi will prevent exception but will return 0 in case of error\nif atoi returns 0, there is no way for us to tell whether the mnc/mcc is actually 0 (a valid response) or whether atoi failed to parse the string (an invalid response).",
+      "parentUuid": "6d764f6c_fe330d50",
+      "revId": "526a3a297b6b34206fa3ebe646ad15f087c05adf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
