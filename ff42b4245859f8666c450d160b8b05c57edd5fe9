@@ -16,6 +16,29 @@
       "message": "Will you trigger this script from build/make/tools/finalization/finalize-aidl-vndk-sdk-resources.sh?\n\nThere is also no need to create a commit. That infra already makes commits for all of the changes themselves.\n\nTo test it - you can run the sdk_finalization git_mater-throttled-nightly build on ABDT",
       "revId": "ff42b4245859f8666c450d160b8b05c57edd5fe9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51802362_f16ff2fd",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-01T21:01:21Z",
+      "side": 1,
+      "message": "and note - this can be computed from build/make/tools/finalization/environment.sh, though we may need to add another",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 49
+      },
+      "revId": "ff42b4245859f8666c450d160b8b05c57edd5fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
