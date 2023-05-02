@@ -298,6 +298,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0ccc673_1b58f117",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-05-02T20:03:24Z",
+      "side": 1,
+      "message": "GenerateKeyWithSelfSignedAttestKey() is called only if both of below conditions satisfies\n1) the instance being tested is strongbox\n2) and strongbox doesn\u0027t support factory attestation.\nAs per drysdale@ comment should we use check_skip_test() for some of these attestation related tests: RsaWithAttestation, RsaEncryptionWithAttestation, RsaWithAttestationMissAppId, LimitedUsageRsaWithAttestation, EcdsaAttestation, EcdsaAttestationTags, EcdsaAttestationUniqueId, EcdsaAttestationTagNoApplicationId, EcdsaAttestationRequireAppId, AttestationApplicationIDLengthProperlyEncoded",
+      "parentUuid": "256541a3_88b61570",
+      "range": {
+        "startLine": 325,
+        "startChar": 4,
+        "endLine": 325,
+        "endChar": 22
+      },
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "967bdd02_8733c03e",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 2
