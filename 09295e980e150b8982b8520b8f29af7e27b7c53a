@@ -320,6 +320,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c70a8d7_52944ff8",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-02T21:00:33Z",
+      "side": 1,
+      "message": "Makes sense to me, thank you. I think applying this to any other tests can come in a follow-up CL.",
+      "parentUuid": "e0ccc673_1b58f117",
+      "range": {
+        "startLine": 325,
+        "startChar": 4,
+        "endLine": 325,
+        "endChar": 22
+      },
+      "revId": "09295e980e150b8982b8520b8f29af7e27b7c53a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "967bdd02_8733c03e",
