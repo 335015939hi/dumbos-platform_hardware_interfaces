@@ -34,6 +34,24 @@
       "parentUuid": "dd72e46b_b8113313",
       "revId": "e57b4f92504c7fd1846fd1560b704aa12f1aec31",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afedeafc_8b10effb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-02T15:56:39Z",
+      "side": 1,
+      "message": "Done with merging the freeze change.\nThanks.",
+      "parentUuid": "06f937e2_866a0f3e",
+      "revId": "e57b4f92504c7fd1846fd1560b704aa12f1aec31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
