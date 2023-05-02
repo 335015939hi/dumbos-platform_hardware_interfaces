@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d22726a_f1e9bbb5",
+        "filename": "security/identity_direct/aidl/default/FakeSecureElementProxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-05-02T05:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0b4abd0_8d2c831a",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 28
+      },
+      "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5da1827_b7baea1c",
@@ -87,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0858242_5577c0d7",
+        "filename": "security/identity_direct/aidl/default/ProvisionData.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-05-02T05:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40af7b73_92c49686",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 19
+      },
+      "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "751c38e9_c7c28f47",
@@ -110,6 +158,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7ba18b6_1dc5d79c",
+        "filename": "security/identity_direct/aidl/default/common/SecureHardwareDirectAccessProvisioningProxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-05-02T05:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "751c38e9_c7c28f47",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 49
+      },
+      "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9952aad_084fb056",
@@ -123,6 +195,24 @@
       "writtenOn": "2023-04-26T22:00:46Z",
       "side": 1,
       "message": "Missing direct_access in this?",
+      "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ef65096_4eb7f9e2",
+        "filename": "security/identity_direct/aidl/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-05-02T05:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9952aad_084fb056",
       "revId": "ebb4ab5d61ae140ab86563c47af6111319f2ae70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

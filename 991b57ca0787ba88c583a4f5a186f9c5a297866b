@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1928accf_8c3044ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-05-02T05:55:03Z",
+      "side": 1,
+      "message": "In patchset2 uploaded the changes to validate the CredentialData. A sample credential data is hard-coded in the vts.",
+      "revId": "991b57ca0787ba88c583a4f5a186f9c5a297866b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
