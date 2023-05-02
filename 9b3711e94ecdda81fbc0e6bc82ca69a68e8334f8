@@ -16,6 +16,40 @@
       "message": "Hi David,\n\nJust came across this when reading the spec to recap the usage of timestamp tokens. Please let me know if I have missed anything.\n\nThanks!",
       "revId": "9b3711e94ecdda81fbc0e6bc82ca69a68e8334f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fdea79b_119b99e9",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-05-02T06:29:34Z",
+      "side": 1,
+      "message": "Thanks for fixing, I think this was just a copy/paste error.",
+      "revId": "9b3711e94ecdda81fbc0e6bc82ca69a68e8334f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89ac3616_e7a64781",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-05-02T06:29:34Z",
+      "side": 1,
+      "message": "Probably better just to drop this bullet, as it\u0027s already covered above.",
+      "revId": "9b3711e94ecdda81fbc0e6bc82ca69a68e8334f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
