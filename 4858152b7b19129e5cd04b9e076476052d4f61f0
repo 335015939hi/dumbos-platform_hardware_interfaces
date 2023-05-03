@@ -52,6 +52,24 @@
       "parentUuid": "c7026879_36d5098d",
       "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f22b721e_3ee3e5f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2005725
+      },
+      "writtenOn": "2023-05-03T10:30:28Z",
+      "side": 1,
+      "message": "Hi, Myles san\n\nThank you for reply.\nNo, it is not baud rate problem.\nThis phenom happen with only some high-end Bluetooth IC.\nI hear from IC vendor that since this IC support many latest techonology and high-functioning, it need to takes much time to initialize IC firmware by design.\nI ask you again to accept this change or can we do waiver this test case w/o commiting this change?\n\nBest Regards.\nShiroh",
+      "parentUuid": "2318c636_aedd21ba",
+      "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
