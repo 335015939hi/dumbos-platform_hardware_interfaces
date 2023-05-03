@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c220168_54fe8463",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-05-03T22:38:27Z",
+      "side": 1,
+      "message": "Thanks David!\n\nI had a question when comparing this with the reference implementation.\nIf this is correct, do we need to pass None for the last argument of the\n\"check_auth_token\" call at line 869 in operation.rs?\n\nThanks!",
+      "parentUuid": "4fdea79b_119b99e9",
+      "revId": "9b3711e94ecdda81fbc0e6bc82ca69a68e8334f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89ac3616_e7a64781",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2023-05-02T06:29:34Z",
       "side": 1,
       "message": "Probably better just to drop this bullet, as it\u0027s already covered above.",
+      "revId": "9b3711e94ecdda81fbc0e6bc82ca69a68e8334f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b052eb66_43a551e0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-05-03T22:38:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89ac3616_e7a64781",
       "revId": "9b3711e94ecdda81fbc0e6bc82ca69a68e8334f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
