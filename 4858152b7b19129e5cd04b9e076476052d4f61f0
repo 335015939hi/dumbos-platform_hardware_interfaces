@@ -70,6 +70,24 @@
       "parentUuid": "2318c636_aedd21ba",
       "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8afa4025_282a8b02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-05-03T15:47:05Z",
+      "side": 1,
+      "message": "As I said, I expect that the platform will run into other timeout issues if this one is ignored.  If there\u0027s no way to meet the timing, you may need to ask for a waiver, since it will be a larger change to make sure that no other timeouts are affected.",
+      "parentUuid": "f22b721e_3ee3e5f5",
+      "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
