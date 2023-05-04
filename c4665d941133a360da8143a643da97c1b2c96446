@@ -18,6 +18,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cde07c29_c469186d",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-04T15:50:14Z",
+      "side": 1,
+      "message": "I think GSI images will not have this properly configured in the property list - or have you verified that this works?",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 76
+      },
+      "revId": "c4665d941133a360da8143a643da97c1b2c96446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fbe39a96_4c6d83e9",
