@@ -39,6 +39,30 @@
       },
       "revId": "c4665d941133a360da8143a643da97c1b2c96446",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93056782_9e148487",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2023-05-04T08:19:14Z",
+      "side": 1,
+      "message": "e.g.,\n\n\nro.boot.vbmeta.digest\nro.boot.vbmeta.hash_alg: sha256\nro.boot.vbmeta.size",
+      "parentUuid": "fbe39a96_4c6d83e9",
+      "range": {
+        "startLine": 140,
+        "startChar": 22,
+        "endLine": 141,
+        "endChar": 31
+      },
+      "revId": "c4665d941133a360da8143a643da97c1b2c96446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
