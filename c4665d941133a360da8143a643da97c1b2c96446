@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5968fbd7_558126a8",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-05-04T16:31:02Z",
+      "side": 1,
+      "message": "Yeah, I tested this on a pixel 7 with GSI flashed. But this is a good point. Not all AVB props are configured with GSI. \n\nAVB spec says, \"On Android, the boot loader must set the androidboot.verifiedbootstate parameter on the kernel command-line to indicate the boot state.\" Init then exports this kernel cmdline parameter as a property.\n\nhttps://android.googlesource.com/platform/external/avb/+/master/README.md#android-specific-integration\n\nThis prop is explicitly required in AVB spec. Other props, like `ro.boot.vbmeta.digest`, are not though.",
+      "parentUuid": "cde07c29_c469186d",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 76
+      },
+      "revId": "c4665d941133a360da8143a643da97c1b2c96446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fbe39a96_4c6d83e9",
