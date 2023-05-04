@@ -63,6 +63,30 @@
       },
       "revId": "c4665d941133a360da8143a643da97c1b2c96446",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9939b10_c1b7831c",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-05-04T15:14:43Z",
+      "side": 1,
+      "message": "Root of trust reported to keymint looks like this. Hash algorithm isn\u0027t in there.\n\n          RootOfTrust \u003d #6.40001 [           ; Tag 40001 indicates RoT v1.\n              verifiedBootKey : bstr .size 32,\n              deviceLocked : bool,\n              verifiedBootState : \u0026VerifiedBootState,\n              verifiedBootHash : bstr .size 32,\n              bootPatchLevel : int,          ; See Tag::BOOT_PATCHLEVEL\n          ]\n     \nhttps://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/master/security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl#911\n\n`ro.boot.vbmeta.hash_alg` is useful, but bootloader doesn\u0027t fill it out if there was a verification error (at least on pixel devices). Looking at AVB documentation, it doesn\u0027t seem like we mandate that bootloader pass this in bootconfig. It\u0027s only required to report `verifiedbootstate`.\nhttps://android.googlesource.com/platform/external/avb/+/master/README.md",
+      "parentUuid": "93056782_9e148487",
+      "range": {
+        "startLine": 140,
+        "startChar": 22,
+        "endLine": 141,
+        "endChar": 31
+      },
+      "revId": "c4665d941133a360da8143a643da97c1b2c96446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
