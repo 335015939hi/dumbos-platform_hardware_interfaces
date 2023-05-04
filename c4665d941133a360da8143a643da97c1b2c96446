@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49c0e593_9a7c55e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2023-05-04T08:17:23Z",
+      "side": 1,
+      "message": "LGTM from AVB / VTS POV.",
+      "revId": "c4665d941133a360da8143a643da97c1b2c96446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbe39a96_4c6d83e9",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1080813
+      },
+      "writtenOn": "2023-05-04T08:17:23Z",
+      "side": 1,
+      "message": "This means bootloader doesn\u0027t report hash algorithm to keymint right?\n\nThe bootloader reports the following info to init, in kernel cmdline.\n\n  [ro.boot.vbmeta.digest]: \n  [76c277d99b08bcf2f2f7ee2fabb0ef452ad64b0f61be4b8b72ef9c746901ec2c]\n  [ro.boot.vbmeta.hash_alg]: [sha256]\n  [ro.boot.vbmeta.size]: [8896]",
+      "range": {
+        "startLine": 140,
+        "startChar": 22,
+        "endLine": 141,
+        "endChar": 31
+      },
+      "revId": "c4665d941133a360da8143a643da97c1b2c96446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
