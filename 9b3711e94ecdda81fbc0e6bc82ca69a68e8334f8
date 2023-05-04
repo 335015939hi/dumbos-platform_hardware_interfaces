@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afed2869_a0585e45",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintOperation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-05-04T06:04:51Z",
+      "side": 1,
+      "message": "Yes, I think that would make sense.  (I don\u0027t believe that code is exercised at present -- it should only be used if the Rust code is used for a StrongBox implementation, which is not (yet) the case.)",
+      "parentUuid": "1c220168_54fe8463",
+      "revId": "9b3711e94ecdda81fbc0e6bc82ca69a68e8334f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89ac3616_e7a64781",
