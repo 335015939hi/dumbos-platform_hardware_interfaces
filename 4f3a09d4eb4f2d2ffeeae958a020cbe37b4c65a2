@@ -16,6 +16,24 @@
       "message": "Unsure what the requirements are for enabling rust bindings on hal\u0027s, but we are looking at writing a client for this one and would like to do it in rust if possible.",
       "revId": "4f3a09d4eb4f2d2ffeeae958a020cbe37b4c65a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12643015_7f184948",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-05T23:27:11Z",
+      "side": 1,
+      "message": "I think it\u0027s great. cc\u0027d domain owners though as FYI.",
+      "parentUuid": "890a20e1_e3f64cc2",
+      "revId": "4f3a09d4eb4f2d2ffeeae958a020cbe37b4c65a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
