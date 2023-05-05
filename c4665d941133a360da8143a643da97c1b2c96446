@@ -67,6 +67,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "39eeea28_9d1f02a3",
+        "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-05-05T13:11:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5968fbd7_558126a8",
+      "range": {
+        "startLine": 105,
+        "startChar": 2,
+        "endLine": 107,
+        "endChar": 76
+      },
+      "revId": "c4665d941133a360da8143a643da97c1b2c96446",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fbe39a96_4c6d83e9",
         "filename": "security/keymint/aidl/vts/functional/BootloaderStateTest.cpp",
         "patchSetId": 4
