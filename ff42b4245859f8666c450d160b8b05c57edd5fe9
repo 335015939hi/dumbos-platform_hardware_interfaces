@@ -93,6 +93,30 @@
       },
       "revId": "ff42b4245859f8666c450d160b8b05c57edd5fe9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d794e378_e3a8915f",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-05-05T22:19:28Z",
+      "side": 1,
+      "message": "That file contains:\n\n\u003e export FINAL_PLATFORM_VERSION\u003d\u002715\u0027\n\nHowever, in our case, we\u0027ll need several additional separate variables:\n\n1. VINTF level (in this case, 9 for V); this is needed to update Level.h\n2. A short name for the release. Traditionally we use the dessert letter \"V\", but I think switching to \"android15\" would also work. This is needed to update Level.h and as the directory names under kernel/configs.\n3. The same things from the previous release (in this case we would need \"8\" and \"U\")\n\nShould I propose a change to the script to add these fields?",
+      "parentUuid": "51802362_f16ff2fd",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 49
+      },
+      "revId": "ff42b4245859f8666c450d160b8b05c57edd5fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
