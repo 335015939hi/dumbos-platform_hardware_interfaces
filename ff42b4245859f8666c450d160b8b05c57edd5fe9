@@ -117,6 +117,30 @@
       },
       "revId": "ff42b4245859f8666c450d160b8b05c57edd5fe9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a38c748e_fdab05e1",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-05T23:36:04Z",
+      "side": 1,
+      "message": "Yeah - or email/chat Alex and see what he thinks.",
+      "parentUuid": "d794e378_e3a8915f",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 49
+      },
+      "revId": "ff42b4245859f8666c450d160b8b05c57edd5fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
