@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "890a20e1_e3f64cc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1999138
+      },
+      "writtenOn": "2023-05-05T22:04:07Z",
+      "side": 1,
+      "message": "Unsure what the requirements are for enabling rust bindings on hal\u0027s, but we are looking at writing a client for this one and would like to do it in rust if possible.",
+      "revId": "4f3a09d4eb4f2d2ffeeae958a020cbe37b4c65a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
