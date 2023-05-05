@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd54fc8d_7a19726b",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-05T01:36:14Z",
+      "side": 1,
+      "message": "Sorry for being unclear. What I mean is that since there are two channel masks: `mInputChannels` and `mOutputChannels`, it would be useful to specify how the number of channels in the frame is determined: is it the maximum between input and output, a sum, or one of them, and which one in this case?",
+      "parentUuid": "64d365ad_28e76ea9",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 82
+      },
+      "revId": "bc5d1d6b6c97b84af026481ee5baf7d652aa196d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e53ed1c_d69ed8e3",
         "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
         "patchSetId": 2
