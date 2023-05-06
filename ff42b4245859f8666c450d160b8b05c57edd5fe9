@@ -141,6 +141,30 @@
       },
       "revId": "ff42b4245859f8666c450d160b8b05c57edd5fe9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d904e89_86fbeab7",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1166043
+      },
+      "writtenOn": "2023-05-06T00:28:32Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s OK to add wharever versions you want into environment.sh. Just make sure you have them all well documented. The \"finalization\" person usually has very little understanding of individual team\u0027s versioning policies.\n\nAlso, it\u0027s better to have some random values in AOSP/default environment.sh to detect hidden dependencies or bogus version checks.",
+      "parentUuid": "a38c748e_fdab05e1",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 49
+      },
+      "revId": "ff42b4245859f8666c450d160b8b05c57edd5fe9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
