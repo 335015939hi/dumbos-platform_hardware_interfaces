@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48ebbaad_97d4ea4b",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-07T10:17:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "764f84bb_d9c50043",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 53
+      },
+      "revId": "6682e6b3443447cc1485b3a6d2872a6fe602d03a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1b51c98_4fc0a491",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-05T01:36:14Z",
       "side": 1,
       "message": "I think, `close` should actually be called on the worker thread. It\u0027s better when most of the methods are called on the same thread. For that, we need to move the proposed call to `mDriver-\u003eclose()` from `StreamCommonImpl\u003cMetadata\u003e::close()` to the handler of `Tag::halReservedExit` in the logic cycle. Note that there are two cycles: one for input and one for output.",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 44
+      },
+      "revId": "6682e6b3443447cc1485b3a6d2872a6fe602d03a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0104783_80645f35",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-07T10:17:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1b51c98_4fc0a491",
       "range": {
         "startLine": 179,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53fc1d60_bc990424",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-07T10:17:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6858a768_0ffa07aa",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 73
+      },
+      "revId": "6682e6b3443447cc1485b3a6d2872a6fe602d03a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd1e1e32_60d32273",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-05T01:36:14Z",
       "side": 1,
       "message": "After moving the call to `close` to the worker thread, only `prepareToClose` and `setConnectedDevices` will be called from another thread. Thus, we should protect by the lock only the data members used by these two calls. Note that in the old HAL API this was different, that\u0027s why they had to use a lock for practically everything.",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 68
+      },
+      "revId": "6682e6b3443447cc1485b3a6d2872a6fe602d03a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e88c2895_a5dc20a3",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-07T10:17:35Z",
+      "side": 1,
+      "message": "In case of remote submix, streamin and streamout share the same data members like sink and source. These streams can be running parallely so we still need the locks.",
+      "parentUuid": "fd1e1e32_60d32273",
       "range": {
         "startLine": 250,
         "startChar": 0,

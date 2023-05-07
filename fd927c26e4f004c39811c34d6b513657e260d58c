@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b2c850b_e3b5cf95",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-07T10:17:35Z",
+      "side": 1,
+      "message": "I have one query, as of now this is not being used.\nI don\u0027t think an equivalent to this existed in HIDL implementation. \n\nWhat is exactly expected to be done when a device is removed or added in case of remote submix?",
+      "range": {
+        "startLine": 226,
+        "startChar": 8,
+        "endLine": 226,
+        "endChar": 25
+      },
+      "revId": "fd927c26e4f004c39811c34d6b513657e260d58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
