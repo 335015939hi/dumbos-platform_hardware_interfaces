@@ -22,6 +22,30 @@
       },
       "revId": "fd927c26e4f004c39811c34d6b513657e260d58c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0270c59_7dea6b20",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-08T21:26:05Z",
+      "side": 1,
+      "message": "This functionality is for non-attached devices, for example analog, BT, and USB headsets, HDMI devices etc. I don\u0027t think the framework ever use this notification for remote submix because it\u0027s devices are always there, although with a little caveat. In the legacy HAL, the input device of the remote submix is permanently attached: https://cs.android.com/android/platform/superproject/+/master:frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml. The output device is not always attached because otherwise the framework will start using it for all output. I suppose, the framework opens a remote submix output once it receives a request from a client (app or another service) to open an input from remote submix. The framework does not use \u0027connectExternalDevice\u0027 API for this.\n\nIn the AIDL we thus had defined the remote submix output as having a \"virtual\" connection: https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/audioaidlconversion/AidlConversionCppNdk.cpp;l\u003d495;drc\u003de93a086751b7a1f6a658e99e2896c528881b18f9. I think, to prevent VTS from trying to connect it, we will need to modify the criteria here: https://cs.android.com/android/platform/superproject/+/refs/heads/master:hardware/interfaces/audio/aidl/vts/ModuleConfig.cpp;l\u003d91;drc\u003d7346c436e5a11ce08f6a80dcfeb8ef941ca30176.",
+      "parentUuid": "7b2c850b_e3b5cf95",
+      "range": {
+        "startLine": 226,
+        "startChar": 8,
+        "endLine": 226,
+        "endChar": 25
+      },
+      "revId": "fd927c26e4f004c39811c34d6b513657e260d58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "763c3d0f_f8bd5230",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-08T21:26:05Z",
+      "side": 1,
+      "message": "Thanks for striving to make the implementation simpler than the legacy one was! I\u0027ve made a couple of suggestions for further improvements.",
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09c2b286_f1e1a076",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-08T21:26:05Z",
+      "side": 1,
+      "message": "Please log an error if the driver reports an error here.",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 33
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aab95168_dd9e0c26",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-08T21:26:05Z",
+      "side": 1,
+      "message": "The approach with manual reference counting was used in the legacy implementation likely due to lack of a good library support for smart pointers. With `std::shared_pointer` or `sp` this can actually be made easier. The idea is that whoever needs to hold an instance of `SubmixRoute` uses a strong pointer to it, other users use weak pointers. Once the last strong user will be gone, the instance of `SubmixRoute` will be destroyed automatically, and we can use its destructor to perform any cleanup needed. Weak pointer holders can then check if the object is gone by trying to promote the weak pointer to strong.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 27
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "292d6b0e_2159df35",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-08T21:26:05Z",
+      "side": 1,
+      "message": "This looks shady. Where is the original object it refers to? If it\u0027s one of elements of `mSubmixRoutes` then holding a reference to it is not correct because it\u0027s not constant, and modifying the contents of `mSubmixRoutes` may shift the contents of even re-allocate the vector data to another location making this reference dangling.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 30
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84c423e7_b552f680",
+        "filename": "audio/aidl/default/remote_submix/RemoteSubmixUtils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-08T21:26:05Z",
+      "side": 1,
+      "message": "nit: This seems to be unused",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28b24103_7c91465b",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-08T21:26:05Z",
+      "side": 1,
+      "message": "Where do we check that `mChannels` is valid?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 86
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f18cc29f_ee42c50e",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-08T21:26:05Z",
+      "side": 1,
+      "message": "Please use `sp\u003cMonoPipe\u003e` for those local objects as well. For example, when we return early on the line 124 this object will leak because it is being held by a raw pointer. Also, the currently recommended way of constructing RefBase objects is to use `sp\u003c...\u003e::make`, see https://cs.android.com/android/platform/superproject/+/master:system/core/libutils/include/utils/StrongPointer.h;l\u003d35;drc\u003dcd4ef87efdf88cb5abc17ee6739208b3386420ec",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 84
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "044a6747_242e9782",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-08T21:26:05Z",
+      "side": 1,
+      "message": "Where `submixRoute` is declared?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 36
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
