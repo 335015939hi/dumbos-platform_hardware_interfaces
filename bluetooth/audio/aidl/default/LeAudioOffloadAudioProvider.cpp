@@ -76,8 +76,9 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::startSession(
 
 ndk::ScopedAStatus LeAudioOffloadAudioProvider::onSessionReady(
     DataMQDesc* _aidl_return) {
-  BluetoothAudioSessionReport::OnSessionStarted(
-      session_type_, stack_iface_, nullptr, *audio_config_, latency_modes_);
+  BluetoothAudioSessionReport::OnSessionStarted(session_type_, getStackIface(),
+                                                nullptr, getAudioConfig(),
+                                                latency_modes_);
   *_aidl_return = DataMQDesc();
   return ndk::ScopedAStatus::ok();
 }
