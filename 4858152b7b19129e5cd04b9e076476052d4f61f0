@@ -124,6 +124,24 @@
       "parentUuid": "470de5c6_c95045d7",
       "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b36396ec_6aaa19cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-05-09T23:50:49Z",
+      "side": 1,
+      "message": "In practice, we want to have some cushion between the timeout that we enforce with VTS and the timeout that we have in the Bluetooth stack for starting.  When we\u0027re running a VTS test, there are very few other things running, so it\u0027s a kind of best-case scenario.",
+      "parentUuid": "55dd731c_372bdf60",
+      "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
