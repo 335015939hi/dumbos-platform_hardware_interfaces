@@ -84,6 +84,10 @@ std::vector<std::string> keyblob_names_sb = {"aes-key",        "aes-key-rr",    
                                              "hmac-key",       "rsa-key",        "p256-key",
                                              "rsa-attest-key", "p256-attest-key"};
 
+bool requires_attest_key(const std::string& name) {
+    return name.find("-attest-key") != std::string::npos;
+}
+
 bool requires_rr(const std::string& name) {
     return name.find("-rr") != std::string::npos;
 }
@@ -207,6 +211,11 @@ class KeyBlobUpgradeTest : public KeyMintAidlTestBase {
         }
 
         for (std::string name : keyblob_names()) {
+            if (requires_attest_key(name) && shouldSkipAttestKeyTest()) {
+                std::cerr << "Skipping variant '" << name
+                          << "' which requires ATTEST_KEY support that has been waivered\n";
+                continue;
+            }
             for (bool with_hidden : {false, true}) {
                 std::string app_id;
                 std::string app_data;
@@ -355,6 +364,11 @@ TEST_P(KeyBlobUpgradeTest, CreateKeyBlobsBefore) {
             }};
 
     for (std::string name : keyblob_names()) {
+        if (requires_attest_key(name) && shouldSkipAttestKeyTest()) {
+            std::cerr << "Skipping variant '" << name
+                      << "' which requires ATTEST_KEY support that has been waivered\n";
+            continue;
+        }
         auto entry = keys_info.find(name);
         ASSERT_NE(entry, keys_info.end()) << "no builder for " << name;
         auto builder = entry->second;
@@ -432,6 +446,11 @@ TEST_P(KeyBlobUpgradeTest, UseKeyBlobsBeforeOrAfter) {
     }
 
     for (std::string name : keyblob_names()) {
+        if (requires_attest_key(name) && shouldSkipAttestKeyTest()) {
+            std::cerr << "Skipping variant '" << name
+                      << "' which requires ATTEST_KEY support that has been waivered\n";
+            continue;
+        }
         for (bool with_hidden : {false, true}) {
             auto builder = AuthorizationSetBuilder();
             if (with_hidden) {
