@@ -137,7 +137,7 @@ ndk::ScopedAStatus LeAudioSoftwareAudioProvider::onSessionReady(
   *_aidl_return = data_mq_->dupeDesc();
   auto desc = data_mq_->dupeDesc();
   BluetoothAudioSessionReport::OnSessionStarted(
-      session_type_, stack_iface_, &desc, *audio_config_, latency_modes_);
+      session_type_, getStackIface(), &desc, getAudioConfig(), latency_modes_);
   return ndk::ScopedAStatus::ok();
 }
 
