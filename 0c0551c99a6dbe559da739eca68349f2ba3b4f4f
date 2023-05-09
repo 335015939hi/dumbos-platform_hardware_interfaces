@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1ce36b9_0db46675",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1625,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-05-09T10:26:46Z",
+      "side": 1,
+      "message": "How do we know the test is currently running on StrongBox and not the regular KeyMint?",
+      "range": {
+        "startLine": 1623,
+        "startChar": 0,
+        "endLine": 1625,
+        "endChar": 19
+      },
+      "revId": "0c0551c99a6dbe559da739eca68349f2ba3b4f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
