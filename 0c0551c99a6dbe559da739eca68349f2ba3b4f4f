@@ -22,6 +22,30 @@
       },
       "revId": "0c0551c99a6dbe559da739eca68349f2ba3b4f4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "858fe6f0_b020a671",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1625,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-05-09T11:58:15Z",
+      "side": 1,
+      "message": "We don\u0027t; in fact the skip is for when the test runs in TEE (as StrongBox will be Keymaster and so not covered by this test).\n\nIt\u0027s confusing though (the same query came up in aosp/2553970) so I\u0027ve tried to improve the existing comment.",
+      "parentUuid": "a1ce36b9_0db46675",
+      "range": {
+        "startLine": 1623,
+        "startChar": 0,
+        "endLine": 1625,
+        "endChar": 19
+      },
+      "revId": "0c0551c99a6dbe559da739eca68349f2ba3b4f4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
