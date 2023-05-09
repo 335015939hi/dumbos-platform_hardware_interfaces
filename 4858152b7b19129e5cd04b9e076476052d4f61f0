@@ -106,6 +106,24 @@
       "parentUuid": "8afa4025_282a8b02",
       "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55dd731c_372bdf60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1470368
+      },
+      "writtenOn": "2023-05-09T10:55:47Z",
+      "side": 1,
+      "message": "Hi Myles,\n           Some platform  may take more than 2s for initializing the transport, download firmware. \n          \nEarlier it was 2.9s in BT stack code for startup init timeout https://android.googlesource.com/platform/system/bt/+/refs/tags/android-platform-12.1.0_r15/hci/src/hci_layer.cc#86  (DEFAULT_STARTUP_TIMEOUT_MS 2900)   \n         \nare we using 3s for  init timeout https://cs.android.com/android/platform/superproject/+/refs/heads/master:packages/modules/Bluetooth/system/gd/stack_manager.cc;l\u003d48 now in latest code? \n\nIt seems that, you already did similar fix in BT APP https://android-review.googlesource.com/c/platform/packages/apps/Bluetooth/+/687268 to fix similar issue\n\n\nCan we change init timeout value to 2.9s or 3s for BT VTS to align with stack hci init timeout?",
+      "parentUuid": "470de5c6_c95045d7",
+      "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
