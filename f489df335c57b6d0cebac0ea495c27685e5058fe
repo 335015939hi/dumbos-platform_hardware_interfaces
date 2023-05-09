@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42eaed1b_c7a4481b",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-09T17:50:38Z",
+      "side": 1,
+      "message": "Not sure why we guard `mInputStandby` but not `mInputOpen` and others? Can we add more comments about what needs to be under lock and what not?",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 58,
+        "endChar": 19
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aab95168_dd9e0c26",
         "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
         "patchSetId": 6
@@ -174,6 +197,190 @@
         "startChar": 0,
         "endLine": 167,
         "endChar": 36
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "976049a3_6fc1ce60",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-09T17:50:38Z",
+      "side": 1,
+      "message": "`if (++mSubmixRoute.mReadErrorCount \u003c MAX_READ_ERROR_LOGS) {`\n\nAnd is it necessary to log the `mReadErrorCount` in the log, or maybe log a different one when count reaches `MAX_READ_ERROR_LOGS`? This way we at least know if the read error happens too much to log, or only a few times and never hit MAX_READ_ERROR_LOGS",
+      "range": {
+        "startLine": 465,
+        "startChar": 29,
+        "endLine": 465,
+        "endChar": 44
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "805d524f_9b239de6",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-09T17:50:38Z",
+      "side": 1,
+      "message": "Do we need to `mSubmixRoute.mReadCounterFrames -\u003d frameCount` in this case?",
+      "range": {
+        "startLine": 474,
+        "startChar": 8,
+        "endLine": 474,
+        "endChar": 17
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "279fd68e_a185324b",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-09T17:50:38Z",
+      "side": 1,
+      "message": "Looks like to me this should be `attempts \u003c\u003d MAX_READ_ATTEMPTS`, because it seems to count the times of failure read.\nThink about the case of `MAX_READ_ATTEMPTS` is 0, with current code the while loop won\u0027t execute.\n\nOr maybe we should change `MAX_READ_ATTEMPTS` to `MAX_READ_FAILURE_ATTEMPTS`?",
+      "range": {
+        "startLine": 487,
+        "startChar": 37,
+        "endLine": 487,
+        "endChar": 65
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f8e92c_dc091cff",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-09T17:50:38Z",
+      "side": 1,
+      "message": "why -1977?",
+      "range": {
+        "startLine": 488,
+        "startChar": 29,
+        "endLine": 488,
+        "endChar": 34
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba4a8882_5c77c384",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-09T17:50:38Z",
+      "side": 1,
+      "message": "Maybe this should be WARNING? And maybe help to log `attempts` as well.",
+      "range": {
+        "startLine": 505,
+        "startChar": 16,
+        "endLine": 505,
+        "endChar": 21
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "321f5977_02892985",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-09T17:50:38Z",
+      "side": 1,
+      "message": "nit: I think this can be out of while loop",
+      "range": {
+        "startLine": 506,
+        "startChar": 25,
+        "endLine": 506,
+        "endChar": 32
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32ebe2bd_ee007861",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-09T17:50:38Z",
+      "side": 1,
+      "message": "maybe use ` NANOS_PER_SECOND `?",
+      "range": {
+        "startLine": 529,
+        "startChar": 54,
+        "endLine": 529,
+        "endChar": 64
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60b9cfe4_fdeb58c2",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-09T17:50:38Z",
+      "side": 1,
+      "message": "ERROR?",
+      "range": {
+        "startLine": 593,
+        "startChar": 8,
+        "endLine": 593,
+        "endChar": 13
       },
       "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"

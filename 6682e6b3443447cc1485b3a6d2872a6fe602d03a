@@ -97,6 +97,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8f628b13_0d50e206",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-05-09T17:50:38Z",
+      "side": 1,
+      "message": "nit: do we want initialize these members with default value?",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "6682e6b3443447cc1485b3a6d2872a6fe602d03a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6858a768_0ffa07aa",
         "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
         "patchSetId": 3
