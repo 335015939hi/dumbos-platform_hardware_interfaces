@@ -1617,6 +1617,18 @@ bool KeyMintAidlTestBase::is_chipset_allowed_km4_strongbox(void) const {
     return false;
 }
 
+// An ATTEST_KEY test should be skipped if all the following conditions hold:
+// 1. ATTEST_KEY feature is disabled
+// 2. STRONGBOX is enabled
+// 3. The device is running one of the chipsets that have received a waiver
+//     allowing it to be launched with Android S (or later) with Keymaster 4.0
+//     in StrongBox
+bool KeyMintAidlTestBase::shouldSkipAttestKeyTest(void) const {
+    // Check the chipset first as that doesn't require a round-trip to Package Manager.
+    return (is_chipset_allowed_km4_strongbox() && is_strongbox_enabled() &&
+            is_attest_key_feature_disabled());
+}
+
 // Skip the test if all the following conditions hold:
 // 1. ATTEST_KEY feature is disabled
 // 2. STRONGBOX is enabled
@@ -1624,10 +1636,8 @@ bool KeyMintAidlTestBase::is_chipset_allowed_km4_strongbox(void) const {
 //     allowing it to be launched with Android S (or later) with Keymaster 4.0
 //     in StrongBox
 void KeyMintAidlTestBase::skipAttestKeyTest(void) const {
-    // Check the chipset first as that doesn't require a round-trip to Package Manager.
-    if (is_chipset_allowed_km4_strongbox() && is_strongbox_enabled() &&
-        is_attest_key_feature_disabled()) {
-        GTEST_SKIP() << "Test is not applicable";
+    if (shouldSkipAttestKeyTest()) {
+        GTEST_SKIP() << "Test using ATTEST_KEY is not applicable on waivered device";
     }
 }
 
