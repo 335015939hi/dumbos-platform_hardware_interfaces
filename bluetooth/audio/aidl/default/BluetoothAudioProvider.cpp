@@ -64,6 +64,8 @@ ndk::ScopedAStatus BluetoothAudioProvider::startSession(
     DataMQDesc* _aidl_return) {
   if (host_if == nullptr) {
     *_aidl_return = DataMQDesc();
+    LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_)
+               << " Illegal argument";
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
   }
 
@@ -76,6 +78,7 @@ ndk::ScopedAStatus BluetoothAudioProvider::startSession(
   AIBinder_linkToDeath(stack_iface_->asBinder().get(), death_recipient_.get(),
                        cookie);
 
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_);
   onSessionReady(_aidl_return);
   return ndk::ScopedAStatus::ok();
 }
@@ -101,10 +104,9 @@ ndk::ScopedAStatus BluetoothAudioProvider::endSession() {
 
 ndk::ScopedAStatus BluetoothAudioProvider::streamStarted(
     BluetoothAudioStatus status) {
-  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
-            << ", status=" << toString(status);
-
   if (stack_iface_ != nullptr) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << ", status=" << toString(status);
     BluetoothAudioSessionReport::ReportControlStatus(session_type_, true,
                                                      status);
   } else {
@@ -132,8 +134,6 @@ ndk::ScopedAStatus BluetoothAudioProvider::streamSuspended(
 
 ndk::ScopedAStatus BluetoothAudioProvider::updateAudioConfiguration(
     const AudioConfiguration& audio_config) {
-  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_);
-
   if (stack_iface_ == nullptr || audio_config_ == nullptr) {
     LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
               << " has NO session";
@@ -149,13 +149,13 @@ ndk::ScopedAStatus BluetoothAudioProvider::updateAudioConfiguration(
   audio_config_ = std::make_unique<AudioConfiguration>(audio_config);
   BluetoothAudioSessionReport::ReportAudioConfigChanged(session_type_,
                                                         *audio_config_);
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+            << " | audio_config=" << audio_config.toString();
   return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus BluetoothAudioProvider::setLowLatencyModeAllowed(
     bool allowed) {
-  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_);
-
   if (stack_iface_ == nullptr) {
     LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
               << " has NO session";
