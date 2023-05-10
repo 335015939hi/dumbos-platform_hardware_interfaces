@@ -99,7 +99,8 @@ bool setupWritableCredential(sp<IWritableIdentityCredential>& writableCredential
                              sp<IIdentityCredentialStore>& credentialStore, bool testCredential);
 
 optional<vector<vector<uint8_t>>> createFakeRemotelyProvisionedCertificateChain(
-        const ::android::hardware::security::keymint::MacedPublicKey& macedPublicKey);
+        const ::android::hardware::security::keymint::MacedPublicKey& macedPublicKey,
+        bool testMode);
 
 optional<vector<uint8_t>> generateReaderCertificate(string serialDecimal);
 

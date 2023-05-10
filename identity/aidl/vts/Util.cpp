@@ -66,14 +66,14 @@ bool setupWritableCredential(sp<IWritableIdentityCredential>& writableCredential
 }
 
 optional<vector<vector<uint8_t>>> createFakeRemotelyProvisionedCertificateChain(
-        const MacedPublicKey& macedPublicKey) {
+        const MacedPublicKey& macedPublicKey, bool testMode) {
     // The helper library uses the NDK symbols, so play a little trickery here to convert
     // the data into the proper type so we can reuse the helper function to get the pubkey.
     ::aidl::android::hardware::security::keymint::MacedPublicKey ndkMacedPublicKey;
     ndkMacedPublicKey.macedKey = macedPublicKey.macedKey;
 
     vector<uint8_t> publicKeyBits;
-    check_maced_pubkey(ndkMacedPublicKey, /*testMode=*/true, &publicKeyBits);
+    check_maced_pubkey(ndkMacedPublicKey, testMode, &publicKeyBits);
 
     ::aidl::android::hardware::security::keymint::EVP_PKEY_Ptr publicKey;
     p256_pub_key(publicKeyBits, &publicKey);

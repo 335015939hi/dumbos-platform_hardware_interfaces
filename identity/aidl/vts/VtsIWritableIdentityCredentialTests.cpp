@@ -125,11 +125,24 @@ TEST_P(IdentityCredentialTests, verifyAttestationSuccessWithRemoteProvisioning) 
 
     MacedPublicKey macedPublicKey;
     std::vector<uint8_t> attestationKey;
-    result = rpc->generateEcdsaP256KeyPair(/*testMode=*/true, &macedPublicKey, &attestationKey);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    security::keymint::RpcHardwareInfo info;
+    rpc->getHardwareInfo(&info);
+    bool testMode = true;
+    if (info.versionNumber < 3) {
+        result = rpc->generateEcdsaP256KeyPair(testMode, &macedPublicKey, &attestationKey);
+        ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    } else {
+        // If RPC version >= 3, we don't support testMode=true. So just verify testMode=false here.
+        result = rpc->generateEcdsaP256KeyPair(testMode, &macedPublicKey, &attestationKey);
+        EXPECT_FALSE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+
+        testMode = false;
+        result = rpc->generateEcdsaP256KeyPair(testMode, &macedPublicKey, &attestationKey);
+        ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    }
 
     optional<vector<vector<uint8_t>>> remotelyProvisionedCertChain =
-            test_utils::createFakeRemotelyProvisionedCertificateChain(macedPublicKey);
+            test_utils::createFakeRemotelyProvisionedCertificateChain(macedPublicKey, testMode);
     ASSERT_TRUE(remotelyProvisionedCertChain);
 
     vector<uint8_t> concatenatedCerts;
@@ -176,11 +189,24 @@ TEST_P(IdentityCredentialTests, verifyRemotelyProvisionedKeyMayOnlyBeSetOnce) {
 
     MacedPublicKey macedPublicKey;
     std::vector<uint8_t> attestationKey;
-    result = rpc->generateEcdsaP256KeyPair(/*testMode=*/true, &macedPublicKey, &attestationKey);
-    ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    security::keymint::RpcHardwareInfo info;
+    rpc->getHardwareInfo(&info);
+    bool testMode = true;
+    if (info.versionNumber < 3) {
+        result = rpc->generateEcdsaP256KeyPair(testMode, &macedPublicKey, &attestationKey);
+        ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    } else {
+        // If RPC version >= 3, we don't support testMode=true. So just verify testMode=false here.
+        result = rpc->generateEcdsaP256KeyPair(testMode, &macedPublicKey, &attestationKey);
+        EXPECT_FALSE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+
+        testMode = false;
+        result = rpc->generateEcdsaP256KeyPair(testMode, &macedPublicKey, &attestationKey);
+        ASSERT_TRUE(result.isOk()) << result.exceptionCode() << "; " << result.exceptionMessage();
+    }
 
     optional<vector<vector<uint8_t>>> remotelyProvisionedCertChain =
-            test_utils::createFakeRemotelyProvisionedCertificateChain(macedPublicKey);
+            test_utils::createFakeRemotelyProvisionedCertificateChain(macedPublicKey, testMode);
     ASSERT_TRUE(remotelyProvisionedCertChain);
 
     vector<uint8_t> concatenatedCerts;
