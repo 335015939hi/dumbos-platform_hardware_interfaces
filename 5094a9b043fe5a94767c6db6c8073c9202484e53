@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e9b7efd_2fc6d53a",
+        "filename": "security/see/hwcrypto/aidl/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-05-10T23:40:12Z",
+      "side": 1,
+      "message": "Yes, because I was expecting to have more services at the same level as hwcrypto. If this end up not being the case I can change it to `android.hardware.security.see.hwcrypto`",
+      "parentUuid": "45aa3413_d2ec9fb1",
+      "range": {
+        "startLine": 11,
+        "startChar": 11,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "5094a9b043fe5a94767c6db6c8073c9202484e53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "adde5041_53484f1d",
         "filename": "security/see/hwcrypto/aidl/Android.bp",
         "patchSetId": 18
@@ -37,6 +61,24 @@
       "writtenOn": "2023-05-10T22:35:39Z",
       "side": 1,
       "message": "cpp and ndk are enabled by default afaik. You might want to disable java though.",
+      "revId": "5094a9b043fe5a94767c6db6c8073c9202484e53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd3c544f_566000ce",
+        "filename": "security/see/hwcrypto/aidl/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-05-10T23:40:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adde5041_53484f1d",
       "revId": "5094a9b043fe5a94767c6db6c8073c9202484e53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +96,24 @@
       "writtenOn": "2023-05-10T22:35:39Z",
       "side": 1,
       "message": "Should this file have a license comment?",
+      "revId": "5094a9b043fe5a94767c6db6c8073c9202484e53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70516713_034680ec",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/AccumulatingOperationResult.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-05-10T23:40:12Z",
+      "side": 1,
+      "message": "Done. Added the license comment to all the AIDL files.",
+      "parentUuid": "52768349_0ba08816",
       "revId": "5094a9b043fe5a94767c6db6c8073c9202484e53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
