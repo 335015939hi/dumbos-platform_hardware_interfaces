@@ -22,6 +22,40 @@
       },
       "revId": "5094a9b043fe5a94767c6db6c8073c9202484e53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adde5041_53484f1d",
+        "filename": "security/see/hwcrypto/aidl/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1809582
+      },
+      "writtenOn": "2023-05-10T22:35:39Z",
+      "side": 1,
+      "message": "cpp and ndk are enabled by default afaik. You might want to disable java though.",
+      "revId": "5094a9b043fe5a94767c6db6c8073c9202484e53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52768349_0ba08816",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/AccumulatingOperationResult.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1809582
+      },
+      "writtenOn": "2023-05-10T22:35:39Z",
+      "side": 1,
+      "message": "Should this file have a license comment?",
+      "revId": "5094a9b043fe5a94767c6db6c8073c9202484e53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
