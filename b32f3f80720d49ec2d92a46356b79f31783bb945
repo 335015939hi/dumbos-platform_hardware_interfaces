@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c55f9ad8_c0223f0c",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-10T16:42:43Z",
+      "side": 1,
+      "message": "Why not always pass `testMode \u003d\u003d false`?\n\nAFAICT, this test will pass with both real keys and test keys. So why not just use real keys for all the tests?",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 43
+      },
+      "revId": "b32f3f80720d49ec2d92a46356b79f31783bb945",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
