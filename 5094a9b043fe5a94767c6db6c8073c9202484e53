@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45aa3413_d2ec9fb1",
+        "filename": "security/see/hwcrypto/aidl/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-10T19:49:00Z",
+      "side": 1,
+      "message": "Is there a reason this doesn\u0027t match the name of the top-level AIDL package? I\u0027d have expected `android.hardware.security.see.hwcrypto`.",
+      "range": {
+        "startLine": 11,
+        "startChar": 11,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "5094a9b043fe5a94767c6db6c8073c9202484e53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
