@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0ac30f9_eec81120",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-10T06:11:28Z",
+      "side": 1,
+      "message": "IIRC this call has a result that should be checked? `ASSERT_TRUE(rpc-\u003egetHardwareInfo(\u0026info).isOk());`",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 32
+      },
+      "revId": "dda56f0933bebd90bb72a94ab07dc965041ed08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fa75dc2_c48cebf6",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-10T06:11:28Z",
+      "side": 1,
+      "message": "You shouldn\u0027t need to test that the IRPC behaviour in the identity VTS tests as the IRPC VTS tests already cover that. Could this then simplify to something like the below? It might also be handy to extract the key generation logic to a helper function as it\u0027s used in multiple tests.\n\n```\nbool testMode \u003d info.versionNumber \u003c 3;\nresult \u003d rpc-\u003egenerateEcdsaP256KeyPair(testMode, \u0026macedPublicKey, \u0026attestationKey);\nASSERT_TRUE(result.isOk()) \u003c\u003c result.exceptionCode() \u003c\u003c \"; \" \u003c\u003c result.exceptionMessage();\n```",
+      "revId": "dda56f0933bebd90bb72a94ab07dc965041ed08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
