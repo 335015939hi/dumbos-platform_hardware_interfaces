@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e70e564_b53d5bdb",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2023-05-10T08:42:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01e2c4b7_43065d0d",
+      "range": {
+        "startLine": 129,
+        "startChar": 4,
+        "endLine": 129,
+        "endChar": 32
+      },
+      "revId": "dda56f0933bebd90bb72a94ab07dc965041ed08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fa75dc2_c48cebf6",
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "Okay ~ I will remove the testMode\u003dtrue if info.versionNumber \u003e\u003d 3.\n\nI will remove it.\n\nThank you,\nJoseph.",
       "parentUuid": "9fa75dc2_c48cebf6",
+      "revId": "dda56f0933bebd90bb72a94ab07dc965041ed08a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e29f0486_e83d8259",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2023-05-10T08:42:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ee4dc9c_88569c4b",
       "revId": "dda56f0933bebd90bb72a94ab07dc965041ed08a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
