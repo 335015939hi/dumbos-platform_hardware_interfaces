@@ -39,6 +39,30 @@
       },
       "revId": "50f1d4cad649d9e4ad572e15404f92564cf3f676",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1913bb4a_233a2037",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2023-05-11T23:46:21Z",
+      "side": 1,
+      "message": "It would indicate that the onUnlink is called before the onDeath. For my understanding this will never happen but I do not know the binder implementation nor if this is technically possible.\n\nI can still replace this by a `CHECK(ctx !\u003d nullptr)`. Would it work for you ?",
+      "parentUuid": "49ca736a_7eb4100d",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "50f1d4cad649d9e4ad572e15404f92564cf3f676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
