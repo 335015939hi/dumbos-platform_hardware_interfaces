@@ -46,6 +46,30 @@
       },
       "revId": "b32f3f80720d49ec2d92a46356b79f31783bb945",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0706b627_b91de975",
+        "filename": "identity/aidl/vts/VtsIWritableIdentityCredentialTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1483435
+      },
+      "writtenOn": "2023-05-11T08:33:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d1e5b14_8943cdf1",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 43
+      },
+      "revId": "b32f3f80720d49ec2d92a46356b79f31783bb945",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
