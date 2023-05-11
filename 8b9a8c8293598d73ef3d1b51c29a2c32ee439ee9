@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21342248_be8a80e0",
+        "filename": "keymaster/4.0/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-11T18:37:59Z",
+      "side": 1,
+      "message": "s/KeyMint/Keymaster/",
+      "range": {
+        "startLine": 34,
+        "startChar": 36,
+        "endLine": 34,
+        "endChar": 43
+      },
+      "revId": "8b9a8c8293598d73ef3d1b51c29a2c32ee439ee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88856233_1e6fd0f0",
+        "filename": "keymaster/4.0/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-11T18:37:59Z",
+      "side": 1,
+      "message": "Any reason to include this authorization?",
+      "range": {
+        "startLine": 46,
+        "startChar": 38,
+        "endLine": 46,
+        "endChar": 75
+      },
+      "revId": "8b9a8c8293598d73ef3d1b51c29a2c32ee439ee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
