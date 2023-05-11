@@ -16,6 +16,29 @@
       "message": "@smoreland@google.com\nCan you have another look to this CL ?\nI think I solved all your concerned.",
       "revId": "50f1d4cad649d9e4ad572e15404f92564cf3f676",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49ca736a_7eb4100d",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-11T23:32:06Z",
+      "side": 1,
+      "message": "if this got hit, it would indicate memory corruption or another issue? should/could it be a harder failure?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "50f1d4cad649d9e4ad572e15404f92564cf3f676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
