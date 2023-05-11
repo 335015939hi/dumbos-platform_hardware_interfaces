@@ -16,6 +16,24 @@
       "message": "please add bug# in the comment",
       "revId": "ff40410c7e6315dea8b4459481a277fab88a1c6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a8ab7d1_7dd1ee58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1998045
+      },
+      "writtenOn": "2023-05-11T02:29:16Z",
+      "side": 1,
+      "message": "updated",
+      "parentUuid": "19b5296e_3bb56edf",
+      "revId": "ff40410c7e6315dea8b4459481a277fab88a1c6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
