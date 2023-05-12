@@ -16,6 +16,23 @@
       "message": "LGTM, however I don\u0027t have feasible devices to verify.",
       "revId": "71d19b21c30596b24ba053bfd9765528ee36901d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6446bb_d217496c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-05-12T02:44:15Z",
+      "side": 1,
+      "message": "Works on Cuttlefish and others.",
+      "revId": "71d19b21c30596b24ba053bfd9765528ee36901d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
