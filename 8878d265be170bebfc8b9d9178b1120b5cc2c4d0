@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c803f8b8_aed7d23c",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2023-05-12T06:34:34Z",
+      "side": 1,
+      "message": "Can you please also check the vsr version here (https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/keymaster/4.0/vts/functional/keymaster_hidl_hal_test.cpp;drc\u003d06843cb67a950bffe0da14563bee1a14d2260ad1;l\u003d364)? We would like to only allow it to be 10 on android 14 launching devices. Would like to align with mobile after 15.",
+      "range": {
+        "startLine": 970,
+        "startChar": 2,
+        "endLine": 970,
+        "endChar": 15
+      },
+      "revId": "8878d265be170bebfc8b9d9178b1120b5cc2c4d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
