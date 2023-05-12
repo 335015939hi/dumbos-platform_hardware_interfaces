@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <VtsCoreUtil.h>
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
 #include <aidl/android/hardware/bluetooth/BnBluetoothHciCallbacks.h>
@@ -67,6 +68,7 @@ using ::bluetooth::hci::ReadLocalVersionInformationBuilder;
 using ::bluetooth::hci::ReadLocalVersionInformationCompleteView;
 
 static constexpr uint8_t kMinLeAdvSetForBt5 = 16;
+static constexpr uint8_t kMinLeAdvSetForBt5FoTv = 10;
 static constexpr uint8_t kMinLeResolvingListForBt5 = 8;
 
 static constexpr size_t kNumHciCommandsBandwidth = 100;
@@ -80,6 +82,11 @@ static constexpr std::chrono::milliseconds kInterfaceCloseDelayMs(200);
 
 // To discard Qualcomm ACL debugging
 static constexpr uint16_t kAclHandleQcaDebugMessage = 0xedc;
+
+static bool isTv() {
+  return testing::deviceSupportsFeature("android.software.leanback") ||
+         testing::deviceSupportsFeature("android.hardware.type.television");
+}
 
 class ThroughputLogger {
  public:
@@ -959,7 +966,12 @@ TEST_P(BluetoothAidlTest, Vsr_Bluetooth5Requirements) {
   ASSERT_TRUE(num_adv_set_view.IsValid());
   ASSERT_EQ(::bluetooth::hci::ErrorCode::SUCCESS, num_adv_set_view.GetStatus());
   auto num_adv_set = num_adv_set_view.GetNumberSupportedAdvertisingSets();
-  ASSERT_GE(num_adv_set, kMinLeAdvSetForBt5);
+
+  if (isTv()) {
+    ASSERT_GE(num_adv_set, kMinLeAdvSetForBt5FoTv);
+  } else {
+    ASSERT_GE(num_adv_set, kMinLeAdvSetForBt5);
+  }
 
   std::vector<uint8_t> num_resolving_list_event;
   send_and_wait_for_cmd_complete(LeReadResolvingListSizeBuilder::Create(),
