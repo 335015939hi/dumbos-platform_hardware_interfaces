@@ -46,6 +46,30 @@
       },
       "revId": "0f1ca32c78d9dc81b5e180c7f1418ecda80b01e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "717ea40f_2da17038",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-12T20:45:38Z",
+      "side": 1,
+      "message": "It\u0027s been requested that a fixed-length encoding be permitted for ROMs that can only manage templates which is why it\u0027s a bstr.\n\nI also don\u0027t think it\u0027s too complex but wanted someone else to agree with me :)",
+      "parentUuid": "70b50580_1274b9f0",
+      "range": {
+        "startLine": 331,
+        "startChar": 47,
+        "endLine": 331,
+        "endChar": 63
+      },
+      "revId": "0f1ca32c78d9dc81b5e180c7f1418ecda80b01e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
