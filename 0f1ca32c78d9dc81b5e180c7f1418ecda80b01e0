@@ -94,6 +94,30 @@
       },
       "revId": "0f1ca32c78d9dc81b5e180c7f1418ecda80b01e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b8a7a26_90c5c704",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-12T20:51:08Z",
+      "side": 1,
+      "message": "`s/to/do/`",
+      "parentUuid": "ca679965_7e80eba4",
+      "range": {
+        "startLine": 331,
+        "startChar": 47,
+        "endLine": 331,
+        "endChar": 63
+      },
+      "revId": "0f1ca32c78d9dc81b5e180c7f1418ecda80b01e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
