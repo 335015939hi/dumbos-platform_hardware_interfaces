@@ -142,6 +142,24 @@
       "parentUuid": "55dd731c_372bdf60",
       "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4a692d1_0df21dac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2005725
+      },
+      "writtenOn": "2023-05-12T07:01:26Z",
+      "side": 1,
+      "message": "Hi, Myles.\n\nI understand you point.\nIf you consider that 2900mS is too large and not acceptable, what value can be acceptable?\nFor example, can 2500mS be acceptable?\nIn my understanding, current value of 2000mS is defined long ago and never changed since then.\nBut Bluetooth technology is evolving day by day and it makes size of Bluetooth firmware larger.\nOf course, it causes that time for downloading firmware become larger.\nConsidering above situation, could you please consider again to accept this commit.\nIf you can give us the value that you can accept, for example 2500mS, we will do our best to meat that criteria.\n\nBest Regards.\nShiroh",
+      "parentUuid": "b36396ec_6aaa19cc",
+      "revId": "4858152b7b19129e5cd04b9e076476052d4f61f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
