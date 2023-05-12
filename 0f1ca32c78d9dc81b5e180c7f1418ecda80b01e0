@@ -70,6 +70,30 @@
       },
       "revId": "0f1ca32c78d9dc81b5e180c7f1418ecda80b01e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca679965_7e80eba4",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-12T20:49:00Z",
+      "side": 1,
+      "message": "They can still to fixed-length encoding with `uint`, right? It just requires one extra byte.\n\n`1A 00000001` --\u003e 1\n ... everything in between 😊...\n`1A FFFFFFFF` --\u003e 2^32",
+      "parentUuid": "717ea40f_2da17038",
+      "range": {
+        "startLine": 331,
+        "startChar": 47,
+        "endLine": 331,
+        "endChar": 63
+      },
+      "revId": "0f1ca32c78d9dc81b5e180c7f1418ecda80b01e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
