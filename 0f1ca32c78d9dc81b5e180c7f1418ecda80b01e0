@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d69c6f0_907936e8",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-12T19:43:20Z",
+      "side": 1,
+      "message": "I was allowing for compact encoding of shorter value is the bootloader wanted to do so. If that seems to make validation too awkward then we can make it always fixed size. An example of parsing it is in aosp/2587429.",
+      "range": {
+        "startLine": 331,
+        "startChar": 47,
+        "endLine": 331,
+        "endChar": 63
+      },
+      "revId": "0f1ca32c78d9dc81b5e180c7f1418ecda80b01e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
