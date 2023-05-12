@@ -63,6 +63,30 @@
       },
       "revId": "50f1d4cad649d9e4ad572e15404f92564cf3f676",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00983af0_42c1fc2d",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-12T00:04:34Z",
+      "side": 1,
+      "message": "If onUnlink was called first, then L38 `delete ctx` would invalidate the memory being accessed here. It wouldn\u0027t null-out the cookie. Anyway, onUnlink should always be called last.\n\nAlso - prefer \u0027CHECK_NE(ctx, nullptr)\u0027 instead, because it will give you clearer log messages.",
+      "parentUuid": "1913bb4a_233a2037",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "50f1d4cad649d9e4ad572e15404f92564cf3f676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
