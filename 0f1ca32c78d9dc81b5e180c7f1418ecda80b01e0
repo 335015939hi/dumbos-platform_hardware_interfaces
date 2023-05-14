@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a380fbc_e8d75407",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-14T23:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98950c8d_abdba005",
+      "range": {
+        "startLine": 327,
+        "startChar": 64,
+        "endLine": 328,
+        "endChar": 62
+      },
+      "revId": "0f1ca32c78d9dc81b5e180c7f1418ecda80b01e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d69c6f0_907936e8",
@@ -157,6 +181,30 @@
       "side": 1,
       "message": "That\u0027s true, it\u0027s just not deterministically encoded but I don\u0027t see that conflicts with any other requirements. Let me run it by the forum that the fixed size request came from.",
       "parentUuid": "9b8a7a26_90c5c704",
+      "range": {
+        "startLine": 331,
+        "startChar": 47,
+        "endLine": 331,
+        "endChar": 63
+      },
+      "revId": "0f1ca32c78d9dc81b5e180c7f1418ecda80b01e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d87c997_4ec4292c",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-14T23:12:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8db0bcb4_712ac960",
       "range": {
         "startLine": 331,
         "startChar": 47,
