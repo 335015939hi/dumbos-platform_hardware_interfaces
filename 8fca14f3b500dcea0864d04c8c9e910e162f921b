@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51fac4e1_1ac6409c",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2023-05-15T23:43:07Z",
+      "side": 1,
+      "message": "Out of curiosity, where does the number 32 come from?",
+      "range": {
+        "startLine": 832,
+        "startChar": 38,
+        "endLine": 832,
+        "endChar": 40
+      },
+      "revId": "8fca14f3b500dcea0864d04c8c9e910e162f921b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
