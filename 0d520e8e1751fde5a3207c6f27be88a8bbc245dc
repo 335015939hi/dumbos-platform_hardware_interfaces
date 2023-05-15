@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bade7d0_4383ed11",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-15T12:15:44Z",
+      "side": 1,
+      "message": "We can follow up offline, but did we run this by other partners to make sure we don\u0027t wind up in the same position as relaxing `Component version` to include `tstr`?",
+      "range": {
+        "startLine": 430,
+        "startChar": 26,
+        "endLine": 430,
+        "endChar": 30
+      },
+      "revId": "0d520e8e1751fde5a3207c6f27be88a8bbc245dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
