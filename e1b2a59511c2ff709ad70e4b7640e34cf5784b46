@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d7cf0ef_4845a1c9",
+        "filename": "security/keymint/aidl/vts/functional/KeyBlobUpgradeTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-05-15T07:23:51Z",
+      "side": 1,
+      "message": "That\u0027s my original version 😊\nWill update in the next patch.",
+      "parentUuid": "760cc412_c43e8e99",
+      "revId": "e1b2a59511c2ff709ad70e4b7640e34cf5784b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7ad650d_01290b6f",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "baa16c86_d4c2d82d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-05-15T07:23:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7ad650d_01290b6f",
+      "revId": "e1b2a59511c2ff709ad70e4b7640e34cf5784b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f30469e3_b8ca97bc",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-05-15T07:08:49Z",
       "side": 1,
       "message": "nit: could add a local var `std::string arg \u003d argv[i+1];` above this to make",
+      "revId": "e1b2a59511c2ff709ad70e4b7640e34cf5784b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "221fe6a9_24642de7",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8726,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-05-15T07:23:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f30469e3_b8ca97bc",
       "revId": "e1b2a59511c2ff709ad70e4b7640e34cf5784b46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
