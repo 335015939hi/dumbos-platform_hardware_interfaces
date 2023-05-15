@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "760cc412_c43e8e99",
+        "filename": "security/keymint/aidl/vts/functional/KeyBlobUpgradeTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-05-15T07:08:49Z",
+      "side": 1,
+      "message": "nit: this looks a bit odd (`true \u0026\u0026 ..`); maybe make the intent clearer:\n```c++\nbool expectUpgrade \u003d true; // this test expects upgrade to happen by default\nif (expect_upgrade.has_value() \u0026\u0026 expect_upgrade \u003d false) {\n   std:cerr \u003c\u003c \"Not expecting key upgrade due to --expect_upgrade no\\n\";\n   expectUpgrade \u003d false;\n}\n```",
+      "revId": "e1b2a59511c2ff709ad70e4b7640e34cf5784b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7ad650d_01290b6f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-05-15T07:08:49Z",
+      "side": 1,
+      "message": "nit: set this to `std::nullopt` so the default value is clear",
+      "revId": "e1b2a59511c2ff709ad70e4b7640e34cf5784b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f30469e3_b8ca97bc",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8726,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-05-15T07:08:49Z",
+      "side": 1,
+      "message": "nit: could add a local var `std::string arg \u003d argv[i+1];` above this to make",
+      "revId": "e1b2a59511c2ff709ad70e4b7640e34cf5784b46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
