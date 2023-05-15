@@ -22,6 +22,30 @@
       },
       "revId": "0d520e8e1751fde5a3207c6f27be88a8bbc245dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04413129_8c905768",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-15T18:56:53Z",
+      "side": 1,
+      "message": "This field has defined semantics and so we won\u0027t be open to relaxing it. If partners can\u0027t provide a suitable value then they don\u0027t have to populate the field. We\u0027ve validated it with the partner who has committed to adding the field and will point other partner to this new spec as an RFC. I don\u0027t expect there to be much room for problems but you never know.",
+      "parentUuid": "7bade7d0_4383ed11",
+      "range": {
+        "startLine": 430,
+        "startChar": 26,
+        "endLine": 430,
+        "endChar": 30
+      },
+      "revId": "0d520e8e1751fde5a3207c6f27be88a8bbc245dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
