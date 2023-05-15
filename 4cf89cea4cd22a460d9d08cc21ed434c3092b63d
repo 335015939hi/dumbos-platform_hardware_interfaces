@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "603e76c0_bc677177",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2023-05-15T23:10:48Z",
+      "side": 1,
+      "message": "What is the ownership of the returned data? Also does the storage server have to allocate a buffer to store the data for the entire read request? This will not work for some of the files we read with the current api which are much larger than the heap size in the storage server.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
