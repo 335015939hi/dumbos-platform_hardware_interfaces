@@ -388,6 +388,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c452f23_ad8f0648",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/Tamper.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2023-05-16T23:23:01Z",
+      "side": 1,
+      "message": "The file-system might not be able to answer a question about a specific file. If the file-system was reset, all files are removed and any information about which files existed before is gone. This means that a request to open any file will fail after the first factory reset of any non-persistent file system. This is not a very useful feature. What would potentially be useful is to specify a version-number/reset-counter, although that could be exposed in many different ways, some without needing a specific error state.",
+      "parentUuid": "b8214ac8_2e0e5b7c",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d2a974b_8211dccd",
         "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/Error.aidl",
         "patchSetId": 3
