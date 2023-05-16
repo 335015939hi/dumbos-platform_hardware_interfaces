@@ -46,6 +46,30 @@
       },
       "revId": "8fca14f3b500dcea0864d04c8c9e910e162f921b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86d2d6cc_f42c792b",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 832,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2023-05-16T16:39:40Z",
+      "side": 1,
+      "message": "Ha.. I missed that.",
+      "parentUuid": "7495a58f_eb7dd9c3",
+      "range": {
+        "startLine": 832,
+        "startChar": 38,
+        "endLine": 832,
+        "endChar": 40
+      },
+      "revId": "8fca14f3b500dcea0864d04c8c9e910e162f921b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
