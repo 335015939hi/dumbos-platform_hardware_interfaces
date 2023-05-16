@@ -3,6 +3,125 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dadb09c1_a3441cbc",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "Not sure we need this variant, see comment on `FileProperties.persistence`.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50396620_6677c523",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "Resets or rollback? I\u0027m not sure we want to unconditionally ignore all rollback, partial rollback might not be acceptable, for example.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0cd2e2e_67dcccdb",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "Ignore seems like the wrong word here, maybe \"allow\" would be better?",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e9cab36_19b70206",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileProperties.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "I don\u0027t think we should have a default here, users should think about what security properties are required.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e50ea571_71eff24f",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileProperties.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "How does this combine with `TAMPER_DETECT` and `TAMPER_DETECT_IGNORE_RESET`? Does it make sense to have the ignore reset variant, if we have the persistent flag? Can you ask for a non-persistent file but only `TAMPER_DETECT`? What about `TAMPER_PROOF` but non-persistent? The file would be removed on userdata wipe.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae1052bf_50d321f1",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileProperties.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "```suggestion\n    boolean persistent;\n```",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20f65d67_c6c39049",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IDir.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t need to pass state in here, the server-side object implementing `IDir` can be stateful with AIDL.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "603e76c0_bc677177",
         "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
         "patchSetId": 3
@@ -32,6 +151,97 @@
       "side": 1,
       "message": "In C++/Rust, a successful ReadResult will contain a std::vector/Vec that will own the data. If the storage server can\u0027t allocate all the requested data at once, the client would have to call multiple times, which IIUC is what storage server is currently doing, correct?\n\nThe other way to define `ReadFile` that could make sense is:\n\n```\nparcelable ReadResult {\n    Error error \u003d Error.GENERIC;\n    long bytes_read;\n}\n\ninterface IFile {\n    ReadResult Read(long offset, out byte[] buffer);\n}\n```\n\nbut I think the way this gets translated by the AIDL compiler is by the server allocating a buffer as big as the one the client passed as an argument, even if that\u0027s bigger than `STORAGE_MAX_BUFFER_SIZE`. If the server is creating a Vec to return instead, we get to control how big of a buffer we use instead of the aidl lib and client dictating it.",
       "parentUuid": "603e76c0_bc677177",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f05eb23_2aadcc85",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ReadIntegrity.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "We shouldn\u0027t have both a \"read option\" and a \"file option\" that ignore rollback. This only needs to be in one of those places. If we do have both, then we need to clarify in the doc comments what the difference is and what happens if they conflict.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6b794bf_c3ee85d5",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ReadProperties.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "What if `integrity \u003d\u003d ReadIntegrity.NO_TAMPER` but `report_recovery \u003d\u003d false`? Does it make sense to have separate fields?",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a673bbef_45408900",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/Tamper.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "File or file-system?",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d2a974b_8211dccd",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/Error.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "AIDL has service-specific error code support, should we consider using that to simplify error handling? I\u0027m not sure what the idiomatic approach with AIDL is.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ab03cc_3f609e4c",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/OpenError.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-05-16T17:12:36Z",
+      "side": 1,
+      "message": "Why aren\u0027t these just Error variants?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 42
+      },
       "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
