@@ -16,6 +16,24 @@
       "message": "What is the ownership of the returned data? Also does the storage server have to allocate a buffer to store the data for the entire read request? This will not work for some of the files we read with the current api which are much larger than the heap size in the storage server.",
       "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a62eb1f4_a718cfb9",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T15:50:48Z",
+      "side": 1,
+      "message": "In C++/Rust, a successful ReadResult will contain a std::vector/Vec that will own the data. If the storage server can\u0027t allocate all the requested data at once, the client would have to call multiple times, which IIUC is what storage server is currently doing, correct?\n\nThe other way to define `ReadFile` that could make sense is:\n\n```\nparcelable ReadResult {\n    Error error \u003d Error.GENERIC;\n    long bytes_read;\n}\n\ninterface IFile {\n    ReadResult Read(long offset, out byte[] buffer);\n}\n```\n\nbut I think the way this gets translated by the AIDL compiler is by the server allocating a buffer as big as the one the client passed as an argument, even if that\u0027s bigger than `STORAGE_MAX_BUFFER_SIZE`. If the server is creating a Vec to return instead, we get to control how big of a buffer we use instead of the aidl lib and client dictating it.",
+      "parentUuid": "603e76c0_bc677177",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
