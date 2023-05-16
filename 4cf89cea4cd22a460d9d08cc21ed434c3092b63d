@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4f3ab8c_6a6dd5e1",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "Replied on that comment.",
+      "parentUuid": "dadb09c1_a3441cbc",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50396620_6677c523",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-05-16T17:12:36Z",
       "side": 1,
       "message": "Resets or rollback? I\u0027m not sure we want to unconditionally ignore all rollback, partial rollback might not be acceptable, for example.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bb3c220_0f67d295",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "50396620_6677c523",
       "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b79d31e_1b804bab",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "Even a `TAMPER_DETECT` file \"allows\" rollback/reset; it\u0027s just going to require the the client use a more permissive `ReadIntegrity` to read the file contents afterwards.\n\nMy intention was a rolled-back file  `TAMPER_DETECT_IGNORE_ROLLBACK` will _not_ return an error even if the client tries to read with `NO_TAMPER`. The filesystem storing the file might not even be able to detect rollbacks.",
+      "parentUuid": "c0cd2e2e_67dcccdb",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e9cab36_19b70206",
         "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileProperties.aidl",
         "patchSetId": 3
@@ -65,6 +119,24 @@
       "writtenOn": "2023-05-16T17:12:36Z",
       "side": 1,
       "message": "I don\u0027t think we should have a default here, users should think about what security properties are required.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90df9328_b3f37b4f",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileProperties.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "There\u0027s an aidl lint that complains without it:\n\n```\nThe enum field \u0027integrity\u0027 has no explicit value. [-Wenum-explicit-default]\n```",
+      "parentUuid": "0e9cab36_19b70206",
       "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -103,6 +175,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6a951ca_283f42d4",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileProperties.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae1052bf_50d321f1",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34355f6b_9dfa6a9c",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileProperties.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "Yes, \"`TAMPER_PROOF` but non-persistent\" is something that keymint/keymaster want to use.\n\nAny of the `TAMPER_DETECT*` variants should make sense with either persistence value. After a wipe, any persistent files won\u0027t be modified and any non-persistent files will be reset. For any that are specifically `TAMPER_DETECT`, trying to read will be an error unless the client uses `ReadIntegrity.IGNORE_RESET`. For  `TAMPER_DETECT_IGNORE_*` files, clients will be able to read the reset file normally.",
+      "parentUuid": "e50ea571_71eff24f",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20f65d67_c6c39049",
@@ -116,6 +224,24 @@
       "writtenOn": "2023-05-16T17:12:36Z",
       "side": 1,
       "message": "Shouldn\u0027t need to pass state in here, the server-side object implementing `IDir` can be stateful with AIDL.",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e43ad44d_74266214",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IDir.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "20f65d67_c6c39049",
       "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -174,6 +300,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c02f451_56e3fb66",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ReadIntegrity.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "The difference is that the file option is a property of the file (i.e. for `TAMPER_DETECT_IGNORE_RESET`, the filesystem must be able to notice general tampering and rollbacks, but doesn\u0027t need to be able to catch resets) and might determine where the file is located. The read option allows the client to determine what types of tampering they consider an error.\n\nSo if an app needs to know when their file has been rolled back in order to recover, but don\u0027t need to know about resets, they could make the file `TAMPER_DETECT` or `TAMPER_DETECT_IGNORE_RESET`, then open the file with the `IGNORE_RESET` read option. If they get an error value with `Tamper.ROLLBACK`, they\u0027ll know a rollback happened and can try opening again with the `IGNORE_ROLLBACK` read option.",
+      "parentUuid": "3f05eb23_2aadcc85",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6b794bf_c3ee85d5",
         "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ReadProperties.aidl",
         "patchSetId": 3
@@ -185,6 +329,24 @@
       "writtenOn": "2023-05-16T17:12:36Z",
       "side": 1,
       "message": "What if `integrity \u003d\u003d ReadIntegrity.NO_TAMPER` but `report_recovery \u003d\u003d false`? Does it make sense to have separate fields?",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc8383ee_270a96b5",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ReadProperties.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "I agree; this one doesn\u0027t make sense. Removed.",
+      "parentUuid": "a6b794bf_c3ee85d5",
       "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -208,6 +370,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b8214ac8_2e0e5b7c",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/Tamper.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "Could be either, but since we\u0027re returning this from `Open*` methods, I think it should be the file. REE might have reset the whole filesystem, but the client asked about a specific file/dir.\n\nDo you see a better way to phrase this?",
+      "parentUuid": "a673bbef_45408900",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d2a974b_8211dccd",
         "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/Error.aidl",
         "patchSetId": 3
@@ -225,6 +405,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92146e54_56c7f52b",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/Error.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "Looks like you just define a bunch of int constants on the interface like this\nhttp://cs/android-internal/frameworks/av/camera/aidl/android/hardware/ICameraService.aidl?l\u003d46\nand attach them when you construct an error status\nhttp://cs/android-internal/frameworks/native/libs/binder/include/binder/Status.h?rcl\u003deeae447b7baf32568765801cb304d72dadfcd739\u0026l\u003d98\n\nThat might be The Right Thing to do, but I kind of like the exhaustiveness we get with the enums and result unions more. I\u0027m going to see what errors we\u0027re currently returning from each method and see how everything looks.",
+      "parentUuid": "5d2a974b_8211dccd",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01ab03cc_3f609e4c",
         "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/OpenError.aidl",
         "patchSetId": 3
@@ -236,6 +434,30 @@
       "writtenOn": "2023-05-16T17:12:36Z",
       "side": 1,
       "message": "Why aren\u0027t these just Error variants?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 42
+      },
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4bf89fb_572ca58f",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/OpenError.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-16T22:23:54Z",
+      "side": 1,
+      "message": "Because these error cases are specific to the `Open*` methods; clients don\u0027t need to worry about handling them for `Read` for example.\n\nThe `Error` type as I currently have it also has a bunch of cases that are unreachable for most methods that use it; I\u0027m planning on going back over it to remove some and maybe separating it out into multiple enums/unions.",
+      "parentUuid": "01ab03cc_3f609e4c",
       "range": {
         "startLine": 25,
         "startChar": 0,
