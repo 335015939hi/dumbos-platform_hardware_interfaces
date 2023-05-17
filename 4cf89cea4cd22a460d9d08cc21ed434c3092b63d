@@ -424,6 +424,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92910e58_98983df4",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/Tamper.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2023-05-17T23:13:01Z",
+      "side": 1,
+      "message": "No. We need to return that the file-system was reset or rollbacked if a client expects rollback protection for any file that does not exist. file-not-found, means the file never existed. The reverse is not true though, if we return that the file-system was reset or rollbacked, it does not mean the file existed before, just that it could have.",
+      "parentUuid": "d5453e54_868d34f1",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d2a974b_8211dccd",
         "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/Error.aidl",
         "patchSetId": 3
