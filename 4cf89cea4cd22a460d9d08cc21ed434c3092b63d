@@ -406,6 +406,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5453e54_868d34f1",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/Tamper.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-17T20:35:02Z",
+      "side": 1,
+      "message": "So if we\u0027re returning `RESET`/`ROLLBACK` here, it\u0027s specifically this file that\u0027s been reset/rolled back. If the whole filesytem\u0027s been tampered with, we might be returning \"File not found\" instead?",
+      "parentUuid": "3c452f23_ad8f0648",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d2a974b_8211dccd",
         "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/Error.aidl",
         "patchSetId": 3
