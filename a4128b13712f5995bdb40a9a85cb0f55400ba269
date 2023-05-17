@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "381576d4_b5db308e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2023-05-17T15:14:37Z",
+      "side": 1,
+      "message": "I guess the comment was wrong...\n\nlogs/build_error.log on branch git_master on target eos-userdebug at P56841735\n\nFAILED: out/NOT_AVAILABLE_FOR_PLATFORM/target/product/eos/vendor/lib/android.hardware.tetheroffload.control@1.1.so\n/bin/bash -c \"(echo -e \\\"\\\\033[1mandroid.hardware.tetheroffload.control@1.1.vendor: \\\\033[31merror:\\\\033[0m\\\\033[1m\\\" \u0027Module is requested to be installed but is not available for platform because it does not have \\\"//apex_available:platform\\\" or it depends on other modules that are not available for platform.\u0027  \\\"\\\\033[0m\\\" \u003e\u00262 ) \u0026\u0026 (exit 1 )\"\nandroid.hardware.tetheroffload.control@1.1.vendor: error: Module is requested to be installed but is not available for platform because it does not have \"//apex_available:platform\" or it depends on other modules that are not available for platform.",
+      "revId": "a4128b13712f5995bdb40a9a85cb0f55400ba269",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
