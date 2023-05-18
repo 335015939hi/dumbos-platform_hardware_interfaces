@@ -64,6 +64,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d944cff_f3aea736",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-18T21:20:10Z",
+      "side": 1,
+      "message": "Gaurded mInputOpen and mOutputOpen as well.",
+      "parentUuid": "42eaed1b_c7a4481b",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 58,
+        "endChar": 19
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aab95168_dd9e0c26",
@@ -100,6 +124,30 @@
       "writtenOn": "2023-05-08T21:26:05Z",
       "side": 1,
       "message": "This looks shady. Where is the original object it refers to? If it\u0027s one of elements of `mSubmixRoutes` then holding a reference to it is not correct because it\u0027s not constant, and modifying the contents of `mSubmixRoutes` may shift the contents of even re-allocate the vector data to another location making this reference dangling.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 30
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6a41dbc_d9470978",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-18T21:20:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "292d6b0e_2159df35",
       "range": {
         "startLine": 107,
         "startChar": 0,
@@ -192,6 +240,30 @@
       "writtenOn": "2023-05-08T21:26:05Z",
       "side": 1,
       "message": "Where `submixRoute` is declared?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 36
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff1d3f5_44e6d6f4",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-18T21:20:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "044a6747_242e9782",
       "range": {
         "startLine": 166,
         "startChar": 0,
