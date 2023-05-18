@@ -133,6 +133,9 @@ Return<void> FrameHandler::deliverFrame(const BufferDesc& bufferArg) {
     // Local flag we use to keep track of when the stream is stopping
     bool timeToStop = false;
 
+    // Another local flag telling whether or not current frame is displayed.
+    bool frameDisplayed = false;
+
     if (bufferArg.memHandle.getNativeHandle() == nullptr) {
         // Signal that the last frame has been received and the stream is stopped
         timeToStop = true;
@@ -172,9 +175,7 @@ Return<void> FrameHandler::deliverFrame(const BufferDesc& bufferArg) {
                 } else {
                     // Everything looks good!
                     // Keep track so tests or watch dogs can monitor progress
-                    mLock.lock();
-                    mFramesDisplayed++;
-                    mLock.unlock();
+                    frameDisplayed = true;
                 }
             }
         }
@@ -203,6 +204,9 @@ Return<void> FrameHandler::deliverFrame(const BufferDesc& bufferArg) {
         mRunning = false;
     } else {
         mFramesReceived++;
+        if (frameDisplayed) {
+            mFramesDisplayed++;
+        }
     }
     mLock.unlock();
     mSignal.notify_all();
