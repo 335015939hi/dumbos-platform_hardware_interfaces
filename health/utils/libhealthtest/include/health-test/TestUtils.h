@@ -112,7 +112,8 @@ AssertionResult IsBatteryStatusCorrect(const BatteryStatusType& status,
                                        const BatteryInfoType& batteryInfo,
                                        const BatteryStatusToStringFn& toString) {
     bool isConnected = batteryInfo.chargerAcOnline || batteryInfo.chargerUsbOnline ||
-                       batteryInfo.chargerWirelessOnline;
+                       batteryInfo.chargerWirelessOnline || batteryInfo.chargerDockOnline;
+    BatteryChargingState chargingState = batteryInfo.chargingState;
 
     std::stringstream message;
     message << "BatteryStatus is " << toString(status) << " and " << (isConnected ? "" : "no ")
@@ -129,7 +130,7 @@ AssertionResult IsBatteryStatusCorrect(const BatteryStatusType& status,
         case BatteryStatusType::CHARGING:
         case BatteryStatusType::NOT_CHARGING:
         case BatteryStatusType::FULL: {
-            if (!isConnected) {
+            if (!isConnected && chargingState != BatteryChargingState::LONG_LIFE) {
                 return AssertionFailure() << message.str();
             }
         } break;
