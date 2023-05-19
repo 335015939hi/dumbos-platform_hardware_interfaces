@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4888104_8ffa30a2",
+        "filename": "audio/aidl/default/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-19T16:19:41Z",
+      "side": 1,
+      "message": "Let\u0027s name the directory `r_submix` so it\u0027s the same as the name used to publish the module: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/default/main.cpp;l\u003d65;drc\u003daa8f76af92cc0f706e0bd13508c7b6b596e0aac4",
+      "range": {
+        "startLine": 80,
+        "startChar": 9,
+        "endLine": 80,
+        "endChar": 21
+      },
+      "revId": "0bb7b9a823a708b14c31dd7a71863cc6be46aef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7679878_c0c2b2a0",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-19T16:19:41Z",
+      "side": 1,
+      "message": "Looking at the comment, why it\u0027a not `mPipeSizeFrames`? With this name, the comment becomes redundant.",
+      "range": {
+        "startLine": 43,
+        "startChar": 11,
+        "endLine": 43,
+        "endChar": 28
+      },
+      "revId": "0bb7b9a823a708b14c31dd7a71863cc6be46aef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c065e678_8f48e94c",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-19T16:19:41Z",
+      "side": 1,
+      "message": "A similar note whether this should be a struct instead.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 9
+      },
+      "revId": "0bb7b9a823a708b14c31dd7a71863cc6be46aef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cae21e6_b925ad9a",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-19T16:19:41Z",
+      "side": 1,
+      "message": "These 4 fields (excluding `mPortId`) look similar to the ones in `PipeConfig`. Can we define a structure which can be used both here and there?",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 20
+      },
+      "revId": "0bb7b9a823a708b14c31dd7a71863cc6be46aef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fe00678_12950fbd",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-19T16:19:41Z",
+      "side": 1,
+      "message": "I think we need to clarify the role of this variable by choosing a good name for it. Currently it\u0027s unclear why it has to be stored separately from `mSubmixRoutes`. Is this intended to be a cached variable, a \u0027current\u0027 route, or a temporary route which is not in that vector yet?",
+      "range": {
+        "startLine": 119,
+        "startChar": 33,
+        "endLine": 119,
+        "endChar": 45
+      },
+      "revId": "0bb7b9a823a708b14c31dd7a71863cc6be46aef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90c122cf_a1c5a55d",
+        "filename": "audio/aidl/default/remoteSubmix/StreamRemoteSubmix.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-19T16:19:41Z",
+      "side": 1,
+      "message": "Note that we are accessing `mSubmixRoute` from a different (non-worker) thread (see `DriverInterface`), which was assigning it (`DriverRemoteSubmix::init`). Thus, `mSubmixRoute` must be marked as `GUARDED_BY(mLock)`, and we must take it here.",
+      "range": {
+        "startLine": 250,
+        "startChar": 28,
+        "endLine": 250,
+        "endChar": 40
+      },
+      "revId": "0bb7b9a823a708b14c31dd7a71863cc6be46aef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09f37145_9c240cbf",
+        "filename": "audio/aidl/default/remoteSubmix/StreamRemoteSubmix.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-19T16:19:41Z",
+      "side": 1,
+      "message": "Nested lock use creates a possibility of a deadlock if another thread is attempting to take the same two locks in a different order (see an example here: https://www.ibm.com/docs/en/order-management-sw/10.0?topic\u003dcaching-sort-order-deadlocks). We must either never hold two locks together, or explicitly declare which one must be taken first, and ensure that all threads take these two locks in the same order.",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 37
+      },
+      "revId": "0bb7b9a823a708b14c31dd7a71863cc6be46aef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1d25fbe_505dde14",
+        "filename": "audio/aidl/default/remoteSubmix/StreamRemoteSubmix.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-19T16:19:41Z",
+      "side": 1,
+      "message": "Must be `kMicrosPerMillisecond` or something like that.",
+      "range": {
+        "startLine": 515,
+        "startChar": 76,
+        "endLine": 515,
+        "endChar": 92
+      },
+      "revId": "0bb7b9a823a708b14c31dd7a71863cc6be46aef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71b7a30f_8716b7c7",
+        "filename": "audio/aidl/default/remoteSubmix/StreamRemoteSubmix.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-19T16:19:41Z",
+      "side": 1,
+      "message": "The computation here seems to be overly complicated. Since we have the duration in microseconds, and the resulting value is in microseconds, too, why do we split into seconds and nanoseconds? This looks like a remnant from using `struct timespec`.",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 548,
+        "endChar": 67
+      },
+      "revId": "0bb7b9a823a708b14c31dd7a71863cc6be46aef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -120,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f641f86a_977b1e06",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-19T16:19:41Z",
+      "side": 1,
+      "message": "+1. Also a class with only public members and no methods is a POD, thus it\u0027s better to make it a `struct` to better reflect that.",
+      "parentUuid": "8f628b13_0d50e206",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "6682e6b3443447cc1485b3a6d2872a6fe602d03a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6858a768_0ffa07aa",
         "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
         "patchSetId": 3
