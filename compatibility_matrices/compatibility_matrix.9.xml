@@ -596,6 +596,15 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>android.hardware.rpmb</name>
+        <version>1</version>
+        <interface>
+            <name>IRpmb</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+    <hal format="aidl" optional="true">
         <name>android.hardware.secure_element</name>
         <version>1</version>
         <interface>

@@ -1,0 +1,4 @@
+service vendor.rpmb /vendor/bin/hw/android.hardware.rpmb-service.mock
+    class hal
+    user nobody
+    group nobody
