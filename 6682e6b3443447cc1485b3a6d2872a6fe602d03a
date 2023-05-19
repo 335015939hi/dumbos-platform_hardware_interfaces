@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3759680_581be15b",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f628b13_0d50e206",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 19
+      },
+      "revId": "6682e6b3443447cc1485b3a6d2872a6fe602d03a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6858a768_0ffa07aa",
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "In case of remote submix, streamin and streamout share the same data members like sink and source. These streams can be running parallely so we still need the locks.",
       "parentUuid": "fd1e1e32_60d32273",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 68
+      },
+      "revId": "6682e6b3443447cc1485b3a6d2872a6fe602d03a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "538bdef7_eadaa05c",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e88c2895_a5dc20a3",
       "range": {
         "startLine": 250,
         "startChar": 0,

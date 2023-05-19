@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fd8cd99_bead7bf8",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09c2b286_f1e1a076",
+      "range": {
+        "startLine": 368,
+        "startChar": 0,
+        "endLine": 368,
+        "endChar": 33
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42eaed1b_c7a4481b",
@@ -181,6 +205,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb528e9d_ab7ab8bd",
+        "filename": "audio/aidl/default/remote_submix/RemoteSubmixUtils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84c423e7_b552f680",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 14
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28b24103_7c91465b",
@@ -194,6 +242,30 @@
       "writtenOn": "2023-05-08T21:26:05Z",
       "side": 1,
       "message": "Where do we check that `mChannels` is valid?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 86
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "836763e9_b2b39c15",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "populateConnectedDevicePort in ModuleRemoteSubmix check if the port config is valid.",
+      "parentUuid": "28b24103_7c91465b",
       "range": {
         "startLine": 46,
         "startChar": 0,
@@ -297,6 +369,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1c9f96b_c08e9c6f",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "976049a3_6fc1ce60",
+      "range": {
+        "startLine": 465,
+        "startChar": 29,
+        "endLine": 465,
+        "endChar": 44
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "805d524f_9b239de6",
@@ -310,6 +406,30 @@
       "writtenOn": "2023-05-09T17:50:38Z",
       "side": 1,
       "message": "Do we need to `mSubmixRoute.mReadCounterFrames -\u003d frameCount` in this case?",
+      "range": {
+        "startLine": 474,
+        "startChar": 8,
+        "endLine": 474,
+        "endChar": 17
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "779060ba_02b99d89",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "mReadCounterFrames wasn\u0027t updated in this case in HIDL implementation. \nThis value is used to calculate the projectedVsObservedOffsetUs. \nIn case of readError we still simulate a read so I don\u0027t think we need to update this value here.",
+      "parentUuid": "805d524f_9b239de6",
       "range": {
         "startLine": 474,
         "startChar": 8,
@@ -343,6 +463,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae503df4_6484248d",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "279fd68e_a185324b",
+      "range": {
+        "startLine": 487,
+        "startChar": 37,
+        "endLine": 487,
+        "endChar": 65
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66f8e92c_dc091cff",
@@ -356,6 +500,30 @@
       "writtenOn": "2023-05-09T17:50:38Z",
       "side": 1,
       "message": "why -1977?",
+      "range": {
+        "startLine": 488,
+        "startChar": 29,
+        "endLine": 488,
+        "endChar": 34
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2bbd983_68fc41f9",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66f8e92c_dc091cff",
       "range": {
         "startLine": 488,
         "startChar": 29,
@@ -389,6 +557,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f08f296f_f22a97a5",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba4a8882_5c77c384",
+      "range": {
+        "startLine": 505,
+        "startChar": 16,
+        "endLine": 505,
+        "endChar": 21
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "321f5977_02892985",
@@ -402,6 +594,30 @@
       "writtenOn": "2023-05-09T17:50:38Z",
       "side": 1,
       "message": "nit: I think this can be out of while loop",
+      "range": {
+        "startLine": 506,
+        "startChar": 25,
+        "endLine": 506,
+        "endChar": 32
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bd9d600_09760ba7",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "321f5977_02892985",
       "range": {
         "startLine": 506,
         "startChar": 25,
@@ -435,6 +651,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd00222_16437557",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32ebe2bd_ee007861",
+      "range": {
+        "startLine": 529,
+        "startChar": 54,
+        "endLine": 529,
+        "endChar": 64
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60b9cfe4_fdeb58c2",
@@ -448,6 +688,30 @@
       "writtenOn": "2023-05-09T17:50:38Z",
       "side": 1,
       "message": "ERROR?",
+      "range": {
+        "startLine": 593,
+        "startChar": 8,
+        "endLine": 593,
+        "endChar": 13
+      },
+      "revId": "f489df335c57b6d0cebac0ea495c27685e5058fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b026866_d5c14863",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-19T22:57:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60b9cfe4_fdeb58c2",
       "range": {
         "startLine": 593,
         "startChar": 8,
