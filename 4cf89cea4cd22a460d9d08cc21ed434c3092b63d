@@ -106,6 +106,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cae975ca_de586f7b",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-19T18:13:55Z",
+      "side": 1,
+      "message": "Marking this resolved; LMK if you think I\u0027m missing something.",
+      "parentUuid": "9b79d31e_1b804bab",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e9cab36_19b70206",
@@ -281,6 +299,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a983ff1e_51282a66",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-19T18:13:55Z",
+      "side": 1,
+      "message": "Talked about this in a meeting; we can provide a client lib that calls these AIDL interfaces and handles concatenating the results from multiple read requests.",
+      "parentUuid": "a62eb1f4_a718cfb9",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f05eb23_2aadcc85",
@@ -312,6 +348,24 @@
       "side": 1,
       "message": "The difference is that the file option is a property of the file (i.e. for `TAMPER_DETECT_IGNORE_RESET`, the filesystem must be able to notice general tampering and rollbacks, but doesn\u0027t need to be able to catch resets) and might determine where the file is located. The read option allows the client to determine what types of tampering they consider an error.\n\nSo if an app needs to know when their file has been rolled back in order to recover, but don\u0027t need to know about resets, they could make the file `TAMPER_DETECT` or `TAMPER_DETECT_IGNORE_RESET`, then open the file with the `IGNORE_RESET` read option. If they get an error value with `Tamper.ROLLBACK`, they\u0027ll know a rollback happened and can try opening again with the `IGNORE_ROLLBACK` read option.",
       "parentUuid": "3f05eb23_2aadcc85",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c68a509f_1ce9898e",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ReadIntegrity.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-19T18:13:55Z",
+      "side": 1,
+      "message": "Marking this resolved; LMK if you think I\u0027m missing something.",
+      "parentUuid": "2c02f451_56e3fb66",
       "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -440,6 +494,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "842b5a1f_1a7ebcd0",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/Tamper.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-19T18:13:55Z",
+      "side": 1,
+      "message": "Got it; changed the doc comments to reflect this.",
+      "parentUuid": "92910e58_98983df4",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d2a974b_8211dccd",
@@ -471,6 +543,24 @@
       "side": 1,
       "message": "Looks like you just define a bunch of int constants on the interface like this\nhttp://cs/android-internal/frameworks/av/camera/aidl/android/hardware/ICameraService.aidl?l\u003d46\nand attach them when you construct an error status\nhttp://cs/android-internal/frameworks/native/libs/binder/include/binder/Status.h?rcl\u003deeae447b7baf32568765801cb304d72dadfcd739\u0026l\u003d98\n\nThat might be The Right Thing to do, but I kind of like the exhaustiveness we get with the enums and result unions more. I\u0027m going to see what errors we\u0027re currently returning from each method and see how everything looks.",
       "parentUuid": "5d2a974b_8211dccd",
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c644b64_b9f171d9",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/Error.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-19T18:13:55Z",
+      "side": 1,
+      "message": "Most of the existing errors can be `ILLEGAL_STATE` or `ILLEGAL_ARGUMENT`, which binder supports by default. Added a few service-specific errors for the others and removed this enum.",
+      "parentUuid": "92146e54_56c7f52b",
       "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -512,6 +602,30 @@
       "side": 1,
       "message": "Because these error cases are specific to the `Open*` methods; clients don\u0027t need to worry about handling them for `Read` for example.\n\nThe `Error` type as I currently have it also has a bunch of cases that are unreachable for most methods that use it; I\u0027m planning on going back over it to remove some and maybe separating it out into multiple enums/unions.",
       "parentUuid": "01ab03cc_3f609e4c",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 42
+      },
+      "revId": "4cf89cea4cd22a460d9d08cc21ed434c3092b63d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2b4eaf7_0287071b",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/result/OpenError.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-19T18:13:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4bf89fb_572ca58f",
       "range": {
         "startLine": 25,
         "startChar": 0,
