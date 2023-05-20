@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b701a5c_8ce5de41",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-20T03:15:14Z",
+      "side": 1,
+      "message": "While reviewing this CL I have realized that this comment is not correct. I\u0027ve double checked that this method is actually called on the same thread (worker thread) as the rest of the methods (except for `setConnectedDevices`). This is the fix: https://r.android.com/2597780. Thus, locking is only needed for data shared by the bulk of the methods with `setConnectedDevices` and `prepareToClose`.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 43
+      },
+      "revId": "93e01baca7ce765d577272fc8d43c5c5a6786748",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
