@@ -1,0 +1,337 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fca338ad_60b4be14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "\"includes\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57771b48_737b7389",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "We don\u0027t involve UDS_pub in any sort of secure channel (Did we ever even use UDS_pub in the secure channel setup?)\n\nAt best, we can say that we uniquely authenticate the device using the UDS_pub. However, this happens over a server-authenticated TLS channel.",
+      "range": {
+        "startLine": 24,
+        "startChar": 45,
+        "endLine": 25,
+        "endChar": 7
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd7c925_30e2adf5",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "I think our stance on this is \"we don\u0027t like it very much\".\n\nWith that in mind, perhaps we don\u0027t publicly document this and instead force partners to come to use for work-around if they cannot do factory uploads.\n\nMy inclination is that we\u0027re more ok with this once we get to Phase 3 and have certs signed by SoC makers.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9584c427_9bda0518",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "```suggestion\nsign certificate requests. Instead, UDS\\_pub is just the first public key in a\n```",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 26
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b57cffc7_9eeea541",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "```suggestion\ntransitively derived from the UDS and joined in a certificate chain following the\n```\n\nAs written, this sort of implies UDS is a direct input to key derivation.\n\nThough I\u0027m not sure just adding \"transitively\" is clear enough. This might need more words to make the derivation more clear.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 7
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d2d6b5c_6b4dcb44",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "I don\u0027t understand this sentence. Maybe a word is missing?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 61
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12d572a8_4ac65361",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "```suggestion\n* Degenerate DICE (Phase 1): A software root of trust manages UDS\\_pub and UDS\\_pub is\n```\n\nIMO we should keep the phase numbers since we\u0027ve been tossing them around for a long time.",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 18
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dee273d1_ccc13df6",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "```suggestion\n  used to sign certificate requests; a single self-signed certificate\n```",
+      "range": {
+        "startLine": 53,
+        "startChar": 10,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7aba3cd_3eec3713",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "does `blown into fuses` add anything here?\n\nPerhaps say `(e.g. blown into fuses) to leave future fancy tech like PUFs on the table.",
+      "range": {
+        "startLine": 55,
+        "startChar": 72,
+        "endLine": 56,
+        "endChar": 22
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a70d49db_19e600aa",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "```suggestion\n  vendor also does the UDS\\_pub extraction or certification in their\n```",
+      "range": {
+        "startLine": 59,
+        "startChar": 23,
+        "endLine": 59,
+        "endChar": 33
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6be64e4_180b7ddf",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "suggest adding:\n\n`rkpd is, optionally, a modular system component. When a system ships with rkpd as a module component, it may be updated independently from the rest of the system.`",
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0582e0fb_9285fd97",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "```suggestion\nDICE](https://pigweed.googlesource.com/open-dice/+/refs/heads/main/docs/specification.md),\n```\n\nI think this is a run-on w/o the comma.",
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c8c93a3_206269bb",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "Do the digests correspond with signing algorithms?\n\nThat is... do we always require SHA-256 for P256 chains?",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 31
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60e1be32_f275a10c",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "```suggestion\n* debug ports, fuses, or other debug facilities are disabled\n```\n\nSerial comma please 😄",
+      "range": {
+        "startLine": 192,
+        "startChar": 15,
+        "endLine": 192,
+        "endChar": 20
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "007ed26f_95aae9e8",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-22T17:55:06Z",
+      "side": 1,
+      "message": "```suggestion\n\\[-70000, -70999\\] (this range is reserved for future additions here).\n```",
+      "range": {
+        "startLine": 205,
+        "startChar": 20,
+        "endLine": 205,
+        "endChar": 29
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
