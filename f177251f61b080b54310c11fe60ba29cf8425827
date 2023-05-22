@@ -16,6 +16,167 @@
       "message": "Not review ready",
       "revId": "f177251f61b080b54310c11fe60ba29cf8425827",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00aa33e4_69268fe1",
+        "filename": "rpmb/aidl/android/hardware/rpmb/IRpmb.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-22T20:58:37Z",
+      "side": 1,
+      "message": "AIDL HALs use camelcase",
+      "range": {
+        "startLine": 23,
+        "startChar": 9,
+        "endLine": 23,
+        "endChar": 20
+      },
+      "revId": "f177251f61b080b54310c11fe60ba29cf8425827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93072507_882a6fc1",
+        "filename": "rpmb/aidl/android/hardware/rpmb/RpmbMessageFrame.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-22T20:58:37Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "f177251f61b080b54310c11fe60ba29cf8425827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c677b3fc_6ee2fd40",
+        "filename": "rpmb/aidl/android/hardware/rpmb/RpmbMessageFrame.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-22T20:58:37Z",
+      "side": 1,
+      "message": "wip?",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 14
+      },
+      "revId": "f177251f61b080b54310c11fe60ba29cf8425827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a225bf6d_1fad4851",
+        "filename": "rpmb/aidl/android/hardware/rpmb/RpmbMessageFrame.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-22T20:58:37Z",
+      "side": 1,
+      "message": "camelcase\n\nshould this be a union?",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "f177251f61b080b54310c11fe60ba29cf8425827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1766421_50d8d4fd",
+        "filename": "rpmb/aidl/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-22T20:58:37Z",
+      "side": 1,
+      "message": "it would be dangerous for this to be installed on a real device, right?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 14
+      },
+      "revId": "f177251f61b080b54310c11fe60ba29cf8425827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aacc21d_4a2868b7",
+        "filename": "rpmb/aidl/vts/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-22T20:58:37Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "f177251f61b080b54310c11fe60ba29cf8425827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63372169_dd15c938",
+        "filename": "rpmb/aidl/vts/VtsHalRpmbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-05-22T20:58:37Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "f177251f61b080b54310c11fe60ba29cf8425827",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
