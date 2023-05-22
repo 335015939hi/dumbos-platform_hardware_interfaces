@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "618ecf35_2e1b538c",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-22T01:46:30Z",
+      "side": 0,
+      "message": "Superencryption has been removed so this section is no longer accurate.",
+      "revId": "5bbc1a40219db9cce4226e869308c1557cd8cd20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fabdbb74_f9351893",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-22T01:46:30Z",
+      "side": 0,
+      "message": "Test mode is a thing of the past and is no longer a design consideration.",
+      "revId": "5bbc1a40219db9cce4226e869308c1557cd8cd20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9445544_2125ea5a",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-22T01:46:30Z",
+      "side": 0,
+      "message": "This is a rehashing of the Open Profile for DICE and the documentation on the IRPC interface only here it\u0027s phrased in terms of the BCC.",
+      "revId": "5bbc1a40219db9cce4226e869308c1557cd8cd20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d2ff22f_0704a239",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-22T01:46:30Z",
+      "side": 0,
+      "message": "This is a detail of the Google server and rkpd so doesn\u0027t feel relevant to the HAL.",
+      "revId": "5bbc1a40219db9cce4226e869308c1557cd8cd20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
