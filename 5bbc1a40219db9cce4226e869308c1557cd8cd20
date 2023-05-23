@@ -90,6 +90,30 @@
       },
       "revId": "5bbc1a40219db9cce4226e869308c1557cd8cd20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b697b7_8b14598b",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T21:10:02Z",
+      "side": 0,
+      "message": "I\u0027d moved it into the Android Profile for DICE but I guess it also refers to the CSR so I\u0027ll bring it back.",
+      "parentUuid": "f8593b44_46d6eac3",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 28
+      },
+      "revId": "5bbc1a40219db9cce4226e869308c1557cd8cd20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

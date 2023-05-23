@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e6572fa_db7f511f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T21:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fca338ad_60b4be14",
+      "range": {
+        "startLine": 10,
+        "startChar": 5,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57771b48_737b7389",
@@ -156,6 +180,30 @@
       "side": 1,
       "message": "Ah, ok. I didn\u0027t realize we\u0027d been quite so public about this.\n\nAgree it would be good to discuss that there are audit requirements around the OEM signing and that there are costs.",
       "parentUuid": "348145a8_40718cee",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a84ca954_2280e1fe",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T21:10:02Z",
+      "side": 1,
+      "message": "I haven\u0027t gone into too much detail but I made it sound less beneficial and explained that audit is a prerequisite. If there\u0027s separate documentation specifically for this option then we could add a link to that later.",
+      "parentUuid": "34c1f851_dc1c8dd4",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -650,6 +698,30 @@
       "side": 1,
       "message": "I think it\u0027s nice to provide implemeters flexibility as long as we don\u0027t depend on algorithms to be associated in any specific way.\n\nMy question is \"do we have any assumptions now in our validator?\" I don\u0027t think we do, but I\u0027m not certain.",
       "parentUuid": "93a7588e_86a988ad",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 31
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1464257d_43359df8",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T21:10:02Z",
+      "side": 1,
+      "message": "I don\u0027t necessarily agree that allowing flexibility of fairly trivial details like this is a good thing. More options is more room for mistakes, forces fragmentation and leaves less room for assumptions that can be helpful when consuming chains or testing the implementation.\n\nThere aren\u0027t any signing-hashing algorithm dependencies in the verifier.",
+      "parentUuid": "c3c362ac_aa406f86",
       "range": {
         "startLine": 181,
         "startChar": 4,

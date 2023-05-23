@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1177e0ad_ed7874ef",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T21:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dad949e8_8683fbda",
+      "range": {
+        "startLine": 28,
+        "startChar": 41,
+        "endLine": 28,
+        "endChar": 78
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52671823_16ad58bd",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdc62ef9_3200e499",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T21:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52671823_16ad58bd",
+      "range": {
+        "startLine": 53,
+        "startChar": 31,
+        "endLine": 53,
+        "endChar": 39
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee5c0056_b429c22e",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-05-23T16:05:40Z",
       "side": 1,
       "message": "```suggestion\n    ships with rkpd as a modular component, it may be updated independently from\n```\n\ns/module/modular/",
+      "range": {
+        "startLine": 156,
+        "startChar": 25,
+        "endLine": 156,
+        "endChar": 31
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b04c25a_f1992b44",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T21:10:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee5c0056_b429c22e",
       "range": {
         "startLine": 156,
         "startChar": 25,
@@ -107,6 +179,30 @@
       "side": 1,
       "message": "Agree with Max.\n\nHowever, we should indicate that we require review of any KDF other than HKDF.",
       "parentUuid": "1b247a3e_84fc5c34",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 6
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca587d2d_d9a9228d",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T21:10:02Z",
+      "side": 1,
+      "message": "Is there a record of the other KDFs anywhere? I\u0027d prefer to list the allowable ones and leave vendors to request others as they have already been doing than to openly invite it.",
+      "parentUuid": "be404fcc_b65be69a",
       "range": {
         "startLine": 184,
         "startChar": 2,
