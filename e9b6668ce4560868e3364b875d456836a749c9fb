@@ -16,6 +16,23 @@
       "message": "Sorry Steven, this was WIP. Not meant to be reviewed. Thanks for the quick pass though",
       "revId": "e9b6668ce4560868e3364b875d456836a749c9fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b4b0eb7_c524ebf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2023-05-23T01:07:33Z",
+      "side": 1,
+      "message": "what is the value of a RPMb specific HAL vs a generic secure storage API such as aosp/2585668.",
+      "revId": "e9b6668ce4560868e3364b875d456836a749c9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
