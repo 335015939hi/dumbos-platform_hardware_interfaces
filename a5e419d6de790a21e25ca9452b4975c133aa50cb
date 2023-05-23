@@ -16,6 +16,24 @@
       "message": "Hey Reviewers, please take a look",
       "revId": "a5e419d6de790a21e25ca9452b4975c133aa50cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa8e36be_ed526c5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-05-23T08:17:17Z",
+      "side": 1,
+      "message": "Compared to the reference build (aosp_cf_x86_64_phone-userdebug):\n```\nfiles modified:\n   vendor/lib/libbluetooth_audio_session_aidl.so (310848 bytes -\u003e 301580 bytes)\n   vendor/lib64/libbluetooth_audio_session_aidl.so (323104 bytes -\u003e 313912 bytes)\ntotal size change: -18460 bytes\n```",
+      "parentUuid": "2178f582_20bf939e",
+      "revId": "a5e419d6de790a21e25ca9452b4975c133aa50cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
