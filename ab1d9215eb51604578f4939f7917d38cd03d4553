@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc3ae6a_267a3b39",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "Changes it to describe how requests from secure components are authenticated.",
+      "parentUuid": "57771b48_737b7389",
+      "range": {
+        "startLine": 24,
+        "startChar": 45,
+        "endLine": 25,
+        "endChar": 7
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cd7c925_30e2adf5",
@@ -60,6 +84,30 @@
       "writtenOn": "2023-05-22T17:55:06Z",
       "side": 1,
       "message": "I think our stance on this is \"we don\u0027t like it very much\".\n\nWith that in mind, perhaps we don\u0027t publicly document this and instead force partners to come to use for work-around if they cannot do factory uploads.\n\nMy inclination is that we\u0027re more ok with this once we get to Phase 3 and have certs signed by SoC makers.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b7ac024_21ac5fbf",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "@jbires@google.com",
+      "parentUuid": "9cd7c925_30e2adf5",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -93,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b8fdf57_06b82f6d",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9584c427_9bda0518",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 26
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b57cffc7_9eeea541",
@@ -106,6 +178,30 @@
       "writtenOn": "2023-05-22T17:55:06Z",
       "side": 1,
       "message": "```suggestion\ntransitively derived from the UDS and joined in a certificate chain following the\n```\n\nAs written, this sort of implies UDS is a direct input to key derivation.\n\nThough I\u0027m not sure just adding \"transitively\" is clear enough. This might need more words to make the derivation more clear.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 7
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c988fab3_a1272351",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "I don\u0027t think we\u0027re trying to or need to explain it fully in this section? There a reference to the DICE parts that can go into more detail and refer to other documentation.",
+      "parentUuid": "b57cffc7_9eeea541",
       "range": {
         "startLine": 44,
         "startChar": 0,
@@ -139,6 +235,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "342666b7_a8bce21f",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "\"phased management of the root of trust\"",
+      "parentUuid": "3d2d6b5c_6b4dcb44",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 61
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12d572a8_4ac65361",
@@ -152,6 +272,30 @@
       "writtenOn": "2023-05-22T17:55:06Z",
       "side": 1,
       "message": "```suggestion\n* Degenerate DICE (Phase 1): A software root of trust manages UDS\\_pub and UDS\\_pub is\n```\n\nIMO we should keep the phase numbers since we\u0027ve been tossing them around for a long time.",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 52,
+        "endChar": 18
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "105e8885_5ae827c0",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12d572a8_4ac65361",
       "range": {
         "startLine": 52,
         "startChar": 2,
@@ -185,6 +329,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5be60174_4c0ec21b",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dee273d1_ccc13df6",
+      "range": {
+        "startLine": 53,
+        "startChar": 10,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7aba3cd_3eec3713",
@@ -198,6 +366,30 @@
       "writtenOn": "2023-05-22T17:55:06Z",
       "side": 1,
       "message": "does `blown into fuses` add anything here?\n\nPerhaps say `(e.g. blown into fuses) to leave future fancy tech like PUFs on the table.",
+      "range": {
+        "startLine": 55,
+        "startChar": 72,
+        "endLine": 56,
+        "endChar": 22
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da86f319_bd984c08",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "I removed the implementation detail. That can be added out-of-line if it\u0027s deemed important.",
+      "parentUuid": "d7aba3cd_3eec3713",
       "range": {
         "startLine": 55,
         "startChar": 72,
@@ -231,6 +423,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cb31564_ff05ffa2",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a70d49db_19e600aa",
+      "range": {
+        "startLine": 59,
+        "startChar": 23,
+        "endLine": 59,
+        "endChar": 33
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6be64e4_180b7ddf",
@@ -244,6 +460,24 @@
       "writtenOn": "2023-05-22T17:55:06Z",
       "side": 1,
       "message": "suggest adding:\n\n`rkpd is, optionally, a modular system component. When a system ships with rkpd as a module component, it may be updated independently from the rest of the system.`",
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "252cc410_b039cfb2",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "I\u0027ve worked those details in to this bullet.",
+      "parentUuid": "e6be64e4_180b7ddf",
       "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -265,6 +499,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c67b83_4cddefc3",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0582e0fb_9285fd97",
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c8c93a3_206269bb",
@@ -278,6 +530,30 @@
       "writtenOn": "2023-05-22T17:55:06Z",
       "side": 1,
       "message": "Do the digests correspond with signing algorithms?\n\nThat is... do we always require SHA-256 for P256 chains?",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 31
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93a7588e_86a988ad",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "They at least don\u0027t have to correspond for Ed25519 which internally uses SHA-512.  It\u0027s not something we\u0027ve got any checks for at the moment either. Do you think it would be better to tabulate this and be more prescriptive about the combination of algorithms?",
+      "parentUuid": "9c8c93a3_206269bb",
       "range": {
         "startLine": 181,
         "startChar": 4,
@@ -311,6 +587,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39960d2c_1d0300a5",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60e1be32_f275a10c",
+      "range": {
+        "startLine": 192,
+        "startChar": 15,
+        "endLine": 192,
+        "endChar": 20
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "007ed26f_95aae9e8",
@@ -324,6 +624,30 @@
       "writtenOn": "2023-05-22T17:55:06Z",
       "side": 1,
       "message": "```suggestion\n\\[-70000, -70999\\] (this range is reserved for future additions here).\n```",
+      "range": {
+        "startLine": 205,
+        "startChar": 20,
+        "endLine": 205,
+        "endChar": 29
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c83b5f_82396415",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-23T00:58:08Z",
+      "side": 1,
+      "message": "Reworded this paragraph to remove the parenthetical.",
+      "parentUuid": "007ed26f_95aae9e8",
       "range": {
         "startLine": 205,
         "startChar": 20,
