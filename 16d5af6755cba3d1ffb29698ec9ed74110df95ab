@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb8b60d5_cb446b9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-05-23T03:41:57Z",
+      "side": 1,
+      "message": "```\n   vendor/lib/libbluetooth_audio_session_aidl.so (310848 bytes -\u003e 301580 bytes)\n   vendor/lib64/libbluetooth_audio_session_aidl.so (323104 bytes -\u003e 313912 bytes)\ntotal size change: -18460 bytes\n```\nDiffs compared to the reference build (aosp_cf_x86_64_phone-userdebug)",
+      "revId": "16d5af6755cba3d1ffb29698ec9ed74110df95ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baf9a07e_089e64a2",
