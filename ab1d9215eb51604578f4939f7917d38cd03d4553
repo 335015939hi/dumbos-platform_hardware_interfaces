@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34c1f851_dc1c8dd4",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-23T16:05:40Z",
+      "side": 1,
+      "message": "Ah, ok. I didn\u0027t realize we\u0027d been quite so public about this.\n\nAgree it would be good to discuss that there are audit requirements around the OEM signing and that there are costs.",
+      "parentUuid": "348145a8_40718cee",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9584c427_9bda0518",
         "filename": "security/rkp/README.md",
         "patchSetId": 2
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "I don\u0027t think we\u0027re trying to or need to explain it fully in this section? There a reference to the DICE parts that can go into more detail and refer to other documentation.",
       "parentUuid": "b57cffc7_9eeea541",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 7
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b41d497_2b6dc1c1",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-23T16:05:40Z",
+      "side": 1,
+      "message": "Fair. We should assume implementers RTFM.\n\nThat said, I think we should say something other than just `derived from the UDS`, as it is potentially misleading on it\u0027s own. \"Transitively\" was just the first terse qualification that popped into my head. Other options work, like `derived starting from the UDS`.",
+      "parentUuid": "c988fab3_a1272351",
       "range": {
         "startLine": 44,
         "startChar": 0,
@@ -578,6 +626,30 @@
       "side": 1,
       "message": "They at least don\u0027t have to correspond for Ed25519 which internally uses SHA-512.  It\u0027s not something we\u0027ve got any checks for at the moment either. Do you think it would be better to tabulate this and be more prescriptive about the combination of algorithms?",
       "parentUuid": "9c8c93a3_206269bb",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 31
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3c362ac_aa406f86",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-23T16:05:40Z",
+      "side": 1,
+      "message": "I think it\u0027s nice to provide implemeters flexibility as long as we don\u0027t depend on algorithms to be associated in any specific way.\n\nMy question is \"do we have any assumptions now in our validator?\" I don\u0027t think we do, but I\u0027m not certain.",
+      "parentUuid": "93a7588e_86a988ad",
       "range": {
         "startLine": 181,
         "startChar": 4,
