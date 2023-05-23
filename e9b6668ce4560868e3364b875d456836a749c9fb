@@ -33,6 +33,23 @@
       "message": "what is the value of a RPMb specific HAL vs a generic secure storage API such as aosp/2585668.",
       "revId": "e9b6668ce4560868e3364b875d456836a749c9fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89b02552_2457ae96",
+        "filename": "rpmb/aidl/android/hardware/rpmb/IRpmb.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2023-05-23T01:27:36Z",
+      "side": 1,
+      "message": "This is not very compatible with mmc devices since they have two types of write operations that both need to be used in the same command. Also the relayer does not need to know the message frame format, so I don\u0027t see much point in defining this in this interface. You can look at storage_rpmb_send_req in https://android.googlesource.com/trusty/lib/+/refs/heads/master/interface/storage/include/interface/storage/storage.h#413 for an example of the interface we have today between trusty and storageproxyd. Note that there are some other subtle differences between ufs and mmc though, so the storage server in trusty needs to be built for one or the other. If you don\u0027t know at build time if the rpmb device is mmc or ufs, you will need to have a discovery mechanism for this as well.\n\nI would like to reiterate that the rpmb protocol is not a good choice for an interface to secure storage. It would be simpler to define a simple secure hal for the storage needs you have and talk directly to the tz implementation.",
+      "revId": "e9b6668ce4560868e3364b875d456836a749c9fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
