@@ -211,6 +211,30 @@
       },
       "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e93e5a7_aceb41cd",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-23T21:20:32Z",
+      "side": 1,
+      "message": "The only one I\u0027ve heard someone using is an AES-based KDF (IIRC it was roughly like HKDF, but using a CMAC instead of HMAC).\n\nWe could reference NIST SP 800-108 maybe (interestingly, it omits HKDF!)? I bet Paul Crowley has good pointers.",
+      "parentUuid": "ca587d2d_d9a9228d",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 6
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
