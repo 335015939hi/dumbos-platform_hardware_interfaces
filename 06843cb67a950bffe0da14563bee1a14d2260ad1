@@ -22,6 +22,30 @@
       },
       "revId": "06843cb67a950bffe0da14563bee1a14d2260ad1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06c2bf27_7bbc657a",
+        "filename": "keymaster/4.0/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-05-23T20:42:32Z",
+      "side": 1,
+      "message": "oh wow, you\u0027re right! It shouldn\u0027t be passing.\nI haven\u0027t run it on any physical device.",
+      "parentUuid": "7912b410_ae81a46c",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 44
+      },
+      "revId": "06843cb67a950bffe0da14563bee1a14d2260ad1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
