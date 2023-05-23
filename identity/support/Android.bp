@@ -22,15 +22,8 @@ package {
     default_applicable_licenses: ["hardware_interfaces_license"],
 }
 
-cc_library {
-    name: "android.hardware.identity-support-lib",
-    vendor_available: true,
-    srcs: [
-        "src/IdentityCredentialSupport.cpp",
-    ],
-    export_include_dirs: [
-        "include",
-    ],
+cc_defaults {
+    name: "android.hardware.identity-support-lib-deps",
     shared_libs: [
         "android.hardware.keymaster@4.0",
         "libcrypto",
@@ -44,6 +37,20 @@ cc_library {
     ],
     static_libs: [
         "libcppbor_external",
+    ],
+}
+
+cc_library {
+    name: "android.hardware.identity-support-lib",
+    vendor_available: true,
+    defaults: [
+        "android.hardware.identity-support-lib-deps",
+    ],
+    srcs: [
+        "src/IdentityCredentialSupport.cpp",
+    ],
+    export_include_dirs: [
+        "include",
     ],
 }
 
