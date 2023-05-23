@@ -67,6 +67,29 @@
       "message": "This is a detail of the Google server and rkpd so doesn\u0027t feel relevant to the HAL.",
       "revId": "5bbc1a40219db9cce4226e869308c1557cd8cd20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8593b44_46d6eac3",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-23T15:00:28Z",
+      "side": 0,
+      "message": "Why was this removed?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 28
+      },
+      "revId": "5bbc1a40219db9cce4226e869308c1557cd8cd20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

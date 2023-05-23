@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dad949e8_8683fbda",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-23T15:00:28Z",
+      "side": 1,
+      "message": "Nit: s/learn that UDS\\_pub should be trusted/trust UDS\\_pub,/",
+      "range": {
+        "startLine": 28,
+        "startChar": 41,
+        "endLine": 28,
+        "endChar": 78
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52671823_16ad58bd",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-23T15:00:28Z",
+      "side": 1,
+      "message": "Nit: may be better to say \"TEE root of trust\". It\u0027s still software, but we don\u0027t want to give the idea that this key could just be managed by a userspace HAL service.",
+      "range": {
+        "startLine": 53,
+        "startChar": 31,
+        "endLine": 53,
+        "endChar": 39
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b247a3e_84fc5c34",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-23T15:00:28Z",
+      "side": 1,
+      "message": "HKDF is not the only allowable KDF, but it is our recommended one. We found that several vendors had differing KDFs they wanted to use, and paulcrowley@ okayed them.",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 6
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
