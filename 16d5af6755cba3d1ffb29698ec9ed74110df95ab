@@ -99,6 +99,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49f4ea7c_169c3d75",
+        "filename": "audio/policy/1.0/xml/pfw_schemas/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2023-05-24T13:27:41Z",
+      "side": 1,
+      "message": "I confirm, it is the root element.",
+      "parentUuid": "f41acebe_178ad585",
+      "range": {
+        "startLine": 14,
+        "startChar": 21,
+        "endLine": 14,
+        "endChar": 52
+      },
+      "revId": "16d5af6755cba3d1ffb29698ec9ed74110df95ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b36e1ef_7e69837e",
