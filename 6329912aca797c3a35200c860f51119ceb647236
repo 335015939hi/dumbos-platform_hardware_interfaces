@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaeec8ee_bcea0179",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2023-05-24T05:17:35Z",
+      "side": 1,
+      "message": "This conflicts with internal OWNER file, probably we should wait for the dependencies to be ready",
+      "revId": "6329912aca797c3a35200c860f51119ceb647236",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
