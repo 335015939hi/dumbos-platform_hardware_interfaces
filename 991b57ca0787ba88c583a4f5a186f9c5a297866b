@@ -16,6 +16,75 @@
       "message": "In patchset2 uploaded the changes to validate the CredentialData. A sample credential data is hard-coded in the vts.",
       "revId": "991b57ca0787ba88c583a4f5a186f9c5a297866b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f6ae415_32c7d6b3",
+        "filename": "security/identity_direct/aidl/vts/DirectAccessTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-05-24T22:18:21Z",
+      "side": 1,
+      "message": "Also need to check the leaf certificate has an Android Attestation Extension with the passed in |challenge|.",
+      "range": {
+        "startLine": 255,
+        "startChar": 43,
+        "endLine": 255,
+        "endChar": 45
+      },
+      "revId": "991b57ca0787ba88c583a4f5a186f9c5a297866b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baac0cba_e64e2f52",
+        "filename": "security/identity_direct/aidl/vts/DirectAccessTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-05-24T22:18:21Z",
+      "side": 1,
+      "message": "We should have a utility function which generates |encodedCredentialData| instead of relying on hex data... it shouldn\u0027t be too hard to generate data and we can fake the payload of IssuerAuth initially.\n\nIdeally we\u0027d use `MobileSecurityObjectGenerator` + friends from https://github.com/google/identity-credential but initially it\u0027s fine to just use libcppbor and build it by hand since it\u0027s fairly uncomplicated if you ignore `IssuerAuth` and its payload (the MSO).",
+      "range": {
+        "startLine": 282,
+        "startChar": 20,
+        "endLine": 282,
+        "endChar": 31
+      },
+      "revId": "991b57ca0787ba88c583a4f5a186f9c5a297866b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66c5e66d_52cbd053",
+        "filename": "security/identity_direct/aidl/vts/DirectAccessTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1076971
+      },
+      "writtenOn": "2023-05-24T22:18:21Z",
+      "side": 1,
+      "message": "Because this is a test credential, you are able to decrypt |encryptedData| and recover |SigningKeyAndCredentialData| and check that the contents match. We should do that.",
+      "range": {
+        "startLine": 288,
+        "startChar": 47,
+        "endLine": 288,
+        "endChar": 48
+      },
+      "revId": "991b57ca0787ba88c583a4f5a186f9c5a297866b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
