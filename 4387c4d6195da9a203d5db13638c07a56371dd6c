@@ -39,6 +39,30 @@
       },
       "revId": "4387c4d6195da9a203d5db13638c07a56371dd6c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56419b6f_8112f607",
+        "filename": "keymaster/4.0/vts/functional/BootloaderStateTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2023-05-24T19:17:16Z",
+      "side": 1,
+      "message": "lol",
+      "parentUuid": "a5ec5a94_f414198d",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 0
+      },
+      "revId": "4387c4d6195da9a203d5db13638c07a56371dd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
