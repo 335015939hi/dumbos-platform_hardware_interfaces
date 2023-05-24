@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a421bed_6a2675f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096593
+      },
+      "writtenOn": "2023-05-24T09:46:54Z",
+      "side": 1,
+      "message": "Hi Yu Shan,\nCould you help to review the patch?\n\nNow below two test require set PERF_VEHICLE_SPEED_DISPLAY.\n\nrun ats -m AtsCarPropertyDeviceApp -t com.google.android.car.ats.CarPropertyManagerTest#perfVehicleSpeedDisplay_mustBeImplemented --logcat-on-failure\nrun ats -m AtsCarPropertyHostTests -t com.google.android.car.ats.AtsCarPropertyHostTest#perfVehicleSpeedDisplay_mustBeImplemented --logcat-on-failure",
+      "revId": "732f59627fe706153ddd175f34df48043cb41622",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
