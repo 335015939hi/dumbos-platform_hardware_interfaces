@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b90d9a8b_596cb768",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-05-24T01:38:55Z",
+      "side": 1,
+      "message": "Hi David, can you please review this?  I\u0027m going to make \"root_elements\" mandatory for XML schemas with multiple top-level elements. Before the enforcement, need to fix the current usage. This doesn\u0027t change behavior, and removes the unnecessary code.",
+      "revId": "16d5af6755cba3d1ffb29698ec9ed74110df95ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baf9a07e_089e64a2",
