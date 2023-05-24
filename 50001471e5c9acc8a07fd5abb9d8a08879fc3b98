@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94598080_61884a03",
+        "filename": "identity/aidl/vts/Util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-05-24T21:27:10Z",
+      "side": 1,
+      "message": "I think it may be slightly more complicated than this, no?\n\nOr did we completely remove all test mode from all identity tests?",
+      "range": {
+        "startLine": 76,
+        "startChar": 55,
+        "endLine": 76,
+        "endChar": 60
+      },
+      "revId": "50001471e5c9acc8a07fd5abb9d8a08879fc3b98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
