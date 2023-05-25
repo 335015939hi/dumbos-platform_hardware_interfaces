@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c15cf438_d4ff27b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-05-25T17:29:47Z",
+      "side": 1,
+      "message": "I\u0027m not having any luck getting forrest to use a device that can actually generate attestation",
+      "parentUuid": "8621d6c6_5bba41e9",
+      "revId": "4387c4d6195da9a203d5db13638c07a56371dd6c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5ec5a94_f414198d",
