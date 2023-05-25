@@ -179,6 +179,30 @@
       },
       "revId": "16d5af6755cba3d1ffb29698ec9ed74110df95ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c74ed82_0736cd33",
+        "filename": "bluetooth/audio/utils/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2023-05-25T04:56:54Z",
+      "side": 1,
+      "message": "Hi Jooynug, \n\nYes you are right.",
+      "parentUuid": "0b36e1ef_7e69837e",
+      "range": {
+        "startLine": 96,
+        "startChar": 21,
+        "endLine": 96,
+        "endChar": 42
+      },
+      "revId": "16d5af6755cba3d1ffb29698ec9ed74110df95ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
