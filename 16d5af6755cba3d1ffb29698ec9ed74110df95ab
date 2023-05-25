@@ -87,6 +87,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d21a4ad6_1b3c40c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2023-05-25T05:01:06Z",
+      "side": 1,
+      "message": "confirm `leAudioOffloadSetting ` is the root element, +1 for LE audio setting part.",
+      "revId": "16d5af6755cba3d1ffb29698ec9ed74110df95ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baf9a07e_089e64a2",
