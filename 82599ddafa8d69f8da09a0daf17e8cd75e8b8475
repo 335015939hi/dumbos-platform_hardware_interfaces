@@ -16,6 +16,24 @@
       "message": "Hi Subrahmanya,\n\nMay I know do you have a plan to add a AIDL based software gatekeeper implmentation here? Just like other default implementation in \"hardware/interface\"?\n\nThanks!",
       "revId": "82599ddafa8d69f8da09a0daf17e8cd75e8b8475",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cff7ca8_e0145336",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1206463
+      },
+      "writtenOn": "2023-05-25T01:40:51Z",
+      "side": 1,
+      "message": "Hi,\n\nI create a ticket in case you may need it: https://issuetracker.google.com/issues/284188586",
+      "parentUuid": "e584c545_2d903cae",
+      "revId": "82599ddafa8d69f8da09a0daf17e8cd75e8b8475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
