@@ -291,6 +291,25 @@ available on the device it should appear in the certificate request as the leaf
 of a DKCertChain in AdditionalDKSignatures (see
 [CertificateRequest](#certificaterequest)).
 
+#### Mode
+
+The Open Profile for DICE specifies four possible modes with the most important
+mode being `normal`. A certificate must only set the mode to `normal` when all
+of the following conditions are met when loading and verifying the software
+component that is being described by the certificate:
+
+*   verified boot with anti-rollback protection is enabled
+*   only the verified boot authorities for production images are enabled
+*   debug ports, fuses or other debug facilities are disabled
+*   device booted software from the normal primary source e.g. internal flash
+
+The mode should never be `not configured`.
+
+Every certificate in the DICE chain will need to be have the `normal` mode in
+order to be provisioned with production certificates by RKP.
+
+#### Configuration descriptor
+
 The Open Profile for DICE allows for an arbitrary configuration descriptor. For
 BCC entries, this configuration descriptor is a CBOR map with the following
 optional fields. If no fields are relevant, an empty map should be encoded.
@@ -306,6 +325,11 @@ the range \[-70000, -70999\] (these are reserved for future additions here).
 :                   :        :            : boot stage                        :
 | Resettable        | -70004 | null       | If present, key changes on factory|
 :                   :        :            : reset                             :
+| Security version  | -70005 | uint       | Machine-comparable, monotonically |
+:                   :        :            : increasing version of the firmware:
+:                   :        :            : component / boot stage where a    :
+:                   :        :            : greater value indicates a newer   :
+:                   :        :            : version                           :
 ```
 
 Please see
