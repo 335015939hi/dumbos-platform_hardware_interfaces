@@ -259,6 +259,30 @@
       },
       "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce32e86a_dc7e5cbc",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-29T23:23:46Z",
+      "side": 1,
+      "message": "I did not, I will ping @paulcrowley here and see if he can recall. I think Seth is correct, though.",
+      "parentUuid": "c99e4c1e_f5f4d189",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 6
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
