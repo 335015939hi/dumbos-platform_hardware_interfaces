@@ -282,6 +282,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bcaa01e_7d753f68",
+        "filename": "audio/aidl/default/remoteSubmix/StreamRemoteSubmix.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-30T15:24:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09f37145_9c240cbf",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 37
+      },
+      "revId": "0bb7b9a823a708b14c31dd7a71863cc6be46aef2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1d25fbe_505dde14",
