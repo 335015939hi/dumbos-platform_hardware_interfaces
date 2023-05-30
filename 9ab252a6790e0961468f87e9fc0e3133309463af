@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a80c7123_3e2edbe4",
+        "filename": "audio/aidl/default/r_submix/ModuleRemoteSubmix.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-30T21:06:40Z",
+      "side": 1,
+      "message": "Thanks to Ram who has pointed out that the intention of this method is not clear. To clarify, this method is intended to be used in the case when in the initial configuration the device port has dynamic profiles (e.g. HDMI and USB). In this case, the module implementation needs to query the device here for supported profiles and populate the provided AudioPort. In the case when supported profiles are already known, as in the case of BT and remote submix, the AudioPort already has profiles filled out, thus no additional work has to be done.\n\nIt might be better for consistency to double check that the profiles contain only configurations that are actually supported by the module, as we do here (`isChannelMaskSupported` and `isSampleRateSupported`). However, we need to do this for all elements of the profile, not just for the first one.\n\nThus, what we need to change here:\n\n1. Omit the checks for `profiles` and other arrays to be non-empty—we can move them here: https://cs.android.com/android/platform/superproject/+/refs/heads/master:hardware/interfaces/audio/aidl/default/Module.cpp;l\u003d483;drc\u003db511b8aa2179f0c5dd4e5cc180258995e6b41714. There is already a check for the `profiles`, we need just to extend it with the checks for other arrays.\n\n2. Make a loop over all profiles, and nested ones over all channel masks and sample rates to confirm that they are supported.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "9ab252a6790e0961468f87e9fc0e3133309463af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
