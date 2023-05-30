@@ -16,6 +16,24 @@
       "message": "I don\u0027t think this needs to mention multiple files. If a client needs to write a single file atomically, which I expect to be a common case, then it can pass true here and commit after writing one file. If we allow the session object to be re-used though, which is needed to keep files open across transactions, it might be better to annotate the atomic regions with a separate method call.\n\nNote that this is an inefficient ipc interface though, passing flags at the ipc interface layer allows round-trips to be eliminated. The read/write api you have defined here can\u0027t necessarily be supported by the server since the idl will require the entire operation to be staged in memory, the api here seems more like a preview of to what we expect the wrapper library to provide, not the actual server/idl api.",
       "revId": "7d4afe914f0adf20e16033cc84953e6771744dd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a284b2e_22c1936a",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-05-30T18:00:41Z",
+      "side": 1,
+      "message": "Couple things I don\u0027t understand here:\n\n1. Does it make sense for a client to _non_-atomically write to one file? If I change this to `boolean atomicCommits`, seem like we\u0027re implying that does make sense. It also means that impls that don\u0027t support session with multi-file atomic commits will have to return `UNSUPPORTED` from `IFile::Write`; I think it\u0027s better if we can error out earlier, ideally when the session is created asking for that functionality.\n\n2. Is there ipc inefficiency here that wasn\u0027t already there in `IFile` or `IDir`? I definitely agree that this is more round-trips that are strictly necessary, but thought we decided that was okay. I don\u0027t see why this api requires the operation to be staged in memory; can\u0027t the server write to temp files and move them on commit?",
+      "parentUuid": "7af06663_e0380f1f",
+      "revId": "7d4afe914f0adf20e16033cc84953e6771744dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
