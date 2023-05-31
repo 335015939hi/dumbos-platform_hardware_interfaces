@@ -756,6 +756,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ebb581d_bb8ef877",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-31T22:11:20Z",
+      "side": 1,
+      "message": "I don\u0027t see there being much need but I\u0027m open to a vendor explaining why I\u0027m wrong. I\u0027ve added this to the list of things to think about for the time being.",
+      "parentUuid": "65278e2f_d8ce4bcc",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 31
+      },
+      "revId": "ab1d9215eb51604578f4939f7917d38cd03d4553",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60e1be32_f275a10c",
