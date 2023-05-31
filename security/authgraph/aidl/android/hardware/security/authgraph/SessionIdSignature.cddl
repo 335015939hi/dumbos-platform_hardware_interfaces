@@ -1,0 +1,19 @@
+SessionIdSignature = [ ; COSE_Sign1 (untagged) [RFC9052 s4.2]
+    protected: bstr .cbor SessionIdSignatureProtected,
+    unprotected: {},
+    payload: nil,       ; session ID payload to be transported separately
+    signature: bstr     ; PureEd25519(privateKey, SessionIdSignatureSigStruct) /
+                        ; ECDSA(privateKey, SessionIdSignatureSigStruct)
+]
+
+SessionIdSignatureProtected = {
+    1 : AlgorithmEdDSA / AlgorithmES256,
+    ; TODO: add protected fields
+}
+
+SessionIdSignatureSigStruct = [ ; Sig_structure for SessionIdSignature [ RFC9052 s4.4]
+    context: "Signature1",
+    protected: bstr SessionIdSignatureProtected,
+    external_aad: bstr .size 0,
+    payload: bstr,       ; session ID payload provided separately
+]
