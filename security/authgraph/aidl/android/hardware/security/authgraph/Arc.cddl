@@ -1,0 +1,102 @@
+Arc = [                            ; COSE_Encrypt0
+    protected : bstr .cbor ArcProtectedHeaders,
+    unprotected : {
+        5 : bstr .size 12          ; IV
+    },
+    ciphertext : bstr    ; Enc(K, bstr .cbor Payload, encoded ArcEncStruct)
+]
+
+ArcProtectedHeaders = {
+           1 : 3,                  ; Algorithm: AES-GCM mode w/ 256-bit key, 128-bit tag
+    ? -70001 : { + Permission }, ; One or more Permissions
+    ? -70002 : { + Limitation }, ; One or more Limitations
+      -70003 : int,   ; Timestamp in milliseconds since some starting point (generally
+                      ; the most recent device boot) which all of the applications within
+                      ; the secure domain must agree upon
+    ? -70004 : bstr .size 16,      ; Nonce used in key exchange methods
+      -70005 : int,                ; Payload type
+    ? -70006 : int,                ; Version of the payload structure (if applicable)
+    ? -70007 : int,                ; Sequence number (if needed to prevent replay attacks)
+    ? -70008 : Direction           ; Direction of the encryption key (i.e. whether it is used to
+                                   ; encrypt incoming messages or outgoing messages)
+    ? -70009 : bool,               ; "authentication_completed" - this is used during authenticated
+                                   ; key agreement indicate whether signature verification is done
+    ? -70010 : bstr .size 32       ; "session_id" computed during key agreement protocol
+}
+
+; Permissions indicate what an arc can be used with. Permissions are added to an arc during the
+; `create()` primitive operation and are propagated during `mint` and `snap` primitive operations.
+Permission = &(
+    -4770552 : Identity,  ; "source_id" - in the source specific operations, the source adds
+                          ; its own identity to the permissions of an arc.
+    -4770553 : Identity,  ; "sink_id" - in the sink specific operations, the sink adds its
+                          ; own identity to the permissions of an arc.
+    -4770555 : [ +Identity ]  ; "minting_allowed" - dsefines the set of TA identities
+                              ; to whom the payload key is allowed to be minted.
+    -4770556 : bool           ; "deleted_on_biometric_change" - A Boolean value that
+                              ; indicates whether an auth key issued from a biometric TA is
+                              ; invalidated on new biometric enrollment or removal of all
+                              ; biometrics.
+)
+
+; Limitations indicate what restrictions are applied on the usage of an arc. Permissions are added
+; to an arc during the `create` primitive operation and are propagated during `snap` primitive
+; operation.
+Limitation = &(
+    -4770554 : bstr,      ; "challenge" - is added to an arc that transfers an auth key to a channel
+                          ; key, in order to ensure the freshness of the authentication.
+                          ; A challenge is issued by a sink (e.g. Keymint TA, Biometric TAs).
+)
+
+; As the first step, the identity of a party is defined as their public signing key. In the
+; future, this will be updated to include DICE certificate chain and the identity verification
+; policy.
+
+Identity = &(
+    ; INCLUDE generateCertificateRequestV2.cddl
+    ; (see hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/
+    ; generateCertificateRequestV2.cddl for the definitions of the following COSE_Key types)
+    bstr .cbor PubKeyEd25519,
+    bstr .cbor PubKeyECDSA256,
+    bstr .cbor PubKeyECDSA384
+)
+
+PayloadType = &(
+    SecretKey: 1,
+    Arc: 2,
+    ; Any other payload types should also be defined here
+)
+
+Payload = &(
+    SecretKey,
+    Arc,
+    ; Any other payload formats should also be defined here
+)
+
+SecretKey = &(                     ; One of the payload types of an Arc is a secret key
+        SymmetricKey,
+        ECPrivateKey,    ; Private key of a key pair generated for key agreement
+)
+
+ECPrivateKey = {              ; COSE_Key
+    1 : 2,                    ; Key type : EC2
+    3 : -25,                  ; Algorithm: ECDH ES w/ HKDF 256 - generate key directly
+ ?  4 : [7],                  ; Key_ops: [derive key]
+   -1 : 1,                    ; Curve: P-256
+ ? -2 : bstr,                 ; x coordinate
+ ? -3 : bstr,                 ; y coordinate
+   -4 : bstr,                 ; private key (d)
+}
+
+SymmetricKey = {              ; COSE_Key - For symmetric key encryption
+    1 : 4,                    ; Key type : Symmetric
+    3 : 3,                    ; Algorithm : AES-GCM mode w/ 256-bit key, 128-bit tag
+    4 : [ 4 ],                ; Key_ops: [decrypt]
+   -1 : bstr .size 32,        ; Key value (k)
+}
+
+ArcEncStruct = [              ; COSE_Enc_structure
+    context   : "Encrypt0",
+    protected : bstr .cbor ArcProtectedHeaders,
+    external_aad : bstr .size 0,
+]
