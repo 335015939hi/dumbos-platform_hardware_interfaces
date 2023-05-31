@@ -16,6 +16,24 @@
       "message": "I think you may have started from an out-of-date codebase -- didn\u0027t all of these methods get moved into KeyMintAidlTestBase in aosp/2553970 ?",
       "revId": "4f30972f95046ca2020507bf042724718784fef7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5812038_ff669d4a",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2023-05-31T16:23:54Z",
+      "side": 1,
+      "message": "Indeed they did, thanks for pointing that out.",
+      "parentUuid": "464607e9_7577692b",
+      "revId": "4f30972f95046ca2020507bf042724718784fef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
