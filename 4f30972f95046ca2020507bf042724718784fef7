@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "464607e9_7577692b",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-05-31T06:04:07Z",
+      "side": 1,
+      "message": "I think you may have started from an out-of-date codebase -- didn\u0027t all of these methods get moved into KeyMintAidlTestBase in aosp/2553970 ?",
+      "revId": "4f30972f95046ca2020507bf042724718784fef7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
