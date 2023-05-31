@@ -70,6 +70,30 @@
       },
       "revId": "fd927c26e4f004c39811c34d6b513657e260d58c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c81351d_dc14500b",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-05-31T18:11:31Z",
+      "side": 1,
+      "message": "It shouldn\u0027t. As I\u0027ve mentioned before, we can\u0027t have the remote submix output as a permanently attached device as this will automatically route all audio output to it on the framework side. Also, if the I/O test will try to write into remote submix output w/o anyone reading from the pipe on the other side, writing will start to emit errors once the pipe fills up.\n\nI think that we need to streamline and generalize handling of remote submix both in the audio framework and in VTS. Currently there are a couple of special things about the remote submix:\n\n1. The framework is not \"connecting\" the remote submix output device, it just opens an output stream on it.\n\n2. In order to be able to read audio data from remote submix inputs w/o errors, someone must be writing into the remote submix output to get some data into the pipe.\n\nWhat we can do about 1 \u0026 2:\n\nRegarding 1., we can add code to the AIDL adapter on the framework side to issue `connectExternalDevice` for the remote submix output before opening an output stream (and disconnect it after closing the stream). This will align the use of non-attached devices between remote submix and other HALs, and will remove any need for different handling of the remote submix output in VTS.\n\nThus, for VTS, the remote submix output should be handled as any other external device. The test will set `simulateDeviceConnections` (https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp;l\u003d438;drc\u003dd5536d9ac6c3168d5e292a43e0e3bafc17cb1876) and call `connectExternalDevice`.\n\nRegarding 2, the remote submix implementation can check the `simulateDeviceConnections` flag, and avoid actually reading from the pipe in I/O tests, or ignore `WOULD_BLOCK` returned from `NBAIO`.\n\nThus, what you can do is to have the same logic for handling connected devices between remote submix and USB modules. And implement simulation of reading from remote submix input when `simulateDeviceConnections` flag is set. That should make the VTS test to pass.\n\nWe will add a dedicated flag instead of `simulateDeviceConnections` in the next version of the AIDL interface, so that distinction between these modes is more clear.",
+      "parentUuid": "f72ed9e1_45637104",
+      "range": {
+        "startLine": 226,
+        "startChar": 8,
+        "endLine": 226,
+        "endChar": 25
+      },
+      "revId": "fd927c26e4f004c39811c34d6b513657e260d58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
