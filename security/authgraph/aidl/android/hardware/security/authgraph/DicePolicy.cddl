@@ -1,0 +1,18 @@
+DicePolicy = [
+    1, ; dice policy version
+    + nodeConstraintList ; for each entry in dice chain
+]
+
+nodeConstraintList = [
+    * nodeConstraint
+]
+
+; We may add a hashConstraint item later
+nodeConstraint = exactMatchConstraint / geConstraint
+
+exactMatchConstraint = [1, keySpec, value]
+geConstraint = [2, keySpec, int]
+
+keySpec = [value+]
+
+value = bool / int / tstr / bstr
