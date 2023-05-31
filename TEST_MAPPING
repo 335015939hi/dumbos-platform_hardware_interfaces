@@ -17,6 +17,14 @@
     {
       "name": "hal_implementation_test"
     }
+  ],
+  "kernel-presubmit": [
+    {
+      "name": "VtsHalBluetoothAudioTargetTest"
+    },
+    {
+      "name": "VtsHalGraphicsComposerV2_4TargetTest"
+    }
   ]
 }
 
