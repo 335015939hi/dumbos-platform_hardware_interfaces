@@ -283,6 +283,30 @@
       },
       "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7591aa28_f79793d1",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-05-31T22:02:44Z",
+      "side": 1,
+      "message": "It looks like it will be a little bit before we get that information. Can we leave this for now and merge the reset of the changes since the old documentation also only mentions HKDF so there\u0027s no regression.",
+      "parentUuid": "ce32e86a_dc7e5cbc",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 6
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
