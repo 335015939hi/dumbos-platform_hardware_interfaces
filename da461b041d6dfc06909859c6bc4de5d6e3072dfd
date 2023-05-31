@@ -307,6 +307,30 @@
       },
       "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a01e1d50_77e7dbc3",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-05-31T22:06:43Z",
+      "side": 1,
+      "message": "Yes, good idea.",
+      "parentUuid": "7591aa28_f79793d1",
+      "range": {
+        "startLine": 184,
+        "startChar": 2,
+        "endLine": 184,
+        "endChar": 6
+      },
+      "revId": "da461b041d6dfc06909859c6bc4de5d6e3072dfd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
