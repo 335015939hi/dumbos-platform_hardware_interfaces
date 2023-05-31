@@ -208,7 +208,7 @@ ndk::ScopedAStatus BluetoothHci::initialize(
     }
   }
 
-  if (old_state != HalState::READY) {
+  if (old_state != HalState::READY && mState != HalState::INITIALIZING) {
     ALOGE("initialize: Unexpected State %d", static_cast<int>(old_state));
     close();
     cb->initializationComplete(Status::ALREADY_INITIALIZED);
