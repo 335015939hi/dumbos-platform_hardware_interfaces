@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e62d59a_a905379a",
+        "filename": "audio/aidl/default/include/core-impl/ModuleRemoteSubmix.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-31T17:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4e12792_5f849c84",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 88
+      },
+      "revId": "9ab252a6790e0961468f87e9fc0e3133309463af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3afae33c_d245002b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-30T22:24:17Z",
       "side": 1,
       "message": "I consider having these constants defined here to be problematic for two reasons:\n\n1. They define an implementation-specific constant which becomes visible to anyone who includes this header. So for example, another unrelated module which for some reason ends up including this header will get `kDefaultFormat`, and it may easily clash with a constant of the same name used by that module. Usually when defining an internal constant in a header file can\u0027t be avoided, it must be defined in some nested namespace.\n\n2. Having a non-static non-primitive constant in a header file can easily lead to an ODR violation (https://en.cppreference.com/w/cpp/language/definition). I understand that we can\u0027t make it a `constexpr` because it contains a string, so...\n\nSince these constants seem to be used by code in this module, and `AudioConfig` is used by value, thus it has to be defined here, one way to make things proper is to declare these constants inside `AudioConfig` as `static` members. For non-constexpr constants, we also have to define them in `StreamRouteSubmix.cpp` (https://en.cppreference.com/w/cpp/language/static#Constant_static_members).",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 5
+      },
+      "revId": "9ab252a6790e0961468f87e9fc0e3133309463af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "006e9c78_43516097",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-31T17:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3afae33c_d245002b",
       "range": {
         "startLine": 41,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4ba4f4a_20888a27",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-31T17:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dc3e8d1_e311dbf7",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 64
+      },
+      "revId": "9ab252a6790e0961468f87e9fc0e3133309463af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a80c7123_3e2edbe4",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-30T21:06:40Z",
       "side": 1,
       "message": "Thanks to Ram who has pointed out that the intention of this method is not clear. To clarify, this method is intended to be used in the case when in the initial configuration the device port has dynamic profiles (e.g. HDMI and USB). In this case, the module implementation needs to query the device here for supported profiles and populate the provided AudioPort. In the case when supported profiles are already known, as in the case of BT and remote submix, the AudioPort already has profiles filled out, thus no additional work has to be done.\n\nIt might be better for consistency to double check that the profiles contain only configurations that are actually supported by the module, as we do here (`isChannelMaskSupported` and `isSampleRateSupported`). However, we need to do this for all elements of the profile, not just for the first one.\n\nThus, what we need to change here:\n\n1. Omit the checks for `profiles` and other arrays to be non-empty—we can move them here: https://cs.android.com/android/platform/superproject/+/refs/heads/master:hardware/interfaces/audio/aidl/default/Module.cpp;l\u003d483;drc\u003db511b8aa2179f0c5dd4e5cc180258995e6b41714. There is already a check for the `profiles`, we need just to extend it with the checks for other arrays.\n\n2. Make a loop over all profiles, and nested ones over all channel masks and sample rates to confirm that they are supported.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "9ab252a6790e0961468f87e9fc0e3133309463af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "168b84a1_9acf3f5e",
+        "filename": "audio/aidl/default/r_submix/ModuleRemoteSubmix.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-31T17:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a80c7123_3e2edbe4",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38af1d67_4219efed",
+        "filename": "audio/aidl/default/r_submix/RemoteSubmixUtils.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-31T17:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4df0f43_ec1e7601",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 76
+      },
+      "revId": "9ab252a6790e0961468f87e9fc0e3133309463af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b535bd9b_34b76ca9",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-05-30T22:24:17Z",
       "side": 1,
       "message": "These two variables can also be `const`",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 30
+      },
+      "revId": "9ab252a6790e0961468f87e9fc0e3133309463af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc9bfd2c_500e03c6",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-31T17:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b535bd9b_34b76ca9",
       "range": {
         "startLine": 102,
         "startChar": 0,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bc1cf33_b4ba3a24",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-31T17:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9ddba14_c6bb143f",
+      "range": {
+        "startLine": 111,
+        "startChar": 4,
+        "endLine": 111,
+        "endChar": 10
+      },
+      "revId": "9ab252a6790e0961468f87e9fc0e3133309463af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c8e8a90_ebc731af",
@@ -175,6 +343,30 @@
       "writtenOn": "2023-05-30T22:24:17Z",
       "side": 1,
       "message": "Please use `nullptr` instead of `NULL`.",
+      "range": {
+        "startLine": 123,
+        "startChar": 47,
+        "endLine": 123,
+        "endChar": 51
+      },
+      "revId": "9ab252a6790e0961468f87e9fc0e3133309463af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86afe458_6a9ceaf7",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-05-31T17:01:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c8e8a90_ebc731af",
       "range": {
         "startLine": 123,
         "startChar": 47,
