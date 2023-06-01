@@ -22,6 +22,30 @@
       },
       "revId": "857ddeecf48a4fca5af4d58f37ee52e5a8aa8c23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "408a98d1_7dc9ec2b",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1942356
+      },
+      "writtenOn": "2023-06-01T16:09:16Z",
+      "side": 1,
+      "message": "Sounds good, done.",
+      "parentUuid": "c6fb1286_bfaac796",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 5
+      },
+      "revId": "857ddeecf48a4fca5af4d58f37ee52e5a8aa8c23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
