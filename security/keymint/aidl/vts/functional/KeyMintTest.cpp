@@ -3119,7 +3119,7 @@ TEST_P(SigningOperationsTest, RsaPaddingNoneDoesNotAllowOther) {
  */
 TEST_P(SigningOperationsTest, NoUserConfirmation) {
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                                 .RsaSigningKey(1024, 65537)
+                                                 .RsaSigningKey(2048, 65537)
                                                  .Digest(Digest::NONE)
                                                  .Padding(PaddingMode::NONE)
                                                  .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -8716,6 +8716,19 @@ int main(int argc, char** argv) {
                 }
                 aidl::android::hardware::security::keymint::test::KeyMintAidlTestBase::keyblob_dir =
                         std::string(argv[i + 1]);
+                ++i;
+            }
+            if (std::string(argv[i]) == "--expect_upgrade") {
+                if (i + 1 >= argc) {
+                    std::cerr << "Missing argument for --expect_upgrade\n";
+                    return 1;
+                }
+                std::string arg = argv[i + 1];
+                aidl::android::hardware::security::keymint::test::KeyMintAidlTestBase::
+                        expect_upgrade =
+                                arg == "yes"
+                                        ? true
+                                        : (arg == "no" ? false : std::optional<bool>(std::nullopt));
                 ++i;
             }
         }

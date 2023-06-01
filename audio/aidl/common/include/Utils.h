@@ -102,37 +102,14 @@ constexpr size_t getFrameSizeInBytes(
 constexpr bool isDefaultAudioFormat(
         const ::aidl::android::media::audio::common::AudioFormatDescription& desc) {
     return desc.type == ::aidl::android::media::audio::common::AudioFormatType::DEFAULT &&
-           desc.pcm == ::aidl::android::media::audio::common::PcmType::DEFAULT;
+           desc.pcm == ::aidl::android::media::audio::common::PcmType::DEFAULT &&
+           desc.encoding.empty();
 }
 
 constexpr bool isTelephonyDeviceType(
         ::aidl::android::media::audio::common::AudioDeviceType device) {
     return device == ::aidl::android::media::audio::common::AudioDeviceType::IN_TELEPHONY_RX ||
            device == ::aidl::android::media::audio::common::AudioDeviceType::OUT_TELEPHONY_TX;
-}
-
-constexpr bool isUsbInputDeviceType(::aidl::android::media::audio::common::AudioDeviceType type) {
-    switch (type) {
-        case ::aidl::android::media::audio::common::AudioDeviceType::IN_DOCK:
-        case ::aidl::android::media::audio::common::AudioDeviceType::IN_ACCESSORY:
-        case ::aidl::android::media::audio::common::AudioDeviceType::IN_DEVICE:
-        case ::aidl::android::media::audio::common::AudioDeviceType::IN_HEADSET:
-            return true;
-        default:
-            return false;
-    }
-}
-
-constexpr bool isUsbOutputtDeviceType(::aidl::android::media::audio::common::AudioDeviceType type) {
-    switch (type) {
-        case ::aidl::android::media::audio::common::AudioDeviceType::OUT_DOCK:
-        case ::aidl::android::media::audio::common::AudioDeviceType::OUT_ACCESSORY:
-        case ::aidl::android::media::audio::common::AudioDeviceType::OUT_DEVICE:
-        case ::aidl::android::media::audio::common::AudioDeviceType::OUT_HEADSET:
-            return true;
-        default:
-            return false;
-    }
 }
 
 constexpr bool isValidAudioMode(::aidl::android::media::audio::common::AudioMode mode) {
