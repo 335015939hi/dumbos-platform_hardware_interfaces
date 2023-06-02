@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c3df06d_cbdf1983",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileAvailability.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-02T23:04:15Z",
+      "side": 1,
+      "message": "Docs",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67be6c3a_fcfc7d08",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IDir.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-02T23:04:15Z",
+      "side": 1,
+      "message": "What happens after this is called? Do we need to do this? We can put cleanup in the server-side destructor.",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e65140d4_cb12a444",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-02T23:04:15Z",
+      "side": 1,
+      "message": "What happens when a session object is dropped? Are the changes abandoned?",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b20bcabd_ea36a4ff",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-02T23:04:15Z",
+      "side": 1,
+      "message": "What if you call this more than once? There is no return value, but I guess this could still error out? We should document what happens in this case. Ditto for AbandonChanges().",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e660105d_802ab13e",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-02T23:04:15Z",
+      "side": 1,
+      "message": "Do we need both this method and Commit/Abandon?",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe9c184a_6d8571d6",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-02T23:04:15Z",
+      "side": 1,
+      "message": "Is the returned file tied to the session? What happens if I drop the session object but keep the File?",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13705121_0968b6c0",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-02T23:04:15Z",
+      "side": 1,
+      "message": "Make explicit that this cannot change file properties.",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

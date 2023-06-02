@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dc6d0d8_3f261c37",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-02T23:04:15Z",
+      "side": 1,
+      "message": "Do we want to make the buffer a fixed size? Can we?",
+      "revId": "3be74fe6ed64fc6c5b7463018d848b4b613f2e8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

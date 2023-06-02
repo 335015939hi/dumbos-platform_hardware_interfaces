@@ -34,6 +34,24 @@
       "parentUuid": "7af06663_e0380f1f",
       "revId": "7d4afe914f0adf20e16033cc84953e6771744dd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25f422a8_e0c2aa6d",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-02T23:04:15Z",
+      "side": 1,
+      "message": "We may have to call `Write` multiple times for large files, and this may need to be atomic.",
+      "parentUuid": "4a284b2e_22c1936a",
+      "revId": "7d4afe914f0adf20e16033cc84953e6771744dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
