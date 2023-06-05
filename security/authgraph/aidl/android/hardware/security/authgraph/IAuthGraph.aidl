@@ -16,8 +16,11 @@
 
 package android.hardware.security.authgraph;
 
+import android.hardware.security.authgraph.Arc;
+import android.hardware.security.authgraph.ArcType;
 import android.hardware.security.authgraph.CreateChannelResult;
 import android.hardware.security.authgraph.InitChannelResult;
+import android.hardware.security.authgraph.Key;
 
 /**
  * Authgraph interface definition.
@@ -38,7 +41,7 @@ import android.hardware.security.authgraph.InitChannelResult;
  * @hide
  */
 @VintfStability
-interface IAuthGraphCommon {
+interface IAuthGraph {
     /**
      * Creates an ephemeral elliptic curve (EC) key pair, with P-256, in order to establish
      * a secret channel between two domains via elliptic curve diffie hellman (ECDH) key agreement.
@@ -93,4 +96,54 @@ interface IAuthGraphCommon {
      */
     CreateChannelResult createChannel(in byte[] signedPublicKeyOfOtherParty,
             in @nullable InitChannelResult initChannelResult);
+
+    /**
+     * Creates a key and returns an arc from the per-boot key to the secret key (see the
+     * `arcFromPBK` field in the `Key` type). If the created key is an asymmetric key,
+     * `arcFromPBK `contains the arc from the per-boot key to the private key.
+     *
+     * @param arcType: the type of the payload key to be created is specified by the arc type.
+     * The type of the returned Key (i.e. symmetric or asymmetric), the enum variant used for the
+     * PublicKey (i.e. plain signed) and the permissions attached to the arc in the resulting `Key`
+     * are decided based on the arc type.
+     *
+     * @param permissions: the permission that should be granted to the newly created arc, if they
+     * are to be inherited from an existing arc(s). Such arc(s) should have the domain's per-boot
+     * key as the encrypting key.
+     *
+     * @return: Newly created key (with the `lockedSecretKey` field in set to none).
+     */
+    Key create(in ArcType acrType, in @nullable Arc permission);
+
+    /**
+     * Given two arcs from the per-boot key, return an arc from the payload key of the first arc to
+     * the payload key of the second arc. The output arc will be an input to the second argument of
+     * the snap operation in subsequent method calls of Authgraph (see the definition of the snap
+     * operation).
+     *
+     * @param encryptingKey: an arc from the domain’s per-boot key to the encrypting key of the
+     *                       output arc.
+     *
+     * @param toBeEncryptedKey: an arc from the per boot key to the key to be sencrypted in the
+     *                          output arc (i.e. payload key in the output arc)
+     *
+     * @return an arc from the encrypting key to the to be encrypted key.
+     */
+    Arc mint(in Arc encryptingKey, in Arc toBeEncryptedKey);
+
+    /**
+     * Given two arcs in which the first arc is from the per-boot key to the key that is the
+     * encrypting key of the second arc, return an arc from the per-boot key to the key that is
+     * being encrypted in the second arc.
+     *
+     * @param decryptingkey: an arc from the TA’s per-boot key to the encrypting key of the
+     *                       second argument.
+     * @param encryptedKey: an arc from the encrypting key (i.e. the key that is encrypted in the
+     *                      arc of the first argument) to the encrypted key (i.e. the payload key in
+     *                      the returned arc). This arc is a result of a previous mint operation.
+     *
+     * @return an arc from the per-boot key to the key that is encrypted in the second argument
+     *
+     */
+    Arc snap(in Arc decryptingKey, in Arc encryptedKey);
 }

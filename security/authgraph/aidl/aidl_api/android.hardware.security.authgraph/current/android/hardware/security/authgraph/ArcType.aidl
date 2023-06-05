@@ -32,9 +32,13 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.authgraph;
-/* @hide */
 @VintfStability
-parcelable CreateChannelResult {
-  byte[] channelKeyArc;
-  byte[] macOutput;
+union ArcType {
+  int EPHEMERAL_KE_KEY = 1;
+  int CHANNEL_KEY = 2;
+  int SOURCE_KEY = 3;
+  int AUTH_KEY = 4;
+  int WRAPPING_KEY = 5;
+  int KEY_WRAPPING_KEY = 6;
+  int KEM_CIPHER_TEXT = 7;
 }
