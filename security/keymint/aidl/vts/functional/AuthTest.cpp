@@ -421,6 +421,110 @@ TEST_P(AuthTest, TimeoutAuthenticationIncorrectTimestampToken) {
               Finish(message, {} /* signature */, &output, hat, time_token));
 }
 
+// Test use of a key that requires user-authentication within recent history, but which has
+// an empty set of possible authenticator types.
+TEST_P(AuthTest, TimeoutAuthenticationEmptyAuthType) {
+    if (!GatekeeperAvailable()) {
+        GTEST_SKIP() << "No Gatekeeper available";
+    }
+    if (timestamp_token_required_ && clock_ == nullptr) {
+        GTEST_SKIP() << "Device requires timestamps and no ISecureClock available";
+    }
+
+    // Create an AES key that requires authentication within the last 3 seconds, but with no
+    // allowed authenticator types.
+    const uint32_t timeout_secs = 3;
+    auto builder = AuthorizationSetBuilder()
+                           .AesEncryptionKey(256)
+                           .BlockMode(BlockMode::ECB)
+                           .Padding(PaddingMode::PKCS7)
+                           .Authorization(TAG_USER_SECURE_ID, sid_)
+                           .Authorization(TAG_USER_AUTH_TYPE, HardwareAuthenticatorType::NONE)
+                           .Authorization(TAG_AUTH_TIMEOUT, timeout_secs);
+    vector<uint8_t> keyblob;
+    vector<KeyCharacteristics> key_characteristics;
+    vector<Certificate> cert_chain;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(builder, std::nullopt, &keyblob, &key_characteristics, &cert_chain));
+
+    // Verify to get a HAT, arbitrary challenge.
+    const uint64_t challenge = 42;
+    const std::optional<HardwareAuthToken> hat = doVerify(challenge, handle_, password_);
+    ASSERT_TRUE(hat.has_value());
+    EXPECT_EQ(hat->userId, sid_);
+
+    // The HAT doesn't help because it can't match the empty AUTH_TYPE.
+    const string message = "Hello World!";
+    AuthorizationSet out_params;
+    auto params = AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::PKCS7);
+    auto result = Begin(KeyPurpose::ENCRYPT, keyblob, params, &out_params, hat);
+    if (!timestamp_token_required_) {
+        EXPECT_EQ(ErrorCode::KEY_USER_NOT_AUTHENTICATED, result);
+    } else if (result == ErrorCode::OK) {
+        // KeyMint implementation has no clock, so may only check the auth token when
+        // there's also a timestamp token available on update()/finish().
+        secureclock::TimeStampToken time_token;
+        EXPECT_EQ(ErrorCode::OK,
+                  GetReturnErrorCode(clock_->generateTimeStamp(challenge_, &time_token)));
+
+        string output;
+        EXPECT_EQ(ErrorCode::KEY_USER_NOT_AUTHENTICATED,
+                  Finish(message, {} /* signature */, &output, hat, time_token));
+    }
+}
+
+// Test use of a key that requires user-authentication within recent history, but which has
+// the wrong authenticator type.
+TEST_P(AuthTest, TimeoutAuthenticationWrongAuthType) {
+    if (!GatekeeperAvailable()) {
+        GTEST_SKIP() << "No Gatekeeper available";
+    }
+    if (timestamp_token_required_ && clock_ == nullptr) {
+        GTEST_SKIP() << "Device requires timestamps and no ISecureClock available";
+    }
+
+    // Create an AES key that requires authentication within the last 3 seconds.
+    const uint32_t timeout_secs = 3;
+    auto builder =
+            AuthorizationSetBuilder()
+                    .AesEncryptionKey(256)
+                    .BlockMode(BlockMode::ECB)
+                    .Padding(PaddingMode::PKCS7)
+                    .Authorization(TAG_USER_SECURE_ID, sid_)
+                    .Authorization(TAG_USER_AUTH_TYPE, HardwareAuthenticatorType::FINGERPRINT)
+                    .Authorization(TAG_AUTH_TIMEOUT, timeout_secs);
+    vector<uint8_t> keyblob;
+    vector<KeyCharacteristics> key_characteristics;
+    vector<Certificate> cert_chain;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(builder, std::nullopt, &keyblob, &key_characteristics, &cert_chain));
+
+    // Verify to get a HAT, arbitrary challenge.
+    const uint64_t challenge = 42;
+    const std::optional<HardwareAuthToken> hat = doVerify(challenge, handle_, password_);
+    ASSERT_TRUE(hat.has_value());
+    EXPECT_EQ(hat->userId, sid_);
+
+    // The HAT doesn't help because it has the wrong AUTH_TYPE.
+    const string message = "Hello World!";
+    AuthorizationSet out_params;
+    auto params = AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::PKCS7);
+    auto result = Begin(KeyPurpose::ENCRYPT, keyblob, params, &out_params, hat);
+    if (!timestamp_token_required_) {
+        EXPECT_EQ(ErrorCode::KEY_USER_NOT_AUTHENTICATED, result);
+    } else if (result == ErrorCode::OK) {
+        // KeyMint implementation has no clock, so may only check the auth token when
+        // there's also a timestamp token available on update()/finish().
+        secureclock::TimeStampToken time_token;
+        EXPECT_EQ(ErrorCode::OK,
+                  GetReturnErrorCode(clock_->generateTimeStamp(challenge_, &time_token)));
+
+        string output;
+        EXPECT_EQ(ErrorCode::KEY_USER_NOT_AUTHENTICATED,
+                  Finish(message, {} /* signature */, &output, hat, time_token));
+    }
+}
+
 // Test use of a key with multiple USER_SECURE_ID values.  For variety, use an EC signing key
 // generated with attestation.
 TEST_P(AuthTest, TimeoutAuthenticationMultiSid) {
@@ -588,6 +692,42 @@ TEST_P(AuthTest, AuthPerOperationMultiSid) {
     EXPECT_EQ(alt_hat->userId, alt_sid_);
     string alt_ciphertext;
     EXPECT_EQ(ErrorCode::OK, Finish(message, {} /* signature */, &ciphertext, alt_hat.value()));
+}
+
+// Test use of a key that requires an auth token for each action on the operation, but
+// which has an empty set of allowed authenticator types.
+TEST_P(AuthTest, AuthPerOperationEmptyAuthType) {
+    if (!GatekeeperAvailable()) {
+        GTEST_SKIP() << "No Gatekeeper available";
+    }
+
+    // Create an AES key that requires authentication per-action, but with no valid authenticator
+    // types.
+    auto builder = AuthorizationSetBuilder()
+                           .AesEncryptionKey(256)
+                           .BlockMode(BlockMode::ECB)
+                           .Padding(PaddingMode::PKCS7)
+                           .Authorization(TAG_USER_SECURE_ID, sid_)
+                           .Authorization(TAG_USER_AUTH_TYPE, HardwareAuthenticatorType::NONE);
+    vector<uint8_t> keyblob;
+    vector<KeyCharacteristics> key_characteristics;
+    vector<Certificate> cert_chain;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(builder, std::nullopt, &keyblob, &key_characteristics, &cert_chain));
+
+    // Get a HAT with the challenge from an in-progress operation.
+    const string message = "Hello World!";
+    auto params = AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::PKCS7);
+    AuthorizationSet out_params;
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, keyblob, params, &out_params));
+    const std::optional<HardwareAuthToken> hat = doVerify(challenge_, handle_, password_);
+    ASSERT_TRUE(hat.has_value());
+    EXPECT_EQ(hat->userId, sid_);
+
+    // Should fail because auth type doesn't (can't) match.
+    string ciphertext;
+    EXPECT_EQ(ErrorCode::KEY_USER_NOT_AUTHENTICATED,
+              Finish(message, {} /* signature */, &ciphertext, hat.value()));
 }
 
 // Test use of a key that requires an auth token for each action on the operation, but
