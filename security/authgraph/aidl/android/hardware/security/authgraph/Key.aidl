@@ -1,0 +1,43 @@
+/*
+ * Copyright (C) 2023 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.security.authgraph;
+
+import android.hardware.security.authgraph.Arc;
+import android.hardware.security.authgraph.PubKey;
+
+/**
+ * The return type of the primitive method: `create`. Key can be either a symmetric key or an
+ * asymmetric key.
+ */
+@VintfStability
+parcelable Key {
+    /*If the Key is an asymmetric key, public key should be present.*/
+    @nullable PubKey pubKey;
+
+    /**
+     * Arc from the per-boot key to the payload key. The payload key is either the symmetric key
+     * or the private key of an asymmetric key, based on the type of the key being created.
+     */
+    Arc arcFromPBK;
+
+    /**
+     * This optional field enables this `Key` type to be re-used as the return type of a
+     * create + mint sequence, where the returned key is encrypted with a key different from the
+     * per-boot key. This field should always empty for a single call to `create`.
+     */
+    @nullable Arc lockedSecretKey;
+}
