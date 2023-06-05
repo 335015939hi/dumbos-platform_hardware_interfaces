@@ -32,9 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.authgraph;
-/* @hide */
 @VintfStability
-parcelable CreateChannelResult {
-  byte[] channelKeyArc;
-  byte[] macOutput;
+union PubKey {
+  android.hardware.security.authgraph.PlainPubKey plainKey;
+  android.hardware.security.authgraph.SignedPubKey signedKey;
 }

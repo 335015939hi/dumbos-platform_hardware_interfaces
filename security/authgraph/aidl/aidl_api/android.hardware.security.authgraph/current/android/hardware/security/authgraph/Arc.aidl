@@ -34,7 +34,6 @@
 package android.hardware.security.authgraph;
 /* @hide */
 @VintfStability
-interface IAuthGraphCommon {
-  android.hardware.security.authgraph.InitChannelResult initChannel(in @nullable byte[] signingKeySetupInfo);
-  android.hardware.security.authgraph.CreateChannelResult createChannel(in byte[] signedPublicKeyOfOtherParty, in @nullable android.hardware.security.authgraph.InitChannelResult initChannelResult);
+parcelable Arc {
+  byte[] encodedArc;
 }

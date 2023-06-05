@@ -34,7 +34,9 @@
 package android.hardware.security.authgraph;
 /* @hide */
 @VintfStability
-parcelable CreateChannelResult {
-  byte[] channelKeyArc;
-  byte[] macOutput;
+union Error {
+  int OK = 0;
+  int OPERATION_NOT_SUPPORTED = (-1) /* -1 */;
+  int INVALID_SIGNATURE = (-2) /* -2 */;
+  int INVALID_EC_KEY = (-3) /* -3 */;
 }
