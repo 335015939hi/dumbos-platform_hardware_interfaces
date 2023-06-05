@@ -93,4 +93,36 @@ interface IAuthGraphCommon {
      */
     CreateChannelResult createChannel(in byte[] signedPublicKeyOfOtherParty,
             in @nullable InitChannelResult initChannelResult);
+
+    /**
+     * Given two arcs from the per-boot key, return an arc from the payload key of the first arc to
+     * the payload key of the second arc. The output arc will be an input to the second argument of
+     * the snap operation in subsequent method calls of Authgraph (see the definition of the snap
+     * operation).
+     *
+     * @param encryptingKey: an arc from the domain’s per-boot key to the encrypting key of the
+     *                       output arc.
+     *
+     * @param toBeEncryptedKey: an arc from the per boot key to the key to be sencrypted in the
+     *                          output arc (i.e. payload key in the output arc)
+     *
+     * @return an arc from the encrypting key to the to be encrypted key.
+     */
+    Arc mint(in Arc encryptingKey, in Arc toBeEncryptedKey);
+
+    /**
+     * Given two arcs in which the first arc is from the per-boot key to the key that is the
+     * encrypting key of the second arc, return an arc from the per-boot key to the key that is
+     * being encrypted in the second arc.
+     *
+     * @param decryptingkey: an arc from the TA’s per-boot key to the encrypting key of the
+     *                       second argument.
+     * @param encryptedKey: an arc from the encrypting key (i.e. the key that is encrypted in the
+     *                      arc of the first argument) to the encrypted key (i.e. the payload key in
+     *                      the returned arc). This arc is a result of a previous mint operation.
+     *
+     * @return an arc from the per-boot key to the key that is encrypted in the second argument
+     *
+     */
+    Arc snap(in Arc decryptingKey, in Arc encryptedKey);
 }
