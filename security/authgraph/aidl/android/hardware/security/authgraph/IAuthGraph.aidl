@@ -1,0 +1,89 @@
+/*
+ * Copyright (C) 2023 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.security.authgraph;
+
+import android.hardware.security.authgraph.Arc;
+import android.hardware.security.authgraph.Key;
+import android.hardware.security.authgraph.KeyType;
+
+/**
+ * Authgraph interface definition.
+ *
+ * Authgraph enables one domain (sink domain) to encrypt its resources with a secret belonging to
+ * another domain (source domain), such that the sink domain's resource can not
+ * be used without the source domain's secret being available. The source domain's secrets used to
+ * encrypt/decrypt the sink domain's resources are communicated to the sink domain via a secure
+ * channel established between the two domains, because such communication usually happens via the
+ * non-secure world.
+ * E.g. An auth-bound key created in KeyMint TA which requires user's password authentication in key
+ * usage, is encrypted using a key known to gatekeeper TA. Such key is encrypted using a key derived
+ * from the user's password, such that the auth-bound key created in Keymint is cryptographically
+ * bound to the user's password.
+ *
+ *
+ * ErrorCodes are defined in android.hardware.security.authgraph.ErrorCode.aidl.
+ * @hide
+ */
+@VintfStability
+interface IAuthGraph {
+    /**
+     * Creates a key and returns an arc from the per-boot key to the secret key. If the created key
+     * is an asymmetric key, `arcFromPBK `contains the arc from the per-boot key to the private key.
+     *
+     * @param keyType: the type of the payload key to be created (i.e. symmetric or asymmetric). If
+     * it is symmetric, key should be an AES-256 key. If it is asymmetric, the should be an EC key
+     * pair used for ECDH.
+     *
+     * @param permissions: the arcs from which the permission should be inherited to the newly
+     * created arc. Such arc(s) should have the domain's per-boot key as the encrypting key.
+     *
+     * @return: Newly created key.
+     */
+    Key create(in KeyType keyType, in @nullable Arc[] permission);
+
+    /**
+     * Given two arcs from the per-boot key, return an arc from the payload key of the first arc to
+     * the payload key of the second arc. The output arc will be an input to the second argument of
+     * the snap operation in subsequent method calls of Authgraph (see the definition of the snap
+     * operation).
+     *
+     * @param encryptingKey: an arc from the domain’s per-boot key to the encrypting key of the
+     *                       output arc.
+     *
+     * @param toBeEncryptedKey: an arc from the per boot key to the key to be sencrypted in the
+     *                          output arc (i.e. payload key in the output arc)
+     *
+     * @return an arc from the encrypting key to the to be encrypted key.
+     */
+    Arc mint(in Arc encryptingKey, in Arc toBeEncryptedKey);
+
+    /**
+     * Given two arcs in which the first arc is from the per-boot key to the key that is the
+     * encrypting key of the second arc, return an arc from the per-boot key to the key that is
+     * being encrypted in the second arc.
+     *
+     * @param decryptingkey: an arc from the TA’s per-boot key to the encrypting key of the
+     *                       second argument.
+     * @param encryptedKey: an arc from the encrypting key (i.e. the key that is encrypted in the
+     *                      arc of the first argument) to the encrypted key (i.e. the payload key in
+     *                      the returned arc). This arc is a result of a previous mint operation.
+     *
+     * @return an arc from the per-boot key to the key that is encrypted in the second argument
+     *
+     */
+    Arc snap(in Arc decryptingKey, in Arc encryptedKey);
+}
