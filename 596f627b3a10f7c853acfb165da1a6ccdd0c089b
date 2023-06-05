@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5605d0bd_6835d6fe",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Latest, modified docstring to make it clear.",
+      "parentUuid": "0ccced20_81a5189b",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e617665_3b30051b",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-06-03T00:06:00Z",
       "side": 1,
       "message": "What are these rollback versions checked against? A DICE chain? TZ? Bootloader? Android security level?",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9c8db0e_e8c2009c",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Agains dice chains. I wasn\u0027t sure if the running and committed versions still made sense in that case but I was keeping it until I could confirm that.",
+      "parentUuid": "7e617665_3b30051b",
       "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -69,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6217b850_e2342fcf",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Thanks, didn\u0027t realize that AIDL docstrings were java docstrings and just used the conventions/symbols of the original HwKey docstrings. I\u0027ve replaced the `%%` with`\u003ccode\u003e\u003c/code\u003e`",
+      "parentUuid": "51fa0ee9_b55b9622",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "968c0f76_48fbdd14",
@@ -82,6 +136,30 @@
       "writtenOn": "2023-06-03T00:06:00Z",
       "side": 1,
       "message": "```suggestion\n     *     available version will be used. The versions used for the key derivation\n     *     will be passed back in this argument.\n```",
+      "range": {
+        "startLine": 76,
+        "startChar": 43,
+        "endLine": 77,
+        "endChar": 43
+      },
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba64e706_f8f7ec2c",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Sorry, this is an old docstring that I forgot to modify. I have been moving this information around, but currently I have it as part of the info returned on the result structure.",
+      "parentUuid": "968c0f76_48fbdd14",
       "range": {
         "startLine": 76,
         "startChar": 43,
@@ -115,6 +193,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97a3c15d_7065096e",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Thanks, fixed!.",
+      "parentUuid": "cba10d94_3a00fa7e",
+      "range": {
+        "startLine": 87,
+        "startChar": 11,
+        "endLine": 88,
+        "endChar": 66
+      },
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "307169c0_fb59eb4b",
@@ -128,6 +230,24 @@
       "writtenOn": "2023-06-03T00:06:00Z",
       "side": 1,
       "message": "What is a SW key? Does it need to be cleartext or can it be an opaque blob of some sort?",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "968d563b_8e837f19",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "it needs to be clear, modified the docstring to mention it.",
+      "parentUuid": "307169c0_fb59eb4b",
       "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -149,6 +269,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73095aee_0eb30bbb",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f487b447_adbeefb2",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3805c0c9_a998e8eb",
@@ -162,6 +300,24 @@
       "writtenOn": "2023-06-03T00:06:00Z",
       "side": 1,
       "message": "exported",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3ad760c_13d196ab",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3805c0c9_a998e8eb",
       "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -183,6 +339,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caa40478_7f7d83a5",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Yes, added random to the doc string to make it more clear.",
+      "parentUuid": "d0646f35_945462d9",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56392de7_c56f503e",
@@ -196,6 +370,24 @@
       "writtenOn": "2023-06-03T00:06:00Z",
       "side": 1,
       "message": "Docstring seems wrong?",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c10eb75_f150b934",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyProperties.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Thanks! fixed.",
+      "parentUuid": "56392de7_c56f503e",
       "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -217,6 +409,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ff9de06_dd93a908",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/KeyClass.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Sounds good; I\u0027ve renamed it. I had the same doubts about the naming before, was just keeping it because it matched naming on another documentation of HW based crypto.",
+      "parentUuid": "9bbac4c0_f57935ce",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a977d76_8597d413",
@@ -230,6 +440,24 @@
       "writtenOn": "2023-06-03T00:06:00Z",
       "side": 1,
       "message": "type byte?",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53cf7de1_dd49eb15",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/KeyUse.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Because of the weird not having unsigned types on AIDL, a byte was not big enough for this type.",
+      "parentUuid": "9a977d76_8597d413",
       "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -251,6 +479,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61549991_82436d7d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/KeyVersionSource.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "I missed that byte was assumed for enums on AIDL, removed the annotation.",
+      "parentUuid": "ac4ee729_70e3c0b2",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e196622_438697f2",
@@ -264,6 +510,24 @@
       "writtenOn": "2023-06-03T00:06:00Z",
       "side": 1,
       "message": "What is this? A wrapped key? A handle? A key + metadata? I\u0027m guessing the ambiguity is intentional, but it should be documented as being implementation defined along with the set of properties that can be expected. `set_key_validity()` seems to imply this carries metadata, but is that actually the case? Is this key blob expected to be usable across reboots? Across sessions?",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49615582_5094c6e5",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/OpaqueKeyMaterial.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-05T19:35:45Z",
+      "side": 1,
+      "message": "Added more details to its docstring. Let me know if this is OK, or if you think more needs to be added. Currently what I have in mind will not be valid across reboots (that is also a requirement, if not the `set_key_validity` do not makes sense) and it should also work across sessions, but because I am not sure if the across sessions use is needed, I am not committing to it yet.",
+      "parentUuid": "4e196622_438697f2",
       "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
