@@ -17,18 +17,13 @@
 package android.hardware.security.authgraph;
 
 /**
- * This is the definition of the data format of an Arc.
- * @hide
+ * Indicates the type of key to be creted (i.e. symmetric or asymmetric).
  */
 @VintfStability
-parcelable Arc {
-    /**
-     * The messages exchanged between the domains in the Authgraph protocol are called Arcs.
-     * An arc is simply AES-GCM. Encryption of a payload P with a key K and additional
-     * authentication data (AAD) D: (i.e. Arc = Enc(K, P, D)). Payload can be a COSE key, another
-     * arc or an arbitrary byte array.
-     *
-     * The CDDL of an arc is in Arc.cddl file.
-     */
-    byte[] encodedArc;
+union KeyType {
+    /*Symmetric key type.*/
+    int SYMMETRIC = 1;
+
+    /*Asymmetric key type.*/
+    int ASYMMETRIC = 2;
 }
