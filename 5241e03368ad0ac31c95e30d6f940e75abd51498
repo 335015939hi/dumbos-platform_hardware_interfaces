@@ -211,6 +211,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bab8603e_d7520730",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-05T21:24:31Z",
+      "side": 1,
+      "message": "I don\u0027t love that these objects become invalid, but I\u0027m not sure I have a better suggestion.",
+      "parentUuid": "d898a900_dd60a525",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13705121_0968b6c0",
