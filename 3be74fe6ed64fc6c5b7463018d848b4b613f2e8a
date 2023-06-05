@@ -16,6 +16,24 @@
       "message": "Do we want to make the buffer a fixed size? Can we?",
       "revId": "3be74fe6ed64fc6c5b7463018d848b4b613f2e8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc1791f_d0e0a016",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-06-05T20:27:32Z",
+      "side": 1,
+      "message": "We definitely can make this make this `byte[STORAGE_MAX_BUFFER_SIZE]` but I think we wouldn\u0027t want to. That forces storage and the client to allocate the whole buffer even if they only need a small part of it.",
+      "parentUuid": "9dc6d0d8_3f261c37",
+      "revId": "3be74fe6ed64fc6c5b7463018d848b4b613f2e8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

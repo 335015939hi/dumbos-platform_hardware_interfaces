@@ -52,6 +52,24 @@
       "parentUuid": "4a284b2e_22c1936a",
       "revId": "7d4afe914f0adf20e16033cc84953e6771744dd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f4e49d_e5cf999d",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-06-05T20:27:32Z",
+      "side": 1,
+      "message": "Would calling `Write` multiple times on a single file as part of a single transaction ever _not_ be atomic?",
+      "parentUuid": "25f422a8_e0c2aa6d",
+      "revId": "7d4afe914f0adf20e16033cc84953e6771744dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

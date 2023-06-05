@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c25210c_a7a15f2d",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileAvailability.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-06-05T20:27:32Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0c3df06d_cbdf1983",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67be6c3a_fcfc7d08",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-02T23:04:15Z",
       "side": 1,
       "message": "What happens after this is called? Do we need to do this? We can put cleanup in the server-side destructor.",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3a952e1_ffd46160",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IDir.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-06-05T20:27:32Z",
+      "side": 1,
+      "message": "Good point; removed these.",
+      "parentUuid": "67be6c3a_fcfc7d08",
       "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "470381ab_e60b25f0",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-06-05T20:27:32Z",
+      "side": 1,
+      "message": "That was my intention, yes. Made that explicit in the docs.",
+      "parentUuid": "e65140d4_cb12a444",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b20bcabd_ea36a4ff",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-06-02T23:04:15Z",
       "side": 1,
       "message": "What if you call this more than once? There is no return value, but I guess this could still error out? We should document what happens in this case. Ditto for AbandonChanges().",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ab991b3_31513630",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-06-05T20:27:32Z",
+      "side": 1,
+      "message": "After committing/abandoning once, the session\u0027s transaction won\u0027t have any pending changes, so the second call would be a no-op. Added an explanation in the `ISession` doc comment.",
+      "parentUuid": "b20bcabd_ea36a4ff",
       "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -86,6 +158,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e667b598_9f40bd9a",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-06-05T20:27:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e660105d_802ab13e",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe9c184a_6d8571d6",
@@ -103,6 +193,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d898a900_dd60a525",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-06-05T20:27:32Z",
+      "side": 1,
+      "message": "Yes; that `IFile` becomes invalid.\n\nAdded to the docs.",
+      "parentUuid": "fe9c184a_6d8571d6",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13705121_0968b6c0",
@@ -116,6 +224,24 @@
       "writtenOn": "2023-06-02T23:04:15Z",
       "side": 1,
       "message": "Make explicit that this cannot change file properties.",
+      "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8ef9084_7ba5dc09",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-06-05T20:27:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13705121_0968b6c0",
       "revId": "5241e03368ad0ac31c95e30d6f940e75abd51498",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
