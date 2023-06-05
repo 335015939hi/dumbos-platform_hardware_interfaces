@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "972347a5_5d8047b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-06-05T14:04:55Z",
+      "side": 1,
+      "message": "I\u0027ve separated out parts of aosp/2460621 -- I think this first commit should pass already on StrongBox.",
+      "revId": "de2a493b9a90ce1ecb24cc7391534f1beb9a11d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
