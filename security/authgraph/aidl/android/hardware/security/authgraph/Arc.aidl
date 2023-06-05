@@ -42,5 +42,5 @@ parcelable Arc {
      *     ciphertext : bstr    // Enc(K, DestinationNode/Arc, encoded ArcEncStruct)
      * ]
      */
-    byte[] Arc;
+    byte[] encodedArc;
 }
