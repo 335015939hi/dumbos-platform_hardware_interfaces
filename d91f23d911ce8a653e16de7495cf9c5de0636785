@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad2bd0a_6ce24530",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-06-05T17:34:06Z",
+      "side": 1,
+      "message": "nit: prefer passing by `const` ref. If there\u0027s a reason we cannot use const ref, please add a comment explaining why.",
+      "range": {
+        "startLine": 118,
+        "startChar": 34,
+        "endLine": 118,
+        "endChar": 46
+      },
+      "revId": "d91f23d911ce8a653e16de7495cf9c5de0636785",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed7cc072_cf419098",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-06-05T17:34:06Z",
+      "side": 1,
+      "message": "Just return `rawKey` right here.\n\nWhy bother with the branch?",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 39
+      },
+      "revId": "d91f23d911ce8a653e16de7495cf9c5de0636785",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f573554_c19b7571",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-06-05T17:34:06Z",
+      "side": 1,
+      "message": "nit: it\u0027s cleaner to just return early on error instead of putting the failure in an else after the \"success path\"\n\nI think that matches the overall failure handling style better in this file, as well.",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 5
+      },
+      "revId": "d91f23d911ce8a653e16de7495cf9c5de0636785",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
