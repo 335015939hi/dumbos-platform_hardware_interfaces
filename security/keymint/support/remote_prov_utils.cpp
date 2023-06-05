@@ -115,6 +115,35 @@ ErrMsgOr<std::tuple<bytevec, bytevec>> getAffineCoordinates(const bytevec& pubKe
     return std::make_tuple(std::move(pubX), std::move(pubY));
 }
 
+ErrMsgOr<bytevec> getRawPublicKey(EVP_PKEY_Ptr& pubKey) {
+    if (pubKey.get() == nullptr) {
+        return "pkey is null.";
+    }
+    bytevec rawPubKey;
+    int keyType = EVP_PKEY_base_id(pubKey.get());
+    if (keyType == EVP_PKEY_EC) {
+        auto ecKey = EC_KEY_Ptr(EVP_PKEY_get1_EC_KEY(pubKey.get()));
+        if (ecKey.get() == nullptr) {
+            return "Failed to get ec key";
+        }
+        auto rawKey = ecKeyGetPublicKey(ecKey.get());
+        if (!rawKey) return rawKey.moveMessage();
+        rawPubKey = rawKey.moveValue();
+    } else if (keyType == EVP_PKEY_ED25519) {
+        size_t rawKeySize = 0;
+        if (!EVP_PKEY_get_raw_public_key(pubKey.get(), NULL, &rawKeySize)) {
+            return "Failed to get raw public key.";
+        }
+        rawPubKey.resize(rawKeySize);
+        if (!EVP_PKEY_get_raw_public_key(pubKey.get(), rawPubKey.data(), &rawKeySize)) {
+            return "Failed to get raw public key.";
+        }
+    } else {
+        return "Unknown key type.";
+    }
+    return rawPubKey;
+}
+
 ErrMsgOr<std::tuple<bytevec, bytevec>> generateEc256KeyPair() {
     auto ec_key = EC_KEY_Ptr(EC_KEY_new());
     if (ec_key.get() == nullptr) {
@@ -706,11 +735,10 @@ std::string getX509SubjectName(const X509_Ptr& cert) {
 
 // Validates the certificate chain and returns the leaf public key.
 ErrMsgOr<bytevec> validateCertChain(const cppbor::Array& chain) {
-    uint8_t rawPubKey[64];
-    size_t rawPubKeySize = sizeof(rawPubKey);
+    bytevec rawPubKey;
     for (size_t i = 0; i < chain.size(); ++i) {
         // Root must be self-signed.
-        size_t signingCertIndex = (i > 1) ? i - 1 : i;
+        size_t signingCertIndex = (i > 0) ? i - 1 : i;
         auto& keyCertItem = chain[i];
         auto& signingCertItem = chain[signingCertIndex];
         if (!keyCertItem || !keyCertItem->asBstr()) {
@@ -724,7 +752,7 @@ ErrMsgOr<bytevec> validateCertChain(const cppbor::Array& chain) {
         if (!keyCert) {
             return keyCert.message();
         }
-        auto signingCert = parseX509Cert(keyCertItem->asBstr()->value());
+        auto signingCert = parseX509Cert(signingCertItem->asBstr()->value());
         if (!signingCert) {
             return signingCert.message();
         }
@@ -749,17 +777,16 @@ ErrMsgOr<bytevec> validateCertChain(const cppbor::Array& chain) {
             return "Certificate " + std::to_string(i) + " has wrong issuer. Signer subject is " +
                    signerSubj + " Issuer subject is " + certIssuer;
         }
-
-        rawPubKeySize = sizeof(rawPubKey);
-        if (!EVP_PKEY_get_raw_public_key(pubKey.get(), rawPubKey, &rawPubKeySize)) {
-            return "Failed to get raw public key.";
+        if (i == chain.size() - 1) {
+            auto key = getRawPublicKey(pubKey);
+            if (!key) key.moveMessage();
+            rawPubKey = key.moveValue();
         }
     }
-
-    return bytevec(rawPubKey, rawPubKey + rawPubKeySize);
+    return rawPubKey;
 }
 
-std::string validateUdsCerts(const cppbor::Map& udsCerts, const bytevec& udsPub) {
+std::string validateUdsCerts(const cppbor::Map& udsCerts, const bytevec& udsCoseKeyBytes) {
     for (const auto& [signerName, udsCertChain] : udsCerts) {
         if (!signerName || !signerName->asTstr()) {
             return "Signer Name must be a Tstr.";
@@ -774,6 +801,29 @@ std::string validateUdsCerts(const cppbor::Map& udsCerts, const bytevec& udsPub)
         auto leafPubKey = validateCertChain(*udsCertChain->asArray());
         if (!leafPubKey) {
             return leafPubKey.message();
+        }
+        auto coseKey = CoseKey::parse(udsCoseKeyBytes);
+        if (!coseKey) return coseKey.moveMessage();
+
+        auto curve = coseKey->getIntValue(CoseKey::CURVE);
+        if (!curve) {
+            return "CoseKey must contain curve.";
+        }
+        bytevec udsPub;
+        if (curve == CoseKeyCurve::P256 || curve == CoseKeyCurve::P384) {
+            auto pubKey = coseKey->getEcPublicKey();
+            if (!pubKey) return pubKey.moveMessage();
+            // convert public key to uncompressed form by prepending 0x04 at begin.
+            pubKey->insert(pubKey->begin(), 0x04);
+            udsPub = pubKey.moveValue();
+        } else if (curve == CoseKeyCurve::ED25519) {
+            auto& pubkey = coseKey->getMap().get(cppcose::CoseKey::PUBKEY_X);
+            if (!pubkey || !pubkey->asBstr()) {
+                return "Invalid public key.";
+            }
+            udsPub = pubkey->asBstr()->value();
+        } else {
+            return "Unknown curve.";
         }
         if (*leafPubKey != udsPub) {
             return "Leaf public key in UDS certificat chain doesn't match UDS public key.";
