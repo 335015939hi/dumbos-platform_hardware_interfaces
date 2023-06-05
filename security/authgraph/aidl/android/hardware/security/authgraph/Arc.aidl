@@ -132,5 +132,5 @@ parcelable Arc {
      * ]
      *
      */
-    byte[] Arc;
+    byte[] encodedArc;
 }
