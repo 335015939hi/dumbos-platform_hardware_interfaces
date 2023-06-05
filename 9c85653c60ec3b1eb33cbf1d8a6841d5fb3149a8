@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff0dcd2c_37c50cc9",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-06-05T18:04:03Z",
+      "side": 1,
+      "message": "Could we set mState in the failing case instead of adding a check on line 211?\n\nHere mState could be set to READY",
+      "range": {
+        "startLine": 228,
+        "startChar": 6,
+        "endLine": 228,
+        "endChar": 12
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7456f16c_95fa15ac",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-06-05T18:04:03Z",
+      "side": 1,
+      "message": "In this case, close() already sets the state to READY",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 9
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bdc582f_ea64b1a4",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-06-05T18:04:03Z",
+      "side": 1,
+      "message": "Maybe we should assert that HalState \u003d\u003d ONE_CLIENT so we get cleaned up if something is fishy.",
+      "range": {
+        "startLine": 283,
+        "startChar": 8,
+        "endLine": 283,
+        "endChar": 38
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
