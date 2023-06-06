@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a62f4d5_4001ab44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-06-06T21:43:06Z",
+      "side": 1,
+      "message": "Though pre-submit failure does not seem to belong to this CL,It will be better to pass pre-submit.",
+      "revId": "a2600caba4f0cfebe4f19347a852e99323eac664",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
