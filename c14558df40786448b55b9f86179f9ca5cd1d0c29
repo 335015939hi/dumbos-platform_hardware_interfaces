@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db623825_22200071",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2023-06-06T22:04:21Z",
+      "side": 1,
+      "message": "i wish this said that we booted and ran some portion of the cts tests; \nperhaps CtsMedia{Codec,Decoder,Encoder}TestCases.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 12
+      },
+      "revId": "c14558df40786448b55b9f86179f9ca5cd1d0c29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "474ed8d8_6126896d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2023-06-06T22:04:21Z",
+      "side": 1,
+      "message": "a cherry pick from internal/master. which appears to have been there for the last 6 months.\n\nsince it went into master in December, it should be in upcoming U (which will put it into aosp/master when U releases). What prompted the cherry pick now?",
+      "revId": "c14558df40786448b55b9f86179f9ca5cd1d0c29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20a6e087_629436a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2023-06-06T22:04:21Z",
+      "side": 1,
+      "message": "ah. this seems to be a cherry pick of something already in internal/master.",
+      "revId": "c14558df40786448b55b9f86179f9ca5cd1d0c29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
