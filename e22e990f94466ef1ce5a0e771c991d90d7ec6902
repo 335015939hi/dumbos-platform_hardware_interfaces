@@ -1,0 +1,367 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00a1ad6c_92c9b49a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAccumulatingOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Do we need this?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2db2ea96_ea1c6bfd",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "What is the format of the resulting bytes? Where is the tag in the output of encryption?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "943df324_5b3f4567",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "method name",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51c72b00_a96329fa",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Do we need this? What does this method do that we can\u0027t do by just destroying the object reference?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc596aee_449f86b9",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IEmittingOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Do we need this (see above)?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "604cc77d_741fb91b",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyEcOperations.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Where does the other party\u0027s public key go? As the update() data? Why can\u0027t we pass it in the first place, it should be very small.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5318913_408b17b9",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyEcOperations.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Yes please, and if we can export public keys, we\u0027d better be able to import them. I might not have gotten to that yet but I don\u0027t see a way to import a public key.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78c676e7_d1846a57",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeySymmetricOperations.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Could the directory be `types` instead of `base_types`? I\u0027m not sure what \"base\" means in this context.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22332c90_7dcfaba3",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/KeyPolicy.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Field name should change?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e020eec_0f2cdee1",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/AesCipherMode.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Why not an enum for the mode along with a separate nonce? Having to know that the data is a nonce here is rather unclear. Or at least do what you did for TDES, these should be the same.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "973fea5c_33280cd1",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/AesGcmMode.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "What is this?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8008b5f7_f28b8b76",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/DmaBufferArea.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Why do we need this? If you\u0027re doing DMA, then the service side has to create and share the buffers, no? And if so, then why can\u0027t it drop the data into the dma buffer? We\u0027re not going to be able to talk AIDL directly to hardware.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71bae952_6a098469",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/EcKey.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "These three fields are all redundant with the key material, do we need them?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "554744d7_41e17540",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/EcKeyMaterial.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Would it make sense to instead have fixed-length byte arrays? NistKey is variable-length but doesn\u0027t need to be if the union elements were each fixed-size.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "247989ea_23a2a8ea",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/EcSignParameters.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Why do we need an extra parcelable for this?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4174517_9d88f676",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/HalErrorCode.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Everywhere you return a SomethingResult parcelable, you could just return the Something and use service-specific error codes to indicate failure. All AIDL methods are fallible and can return an error already, so wrapping up an integer in a Result type doesn\u0027t do much. That said, if we want more specific error types and the ability to send arbitrary data along with errors, maybe we want some of them still. I\u0027m not familiar enough with AIDL conventions, but we should stick to what is typical in the rest of the ecosystem, IMO.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2872998b_56ecac7a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/OpaqueKeyMaterial.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "```suggestion\n * parcelable OpaqueKeyMaterial - Implementation defined structure that represents a key and its\n```",
+      "range": {
+        "startLine": 19,
+        "startChar": 34,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bc8ead3_5ceb080a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/RsaSignMode.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Unions can be nullable in structured parcelables, so you don\u0027t need this variant.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa961c3b_6fcc41e7",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/RsaSignParameters.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "I\u0027d call this padding_mode and make the union `RsaPaddingMode`. Unions in AIDL can be nullable so you don\u0027t need a no-padding variant.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1d8d7c2_101b8394",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/SymmetricAlgorithmParameters.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "I\u0027m assuming this is triple DES, but a docstring would be helpful. Is this required?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4480b99_b74a9da1",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/TDesParameters.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-06T05:55:45Z",
+      "side": 1,
+      "message": "Don\u0027t need this (see other comments)",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
