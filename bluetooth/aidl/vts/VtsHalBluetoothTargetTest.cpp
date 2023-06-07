@@ -71,6 +71,12 @@ using ::bluetooth::hci::ReadLocalVersionInformationCompleteView;
 static constexpr uint8_t kMinLeAdvSetForBt5 = 16;
 static constexpr uint8_t kMinLeAdvSetForBt5FoTv = 10;
 static constexpr uint8_t kMinLeResolvingListForBt5 = 8;
+static constexpr uint8_t sco_usb_alt_set1_pkt_len = 3 * 9 - 3;
+static constexpr uint8_t sco_usb_alt_set2_pkt_len = 3 * 17 - 3;
+static constexpr uint8_t sco_usb_alt_set3_pkt_len = 3 * 25 - 3;
+static constexpr uint8_t sco_usb_alt_set4_pkt_len = 3 * 33 - 3;
+static constexpr uint8_t sco_usb_alt_set5_pkt_len = 3 * 49 - 3;
+static constexpr uint8_t sco_usb_alt_set6_pkt_len = 63 - 3;
 
 static constexpr size_t kNumHciCommandsBandwidth = 100;
 static constexpr size_t kNumScoPacketsBandwidth = 100;
@@ -116,6 +122,15 @@ static int get_vsr_api_level() {
 static bool isTv() {
   return testing::deviceSupportsFeature("android.software.leanback") ||
          testing::deviceSupportsFeature("android.hardware.type.television");
+}
+
+// check if vendor bt device is usb interface and which usb alternate setting is selected
+static int get_bt_dev_sco_usb_alt() {
+  int vendor_bt_dev_sco_usb_alt =
+      ::android::base::GetIntProperty("ro.vendor.sco_usb_alt_set", 0);
+  if (vendor_bt_dev_sco_usb_alt != 0)
+      ALOGD("bt device interface is usb and alternate setting is %d", vendor_bt_dev_sco_usb_alt);
+  return vendor_bt_dev_sco_usb_alt;
 }
 
 class ThroughputLogger {
@@ -800,6 +815,34 @@ TEST_P(BluetoothAidlTest, LoopbackModeSingleSco) {
   enterLoopbackMode();
 
   if (!sco_connection_handles.empty()) {
+    switch(get_bt_dev_sco_usb_alt()) {
+        case 6:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set6_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set6_pkt_len;
+            break;
+        case 5:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set5_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set5_pkt_len;
+            break;
+        case 4:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set4_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set4_pkt_len;
+            break;
+        case 3:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set3_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set3_pkt_len;
+            break;
+        case 2:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set2_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set2_pkt_len;
+            break;
+        case 1:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set1_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set1_pkt_len;
+            break;
+        default:
+            break;
+    }
     ASSERT_LT(0, max_sco_data_packet_length);
     sendAndCheckSco(1, max_sco_data_packet_length, sco_connection_handles[0]);
     int sco_packets_sent = 1;
@@ -850,6 +893,34 @@ TEST_P(BluetoothAidlTest, LoopbackModeScoBandwidth) {
   enterLoopbackMode();
 
   if (!sco_connection_handles.empty()) {
+    switch(get_bt_dev_sco_usb_alt()) {
+        case 6:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set6_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set6_pkt_len;
+            break;
+        case 5:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set5_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set5_pkt_len;
+            break;
+        case 4:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set4_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set4_pkt_len;
+            break;
+        case 3:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set3_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set3_pkt_len;
+            break;
+        case 2:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set2_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set2_pkt_len;
+            break;
+        case 1:
+            max_sco_data_packet_length = max_sco_data_packet_length < sco_usb_alt_set1_pkt_len ?
+                max_sco_data_packet_length : sco_usb_alt_set1_pkt_len;
+            break;
+        default:
+            break;
+    }
     ASSERT_LT(0, max_sco_data_packet_length);
     sendAndCheckSco(kNumScoPacketsBandwidth, max_sco_data_packet_length,
                     sco_connection_handles[0]);
