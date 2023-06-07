@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f74c97_81461908",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2023-06-07T17:43:54Z",
+      "side": 1,
+      "message": "For code changes sure, but this change have no effect on the build image. I would argue build is enough test for this kind of change.",
+      "parentUuid": "db623825_22200071",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 12
+      },
+      "revId": "c14558df40786448b55b9f86179f9ca5cd1d0c29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "474ed8d8_6126896d",
