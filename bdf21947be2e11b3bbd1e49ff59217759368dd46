@@ -22,6 +22,30 @@
       },
       "revId": "bdf21947be2e11b3bbd1e49ff59217759368dd46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e4a8ea9_b1aeefd8",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-06-07T13:33:08Z",
+      "side": 1,
+      "message": "No, I left these variants alone because if there\u0027s a mid-test failure, the `KeyMintAidlTestBase::TearDown()` will already call this as a fallback.",
+      "parentUuid": "13825cd9_0e0bc382",
+      "range": {
+        "startLine": 172,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 28
+      },
+      "revId": "bdf21947be2e11b3bbd1e49ff59217759368dd46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
