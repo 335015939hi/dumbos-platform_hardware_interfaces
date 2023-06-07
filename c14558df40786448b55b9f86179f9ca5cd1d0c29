@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0b79fdab_6c81ee30",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2023-06-07T19:54:43Z",
+      "side": 1,
+      "message": "Thanks Ray. I\u0027ll keep that in mind for the future CLs.",
+      "parentUuid": "0d5ff6f2_865fa7db",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 12
+      },
+      "revId": "c14558df40786448b55b9f86179f9ca5cd1d0c29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "474ed8d8_6126896d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
