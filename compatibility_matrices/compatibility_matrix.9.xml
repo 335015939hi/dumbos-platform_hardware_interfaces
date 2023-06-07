@@ -134,7 +134,7 @@
             <regex-instance>.*</regex-instance>
         </interface>
     </hal>
-    <hal format="aidl" optional="true">
+    <hal format="aidl" optional="true" updatable-via-apex="true">
         <name>android.hardware.biometrics.face</name>
         <version>2</version>
         <interface>
@@ -142,19 +142,11 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="aidl" optional="true">
+    <hal format="aidl" optional="true" updatable-via-apex="true">
         <name>android.hardware.biometrics.fingerprint</name>
         <version>2</version>
         <interface>
             <name>IFingerprint</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>android.hardware.bluetooth</name>
-        <version>1.0-1</version>
-        <interface>
-            <name>IBluetoothHci</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -637,14 +629,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>android.hardware.soundtrigger</name>
-        <version>2.3</version>
-        <interface>
-            <name>ISoundTriggerHw</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="aidl" optional="true">
          <name>android.hardware.soundtrigger3</name>
          <version>1</version>
@@ -652,22 +636,6 @@
              <name>ISoundTriggerHw</name>
              <instance>default</instance>
          </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>android.hardware.tetheroffload.config</name>
-        <version>1.0</version>
-        <interface>
-            <name>IOffloadConfig</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="true">
-        <name>android.hardware.tetheroffload.control</name>
-        <version>1.1</version>
-        <interface>
-            <name>IOffloadControl</name>
-            <instance>default</instance>
-        </interface>
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.tetheroffload</name>
