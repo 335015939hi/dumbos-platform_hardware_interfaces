@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22bf9a7e_f4cc4c9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2023-06-07T22:15:51Z",
+      "side": 1,
+      "message": "Just realized that writing to a file now requires at minimum 2 round-trips (write + commit), and requires 2 more round-trips to open a session and the file if you\u0027re only doing one write. Are we ok with this? The answer might be yes, I just want to point this out.",
+      "revId": "5df3752738c11d6430bcf932bb920ce117c6d47c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
