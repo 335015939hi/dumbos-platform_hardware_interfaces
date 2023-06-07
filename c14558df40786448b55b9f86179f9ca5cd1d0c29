@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d5ff6f2_865fa7db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2023-06-07T18:42:49Z",
+      "side": 1,
+      "message": "this affects instances of things within the context of the running process.\nwhat does this do to static variables instantiated within the library -- are there two separate copies, etc.\n\nfact that it\u0027s been in master for the last 6 months means it\u0027s probably good.",
+      "parentUuid": "d4f74c97_81461908",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 12
+      },
+      "revId": "c14558df40786448b55b9f86179f9ca5cd1d0c29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "474ed8d8_6126896d",
