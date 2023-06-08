@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2f4fb745_a1221ef5",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAccumulatingOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Same comment as on the AEAD abort function. We have it so we can quickly free and reuse finite resources like key slots on a HW crypto block.",
+      "parentUuid": "00a1ad6c_92c9b49a",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2db2ea96_ea1c6bfd",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
         "patchSetId": 31
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "What is the format of the resulting bytes? Where is the tag in the output of encryption?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a3dd14a_3c8a5809",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "The tag is located in the last |tag_length| bytes of the output. Although this lines up with how KM handles these operations, do you think we should separate the tag? The nice thing about having it on a single blob is that for decryption the client just needs to feed everything that the encryption function returned as a single entity (IV/nonce is separated though).",
+      "parentUuid": "2db2ea96_ea1c6bfd",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbfa9edb_e2bcbbf9",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "943df324_5b3f4567",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51c72b00_a96329fa",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "Do we need this? What does this method do that we can\u0027t do by just destroying the object reference?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abca7b35_570867bf",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Does destroying the object reference notifies the service of that fact immediately? If so I can remove this method; the reason to have it is so resources like key slots on a HW block can be freed and reused as soon as possible.",
+      "parentUuid": "51c72b00_a96329fa",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -103,6 +175,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "692727ab_40642578",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyEcOperations.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Yeah, you are right (originally that info would go on update). Modified the function to do everything on a single call",
+      "parentUuid": "604cc77d_741fb91b",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5318913_408b17b9",
@@ -116,6 +206,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "Yes please, and if we can export public keys, we\u0027d better be able to import them. I might not have gotten to that yet but I don\u0027t see a way to import a public key.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7f9a773_0084cb4e",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyEcOperations.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "I\u0027ll add the function to import the public key. I omitted it because we do not have verify functions (just sign functions); but I am thinking now that not having those is also an omission I should fix.",
+      "parentUuid": "a5318913_408b17b9",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -137,6 +245,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60e60ae1_078144b6",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeySymmetricOperations.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78c676e7_d1846a57",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22332c90_7dcfaba3",
@@ -150,6 +276,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "Field name should change?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fcdea42_a645b9b1",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/KeyPolicy.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22332c90_7dcfaba3",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -171,6 +315,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aebce1d_32498512",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/AesCipherMode.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "I had it that way on patchset 29. The reason for changing it to just bytes is that it was easier to use that way and I thought clarity wise it was OK, but if the previous version helps to better understand the intent; I\u0027ll use that instead, so reverting this instance to patchset 29.",
+      "parentUuid": "0e020eec_0f2cdee1",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "973fea5c_33280cd1",
@@ -184,6 +346,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "What is this?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3f4038d_a19c26e8",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/AesGcmMode.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "It is the IV/nonce. I\u0027ve also reverted this to patchset 29 that has a named structure for it instead of plain bytes.",
+      "parentUuid": "973fea5c_33280cd1",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -207,6 +387,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9dfa3487_a2e73a61",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/DmaBufferArea.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "I am not sure if I follow. This type just represents whatever the handle to the DMA buffer is (I am not sure how it will look like, that is why I created a dummy type for it).\nThe flow I was thinking to use was that client and (some) service negotiate the DMA areas to be used, which created this type (DmaBufferArea). Then when the client wants to do a DMA crypto operation, it calls a begin_dma_operation and passes these handles to it.\nWhich data do you think I can just leave on the created buffers?",
+      "parentUuid": "8008b5f7_f28b8b76",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "71bae952_6a098469",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/EcKey.aidl",
         "patchSetId": 31
@@ -218,6 +416,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "These three fields are all redundant with the key material, do we need them?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb16f3d7_41db3e70",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/EcKey.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Yes, you are right. I can generate that info just from the type on key material; removing them.",
+      "parentUuid": "71bae952_6a098469",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -241,6 +457,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f599db5c_5660f8d2",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/EcKeyMaterial.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Do you think it would help to have them fix length per case? These keys will be RFC 5915 encoded, which defines how they are serialized and some fields seems to be kind of optional.",
+      "parentUuid": "554744d7_41e17540",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "247989ea_23a2a8ea",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/EcSignParameters.aidl",
         "patchSetId": 31
@@ -252,6 +486,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "Why do we need an extra parcelable for this?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0865cfa3_c142145d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/EcSignParameters.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Removed it.",
+      "parentUuid": "247989ea_23a2a8ea",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -269,6 +521,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "Everywhere you return a SomethingResult parcelable, you could just return the Something and use service-specific error codes to indicate failure. All AIDL methods are fallible and can return an error already, so wrapping up an integer in a Result type doesn\u0027t do much. That said, if we want more specific error types and the ability to send arbitrary data along with errors, maybe we want some of them still. I\u0027m not familiar enough with AIDL conventions, but we should stick to what is typical in the rest of the ecosystem, IMO.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fb0daec_8ba7ef4e",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/HalErrorCode.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Makes sense; when I wrote these types I didn\u0027t know much about service-specific errors. I\u0027ve removed all Result types, but I am keeping the HalErrorCode enum for now.",
+      "parentUuid": "b4174517_9d88f676",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -296,6 +566,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72cfd33b_992e1398",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/OpaqueKeyMaterial.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2872998b_56ecac7a",
+      "range": {
+        "startLine": 19,
+        "startChar": 34,
+        "endLine": 19,
+        "endChar": 50
+      },
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bc8ead3_5ceb080a",
@@ -309,6 +603,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "Unions can be nullable in structured parcelables, so you don\u0027t need this variant.",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8dcc76d_b7f76e25",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/RsaSignMode.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bc8ead3_5ceb080a",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -330,6 +642,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8675bff3_7a944362",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/RsaSignParameters.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa961c3b_6fcc41e7",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1d8d7c2_101b8394",
@@ -347,6 +677,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5154ae5c_adf76ff8",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/SymmetricAlgorithmParameters.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Yes; it is triple DES. Some HW crypto blocks include it on its list of supported algorithms (I think that is because KM needs to support it). I am not planning to support it on the SW implementation of HW Crypto, but the definitions are there to be able to use the AIDL with a HW block directly. Added a docstring that makes clear that TDES is triple DES",
+      "parentUuid": "c1d8d7c2_101b8394",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4480b99_b74a9da1",
@@ -360,6 +708,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "Don\u0027t need this (see other comments)",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38e766f_db6742ff",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/TDesParameters.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4480b99_b74a9da1",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

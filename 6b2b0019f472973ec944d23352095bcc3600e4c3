@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d45b0252_6728aa0b",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoKey.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "04314969_f21a7aff",
+      "range": {
+        "startLine": 9,
+        "startChar": 10,
+        "endLine": 9,
+        "endChar": 21
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b12a25e_aba36a15",
@@ -236,6 +260,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c21f2dbd_92c98172",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4d8e6efc_9ba565da",
+      "range": {
+        "startLine": 21,
+        "startChar": 33,
+        "endLine": 21,
+        "endChar": 56
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5320e736_2d960ff2",
@@ -320,6 +368,30 @@
       "side": 1,
       "message": "it is related to `get_secure_rand_bytes`; it should be equivalent to call it with a buffer of size 8.",
       "parentUuid": "56c104ab_2d803559",
+      "range": {
+        "startLine": 32,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 42
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2cbabe0_9d4bb542",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a7a2607b_dbfcf21b",
       "range": {
         "startLine": 32,
         "startChar": 34,

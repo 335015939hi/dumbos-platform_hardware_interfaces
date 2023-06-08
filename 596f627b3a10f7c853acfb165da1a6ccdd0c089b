@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23770733_3a1f3248",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Added more details to docstring.",
+      "parentUuid": "6ea2c388_4139280b",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ccced20_81a5189b",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
         "patchSetId": 28
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "Ah, I missed `ComponentVersion`. `rollback_version_source` still seems a bit off to me. We really just want to constrain rollback, i.e. can a lower version ever run again, can a lower version run but only after a factory reset, or can we roll back and the version should just be checked against the current running version. Could we add this property to `ComponentVersion` and avoid this param here? It would make sense to allow this to be controlled separately for each component.",
       "parentUuid": "b9c8db0e_e8c2009c",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7f18b86_27dc4abb",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "Sure, I\u0027ve moved `rollback_version_source` to `ComponentVersion`.",
+      "parentUuid": "369c45e6_e8dc925e",
       "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -564,6 +600,24 @@
       "side": 1,
       "message": "If this is not valid across sessions, then why have bytes at all? This could just be a Key AIDL object. (incidentally this would clean up the `IHwCryptoKeyProperties` interface as the key could just have its own interface, and we could probably simplify a lot of the other interfaces by putting methods on the Key). I kind of like the idea of a key being a first-class AIDL object. If you need a wrapped representation that can later be re-imported, then you can have a method that returns these bytes.",
       "parentUuid": "49615582_5094c6e5",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa5b4a4_da0ff1bf",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/OpaqueKeyMaterial.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-06-08T00:13:57Z",
+      "side": 1,
+      "message": "The idea is that the service implementer can use those bytes to outsource storing keys to the client side. I am not sure how important that is, but is a pattern I\u0027ve seen on KM and on an additional crypto related spec I\u0027ve been reviewing. Making the key an AIDL object would mean to change it from a `parcelable` to an `interface` and keep any needed information just on the server side?",
+      "parentUuid": "69a8d2e7_e9c857e5",
       "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
