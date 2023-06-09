@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9c421f0c_3920d378",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2023-06-09T00:02:13Z",
+      "side": 1,
+      "message": "Changed to using `std::char_traits::length` which is allowed to be a constexpr!",
+      "parentUuid": "f60c6bd4_49512112",
+      "range": {
+        "startLine": 14,
+        "startChar": 26,
+        "endLine": 14,
+        "endChar": 32
+      },
+      "revId": "9d9033a61b0ee8643a871b2870a8026fa2d829ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "85196973_4a8b190f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
