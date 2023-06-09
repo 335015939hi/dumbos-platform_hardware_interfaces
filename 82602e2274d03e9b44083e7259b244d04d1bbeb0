@@ -16,6 +16,24 @@
       "message": "RAjesh, are there any additional test mappings we should add?",
       "revId": "82602e2274d03e9b44083e7259b244d04d1bbeb0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3639dd14_b3ae2493",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-06-09T17:37:04Z",
+      "side": 1,
+      "message": "I found these are the only functional VTS test suites for Keymaster.",
+      "parentUuid": "1192da88_75951579",
+      "revId": "82602e2274d03e9b44083e7259b244d04d1bbeb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
