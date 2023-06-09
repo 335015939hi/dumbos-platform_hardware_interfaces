@@ -16,6 +16,29 @@
       "message": "Bug: 281503650",
       "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5d57138_feb48d45",
+        "filename": "bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/aidl/aidl_api/android.hardware.bluetooth.lmpevt/current/android/hardware/bluetooth/lmpevt/IBtLmpEvt.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2023-06-09T01:19:55Z",
+      "side": 1,
+      "message": "Registration needs to support a callback to indicate completion of the registration, whether success or failure. See v1.1 of the Time Sync sidecar library.",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 27
+      },
+      "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
