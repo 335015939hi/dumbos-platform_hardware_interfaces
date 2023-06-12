@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfa24bda_012c5716",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-06-12T03:24:46Z",
+      "side": 1,
+      "message": "I agree with your comment solution. It may also be an effective solution.  I chose another solution because of the some other considerations. If AIDL init at the second time，the mState should be INITILIZING. We want it to be this values. So I think it is no need to change the init state when init fail at the first time. And the code only change a little. We don\u0027t need to change more code logic.",
+      "parentUuid": "ff0dcd2c_37c50cc9",
+      "range": {
+        "startLine": 228,
+        "startChar": 6,
+        "endLine": 228,
+        "endChar": 12
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7456f16c_95fa15ac",
         "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
         "patchSetId": 2
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86e80fce_3306a4ad",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-06-12T03:24:46Z",
+      "side": 1,
+      "message": "no, it is  still INITILIZING",
+      "parentUuid": "7456f16c_95fa15ac",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 9
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8bdc582f_ea64b1a4",
         "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
         "patchSetId": 2
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-05T18:04:03Z",
       "side": 1,
       "message": "Maybe we should assert that HalState \u003d\u003d ONE_CLIENT so we get cleaned up if something is fishy.",
+      "range": {
+        "startLine": 283,
+        "startChar": 8,
+        "endLine": 283,
+        "endChar": 38
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c73de39_9e6fce92",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-06-12T03:24:46Z",
+      "side": 1,
+      "message": "when HalState \u003d\u003d ONE_CLIENT，it means that hal init successful.",
+      "parentUuid": "8bdc582f_ea64b1a4",
       "range": {
         "startLine": 283,
         "startChar": 8,
