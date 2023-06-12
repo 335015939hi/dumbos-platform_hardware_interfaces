@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "429d7c3a_09626d41",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-06-12T05:39:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfa24bda_012c5716",
+      "range": {
+        "startLine": 228,
+        "startChar": 6,
+        "endLine": 228,
+        "endChar": 12
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7456f16c_95fa15ac",
@@ -95,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a71257_6b39ba73",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-06-12T05:39:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86e80fce_3306a4ad",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 9
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bdc582f_ea64b1a4",
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "when HalState \u003d\u003d ONE_CLIENT，it means that hal init successful.",
       "parentUuid": "8bdc582f_ea64b1a4",
+      "range": {
+        "startLine": 283,
+        "startChar": 8,
+        "endLine": 283,
+        "endChar": 38
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2247fa0_74f1f343",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-06-12T05:39:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c73de39_9e6fce92",
       "range": {
         "startLine": 283,
         "startChar": 8,
