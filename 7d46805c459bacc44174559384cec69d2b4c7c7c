@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf6d0402_a3caaddd",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 830,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-06-12T17:16:38Z",
+      "side": 1,
+      "message": "If you don\u0027t mind, please fix up this typo while you\u0027re in here 😊",
+      "range": {
+        "startLine": 830,
+        "startChar": 43,
+        "endLine": 830,
+        "endChar": 53
+      },
+      "revId": "7d46805c459bacc44174559384cec69d2b4c7c7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
