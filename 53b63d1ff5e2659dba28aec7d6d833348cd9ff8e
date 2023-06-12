@@ -39,6 +39,30 @@
       },
       "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb24b7d4_8586f124",
+        "filename": "bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/aidl/aidl_api/android.hardware.bluetooth.lmpevt/current/android/hardware/bluetooth/lmpevt/IBtLmpEvt.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-06-12T15:49:26Z",
+      "side": 1,
+      "message": "IBtLmpEvtCb.onRegistered(in boolean status) API is already there for returning the registration status. Will that suffice here ?",
+      "parentUuid": "c5d57138_feb48d45",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 27
+      },
+      "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
