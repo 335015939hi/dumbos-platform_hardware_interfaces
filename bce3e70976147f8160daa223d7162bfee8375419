@@ -1,0 +1,481 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d1edb40_8b1c4f31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "The changes to `aidl_session` look OK to me.",
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "629d8a35_bb13ebfc",
+        "filename": "audio/aidl/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "We should use consistent naming scheme, thus this should be `DevicePortProxy.cpp`",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 83,
+        "endChar": 40
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "991326d8_ab61be25",
+        "filename": "audio/aidl/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "Please sort",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 42
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f96d112_ffab2ab6",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "We should also get the real latency somewhere from the BT stack.",
+      "range": {
+        "startLine": 105,
+        "startChar": 17,
+        "endLine": 105,
+        "endChar": 36
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca5b258_76c4ea8e",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "Is this macro actually useful? `x` is only used once, and the length of the macro name isn\u0027t much shorter than the enum constant name.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 77
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5b80196_e5691d0a",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "`description.toString()` should work just fine.",
+      "range": {
+        "startLine": 141,
+        "startChar": 13,
+        "endLine": 141,
+        "endChar": 63
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "947d6578_fe13e6d8",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "This divides by `4`, is this intended?",
+      "range": {
+        "startLine": 487,
+        "startChar": 0,
+        "endLine": 487,
+        "endChar": 41
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e100329f_9a60f4ae",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "Do we verify anywhere that data we get here is always 16-bit PCM?",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 489,
+        "endChar": 49
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "365308b0_4d8d0f65",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "C++ and C library includes should be the first ones.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef8686bc_a621f50a",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "Why is this defined outside of any namespaces? It should be in `android` NS at least.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 0
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41f7a6a6_ca657c2f",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "These constants should be either defined inside some class, if used outside this module, or just defined in the C++ file.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 64
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a789d9e3_191d9299",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "Please do not use `using` directives in header files, see https://google.github.io/styleguide/cppguide.html#Namespaces.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 61
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "836c54ef_ae70e083",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "`\u003d default;`",
+      "range": {
+        "startLine": 71,
+        "startChar": 22,
+        "endLine": 71,
+        "endChar": 25
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8247c60a_3a8499c4",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "`AudioDeviceDescription` is a complex type so should be passed by a const reference.",
+      "range": {
+        "startLine": 79,
+        "startChar": 21,
+        "endLine": 79,
+        "endChar": 43
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c5fb343_58714e99",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "Please note that we name methods starting from lower case: `setUp`",
+      "range": {
+        "startLine": 79,
+        "startChar": 15,
+        "endLine": 79,
+        "endChar": 20
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09158549_38373814",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "Please note that we use `const \u0026`, not pointers for input arguments.",
+      "range": {
+        "startLine": 130,
+        "startChar": 36,
+        "endLine": 130,
+        "endChar": 57
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f149f56_ee3e4511",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "The convention in other code of the default AIDL service is to use `mField` for class fields (see https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/default/include/core-impl/Module.h). I know, it\u0027s not what the public Google C++ style guide says, it\u0027s the convention which is used by many parts of the Android framework).",
+      "range": {
+        "startLine": 219,
+        "startChar": 11,
+        "endLine": 219,
+        "endChar": 18
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76b5b754_6872eefe",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "`inUse`",
+      "range": {
+        "startLine": 224,
+        "startChar": 15,
+        "endLine": 224,
+        "endChar": 21
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9a22838_0c42e5b4",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "Please add `GUARDED_BY(cv_mutex_)` we have static thread safety analysis enabled.",
+      "range": {
+        "startLine": 228,
+        "startChar": 38,
+        "endLine": 228,
+        "endChar": 39
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdb0ebd2_1aeef50f",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "`initSessionType`",
+      "range": {
+        "startLine": 232,
+        "startChar": 7,
+        "endLine": 232,
+        "endChar": 24
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6f28c89_3800893a",
+        "filename": "bluetooth/audio/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-13T21:43:44Z",
+      "side": 1,
+      "message": "I doubt we actually need to change the version of `common` here and below. These versions specify the dependency of the interfaces themselves. If we don\u0027t use any new types from the V2 in the .aidl files, we shouldn\u0027t be updating these. Moreover, the versions \u00271\u0027 and \u00272\u0027 are already frozen, I don\u0027t think we can change anything about them in principle: https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 43
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
