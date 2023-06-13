@@ -80,6 +80,8 @@ cc_library {
         "usb/StreamUsb.cpp",
         "usb/UsbAlsaMixerControl.cpp",
         "usb/UsbAlsaUtils.cpp",
+        "bluetooth/device_port_proxy.cpp",
+        "bluetooth/StreamBluetooth.cpp",
     ],
     generated_sources: [
         "audio_policy_configuration_aidl_default",
@@ -97,6 +99,8 @@ cc_library {
         "libaudio_aidl_conversion_common_ndk",
         "libmedia_helper",
         "libstagefright_foundation",
+        "android.hardware.bluetooth.audio-V3-ndk",
+        "libbluetooth_audio_session_aidl",
     ],
     export_shared_lib_headers: [
         "libaudio_aidl_conversion_common_ndk",
