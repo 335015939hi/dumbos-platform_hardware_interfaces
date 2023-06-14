@@ -124,6 +124,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ddeefb7_805d3c30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373349
+      },
+      "writtenOn": "2023-06-14T11:14:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c596f914_d0ed5df8",
+      "revId": "392d530a649b709187fe8bf53512ef234051662f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dac13ce_6f688d67",
@@ -155,6 +173,24 @@
       "side": 1,
       "message": "Yes, I have checked the code flow.\nThe portName only gets when using typeC port `/sys/class/typec` and the port status only returns success under typeC.\nI think this patch could fix the issue.",
       "parentUuid": "4dac13ce_6f688d67",
+      "revId": "392d530a649b709187fe8bf53512ef234051662f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cba1108_eeb99b58",
+        "filename": "usb/1.1/vts/functional/VtsHalUsbV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1373349
+      },
+      "writtenOn": "2023-06-14T11:14:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5992ab12_d8bede09",
       "revId": "392d530a649b709187fe8bf53512ef234051662f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
