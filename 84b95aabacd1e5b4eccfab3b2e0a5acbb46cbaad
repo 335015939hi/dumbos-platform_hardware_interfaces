@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74d0cd84_4bff4f52",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1659435
+      },
+      "writtenOn": "2023-06-14T11:59:23Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Build Warnings: statement should be inside braces [readability-braces-around-statements,-warnings-as-errors]\n\nAnalyzer Description: Reports warnings that originate from build.log in the build artifacts.\nOwner: farivar@google.com\n\n    statement should be inside braces [readability-braces-around-statements,-warnings-as-errors]\n      if (vendor_bt_dev_sco_usb_alt !\u003d 0)\n                                         ^\n                                          {\n\nThis finding was found on https://android-build.googleplex.com/builds/build-details/P58357678/targets/aosp_arm64-userdebug_tidy, but may also be present on other builds.",
+      "range": {
+        "startLine": 131,
+        "startChar": 38,
+        "endLine": 131,
+        "endChar": 37
+      },
+      "revId": "84b95aabacd1e5b4eccfab3b2e0a5acbb46cbaad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30d6a7ef_b61ed787",
         "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
         "patchSetId": 3
