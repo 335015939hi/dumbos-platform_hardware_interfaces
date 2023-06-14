@@ -152,6 +152,7 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
         case Tag::halReservedExit:
             if (const int32_t cookie = command.get<Tag::halReservedExit>();
                 cookie == mInternalCommandCookie) {
+                mDriver->close();
                 setClosed();
                 // This is an internal command, no need to reply.
                 return Status::EXIT;
@@ -364,6 +365,9 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
         case Tag::halReservedExit:
             if (const int32_t cookie = command.get<Tag::halReservedExit>();
                 cookie == mInternalCommandCookie) {
+                if (::android::status_t status = mDriver->close(); status != ::android::OK) {
+                    LOG(ERROR) << __func__ << ": close failed: " << status;
+                }
                 setClosed();
                 // This is an internal command, no need to reply.
                 return Status::EXIT;
