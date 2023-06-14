@@ -19,21 +19,19 @@
 #include <mutex>
 #include <vector>
 
-#include <aidl/android/media/audio/common/AudioChannelLayout.h>
-
+#include "core-impl/DevicePortProxy.h"
+#include "core-impl/Module.h"
 #include "core-impl/Stream.h"
-
-extern "C" {
-#include <tinyalsa/pcm.h>
-#include "alsa_device_proxy.h"
-}
 
 namespace aidl::android::hardware::audio::core {
 
-class DriverUsb : public DriverInterface {
+class DriverBluetooth : public DriverInterface {
   public:
-    DriverUsb(const StreamContext& context, bool isInput);
+    DriverBluetooth(const StreamContext& context, bool isInput);
     ::android::status_t init() override;
+    ::android::status_t setConnectedDevices(
+            const std::vector<::aidl::android::media::audio::common::AudioDevice>& connectedDevices)
+            override;
     ::android::status_t drain(StreamDescriptor::DrainMode) override;
     ::android::status_t flush() override;
     ::android::status_t pause() override;
@@ -41,31 +39,38 @@ class DriverUsb : public DriverInterface {
                                  int32_t* latencyMs) override;
     ::android::status_t standby() override;
     ::android::status_t close() override;
-    // Note: called on a different thread.
-    ::android::status_t setConnectedDevices(
-            const std::vector<::aidl::android::media::audio::common::AudioDevice>& connectedDevices)
-            override;
+
+    void updateMetadata(const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata);
+    void updateMetadata(
+            const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata);
+    void setVendorParameters(
+            const std::vector<::aidl::android::hardware::audio::core::VendorParameter>& parameters);
 
   private:
-    ::android::status_t exitStandby();
+    ::android::status_t doInit();
+    bool checkConfigParams(::aidl::android::hardware::bluetooth::audio::PcmConfiguration& config);
+
+    // Audio Pcm Config
+    uint32_t mSampleRate;
+    ::aidl::android::media::audio::common::AudioChannelLayout mChannelLayout;
+    ::aidl::android::media::audio::common::AudioFormatDescription mFormat;
+    size_t mFrameSizeBytes;
+    const bool mIsInput;
+
+    size_t mPreferredDataIntervalUs;
+    size_t mPreferredFrameCount;
 
     std::mutex mLock;
 
-    const size_t mFrameSizeBytes;
-    std::optional<struct pcm_config> mConfig;
-    const bool mIsInput;
     // Cached device addresses for connected devices.
-    std::vector<::aidl::android::media::audio::common::AudioDeviceAddress> mConnectedDevices
+    std::vector<::aidl::android::media::audio::common::AudioDevice> mConnectedDevices
             GUARDED_BY(mLock);
-    std::vector<std::shared_ptr<alsa_device_proxy>> mAlsaDeviceProxies GUARDED_BY(mLock);
-    bool mIsStandby = true;
+    std::vector<std::shared_ptr<::android::bluetooth::audio::aidl::BluetoothAudioPort>>
+            mBtDeviceProxies GUARDED_BY(mLock);
+    bool mInitDone = false;
 };
 
-class StreamInUsb final : public StreamIn {
-    ndk::ScopedAStatus getActiveMicrophones(
-            std::vector<::aidl::android::media::audio::common::MicrophoneDynamicInfo>* _aidl_return)
-            override;
-
+class StreamInBluetooth final : public StreamIn {
   public:
     static ndk::ScopedAStatus createInstance(
             const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
@@ -73,15 +78,18 @@ class StreamInUsb final : public StreamIn {
             const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones,
             std::shared_ptr<StreamIn>* result);
 
+    ndk::ScopedAStatus updateMetadata(
+            const ::aidl::android::hardware::audio::common::SinkMetadata& in_sinkMetadata) override;
+
   private:
     friend class ndk::SharedRefBase;
-    StreamInUsb(
+    StreamInBluetooth(
             const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
             StreamContext&& context,
             const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones);
 };
 
-class StreamOutUsb final : public StreamOut {
+class StreamOutBluetooth final : public StreamOut {
   public:
     static ndk::ScopedAStatus createInstance(
             const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
@@ -90,18 +98,22 @@ class StreamOutUsb final : public StreamOut {
                     offloadInfo,
             std::shared_ptr<StreamOut>* result);
 
+    ndk::ScopedAStatus updateMetadata(
+            const ::aidl::android::hardware::audio::common::SourceMetadata& in_sourceMetadata)
+            override;
+
+    ndk::ScopedAStatus setVendorParameters(
+            const std::vector<::aidl::android::hardware::audio::core::VendorParameter>&
+                    in_parameters,
+            bool in_async) override;
+
   private:
     friend class ndk::SharedRefBase;
-    StreamOutUsb(const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
-                 StreamContext&& context,
-                 const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
-                         offloadInfo);
-
-    ndk::ScopedAStatus getHwVolume(std::vector<float>* _aidl_return) override;
-    ndk::ScopedAStatus setHwVolume(const std::vector<float>& in_channelVolumes) override;
-
-    int mChannelCount;
-    std::vector<float> mHwVolumes;
+    StreamOutBluetooth(
+            const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
+            StreamContext&& context,
+            const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
+                    offloadInfo);
 };
 
 }  // namespace aidl::android::hardware::audio::core
