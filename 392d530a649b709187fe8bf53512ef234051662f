@@ -122,6 +122,23 @@
       "parentUuid": "c1d3c59d_08fefb3f",
       "revId": "392d530a649b709187fe8bf53512ef234051662f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dac13ce_6f688d67",
+        "filename": "usb/1.1/vts/functional/VtsHalUsbV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1373349
+      },
+      "writtenOn": "2023-06-14T08:06:41Z",
+      "side": 1,
+      "message": "I am not so sure it is a good idea to check if portName empty to make sure no USB ports. \n\nRicky, what do you think? Any better parameter to check with?",
+      "revId": "392d530a649b709187fe8bf53512ef234051662f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
