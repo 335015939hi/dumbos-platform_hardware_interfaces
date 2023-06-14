@@ -139,6 +139,24 @@
       "message": "I am not so sure it is a good idea to check if portName empty to make sure no USB ports. \n\nRicky, what do you think? Any better parameter to check with?",
       "revId": "392d530a649b709187fe8bf53512ef234051662f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5992ab12_d8bede09",
+        "filename": "usb/1.1/vts/functional/VtsHalUsbV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1292828
+      },
+      "writtenOn": "2023-06-14T09:05:41Z",
+      "side": 1,
+      "message": "Yes, I have checked the code flow.\nThe portName only gets when using typeC port `/sys/class/typec` and the port status only returns success under typeC.\nI think this patch could fix the issue.",
+      "parentUuid": "4dac13ce_6f688d67",
+      "revId": "392d530a649b709187fe8bf53512ef234051662f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
