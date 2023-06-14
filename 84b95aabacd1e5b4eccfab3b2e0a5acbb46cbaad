@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30d6a7ef_b61ed787",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1659435
+      },
+      "writtenOn": "2023-06-14T09:51:19Z",
+      "side": 1,
+      "message": "Looks like duplicated code, can be extracted to a separate function.",
+      "revId": "84b95aabacd1e5b4eccfab3b2e0a5acbb46cbaad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
