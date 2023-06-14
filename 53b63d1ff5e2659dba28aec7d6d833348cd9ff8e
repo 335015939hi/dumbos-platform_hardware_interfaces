@@ -63,6 +63,30 @@
       },
       "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ba1f610_bfa4d067",
+        "filename": "bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/aidl/aidl_api/android.hardware.bluetooth.lmpevt/current/android/hardware/bluetooth/lmpevt/IBtLmpEvt.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1418133
+      },
+      "writtenOn": "2023-06-14T02:23:45Z",
+      "side": 1,
+      "message": "Ah, yes. I missed that on the first pass. Sorry.",
+      "parentUuid": "bb24b7d4_8586f124",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 37,
+        "endChar": 27
+      },
+      "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
