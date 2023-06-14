@@ -163,6 +163,7 @@ struct DriverInterface {
     virtual ::android::status_t transfer(void* buffer, size_t frameCount, size_t* actualFrameCount,
                                          int32_t* latencyMs) = 0;
     virtual ::android::status_t standby() = 0;
+    virtual ::android::status_t close() = 0;
     // The method below is called from a thread of the Binder pool. Access to data shared with other
     // methods of this interface must be done in a thread-safe manner.
     virtual ::android::status_t setConnectedDevices(
