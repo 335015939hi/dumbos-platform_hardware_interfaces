@@ -500,6 +500,30 @@
       },
       "revId": "bce3e70976147f8160daa223d7162bfee8375419",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dbad7bb_cf2a630b",
+        "filename": "bluetooth/audio/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-14T17:00:43Z",
+      "side": 1,
+      "message": "I see. Does it work if you only retain the change in the line 32? As I\u0027ve explained, the versions 1 and 2 have been \"frozen\" and changes to them are not allowed.",
+      "parentUuid": "c0530e2b_6dad2239",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 43
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
