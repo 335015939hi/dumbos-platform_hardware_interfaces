@@ -148,6 +148,10 @@ DriverUsb::DriverUsb(const StreamContext& context, bool isInput)
     return ::android::OK;
 }
 
+::android::status_t DriverUsb::close() {
+    return ::android::OK;
+}
+
 ::android::status_t DriverUsb::exitStandby() {
     std::vector<AudioDeviceAddress> connectedDevices;
     {
