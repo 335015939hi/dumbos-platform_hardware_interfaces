@@ -29,6 +29,7 @@
 #include "core-impl/Module.h"
 #include "core-impl/ModuleUsb.h"
 #include "core-impl/SoundDose.h"
+#include "core-impl/StreamBluetooth.h"
 #include "core-impl/StreamStub.h"
 #include "core-impl/StreamUsb.h"
 #include "core-impl/Telephony.h"
@@ -112,6 +113,8 @@ std::shared_ptr<Module> Module::createInstance(Type type) {
     switch (type) {
         case Module::Type::USB:
             return ndk::SharedRefBase::make<ModuleUsb>(type);
+        case Module::Type::BLUETOOTH:
+            return nullptr;
         case Type::DEFAULT:
         case Type::R_SUBMIX:
         default:
@@ -124,6 +127,8 @@ StreamIn::CreateInstance Module::getStreamInCreator(Type type) {
     switch (type) {
         case Type::USB:
             return StreamInUsb::createInstance;
+        case Type::BLUETOOTH:
+            return StreamInBluetooth::createInstance;
         case Type::DEFAULT:
         case Type::R_SUBMIX:
         default:
@@ -136,6 +141,8 @@ StreamOut::CreateInstance Module::getStreamOutCreator(Type type) {
     switch (type) {
         case Type::USB:
             return StreamOutUsb::createInstance;
+        case Type::BLUETOOTH:
+            return StreamOutBluetooth::createInstance;
         case Type::DEFAULT:
         case Type::R_SUBMIX:
         default:
@@ -153,6 +160,9 @@ std::ostream& operator<<(std::ostream& os, Module::Type t) {
             break;
         case Module::Type::USB:
             os << "usb";
+            break;
+        case Module::Type::BLUETOOTH:
+            os << "bluetooth";
             break;
     }
     return os;
@@ -316,6 +326,9 @@ internal::Configuration& Module::getConfig() {
                 break;
             case Type::USB:
                 mConfig = std::move(internal::getUsbConfiguration());
+                break;
+            case Type::BLUETOOTH:
+                // TODO get configuration for bluetooth
                 break;
         }
     }
