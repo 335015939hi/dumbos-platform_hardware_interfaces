@@ -524,6 +524,30 @@
       },
       "revId": "bce3e70976147f8160daa223d7162bfee8375419",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6b34694_cc0341e0",
+        "filename": "bluetooth/audio/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-14T20:48:20Z",
+      "side": 1,
+      "message": "With these changes, it is working. I will check again.",
+      "parentUuid": "2dbad7bb_cf2a630b",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 43
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
