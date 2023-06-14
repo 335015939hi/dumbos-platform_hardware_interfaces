@@ -476,6 +476,30 @@
       },
       "revId": "bce3e70976147f8160daa223d7162bfee8375419",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0530e2b_6dad2239",
+        "filename": "bluetooth/audio/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-14T01:58:13Z",
+      "side": 1,
+      "message": "With out this change, mikhail, i am seeing this problem,\nerror: hardware/interfaces/audio/aidl/default/Android.bp:58:1: module \"libaudioserviceexampleimpl\" variant \"android_vendor.VanillaIceCream_arm64_armv8-a_static\": depends on multiple versions of the same aidl_interface: android.hardware.audio.common-V1-ndk-source, android.hardware.audio.common-V2-ndk-source",
+      "parentUuid": "c6f28c89_3800893a",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 43
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
