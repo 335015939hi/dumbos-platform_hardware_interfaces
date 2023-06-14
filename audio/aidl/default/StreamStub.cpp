@@ -84,6 +84,10 @@ DriverStub::DriverStub(const StreamContext& context, bool isInput)
     return ::android::OK;
 }
 
+::android::status_t DriverStub::close() {
+    return ::android::OK;
+}
+
 ::android::status_t DriverStub::setConnectedDevices(
         const std::vector<AudioDevice>& connectedDevices __unused) {
     usleep(500);
