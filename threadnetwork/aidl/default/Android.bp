@@ -48,6 +48,7 @@ cc_binary {
     name: "android.hardware.threadnetwork-service.sim",
     defaults: ["threadnetwork_service_default"],
     init_rc: ["android.hardware.threadnetwork-service.sim.rc"],
+    required: ["ot-rcp"],
 }
 
 cc_binary {

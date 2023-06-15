@@ -146,25 +146,20 @@ exit:
 }
 
 ndk::ScopedAStatus ThreadChip::reset() {
-    mInterface.OnRcpReset();
+    mInterface.HardwareReset();
     ALOGI("reset()");
     return ndk::ScopedAStatus::ok();
 }
 
 void ThreadChip::Update(otSysMainloopContext& context) {
     if (mCallback != nullptr) {
-        mInterface.UpdateFdSet(context.mReadFdSet, context.mWriteFdSet, context.mMaxFd,
-                               context.mTimeout);
+        mInterface.UpdateFdSet(&context);
     }
 }
 
 void ThreadChip::Process(const otSysMainloopContext& context) {
-    struct RadioProcessContext radioContext;
-
     if (mCallback != nullptr) {
-        radioContext.mReadFdSet = &context.mReadFdSet;
-        radioContext.mWriteFdSet = &context.mWriteFdSet;
-        mInterface.Process(radioContext);
+        mInterface.Process(&context);
     }
 }
 
