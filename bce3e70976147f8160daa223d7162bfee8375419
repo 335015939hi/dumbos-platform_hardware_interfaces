@@ -88,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96d6c9c5_7188aace",
+        "filename": "audio/aidl/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-15T02:40:12Z",
+      "side": 1,
+      "message": "It is in alphabetical order Shunkai",
+      "parentUuid": "cf4ab0aa_62664edc",
+      "range": {
+        "startLine": 83,
+        "startChar": 9,
+        "endLine": 83,
+        "endChar": 18
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "991326d8_ab61be25",
