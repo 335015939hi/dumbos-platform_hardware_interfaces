@@ -39,6 +39,30 @@
       },
       "revId": "d63b22fa34e7e7f4f3b13a561dac4ab9c933503d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "600016bd_cc66bc9e",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-15T17:54:41Z",
+      "side": 1,
+      "message": "Right, this seems to be superfluous. Also, the type can be always figured out from the instance UUID by examining the APM service dump.",
+      "parentUuid": "3aaa98fb_93dfbe24",
+      "range": {
+        "startLine": 70,
+        "startChar": 56,
+        "endLine": 71,
+        "endChar": 65
+      },
+      "revId": "d63b22fa34e7e7f4f3b13a561dac4ab9c933503d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
