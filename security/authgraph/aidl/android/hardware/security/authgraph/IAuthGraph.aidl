@@ -44,61 +44,6 @@ import android.hardware.security.authgraph.PubKey;
 @VintfStability
 interface IAuthGraph {
     /**
-     * Creates an ephemeral elliptic curve (EC) key pair, with P-256, in order to establish
-     * a secret channel between two domains via elliptic curve diffie hellman (ECDH) key agreement.
-     * The signed public key of the key pair is returned in InitChannelResult. The signature is
-     * created using the signing key of the domain, via ECDSA.
-     * All domains participating in authgraph should have a symmetric key for every boot cycle,
-     * which is called Per-Boot-Key (PBK). Optionally, if a domain does not wish to maintain state
-     * across the invocations of the two methods related to channel establishment, it may include an
-     * arc from PBK to the private key of the EC key pair in the field:
-     * 'arcFromPerBootKeyToPrivateKey' of InitChannelResult, which will be then included in the
-     * optional input parameter: 'initChannelResult' of createChannel() method.
-     *
-     * ErrorCode::OPERATION_NOT_SUPPORTED must be returned as a ServiceSpecificException
-     * if the method is not implemented.
-     *
-     * @param signingKeySetupInfo: Each domain is supposed to have a signing key (EC
-     *        P-256), which is handed over to them as a DICE artifact.
-     *        If a domain does not have DICE artifacts, this optional input parameter provides means
-     *        by which a domain can obtain a signing key.
-     *
-     * @return InitChannelResult
-     */
-    InitChannelResult initChannel(in @nullable byte[] signingKeySetupInfo);
-
-    /**
-     * Verifies the signature on the ephemeral EC public key of the other party, which is supplied
-     * as the first argument. If the verification is successful, derives a secret via ECDH and
-     * computes two keys via KDF.
-     * The first key is used as the channel key agreed by the two domains. It is a 256-bit AES key
-     * to be used in AES-GCM mode.
-     * The second key is a 256-bit HMAC key to be used to compute HMAC on a fixed value, in order to
-     * allow the caller to verify that ECDH key agreement was successful at both parties by
-     * comparing the HMAC values provided by the two domains.
-     *
-     * Domains should output an arc from PBK to the channel key, attaching the public signing key
-     * of the other party as AAD. This is called a channel arc, which is returned in
-     * CreateChannelResult.
-     *
-     * ErrorCode::INVALID_SIGNATURE must be returned if the input signature of the other party is
-     * invalid. INVALID_EC_KEY must be returned if an invalid key is provided in
-     * signedPublicKeyOfOtherParty. ErrorCode::OPERATION_NOT_SUPPORTED must be returned if the
-     * method is not implemented. Error codes are returned as ServiceSpecificExceptions.
-     *
-     * @param signedPublicKeyOfOtherParty: Signed EC public key of the other party that is used to
-     *        compute the channel keys via ECDH.
-     *
-     * @param initChannelResult: InitChannelResult returned from initChannel() method. This is
-     *        optional, unless the field: 'arcFromPerBootKeyToPrivateKey' of InitChannelResult
-     *        returned from initiChannel() method is not empty.
-     *
-     * @return CreateChannelResult
-     */
-    CreateChannelResult createChannel(in byte[] signedPublicKeyOfOtherParty,
-            in @nullable InitChannelResult initChannelResult);
-
-    /**
      * Creates a key and returns an arc from the per-boot key to the secret key (see the
      * `arcFromPBK` field in the `Key` type). If the created key is an asymmetric key,
      * `arcFromPBK `contains the arc from the per-boot key to the private key.
