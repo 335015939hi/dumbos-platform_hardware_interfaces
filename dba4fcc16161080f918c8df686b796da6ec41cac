@@ -3,6 +3,190 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bcbcf4a9_91674349",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "I\u0027m seeing this multiple times, it feels like a `BluetoothAudioPortAidl::toString()` is better than repeating these for debugging.\nA toString() implementation helps with dumpsys implementation as well.",
+      "range": {
+        "startLine": 201,
+        "startChar": 37,
+        "endLine": 203,
+        "endChar": 88
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4de092e_5c69a7ad",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "code doesn\u0027t match with comment here",
+      "range": {
+        "startLine": 212,
+        "startChar": 19,
+        "endLine": 212,
+        "endChar": 87
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77987564_5fda7daa",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "Is the logging at line#201 not enough? seems identical loggings repeated",
+      "range": {
+        "startLine": 224,
+        "startChar": 16,
+        "endLine": 224,
+        "endChar": 79
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc8c3193_6d3df4f8",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "we should either validate the parameter pointer, or explicitly clarify it must always valid in API documentation \"class BluetoothAudioPort::LoadAudioConfig\", same for other pointer input parameters",
+      "range": {
+        "startLine": 290,
+        "startChar": 66,
+        "endLine": 290,
+        "endChar": 75
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4e92be9_1bc9dbb2",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "why do we need a temporary variable here? how about just:\n```\n*audio_cfg \u003d hal_audio_cfg.get\u003cAudioConfiguration::pcmConfig\u003e();\n```\n\nSame for other similar implementations",
+      "range": {
+        "startLine": 301,
+        "startChar": 4,
+        "endLine": 301,
+        "endChar": 35
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba7de709_71048a83",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "Maybe VERBOS or DEBUG?",
+      "range": {
+        "startLine": 371,
+        "startChar": 8,
+        "endLine": 371,
+        "endChar": 12
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5737e17b_64eee4f1",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "It looks like a pattern to define the return as `bool` (I think `status_t` maybe better but up to you) in this class and return false whenever things may go wrong, should this also be bool?\nSame for `UpdateSinkMetadata`",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 4
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78d713e1_f71c0f67",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "maybe want logging here",
+      "range": {
+        "startLine": 521,
+        "startChar": 4,
+        "endLine": 521,
+        "endChar": 18
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "faf75636_b187294b",
         "filename": "audio/aidl/default/bluetooth/DevicePortProxy.h",
         "patchSetId": 4
@@ -19,6 +203,75 @@
         "startChar": 0,
         "endLine": 32,
         "endChar": 16
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eb56155_5e007a26",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "Up to you, but `SetUp` and `TearDown` are two well known methods for unit testing, and people (like me) assume they will be called automatically without explicit call, but it looks like we need class BluetoothAudioPort user to call these two methods manually here so I\u0027m not sure if they are good names.\nMaybe `register/unregister`?",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 25
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a8bd442_fbfbf597",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "better to initialize all members with default value\nAlso should we add clang thread-safe annotation here?",
+      "range": {
+        "startLine": 180,
+        "startChar": 25,
+        "endLine": 180,
+        "endChar": 31
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d37a64_eecc537b",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "Please add document for them",
+      "range": {
+        "startLine": 187,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 40
       },
       "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"

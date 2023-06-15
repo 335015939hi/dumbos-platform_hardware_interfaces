@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bee62ef_277209fa",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-15T01:21:07Z",
+      "side": 1,
+      "message": "nit: SetUp -\u003e setUp to align with other modules in same folder? Same for others methods.",
+      "range": {
+        "startLine": 61,
+        "startChar": 17,
+        "endLine": 61,
+        "endChar": 22
+      },
+      "revId": "21f7eaed0918ed15d4c14bca3631611112c9d85c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
