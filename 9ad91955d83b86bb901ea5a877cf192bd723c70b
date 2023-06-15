@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7ae2748_64755681",
+        "filename": "automotive/evs/1.0/vts/functional/FrameHandler.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-06-15T20:35:47Z",
+      "side": 1,
+      "message": "The comment can be edited to mention increase of frame displayed count?",
+      "range": {
+        "startLine": 201,
+        "startChar": 5,
+        "endLine": 201,
+        "endChar": 92
+      },
+      "revId": "9ad91955d83b86bb901ea5a877cf192bd723c70b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
