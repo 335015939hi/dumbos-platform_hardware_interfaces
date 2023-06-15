@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92b65cc8_d4f4a031",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2183,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-06-15T09:14:41Z",
+      "side": 1,
+      "message": "Nit: Worth documenting this in ErrorCode.aidl or in the documentation for ATTESTATION_ID_IMEI, etc in Tag.aidl.\n\nIt is not an unreasonable error to have when the device does not have an IMEI/MEID/etc, but I was always assuming ATTESTATION_IDS_NOT_PROVISIONED is returned only when all device identifiers are not provisioned and CANNOT_ATTEST_IDS is returned if the available set of device identifiers is provisioned but KM is asked to attest to something it does not have provisioned.",
+      "range": {
+        "startLine": 2183,
+        "startChar": 7,
+        "endLine": 2183,
+        "endChar": 38
+      },
+      "revId": "f42238c99ffe0df2e51cec84a96ed859a878b2b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
