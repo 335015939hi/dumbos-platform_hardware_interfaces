@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c54469af_04debb79",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-15T06:07:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbcf4a9_91674349",
+      "range": {
+        "startLine": 201,
+        "startChar": 37,
+        "endLine": 203,
+        "endChar": 88
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4de092e_5c69a7ad",
@@ -60,6 +84,30 @@
       "writtenOn": "2023-06-15T01:21:07Z",
       "side": 1,
       "message": "Is the logging at line#201 not enough? seems identical loggings repeated",
+      "range": {
+        "startLine": 224,
+        "startChar": 16,
+        "endLine": 224,
+        "endChar": 79
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0ab7582_11eb2f6a",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-15T06:07:00Z",
+      "side": 1,
+      "message": "Ack, done.",
+      "parentUuid": "77987564_5fda7daa",
       "range": {
         "startLine": 224,
         "startChar": 16,
@@ -116,6 +164,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb60bb70_0fb53346",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-15T06:07:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4e92be9_1bc9dbb2",
+      "range": {
+        "startLine": 301,
+        "startChar": 4,
+        "endLine": 301,
+        "endChar": 35
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba7de709_71048a83",
@@ -129,6 +201,30 @@
       "writtenOn": "2023-06-15T01:21:07Z",
       "side": 1,
       "message": "Maybe VERBOS or DEBUG?",
+      "range": {
+        "startLine": 371,
+        "startChar": 8,
+        "endLine": 371,
+        "endChar": 12
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71da4368_e10660b9",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-15T06:07:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba7de709_71048a83",
       "range": {
         "startLine": 371,
         "startChar": 8,
