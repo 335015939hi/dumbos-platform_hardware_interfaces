@@ -36,13 +36,13 @@ cc_defaults {
         "libbase",
         "libutils",
     ],
-    sanitize: {
-        undefined: true,
-        all_undefined: true,
-        cfi: true,
-        integer_overflow: true,
-        scs: true,
-    },
+    // sanitize: {
+    //     undefined: true,
+    //     all_undefined: true,
+    //     cfi: true,
+    //     integer_overflow: true,
+    //     scs: true,
+    // },
     strip: {
         keep_symbols_and_debug_frame: true,
     },
