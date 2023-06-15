@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12342993_c273dd32",
+        "filename": "bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/Direction.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-06-15T21:09:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad605cc1_2b11d0d2",
+      "range": {
+        "startLine": 17,
+        "startChar": 35,
+        "endLine": 17,
+        "endChar": 41
+      },
+      "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a753ffb_e0c4c0a1",
@@ -125,6 +149,24 @@
       "writtenOn": "2023-06-15T17:12:15Z",
       "side": 1,
       "message": "IBluetoothLmpEvent",
+      "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba3ad047_96d2b8d4",
+        "filename": "bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/IBtLmpEvt.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-06-15T21:09:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a753ffb_e0c4c0a1",
       "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -152,6 +194,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c6d2684_5139d446",
+        "filename": "bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/IBtLmpEvtCb.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-06-15T21:09:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56b5d6ed_4aedb5f4",
+      "range": {
+        "startLine": 23,
+        "startChar": 10,
+        "endLine": 23,
+        "endChar": 21
+      },
+      "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "316eb803_6c6c261f",
@@ -165,6 +231,30 @@
       "writtenOn": "2023-06-15T17:12:15Z",
       "side": 1,
       "message": "Could we design a dedicated structure for Timestamp.aidl\n\nlike\n\n```\n/**\n * Generic structure to return the timestamp\n */\n@VintfStability\nparcelable Timestamp {\n    /**\n     * Timestamp in microsecond since system boot.\n     */\n    long systemTime;\n    /**\n     * Timestamp in microsecond since Bluetooth controller power up.\n     */\n    long bluetoothTime;\n}\n```",
+      "range": {
+        "startLine": 33,
+        "startChar": 34,
+        "endLine": 33,
+        "endChar": 41
+      },
+      "revId": "53b63d1ff5e2659dba28aec7d6d833348cd9ff8e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39c931f5_f3aae77e",
+        "filename": "bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/aidl/android/hardware/bluetooth/lmpevt/IBtLmpEvtCb.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-06-15T21:09:56Z",
+      "side": 1,
+      "message": "Added timestamp structure. Also added a comment that value 0 for systemTime means it can be ignored. It will be useful for solutions where Bluetooth and other technologies are synchronized to the same clock. Therefore, just bluetoothTime is sufficient.",
+      "parentUuid": "316eb803_6c6c261f",
       "range": {
         "startLine": 33,
         "startChar": 34,
