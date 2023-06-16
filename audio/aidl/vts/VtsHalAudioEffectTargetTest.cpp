@@ -46,6 +46,7 @@ using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::State;
+using aidl::android::hardware::audio::effect::Flags;
 using aidl::android::media::audio::common::AudioDeviceDescription;
 using aidl::android::media::audio::common::AudioDeviceType;
 using aidl::android::media::audio::common::AudioMode;
@@ -578,6 +579,8 @@ TEST_P(AudioEffectTest, SetAndGetParameterVolume) {
 /// Data processing test
 // Send data to effects and expect it to be consumed by checking statusMQ.
 TEST_P(AudioEffectTest, ConsumeDataInProcessingState) {
+    SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+
     ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
@@ -611,6 +614,8 @@ TEST_P(AudioEffectTest, ConsumeDataInProcessingState) {
 
 // Send data to effects and expect it to be consumed after effect restart.
 TEST_P(AudioEffectTest, ConsumeDataAfterRestart) {
+    SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+
     ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
@@ -650,6 +655,8 @@ TEST_P(AudioEffectTest, ConsumeDataAfterRestart) {
 
 // Send data to IDLE effects and expect it to be consumed after effect start.
 TEST_P(AudioEffectTest, SendDataAtIdleAndConsumeDataInProcessing) {
+    SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+
     ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
@@ -683,6 +690,8 @@ TEST_P(AudioEffectTest, SendDataAtIdleAndConsumeDataInProcessing) {
 
 // Send data multiple times.
 TEST_P(AudioEffectTest, ProcessDataMultipleTimes) {
+    SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+
     ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
@@ -722,6 +731,8 @@ TEST_P(AudioEffectTest, ProcessDataMultipleTimes) {
 
 // Send data to processing state effects, stop, and restart.
 TEST_P(AudioEffectTest, ConsumeDataAndRestart) {
+    SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+
     ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
@@ -763,6 +774,8 @@ TEST_P(AudioEffectTest, ConsumeDataAndRestart) {
 
 // Send data to closed effects and expect it not be consumed.
 TEST_P(AudioEffectTest, NotConsumeDataByClosedEffect) {
+    SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+
     ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
     Parameter::Common common = EffectHelper::createParamCommon(
@@ -789,6 +802,8 @@ TEST_P(AudioEffectTest, NotConsumeDataByClosedEffect) {
 
 // Send data to multiple effects.
 TEST_P(AudioEffectTest, ConsumeDataMultipleEffects) {
+    SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+
     std::shared_ptr<IEffect> effect1, effect2;
     ASSERT_NO_FATAL_FAILURE(create(mFactory, effect1, mDescriptor));
     ASSERT_NO_FATAL_FAILURE(create(mFactory, effect2, mDescriptor));
