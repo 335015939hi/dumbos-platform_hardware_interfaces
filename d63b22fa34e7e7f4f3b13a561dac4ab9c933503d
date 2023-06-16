@@ -63,6 +63,30 @@
       },
       "revId": "d63b22fa34e7e7f4f3b13a561dac4ab9c933503d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e63e6dec_c8b6efbd",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1527754
+      },
+      "writtenOn": "2023-06-16T02:29:51Z",
+      "side": 1,
+      "message": "I think I picked up the name from \n\"audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp\" \nwhere the testname contained both type and uuid. \nWill remove it in next patchset.",
+      "parentUuid": "600016bd_cc66bc9e",
+      "range": {
+        "startLine": 70,
+        "startChar": 56,
+        "endLine": 71,
+        "endChar": 65
+      },
+      "revId": "d63b22fa34e7e7f4f3b13a561dac4ab9c933503d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
