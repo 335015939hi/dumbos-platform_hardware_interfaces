@@ -993,4 +993,9 @@ enum Tag {
      * Cannot be hardware enforced in this version.
      */
     MAX_BOOT_LEVEL = TagType.UINT | 1010,
+
+    /**
+     * Tag values above 10000 are reserved for vendor use.  However, the top four bits of the
+     * tag value should still indicate the TagType of the associated value.
+     */
 }
