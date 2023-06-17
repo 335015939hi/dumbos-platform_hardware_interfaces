@@ -16,6 +16,24 @@
       "message": "nit: IBluetoothLmpEventCallback\n\nRule of sum is to avoid using short forms like `cb` `evt`, as their meaning is ambiguous, `cb` can mean callback or control block or something else",
       "revId": "864d6255ba1231e4a21d59f561124b2caa8552b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39e9e321_136092d9",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/IBluetoothLmpEventCb.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-06-17T04:40:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b90704c7_5aae1b81",
+      "revId": "864d6255ba1231e4a21d59f561124b2caa8552b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
