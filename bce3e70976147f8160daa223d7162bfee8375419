@@ -699,6 +699,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5209c6dc_01f208db",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-17T17:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b95923fb_7406d6fb",
+      "range": {
+        "startLine": 79,
+        "startChar": 15,
+        "endLine": 79,
+        "endChar": 20
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09158549_38373814",
@@ -759,6 +783,30 @@
       "writtenOn": "2023-06-13T21:43:44Z",
       "side": 1,
       "message": "The convention in other code of the default AIDL service is to use `mField` for class fields (see https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/default/include/core-impl/Module.h). I know, it\u0027s not what the public Google C++ style guide says, it\u0027s the convention which is used by many parts of the Android framework).",
+      "range": {
+        "startLine": 219,
+        "startChar": 11,
+        "endLine": 219,
+        "endChar": 18
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32365700_67d8e2e7",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-17T17:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f149f56_ee3e4511",
       "range": {
         "startLine": 219,
         "startChar": 11,

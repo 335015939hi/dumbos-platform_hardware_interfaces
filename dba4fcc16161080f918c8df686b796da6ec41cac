@@ -281,6 +281,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b6affff_d9277461",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-17T17:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78d713e1_f71c0f67",
+      "range": {
+        "startLine": 521,
+        "startChar": 4,
+        "endLine": 521,
+        "endChar": 18
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "faf75636_b187294b",
@@ -351,6 +375,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcdb9389_ebcd3721",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-17T17:09:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eb56155_5e007a26",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 25
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a8bd442_fbfbf597",
@@ -364,6 +412,30 @@
       "writtenOn": "2023-06-15T01:21:07Z",
       "side": 1,
       "message": "better to initialize all members with default value\nAlso should we add clang thread-safe annotation here?",
+      "range": {
+        "startLine": 180,
+        "startChar": 25,
+        "endLine": 180,
+        "endChar": 31
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab93008_3e226144",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-17T17:09:39Z",
+      "side": 1,
+      "message": "constructor initializes them to default value.",
+      "parentUuid": "0a8bd442_fbfbf597",
       "range": {
         "startLine": 180,
         "startChar": 25,
