@@ -141,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "294e7db6_2dace713",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-17T21:19:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc8c3193_6d3df4f8",
+      "range": {
+        "startLine": 290,
+        "startChar": 66,
+        "endLine": 290,
+        "endChar": 75
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4e92be9_1bc9dbb2",
