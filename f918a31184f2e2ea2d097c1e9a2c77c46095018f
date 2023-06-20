@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40213941_ff5f08d7",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-20T19:52:59Z",
+      "side": 1,
+      "message": "I\u0027m not sure what\u0027s the thread model here, a proxy can be closed/suspend just before readData/writeData call?",
+      "range": {
+        "startLine": 130,
+        "startChar": 8,
+        "endLine": 130,
+        "endChar": 42
+      },
+      "revId": "f918a31184f2e2ea2d097c1e9a2c77c46095018f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
