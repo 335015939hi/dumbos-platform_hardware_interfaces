@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77b6a27a_5d419ef6",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-20T23:55:24Z",
+      "side": 1,
+      "message": "Thanks for uploading the patch!\nLooks like we want to skip all data testing for effects with bypassing or tunnel flags, maybe it\u0027s better to define a `class AudioEffectDataTest : public AudioEffectTest {}`, and then skip the test case in setUp:\n```\n  void SetUp() override {\n    SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);\n  }\n```\n\nWhat do you think?",
+      "range": {
+        "startLine": 617,
+        "startChar": 4,
+        "endLine": 617,
+        "endChar": 60
+      },
+      "revId": "3aba8b92a8c7d37b00188e2a1225a7165679ea7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
