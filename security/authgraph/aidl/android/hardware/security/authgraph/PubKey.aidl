@@ -16,19 +16,19 @@
 
 package android.hardware.security.authgraph;
 
+import android.hardware.security.authgraph.PlainPubKey;
+import android.hardware.security.authgraph.SignedPubKey;
+
 /**
- * This is the definition of the data format of an Arc.
- * @hide
+ * The enum type representing the public key of an asymmetric key pair.
  */
 @VintfStability
-parcelable Arc {
+union PubKey {
+    /*Plain public key material encoded as a CoseKey.*/
+    PlainPubKey plainKey;
+
     /**
-     * The messages exchanged between the domains in the AuthGraph protocol are called Arcs.
-     * An arc is simply AES-GCM. Encryption of a payload P with a key K and additional
-     * authentication data (AAD) D: (i.e. Arc = Enc(K, P, D)). Payload can be a COSE key, another
-     * arc or an arbitrary byte array.
-     *
-     * The CDDL of an arc is in Arc.cddl file.
+     * Public key signed with the long term signing key of the party.
      */
-    byte[] arc;
+    SignedPubKey signedKey;
 }

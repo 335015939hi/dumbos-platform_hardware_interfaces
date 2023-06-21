@@ -17,18 +17,10 @@
 package android.hardware.security.authgraph;
 
 /**
- * This is the definition of the data format of an Arc.
- * @hide
+ * Signature computed by a party over the session id during authenticated key exchange.
  */
 @VintfStability
-parcelable Arc {
-    /**
-     * The messages exchanged between the domains in the AuthGraph protocol are called Arcs.
-     * An arc is simply AES-GCM. Encryption of a payload P with a key K and additional
-     * authentication data (AAD) D: (i.e. Arc = Enc(K, P, D)). Payload can be a COSE key, another
-     * arc or an arbitrary byte array.
-     *
-     * The CDDL of an arc is in Arc.cddl file.
-     */
-    byte[] arc;
+parcelable KESignature {
+    // TODO: define the CDDL (this is CoseSign1)
+    byte[] signature;
 }

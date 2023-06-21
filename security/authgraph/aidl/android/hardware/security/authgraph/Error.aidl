@@ -17,18 +17,14 @@
 package android.hardware.security.authgraph;
 
 /**
- * This is the definition of the data format of an Arc.
+ * AuthGraph error codes. Aidl will return these error codes as service specific errors in
+ * EX_SERVICE_SPECIFIC.
  * @hide
  */
 @VintfStability
-parcelable Arc {
-    /**
-     * The messages exchanged between the domains in the AuthGraph protocol are called Arcs.
-     * An arc is simply AES-GCM. Encryption of a payload P with a key K and additional
-     * authentication data (AAD) D: (i.e. Arc = Enc(K, P, D)). Payload can be a COSE key, another
-     * arc or an arbitrary byte array.
-     *
-     * The CDDL of an arc is in Arc.cddl file.
-     */
-    byte[] arc;
+union Error {
+    int OK = 0;
+    int OPERATION_NOT_SUPPORTED = -1;
+    int INVALID_SIGNATURE = -2;
+    int INVALID_EC_KEY = -3;
 }
