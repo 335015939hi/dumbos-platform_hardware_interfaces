@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66039467_965f4607",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-21T23:47:13Z",
+      "side": 1,
+      "message": "not all access to mState is under mutex lock. For instance getState() is used for logging and does not use lock. Only Callbacks controlResultHandler, sessionChangeHandler, condWaitState are locking and updating the state, others are updating with out lock.",
+      "parentUuid": "45b46475_3fdee46d",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 49
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8cfa281e_1bb580d5",
         "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
         "patchSetId": 25
@@ -730,6 +754,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4cb90fc0_5eac009e",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-21T23:47:13Z",
+      "side": 1,
+      "message": "mListLock as commented is meant for maintaining vectors mConnectedDevices, mBtDeviceProxies. They are initialized during the init call and all other functions of StreamBluetooth read from them. \n\nElements of mBtDeviceProxies are the actual placeholders that interact with BluetoothAudioSessionControl. While accessing them i am locking mStreamLock. With this lock held, calls to read, write, start, stop, ... are made, making the DevicePortProxy handle and its elements thread safe.",
+      "parentUuid": "611da028_4b317608",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a13cfc4e_152d44eb",
         "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
         "patchSetId": 25
@@ -741,6 +789,30 @@
       "writtenOn": "2023-06-21T20:11:25Z",
       "side": 1,
       "message": "Another issue is that it\u0027s unclear which data elements this lock actually protects. These need to be marked with `GUARDED_BY`.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a3bd784_2bbbe651",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-21T23:47:13Z",
+      "side": 1,
+      "message": "mBtDevicePortProxy contains instances for each connected device that interact with BluetoothAudioSessionControl to start, stop, read and write, ...\n\nThis lock as held while making calls to DevicePortProxy, It is protecting threads from interacting with BluetoothAudioSessionControl with out locking. that is start, suspend, close, transfer are thread safe.",
+      "parentUuid": "a13cfc4e_152d44eb",
       "range": {
         "startLine": 74,
         "startChar": 0,
