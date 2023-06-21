@@ -43,9 +43,8 @@ Limitation = &(
                           ; A challenge is issued by a sink (e.g. Keymint TA, Biometric TAs).
 )
 
-; As the first step, the identity of a party is defined as their public signing key. In the
-; future, this will be updated to include DICE certificate chain and the identity verification
-; policy.
+; As the first (temporary) step, the identity of a party is defined as their public signing key.
+; This will be updated to include DICE certificate chain and the identity verification policy.
 
 Identity = &(
     ; see hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/
