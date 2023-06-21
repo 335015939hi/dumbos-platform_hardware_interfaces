@@ -332,6 +332,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b8e1937_fed73f95",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "I think, it\u0027s better to propagate errors because there intermediate layers don\u0027t know whether the error is actionable or not, however the upper layers do.",
+      "parentUuid": "9803091d_28539bd6",
+      "range": {
+        "startLine": 492,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 4
+      },
+      "revId": "dba4fcc16161080f918c8df686b796da6ec41cac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78d713e1_f71c0f67",
         "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
         "patchSetId": 4

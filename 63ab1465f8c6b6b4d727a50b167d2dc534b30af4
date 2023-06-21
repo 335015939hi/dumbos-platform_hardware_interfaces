@@ -1,0 +1,418 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c2516a8_12494bb2",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "Standard libraries (`inttypes` and `stdlib`) should be placed before platform includes in a separate section.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b46475_3fdee46d",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "This looks suspicious. We intend `mCvMutex` for protecting the condition variable. However, it seems that we also use it for serializing access to `mState`. If that\u0027s the case, `mState` must be annotated as `GUARDED_BY(mCvMutex)`, and the mutex probably renamed to something more generic like `mLock`. I suspect, access to `mState` must be serialized as `condWaitState` is checking it.",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 49
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cfa281e_1bb580d5",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "nit: why not just `audio_cfg-\u003e`?",
+      "range": {
+        "startLine": 295,
+        "startChar": 20,
+        "endLine": 295,
+        "endChar": 33
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5192a98d_d0227c83",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "This sequence is repeated multiple times. I would suggest making a method which returns the desired string.\n\nAlso, there already exist `debugMessage` which seem to do part of this job.",
+      "range": {
+        "startLine": 367,
+        "startChar": 38,
+        "endLine": 368,
+        "endChar": 94
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9681469e_3e3017a9",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "nit: weird indentation",
+      "range": {
+        "startLine": 445,
+        "startChar": 0,
+        "endLine": 445,
+        "endChar": 13
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "370e10a7_869dd3a3",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "Please change all constants to `constexpr`.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 5
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4296793a_06587b29",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "typo: stuck, it\u0027s an irregular verb.",
+      "range": {
+        "startLine": 61,
+        "startChar": 59,
+        "endLine": 61,
+        "endChar": 66
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40219cad_2b3c9fe0",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "I think, `mConnectedDevices \u003d connectedDevices` should work.",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 5
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7216a690_cc10df24",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "Please use time constants from https://cs.android.com/android/platform/superproject/+/master:system/media/audio_utils/include/audio_utils/clock.h. Or use `std::chrono`, although that will look heavier: https://en.cppreference.com/w/cpp/chrono/duration",
+      "range": {
+        "startLine": 183,
+        "startChar": 37,
+        "endLine": 183,
+        "endChar": 44
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "336e8809_5eebde06",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "It would be useful to print the values here.",
+      "range": {
+        "startLine": 267,
+        "startChar": 59,
+        "endLine": 267,
+        "endChar": 62
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77b1547b_916953ff",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "I suppose, we can clear the vector right after making a copy of it on the line 349.",
+      "range": {
+        "startLine": 362,
+        "startChar": 0,
+        "endLine": 362,
+        "endChar": 33
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78be1fa2_98920bb4",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "It seems unwise to copy the entire vector when we end up using just the first element of it.",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 33
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5485418_074978db",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "As we have discussed, this method should not be used. BT is controlled via `IBluetooth...` AIDL interfaces. `closing\u003dtrue` needs to be handled via `prepareToClose`, please see the remote submix CL: https://r.android.com/c/platform/hardware/interfaces/+/2560751/13/audio/aidl/default/include/core-impl/Stream.h#178",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 403,
+        "endChar": 91
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68a7d679_40c53be0",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "nit: we always use two stars: `/**`, and a single star in the closing comment: `*/`",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 4
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee664e1_090590c2",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "`suspend`",
+      "range": {
+        "startLine": 87,
+        "startChar": 30,
+        "endLine": 87,
+        "endChar": 37
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98dc608a_4bcce412",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "Should this method and `readData` use `ssize_t` (https://man7.org/linux/man-pages/man7/system_data_types.7.html) to be able to report errors? How are they currently reported?",
+      "range": {
+        "startLine": 138,
+        "startChar": 12,
+        "endLine": 138,
+        "endChar": 18
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "611da028_4b317608",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "Since there are two locks here, we need to specify whether it\u0027s allowed to hold both of them at the same time, and in case it\u0027s allowed, state the order of acquisition. Otherwise it\u0027s easy to end up with a deadlock between two fragments of code that attempt taking these locks in different order.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a13cfc4e_152d44eb",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T20:11:25Z",
+      "side": 1,
+      "message": "Another issue is that it\u0027s unclear which data elements this lock actually protects. These need to be marked with `GUARDED_BY`.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
