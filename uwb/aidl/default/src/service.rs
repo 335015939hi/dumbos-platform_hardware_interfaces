@@ -42,6 +42,5 @@ fn main() -> anyhow::Result<()> {
         .as_binder(),
     )?;
 
-    binder::ProcessState::join_thread_pool();
-    Ok(())
+    binder::ProcessState::join_thread_pool()
 }
