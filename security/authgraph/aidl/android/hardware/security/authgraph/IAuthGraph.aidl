@@ -18,6 +18,7 @@ package android.hardware.security.authgraph;
 
 import android.hardware.security.authgraph.Arc;
 import android.hardware.security.authgraph.ArcType;
+import android.hardware.security.authgraph.KEResult;
 import android.hardware.security.authgraph.Key;
 import android.hardware.security.authgraph.PubKey;
 
@@ -58,6 +59,21 @@ interface IAuthGraph {
      * @return: Newly created key.
      */
     Key create(in ArcType acrType, in @nullable Arc[] permission);
+
+    /**
+     * Given a peer’s ephemeral ECDH public key, create one’s own ephemeral ECDH key, compute a
+     * diffie-hellman shared secret, derive the shared key (a symmetric encryption key) and compute
+     * an arc from the per-boot key to the shared key, and return the created ephemeral ECDH
+     * public key for the peer to derive the same shared key.
+     *
+     * Additionally, to support the security properties of an authenticated key exchange, create
+     * a nonce, compute the signature on the concatenation of the nonce sent by the peer and its own
+     * ephemeral ECDH public key, derive a MAC key from the diffie-hellman shared secret
+     * (in addition to the shared symmetric encryption key), compute the session id, compute MAC on
+     * its own identity and return KEResult.
+     */
+    KEResult ke_init(
+            in ArcType acrType, in PubKey peer_dh_key, in @nullable Arc[] permissions);
 
     /**
      * Given two arcs from the per-boot key, return an arc from the payload key of the first arc to
