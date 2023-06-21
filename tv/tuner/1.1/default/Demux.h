@@ -26,6 +26,9 @@
 #include "TimeFilter.h"
 #include "Tuner.h"
 
+#include "FileTuner/TsPlayPump/tsTSFile.h"
+#include "FileTuner/TsPlayPump/tsTSPacket.h"
+
 using namespace std;
 
 namespace android {
@@ -99,6 +102,10 @@ class Demux : public IDemux {
     void sendFrontendInputToRecord(vector<uint8_t> data);
     void sendFrontendInputToRecord(vector<uint8_t> data, uint16_t pid, uint64_t pts);
     bool startRecordFilterDispatcher();
+
+    void startTsFileInputLoop();
+
+    void updateDemuxOutput(vector<uint8_t> data);
 
   private:
     // Tuner service

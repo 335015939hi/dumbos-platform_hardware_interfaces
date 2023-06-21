@@ -18,9 +18,8 @@
 #define ANDROID_HARDWARE_TV_TUNER_V1_1_FRONTEND_H_
 
 #include <android/hardware/tv/tuner/1.1/IFrontend.h>
-#include <fstream>
-#include <iostream>
 #include "Tuner.h"
+#include "FileTuner/TsPlayPump/tsUString.h"
 
 using namespace std;
 
@@ -76,7 +75,15 @@ class Frontend : public V1_1::IFrontend {
 
     string getSourceFile();
 
+    void logScanFrequencyMessage(uint32_t frequency, bool locked, float progressPercent);
+
     bool isLocked();
+
+    bool has_suffix(const string& s, const string& suffix);
+
+    vector<int> getFrequencyVector();
+
+    ts::UString formatFrequencyPath(int frequency);
 
   private:
     virtual ~Frontend();
@@ -87,8 +94,6 @@ class Frontend : public V1_1::IFrontend {
     FrontendId mId = 0;
     bool mIsLocked = false;
     uint32_t mCiCamId;
-
-    std::ifstream mFrontendData;
 };
 
 }  // namespace implementation

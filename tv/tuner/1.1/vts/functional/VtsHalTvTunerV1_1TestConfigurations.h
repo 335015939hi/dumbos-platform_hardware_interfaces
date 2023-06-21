@@ -66,6 +66,7 @@ static map<string, DvrConfig> dvrMap;
 static LiveBroadcastHardwareConnections live;
 static ScanHardwareConnections scan;
 static DvrRecordHardwareConnections record;
+static DvrPlaybackHardwareConnections playback;
 
 /** Config all the frontends that would be used in the tests */
 inline void initFrontendConfig() {
@@ -73,7 +74,7 @@ inline void initFrontendConfig() {
     // without overriding in the xml config.
     string defaultFeId = "FE_DEFAULT";
     FrontendDvbtSettings dvbtSettings{
-            .frequency = 578000,
+            .frequency = 642000000,
             .transmissionMode = FrontendDvbtTransmissionMode::AUTO,
             .bandwidth = FrontendDvbtBandwidth::BANDWIDTH_8MHZ,
             .isHighPriority = true,
@@ -123,7 +124,7 @@ inline void initFilterConfig() {
     filterMap[defaultAudioFilterId].config1_0.type.mainType = DemuxFilterMainType::TS;
     filterMap[defaultAudioFilterId].config1_0.type.subType.tsFilterType(DemuxTsFilterType::AUDIO);
     filterMap[defaultAudioFilterId].config1_0.bufferSize = FMQ_SIZE_16M;
-    filterMap[defaultAudioFilterId].config1_0.settings.ts().tpid = 256;
+    filterMap[defaultAudioFilterId].config1_0.settings.ts().tpid = 257;
     filterMap[defaultAudioFilterId].config1_0.settings.ts().filterSettings.av(
             {.isPassthrough = false});
     filterMap[defaultAudioFilterId].monitorEventTypes =
@@ -145,10 +146,11 @@ inline void connectHardwaresToTestCases() {
     TunerTestingConfigReader1_0::connectLiveBroadcast(live);
     TunerTestingConfigReader1_0::connectScan(scan);
     TunerTestingConfigReader1_0::connectDvrRecord(record);
+    TunerTestingConfigReader1_0::connectDvrPlayback(playback);
 };
 
 inline bool validateConnections() {
-    if (record.support && !record.hasFrontendConnection &&
+    if (record.support && !record.hasFrontendConnection && !playback.support &&
         record.dvrSourceId.compare(emptyHardwareId) == 0) {
         ALOGW("[vts config] Record must support either a DVR source or a Frontend source.");
         return false;
@@ -166,6 +168,7 @@ inline bool validateConnections() {
                               ? dvrMap.find(live.dvrSoftwareFeId) != dvrMap.end()
                               : true;
 
+    dvrIsValid &= playback.support ? dvrMap.find(playback.dvrId) != dvrMap.end() : true;
     if (record.support) {
         if (record.hasFrontendConnection) {
             if (frontendMap[record.frontendId].config1_0.isSoftwareFe) {
@@ -187,6 +190,10 @@ inline bool validateConnections() {
     filterIsValid &=
             record.support ? filterMap.find(record.recordFilterId) != filterMap.end() : true;
 
+    filterIsValid &= playback.support
+                             ? (filterMap.find(playback.audioFilterId) != filterMap.end() &&
+                                filterMap.find(playback.videoFilterId) != filterMap.end())
+                             : true;
     if (!filterIsValid) {
         ALOGW("[vts config] dynamic config filter connection is invalid.");
         return false;
