@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aead160_f328b827",
+        "filename": "security/keymint/aidl/default/android.hardware.security.keymint-service.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-06-21T15:58:03Z",
+      "side": 1,
+      "message": "I don\u0027t know whether changing the declaration here will affect anything on the RKP side.  Max?",
+      "revId": "8417708fe467f786608e8caf13552132b06e640a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
