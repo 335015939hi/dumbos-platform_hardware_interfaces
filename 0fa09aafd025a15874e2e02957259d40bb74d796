@@ -186,6 +186,30 @@
       },
       "revId": "0fa09aafd025a15874e2e02957259d40bb74d796",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3de9ae0_f904ca0d",
+        "filename": "light/aidl/default/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1416371
+      },
+      "writtenOn": "2023-06-21T16:37:37Z",
+      "side": 1,
+      "message": "Added an explicit panic inside join_thread_pool(), and annotated the noreturn property via -\u003e! in https://android-review.git.corp.google.com/c/platform/frameworks/native/+/2633291\n\nsince it seems silly to require someone to annotate the panic on every time",
+      "parentUuid": "87313c2d_623cf555",
+      "range": {
+        "startLine": 45,
+        "startChar": 26,
+        "endLine": 45,
+        "endChar": 42
+      },
+      "revId": "0fa09aafd025a15874e2e02957259d40bb74d796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
