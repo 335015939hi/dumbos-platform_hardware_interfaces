@@ -22,6 +22,30 @@
       },
       "revId": "f918a31184f2e2ea2d097c1e9a2c77c46095018f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a375133_9258a945",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-21T00:09:00Z",
+      "side": 1,
+      "message": "I have based this based on https://cs.android.com/android/platform/superproject/+/refs/heads/master:packages/modules/Bluetooth/system/audio_bluetooth_hw/stream_apis.cc;l\u003d1064.",
+      "parentUuid": "40213941_ff5f08d7",
+      "range": {
+        "startLine": 130,
+        "startChar": 8,
+        "endLine": 130,
+        "endChar": 42
+      },
+      "revId": "f918a31184f2e2ea2d097c1e9a2c77c46095018f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

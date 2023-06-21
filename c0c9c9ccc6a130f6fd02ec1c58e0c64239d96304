@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "331d30c1_d6352397",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-21T00:09:00Z",
+      "side": 1,
+      "message": "This is based on, https://cs.android.com/android/platform/superproject/+/refs/heads/master:packages/modules/Bluetooth/system/audio_bluetooth_hw/stream_apis.cc;l\u003d924\n\nWe are assuming the call happens after lock is acquired.",
+      "parentUuid": "78904270_be7cf8bd",
+      "range": {
+        "startLine": 55,
+        "startChar": 13,
+        "endLine": 55,
+        "endChar": 19
+      },
+      "revId": "c0c9c9ccc6a130f6fd02ec1c58e0c64239d96304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76069511_890d4e36",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f07b8bbf_799c7459",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 24
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-21T00:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76069511_890d4e36",
+      "range": {
+        "startLine": 56,
+        "startChar": 14,
+        "endLine": 56,
+        "endChar": 18
+      },
+      "revId": "c0c9c9ccc6a130f6fd02ec1c58e0c64239d96304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24799b28_c6b4bb11",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-20T19:52:59Z",
       "side": 1,
       "message": "Please add comment about when mLock should be used and when mStreamLock should be used.\nMaybe change mLock naming to reflect what\u0027s the lock for to avoid confusion?",
+      "range": {
+        "startLine": 71,
+        "startChar": 15,
+        "endLine": 71,
+        "endChar": 26
+      },
+      "revId": "c0c9c9ccc6a130f6fd02ec1c58e0c64239d96304",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd9a0e4e_6a3317e8",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-21T00:09:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24799b28_c6b4bb11",
       "range": {
         "startLine": 71,
         "startChar": 15,
