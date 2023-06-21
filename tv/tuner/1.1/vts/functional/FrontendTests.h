@@ -89,10 +89,10 @@ class FrontendCallback : public IFrontendCallback {
     void readFrontendScanMessageExt1_1Modulation(FrontendModulation modulation);
 
     bool mEventReceived = false;
-    bool mScanMessageReceived = false;
+    //bool mScanMessageReceived = false;
     bool mLockMsgReceived = false;
-    bool mScanMsgProcessed = true;
-    FrontendScanMessageType mScanMessageType;
+    //bool mScanMsgProcessed = true;
+    //FrontendScanMessageType mScanMessageType;
     FrontendScanMessage mScanMessage;
     hidl_vec<uint8_t> mEventMessage;
     android::Mutex mMsgLock;
@@ -144,11 +144,11 @@ class FrontendTests {
                 .statusMask = 0xf,
                 .lowThreshold = 0x1000,
                 .highThreshold = 0x07fff,
-                .dataFormat = DataFormat::ES,
+                .dataFormat = DataFormat::TS,
                 .packetSize = 188,
         };
         dvrConfig.type = DvrType::PLAYBACK;
-        dvrConfig.playbackInputFile = "/data/local/tmp/test.es";
+        dvrConfig.playbackInputFile = "/data/local/tmp/642MHz.ts";
         dvrConfig.bufferSize = FMQ_SIZE_4M;
         dvrConfig.settings.playback(playbackSettings);
     }
