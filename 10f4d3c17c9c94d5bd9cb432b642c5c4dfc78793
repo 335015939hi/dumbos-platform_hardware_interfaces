@@ -1,0 +1,435 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dbbc612_efb55795",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "Thanks for your hard work, Shraddha! The code now looks much more clear. I think, we can make it even easier to read and analyze, please see my comment on the `SubmixRoute` class. Other than that, looks good.",
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d231bb7_5a7bfb4d",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "After looking at the code in `DriverRemoteSubmix`, I think we can leverage encapsulation and conceal all the manipulations of the fields of `SubmixRoute`, including lock taking, to class methods. This will make the code of `DriverRemoteSubmix` much easier to analyze. This will also make impossible to take a `DriverRemoteSubmix::mSubmixRoutesLock` while `SubmixRoute::lock` is being held.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 20
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b769c1fa_89971d77",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "Note that since we always have the reader and the writer on different threads, we only need to make thread-safe the retrieval of the pointer itself. Thus, in the spirit of the proposal above, we should just have methods like these:\n\n```\nsp\u003cMonoPipe\u003e getSink() { std::lock_guard guard(lock); return sink; }\nsp\u003cMonoPipeReader\u003e getSource() { std::lock_guard guard(lock); return source; }\n```",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 47
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "971f0aa5_6414005c",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "Why the lock and the vector are static? We only consider a scenario when there is one driver instance, and there are no static methods on this class.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 10
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "049e91f4_c2e1f525",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "Since each `SubmixRoute` also contains a lock, we need to specify in a comment what is their relation: either they must never be held together, or they must always be acquired in a specific order. Looking at `DriverRemoteSubmix::init()` it seems that it\u0027s the latter case, and the vector lock must be taken first. However, that means we must do that in all cases in order to avoid deadlocks. Thus, it will actually be easier to require and ensure that these locks are never taken together.",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 97
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf6151fb_b994fb28",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this message because `compareConfigs` already prints some diagnostics.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 62
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "926465fe_f96f44f1",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "I think, this function should be made more universal by taking two `AudioConfig`s to compare. It will make it easier to understand at the call location which configs we are actually comparing.\n\nAnother option is to move it to `SubmixRoute` class, in this case it needs to take just one argument.",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 42
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eb67c57_34fd2d0a",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "Since the only external information this method uses is the stream config, we can also make this function a method of `SubmixRoute` and pass the stream config as a parameter.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 54
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5fca7bb_c1dffc3d",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "We should limit the scope of the mutually exclusive code to minimum. The lock isn\u0027t needed for the negotiation process, thus we can move these lines somewhere down to line 145.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 32
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a1c272b_778b5da5",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "I think, this method really belongs to `SubmixRoute` class. It will make its call sites more clear.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 40
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58e926b4_7f06be0c",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "We need to limit the scope of this lock (see my comment on the `DriverRemoteSubmix` class). This lock only needs to be held while we are searching for the element and retrieving it from the list. After we\u0027ve got a shared_ptr from the list there is no need to hold this lock because operations on the shared_ptr itself are thread-safe.",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 49
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a2d407d_e78dbcda",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "Is this correct? `route` is a nullptr, why are we adding it? Should we use `mCurrentRoute` instead?",
+      "range": {
+        "startLine": 177,
+        "startChar": 36,
+        "endLine": 177,
+        "endChar": 41
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f567e363_bde0a664",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "I don\u0027t see any assignments to `route` in the code above, thus it\u0027s still a nullptr at this point. Is this expected?",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 26
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb26fbe1_3674eee3",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "It\u0027s better to encapsulate all these manipulations on the class fields into the class itself by adding a method to `SubmixRoute`.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 74
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfcba22d_1ce6f21f",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "I think, we can limit the scope of this lock to lines 391–397. Since we always have the reader and the writer on different threads, this is considered to be thread-safe (see https://cs.android.com/android/platform/superproject/+/refs/heads/master:system/media/audio_utils/include/audio_utils/fifo.h;l\u003d351;drc\u003d222da3e7c6e9dc493b31a42f7e19070b74d421fa)",
+      "range": {
+        "startLine": 389,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 47
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcf2a3a7_b4559623",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "A good candidate to become a method of `SubmixRoute`",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 450,
+        "endChar": 55
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21f152fc_f33920d9",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "nit: missing space after `:` here and below.",
+      "range": {
+        "startLine": 457,
+        "startChar": 31,
+        "endLine": 457,
+        "endChar": 33
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f414deb_66264924",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "This can be moved before the loop, and the route lock can be released after that.",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 509,
+        "endChar": 61
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a512ddea_4e54450c",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-21T18:05:26Z",
+      "side": 1,
+      "message": "Should be moved to `SubmixRoute`",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 549,
+        "endChar": 5
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
