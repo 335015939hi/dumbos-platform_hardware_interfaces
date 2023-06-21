@@ -22,6 +22,10 @@ AssertionResult TunerBroadcastHidlTest::filterDataOutputTest() {
     return filterDataOutputTestBase(mFilterTests);
 }
 
+AssertionResult TunerPlaybackHidlTest::filterDataOutputTest() {
+    return filterDataOutputTestBase(mFilterTests);
+}
+
 void TunerFilterHidlTest::configSingleFilterInDemuxTest(FilterConfig1_1 filterConf,
                                                         FrontendConfig1_1 frontendConf) {
     uint32_t feId;
@@ -128,6 +132,41 @@ void TunerBroadcastHidlTest::mediaFilterUsingSharedMemoryTest(FilterConfig1_1 fi
     ASSERT_TRUE(mFrontendTests.closeFrontend());
 }
 
+void TunerBroadcastHidlTest::broadcastSingleFilterTest(FilterConfig1_1 filterConf,
+                                                        FrontendConfig1_1 frontendConf) {
+    uint32_t feId;
+    uint32_t demuxId;
+    sp<IDemux> demux;
+    uint64_t filterId;
+
+    mFrontendTests.getFrontendIdByType(frontendConf.config1_0.type, feId);
+    ASSERT_TRUE(mFrontendTests.openFrontendById(feId));
+    ASSERT_TRUE(mFrontendTests.setFrontendCallback());
+    if (frontendConf.config1_0.isSoftwareFe) {
+        mFrontendTests.setSoftwareFrontendDvrConfig(dvrMap[live.dvrSoftwareFeId]);
+    }
+    ASSERT_TRUE(mDemuxTests.openDemux(demux, demuxId));
+    ASSERT_TRUE(mDemuxTests.setDemuxFrontendDataSource(feId));
+    mFrontendTests.setDemux(demux);
+    mFilterTests.setDemux(demux);
+    ASSERT_TRUE(mFilterTests.openFilterInDemux(filterConf.config1_0.type,
+                                               filterConf.config1_0.bufferSize));
+    ASSERT_TRUE(mFilterTests.getNewlyOpenedFilterId_64bit(filterId));
+    ASSERT_TRUE(mFilterTests.configFilter(filterConf.config1_0.settings, filterId));
+    ASSERT_TRUE(mFilterTests.getSharedAvMemoryHandle(filterId));
+    ASSERT_TRUE(mFilterTests.getFilterMQDescriptor(filterId, filterConf.config1_0.getMqDesc));
+    ASSERT_TRUE(mFilterTests.startFilter(filterId));
+    // tune test
+    ASSERT_TRUE(mFrontendTests.tuneFrontend(frontendConf, true /*testWithDemux*/));
+    ASSERT_TRUE(filterDataOutputTest());
+    ASSERT_TRUE(mFrontendTests.stopTuneFrontend(true /*testWithDemux*/));
+    ASSERT_TRUE(mFilterTests.stopFilter(filterId));
+    ASSERT_TRUE(mFilterTests.releaseShareAvHandle(filterId));
+    ASSERT_TRUE(mFilterTests.closeFilter(filterId));
+    ASSERT_TRUE(mDemuxTests.closeDemux());
+    ASSERT_TRUE(mFrontendTests.closeFrontend());
+}
+
 void TunerRecordHidlTest::recordSingleFilterTest(FilterConfig1_1 filterConf,
                                                  FrontendConfig1_1 frontendConf,
                                                  DvrConfig dvrConf) {
@@ -207,18 +246,48 @@ void TunerRecordHidlTest::recordSingleFilterTest(FilterConfig1_1 filterConf,
     ASSERT_TRUE(mDemuxTests.closeDemux());
 }
 
+void TunerPlaybackHidlTest::playbackSingleFilterTest(FilterConfig1_1 filterConf, DvrConfig dvrConf) {
+    uint32_t demuxId;
+    sp<IDemux> demux;
+    uint64_t filterId;
+
+    ASSERT_TRUE(mDemuxTests.openDemux(demux, demuxId));
+    mFilterTests.setDemux(demux);
+    mDvrTests.setDemux(demux);
+
+    ASSERT_TRUE(mDvrTests.openDvrInDemux(dvrConf.type, dvrConf.bufferSize));
+    ASSERT_TRUE(mDvrTests.configDvrPlayback(dvrConf.settings));
+    ASSERT_TRUE(mDvrTests.getDvrPlaybackMQDescriptor());
+    ASSERT_TRUE(mFilterTests.openFilterInDemux(filterConf.config1_0.type, filterConf.config1_0.bufferSize));
+    ASSERT_TRUE(mFilterTests.getNewlyOpenedFilterId_64bit(filterId));
+    ASSERT_TRUE(mFilterTests.getSharedAvMemoryHandle(filterId));
+    ASSERT_TRUE(mFilterTests.configFilter(filterConf.config1_0.settings, filterId));
+    ASSERT_TRUE(mFilterTests.getFilterMQDescriptor(filterId, filterConf.config1_0.getMqDesc));
+    // Start DVR Source
+    mDvrTests.startPlaybackInputThread(dvrConf.playbackInputFile, dvrConf.settings.playback());
+    ASSERT_TRUE(mDvrTests.startDvrPlayback());
+
+    ASSERT_TRUE(mFilterTests.startFilter(filterId));
+    ASSERT_TRUE(filterDataOutputTest());
+    mDvrTests.stopPlaybackThread();
+    ASSERT_TRUE(mFilterTests.stopFilter(filterId));
+    ASSERT_TRUE(mDvrTests.stopDvrPlayback());
+    ASSERT_TRUE(mFilterTests.releaseShareAvHandle(filterId));
+    ASSERT_TRUE(mFilterTests.closeFilter(filterId));
+    mDvrTests.closeDvrPlayback();
+    ASSERT_TRUE(mDemuxTests.closeDemux());
+}
+
 TEST_P(TunerFilterHidlTest, StartFilterInDemux) {
     description("Open and start a filter in Demux.");
     if (!live.hasFrontendConnection) {
         return;
     }
-    // TODO use parameterized tests
     configSingleFilterInDemuxTest(filterMap[live.videoFilterId], frontendMap[live.frontendId]);
 }
 
 TEST_P(TunerFilterHidlTest, ConfigIpFilterInDemuxWithCid) {
     description("Open and configure an ip filter in Demux.");
-    // TODO use parameterized tests
     if (!live.hasFrontendConnection) {
         return;
     }
@@ -233,7 +302,6 @@ TEST_P(TunerFilterHidlTest, ReconfigFilterToReceiveStartId) {
     if (!live.hasFrontendConnection) {
         return;
     }
-    // TODO use parameterized tests
     reconfigSingleFilterInDemuxTest(filterMap[live.videoFilterId], filterMap[live.videoFilterId],
                                     frontendMap[live.frontendId]);
 }
@@ -263,6 +331,14 @@ TEST_P(TunerFrontendHidlTest, BlindScanFrontendWithEndFrequency) {
     mFrontendTests.scanTest(frontendMap[scan.frontendId], FrontendScanType::SCAN_BLIND);
 }
 
+TEST_P(TunerFrontendHidlTest, AutoScanFrontendWithEndFrequency) {
+    description("Run an auto frontend scan with v1_1 extended setting and check lock scanMessage");
+    if (!scan.hasFrontendConnection) {
+        return;
+    }
+    mFrontendTests.scanTest(frontendMap[scan.frontendId], FrontendScanType::SCAN_AUTO);
+}
+
 TEST_P(TunerBroadcastHidlTest, MediaFilterWithSharedMemoryHandle) {
     description("Test the Media Filter with shared memory handle");
     if (!live.hasFrontendConnection) {
@@ -287,6 +363,66 @@ TEST_P(TunerFrontendHidlTest, LinkToCiCam) {
     mFrontendTests.tuneTest(frontendMap[live.frontendId]);
 }
 
+
+TEST_P(TunerBroadcastHidlTest, BroadcastDataFlowVideoFilterUsingSharedMemoryTest) {
+    description("Test Video Filter functionality in Broadcast use case.");
+    if (!live.hasFrontendConnection) {
+        return;
+    }
+    broadcastSingleFilterTest(filterMap[live.videoFilterId], frontendMap[live.frontendId]);
+}
+
+TEST_P(TunerBroadcastHidlTest, BroadcastDataFlowAudioFilterUsingSharedMemoryTest) {
+    description("Test Audio Filter functionality in Broadcast use case.");
+    if (!live.hasFrontendConnection) {
+        return;
+    }
+    broadcastSingleFilterTest(filterMap[live.audioFilterId], frontendMap[live.frontendId]);
+}
+
+TEST_P(TunerBroadcastHidlTest, BroadcastDataFlowSectionFilterUsingSharedMemoryTest) {
+    description("Test Section Filter functionality in Broadcast use case.");
+    if (!live.hasFrontendConnection) {
+        return;
+    }
+    if (live.sectionFilterId.compare(emptyHardwareId) == 0) {
+        return;
+    }
+    broadcastSingleFilterTest(filterMap[live.sectionFilterId], frontendMap[live.frontendId]);
+}
+
+TEST_P(TunerBroadcastHidlTest, IonBufferUsingSharedMemoryTest) {
+    description("Test the av filter data bufferring.");
+    if (!live.hasFrontendConnection) {
+        return;
+    }
+    broadcastSingleFilterTest(filterMap[live.videoFilterId], frontendMap[live.frontendId]);
+}
+
+TEST_P(TunerPlaybackHidlTest, PlaybackDataFlowWithTsSectionFilterUsingSharedMemoryTest) {
+    description("Feed ts data from playback and configure Ts section filter to get output");
+    if (!playback.support || playback.sectionFilterId.compare(emptyHardwareId) == 0) {
+        return;
+    }
+    playbackSingleFilterTest(filterMap[playback.sectionFilterId], dvrMap[playback.dvrId]);
+}
+
+TEST_P(TunerPlaybackHidlTest, PlaybackDataFlowWithTsAudioFilterUsingSharedMemoryTest) {
+    description("Feed ts data from playback and configure Ts audio filter to get output");
+    if (!playback.support) {
+        return;
+    }
+    playbackSingleFilterTest(filterMap[playback.audioFilterId], dvrMap[playback.dvrId]);
+}
+
+TEST_P(TunerPlaybackHidlTest, PlaybackDataFlowWithTsVideoFilterUsingSharedMemoryTest) {
+    description("Feed ts data from playback and configure Ts video filter to get output");
+    if (!playback.support) {
+        return;
+    }
+    playbackSingleFilterTest(filterMap[playback.videoFilterId], dvrMap[playback.dvrId]);
+}
+
 INSTANTIATE_TEST_SUITE_P(
         PerInstance, TunerBroadcastHidlTest,
         testing::ValuesIn(android::hardware::getAllHalInstanceNames(ITuner::descriptor)),
@@ -304,6 +440,11 @@ INSTANTIATE_TEST_SUITE_P(
 
 INSTANTIATE_TEST_SUITE_P(
         PerInstance, TunerRecordHidlTest,
+        testing::ValuesIn(android::hardware::getAllHalInstanceNames(ITuner::descriptor)),
+        android::hardware::PrintInstanceNameToString);
+
+INSTANTIATE_TEST_SUITE_P(
+        PerInstance, TunerPlaybackHidlTest,
         testing::ValuesIn(android::hardware::getAllHalInstanceNames(ITuner::descriptor)),
         android::hardware::PrintInstanceNameToString);
 }  // namespace
