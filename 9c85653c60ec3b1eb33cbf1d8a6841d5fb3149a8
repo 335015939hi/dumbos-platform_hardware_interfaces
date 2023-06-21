@@ -236,6 +236,30 @@
       },
       "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f615d6_c36cfe8e",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-06-21T17:19:50Z",
+      "side": 1,
+      "message": "I agree.  If we assert that HalState \u003d\u003d ONE_CLIENT on close, or if we assert that HalState !\u003d INITIALIZING, the HAL will crash and restart.  Clean starts usually give the best chance for success.",
+      "parentUuid": "f2247fa0_74f1f343",
+      "range": {
+        "startLine": 283,
+        "startChar": 8,
+        "endLine": 283,
+        "endChar": 38
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
