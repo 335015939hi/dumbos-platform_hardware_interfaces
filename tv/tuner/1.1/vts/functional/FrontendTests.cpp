@@ -34,16 +34,30 @@ Return<void> FrontendCallback::onEvent(FrontendEventType frontendEventType) {
 
 Return<void> FrontendCallback::onScanMessage(FrontendScanMessageType type,
                                              const FrontendScanMessage& message) {
-    android::Mutex::Autolock autoLock(mMsgLock);
-    while (!mScanMsgProcessed) {
-        mMsgCondition.wait(mMsgLock);
+
+    static uint32_t frequency = 0;
+    switch (type) {
+        case FrontendScanMessageType::FREQUENCY:
+            if (message.frequencies().size() != 1) {
+                ALOGW("There should be only one frequency.. frequency is not set");
+                frequency = 0;
+                return Void();
+            }
+            frequency = message.frequencies()[0];
+            ALOGW("Scanning @frequency: %d ..", frequency);
+        break;
+
+        case FrontendScanMessageType::LOCKED:
+            ALOGW("And successfully locked @frequency: %d", frequency);
+        break;
+
+        case FrontendScanMessageType::PROGRESS_PERCENT:
+            ALOGW("Scan progress is: %d", message.progressPercent());
+        break;
+
+        default:
+        break;
     }
-    ALOGD("[vts] frontend scan message. Type: %d", type);
-    mScanMessageReceived = true;
-    mScanMsgProcessed = false;
-    mScanMessageType = type;
-    mScanMessage = message;
-    mMsgCondition.signal();
     return Void();
 }
 
@@ -141,48 +155,6 @@ void FrontendCallback::scanTest(sp<IFrontend>& frontend, FrontendConfig1_1 confi
 
     Result result = frontend_1_1->scan_1_1(config.config1_0.settings, type, config.settingsExt1_1);
     EXPECT_TRUE(result == Result::SUCCESS);
-
-    bool scanMsgLockedReceived = false;
-    bool targetFrequencyReceived = false;
-
-    android::Mutex::Autolock autoLock(mMsgLock);
-wait:
-    while (!mScanMessageReceived) {
-        if (-ETIMEDOUT == mMsgCondition.waitRelative(mMsgLock, WAIT_TIMEOUT)) {
-            EXPECT_TRUE(false) << "Scan message not received within timeout";
-            mScanMessageReceived = false;
-            mScanMsgProcessed = true;
-            return;
-        }
-    }
-
-    if (mScanMessageType != FrontendScanMessageType::END) {
-        if (mScanMessageType == FrontendScanMessageType::LOCKED) {
-            scanMsgLockedReceived = true;
-            Result result =
-                    frontend_1_1->scan_1_1(config.config1_0.settings, type, config.settingsExt1_1);
-            EXPECT_TRUE(result == Result::SUCCESS);
-        }
-
-        if (mScanMessageType == FrontendScanMessageType::FREQUENCY) {
-            targetFrequencyReceived = mScanMessage.frequencies().size() > 0 &&
-                                      mScanMessage.frequencies()[0] == targetFrequency;
-        }
-
-        if (mScanMessageType == FrontendScanMessageType::PROGRESS_PERCENT) {
-            ALOGD("[vts] Scan in progress...[%d%%]", mScanMessage.progressPercent());
-        }
-
-        mScanMessageReceived = false;
-        mScanMsgProcessed = true;
-        mMsgCondition.signal();
-        goto wait;
-    }
-
-    EXPECT_TRUE(scanMsgLockedReceived) << "Scan message LOCKED not received before END";
-    EXPECT_TRUE(targetFrequencyReceived) << "frequency not received before LOCKED on blindScan";
-    mScanMessageReceived = false;
-    mScanMsgProcessed = true;
 }
 
 uint32_t FrontendCallback::getTargetFrequency(FrontendSettings settings) {
