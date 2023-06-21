@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b63eefc7_d4469d41",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-06-21T17:16:22Z",
+      "side": 1,
+      "message": "I think it\u0027s simpler (therefore better) to reset the states on a failure.  It\u0027s confusing to mark things as \"Done\" if nothing was done to address a comment.",
+      "parentUuid": "429d7c3a_09626d41",
+      "range": {
+        "startLine": 228,
+        "startChar": 6,
+        "endLine": 228,
+        "endChar": 12
+      },
+      "revId": "9c85653c60ec3b1eb33cbf1d8a6841d5fb3149a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7456f16c_95fa15ac",
         "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
         "patchSetId": 2
