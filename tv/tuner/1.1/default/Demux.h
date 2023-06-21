@@ -26,6 +26,10 @@
 #include "TimeFilter.h"
 #include "Tuner.h"
 
+
+#include "FileTuner/TsPlayPump/tsTSFile.h"
+#include "FileTuner/TsPlayPump/tsTSPacket.h"
+
 using namespace std;
 
 namespace android {
@@ -100,6 +104,10 @@ class Demux : public IDemux {
     void sendFrontendInputToRecord(vector<uint8_t> data, uint16_t pid, uint64_t pts);
     bool startRecordFilterDispatcher();
 
+    void startTsFileInputLoop();
+
+    void updateDemuxOutput(vector<uint8_t> data);
+
   private:
     // Tuner service
     sp<Tuner> mTunerService;
@@ -163,11 +171,13 @@ class Demux : public IDemux {
 
     // Thread handlers
     pthread_t mFrontendInputThread;
+
     /**
      * If a specific filter's writing loop is still running
      */
     bool mFrontendInputThreadRunning;
     bool mKeepFetchingDataFromFrontend;
+
     /**
      * If the dvr recording is running.
      */
@@ -180,6 +190,7 @@ class Demux : public IDemux {
      * Lock to protect writes to the input status
      */
     std::mutex mFrontendInputThreadLock;
+
 
     // temp handle single PES filter
     // TODO handle mulptiple Pes filters

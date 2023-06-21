@@ -73,7 +73,6 @@ void FilterCallback::readFilterEventData() {
             case DemuxFilterEvent::Event::hidl_discriminator::media:
                 ALOGD("[vts] Media filter event, avMemHandle numFds=%d.",
                       event.media().avMemory.getNativeHandle()->numFds);
-                dumpAvData(event.media());
                 break;
             default:
                 break;
