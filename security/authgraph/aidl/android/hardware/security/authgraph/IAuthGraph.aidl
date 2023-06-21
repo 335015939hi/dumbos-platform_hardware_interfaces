@@ -18,6 +18,7 @@ package android.hardware.security.authgraph;
 
 import android.hardware.security.authgraph.Arc;
 import android.hardware.security.authgraph.ArcType;
+import android.hardware.security.authgraph.KEResult;
 import android.hardware.security.authgraph.Key;
 import android.hardware.security.authgraph.PubKey;
 
@@ -58,6 +59,37 @@ interface IAuthGraph {
      * @return: Newly created key.
      */
     Key create(in ArcType acrType, in @nullable Arc[] permission);
+
+    /**
+     * Given a peer’s ephemeral ECDH public key, create one’s own ephemeral ECDH key, compute a
+     * diffie-hellman shared secret, derive the shared key (a symmetric encryption key) and compute
+     * an arc from the per-boot key to the shared key, and return the created ephemeral ECDH
+     * public key for the peer to derive the same shared key.
+     *
+     * Additionally, to support the security properties of an authenticated key exchange, create
+     * a nonce, compute the signature on the concatenation of the nonce sent by the peer and its own
+     * ephemeral ECDH public key, derive a MAC key from the diffie-hellman shared secret
+     * (in addition to the shared symmetric encryption key), compute the session id, compute MAC on
+     * its own identity and return KEResult.
+     */
+    KEResult ke_init(
+            in ArcType acrType, in PubKey peer_dh_key, in @nullable Arc[] permissions);
+
+    /**
+     * Given the arc containing one’s own ECDH private key created in a previous `create` call,
+     * the peer’s ephemeral ECDH public key returned in a previous `ke_init` call, derive a
+     * diffie-hellman shared secret, derive the channel key and compute the channel arc (an arc from
+     * the per-boot key to the channel key), and return the channel arc.
+     * Additionally, to support the security properties of an authenticated key exchange, compute
+     * the signature on the concatenation of the nonce sent by the peer and one’s own ephemeral ECDH
+     * public key, derive a MAC key from the diffie-hellman shared secret in addition to the channel
+     * key, compute the session id, compute MAC on its own identity.
+     * Also, verify the `auth_key_binding` and the `signature` computed by the peer (which is
+     * combined into the input `auth_sign_mac`).
+     */
+    KEResult ke_finish();
+
+    KEResult ke_auth_complete();
 
     /**
      * Given two arcs from the per-boot key, return an arc from the payload key of the first arc to

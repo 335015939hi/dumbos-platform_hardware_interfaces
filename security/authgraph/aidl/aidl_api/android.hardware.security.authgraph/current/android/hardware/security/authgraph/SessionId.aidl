@@ -32,11 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.authgraph;
-/* @hide */
 @VintfStability
-interface IAuthGraph {
-  android.hardware.security.authgraph.Key create(in android.hardware.security.authgraph.ArcType acrType, in @nullable android.hardware.security.authgraph.Arc[] permission);
-  android.hardware.security.authgraph.KEResult ke_init(in android.hardware.security.authgraph.ArcType acrType, in android.hardware.security.authgraph.PubKey peer_dh_key, in @nullable android.hardware.security.authgraph.Arc[] permissions);
-  android.hardware.security.authgraph.Arc mint(in android.hardware.security.authgraph.Arc encryptingKey, in android.hardware.security.authgraph.Arc toBeEncryptedKey);
-  android.hardware.security.authgraph.Arc snap(in android.hardware.security.authgraph.Arc decryptingKey, in android.hardware.security.authgraph.Arc encryptedKey);
+parcelable SessionId {
+  byte[] encodedSessionId;
 }
