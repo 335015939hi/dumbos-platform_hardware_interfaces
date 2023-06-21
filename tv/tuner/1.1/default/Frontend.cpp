@@ -19,6 +19,9 @@
 #include "Frontend.h"
 #include <android/hardware/tv/tuner/1.1/IFrontendCallback.h>
 #include <utils/Log.h>
+#include <dirent.h>
+#include <string>
+#include <vector>
 
 namespace android {
 namespace hardware {
@@ -42,6 +45,9 @@ Return<Result> Frontend::close() {
     // Reset callback
     mCallback = nullptr;
     mIsLocked = false;
+    if (mTunerService->getTsFileInputThreadRunning()) {
+        mTunerService->stopTsFileInputLoop();
+    }
     mTunerService->removeFrontend(mId);
 
     return Result::SUCCESS;
@@ -58,17 +64,66 @@ Return<Result> Frontend::setCallback(const sp<IFrontendCallback>& callback) {
     return Result::SUCCESS;
 }
 
-Return<Result> Frontend::tune(const FrontendSettings& /* settings */) {
+bool Frontend::has_suffix(const string& s, const string& suffix)  {
+    return (s.size() >= suffix.size()) && std::equal(suffix.rbegin(), suffix.rend(), s.rbegin());
+}
+
+vector<int> Frontend::getFrequencyVector()  {
+    DIR *dir = opendir("/vendor/data/");
+    vector<string> strFreq;
+    if (!dir) {
+        ALOGI("Cannot open directory /vendor/data/");
+    }
+    dirent *entry;
+    while ((entry = readdir(dir)) != NULL) {
+        if (has_suffix(entry->d_name, ".ts")) {
+            strFreq.push_back(entry->d_name);
+        }
+    }
+    closedir(dir);
+
+    vector<string> strFreq2;
+    for (auto it = strFreq.begin(); it != strFreq.end(); it++) {
+         strFreq2.push_back((*it).substr(0, (*it).find("MHz")));
+    }
+
+    vector<int> intFreq;
+    for (int i = 0; i < strFreq2.size(); i++) {
+        intFreq.push_back(stoi(strFreq2.at(i))*1000000);
+    }
+    return intFreq;
+}
+
+ts::UString Frontend::formatFrequencyPath(int frequency) {
+    ts::UString s0 = u"/vendor/data/";
+    ts::UString s1 = ts::UString().FromUTF8(std::to_string(frequency / 1000000));
+    ts::UString s2 = u"MHz.ts";
+    ts::UString s3 = s0 + s1 + s2;
+    return s3;
+}
+
+Return<Result> Frontend::tune(const FrontendSettings& settings ) {
     ALOGV("%s", __FUNCTION__);
     if (mCallback == nullptr) {
         ALOGW("[   WARN   ] Frontend callback is not set when tune");
         return Result::INVALID_STATE;
     }
 
-    mTunerService->frontendStartTune(mId);
-    mCallback->onEvent(FrontendEventType::LOCKED);
-    mIsLocked = true;
-    return Result::SUCCESS;
+    vector<int> availableFreq = getFrequencyVector();
+    for (int i = 0; i< availableFreq.size(); i++) {
+        if (settings.dvbt().frequency == availableFreq.at(i)) {
+            if (mTunerService->getTsFileInputThreadRunning()) {
+                mTunerService->stopTsFileInputLoop();
+            }
+            mTunerService->frontendStartTune(mId, formatFrequencyPath(settings.dvbt().frequency));
+            mCallback->onEvent(FrontendEventType::LOCKED);
+            mIsLocked = true;
+            return Result::SUCCESS;
+        }
+    }
+    mCallback->onEvent(FrontendEventType::NO_SIGNAL);
+    mIsLocked = false;
+    return Result::UNKNOWN_ERROR;
 }
 
 Return<Result> Frontend::tune_1_1(const FrontendSettings& settings,
@@ -79,139 +134,83 @@ Return<Result> Frontend::tune_1_1(const FrontendSettings& settings,
 
 Return<Result> Frontend::stopTune() {
     ALOGV("%s", __FUNCTION__);
-
     mTunerService->frontendStopTune(mId);
     mIsLocked = false;
-
     return Result::SUCCESS;
+}
+
+void Frontend::logScanFrequencyMessage(uint32_t frequency, bool locked, float progressPercent) {
+    FrontendScanMessage msg;
+    msg.frequencies({frequency});
+    mCallback->onScanMessage(FrontendScanMessageType::FREQUENCY, msg);
+    msg.isLocked(locked);
+    mCallback->onScanMessage(FrontendScanMessageType::LOCKED, msg);
+    uint8_t temp = progressPercent;
+    msg.progressPercent(temp);
+    mCallback->onScanMessage(FrontendScanMessageType::PROGRESS_PERCENT, msg);
 }
 
 Return<Result> Frontend::scan(const FrontendSettings& settings, FrontendScanType type) {
     ALOGV("%s", __FUNCTION__);
-    FrontendScanMessage msg;
+    Result result = Result::SUCCESS;
+    uint32_t startFrequency = 474000000;
+    uint32_t stepFrequency = 8000000;
+    uint32_t endFrequency = 874000000;
+    uint32_t frequency = startFrequency;
+    bool lockSuccess = false;
+    int frequencyCount = 0;
+    FrontendSettings setting = settings;
+    setting.dvbt().frequency = frequency;
+    vector<int> availableFreq = getFrequencyVector();
 
-    if (mIsLocked) {
-        msg.isEnd(true);
-        mCallback->onScanMessage(FrontendScanMessageType::END, msg);
-        return Result::SUCCESS;
-    }
+    if (type == FrontendScanType::SCAN_AUTO) {
+        while (frequency <= endFrequency) {
+            result = tune(setting);
+            if (result == Result::SUCCESS) {
+                ALOGW("[SCAN] SUCCESS TUNE ON FREQUENCY = %d", frequency);
+                lockSuccess = true;
+                frequencyCount++;
+                logScanFrequencyMessage(frequency, lockSuccess,
+                        (frequencyCount * 1.0 / availableFreq.size())*100);
+            } else {
+                ALOGW("[SCAN] SCAN FAILED FOR FREQUENCY = %d", frequency);
+            }
 
-    uint32_t frequency;
-    switch (settings.getDiscriminator()) {
-        case FrontendSettings::hidl_discriminator::analog:
-            frequency = settings.analog().frequency;
-            break;
-        case FrontendSettings::hidl_discriminator::atsc:
-            frequency = settings.atsc().frequency;
-            break;
-        case FrontendSettings::hidl_discriminator::atsc3:
-            frequency = settings.atsc3().frequency;
-            break;
-        case FrontendSettings::hidl_discriminator::dvbs:
-            frequency = settings.dvbs().frequency;
-            break;
-        case FrontendSettings::hidl_discriminator::dvbc:
-            frequency = settings.dvbc().frequency;
-            break;
-        case FrontendSettings::hidl_discriminator::dvbt:
-            frequency = settings.dvbt().frequency;
-            break;
-        case FrontendSettings::hidl_discriminator::isdbs:
-            frequency = settings.isdbs().frequency;
-            break;
-        case FrontendSettings::hidl_discriminator::isdbs3:
-            frequency = settings.isdbs3().frequency;
-            break;
-        case FrontendSettings::hidl_discriminator::isdbt:
-            frequency = settings.isdbt().frequency;
-            break;
-    }
-
-    if (type == FrontendScanType::SCAN_BLIND) {
+            frequency = frequency + stepFrequency;
+            setting.dvbt().frequency = frequency;
+            if (frequency == endFrequency) {
+                ALOGW("[SCAN] SCAN FAILED FOR FREQUENCY = %d", frequency);
+                FrontendScanMessage msg;
+                msg.frequencies({frequency});
+                mCallback->onScanMessage(FrontendScanMessageType::END, msg);
+            }
+        }
+        if (lockSuccess)
+            result = Result::SUCCESS;
+        else
+            result = Result::UNAVAILABLE;
+    } else if (type == FrontendScanType::SCAN_BLIND) {
+        ALOGW("[   SCAN   ]FrontendScanType::SCAN_BLIND");
         frequency += 100;
-    }
-
-    msg.frequencies({frequency});
-    mCallback->onScanMessage(FrontendScanMessageType::FREQUENCY, msg);
-
-    msg.progressPercent(20);
-    mCallback->onScanMessage(FrontendScanMessageType::PROGRESS_PERCENT, msg);
-
-    msg.symbolRates({30});
-    mCallback->onScanMessage(FrontendScanMessageType::SYMBOL_RATE, msg);
-
-    if (mType == FrontendType::DVBT) {
-        msg.hierarchy(FrontendDvbtHierarchy::HIERARCHY_NON_NATIVE);
-        mCallback->onScanMessage(FrontendScanMessageType::HIERARCHY, msg);
-    }
-
-    if (mType == FrontendType::ANALOG) {
-        msg.analogType(FrontendAnalogType::PAL);
-        mCallback->onScanMessage(FrontendScanMessageType::ANALOG_TYPE, msg);
-    }
-
-    msg.plpIds({3});
-    mCallback->onScanMessage(FrontendScanMessageType::PLP_IDS, msg);
-
-    msg.groupIds({2});
-    mCallback->onScanMessage(FrontendScanMessageType::GROUP_IDS, msg);
-
-    msg.inputStreamIds({1});
-    mCallback->onScanMessage(FrontendScanMessageType::INPUT_STREAM_IDS, msg);
-
-    FrontendScanMessage::Standard s;
-    switch (mType) {
-        case FrontendType::DVBT:
-            s.tStd(FrontendDvbtStandard::AUTO);
-            msg.std(s);
-            mCallback->onScanMessage(FrontendScanMessageType::STANDARD, msg);
-            break;
-        case FrontendType::DVBS:
-            s.sStd(FrontendDvbsStandard::AUTO);
-            msg.std(s);
-            mCallback->onScanMessage(FrontendScanMessageType::STANDARD, msg);
-            break;
-        case FrontendType::ANALOG:
-            s.sifStd(FrontendAnalogSifStandard::AUTO);
-            msg.std(s);
-            mCallback->onScanMessage(FrontendScanMessageType::STANDARD, msg);
-            break;
-        default:
-            break;
-    }
-
-    FrontendScanAtsc3PlpInfo info{
-            .plpId = 1,
-            .bLlsFlag = false,
-    };
-    msg.atsc3PlpInfos({info});
-    mCallback->onScanMessage(FrontendScanMessageType::ATSC3_PLP_INFO, msg);
-
-    sp<V1_1::IFrontendCallback> frontendCallback_v1_1 =
-            V1_1::IFrontendCallback::castFrom(mCallback);
-    if (frontendCallback_v1_1 != NULL) {
-        V1_1::FrontendScanMessageExt1_1 msg;
-        msg.modulation().dvbc(FrontendDvbcModulation::MOD_16QAM);
-        frontendCallback_v1_1->onScanMessageExt1_1(V1_1::FrontendScanMessageTypeExt1_1::MODULATION,
-                                                   msg);
-        msg.isHighPriority(true);
-        frontendCallback_v1_1->onScanMessageExt1_1(
-                V1_1::FrontendScanMessageTypeExt1_1::HIGH_PRIORITY, msg);
+        result = Result::SUCCESS;
+        FrontendScanMessage msg;
+        msg.frequencies({frequency});
+        mCallback->onScanMessage(FrontendScanMessageType::END, msg);
     } else {
-        ALOGD("[Frontend] Couldn't cast to V1_1 IFrontendCallback");
+        ALOGW("[   SCAN   ] Type is unknown)");
+        result = Result::UNAVAILABLE;
     }
 
-    msg.isLocked(true);
-    mCallback->onScanMessage(FrontendScanMessageType::LOCKED, msg);
-    mIsLocked = true;
-
-    return Result::SUCCESS;
+    if (mType != FrontendType::DVBT) {
+        ALOGW("[   SCAN   ] UNAVALIABLE)");
+        result = Result::UNAVAILABLE;
+    }
+    return result;
 }
 
 Return<Result> Frontend::scan_1_1(const FrontendSettings& settings, FrontendScanType type,
                                   const V1_1::FrontendSettingsExt1_1& settingsExt1_1) {
     ALOGV("%s", __FUNCTION__);
-    ALOGD("[Frontend] scan_1_1 end frequency %d", settingsExt1_1.endFrequency);
     return scan(settings, type);
 }
 
