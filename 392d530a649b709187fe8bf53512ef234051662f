@@ -179,6 +179,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf2f788f_6832ca17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1998045
+      },
+      "writtenOn": "2023-06-21T04:44:10Z",
+      "side": 1,
+      "message": "Hi Dan and Gaurav,\n\nCan you help to submit this change?\nThanks!",
+      "revId": "392d530a649b709187fe8bf53512ef234051662f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4dac13ce_6f688d67",
         "filename": "usb/1.1/vts/functional/VtsHalUsbV1_1TargetTest.cpp",
         "patchSetId": 3
