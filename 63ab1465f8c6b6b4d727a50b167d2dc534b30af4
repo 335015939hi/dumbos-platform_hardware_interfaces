@@ -169,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc5795a6_93bd4e8e",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-22T19:46:46Z",
+      "side": 1,
+      "message": "mikhail, every access to mState is not locked. Not only getState, setState modifies mState with out lock. Further start(), suspend() sets mState to transient state STARTING, SUSPENDING with out lock. stop() modifies mState with out lock as well. Logging function read mState as well with out lock.\n\nA call to start() or suspend() triggers a callback. This callback returns a status. If this status is saved inside the class, the condWaitState, after the callback is serviced and can use the status to update mState. This way to update mState we never have to lock. The mutex and conditional pair is used to determine if the callbacks are serviced. Updating mState is a side effect of the callback. The primary purpose of mutex and cv are checking if status is received.\n\nThe current implementation has moved the mState setting to callback from condWaitState instead of preserving return status. mState need not be guarded by mutex. The mutex and callback goal is to check if callback is called.",
+      "parentUuid": "03c27e27_69906f0d",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 49
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8cfa281e_1bb580d5",
         "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
         "patchSetId": 25
