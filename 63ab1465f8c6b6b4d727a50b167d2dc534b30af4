@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03c27e27_69906f0d",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-22T15:51:19Z",
+      "side": 1,
+      "message": "\u003e access to mState is not guarded by mutex\n\nThis isn\u0027t how this looks to me. It follows from the code that `mState` is used to communicate a state change between two threads. It is set in this method (`sessionChangedHandler`) and then read back in `condWaitState` by another thread. This means, `mState` is a variable shared between two threads. If access to it is not protected by a mutex, then another thread may simply not see the change update because it\u0027s the locking/unlocking that actually ensures the memory state synchronization between different CPU cores. This code uses the canonical protocol described here: http://go/cppref/cpp/thread/condition_variable. Thus, `mState` must be marked as protected by the mutex.\n\nThere is also a comment at the beginning of `DevicePortProxy.h` stating:\n\n```\n * Note: currently, in StreamBluetooth.cpp, if getState() is only used for\n * verbose logging, it is not locked, so the state may not be synchronized.\n```\n\nThis implies that the legacy code assumes that normally, access to `mState` must be locked and `getState` is an exception where we don\u0027t care about the consistency because it\u0027s only used for verbose logging.",
+      "parentUuid": "15d7ee35_e64d140d",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 49
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8cfa281e_1bb580d5",
         "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
         "patchSetId": 25
