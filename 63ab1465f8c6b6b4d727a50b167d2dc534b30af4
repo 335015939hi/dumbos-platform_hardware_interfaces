@@ -965,6 +965,30 @@
       },
       "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2ca300a_e1f681b4",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-22T23:32:33Z",
+      "side": 1,
+      "message": "Its not a problem if we use a lock per port instead of a global lock for all ports. But this way most of the class methods would acquire lock at the start. This keeps methods from calling each other. As long as the methods are called independently its fine but if there is a call tree where methods calls each other then we are looking at deadlock?",
+      "parentUuid": "4eaa34b8_e69a6bd2",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
