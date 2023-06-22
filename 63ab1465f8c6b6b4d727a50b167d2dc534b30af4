@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15d7ee35_e64d140d",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-22T04:18:08Z",
+      "side": 1,
+      "message": "Mikhail, access to mState is not guarded by mutex. This is free for modification. The BluetoothAudioSessionControl has callbacks that convey back the state change status. Basing on this status mState is updated. The conditional wait and mutex serve towards a waiting a predefined for the callback to be serviced.\n\nThe only necessary change is \nstd::condition_variable mInternalCv GUARDED_BY(mCvMutex);\n\nmarking this closed as there is an open comment for this.",
+      "parentUuid": "4d2ff9dd_522a64e9",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 49
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cfa281e_1bb580d5",
