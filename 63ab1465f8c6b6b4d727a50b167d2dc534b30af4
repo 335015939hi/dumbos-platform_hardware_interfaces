@@ -849,6 +849,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a33f1b5_e829e805",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-23T19:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdfe836a_75adc8d4",
+      "range": {
+        "startLine": 138,
+        "startChar": 12,
+        "endLine": 138,
+        "endChar": 18
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3df69cac_09a04f0e",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-23T19:04:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdfe836a_75adc8d4",
+      "range": {
+        "startLine": 138,
+        "startChar": 12,
+        "endLine": 138,
+        "endChar": 18
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "611da028_4b317608",
@@ -910,6 +958,30 @@
       "side": 1,
       "message": "Thanks for the explanation! Is this correct that `mListLock` and `mStreamLock` must never be held together by the same thread? This should be documented, that\u0027s what I was asking. Unfortunately, it\u0027s not easy to express this with annotations, but at least there must be a comment about this. Although, if you are agree with the next CL comment, then this will become redundant.",
       "parentUuid": "4cb90fc0_5eac009e",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d5ef15b_45b77d1e",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-23T19:04:05Z",
+      "side": 1,
+      "message": "Improved documentation surrounding locks.",
+      "parentUuid": "47c99678_790fd6f7",
       "range": {
         "startLine": 72,
         "startChar": 0,
