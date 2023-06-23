@@ -265,6 +265,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d36b0bb_e2e0bb22",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-23T21:23:27Z",
+      "side": 1,
+      "message": "\u003e mutex lock issues a memory barrier during its execution. So the other threads observe this change.\n\nIt\u0027s more correct to say that acquiring a lock on a mutex issues an \"acquire\" operation on memory locations, see https://eel.is/c++draft/intro.races#note-2. Thus, the thread taking the lock is guaranteed to see all memory writes that has happened after another thread has issued a \"release\" operation. The \"release\" operation happens when some thread releases a mutex. Since the code in `start` did not held a mutex while modifying `mState`, it\u0027s modifications to this field may not be visible to other threads, regardless what they do with the mutex.",
+      "parentUuid": "5d5dfb72_7b2440b6",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 49
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8cfa281e_1bb580d5",
         "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
         "patchSetId": 25
