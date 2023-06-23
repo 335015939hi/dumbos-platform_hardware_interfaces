@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "683c9273_a10536a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2023-06-23T22:12:38Z",
+      "side": 1,
+      "message": "Cherry pick from internal to make it consistent between AOSP and internal master",
+      "revId": "d20ebb4f6f5ec2119371735f0487991ac54d4403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
