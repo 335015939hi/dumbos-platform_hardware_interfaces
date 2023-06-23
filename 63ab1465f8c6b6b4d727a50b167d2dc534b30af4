@@ -289,6 +289,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6273e44_6a46d064",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-23T22:49:29Z",
+      "side": 1,
+      "message": "I realized that you probably meant the mutex locking which happens in `condWaitState` on the waiting thread due to the CV use. It is true that this use of the mutex will act as a necessary synchronization for `mState` updates. However, it is still holds until we get to that mutex usage code, the update done to `mState` is not propagated, and is subject to races.",
+      "parentUuid": "8d36b0bb_e2e0bb22",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 49
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8cfa281e_1bb580d5",
         "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
         "patchSetId": 25
