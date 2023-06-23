@@ -48,12 +48,11 @@ class NSParamTest : public ::testing::TestWithParam<NSParamTestParam>, public Ef
         ASSERT_NE(nullptr, mFactory);
         ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
-        Parameter::Specific specific = getDefaultParamSpecific();
         Parameter::Common common = EffectHelper::createParamCommon(
                 0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
                 kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */);
         IEffect::OpenEffectReturn ret;
-        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, specific, &ret, EX_NONE));
+        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, std::nullopt, &ret, EX_NONE));
         ASSERT_NE(nullptr, mEffect);
     }
 
@@ -85,7 +84,9 @@ class NSParamTest : public ::testing::TestWithParam<NSParamTestParam>, public Ef
             // validate parameter
             Descriptor desc;
             ASSERT_STATUS(EX_NONE, mEffect->getDescriptor(&desc));
-            const binder_exception_t expected = EX_NONE;
+            const bool valid =
+                    isParameterValid<NoiseSuppression, Range::noiseSuppression>(ns, desc);
+            const binder_exception_t expected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
 
             // set parameter
             Parameter expectParam;
