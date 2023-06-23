@@ -193,6 +193,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa06979c_f93f5a41",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-23T16:40:49Z",
+      "side": 1,
+      "message": "\u003e mState need not be guarded by mutex. The mutex and callback goal is to check if callback is called.\n\nRam, I\u0027m not sure we understand each other here. A mutex and a condition variable are not sufficient for implementing a reliable notification mechanism between two threads. The reason is that there can be spurious wakeups (https://en.wikipedia.org/wiki/Spurious_wakeup)—the CV can signal a wake even when the condition hasn\u0027t actually changed. This is why a separate shared variable must be used, and the woke up thread must check it. Since this variable is used by multiple threads, access to it must be serialized. Since I see that `mState` is used together with a CV, I insist that access to it must be guarded by a lock. I hope this is clear.\n\nAnother \"axiom\" is that a variable which is mutable and is used by multiple threads must always be accessed under a lock. Always. Because non-serialized access effectively turns into a race condition—one thread will see this variable in one state, and other threads in some other. Thus, as we know we use `mState` between multiple threads, access to it must always be protected by a mutex, and that\u0027s why I propose to annotate it with `GUARDED_BY` so that the compiler helps to find all the places where this requirement is violated. Basically, these are all the places in the code you\u0027ve mentioned, like `start`. What you are saying is basically a declaration that the current code is not handling multithreaded use correctly.\n\nFor example, the current use of `mState` by `start` and `controlResultHandler` has an obvious flaw. `start` does this:\n\n```\n        mState \u003d BluetoothStreamState::STARTING;\n        if (BluetoothAudioSessionControl::StartStream(mSessionType)) {\n            retval \u003d condWaitState(BluetoothStreamState::STARTING);\n```\n\n`mState` is modified w/o a lock. This means, other CPU cores might not have observed this modification. Because of this, the value that `controlResultHandler` will read can be stale, regardless of the fact that here it\u0027s accessed under a lock:\n\n```\n    std::lock_guard guard(mCvMutex);\n    BluetoothStreamState previous_state \u003d mState;\n```\n\nLocks do not work as intended if only one thread uses them. Regardless of the fact how the old code was written, this isn\u0027t correct. Since the result of locks misuse are race conditions, the code could work—sometimes, or most of the time. But on the Android scale, any possible race condition will always occur due to the massive scale of devices that use this code.",
+      "parentUuid": "fc5795a6_93bd4e8e",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 49
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8cfa281e_1bb580d5",
         "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
         "patchSetId": 25
@@ -981,6 +1005,30 @@
       "side": 1,
       "message": "Its not a problem if we use a lock per port instead of a global lock for all ports. But this way most of the class methods would acquire lock at the start. This keeps methods from calling each other. As long as the methods are called independently its fine but if there is a call tree where methods calls each other then we are looking at deadlock?",
       "parentUuid": "4eaa34b8_e69a6bd2",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42b60842_baaf0a00",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-23T16:40:49Z",
+      "side": 1,
+      "message": "The usual solution to that is to have private methods that are annotated as `REQUIRES` (https://clang.llvm.org/docs/ThreadSafetyAnalysis.html#requires-requires-shared), and public thread-safe methods that take the lock when needed. The annotation will ensure that all internal methods will be called with a lock held.",
+      "parentUuid": "e2ca300a_e1f681b4",
       "range": {
         "startLine": 74,
         "startChar": 0,
