@@ -860,6 +860,7 @@ void FakeVehicleHardware::registerOnPropertyChangeEvent(
 
 void FakeVehicleHardware::registerOnPropertySetErrorEvent(
         std::unique_ptr<const PropertySetErrorCallback> callback) {
+    // In FakeVehicleHardware, we will never use mOnPropertySetErrorCallback.
     std::scoped_lock<std::mutex> lockGuard(mLock);
     mOnPropertySetErrorCallback = std::move(callback);
 }
