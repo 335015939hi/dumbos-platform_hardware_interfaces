@@ -251,6 +251,9 @@ class DefaultVehicleHal final : public aidl::android::hardware::automotive::vehi
             const std::vector<aidl::android::hardware::automotive::vehicle::VehiclePropValue>&
                     updatedValues);
 
+    static void onPropertySetErrorEvent(std::weak_ptr<SubscriptionManager> subscriptionManager,
+                                        const std::vector<SetValueErrorEvent>& errorEvents);
+
     static void checkHealth(IVehicleHardware* hardware,
                             std::weak_ptr<SubscriptionManager> subscriptionManager);
 
