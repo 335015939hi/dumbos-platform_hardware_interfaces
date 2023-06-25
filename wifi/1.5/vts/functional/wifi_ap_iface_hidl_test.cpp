@@ -84,7 +84,9 @@ TEST_P(WifiApIfaceHidlTest, resetToFactoryMacAddressInBridgedModeTest) {
  */
 TEST_P(WifiApIfaceHidlTest, resetToFactoryMacAddressTest) {
     sp<IWifiApIface> wifi_ap_iface = getWifiApIface_1_5(GetInstanceName());
-    ASSERT_NE(nullptr, wifi_ap_iface.get());
+    if (nullptr == wifi_ap_iface.get()) {
+        GTEST_SKIP() << "The device does not support AP!";
+    }
     const auto& status = HIDL_INVOKE(wifi_ap_iface, resetToFactoryMacAddress);
     EXPECT_EQ(WifiStatusCode::SUCCESS, status.code);
 }
@@ -94,7 +96,9 @@ TEST_P(WifiApIfaceHidlTest, resetToFactoryMacAddressTest) {
  */
 TEST_P(WifiApIfaceHidlTest, getBridgedInstancesTest) {
     sp<IWifiApIface> wifi_ap_iface = getWifiApIface_1_5(GetInstanceName());
-    ASSERT_NE(nullptr, wifi_ap_iface.get());
+    if (nullptr == wifi_ap_iface.get()) {
+        GTEST_SKIP() << "The device does not support AP!";
+    }
     const auto& status_and_instances =
         HIDL_INVOKE(wifi_ap_iface, getBridgedInstances);
     EXPECT_EQ(WifiStatusCode::SUCCESS, status_and_instances.first.code);
