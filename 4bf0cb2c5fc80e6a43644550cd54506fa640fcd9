@@ -16,6 +16,24 @@
       "message": "Please remove the \"executable\" bit from the file.",
       "revId": "4bf0cb2c5fc80e6a43644550cd54506fa640fcd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a1232db_ec758152",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "299651c7_a77e0e11",
+      "revId": "4bf0cb2c5fc80e6a43644550cd54506fa640fcd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

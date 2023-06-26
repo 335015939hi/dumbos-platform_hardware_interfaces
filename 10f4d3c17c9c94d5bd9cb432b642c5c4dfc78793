@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffce6448_de496eac",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d231bb7_5a7bfb4d",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 20
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b769c1fa_89971d77",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-06-21T18:05:26Z",
       "side": 1,
       "message": "Note that since we always have the reader and the writer on different threads, we only need to make thread-safe the retrieval of the pointer itself. Thus, in the spirit of the proposal above, we should just have methods like these:\n\n```\nsp\u003cMonoPipe\u003e getSink() { std::lock_guard guard(lock); return sink; }\nsp\u003cMonoPipeReader\u003e getSource() { std::lock_guard guard(lock); return source; }\n```",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 47
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad8868f9_637f8bc4",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b769c1fa_89971d77",
       "range": {
         "startLine": 70,
         "startChar": 0,
@@ -110,6 +158,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba865066_643d7ca1",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "049e91f4_c2e1f525",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 97
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf6151fb_b994fb28",
@@ -123,6 +195,30 @@
       "writtenOn": "2023-06-21T18:05:26Z",
       "side": 1,
       "message": "I don\u0027t think we need this message because `compareConfigs` already prints some diagnostics.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 62
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2a11a84_9986fdad",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf6151fb_b994fb28",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -156,6 +252,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4d01511_4f05bdfd",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "926465fe_f96f44f1",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 42
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6eb67c57_34fd2d0a",
@@ -169,6 +289,30 @@
       "writtenOn": "2023-06-21T18:05:26Z",
       "side": 1,
       "message": "Since the only external information this method uses is the stream config, we can also make this function a method of `SubmixRoute` and pass the stream config as a parameter.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 54
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e80d0919_28c922cc",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eb67c57_34fd2d0a",
       "range": {
         "startLine": 104,
         "startChar": 0,
@@ -202,6 +346,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5de8b49_c45838e7",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5fca7bb_c1dffc3d",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 32
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a1c272b_778b5da5",
@@ -215,6 +383,30 @@
       "writtenOn": "2023-06-21T18:05:26Z",
       "side": 1,
       "message": "I think, this method really belongs to `SubmixRoute` class. It will make its call sites more clear.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 40
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "897e5447_0cec7c0d",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a1c272b_778b5da5",
       "range": {
         "startLine": 158,
         "startChar": 0,
@@ -248,6 +440,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34a088bb_36046195",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58e926b4_7f06be0c",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 49
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a2d407d_e78dbcda",
@@ -261,6 +477,30 @@
       "writtenOn": "2023-06-21T18:05:26Z",
       "side": 1,
       "message": "Is this correct? `route` is a nullptr, why are we adding it? Should we use `mCurrentRoute` instead?",
+      "range": {
+        "startLine": 177,
+        "startChar": 36,
+        "endLine": 177,
+        "endChar": 41
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a95e63f_ce852815",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a2d407d_e78dbcda",
       "range": {
         "startLine": 177,
         "startChar": 36,
@@ -294,6 +534,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4820c14_39f146a3",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Nope, It wasn\u0027t the intended code, updated it.",
+      "parentUuid": "f567e363_bde0a664",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 26
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb26fbe1_3674eee3",
@@ -307,6 +571,30 @@
       "writtenOn": "2023-06-21T18:05:26Z",
       "side": 1,
       "message": "It\u0027s better to encapsulate all these manipulations on the class fields into the class itself by adding a method to `SubmixRoute`.",
+      "range": {
+        "startLine": 212,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 74
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c44d1a8b_3846a351",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb26fbe1_3674eee3",
       "range": {
         "startLine": 212,
         "startChar": 0,
@@ -340,6 +628,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c726012_00e525a5",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfcba22d_1ce6f21f",
+      "range": {
+        "startLine": 389,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 47
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fcf2a3a7_b4559623",
@@ -353,6 +665,30 @@
       "writtenOn": "2023-06-21T18:05:26Z",
       "side": 1,
       "message": "A good candidate to become a method of `SubmixRoute`",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 450,
+        "endChar": 55
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4ffd5b5_77639271",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcf2a3a7_b4559623",
       "range": {
         "startLine": 441,
         "startChar": 0,
@@ -386,6 +722,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5263fdeb_c43f1af8",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21f152fc_f33920d9",
+      "range": {
+        "startLine": 457,
+        "startChar": 31,
+        "endLine": 457,
+        "endChar": 33
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f414deb_66264924",
@@ -409,6 +769,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b105881_5defc449",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f414deb_66264924",
+      "range": {
+        "startLine": 508,
+        "startChar": 0,
+        "endLine": 509,
+        "endChar": 61
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a512ddea_4e54450c",
@@ -422,6 +806,30 @@
       "writtenOn": "2023-06-21T18:05:26Z",
       "side": 1,
       "message": "Should be moved to `SubmixRoute`",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 549,
+        "endChar": 5
+      },
+      "revId": "10f4d3c17c9c94d5bd9cb432b642c5c4dfc78793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a817c836_c5edb9a3",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-26T18:01:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a512ddea_4e54450c",
       "range": {
         "startLine": 543,
         "startChar": 0,
