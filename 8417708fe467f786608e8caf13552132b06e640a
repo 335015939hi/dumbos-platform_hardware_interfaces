@@ -16,6 +16,24 @@
       "message": "I don\u0027t know whether changing the declaration here will affect anything on the RKP side.  Max?",
       "revId": "8417708fe467f786608e8caf13552132b06e640a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2f91bb5_be57b444",
+        "filename": "security/keymint/aidl/default/android.hardware.security.keymint-service.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-06-26T15:18:33Z",
+      "side": 1,
+      "message": "Don\u0027t think it should.",
+      "parentUuid": "0aead160_f328b827",
+      "revId": "8417708fe467f786608e8caf13552132b06e640a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
