@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3512061_e8ea7bec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1994975
+      },
+      "writtenOn": "2023-06-26T20:54:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56c9c4fd_81bc0f02",
+      "range": {
+        "startLine": 18,
+        "startChar": 11,
+        "endLine": 18,
+        "endChar": 52
+      },
+      "revId": "0fa09aafd025a15874e2e02957259d40bb74d796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51d1fb55_8495ef95",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "057b1640_2ff0aa0a",
+        "filename": "light/aidl/default/lights.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1994975
+      },
+      "writtenOn": "2023-06-26T20:54:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51d1fb55_8495ef95",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "0fa09aafd025a15874e2e02957259d40bb74d796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e847fbb4_5d9da947",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-20T21:29:13Z",
       "side": 1,
       "message": "year?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "0fa09aafd025a15874e2e02957259d40bb74d796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d73a5f5a_5fd2e6d9",
+        "filename": "light/aidl/default/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1994975
+      },
+      "writtenOn": "2023-06-26T20:54:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e847fbb4_5d9da947",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -107,6 +179,30 @@
       "side": 1,
       "message": "It\u0027s not strictly required, but `log!` and similar won\u0027t work correctly if you don\u0027t do it. You\u0027ll see it on almost every rust service. Most services would not set the level to trace, but that could make sense for dev etc.",
       "parentUuid": "cf8e0206_2750e81e",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 6
+      },
+      "revId": "0fa09aafd025a15874e2e02957259d40bb74d796",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff13426_f10f35a3",
+        "filename": "light/aidl/default/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1994975
+      },
+      "writtenOn": "2023-06-26T20:54:16Z",
+      "side": 1,
+      "message": "Resolving this thread since there are no actions pending for this CL and the service implementation does use the log:: macros.",
+      "parentUuid": "b066cc11_f4f241a8",
       "range": {
         "startLine": 29,
         "startChar": 0,
