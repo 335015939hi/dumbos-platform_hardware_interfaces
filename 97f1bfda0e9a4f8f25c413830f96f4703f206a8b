@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7104b2e0_fe40af1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-26T20:59:06Z",
+      "side": 1,
+      "message": "Great job! I think we are close to completion here.",
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15e8227c_94153dda",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-26T20:59:06Z",
+      "side": 1,
+      "message": "`id` should never change, right? I would suggest making it `const` and setting in the constructor.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 11
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35b8c2f_9d39f452",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-26T20:59:06Z",
+      "side": 1,
+      "message": "Please use a const reference for the config, in all methods of this class.",
+      "range": {
+        "startLine": 104,
+        "startChar": 43,
+        "endLine": 104,
+        "endChar": 54
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00562b7a_a43f86e5",
+        "filename": "audio/aidl/default/include/core-impl/utils.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-26T20:59:06Z",
+      "side": 1,
+      "message": "BTW, instead of doing this, it would be more straightforward to use a `std::map\u003cint32_t, std::shared_ptr\u003cSubmixRoute\u003e\u003e` for `mSubmixRoutes`. We use vectors for ports etc so that we can return them directly from `getPorts` and similar methods, but in the case of remote submix routes this isn\u0027t a concern.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 1
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ea0e42e_9d088c82",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-26T20:59:06Z",
+      "side": 1,
+      "message": "Does this mean that `init` can be called multiple times? In that case it\u0027s not the best name as usually this name is used for methods called just once in the beginning of the object\u0027s lifetime. Is this function supposed to be paired with `close`? In that case, `open` would be a better name.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 28
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d56e9dcd_666d4ec9",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-26T20:59:06Z",
+      "side": 1,
+      "message": "Note: this can never happen because the constructor itself can\u0027t fail, thus the instance can\u0027t be created only if there is no free memory left. But that will cause the process to terminate (as Android does not support throwing exceptions). Also, even if some reason `sink` will be null, we will crash pretty clearly at the next line, and crashing early here will not add much information. Thus, I would suggest removing this check and the check for `source`.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 5
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09fedf52_3864f26f",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-26T20:59:06Z",
+      "side": 1,
+      "message": "We can do `std::move` here if we also move the code for `pipeConfig` ahead of this code.",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 25
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9941808_9653e049",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-26T20:59:06Z",
+      "side": 1,
+      "message": "This access needs to be performed while holding a lock. The static analysis unfortunately doesn\u0027t understand that. I would suggest replacing `submixRouteItr` with a `shared_ptr` which will end up either being null or pointing to the route that we have found. This also makes `portIdFound` redundant.",
+      "range": {
+        "startLine": 256,
+        "startChar": 24,
+        "endLine": 256,
+        "endChar": 40
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15d5c8de_787c7dfd",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-26T20:59:06Z",
+      "side": 1,
+      "message": "This should be made a method of `SubmixRoute`.",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 98
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
