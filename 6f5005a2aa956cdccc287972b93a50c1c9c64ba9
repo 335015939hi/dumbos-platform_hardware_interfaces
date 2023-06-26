@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92f70e75_0b7a4450",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2192,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-06-26T15:12:55Z",
+      "side": 1,
+      "message": "Unnecessary whitespace change?",
+      "range": {
+        "startLine": 2192,
+        "startChar": 0,
+        "endLine": 2192,
+        "endChar": 12
+      },
+      "revId": "6f5005a2aa956cdccc287972b93a50c1c9c64ba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dd8e1c0_7e0afc0a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-06-26T15:12:55Z",
+      "side": 1,
+      "message": "assert_mgf_digests_present_in_key_characteristics",
+      "range": {
+        "startLine": 423,
+        "startChar": 5,
+        "endLine": 423,
+        "endChar": 22
+      },
+      "revId": "6f5005a2aa956cdccc287972b93a50c1c9c64ba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48f78706_70837bec",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-06-26T15:12:55Z",
+      "side": 1,
+      "message": "is_mgf_digest_present",
+      "range": {
+        "startLine": 426,
+        "startChar": 5,
+        "endLine": 426,
+        "endChar": 25
+      },
+      "revId": "6f5005a2aa956cdccc287972b93a50c1c9c64ba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "099c8603_1b1c18e4",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4795,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-06-26T15:12:55Z",
+      "side": 1,
+      "message": "Why the check here but not below?",
+      "range": {
+        "startLine": 4795,
+        "startChar": 8,
+        "endLine": 4795,
+        "endChar": 76
+      },
+      "revId": "6f5005a2aa956cdccc287972b93a50c1c9c64ba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c96b1177_0517490f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4814,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-06-26T15:12:55Z",
+      "side": 1,
+      "message": "Better to choose a fixed offset and a fixed corruption (e.g. single bit flip) so that this could be reproduced if the test fails.",
+      "range": {
+        "startLine": 4814,
+        "startChar": 45,
+        "endLine": 4814,
+        "endChar": 59
+      },
+      "revId": "6f5005a2aa956cdccc287972b93a50c1c9c64ba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7989d2b_c83a464e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4875,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-06-26T15:12:55Z",
+      "side": 1,
+      "message": "This code seems very similar to EncryptionOperationsTest.RsaOaepMGFDigestDefaultSuccess - it doesn\u0027t specify an MGF digest in either case, can we drop it?",
+      "range": {
+        "startLine": 4853,
+        "startChar": 0,
+        "endLine": 4875,
+        "endChar": 33
+      },
+      "revId": "6f5005a2aa956cdccc287972b93a50c1c9c64ba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
