@@ -57,6 +57,18 @@ constexpr uint64_t kOpHandleSentinel = 0xFFFFFFFFFFFFFFFF;
 const string FEATURE_KEYSTORE_APP_ATTEST_KEY = "android.hardware.keystore.app_attest_key";
 const string FEATURE_STRONGBOX_KEYSTORE = "android.hardware.strongbox_keystore";
 
+// RAII class to ensure that a keyblob is deleted regardless of how a test exits.
+class KeyBlobDeleter {
+  public:
+    KeyBlobDeleter(const shared_ptr<IKeyMintDevice>& keymint, const vector<uint8_t>& key_blob)
+        : keymint_(keymint), key_blob_(key_blob) {}
+    ~KeyBlobDeleter();
+
+  private:
+    shared_ptr<IKeyMintDevice> keymint_;
+    vector<uint8_t> key_blob_;
+};
+
 class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
   public:
     struct KeyData {
@@ -93,8 +105,6 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     bool isSecondImeiIdAttestationRequired();
 
     bool Curve25519Supported();
-
-    ErrorCode GetReturnErrorCode(const Status& result);
 
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
                           vector<KeyCharacteristics>* key_characteristics) {
@@ -159,7 +169,6 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
 
     ErrorCode DestroyAttestationIds();
 
-    void CheckedDeleteKey(vector<uint8_t>* key_blob, bool keep_key_blob = false);
     void CheckedDeleteKey();
 
     ErrorCode Begin(KeyPurpose purpose, const vector<uint8_t>& key_blob,
@@ -423,13 +432,15 @@ vector<uint8_t> make_name_from_str(const string& name);
 void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
                         vector<uint8_t>* payload_value);
 void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey);
-void device_id_attestation_vsr_check(const ErrorCode& result);
+void device_id_attestation_check_acceptable_error(Tag tag, const ErrorCode& result);
 bool check_feature(const std::string& name);
 
 AuthorizationSet HwEnforcedAuthorizations(const vector<KeyCharacteristics>& key_characteristics);
 AuthorizationSet SwEnforcedAuthorizations(const vector<KeyCharacteristics>& key_characteristics);
 ::testing::AssertionResult ChainSignaturesAreValid(const vector<Certificate>& chain,
                                                    bool strict_issuer_check = true);
+
+ErrorCode GetReturnErrorCode(const Status& result);
 
 #define INSTANTIATE_KEYMINT_AIDL_TEST(name)                                          \
     INSTANTIATE_TEST_SUITE_P(PerInstance, name,                                      \
