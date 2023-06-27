@@ -353,6 +353,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f083d8d8_dc3b37aa",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 33
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-27T11:24:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43ece611_eb5d1631",
+      "range": {
+        "startLine": 55,
+        "startChar": 11,
+        "endLine": 55,
+        "endChar": 37
+      },
+      "revId": "1d77958a2f3fba7e91d6d934ad64a88cf8ba0509",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06ad124e_e98e7758",
