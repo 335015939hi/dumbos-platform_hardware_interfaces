@@ -70,6 +70,24 @@
       "parentUuid": "25f422a8_e0c2aa6d",
       "revId": "7d4afe914f0adf20e16033cc84953e6771744dd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd3dc519_ba04213c",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-06-27T18:21:54Z",
+      "side": 1,
+      "message": "Removed the `ISession` and put all the methods into `ISecureStorage` directly. Added the `StartAtomicSegment` and `EndAtomicSegment` methods we talked about.",
+      "parentUuid": "29f4e49d_e5cf999d",
+      "revId": "7d4afe914f0adf20e16033cc84953e6771744dd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
