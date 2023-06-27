@@ -204,6 +204,14 @@ DriverUsb::DriverUsb(const StreamContext& context, bool isInput)
     return ::android::OK;
 }
 
+::android::status_t DriverUsb::signalBluetoothParameters(
+        const std::weak_ptr<BnBluetooth> bluetooth __unused,
+        const std::weak_ptr<BnBluetoothA2dp> bluetoothA2dp __unused,
+        const std::weak_ptr<BnBluetoothLe> bluetoothLe __unused) {
+    usleep(500);
+    return ::android::OK;
+}
+
 // static
 ndk::ScopedAStatus StreamInUsb::createInstance(const SinkMetadata& sinkMetadata,
                                                StreamContext&& context,

@@ -40,6 +40,10 @@ class DriverBluetooth : public DriverInterface {
     ::android::status_t standby() override;
     ::android::status_t prepareToClose() override;
     ::android::status_t close() override;
+    ::android::status_t signalBluetoothParameters(
+            const std::weak_ptr<BnBluetooth> bluetooth,
+            const std::weak_ptr<BnBluetoothA2dp> bluetoothA2dp,
+            const std::weak_ptr<BnBluetoothLe> bluetoothLe) override;
 
     bool updateMetadata(const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata);
     bool updateMetadata(

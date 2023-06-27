@@ -27,6 +27,9 @@
 #include <StreamWorker.h>
 #include <aidl/android/hardware/audio/common/SinkMetadata.h>
 #include <aidl/android/hardware/audio/common/SourceMetadata.h>
+#include <aidl/android/hardware/audio/core/BnBluetooth.h>
+#include <aidl/android/hardware/audio/core/BnBluetoothA2dp.h>
+#include <aidl/android/hardware/audio/core/BnBluetoothLe.h>
 #include <aidl/android/hardware/audio/core/BnStreamCommon.h>
 #include <aidl/android/hardware/audio/core/BnStreamIn.h>
 #include <aidl/android/hardware/audio/core/BnStreamOut.h>
@@ -170,6 +173,10 @@ struct DriverInterface {
             const std::vector<::aidl::android::media::audio::common::AudioDevice>&
                     connectedDevices) = 0;
     virtual ::android::status_t prepareToClose() = 0;
+    virtual ::android::status_t signalBluetoothParameters(
+            const std::weak_ptr<BnBluetooth> bluetooth,
+            const std::weak_ptr<BnBluetoothA2dp> bluetoothA2dp,
+            const std::weak_ptr<BnBluetoothLe> bluetoothLe) = 0;
 };
 
 class StreamWorkerCommonLogic : public ::android::hardware::audio::common::StreamLogic {
@@ -391,6 +398,11 @@ class StreamCommonImpl : public StreamCommonInterface {
         mConnectedDevices = devices;
         mDriver->setConnectedDevices(devices);
     }
+    void signalBluetoothParameters(const std::weak_ptr<BnBluetooth> bluetooth,
+                                   const std::weak_ptr<BnBluetoothA2dp> bluetoothA2dp,
+                                   const std::weak_ptr<BnBluetoothLe> bluetoothLe) {
+        mDriver->signalBluetoothParameters(bluetooth, bluetoothA2dp, bluetoothLe);
+    }
     ndk::ScopedAStatus updateMetadata(const Metadata& metadata);
 
   protected:
@@ -543,6 +555,17 @@ class StreamWrapper {
                 [&](auto&& ws) {
                     auto s = ws.lock();
                     if (s) s->setIsConnected(devices);
+                },
+                mStream);
+    }
+
+    void signalBluetoothParameters(const std::weak_ptr<BnBluetooth> bluetooth,
+                                   const std::weak_ptr<BnBluetoothA2dp> bluetoothA2dp,
+                                   const std::weak_ptr<BnBluetoothLe> bluetoothLe) {
+        std::visit(
+                [&](auto&& ws) {
+                    auto s = ws.lock();
+                    if (s) s->signalBluetoothParameters(bluetooth, bluetoothA2dp, bluetoothLe);
                 },
                 mStream);
     }

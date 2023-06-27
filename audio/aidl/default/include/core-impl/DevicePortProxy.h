@@ -133,7 +133,8 @@ class BluetoothAudioPort {
     /**
      * Return the current BluetoothStreamState
      */
-    virtual BluetoothStreamState getState() const { return static_cast<BluetoothStreamState>(0); }
+    virtual BluetoothStreamState getState() const { return BluetoothStreamState::DISABLED; }
+    virtual BluetoothStreamState getCurrState() const { return BluetoothStreamState::DISABLED; }
 
     /**
      * Set the current BluetoothStreamState
@@ -184,6 +185,7 @@ class BluetoothAudioPortAidl : public BluetoothAudioPort {
      * Note: This method is used for logging, does not lock, so value returned may not be latest
      */
     BluetoothStreamState getState() const override NO_THREAD_SAFETY_ANALYSIS;
+    BluetoothStreamState getCurrState() const override;
 
     void setState(BluetoothStreamState state) override;
 

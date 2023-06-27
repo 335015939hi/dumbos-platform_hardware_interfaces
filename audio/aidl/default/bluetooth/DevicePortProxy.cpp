@@ -516,6 +516,11 @@ BluetoothStreamState BluetoothAudioPortAidl::getState() const {
     return mState;
 }
 
+BluetoothStreamState BluetoothAudioPortAidl::getCurrState() const {
+    std::lock_guard guard(mCvMutex);
+    return mState;
+}
+
 void BluetoothAudioPortAidl::setState(BluetoothStreamState state) {
     LOG(DEBUG) << __func__ << ": BluetoothAudioPortAidl set state = " << state;
     std::lock_guard guard(mCvMutex);

@@ -324,6 +324,62 @@ bool DriverBluetooth::updateMetadata(const SourceMetadata& sourceMetadata) {
     return res;
 }
 
+::android::status_t DriverBluetooth::signalBluetoothParameters(
+        const std::weak_ptr<BnBluetooth> bluetooth __unused,
+        const std::weak_ptr<BnBluetoothA2dp> bluetoothA2dp,
+        const std::weak_ptr<BnBluetoothLe> bluetoothLe) {
+    if (mIsInput) return ::android::OK;
+
+    std::vector<std::shared_ptr<BluetoothAudioPort>> btDeviceProxies;
+    {
+        std::lock_guard guard(mListLock);
+        if (!mInitDone) {
+            LOG(WARNING) << __func__ << "init not done";
+            return ::android::NO_INIT;
+        }
+        btDeviceProxies = mBtDeviceProxies;
+    }
+    std::shared_ptr<BnBluetoothA2dp> btA2dp = bluetoothA2dp.lock();
+    bool isA2dpEnabled;
+    btA2dp->isEnabled(&isA2dpEnabled);
+    std::shared_ptr<BnBluetoothLe> btLe = bluetoothLe.lock();
+    bool isLeEnabled;
+    btLe->isEnabled(&isLeEnabled);
+    std::unique_lock lock(mStreamLock);
+    for (auto out : btDeviceProxies) {
+        if (out->isA2dp()) {
+            if (!isA2dpEnabled) {
+                if (out->suspend()) {
+                    out->setState(BluetoothStreamState::DISABLED);
+                } else {
+                    LOG(ERROR) << __func__ << ": state = " << out->getState()
+                               << " failed to stand by ";
+                    return ::android::UNKNOWN_ERROR;
+                }
+            } else {
+                if (out->getCurrState() == BluetoothStreamState::DISABLED) {
+                    out->setState(BluetoothStreamState::STANDBY);
+                }
+            }
+        } else if (out->isLeAudio()) {
+            if (!isLeEnabled) {
+                if (out->suspend()) {
+                    out->setState(BluetoothStreamState::DISABLED);
+                } else {
+                    LOG(ERROR) << __func__ << ": state = " << out->getState()
+                               << " failed to stand by ";
+                    return ::android::UNKNOWN_ERROR;
+                }
+            } else {
+                if (out->getCurrState() == BluetoothStreamState::DISABLED) {
+                    out->setState(BluetoothStreamState::STANDBY);
+                }
+            }
+        }
+    }
+    return ::android::OK;
+}
+
 // static
 ndk::ScopedAStatus StreamInBluetooth::createInstance(const SinkMetadata& sinkMetadata,
                                                      StreamContext&& context,

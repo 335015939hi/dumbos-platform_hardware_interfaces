@@ -36,6 +36,10 @@ class DriverStub : public DriverInterface {
             const std::vector<::aidl::android::media::audio::common::AudioDevice>& connectedDevices)
             override;
     ::android::status_t prepareToClose() override;
+    ::android::status_t signalBluetoothParameters(
+            const std::weak_ptr<BnBluetooth> bluetooth,
+            const std::weak_ptr<BnBluetoothA2dp> bluetoothA2dp,
+            const std::weak_ptr<BnBluetoothLe> bluetoothLe) override;
 
   private:
     const size_t mFrameSizeBytes;
