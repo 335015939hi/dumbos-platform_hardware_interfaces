@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7849f82f_18594192",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-27T17:16:07Z",
+      "side": 1,
+      "message": "for logging, we can get mState with out lock. If all goes well then the value represented by it is accurate because all the calls to functions that modify state are blocking calls and further calls to device port proxy are locked under mutex for thread safety. But for any reason say a callback was serviced with a delay then condWaitState of DevicePortProxy will return before registering state transition. In such cases, we might see mState to be out of sync (until mutex is unlocked by call back thread).  \n\nbt profile enable/disable is dependent on the current state of port, hence in those cases, we look to get the actual state and make a transition accordingly.",
+      "parentUuid": "cfcc2610_4f01cc0d",
+      "range": {
+        "startLine": 188,
+        "startChar": 25,
+        "endLine": 188,
+        "endChar": 37
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "998cee97_cd779477",
         "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2023-06-27T16:47:00Z",
       "side": 1,
       "message": "May want define this somewhere in DriverUsb class?\nIs there any TODO?",
+      "range": {
+        "startLine": 211,
+        "startChar": 11,
+        "endLine": 211,
+        "endChar": 14
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8de13010_6f6b66aa",
+        "filename": "audio/aidl/default/usb/StreamUsb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-27T17:16:07Z",
+      "side": 1,
+      "message": "usleep(500) needs to be removed. Just return ok.",
+      "parentUuid": "6507f0c2_006481cf",
       "range": {
         "startLine": 211,
         "startChar": 11,
