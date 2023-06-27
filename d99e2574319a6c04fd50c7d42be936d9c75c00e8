@@ -43,6 +43,121 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3eb6690c_adcfc13e",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-27T18:06:04Z",
+      "side": 1,
+      "message": "Just realized this: since we call into `controlResultHandler` here, this code is called from a different thread that our object normally uses. It likely means that access to `mCookie` also needs to be serialized. Otherwise, for example, the effect of a call to `unregisterPort` could not be visible on the callback thread yet.\n\nThus, either we should put `mCookie` under protection of the same mutex as `mState`, or make it atomic.",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 38
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51136121_1487fa10",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-27T18:06:04Z",
+      "side": 1,
+      "message": "What does \"monitor\" mean in this context?",
+      "range": {
+        "startLine": 176,
+        "startChar": 62,
+        "endLine": 176,
+        "endChar": 69
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9055440d_4c933120",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-27T18:06:04Z",
+      "side": 1,
+      "message": "I think, it should be more useful to print both the old and the new state.",
+      "range": {
+        "startLine": 520,
+        "startChar": 0,
+        "endLine": 520,
+        "endChar": 79
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10c3789f_b908445e",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-27T18:06:04Z",
+      "side": 1,
+      "message": "I think, it\u0027s more correct to return `INVALID_OPERATION` here as it\u0027s an unsupported use case, not an invalid parameter, see my change here: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2639435/1/audio/aidl/default/usb/StreamUsb.cpp",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 36
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92ed1d83_16f4d9d7",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-27T18:06:04Z",
+      "side": 1,
+      "message": "Since transfer happen often, we need to understand how to reduce the number of checks to minimum here, and also cache any necessary information on the worker thread to avoid going via locks in normal situations.\n\nWe have to pass via call to `standby` first (see the state machine: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/android/hardware/audio/core/stream-out-sm.gv), however I\u0027m not sure when `setConnectedDevices` arrives compared to other methods.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 5
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca3e4d4e_f3cb981e",
         "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
         "patchSetId": 36
@@ -59,6 +174,29 @@
         "startChar": 8,
         "endLine": 115,
         "endChar": 42
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6293cd2e_428440fd",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-27T18:06:04Z",
+      "side": 1,
+      "message": "Since `doInit` logs errors on its own there is no need to log another error here. After removing this log, the whole `if` statement can be produced using `RETURN_STATUS_IF_ERROR(doInit());`, see https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/liberror/include/error/expected_utils.h;l\u003d78;drc\u003d4e0dcac2623aa66bc3229d43331da75288ba3e92",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 5
       },
       "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
