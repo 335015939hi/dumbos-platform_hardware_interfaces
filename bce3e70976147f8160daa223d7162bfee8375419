@@ -323,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aa5f6d9_50471446",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-27T07:42:29Z",
+      "side": 1,
+      "message": "This is intended in forcePcmStereoToMono mode.",
+      "parentUuid": "947d6578_fe13e6d8",
+      "range": {
+        "startLine": 487,
+        "startChar": 0,
+        "endLine": 487,
+        "endChar": 41
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e100329f_9a60f4ae",
@@ -336,6 +360,30 @@
       "writtenOn": "2023-06-13T21:43:44Z",
       "side": 1,
       "message": "Do we verify anywhere that data we get here is always 16-bit PCM?",
+      "range": {
+        "startLine": 489,
+        "startChar": 0,
+        "endLine": 489,
+        "endChar": 49
+      },
+      "revId": "bce3e70976147f8160daa223d7162bfee8375419",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f4fb8ed_a8312c28",
+        "filename": "audio/aidl/default/bluetooth/device_port_proxy.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-27T07:42:29Z",
+      "side": 1,
+      "message": "validating the same in checkConfigParams of StreamBluetooth.cpp.",
+      "parentUuid": "e100329f_9a60f4ae",
       "range": {
         "startLine": 489,
         "startChar": 0,
