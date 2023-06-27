@@ -112,6 +112,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6964a419_f43594c9",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:28:44Z",
+      "side": 1,
+      "message": "from naming mListLock should only guard mConnectedDevices and mBtDeviceProxies, mInitDone seems more like a state and not necessary to be guarded by mListLock\n\nAlso why do we have to use a separate mListLock, it seems to me mStreamLock is enough, pls let me know if I\u0027m missing anything",
+      "range": {
+        "startLine": 62,
+        "startChar": 9,
+        "endLine": 62,
+        "endChar": 18
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccb2f3ae_88c10e91",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:28:44Z",
+      "side": 1,
+      "message": "If we have to use two mutexs, we may want to clearly state what\u0027s the possible order of holding them to avoid deadlock.\n\nThere is already a case we hold mListLock first and then mStreamLock (DriverBluetooth::close), if another implementation do a reverse locking then a deadlock could happen",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 26
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04fbe38f_7380d218",
         "filename": "audio/aidl/default/usb/StreamUsb.cpp",
         "patchSetId": 36
