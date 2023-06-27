@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da3532d9_148c3d4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 36
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:19:41Z",
+      "side": 1,
+      "message": "Please also add bug number in commit message.\n\nRam, I have a feeling we may want to split this CL into smaller ones for easier merge...\nFor example the virtual interfaces and implementations can be split",
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "403a96a6_7d593364",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:19:41Z",
+      "side": 1,
+      "message": "nit: should we add similar check as line#368?",
+      "range": {
+        "startLine": 155,
+        "startChar": 16,
+        "endLine": 155,
+        "endChar": 30
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca3e4d4e_f3cb981e",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:19:41Z",
+      "side": 1,
+      "message": "I\u0027m little confused by the approach we are taking here, how can we make sure mBtDeviceProxies access is safe?\nSame for other places like DriverBluetooth::standby and DriverBluetooth::close",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c568924_6bbcddb6",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:19:41Z",
+      "side": 1,
+      "message": "See my comment regarding to getState and getCurrState",
+      "range": {
+        "startLine": 49,
+        "startChar": 26,
+        "endLine": 50,
+        "endChar": 18
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "661164c7_1432011b",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:19:41Z",
+      "side": 1,
+      "message": "question: why don\u0027t we make this as pure virtual?\nSame for others",
+      "range": {
+        "startLine": 94,
+        "startChar": 26,
+        "endLine": 94,
+        "endChar": 41
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04fbe38f_7380d218",
+        "filename": "audio/aidl/default/usb/StreamUsb.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:19:41Z",
+      "side": 1,
+      "message": "please add TODO if any, same for other implementations",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 16
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37868d61_aad1480e",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:19:41Z",
+      "side": 1,
+      "message": "maybe this is not a DEBUG log",
+      "range": {
+        "startLine": 543,
+        "startChar": 8,
+        "endLine": 543,
+        "endChar": 13
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25418834_5e3f1e27",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:19:41Z",
+      "side": 1,
+      "message": "since this has been used multiple times (line#573), maybe worth abstract these into a method with meaning naming?",
+      "range": {
+        "startLine": 548,
+        "startChar": 6,
+        "endLine": 551,
+        "endChar": 75
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b881333_fb05c7de",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:19:41Z",
+      "side": 1,
+      "message": "maybe should be higher than DEBUG level, also do we want one log at line#372?",
+      "range": {
+        "startLine": 362,
+        "startChar": 8,
+        "endLine": 362,
+        "endChar": 13
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66c9a2ea_10af2bfb",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:19:41Z",
+      "side": 1,
+      "message": "maybe DEBUG?",
+      "range": {
+        "startLine": 368,
+        "startChar": 6,
+        "endLine": 368,
+        "endChar": 10
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
