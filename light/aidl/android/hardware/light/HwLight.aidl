@@ -23,6 +23,7 @@ import android.hardware.light.LightType;
  * LED. Separate physical LEDs are always represented by separate instances.
  */
 @VintfStability
+@RustDerive(Copy=true, Clone=true)
 parcelable HwLight {
     /**
      * Integer ID used for controlling this light
