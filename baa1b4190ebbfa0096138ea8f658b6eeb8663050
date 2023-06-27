@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfcc2610_4f01cc0d",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T16:47:00Z",
+      "side": 1,
+      "message": "I still can\u0027t understand why do we need a non-locking version getState after read the above comment, is it necessary to log out-of-date state?\n\nMaybe also want add comment for getCurrState method to clarify the difference.",
+      "range": {
+        "startLine": 188,
+        "startChar": 25,
+        "endLine": 188,
+        "endChar": 37
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "998cee97_cd779477",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T16:47:00Z",
+      "side": 1,
+      "message": "`const std::weak_ptr\u003cBnBluetooth\u003e \u0026`?\nSame for other signalBluetoothParameters methods",
+      "range": {
+        "startLine": 44,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 44
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6507f0c2_006481cf",
+        "filename": "audio/aidl/default/usb/StreamUsb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T16:47:00Z",
+      "side": 1,
+      "message": "May want define this somewhere in DriverUsb class?\nIs there any TODO?",
+      "range": {
+        "startLine": 211,
+        "startChar": 11,
+        "endLine": 211,
+        "endChar": 14
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
