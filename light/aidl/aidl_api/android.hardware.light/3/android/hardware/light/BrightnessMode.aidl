@@ -32,11 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.light;
-@RustDerive(Clone=true, Copy=true) @VintfStability
-parcelable HwLightState {
-  int color;
-  android.hardware.light.FlashMode flashMode;
-  int flashOnMs;
-  int flashOffMs;
-  android.hardware.light.BrightnessMode brightnessMode;
+@VintfStability
+enum BrightnessMode {
+  USER = 0,
+  SENSOR = 1,
+  LOW_PERSISTENCE = 2,
 }
