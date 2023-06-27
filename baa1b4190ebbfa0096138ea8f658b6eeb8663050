@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef30ed36_05f9a06c",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T17:40:44Z",
+      "side": 1,
+      "message": "Thanks for the explanation, I understand it\u0027s for logging as you mentioned in comment, what I\u0027m not sure is what\u0027s the value here if the state we logged may or may not be accurate?",
+      "parentUuid": "7849f82f_18594192",
+      "range": {
+        "startLine": 188,
+        "startChar": 25,
+        "endLine": 188,
+        "endChar": 37
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "998cee97_cd779477",
         "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
         "patchSetId": 1
