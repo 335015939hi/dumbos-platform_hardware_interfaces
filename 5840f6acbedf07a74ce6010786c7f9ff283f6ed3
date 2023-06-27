@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d19868e_19ce2c71",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-06-27T00:24:16Z",
+      "side": 1,
+      "message": "FYI: there is a build warning about flags should be enclosed in parentheses:\n```\n        if ((flags).hwAcceleratorMode \u003d\u003d Flags::HardwareAccelerator::TUNNEL || (flags).bypass) {  \\\n```",
+      "range": {
+        "startLine": 83,
+        "startChar": 12,
+        "endLine": 83,
+        "endChar": 17
+      },
+      "revId": "5840f6acbedf07a74ce6010786c7f9ff283f6ed3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb47e2b4_d8c882fb",
         "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
         "patchSetId": 2
