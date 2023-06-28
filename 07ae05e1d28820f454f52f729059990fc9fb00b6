@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5484649_f7bc9538",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-06-28T14:43:24Z",
+      "side": 1,
+      "message": "Thanks for the analysis and the fix.\n\nI\u0027m worried that the stack won\u0027t have access to the same information, so this won\u0027t guarantee that SCO works on the platform.\n\nCan we use the information in the HAL to change the max SCO packet size before it is reported to the stack?  That way, the test would pass, and the stack will have the correct information.\n\nI think that means the HAL will need to intercept Read Buffer Size Complete events and change the value to report the correct information.",
+      "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
