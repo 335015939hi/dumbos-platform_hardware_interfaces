@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "800dc198_38aeb022",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-28T16:49:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15e8227c_94153dda",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 11
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d35b8c2f_9d39f452",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-06-26T20:59:06Z",
       "side": 1,
       "message": "Please use a const reference for the config, in all methods of this class.",
+      "range": {
+        "startLine": 104,
+        "startChar": 43,
+        "endLine": 104,
+        "endChar": 54
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44574b6c_1eaccfbc",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-28T16:49:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d35b8c2f_9d39f452",
       "range": {
         "startLine": 104,
         "startChar": 43,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60e531bc_31aeea58",
+        "filename": "audio/aidl/default/include/core-impl/utils.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-28T16:49:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00562b7a_a43f86e5",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 1
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ea0e42e_9d088c82",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-06-26T20:59:06Z",
       "side": 1,
       "message": "Does this mean that `init` can be called multiple times? In that case it\u0027s not the best name as usually this name is used for methods called just once in the beginning of the object\u0027s lifetime. Is this function supposed to be paired with `close`? In that case, `open` would be a better name.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 28
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23183f83_8b3c158d",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-28T16:49:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ea0e42e_9d088c82",
       "range": {
         "startLine": 99,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fabb7276_ca222c17",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-28T16:49:33Z",
+      "side": 1,
+      "message": "Actually createPipe is not used by constructor, It is being called by DriverInterface init. I have added the return for both the checks.",
+      "parentUuid": "d56e9dcd_666d4ec9",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 5
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09fedf52_3864f26f",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-06-26T20:59:06Z",
       "side": 1,
       "message": "We can do `std::move` here if we also move the code for `pipeConfig` ahead of this code.",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 25
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d053719_18f4e6b4",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-28T16:49:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09fedf52_3864f26f",
       "range": {
         "startLine": 175,
         "startChar": 0,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c76b68d4_20e9d7a7",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-28T16:49:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9941808_9653e049",
+      "range": {
+        "startLine": 256,
+        "startChar": 24,
+        "endLine": 256,
+        "endChar": 40
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15d5c8de_787c7dfd",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-06-26T20:59:06Z",
       "side": 1,
       "message": "This should be made a method of `SubmixRoute`.",
+      "range": {
+        "startLine": 404,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 98
+      },
+      "revId": "97f1bfda0e9a4f8f25c413830f96f4703f206a8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5655eab_1a7fd23a",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-28T16:49:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15d5c8de_787c7dfd",
       "range": {
         "startLine": 404,
         "startChar": 0,
