@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cda97cf9_ef218e20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-06-28T18:08:20Z",
+      "side": 1,
+      "message": "hi - if there are no changes being made to this interface, we can add @RustDerive manually to API dumps and update the .hash file with system/tools/aidl/build/hash_gen.sh. We should avoid introducing a new version if possible.",
+      "revId": "a6aec6a1553f36dd39f81f1ec85a0311e95e44c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9b9f6cfe_be96fe0c",
