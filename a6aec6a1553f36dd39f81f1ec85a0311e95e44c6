@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b9f6cfe_be96fe0c",
+        "filename": "light/aidl/android/hardware/light/HwLight.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1994975
+      },
+      "writtenOn": "2023-06-28T16:01:28Z",
+      "side": 1,
+      "message": "Honestly I was surprised that this alone required me to bump the API version for this HAL since we are only touching the Rust bindings here. Matthew, please let me know if I\u0027ve missed something.",
+      "revId": "a6aec6a1553f36dd39f81f1ec85a0311e95e44c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
