@@ -118,6 +118,30 @@
       },
       "revId": "fd927c26e4f004c39811c34d6b513657e260d58c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c546f2f0_38c3e487",
+        "filename": "audio/aidl/default/remote_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-28T20:55:16Z",
+      "side": 1,
+      "message": "If it works, maybe not 😊\n\nLet\u0027s start with a simpler version and see where it gets us.",
+      "parentUuid": "1af5a908_aa43f39b",
+      "range": {
+        "startLine": 226,
+        "startChar": 8,
+        "endLine": 226,
+        "endChar": 25
+      },
+      "revId": "fd927c26e4f004c39811c34d6b513657e260d58c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
