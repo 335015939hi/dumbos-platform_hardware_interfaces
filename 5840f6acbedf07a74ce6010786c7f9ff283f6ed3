@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ea11af6_92a6affa",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2023-06-28T04:49:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d19868e_19ce2c71",
+      "range": {
+        "startLine": 83,
+        "startChar": 12,
+        "endLine": 83,
+        "endChar": 17
+      },
+      "revId": "5840f6acbedf07a74ce6010786c7f9ff283f6ed3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb47e2b4_d8c882fb",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-06-23T17:17:01Z",
       "side": 1,
       "message": "Since initialization code might be added to the AudioEffectTest::SetUp method in the future, please add a call to it in the beginning of the overriding method.",
+      "range": {
+        "startLine": 91,
+        "startChar": 30,
+        "endLine": 91,
+        "endChar": 31
+      },
+      "revId": "5840f6acbedf07a74ce6010786c7f9ff283f6ed3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0461ed5c_c67d9546",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2023-06-28T04:49:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb47e2b4_d8c882fb",
       "range": {
         "startLine": 91,
         "startChar": 30,
