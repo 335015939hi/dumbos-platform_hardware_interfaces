@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a671be45_d607950f",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-29T14:17:31Z",
+      "side": 1,
+      "message": "I have split its functionality to two methods to make it more understandable.",
+      "parentUuid": "c0872fc8_ebeefb3d",
+      "range": {
+        "startLine": 210,
+        "startChar": 18,
+        "endLine": 210,
+        "endChar": 25
+      },
+      "revId": "d37186704e3094229c452ad821cf269df62eb491",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2393c565_5c8ef75c",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-06-28T20:54:27Z",
       "side": 1,
       "message": "Since `prepareToClose` is called on a binder thread, `mCurrentRoute` is shared with the worker thread and thus access to it must be serialized. I see a couple of possibilities to fix this:\n\n 1. Instead of using `mCurrentRoute` here, fetch the route from `sSubmixRoutes` using `mPortId`. This will use already existing mutexes.\n \n 2. Add a lock for accessing `mCurrentRoute`. I think, this is less favorable approach as it will add locking to all worker paths, including `transfer`—we should really avoid that.\n \n 3. Instead of using a mutex we can use `std::atomic` for shared_ptr: http://go/cppref/cpp/memory/shared_ptr/atomic2. However, formally it\u0027s in C++20, I\u0027m not sure this will compile w/o project changes.",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 53
+      },
+      "revId": "d37186704e3094229c452ad821cf269df62eb491",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cab82fc1_83256878",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-06-29T14:17:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2393c565_5c8ef75c",
       "range": {
         "startLine": 310,
         "startChar": 0,
