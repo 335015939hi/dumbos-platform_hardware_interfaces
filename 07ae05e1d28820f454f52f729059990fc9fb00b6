@@ -52,6 +52,24 @@
       "parentUuid": "55013937_2742d63a",
       "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bfab077_8815a6f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-06-29T13:45:23Z",
+      "side": 1,
+      "message": "Sounds good.  In that case, we need a modification in the HAL to fragment the packets.  This CL just changes the test, which will make the test pass but fail when SCO is used.",
+      "parentUuid": "acdd33dc_96e07296",
+      "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
