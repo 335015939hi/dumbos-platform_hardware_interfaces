@@ -27,6 +27,7 @@
 
 #include "core-impl/Bluetooth.h"
 #include "core-impl/Module.h"
+#include "core-impl/ModuleBluetooth.h"
 #include "core-impl/ModuleRemoteSubmix.h"
 #include "core-impl/ModuleUsb.h"
 #include "core-impl/SoundDose.h"
@@ -112,6 +113,8 @@ std::shared_ptr<Module> Module::createInstance(Type type) {
     switch (type) {
         case Module::Type::USB:
             return ndk::SharedRefBase::make<ModuleUsb>(type);
+        case Module::Type::BLUETOOTH:
+            return ndk::SharedRefBase::make<ModuleBluetooth>(type);
         case Type::R_SUBMIX:
             return ndk::SharedRefBase::make<ModuleRemoteSubmix>(type);
         case Type::DEFAULT:
@@ -130,6 +133,9 @@ std::ostream& operator<<(std::ostream& os, Module::Type t) {
             break;
         case Module::Type::USB:
             os << "usb";
+            break;
+        case Module::Type::BLUETOOTH:
+            os << "bluetooth";
             break;
     }
     return os;
@@ -294,6 +300,9 @@ internal::Configuration& Module::getConfig() {
                 break;
             case Type::USB:
                 mConfig = std::move(internal::getUsbConfiguration());
+                break;
+            case Type::BLUETOOTH:
+                mConfig = std::move(internal::getBluetoothConfiguration());
                 break;
         }
     }

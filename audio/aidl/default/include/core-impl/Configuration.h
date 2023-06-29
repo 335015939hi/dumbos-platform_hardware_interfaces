@@ -46,5 +46,6 @@ struct Configuration {
 std::unique_ptr<Configuration> getPrimaryConfiguration();
 std::unique_ptr<Configuration> getRSubmixConfiguration();
 std::unique_ptr<Configuration> getUsbConfiguration();
+std::unique_ptr<Configuration> getBluetoothConfiguration();
 
 }  // namespace aidl::android::hardware::audio::core::internal
