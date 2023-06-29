@@ -536,88 +536,54 @@ bool BluetoothAudioSession::GetPresentationPosition(
   return retval;
 }
 
-void BluetoothAudioSession::UpdateSourceMetadata(
-    const struct source_metadata& source_metadata) {
+bool BluetoothAudioSession::UpdateSourceMetadata(
+    const SourceMetadata& hal_source_metadata) {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
                << " has NO session";
-    return;
+    return false;
   }
 
-  ssize_t track_count = source_metadata.track_count;
-  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_) << ","
-            << track_count << " track(s)";
   if (session_type_ == SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH ||
       session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
       session_type_ == SessionType::A2DP_SOFTWARE_DECODING_DATAPATH ||
       session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
-    return;
-  }
-
-  SourceMetadata hal_source_metadata;
-  hal_source_metadata.tracks.resize(track_count);
-  for (int i = 0; i < track_count; i++) {
-    hal_source_metadata.tracks[i].usage =
-        static_cast<media::audio::common::AudioUsage>(
-            source_metadata.tracks[i].usage);
-    hal_source_metadata.tracks[i].contentType =
-        static_cast<media::audio::common::AudioContentType>(
-            source_metadata.tracks[i].content_type);
-    hal_source_metadata.tracks[i].gain = source_metadata.tracks[i].gain;
-    LOG(VERBOSE) << __func__ << " - SessionType=" << toString(session_type_)
-                 << ", usage=" << toString(hal_source_metadata.tracks[i].usage)
-                 << ", content="
-                 << toString(hal_source_metadata.tracks[i].contentType)
-                 << ", gain=" << hal_source_metadata.tracks[i].gain;
+    return false;
   }
 
   auto hal_retval = stack_iface_->updateSourceMetadata(hal_source_metadata);
   if (!hal_retval.isOk()) {
     LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
                  << toString(session_type_) << " failed";
+    return false;
   }
+  return true;
 }
 
-void BluetoothAudioSession::UpdateSinkMetadata(
-    const struct sink_metadata& sink_metadata) {
+bool BluetoothAudioSession::UpdateSinkMetadata(
+    const SinkMetadata& hal_sink_metadata) {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
                << " has NO session";
-    return;
+    return false;
   }
 
-  ssize_t track_count = sink_metadata.track_count;
-  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_) << ","
-            << track_count << " track(s)";
   if (session_type_ == SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH ||
       session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
       session_type_ == SessionType::A2DP_SOFTWARE_DECODING_DATAPATH ||
       session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
-    return;
-  }
-
-  SinkMetadata hal_sink_metadata;
-  hal_sink_metadata.tracks.resize(track_count);
-  for (int i = 0; i < track_count; i++) {
-    hal_sink_metadata.tracks[i].source =
-        static_cast<media::audio::common::AudioSource>(
-            sink_metadata.tracks[i].source);
-    hal_sink_metadata.tracks[i].gain = sink_metadata.tracks[i].gain;
-    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
-              << ", source=" << sink_metadata.tracks[i].source
-              << ", dest_device=" << sink_metadata.tracks[i].dest_device
-              << ", gain=" << sink_metadata.tracks[i].gain
-              << ", dest_device_address="
-              << sink_metadata.tracks[i].dest_device_address;
+    return false;
   }
 
   auto hal_retval = stack_iface_->updateSinkMetadata(hal_sink_metadata);
   if (!hal_retval.isOk()) {
     LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
                  << toString(session_type_) << " failed";
+    return false;
   }
+  return true;
 }
 
 std::vector<LatencyMode> BluetoothAudioSession::GetSupportedLatencyModes() {
