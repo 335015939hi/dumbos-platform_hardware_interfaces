@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "65af0fbf_5acf232e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1994975
+      },
+      "writtenOn": "2023-06-29T17:23:16Z",
+      "side": 1,
+      "message": "Fixed, thanks.",
+      "parentUuid": "cda97cf9_ef218e20",
+      "revId": "a6aec6a1553f36dd39f81f1ec85a0311e95e44c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "9b9f6cfe_be96fe0c",
         "filename": "light/aidl/android/hardware/light/HwLight.aidl",
         "patchSetId": 4
