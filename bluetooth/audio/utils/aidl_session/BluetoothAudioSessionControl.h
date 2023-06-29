@@ -156,23 +156,24 @@ class BluetoothAudioSessionControl {
     return false;
   }
 
-  static void UpdateSourceMetadata(
-      const SessionType& session_type,
-      const struct source_metadata& source_metadata) {
+  static bool UpdateSourceMetadata(const SessionType& session_type,
+                                   const SourceMetadata& source_metadata) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      session_ptr->UpdateSourceMetadata(source_metadata);
+      return session_ptr->UpdateSourceMetadata(source_metadata);
     }
+    return false;
   }
 
-  static void UpdateSinkMetadata(const SessionType& session_type,
-                                 const struct sink_metadata& sink_metadata) {
+  static bool UpdateSinkMetadata(const SessionType& session_type,
+                                 const SinkMetadata& sink_metadata) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
-      session_ptr->UpdateSinkMetadata(sink_metadata);
+      return session_ptr->UpdateSinkMetadata(sink_metadata);
     }
+    return false;
   }
 
   static std::vector<LatencyMode> GetSupportedLatencyModes(
