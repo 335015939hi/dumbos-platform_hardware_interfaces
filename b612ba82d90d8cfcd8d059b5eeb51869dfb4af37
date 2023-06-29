@@ -34,6 +34,24 @@
       "parentUuid": "8d7040dd_f1639514",
       "revId": "b612ba82d90d8cfcd8d059b5eeb51869dfb4af37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03a04962_6cd20346",
+        "filename": "light/aidl/aidl_api/android.hardware.light/2/.hash",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-06-29T17:44:33Z",
+      "side": 1,
+      "message": "The hash_gen.sh script internally ends in `\u003e\u003e $3`. It should add the hash on a new line to the file, without removing the existing hash.\n\nI guess from your steps, the issue is deleting the existing hash file `rm aidl_api/android.hardware.light/2/.hash`. That step should be omitted.",
+      "parentUuid": "c6820192_959517d3",
+      "revId": "b612ba82d90d8cfcd8d059b5eeb51869dfb4af37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
