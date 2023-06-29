@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e30f03fc_faf05fee",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-29T22:25:39Z",
+      "side": 1,
+      "message": "\u003e mCvMutex is unlocked making the mCookie initialization also visible to all threads.\n\nThat does not seem to be entirely correct. Citing again https://eel.is/c++draft/intro.races:\n\n\"Informally, performing a release operation on A forces prior side effects on other memory locations to become visible to other threads that later perform a consume or an acquire operation on A.\"\n\nSo, not to **all** threads, but only on those that acquire the same mutex, `mCvMutex` in our case. And only after they have acquired it, not immediately after the mutating thread has unlocked its mutex. Since in `controlResultHandler`, the `inUse` function which checks the cookie is called before acquiring `mCvMutex`, it is not guaranteed that it will actually see the update.",
+      "parentUuid": "8cf82456_b5273558",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 38
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51136121_1487fa10",
         "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
         "patchSetId": 36

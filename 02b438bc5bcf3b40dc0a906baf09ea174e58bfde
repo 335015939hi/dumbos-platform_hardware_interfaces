@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c88fa6d_49d91b5d",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-29T22:25:39Z",
+      "side": 1,
+      "message": "There are already `mConnectedDevices` in `StreamCommonImpl`. We don\u0027t need to add another one, we just need to override both `getConnectedDevices` and `setConnectedDevices` making them thread-safe.\n\nI know, as we reuse a field from the base class we lose the ability to annotate it with a lock from the subclass. That\u0027s fine for now. I will think in the meantime how this could be solved more elegantly.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 30
+      },
+      "revId": "02b438bc5bcf3b40dc0a906baf09ea174e58bfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
