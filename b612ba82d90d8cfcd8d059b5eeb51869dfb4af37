@@ -52,6 +52,24 @@
       "parentUuid": "c6820192_959517d3",
       "revId": "b612ba82d90d8cfcd8d059b5eeb51869dfb4af37",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d762a39_07807c85",
+        "filename": "light/aidl/aidl_api/android.hardware.light/2/.hash",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1994975
+      },
+      "writtenOn": "2023-06-29T17:56:12Z",
+      "side": 1,
+      "message": "Got it! Fixed, thanks.",
+      "parentUuid": "03a04962_6cd20346",
+      "revId": "b612ba82d90d8cfcd8d059b5eeb51869dfb4af37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
