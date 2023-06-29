@@ -63,7 +63,8 @@ int main() {
     };
     auto modules = {createModule(Module::Type::DEFAULT, "default"),
                     createModule(Module::Type::R_SUBMIX, "r_submix"),
-                    createModule(Module::Type::USB, "usb")};
+                    createModule(Module::Type::USB, "usb"),
+                    createModule(Module::Type::BLUETOOTH, "bluetooth")};
     (void)modules;
 
     ABinderProcess_joinThreadPool();
