@@ -152,7 +152,7 @@ class BluetoothAudioSession {
   bool GetPresentationPosition(uint64_t* remote_delay_report_ns,
                                uint64_t* total_bytes_readed,
                                timespec* data_position);
-  void UpdateTracksMetadata(const struct source_metadata* source_metadata);
+  bool UpdateTracksMetadata(const struct source_metadata* source_metadata);
 
   // The control function writes stream to FMQ
   size_t OutWritePcmData(const void* buffer, size_t bytes);
