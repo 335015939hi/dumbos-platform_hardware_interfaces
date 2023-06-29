@@ -16,6 +16,24 @@
       "message": "Thanks for the analysis and the fix.\n\nI\u0027m worried that the stack won\u0027t have access to the same information, so this won\u0027t guarantee that SCO works on the platform.\n\nCan we use the information in the HAL to change the max SCO packet size before it is reported to the stack?  That way, the test would pass, and the stack will have the correct information.\n\nI think that means the HAL will need to intercept Read Buffer Size Complete events and change the value to report the correct information.",
       "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55013937_2742d63a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-06-29T09:44:19Z",
+      "side": 1,
+      "message": "This limitation is only for USB interface.\nThere are 2 solutions.\n1. Same as your opinion, bt usb driver change the max SCO packet size in Read Buffer Size Complete events\n2. When stack send sco packet to bt usb driver, driver fragment the packet\nI think solution 2 is better than 1",
+      "parentUuid": "f5484649_f7bc9538",
+      "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
