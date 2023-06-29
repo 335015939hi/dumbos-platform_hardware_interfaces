@@ -828,6 +828,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac9113b_5356d36e",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 25
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "added prepareToClose, implementation of bt interfaces is moved to next cl. In this we are returning nullptr.",
+      "parentUuid": "a5485418_074978db",
+      "range": {
+        "startLine": 402,
+        "startChar": 0,
+        "endLine": 403,
+        "endChar": 91
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68a7d679_40c53be0",
@@ -1221,6 +1245,30 @@
       "side": 1,
       "message": "The usual solution to that is to have private methods that are annotated as `REQUIRES` (https://clang.llvm.org/docs/ThreadSafetyAnalysis.html#requires-requires-shared), and public thread-safe methods that take the lock when needed. The annotation will ensure that all internal methods will be called with a lock held.",
       "parentUuid": "e2ca300a_e1f681b4",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "63ab1465f8c6b6b4d727a50b167d2dc534b30af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "869a8732_8be01978",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "using only one lock. This takes care of thread safety as well. One downside is the lock is held for the scope of function. But this greatly reduces the number of acquires and releases.",
+      "parentUuid": "42b60842_baaf0a00",
       "range": {
         "startLine": 74,
         "startChar": 0,

@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1da0e9c_d963872d",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "not applicable. shutdown is void now.",
+      "parentUuid": "403a96a6_7d593364",
+      "range": {
+        "startLine": 155,
+        "startChar": 16,
+        "endLine": 155,
+        "endChar": 30
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3eb6690c_adcfc13e",
@@ -252,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30558f09_93ad34c2",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "reduced locks and function calls. in steady state after 2 if checks, call to read/write is made.",
+      "parentUuid": "92ed1d83_16f4d9d7",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 5
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca3e4d4e_f3cb981e",
@@ -275,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da08a4a6_460cdbd5",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "fixed.",
+      "parentUuid": "ca3e4d4e_f3cb981e",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6293cd2e_428440fd",
@@ -288,6 +360,30 @@
       "writtenOn": "2023-06-27T18:06:04Z",
       "side": 1,
       "message": "Since `doInit` logs errors on its own there is no need to log another error here. After removing this log, the whole `if` statement can be produced using `RETURN_STATUS_IF_ERROR(doInit());`, see https://cs.android.com/android/platform/superproject/+/master:frameworks/av/media/liberror/include/error/expected_utils.h;l\u003d78;drc\u003d4e0dcac2623aa66bc3229d43331da75288ba3e92",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 5
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf00aec6_b8ee806f",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "removed logging.",
+      "parentUuid": "6293cd2e_428440fd",
       "range": {
         "startLine": 251,
         "startChar": 0,
@@ -415,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a25483c4_6b3de975",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "two locks are unnecessary. this is addressed.",
+      "parentUuid": "6964a419_f43594c9",
+      "range": {
+        "startLine": 62,
+        "startChar": 9,
+        "endLine": 62,
+        "endChar": 18
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccb2f3ae_88c10e91",
@@ -428,6 +548,30 @@
       "writtenOn": "2023-06-27T17:28:44Z",
       "side": 1,
       "message": "If we have to use two mutexs, we may want to clearly state what\u0027s the possible order of holding them to avoid deadlock.\n\nThere is already a case we hold mListLock first and then mStreamLock (DriverBluetooth::close), if another implementation do a reverse locking then a deadlock could happen",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 26
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c51c637b_ff032ff7",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "fixed.",
+      "parentUuid": "ccb2f3ae_88c10e91",
       "range": {
         "startLine": 68,
         "startChar": 0,
@@ -484,6 +628,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ed11c78_7bc40772",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "not touching these log statements, as other methods are maintaining similar severity level.",
+      "parentUuid": "37868d61_aad1480e",
+      "range": {
+        "startLine": 543,
+        "startChar": 8,
+        "endLine": 543,
+        "endChar": 13
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25418834_5e3f1e27",
@@ -530,6 +698,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54934f43_b340a81e",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "these are not fatal issues. log level is debug in other places as well if session is not ready. maintaining the same.",
+      "parentUuid": "1b881333_fb05c7de",
+      "range": {
+        "startLine": 362,
+        "startChar": 8,
+        "endLine": 362,
+        "endChar": 13
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66c9a2ea_10af2bfb",
@@ -543,6 +735,30 @@
       "writtenOn": "2023-06-27T17:19:41Z",
       "side": 1,
       "message": "maybe DEBUG?",
+      "range": {
+        "startLine": 368,
+        "startChar": 6,
+        "endLine": 368,
+        "endChar": 10
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e6ce1e7_763ea47d",
+        "filename": "bluetooth/audio/utils/session/BluetoothAudioSession.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T20:00:47Z",
+      "side": 1,
+      "message": "maintaining uniformity with other log statements.",
+      "parentUuid": "66c9a2ea_10af2bfb",
       "range": {
         "startLine": 368,
         "startChar": 6,
