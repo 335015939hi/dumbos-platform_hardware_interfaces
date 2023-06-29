@@ -352,7 +352,7 @@ bool BluetoothAudioSession::GetPresentationPosition(
   return retval;
 }
 
-void BluetoothAudioSession::UpdateTracksMetadata(
+bool BluetoothAudioSession::UpdateTracksMetadata(
     const struct source_metadata* source_metadata) {
   if (HidlToAidlMiddleware_2_0::IsAidlAvailable())
     return HidlToAidlMiddleware_2_0::UpdateTracksMetadata(session_type_,
@@ -361,7 +361,7 @@ void BluetoothAudioSession::UpdateTracksMetadata(
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
                << " has NO session";
-    return;
+    return false;
   }
 
   ssize_t track_count = source_metadata->track_count;
@@ -369,7 +369,7 @@ void BluetoothAudioSession::UpdateTracksMetadata(
             << track_count << " track(s)";
   if (session_type_ == SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH ||
       session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_DATAPATH) {
-    return;
+    return false;
   }
 
   struct playback_track_metadata* track = source_metadata->tracks;
@@ -395,7 +395,9 @@ void BluetoothAudioSession::UpdateTracksMetadata(
   if (!hal_retval.isOk()) {
     LOG(WARNING) << __func__ << " - IBluetoothAudioPort SessionType="
                  << toString(session_type_) << " failed";
+    return false;
   }
+  return true;
 }
 
 // The control function writes stream to FMQ
