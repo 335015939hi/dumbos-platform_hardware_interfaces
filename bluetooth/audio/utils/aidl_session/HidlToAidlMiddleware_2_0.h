@@ -58,7 +58,7 @@ class HidlToAidlMiddleware_2_0 {
                                       uint64_t* total_bytes_readed,
                                       timespec* data_position);
 
-  static void UpdateTracksMetadata(
+  static bool UpdateTracksMetadata(
       const SessionType_2_0& session_type,
       const struct source_metadata* source_metadata);
 
