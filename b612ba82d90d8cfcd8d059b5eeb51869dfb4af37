@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d7040dd_f1639514",
+        "filename": "light/aidl/aidl_api/android.hardware.light/2/.hash",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-06-29T17:35:13Z",
+      "side": 1,
+      "message": "and we should include both hashes in the updated files as well, so that vendor freeze images compiled with the old version can still pass VTS (the hash generation script should do this by default)",
+      "revId": "b612ba82d90d8cfcd8d059b5eeb51869dfb4af37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
