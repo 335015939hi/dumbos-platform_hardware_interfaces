@@ -590,11 +590,23 @@ bool HidlToAidlMiddleware_2_0::GetPresentationPosition(
   return ret_val;
 }
 
-void HidlToAidlMiddleware_2_0::UpdateTracksMetadata(
+bool HidlToAidlMiddleware_2_0::UpdateTracksMetadata(
     const SessionType_2_0& session_type,
     const struct source_metadata* source_metadata) {
+  ssize_t track_count = source_metadata->track_count;
+  SourceMetadata hal_source_metadata;
+  hal_source_metadata.tracks.resize(track_count);
+  for (int i = 0; i < track_count; i++) {
+    hal_source_metadata.tracks[i].usage =
+        static_cast<media::audio::common::AudioUsage>(
+            source_metadata->tracks[i].usage);
+    hal_source_metadata.tracks[i].contentType =
+        static_cast<media::audio::common::AudioContentType>(
+            source_metadata->tracks[i].content_type);
+    hal_source_metadata.tracks[i].gain = source_metadata->tracks[i].gain;
+  }
   return BluetoothAudioSessionControl::UpdateSourceMetadata(
-      from_session_type_2_0(session_type), *source_metadata);
+      from_session_type_2_0(session_type), hal_source_metadata);
 }
 
 size_t HidlToAidlMiddleware_2_0::OutWritePcmData(
