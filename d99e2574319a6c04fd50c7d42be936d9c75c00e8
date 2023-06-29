@@ -64,6 +64,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cf82456_b5273558",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T17:43:27Z",
+      "side": 1,
+      "message": "I dont think this is correct. \n\nmCookie is modified during registerPort and unregisterPort. Every other occurrence is read-only. During registerPort, while mState is being set to STANDBY, mCvMutex is unlocked making the mCookie initialization also visible to all threads. Further, during unregisterPort, the first call is to UnregisterControlResultCback(). This will unregister callbacks. So visibility of mCookie to callbacks is no longer relevant as those callbacks methods cannot be reached.\n\nFurther more, calls to DevicePortProxy methods are made thread safe by mStreamLock in StreamBluetooth.cpp. Say DevicePortProxy##read(), DevicePortProxy##close() are called parallelly and say close acquires lock first, then as cookie is reset to invalid value, mutex unlocking will evict the cache lines making other threads to see the updated value.\n\nThe only concern is unregisterPort being called when callback are still in service. This is a possibility because, start()-\u003econdWaitState() is not a blocking call. After kMaxWaitingTimeMs, the start()/suspend() call returns. Say callback is stuck due to cpu thread overheating, start()/suspend() call came back, and then unregisterPort() is called, then it is the responsibility of BluetoothSessionControl to deal with it but not DevicePortProxy.",
+      "parentUuid": "3eb6690c_adcfc13e",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 38
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51136121_1487fa10",
@@ -77,6 +101,30 @@
       "writtenOn": "2023-06-27T18:06:04Z",
       "side": 1,
       "message": "What does \"monitor\" mean in this context?",
+      "range": {
+        "startLine": 176,
+        "startChar": 62,
+        "endLine": 176,
+        "endChar": 69
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc2d207_10e08e6c",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T17:43:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51136121_1487fa10",
       "range": {
         "startLine": 176,
         "startChar": 62,
@@ -110,6 +158,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62b1e9c9_069ecaa8",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T17:43:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9055440d_4c933120",
+      "range": {
+        "startLine": 520,
+        "startChar": 0,
+        "endLine": 520,
+        "endChar": 79
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10c3789f_b908445e",
@@ -123,6 +195,30 @@
       "writtenOn": "2023-06-27T18:06:04Z",
       "side": 1,
       "message": "I think, it\u0027s more correct to return `INVALID_OPERATION` here as it\u0027s an unsupported use case, not an invalid parameter, see my change here: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2639435/1/audio/aidl/default/usb/StreamUsb.cpp",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 36
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5e758d9_43bb5b24",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T17:43:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10c3789f_b908445e",
       "range": {
         "startLine": 77,
         "startChar": 0,
@@ -225,6 +321,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9460e215_d1b251d3",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T17:43:27Z",
+      "side": 1,
+      "message": "I have replied in the other CL.",
+      "parentUuid": "4c568924_6bbcddb6",
+      "range": {
+        "startLine": 49,
+        "startChar": 26,
+        "endLine": 50,
+        "endChar": 18
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "661164c7_1432011b",
@@ -238,6 +358,30 @@
       "writtenOn": "2023-06-27T17:19:41Z",
       "side": 1,
       "message": "question: why don\u0027t we make this as pure virtual?\nSame for others",
+      "range": {
+        "startLine": 94,
+        "startChar": 26,
+        "endLine": 94,
+        "endChar": 41
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87e3bdce_59bbdbb7",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-29T17:43:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "661164c7_1432011b",
       "range": {
         "startLine": 94,
         "startChar": 26,
