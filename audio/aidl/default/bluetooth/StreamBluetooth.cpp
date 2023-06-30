@@ -53,13 +53,19 @@ size_t getFrameCount(uint64_t durationUs, uint32_t sampleRate) {
 }
 
 // pcm configuration params are not really used by the module
-StreamBluetooth::StreamBluetooth(const Metadata& metadata, StreamContext&& context)
+StreamBluetooth::StreamBluetooth(const Metadata& metadata, StreamContext&& context,
+                                 const std::weak_ptr<IBluetooth>& bt,
+                                 const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+                                 const std::weak_ptr<IBluetoothLe>& btLe)
     : StreamCommonImpl(metadata, std::move(context)),
       mSampleRate(context.getSampleRate()),
       mChannelLayout(context.getChannelLayout()),
       mFormat(context.getFormat()),
       mFrameSizeBytes(context.getFrameSize()),
-      mIsInput(isInput(metadata)) {
+      mIsInput(isInput(metadata)),
+      mBluetooth(std::move(bt)),
+      mBluetoothA2dp(std::move(btA2dp)),
+      mBluetoothLe(std::move(btLe)) {
     mPreferredDataIntervalUs =
             mIsInput ? kBluetoothDefaultInputBufferMs : kBluetoothDefaultOutputBufferMs;
     mPreferredFrameCount = getFrameCount(mPreferredDataIntervalUs, mSampleRate);
@@ -269,9 +275,52 @@ bool StreamBluetooth::updateSourceMetadata(const SourceMetadata& sourceMetadata)
     return true;
 }
 
+ndk::ScopedAStatus StreamBluetooth::onBluetoothParametersUpdated() {
+    if (mIsInput) {
+        LOG(WARNING) << __func__ << ": not handled";
+        return ndk::ScopedAStatus::ok();
+    }
+    auto applyParam = [](const std::shared_ptr<BluetoothAudioPortAidl>& proxy,
+                         bool isEnabled) -> bool {
+        if (!isEnabled) {
+            if (proxy->suspend()) {
+                proxy->setState(BluetoothStreamState::DISABLED);
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return proxy->standby();
+    };
+    bool hasA2dpParam, enableA2dp;
+    auto btA2dp = mBluetoothA2dp.lock();
+    hasA2dpParam = btA2dp != nullptr && btA2dp->isEnabled(&enableA2dp).isOk();
+    bool hasLeParam, enableLe;
+    auto btLe = mBluetoothLe.lock();
+    hasLeParam = btLe != nullptr && btLe->isEnabled(&enableLe).isOk();
+    std::unique_lock lock(mLock);
+    ::android::base::ScopedLockAssertion lock_assertion(mLock);
+    if (!mInitDone) {
+        LOG(WARNING) << __func__ << ": init not done";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    }
+    for (auto proxy : mBtDeviceProxies) {
+        if ((hasA2dpParam && proxy->isA2dp() && !applyParam(proxy, enableA2dp)) ||
+            (hasLeParam && proxy->isLeAudio() && !applyParam(proxy, enableLe))) {
+            return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+        }
+    }
+    return ndk::ScopedAStatus::ok();
+}
+
 StreamInBluetooth::StreamInBluetooth(const SinkMetadata& sinkMetadata, StreamContext&& context,
-                                     const std::vector<MicrophoneInfo>& microphones)
-    : StreamBluetooth(sinkMetadata, std::move(context)), StreamIn(microphones) {}
+                                     const std::vector<MicrophoneInfo>& microphones,
+                                     const std::weak_ptr<IBluetooth>& bt,
+                                     const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+                                     const std::weak_ptr<IBluetoothLe>& btLe)
+    : StreamBluetooth(sinkMetadata, std::move(context), std::move(bt), std::move(btA2dp),
+                      std::move(btLe)),
+      StreamIn(microphones) {}
 
 ndk::ScopedAStatus StreamInBluetooth::getActiveMicrophones(
         std::vector<MicrophoneDynamicInfo>* _aidl_return __unused) {
@@ -286,8 +335,13 @@ ndk::ScopedAStatus StreamInBluetooth::updateMetadata(const SinkMetadata& in_sink
 
 StreamOutBluetooth::StreamOutBluetooth(const SourceMetadata& sourceMetadata,
                                        StreamContext&& context,
-                                       const std::optional<AudioOffloadInfo>& offloadInfo)
-    : StreamBluetooth(sourceMetadata, std::move(context)), StreamOut(offloadInfo) {}
+                                       const std::optional<AudioOffloadInfo>& offloadInfo,
+                                       const std::weak_ptr<IBluetooth>& bt,
+                                       const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+                                       const std::weak_ptr<IBluetoothLe>& btLe)
+    : StreamBluetooth(sourceMetadata, std::move(context), std::move(bt), std::move(btA2dp),
+                      std::move(btLe)),
+      StreamOut(offloadInfo) {}
 
 ndk::ScopedAStatus StreamOutBluetooth::updateMetadata(const SourceMetadata& in_sourceMetadata) {
     if (updateSourceMetadata(in_sourceMetadata)) return ndk::ScopedAStatus::ok();

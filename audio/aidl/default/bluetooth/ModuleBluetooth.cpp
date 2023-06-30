@@ -40,19 +40,6 @@ ndk::ScopedAStatus ModuleBluetooth::getBluetooth(std::shared_ptr<IBluetooth>* _a
     return ndk::ScopedAStatus::ok();
 }
 
-ndk::ScopedAStatus ModuleBluetooth::getBluetoothA2dp(
-        std::shared_ptr<IBluetoothA2dp>* _aidl_return) {
-    *_aidl_return = nullptr;
-    LOG(DEBUG) << __func__ << ": returning null";
-    return ndk::ScopedAStatus::ok();
-}
-
-ndk::ScopedAStatus ModuleBluetooth::getBluetoothLe(std::shared_ptr<IBluetoothLe>* _aidl_return) {
-    *_aidl_return = nullptr;
-    LOG(DEBUG) << __func__ << ": returning null";
-    return ndk::ScopedAStatus::ok();
-}
-
 ndk::ScopedAStatus ModuleBluetooth::getMicMute(bool* _aidl_return __unused) {
     LOG(DEBUG) << __func__ << ": is not supported";
     return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -66,15 +53,19 @@ ndk::ScopedAStatus ModuleBluetooth::setMicMute(bool in_mute __unused) {
 ndk::ScopedAStatus ModuleBluetooth::createInputStream(
         const SinkMetadata& sinkMetadata, StreamContext&& context,
         const std::vector<MicrophoneInfo>& microphones, std::shared_ptr<StreamIn>* result) {
-    return createStreamInstance<StreamInBluetooth>(result, sinkMetadata, std::move(context),
-                                                   microphones);
+    auto foo = getBtProfileManagerHandles();
+    return createStreamInstance<StreamInBluetooth>(
+            result, sinkMetadata, std::move(context), microphones, std::move(std::get<0>(foo)),
+            std::move(std::get<1>(foo)), std::move(std::get<2>(foo)));
 }
 
 ndk::ScopedAStatus ModuleBluetooth::createOutputStream(
         const SourceMetadata& sourceMetadata, StreamContext&& context,
         const std::optional<AudioOffloadInfo>& offloadInfo, std::shared_ptr<StreamOut>* result) {
-    return createStreamInstance<StreamOutBluetooth>(result, sourceMetadata, std::move(context),
-                                                    offloadInfo);
+    auto foo = getBtProfileManagerHandles();
+    return createStreamInstance<StreamOutBluetooth>(
+            result, sourceMetadata, std::move(context), offloadInfo, std::move(std::get<0>(foo)),
+            std::move(std::get<1>(foo)), std::move(std::get<2>(foo)));
 }
 
 ndk::ScopedAStatus ModuleBluetooth::onMasterMuteChanged(bool __unused) {

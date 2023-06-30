@@ -19,6 +19,10 @@
 #include <mutex>
 #include <vector>
 
+#include <aidl/android/hardware/audio/core/IBluetooth.h>
+#include <aidl/android/hardware/audio/core/IBluetoothA2dp.h>
+#include <aidl/android/hardware/audio/core/IBluetoothLe.h>
+
 #include "core-impl/DevicePortProxy.h"
 #include "core-impl/Stream.h"
 
@@ -26,7 +30,10 @@ namespace aidl::android::hardware::audio::core {
 
 class StreamBluetooth : public StreamCommonImpl {
   public:
-    StreamBluetooth(const Metadata& metadata, StreamContext&& context);
+    StreamBluetooth(const Metadata& metadata, StreamContext&& context,
+                    const std::weak_ptr<IBluetooth>& bt,
+                    const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+                    const std::weak_ptr<IBluetoothLe>& btLe);
     // Methods of 'DriverInterface'.
     ::android::status_t init() override;
     ::android::status_t drain(StreamDescriptor::DrainMode) override;
@@ -41,6 +48,7 @@ class StreamBluetooth : public StreamCommonImpl {
     ndk::ScopedAStatus prepareToClose() override;
     const ConnectedDevices& getConnectedDevices() const override;
     ndk::ScopedAStatus setConnectedDevices(const ConnectedDevices& devices) override;
+    ndk::ScopedAStatus onBluetoothParametersUpdated() override;
 
   private:
     // Audio Pcm Config
@@ -49,7 +57,9 @@ class StreamBluetooth : public StreamCommonImpl {
     ::aidl::android::media::audio::common::AudioFormatDescription mFormat;
     size_t mFrameSizeBytes;
     const bool mIsInput;
-
+    const std::weak_ptr<IBluetooth> mBluetooth;
+    const std::weak_ptr<IBluetoothA2dp> mBluetoothA2dp;
+    const std::weak_ptr<IBluetoothLe> mBluetoothLe;
     size_t mPreferredDataIntervalUs;
     size_t mPreferredFrameCount;
 
@@ -75,7 +85,9 @@ class StreamInBluetooth final : public StreamBluetooth, public StreamIn {
     StreamInBluetooth(
             const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
             StreamContext&& context,
-            const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones);
+            const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones,
+            const std::weak_ptr<IBluetooth>& bt, const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+            const std::weak_ptr<IBluetoothLe>& btLe);
 
   private:
     ndk::ScopedAStatus getActiveMicrophones(
@@ -92,7 +104,9 @@ class StreamOutBluetooth final : public StreamBluetooth, public StreamOut {
             const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
             StreamContext&& context,
             const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
-                    offloadInfo);
+                    offloadInfo,
+            const std::weak_ptr<IBluetooth>& bt, const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+            const std::weak_ptr<IBluetoothLe>& btLe);
 
   private:
     ndk::ScopedAStatus updateMetadata(
