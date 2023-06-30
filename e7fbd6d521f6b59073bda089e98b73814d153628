@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b24ea008_8c98dae3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T22:31:56Z",
+      "side": 1,
+      "message": "That\u0027s good, just one suggestion. Please also note https://r.android.com/2647304 which brings `DeviceInteface::start` which gets called when the stream is exiting standby.",
+      "revId": "e7fbd6d521f6b59073bda089e98b73814d153628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05c92e59_261fd3b4",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T22:31:56Z",
+      "side": 1,
+      "message": "`std::move` (below) does not make any sense for `const\u0026`. That\u0027s because the semantics of move involves modifying the source object for \"extracting\" the handles value from it w/o making a copy. If it\u0027s not allowed to modify the source object, `move` degrades into making a copy.\n\nI would suggest `BtProfileHandles` a public type in `Module`. Then we can take it here as an rvalue: `Module::BtProfileHandles\u0026\u0026 btHandles`. This will connect it nicely with `Module::getBtProfileManagerHandles`—you can just pass what it returns to the constructor directly. And here we can move values out from the tuple. That should be a proper use of `move`.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 73
+      },
+      "revId": "e7fbd6d521f6b59073bda089e98b73814d153628",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
