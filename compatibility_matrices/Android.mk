@@ -103,8 +103,14 @@ my_system_matrix_deps := \
     framework_compatibility_matrix.6.xml \
     framework_compatibility_matrix.7.xml \
     framework_compatibility_matrix.8.xml \
-    framework_compatibility_matrix.9.xml \
     framework_compatibility_matrix.device.xml \
+
+# Allow only cuttlefish to continue using matrix 9 HALs
+ifneq (,$(filter device/google/cuttlefish/shared/config/manifest.xml, $(DEVICE_MANIFEST_FILE)))
+my_system_matrix_deps += \
+    framework_compatibility_matrix.9.xml \
+
+endif
 
 my_framework_matrix_deps += \
     $(my_system_matrix_deps)
