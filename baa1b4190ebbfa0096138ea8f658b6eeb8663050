@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdbc313c_56581b20",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T12:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d94f172d_435165fc",
+      "range": {
+        "startLine": 342,
+        "startChar": 37,
+        "endLine": 342,
+        "endChar": 67
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53007d83_2e622ce6",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-27T21:35:24Z",
       "side": 1,
       "message": "In theory, these calls can fail, thus they need to be wrapped into `RETURN_STATUS_IF_ERROR`.",
+      "range": {
+        "startLine": 344,
+        "startChar": 0,
+        "endLine": 344,
+        "endChar": 38
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72948eaf_a26e0c91",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T12:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53007d83_2e622ce6",
       "range": {
         "startLine": 344,
         "startChar": 0,
@@ -142,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20a05269_0268f261",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T12:19:19Z",
+      "side": 1,
+      "message": "no longer need getCurrState",
+      "parentUuid": "6b74d3f1_e62d1a4b",
+      "range": {
+        "startLine": 188,
+        "startChar": 25,
+        "endLine": 188,
+        "endChar": 37
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ae1bb3b_ddffc3fe",
@@ -165,6 +237,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "059e55bb_5979ebe7",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T12:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ae1bb3b_ddffc3fe",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 64
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "998cee97_cd779477",
@@ -178,6 +274,30 @@
       "writtenOn": "2023-06-27T16:47:00Z",
       "side": 1,
       "message": "`const std::weak_ptr\u003cBnBluetooth\u003e \u0026`?\nSame for other signalBluetoothParameters methods",
+      "range": {
+        "startLine": 44,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 44
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11b76db4_02ae7ac9",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T12:19:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "998cee97_cd779477",
       "range": {
         "startLine": 44,
         "startChar": 12,
@@ -249,6 +369,30 @@
       "side": 1,
       "message": "Also, with aosp/2639437 and its parent CLs merged, this isn\u0027t needed to be here at all as the default stub method will be in `StreamCommonImpl`.",
       "parentUuid": "8de13010_6f6b66aa",
+      "range": {
+        "startLine": 211,
+        "startChar": 11,
+        "endLine": 211,
+        "endChar": 14
+      },
+      "revId": "baa1b4190ebbfa0096138ea8f658b6eeb8663050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe2d99ae_630e170a",
+        "filename": "audio/aidl/default/usb/StreamUsb.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T12:19:19Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "08de643e_09b9c9d4",
       "range": {
         "startLine": 211,
         "startChar": 11,
