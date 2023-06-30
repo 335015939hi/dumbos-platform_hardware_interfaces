@@ -89,11 +89,12 @@ ndk::ScopedAStatus BluetoothA2dp::isEnabled(bool* _aidl_return) {
 ndk::ScopedAStatus BluetoothA2dp::setEnabled(bool in_enabled) {
     mEnabled = in_enabled;
     LOG(DEBUG) << __func__ << ": " << mEnabled;
+    if (mHandler) return mHandler();
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus BluetoothA2dp::supportsOffloadReconfiguration(bool* _aidl_return) {
-    *_aidl_return = true;
+    *_aidl_return = false;
     LOG(DEBUG) << __func__ << ": returning " << *_aidl_return;
     return ndk::ScopedAStatus::ok();
 }
@@ -102,7 +103,7 @@ ndk::ScopedAStatus BluetoothA2dp::reconfigureOffload(
         const std::vector<::aidl::android::hardware::audio::core::VendorParameter>& in_parameters
                 __unused) {
     LOG(DEBUG) << __func__ << ": " << ::android::internal::ToString(in_parameters);
-    return ndk::ScopedAStatus::ok();
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
 ndk::ScopedAStatus BluetoothLe::isEnabled(bool* _aidl_return) {
@@ -114,11 +115,12 @@ ndk::ScopedAStatus BluetoothLe::isEnabled(bool* _aidl_return) {
 ndk::ScopedAStatus BluetoothLe::setEnabled(bool in_enabled) {
     mEnabled = in_enabled;
     LOG(DEBUG) << __func__ << ": " << mEnabled;
+    if (mHandler) return mHandler();
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus BluetoothLe::supportsOffloadReconfiguration(bool* _aidl_return) {
-    *_aidl_return = true;
+    *_aidl_return = false;
     LOG(DEBUG) << __func__ << ": returning " << *_aidl_return;
     return ndk::ScopedAStatus::ok();
 }
@@ -127,7 +129,7 @@ ndk::ScopedAStatus BluetoothLe::reconfigureOffload(
         const std::vector<::aidl::android::hardware::audio::core::VendorParameter>& in_parameters
                 __unused) {
     LOG(DEBUG) << __func__ << ": " << ::android::internal::ToString(in_parameters);
-    return ndk::ScopedAStatus::ok();
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
 }  // namespace aidl::android::hardware::audio::core
