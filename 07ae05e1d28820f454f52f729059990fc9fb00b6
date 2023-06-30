@@ -88,6 +88,24 @@
       "parentUuid": "4bfab077_8815a6f0",
       "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96099c09_ff6ebd20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-06-30T14:17:01Z",
+      "side": 1,
+      "message": "It would be even better if we could reassemble the packets in the VTS test before comparing them, to make sure that the full packets can be sent and received.\n\nWhat do you think about this:\nIf the packet is smaller than the one we sent, save it until there\u0027s enough data to compare with the original packet.  Make sure that all of the data was sent and received correctly, but loosen the requirement that packets are one-to-one.",
+      "parentUuid": "cb7f7dab_0d47e4c6",
+      "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
