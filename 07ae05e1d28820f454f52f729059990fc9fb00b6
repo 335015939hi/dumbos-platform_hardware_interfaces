@@ -70,6 +70,24 @@
       "parentUuid": "acdd33dc_96e07296",
       "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb7f7dab_0d47e4c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-06-30T07:56:43Z",
+      "side": 1,
+      "message": "I mean, the fragment is implemented by vendor bt usb driver.\nFor example:\nIf MTU in Read Buffer Size Complete events is 100 + 3. MTU in usb sco ep is 20 + 3.\nStack can send sco packet with length 103. Vendor bt usb driver will fragment this packet to 5 packets with length (20 + 3) * 5.\nStack receive the sco packet with length 20 + 3 only from vendor bt driver.\nIt works well\n\nBut for VTS, VTS send sco packet with length 103 and vendor bt usb driver will fragment it. After loopback, VTS will receive 5 packets with length 20 + 3. VTS will check failed.\n\nThat\u0027s why I submit this patch. Let VTS only send the packet that can\u0027t not be fragmented.\n\nMTU in usb sco ep is a usb feature only. So I think that the fragment is implemented by vendor bt usb driver is a good solution",
+      "parentUuid": "4bfab077_8815a6f0",
+      "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
