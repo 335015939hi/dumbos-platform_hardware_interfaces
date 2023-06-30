@@ -1387,4 +1387,8 @@ ndk::ScopedAStatus Module::onMasterVolumeChanged(float volume __unused) {
     return ndk::ScopedAStatus::ok();
 }
 
+Module::BtProfileHandles Module::getBtProfileManagerHandles() {
+    return std::make_tuple(mBluetooth.getPtr(), mBluetoothA2dp.getPtr(), mBluetoothLe.getPtr());
+}
+
 }  // namespace aidl::android::hardware::audio::core
