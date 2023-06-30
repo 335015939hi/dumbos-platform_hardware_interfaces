@@ -28,8 +28,6 @@ class ModuleBluetooth : public Module {
     // IModule interfaces
     ndk::ScopedAStatus getTelephony(std::shared_ptr<ITelephony>* _aidl_return) override;
     ndk::ScopedAStatus getBluetooth(std::shared_ptr<IBluetooth>* _aidl_return) override;
-    ndk::ScopedAStatus getBluetoothA2dp(std::shared_ptr<IBluetoothA2dp>* _aidl_return) override;
-    ndk::ScopedAStatus getBluetoothLe(std::shared_ptr<IBluetoothLe>* _aidl_return) override;
     ndk::ScopedAStatus getMicMute(bool* _aidl_return) override;
     ndk::ScopedAStatus setMicMute(bool in_mute) override;
 
