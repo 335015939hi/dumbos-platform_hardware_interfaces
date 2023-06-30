@@ -88,12 +88,13 @@ ndk::ScopedAStatus BluetoothA2dp::isEnabled(bool* _aidl_return) {
 
 ndk::ScopedAStatus BluetoothA2dp::setEnabled(bool in_enabled) {
     mEnabled = in_enabled;
+    if (mHandler) mHandler();
     LOG(DEBUG) << __func__ << ": " << mEnabled;
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus BluetoothA2dp::supportsOffloadReconfiguration(bool* _aidl_return) {
-    *_aidl_return = true;
+    *_aidl_return = false;
     LOG(DEBUG) << __func__ << ": returning " << *_aidl_return;
     return ndk::ScopedAStatus::ok();
 }
@@ -113,12 +114,13 @@ ndk::ScopedAStatus BluetoothLe::isEnabled(bool* _aidl_return) {
 
 ndk::ScopedAStatus BluetoothLe::setEnabled(bool in_enabled) {
     mEnabled = in_enabled;
+    if (mHandler) mHandler();
     LOG(DEBUG) << __func__ << ": " << mEnabled;
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus BluetoothLe::supportsOffloadReconfiguration(bool* _aidl_return) {
-    *_aidl_return = true;
+    *_aidl_return = false;
     LOG(DEBUG) << __func__ << ": returning " << *_aidl_return;
     return ndk::ScopedAStatus::ok();
 }

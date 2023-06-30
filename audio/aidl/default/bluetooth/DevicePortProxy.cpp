@@ -288,6 +288,21 @@ bool BluetoothAudioPortAidl::loadAudioConfig(PcmConfiguration* audio_cfg) const 
     return true;
 }
 
+bool BluetoothAudioPortAidl::standby() {
+    if (!inUse()) {
+        LOG(ERROR) << __func__ << ": BluetoothAudioPortAidl is not in use";
+        return false;
+    }
+    std::lock_guard guard(mCvMutex);
+    LOG(VERBOSE) << __func__ << debugMessage() << ", state=" << getState() << " request";
+    if (mState == BluetoothStreamState::DISABLED) {
+        mState = BluetoothStreamState::STANDBY;
+        LOG(VERBOSE) << __func__ << debugMessage() << ", state=" << getState() << " done";
+        return true;
+    }
+    return false;
+}
+
 bool BluetoothAudioPortAidl::condWaitState(BluetoothStreamState state) {
     bool retval;
     auto waitTime = std::chrono::milliseconds(kMaxWaitingTimeMs);
@@ -516,11 +531,16 @@ BluetoothStreamState BluetoothAudioPortAidl::getState() const {
     return mState;
 }
 
-void BluetoothAudioPortAidl::setState(BluetoothStreamState state) {
+bool BluetoothAudioPortAidl::setState(BluetoothStreamState state) {
+    if (!inUse()) {
+        LOG(ERROR) << __func__ << ": BluetoothAudioPortAidl is not in use";
+        return false;
+    }
     std::lock_guard guard(mCvMutex);
     LOG(DEBUG) << __func__ << ": BluetoothAudioPortAidl old state = " << mState
                << " new state = " << state;
     mState = state;
+    return true;
 }
 
 bool BluetoothAudioPortAidl::isA2dp() const {
