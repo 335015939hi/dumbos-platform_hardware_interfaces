@@ -88,6 +88,7 @@ ndk::ScopedAStatus BluetoothA2dp::isEnabled(bool* _aidl_return) {
 
 ndk::ScopedAStatus BluetoothA2dp::setEnabled(bool in_enabled) {
     mEnabled = in_enabled;
+    if (mHandler) mHandler();
     LOG(DEBUG) << __func__ << ": " << mEnabled;
     return ndk::ScopedAStatus::ok();
 }
@@ -113,6 +114,7 @@ ndk::ScopedAStatus BluetoothLe::isEnabled(bool* _aidl_return) {
 
 ndk::ScopedAStatus BluetoothLe::setEnabled(bool in_enabled) {
     mEnabled = in_enabled;
+    if (mHandler) mHandler();
     LOG(DEBUG) << __func__ << ": " << mEnabled;
     return ndk::ScopedAStatus::ok();
 }
