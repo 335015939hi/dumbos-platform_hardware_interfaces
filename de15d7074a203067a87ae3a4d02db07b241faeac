@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5f161d2b_2b197d7b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 41
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T17:48:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0034fd47_5d82800e",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e3f9161b_1ffe5ebf",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 41
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1517f1f0_009551f1",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T17:48:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3774a7b_317535ee",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 96
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "341f6844_80130e51",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-06-30T16:09:40Z",
       "side": 1,
       "message": "Missing `std::lock_guard guard(mLock);`",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 29
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f855969_7f66cc3e",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T17:48:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "341f6844_80130e51",
       "range": {
         "startLine": 75,
         "startChar": 0,
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da27fa13_8f258c85",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T17:48:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a60ae79_8eaac941",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 81
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dce15e37_14d0ac90",
@@ -123,6 +219,30 @@
       "writtenOn": "2023-06-30T16:09:40Z",
       "side": 1,
       "message": "Can we fold down all duplicated code here? Since both `In` and `Out` proxies subclass `BluetoothAudioPortAidl`, we can use it for all operations performed on the proxy.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 23
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09977266_b6dae969",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T17:48:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dce15e37_14d0ac90",
       "range": {
         "startLine": 158,
         "startChar": 0,
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24266ee7_680a144e",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 41
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T17:48:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d69d1b5_3fa39763",
+      "range": {
+        "startLine": 42,
+        "startChar": 64,
+        "endLine": 42,
+        "endChar": 80
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afb0ec20_5d8556cb",
@@ -169,6 +313,30 @@
       "writtenOn": "2023-06-30T16:09:40Z",
       "side": 1,
       "message": "Shouldn\u0027t these be private?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 92
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7578f28e_828975bc",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 41
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T17:48:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afb0ec20_5d8556cb",
       "range": {
         "startLine": 46,
         "startChar": 0,
