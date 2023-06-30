@@ -80,6 +80,23 @@
       "message": "OK, let\u0027s get this code in. Thanks!",
       "revId": "a8ec898ed1c40b32ddbe20f6ba8fca6f8cce0838",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a193f6db_9f1866ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T00:00:13Z",
+      "side": 1,
+      "message": "Current build failures are not related to the CL and should be fixed by https://r.android.com/2645843. Will retry presubmit after it lands.",
+      "revId": "a8ec898ed1c40b32ddbe20f6ba8fca6f8cce0838",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
