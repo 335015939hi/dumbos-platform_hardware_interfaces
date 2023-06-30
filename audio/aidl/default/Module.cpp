@@ -423,7 +423,9 @@ ndk::ScopedAStatus Module::getBluetooth(std::shared_ptr<IBluetooth>* _aidl_retur
 
 ndk::ScopedAStatus Module::getBluetoothA2dp(std::shared_ptr<IBluetoothA2dp>* _aidl_return) {
     if (!mBluetoothA2dp) {
-        mBluetoothA2dp = ndk::SharedRefBase::make<BluetoothA2dp>();
+        auto handle = ndk::SharedRefBase::make<BluetoothA2dp>();
+        handle->registerHandler(std::bind(&Module::bluetoothParametersUpdated, this));
+        mBluetoothA2dp = handle;
     }
     *_aidl_return = mBluetoothA2dp.getPtr();
     LOG(DEBUG) << __func__ << ": returning instance of IBluetoothA2dp: " << _aidl_return->get();
@@ -432,7 +434,9 @@ ndk::ScopedAStatus Module::getBluetoothA2dp(std::shared_ptr<IBluetoothA2dp>* _ai
 
 ndk::ScopedAStatus Module::getBluetoothLe(std::shared_ptr<IBluetoothLe>* _aidl_return) {
     if (!mBluetoothLe) {
-        mBluetoothLe = ndk::SharedRefBase::make<BluetoothLe>();
+        auto handle = ndk::SharedRefBase::make<BluetoothLe>();
+        handle->registerHandler(std::bind(&Module::bluetoothParametersUpdated, this));
+        mBluetoothLe = handle;
     }
     *_aidl_return = mBluetoothLe.getPtr();
     LOG(DEBUG) << __func__ << ": returning instance of IBluetoothLe: " << _aidl_return->get();
@@ -1385,6 +1389,14 @@ ndk::ScopedAStatus Module::onMasterMuteChanged(bool mute __unused) {
 ndk::ScopedAStatus Module::onMasterVolumeChanged(float volume __unused) {
     LOG(VERBOSE) << __func__ << ": do nothing and return ok";
     return ndk::ScopedAStatus::ok();
+}
+
+Module::BtProfileHandles Module::getBtProfileManagerHandles() {
+    return std::make_tuple(mBluetooth.getPtr(), mBluetoothA2dp.getPtr(), mBluetoothLe.getPtr());
+}
+
+ndk::ScopedAStatus Module::bluetoothParametersUpdated() {
+    return mStreams.bluetoothParametersUpdated();
 }
 
 }  // namespace aidl::android::hardware::audio::core
