@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2369bb7b_fa5f2ad9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T15:35:37Z",
+      "side": 1,
+      "message": "The last build error is completely unrelated to the CL and seems to be a problem with that particular build configuration. Retrying.",
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
