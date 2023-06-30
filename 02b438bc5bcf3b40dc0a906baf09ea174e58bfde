@@ -22,6 +22,30 @@
       },
       "revId": "02b438bc5bcf3b40dc0a906baf09ea174e58bfde",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "938f5fb4_9547609e",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 40
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T12:18:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c88fa6d_49d91b5d",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 30
+      },
+      "revId": "02b438bc5bcf3b40dc0a906baf09ea174e58bfde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
