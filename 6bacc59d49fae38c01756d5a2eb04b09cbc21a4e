@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ce54492_41ae895e",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T21:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e4774cd_be6206cc",
+      "range": {
+        "startLine": 297,
+        "startChar": 8,
+        "endLine": 297,
+        "endChar": 58
+      },
+      "revId": "6bacc59d49fae38c01756d5a2eb04b09cbc21a4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "615258be_c571d060",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6adce99f_12f082cb",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T21:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "615258be_c571d060",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 94
+      },
+      "revId": "6bacc59d49fae38c01756d5a2eb04b09cbc21a4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8200e54_bb7c5fc3",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-06-30T16:26:42Z",
       "side": 1,
       "message": "Sorry, that\u0027s not the approach I was suggesting. These BT objects are only needed for `StreamBluetooth`, we don\u0027t have to pass it to all streams, they need to be added to the constructor of `StreamBluetooth` only. Then we need to override `createInput|OutputStream` in `ModuleBluetooth`, without any change in their signature, of course. And it\u0027s in the implementation of `ModuleBluetooth::createInput|OutputStream` where we pass these BT objects to `StreamBluetooth`.\n\nI guess, once source of confusion could be that `mBluetooth*` refs are private within `Module`. We need to add getter methods (non-virtual) to `Module` for subclasses, into this section: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/include/core-impl/Module.h;l\u003d208;drc\u003d75b59dfb4e19c7f60f80e942aebfaae730eb7df2",
+      "range": {
+        "startLine": 407,
+        "startChar": 0,
+        "endLine": 409,
+        "endChar": 68
+      },
+      "revId": "6bacc59d49fae38c01756d5a2eb04b09cbc21a4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "784b9d39_1aeade3a",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-06-30T21:52:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8200e54_bb7c5fc3",
       "range": {
         "startLine": 407,
         "startChar": 0,
