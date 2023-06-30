@@ -288,6 +288,21 @@ bool BluetoothAudioPortAidl::loadAudioConfig(PcmConfiguration* audio_cfg) const 
     return true;
 }
 
+bool BluetoothAudioPortAidl::standby() {
+    if (!inUse()) {
+        LOG(ERROR) << __func__ << ": BluetoothAudioPortAidl is not in use";
+        return false;
+    }
+    std::lock_guard guard(mCvMutex);
+    LOG(VERBOSE) << __func__ << debugMessage() << ", state=" << getState() << " request";
+    if (mState == BluetoothStreamState::DISABLED) {
+        mState = BluetoothStreamState::STANDBY;
+        LOG(VERBOSE) << __func__ << debugMessage() << ", state=" << getState() << " done";
+        return true;
+    }
+    return false;
+}
+
 bool BluetoothAudioPortAidl::condWaitState(BluetoothStreamState state) {
     bool retval;
     auto waitTime = std::chrono::milliseconds(kMaxWaitingTimeMs);
