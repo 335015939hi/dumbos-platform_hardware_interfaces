@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0034fd47_5d82800e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 41
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T16:09:40Z",
+      "side": 1,
+      "message": "Please change to: `Bug: 228804498`, `Test: atest VtsHalAudioCoreTargetTest`.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 11
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3f9161b_1ffe5ebf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 41
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T16:09:40Z",
+      "side": 1,
+      "message": "Looks like we are almost done.",
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3774a7b_317535ee",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T16:09:40Z",
+      "side": 1,
+      "message": "Why do we use these intermediate variables instead of calling `presentation_position.toString()` directly? If the default printing isn\u0027t convenient, we can define our `operator\u003c\u003c` for this type.",
+      "range": {
+        "startLine": 475,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 96
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "341f6844_80130e51",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T16:09:40Z",
+      "side": 1,
+      "message": "Missing `std::lock_guard guard(mLock);`",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 29
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a60ae79_8eaac941",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T16:09:40Z",
+      "side": 1,
+      "message": "Actually, that\u0027s an interesting question. For output, there can be multiple proxies. I would propose that both `actualFrameCount` and `latencyMs` need to be maximum values across all proxies.",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 81
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce15e37_14d0ac90",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 41
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T16:09:40Z",
+      "side": 1,
+      "message": "Can we fold down all duplicated code here? Since both `In` and `Out` proxies subclass `BluetoothAudioPortAidl`, we can use it for all operations performed on the proxy.",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 23
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d69d1b5_3fa39763",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 41
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T16:09:40Z",
+      "side": 1,
+      "message": "Instead of requiring synchronization here, we need to make the method itself to be thread-safe.",
+      "range": {
+        "startLine": 42,
+        "startChar": 64,
+        "endLine": 42,
+        "endChar": 80
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afb0ec20_5d8556cb",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 41
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-06-30T16:09:40Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these be private?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 92
+      },
+      "revId": "de15d7074a203067a87ae3a4d02db07b241faeac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
