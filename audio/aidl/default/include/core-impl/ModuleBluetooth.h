@@ -16,6 +16,7 @@
 
 #pragma once
 
+#include "core-impl/Bluetooth.h"
 #include "core-impl/Module.h"
 
 namespace aidl::android::hardware::audio::core {
@@ -25,7 +26,14 @@ class ModuleBluetooth : public Module {
     explicit ModuleBluetooth(Module::Type type) : Module(type) {}
 
   private:
+    ChildInterface<IBluetoothA2dp> mBluetoothA2dp;
+    ChildInterface<IBluetoothLe> mBluetoothLe;
+
+    BtProfileHandles getBtProfileManagerHandles() override;
+
     // IModule interfaces
+    ndk::ScopedAStatus getBluetoothA2dp(std::shared_ptr<IBluetoothA2dp>* _aidl_return) override;
+    ndk::ScopedAStatus getBluetoothLe(std::shared_ptr<IBluetoothLe>* _aidl_return) override;
     ndk::ScopedAStatus getMicMute(bool* _aidl_return) override;
     ndk::ScopedAStatus setMicMute(bool in_mute) override;
 
