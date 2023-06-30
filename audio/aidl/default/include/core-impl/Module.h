@@ -185,12 +185,25 @@ class Module : public BnModule {
             StreamContext&& context,
             const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones,
             std::shared_ptr<StreamIn>* result);
+    virtual ndk::ScopedAStatus createInputStream(
+            const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
+            StreamContext&& context,
+            const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones,
+            const std::weak_ptr<IBluetooth>& bt, const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+            const std::weak_ptr<IBluetoothLe>& btLe, std::shared_ptr<StreamIn>* result);
     virtual ndk::ScopedAStatus createOutputStream(
             const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
             StreamContext&& context,
             const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
                     offloadInfo,
             std::shared_ptr<StreamOut>* result);
+    virtual ndk::ScopedAStatus createOutputStream(
+            const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
+            StreamContext&& context,
+            const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
+                    offloadInfo,
+            const std::weak_ptr<IBluetooth>& bt, const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+            const std::weak_ptr<IBluetoothLe>& btLe, std::shared_ptr<StreamOut>* result);
     // If the module is unable to populate the connected device port correctly, the returned error
     // code must correspond to the errors of `IModule.connectedExternalDevice` method.
     virtual ndk::ScopedAStatus populateConnectedDevicePort(

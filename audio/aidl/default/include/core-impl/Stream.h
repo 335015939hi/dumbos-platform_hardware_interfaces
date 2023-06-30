@@ -31,6 +31,9 @@
 #include <aidl/android/hardware/audio/core/BnStreamCommon.h>
 #include <aidl/android/hardware/audio/core/BnStreamIn.h>
 #include <aidl/android/hardware/audio/core/BnStreamOut.h>
+#include <aidl/android/hardware/audio/core/IBluetooth.h>
+#include <aidl/android/hardware/audio/core/IBluetoothA2dp.h>
+#include <aidl/android/hardware/audio/core/IBluetoothLe.h>
 #include <aidl/android/hardware/audio/core/IStreamCallback.h>
 #include <aidl/android/hardware/audio/core/IStreamOutEventCallback.h>
 #include <aidl/android/hardware/audio/core/StreamDescriptor.h>
@@ -335,6 +338,7 @@ struct StreamCommonInterface {
     virtual const ConnectedDevices& getConnectedDevices() const = 0;
     virtual ndk::ScopedAStatus setConnectedDevices(
             const std::vector<::aidl::android::media::audio::common::AudioDevice>& devices) = 0;
+    virtual ndk::ScopedAStatus onBluetoothParametersUpdated() = 0;
 };
 
 // This is equivalent to automatically generated 'IStreamCommonDelegator' but uses
@@ -399,10 +403,29 @@ class StreamCommonDelegator : public BnStreamCommon {
 class StreamCommonImpl : virtual public StreamCommonInterface, virtual public DriverInterface {
   public:
     StreamCommonImpl(const Metadata& metadata, StreamContext&& context,
+                     const StreamWorkerInterface::CreateInstance& createWorker,
+                     const std::weak_ptr<IBluetooth>& bluetooth,
+                     const std::weak_ptr<IBluetoothA2dp>& bluetoothA2dp,
+                     const std::weak_ptr<IBluetoothLe>& bluetoothLe)
+        : mMetadata(metadata),
+          mContext(std::move(context)),
+          mWorker(createWorker(mContext, this)),
+          mBluetooth(std::move(bluetooth)),
+          mBluetoothA2dp(std::move(bluetoothA2dp)),
+          mBluetoothLe(std::move(bluetoothLe)) {}
+    StreamCommonImpl(const Metadata& metadata, StreamContext&& context,
                      const StreamWorkerInterface::CreateInstance& createWorker)
         : mMetadata(metadata),
           mContext(std::move(context)),
           mWorker(createWorker(mContext, this)) {}
+    StreamCommonImpl(const Metadata& metadata, StreamContext&& context,
+                     const std::weak_ptr<IBluetooth>& bluetooth,
+                     const std::weak_ptr<IBluetoothA2dp>& bluetoothA2dp,
+                     const std::weak_ptr<IBluetoothLe>& bluetoothLe)
+        : StreamCommonImpl(
+                  metadata, std::move(context),
+                  isInput(metadata) ? getDefaultInWorkerCreator() : getDefaultOutWorkerCreator(),
+                  bluetooth, bluetoothA2dp, bluetoothLe) {}
     StreamCommonImpl(const Metadata& metadata, StreamContext&& context)
         : StreamCommonImpl(
                   metadata, std::move(context),
@@ -434,6 +457,7 @@ class StreamCommonImpl : virtual public StreamCommonInterface, virtual public Dr
     ndk::ScopedAStatus setConnectedDevices(
             const std::vector<::aidl::android::media::audio::common::AudioDevice>& devices)
             override;
+    ndk::ScopedAStatus onBluetoothParametersUpdated() override;
 
   protected:
     static StreamWorkerInterface::CreateInstance getDefaultInWorkerCreator() {
@@ -452,6 +476,9 @@ class StreamCommonImpl : virtual public StreamCommonInterface, virtual public Dr
     Metadata mMetadata;
     StreamContext mContext;
     std::unique_ptr<StreamWorkerInterface> mWorker;
+    const std::weak_ptr<IBluetooth> mBluetooth;
+    const std::weak_ptr<IBluetoothA2dp> mBluetoothA2dp;
+    const std::weak_ptr<IBluetoothLe> mBluetoothLe;
     std::shared_ptr<StreamCommonDelegator> mCommon;
     ndk::SpAIBinder mCommonBinder;
     ConnectedDevices mConnectedDevices;

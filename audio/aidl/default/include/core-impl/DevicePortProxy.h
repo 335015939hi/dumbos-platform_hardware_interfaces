@@ -83,8 +83,15 @@ class BluetoothAudioPort {
 
     /**
      * When the Audio framework / HAL wants to change the stream state, it invokes
-     * these 3 functions to control the Bluetooth stack (Audio Control Path).
-     * Note: Both start() and suspend() will return true when there are no errors.
+     * these 4 functions to control the Bluetooth stack (Audio Control Path).
+     * Note: standby(), start() and suspend() will return true when there are no errors.
+     */
+    /**
+     * Called by Audio framework / HAL to change the state to stand by.
+     */
+    virtual bool standby() = 0;
+
+    /**
      * Called by Audio framework / HAL to start the stream
      */
     virtual bool start() = 0;
@@ -160,6 +167,7 @@ class BluetoothAudioPortAidl : public BluetoothAudioPort {
 
     void forcePcmStereoToMono(bool force) override { mIsStereoToMono = force; }
 
+    bool standby() override;
     bool start() override;
     bool suspend() override;
     void stop() override;

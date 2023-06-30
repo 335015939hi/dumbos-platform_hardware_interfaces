@@ -38,6 +38,17 @@ StreamStub::StreamStub(const Metadata& metadata, StreamContext&& context)
       mIsAsynchronous(!!context.getAsyncCallback()),
       mIsInput(isInput(metadata)) {}
 
+StreamStub::StreamStub(const Metadata& metadata, StreamContext&& context,
+                       const std::weak_ptr<IBluetooth>& bt,
+                       const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+                       const std::weak_ptr<IBluetoothLe>& btLe)
+    : StreamCommonImpl(metadata, std::move(context), std::move(bt), std::move(btA2dp),
+                       std::move(btLe)),
+      mFrameSizeBytes(context.getFrameSize()),
+      mSampleRate(context.getSampleRate()),
+      mIsAsynchronous(!!context.getAsyncCallback()),
+      mIsInput(isInput(metadata)) {}
+
 ::android::status_t StreamStub::init() {
     usleep(500);
     return ::android::OK;
@@ -91,8 +102,26 @@ StreamInStub::StreamInStub(const SinkMetadata& sinkMetadata, StreamContext&& con
                            const std::vector<MicrophoneInfo>& microphones)
     : StreamStub(sinkMetadata, std::move(context)), StreamIn(microphones) {}
 
+StreamInStub::StreamInStub(const SinkMetadata& sinkMetadata, StreamContext&& context,
+                           const std::vector<MicrophoneInfo>& microphones,
+                           const std::weak_ptr<IBluetooth>& bt,
+                           const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+                           const std::weak_ptr<IBluetoothLe>& btLe)
+    : StreamStub(sinkMetadata, std::move(context), std::move(bt), std::move(btA2dp),
+                 std::move(btLe)),
+      StreamIn(microphones) {}
+
 StreamOutStub::StreamOutStub(const SourceMetadata& sourceMetadata, StreamContext&& context,
                              const std::optional<AudioOffloadInfo>& offloadInfo)
     : StreamStub(sourceMetadata, std::move(context)), StreamOut(offloadInfo) {}
+
+StreamOutStub::StreamOutStub(const SourceMetadata& sourceMetadata, StreamContext&& context,
+                             const std::optional<AudioOffloadInfo>& offloadInfo,
+                             const std::weak_ptr<IBluetooth>& bt,
+                             const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+                             const std::weak_ptr<IBluetoothLe>& btLe)
+    : StreamStub(sourceMetadata, std::move(context), std::move(bt), std::move(btA2dp),
+                 std::move(btLe)),
+      StreamOut(offloadInfo) {}
 
 }  // namespace aidl::android::hardware::audio::core

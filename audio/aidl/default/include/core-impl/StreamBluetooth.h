@@ -41,6 +41,7 @@ class StreamBluetooth : public StreamCommonImpl {
     ndk::ScopedAStatus prepareToClose() override;
     const ConnectedDevices& getConnectedDevices() const override REQUIRES(mLock);
     ndk::ScopedAStatus setConnectedDevices(const ConnectedDevices& devices) override;
+    ndk::ScopedAStatus onBluetoothParametersUpdated() override;
 
     // utils
     bool updateSinkMetadata(

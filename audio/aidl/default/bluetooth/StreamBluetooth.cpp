@@ -282,6 +282,55 @@ bool StreamBluetooth::updateSourceMetadata(const SourceMetadata& sourceMetadata)
     return true;
 }
 
+ndk::ScopedAStatus StreamBluetooth::onBluetoothParametersUpdated() {
+    if (mIsInput) {
+        LOG(WARNING) << __func__ << ": not handled";
+        return ndk::ScopedAStatus::ok();
+    }
+    std::unique_lock lock(mLock);
+    ::android::base::ScopedLockAssertion lock_assertion(mLock);
+    if (!mInitDone) {
+        LOG(WARNING) << __func__ << ": init not done";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+    }
+    bool isProfileEnabled;
+    if (!mBluetoothA2dp.expired() && mBluetoothA2dp.lock()->isEnabled(&isProfileEnabled).isOk()) {
+        for (auto proxy : mBtDeviceProxies) {
+            if (proxy->isA2dp()) {
+                if (!isProfileEnabled) {
+                    if (proxy->suspend()) {
+                        proxy->setState(BluetoothStreamState::DISABLED);
+                    } else {
+                        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+                    }
+                } else {
+                    if (!proxy->standby()) {
+                        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+                    }
+                }
+            }
+        }
+    }
+    if (!mBluetoothLe.expired() && mBluetoothLe.lock()->isEnabled(&isProfileEnabled).isOk()) {
+        for (auto proxy : mBtDeviceProxies) {
+            if (proxy->isLeAudio()) {
+                if (!isProfileEnabled) {
+                    if (proxy->suspend()) {
+                        proxy->setState(BluetoothStreamState::DISABLED);
+                    } else {
+                        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+                    }
+                } else {
+                    if (!proxy->standby()) {
+                        return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+                    }
+                }
+            }
+        }
+    }
+    return ndk::ScopedAStatus::ok();
+}
+
 StreamInBluetooth::StreamInBluetooth(const SinkMetadata& sinkMetadata, StreamContext&& context,
                                      const std::vector<MicrophoneInfo>& microphones)
     : StreamBluetooth(sinkMetadata, std::move(context)), StreamIn(microphones) {}

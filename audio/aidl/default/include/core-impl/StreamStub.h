@@ -23,6 +23,9 @@ namespace aidl::android::hardware::audio::core {
 class StreamStub : public StreamCommonImpl {
   public:
     StreamStub(const Metadata& metadata, StreamContext&& context);
+    StreamStub(const Metadata& metadata, StreamContext&& context,
+               const std::weak_ptr<IBluetooth>& bt, const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+               const std::weak_ptr<IBluetoothLe>& btLe);
     // Methods of 'DriverInterface'.
     ::android::status_t init() override;
     ::android::status_t drain(StreamDescriptor::DrainMode) override;
@@ -47,6 +50,12 @@ class StreamInStub final : public StreamStub, public StreamIn {
             const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
             StreamContext&& context,
             const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones);
+    StreamInStub(
+            const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
+            StreamContext&& context,
+            const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones,
+            const std::weak_ptr<IBluetooth>& bt, const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+            const std::weak_ptr<IBluetoothLe>& btLe);
 };
 
 class StreamOutStub final : public StreamStub, public StreamOut {
@@ -56,6 +65,12 @@ class StreamOutStub final : public StreamStub, public StreamOut {
                   StreamContext&& context,
                   const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
                           offloadInfo);
+    StreamOutStub(const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
+                  StreamContext&& context,
+                  const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
+                          offloadInfo,
+                  const std::weak_ptr<IBluetooth>& bt, const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+                  const std::weak_ptr<IBluetoothLe>& btLe);
 };
 
 }  // namespace aidl::android::hardware::audio::core

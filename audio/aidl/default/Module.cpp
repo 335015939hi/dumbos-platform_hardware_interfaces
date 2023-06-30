@@ -1338,12 +1338,34 @@ ndk::ScopedAStatus Module::createInputStream(const SinkMetadata& sinkMetadata,
                                               microphones);
 }
 
+ndk::ScopedAStatus Module::createInputStream(const SinkMetadata& sinkMetadata,
+                                             StreamContext&& context,
+                                             const std::vector<MicrophoneInfo>& microphones,
+                                             const std::weak_ptr<IBluetooth>& bt,
+                                             const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+                                             const std::weak_ptr<IBluetoothLe>& btLe,
+                                             std::shared_ptr<StreamIn>* result) {
+    return createStreamInstance<StreamInStub>(result, sinkMetadata, std::move(context), microphones,
+                                              bt, btA2dp, btLe);
+}
+
 ndk::ScopedAStatus Module::createOutputStream(const SourceMetadata& sourceMetadata,
                                               StreamContext&& context,
                                               const std::optional<AudioOffloadInfo>& offloadInfo,
                                               std::shared_ptr<StreamOut>* result) {
     return createStreamInstance<StreamOutStub>(result, sourceMetadata, std::move(context),
                                                offloadInfo);
+}
+
+ndk::ScopedAStatus Module::createOutputStream(const SourceMetadata& sourceMetadata,
+                                              StreamContext&& context,
+                                              const std::optional<AudioOffloadInfo>& offloadInfo,
+                                              const std::weak_ptr<IBluetooth>& bt,
+                                              const std::weak_ptr<IBluetoothA2dp>& btA2dp,
+                                              const std::weak_ptr<IBluetoothLe>& btLe,
+                                              std::shared_ptr<StreamOut>* result) {
+    return createStreamInstance<StreamOutStub>(result, sourceMetadata, std::move(context),
+                                               offloadInfo, bt, btA2dp, btLe);
 }
 
 ndk::ScopedAStatus Module::populateConnectedDevicePort(AudioPort* audioPort __unused) {
