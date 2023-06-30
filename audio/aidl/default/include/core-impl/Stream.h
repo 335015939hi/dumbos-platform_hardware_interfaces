@@ -341,6 +341,7 @@ struct StreamCommonInterface {
     virtual const ConnectedDevices& getConnectedDevices() const = 0;
     virtual ndk::ScopedAStatus setConnectedDevices(
             const std::vector<::aidl::android::media::audio::common::AudioDevice>& devices) = 0;
+    virtual ndk::ScopedAStatus onBluetoothParametersUpdated() = 0;
 };
 
 // This is equivalent to automatically generated 'IStreamCommonDelegator' but uses
@@ -440,6 +441,7 @@ class StreamCommonImpl : virtual public StreamCommonInterface, virtual public Dr
     ndk::ScopedAStatus setConnectedDevices(
             const std::vector<::aidl::android::media::audio::common::AudioDevice>& devices)
             override;
+    ndk::ScopedAStatus onBluetoothParametersUpdated() override;
 
   protected:
     static StreamWorkerInterface::CreateInstance getDefaultInWorkerCreator() {

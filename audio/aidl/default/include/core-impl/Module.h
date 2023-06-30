@@ -37,6 +37,10 @@ class Module : public BnModule {
 
     explicit Module(Type type) : mType(type) {}
 
+    typedef std::tuple<std::weak_ptr<IBluetooth>, std::weak_ptr<IBluetoothA2dp>,
+                       std::weak_ptr<IBluetoothLe>>
+            BtProfileHandles;
+
   protected:
     // The vendor extension done via inheritance can override interface methods and augment
     // a call to the base implementation.
@@ -230,6 +234,7 @@ class Module : public BnModule {
     void registerPatch(const AudioPatch& patch);
     ndk::ScopedAStatus updateStreamsConnectedState(const AudioPatch& oldPatch,
                                                    const AudioPatch& newPatch);
+    BtProfileHandles getBtProfileManagerHandles();
 };
 
 }  // namespace aidl::android::hardware::audio::core
