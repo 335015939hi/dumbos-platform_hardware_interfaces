@@ -83,8 +83,16 @@ class BluetoothAudioPort {
 
     /**
      * When the Audio framework / HAL wants to change the stream state, it invokes
-     * these 3 functions to control the Bluetooth stack (Audio Control Path).
-     * Note: Both start() and suspend() will return true when there are no errors.
+     * these 4 functions to control the Bluetooth stack (Audio Control Path).
+     * Note: standby(), start() and suspend() will return true when there are no errors.
+
+     * Called by Audio framework / HAL to change the state to stand by. When A2DP/LE profile is
+     * disabled, the port is first set to STANDBY by calling suspend and then mState is set to
+     * DISABLED. To reset the state back to STANDBY this method is called.
+     */
+    virtual bool standby() = 0;
+
+    /**
      * Called by Audio framework / HAL to start the stream
      */
     virtual bool start() = 0;
@@ -132,7 +140,7 @@ class BluetoothAudioPort {
     /**
      * Set the current BluetoothStreamState
      */
-    virtual void setState(BluetoothStreamState) = 0;
+    virtual bool setState(BluetoothStreamState) = 0;
 
     virtual bool isA2dp() const = 0;
 
@@ -160,6 +168,7 @@ class BluetoothAudioPortAidl : public BluetoothAudioPort {
 
     void forcePcmStereoToMono(bool force) override { mIsStereoToMono = force; }
 
+    bool standby() override;
     bool start() override;
     bool suspend() override;
     void stop() override;
@@ -179,7 +188,7 @@ class BluetoothAudioPortAidl : public BluetoothAudioPort {
      */
     BluetoothStreamState getState() const override NO_THREAD_SAFETY_ANALYSIS;
 
-    void setState(BluetoothStreamState state) override;
+    bool setState(BluetoothStreamState state) override;
 
     bool isA2dp() const override;
 

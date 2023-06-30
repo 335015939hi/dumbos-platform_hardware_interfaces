@@ -37,6 +37,10 @@ class Module : public BnModule {
 
     explicit Module(Type type) : mType(type) {}
 
+    typedef std::tuple<std::weak_ptr<IBluetooth>, std::weak_ptr<IBluetoothA2dp>,
+                       std::weak_ptr<IBluetoothLe>>
+            BtProfileHandles;
+
   protected:
     // The vendor extension done via inheritance can override interface methods and augment
     // a call to the base implementation.
@@ -206,6 +210,7 @@ class Module : public BnModule {
     virtual ndk::ScopedAStatus onMasterVolumeChanged(float volume);
 
     // Utility and helper functions accessible to subclasses.
+    ndk::ScopedAStatus bluetoothParametersUpdated();
     void cleanUpPatch(int32_t patchId);
     ndk::ScopedAStatus createStreamContext(
             int32_t in_portConfigId, int64_t in_bufferSizeFrames,
@@ -217,6 +222,7 @@ class Module : public BnModule {
     std::set<int32_t> findConnectedPortConfigIds(int32_t portConfigId);
     ndk::ScopedAStatus findPortIdForNewStream(
             int32_t in_portConfigId, ::aidl::android::media::audio::common::AudioPort** port);
+    BtProfileHandles getBtProfileManagerHandles();
     internal::Configuration& getConfig();
     const ConnectedDevicePorts& getConnectedDevicePorts() const { return mConnectedDevicePorts; }
     bool getMasterMute() const { return mMasterMute; }
