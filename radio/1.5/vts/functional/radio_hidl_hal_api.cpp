@@ -585,6 +585,30 @@ TEST_P(RadioHidlTest_v1_5, startNetworkScan) {
             .incrementalResults = false,
             .incrementalResultsPeriodicity = 1};
 
+    if(isGSMEnabled()){
+
+    ::android::hardware::radio::V1_5::RadioAccessSpecifier::Bands bandP900;
+    bandP900.geranBands() = {GeranBands::BAND_P900};
+    ::android::hardware::radio::V1_5::RadioAccessSpecifier::Bands band850;
+    band850.geranBands() = {GeranBands::BAND_850};
+    ::android::hardware::radio::V1_5::RadioAccessSpecifier specifierP900 = {
+            .radioAccessNetwork = ::android::hardware::radio::V1_5::RadioAccessNetworks::GERAN,
+            .bands = bandP900,
+            .channels = {1, 2}};
+    ::android::hardware::radio::V1_5::RadioAccessSpecifier specifier850 = {
+            .radioAccessNetwork = ::android::hardware::radio::V1_5::RadioAccessNetworks::GERAN,
+            .bands = band850,
+            .channels = {128, 129}};
+
+    ::android::hardware::radio::V1_5::NetworkScanRequest request = {
+            .type = ScanType::ONE_SHOT,
+            .interval = 60,
+            .specifiers = {specifierP900, specifier850},
+            .maxSearchTime = 60,
+            .incrementalResults = false,
+            .incrementalResultsPeriodicity = 1};
+    }
+
     Return<void> res = radio_v1_5->startNetworkScan_1_5(serial, request);
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
