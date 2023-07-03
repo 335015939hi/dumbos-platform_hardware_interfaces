@@ -131,6 +131,12 @@ bool isServiceValidForDeviceConfiguration(std::string& serviceName);
 /**
  * RadioServiceTest base class
  */
+
+/*
+ * Check if device is in LTE status.
+ */
+bool isLTEService();
+
 class RadioServiceTest {
   protected:
     std::mutex mtx_;
