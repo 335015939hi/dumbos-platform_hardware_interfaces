@@ -107,6 +107,13 @@ bool isVoiceInService(RegState state);
 /**
  * Used when waiting for an asynchronous response from the HAL.
  */
+
+
+/*
+ * Check if device is in LTE status.
+ */
+bool isLTEService();
+
 class RadioResponseWaiter {
   protected:
     std::mutex mtx_;
