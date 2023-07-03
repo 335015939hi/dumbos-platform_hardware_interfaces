@@ -138,3 +138,8 @@ std::cv_status RadioResponseWaiter::wait() {
     count_--;
     return status;
 }
+
+bool isLTEService(){
+    return testing::checkSubstringInCommandOutput("getprop gsm.network.type", "LTE");
+}
+
