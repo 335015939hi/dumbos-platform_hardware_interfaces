@@ -106,6 +106,24 @@
       "parentUuid": "cb7f7dab_0d47e4c6",
       "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3050a185_158bd18f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-07-03T06:26:46Z",
+      "side": 1,
+      "message": "I agree with you. This is a perfect solution. I will re-submit patch ASAP",
+      "parentUuid": "96099c09_ff6ebd20",
+      "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
