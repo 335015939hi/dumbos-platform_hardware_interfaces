@@ -104,9 +104,16 @@ bool isVoiceEmergencyOnly(RegState state);
  */
 bool isVoiceInService(RegState state);
 
+/*
+ * Check if device is in Lte Connected status.
+ */
+bool isLteConnected();
+
 /**
  * Used when waiting for an asynchronous response from the HAL.
  */
+bool isLTEService();
+
 class RadioResponseWaiter {
   protected:
     std::mutex mtx_;
