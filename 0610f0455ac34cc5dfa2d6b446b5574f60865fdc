@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb9c3b97_b5e8bc8a",
+        "filename": "security/keymint/aidl/vts/functional/KeyBlobUpgradeTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-07-04T12:05:51Z",
+      "side": 1,
+      "message": "Feels like we should document that the name of the key is \"load bearing\": Now keys suffixed with \"-attest-key\" will not be tested on waivered devices.",
+      "range": {
+        "startLine": 77,
+        "startChar": 25,
+        "endLine": 77,
+        "endChar": 42
+      },
+      "revId": "0610f0455ac34cc5dfa2d6b446b5574f60865fdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02f4dc08_13600608",
+        "filename": "security/keymint/aidl/vts/functional/KeyBlobUpgradeTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-07-04T12:05:51Z",
+      "side": 1,
+      "message": "Can we change this statement to use the newly-introduced function?",
+      "range": {
+        "startLine": 562,
+        "startChar": 23,
+        "endLine": 562,
+        "endChar": 68
+      },
+      "revId": "0610f0455ac34cc5dfa2d6b446b5574f60865fdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a340499b_64d7cefd",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1640,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-07-04T12:05:51Z",
+      "side": 1,
+      "message": "Do the tests test that UNIMPLEMENTED is returned? I didn\u0027t see it in  KeyBlobUpgradeTest...",
+      "range": {
+        "startLine": 1639,
+        "startChar": 35,
+        "endLine": 1640,
+        "endChar": 31
+      },
+      "revId": "0610f0455ac34cc5dfa2d6b446b5574f60865fdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
