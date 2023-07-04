@@ -677,6 +677,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e778bbdc_2b690d94",
+        "filename": "audio/aidl/default/usb/StreamUsb.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-04T09:54:49Z",
+      "side": 1,
+      "message": "check? have to add todo in all modules (usb, submix, bluetooth). marking resolved for now.",
+      "parentUuid": "04fbe38f_7380d218",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 93,
+        "endChar": 16
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37868d61_aad1480e",
@@ -737,6 +761,30 @@
       "writtenOn": "2023-06-27T17:19:41Z",
       "side": 1,
       "message": "since this has been used multiple times (line#573), maybe worth abstract these into a method with meaning naming?",
+      "range": {
+        "startLine": 548,
+        "startChar": 6,
+        "endLine": 551,
+        "endChar": 75
+      },
+      "revId": "d99e2574319a6c04fd50c7d42be936d9c75c00e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "818abd37_089992d6",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 36
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-04T09:54:49Z",
+      "side": 1,
+      "message": "this is used in only one other place. Keeping it as-is as this helps in readability.",
+      "parentUuid": "25418834_5e3f1e27",
       "range": {
         "startLine": 548,
         "startChar": 6,
