@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25b7778a_d44d18b9",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 605,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-07-04T15:32:40Z",
+      "side": 1,
+      "message": "it seems weird to invert the meaning of the returned value form stream.bluetoothParametersUpdated() : why returning isOk() from a given stream changes the isOK state to false for all streams?",
+      "range": {
+        "startLine": 605,
+        "startChar": 63,
+        "endLine": 605,
+        "endChar": 75
+      },
+      "revId": "e8d79d503f3e66e92b0ab02690d75ae6c53fd0c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
