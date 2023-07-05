@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a216b3b_b2711978",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1933,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-07-05T13:30:51Z",
+      "side": 1,
+      "message": "Can we actually enforce that _only_ older implementations emit this?",
+      "range": {
+        "startLine": 1932,
+        "startChar": 90,
+        "endLine": 1933,
+        "endChar": 26
+      },
+      "revId": "b18c757eda464d72672951879039fcbb8efc9dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
