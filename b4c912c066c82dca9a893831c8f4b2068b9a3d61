@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2022fe57_74ad4656",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-05T20:50:01Z",
+      "side": 1,
+      "message": "Right, sorry I forgot that we hold BT objects using their interface type, not the implementation type.",
+      "parentUuid": "82ec8e9b_a04c08ac",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 28
+      },
+      "revId": "b4c912c066c82dca9a893831c8f4b2068b9a3d61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df0d7c18_1efaed45",
