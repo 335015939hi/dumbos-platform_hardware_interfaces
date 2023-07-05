@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3977080_23d4e6a0",
+        "filename": "radio/1.0/vts/functional/vts_test_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-07-05T19:26:58Z",
+      "side": 1,
+      "message": "please rename to `isLteConnected`",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 17
+      },
+      "revId": "e4b30070281c4ab27fcc2cc1d78a7c95f8787fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80dc7331_f6fc762e",
+        "filename": "radio/aidl/vts/radio_aidl_hal_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-07-05T19:26:58Z",
+      "side": 1,
+      "message": "please rename to `isLteConnected`",
+      "range": {
+        "startLine": 138,
+        "startChar": 5,
+        "endLine": 138,
+        "endChar": 17
+      },
+      "revId": "e4b30070281c4ab27fcc2cc1d78a7c95f8787fa7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
