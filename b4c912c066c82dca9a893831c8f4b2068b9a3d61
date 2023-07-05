@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cad2ef1f_175d4b5d",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-05T16:48:58Z",
+      "side": 1,
+      "message": "nit: Why do we have to do this via a local variable?",
+      "range": {
+        "startLine": 417,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 28
+      },
+      "revId": "b4c912c066c82dca9a893831c8f4b2068b9a3d61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df0d7c18_1efaed45",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-05T16:48:58Z",
+      "side": 1,
+      "message": "Should be one comment, not two.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 7
+      },
+      "revId": "b4c912c066c82dca9a893831c8f4b2068b9a3d61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33163973_c5a013b8",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-05T16:48:58Z",
+      "side": 1,
+      "message": "Please keep the list of helper functions sorted alphabetically.",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 52
+      },
+      "revId": "b4c912c066c82dca9a893831c8f4b2068b9a3d61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
