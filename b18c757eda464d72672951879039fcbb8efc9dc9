@@ -22,6 +22,30 @@
       },
       "revId": "b18c757eda464d72672951879039fcbb8efc9dc9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "584aebbe_4b3b0c44",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1933,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-07-05T13:34:18Z",
+      "side": 1,
+      "message": "We do check VSR \u003c\u003d T in the tip version of this change, but I didn\u0027t transcribe that here (as it doesn\u0027t seem worth checking VSR\u003c\u003dT on a T-specific branch).",
+      "parentUuid": "9a216b3b_b2711978",
+      "range": {
+        "startLine": 1932,
+        "startChar": 90,
+        "endLine": 1933,
+        "endChar": 26
+      },
+      "revId": "b18c757eda464d72672951879039fcbb8efc9dc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
