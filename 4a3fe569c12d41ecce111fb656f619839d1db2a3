@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b9859ce_db7bb827",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 47
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-05T20:39:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "898a6c5d_10811447",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 46
+      },
+      "revId": "4a3fe569c12d41ecce111fb656f619839d1db2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d3c2efe_8f5f5847",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-05T16:34:52Z",
       "side": 1,
       "message": "I would recommend making a local copy of `mBtDeviceProxies` and releasing the lock afterwards. Data transfer may take a long time, we don\u0027t want to be holding the lock during it.",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 41
+      },
+      "revId": "4a3fe569c12d41ecce111fb656f619839d1db2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "983a7578_37fe14ae",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 47
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-05T20:39:54Z",
+      "side": 1,
+      "message": "mikhail, this lock is serving 2 purposes, this is guarding mConnectedDevices list. While transfers are happening we dont intend to update device list. Once a transfer call is finished then lock can be acquired by binder thread, update the list and mark mIsInitialized to false to disallow further calls to proxy and wait for reinitialization.\n\nNot only that, while this lock is acquired further calls to proxy is not allowed. This keeps methods of DevicePortProxy thread safe. \n\nThis is to avoid multiple mutexes and worry about order of acquire/release.",
+      "parentUuid": "5d3c2efe_8f5f5847",
       "range": {
         "startLine": 123,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fae1630_b19ff7b4",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 47
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-05T20:39:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a71b128_ae6a9855",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 63
+      },
+      "revId": "4a3fe569c12d41ecce111fb656f619839d1db2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd435120_f15239a9",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-05T16:34:52Z",
       "side": 1,
       "message": "And here.",
+      "range": {
+        "startLine": 252,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 63
+      },
+      "revId": "4a3fe569c12d41ecce111fb656f619839d1db2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2271805b_7379e6a0",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 47
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-05T20:39:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd435120_f15239a9",
       "range": {
         "startLine": 252,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d57c0145_bab233e2",
+        "filename": "audio/aidl/default/include/core-impl/DevicePortProxy.h",
+        "patchSetId": 47
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-05T20:39:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff78dea4_8437eebb",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 31
+      },
+      "revId": "4a3fe569c12d41ecce111fb656f619839d1db2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "192ba30d_7770fef9",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-07-05T16:34:52Z",
       "side": 1,
       "message": "I don\u0027t think we need to override `updateMetadata` here and in `StreamOut`. The implementations provided by the base class will call into `StreamBluetooth::updateMetadataCommon`. That\u0027s the method we actually want to override. It should do what `StreamBluetooth::updateSink/SourceMetadata` are currently doing.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 100
+      },
+      "revId": "4a3fe569c12d41ecce111fb656f619839d1db2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09cd3d8a_04f6ada3",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 47
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-05T20:39:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "192ba30d_7770fef9",
       "range": {
         "startLine": 85,
         "startChar": 0,
