@@ -16,6 +16,69 @@
       "message": "The last build error is completely unrelated to the CL and seems to be a problem with that particular build configuration. Retrying.",
       "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "147261de_aaf86bba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-05T19:10:17Z",
+      "side": 1,
+      "message": "Regarding the misuse of port id, I think this has happened because we also lack a VTS test case specific to the use of remote submix: as a pipe between two mix ports. We had some unit tests for the legacy module: https://cs.android.com/android/platform/superproject/main/+/main:hardware/libhardware/modules/audio_remote_submix/tests/remote_submix_tests.cpp\n\nI think we need to re-implement critical scenarios from that test as VTS specific to thr remote submix module.",
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73d629c8_79be3412",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-05T19:10:17Z",
+      "side": 1,
+      "message": "Apologies, I missed this important detail during my reviews. Since each port configuration has a unique ID, and different ports are used for remote submix input and output, matching between the ends of the pipe needs to be done using the device address, not port ID.\n\nIn the legacy implementation, the framework was simply opening input and output streams specifying the device address. In the AIDL, the framework must first call `setAudioPortConfig` to obtain a port config ID which is then passed to `openInput/OutputStream` method.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 65
+      },
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5464b36_5563ba37",
+        "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-05T19:10:17Z",
+      "side": 1,
+      "message": "A question from Eric:\n\ncan you explain the new use of mStreamOutStandbyTransition?\nIn previous remote submix implementation this was used to detect if the output standby state had changed since the last time exitStandby() was called.\nThe new implementation does not seem to do this: here we systematically toggle it even if we were already in standby when standby was called. shouldn\u0027t we test if (!mStreamOutStandby) and set it to true?",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 67
+      },
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
