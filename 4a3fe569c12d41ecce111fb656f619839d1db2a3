@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b52ad68_c4be0dc8",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 47
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-05T20:52:18Z",
+      "side": 1,
+      "message": "Ah, OK, so we lock access to proxy on purpose.",
+      "parentUuid": "983a7578_37fe14ae",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 41
+      },
+      "revId": "4a3fe569c12d41ecce111fb656f619839d1db2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a71b128_ae6a9855",
