@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "898a6c5d_10811447",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 47
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-05T18:22:48Z",
+      "side": 1,
+      "message": "Are there any problems with this one? Its profiles need to be populated upon device connection by the override of `Module::populateConnectedDevicePort`, see for example the USB implementation:  https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/usb/ModuleUsb.cpp;l\u003d124;drc\u003d57f0dcf78d2a0ecf3dc44a43fbeb9dd116fbcab9\n\nSince the legacy BT HAL did not seem to implement `getAudioPort`, I suppose we can use their hardcoded configuration from here: https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Bluetooth/system/audio_hal_interface/hidl/hearing_aid_software_encoding_hidl.cc;l\u003d135;drc\u003d1740cdd7fac9f5923f5dd2a763ce11ef04b7820a",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 532,
+        "endChar": 46
+      },
+      "revId": "4a3fe569c12d41ecce111fb656f619839d1db2a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5d3c2efe_8f5f5847",
         "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
         "patchSetId": 47
