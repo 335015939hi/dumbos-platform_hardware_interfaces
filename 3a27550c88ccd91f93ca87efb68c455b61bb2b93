@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5038f58_469937f5",
+        "filename": "radio/1.0/vts/functional/vts_test_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-07-05T19:29:36Z",
+      "side": 1,
+      "message": "unnecessary extra line",
+      "revId": "3a27550c88ccd91f93ca87efb68c455b61bb2b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6d9c94f_866ea383",
+        "filename": "radio/1.0/vts/functional/vts_test_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-07-05T19:29:36Z",
+      "side": 1,
+      "message": "rename to `isLteConnected`",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 17
+      },
+      "revId": "3a27550c88ccd91f93ca87efb68c455b61bb2b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f4d659d_433b1d12",
+        "filename": "radio/1.0/vts/functional/vts_test_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-07-05T19:29:36Z",
+      "side": 1,
+      "message": "move to below line 106\nwhere it is now, it cuts the documentation for RadioResponseWaiter",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 20
+      },
+      "revId": "3a27550c88ccd91f93ca87efb68c455b61bb2b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "170465e7_5671fb7e",
+        "filename": "radio/aidl/vts/radio_aidl_hal_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-07-05T19:29:36Z",
+      "side": 1,
+      "message": "move to below line 130\nwhere it is now, it cuts the documentation for RadioServiceTest",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 20
+      },
+      "revId": "3a27550c88ccd91f93ca87efb68c455b61bb2b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ead88205_33103a16",
+        "filename": "radio/aidl/vts/radio_aidl_hal_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-07-05T19:29:36Z",
+      "side": 1,
+      "message": "rename to `isLteConnected`",
+      "range": {
+        "startLine": 138,
+        "startChar": 5,
+        "endLine": 138,
+        "endChar": 17
+      },
+      "revId": "3a27550c88ccd91f93ca87efb68c455b61bb2b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
