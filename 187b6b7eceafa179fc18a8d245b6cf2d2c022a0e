@@ -70,6 +70,30 @@
       },
       "revId": "187b6b7eceafa179fc18a8d245b6cf2d2c022a0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac29905_551d86e9",
+        "filename": "audio/aidl/vts/VtsHalAECTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-06T16:49:04Z",
+      "side": 0,
+      "message": "Thanks! I support your idea then.",
+      "parentUuid": "1b463e8a_8d042eae",
+      "range": {
+        "startLine": 68,
+        "startChar": 24,
+        "endLine": 68,
+        "endChar": 47
+      },
+      "revId": "187b6b7eceafa179fc18a8d245b6cf2d2c022a0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
