@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e651040_8a5206fb",
+        "filename": "audio/aidl/vts/VtsHalAECTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-07-06T01:36:25Z",
+      "side": 0,
+      "message": "Thanks for submit the CL!\nRemove the default parameter is good for effect implementations which doesn\u0027t support these parameters. But I\u0027m thinking maybe we don\u0027t want to just remove default parameters as some other effects do support these parameters at open time and we want to verify this.\n\nTo support both cases, we can have `getDefaultParamSpecific` return `std::optional\u003cParameter::Specific\u003e`, and use `isParameterValid` (see line#90) to decide if we return a valid `Parameter::Specific` or `std::nullopt`.\n\nWDYT?",
+      "range": {
+        "startLine": 68,
+        "startChar": 24,
+        "endLine": 68,
+        "endChar": 47
+      },
+      "revId": "187b6b7eceafa179fc18a8d245b6cf2d2c022a0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
