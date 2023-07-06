@@ -22,6 +22,30 @@
       },
       "revId": "187b6b7eceafa179fc18a8d245b6cf2d2c022a0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f59adbac_eed88f95",
+        "filename": "audio/aidl/vts/VtsHalAECTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-06T16:13:16Z",
+      "side": 0,
+      "message": "Shunkai, could you please clarify how to find out whether the implementation supports the \"default specific\" parameter? `isParameterValid` check seems to be based on the corresponding Range, which is defined in the AIDL, thus it\u0027s the same for all implementations.",
+      "parentUuid": "4e651040_8a5206fb",
+      "range": {
+        "startLine": 68,
+        "startChar": 24,
+        "endLine": 68,
+        "endChar": 47
+      },
+      "revId": "187b6b7eceafa179fc18a8d245b6cf2d2c022a0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
