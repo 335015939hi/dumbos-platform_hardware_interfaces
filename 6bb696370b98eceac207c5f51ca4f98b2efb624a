@@ -60,6 +60,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03c9ad1f_38fa5288",
+        "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-07-06T22:05:18Z",
+      "side": 1,
+      "message": "Naive drive-by: Do we want to pass `streamConfig` by const reference here, instead of as a copy?\n\nThat is, `const AudioConfig\u0026 streamConfig`, adding the `\u0026`.",
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38b22d32_4125c688",
+        "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-07-06T22:05:18Z",
+      "side": 1,
+      "message": "Same question about const reference.",
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10900fb4_37fbcbc5",
+        "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-07-06T22:05:18Z",
+      "side": 1,
+      "message": "Same question about const reference.",
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5464b36_5563ba37",
         "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
         "patchSetId": 20
