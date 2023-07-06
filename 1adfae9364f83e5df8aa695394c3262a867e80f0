@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cf07521_9c8e9ec9",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-07-06T22:11:26Z",
+      "side": 0,
+      "message": "Naive drive-by: Note that this revert now has us potentially using the `has_died_` field uninitialized.  If we don\u0027t plan on relanding the previous CL, perhaps we\u0027d want to consider at least relanding this line.",
+      "revId": "1adfae9364f83e5df8aa695394c3262a867e80f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
