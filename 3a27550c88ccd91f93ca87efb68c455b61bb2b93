@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4039110_d545e52f",
+        "filename": "radio/1.0/vts/functional/vts_test_util.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2023-07-06T02:12:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5038f58_469937f5",
+      "revId": "3a27550c88ccd91f93ca87efb68c455b61bb2b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6d9c94f_866ea383",
@@ -64,6 +82,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95b87f54_f376d36d",
+        "filename": "radio/1.0/vts/functional/vts_test_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2023-07-06T02:12:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6d9c94f_866ea383",
+      "range": {
+        "startLine": 115,
+        "startChar": 5,
+        "endLine": 115,
+        "endChar": 17
+      },
+      "revId": "3a27550c88ccd91f93ca87efb68c455b61bb2b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbd60864_e5a1fe4c",
+        "filename": "radio/1.0/vts/functional/vts_test_util.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2023-07-06T02:12:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f4d659d_433b1d12",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 20
+      },
+      "revId": "3a27550c88ccd91f93ca87efb68c455b61bb2b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "170465e7_5671fb7e",
@@ -100,6 +166,54 @@
       "writtenOn": "2023-07-05T19:29:36Z",
       "side": 1,
       "message": "rename to `isLteConnected`",
+      "range": {
+        "startLine": 138,
+        "startChar": 5,
+        "endLine": 138,
+        "endChar": 17
+      },
+      "revId": "3a27550c88ccd91f93ca87efb68c455b61bb2b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fef3849_ea1433e2",
+        "filename": "radio/aidl/vts/radio_aidl_hal_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2023-07-06T02:12:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "170465e7_5671fb7e",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 20
+      },
+      "revId": "3a27550c88ccd91f93ca87efb68c455b61bb2b93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df830c6f_065cf205",
+        "filename": "radio/aidl/vts/radio_aidl_hal_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2023-07-06T02:12:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ead88205_33103a16",
       "range": {
         "startLine": 138,
         "startChar": 5,
