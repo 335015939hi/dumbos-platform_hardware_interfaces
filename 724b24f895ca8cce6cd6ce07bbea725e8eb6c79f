@@ -16,6 +16,24 @@
       "message": "Hey Jiabin, I think now you should have your +2 CR right back.",
       "revId": "724b24f895ca8cce6cd6ce07bbea725e8eb6c79f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19121cc1_6d93f00e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-07-06T23:13:57Z",
+      "side": 1,
+      "message": "+2ed",
+      "parentUuid": "e4523fd9_fa06270a",
+      "revId": "724b24f895ca8cce6cd6ce07bbea725e8eb6c79f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
