@@ -46,6 +46,30 @@
       },
       "revId": "187b6b7eceafa179fc18a8d245b6cf2d2c022a0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b463e8a_8d042eae",
+        "filename": "audio/aidl/vts/VtsHalAECTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-07-06T16:33:20Z",
+      "side": 0,
+      "message": "The second parameter of `isParameterValid` takes in effect descriptor, each effect implementation report their capability in `descriptor.capability.range`.\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/vts/EffectHelper.h;l\u003d234?q\u003disParameterValid\u0026sq\u003d",
+      "parentUuid": "f59adbac_eed88f95",
+      "range": {
+        "startLine": 68,
+        "startChar": 24,
+        "endLine": 68,
+        "endChar": 47
+      },
+      "revId": "187b6b7eceafa179fc18a8d245b6cf2d2c022a0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
