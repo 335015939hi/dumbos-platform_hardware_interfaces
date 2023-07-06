@@ -2219,6 +2219,7 @@ void device_id_attestation_check_acceptable_error(Tag tag, const ErrorCode& resu
     } else if (result == ErrorCode::INVALID_TAG) {
         // Depending on the situation, other error codes may be acceptable.  First, allow older
         // implementations to use INVALID_TAG.
+<<<<<<< HEAD   (3a7d2f [automerger skipped] Merge "Add a new utility class wifi_hid)
         ASSERT_FALSE(get_vsr_api_level() > __ANDROID_API_T__)
                 << "It is a specification violation for INVALID_TAG to be returned due to ID "
                 << "mismatch in a Device ID Attestation call. INVALID_TAG is only intended to "
@@ -2229,6 +2230,12 @@ void device_id_attestation_check_acceptable_error(Tag tag, const ErrorCode& resu
         // ATTESTATION_IDS_NOT_PROVISIONED in this case.
         ASSERT_TRUE((tag == TAG_ATTESTATION_ID_IMEI || tag == TAG_ATTESTATION_ID_MEID ||
                      tag == TAG_ATTESTATION_ID_SECOND_IMEI))
+=======
+    } else if (result == ErrorCode::ATTESTATION_IDS_NOT_PROVISIONED) {
+        // If the device is not a phone, it will not have IMEI/MEID values available.  Allow
+        // ATTESTATION_IDS_NOT_PROVISIONED in this case.
+        ASSERT_TRUE((tag == TAG_ATTESTATION_ID_IMEI || tag == TAG_ATTESTATION_ID_MEID))
+>>>>>>> BRANCH (b18c75 [RESTRICT AUTOMERGE] Allow extra error code in device ID att)
                 << "incorrect error code on attestation ID mismatch";
     } else {
         ADD_FAILURE() << "Error code " << result
