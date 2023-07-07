@@ -16,6 +16,24 @@
       "message": "Please add `Bug:` and `Test:` fields.",
       "revId": "460a526b677dce316c2d1290c7a776ee179139d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0840132_a928eb79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2023-07-07T09:14:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2bfdbb6_3e7432fd",
+      "revId": "460a526b677dce316c2d1290c7a776ee179139d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
