@@ -860,7 +860,9 @@ status_t HidlUtils::audioTransportsFromHal(const struct audio_port_v7& halPort, 
     }
     for (size_t i = 0; i < halPort.num_extra_audio_descriptors; ++i) {
         switch (halPort.extra_audio_descriptors[i].standard) {
-            case AUDIO_STANDARD_EDID: {
+            case AUDIO_STANDARD_EDID:
+            case AUDIO_STANDARD_SADB:
+            case AUDIO_STANDARD_VSADB: {
                 const struct audio_extra_audio_descriptor* extraAudioDescriptor =
                         &halPort.extra_audio_descriptors[i];
                 if (extraAudioDescriptor->descriptor_length <= EXTRA_AUDIO_DESCRIPTOR_SIZE) {
