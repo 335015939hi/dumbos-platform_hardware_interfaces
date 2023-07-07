@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "140e0867_473cdeb8",
+        "filename": "threadnetwork/aidl/default/thread_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2023-07-07T01:39:24Z",
+      "side": 1,
+      "message": "Do not end log with punctuations in logs.",
+      "revId": "9df45374b45035f4d49562bd4056486a7011b153",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6b7c978_83ec849a",
+        "filename": "threadnetwork/aidl/default/thread_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2023-07-07T01:39:24Z",
+      "side": 1,
+      "message": "\"Failed to open IThreadChip: %s\"",
+      "revId": "9df45374b45035f4d49562bd4056486a7011b153",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7b0b3d7_1fff2100",
+        "filename": "threadnetwork/aidl/default/thread_chip.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2023-07-07T01:39:24Z",
+      "side": 1,
+      "message": "\"Close IThreadChip failed, error: %s\" -\u003e \"Failed to close IThreadChip: %s\"",
+      "revId": "9df45374b45035f4d49562bd4056486a7011b153",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
