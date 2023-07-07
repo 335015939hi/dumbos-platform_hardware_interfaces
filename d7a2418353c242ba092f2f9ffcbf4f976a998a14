@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d8b9cca_451ec71c",
+        "filename": "audio/aidl/vts/VtsHalAECTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-07T15:38:33Z",
+      "side": 1,
+      "message": "nit: Can use `auto` here.",
+      "range": {
+        "startLine": 54,
+        "startChar": 8,
+        "endLine": 54,
+        "endChar": 42
+      },
+      "revId": "d7a2418353c242ba092f2f9ffcbf4f976a998a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ddca92_47a2bbc3",
+        "filename": "audio/aidl/vts/VtsHalAECTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-07T15:38:33Z",
+      "side": 1,
+      "message": "The line is too long. There should be automatic formatting applied as part of pre-upload hooks. Did you run them?",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 101
+      },
+      "revId": "d7a2418353c242ba092f2f9ffcbf4f976a998a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
