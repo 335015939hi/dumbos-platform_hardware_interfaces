@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78a49bba_231639dd",
+        "filename": "threadnetwork/aidl/android/hardware/threadnetwork/IThreadChip.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-07-07T15:14:57Z",
+      "side": 1,
+      "message": "if it doesn\u0027t support hardware reset, do we still need a way to reset the HAL internal state?",
+      "range": {
+        "startLine": 67,
+        "startChar": 61,
+        "endLine": 67,
+        "endChar": 100
+      },
+      "revId": "a6165dcccf0096f8363b4b64b0f5332267eea330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
