@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d553103_daea2529",
+        "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/BufferDescriptorInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-07-07T16:46:49Z",
+      "side": 1,
+      "message": "I don\u0027t think we should specify this adjective necessarily, because it\u0027s not guaranteed to be null-terminated. The above note covers it.",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 48
+      },
+      "revId": "735206b1a53c8af09e0061773852d10a63c65d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
