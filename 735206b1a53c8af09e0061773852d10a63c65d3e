@@ -22,6 +22,30 @@
       },
       "revId": "735206b1a53c8af09e0061773852d10a63c65d3e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c2385ed_7e2f67a6",
+        "filename": "graphics/allocator/aidl/android/hardware/graphics/allocator/BufferDescriptorInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2023-07-07T18:02:57Z",
+      "side": 1,
+      "message": "I think it\u0027s still useful to tell clients what they should be doing if they actually want their name to show up correctly in places. The note below only guards against out-of-bounds access.",
+      "parentUuid": "5d553103_daea2529",
+      "range": {
+        "startLine": 26,
+        "startChar": 32,
+        "endLine": 26,
+        "endChar": 48
+      },
+      "revId": "735206b1a53c8af09e0061773852d10a63c65d3e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
