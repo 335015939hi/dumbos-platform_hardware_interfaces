@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37d4f115_32df0c40",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-07-10T19:44:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1830c2c1_74504b65",
+      "range": {
+        "startLine": 51,
+        "startChar": 39,
+        "endLine": 51,
+        "endChar": 43
+      },
+      "revId": "f683321a9ca4f4717e8b78d102e47235c874d6f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92b0175e_ade23648",
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "No this is not tested 😂\n\nwe can add one later",
       "parentUuid": "92b0175e_ade23648",
+      "range": {
+        "startLine": 68,
+        "startChar": 12,
+        "endLine": 70,
+        "endChar": 13
+      },
+      "revId": "f683321a9ca4f4717e8b78d102e47235c874d6f7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49f8778e_97b7de9b",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-07-10T19:44:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c211b849_7a4b54bf",
       "range": {
         "startLine": 68,
         "startChar": 12,
