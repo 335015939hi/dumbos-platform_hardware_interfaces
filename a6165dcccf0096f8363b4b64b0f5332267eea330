@@ -22,6 +22,30 @@
       },
       "revId": "a6165dcccf0096f8363b4b64b0f5332267eea330",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07c76ebb_fd604f98",
+        "filename": "threadnetwork/aidl/android/hardware/threadnetwork/IThreadChip.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2023-07-10T02:55:08Z",
+      "side": 1,
+      "message": "Except the hardware reset, Thread stack supports the software reset. The HAL internal state can be reset by the software reset.",
+      "parentUuid": "78a49bba_231639dd",
+      "range": {
+        "startLine": 67,
+        "startChar": 61,
+        "endLine": 67,
+        "endChar": 100
+      },
+      "revId": "a6165dcccf0096f8363b4b64b0f5332267eea330",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
