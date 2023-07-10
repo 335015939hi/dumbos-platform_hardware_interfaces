@@ -105,7 +105,7 @@ This document uses:
 *   AES-GCM for all encryption;
 *   SHA-256 / SHA-384 / SHA-512 for message digesting;
 *   HMAC with a supported message digest for all MACing; and
-*   HKDF with a supported message digest for all key derivation.
+*   CKDF / HKDF with a supported message digest for all key derivation.
 
 We believe that Curve25519 offers the best tradeoff in terms of security,
 efficiency and global trustworthiness, and that it is now sufficiently
@@ -182,7 +182,7 @@ must also use SHA-256.
 * Hash algorithms (digests can be encoded with their natural size and do not
   need to be the 64-bytes specified by the Open Profile for DICE):
   * SHA-256 / SHA-384 / SHA-512
-* HKDF with a supported message digest for all key derivation
+* CKDF / HKDF with a supported message digest for all key derivation
 
 #### Mode
 
