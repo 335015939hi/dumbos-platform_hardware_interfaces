@@ -93,6 +93,30 @@
       },
       "revId": "d7a2418353c242ba092f2f9ffcbf4f976a998a14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25de480e_51900f34",
+        "filename": "audio/aidl/vts/VtsHalAECTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-10T16:05:38Z",
+      "side": 1,
+      "message": "Correct, the hook for clang-formatting changed code is part of repo\u0027s upload hooks: https://cs.android.com/android/platform/superproject/+/master:tools/repohooks/\n\nThanks for applying formatting!",
+      "parentUuid": "a8078fb4_dc9280eb",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 101
+      },
+      "revId": "d7a2418353c242ba092f2f9ffcbf4f976a998a14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
