@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85987068_f96bc8ea",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IDmaAeadOperation.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2021475
+      },
+      "writtenOn": "2023-07-10T09:51:47Z",
+      "side": 1,
+      "message": "Wrong documentation",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 63
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb415ee_dcd55751",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IDmaAeadOperation.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 2021475
+      },
+      "writtenOn": "2023-07-10T09:51:47Z",
+      "side": 1,
+      "message": "How are the DMA buffers passed to update?",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc98d7cd_d3f8eee7",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IDmaAeadOperation.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 2021475
+      },
+      "writtenOn": "2023-07-10T09:51:47Z",
+      "side": 1,
+      "message": "Wrong documentation",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 7
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6e5948e7_9f065514",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IDmaEmittingOperation.aidl",
         "patchSetId": 32
@@ -42,6 +111,29 @@
         "startChar": 7,
         "endLine": 34,
         "endChar": 26
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96989ab4_eae2792a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyEcOperations.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 2021475
+      },
+      "writtenOn": "2023-07-10T09:51:47Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 18
       },
       "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
