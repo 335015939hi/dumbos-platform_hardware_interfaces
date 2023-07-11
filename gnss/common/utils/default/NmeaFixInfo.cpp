@@ -196,6 +196,7 @@ NmeaFixInfo& NmeaFixInfo::operator=(const NmeaFixInfo& rhs) {
  * Currently version only cares about $GPGGA and $GPRMC records. but we
  * can easily extend to other types supported by NMEA if needed.
  */
+#if 0
 std::unique_ptr<V2_0::GnssLocation> NmeaFixInfo::getLocationFromInputStr(
         const std::string& inputStr) {
     std::vector<std::string> nmeaRecords;
@@ -303,7 +304,7 @@ std::unique_ptr<V2_0::GnssLocation> NmeaFixInfo::toGnssLocation() const {
 
     return std::make_unique<V2_0::GnssLocation>(locationV2);
 }
-
+#endif
 }  // namespace common
 }  // namespace gnss
 }  // namespace hardware
