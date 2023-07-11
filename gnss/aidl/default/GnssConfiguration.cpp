@@ -37,18 +37,6 @@ ndk::ScopedAStatus GnssConfiguration::setBlocklist(const vector<BlocklistedSourc
     return ndk::ScopedAStatus::ok();
 }
 
-bool GnssConfiguration::isBlocklistedV2_1(const GnssSvInfoV2_1& gnssSvInfo) const {
-    std::unique_lock<std::recursive_mutex> lock(mMutex);
-    if (mBlocklistedConstellationSet.find(static_cast<GnssConstellationType>(
-                gnssSvInfo.v2_0.constellation)) != mBlocklistedConstellationSet.end()) {
-        return true;
-    }
-    BlocklistedSource source = {
-            .constellation = static_cast<GnssConstellationType>(gnssSvInfo.v2_0.constellation),
-            .svid = gnssSvInfo.v2_0.v1_0.svid};
-    return (mBlocklistedSourceSet.find(source) != mBlocklistedSourceSet.end());
-}
-
 bool GnssConfiguration::isBlocklisted(const IGnssCallback::GnssSvInfo& gnssSvInfo) const {
     std::unique_lock<std::recursive_mutex> lock(mMutex);
     if (mBlocklistedConstellationSet.find(gnssSvInfo.constellation) !=

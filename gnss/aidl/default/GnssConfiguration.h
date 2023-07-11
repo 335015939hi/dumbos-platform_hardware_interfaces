@@ -18,7 +18,6 @@
 
 #include <aidl/android/hardware/gnss/BnGnssCallback.h>
 #include <aidl/android/hardware/gnss/BnGnssConfiguration.h>
-#include <android/hardware/gnss/2.1/IGnssCallback.h>
 #include <mutex>
 #include <unordered_set>
 #include <vector>
@@ -37,7 +36,6 @@ struct BlocklistedSourceEqual {
     }
 };
 
-using GnssSvInfoV2_1 = ::android::hardware::gnss::V2_1::IGnssCallback::GnssSvInfo;
 using std::vector;
 using BlocklistedSourceSet =
         std::unordered_set<BlocklistedSource, BlocklistedSourceHash, BlocklistedSourceEqual>;
@@ -62,7 +60,6 @@ struct GnssConfiguration : public BnGnssConfiguration {
 
     ndk::ScopedAStatus setBlocklist(const vector<BlocklistedSource>& blocklist) override;
 
-    bool isBlocklistedV2_1(const GnssSvInfoV2_1& gnssSvInfo) const;
     bool isBlocklisted(const IGnssCallback::GnssSvInfo& gnssSvInfo) const;
 
   private:
