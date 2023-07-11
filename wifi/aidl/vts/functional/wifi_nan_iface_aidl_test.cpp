@@ -123,7 +123,11 @@ class WifiNanIfaceAidlTest : public testing::TestWithParam<std::string> {
     // Used as a mechanism to inform the test about data/event callbacks.
     inline void notify(CallbackType callbackType) {
         std::unique_lock<std::mutex> lock(mtx_);
+<<<<<<< HEAD   (c2cba5 Tag vts module VtsHalSecureElementTargetTest with secure ele)
         callback_event_bitmap_ |= (UINT64_C(0x1) << callbackType);
+=======
+        callback_event_bitmap_ |= (0x1 << callbackType);
+>>>>>>> CHANGE (3f7bfd Represent NAN callback events as a bitmap to better handle o)
         cv_.notify_one();
     }
 
@@ -143,7 +147,11 @@ class WifiNanIfaceAidlTest : public testing::TestWithParam<std::string> {
     }
 
     inline bool receivedCallback(CallbackType waitForCallbackType) {
+<<<<<<< HEAD   (c2cba5 Tag vts module VtsHalSecureElementTargetTest with secure ele)
         return callback_event_bitmap_ & (UINT64_C(0x1) << waitForCallbackType);
+=======
+        return callback_event_bitmap_ & (0x1 << waitForCallbackType);
+>>>>>>> CHANGE (3f7bfd Represent NAN callback events as a bitmap to better handle o)
     }
 
     class WifiNanIfaceEventCallback : public BnWifiNanIfaceEventCallback {
