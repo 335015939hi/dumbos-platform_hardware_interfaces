@@ -5198,8 +5198,13 @@ TEST_P(EncryptionOperationsTest, RsaOaepSuccess) {
 
         EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
         string result;
-        EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
-        EXPECT_EQ(0U, result.size());
+        auto error = Finish(ciphertext1, &result);
+        // KeyMint implementations may return an OK error code, even if the decryption was
+        // unsuccessful, to avoid a James Manger's attack. This is because returning an error code
+        // could give an attacker information about the padding, which could be used to launch the
+        // attack.
+        EXPECT_TRUE(error == ErrorCode::UNKNOWN_ERROR || error == ErrorCode::OK);
+        EXPECT_NE(message, result);
     }
 }
 
@@ -5321,8 +5326,13 @@ TEST_P(EncryptionOperationsTest, RsaOaepWithMGFDigestSuccess) {
 
         EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
         string result;
-        EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
-        EXPECT_EQ(0U, result.size());
+        auto error = Finish(ciphertext1, &result);
+        // KeyMint implementations may return an OK error code, even if the decryption was
+        // unsuccessful, to avoid a James Manger's attack. This is because returning an error code
+        // could give an attacker information about the padding, which could be used to launch the
+        // attack.
+        EXPECT_TRUE(error == ErrorCode::UNKNOWN_ERROR || error == ErrorCode::OK);
+        EXPECT_NE(message, result);
     }
 }
 
@@ -5362,8 +5372,12 @@ TEST_P(EncryptionOperationsTest, RsaOaepMGFDigestDefaultSuccess) {
 
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
     string result;
-    EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext, &result));
-    EXPECT_EQ(0U, result.size());
+    auto error = Finish(ciphertext, &result);
+    // KeyMint implementations may return an OK error code, even if the decryption was unsuccessful,
+    // to avoid a James Manger's attack. This is because returning an error code could give an
+    // attacker information about the padding, which could be used to launch the attack.
+    EXPECT_TRUE(error == ErrorCode::UNKNOWN_ERROR || error == ErrorCode::OK);
+    EXPECT_NE(message, result);
 }
 
 /*
@@ -5483,8 +5497,12 @@ TEST_P(EncryptionOperationsTest, RsaPkcs1Success) {
 
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
     string result;
-    EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
-    EXPECT_EQ(0U, result.size());
+    auto error = Finish(ciphertext1, &result);
+    // KeyMint implementations may return an OK error code, even if the decryption was unsuccessful,
+    // to avoid a Bleichenbacher attack. This is because returning an error code could give an
+    // attacker information about the padding, which could be used to launch the attack.
+    EXPECT_TRUE(error == ErrorCode::UNKNOWN_ERROR || error == ErrorCode::OK);
+    EXPECT_NE(message, result);
 }
 
 /*
