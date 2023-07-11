@@ -19,7 +19,7 @@ LOCAL_PATH := $(call my-dir)
 BUILD_FRAMEWORK_COMPATIBILITY_MATRIX := $(LOCAL_PATH)/compatibility_matrix.mk
 my_empty_manifest := $(LOCAL_PATH)/manifest.empty.xml
 
-# System Compatibility Matrix (common to all FCM versions)
+# Device-specific Compatibility Matrix on /system (common to all FCM versions)
 
 include $(CLEAR_VARS)
 include $(LOCAL_PATH)/clear_vars.mk
@@ -51,6 +51,7 @@ $(my_gen_check_manifest): $(my_empty_manifest) $(HOST_OUT_EXECUTABLES)/assemble_
 
 LOCAL_GEN_FILE_DEPENDENCIES += $(my_gen_check_manifest)
 LOCAL_ASSEMBLE_VINTF_FLAGS += -c "$(my_gen_check_manifest)"
+LOCAL_ASSEMBLE_VINTF_FLAGS += --core-hals disallow
 
 my_gen_check_manifest :=
 
@@ -93,6 +94,7 @@ LOCAL_GENERATED_SOURCES := $(DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE)
 # by checking it against an empty manifest.
 LOCAL_GEN_FILE_DEPENDENCIES += $(my_empty_manifest)
 LOCAL_ASSEMBLE_VINTF_FLAGS += -c "$(my_empty_manifest)"
+LOCAL_ASSEMBLE_VINTF_FLAGS += --core-hals disallow
 
 my_framework_matrix_deps := $(LOCAL_MODULE)
 
