@@ -15,6 +15,8 @@
  */
 #include "DeviceFileReader.h"
 
+#include <cstring>
+
 namespace android {
 namespace hardware {
 namespace gnss {

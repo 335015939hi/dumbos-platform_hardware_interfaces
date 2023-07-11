@@ -19,8 +19,6 @@
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
-#include <hidl/HidlSupport.h>
-#include <hidl/HidlTransportSupport.h>
 #include <log/log.h>
 #include <pthread.h>
 #include "Gnss.h"
@@ -28,20 +26,19 @@
 using aidl::android::hardware::gnss::Gnss;
 using ::android::OK;
 using ::android::sp;
-using ::android::hardware::configureRpcThreadpool;
-using ::android::hardware::joinRpcThreadpool;
 
 int main() {
-    ABinderProcess_setThreadPoolMaxThreadCount(1);
-    ABinderProcess_startThreadPool();
+    // ABinderProcess_setThreadPoolMaxThreadCount(1);
+    // ABinderProcess_startThreadPool();
 
     std::shared_ptr<Gnss> gnssAidl = ndk::SharedRefBase::make<Gnss>();
     const std::string instance = std::string() + Gnss::descriptor + "/default";
-    binder_status_t status =
-            AServiceManager_addService(gnssAidl->asBinder().get(), instance.c_str());
-    CHECK_EQ(status, STATUS_OK);
+    // TODO
+    // binder_status_t status =
+    //        AServiceManager_addService(gnssAidl->asBinder().get(), instance.c_str());
+    // CHECK_EQ(status, STATUS_OK);
 
-    ABinderProcess_joinThreadPool();
+    // ABinderProcess_joinThreadPool();
 
     return EXIT_FAILURE;  // should not reach
 }

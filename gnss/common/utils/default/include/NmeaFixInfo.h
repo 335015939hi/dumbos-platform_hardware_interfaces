@@ -17,9 +17,6 @@
 #pragma once
 
 #include <Constants.h>
-#include <android/hardware/gnss/1.0/IGnss.h>
-#include <android/hardware/gnss/2.0/IGnss.h>
-#include <hidl/Status.h>
 #include <ctime>
 #include <string>
 #include "aidl/android/hardware/gnss/IGnss.h"
@@ -45,7 +42,6 @@ class NmeaFixInfo {
     int64_t timestamp;
 
   public:
-    static std::unique_ptr<V2_0::GnssLocation> getLocationFromInputStr(const std::string& inputStr);
     static std::unique_ptr<aidl::android::hardware::gnss::GnssLocation> getAidlLocationFromInputStr(
             const std::string& inputStr);
 
@@ -58,7 +54,6 @@ class NmeaFixInfo {
     NmeaFixInfo();
     void parseGGALine(const std::vector<std::string>& sentenceValues);
     void parseRMCLine(const std::vector<std::string>& sentenceValues);
-    std::unique_ptr<V2_0::GnssLocation> toGnssLocation() const;
 
     // Getters
     float getAltitudeMeters() const;
