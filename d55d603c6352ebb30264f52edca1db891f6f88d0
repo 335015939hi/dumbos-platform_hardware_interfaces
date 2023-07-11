@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1beeb71_7f96c418",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IDmaAeadOperation.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85987068_f96bc8ea",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 63
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fb415ee_dcd55751",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-10T09:51:47Z",
       "side": 1,
       "message": "How are the DMA buffers passed to update?",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "669d7d92_ab8131fb",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IDmaAeadOperation.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "DMAs buffers are passed before the streaming operation is set (for this function that would be `begin_dma_aead` on `IHwCryptoKeySymmetricOperations.aidl`), and then update would just use the buffers specified at that point.",
+      "parentUuid": "3fb415ee_dcd55751",
       "range": {
         "startLine": 40,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8430d48_5a4b1871",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IDmaAeadOperation.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc98d7cd_d3f8eee7",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 7
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e5948e7_9f065514",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-03T17:29:08Z",
       "side": 1,
       "message": "Typo",
+      "range": {
+        "startLine": 23,
+        "startChar": 7,
+        "endLine": 23,
+        "endChar": 13
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e586661_2afe5b11",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IDmaEmittingOperation.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e5948e7_9f065514",
       "range": {
         "startLine": 23,
         "startChar": 7,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79e92f6_106cd355",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IDmaEmittingOperation.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6506e4a7_67697fc3",
+      "range": {
+        "startLine": 34,
+        "startChar": 7,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96989ab4_eae2792a",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "768da7bf_ef251674",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyEcOperations.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96989ab4_eae2792a",
+      "range": {
+        "startLine": 30,
+        "startChar": 12,
+        "endLine": 30,
+        "endChar": 18
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc30afbf_72078d7b",
@@ -152,6 +296,30 @@
       "writtenOn": "2023-07-03T17:29:08Z",
       "side": 1,
       "message": "Typo",
+      "range": {
+        "startLine": 43,
+        "startChar": 15,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "279f4c11_41c31696",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc30afbf_72078d7b",
       "range": {
         "startLine": 43,
         "startChar": 15,
@@ -187,6 +355,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9e5352d8_78884b4a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "The current usecase is to access keys that should only be accessible by specific entities (KeyMint\u0027s Key Agreement Key is an example). That being said, we would like to remove this function from the specification; so we are exploring ways of implementing the currently needed functionality in other ways.",
+      "parentUuid": "941db4db_36e6aeae",
+      "range": {
+        "startLine": 53,
+        "startChar": 22,
+        "endLine": 53,
+        "endChar": 38
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f13f7709_1682b6fe",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
         "patchSetId": 32
@@ -198,6 +390,30 @@
       "writtenOn": "2023-07-10T11:15:51Z",
       "side": 1,
       "message": "Currently GPCA supports HMAC key size \u003d\u003d digest size only.\nFor example HMAC_SHA256 key size \u003d 32 bytes. We cannot generate a 4B HMAC key for example.",
+      "range": {
+        "startLine": 150,
+        "startChar": 69,
+        "endLine": 150,
+        "endChar": 78
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60a5aa98_3f6ee6ee",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "Thanks. I think in that case (GPCA) the function would need to return an error if a different size is requested (or have an internal workaround on the implementation), but in the general case, HMAC keys can have an arbitrary size. Do you foresee an issue with this approach?",
+      "parentUuid": "f13f7709_1682b6fe",
       "range": {
         "startLine": 150,
         "startChar": 69,
@@ -233,6 +449,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95f72702_6df39856",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyLifetime.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "To use the values as a bitmask on places where more than 1 of these values are allowed.",
+      "parentUuid": "127c2820_bad0bd8a",
+      "range": {
+        "startLine": 33,
+        "startChar": 16,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9f370f21_b7c830eb",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
         "patchSetId": 32
@@ -244,6 +484,30 @@
       "writtenOn": "2023-07-10T11:15:51Z",
       "side": 1,
       "message": "Not supported by GPCA. Will this be supported in software?",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 14
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd292175_5109ed42",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "That is something that is currently being discussed (what is the minimal set of algorithms that is required and if one isn\u0027t, if the API should return an error or have a software implementation so all of them are covered). That key type is one of the supported KeyMint ones, which is why is on the list.",
+      "parentUuid": "9f370f21_b7c830eb",
       "range": {
         "startLine": 54,
         "startChar": 4,

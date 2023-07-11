@@ -215,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "200fdc2f_4f3091c5",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-11T20:15:22Z",
+      "side": 1,
+      "message": "I have changed a little bit how return values are handled (now using the binder errors directly instead of creating ad-hoc `Result\u003cT\u003e`-like types). That being said; I was keeping the functions that just return an error (like this one), and only modified the ones that could either return an error or a Result value.",
+      "parentUuid": "50087a3c_93bac6eb",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 16
+      },
+      "revId": "6b2b0019f472973ec944d23352095bcc3600e4c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fdbbd19b_54814793",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoRng.aidl",
         "patchSetId": 3
