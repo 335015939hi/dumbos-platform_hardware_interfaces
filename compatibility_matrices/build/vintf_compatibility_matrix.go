@@ -218,7 +218,10 @@ func (g *vintfCompatibilityMatrixRule) defaultCoreHalsStrategy() string {
 		return "disallow"
 	}
 
-	// TODO(b/290408770): product & device-specific FCM
+	// For product / system_ext compatibility matrix, default is to disallow core HALs.
+	if g.ProductSpecific() || g.SystemExtSpecific() {
+		return "disallow"
+	}
 
 	// For Device (vendor, odm) compatibility matrix, default is
 	// to not check anything.
