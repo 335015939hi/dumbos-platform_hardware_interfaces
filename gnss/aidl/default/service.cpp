@@ -1,5 +1,5 @@
 /*
- * Copyright 2020, The Android Open Source Project
+ * Copyright 2023, The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,34 +14,42 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "Gnss-main"
-
-#include <android-base/logging.h>
-#include <android/binder_manager.h>
-#include <android/binder_process.h>
-#include <hidl/HidlSupport.h>
-#include <hidl/HidlTransportSupport.h>
-#include <log/log.h>
-#include <pthread.h>
 #include "Gnss.h"
 
+#include <android-base/logging.h>
+#include <android/binder_libbinder.h>
+
+#include <binder/RpcServer.h>
+
+namespace android::hardware::gnss {
+
 using aidl::android::hardware::gnss::Gnss;
-using ::android::OK;
-using ::android::sp;
-using ::android::hardware::configureRpcThreadpool;
-using ::android::hardware::joinRpcThreadpool;
 
-int main() {
-    ABinderProcess_setThreadPoolMaxThreadCount(1);
-    ABinderProcess_startThreadPool();
+extern "C" int main() {
+    // [TODO] base::SetDefaultTag("gnssproxy");
+    // [TODO] base::SetMinimumLogSeverity(base::VERBOSE);
+    LOG(DEBUG) << "GNSS RPC service starting...";
 
-    std::shared_ptr<Gnss> gnssAidl = ndk::SharedRefBase::make<Gnss>();
-    const std::string instance = std::string() + Gnss::descriptor + "/default";
-    binder_status_t status =
-            AServiceManager_addService(gnssAidl->asBinder().get(), instance.c_str());
-    CHECK_EQ(status, STATUS_OK);
+    // [not needed for RPC?] ABinderProcess_setThreadPoolMaxThreadCount(1);
+    // [not needed for RPC?] ABinderProcess_startThreadPool();
 
-    ABinderProcess_joinThreadPool();
+    auto ndkService = ndk::SharedRefBase::make<Gnss>();
+    auto platformService = AIBinder_toPlatformBinder(ndkService->asBinder().get());
 
-    return EXIT_FAILURE;  // should not reach
+    // Publish service remotely
+    const auto rpcServer = RpcServer::make();
+    // [not needed?] const auto serviceDelegator =
+    // sp<hardware::gnss::delegator::Gnss>::make(localService);
+    rpcServer->setRootObject(platformService);
+    // [not needed for RPC?] ProcessState::self()->startThreadPool();
+    const auto res = rpcServer->setupInetServer("0.0.0.0", 10203);
+    CHECK_EQ(res, OK) << "Couldn't setup Inet server for GNSS";
+
+    // Ready to run!
+    LOG(INFO) << "GNSS RPC service ready to serve";
+    rpcServer->join();  // should not return
+    LOG(ERROR) << "GNSS RPC service server quitting";
+    return EXIT_FAILURE;
 }
+
+}  // namespace android::hardware::gnss
