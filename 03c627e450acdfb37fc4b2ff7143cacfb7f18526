@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27e56b51_1b396199",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-07-12T05:32:01Z",
+      "side": 1,
+      "message": "paulcrowley@: I thought padding oracle attacks were more about having distinct ERROR_BAD_PADDING vs ERROR_OTHER_FAILURE error results, not about distinguishing between success and failure -- am I misremembering?  (It\u0027s a long time since I did Dan Boneh\u0027s Cryptography course...)",
+      "revId": "03c627e450acdfb37fc4b2ff7143cacfb7f18526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
