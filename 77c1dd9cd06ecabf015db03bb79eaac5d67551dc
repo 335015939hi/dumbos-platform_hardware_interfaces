@@ -16,6 +16,24 @@
       "message": "Nice, I also see a bunch with `slot3`. Is there some limit to number of slots?\nhttps://source.corp.google.com/search?q\u003d%22%3Cinstance%3Eslot2%3C%2Finstance%3E%22%20matrix\u0026sq\u003drepo:googleplex-android%2Fplatform%2Fsuperproject%2Fmain%20b:main%20-f:prebuilts",
       "revId": "77c1dd9cd06ecabf015db03bb79eaac5d67551dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a82c7c9_c3a08fc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2023-07-12T23:10:46Z",
+      "side": 1,
+      "message": "Technically no limit, but current devices only support up to 2 SIMs (DSDS)\nIf there was a device with 3 SIMs (TSTS), then we would need slot3",
+      "parentUuid": "71f77c9c_4929b5a4",
+      "revId": "77c1dd9cd06ecabf015db03bb79eaac5d67551dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
