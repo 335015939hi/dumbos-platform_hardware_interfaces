@@ -203,16 +203,32 @@ TEST_P(VehicleHalHidlTest, setProp) {
         if (cfg.access == VehiclePropertyAccess::READ_WRITE && isBooleanGlobalProp(cfg.prop) &&
             !hvacProps.count(cfg.prop)) {
             invokeGet(cfg.prop, 0);
+            ASSERT_EQ(StatusCode::OK, mActualStatusCode);
+
+            // When the property is unavailable, the returned value isn't
+            // reliable and we can't continue testing
+            if (mActualValue.status == VehiclePropertyStatus::UNAVAILABLE) {
+              ALOGD("Property %i is unavailable, skipping `set()`", cfg.prop);
+              continue;
+            }
+
             int setValue = mActualValue.value.int32Values[0] == 1 ? 0 : 1;
             VehiclePropValue propToSet = mActualValue;
             propToSet.value.int32Values[0] = setValue;
-            ASSERT_EQ(StatusCode::OK, mVehicle->set(propToSet))
+
+            StatusCode setResult = mVehicle->set(propToSet);
+            ASSERT_EQ(StatusCode::OK, setResult)
                     << "Invalid status code for setting property: " << cfg.prop;
+
             // check set success
             invokeGet(cfg.prop, 0);
             ASSERT_EQ(StatusCode::OK, mActualStatusCode);
-            ASSERT_EQ(setValue, mActualValue.value.int32Values[0])
-                    << "Failed to set value for property: " << cfg.prop;
+            // If the property isn't available, it doesn't make sense to check
+            // the returned value.
+            if (mActualValue.status == VehiclePropertyStatus::AVAILABLE) {
+                ASSERT_EQ(setValue, mActualValue.value.int32Values[0])
+                        << "Failed to set value for property: " << cfg.prop;
+            }
         }
     }
 }
