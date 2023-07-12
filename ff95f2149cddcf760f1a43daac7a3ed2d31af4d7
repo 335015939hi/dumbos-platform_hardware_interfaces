@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d943551b_79cbbed9",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-07-12T00:17:35Z",
+      "side": 1,
+      "message": "Added location of `getVendorDeviceIdProperty` method in Java file.",
+      "parentUuid": "e1ad0e1c_20674a3c",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 27
+      },
+      "revId": "ff95f2149cddcf760f1a43daac7a3ed2d31af4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a50330e3_8f5f118b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-11T22:49:21Z",
       "side": 1,
       "message": "Name this tag_type",
+      "range": {
+        "startLine": 97,
+        "startChar": 54,
+        "endLine": 97,
+        "endChar": 58
+      },
+      "revId": "ff95f2149cddcf760f1a43daac7a3ed2d31af4d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef3954b_22162111",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2023-07-12T00:17:35Z",
+      "side": 1,
+      "message": "renamed.",
+      "parentUuid": "a50330e3_8f5f118b",
       "range": {
         "startLine": 97,
         "startChar": 54,
