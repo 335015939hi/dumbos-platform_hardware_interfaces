@@ -16,6 +16,24 @@
       "message": "This kind of thing, on the other hand, I don\u0027t think will work out. We can\u0027t have a parallel build system for all of Android",
       "revId": "1d3146745894fefa00b78f096c53336877ba1f98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2de2b640_77865977",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2023-07-12T22:05:02Z",
+      "side": 1,
+      "message": "Don\u0027t worry, I don\u0027t plan to have cmake-based gnss default implementation. This was just a kind-of-low hanging fruit to test remote binder, that\u0027s all.\n\nI\u0027m just asking you to take a look at service.cpp before I sink couple days of debugging to find out I forgot to start some binder thread pool.",
+      "parentUuid": "1ea612d0_5ca3a525",
+      "revId": "1d3146745894fefa00b78f096c53336877ba1f98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
