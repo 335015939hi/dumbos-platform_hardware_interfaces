@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4765cf96_bdb46168",
+        "filename": "automotive/vehicle/2.0/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2023-07-12T16:20:32Z",
+      "side": 1,
+      "message": "Please use spaces, not tabs.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "015702bcc51dbd201de2263df405a34550f26087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "220aa84c_d9fb4a0f",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2023-07-12T16:20:32Z",
+      "side": 1,
+      "message": "nit: I think handling unavailable case first may be more readable, especially if you need to add more cases later.",
+      "range": {
+        "startLine": 215,
+        "startChar": 35,
+        "endLine": 215,
+        "endChar": 39
+      },
+      "revId": "015702bcc51dbd201de2263df405a34550f26087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
