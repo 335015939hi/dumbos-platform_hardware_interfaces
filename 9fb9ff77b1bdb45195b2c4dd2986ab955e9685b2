@@ -22,6 +22,30 @@
       },
       "revId": "9fb9ff77b1bdb45195b2c4dd2986ab955e9685b2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15d5d5ef_60978b7c",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-07-12T04:14:54Z",
+      "side": 1,
+      "message": "ack\n\nI personally think this is more generic and future-proof. Otherwise, L38 and L41 might be too long to read.",
+      "parentUuid": "8b6f9a34_183d2a5e",
+      "range": {
+        "startLine": 211,
+        "startChar": 39,
+        "endLine": 211,
+        "endChar": 49
+      },
+      "revId": "9fb9ff77b1bdb45195b2c4dd2986ab955e9685b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
