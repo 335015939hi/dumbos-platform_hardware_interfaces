@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b85dc3b_00f83bd9",
+        "filename": "gnss/aidl/default/service.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2023-07-12T17:02:24Z",
+      "side": 1,
+      "message": "Steven, Devin - can any of you take a quick look if there\u0027s nothing missing there for publishing a local (not proxied from servicemanager) Binder RPC service? Especially at the comments marked \"not needed for rpc?\".\n\nThe rest of this change is a quick and dirty hack, so don\u0027t bother about the rest.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 63
+      },
+      "revId": "d15a0402ebde1aead884bcecfea1590d2d76593a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
