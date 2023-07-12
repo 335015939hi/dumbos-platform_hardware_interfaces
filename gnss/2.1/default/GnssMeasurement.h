@@ -20,8 +20,10 @@
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 #include <atomic>
+#include <future>
 #include <mutex>
 #include <thread>
+#include "Utils.h"
 
 namespace android {
 namespace hardware {
@@ -63,6 +65,7 @@ struct GnssMeasurement : public IGnssMeasurement {
   private:
     void start();
     void stop();
+    void waitForStoppingThreads();
     void reportMeasurement(const GnssDataV2_0&);
     void reportMeasurement(const GnssDataV2_1&);
 
@@ -75,6 +78,8 @@ struct GnssMeasurement : public IGnssMeasurement {
     std::atomic<long> mMinIntervalMillis;
     std::atomic<bool> mIsActive;
     std::thread mThread;
+    std::vector<std::future<void>> mFutures;
+    ::android::hardware::gnss::common::ThreadBlocker mThreadBlocker;
 
     // Synchronization lock for sCallback_2_1 and sCallback_2_0
     mutable std::mutex mMutex;
