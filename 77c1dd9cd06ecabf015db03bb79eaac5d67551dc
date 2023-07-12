@@ -34,6 +34,24 @@
       "parentUuid": "71f77c9c_4929b5a4",
       "revId": "77c1dd9cd06ecabf015db03bb79eaac5d67551dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccb6ae61_21c2fb3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-07-12T23:18:32Z",
+      "side": 1,
+      "message": "No problem. We can always add it later (or even use regex here to specify allowed names). Though, trying to resolve existing situation now.\n\nslot3 is updated internally on 8/9, so I can ignore it. Will apply this in AOSP, and slot3 will get updated when U is released",
+      "parentUuid": "4a82c7c9_c3a08fc8",
+      "revId": "77c1dd9cd06ecabf015db03bb79eaac5d67551dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
