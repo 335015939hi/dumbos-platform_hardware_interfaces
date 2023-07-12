@@ -51,7 +51,7 @@ class BluetoothDeathRecipient : public hidl_death_recipient {
 };
 
 BluetoothHci::BluetoothHci()
-    : death_recipient_(new BluetoothDeathRecipient(this)) {}
+    : death_recipient_(new BluetoothDeathRecipient(this)) {bt_enabled = 0;}
 
 Return<void> BluetoothHci::initialize(
     const ::android::sp<IBluetoothHciCallbacks>& cb) {
@@ -61,6 +61,11 @@ Return<void> BluetoothHci::initialize(
     return Void();
   }
 
+  if (bt_enabled == 1) {
+    ALOGE("initialize was called!");
+    return Void();
+  }
+  bt_enabled = 1;
   death_recipient_->setHasDied(false);
   cb->linkToDeath(death_recipient_, 0);
 
@@ -112,6 +117,12 @@ Return<void> BluetoothHci::initialize(
 
 Return<void> BluetoothHci::close() {
   ALOGI("BluetoothHci::close()");
+
+  if (bt_enabled != 1) {
+    ALOGE("should initialize first!");
+    return Void();
+  }
+  bt_enabled = 0;
   unlink_cb_(death_recipient_);
   VendorInterface::Shutdown();
   return Void();
@@ -134,6 +145,12 @@ Return<void> BluetoothHci::sendScoData(const hidl_vec<uint8_t>& data) {
 
 void BluetoothHci::sendDataToController(const uint8_t type,
                                         const hidl_vec<uint8_t>& data) {
+
+  if (bt_enabled != 1) {
+    ALOGE("sendDataToController():should initialize first!");
+    return;
+  }
+
   VendorInterface::get()->Send(type, data.data(), data.size());
 }
 
