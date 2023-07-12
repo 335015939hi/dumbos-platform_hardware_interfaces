@@ -24,6 +24,47 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b4038bb_2fb7222f",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-07-12T18:17:52Z",
+      "side": 1,
+      "message": "They would be treated the same. So either way is okay. We prefer StatusCode instead of status though.",
+      "parentUuid": "8e2eea74_0924f061",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 43
+      },
+      "revId": "d515550cbaf868cdfe6f1ddc875a7a17f7150bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "668c8085_79459d33",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-07-12T18:17:52Z",
+      "side": 1,
+      "message": "I want to avoid introducing new requirements into this test.\n\nSo I think what we should do is\n\n```\ninvokeGet(cfg.prop, 0);\nif (mActualStatusCode \u003d\u003d StatusCode::NOT_AVAILABLE || mActualValue.status \u003d\u003d VehiclePropertyStatus::UNAVAILABLE) {\n  continue;\n}\n```",
+      "revId": "d515550cbaf868cdfe6f1ddc875a7a17f7150bdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afbdcf74_8d935714",
