@@ -89,6 +89,22 @@ bool configureChipToSupportIfaceTypeInternal(const sp<IWifiChip>& wifi_chip,
     ChipModeId mode_id;
     return configureChipToSupportIfaceTypeInternal(wifi_chip, type, &mode_id);
 }
+
+bool isWifiChipSupportsIfaceTypeInternal(const sp<IWifiChip>& wifi_chip, IfaceType type,
+                                         ChipModeId* configured_mode_id) {
+    if (!configured_mode_id) {
+        return false;
+    }
+    const auto& status_and_modes = HIDL_INVOKE(wifi_chip, getAvailableModes);
+    if (status_and_modes.first.code != WifiStatusCode::SUCCESS) {
+        return false;
+    }
+    if (!findAnyModeSupportingIfaceType(type, status_and_modes.second, configured_mode_id)) {
+        return false;
+    }
+
+    return true;
+}
 }  // namespace
 
 sp<IWifi> getWifi(const std::string& instance_name) {
@@ -203,6 +219,11 @@ bool configureChipToSupportIfaceType(const sp<IWifiChip>& wifi_chip,
                                      ChipModeId* configured_mode_id) {
     return configureChipToSupportIfaceTypeInternal(wifi_chip, type,
                                                    configured_mode_id);
+}
+
+bool isWifiChipSupportsIfaceType(const sp<IWifiChip>& wifi_chip, IfaceType type,
+                                 ChipModeId* configured_mode_id) {
+    return isWifiChipSupportsIfaceTypeInternal(wifi_chip, type, configured_mode_id);
 }
 
 void stopWifi(const std::string& instance_name) {
