@@ -211,8 +211,12 @@ TEST_P(VehicleHalHidlTest, setProp) {
             // check set success
             invokeGet(cfg.prop, 0);
             ASSERT_EQ(StatusCode::OK, mActualStatusCode);
-            ASSERT_EQ(setValue, mActualValue.value.int32Values[0])
-                    << "Failed to set value for property: " << cfg.prop;
+            // If the property isn't available, it doesn't make sense to check
+            // the returned value.
+            if (mActualValue.status == VehiclePropertyStatus::AVAILABLE) {
+                ASSERT_EQ(setValue, mActualValue.value.int32Values[0])
+                        << "Failed to set value for property: " << cfg.prop;
+            }
         }
     }
 }
