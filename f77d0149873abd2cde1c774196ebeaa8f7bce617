@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75695a74_a11ff886",
+        "filename": "bluetooth/lmp_event/aidl/aidl_api/android.hardware.bluetooth.lmp_event/current/android/hardware/bluetooth/lmp_event/IBluetoothLmpEvent.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1443525
+      },
+      "writtenOn": "2023-07-13T21:03:36Z",
+      "side": 1,
+      "message": "Do we need to add addr_type here as well?",
+      "range": {
+        "startLine": 37,
+        "startChar": 115,
+        "endLine": 37,
+        "endChar": 116
+      },
+      "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
