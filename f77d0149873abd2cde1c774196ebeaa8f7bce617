@@ -22,6 +22,30 @@
       },
       "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56271275_c85eeffd",
+        "filename": "bluetooth/lmp_event/aidl/aidl_api/android.hardware.bluetooth.lmp_event/current/android/hardware/bluetooth/lmp_event/IBluetoothLmpEvent.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-07-13T23:07:55Z",
+      "side": 1,
+      "message": "I think it is good to include address type for both callback and command",
+      "parentUuid": "75695a74_a11ff886",
+      "range": {
+        "startLine": 37,
+        "startChar": 115,
+        "endLine": 37,
+        "endChar": 116
+      },
+      "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
