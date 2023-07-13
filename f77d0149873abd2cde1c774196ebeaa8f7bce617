@@ -69,6 +69,29 @@
       },
       "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72b43991_eaabf32a",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/IBluetoothLmpEventCallback.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-07-13T23:09:58Z",
+      "side": 1,
+      "message": "similar comment to the `address_type` mentioned earlier",
+      "range": {
+        "startLine": 34,
+        "startChar": 50,
+        "endLine": 34,
+        "endChar": 68
+      },
+      "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
