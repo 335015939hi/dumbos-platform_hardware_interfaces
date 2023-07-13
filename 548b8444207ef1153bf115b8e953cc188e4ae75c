@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1dbeeff_71b6db18",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-13T15:53:23Z",
+      "side": 1,
+      "message": "Hi Peter! I understand your intent. However, since `getConfig` contains logic for handling initializing `mConfig`, I would prefer do implement customization in a bit different way:\n\n```\n// Add a vendor extension function:\n\nvirtual std::unique_ptr\u003cinternal::Configuration\u003e initializeConfig() {\n    switch (getType()) {\n        ... the current logic ...\n    }\n}\n\n// Change getConfig to the following:\n\ninternal::Configuration\u0026 Module::getConfig() {\n    if (!mConfig) {\n        mConfig \u003d initializeConfig();\n    }\n    return *mConfig;\n}\n\n// Add an utility function to the section below for retrieving the module type:\n\nType getType() const { return mType; }\n```\n\nWill that work for you?",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 49
+      },
+      "revId": "548b8444207ef1153bf115b8e953cc188e4ae75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
