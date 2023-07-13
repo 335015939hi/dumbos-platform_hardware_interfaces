@@ -46,6 +46,29 @@
       },
       "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4100c55_45e82db7",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/IBluetoothLmpEvent.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-07-13T23:09:31Z",
+      "side": 1,
+      "message": "per Sunny\u0027s comment, it is good to add \n\n`in AddressType address_type`\n\nhere, where AddressType can be\n\n```\nenum AddressType {\n  ADDRESS_TYPE_PUBLIC \u003d 0\n  ADDRESS_TYPE_RANDOM \u003d 1\n}\n```\n\nfollowing the BT core spec",
+      "range": {
+        "startLine": 31,
+        "startChar": 70,
+        "endLine": 31,
+        "endChar": 88
+      },
+      "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
