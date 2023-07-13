@@ -204,6 +204,7 @@ class Module : public BnModule {
             const ::aidl::android::media::audio::common::AudioPort& audioPort, bool connected);
     virtual ndk::ScopedAStatus onMasterMuteChanged(bool mute);
     virtual ndk::ScopedAStatus onMasterVolumeChanged(float volume);
+    virtual internal::Configuration& getConfig();
 
     // Utility and helper functions accessible to subclasses.
     void cleanUpPatch(int32_t patchId);
@@ -217,7 +218,6 @@ class Module : public BnModule {
     std::set<int32_t> findConnectedPortConfigIds(int32_t portConfigId);
     ndk::ScopedAStatus findPortIdForNewStream(
             int32_t in_portConfigId, ::aidl::android::media::audio::common::AudioPort** port);
-    internal::Configuration& getConfig();
     const ConnectedDevicePorts& getConnectedDevicePorts() const { return mConnectedDevicePorts; }
     bool getMasterMute() const { return mMasterMute; }
     bool getMasterVolume() const { return mMasterVolume; }
