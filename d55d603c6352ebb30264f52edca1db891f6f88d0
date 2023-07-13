@@ -496,6 +496,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fbb7821_f7aad9b5",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 2021475
+      },
+      "writtenOn": "2023-07-13T04:01:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "409944e6_9c991d49",
+      "range": {
+        "startLine": 150,
+        "startChar": 69,
+        "endLine": 150,
+        "endChar": 78
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "127c2820_bad0bd8a",
@@ -581,6 +605,30 @@
       "side": 1,
       "message": "That is correct. I am using the combination to check for Key-wrapping permissions (given that keys could be wrapped by more than 1 different type of lifetime).",
       "parentUuid": "194237ec_15493da3",
+      "range": {
+        "startLine": 33,
+        "startChar": 16,
+        "endLine": 33,
+        "endChar": 17
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d00cadb3_577bd4d2",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyLifetime.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2021475
+      },
+      "writtenOn": "2023-07-13T04:01:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "de5b5998_81bfc5dc",
       "range": {
         "startLine": 33,
         "startChar": 16,
