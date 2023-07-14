@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d9e6144_aa3d5a19",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1659435
+      },
+      "writtenOn": "2023-07-14T10:27:28Z",
+      "side": 1,
+      "message": "```suggestion\nvoid BluetoothAidlTest::handle_sco_loopback_pkt(std::vector\u003cuint8_t\u003e\u0026 scoPackets,\n```",
+      "revId": "067acc46254ee42c3b67b31728acc0e66eb968cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6409f8ad_015953a1",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1659435
+      },
+      "writtenOn": "2023-07-14T10:27:28Z",
+      "side": 1,
+      "message": "```suggestion\n        std::vector\u003cuint8_t\u003e sco_packets;\n```",
+      "revId": "067acc46254ee42c3b67b31728acc0e66eb968cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
