@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41506b8b_4a043c3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024864
+      },
+      "writtenOn": "2023-07-14T12:46:31Z",
+      "side": 1,
+      "message": "A Vendor HAL example after applying this change:\nhttps://github.com/peyo-hd/hardware_arpi/tree/audio_aidl/audio_aidl\n\nDevice .mk change for replacing legacy Audio-HAL to AIDL one:\nhttps://github.com/peyo-hd/device_arpi_rpi4/commit/4ef49ac60c6e1c0e955197c1972a2b570a466e2a",
+      "revId": "ad7c4e6481bc792f4f4a05cf0bc4f5ac5b27a21d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

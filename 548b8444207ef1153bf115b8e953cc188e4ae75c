@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98c2fab4_31631291",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1024864
+      },
+      "writtenOn": "2023-07-14T12:46:31Z",
+      "side": 1,
+      "message": "OK, Then I will try Module::initializeConfig(). And upload changed CL here.",
+      "parentUuid": "2137738f_f26ad3d6",
+      "revId": "548b8444207ef1153bf115b8e953cc188e4ae75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1dbeeff_71b6db18",
@@ -55,6 +73,30 @@
       "side": 1,
       "message": "Hi Mikhail, That way is OK. Then Vendor HAL could ovrride initializeConfig() instead of getConfig().",
       "parentUuid": "c1dbeeff_71b6db18",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 49
+      },
+      "revId": "548b8444207ef1153bf115b8e953cc188e4ae75c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c202456_7af9361d",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1024864
+      },
+      "writtenOn": "2023-07-14T12:46:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "088706b3_f2ac28b8",
       "range": {
         "startLine": 207,
         "startChar": 4,
