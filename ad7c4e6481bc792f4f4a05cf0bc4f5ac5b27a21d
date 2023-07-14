@@ -16,6 +16,46 @@
       "message": "A Vendor HAL example after applying this change:\nhttps://github.com/peyo-hd/hardware_arpi/tree/audio_aidl/audio_aidl\n\nDevice .mk change for replacing legacy Audio-HAL to AIDL one:\nhttps://github.com/peyo-hd/device_arpi_rpi4/commit/4ef49ac60c6e1c0e955197c1972a2b570a466e2a",
       "revId": "ad7c4e6481bc792f4f4a05cf0bc4f5ac5b27a21d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "792aac79_8494463c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-14T15:37:22Z",
+      "side": 1,
+      "message": "Thanks Peter! Just one thing to fix.",
+      "revId": "ad7c4e6481bc792f4f4a05cf0bc4f5ac5b27a21d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e6ef173_5fdf7bcd",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-14T15:37:22Z",
+      "side": 1,
+      "message": "Just `return config;` please. Applying `std::move` is in fact a pessimization as it inhibits NRVO, see https://stackoverflow.com/a/14856553.",
+      "range": {
+        "startLine": 305,
+        "startChar": 4,
+        "endLine": 305,
+        "endChar": 29
+      },
+      "revId": "ad7c4e6481bc792f4f4a05cf0bc4f5ac5b27a21d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
