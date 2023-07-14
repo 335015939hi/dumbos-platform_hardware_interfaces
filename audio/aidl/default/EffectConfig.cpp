@@ -160,10 +160,16 @@ bool EffectConfig::parseLibraryUuid(const tinyxml2::XMLElement& xml,
     const char* uuidStr = xml.Attribute("uuid");
     RETURN_VALUE_IF(!uuidStr, false, "noUuidAttribute");
     libraryUuid.uuid = stringToUuid(uuidStr);
+    if (const char* typeUuidStr = xml.Attribute("type")) {
+        libraryUuid.type = stringToUuid(typeUuidStr);
+    }
     RETURN_VALUE_IF((libraryUuid.uuid == getEffectUuidZero()), false, "invalidUuidAttribute");
 
-    LOG(DEBUG) << __func__ << (isProxy ? " proxy " : libraryUuid.name) << " : "
-               << ::android::audio::utils::toString(libraryUuid.uuid);
+    LOG(DEBUG) << __func__ << (isProxy ? " proxy " : libraryUuid.name) << " : uuid "
+               << ::android::audio::utils::toString(libraryUuid.uuid)
+               << (libraryUuid.type.has_value()
+                           ? ::android::audio::utils::toString(libraryUuid.type.value())
+                           : "");
     return true;
 }
 
@@ -241,7 +247,8 @@ EffectConfig::getProcessingMap() const {
     return mProcessingMap;
 }
 
-bool EffectConfig::findUuid(const std::string& xmlEffectName, AudioUuid* uuid) {
+bool EffectConfig::findUuid(const std::pair<std::string, struct EffectLibraries>& effectElem,
+                            AudioUuid* uuid) {
 // Difference from EFFECT_TYPE_LIST_DEF, there could be multiple name mapping to same Effect Type
 #define EFFECT_XML_TYPE_LIST_DEF(V)                        \
     V("acoustic_echo_canceler", AcousticEchoCanceler)      \
@@ -268,6 +275,7 @@ bool EffectConfig::findUuid(const std::string& xmlEffectName, AudioUuid* uuid) {
 
 #define GENERATE_MAP_ENTRY_V(s, symbol) {s, &getEffectTypeUuid##symbol},
 
+    const std::string xmlEffectName = effectElem.first;
     typedef const AudioUuid& (*UuidGetter)(void);
     static const std::map<std::string, UuidGetter> uuidMap{
             // std::make_pair("s", &getEffectTypeUuidExtension)};
@@ -275,6 +283,14 @@ bool EffectConfig::findUuid(const std::string& xmlEffectName, AudioUuid* uuid) {
     if (auto it = uuidMap.find(xmlEffectName); it != uuidMap.end()) {
         *uuid = (*it->second)();
         return true;
+    }
+
+    const auto libs = effectElem.second.libraries;
+    for (const auto lib : libs) {
+        if (lib.type.has_value()) {
+            *uuid = lib.type.value();
+            return true;
+        }
     }
     return false;
 }

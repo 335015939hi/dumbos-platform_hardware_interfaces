@@ -42,7 +42,8 @@ class EffectConfig {
 
     struct LibraryUuid {
         std::string name;  // library name
-        ::aidl::android::media::audio::common::AudioUuid uuid;
+        ::aidl::android::media::audio::common::AudioUuid uuid; //implementation UUID
+        std::optional<::aidl::android::media::audio::common::AudioUuid> type; // optional type UUID
     };
     // <effects>
     struct EffectLibraries {
@@ -56,7 +57,7 @@ class EffectConfig {
         return mEffectsMap;
     }
 
-    static bool findUuid(const std::string& xmlEffectName,
+    static bool findUuid(const std::pair<std::string, struct EffectLibraries>& effectElem,
                          ::aidl::android::media::audio::common::AudioUuid* uuid);
 
     using ProcessingLibrariesMap = std::map<Processing::Type, std::vector<struct EffectLibraries>>;
