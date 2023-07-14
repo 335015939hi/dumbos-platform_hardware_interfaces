@@ -251,8 +251,8 @@ void Factory::createIdentityWithConfig(
 void Factory::loadEffectLibs() {
     const auto& configEffectsMap = mConfig.getEffectsMap();
     for (const auto& configEffects : configEffectsMap) {
-        if (AudioUuid uuid;
-            EffectConfig::findUuid(configEffects.first /* xml effect name */, &uuid)) {
+        if (AudioUuid type;
+            EffectConfig::findUuid(configEffects /* xml effect */, &type)) {
             const auto& configLibs = configEffects.second;
             std::optional<AudioUuid> proxyUuid;
             if (configLibs.proxyLibrary.has_value()) {
@@ -260,7 +260,7 @@ void Factory::loadEffectLibs() {
                 proxyUuid = proxyLib.uuid;
             }
             for (const auto& configLib : configLibs.libraries) {
-                createIdentityWithConfig(configLib, uuid, proxyUuid);
+                createIdentityWithConfig(configLib, type, proxyUuid);
             }
         } else {
             LOG(ERROR) << __func__ << ": can not find type UUID for effect " << configEffects.first
