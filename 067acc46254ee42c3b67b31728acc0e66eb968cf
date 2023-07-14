@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "563bf502_ece310c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-07-14T18:08:20Z",
+      "side": 1,
+      "message": "Thanks!  I like this change a lot",
+      "revId": "067acc46254ee42c3b67b31728acc0e66eb968cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc6c6f66_80197d99",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-07-14T18:08:20Z",
+      "side": 1,
+      "message": "Can we make this be something like:\n\nif (sco_loopback.size() \u003c size) {\n  // The packets may have been split for USB.  Reassemble before checking.\n  reassemble_sco_loopback_pkt(sco_loopback, size);\n}\n\nNo need to change the packet before comparison in the non-USB case.",
+      "range": {
+        "startLine": 573,
+        "startChar": 4,
+        "endLine": 573,
+        "endChar": 27
+      },
+      "revId": "067acc46254ee42c3b67b31728acc0e66eb968cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d9e6144_aa3d5a19",
