@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b0432e2_46b7ea18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-07-14T23:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ff7a142_fbf498e1",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "fc4e0be9d9b0a54aa9a1450afa3591e925a7575d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1cd7453_1a74a23a",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-14T22:56:20Z",
       "side": 1,
       "message": "Perhaps we should rename it to just `Library`? `LibraryUuid.type` looks confusing.",
+      "range": {
+        "startLine": 43,
+        "startChar": 11,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "revId": "fc4e0be9d9b0a54aa9a1450afa3591e925a7575d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab62ffea_fa4798c6",
+        "filename": "audio/aidl/default/include/effectFactory-impl/EffectConfig.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-07-14T23:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1cd7453_1a74a23a",
       "range": {
         "startLine": 43,
         "startChar": 11,
