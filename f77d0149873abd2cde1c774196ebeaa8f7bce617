@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c5cf5cd_08dffe6e",
+        "filename": "bluetooth/lmp_event/aidl/aidl_api/android.hardware.bluetooth.lmp_event/current/android/hardware/bluetooth/lmp_event/IBluetoothLmpEvent.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-07-14T19:07:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56271275_c85eeffd",
+      "range": {
+        "startLine": 37,
+        "startChar": 115,
+        "endLine": 37,
+        "endChar": 116
+      },
+      "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4100c55_45e82db7",
@@ -61,6 +85,30 @@
       "writtenOn": "2023-07-13T23:09:31Z",
       "side": 1,
       "message": "per Sunny\u0027s comment, it is good to add \n\n`in AddressType address_type`\n\nhere, where AddressType can be\n\n```\nenum AddressType {\n  ADDRESS_TYPE_PUBLIC \u003d 0\n  ADDRESS_TYPE_RANDOM \u003d 1\n}\n```\n\nfollowing the BT core spec",
+      "range": {
+        "startLine": 31,
+        "startChar": 70,
+        "endLine": 31,
+        "endChar": 88
+      },
+      "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dca2c46_28a24216",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/IBluetoothLmpEvent.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-07-14T19:07:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4100c55_45e82db7",
       "range": {
         "startLine": 31,
         "startChar": 70,
@@ -94,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29d7d459_23706962",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/IBluetoothLmpEvent.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-07-14T19:07:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "468eabe3_d05777c3",
+      "range": {
+        "startLine": 38,
+        "startChar": 28,
+        "endLine": 38,
+        "endChar": 48
+      },
+      "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72b43991_eaabf32a",
@@ -107,6 +179,30 @@
       "writtenOn": "2023-07-13T23:09:58Z",
       "side": 1,
       "message": "similar comment to the `address_type` mentioned earlier",
+      "range": {
+        "startLine": 34,
+        "startChar": 50,
+        "endLine": 34,
+        "endChar": 68
+      },
+      "revId": "f77d0149873abd2cde1c774196ebeaa8f7bce617",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97386639_632e8876",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/IBluetoothLmpEventCallback.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-07-14T19:07:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72b43991_eaabf32a",
       "range": {
         "startLine": 34,
         "startChar": 50,
