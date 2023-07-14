@@ -124,6 +124,24 @@
       "parentUuid": "96099c09_ff6ebd20",
       "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66e5f8c4_09f4a620",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1960660
+      },
+      "writtenOn": "2023-07-14T01:50:28Z",
+      "side": 1,
+      "message": "Please review new patchset. Thanks",
+      "parentUuid": "3050a185_158bd18f",
+      "revId": "07ae05e1d28820f454f52f729059990fc9fb00b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
