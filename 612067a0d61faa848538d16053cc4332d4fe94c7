@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "830e40ed_43369f16",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-14T23:48:26Z",
+      "side": 1,
+      "message": "typo: libraries",
+      "range": {
+        "startLine": 120,
+        "startChar": 25,
+        "endLine": 120,
+        "endChar": 33
+      },
+      "revId": "612067a0d61faa848538d16053cc4332d4fe94c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
