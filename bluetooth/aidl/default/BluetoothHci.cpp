@@ -231,9 +231,6 @@ ndk::ScopedAStatus BluetoothHci::initialize(
 
   mDeathRecipient->LinkToDeath(mCb);
 
-  // TODO: This should not be necessary when the device implements rfkill.
-  reset();
-
   mH4 = std::make_shared<H4Protocol>(
       mFd,
       [](const std::vector<uint8_t>& /* raw_command */) {
