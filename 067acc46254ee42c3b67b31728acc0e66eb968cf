@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66827e98_85621f8d",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-07-15T08:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc6c6f66_80197d99",
+      "range": {
+        "startLine": 573,
+        "startChar": 4,
+        "endLine": 573,
+        "endChar": 27
+      },
+      "revId": "067acc46254ee42c3b67b31728acc0e66eb968cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d9e6144_aa3d5a19",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e4613c_ec7923c0",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-07-15T08:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d9e6144_aa3d5a19",
+      "revId": "067acc46254ee42c3b67b31728acc0e66eb968cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6409f8ad_015953a1",
@@ -71,6 +113,24 @@
       "writtenOn": "2023-07-14T10:27:28Z",
       "side": 1,
       "message": "```suggestion\n        std::vector\u003cuint8_t\u003e sco_packets;\n```",
+      "revId": "067acc46254ee42c3b67b31728acc0e66eb968cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf32b3e9_1f17bbbb",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-07-15T08:53:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6409f8ad_015953a1",
       "revId": "067acc46254ee42c3b67b31728acc0e66eb968cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
