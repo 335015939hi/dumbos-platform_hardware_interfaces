@@ -17,6 +17,11 @@
 #ifndef HARDWARE_INTERFACES_KEYMASTER_4_0_SUPPORT_OPENSSL_UTILS_H_
 #define HARDWARE_INTERFACES_KEYMASTER_4_0_SUPPORT_OPENSSL_UTILS_H_
 
+#include <openssl/bn.h>
+#include <openssl/evp.h>
+#include <openssl/rsa.h>
+#include <openssl/x509.h>
+
 #include <android/hardware/keymaster/4.0/types.h>
 
 template <typename T, void (*F)(T*)>

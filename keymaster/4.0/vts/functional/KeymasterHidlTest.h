@@ -24,7 +24,9 @@
 
 #include <keymaster/keymaster_configuration.h>
 
+#include <keymasterV4_0/attestation_record.h>
 #include <keymasterV4_0/authorization_set.h>
+#include <keymasterV4_0/openssl_utils.h>
 
 namespace android {
 namespace hardware {
@@ -236,6 +238,11 @@ class KeymasterHidlTest : public ::testing::VtsHalHidlTargetTestBase {
     static hidl_string name_;
     static hidl_string author_;
 };
+
+X509* parse_cert_blob(const hidl_vec<uint8_t>& blob);
+// Extract attestation record from cert. Returned object is still part of cert; don't free it
+// separately.
+ASN1_OCTET_STRING* get_attestation_record(X509* certificate);
 
 }  // namespace test
 }  // namespace V4_0
