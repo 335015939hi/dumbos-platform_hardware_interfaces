@@ -22,6 +22,30 @@
       },
       "revId": "074cf23ff62d4922b7381ed18b28185a74208bfc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4114bc4e_4e5d252d",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-07-17T20:31:20Z",
+      "side": 1,
+      "message": "This map insert only happens at constructor:\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/EffectFactory.cpp;l\u003d237;bpv\u003d1;bpt\u003d1?q\u003dopenEffectLibrary\n\nI think it should be okay because IFactory client won\u0027t be able to access the object before construction is done.\n\nOther access to it needs to be serialized, for example when an effect was created for the first time, we will do `dlsym` and store the symbols to map, it\u0027s under lock: `Factory::getDlSyms_l`",
+      "parentUuid": "f91c1a96_f92667ac",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 25
+      },
+      "revId": "074cf23ff62d4922b7381ed18b28185a74208bfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
