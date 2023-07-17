@@ -68,6 +68,7 @@ cc_binary {
     defaults: ["cas_service_example_defaults"],
     init_rc: ["cas-default-lazy.rc"],
     cflags: ["-DLAZY_SERVICE"],
+    override: ["android.hardware.cas-service.example"],
 }
 
 cc_fuzz {
