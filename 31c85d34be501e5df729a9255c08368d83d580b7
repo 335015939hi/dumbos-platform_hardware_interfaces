@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38481bfe_e37d092d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-07-17T09:58:28Z",
+      "side": 1,
+      "message": "The failures for these tests as mentioned in http://b/291516424 are for Android R - 3 KeyMint versions ago. It does not make sense to disable them for that reason. At best they should be ignored.",
+      "revId": "31c85d34be501e5df729a9255c08368d83d580b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
