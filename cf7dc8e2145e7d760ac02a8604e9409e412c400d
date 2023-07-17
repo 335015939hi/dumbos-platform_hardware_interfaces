@@ -16,6 +16,29 @@
       "message": "Thanks again!",
       "revId": "cf7dc8e2145e7d760ac02a8604e9409e412c400d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc9e97c_c6634d31",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-07-17T18:05:29Z",
+      "side": 1,
+      "message": "reassemble?",
+      "range": {
+        "startLine": 225,
+        "startChar": 7,
+        "endLine": 225,
+        "endChar": 13
+      },
+      "revId": "cf7dc8e2145e7d760ac02a8604e9409e412c400d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
