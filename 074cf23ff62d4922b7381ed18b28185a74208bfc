@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f91c1a96_f92667ac",
+        "filename": "audio/aidl/default/EffectFactory.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-17T19:44:54Z",
+      "side": 1,
+      "message": "Is it OK to modify the map w/o locking here? What are we serializing—just access to the dynamic library?",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 25
+      },
+      "revId": "074cf23ff62d4922b7381ed18b28185a74208bfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
