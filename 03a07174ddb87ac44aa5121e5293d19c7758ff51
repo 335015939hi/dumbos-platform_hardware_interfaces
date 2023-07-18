@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f104cab3_855dbd1e",
+        "filename": "weaver/aidl/vts/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1137063
+      },
+      "writtenOn": "2023-07-18T17:55:54Z",
+      "side": 0,
+      "message": "chengyouho@ and frankwoo@, do you still want to be owners?  chengyouho@, I see you did the HIDL \u003d\u003e AIDL conversion in 2021: https://r.android.com/1554019.  frankwoo@, I don\u0027t see any activity from you.  If either of you does still want to be an owner, can we move you to `weaver/OWNERS` so that your ownership isn\u0027t restricted to the tests?  I don\u0027t think the tests should have separate owners from the rest of `weaver/`.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 19
+      },
+      "revId": "03a07174ddb87ac44aa5121e5293d19c7758ff51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
