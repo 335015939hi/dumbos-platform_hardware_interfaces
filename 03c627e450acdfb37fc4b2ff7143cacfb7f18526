@@ -34,6 +34,23 @@
       "parentUuid": "27e56b51_1b396199",
       "revId": "03c627e450acdfb37fc4b2ff7143cacfb7f18526",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edce0705_a6709d4b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2023-07-19T22:41:32Z",
+      "side": 1,
+      "message": "What do the implementations do if the padding is corrupted, use a PRF to generate a pseudorandom ciphertext?",
+      "revId": "03c627e450acdfb37fc4b2ff7143cacfb7f18526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
