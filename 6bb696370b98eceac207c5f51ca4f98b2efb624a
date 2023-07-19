@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3abb02b4_53d7a976",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-07-19T11:27:48Z",
+      "side": 1,
+      "message": "Addressed these comments in a seperate CL.\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/2664716",
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73d629c8_79be3412",
@@ -93,6 +110,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d39af51c_e2aa4d18",
+        "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-07-19T11:27:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac08eb85_328895a4",
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38b22d32_4125c688",
@@ -106,6 +141,24 @@
       "writtenOn": "2023-07-06T22:05:18Z",
       "side": 1,
       "message": "Same question about const reference.",
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb207ff7_08d31179",
+        "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-07-19T11:27:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38b22d32_4125c688",
       "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -127,6 +180,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5601249f_49182973",
+        "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-07-19T11:27:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10900fb4_37fbcbc5",
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5464b36_5563ba37",
@@ -140,6 +211,30 @@
       "writtenOn": "2023-07-05T19:10:17Z",
       "side": 1,
       "message": "A question from Eric:\n\ncan you explain the new use of mStreamOutStandbyTransition?\nIn previous remote submix implementation this was used to detect if the output standby state had changed since the last time exitStandby() was called.\nThe new implementation does not seem to do this: here we systematically toggle it even if we were already in standby when standby was called. shouldn\u0027t we test if (!mStreamOutStandby) and set it to true?",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 67
+      },
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e8444d5_15869cfe",
+        "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-07-19T11:27:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5464b36_5563ba37",
       "range": {
         "startLine": 206,
         "startChar": 0,
