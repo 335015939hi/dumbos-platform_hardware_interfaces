@@ -71,6 +71,11 @@ const uint32_t kInvalidPatchlevel = 99998877;
 // additional overhead, for the digest algorithmIdentifier required by PKCS#1.
 const size_t kPkcs1UndigestedSignaturePaddingOverhead = 11;
 
+size_t count_tag_invalid_entries(const std::vector<KeyParameter>& authorizations) {
+    return std::count_if(authorizations.begin(), authorizations.end(),
+                         [](const KeyParameter& e) -> bool { return e.tag == Tag::INVALID; });
+}
+
 typedef KeyMintAidlTestBase::KeyData KeyData;
 // Predicate for testing basic characteristics validity in generation or import.
 bool KeyCharacteristicsBasicallyValid(SecurityLevel secLevel,
@@ -83,6 +88,8 @@ bool KeyCharacteristicsBasicallyValid(SecurityLevel secLevel,
             GTEST_LOG_(ERROR) << "empty authorizations for " << entry.securityLevel;
             return false;
         }
+
+        EXPECT_EQ(count_tag_invalid_entries(entry.authorizations), 0);
 
         // Just ignore the SecurityLevel::KEYSTORE as the KM won't do any enforcement on this.
         if (entry.securityLevel == SecurityLevel::KEYSTORE) continue;
@@ -1616,17 +1623,39 @@ bool KeyMintAidlTestBase::is_chipset_allowed_km4_strongbox(void) const {
     return false;
 }
 
-// Skip the test if all the following conditions hold:
-// 1. ATTEST_KEY feature is disabled
-// 2. STRONGBOX is enabled
-// 3. The device is running one of the chipsets that have received a waiver
-//     allowing it to be launched with Android S (or later) with Keymaster 4.0
+// Indicate whether a test that involves use of the ATTEST_KEY feature should be
+// skipped.
+//
+// In general, every KeyMint implementation should support ATTEST_KEY;
+// however, there is a waiver for some specific devices that ship with a
+// combination of Keymaster/StrongBox and KeyMint/TEE.  On these devices, the
+// ATTEST_KEY feature is disabled in the KeyMint/TEE implementation so that
+// the device has consistent ATTEST_KEY behavior (ie. UNIMPLEMENTED) across both
+// HAL implementations.
+//
+// This means that a test involving ATTEST_KEY test should be skipped if all of
+// the following conditions hold:
+// 1. The device is running one of the chipsets that have received a waiver
+//     allowing it to be launched with Android S or T with Keymaster 4.0
 //     in StrongBox
-void KeyMintAidlTestBase::skipAttestKeyTest(void) const {
+// 2. The device has a STRONGBOX implementation present.
+// 3. ATTEST_KEY feature is advertised as disabled.
+//
+// Note that in this scenario, ATTEST_KEY tests should be skipped for both
+// the StrongBox implementation (which is Keymaster, therefore not tested here)
+// and for the TEE implementation (which is adjusted to return UNIMPLEMENTED
+// specifically for this waiver).
+bool KeyMintAidlTestBase::shouldSkipAttestKeyTest(void) const {
     // Check the chipset first as that doesn't require a round-trip to Package Manager.
-    if (is_chipset_allowed_km4_strongbox() && is_strongbox_enabled() &&
-        is_attest_key_feature_disabled()) {
-        GTEST_SKIP() << "Test is not applicable";
+    return (is_chipset_allowed_km4_strongbox() && is_strongbox_enabled() &&
+            is_attest_key_feature_disabled());
+}
+
+// Skip a test that involves use of the ATTEST_KEY feature in specific configurations
+// where ATTEST_KEY is not supported (for either StrongBox or TEE).
+void KeyMintAidlTestBase::skipAttestKeyTest(void) const {
+    if (shouldSkipAttestKeyTest()) {
+        GTEST_SKIP() << "Test using ATTEST_KEY is not applicable on waivered device";
     }
 }
 
@@ -2042,6 +2071,27 @@ vector<uint8_t> make_name_from_str(const string& name) {
     return retval;
 }
 
+void assert_mgf_digests_present_in_key_characteristics(
+        const vector<KeyCharacteristics>& key_characteristics,
+        std::vector<android::hardware::security::keymint::Digest>& expected_mgf_digests) {
+    AuthorizationSet auths;
+    for (auto& entry : key_characteristics) {
+        auths.push_back(AuthorizationSet(entry.authorizations));
+    }
+    for (auto digest : expected_mgf_digests) {
+        ASSERT_TRUE(auths.Contains(TAG_RSA_OAEP_MGF_DIGEST, digest));
+    }
+}
+
+bool is_mgf_digest_present(const vector<KeyCharacteristics>& key_characteristics,
+                           android::hardware::security::keymint::Digest expected_mgf_digest) {
+    AuthorizationSet auths;
+    for (auto& entry : key_characteristics) {
+        auths.push_back(AuthorizationSet(entry.authorizations));
+    }
+    return auths.Contains(TAG_RSA_OAEP_MGF_DIGEST, expected_mgf_digest);
+}
+
 namespace {
 
 void check_cose_key(const vector<uint8_t>& data, bool testMode) {
@@ -2162,13 +2212,27 @@ void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey) 
     *signingKey = std::move(pubKey);
 }
 
-void device_id_attestation_vsr_check(const ErrorCode& result) {
-    if (get_vsr_api_level() > __ANDROID_API_T__) {
-        ASSERT_FALSE(result == ErrorCode::INVALID_TAG)
+// Check the error code from an attempt to perform device ID attestation with an invalid value.
+void device_id_attestation_check_acceptable_error(Tag tag, const ErrorCode& result) {
+    if (result == ErrorCode::CANNOT_ATTEST_IDS) {
+        // Standard/default error code for ID mismatch.
+    } else if (result == ErrorCode::INVALID_TAG) {
+        // Depending on the situation, other error codes may be acceptable.  First, allow older
+        // implementations to use INVALID_TAG.
+        ASSERT_FALSE(get_vsr_api_level() > __ANDROID_API_T__)
                 << "It is a specification violation for INVALID_TAG to be returned due to ID "
                 << "mismatch in a Device ID Attestation call. INVALID_TAG is only intended to "
                 << "be used for a case where updateAad() is called after update(). As of "
                 << "VSR-14, this is now enforced as an error.";
+    } else if (result == ErrorCode::ATTESTATION_IDS_NOT_PROVISIONED) {
+        // If the device is not a phone, it will not have IMEI/MEID values available.  Allow
+        // ATTESTATION_IDS_NOT_PROVISIONED in this case.
+        ASSERT_TRUE((tag == TAG_ATTESTATION_ID_IMEI || tag == TAG_ATTESTATION_ID_MEID ||
+                     tag == TAG_ATTESTATION_ID_SECOND_IMEI))
+                << "incorrect error code on attestation ID mismatch";
+    } else {
+        ADD_FAILURE() << "Error code " << result
+                      << " returned on attestation ID mismatch, should be CANNOT_ATTEST_IDS";
     }
 }
 

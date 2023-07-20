@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,22 +14,18 @@
  * limitations under the License.
  */
 
-#pragma once
+package android.hardware.threadnetwork;
 
-#include <aidl/android/hardware/light/BnLights.h>
-
-namespace aidl {
-namespace android {
-namespace hardware {
-namespace light {
-
-// Default implementation that reports a few placeholder lights.
-class Lights : public BnLights {
-    ndk::ScopedAStatus setLightState(int id, const HwLightState& state) override;
-    ndk::ScopedAStatus getLights(std::vector<HwLight>* lights) override;
-};
-
-}  // namespace light
-}  // namespace hardware
-}  // namespace android
-}  // namespace aidl
+@VintfStability
+interface IThreadChipCallback {
+    /**
+     * This method is called when a spinel frame is received. Thread network
+     * will process the received spinel frame.
+     *
+     * Spinel Protocol:
+     *     https://github.com/openthread/openthread/blob/main/src/lib/spinel/spinel.h
+     *
+     * @param frame  The received spinel frame.
+     */
+    oneway void onReceiveSpinelFrame(in byte[] frame);
+}

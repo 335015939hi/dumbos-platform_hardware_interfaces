@@ -16,7 +16,10 @@
 
 #pragma once
 
+#include <atomic>
+#include <functional>
 #include <mutex>
+#include <optional>
 #include <vector>
 
 #include <aidl/android/media/audio/common/AudioChannelLayout.h>
@@ -30,72 +33,64 @@ extern "C" {
 
 namespace aidl::android::hardware::audio::core {
 
-class DriverUsb : public DriverInterface {
+class StreamUsb : public StreamCommonImpl {
   public:
-    DriverUsb(const StreamContext& context, bool isInput);
+    StreamUsb(const Metadata& metadata, StreamContext&& context);
+    // Methods of 'DriverInterface'.
     ::android::status_t init() override;
     ::android::status_t drain(StreamDescriptor::DrainMode) override;
     ::android::status_t flush() override;
     ::android::status_t pause() override;
+    ::android::status_t standby() override;
+    ::android::status_t start() override;
     ::android::status_t transfer(void* buffer, size_t frameCount, size_t* actualFrameCount,
                                  int32_t* latencyMs) override;
-    ::android::status_t standby() override;
-    // Note: called on a different thread.
-    ::android::status_t setConnectedDevices(
-            const std::vector<::aidl::android::media::audio::common::AudioDevice>& connectedDevices)
-            override;
+    void shutdown() override;
+
+    // Overridden methods of 'StreamCommonImpl', called on a Binder thread.
+    const ConnectedDevices& getConnectedDevices() const override;
+    ndk::ScopedAStatus setConnectedDevices(const ConnectedDevices& devices) override;
 
   private:
-    ::android::status_t exitStandby();
+    using AlsaDeviceProxyDeleter = std::function<void(alsa_device_proxy*)>;
+    using AlsaDeviceProxy = std::unique_ptr<alsa_device_proxy, AlsaDeviceProxyDeleter>;
 
-    std::mutex mLock;
+    static std::optional<struct pcm_config> maybePopulateConfig(const StreamContext& context,
+                                                                bool isInput);
+
+    mutable std::mutex mLock;
 
     const size_t mFrameSizeBytes;
-    std::optional<struct pcm_config> mConfig;
     const bool mIsInput;
-    // Cached device addresses for connected devices.
-    std::vector<::aidl::android::media::audio::common::AudioDeviceAddress> mConnectedDevices
-            GUARDED_BY(mLock);
-    std::vector<std::shared_ptr<alsa_device_proxy>> mAlsaDeviceProxies GUARDED_BY(mLock);
-    bool mIsStandby = true;
+    const std::optional<struct pcm_config> mConfig;
+    std::atomic<bool> mConnectedDevicesUpdated = false;
+    // All fields below are only used on the worker thread.
+    std::vector<AlsaDeviceProxy> mAlsaDeviceProxies;
 };
 
-class StreamInUsb final : public StreamIn {
-    ndk::ScopedAStatus getActiveMicrophones(
-            std::vector<::aidl::android::media::audio::common::MicrophoneDynamicInfo>* _aidl_return)
-            override;
-
+class StreamInUsb final : public StreamUsb, public StreamIn {
   public:
-    static ndk::ScopedAStatus createInstance(
-            const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
-            StreamContext&& context,
-            const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones,
-            std::shared_ptr<StreamIn>* result);
-
-  private:
     friend class ndk::SharedRefBase;
     StreamInUsb(
             const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
             StreamContext&& context,
             const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones);
-};
-
-class StreamOutUsb final : public StreamOut {
-  public:
-    static ndk::ScopedAStatus createInstance(
-            const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
-            StreamContext&& context,
-            const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
-                    offloadInfo,
-            std::shared_ptr<StreamOut>* result);
 
   private:
+    ndk::ScopedAStatus getActiveMicrophones(
+            std::vector<::aidl::android::media::audio::common::MicrophoneDynamicInfo>* _aidl_return)
+            override;
+};
+
+class StreamOutUsb final : public StreamUsb, public StreamOut {
+  public:
     friend class ndk::SharedRefBase;
     StreamOutUsb(const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
                  StreamContext&& context,
                  const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
                          offloadInfo);
 
+  private:
     ndk::ScopedAStatus getHwVolume(std::vector<float>* _aidl_return) override;
     ndk::ScopedAStatus setHwVolume(const std::vector<float>& in_channelVolumes) override;
 
