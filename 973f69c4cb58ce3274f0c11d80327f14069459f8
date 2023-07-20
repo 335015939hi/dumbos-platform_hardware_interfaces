@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b8fd4a3_4aaca17a",
+        "filename": "graphics/composer/aidl/android/hardware/graphics/composer3/ClientTargetPropertyWithBrightness.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-07-20T22:49:54Z",
+      "side": 1,
+      "message": "two \"may\"s?",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 10
+      },
+      "revId": "973f69c4cb58ce3274f0c11d80327f14069459f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
