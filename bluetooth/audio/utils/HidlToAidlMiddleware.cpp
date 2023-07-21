@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "BtAudioNakahara"
+#define LOG_TAG "BTAudioMiddleware"
 
 #include <aidl/android/hardware/bluetooth/audio/AudioConfiguration.h>
 #include <aidl/android/hardware/bluetooth/audio/BluetoothAudioStatus.h>
@@ -593,8 +593,19 @@ bool HidlToAidlMiddleware_2_0::GetPresentationPosition(
 void HidlToAidlMiddleware_2_0::UpdateTracksMetadata(
     const SessionType_2_0& session_type,
     const struct source_metadata* source_metadata) {
+  /* AIDL uses V7 version, repack here */
+  struct source_metadata_v7 new_source_metadata;
+  new_source_metadata.track_count = source_metadata->track_count;
+
+  for (size_t i = 0; i < new_source_metadata.track_count; i++) {
+    new_source_metadata.tracks[i].base.gain = source_metadata->tracks[i].gain;
+    new_source_metadata.tracks[i].base.usage = source_metadata->tracks[i].usage;
+    new_source_metadata.tracks[i].base.content_type =
+        source_metadata->tracks[i].content_type;
+  }
+
   return BluetoothAudioSessionControl::UpdateSourceMetadata(
-      from_session_type_2_0(session_type), *source_metadata);
+      from_session_type_2_0(session_type), new_source_metadata);
 }
 
 size_t HidlToAidlMiddleware_2_0::OutWritePcmData(

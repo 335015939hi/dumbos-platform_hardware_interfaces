@@ -39,8 +39,8 @@ cc_library_shared {
     srcs: [
         "aidl_session/BluetoothAudioCodecs.cpp",
         "aidl_session/BluetoothAudioSession.cpp",
-        "aidl_session/HidlToAidlMiddleware.cpp",
         "aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "HidlToAidlMiddleware.cpp",
     ],
     export_include_dirs: ["aidl_session/"],
     header_libs: [
