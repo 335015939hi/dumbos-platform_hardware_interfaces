@@ -21,8 +21,8 @@
 #include <android-base/logging.h>
 #include <android-base/stringprintf.h>
 
-#include "../aidl_session/HidlToAidlMiddleware_2_0.h"
-#include "../aidl_session/HidlToAidlMiddleware_2_1.h"
+#include "../HidlToAidlMiddleware_2_0.h"
+#include "../HidlToAidlMiddleware_2_1.h"
 
 namespace android {
 namespace bluetooth {

@@ -194,8 +194,8 @@ class BluetoothAudioSession {
   bool SuspendStream();
   void StopStream();
   bool GetPresentationPosition(PresentationPosition& presentation_position);
-  void UpdateSourceMetadata(const struct source_metadata& source_metadata);
-  void UpdateSinkMetadata(const struct sink_metadata& sink_metadata);
+  void UpdateSourceMetadata(const struct source_metadata_v7& source_metadata);
+  void UpdateSinkMetadata(const struct sink_metadata_v7& sink_metadata);
 
   std::vector<LatencyMode> GetSupportedLatencyModes();
   void SetLatencyMode(const LatencyMode& latency_mode);
