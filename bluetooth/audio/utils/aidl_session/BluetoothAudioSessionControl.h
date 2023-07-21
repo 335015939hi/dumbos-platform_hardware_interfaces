@@ -161,6 +161,23 @@ class BluetoothAudioSessionControl {
       const struct source_metadata& source_metadata) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
+
+    struct source_metadata_v7 new_source_metadata;
+    new_source_metadata.tracks->base.usage = source_metadata.tracks->usage;
+    new_source_metadata.tracks->base.content_type =
+        source_metadata.tracks->content_type;
+    new_source_metadata.tracks->base.gain = source_metadata.tracks->gain;
+
+    if (session_ptr != nullptr) {
+      session_ptr->UpdateSourceMetadata(new_source_metadata);
+    }
+  }
+
+  static void UpdateSourceMetadata(
+      const SessionType& session_type,
+      const struct source_metadata_v7& source_metadata) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
       session_ptr->UpdateSourceMetadata(source_metadata);
     }
@@ -168,6 +185,24 @@ class BluetoothAudioSessionControl {
 
   static void UpdateSinkMetadata(const SessionType& session_type,
                                  const struct sink_metadata& sink_metadata) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(session_type);
+
+    struct sink_metadata_v7 new_sink_metadata;
+    new_sink_metadata.tracks->base.source = sink_metadata.tracks->source;
+    new_sink_metadata.tracks->base.gain = sink_metadata.tracks->gain;
+    new_sink_metadata.tracks->base.dest_device =
+        sink_metadata.tracks->dest_device;
+    strcpy(new_sink_metadata.tracks->base.dest_device_address,
+           sink_metadata.tracks->dest_device_address);
+
+    if (session_ptr != nullptr) {
+      session_ptr->UpdateSinkMetadata(new_sink_metadata);
+    }
+  }
+
+  static void UpdateSinkMetadata(const SessionType& session_type,
+                                 const struct sink_metadata_v7& sink_metadata) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
