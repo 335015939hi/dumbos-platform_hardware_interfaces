@@ -158,7 +158,7 @@ class BluetoothAudioSessionControl {
 
   static void UpdateSourceMetadata(
       const SessionType& session_type,
-      const struct source_metadata& source_metadata) {
+      const struct source_metadata_v7& source_metadata) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {
@@ -167,7 +167,7 @@ class BluetoothAudioSessionControl {
   }
 
   static void UpdateSinkMetadata(const SessionType& session_type,
-                                 const struct sink_metadata& sink_metadata) {
+                                 const struct sink_metadata_v7& sink_metadata) {
     std::shared_ptr<BluetoothAudioSession> session_ptr =
         BluetoothAudioSessionInstance::GetSessionInstance(session_type);
     if (session_ptr != nullptr) {

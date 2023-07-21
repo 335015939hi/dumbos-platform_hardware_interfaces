@@ -537,7 +537,7 @@ bool BluetoothAudioSession::GetPresentationPosition(
 }
 
 void BluetoothAudioSession::UpdateSourceMetadata(
-    const struct source_metadata& source_metadata) {
+    const struct source_metadata_v7& source_metadata) {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
@@ -560,16 +560,19 @@ void BluetoothAudioSession::UpdateSourceMetadata(
   for (int i = 0; i < track_count; i++) {
     hal_source_metadata.tracks[i].usage =
         static_cast<media::audio::common::AudioUsage>(
-            source_metadata.tracks[i].usage);
+            source_metadata.tracks[i].base.usage);
     hal_source_metadata.tracks[i].contentType =
         static_cast<media::audio::common::AudioContentType>(
-            source_metadata.tracks[i].content_type);
-    hal_source_metadata.tracks[i].gain = source_metadata.tracks[i].gain;
+            source_metadata.tracks[i].base.content_type);
+    hal_source_metadata.tracks[i].gain = source_metadata.tracks[i].base.gain;
+    hal_source_metadata.tracks[i].tags.push_back(
+        std::string(source_metadata.tracks[i].tags));
     LOG(VERBOSE) << __func__ << " - SessionType=" << toString(session_type_)
                  << ", usage=" << toString(hal_source_metadata.tracks[i].usage)
                  << ", content="
                  << toString(hal_source_metadata.tracks[i].contentType)
-                 << ", gain=" << hal_source_metadata.tracks[i].gain;
+                 << ", gain=" << hal_source_metadata.tracks[i].gain
+                 << ", first tag=" << hal_source_metadata.tracks[i].tags[0];
   }
 
   auto hal_retval = stack_iface_->updateSourceMetadata(hal_source_metadata);
@@ -580,7 +583,7 @@ void BluetoothAudioSession::UpdateSourceMetadata(
 }
 
 void BluetoothAudioSession::UpdateSinkMetadata(
-    const struct sink_metadata& sink_metadata) {
+    const struct sink_metadata_v7& sink_metadata) {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
@@ -603,14 +606,17 @@ void BluetoothAudioSession::UpdateSinkMetadata(
   for (int i = 0; i < track_count; i++) {
     hal_sink_metadata.tracks[i].source =
         static_cast<media::audio::common::AudioSource>(
-            sink_metadata.tracks[i].source);
-    hal_sink_metadata.tracks[i].gain = sink_metadata.tracks[i].gain;
+            sink_metadata.tracks[i].base.source);
+    hal_sink_metadata.tracks[i].gain = sink_metadata.tracks[i].base.gain;
+    hal_sink_metadata.tracks[i].tags.push_back(
+        std::string(sink_metadata.tracks[i].tags));
     LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
-              << ", source=" << sink_metadata.tracks[i].source
-              << ", dest_device=" << sink_metadata.tracks[i].dest_device
-              << ", gain=" << sink_metadata.tracks[i].gain
+              << ", source=" << sink_metadata.tracks[i].base.source
+              << ", dest_device=" << sink_metadata.tracks[i].base.dest_device
+              << ", gain=" << sink_metadata.tracks[i].base.gain
               << ", dest_device_address="
-              << sink_metadata.tracks[i].dest_device_address;
+              << sink_metadata.tracks[i].base.dest_device_address
+              << ", first tag=" << hal_sink_metadata.tracks[i].tags[0];
   }
 
   auto hal_retval = stack_iface_->updateSinkMetadata(hal_sink_metadata);
