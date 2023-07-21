@@ -1,0 +1,296 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0832fb9_922b950f",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "We only need at most one mutex for this class. Combine with wakeup_mutex_. Call it just mutex_",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 25
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19d3f26d_a92faf2c",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "This is more complicated than needed.\n\nVENDOR_STATE_CLOSED -\u003e Initialize() -\u003e VENDOR_STATE_OPENING\ninitialize_complete_cb() -\u003e VENDOR_STATE_OPENED\nShutdown() -\u003e VENDOR_STATE_CLOSED\n\n```\nVENDOR_STATE_CLOSED \u003d 1, /* Only Initialize() is valid */\nVENDOR_STATE_OPENING,\t/* Nothing valid. Caller must wait for initialize_complete_cb_ */\nVENDOR_STATE_OPENED,\t/* All calls except Initialize() valid */\n```",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 0
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "016a5015_8e4ca442",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "add `GUARDED_BY(mutex_)`\n\nShould probably be VENDOR_STATE_CLOSED.",
+      "range": {
+        "startLine": 62,
+        "startChar": 17,
+        "endLine": 62,
+        "endChar": 34
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6c1fd46_984048dc",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "add `GUARDED_BY(mutex_)`",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 25
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c87beb37_fff7498c",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "I feel we don\u0027t need this anymore. It will simplify the logic to remove it.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 46
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eaf5308_3b2b80d7",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "Release the mutex here. It is dangerous to hold a mutex while making many function calls.",
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a47d50_1cb4afe6",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "Take the mutex here. `lpm_wake_deasserted` and `vstate` are guarded.",
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79248f98_1d990da4",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "Must take mutex here to read `vstate`",
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e722d8e_c1135957",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "Close is always allowed. It just locks the other functions, and cleans up.\n\nIt may be a good idea to copy `initialize_complete_cb_`, set it to nullptr. Release mutex_, then call the copy `initialize_complete_cb(false)`.",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 32
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c678090_601e279d",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "This should be outside the if-statement, correct? If the firmware failed to init, it should always be fatal, even if we have no initialize_complete_cb",
+      "range": {
+        "startLine": 398,
+        "startChar": 4,
+        "endLine": 399,
+        "endChar": 52
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ff0b643_4ea7c13c",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "This needs to be called before the FATAL logging.\n\nAlso set `initialize_complete_cb_` to nullptr after calling.",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 400,
+        "endChar": 43
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4e9d6ce_cd47dcc5",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "This access to initialize_complete_cb_ must be guarded by the mutex.",
+      "range": {
+        "startLine": 419,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 36
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56843a82_b77b9d95",
+        "filename": "bluetooth/1.0/default/vendor_interface.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "Why is this needed? We should not want to share this mutex.",
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a09ab8f_97580cb3",
+        "filename": "bluetooth/1.0/default/vendor_interface.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-21T15:44:31Z",
+      "side": 1,
+      "message": "People that call get() should not be able to delete the vendor interface.",
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
