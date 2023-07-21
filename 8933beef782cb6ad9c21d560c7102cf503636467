@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68a7dc66_2f1b6cf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-07-21T16:25:59Z",
+      "side": 1,
+      "message": "This HAL is deprecated.  Is there a reason not to migrate to the AIDL HAL?",
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0832fb9_922b950f",
