@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78564edc_42c38b6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-07-22T00:00:35Z",
+      "side": 1,
+      "message": "Please review the presubmit failure.",
+      "revId": "a99b22b0a8a7cfdef4290f3284e4910582b1b4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5309b5aa_a013cade",
+        "filename": "security/keymint/aidl/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-07-22T00:00:35Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by XTS OWNERS: security/keymint/aidl/OWNERS: No component ID found. A valid xTS module/sub-module OWNERS file must contain one component as comment.\n\nAnalyzer Description: Validates that OWNERS files exist and contain valid bug component information for all cts/gts/vts modules.\nOwner: android-xts-infra@google.com\n\nsecurity/keymint/aidl/OWNERS: No component ID found. A valid xTS module/sub-module OWNERS file must contain one component as comment.\nFor more details, please check out go/xts-owners-policy. If you have any questions, please reach out to the android-xts-infra team.",
+      "range": {
+        "startLine": 0,
+        "startChar": 0,
+        "endLine": 0,
+        "endChar": 0
+      },
+      "revId": "a99b22b0a8a7cfdef4290f3284e4910582b1b4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
