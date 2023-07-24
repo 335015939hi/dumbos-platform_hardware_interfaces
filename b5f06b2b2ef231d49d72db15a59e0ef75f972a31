@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c834af7f_fe3acfc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-07-24T23:44:56Z",
+      "side": 1,
+      "message": "Hi Paul,\n\nI have moved the Arc CDDL definition to a separate file as you suggested during the meeting last week and made the other suggested changes. Can you please take another look?\n\nThanks!",
+      "revId": "b5f06b2b2ef231d49d72db15a59e0ef75f972a31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
