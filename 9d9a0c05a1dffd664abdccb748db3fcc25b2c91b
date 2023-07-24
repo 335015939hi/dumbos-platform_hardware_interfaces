@@ -22,6 +22,30 @@
       },
       "revId": "9d9a0c05a1dffd664abdccb748db3fcc25b2c91b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a847958e_c5ea86b1",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-07-24T20:15:18Z",
+      "side": 1,
+      "message": "This function looks like it was added just to drop packets until a reset can be sent and received.  I would have expected that I should remove the whole thing.\n\nThe Watcher gets configured for normal operation on line 255.",
+      "parentUuid": "aabe27a1_5bdf4557",
+      "range": {
+        "startLine": 177,
+        "startChar": 2,
+        "endLine": 189,
+        "endChar": 23
+      },
+      "revId": "9d9a0c05a1dffd664abdccb748db3fcc25b2c91b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
