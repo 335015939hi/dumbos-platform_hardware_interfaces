@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c54d93_2ea9a79d",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 55
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-25T19:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c93545b9_b8a682b9",
+      "range": {
+        "startLine": 164,
+        "startChar": 48,
+        "endLine": 164,
+        "endChar": 49
+      },
+      "revId": "e0e15df55a4fa6ddaa4f1ed0d874e820cb448602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a712f02_99133030",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-25T17:10:36Z",
       "side": 1,
       "message": "I find the use of `retval` inconsistent and because of that somewhat error-prone. I would recommend making it local to the cases that use it and return from them directly, as it\u0027s done here. This will also make the code more compact.",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 25
+      },
+      "revId": "e0e15df55a4fa6ddaa4f1ed0d874e820cb448602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "347c6229_c7bb5648",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 55
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-25T19:13:49Z",
+      "side": 1,
+      "message": "Mikhail, i have adjusted this at few places. In other places, i am using this var for debug logging. Hence i retained there",
+      "parentUuid": "7a712f02_99133030",
       "range": {
         "startLine": 314,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f195386f_94689e17",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 55
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-25T19:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccd2b81a_51f9f77e",
+      "range": {
+        "startLine": 55,
+        "startChar": 60,
+        "endLine": 55,
+        "endChar": 69
+      },
+      "revId": "e0e15df55a4fa6ddaa4f1ed0d874e820cb448602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "733712c2_4893aa09",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-07-25T17:10:36Z",
       "side": 1,
       "message": "It would be more consistent to call `StreamCommonImpl::getConnectedDevices`",
+      "range": {
+        "startLine": 76,
+        "startChar": 11,
+        "endLine": 76,
+        "endChar": 29
+      },
+      "revId": "e0e15df55a4fa6ddaa4f1ed0d874e820cb448602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a60f0e20_1d99b76f",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 55
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-07-25T19:13:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "733712c2_4893aa09",
       "range": {
         "startLine": 76,
         "startChar": 11,
