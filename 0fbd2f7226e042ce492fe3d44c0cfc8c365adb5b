@@ -16,6 +16,24 @@
       "message": "Dupe with mine aosp/2648142",
       "revId": "0fbd2f7226e042ce492fe3d44c0cfc8c365adb5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4710a2c0_2e19f814",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-07-25T12:39:00Z",
+      "side": 1,
+      "message": "Won\u0027t merge, I just need to have the change in the topic",
+      "parentUuid": "68067966_f804fa35",
+      "revId": "0fbd2f7226e042ce492fe3d44c0cfc8c365adb5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
