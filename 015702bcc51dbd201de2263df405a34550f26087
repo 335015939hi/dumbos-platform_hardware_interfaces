@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2c37eec_43c2e7b3",
+        "filename": "automotive/vehicle/2.0/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2023-07-25T18:07:51Z",
+      "side": 1,
+      "message": "I still see a tab here.",
+      "parentUuid": "8ff8488b_aefb1b7b",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "015702bcc51dbd201de2263df405a34550f26087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "220aa84c_d9fb4a0f",
         "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
         "patchSetId": 3
