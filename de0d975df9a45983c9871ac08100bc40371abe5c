@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7be0e44b_e89945c2",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-25T17:22:16Z",
+      "side": 1,
+      "message": "Do we actually need `mBluetooth`? The stream does not seem to use it, and we always pass a null pointer from Module for it.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 52
+      },
+      "revId": "de0d975df9a45983c9871ac08100bc40371abe5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25afa6d3_f95644ed",
+        "filename": "audio/aidl/default/include/core-impl/ModuleBluetooth.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-25T17:22:16Z",
+      "side": 1,
+      "message": "Please move fields after methods.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 46
+      },
+      "revId": "de0d975df9a45983c9871ac08100bc40371abe5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
