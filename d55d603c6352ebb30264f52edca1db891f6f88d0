@@ -732,6 +732,30 @@
       },
       "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "545350ab_ee614dc7",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-07-25T21:07:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42583943_a7a8deb4",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 14
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
