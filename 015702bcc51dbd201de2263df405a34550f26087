@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79f255ef_a341d935",
+        "filename": "automotive/vehicle/2.0/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1955624
+      },
+      "writtenOn": "2023-07-25T18:10:10Z",
+      "side": 1,
+      "message": "Oh dear... I have to revisit my vim configs. Sorry for that and thanks for spotting it again!",
+      "parentUuid": "d2c37eec_43c2e7b3",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "015702bcc51dbd201de2263df405a34550f26087",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "220aa84c_d9fb4a0f",
