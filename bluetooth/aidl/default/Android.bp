@@ -39,6 +39,9 @@ cc_library_static {
     include_dirs: [
         "packages/modules/Bluetooth/system/gd",
     ],
+    static_libs: [
+        "libbluetooth_hci_pdl",
+    ],
 }
 
 cc_binary {
