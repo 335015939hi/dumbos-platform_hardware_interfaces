@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bbd055f_a3ab3453",
+        "filename": "audio/aidl/default/StreamSwitcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-07-25T17:29:01Z",
+      "side": 1,
+      "message": "Q: for includes, do you plan to keep this as is or move the local include to the top like what we do for audioflinger?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 37
+      },
+      "revId": "43a85cfb2b7931a8a7f4affd1324e448a31a848d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
