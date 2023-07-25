@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9fe14ab_ec92817d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 55
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-25T17:10:36Z",
+      "side": 1,
+      "message": "Noticed a couple of things, please address.",
+      "revId": "e0e15df55a4fa6ddaa4f1ed0d874e820cb448602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c93545b9_b8a682b9",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 55
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-25T17:10:36Z",
+      "side": 1,
+      "message": "Missing space before `port`.",
+      "range": {
+        "startLine": 164,
+        "startChar": 48,
+        "endLine": 164,
+        "endChar": 49
+      },
+      "revId": "e0e15df55a4fa6ddaa4f1ed0d874e820cb448602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a712f02_99133030",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 55
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-25T17:10:36Z",
+      "side": 1,
+      "message": "I find the use of `retval` inconsistent and because of that somewhat error-prone. I would recommend making it local to the cases that use it and return from them directly, as it\u0027s done here. This will also make the code more compact.",
+      "range": {
+        "startLine": 314,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 25
+      },
+      "revId": "e0e15df55a4fa6ddaa4f1ed0d874e820cb448602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccd2b81a_51f9f77e",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 55
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-25T17:10:36Z",
+      "side": 1,
+      "message": "This is inconsistent wrt to `get/setMicMute` above. `__unused` is used with named arguments. If we omit the argument name, there is no need to put `__unused` annotation.",
+      "range": {
+        "startLine": 55,
+        "startChar": 60,
+        "endLine": 55,
+        "endChar": 69
+      },
+      "revId": "e0e15df55a4fa6ddaa4f1ed0d874e820cb448602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "733712c2_4893aa09",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 55
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-25T17:10:36Z",
+      "side": 1,
+      "message": "It would be more consistent to call `StreamCommonImpl::getConnectedDevices`",
+      "range": {
+        "startLine": 76,
+        "startChar": 11,
+        "endLine": 76,
+        "endChar": 29
+      },
+      "revId": "e0e15df55a4fa6ddaa4f1ed0d874e820cb448602",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
