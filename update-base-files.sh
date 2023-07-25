@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 if [ ! -d $ANDROID_BUILD_TOP/hardware/interfaces ] ; then
