@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4409465f_55b3e5c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-07-25T13:20:13Z",
+      "side": 1,
+      "message": "Please add similar capability in hardware/interfaces/cas/aidl/default/cas-default.rc and hardware/interfaces/cas/aidl/default/cas-default-lazy.rc as well.",
+      "revId": "571aaa23a41aa2bbdc33a7ecea3681a3c2eeacc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
