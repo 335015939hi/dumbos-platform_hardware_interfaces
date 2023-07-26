@@ -52,6 +52,30 @@ using EVP_PKEY_CTX_Ptr = bssl::UniquePtr<EVP_PKEY_CTX>;
 using X509_Ptr = bssl::UniquePtr<X509>;
 using CRYPTO_BUFFER_Ptr = bssl::UniquePtr<CRYPTO_BUFFER>;
 
+int get_vsr_api_level() {
+    int vendor_api_level = ::android::base::GetIntProperty("ro.vendor.api_level", -1);
+    if (vendor_api_level != -1) {
+        return vendor_api_level;
+    }
+
+    // Android S and older devices do not define ro.vendor.api_level
+    vendor_api_level = ::android::base::GetIntProperty("ro.board.api_level", -1);
+    if (vendor_api_level == -1) {
+        vendor_api_level = ::android::base::GetIntProperty("ro.board.first_api_level", -1);
+    }
+
+    int product_api_level = ::android::base::GetIntProperty("ro.product.first_api_level", -1);
+    if (product_api_level == -1) {
+        product_api_level = ::android::base::GetIntProperty("ro.build.version.sdk", 0);
+    }
+
+    // VSR API level is the minimum of vendor_api_level and product_api_level.
+    if (vendor_api_level == -1 || vendor_api_level > product_api_level) {
+        return product_api_level;
+    }
+    return vendor_api_level;
+}
+
 ErrMsgOr<bytevec> ecKeyGetPrivateKey(const EC_KEY* ecKey) {
     // Extract private key.
     const BIGNUM* bignum = EC_KEY_get0_private_key(ecKey);
@@ -927,6 +951,19 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequestSignedPayload(
     return signedRequest->value();
 }
 
+ErrMsgOr<hwtrust::DiceChain::Kind> diceChainKind() {
+    int api_level = get_vsr_api_level();
+    switch (api_level) {
+        // Android 14 (U) introduced CSR v3 so earlier versions need not be handled.
+        case __ANDROID_API_U__:
+            return hwtrust::DiceChain::Kind::kVsr14;
+        case __ANDROID_API_V__:
+            return hwtrust::DiceChain::Kind::kVsr15;
+        default:
+            return "Unsupported VSR API level: " + api_level;
+    }
+}
+
 ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t>& request,
                                                        const std::vector<uint8_t>& challenge) {
     auto [parsedRequest, _, csrErrMsg] = cppbor::parse(request);
@@ -961,7 +998,12 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
     }
 
     // DICE chain is [ pubkey, + DiceChainEntry ].
-    auto diceContents = validateBcc(diceCertChain, hwtrust::DiceChain::Kind::kVsr14);
+    auto ruleset = diceChainKind();
+    if (!ruleset) {
+        return ruleset.message();
+    }
+
+    auto diceContents = validateBcc(diceCertChain, *ruleset);
     if (!diceContents) {
         return diceContents.message() + "\n" + prettyPrint(diceCertChain);
     }
