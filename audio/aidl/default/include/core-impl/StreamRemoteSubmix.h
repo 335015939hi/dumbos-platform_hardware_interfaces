@@ -20,16 +20,21 @@
 #include <vector>
 
 #include "core-impl/Stream.h"
+#include "core-impl/StreamSwitcher.h"
 #include "r_submix/SubmixRoute.h"
 
 namespace aidl::android::hardware::audio::core {
 
 using aidl::android::hardware::audio::core::r_submix::AudioConfig;
 using aidl::android::hardware::audio::core::r_submix::SubmixRoute;
+using ::aidl::android::media::audio::common::AudioDevice;
+using ::aidl::android::media::audio::common::AudioDeviceAddress;
+using ::aidl::android::media::audio::common::AudioDeviceType;
 
 class StreamRemoteSubmix : public StreamCommonImpl {
   public:
-    StreamRemoteSubmix(StreamContext* context, const Metadata& metadata);
+    StreamRemoteSubmix(StreamContext* context, const Metadata& metadata,
+                       const AudioDeviceAddress& deviceAddress);
 
     ::android::status_t init() override;
     ::android::status_t drain(StreamDescriptor::DrainMode) override;
@@ -51,7 +56,7 @@ class StreamRemoteSubmix : public StreamCommonImpl {
     ::android::status_t outWrite(void* buffer, size_t frameCount, size_t* actualFrameCount);
     ::android::status_t inRead(void* buffer, size_t frameCount, size_t* actualFrameCount);
 
-    const int mPortId;
+    const AudioDeviceAddress mDeviceAddress;
     const bool mIsInput;
     AudioConfig mStreamConfig;
     std::shared_ptr<SubmixRoute> mCurrentRoute = nullptr;
@@ -59,7 +64,7 @@ class StreamRemoteSubmix : public StreamCommonImpl {
     // Mutex lock to protect vector of submix routes, each of these submix routes have their mutex
     // locks and none of the mutex locks should be taken together.
     static std::mutex sSubmixRoutesLock;
-    static std::map<int32_t, std::shared_ptr<SubmixRoute>> sSubmixRoutes
+    static std::map<AudioDeviceAddress, std::shared_ptr<SubmixRoute>> sSubmixRoutes
             GUARDED_BY(sSubmixRoutesLock);
 
     // limit for number of read error log entries to avoid spamming the logs
@@ -72,7 +77,7 @@ class StreamRemoteSubmix : public StreamCommonImpl {
     static constexpr int kReadAttemptSleepUs = 5000;
 };
 
-class StreamInRemoteSubmix final : public StreamIn, public StreamRemoteSubmix {
+class StreamInRemoteSubmix final : public StreamIn, public StreamSwitcher {
   public:
     friend class ndk::SharedRefBase;
     StreamInRemoteSubmix(
@@ -81,13 +86,33 @@ class StreamInRemoteSubmix final : public StreamIn, public StreamRemoteSubmix {
             const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones);
 
   private:
+    DeviceSwitchBehavior switchCurrentStream(const std::vector<AudioDevice>& devices) override {
+        // This implementation effectively postpones stream creation until
+        // receiving the first call to 'setConnectedDevices' with a non-empty list.
+        if (isStubStream()) {
+            if (devices.size() == 1) {
+                auto deviceDesc = devices.front().type;
+                if (deviceDesc.type == AudioDeviceType::IN_SUBMIX) {
+                    return DeviceSwitchBehavior::CREATE_NEW_STREAM;
+                }
+            }
+            return DeviceSwitchBehavior::UNSUPPORTED_DEVICES;
+        }
+        return DeviceSwitchBehavior::USE_CURRENT_STREAM;
+    }
+    std::unique_ptr<StreamCommonInterfaceEx> createNewStream(
+            const std::vector<AudioDevice>& devices, StreamContext* context,
+            const Metadata& metadata) override {
+        return std::unique_ptr<StreamCommonInterfaceEx>(new InnerStreamWrapper<StreamRemoteSubmix>(
+                context, metadata, devices.front().address));
+    }
     void onClose(StreamDescriptor::State) override { defaultOnClose(); }
     ndk::ScopedAStatus getActiveMicrophones(
             std::vector<::aidl::android::media::audio::common::MicrophoneDynamicInfo>* _aidl_return)
             override;
 };
 
-class StreamOutRemoteSubmix final : public StreamOut, public StreamRemoteSubmix {
+class StreamOutRemoteSubmix final : public StreamOut, public StreamSwitcher {
   public:
     friend class ndk::SharedRefBase;
     StreamOutRemoteSubmix(
@@ -97,6 +122,26 @@ class StreamOutRemoteSubmix final : public StreamOut, public StreamRemoteSubmix 
                     offloadInfo);
 
   private:
+    DeviceSwitchBehavior switchCurrentStream(const std::vector<AudioDevice>& devices) override {
+        // This implementation effectively postpones stream creation until
+        // receiving the first call to 'setConnectedDevices' with a non-empty list.
+        if (isStubStream()) {
+            if (devices.size() == 1) {
+                auto deviceDesc = devices.front().type;
+                if (deviceDesc.type == AudioDeviceType::OUT_SUBMIX) {
+                    return DeviceSwitchBehavior::CREATE_NEW_STREAM;
+                }
+            }
+            return DeviceSwitchBehavior::UNSUPPORTED_DEVICES;
+        }
+        return DeviceSwitchBehavior::USE_CURRENT_STREAM;
+    }
+    std::unique_ptr<StreamCommonInterfaceEx> createNewStream(
+            const std::vector<AudioDevice>& devices, StreamContext* context,
+            const Metadata& metadata) override {
+        return std::unique_ptr<StreamCommonInterfaceEx>(new InnerStreamWrapper<StreamRemoteSubmix>(
+                context, metadata, devices.front().address));
+    }
     void onClose(StreamDescriptor::State) override { defaultOnClose(); }
 };
 
