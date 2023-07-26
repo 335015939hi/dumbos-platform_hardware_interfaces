@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6bfa1fb_ea633e7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-07-26T12:58:21Z",
+      "side": 1,
+      "message": "I think the context here is that this will be backported to Android R or S. Does that AIDL HAL exist there?",
+      "parentUuid": "68a7dc66_2f1b6cf1",
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0832fb9_922b950f",
