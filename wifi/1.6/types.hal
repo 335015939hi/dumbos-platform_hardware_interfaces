@@ -1336,5 +1336,5 @@ enum IfaceConcurrencyType : uint32_t {
     /**
      * Concurrency type of neighborhood area network mode.
      */
-    NAN,
+    NAN_IFACE,
 };
