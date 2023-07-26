@@ -961,7 +961,7 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
     }
 
     // DICE chain is [ pubkey, + DiceChainEntry ].
-    auto diceContents = validateBcc(diceCertChain, hwtrust::DiceChain::Kind::kVsr14);
+    auto diceContents = validateBcc(diceCertChain, hwtrust::DiceChain::Kind::kVsr15);
     if (!diceContents) {
         return diceContents.message() + "\n" + prettyPrint(diceCertChain);
     }
