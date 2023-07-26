@@ -933,4 +933,8 @@ b7ce2d87841585551b082fca6d099622e63b7099e0d8013f687ea1a1dc35c4dc android.hardwar
 2aa559cda86c358c6429114ef6bc72c1b43281e98f9eb6b4df5e7073c8d05767 android.hardware.automotive.vehicle@2.0::types
 42abd285a4293dadb8c89bc63b90cae2872fbffe90c4517aa3ea4965e8aecff7 android.hardware.graphics.common@1.2::types
 
+# ABI preserving changes to HALs during Android V
+e36297cfe8b88c9632aa8836a61c222a793bd2bf8ca5708519d1edde16597bdf android.hardware.wifi@1.0::types
+3c582488d5c7bea219a74ef8d81832488a89dc3d9f9657fa72a04c95ab447b7e android.hardware.wifi@1.6::types
+
 # There will be no more HIDL HALs. Use AIDL instead.

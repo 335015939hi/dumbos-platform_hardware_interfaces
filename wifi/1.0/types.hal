@@ -59,7 +59,7 @@ enum IfaceType : uint32_t {
    * NAN control interface. Datapath support must be queried and created
    * through this interface.
    */
-  NAN,
+  NAN_IFACE,
 };
 
 /**
@@ -1668,7 +1668,7 @@ enum RttPeerType : uint32_t {
   STA = 0x2,
   P2P_GO = 0x3,
   P2P_CLIENT = 0x4,
-  NAN = 0x5,
+  NAN_TYPE = 0x5,
 };
 
 /**
