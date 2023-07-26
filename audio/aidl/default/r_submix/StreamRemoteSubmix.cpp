@@ -29,9 +29,10 @@ using aidl::android::media::audio::common::MicrophoneInfo;
 
 namespace aidl::android::hardware::audio::core {
 
-StreamRemoteSubmix::StreamRemoteSubmix(StreamContext* context, const Metadata& metadata)
+StreamRemoteSubmix::StreamRemoteSubmix(StreamContext* context, const Metadata& metadata,
+                                       const std::vector<AudioDevice>& devices)
     : StreamCommonImpl(context, metadata),
-      mPortId(context->getPortId()),
+      mAudioDevice(devices.front()),
       mIsInput(isInput(metadata)) {
     mStreamConfig.frameSize = context->getFrameSize();
     mStreamConfig.format = context->getFormat();
@@ -45,8 +46,8 @@ std::map<int32_t, std::shared_ptr<SubmixRoute>> StreamRemoteSubmix::sSubmixRoute
 ::android::status_t StreamRemoteSubmix::init() {
     {
         std::lock_guard guard(sSubmixRoutesLock);
-        if (sSubmixRoutes.find(mPortId) != sSubmixRoutes.end()) {
-            mCurrentRoute = sSubmixRoutes[mPortId];
+        if (sSubmixRoutes.find(mAudioDevice) != sSubmixRoutes.end()) {
+            mCurrentRoute = sSubmixRoutes[mAudioDevice];
         }
     }
     // If route is not available for this port, add it.
@@ -59,7 +60,7 @@ std::map<int32_t, std::shared_ptr<SubmixRoute>> StreamRemoteSubmix::sSubmixRoute
         }
         {
             std::lock_guard guard(sSubmixRoutesLock);
-            sSubmixRoutes.emplace(mPortId, mCurrentRoute);
+            sSubmixRoutes.emplace(mAudioDevice, mCurrentRoute);
         }
     } else {
         if (!mCurrentRoute->isStreamConfigValid(mIsInput, mStreamConfig)) {
@@ -116,8 +117,8 @@ ndk::ScopedAStatus StreamRemoteSubmix::prepareToClose() {
         std::shared_ptr<SubmixRoute> route = nullptr;
         {
             std::lock_guard guard(sSubmixRoutesLock);
-            if (sSubmixRoutes.find(mPortId) != sSubmixRoutes.end()) {
-                route = sSubmixRoutes[mPortId];
+            if (sSubmixRoutes.find(mAudioDevice) != sSubmixRoutes.end()) {
+                route = sSubmixRoutes[mAudioDevice];
             }
         }
         if (route != nullptr) {
@@ -146,7 +147,7 @@ void StreamRemoteSubmix::shutdown() {
         LOG(DEBUG) << __func__ << ": pipe destroyed";
 
         std::lock_guard guard(sSubmixRoutesLock);
-        sSubmixRoutes.erase(mPortId);
+        sSubmixRoutes.erase(mAudioDevice);
     }
     mCurrentRoute.reset();
 }
@@ -357,7 +358,7 @@ StreamInRemoteSubmix::StreamInRemoteSubmix(StreamContext&& context,
                                            const SinkMetadata& sinkMetadata,
                                            const std::vector<MicrophoneInfo>& microphones)
     : StreamIn(std::move(context), microphones),
-      StreamRemoteSubmix(&(StreamIn::mContext), sinkMetadata) {}
+      StreamSwitcher(&(StreamIn::mContext), sinkMetadata) {}
 
 ndk::ScopedAStatus StreamInRemoteSubmix::getActiveMicrophones(
         std::vector<MicrophoneDynamicInfo>* _aidl_return) {
@@ -370,6 +371,6 @@ StreamOutRemoteSubmix::StreamOutRemoteSubmix(StreamContext&& context,
                                              const SourceMetadata& sourceMetadata,
                                              const std::optional<AudioOffloadInfo>& offloadInfo)
     : StreamOut(std::move(context), offloadInfo),
-      StreamRemoteSubmix(&(StreamOut::mContext), sourceMetadata) {}
+      StreamSwitcher(&(StreamOut::mContext), sourceMetadata) {}
 
 }  // namespace aidl::android::hardware::audio::core
