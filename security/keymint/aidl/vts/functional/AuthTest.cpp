@@ -444,7 +444,6 @@ TEST_P(AuthTest, TimeoutAuthenticationMultiSid) {
                            .Digest(Digest::NONE)
                            .Digest(Digest::SHA_2_256)
                            .SetDefaultValidity()
-                           .AttestationChallenge("challenge")
                            .AttestationApplicationId("app_id")
                            .Authorization(TAG_USER_SECURE_ID, alt_sid_)
                            .Authorization(TAG_USER_SECURE_ID, sid_)
