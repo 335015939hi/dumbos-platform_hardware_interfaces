@@ -16,6 +16,24 @@
       "message": "Could you explain what exactly the threading issue is, and how this should resolve it? At first glance I\u0027m unsure what this is accomplishing, but I could be missing something?",
       "revId": "862834acca060d20ee9f9216340d83d58092bd7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20d913e1_afcdec5e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1358281
+      },
+      "writtenOn": "2023-07-27T00:37:52Z",
+      "side": 1,
+      "message": "The test failure is still not fixed by this\nhttps://android-build.corp.google.com/test_investigate/?invocationId\u003dI92400010182032850\u0026testResultId\u003dTR69428819097515773\n\nI\u0027ll abandon this CL.",
+      "parentUuid": "74c2ac1b_4f567c72",
+      "revId": "862834acca060d20ee9f9216340d83d58092bd7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
