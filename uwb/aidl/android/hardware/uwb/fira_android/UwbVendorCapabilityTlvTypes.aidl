@@ -136,11 +136,11 @@ enum UwbVendorCapabilityTlvTypes {
     /**  */
     CCC_SUPPORTED_PULSE_SHAPE_COMBOS = 0xA6,
 
-    /** Int value for indicating supported ran multiplier */
+    /** 1 byte value for indicating supported ran multiplier */
     CCC_SUPPORTED_RAN_MULTIPLIER = 0xA7,
 
     /**
-     * Int value to indicate supported max number of ccc ranging sessions
+     * 1 byte value to indicate supported max number of ccc ranging sessions
      */
     CCC_SUPPORTED_MAX_RANGING_SESSION_NUMBER = 0xA8,
 
