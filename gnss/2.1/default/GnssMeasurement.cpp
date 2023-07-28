@@ -134,12 +134,20 @@ void GnssMeasurement::reportMeasurement(const GnssDataV2_0& data) {
 
 void GnssMeasurement::reportMeasurement(const GnssDataV2_1& data) {
     ALOGD("reportMeasurement()");
-    std::unique_lock<std::mutex> lock(mMutex);
     if (sCallback_2_1 == nullptr) {
         ALOGE("%s: GnssMeasurement::sCallback_2_1 is null.", __func__);
         return;
     }
-    auto ret = sCallback_2_1->gnssMeasurementCb_2_1(data);
+    sp<V2_1::IGnssMeasurementCallback> callbackCopy;
+    {
+        std::unique_lock<std::mutex> lock(mMutex);
+        if (sCallback_2_1 == nullptr) {
+            ALOGE("%s: GnssMeasurement::sCallback_2_1 is null.", __func__);
+            return;
+        }
+        callbackCopy = sCallback_2_1;
+    }
+    auto ret = callbackCopy->gnssMeasurementCb_2_1(data);
     if (!ret.isOk()) {
         ALOGE("%s: Unable to invoke callback", __func__);
     }
