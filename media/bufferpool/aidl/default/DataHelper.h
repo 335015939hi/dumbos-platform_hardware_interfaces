@@ -25,14 +25,14 @@
 namespace aidl::android::hardware::media::bufferpool2::implementation {
 
 // Helper template methods for handling map of set.
-template<class T, class U>
-bool insert(std::map<T, std::set<U>> *mapOfSet, T key, U value) {
+template <class T, class U>
+bool insert(std::map<T, std::set<U>>* mapOfSet, T key, U value) {
     auto iter = mapOfSet->find(key);
     if (iter == mapOfSet->end()) {
         std::set<U> valueSet{value};
         mapOfSet->insert(std::make_pair(key, valueSet));
         return true;
-    } else if (iter->second.find(value)  == iter->second.end()) {
+    } else if (iter->second.find(value) == iter->second.end()) {
         iter->second.insert(value);
         return true;
     }
@@ -40,8 +40,8 @@ bool insert(std::map<T, std::set<U>> *mapOfSet, T key, U value) {
 }
 
 // Helper template methods for handling map of set.
-template<class T, class U>
-bool erase(std::map<T, std::set<U>> *mapOfSet, T key, U value) {
+template <class T, class U>
+bool erase(std::map<T, std::set<U>>* mapOfSet, T key, U value) {
     bool ret = false;
     auto iter = mapOfSet->find(key);
     if (iter != mapOfSet->end()) {
@@ -56,8 +56,8 @@ bool erase(std::map<T, std::set<U>> *mapOfSet, T key, U value) {
 }
 
 // Helper template methods for handling map of set.
-template<class T, class U>
-bool contains(std::map<T, std::set<U>> *mapOfSet, T key, U value) {
+template <class T, class U>
+bool contains(std::map<T, std::set<U>>* mapOfSet, T key, U value) {
     auto iter = mapOfSet->find(key);
     if (iter != mapOfSet->end()) {
         auto setIter = iter->second.find(value);
@@ -76,22 +76,19 @@ struct InternalBuffer {
     const std::vector<uint8_t> mConfig;
     bool mInvalidated;
 
-    InternalBuffer(
-            BufferId id,
-            const std::shared_ptr<BufferPoolAllocation> &alloc,
-            const size_t allocSize,
-            const std::vector<uint8_t> &allocConfig)
-            : mId(id), mOwnerCount(0), mTransactionCount(0),
-            mAllocation(alloc), mAllocSize(allocSize), mConfig(allocConfig),
-            mInvalidated(false) {}
+    InternalBuffer(BufferId id, const std::shared_ptr<BufferPoolAllocation>& alloc,
+                   const size_t allocSize, const std::vector<uint8_t>& allocConfig)
+        : mId(id),
+          mOwnerCount(0),
+          mTransactionCount(0),
+          mAllocation(alloc),
+          mAllocSize(allocSize),
+          mConfig(allocConfig),
+          mInvalidated(false) {}
 
-    const native_handle_t *handle() {
-        return mAllocation->handle();
-    }
+    const native_handle_t* handle() { return mAllocation->handle(); }
 
-    void invalidate() {
-        mInvalidated = true;
-    }
+    void invalidate() { mInvalidated = true; }
 };
 
 // Buffer transacion status/message data structure for internal BufferPool use.
@@ -104,7 +101,7 @@ struct TransactionStatus {
     int64_t mTimestampMs;
     bool mSenderValidated;
 
-    TransactionStatus(const BufferStatusMessage &message, int64_t timestampMs) {
+    TransactionStatus(const BufferStatusMessage& message, int64_t timestampMs) {
         mId = message.transactionId;
         mBufferId = message.bufferId;
         mStatus = message.status;

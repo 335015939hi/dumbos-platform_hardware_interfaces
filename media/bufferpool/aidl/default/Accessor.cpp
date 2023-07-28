@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 #define LOG_TAG "AidlBufferPoolAcc"
-//#define LOG_NDEBUG 0
+// #define LOG_NDEBUG 0
 
-#include <sys/types.h>
 #include <stdint.h>
+#include <sys/types.h>
 #include <time.h>
 #include <unistd.h>
 #include <utils/Log.h>
@@ -30,9 +30,9 @@
 namespace aidl::android::hardware::media::bufferpool2::implementation {
 
 namespace {
-    static constexpr nsecs_t kEvictGranularityNs = 1000000000; // 1 sec
-    static constexpr nsecs_t kEvictDurationNs = 5000000000; // 5 secs
-}
+static constexpr nsecs_t kEvictGranularityNs = 1000000000;  // 1 sec
+static constexpr nsecs_t kEvictDurationNs = 5000000000;     // 5 secs
+}  // namespace
 
 #ifdef __ANDROID_VNDK__
 static constexpr uint32_t kSeqIdVndkBit = 1U << 31;
@@ -46,27 +46,25 @@ uint32_t Accessor::sSeqId = time(nullptr) & kSeqIdMax;
 namespace {
 // anonymous namespace
 static std::shared_ptr<ConnectionDeathRecipient> sConnectionDeathRecipient =
-    std::make_shared<ConnectionDeathRecipient>();
+        std::make_shared<ConnectionDeathRecipient>();
 
-void serviceDied(void *cookie) {
+void serviceDied(void* cookie) {
     if (sConnectionDeathRecipient) {
         sConnectionDeathRecipient->onDead(cookie);
     }
 }
-}
+}  // namespace
 
 std::shared_ptr<ConnectionDeathRecipient> Accessor::getConnectionDeathRecipient() {
     return sConnectionDeathRecipient;
 }
 
 ConnectionDeathRecipient::ConnectionDeathRecipient() {
-    mDeathRecipient = ndk::ScopedAIBinder_DeathRecipient(
-            AIBinder_DeathRecipient_new(serviceDied));
+    mDeathRecipient = ndk::ScopedAIBinder_DeathRecipient(AIBinder_DeathRecipient_new(serviceDied));
 }
 
-void ConnectionDeathRecipient::add(
-        int64_t connectionId,
-        const std::shared_ptr<Accessor> &accessor) {
+void ConnectionDeathRecipient::add(int64_t connectionId,
+                                   const std::shared_ptr<Accessor>& accessor) {
     std::lock_guard<std::mutex> lock(mLock);
     if (mAccessors.find(connectionId) == mAccessors.end()) {
         mAccessors.insert(std::make_pair(connectionId, accessor));
@@ -78,7 +76,7 @@ void ConnectionDeathRecipient::remove(int64_t connectionId) {
     mAccessors.erase(connectionId);
     auto it = mConnectionToCookie.find(connectionId);
     if (it != mConnectionToCookie.end()) {
-        void * cookie = it->second;
+        void* cookie = it->second;
         mConnectionToCookie.erase(it);
         auto cit = mCookieToConnections.find(cookie);
         if (cit != mCookieToConnections.end()) {
@@ -90,9 +88,7 @@ void ConnectionDeathRecipient::remove(int64_t connectionId) {
     }
 }
 
-void ConnectionDeathRecipient::addCookieToConnection(
-        void *cookie,
-        int64_t connectionId) {
+void ConnectionDeathRecipient::addCookieToConnection(void* cookie, int64_t connectionId) {
     std::lock_guard<std::mutex> lock(mLock);
     if (mAccessors.find(connectionId) == mAccessors.end()) {
         return;
@@ -107,7 +103,7 @@ void ConnectionDeathRecipient::addCookieToConnection(
     }
 }
 
-void ConnectionDeathRecipient::onDead(void *cookie) {
+void ConnectionDeathRecipient::onDead(void* cookie) {
     std::map<int64_t, const std::weak_ptr<Accessor>> connectionsToClose;
     {
         std::lock_guard<std::mutex> lock(mLock);
@@ -139,18 +135,21 @@ void ConnectionDeathRecipient::onDead(void *cookie) {
     }
 }
 
-AIBinder_DeathRecipient *ConnectionDeathRecipient::getRecipient() {
+AIBinder_DeathRecipient* ConnectionDeathRecipient::getRecipient() {
     return mDeathRecipient.get();
 }
 
-::ndk::ScopedAStatus Accessor::connect(const std::shared_ptr<::aidl::android::hardware::media::bufferpool2::IObserver>& in_observer, ::aidl::android::hardware::media::bufferpool2::IAccessor::ConnectionInfo* _aidl_return) {
+::ndk::ScopedAStatus Accessor::connect(
+        const std::shared_ptr<::aidl::android::hardware::media::bufferpool2::IObserver>&
+                in_observer,
+        ::aidl::android::hardware::media::bufferpool2::IAccessor::ConnectionInfo* _aidl_return) {
     std::shared_ptr<Connection> connection;
     ConnectionId connectionId;
     uint32_t msgId;
     StatusDescriptor statusDesc;
     InvalidationDescriptor invDesc;
-    BufferPoolStatus status = connect(
-            in_observer, false, &connection, &connectionId, &msgId, &statusDesc, &invDesc);
+    BufferPoolStatus status =
+            connect(in_observer, false, &connection, &connectionId, &msgId, &statusDesc, &invDesc);
     if (status == ResultStatus::OK) {
         _aidl_return->connection = connection;
         _aidl_return->connectionId = connectionId;
@@ -162,7 +161,7 @@ AIBinder_DeathRecipient *ConnectionDeathRecipient::getRecipient() {
     return ::ndk::ScopedAStatus::fromServiceSpecificError(status);
 }
 
-Accessor::Accessor(const std::shared_ptr<BufferPoolAllocator> &allocator)
+Accessor::Accessor(const std::shared_ptr<BufferPoolAllocator>& allocator)
     : mAllocator(allocator), mScheduleEvictTs(0) {}
 
 Accessor::~Accessor() {
@@ -179,10 +178,8 @@ BufferPoolStatus Accessor::flush() {
     return ResultStatus::OK;
 }
 
-BufferPoolStatus Accessor::allocate(
-        ConnectionId connectionId,
-        const std::vector<uint8_t> &params,
-        BufferId *bufferId, const native_handle_t** handle) {
+BufferPoolStatus Accessor::allocate(ConnectionId connectionId, const std::vector<uint8_t>& params,
+                                    BufferId* bufferId, const native_handle_t** handle) {
     std::unique_lock<std::mutex> lock(mBufferPool.mMutex);
     mBufferPool.processStatusMessages();
     BufferPoolStatus status = ResultStatus::OK;
@@ -195,8 +192,7 @@ BufferPoolStatus Accessor::allocate(
         if (status == ResultStatus::OK) {
             status = mBufferPool.addNewBuffer(alloc, allocSize, params, bufferId, handle);
         }
-        ALOGV("create a buffer %d : %u %p",
-              status == ResultStatus::OK, *bufferId, *handle);
+        ALOGV("create a buffer %d : %u %p", status == ResultStatus::OK, *bufferId, *handle);
     }
     if (status == ResultStatus::OK) {
         // TODO: handle ownBuffer failure
@@ -207,18 +203,16 @@ BufferPoolStatus Accessor::allocate(
     return status;
 }
 
-BufferPoolStatus Accessor::fetch(
-        ConnectionId connectionId, TransactionId transactionId,
-        BufferId bufferId, const native_handle_t** handle) {
+BufferPoolStatus Accessor::fetch(ConnectionId connectionId, TransactionId transactionId,
+                                 BufferId bufferId, const native_handle_t** handle) {
     std::lock_guard<std::mutex> lock(mBufferPool.mMutex);
     mBufferPool.processStatusMessages();
     auto found = mBufferPool.mTransactions.find(transactionId);
     if (found != mBufferPool.mTransactions.end() &&
-            contains(&mBufferPool.mPendingTransactions,
-                     connectionId, transactionId)) {
+        contains(&mBufferPool.mPendingTransactions, connectionId, transactionId)) {
         if (found->second->mSenderValidated &&
-                found->second->mStatus == BufferStatus::TRANSFER_FROM &&
-                found->second->mBufferId == bufferId) {
+            found->second->mStatus == BufferStatus::TRANSFER_FROM &&
+            found->second->mBufferId == bufferId) {
             found->second->mStatus = BufferStatus::TRANSFER_FETCH;
             auto bufferIt = mBufferPool.mBuffers.find(bufferId);
             if (bufferIt != mBufferPool.mBuffers.end()) {
@@ -233,12 +227,11 @@ BufferPoolStatus Accessor::fetch(
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus Accessor::connect(
-        const std::shared_ptr<IObserver> &observer, bool local,
-        std::shared_ptr<Connection> *connection, ConnectionId *pConnectionId,
-        uint32_t *pMsgId,
-        StatusDescriptor* statusDescPtr,
-        InvalidationDescriptor* invDescPtr) {
+BufferPoolStatus Accessor::connect(const std::shared_ptr<IObserver>& observer, bool local,
+                                   std::shared_ptr<Connection>* connection,
+                                   ConnectionId* pConnectionId, uint32_t* pMsgId,
+                                   StatusDescriptor* statusDescPtr,
+                                   InvalidationDescriptor* invDescPtr) {
     std::shared_ptr<Connection> newConnection = ::ndk::SharedRefBase::make<Connection>();
     BufferPoolStatus status = ResultStatus::CRITICAL_ERROR;
     {
@@ -256,12 +249,11 @@ BufferPoolStatus Accessor::connect(
                 mBufferPool.mInvalidationChannel.getDesc(invDescPtr);
                 mBufferPool.mInvalidation.onConnect(id, observer);
                 if (sSeqId == kSeqIdMax) {
-                   sSeqId = 0;
+                    sSeqId = 0;
                 } else {
                     ++sSeqId;
                 }
             }
-
         }
         mBufferPool.processStatusMessages();
         mBufferPool.cleanUp();
@@ -322,18 +314,15 @@ void Accessor::handleInvalidateAck() {
     }
 }
 
-void Accessor::invalidatorThread(
-            std::map<uint32_t, const std::weak_ptr<Accessor>> &accessors,
-            std::mutex &mutex,
-            std::condition_variable &cv,
-            bool &ready) {
+void Accessor::invalidatorThread(std::map<uint32_t, const std::weak_ptr<Accessor>>& accessors,
+                                 std::mutex& mutex, std::condition_variable& cv, bool& ready) {
     constexpr uint32_t NUM_SPIN_TO_INCREASE_SLEEP = 1024;
-    constexpr uint32_t NUM_SPIN_TO_LOG = 1024*8;
+    constexpr uint32_t NUM_SPIN_TO_LOG = 1024 * 8;
     constexpr useconds_t MAX_SLEEP_US = 10000;
     uint32_t numSpin = 0;
     useconds_t sleepUs = 1;
 
-    while(true) {
+    while (true) {
         std::map<uint32_t, const std::weak_ptr<Accessor>> copied;
         {
             std::unique_lock<std::mutex> lock(mutex);
@@ -366,8 +355,7 @@ void Accessor::invalidatorThread(
                 // CPU.
                 lock.unlock();
                 ++numSpin;
-                if (numSpin % NUM_SPIN_TO_INCREASE_SLEEP == 0 &&
-                    sleepUs < MAX_SLEEP_US) {
+                if (numSpin % NUM_SPIN_TO_INCREASE_SLEEP == 0 && sleepUs < MAX_SLEEP_US) {
                     sleepUs *= 10;
                 }
                 if (numSpin % NUM_SPIN_TO_LOG == 0) {
@@ -380,17 +368,13 @@ void Accessor::invalidatorThread(
 }
 
 Accessor::AccessorInvalidator::AccessorInvalidator() : mReady(false) {
-    std::thread invalidator(
-            invalidatorThread,
-            std::ref(mAccessors),
-            std::ref(mMutex),
-            std::ref(mCv),
-            std::ref(mReady));
+    std::thread invalidator(invalidatorThread, std::ref(mAccessors), std::ref(mMutex),
+                            std::ref(mCv), std::ref(mReady));
     invalidator.detach();
 }
 
-void Accessor::AccessorInvalidator::addAccessor(
-        uint32_t accessorId, const std::weak_ptr<Accessor> &accessor) {
+void Accessor::AccessorInvalidator::addAccessor(uint32_t accessorId,
+                                                const std::weak_ptr<Accessor>& accessor) {
     bool notify = false;
     std::unique_lock<std::mutex> lock(mMutex);
     if (mAccessors.find(accessorId) == mAccessors.end()) {
@@ -425,9 +409,8 @@ void Accessor::createInvalidator() {
 }
 
 void Accessor::evictorThread(
-        std::map<const std::weak_ptr<Accessor>, nsecs_t, std::owner_less<>> &accessors,
-        std::mutex &mutex,
-        std::condition_variable &cv) {
+        std::map<const std::weak_ptr<Accessor>, nsecs_t, std::owner_less<>>& accessors,
+        std::mutex& mutex, std::condition_variable& cv) {
     std::list<const std::weak_ptr<Accessor>> evictList;
     while (true) {
         int expired = 0;
@@ -466,16 +449,11 @@ void Accessor::evictorThread(
 }
 
 Accessor::AccessorEvictor::AccessorEvictor() {
-    std::thread evictor(
-            evictorThread,
-            std::ref(mAccessors),
-            std::ref(mMutex),
-            std::ref(mCv));
+    std::thread evictor(evictorThread, std::ref(mAccessors), std::ref(mMutex), std::ref(mCv));
     evictor.detach();
 }
 
-void Accessor::AccessorEvictor::addAccessor(
-        const std::weak_ptr<Accessor> &accessor, nsecs_t ts) {
+void Accessor::AccessorEvictor::addAccessor(const std::weak_ptr<Accessor>& accessor, nsecs_t ts) {
     std::lock_guard<std::mutex> lock(mMutex);
     bool notify = mAccessors.empty();
     auto it = mAccessors.find(accessor);
@@ -506,4 +484,4 @@ void Accessor::scheduleEvictIfNeeded() {
     }
 }
 
-}  // namespace aidl::android::hardware::media::bufferpool2::implemntation {
+}  // namespace aidl::android::hardware::media::bufferpool2::implementation

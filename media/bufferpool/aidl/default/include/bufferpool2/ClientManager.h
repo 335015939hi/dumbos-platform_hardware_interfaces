@@ -16,23 +16,23 @@
 
 #pragma once
 
-#include <aidl/android/hardware/media/bufferpool2/IAccessor.h>
 #include <aidl/android/hardware/media/bufferpool2/BnClientManager.h>
+#include <aidl/android/hardware/media/bufferpool2/IAccessor.h>
 #include <memory>
 #include "BufferPoolTypes.h"
 
 namespace aidl::android::hardware::media::bufferpool2::implementation {
 
 using aidl::android::hardware::media::bufferpool2::BnClientManager;
-using aidl::android::hardware::media::bufferpool2::IClientManager;
 using aidl::android::hardware::media::bufferpool2::IAccessor;
+using aidl::android::hardware::media::bufferpool2::IClientManager;
 
 struct ClientManager : public BnClientManager {
     // Methods from ::aidl::android::hardware::media::bufferpool2::IClientManager follow.
     ::ndk::ScopedAStatus registerSender(
-        const std::shared_ptr<IAccessor>& in_bufferPool,
-        ::aidl::android::hardware::media::bufferpool2::IClientManager::Registration* _aidl_return)
-        override;
+            const std::shared_ptr<IAccessor>& in_bufferPool,
+            ::aidl::android::hardware::media::bufferpool2::IClientManager::Registration*
+                    _aidl_return) override;
 
     /** Gets an instance. */
     static std::shared_ptr<ClientManager> getInstance();
@@ -49,8 +49,8 @@ struct ClientManager : public BnClientManager {
      *         ResultStatus::NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus create(const std::shared_ptr<BufferPoolAllocator> &allocator,
-                        ConnectionId *pConnectionId);
+    BufferPoolStatus create(const std::shared_ptr<BufferPoolAllocator>& allocator,
+                            ConnectionId* pConnectionId);
 
     /**
      * Register a created connection as sender for remote process.
@@ -66,10 +66,8 @@ struct ClientManager : public BnClientManager {
      *         NOT_FOUND when the sender connection was not found.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus registerSender(const std::shared_ptr<IClientManager> &receiver,
-                                ConnectionId senderId,
-                                ConnectionId *receiverId,
-                                bool *isNew);
+    BufferPoolStatus registerSender(const std::shared_ptr<IClientManager>& receiver,
+                                    ConnectionId senderId, ConnectionId* receiverId, bool* isNew);
 
     /**
      * Closes the specified connection.
@@ -110,10 +108,8 @@ struct ClientManager : public BnClientManager {
      *         NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus allocate(ConnectionId connectionId,
-                          const std::vector<uint8_t> &params,
-                          native_handle_t **handle,
-                          std::shared_ptr<BufferPoolData> *buffer);
+    BufferPoolStatus allocate(ConnectionId connectionId, const std::vector<uint8_t>& params,
+                              native_handle_t** handle, std::shared_ptr<BufferPoolData>* buffer);
 
     /**
      * Receives a buffer for the transaction. The output parameter handle is
@@ -133,12 +129,9 @@ struct ClientManager : public BnClientManager {
      *         NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus receive(ConnectionId connectionId,
-                         TransactionId transactionId,
-                         BufferId bufferId,
-                         int64_t timestampMs,
-                          native_handle_t **handle,
-                         std::shared_ptr<BufferPoolData> *buffer);
+    BufferPoolStatus receive(ConnectionId connectionId, TransactionId transactionId,
+                             BufferId bufferId, int64_t timestampMs, native_handle_t** handle,
+                             std::shared_ptr<BufferPoolData>* buffer);
 
     /**
      * Posts a buffer transfer transaction to the buffer pool. Sends a buffer
@@ -155,9 +148,8 @@ struct ClientManager : public BnClientManager {
      *         CRITICAL_ERROR otherwise.
      */
     BufferPoolStatus postSend(ConnectionId receiverId,
-                          const std::shared_ptr<BufferPoolData> &buffer,
-                          TransactionId *transactionId,
-                          int64_t *timestampMs);
+                              const std::shared_ptr<BufferPoolData>& buffer,
+                              TransactionId* transactionId, int64_t* timestampMs);
 
     /**
      *  Time out inactive lingering connections and close.
@@ -166,7 +158,8 @@ struct ClientManager : public BnClientManager {
 
     /** Destructs the manager of buffer pool clients.  */
     ~ClientManager();
-private:
+
+  private:
     static std::shared_ptr<ClientManager> sInstance;
     static std::mutex sInstanceLock;
 
@@ -179,4 +172,3 @@ private:
 };
 
 }  // namespace aidl::android::hardware::media::bufferpool2::implementation
-

@@ -138,11 +138,9 @@ IpcMutex *IpcMutex::Import(void *pMutex) {
   return reinterpret_cast<IpcMutex *>(pMutex);
 }
 
-
-BufferPoolStatus TestBufferPoolAllocator::allocate(
-    const std::vector<uint8_t> &params,
-    std::shared_ptr<BufferPoolAllocation> *alloc,
-    size_t *allocSize) {
+BufferPoolStatus TestBufferPoolAllocator::allocate(const std::vector<uint8_t>& params,
+                                                   std::shared_ptr<BufferPoolAllocation>* alloc,
+                                                   size_t* allocSize) {
   Params ashmemParams;
   memcpy(&ashmemParams, params.data(), std::min(sizeof(Params), params.size()));
 

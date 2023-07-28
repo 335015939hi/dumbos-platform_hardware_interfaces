@@ -16,16 +16,13 @@
 
 #pragma once
 
-#include <pthread.h>
 #include <bufferpool2/BufferPoolTypes.h>
+#include <pthread.h>
 
-using aidl::android::hardware::media::bufferpool2::implementation::
-    BufferPoolStatus;
-using aidl::android::hardware::media::bufferpool2::implementation::
-    BufferPoolAllocation;
-using aidl::android::hardware::media::bufferpool2::implementation::
-    BufferPoolAllocator;
 using aidl::android::hardware::media::bufferpool2::ResultStatus;
+using aidl::android::hardware::media::bufferpool2::implementation::BufferPoolAllocation;
+using aidl::android::hardware::media::bufferpool2::implementation::BufferPoolAllocator;
+using aidl::android::hardware::media::bufferpool2::implementation::BufferPoolStatus;
 
 struct IpcMutex {
   pthread_mutex_t lock;
@@ -45,9 +42,9 @@ class TestBufferPoolAllocator : public BufferPoolAllocator {
 
   ~TestBufferPoolAllocator() override {}
 
-  BufferPoolStatus allocate(const std::vector<uint8_t> &params,
-                        std::shared_ptr<BufferPoolAllocation> *alloc,
-                        size_t *allocSize) override;
+  BufferPoolStatus allocate(const std::vector<uint8_t>& params,
+                            std::shared_ptr<BufferPoolAllocation>* alloc,
+                            size_t* allocSize) override;
 
   bool compatible(const std::vector<uint8_t> &newParams,
                   const std::vector<uint8_t> &oldParams) override;
@@ -64,4 +61,4 @@ class TestBufferPoolAllocator : public BufferPoolAllocator {
 // retrieve buffer allocator parameters
 void getTestAllocatorParams(std::vector<uint8_t> *params);
 
-void getIpcMutexParams(std::vector<uint8_t> *params);
+void getIpcMutexParams(std::vector<uint8_t>* params);

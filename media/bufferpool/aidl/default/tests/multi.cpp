@@ -18,10 +18,10 @@
 
 #include <gtest/gtest.h>
 
+#include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 #include <android/binder_stability.h>
-#include <android-base/logging.h>
 #include <bufferpool2/ClientManager.h>
 
 #include <signal.h>
@@ -35,17 +35,17 @@
 
 #include "allocator.h"
 
+using aidl::android::hardware::media::bufferpool2::BufferPoolData;
 using aidl::android::hardware::media::bufferpool2::IClientManager;
 using aidl::android::hardware::media::bufferpool2::ResultStatus;
 using aidl::android::hardware::media::bufferpool2::implementation::BufferId;
 using aidl::android::hardware::media::bufferpool2::implementation::ClientManager;
 using aidl::android::hardware::media::bufferpool2::implementation::ConnectionId;
 using aidl::android::hardware::media::bufferpool2::implementation::TransactionId;
-using aidl::android::hardware::media::bufferpool2::BufferPoolData;
 
 namespace {
 
-const std::string testInstance  = std::string() + ClientManager::descriptor + "/multitest";
+const std::string testInstance = std::string() + ClientManager::descriptor + "/multitest";
 
 // communication message types between processes.
 enum PipeCommand : int32_t {
@@ -72,22 +72,22 @@ union PipeMessage {
 class BufferpoolMultiTest : public ::testing::Test {
  public:
   virtual void SetUp() override {
-    BufferPoolStatus status;
-    mReceiverPid = -1;
-    mConnectionValid = false;
+        BufferPoolStatus status;
+        mReceiverPid = -1;
+        mConnectionValid = false;
 
-    ASSERT_TRUE(pipe(mCommandPipeFds) == 0);
-    ASSERT_TRUE(pipe(mResultPipeFds) == 0);
+        ASSERT_TRUE(pipe(mCommandPipeFds) == 0);
+        ASSERT_TRUE(pipe(mResultPipeFds) == 0);
 
-    mReceiverPid = fork();
-    ASSERT_TRUE(mReceiverPid >= 0);
+        mReceiverPid = fork();
+        ASSERT_TRUE(mReceiverPid >= 0);
 
-    if (mReceiverPid == 0) {
-      doReceiver();
-      // In order to ignore gtest behaviour, wait for being killed from
-      // tearDown
-      pause();
-    }
+        if (mReceiverPid == 0) {
+            doReceiver();
+            // In order to ignore gtest behaviour, wait for being killed from
+            // tearDown
+            pause();
+        }
     mManager = ClientManager::getInstance();
     ASSERT_NE(mManager, nullptr);
 
@@ -146,8 +146,7 @@ class BufferpoolMultiTest : public ::testing::Test {
     }
     auto binder = mManager->asBinder();
     AIBinder_forceDowngradeToSystemStability(binder.get());
-    binder_status_t status =
-        AServiceManager_addService(binder.get(), testInstance.c_str());
+    binder_status_t status = AServiceManager_addService(binder.get(), testInstance.c_str());
     CHECK_EQ(status, STATUS_OK);
     if (status != android::OK) {
       message.data.command = PipeCommand::INIT_ERROR;
@@ -161,9 +160,9 @@ class BufferpoolMultiTest : public ::testing::Test {
     {
       native_handle_t *rhandle = nullptr;
       std::shared_ptr<BufferPoolData> rbuffer;
-      BufferPoolStatus status = mManager->receive(
-          message.data.connectionId, message.data.transactionId,
-          message.data.bufferId, message.data.timestampUs, &rhandle, &rbuffer);
+      BufferPoolStatus status = mManager->receive(message.data.connectionId,
+                                                  message.data.transactionId, message.data.bufferId,
+                                                  message.data.timestampUs, &rhandle, &rbuffer);
       mManager->close(message.data.connectionId);
       if (status != ResultStatus::OK) {
         message.data.command = PipeCommand::RECEIVE_ERROR;
@@ -194,8 +193,8 @@ TEST_F(BufferpoolMultiTest, TransferBuffer) {
   ABinderProcess_setThreadPoolMaxThreadCount(1);
   ABinderProcess_startThreadPool();
 
-  std::shared_ptr<IClientManager> receiver = IClientManager::fromBinder(ndk::SpAIBinder(
-      AServiceManager_waitForService(testInstance.c_str())));
+  std::shared_ptr<IClientManager> receiver = IClientManager::fromBinder(
+          ndk::SpAIBinder(AServiceManager_waitForService(testInstance.c_str())));
   ASSERT_NE(receiver, nullptr);
   ConnectionId receiverId;
 

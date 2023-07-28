@@ -27,12 +27,12 @@
 #include <vector>
 #include "allocator.h"
 
+using aidl::android::hardware::media::bufferpool2::BufferPoolData;
 using aidl::android::hardware::media::bufferpool2::implementation::BufferId;
 using aidl::android::hardware::media::bufferpool2::implementation::BufferPoolStatus;
 using aidl::android::hardware::media::bufferpool2::implementation::ClientManager;
 using aidl::android::hardware::media::bufferpool2::implementation::ConnectionId;
 using aidl::android::hardware::media::bufferpool2::implementation::TransactionId;
-using aidl::android::hardware::media::bufferpool2::BufferPoolData;
 
 namespace {
 
@@ -46,24 +46,23 @@ constexpr static int kNumRecycleTest = 3;
 class BufferpoolSingleTest : public ::testing::Test {
  public:
   virtual void SetUp() override {
-    BufferPoolStatus status;
-    mConnectionValid = false;
+      BufferPoolStatus status;
+      mConnectionValid = false;
 
-    mManager = ClientManager::getInstance();
-    ASSERT_NE(mManager, nullptr);
+      mManager = ClientManager::getInstance();
+      ASSERT_NE(mManager, nullptr);
 
-    mAllocator = std::make_shared<TestBufferPoolAllocator>();
-    ASSERT_TRUE((bool)mAllocator);
+      mAllocator = std::make_shared<TestBufferPoolAllocator>();
+      ASSERT_TRUE((bool)mAllocator);
 
-    status = mManager->create(mAllocator, &mConnectionId);
-    ASSERT_TRUE(status == ResultStatus::OK);
+      status = mManager->create(mAllocator, &mConnectionId);
+      ASSERT_TRUE(status == ResultStatus::OK);
 
-    mConnectionValid = true;
+      mConnectionValid = true;
 
-    bool isNew = true;
-    status = mManager->registerSender(mManager, mConnectionId, &mReceiverId, &isNew);
-    ASSERT_TRUE(status == ResultStatus::OK && isNew == false &&
-                mReceiverId == mConnectionId);
+      bool isNew = true;
+      status = mManager->registerSender(mManager, mConnectionId, &mReceiverId, &isNew);
+      ASSERT_TRUE(status == ResultStatus::OK && isNew == false && mReceiverId == mConnectionId);
   }
 
   virtual void TearDown() override {
@@ -154,8 +153,8 @@ TEST_F(BufferpoolSingleTest, TransferBuffer) {
   ASSERT_TRUE(TestBufferPoolAllocator::Fill(allocHandle, 0x77));
   status = mManager->postSend(mReceiverId, sbuffer, &transactionId, &postMs);
   ASSERT_TRUE(status == ResultStatus::OK);
-  status = mManager->receive(mReceiverId, transactionId, sbuffer->mId, postMs,
-                             &recvHandle, &rbuffer);
+  status = mManager->receive(mReceiverId, transactionId, sbuffer->mId, postMs, &recvHandle,
+                             &rbuffer);
   EXPECT_TRUE(status == ResultStatus::OK);
   ASSERT_TRUE(TestBufferPoolAllocator::Verify(recvHandle, 0x77));
 

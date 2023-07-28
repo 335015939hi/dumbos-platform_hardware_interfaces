@@ -59,5 +59,4 @@ void Observer::delClient(ConnectionId connectionId) {
     mClients.erase(connectionId);
 }
 
-
 }  // namespace aidl::android::hardware::media::bufferpool2::implementation

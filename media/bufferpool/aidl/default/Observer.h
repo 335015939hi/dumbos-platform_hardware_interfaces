@@ -16,11 +16,11 @@
 
 #pragma once
 
+#include <aidl/android/hardware/media/bufferpool2/BnObserver.h>
+#include <bufferpool2/BufferPoolTypes.h>
 #include <map>
 #include <memory>
 #include <mutex>
-#include <aidl/android/hardware/media/bufferpool2/BnObserver.h>
-#include <bufferpool2/BufferPoolTypes.h>
 
 namespace aidl::android::hardware::media::bufferpool2::implementation {
 
@@ -46,4 +46,3 @@ private:
 };
 
 }  // namespace aidl::android::hardware::media::bufferpool2::implementation
-

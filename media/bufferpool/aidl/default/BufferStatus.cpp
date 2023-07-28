@@ -15,12 +15,12 @@
  */
 
 #define LOG_TAG "AidlBufferPoolStatus"
-//#define LOG_NDEBUG 0
+// #define LOG_NDEBUG 0
 
-#include <thread>
-#include <time.h>
-#include <aidl/android/hardware/media/bufferpool2/BufferStatus.h>
 #include "BufferStatus.h"
+#include <aidl/android/hardware/media/bufferpool2/BufferStatus.h>
+#include <time.h>
+#include <thread>
 
 namespace aidl::android::hardware::media::bufferpool2::implementation {
 
@@ -41,8 +41,7 @@ bool isBufferInRange(BufferId from, BufferId to, BufferId bufferId) {
 static constexpr int kNumElementsInQueue = 1024*16;
 static constexpr int kMinElementsToSyncInQueue = 128;
 
-BufferPoolStatus BufferStatusObserver::open(
-        ConnectionId id, StatusDescriptor* fmqDescPtr) {
+BufferPoolStatus BufferStatusObserver::open(ConnectionId id, StatusDescriptor* fmqDescPtr) {
     if (mBufferStatusQueues.find(id) != mBufferStatusQueues.end()) {
         ALOGE("connection id collision %lld", (unsigned long long)id);
         return ResultStatus::CRITICAL_ERROR;
@@ -259,7 +258,7 @@ bool BufferInvalidationChannel::isValid() {
     return mValid;
 }
 
-void BufferInvalidationChannel::getDesc(InvalidationDescriptor *fmqDescPtr) {
+void BufferInvalidationChannel::getDesc(InvalidationDescriptor* fmqDescPtr) {
     if (mValid) {
         *fmqDescPtr = mBufferInvalidationQueue->dupeDesc();
     }
@@ -277,5 +276,4 @@ void BufferInvalidationChannel::postInvalidation(
     mBufferInvalidationQueue->write(&message);
 }
 
-}  // namespace ::aidl::android::hardware::media::bufferpool2::implementation
-
+}  // namespace aidl::android::hardware::media::bufferpool2::implementation

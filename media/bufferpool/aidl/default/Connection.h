@@ -27,7 +27,11 @@ struct Accessor;
 
 struct Connection : public BnConnection {
     // Methods from ::aidl::android::hardware::media::bufferpool2::IConnection.
-    ::ndk::ScopedAStatus fetch(const std::vector<::aidl::android::hardware::media::bufferpool2::IConnection::FetchInfo>& in_fetchInfos, std::vector<::aidl::android::hardware::media::bufferpool2::IConnection::FetchResult>* _aidl_return) override;
+    ::ndk::ScopedAStatus
+    fetch(const std::vector<::aidl::android::hardware::media::bufferpool2::IConnection::FetchInfo>&
+                  in_fetchInfos,
+          std::vector<::aidl::android::hardware::media::bufferpool2::IConnection::FetchResult>*
+                  _aidl_return) override;
 
     // Methods from ::aidl::android::hardware::media::bufferpool2::IConnection.
     ::ndk::ScopedAStatus sync() override;
@@ -50,8 +54,8 @@ struct Connection : public BnConnection {
      *         NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus allocate(const std::vector<uint8_t> &params,
-                          BufferId *bufferId, const native_handle_t **handle);
+    BufferPoolStatus allocate(const std::vector<uint8_t>& params, BufferId* bufferId,
+                              const native_handle_t** handle);
 
     /**
      * Processes pending buffer status messages and performs periodic cache cleaning
@@ -75,7 +79,7 @@ struct Connection : public BnConnection {
      * @param accessor      the specified buffer pool.
      * @param connectionId  Id.
      */
-    void initialize(const std::shared_ptr<Accessor> &accessor, ConnectionId connectionId);
+    void initialize(const std::shared_ptr<Accessor>& accessor, ConnectionId connectionId);
 
     enum : uint32_t {
         SYNC_BUFFERID = UINT32_MAX,
@@ -86,11 +90,9 @@ private:
     std::shared_ptr<Accessor> mAccessor;
     ConnectionId mConnectionId;
 
-    bool fetch(
-        uint64_t transactionId,
-        uint32_t bufferId,
-        std::vector<::aidl::android::hardware::media::bufferpool2::IConnection::FetchResult>
-                *result);
+    bool fetch(uint64_t transactionId, uint32_t bufferId,
+               std::vector<::aidl::android::hardware::media::bufferpool2::IConnection::FetchResult>*
+                       result);
 };
 
 }  // namespace aidl::android::hardware::media::bufferpool2::implementation

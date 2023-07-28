@@ -41,7 +41,7 @@ cc_test {
     ],
     static_libs: [
         "libaidlcommonsupport",
-        "libstagefright_aidl_bufferpool2"
+        "libstagefright_aidl_bufferpool2",
     ],
     compile_multilib: "both",
 }
@@ -64,7 +64,7 @@ cc_test {
     ],
     static_libs: [
         "libaidlcommonsupport",
-        "libstagefright_aidl_bufferpool2"
+        "libstagefright_aidl_bufferpool2",
     ],
     compile_multilib: "both",
 }
@@ -87,7 +87,7 @@ cc_test {
     ],
     static_libs: [
         "libaidlcommonsupport",
-        "libstagefright_aidl_bufferpool2"
+        "libstagefright_aidl_bufferpool2",
     ],
     compile_multilib: "both",
 }

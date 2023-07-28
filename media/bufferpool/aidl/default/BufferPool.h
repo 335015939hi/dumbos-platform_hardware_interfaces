@@ -16,12 +16,12 @@
 
 #pragma once
 
+#include <utils/Timers.h>
+#include <condition_variable>
 #include <map>
+#include <mutex>
 #include <set>
 #include <vector>
-#include <mutex>
-#include <condition_variable>
-#include <utils/Timers.h>
 
 #include "BufferStatus.h"
 
@@ -41,7 +41,7 @@ struct TransactionStatus;
  * Handles buffer transfer between buffer pool clients.
  */
 struct BufferPool {
-private:
+  private:
     std::mutex mMutex;
     int64_t mTimestampMs;
     int64_t mLastCleanUpMs;
@@ -61,8 +61,7 @@ private:
     // Only transaction id is kept for the transactions in short duration.
     std::set<TransactionId> mCompletedTransactions;
     // Currently active(pending) transations' status & information.
-    std::map<TransactionId, std::unique_ptr<TransactionStatus>>
-            mTransactions;
+    std::map<TransactionId, std::unique_ptr<TransactionStatus>> mTransactions;
 
     std::map<BufferId, std::unique_ptr<InternalBuffer>> mBuffers;
     std::set<BufferId> mFreeBuffers;
@@ -78,13 +77,8 @@ private:
             size_t mLeft;
             const std::weak_ptr<Accessor> mImpl;
             Pending(bool needsAck, uint32_t from, uint32_t to, size_t left,
-                    const std::shared_ptr<Accessor> &impl)
-                    : mNeedsAck(needsAck),
-                      mFrom(from),
-                      mTo(to),
-                      mLeft(left),
-                      mImpl(impl)
-            {}
+                    const std::shared_ptr<Accessor>& impl)
+                : mNeedsAck(needsAck), mFrom(from), mTo(to), mLeft(left), mImpl(impl) {}
 
             bool isInvalidated(uint32_t bufferId) {
                 return isBufferInRange(mFrom, mTo, bufferId) && --mLeft == 0;
@@ -99,24 +93,20 @@ private:
 
         Invalidation() : mInvalidationId(0), mId(sInvSeqId.fetch_add(1)) {}
 
-        void onConnect(ConnectionId conId, const std::shared_ptr<IObserver> &observer);
+        void onConnect(ConnectionId conId, const std::shared_ptr<IObserver>& observer);
 
         void onClose(ConnectionId conId);
 
         void onAck(ConnectionId conId, uint32_t msgId);
 
-        void onBufferInvalidated(
-                BufferId bufferId,
-                BufferInvalidationChannel &channel);
+        void onBufferInvalidated(BufferId bufferId, BufferInvalidationChannel& channel);
 
-        void onInvalidationRequest(
-                bool needsAck, uint32_t from, uint32_t to, size_t left,
-                BufferInvalidationChannel &channel,
-                const std::shared_ptr<Accessor> &impl);
+        void onInvalidationRequest(bool needsAck, uint32_t from, uint32_t to, size_t left,
+                                   BufferInvalidationChannel& channel,
+                                   const std::shared_ptr<Accessor>& impl);
 
-        void onHandleAck(
-                std::map<ConnectionId, const std::shared_ptr<IObserver>> *observers,
-                uint32_t *invalidationId);
+        void onHandleAck(std::map<ConnectionId, const std::shared_ptr<IObserver>>* observers,
+                         uint32_t* invalidationId);
     } mInvalidation;
     /// Buffer pool statistics which tracks allocation and transfer statistics.
     struct Stats {
@@ -141,8 +131,14 @@ private:
         size_t mTotalFetches;
 
         Stats()
-            : mSizeCached(0), mBuffersCached(0), mSizeInUse(0), mBuffersInUse(0),
-              mTotalAllocations(0), mTotalRecycles(0), mTotalTransfers(0), mTotalFetches(0) {}
+            : mSizeCached(0),
+              mBuffersCached(0),
+              mSizeInUse(0),
+              mBuffersInUse(0),
+              mTotalAllocations(0),
+              mTotalRecycles(0),
+              mTotalTransfers(0),
+              mTotalFetches(0) {}
 
         /// # of currently unused buffers
         size_t buffersNotInUse() const {
@@ -183,26 +179,20 @@ private:
         }
 
         /// A buffer transfer is initiated.
-        void onBufferSent() {
-            mTotalTransfers++;
-        }
+        void onBufferSent() { mTotalTransfers++; }
 
         /// A buffer fetch is invoked by a buffer transfer.
-        void onBufferFetched() {
-            mTotalFetches++;
-        }
+        void onBufferFetched() { mTotalFetches++; }
     } mStats;
 
-    bool isValid() {
-        return mValid;
-    }
+    bool isValid() { return mValid; }
 
     void invalidate(bool needsAck, BufferId from, BufferId to,
-                    const std::shared_ptr<Accessor> &impl);
+                    const std::shared_ptr<Accessor>& impl);
 
     static void createInvalidator();
 
-public:
+  public:
     /** Creates a buffer pool. */
     BufferPool();
 
@@ -245,7 +235,7 @@ public:
      * @result {@code true} when transfer_to message is acknowledged,
      *         {@code false} otherwise.
      */
-    bool handleTransferTo(const BufferStatusMessage &message);
+    bool handleTransferTo(const BufferStatusMessage& message);
 
     /**
      * Handles a transfer transaction being acked by the receiver.
@@ -255,7 +245,7 @@ public:
      * @result {@code true} when transfer_from message is acknowledged,
      *         {@code false} otherwise.
      */
-    bool handleTransferFrom(const BufferStatusMessage &message);
+    bool handleTransferFrom(const BufferStatusMessage& message);
 
     /**
      * Handles a transfer transaction result message from the receiver.
@@ -265,7 +255,7 @@ public:
      * @result {@code true} when the existing transaction is finished,
      *         {@code false} otherwise.
      */
-    bool handleTransferResult(const BufferStatusMessage &message);
+    bool handleTransferResult(const BufferStatusMessage& message);
 
     /**
      * Handles a connection being closed, and returns the result. All the
@@ -290,10 +280,9 @@ public:
      * @return {@code true} when a buffer is recycled, {@code false}
      *         otherwise.
      */
-    bool getFreeBuffer(
-            const std::shared_ptr<BufferPoolAllocator> &allocator,
-            const std::vector<uint8_t> &params,
-            BufferId *pId, const native_handle_t **handle);
+    bool getFreeBuffer(const std::shared_ptr<BufferPoolAllocator>& allocator,
+                       const std::vector<uint8_t>& params, BufferId* pId,
+                       const native_handle_t** handle);
 
     /**
      * Adds a newly allocated buffer to bufferpool.
@@ -308,12 +297,9 @@ public:
      *         NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus addNewBuffer(
-            const std::shared_ptr<BufferPoolAllocation> &alloc,
-            const size_t allocSize,
-            const std::vector<uint8_t> &params,
-            BufferId *pId,
-            const native_handle_t **handle);
+    BufferPoolStatus addNewBuffer(const std::shared_ptr<BufferPoolAllocation>& alloc,
+                                  const size_t allocSize, const std::vector<uint8_t>& params,
+                                  BufferId* pId, const native_handle_t** handle);
 
     /**
      * Processes pending buffer status messages and performs periodic cache
@@ -328,10 +314,9 @@ public:
      * Processes pending buffer status messages and invalidate all current
      * free buffers. Active buffers are invalidated after being inactive.
      */
-    void flush(const std::shared_ptr<Accessor> &impl);
+    void flush(const std::shared_ptr<Accessor>& impl);
 
     friend struct Accessor;
 };
-
 
 }  // namespace aidl::android::hardware::media::bufferpool2::implementation

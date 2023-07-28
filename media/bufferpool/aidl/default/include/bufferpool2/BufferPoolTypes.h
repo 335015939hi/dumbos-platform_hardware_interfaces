@@ -16,11 +16,11 @@
 
 #pragma once
 
+#include <aidl/android/hardware/media/bufferpool2/BufferInvalidationMessage.h>
+#include <aidl/android/hardware/media/bufferpool2/BufferStatusMessage.h>
+#include <aidl/android/hardware/media/bufferpool2/ResultStatus.h>
 #include <cutils/native_handle.h>
 #include <fmq/AidlMessageQueue.h>
-#include <aidl/android/hardware/media/bufferpool2/BufferStatusMessage.h>
-#include <aidl/android/hardware/media/bufferpool2/BufferInvalidationMessage.h>
-#include <aidl/android/hardware/media/bufferpool2/ResultStatus.h>
 
 namespace aidl::android::hardware::media::bufferpool2 {
 
@@ -33,9 +33,7 @@ struct BufferPoolData {
 
     BufferPoolData() : mConnectionId(0), mId(0) {}
 
-    BufferPoolData(
-            int64_t connectionId, uint32_t id)
-            : mConnectionId(connectionId), mId(id) {}
+    BufferPoolData(int64_t connectionId, uint32_t id) : mConnectionId(connectionId), mId(id) {}
 
     ~BufferPoolData() {}
 };
@@ -45,8 +43,8 @@ namespace implementation {
 using aidl::android::hardware::common::fmq::SynchronizedReadWrite;
 using aidl::android::hardware::common::fmq::UnsynchronizedWrite;
 
-using aidl::android::hardware::media::bufferpool2::BufferStatusMessage;
 using aidl::android::hardware::media::bufferpool2::BufferInvalidationMessage;
+using aidl::android::hardware::media::bufferpool2::BufferStatusMessage;
 
 typedef uint32_t BufferId;
 typedef uint64_t TransactionId;
@@ -54,46 +52,53 @@ typedef int64_t ConnectionId;
 typedef int32_t BufferPoolStatus;
 
 // AIDL hal description language does not support unsigned.
-int32_t static inline ToAidl(BufferId id) {return static_cast<int32_t>(id);}
-int64_t static inline ToAidl(TransactionId id) {return static_cast<int64_t>(id);}
+int32_t static inline ToAidl(BufferId id) {
+    return static_cast<int32_t>(id);
+}
+int64_t static inline ToAidl(TransactionId id) {
+    return static_cast<int64_t>(id);
+}
 
-BufferId static inline FromAidl(int32_t id) {return static_cast<BufferId>(id);}
-TransactionId static inline FromAidl(int64_t id) {return static_cast<TransactionId>(id);}
+BufferId static inline FromAidl(int32_t id) {
+    return static_cast<BufferId>(id);
+}
+TransactionId static inline FromAidl(int64_t id) {
+    return static_cast<TransactionId>(id);
+}
 
 enum : ConnectionId {
     INVALID_CONNECTIONID = 0,
 };
 
 typedef ::android::AidlMessageQueue<BufferStatusMessage, SynchronizedReadWrite> BufferStatusQueue;
-typedef aidl::android::hardware::common::fmq::MQDescriptor<BufferStatusMessage, SynchronizedReadWrite>
+typedef aidl::android::hardware::common::fmq::MQDescriptor<BufferStatusMessage,
+                                                           SynchronizedReadWrite>
         StatusDescriptor;
 
 typedef ::android::AidlMessageQueue<BufferInvalidationMessage, UnsynchronizedWrite>
         BufferInvalidationQueue;
-typedef aidl::android::hardware::common::fmq::MQDescriptor<BufferInvalidationMessage, UnsynchronizedWrite>
+typedef aidl::android::hardware::common::fmq::MQDescriptor<BufferInvalidationMessage,
+                                                           UnsynchronizedWrite>
         InvalidationDescriptor;
 
 /**
  * Allocation wrapper class for buffer pool.
  */
 struct BufferPoolAllocation {
-    const native_handle_t *mHandle;
+    const native_handle_t* mHandle;
 
-    const native_handle_t *handle() {
-        return mHandle;
-    }
+    const native_handle_t* handle() { return mHandle; }
 
-    BufferPoolAllocation(const native_handle_t *handle) : mHandle(handle) {}
+    BufferPoolAllocation(const native_handle_t* handle) : mHandle(handle) {}
 
-    ~BufferPoolAllocation() {};
+    ~BufferPoolAllocation(){};
 };
 
 /**
  * Allocator wrapper class for buffer pool.
  */
 class BufferPoolAllocator {
-public:
-
+  public:
     /**
      * Allocate an allocation(buffer) for buffer pool.
      *
@@ -103,24 +108,22 @@ public:
      *
      * @return OK when an allocation is created successfully.
      */
-    virtual BufferPoolStatus allocate(
-            const std::vector<uint8_t> &params,
-            std::shared_ptr<BufferPoolAllocation> *alloc,
-            size_t *allocSize) = 0;
+    virtual BufferPoolStatus allocate(const std::vector<uint8_t>& params,
+                                      std::shared_ptr<BufferPoolAllocation>* alloc,
+                                      size_t* allocSize) = 0;
 
     /**
      * Returns whether allocation parameters of an old allocation are
      * compatible with new allocation parameters.
      */
-    virtual bool compatible(const std::vector<uint8_t> &newParams,
-                            const std::vector<uint8_t> &oldParams) = 0;
+    virtual bool compatible(const std::vector<uint8_t>& newParams,
+                            const std::vector<uint8_t>& oldParams) = 0;
 
-protected:
+  protected:
     BufferPoolAllocator() = default;
 
     virtual ~BufferPoolAllocator() = default;
 };
 
 }  // namespace implementation
-}  // namespace aidl::android::hareware::media::bufferpool2
-
+}  // namespace aidl::android::hardware::media::bufferpool2

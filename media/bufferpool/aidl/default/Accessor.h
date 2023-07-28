@@ -20,18 +20,18 @@
 #include <aidl/android/hardware/media/bufferpool2/IObserver.h>
 #include <bufferpool2/BufferPoolTypes.h>
 
-#include <memory>
-#include <map>
-#include <set>
 #include <condition_variable>
+#include <map>
+#include <memory>
+#include <set>
 
 #include "BufferPool.h"
 
 namespace aidl::android::hardware::media::bufferpool2::implementation {
 
 struct Connection;
-using ::aidl::android::hardware::media::bufferpool2::IObserver;
 using ::aidl::android::hardware::media::bufferpool2::IAccessor;
+using ::aidl::android::hardware::media::bufferpool2::IObserver;
 
 /**
  * Receives death notifications from remote connections.
@@ -43,25 +43,25 @@ struct ConnectionDeathRecipient {
     /**
      * Registers a newly connected connection from remote processes.
      */
-    void add(int64_t connectionId, const std::shared_ptr<Accessor> &accessor);
+    void add(int64_t connectionId, const std::shared_ptr<Accessor>& accessor);
 
     /**
      * Removes a connection.
      */
     void remove(int64_t connectionId);
 
-    void addCookieToConnection(void *cookie, int64_t connectionId);
+    void addCookieToConnection(void* cookie, int64_t connectionId);
 
-    void onDead(void *cookie);
+    void onDead(void* cookie);
 
-    AIBinder_DeathRecipient *getRecipient();
+    AIBinder_DeathRecipient* getRecipient();
 
-private:
+  private:
     ::ndk::ScopedAIBinder_DeathRecipient mDeathRecipient;
 
     std::mutex mLock;
-    std::map<void *, std::set<int64_t>>  mCookieToConnections;
-    std::map<int64_t, void *> mConnectionToCookie;
+    std::map<void*, std::set<int64_t>> mCookieToConnections;
+    std::map<int64_t, void*> mConnectionToCookie;
     std::map<int64_t, const std::weak_ptr<Accessor>> mAccessors;
 };
 
@@ -101,11 +101,8 @@ struct Accessor : public BnAccessor {
      *         NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus allocate(
-            ConnectionId connectionId,
-            const std::vector<uint8_t>& params,
-            BufferId *bufferId,
-            const native_handle_t** handle);
+    BufferPoolStatus allocate(ConnectionId connectionId, const std::vector<uint8_t>& params,
+                              BufferId* bufferId, const native_handle_t** handle);
 
     /**
      * Fetches a buffer for the specified transaction.
@@ -119,11 +116,8 @@ struct Accessor : public BnAccessor {
      *         NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus fetch(
-            ConnectionId connectionId,
-            TransactionId transactionId,
-            BufferId bufferId,
-            const native_handle_t** handle);
+    BufferPoolStatus fetch(ConnectionId connectionId, TransactionId transactionId,
+                           BufferId bufferId, const native_handle_t** handle);
 
     /**
      * Makes a connection to the buffer pool. The buffer pool client uses the
@@ -145,13 +139,10 @@ struct Accessor : public BnAccessor {
      *         NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus connect(
-            const std::shared_ptr<IObserver>& observer,
-            bool local,
-            std::shared_ptr<Connection> *connection, ConnectionId *pConnectionId,
-            uint32_t *pMsgId,
-            StatusDescriptor* statusDescPtr,
-            InvalidationDescriptor* invDescPtr);
+    BufferPoolStatus connect(const std::shared_ptr<IObserver>& observer, bool local,
+                             std::shared_ptr<Connection>* connection, ConnectionId* pConnectionId,
+                             uint32_t* pMsgId, StatusDescriptor* statusDescPtr,
+                             InvalidationDescriptor* invDescPtr);
 
     /**
      * Closes the specified connection to the client.
@@ -187,52 +178,48 @@ struct Accessor : public BnAccessor {
     static void createEvictor();
 
 private:
-    // ConnectionId = pid : (timestamp_created + seqId)
-    // in order to guarantee uniqueness for each connection
-    static uint32_t sSeqId;
+  // ConnectionId = pid : (timestamp_created + seqId)
+  // in order to guarantee uniqueness for each connection
+  static uint32_t sSeqId;
 
-    const std::shared_ptr<BufferPoolAllocator> mAllocator;
-    nsecs_t mScheduleEvictTs;
-    BufferPool mBufferPool;
+  const std::shared_ptr<BufferPoolAllocator> mAllocator;
+  nsecs_t mScheduleEvictTs;
+  BufferPool mBufferPool;
 
-    struct  AccessorInvalidator {
-        std::map<uint32_t, const std::weak_ptr<Accessor>> mAccessors;
-        std::mutex mMutex;
-        std::condition_variable mCv;
-        bool mReady;
+  struct AccessorInvalidator {
+      std::map<uint32_t, const std::weak_ptr<Accessor>> mAccessors;
+      std::mutex mMutex;
+      std::condition_variable mCv;
+      bool mReady;
 
-        AccessorInvalidator();
-        void addAccessor(uint32_t accessorId, const std::weak_ptr<Accessor> &accessor);
-        void delAccessor(uint32_t accessorId);
-    };
+      AccessorInvalidator();
+      void addAccessor(uint32_t accessorId, const std::weak_ptr<Accessor>& accessor);
+      void delAccessor(uint32_t accessorId);
+  };
 
-    static std::unique_ptr<AccessorInvalidator> sInvalidator;
+  static std::unique_ptr<AccessorInvalidator> sInvalidator;
 
-    static void invalidatorThread(
-        std::map<uint32_t, const std::weak_ptr<Accessor>> &accessors,
-        std::mutex &mutex,
-        std::condition_variable &cv,
-        bool &ready);
+  static void invalidatorThread(std::map<uint32_t, const std::weak_ptr<Accessor>>& accessors,
+                                std::mutex& mutex, std::condition_variable& cv, bool& ready);
 
-    struct AccessorEvictor {
-        std::map<const std::weak_ptr<Accessor>, nsecs_t, std::owner_less<>> mAccessors;
-        std::mutex mMutex;
-        std::condition_variable mCv;
+  struct AccessorEvictor {
+      std::map<const std::weak_ptr<Accessor>, nsecs_t, std::owner_less<>> mAccessors;
+      std::mutex mMutex;
+      std::condition_variable mCv;
 
-        AccessorEvictor();
-        void addAccessor(const std::weak_ptr<Accessor> &accessor, nsecs_t ts);
-    };
+      AccessorEvictor();
+      void addAccessor(const std::weak_ptr<Accessor>& accessor, nsecs_t ts);
+  };
 
-    static std::unique_ptr<AccessorEvictor> sEvictor;
+  static std::unique_ptr<AccessorEvictor> sEvictor;
 
-    static void evictorThread(
-        std::map<const std::weak_ptr<Accessor>, nsecs_t, std::owner_less<>> &accessors,
-        std::mutex &mutex,
-        std::condition_variable &cv);
+  static void evictorThread(
+          std::map<const std::weak_ptr<Accessor>, nsecs_t, std::owner_less<>>& accessors,
+          std::mutex& mutex, std::condition_variable& cv);
 
-    void scheduleEvictIfNeeded();
+  void scheduleEvictIfNeeded();
 
-    friend struct BufferPool;
+  friend struct BufferPool;
 };
 
 }  // namespace aidl::android::hardware::media::bufferpool2::implementation

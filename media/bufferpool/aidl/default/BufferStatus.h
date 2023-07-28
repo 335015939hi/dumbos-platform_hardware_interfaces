@@ -17,11 +17,11 @@
 #pragma once
 
 #include <bufferpool2/BufferPoolTypes.h>
+#include <list>
 #include <map>
 #include <memory>
 #include <mutex>
 #include <vector>
-#include <list>
 
 namespace aidl::android::hardware::media::bufferpool2::implementation {
 
@@ -39,33 +39,33 @@ private:
             mBufferStatusQueues;
 
 public:
-    /** Creates a buffer status message FMQ for the specified
-     * connection(client).
-     *
-     * @param connectionId  connection Id of the specified client.
-     * @param fmqDescPtr    ptr of created FMQ's descriptor.
-     *
-     * @return OK if FMQ is created successfully.
-     *         NO_MEMORY when there is no memory.
-     *         CRITICAL_ERROR otherwise.
-     */
-    BufferPoolStatus open(ConnectionId id, StatusDescriptor* _Nonnull fmqDescPtr);
+  /** Creates a buffer status message FMQ for the specified
+   * connection(client).
+   *
+   * @param connectionId  connection Id of the specified client.
+   * @param fmqDescPtr    ptr of created FMQ's descriptor.
+   *
+   * @return OK if FMQ is created successfully.
+   *         NO_MEMORY when there is no memory.
+   *         CRITICAL_ERROR otherwise.
+   */
+  BufferPoolStatus open(ConnectionId id, StatusDescriptor* _Nonnull fmqDescPtr);
 
-    /** Closes a buffer status message FMQ for the specified
-     * connection(client).
-     *
-     * @param connectionId  connection Id of the specified client.
-     *
-     * @return OK if the specified connection is closed successfully.
-     *         CRITICAL_ERROR otherwise.
-     */
-    BufferPoolStatus close(ConnectionId id);
+  /** Closes a buffer status message FMQ for the specified
+   * connection(client).
+   *
+   * @param connectionId  connection Id of the specified client.
+   *
+   * @return OK if the specified connection is closed successfully.
+   *         CRITICAL_ERROR otherwise.
+   */
+  BufferPoolStatus close(ConnectionId id);
 
-    /** Retrieves all pending FMQ buffer status messages from clients.
-     *
-     * @param messages  retrieved pending messages.
-     */
-    void getBufferStatusChanges(std::vector<BufferStatusMessage> &messages);
+  /** Retrieves all pending FMQ buffer status messages from clients.
+   *
+   * @param messages  retrieved pending messages.
+   */
+  void getBufferStatusChanges(std::vector<BufferStatusMessage>& messages);
 };
 
 /**
@@ -137,10 +137,8 @@ public:
      * @param invalidated   sets {@code true} only when the invalidation ack is
      *                      posted.
      */
-    void postBufferInvalidateAck(
-            ConnectionId connectionId,
-            uint32_t invalidateId,
-            bool* _Nonnull invalidated);
+    void postBufferInvalidateAck(ConnectionId connectionId, uint32_t invalidateId,
+                                 bool* _Nonnull invalidated);
 };
 
 /**
