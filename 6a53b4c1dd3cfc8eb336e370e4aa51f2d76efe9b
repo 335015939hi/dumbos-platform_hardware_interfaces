@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a6108f6_42a7c74a",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-07-28T14:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ceef02c_21fb2782",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 83
+      },
+      "revId": "6a53b4c1dd3cfc8eb336e370e4aa51f2d76efe9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1582db25_4e45c12d",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-07-26T17:43:19Z",
       "side": 1,
       "message": "I think we actually need to use the device address only, because input and output stream will have different device types (`IN_SUBMIX` and `OUT_SUBMIX`) and thus the whole type+address pair will not match.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 56
+      },
+      "revId": "6a53b4c1dd3cfc8eb336e370e4aa51f2d76efe9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb77403_66b6fa79",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-07-28T14:32:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1582db25_4e45c12d",
       "range": {
         "startLine": 49,
         "startChar": 0,
