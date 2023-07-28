@@ -21,7 +21,6 @@
 #include <android/hardware/nfc/1.0/INfcClientCallback.h>
 #include <android/hardware/nfc/1.0/types.h>
 #include <gtest/gtest.h>
-#include <hardware/nfc.h>
 #include <hidl/GtestPrinter.h>
 #include <hidl/ServiceManagement.h>
 
