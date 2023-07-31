@@ -16,6 +16,47 @@
       "message": "This is lifted from the keymint VTS tests.",
       "revId": "022f2c7e23ef159c723e77acee2163392eff0b89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "385704f9_2ae187cb",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-07-31T16:27:21Z",
+      "side": 1,
+      "message": "How hard would it to share this with the keymint VTS tests rather than copy it?\n\nI see that we already have `libkeymint_vts_test_utils`, so in theory we should be able to export this function from that library.",
+      "parentUuid": "f7badfeb_88ee321b",
+      "revId": "022f2c7e23ef159c723e77acee2163392eff0b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9e7b378_6b570a8e",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-07-31T16:27:21Z",
+      "side": 1,
+      "message": "It\u0027s not apparent from the function name that this is only meant to be used with HAL v3 and up.\n\nIt would be best to go ahead and add cases for Android T and S, just in case this function gets reused (saving future us from confusion).\n\nAlternately, the function could be renamed, but I cannot think of a reasonable function name that conveys the semantic of \"get vsr api level for hals at or above v3\".",
+      "range": {
+        "startLine": 954,
+        "startChar": 35,
+        "endLine": 954,
+        "endChar": 48
+      },
+      "revId": "022f2c7e23ef159c723e77acee2163392eff0b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
