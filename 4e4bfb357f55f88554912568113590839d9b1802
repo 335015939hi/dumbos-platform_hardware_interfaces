@@ -70,6 +70,30 @@
       },
       "revId": "4e4bfb357f55f88554912568113590839d9b1802",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccad3585_266c4c60",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-07-31T23:27:58Z",
+      "side": 1,
+      "message": "I\u0027m ok with putting this here as long as we\u0027re super clear that these are only requirements for the chain, and not new values implementers need to deal with.\n\nMy concern is that someone doing a quick read over this will see things like `androidConfigDigest` (complete with backticks!) and think it\u0027s some new value they need to calculate or something. In reality, we\u0027re just explaining how a validator would look over the chains and make equivalence decisions.\n\nAdding a small section on \"why\" at the top would probably go a long way. Just putting \"what\" in here leaves too much interpretation on the part of the reader to make guesses as to what this is for. (This is essentially what I was trying to suggest with documented use cases -- explain why the thing exists so readers can grok fully.)",
+      "parentUuid": "aa74563a_77961d58",
+      "range": {
+        "startLine": 235,
+        "startChar": 5,
+        "endLine": 235,
+        "endChar": 24
+      },
+      "revId": "4e4bfb357f55f88554912568113590839d9b1802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
