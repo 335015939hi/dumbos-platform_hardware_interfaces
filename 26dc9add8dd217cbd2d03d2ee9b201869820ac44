@@ -51,6 +51,24 @@
       "parentUuid": "bd7bba16_f720b6ed",
       "revId": "26dc9add8dd217cbd2d03d2ee9b201869820ac44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e99dd15_d6fa684c",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1883619
+      },
+      "writtenOn": "2023-07-31T22:06:49Z",
+      "side": 1,
+      "message": "There is a build error by cherry-picking only this. Okay, I tried to find included location via cc_defaults. Maybe I missed some change in \"frameworks/av\".",
+      "parentUuid": "7b459b3c_9c2198c2",
+      "revId": "26dc9add8dd217cbd2d03d2ee9b201869820ac44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
