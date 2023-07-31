@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "245de37a_4a007211",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-07-31T15:12:30Z",
+      "side": 1,
+      "message": "Since our profile doesn\u0027t specify all of the inputs to the configHash, we don\u0027t know that the config doesn\u0027t contain anything that isn\u0027t stable within a device family.\n\nHowever, excluding parts of the config that we don\u0027t define also means that vendor-defined configurations that could alter the behaviour of the code (e.g. selecting an algorithm, hardware block, etc) are also not captured by this digest.\n\nNeither case results in a digest that is fit for the intended purpose which is leading me to believe that we need stricter specification around the config. I\u0027m leaning towards a requirement for the config to be consistent within a device family which would allow us to just use the configHash directly to calculate the DICE digest. Does that seem like a reasonable step or is there something I\u0027ve not considered properly?",
+      "range": {
+        "startLine": 235,
+        "startChar": 5,
+        "endLine": 235,
+        "endChar": 24
+      },
+      "revId": "4e4bfb357f55f88554912568113590839d9b1802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
