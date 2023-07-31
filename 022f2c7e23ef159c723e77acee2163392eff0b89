@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbd72a05_60d09c1e",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-07-31T19:39:10Z",
+      "side": 1,
+      "message": "Why would that be easy..? The circular dependency looks to be false and can be removed. However, `libkeymint_remote_prov_utils` is `vendor_available` whereas `libkeymint_vts_test_utils` and a few of its dependencies are not. It only looks to be the factory extraction tools that introduces the vendor available requirement. Was there a plan to remove the factory extraction tool in favour of something based on `adb shell cmd remote_provisioning` already?\n\nTo make this more upsetting, Java has a nice utility library that does just what I\u0027d want `com.android.compatibility.common.util.PropertyUtil#getVsrApiLevel()`, but I can\u0027t find a equivalent library for native code test utilities :(",
+      "parentUuid": "385704f9_2ae187cb",
+      "revId": "022f2c7e23ef159c723e77acee2163392eff0b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a9e7b378_6b570a8e",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 4
