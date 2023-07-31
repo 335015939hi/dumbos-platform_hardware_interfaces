@@ -224,6 +224,32 @@ reserved range.
 :                   :        :            : version                           :
 ```
 
+#### Digest
+
+The Android Profile for DICE digest is designed to capture the details of the
+boot process such that two digests match if the same boot process was followed.
+Fields that are transitively derived from the UDS, and therefore specific to a
+certain device, and fields that are not semantically defined by the profile are
+not included in the calculation of the digest.
+
+The `androidConfigDigest` is a SHA-256 digest over a deterministically-encoded
+configuration descriptor after removing the entires with keys outside of the
+\[-70000, -70999\] range that is reserved for the profile.
+
+The digest of a single certificate is calculated over a concatenation of various
+fields from the certificate, similar to the inputs for the CDI KDF.
+
+```
+certificateDigest = sha256(codeHash + androidConfigDigest + authorityHash + mode)
+```
+
+The digest of a chain of certificates is calculated over a concatenation of the
+digests of each certificate's digest in order from root to leaf.
+
+```
+chainDigest = sha256(certificateDigest[0] + certificateDigest[1] + ...)
+```
+
 ### HAL
 
 The remote provisioning HAL provides a simple interface that can be implemented
