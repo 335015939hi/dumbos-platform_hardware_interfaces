@@ -34,6 +34,24 @@
       "parentUuid": "d994adc9_a2f03bae",
       "revId": "17a740641b66f069a7abc6b79078685affa04607",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63414ace_894ba7e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1358281
+      },
+      "writtenOn": "2023-07-31T15:28:49Z",
+      "side": 1,
+      "message": "typo: \"competing\" for the lock",
+      "parentUuid": "b3b85346_fa8b0e5f",
+      "revId": "17a740641b66f069a7abc6b79078685affa04607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
