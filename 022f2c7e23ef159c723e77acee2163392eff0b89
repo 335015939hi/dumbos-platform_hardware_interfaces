@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9471ddfc_6c255c1a",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-07-31T20:17:53Z",
+      "side": 1,
+      "message": "alas... adding vendor available everywhere seems like a non-starter. Let\u0027s just keep the copy, I guess.\n\nOf course, we could make yet another library that\u0027s got few dependencies and is shareable, but that seems excessive for a utility function.\n\n\u003e Was there a plan to remove the factory extraction tool in favour of something based on adb shell cmd remote_provisioning already?\n\nWe\u0027ve discussed it, but I\u0027m not sure it\u0027s on any official list. We should definitely try to do that for V.",
+      "parentUuid": "dbd72a05_60d09c1e",
+      "revId": "022f2c7e23ef159c723e77acee2163392eff0b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9e7b378_6b570a8e",
