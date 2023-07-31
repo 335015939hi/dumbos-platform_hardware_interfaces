@@ -22,6 +22,30 @@
       },
       "revId": "4e4bfb357f55f88554912568113590839d9b1802",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeef821b_1a0d3d95",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-07-31T17:00:27Z",
+      "side": 1,
+      "message": "Do we have examples of folks who are injecting unstable bits into the config hash? Or is it simply a concern (i.e. something we cannot validate with VTS)?\n\nAdditionally, I think we should document use cases (maybe even in a separate document?) If the intent is to allow Google to perform comparisons between chain for equivalency, then I\u0027m not even sure this belongs in AOSP. Instead, we should document how Google uses DICE somewhere that\u0027s publicly accessible.",
+      "parentUuid": "245de37a_4a007211",
+      "range": {
+        "startLine": 235,
+        "startChar": 5,
+        "endLine": 235,
+        "endChar": 24
+      },
+      "revId": "4e4bfb357f55f88554912568113590839d9b1802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
