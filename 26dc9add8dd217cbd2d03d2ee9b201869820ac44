@@ -1,5 +1,40 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd9249b6_1a6cf0f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1883619
+      },
+      "writtenOn": "2023-07-31T11:46:45Z",
+      "side": 1,
+      "message": "would you please check the comment ?",
+      "revId": "26dc9add8dd217cbd2d03d2ee9b201869820ac44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd7bba16_f720b6ed",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1883619
+      },
+      "writtenOn": "2023-07-31T11:46:45Z",
+      "side": 1,
+      "message": "does this not require adding \"liberror_headers\" ?",
+      "revId": "26dc9add8dd217cbd2d03d2ee9b201869820ac44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
