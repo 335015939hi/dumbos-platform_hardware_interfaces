@@ -1,5 +1,40 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ee3a19f_1f9f7247",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1883619
+      },
+      "writtenOn": "2023-07-31T21:27:41Z",
+      "side": 1,
+      "message": "could you please check the comment?",
+      "revId": "6ddefdbcdf24f28d3477f29adf0bd57d1be04195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d519bd68_8aa03a82",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1883619
+      },
+      "writtenOn": "2023-07-31T21:27:41Z",
+      "side": 1,
+      "message": "@mnaganov@google.com,\nQ: I don\u0027t see anything related to \"On the fly implementation\" or \"Switching stream implementation\" on AIDL interface files. Could you please give a scenario where this is relevant?",
+      "revId": "6ddefdbcdf24f28d3477f29adf0bd57d1be04195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
