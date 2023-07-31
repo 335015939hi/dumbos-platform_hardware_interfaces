@@ -46,6 +46,30 @@
       },
       "revId": "4e4bfb357f55f88554912568113590839d9b1802",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa74563a_77961d58",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-07-31T17:44:21Z",
+      "side": 1,
+      "message": "There aren\u0027t examples, but it would be a perfectly legal thing to do within the current specification (I don\u0027t know how we could test it but we don\u0027t even have a basis to complain if it does happen).\n\nFor now, this is specific to Android because the Android Profile for DICE is where we remove ambiguity from more general specification like the Open Profile for DICE. The primary aim here is to define the contract between vendors and the RKP backend but I\u0027m not opposed to a more general policy if that proves to be possible, I just don\u0027t think it is yet.\n\nExplaining how it would be used for hardening by allowlisting is a good idea.",
+      "parentUuid": "eeef821b_1a0d3d95",
+      "range": {
+        "startLine": 235,
+        "startChar": 5,
+        "endLine": 235,
+        "endChar": 24
+      },
+      "revId": "4e4bfb357f55f88554912568113590839d9b1802",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
