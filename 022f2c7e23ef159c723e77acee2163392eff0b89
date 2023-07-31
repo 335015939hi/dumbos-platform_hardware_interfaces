@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7badfeb_88ee321b",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-07-31T13:18:34Z",
+      "side": 1,
+      "message": "This is lifted from the keymint VTS tests.",
+      "revId": "022f2c7e23ef159c723e77acee2163392eff0b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
