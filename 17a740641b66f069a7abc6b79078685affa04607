@@ -16,6 +16,24 @@
       "message": "Could you explain what is causing the threading issue and how this fixes it? Thanks!",
       "revId": "17a740641b66f069a7abc6b79078685affa04607",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3b85346_fa8b0e5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1358281
+      },
+      "writtenOn": "2023-07-31T15:28:03Z",
+      "side": 1,
+      "message": "The threading issue was caused by the race condition of \"reportMeasurement()\" and \"close()\". In the framework, these methods are completing for the lock \"mRegistrations\" in ListenerMultiplexer. Therefore, in the vendor implementation, it needs to make sure these 2 methods are not waiting for each other (due to the \"mMutex\" lock here).\n\nThis was discussed in an email thread titled \"Issue 192908561: [User] Navigating and lost location after 1 minute\". I replied to you last Friday so maybe you can read more details.",
+      "parentUuid": "d994adc9_a2f03bae",
+      "revId": "17a740641b66f069a7abc6b79078685affa04607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
