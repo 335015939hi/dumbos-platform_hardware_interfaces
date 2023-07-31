@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e77b7ff8_cf15b535",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-31T18:08:44Z",
+      "side": 1,
+      "message": "Please avoid using `using` in header files. This has implications for everyone including that file. Please use fully qualified file names instead, and only add `using` in the implementation (.cpp) file.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 61
+      },
+      "revId": "b20805dfcc6c73f69a711d8add65d14873458ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9288272_6e8368d1",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-31T18:08:44Z",
+      "side": 1,
+      "message": "Please add a `LOG(ERROR)` explaining the cause of the error. Since using logging in header files might not be a good idea, please move the method implementations (both `switch...` and `createNew...`) into the .cpp file.",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 13
+      },
+      "revId": "b20805dfcc6c73f69a711d8add65d14873458ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9266d4d_2b556d86",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-07-31T18:08:44Z",
+      "side": 1,
+      "message": "To avoid doing a lookup again, save the iterator returned by `find` in a variable and use it here. Also applies to line 120.",
+      "range": {
+        "startLine": 50,
+        "startChar": 28,
+        "endLine": 50,
+        "endChar": 58
+      },
+      "revId": "b20805dfcc6c73f69a711d8add65d14873458ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
