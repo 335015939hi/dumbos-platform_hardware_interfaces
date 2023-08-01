@@ -106,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f019c92_edfdd9e3",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-08-01T15:36:32Z",
+      "side": 1,
+      "message": "Oops, I didn\u0027t realize this was a CP! Yeah, feel free to follow up or ignore the suggestions.",
+      "parentUuid": "11040e25_c83f2b20",
+      "range": {
+        "startLine": 75,
+        "startChar": 7,
+        "endLine": 75,
+        "endChar": 14
+      },
+      "revId": "cafd80b5c7eec24782177fbddec24827e1668e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abc1e946_28ab7212",
