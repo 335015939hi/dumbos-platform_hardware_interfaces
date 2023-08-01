@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a6e1c1_a72bd1e1",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-01T20:54:11Z",
+      "side": 1,
+      "message": "Is it really an error? To me, this looks like a transient condition when both input and output have been created however we haven\u0027t got anything from the source yet. I think, this needs to be an `INFO`: \"no data to read yet, providing empty data\". Emitting error messages for \"normal\" conditions usually puts us under suspicion when something does not work and the investigator finds that there is an \"error\" 😊",
+      "range": {
+        "startLine": 289,
+        "startChar": 16,
+        "endLine": 289,
+        "endChar": 21
+      },
+      "revId": "73e39fa52a369e6147ab2d1c4083786a8568cf23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
