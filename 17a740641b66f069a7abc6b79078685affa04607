@@ -52,6 +52,121 @@
       "parentUuid": "b3b85346_fa8b0e5f",
       "revId": "17a740641b66f069a7abc6b79078685affa04607",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caf34c20_c5b11008",
+        "filename": "gnss/2.1/default/GnssMeasurement.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1146013
+      },
+      "writtenOn": "2023-08-01T00:15:19Z",
+      "side": 1,
+      "message": "What exactly is the difference between the destructor and close()?",
+      "range": {
+        "startLine": 37,
+        "startChar": 18,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "17a740641b66f069a7abc6b79078685affa04607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5986f331_f2e5cb6f",
+        "filename": "gnss/2.1/default/GnssMeasurement.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1146013
+      },
+      "writtenOn": "2023-08-01T00:15:19Z",
+      "side": 1,
+      "message": "Why is stop invoked outside the lock here?",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 8
+      },
+      "revId": "17a740641b66f069a7abc6b79078685affa04607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "926dd15d_5655d03c",
+        "filename": "gnss/2.1/default/GnssMeasurement.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1146013
+      },
+      "writtenOn": "2023-08-01T00:15:19Z",
+      "side": 1,
+      "message": "looks like duplication of code from start()",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 5
+      },
+      "revId": "17a740641b66f069a7abc6b79078685affa04607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fccd754_7d3bb77e",
+        "filename": "gnss/2.1/default/GnssMeasurement.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1146013
+      },
+      "writtenOn": "2023-08-01T00:15:19Z",
+      "side": 1,
+      "message": "looks like duplication of code from start()",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 5
+      },
+      "revId": "17a740641b66f069a7abc6b79078685affa04607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff3cd42e_e1281ec6",
+        "filename": "gnss/2.1/default/GnssMeasurement.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1146013
+      },
+      "writtenOn": "2023-08-01T00:15:19Z",
+      "side": 1,
+      "message": "The current solution seems a bit complex to me - mostly because there don\u0027t seem to be any documented rules on how the mutexs are supposed to work in this class. I\u0027d suggest (1) the mutex should never be held when invoking start() or stop() (2) don\u0027t use a separate var isActive to represent the thread state. because this is not unique per thread it\u0027s buggy. instead use mThread \u003d\u003d expected thread as the thread quit condition (3) then all stop needs to do is clear mThread and join (4) never hold the lock while invoking a callback.",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 138,
+        "endChar": 5
+      },
+      "revId": "17a740641b66f069a7abc6b79078685affa04607",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
