@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab26036d_1855b2a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-08-01T00:28:38Z",
+      "side": 1,
+      "message": "Do we need \"Merged-In:\" for an already merged CL? (ag/20517967).",
+      "revId": "cafd80b5c7eec24782177fbddec24827e1668e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "649407ef_c6ed2870",
         "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
         "patchSetId": 1
@@ -31,6 +48,30 @@
       "writtenOn": "2023-07-31T23:45:33Z",
       "side": 1,
       "message": "\u0027Force\u0027?",
+      "range": {
+        "startLine": 75,
+        "startChar": 7,
+        "endLine": 75,
+        "endChar": 14
+      },
+      "revId": "cafd80b5c7eec24782177fbddec24827e1668e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55a3a75a_bda83fd2",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-08-01T00:28:38Z",
+      "side": 1,
+      "message": "This is just a CP for already merged CL.\nCould we handle this later with another CL?",
+      "parentUuid": "649407ef_c6ed2870",
       "range": {
         "startLine": 75,
         "startChar": 7,
@@ -66,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "531d86a4_48789d00",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-08-01T00:28:38Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "abc1e946_28ab7212",
+      "range": {
+        "startLine": 77,
+        "startChar": 65,
+        "endLine": 77,
+        "endChar": 87
+      },
+      "revId": "cafd80b5c7eec24782177fbddec24827e1668e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88a1fcfc_92396212",
         "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
         "patchSetId": 1
@@ -77,6 +142,30 @@
       "writtenOn": "2023-07-31T23:45:33Z",
       "side": 1,
       "message": "\u0027must\u0027?",
+      "range": {
+        "startLine": 78,
+        "startChar": 19,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "cafd80b5c7eec24782177fbddec24827e1668e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eec66ef_6bc00dd3",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-08-01T00:28:38Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "88a1fcfc_92396212",
       "range": {
         "startLine": 78,
         "startChar": 19,
