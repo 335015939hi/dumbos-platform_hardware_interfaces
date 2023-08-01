@@ -63,6 +63,30 @@
       },
       "revId": "c29c3a645f2e2bb651786364d07ada6ae2ccb883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93dacf66_c320cf2e",
+        "filename": "audio/aidl/default/StreamSwitcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-08-01T12:10:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb62f8e7_88943a55",
+      "range": {
+        "startLine": 107,
+        "startChar": 53,
+        "endLine": 107,
+        "endChar": 77
+      },
+      "revId": "c29c3a645f2e2bb651786364d07ada6ae2ccb883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
