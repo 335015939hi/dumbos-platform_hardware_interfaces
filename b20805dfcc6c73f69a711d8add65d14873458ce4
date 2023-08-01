@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dd24133_e4001f06",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-08-01T12:16:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e77b7ff8_cf15b535",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 61
+      },
+      "revId": "b20805dfcc6c73f69a711d8add65d14873458ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9288272_6e8368d1",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00918385_6331eb02",
+        "filename": "audio/aidl/default/include/core-impl/StreamRemoteSubmix.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-08-01T12:16:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9288272_6e8368d1",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 13
+      },
+      "revId": "b20805dfcc6c73f69a711d8add65d14873458ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9266d4d_2b556d86",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-07-31T18:08:44Z",
       "side": 1,
       "message": "To avoid doing a lookup again, save the iterator returned by `find` in a variable and use it here. Also applies to line 120.",
+      "range": {
+        "startLine": 50,
+        "startChar": 28,
+        "endLine": 50,
+        "endChar": 58
+      },
+      "revId": "b20805dfcc6c73f69a711d8add65d14873458ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a00725d9_c75f2be3",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-08-01T12:16:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9266d4d_2b556d86",
       "range": {
         "startLine": 50,
         "startChar": 28,
