@@ -43,7 +43,7 @@ class AuthSecretAidlTest : public testing::TestWithParam<std::string> {
         authsecret->setPrimaryUserCredential(CORRECT_SECRET);
     }
 
-    static void TearDownTestSuite() {
+    virtual void TearDown() override {
         // clean up PIN code after testing
         (void)system("cmd lock_settings clear --old 1234");
     }
