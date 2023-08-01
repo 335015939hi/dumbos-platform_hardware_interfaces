@@ -82,6 +82,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11040e25_c83f2b20",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-08-01T00:30:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "55a3a75a_bda83fd2",
+      "range": {
+        "startLine": 75,
+        "startChar": 7,
+        "endLine": 75,
+        "endChar": 14
+      },
+      "revId": "cafd80b5c7eec24782177fbddec24827e1668e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abc1e946_28ab7212",
@@ -129,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8657725b_06570564",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-08-01T00:30:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "531d86a4_48789d00",
+      "range": {
+        "startLine": 77,
+        "startChar": 65,
+        "endLine": 77,
+        "endChar": 87
+      },
+      "revId": "cafd80b5c7eec24782177fbddec24827e1668e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88a1fcfc_92396212",
@@ -166,6 +214,30 @@
       "side": 1,
       "message": "Ditto",
       "parentUuid": "88a1fcfc_92396212",
+      "range": {
+        "startLine": 78,
+        "startChar": 19,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "cafd80b5c7eec24782177fbddec24827e1668e7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7596bfb9_55a9df80",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-08-01T00:30:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5eec66ef_6bc00dd3",
       "range": {
         "startLine": 78,
         "startChar": 19,
