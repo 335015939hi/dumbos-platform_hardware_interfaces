@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1149123c_8d22a19b",
+        "filename": "audio/aidl/default/Bluetooth.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-08-02T16:15:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00d57911_3948265d",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 62
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22a90a60_191b9431",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-08-02T01:53:16Z",
       "side": 1,
       "message": "nit: unnecessary log",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 62
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d197a7fe_6c4a2f93",
+        "filename": "audio/aidl/default/Bluetooth.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-08-02T16:15:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22a90a60_191b9431",
       "range": {
         "startLine": 124,
         "startChar": 0,
@@ -128,6 +176,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a8baf19_2533dfd4",
+        "filename": "audio/aidl/default/StreamSwitcher.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-08-02T16:15:34Z",
+      "side": 1,
+      "message": "matches other log severity in this function.",
+      "parentUuid": "44392f27_b298c075",
+      "range": {
+        "startLine": 238,
+        "startChar": 20,
+        "endLine": 238,
+        "endChar": 27
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93301b3e_8227940b",
@@ -141,6 +213,30 @@
       "writtenOn": "2023-08-02T01:53:16Z",
       "side": 1,
       "message": "we already have same log at line#296",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 90
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03ba34b9_8f018ff7",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-08-02T16:15:34Z",
+      "side": 1,
+      "message": "This is post state modification.",
+      "parentUuid": "93301b3e_8227940b",
       "range": {
         "startLine": 299,
         "startChar": 0,
@@ -174,6 +270,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "408cda1d_f4e7c66c",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-08-02T16:15:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5add88a4_be81ed59",
+      "range": {
+        "startLine": 64,
+        "startChar": 40,
+        "endLine": 64,
+        "endChar": 41
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88480ebd_03e5cb79",
@@ -197,6 +317,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7de4b656_03106248",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-08-02T16:15:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88480ebd_03e5cb79",
+      "range": {
+        "startLine": 306,
+        "startChar": 53,
+        "endLine": 306,
+        "endChar": 77
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95e66612_98c96c3a",
@@ -210,6 +354,30 @@
       "writtenOn": "2023-08-02T01:53:16Z",
       "side": 1,
       "message": "maybe add a log here?",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 311,
+        "endChar": 83
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c23be77a_3f8ffa57",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-08-02T16:15:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95e66612_98c96c3a",
       "range": {
         "startLine": 311,
         "startChar": 0,
@@ -256,6 +424,30 @@
       "writtenOn": "2023-08-02T16:03:48Z",
       "side": 1,
       "message": "Adding an enum is a good idea. Defining a struct is more verbose.",
+      "parentUuid": "dd065663_45f7f2e0",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 42,
+        "endChar": 22
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87ee8d1f_f9edf0a9",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-08-02T16:15:34Z",
+      "side": 1,
+      "message": "Done",
       "parentUuid": "dd065663_45f7f2e0",
       "range": {
         "startLine": 42,
@@ -327,6 +519,30 @@
       "writtenOn": "2023-08-02T01:53:16Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 204,
+        "startChar": 57,
+        "endLine": 204,
+        "endChar": 58
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fe66bc4_7a38551b",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2023-08-02T16:15:34Z",
+      "side": 1,
+      "message": "as getInstance() is not a const function. This cannot be marked as well.",
+      "parentUuid": "1d1bd95d_ef246768",
       "range": {
         "startLine": 204,
         "startChar": 57,
