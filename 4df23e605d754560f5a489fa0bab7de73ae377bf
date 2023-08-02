@@ -34,6 +34,24 @@
       "parentUuid": "3d511747_aa6610ef",
       "revId": "4df23e605d754560f5a489fa0bab7de73ae377bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57b89453_cb33c206",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-08-02T18:07:13Z",
+      "side": 1,
+      "message": "That has proved to be too restrictive a policy for SoCs. We were saying \"you\u0027re stuck with Android 14 because of a little data format change for RKP\" which does seem like a bit of an out-weighted influence.",
+      "parentUuid": "48175f20_d0987e0a",
+      "revId": "4df23e605d754560f5a489fa0bab7de73ae377bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
