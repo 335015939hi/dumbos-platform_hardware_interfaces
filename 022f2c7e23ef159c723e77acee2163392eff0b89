@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2ee283e_37e54253",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-08-02T14:27:35Z",
+      "side": 1,
+      "message": "Turns out that `ro.vendor.api_level` was added in T to avoid the need of checking all those different properties. Since we don\u0027t need to handle pre-T, we can just use the property directly.",
+      "parentUuid": "9471ddfc_6c255c1a",
+      "revId": "022f2c7e23ef159c723e77acee2163392eff0b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9e7b378_6b570a8e",
@@ -85,6 +103,30 @@
       "writtenOn": "2023-07-31T16:27:21Z",
       "side": 1,
       "message": "It\u0027s not apparent from the function name that this is only meant to be used with HAL v3 and up.\n\nIt would be best to go ahead and add cases for Android T and S, just in case this function gets reused (saving future us from confusion).\n\nAlternately, the function could be renamed, but I cannot think of a reasonable function name that conveys the semantic of \"get vsr api level for hals at or above v3\".",
+      "range": {
+        "startLine": 954,
+        "startChar": 35,
+        "endLine": 954,
+        "endChar": 48
+      },
+      "revId": "022f2c7e23ef159c723e77acee2163392eff0b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85b173b8_8a987e6e",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 954,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-08-02T14:27:35Z",
+      "side": 1,
+      "message": "I\u0027ve gone down to T which is the lowest version supported by hwtrust.",
+      "parentUuid": "a9e7b378_6b570a8e",
       "range": {
         "startLine": 954,
         "startChar": 35,
