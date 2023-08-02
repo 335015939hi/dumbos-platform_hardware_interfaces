@@ -22,6 +22,30 @@
       },
       "revId": "73e39fa52a369e6147ab2d1c4083786a8568cf23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91debbe9_ae69358b",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-08-02T05:20:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32a6e1c1_a72bd1e1",
+      "range": {
+        "startLine": 289,
+        "startChar": 16,
+        "endLine": 289,
+        "endChar": 21
+      },
+      "revId": "73e39fa52a369e6147ab2d1c4083786a8568cf23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
