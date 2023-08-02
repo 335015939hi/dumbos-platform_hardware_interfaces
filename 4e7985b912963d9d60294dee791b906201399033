@@ -16,6 +16,414 @@
       "message": "Shunkai, could you please review so that we have an approval from a second person.",
       "revId": "4e7985b912963d9d60294dee791b906201399033",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09d63f88_9d27e949",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 64
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "mostly minor comments",
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e19f695c_b41055e9",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "nit: `Module::` seems not necessary",
+      "range": {
+        "startLine": 121,
+        "startChar": 13,
+        "endLine": 121,
+        "endChar": 21
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12711b67_f47b1b2e",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "nit: if an `BluetoothAudioPortAidl` object was created and destroy immediately, `unregisterPort` will be called, is this expected?\nIn this case, line#158 will print an error log which doesn\u0027t necessary to be an error.",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 18
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cdf4684_68eece19",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "Question: should the access of `mCookie` also be serialized?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 0
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc7f557b_75072c08",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "should this be `DEBUG` or `VERBOSE` level?",
+      "range": {
+        "startLine": 105,
+        "startChar": 8,
+        "endLine": 105,
+        "endChar": 12
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76b35a76_3ce91ab6",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "maybe not `INFO` level",
+      "range": {
+        "startLine": 163,
+        "startChar": 8,
+        "endLine": 163,
+        "endChar": 12
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "034d9ba9_dec0eb4e",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "Instead of construct a string here (and won\u0027t be used by any case when `if` is true), I think maybe it\u0027s better to `break` in each *good* `case`, and log the debug string in `default` branch for all other cases?",
+      "range": {
+        "startLine": 182,
+        "startChar": 4,
+        "endLine": 182,
+        "endChar": 25
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4e554b4_d1eaf936",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "this maybe not be `INFO` level log",
+      "range": {
+        "startLine": 234,
+        "startChar": 8,
+        "endLine": 234,
+        "endChar": 12
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08aa5501_e9bff8ed",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "nit: should we log here?",
+      "range": {
+        "startLine": 257,
+        "startChar": 8,
+        "endLine": 257,
+        "endChar": 20
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a90e0e_53061c39",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "seems unnecessary, `*interval_us \u003d hal_audio_cfg.get\u003cAudioConfiguration::pcmConfig\u003e().dataIntervalUs` should be good?",
+      "range": {
+        "startLine": 260,
+        "startChar": 4,
+        "endLine": 260,
+        "endChar": 35
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd02c737_e2dbca6e",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "log the unmatched tag here?",
+      "range": {
+        "startLine": 279,
+        "startChar": 8,
+        "endLine": 279,
+        "endChar": 20
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22e3a134_529b86e6",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "nit: why not define `std::chrono::milliseconds(kMaxWaitingTimeMs)` as a const?",
+      "range": {
+        "startLine": 291,
+        "startChar": 4,
+        "endLine": 291,
+        "endChar": 63
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63a5bbae_efee7322",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "question, why do we need check `retval` with two steps?\nhow don\u0027t we just `return mState \u003d\u003d BluetoothStreamState::STARTED;` in line#299?\n\nSame question for line#310",
+      "range": {
+        "startLine": 301,
+        "startChar": 12,
+        "endLine": 301,
+        "endChar": 70
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7f99654_c8f9bf47",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "I think it is true that current code only waits for `BluetoothStreamState::STARTING` and `BluetoothStreamState::SUSPENDING`, but should the function only implement these two states?\nMaybe we should either change the function name, or add implementation for all possible states?",
+      "range": {
+        "startLine": 313,
+        "startChar": 8,
+        "endLine": 315,
+        "endChar": 25
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d84ec9d_2f36e1fc",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "maybe a log here?",
+      "range": {
+        "startLine": 317,
+        "startChar": 11,
+        "endLine": 317,
+        "endChar": 16
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a4955d6_d7360de8",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "nit: these logs are out the scope of lock, which means the state we see here may not consistence with what was just checked and can cause confusion",
+      "range": {
+        "startLine": 357,
+        "startChar": 74,
+        "endLine": 357,
+        "endChar": 84
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b7f69ba_73628b4b",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 64
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "do we need to serialize these?",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 0
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eab29f15_d13f1452",
+        "filename": "audio/aidl/default/include/core-impl/StreamBluetooth.h",
+        "patchSetId": 64
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-02T01:31:18Z",
+      "side": 1,
+      "message": "I think they are all const",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 0
+      },
+      "revId": "4e7985b912963d9d60294dee791b906201399033",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
