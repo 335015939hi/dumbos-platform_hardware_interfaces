@@ -1299,12 +1299,24 @@ std::pair<ErrorCode, vector<uint8_t>> KeyMintAidlTestBase::UpgradeKey(
     return retval;
 }
 
+static bool has_rkp_hostname() {
+    char value[PROPERTY_VALUE_MAX];
+    return property_get("remote_provisioning.hostname", value, nullptr) != 0;
+}
+
 bool KeyMintAidlTestBase::IsRkpSupportRequired() const {
-    if (get_vsr_api_level() >= __ANDROID_API_T__) {
+    const auto api_level = get_vsr_api_level();
+
+    if (api_level >= __ANDROID_API_T__) {
+        const auto build_version_sdk = ::android::base::GetIntProperty("ro.build.version.sdk", -1);
+        EXPECT_NE(build_version_sdk, -1) << "Could not find ro.build.version.sdk";
+        if (build_version_sdk >= __ANDROID_API_U__) {
+            return has_rkp_hostname();
+        }
         return true;
     }
 
-    if (get_vsr_api_level() >= __ANDROID_API_S__) {
+    if (api_level >= __ANDROID_API_S__) {
         return SecLevel() != SecurityLevel::STRONGBOX;
     }
 
