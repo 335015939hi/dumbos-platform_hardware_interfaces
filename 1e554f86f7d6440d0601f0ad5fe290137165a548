@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edce0e41_19b64b4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-08-02T16:39:03Z",
+      "side": 1,
+      "message": "@ericjeong@google.com, do you know which versions of android.hardware.automotive.audiocontrol should be supported in each of these realases? (7 is T, 8 is U, 9 next year\u0027s release). I see there is also a V3.",
+      "revId": "1e554f86f7d6440d0601f0ad5fe290137165a548",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
