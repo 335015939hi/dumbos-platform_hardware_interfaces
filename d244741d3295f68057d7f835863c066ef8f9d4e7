@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af2db8f6_b9058777",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-08-02T16:34:00Z",
+      "side": 1,
+      "message": "As far as I can tell, these aren\u0027t top-level interfaces that will be registered with servicemanager. \nShould they be removed from the FCM and put into the exclude file in that case?\n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:hardware/interfaces/gnss/aidl/Android.bp\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:hardware/interfaces/gnss/aidl/android/hardware/gnss/IGnss.aidl;l\u003d214",
+      "revId": "d244741d3295f68057d7f835863c066ef8f9d4e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
