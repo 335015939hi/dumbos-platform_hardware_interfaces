@@ -51,6 +51,23 @@
       "parentUuid": "d519bd68_8aa03a82",
       "revId": "6ddefdbcdf24f28d3477f29adf0bd57d1be04195",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "676944dd_4121250c",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1883619
+      },
+      "writtenOn": "2023-08-02T19:39:12Z",
+      "side": 1,
+      "message": "derived \u0027Stream(In|Out)Stub\u0027 will have two \u0027mContext\u0027. Would you rename this to \u0027mContextRef\u0027?",
+      "revId": "6ddefdbcdf24f28d3477f29adf0bd57d1be04195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
