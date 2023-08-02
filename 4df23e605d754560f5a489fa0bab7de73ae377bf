@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d511747_aa6610ef",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-08-02T17:43:31Z",
+      "side": 1,
+      "message": "We can\u0027t actually apply this set of rules in VTS because it could be a ROM that shipped with a valid implementation against VSR 14 but had a software update to VSR 15, but obviously the ROM isn\u0027t going to update.\n\nIn VSR 16 we\u0027re going to add a DICE profile version which will let us handle this in future.\n\nI also think the translation of API level to VSR / ruleset should move inside hwtrust so each client doesn\u0027t have to deal with the translation.",
+      "revId": "4df23e605d754560f5a489fa0bab7de73ae377bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
