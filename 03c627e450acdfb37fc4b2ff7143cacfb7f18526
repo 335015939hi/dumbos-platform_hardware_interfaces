@@ -51,6 +51,24 @@
       "message": "What do the implementations do if the padding is corrupted, use a PRF to generate a pseudorandom ciphertext?",
       "revId": "03c627e450acdfb37fc4b2ff7143cacfb7f18526",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c13c9c5f_b170b0ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2023-08-02T21:41:53Z",
+      "side": 1,
+      "message": "I think this is fine, but I\u0027d be happier if it tested that if OK is returned, passing in the same bad-padding ciphertext twice results in the same plaintext twice.",
+      "parentUuid": "edce0705_a6709d4b",
+      "revId": "03c627e450acdfb37fc4b2ff7143cacfb7f18526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
