@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f70c37f9_542087e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-02T16:03:48Z",
+      "side": 1,
+      "message": "Shunkai, thanks for the comments! Ram, please address unresolved ones.",
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00d57911_3948265d",
@@ -77,6 +94,30 @@
       "writtenOn": "2023-08-02T01:53:16Z",
       "side": 1,
       "message": "`ERROR` as indicated by log itself?",
+      "range": {
+        "startLine": 238,
+        "startChar": 20,
+        "endLine": 238,
+        "endChar": 27
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89ea28fa_91c647bf",
+        "filename": "audio/aidl/default/StreamSwitcher.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-02T16:03:48Z",
+      "side": 1,
+      "message": "Please see line 215. We don\u0027t actually return an error in this case, thus it\u0027s a warning.",
+      "parentUuid": "44392f27_b298c075",
       "range": {
         "startLine": 238,
         "startChar": 20,
@@ -204,6 +245,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb381475_8e2375c7",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-02T16:03:48Z",
+      "side": 1,
+      "message": "Adding an enum is a good idea. Defining a struct is more verbose.",
+      "parentUuid": "dd065663_45f7f2e0",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 42,
+        "endChar": 22
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84d7cd95_48fcaf99",
         "filename": "audio/aidl/default/include/core-impl/Module.h",
         "patchSetId": 26
@@ -215,6 +280,30 @@
       "writtenOn": "2023-08-02T01:53:16Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 192,
+        "startChar": 51,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "8a49792d011bb99e2833b051a964e6b369989a71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a48b2779_e3a45f9d",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-02T16:03:48Z",
+      "side": 1,
+      "message": "It\u0027s not really const as it may modify the internal state. This is used to notify the implementation that for example A2DP was enabled or disabled.",
+      "parentUuid": "84d7cd95_48fcaf99",
       "range": {
         "startLine": 192,
         "startChar": 51,
