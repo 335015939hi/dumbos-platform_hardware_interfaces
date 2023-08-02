@@ -68,6 +68,24 @@
       "message": "derived \u0027Stream(In|Out)Stub\u0027 will have two \u0027mContext\u0027. Would you rename this to \u0027mContextRef\u0027?",
       "revId": "6ddefdbcdf24f28d3477f29adf0bd57d1be04195",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c6f19df_4ad870c6",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-02T21:24:12Z",
+      "side": 1,
+      "message": "That\u0027s a good point. Currently we distinguish them by qualifying with the class name, however having slightly different names instead might be more readable. I think, normally we want to use a const reference because changes to the context are rare. Thus, I think I will rename the field in StreamIn/Out to `mContextInstance` or something like that.",
+      "parentUuid": "676944dd_4121250c",
+      "revId": "6ddefdbcdf24f28d3477f29adf0bd57d1be04195",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
