@@ -52,6 +52,24 @@
       "parentUuid": "48175f20_d0987e0a",
       "revId": "4df23e605d754560f5a489fa0bab7de73ae377bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "656bc062_e712fb78",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-08-02T21:03:52Z",
+      "side": 1,
+      "message": "Capturing offline discussion here:\n\nMy perspective is that even for different VSR levels we need to account for ROM that may be \"stuck\" with some quirks. This means that even if VSR 15 is more strict on some things, we may only be able to apply that strictness to firmware that can be updated to match the VSR.\n\nIn practice I think this means validation of the first DICE chain entry is going to be more lenient than the rest of the chain, as the ROM measurement is always the first entry.\n\nI cannot imagine a case where ROM records multiple DICE chain entries (though I guess anything is possible?). We can always deal with that edge case if/when it does occur.",
+      "parentUuid": "57b89453_cb33c206",
+      "revId": "4df23e605d754560f5a489fa0bab7de73ae377bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
