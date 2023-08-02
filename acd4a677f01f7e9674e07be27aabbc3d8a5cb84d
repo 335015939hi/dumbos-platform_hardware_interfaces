@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35b5990e_97768214",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-02T16:31:48Z",
+      "side": 1,
+      "message": "These are backward-compatible amendments, intended to fix VTS failure discovered by a partner.",
+      "revId": "acd4a677f01f7e9674e07be27aabbc3d8a5cb84d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
