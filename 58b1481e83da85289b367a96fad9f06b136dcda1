@@ -16,6 +16,24 @@
       "message": "Gentle reminder",
       "revId": "58b1481e83da85289b367a96fad9f06b136dcda1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17cf46c6_1362ebda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1845383
+      },
+      "writtenOn": "2023-08-03T09:49:51Z",
+      "side": 1,
+      "message": "Gentle reminder. We need this patch to fix certification issue and so timely response is appreciated.",
+      "parentUuid": "ebb6b2ee_3d7742aa",
+      "revId": "58b1481e83da85289b367a96fad9f06b136dcda1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
