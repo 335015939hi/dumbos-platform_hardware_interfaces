@@ -210,6 +210,10 @@ parcelable KeyCreationResult {
      *     bootPatchLevel             [719] EXPLICIT INTEGER OPTIONAL,
      *     deviceUniqueAttestation    [720] EXPLICIT NULL OPTIONAL,
      *     attestationIdSecondImei    [723] EXPLICIT OCTET_STRING OPTIONAL,
+     *     certificateSerial          [1006] EXPLICIT OCTET_STRING OPTIONAL,
+     *     certificateSubject         [1007] EXPLICIT OCTET_STRING OPTIONAL,
+     *     certificateNotBefore       [1008] EXPLICIT INTEGER OPTIONAL,
+     *     certificateNotAfter        [1009] EXPLICIT INTEGER OPTIONAL,
      * }
      */
     Certificate[] certificateChain;
