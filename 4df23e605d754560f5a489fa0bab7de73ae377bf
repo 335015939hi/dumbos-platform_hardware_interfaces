@@ -70,6 +70,24 @@
       "parentUuid": "57b89453_cb33c206",
       "revId": "4df23e605d754560f5a489fa0bab7de73ae377bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bb0b7b2_c58329e1",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-08-03T10:10:23Z",
+      "side": 1,
+      "message": "\u003e In practice I think this means validation of the first DICE chain entry is going to be more lenient than the rest of the chain, as the ROM measurement is always the first entry.\n\nThe problem isn\u0027t the first entry though, it\u0027s the following entries. Some of our vendor partners bake their DICE library directly into their ROM mask, which will carry any inconsistencies into future firmware releases as well.\n\nI don\u0027t think we can be any more strict about DICE format enforcement until we have a concept of a DICE version.",
+      "parentUuid": "656bc062_e712fb78",
+      "revId": "4df23e605d754560f5a489fa0bab7de73ae377bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
