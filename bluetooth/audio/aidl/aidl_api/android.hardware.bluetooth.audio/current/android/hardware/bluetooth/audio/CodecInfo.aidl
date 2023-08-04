@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,10 +33,13 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-union AudioConfiguration {
-  android.hardware.bluetooth.audio.PcmConfiguration pcmConfig;
-  android.hardware.bluetooth.audio.CodecConfiguration a2dpConfig;
-  android.hardware.bluetooth.audio.LeAudioConfiguration leAudioConfig;
-  android.hardware.bluetooth.audio.LeAudioBroadcastConfiguration leAudioBroadcastConfig;
-  android.hardware.bluetooth.audio.AvdtpStreamConfiguration avdtpConfig;
+parcelable CodecInfo {
+  android.hardware.bluetooth.audio.CodecId id;
+  String name;
+  @nullable byte[] a2dpCapabilities;
+  android.hardware.bluetooth.audio.ChannelMode[] channelMode;
+  int[] samplingFrequencyHz;
+  int[] bitdepth;
+  boolean lowLatency;
+  boolean lossless;
 }

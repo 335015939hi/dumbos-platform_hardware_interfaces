@@ -17,8 +17,12 @@
 package android.hardware.bluetooth.audio;
 
 import android.hardware.bluetooth.audio.AudioCapabilities;
+import android.hardware.bluetooth.audio.CodecId;
+import android.hardware.bluetooth.audio.CodecInfo;
+import android.hardware.bluetooth.audio.CodecParameters;
 import android.hardware.bluetooth.audio.IBluetoothAudioProvider;
 import android.hardware.bluetooth.audio.SessionType;
+
 /**
  * This factory allows a HAL implementation to be split into multiple
  * independent providers.
@@ -62,4 +66,97 @@ interface IBluetoothAudioProviderFactory {
      * @return provider The provider of the specified session type
      */
     IBluetoothAudioProvider openProvider(in SessionType sessionType);
+
+    /**
+     * General information relative to a provider
+     * - An optionnal name
+     * - A list of codecs informations
+     */
+    @VintfStability
+    parcelable ProviderInfo {
+        String name;
+        CodecInfo[] codecInfos;
+    }
+
+    /**
+     * Get general informations relative to a provider.
+     *
+     * @param sessionType Identify the provider
+     * @return General information relative to the provider. The `null` value can be
+     *         returned when the provider is not available
+     */
+    @nullable ProviderInfo getProviderInfo(in SessionType sessionType);
+
+    /**
+     * AVDTP Remote Capabilites
+     */
+    @VintfStability
+    parcelable AvdtpRemoteCapabilities {
+        /**
+         * Remote Stream Endpoint identifier
+         */
+        int seid;
+
+        /**
+         * Codec Identifier and capabilities as defined
+         * by the A2DP's `Codec Specific Information Elements`,
+         * or `Vendor Specific Value` when CodecId format is set to `VENDOR`.
+         */
+        CodecId id;
+        byte[] a2dpCapabilities;
+    }
+
+    /**
+     * LTV-Formatted metadata shared with the BT controller
+     */
+    @VintfStability
+    parcelable ControllerData {
+        byte type;
+        byte[] value;
+    }
+
+    /**
+     * AVDTP Service Configuration
+     */
+    @VintfStability
+    parcelable AvdtpConfiguration {
+        /**
+         * Remote Stream Endpoint Identifier
+         */
+        int remoteSeid;
+
+        /**
+         * Codec Selection and configuration, in a generic way and as defined
+         * by the A2DP's `Codec Specific Information Elements`,
+         * or `Vendor Specific Value` when CodecId format is set to `VENDOR`.
+         */
+        CodecId id;
+        CodecParameters parameters;
+        byte[] a2dpConfiguration;
+        ControllerData[] controllerDatas;
+    }
+
+    /**
+     * AVDTP Configuration Hints.
+     * - The starting audio context of the session
+     * - An identifier of a prefered codec, `UNKNOWN` points no preference.
+     * - Genric codec parameters
+     */
+    @VintfStability
+    parcelable AvdtpConfigHint {
+        int audioContext;
+        CodecId codecId;
+        CodecParameters codecConfiguration;
+    }
+
+    /**
+     * Return a configuration, from a list of remote Capabilites.
+     *
+     * @param sessionType Identify the provider
+     * @param remoteCapabilities The capabilities of the remote device
+     * @param hint Hint on selection (audio context and/or codec)
+     * @return The requested configuration
+     */
+    AvdtpConfiguration getAvdtpConfiguration(in SessionType sessionType,
+            in List<AvdtpRemoteCapabilities> remoteAvdtpCapabilities, in AvdtpConfigHint hint);
 }

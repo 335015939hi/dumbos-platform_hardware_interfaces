@@ -36,4 +36,36 @@ package android.hardware.bluetooth.audio;
 interface IBluetoothAudioProviderFactory {
   android.hardware.bluetooth.audio.AudioCapabilities[] getProviderCapabilities(in android.hardware.bluetooth.audio.SessionType sessionType);
   android.hardware.bluetooth.audio.IBluetoothAudioProvider openProvider(in android.hardware.bluetooth.audio.SessionType sessionType);
+  @nullable android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory.ProviderInfo getProviderInfo(in android.hardware.bluetooth.audio.SessionType sessionType);
+  android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory.AvdtpConfiguration getAvdtpConfiguration(in android.hardware.bluetooth.audio.SessionType sessionType, in List<android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory.AvdtpRemoteCapabilities> remoteAvdtpCapabilities, in android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory.AvdtpConfigHint hint);
+  @VintfStability
+  parcelable ProviderInfo {
+    String name;
+    android.hardware.bluetooth.audio.CodecInfo[] codecInfos;
+  }
+  @VintfStability
+  parcelable AvdtpRemoteCapabilities {
+    int seid;
+    android.hardware.bluetooth.audio.CodecId id;
+    byte[] a2dpCapabilities;
+  }
+  @VintfStability
+  parcelable ControllerData {
+    byte type;
+    byte[] value;
+  }
+  @VintfStability
+  parcelable AvdtpConfiguration {
+    int remoteSeid;
+    android.hardware.bluetooth.audio.CodecId id;
+    android.hardware.bluetooth.audio.CodecParameters parameters;
+    byte[] a2dpConfiguration;
+    android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory.ControllerData[] controllerDatas;
+  }
+  @VintfStability
+  parcelable AvdtpConfigHint {
+    int audioContext;
+    android.hardware.bluetooth.audio.CodecId codecId;
+    android.hardware.bluetooth.audio.CodecParameters codecConfiguration;
+  }
 }
