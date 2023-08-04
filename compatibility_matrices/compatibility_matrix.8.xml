@@ -60,14 +60,6 @@
              <instance>default</instance>
          </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>android.hardware.authsecret</name>
-        <version>1.0</version>
-        <interface>
-            <name>IAuthSecret</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.automotive.audiocontrol</name>
         <interface>
@@ -134,7 +126,7 @@
             <regex-instance>.*</regex-instance>
         </interface>
     </hal>
-    <hal format="aidl" optional="true">
+    <hal format="aidl" optional="true" updatable-via-apex="true">
         <name>android.hardware.biometrics.face</name>
         <version>2</version>
         <interface>
@@ -433,8 +425,18 @@
         <version>1.0-2</version>
         <interface>
             <name>IComponentStore</name>
+            <instance>software</instance>
             <regex-instance>default[0-9]*</regex-instance>
             <regex-instance>vendor[0-9]*_software</regex-instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.media.c2</name>
+        <version>1.0</version>
+        <interface>
+            <name>IConfigurable</name>
+            <instance>default</instance>
+            <instance>software</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true">
@@ -585,6 +587,7 @@
         <interface>
             <name>ISap</name>
             <instance>slot1</instance>
+            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">

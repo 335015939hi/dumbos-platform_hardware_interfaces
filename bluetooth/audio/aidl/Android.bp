@@ -29,7 +29,7 @@ aidl_interface {
     imports: [
         "android.hardware.common-V2",
         "android.hardware.common.fmq-V1",
-        "android.hardware.audio.common-V1",
+        "android.hardware.audio.common-V2",
     ],
     backend: {
         cpp: {
@@ -64,7 +64,16 @@ aidl_interface {
                 "android.hardware.audio.common-V1",
             ],
         },
+        {
+            version: "3",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.common.fmq-V1",
+                "android.hardware.audio.common-V2",
+            ],
+        },
 
     ],
+    frozen: true,
 
 }

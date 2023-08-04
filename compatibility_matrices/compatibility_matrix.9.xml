@@ -330,9 +330,6 @@
     <!-- Either the native or the HIDL mapper HAL must exist on the device -->
     <hal format="hidl" optional="true">
         <name>android.hardware.graphics.mapper</name>
-        <!-- New, non-Go devices should use 4.0, tested in vts_treble_vintf_vendor_test -->
-        <version>2.1</version>
-        <version>3.0</version>
         <version>4.0</version>
         <interface>
             <name>IMapper</name>
@@ -425,8 +422,18 @@
         <version>1.0-2</version>
         <interface>
             <name>IComponentStore</name>
+            <instance>software</instance>
             <regex-instance>default[0-9]*</regex-instance>
             <regex-instance>vendor[0-9]*_software</regex-instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.media.c2</name>
+        <version>1.0</version>
+        <interface>
+            <name>IConfigurable</name>
+            <instance>default</instance>
+            <instance>software</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true">
@@ -577,6 +584,7 @@
         <interface>
             <name>ISap</name>
             <instance>slot1</instance>
+            <instance>slot2</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true">
@@ -741,7 +749,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.weaver</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IWeaver</name>
             <instance>default</instance>

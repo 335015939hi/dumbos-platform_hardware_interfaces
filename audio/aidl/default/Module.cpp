@@ -25,13 +25,13 @@
 #include <android/binder_ibinder_platform.h>
 #include <error/expected_utils.h>
 
-#include "core-impl/Bluetooth.h"
 #include "core-impl/Module.h"
+#include "core-impl/ModuleBluetooth.h"
+#include "core-impl/ModulePrimary.h"
 #include "core-impl/ModuleRemoteSubmix.h"
+#include "core-impl/ModuleStub.h"
 #include "core-impl/ModuleUsb.h"
 #include "core-impl/SoundDose.h"
-#include "core-impl/StreamStub.h"
-#include "core-impl/Telephony.h"
 #include "core-impl/utils.h"
 
 using aidl::android::hardware::audio::common::getFrameSizeInBytes;
@@ -110,13 +110,16 @@ bool findAudioProfile(const AudioPort& port, const AudioFormatDescription& forma
 // static
 std::shared_ptr<Module> Module::createInstance(Type type) {
     switch (type) {
-        case Module::Type::USB:
-            return ndk::SharedRefBase::make<ModuleUsb>(type);
-        case Type::R_SUBMIX:
-            return ndk::SharedRefBase::make<ModuleRemoteSubmix>(type);
         case Type::DEFAULT:
-        default:
-            return ndk::SharedRefBase::make<Module>(type);
+            return ndk::SharedRefBase::make<ModulePrimary>();
+        case Type::R_SUBMIX:
+            return ndk::SharedRefBase::make<ModuleRemoteSubmix>();
+        case Type::STUB:
+            return ndk::SharedRefBase::make<ModuleStub>();
+        case Type::USB:
+            return ndk::SharedRefBase::make<ModuleUsb>();
+        case Type::BLUETOOTH:
+            return ndk::SharedRefBase::make<ModuleBluetooth>();
     }
 }
 
@@ -128,8 +131,14 @@ std::ostream& operator<<(std::ostream& os, Module::Type t) {
         case Module::Type::R_SUBMIX:
             os << "r_submix";
             break;
+        case Module::Type::STUB:
+            os << "stub";
+            break;
         case Module::Type::USB:
             os << "usb";
+            break;
+        case Module::Type::BLUETOOTH:
+            os << "bluetooth";
             break;
     }
     return os;
@@ -283,19 +292,31 @@ std::set<int32_t> Module::portIdsFromPortConfigIds(C portConfigIds) {
     return result;
 }
 
+std::unique_ptr<internal::Configuration> Module::initializeConfig() {
+    std::unique_ptr<internal::Configuration> config;
+    switch (getType()) {
+        case Type::DEFAULT:
+            config = std::move(internal::getPrimaryConfiguration());
+            break;
+        case Type::R_SUBMIX:
+            config = std::move(internal::getRSubmixConfiguration());
+            break;
+        case Type::STUB:
+            config = std::move(internal::getStubConfiguration());
+            break;
+        case Type::USB:
+            config = std::move(internal::getUsbConfiguration());
+            break;
+        case Type::BLUETOOTH:
+            config = std::move(internal::getBluetoothConfiguration());
+            break;
+    }
+    return config;
+}
+
 internal::Configuration& Module::getConfig() {
     if (!mConfig) {
-        switch (mType) {
-            case Type::DEFAULT:
-                mConfig = std::move(internal::getPrimaryConfiguration());
-                break;
-            case Type::R_SUBMIX:
-                mConfig = std::move(internal::getRSubmixConfiguration());
-                break;
-            case Type::USB:
-                mConfig = std::move(internal::getUsbConfiguration());
-                break;
-        }
+        mConfig = std::move(initializeConfig());
     }
     return *mConfig;
 }
@@ -395,38 +416,26 @@ ndk::ScopedAStatus Module::setModuleDebug(
 }
 
 ndk::ScopedAStatus Module::getTelephony(std::shared_ptr<ITelephony>* _aidl_return) {
-    if (!mTelephony) {
-        mTelephony = ndk::SharedRefBase::make<Telephony>();
-    }
-    *_aidl_return = mTelephony.getPtr();
-    LOG(DEBUG) << __func__ << ": returning instance of ITelephony: " << _aidl_return->get();
+    *_aidl_return = nullptr;
+    LOG(DEBUG) << __func__ << ": returning null";
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Module::getBluetooth(std::shared_ptr<IBluetooth>* _aidl_return) {
-    if (!mBluetooth) {
-        mBluetooth = ndk::SharedRefBase::make<Bluetooth>();
-    }
-    *_aidl_return = mBluetooth.getPtr();
-    LOG(DEBUG) << __func__ << ": returning instance of IBluetooth: " << _aidl_return->get();
+    *_aidl_return = nullptr;
+    LOG(DEBUG) << __func__ << ": returning null";
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Module::getBluetoothA2dp(std::shared_ptr<IBluetoothA2dp>* _aidl_return) {
-    if (!mBluetoothA2dp) {
-        mBluetoothA2dp = ndk::SharedRefBase::make<BluetoothA2dp>();
-    }
-    *_aidl_return = mBluetoothA2dp.getPtr();
-    LOG(DEBUG) << __func__ << ": returning instance of IBluetoothA2dp: " << _aidl_return->get();
+    *_aidl_return = nullptr;
+    LOG(DEBUG) << __func__ << ": returning null";
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Module::getBluetoothLe(std::shared_ptr<IBluetoothLe>* _aidl_return) {
-    if (!mBluetoothLe) {
-        mBluetoothLe = ndk::SharedRefBase::make<BluetoothLe>();
-    }
-    *_aidl_return = mBluetoothLe.getPtr();
-    LOG(DEBUG) << __func__ << ": returning instance of IBluetoothLe: " << _aidl_return->get();
+    *_aidl_return = nullptr;
+    LOG(DEBUG) << __func__ << ": returning null";
     return ndk::ScopedAStatus::ok();
 }
 
@@ -675,7 +684,7 @@ ndk::ScopedAStatus Module::openInputStream(const OpenInputStreamArguments& in_ar
                                                nullptr, nullptr, &context));
     context.fillDescriptor(&_aidl_return->desc);
     std::shared_ptr<StreamIn> stream;
-    RETURN_STATUS_IF_ERROR(createInputStream(in_args.sinkMetadata, std::move(context),
+    RETURN_STATUS_IF_ERROR(createInputStream(std::move(context), in_args.sinkMetadata,
                                              mConfig->microphones, &stream));
     StreamWrapper streamWrapper(stream);
     if (auto patchIt = mPatches.find(in_args.portConfigId); patchIt != mPatches.end()) {
@@ -721,7 +730,7 @@ ndk::ScopedAStatus Module::openOutputStream(const OpenOutputStreamArguments& in_
                                                in_args.eventCallback, &context));
     context.fillDescriptor(&_aidl_return->desc);
     std::shared_ptr<StreamOut> stream;
-    RETURN_STATUS_IF_ERROR(createOutputStream(in_args.sourceMetadata, std::move(context),
+    RETURN_STATUS_IF_ERROR(createOutputStream(std::move(context), in_args.sourceMetadata,
                                               in_args.offloadInfo, &stream));
     StreamWrapper streamWrapper(stream);
     if (auto patchIt = mPatches.find(in_args.portConfigId); patchIt != mPatches.end()) {
@@ -1129,7 +1138,7 @@ ndk::ScopedAStatus Module::getSoundDose(std::shared_ptr<ISoundDose>* _aidl_retur
     if (!mSoundDose) {
         mSoundDose = ndk::SharedRefBase::make<sounddose::SoundDose>();
     }
-    *_aidl_return = mSoundDose.getPtr();
+    *_aidl_return = mSoundDose.getInstance();
     LOG(DEBUG) << __func__ << ": returning instance of ISoundDose: " << _aidl_return->get();
     return ndk::ScopedAStatus::ok();
 }
@@ -1334,22 +1343,6 @@ bool Module::isMmapSupported() {
     return mIsMmapSupported.value();
 }
 
-ndk::ScopedAStatus Module::createInputStream(const SinkMetadata& sinkMetadata,
-                                             StreamContext&& context,
-                                             const std::vector<MicrophoneInfo>& microphones,
-                                             std::shared_ptr<StreamIn>* result) {
-    return createStreamInstance<StreamInStub>(result, sinkMetadata, std::move(context),
-                                              microphones);
-}
-
-ndk::ScopedAStatus Module::createOutputStream(const SourceMetadata& sourceMetadata,
-                                              StreamContext&& context,
-                                              const std::optional<AudioOffloadInfo>& offloadInfo,
-                                              std::shared_ptr<StreamOut>* result) {
-    return createStreamInstance<StreamOutStub>(result, sourceMetadata, std::move(context),
-                                               offloadInfo);
-}
-
 ndk::ScopedAStatus Module::populateConnectedDevicePort(AudioPort* audioPort __unused) {
     LOG(VERBOSE) << __func__ << ": do nothing and return ok";
     return ndk::ScopedAStatus::ok();
@@ -1376,6 +1369,15 @@ ndk::ScopedAStatus Module::onMasterMuteChanged(bool mute __unused) {
 ndk::ScopedAStatus Module::onMasterVolumeChanged(float volume __unused) {
     LOG(VERBOSE) << __func__ << ": do nothing and return ok";
     return ndk::ScopedAStatus::ok();
+}
+
+Module::BtProfileHandles Module::getBtProfileManagerHandles() {
+    return std::make_tuple(std::weak_ptr<IBluetooth>(), std::weak_ptr<IBluetoothA2dp>(),
+                           std::weak_ptr<IBluetoothLe>());
+}
+
+ndk::ScopedAStatus Module::bluetoothParametersUpdated() {
+    return mStreams.bluetoothParametersUpdated();
 }
 
 }  // namespace aidl::android::hardware::audio::core
