@@ -35,6 +35,15 @@ class BluetoothAudioProviderFactory : public BnBluetoothAudioProviderFactory {
   ndk::ScopedAStatus getProviderCapabilities(
       const SessionType session_type,
       std::vector<AudioCapabilities>* _aidl_return) override;
+
+  ndk::ScopedAStatus getProviderInfo(
+      SessionType session_type,
+      std::optional<ProviderInfo>* _aidl_return) override;
+
+  ndk::ScopedAStatus getAvdtpConfiguration(
+      SessionType session_type,
+      const std::vector<AvdtpRemoteCapabilities>& remote_avdtp_capabilities,
+      const AvdtpConfigHint& hint, AvdtpConfiguration* _aidl_return) override;
 };
 
 }  // namespace audio
