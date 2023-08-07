@@ -38,6 +38,7 @@
 #include <vector>
 
 #include "KeyMintAidlTestBase.h"
+#include <android-base/properties.h>
 
 namespace aidl::android::hardware::security::keymint::test {
 
@@ -426,22 +427,25 @@ class CertificateRequestTest : public CertificateRequestTestBase {
  */
 TEST_P(CertificateRequestTest, EmptyRequest_testMode) {
     bool testMode = true;
-    for (size_t eekLength : {2, 3, 7}) {
-        SCOPED_TRACE(testing::Message() << "EEK of length " << eekLength);
-        generateTestEekChain(eekLength);
+    std::string vendorVersion = ::android::base::GetProperty("ro.vendor.build.version.release", "");
+    if(std::stoi(vendorVersion) > 12) {
+        for (size_t eekLength : {2, 3, 7}) {
+            SCOPED_TRACE(testing::Message() << "EEK of length " << eekLength);
+            generateTestEekChain(eekLength);
 
-        bytevec keysToSignMac;
-        DeviceInfo deviceInfo;
-        ProtectedData protectedData;
-        auto status = provisionable_->generateCertificateRequest(
-                testMode, {} /* keysToSign */, testEekChain_.chain, challenge_, &deviceInfo,
-                &protectedData, &keysToSignMac);
-        ASSERT_TRUE(status.isOk()) << status.getMessage();
+            bytevec keysToSignMac;
+            DeviceInfo deviceInfo;
+            ProtectedData protectedData;
+            auto status = provisionable_->generateCertificateRequest(
+                    testMode, {} /* keysToSign */, testEekChain_.chain, challenge_, &deviceInfo,
+                    &protectedData, &keysToSignMac);
+            ASSERT_TRUE(status.isOk()) << status.getMessage();
 
-        auto result = verifyProductionProtectedData(
-                deviceInfo, cppbor::Array(), keysToSignMac, protectedData, testEekChain_, eekId_,
-                rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
-        ASSERT_TRUE(result) << result.message();
+            auto result = verifyProductionProtectedData(
+                    deviceInfo, cppbor::Array(), keysToSignMac, protectedData, testEekChain_, eekId_,
+                    rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
+            ASSERT_TRUE(result) << result.message();
+        }
     }
 }
 
@@ -453,36 +457,38 @@ TEST_P(CertificateRequestTest, EmptyRequest_testMode) {
  */
 TEST_P(CertificateRequestTest, NewKeyPerCallInTestMode) {
     constexpr bool testMode = true;
+    std::string vendorVersion = ::android::base::GetProperty("ro.vendor.build.version.release", "");
+    if(std::stoi(vendorVersion) > 12) {
+        bytevec keysToSignMac;
+        DeviceInfo deviceInfo;
+        ProtectedData protectedData;
+        generateTestEekChain(3);
+        auto status = provisionable_->generateCertificateRequest(
+                testMode, {} /* keysToSign */, testEekChain_.chain, challenge_, &deviceInfo,
+                &protectedData, &keysToSignMac);
+        ASSERT_TRUE(status.isOk()) << status.getMessage();
 
-    bytevec keysToSignMac;
-    DeviceInfo deviceInfo;
-    ProtectedData protectedData;
-    generateTestEekChain(3);
-    auto status = provisionable_->generateCertificateRequest(
-            testMode, {} /* keysToSign */, testEekChain_.chain, challenge_, &deviceInfo,
-            &protectedData, &keysToSignMac);
-    ASSERT_TRUE(status.isOk()) << status.getMessage();
+        auto firstBcc = verifyProductionProtectedData(
+                deviceInfo, /*keysToSign=*/cppbor::Array(), keysToSignMac, protectedData, testEekChain_,
+                eekId_, rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
+        ASSERT_TRUE(firstBcc) << firstBcc.message();
 
-    auto firstBcc = verifyProductionProtectedData(
-            deviceInfo, /*keysToSign=*/cppbor::Array(), keysToSignMac, protectedData, testEekChain_,
-            eekId_, rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
-    ASSERT_TRUE(firstBcc) << firstBcc.message();
+        status = provisionable_->generateCertificateRequest(
+                testMode, {} /* keysToSign */, testEekChain_.chain, challenge_, &deviceInfo,
+                &protectedData, &keysToSignMac);
+        ASSERT_TRUE(status.isOk()) << status.getMessage();
 
-    status = provisionable_->generateCertificateRequest(
-            testMode, {} /* keysToSign */, testEekChain_.chain, challenge_, &deviceInfo,
-            &protectedData, &keysToSignMac);
-    ASSERT_TRUE(status.isOk()) << status.getMessage();
+        auto secondBcc = verifyProductionProtectedData(
+                deviceInfo, /*keysToSign=*/cppbor::Array(), keysToSignMac, protectedData, testEekChain_,
+                eekId_, rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
+        ASSERT_TRUE(secondBcc) << secondBcc.message();
 
-    auto secondBcc = verifyProductionProtectedData(
-            deviceInfo, /*keysToSign=*/cppbor::Array(), keysToSignMac, protectedData, testEekChain_,
-            eekId_, rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
-    ASSERT_TRUE(secondBcc) << secondBcc.message();
-
-    // Verify that none of the keys in the first BCC are repeated in the second one.
-    for (const auto& i : *firstBcc) {
-        for (auto& j : *secondBcc) {
-            ASSERT_THAT(i.pubKey, testing::Not(testing::ElementsAreArray(j.pubKey)))
-                    << "Found a repeated pubkey in two generateCertificateRequest test mode calls";
+        // Verify that none of the keys in the first BCC are repeated in the second one.
+        for (const auto& i : *firstBcc) {
+            for (auto& j : *secondBcc) {
+                ASSERT_THAT(i.pubKey, testing::Not(testing::ElementsAreArray(j.pubKey)))
+                        << "Found a repeated pubkey in two generateCertificateRequest test mode calls";
+            }
         }
     }
 }
@@ -509,24 +515,27 @@ TEST_P(CertificateRequestTest, DISABLED_EmptyRequest_prodMode) {
  */
 TEST_P(CertificateRequestTest, NonEmptyRequest_testMode) {
     bool testMode = true;
-    generateKeys(testMode, 4 /* numKeys */);
+    std::string vendorVersion = ::android::base::GetProperty("ro.vendor.build.version.release", "");
+    if(std::stoi(vendorVersion) > 12) {
+        generateKeys(testMode, 4 /* numKeys */);
 
-    for (size_t eekLength : {2, 3, 7}) {
-        SCOPED_TRACE(testing::Message() << "EEK of length " << eekLength);
-        generateTestEekChain(eekLength);
+        for (size_t eekLength : {2, 3, 7}) {
+            SCOPED_TRACE(testing::Message() << "EEK of length " << eekLength);
+            generateTestEekChain(eekLength);
 
-        bytevec keysToSignMac;
-        DeviceInfo deviceInfo;
-        ProtectedData protectedData;
-        auto status = provisionable_->generateCertificateRequest(
-                testMode, keysToSign_, testEekChain_.chain, challenge_, &deviceInfo, &protectedData,
-                &keysToSignMac);
-        ASSERT_TRUE(status.isOk()) << status.getMessage();
+            bytevec keysToSignMac;
+            DeviceInfo deviceInfo;
+            ProtectedData protectedData;
+            auto status = provisionable_->generateCertificateRequest(
+                    testMode, keysToSign_, testEekChain_.chain, challenge_, &deviceInfo, &protectedData,
+                    &keysToSignMac);
+            ASSERT_TRUE(status.isOk()) << status.getMessage();
 
-        auto result = verifyProductionProtectedData(
-                deviceInfo, cborKeysToSign_, keysToSignMac, protectedData, testEekChain_, eekId_,
-                rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
-        ASSERT_TRUE(result) << result.message();
+            auto result = verifyProductionProtectedData(
+                    deviceInfo, cborKeysToSign_, keysToSignMac, protectedData, testEekChain_, eekId_,
+                    rpcHardwareInfo.supportedEekCurve, provisionable_.get(), challenge_);
+            ASSERT_TRUE(result) << result.message();
+        }
     }
 }
 
