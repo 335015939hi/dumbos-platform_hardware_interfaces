@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "124d4b0e_6dc3ee06",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-08-07T06:10:28Z",
+      "side": 0,
+      "message": "This test was included because it specifically exercised a bug in attestation extension generation in the Rust KeyMint implementation (http://b/279327452#comment9), so I\u0027d prefer not to remove it.\n\nIs there a mechanism used to skip other attestation-generating tests that could be re-used here?",
+      "range": {
+        "startLine": 447,
+        "startChar": 50,
+        "endLine": 447,
+        "endChar": 59
+      },
+      "revId": "ed0da8c243b580f6d77291d4718feafac0a96b10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
