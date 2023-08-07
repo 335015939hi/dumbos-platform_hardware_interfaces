@@ -118,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d31627b_74d876f9",
+        "filename": "secretkeeper/aidl/android/hardware/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-08-07T14:37:40Z",
+      "side": 1,
+      "message": "As discussed on chat lets call it Secretkeeper \u0026 abbreviate as \"Sk\", wherever possible. Simple, single word name",
+      "parentUuid": "e1b43514_51b32883",
+      "range": {
+        "startLine": 23,
+        "startChar": 74,
+        "endLine": 23,
+        "endChar": 87
+      },
+      "revId": "d50f9fd7f830f8686f787883a59c61c6a6f329f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ce94868_4c1c036c",
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "Mmm, but you would do that by cloning the ISecretkeeper (or binder would do that for you), which already does ref counting. There\u0027s one single NonSecureSecretkeeper object.",
       "parentUuid": "ad5477b1_f1ad427e",
+      "range": {
+        "startLine": 30,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 14
+      },
+      "revId": "d50f9fd7f830f8686f787883a59c61c6a6f329f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdd9c6fc_20c1a07a",
+        "filename": "secretkeeper/aidl/android/hardware/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-08-07T14:37:40Z",
+      "side": 1,
+      "message": "Oh yeah. Thanks for pointing it. Just a mutex should do",
+      "parentUuid": "9ffe72bf_35ca5e4b",
       "range": {
         "startLine": 30,
         "startChar": 11,
