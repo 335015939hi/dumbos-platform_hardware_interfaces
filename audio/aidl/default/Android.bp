@@ -109,7 +109,7 @@ cc_library {
         "audio_policy_engine_configuration_aidl_default",
     ],
     shared_libs: [
-        "android.hardware.bluetooth.audio-V3-ndk",
+        "android.hardware.bluetooth.audio-V4-ndk",
         "libaudio_aidl_conversion_common_ndk",
         "libbluetooth_audio_session_aidl",
         "libmedia_helper",
@@ -142,7 +142,7 @@ cc_binary {
         "libaudioserviceexampleimpl",
     ],
     shared_libs: [
-        "android.hardware.bluetooth.audio-V3-ndk",
+        "android.hardware.bluetooth.audio-V4-ndk",
         "libaudio_aidl_conversion_common_ndk",
         "libbluetooth_audio_session_aidl",
         "libmedia_helper",
