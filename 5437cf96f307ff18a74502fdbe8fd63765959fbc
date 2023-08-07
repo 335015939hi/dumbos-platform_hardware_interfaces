@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abb073a1_cf5a5379",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-07T20:42:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0968b1e9_fba9b03c",
+      "range": {
+        "startLine": 43,
+        "startChar": 50,
+        "endLine": 43,
+        "endChar": 58
+      },
+      "revId": "5437cf96f307ff18a74502fdbe8fd63765959fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "937bd733_9c067e4c",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-08-07T11:32:28Z",
       "side": 1,
       "message": "kBuiltInsink",
+      "range": {
+        "startLine": 48,
+        "startChar": 50,
+        "endLine": 48,
+        "endChar": 59
+      },
+      "revId": "5437cf96f307ff18a74502fdbe8fd63765959fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c85f06_d4283b02",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-07T20:42:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "937bd733_9c067e4c",
       "range": {
         "startLine": 48,
         "startChar": 50,
