@@ -46,6 +46,30 @@
       },
       "revId": "6092ddde762ec9ee07ef75eb206ab0fd4ee192d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "533bb826_e7b6cf90",
+        "filename": "compatibility_matrices/compatibility_matrix.8.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1358281
+      },
+      "writtenOn": "2023-08-07T23:27:16Z",
+      "side": 0,
+      "message": "It seems this file mistakenly removed the top-level interface android.hardware.gnss?",
+      "parentUuid": "6446eee4_9d445952",
+      "range": {
+        "startLine": 266,
+        "startChar": 14,
+        "endLine": 266,
+        "endChar": 35
+      },
+      "revId": "6092ddde762ec9ee07ef75eb206ab0fd4ee192d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
