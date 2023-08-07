@@ -22,6 +22,30 @@
       },
       "revId": "6092ddde762ec9ee07ef75eb206ab0fd4ee192d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6446eee4_9d445952",
+        "filename": "compatibility_matrices/compatibility_matrix.8.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-08-07T23:23:39Z",
+      "side": 0,
+      "message": "Right.\n\nThe HALs below aren\u0027t \"top-level interfaces\"; i.e. the framework doesn\u0027t call `getService` on the HALs below. Hence the HALs below should be removed.",
+      "parentUuid": "cab398f2_37d9be04",
+      "range": {
+        "startLine": 266,
+        "startChar": 14,
+        "endLine": 266,
+        "endChar": 35
+      },
+      "revId": "6092ddde762ec9ee07ef75eb206ab0fd4ee192d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
