@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c076e00_9e49246b",
+        "filename": "secretkeeper/aidl/android/hardware/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-07T09:48:01Z",
+      "side": 1,
+      "message": "TODO(b/x): Add more methods",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "d50f9fd7f830f8686f787883a59c61c6a6f329f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a3ede53_9e515fdf",
+        "filename": "secretkeeper/aidl/android/hardware/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-07T09:48:01Z",
+      "side": 1,
+      "message": "This doesn\u0027t look symmetric. I\u0027d expect either\nvoid store(byte[] secret), byte[] read()\nOr\nvoid store(byte[] something, byte[] secret), byte[] read(byte[] something)\n\n(The channel establishment is going to confuse things, but maybe ignore that completely for now?)",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 35
+      },
+      "revId": "d50f9fd7f830f8686f787883a59c61c6a6f329f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ce94868_4c1c036c",
+        "filename": "secretkeeper/aidl/android/hardware/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-07T09:48:01Z",
+      "side": 1,
+      "message": "Do you need the Arc?",
+      "range": {
+        "startLine": 30,
+        "startChar": 11,
+        "endLine": 30,
+        "endChar": 14
+      },
+      "revId": "d50f9fd7f830f8686f787883a59c61c6a6f329f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2419257_eb636a4e",
+        "filename": "secretkeeper/aidl/android/hardware/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-07T09:48:01Z",
+      "side": 1,
+      "message": "Nit: I think you just need\nlet global_store \u003d self.store.lock().unwrap();\nThen global_store.set below will do the deref for you?",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 60
+      },
+      "revId": "d50f9fd7f830f8686f787883a59c61c6a6f329f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd911489_b64d3791",
+        "filename": "secretkeeper/aidl/android/hardware/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-07T09:48:01Z",
+      "side": 1,
+      "message": "Inline?",
+      "range": {
+        "startLine": 52,
+        "startChar": 22,
+        "endLine": 52,
+        "endChar": 29
+      },
+      "revId": "d50f9fd7f830f8686f787883a59c61c6a6f329f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34257093_8e9a8df3",
+        "filename": "secretkeeper/aidl/vts/VtsHalSecretkeeperTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-07T09:48:01Z",
+      "side": 1,
+      "message": "Does this have to be in C++?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 23
+      },
+      "revId": "d50f9fd7f830f8686f787883a59c61c6a6f329f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af5b6377_6447e0b2",
+        "filename": "secretkeeper/aidl/vts/VtsHalSecretkeeperTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-07T09:48:01Z",
+      "side": 1,
+      "message": "Why parameterized?",
+      "range": {
+        "startLine": 28,
+        "startChar": 36,
+        "endLine": 28,
+        "endChar": 63
+      },
+      "revId": "d50f9fd7f830f8686f787883a59c61c6a6f329f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
