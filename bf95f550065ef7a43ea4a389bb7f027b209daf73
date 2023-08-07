@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "137dfe6b_0fc73b69",
+        "filename": "secretkeeper/aidl/android/hardware/secretkeeper/default/src/main.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-08-07T14:08:37Z",
+      "side": 1,
+      "message": "Here too",
+      "range": {
+        "startLine": 44,
+        "startChar": 27,
+        "endLine": 44,
+        "endChar": 59
+      },
+      "revId": "bf95f550065ef7a43ea4a389bb7f027b209daf73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
