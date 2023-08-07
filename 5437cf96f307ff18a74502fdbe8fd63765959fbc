@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8be55972_351287e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-07T17:30:59Z",
+      "side": 1,
+      "message": "Looking at the presubmit failure, it seems that I first need to resolve the issue with the presentation position reporting: https://android-build.corp.google.com/test_investigate/?invocationId\u003dI61800010185385588\u0026testResultId\u003dTR11828845259494595, will work on that.",
+      "revId": "5437cf96f307ff18a74502fdbe8fd63765959fbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0968b1e9_fba9b03c",
