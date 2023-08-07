@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "971b1e01_aa939f26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-07T22:17:44Z",
+      "side": 1,
+      "message": "Eric, could you please re-approve, I\u0027ve found and fixed the reason for TS discontinuity revealed by the VTS test.",
+      "revId": "cf824f65c807c4dd2ae0a278e97b2e9fe0ee29fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
