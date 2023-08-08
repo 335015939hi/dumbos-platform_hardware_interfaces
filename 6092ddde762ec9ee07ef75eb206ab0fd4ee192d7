@@ -118,6 +118,30 @@
       },
       "revId": "6092ddde762ec9ee07ef75eb206ab0fd4ee192d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81652ac1_18b5ef7c",
+        "filename": "compatibility_matrices/compatibility_matrix.8.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-08-08T20:09:08Z",
+      "side": 0,
+      "message": "I think this is a pretty rare case. Usually, \"frozen\" matrices are not supposed to be edited at all. In particular, this change is even a non-backwards compatible change. We just did this change because the old requirements are incorrect.",
+      "parentUuid": "22081ea0_5ef975b8",
+      "range": {
+        "startLine": 266,
+        "startChar": 14,
+        "endLine": 266,
+        "endChar": 35
+      },
+      "revId": "6092ddde762ec9ee07ef75eb206ab0fd4ee192d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
