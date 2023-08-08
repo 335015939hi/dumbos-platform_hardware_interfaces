@@ -87,6 +87,7 @@ class StreamWorkerInvalidTest : public testing::TestWithParam<bool> {
 TEST_P(StreamWorkerInvalidTest, Uninitialized) {
     EXPECT_FALSE(worker.hasWorkerCycleCalled());
     EXPECT_FALSE(worker.hasError());
+    EXPECT_EQ(-1, worker.getTid());
 }
 
 TEST_P(StreamWorkerInvalidTest, UninitializedPauseIgnored) {
@@ -105,6 +106,9 @@ TEST_P(StreamWorkerInvalidTest, Start) {
     EXPECT_FALSE(worker.start());
     EXPECT_FALSE(worker.hasWorkerCycleCalled());
     EXPECT_TRUE(worker.hasError());
+#if defined(__ANDROID__)
+    EXPECT_NE(-1, worker.getTid());
+#endif
 }
 
 TEST_P(StreamWorkerInvalidTest, PauseIgnored) {
@@ -136,12 +140,16 @@ static constexpr unsigned kWorkerIdleCheckTime = 50 * 1000;
 TEST_P(StreamWorkerTest, Uninitialized) {
     EXPECT_FALSE(worker.hasWorkerCycleCalled());
     EXPECT_FALSE(worker.hasError());
+    EXPECT_EQ(-1, worker.getTid());
 }
 
 TEST_P(StreamWorkerTest, Start) {
     ASSERT_TRUE(worker.start());
     EXPECT_TRUE(worker.waitForAtLeastOneCycle());
     EXPECT_FALSE(worker.hasError());
+#if defined(__ANDROID__)
+    EXPECT_NE(-1, worker.getTid());
+#endif
 }
 
 TEST_P(StreamWorkerTest, StartStop) {
