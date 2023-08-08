@@ -94,6 +94,30 @@
       },
       "revId": "6092ddde762ec9ee07ef75eb206ab0fd4ee192d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22081ea0_5ef975b8",
+        "filename": "compatibility_matrices/compatibility_matrix.8.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-08T01:10:59Z",
+      "side": 0,
+      "message": "Yeah, nice catch. Is there any test we could add to prevent this kind of thing? If something is in fcm_exclude in one manifest, perhaps it shouldn\u0027t be in another?",
+      "parentUuid": "2c9abfcc_6f848951",
+      "range": {
+        "startLine": 266,
+        "startChar": 14,
+        "endLine": 266,
+        "endChar": 35
+      },
+      "revId": "6092ddde762ec9ee07ef75eb206ab0fd4ee192d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
