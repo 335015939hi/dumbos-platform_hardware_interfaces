@@ -22,6 +22,30 @@
       },
       "revId": "ed0da8c243b580f6d77291d4718feafac0a96b10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18914fa8_d2dcdad5",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-08-08T22:49:19Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "124d4b0e_6dc3ee06",
+      "range": {
+        "startLine": 447,
+        "startChar": 50,
+        "endLine": 447,
+        "endChar": 59
+      },
+      "revId": "ed0da8c243b580f6d77291d4718feafac0a96b10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
