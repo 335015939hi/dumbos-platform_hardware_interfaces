@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "253fb036_ff28cf2e",
+        "filename": "audio/aidl/common/include/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-08T01:15:46Z",
+      "side": 1,
+      "message": "I\u0027m hesitating to do this because \u0027pid_t\u0027 is a POSIX type and assumptions for its values are already defined, see for example https://pubs.opengroup.org/onlinepubs/9699919799/functions/waitpid.html. It is known that a valid value can\u0027t be non-positive. However, since this means that \u00270\u0027 is another \"null\" value, I\u0027ve modified tests to check that returned \u0027TID \u003e 0\u0027.",
+      "parentUuid": "dde2e7eb_3196f2cc",
+      "range": {
+        "startLine": 87,
+        "startChar": 41,
+        "endLine": 87,
+        "endChar": 43
+      },
+      "revId": "ebef0b79726a1f55dfecb21ddca3d6908c2ddee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37f83240_0854e1cc",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-08T00:45:46Z",
       "side": 1,
       "message": "should we use `sched_get_priority_max` to get the max priority?",
+      "range": {
+        "startLine": 632,
+        "startChar": 35,
+        "endLine": 632,
+        "endChar": 36
+      },
+      "revId": "ebef0b79726a1f55dfecb21ddca3d6908c2ddee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d999e662_ec8b692f",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-08T01:15:46Z",
+      "side": 1,
+      "message": "Sorry, I did not made myself clear here. We actually need to match the framework which uses `3` as the maximum priority that it can set. The actual maximum allowed by the OS can be higher. Updated the comment.",
+      "parentUuid": "37f83240_0854e1cc",
       "range": {
         "startLine": 632,
         "startChar": 35,
