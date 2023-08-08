@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde2e7eb_3196f2cc",
+        "filename": "audio/aidl/common/include/StreamWorker.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-08T00:45:46Z",
+      "side": 1,
+      "message": "Should we define a \"INVALID_TID\" for this?\nSo test case can be `EXPECT_EQ(INVALID_TID, worker.getTid());`?",
+      "range": {
+        "startLine": 87,
+        "startChar": 41,
+        "endLine": 87,
+        "endChar": 43
+      },
+      "revId": "ebef0b79726a1f55dfecb21ddca3d6908c2ddee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37f83240_0854e1cc",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-08T00:45:46Z",
+      "side": 1,
+      "message": "should we use `sched_get_priority_max` to get the max priority?",
+      "range": {
+        "startLine": 632,
+        "startChar": 35,
+        "endLine": 632,
+        "endChar": 36
+      },
+      "revId": "ebef0b79726a1f55dfecb21ddca3d6908c2ddee6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
