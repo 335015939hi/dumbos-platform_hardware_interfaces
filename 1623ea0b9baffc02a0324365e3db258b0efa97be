@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1274ff29_2747b022",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2023-08-08T16:29:04Z",
+      "side": 1,
+      "message": "These are HAL interfaces which are published publicly and used by a bunch of Android UWB vendors. You are not allowed to change this interface. Why are you proposing this?",
+      "revId": "1623ea0b9baffc02a0324365e3db258b0efa97be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
