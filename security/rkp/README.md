@@ -166,10 +166,48 @@ The actors in the above diagram are:
 ### Android Profile for DICE
 
 The Android Profile for DICE is based on the [Open Profile for
-DICE](https://pigweed.googlesource.com/open-dice/+/refs/heads/main/docs/specification.md),
-with additional constraints for details that the Open Profile for DICE leaves
-intentionally underspecified. This section describes the differences from the
-Open Profile for DICE.
+DICE][open-dice-latest], with additional constraints for details that the Open
+Profile for DICE leaves intentionally underspecified.
+
+#### Versions
+
+To maintain compatibility across Android versions, this profile is also
+versioned. The `profileName` field in the certificates identifies the version of
+the profile that was used to create that certificate. If no `profileName` field
+is present then `"android.v14"` is assumed.
+
+The minimum supported profile version will increase with the Android version so
+using the latest profile version will acheive the longest compatibility.
+
+Along a DICE certificate chain, the profile used by a certificate must be the
+same as, or newer than the profile used by the previous certificate.
+
+The profile named `"android.v14"` aligns with Android 14:
+
+* Based on the [Open Profile for DICE v2.4][open-dice-v2.4].
+* The `configurationHash` field is permitted to be missing rather than being
+  required, as specified by the Open Profile for DICE.
+* The `mode` field is permitted to be encoded as an integer rather than the byte
+  string that is specified by the Open Profile for DICE.
+* The `keyUsage` field is permitted to be encoded in big-endian byte order as
+  well as the little-endian byte order that is specified by the Open Profile for
+  DICE.
+
+The profile named `"android.v15"` aligns with Android 15:
+
+* Based on the [Open Profile for DICE v2.5][open-dice-v2.5].
+* The `configurationHash` field is permitted to be missing rather than being
+  required, as specified by the Open Profile for DICE.
+
+The profile named `"android.v16"` aligns with Android 16 and is still subject to
+change:
+
+* Based on the [Open Profile for DICE v2.5][open-dice-v2.5].
+* The security version entry in the configuration descriptor is required.
+
+[open-dice-latest]:https://pigweed.googlesource.com/open-dice/+/refs/heads/main/docs/specification.md
+[open-dice-v2.4]: https://pigweed.googlesource.com/open-dice/+/f9f454ae493bfe76ec2af8011eb7543c20c5ffc2/docs/specification.md
+[open-dice-v2.5]: https://pigweed.googlesource.com/open-dice/+/0b5044098bf9b40128927d675dea4ec1fb75c510/docs/specification.md
 
 #### Algorithms
 
