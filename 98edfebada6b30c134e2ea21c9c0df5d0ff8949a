@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8982237f_dbc64a3a",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-08-09T22:47:40Z",
+      "side": 1,
+      "message": "nit: Do we need this TODO?  It seems like it should be updated to be specific to cuttlefish and goldfish.",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 74
+      },
+      "revId": "98edfebada6b30c134e2ea21c9c0df5d0ff8949a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
