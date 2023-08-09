@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3a62c4a_c6e74c24",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAccumulatingOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-08-09T19:30:47Z",
+      "side": 1,
+      "message": "After our discussions, I am removing them because the operations will be aborted by dropping the object.",
+      "parentUuid": "2f4fb745_a1221ef5",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2db2ea96_ea1c6bfd",
@@ -141,6 +159,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e7edaec_aa8e7758",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-08-09T19:30:47Z",
+      "side": 1,
+      "message": "After our discussions, I am removing them because the operations will be aborted by dropping the object.",
+      "parentUuid": "abca7b35_570867bf",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc596aee_449f86b9",
@@ -154,6 +190,24 @@
       "writtenOn": "2023-06-06T05:55:45Z",
       "side": 1,
       "message": "Do we need this (see above)?",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c293b3d_19ca2402",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IEmittingOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-08-09T19:30:47Z",
+      "side": 1,
+      "message": "After our discussions, I am removing them because the operations will be aborted by dropping the object.",
+      "parentUuid": "cc596aee_449f86b9",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
