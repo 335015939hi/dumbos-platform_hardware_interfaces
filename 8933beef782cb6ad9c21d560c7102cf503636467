@@ -227,6 +227,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f673de77_4b51f379",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-08-09T11:03:50Z",
+      "side": 1,
+      "message": "According to your comments, you suggest copy initialize_complete_cb_ in the close function ,then set it to nullptr, and call initialize_complete_cb_ in the OnFirmwareConfigured and then set it to nullptr. In my understanding, the open phase will call OnFirmwareConfigured, so close and then copy initialize_complete_cb_ is OK?",
+      "parentUuid": "1e722d8e_c1135957",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 32
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c678090_601e279d",
         "filename": "bluetooth/1.0/default/vendor_interface.cc",
         "patchSetId": 4
@@ -324,6 +348,24 @@
       "writtenOn": "2023-07-21T15:44:31Z",
       "side": 1,
       "message": "People that call get() should not be able to delete the vendor interface.",
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51222269_e7da9502",
+        "filename": "bluetooth/1.0/default/vendor_interface.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1983105
+      },
+      "writtenOn": "2023-08-09T11:03:50Z",
+      "side": 1,
+      "message": "For the comment \u0027People that call get() should not be able to delete the vendor interface\u0027 , I don\u0027t think get() can be able to delete the vendor interface",
+      "parentUuid": "3a09ab8f_97580cb3",
       "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
