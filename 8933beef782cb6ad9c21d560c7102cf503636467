@@ -251,6 +251,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4828ada6_44c4d8a0",
+        "filename": "bluetooth/1.0/default/vendor_interface.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-08-09T15:23:06Z",
+      "side": 1,
+      "message": "I am saying that exactly 1 of these two things must happen:\n\n1) `initialize_complete_cb_` is called in `OnFirmwareConfigured`\n2) `initialize_compelte_cb_` is called in `Close`\n\nSetting `initialize_compelte_cb_` to `nullptr` prevents `initialize_compelte_cb_` being called twice.\n\nUsing a copy of `initialize_compelte_cb_` means that we can release the lock. The code in `initialize_compelte_cb_` may try to call things in the VendorInterface, which would cause a deadlock.\n\nThis creates a consistent experience for the vendor. `initialize_compelte_cb_` is always called once.",
+      "parentUuid": "f673de77_4b51f379",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 32
+      },
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c678090_601e279d",
         "filename": "bluetooth/1.0/default/vendor_interface.cc",
         "patchSetId": 4
@@ -366,6 +390,24 @@
       "side": 1,
       "message": "For the comment \u0027People that call get() should not be able to delete the vendor interface\u0027 , I don\u0027t think get() can be able to delete the vendor interface",
       "parentUuid": "3a09ab8f_97580cb3",
+      "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6960c5b1_087e54da",
+        "filename": "bluetooth/1.0/default/vendor_interface.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-08-09T15:23:06Z",
+      "side": 1,
+      "message": "Someone can call `delete VendorInterface::get();` if `~VendorInterface()` is public.\n\nWhy did you make this `public`?\n\n`VendorInterface` is supposed to control its own lifetime and deletion.",
+      "parentUuid": "51222269_e7da9502",
       "revId": "8933beef782cb6ad9c21d560c7102cf503636467",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
