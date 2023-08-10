@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "596c649f_e4362c15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-08-10T23:35:47Z",
+      "side": 1,
+      "message": "Fixed a Typo in AddressType.aidl",
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

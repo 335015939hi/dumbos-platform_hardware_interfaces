@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b76a57b_d2b95f86",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/AddressType.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-08-10T23:35:47Z",
+      "side": 1,
+      "message": "There is Typo in \"ADdRESS_TYPE_PUBLIC \u003d 0\". Fixed in next patchset.",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 24
+      },
+      "revId": "cfde6c8ed7bf36927db90e9d092977c5fbb940e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
