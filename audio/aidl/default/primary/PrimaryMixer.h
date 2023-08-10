@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,16 +16,27 @@
 
 #pragma once
 
-#include <string>
+#include <map>
+#include <memory>
+#include <mutex>
 #include <vector>
 
-namespace android::vintf::details {
+#include <android-base/thread_annotations.h>
+#include <android/binder_auto_utils.h>
 
-// Determine whether VINTF checks |package| is missing from FCMs.
-// |package| can be a HIDL package and version like
-// "android.hardware.foo@1.0", or an AIDL package name like
-// "android.hardware.foo@1".
-bool ShouldCheckMissingHidlHalsInFcm(const std::string& packageAndVersion);
-bool ShouldCheckMissingAidlHalsInFcm(const std::string& packageAndVersion);
+#include "alsa/Mixer.h"
 
-}  // namespace android::vintf::details
+namespace aidl::android::hardware::audio::core::primary {
+
+class PrimaryMixer : public alsa::Mixer {
+  public:
+    static constexpr int kAlsaCard = 0;
+    static constexpr int kAlsaDevice = 0;
+
+    static PrimaryMixer& getInstance();
+
+  private:
+    PrimaryMixer() : alsa::Mixer(kAlsaCard) {}
+};
+
+}  // namespace aidl::android::hardware::audio::core::primary
