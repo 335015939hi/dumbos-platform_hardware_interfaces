@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bc4758c_5ac0a06a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1565997
+      },
+      "writtenOn": "2023-08-10T18:11:04Z",
+      "side": 1,
+      "message": "disabling verbose logging didn\u0027t make it into all branches, and it\u0027s proving to be a headache in b/287414933",
+      "revId": "5b454f372ece4b1e01d33261b3f092ce62139aff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
