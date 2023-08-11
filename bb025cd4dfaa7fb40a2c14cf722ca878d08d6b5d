@@ -16,6 +16,23 @@
       "message": "Hi David \u0026 Nikita,\nPTAL. This contains the preliminary version of the HAL(Secretkeeper) interface, a basic VTS \u0026 reference implementation.",
       "revId": "bb025cd4dfaa7fb40a2c14cf722ca878d08d6b5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75d71b0e_c63b651c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-11T20:45:59Z",
+      "side": 1,
+      "message": "This is providing a subset of the functionality of IWeaver. Are we sure we can\u0027t re-use it?",
+      "revId": "bb025cd4dfaa7fb40a2c14cf722ca878d08d6b5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
