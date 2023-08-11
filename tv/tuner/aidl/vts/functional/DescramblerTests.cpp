@@ -19,52 +19,95 @@
 using namespace std;
 
 AssertionResult DescramblerTests::createCasPlugin(int32_t caSystemId) {
-    auto status = mMediaCasService->isSystemIdSupported(caSystemId);
-    if (!status.isOk() || !status) {
-        ALOGW("[vts] Failed to check isSystemIdSupported.");
-        return failure();
-    }
+    if (isAidl) {
+        bool isSupported = false;
+        auto status = mMediaCasService->isSystemIdSupported(caSystemId, &isSupported);
+        if (!status.isOk() || !isSupported) {
+            ALOGW("[vts] Failed to check isSystemIdSupported.");
+            return failure();
+        }
 
-    mCasListener = new MediaCasListener();
-    auto pluginStatus = mMediaCasService->createPluginExt(caSystemId, mCasListener);
-    if (!pluginStatus.isOk()) {
-        ALOGW("[vts] Failed to createPluginExt.");
-        return failure();
+        mCasListener = ndk::SharedRefBase::make<MediaCasListener>();
+        auto pluginStatus = mMediaCasService->createPlugin(caSystemId, mCasListener, &mCas);
+        if (!pluginStatus.isOk()) {
+            ALOGW("[vts] Failed to CAS createPlugin.");
+            return failure();
+        }
+        if (mCas == nullptr) {
+            ALOGW("[vts] Failed to get ICas.");
+            return failure();
+        }
+        return success();
+    } else {
+        auto status = mMediaCasServiceHidl->isSystemIdSupported(caSystemId);
+        if (!status.isOk() || !status) {
+            ALOGW("[vts] Failed to check isSystemIdSupported.");
+            return failure();
+        }
+
+        mCasListenerHidl = new MediaCasListenerHidl();
+        auto pluginStatus = mMediaCasServiceHidl->createPluginExt(caSystemId, mCasListenerHidl);
+        if (!pluginStatus.isOk()) {
+            ALOGW("[vts] Failed to createPluginExt.");
+            return failure();
+        }
+        mCasHidl = ICasHidl::castFrom(pluginStatus);
+        if (mCasHidl == nullptr) {
+            ALOGW("[vts] Failed to get ICas.");
+            return failure();
+        }
+        return success();
     }
-    mCas = ICas::castFrom(pluginStatus);
-    if (mCas == nullptr) {
-        ALOGW("[vts] Failed to get ICas.");
-        return failure();
-    }
-    return success();
 }
 
 AssertionResult DescramblerTests::openCasSession(vector<uint8_t>& sessionId,
                                                  vector<uint8_t>& hidlPvtData) {
-    Status sessionStatus;
-    SessionIntent intent = SessionIntent::LIVE;
-    ScramblingMode mode = ScramblingMode::RESERVED;
-    auto returnVoid =
-            mCas->openSession_1_2(intent, mode, [&](Status status, const hidl_vec<uint8_t>& id) {
-                sessionStatus = status;
-                sessionId = id;
-            });
-    if (!returnVoid.isOk() || (sessionStatus != Status::OK)) {
-        ALOGW("[vts] Failed to open cas session.");
-        mCas->closeSession(sessionId);
-        return failure();
-    }
-
-    if (hidlPvtData.size() > 0) {
-        auto status = mCas->setSessionPrivateData(sessionId, hidlPvtData);
-        if (status != android::hardware::cas::V1_0::Status::OK) {
-            ALOGW("[vts] Failed to set session private data");
+    if (isAidl) {
+        SessionIntent intent = SessionIntent::LIVE;
+        ScramblingMode mode = ScramblingMode::RESERVED;
+        auto openStatus = mCas->openSession(intent, mode, &sessionId);
+        if (!openStatus.isOk()) {
+            ALOGW("[vts] Failed to open cas session.");
             mCas->closeSession(sessionId);
             return failure();
         }
-    }
 
-    return success();
+        if (hidlPvtData.size() > 0) {
+            auto status = mCas->setSessionPrivateData(sessionId, hidlPvtData);
+            if (!status.isOk()) {
+                ALOGW("[vts] Failed to set session private data");
+                mCas->closeSession(sessionId);
+                return failure();
+            }
+        }
+
+        return success();
+    } else {
+        SessionIntentHidl intent = SessionIntentHidl::LIVE;
+        ScramblingModeHidl mode = ScramblingModeHidl::RESERVED;
+        StatusHidl sessionStatus;
+        auto returnVoid = mCasHidl->openSession_1_2(
+                intent, mode, [&](StatusHidl status, const hidl_vec<uint8_t>& id) {
+                    sessionStatus = status;
+                    sessionId = id;
+                });
+        if (!returnVoid.isOk() || (sessionStatus != StatusHidl::OK)) {
+            ALOGW("[vts] Failed to open cas session.");
+            mCasHidl->closeSession(sessionId);
+            return failure();
+        }
+
+        if (hidlPvtData.size() > 0) {
+            auto status = mCasHidl->setSessionPrivateData(sessionId, hidlPvtData);
+            if (status != android::hardware::cas::V1_0::Status::OK) {
+                ALOGW("[vts] Failed to set session private data");
+                mCasHidl->closeSession(sessionId);
+                return failure();
+            }
+        }
+
+        return success();
+    }
 }
 
 AssertionResult DescramblerTests::getKeyToken(int32_t caSystemId, string& provisonStr,
@@ -76,10 +119,18 @@ AssertionResult DescramblerTests::getKeyToken(int32_t caSystemId, string& provis
     }
 
     if (provisonStr.size() > 0) {
-        auto returnStatus = mCas->provision(hidl_string(provisonStr));
-        if (returnStatus != android::hardware::cas::V1_0::Status::OK) {
-            ALOGW("[vts] provision failed.");
-            return failure();
+        if (isAidl) {
+            auto returnStatus = mCas->provision(provisonStr);
+            if (!returnStatus.isOk()) {
+                ALOGW("[vts] provision failed.");
+                return failure();
+            }
+        } else {
+            auto returnStatus = mCasHidl->provision(hidl_string(provisonStr));
+            if (returnStatus != android::hardware::cas::V1_0::Status::OK) {
+                ALOGW("[vts] provision failed.");
+                return failure();
+            }
         }
     }
 

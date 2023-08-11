@@ -16,8 +16,6 @@
 
 #include "VtsHalTvTunerTargetTest.h"
 
-#include <aidl/Gtest.h>
-#include <aidl/Vintf.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 

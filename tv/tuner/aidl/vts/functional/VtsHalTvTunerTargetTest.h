@@ -16,6 +16,8 @@
 
 #pragma once
 
+#include <aidl/Gtest.h>
+#include <aidl/Vintf.h>
 #include <android/binder_manager.h>
 
 #include "DemuxTests.h"
@@ -338,16 +340,32 @@ class TunerDescramblerAidlTest : public testing::TestWithParam<std::string> {
         } else {
             mService = nullptr;
         }
-        mCasService = IMediaCasService::getService();
+        /* Use the first available AIDL CAS service */
+        std::vector<std::string> casServiceNames =
+                android::getAidlHalInstanceNames(IMediaCasService::descriptor);
+        for (int i = 0; i < casServiceNames.size() && mCasService == nullptr; i++) {
+            if (AServiceManager_isDeclared(casServiceNames[i].c_str())) {
+                ::ndk::SpAIBinder binder(
+                        AServiceManager_waitForService(casServiceNames[i].c_str()));
+                mCasService = IMediaCasService::fromBinder(binder);
+            }
+        }
         ASSERT_NE(mService, nullptr);
-        ASSERT_NE(mCasService, nullptr);
         ASSERT_TRUE(initConfiguration());
 
         mFrontendTests.setService(mService);
         mDemuxTests.setService(mService);
         mDvrTests.setService(mService);
         mDescramblerTests.setService(mService);
-        mDescramblerTests.setCasService(mCasService);
+        if (mCasService != nullptr) {
+            mDescramblerTests.setCasService(mCasService);
+        } else {
+            /* If removing HIDL support, the tests should assert fail here if
+            there is no AIDL service */
+            mCasServiceHidl = IMediaCasServiceHidl::getService();
+            ASSERT_NE(mCasServiceHidl, nullptr);
+            mDescramblerTests.setCasServiceHidl(mCasServiceHidl);
+        }
     }
 
   protected:
@@ -360,7 +378,8 @@ class TunerDescramblerAidlTest : public testing::TestWithParam<std::string> {
     AssertionResult filterDataOutputTest();
 
     std::shared_ptr<ITuner> mService;
-    android::sp<IMediaCasService> mCasService;
+    android::sp<IMediaCasServiceHidl> mCasServiceHidl;
+    std::shared_ptr<IMediaCasService> mCasService;
     FrontendTests mFrontendTests;
     DemuxTests mDemuxTests;
     FilterTests mFilterTests;

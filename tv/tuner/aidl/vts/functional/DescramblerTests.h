@@ -30,6 +30,11 @@
 #include <android/hardware/cas/1.2/IMediaCasService.h>
 #include <android/hardware/cas/1.2/types.h>
 
+#include <aidl/android/hardware/cas/BnCasListener.h>
+#include <aidl/android/hardware/cas/ICas.h>
+#include <aidl/android/hardware/cas/IMediaCasService.h>
+#include <aidl/android/hardware/cas/Status.h>
+
 #include <aidl/android/hardware/tv/tuner/IDescrambler.h>
 #include <aidl/android/hardware/tv/tuner/IDvr.h>
 #include <aidl/android/hardware/tv/tuner/IDvrCallback.h>
@@ -37,24 +42,51 @@
 
 using android::Condition;
 using android::Mutex;
+
 using android::sp;
 using android::hardware::hidl_string;
 using android::hardware::hidl_vec;
 using android::hardware::Return;
 using android::hardware::Void;
-using android::hardware::cas::V1_2::ICas;
-using android::hardware::cas::V1_2::ICasListener;
-using android::hardware::cas::V1_2::IMediaCasService;
-using android::hardware::cas::V1_2::ScramblingMode;
-using android::hardware::cas::V1_2::SessionIntent;
-using android::hardware::cas::V1_2::Status;
-using android::hardware::cas::V1_2::StatusEvent;
+using ICasHidl = android::hardware::cas::V1_2::ICas;
+using ICasListenerHidl = android::hardware::cas::V1_2::ICasListener;
+using IMediaCasServiceHidl = android::hardware::cas::V1_2::IMediaCasService;
+using ScramblingModeHidl = android::hardware::cas::V1_2::ScramblingMode;
+using SessionIntentHidl = android::hardware::cas::V1_2::SessionIntent;
+using StatusHidl = android::hardware::cas::V1_2::Status;
+using StatusEventHidl = android::hardware::cas::V1_2::StatusEvent;
+using aidl::android::hardware::cas::BnCasListener;
+using aidl::android::hardware::cas::ICas;
+using aidl::android::hardware::cas::IMediaCasService;
+using aidl::android::hardware::cas::ScramblingMode;
+using aidl::android::hardware::cas::SessionIntent;
+using aidl::android::hardware::cas::Status;
+using aidl::android::hardware::cas::StatusEvent;
+using ndk::ScopedAStatus;
 
 using ::testing::AssertionResult;
 
 using namespace aidl::android::hardware::tv::tuner;
 
-class MediaCasListener : public ICasListener {
+class MediaCasListener : public BnCasListener {
+  public:
+    virtual ScopedAStatus onEvent(int32_t /*event*/, int32_t /*arg*/,
+                                  const std::vector<uint8_t>& /*data*/) override {
+        return ScopedAStatus::ok();
+    }
+
+    virtual ScopedAStatus onSessionEvent(const std::vector<uint8_t>& /*sessionId*/,
+                                         int32_t /*event*/, int32_t /*arg*/,
+                                         const std::vector<uint8_t>& /*data*/) override {
+        return ScopedAStatus::ok();
+    }
+
+    virtual ScopedAStatus onStatusUpdate(StatusEvent /*event*/, int32_t /*arg*/) override {
+        return ScopedAStatus::ok();
+    }
+};
+
+class MediaCasListenerHidl : public ICasListenerHidl {
   public:
     virtual Return<void> onEvent(int32_t /*event*/, int32_t /*arg*/,
                                  const hidl_vec<uint8_t>& /*data*/) override {
@@ -67,7 +99,7 @@ class MediaCasListener : public ICasListener {
         return Void();
     }
 
-    virtual Return<void> onStatusUpdate(StatusEvent /*event*/, int32_t /*arg*/) override {
+    virtual Return<void> onStatusUpdate(StatusEventHidl /*event*/, int32_t /*arg*/) override {
         return Void();
     }
 };
@@ -75,7 +107,14 @@ class MediaCasListener : public ICasListener {
 class DescramblerTests {
   public:
     void setService(std::shared_ptr<ITuner> tuner) { mService = tuner; }
-    void setCasService(sp<IMediaCasService> casService) { mMediaCasService = casService; }
+    void setCasServiceHidl(sp<IMediaCasServiceHidl> casService) {
+        isAidl = false;
+        mMediaCasServiceHidl = casService;
+    }
+    void setCasService(std::shared_ptr<IMediaCasService> casService) {
+        isAidl = true;
+        mMediaCasService = casService;
+    }
 
     AssertionResult setKeyToken(std::vector<uint8_t>& token);
     AssertionResult openDescrambler(int32_t demuxId);
@@ -95,11 +134,15 @@ class DescramblerTests {
 
     std::shared_ptr<ITuner> mService;
     std::shared_ptr<IDescrambler> mDescrambler;
-    android::sp<ICas> mCas;
-    android::sp<IMediaCasService> mMediaCasService;
-    android::sp<MediaCasListener> mCasListener;
+    android::sp<ICasHidl> mCasHidl;
+    android::sp<IMediaCasServiceHidl> mMediaCasServiceHidl;
+    android::sp<MediaCasListenerHidl> mCasListenerHidl;
+    std::shared_ptr<ICas> mCas;
+    std::shared_ptr<IMediaCasService> mMediaCasService;
+    std::shared_ptr<MediaCasListener> mCasListener;
 
   private:
+    bool isAidl = false;
     AssertionResult openCasSession(std::vector<uint8_t>& sessionId,
                                    std::vector<uint8_t>& hidlPvtData);
     AssertionResult createCasPlugin(int32_t caSystemId);
