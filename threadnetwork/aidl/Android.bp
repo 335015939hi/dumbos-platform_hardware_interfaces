@@ -14,9 +14,9 @@ aidl_interface {
         ndk: {
             apex_available: [
                 "//apex_available:platform",
-                "com.android.threadnetwork",
+                "com.android.tethering",
             ],
-            min_sdk_version: "33",
+            min_sdk_version: "30",
         },
     },
 }
