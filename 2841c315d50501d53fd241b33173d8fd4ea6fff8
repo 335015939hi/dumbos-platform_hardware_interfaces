@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b7920b6_7fa78521",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2577,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-08-11T14:50:01Z",
+      "side": 1,
+      "message": "Can we add a message saying what the error code actually was?",
+      "range": {
+        "startLine": 2576,
+        "startChar": 0,
+        "endLine": 2577,
+        "endChar": 59
+      },
+      "revId": "2841c315d50501d53fd241b33173d8fd4ea6fff8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
