@@ -33,6 +33,24 @@
       "message": "This is providing a subset of the functionality of IWeaver. Are we sure we can\u0027t re-use it?",
       "revId": "bb025cd4dfaa7fb40a2c14cf722ca878d08d6b5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "070c8318_acfe2cae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-08-11T21:30:23Z",
+      "side": 1,
+      "message": "Steven is right that using IWeaver with a config like { slots\u003d1, keySize\u003d0, valueSize\u003d64 } and no throttling implementation be similar to the interface uploaded here.\n\nThe TODO bug is already closed as obsolete so there might not even be other features to worry about?",
+      "parentUuid": "75d71b0e_c63b651c",
+      "revId": "bb025cd4dfaa7fb40a2c14cf722ca878d08d6b5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
