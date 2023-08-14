@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a26e152_0720d185",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-14T16:26:28Z",
+      "side": 1,
+      "message": "\u0027empty\u0027 is preferred in C++ stdlib, because it\u0027s explicit, and (IMO theoretically) certain types may implement this more efficiently than returning size, so it\u0027s more portable\n\n\"also fixes a bug\" - what bug? why in the same CL?\n\nPlease include more context why this change is being done.",
+      "revId": "4aa4f5df72071e3cb7126160f001ea20914323a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
