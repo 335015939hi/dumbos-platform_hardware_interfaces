@@ -16,6 +16,24 @@
       "message": "do we need this? it\u0027s unlikely we can clean up everything, especially downstream.",
       "revId": "c40b6f05784a1aae3e16fe1e60a01b56f9b14821",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2587adbd_454d8a6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2023-08-15T21:47:24Z",
+      "side": 1,
+      "message": "Discussed in the other change. There\u0027s a chance we will.",
+      "parentUuid": "4523d4d8_d1cae884",
+      "revId": "c40b6f05784a1aae3e16fe1e60a01b56f9b14821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
