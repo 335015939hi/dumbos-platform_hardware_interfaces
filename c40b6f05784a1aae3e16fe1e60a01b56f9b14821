@@ -34,6 +34,24 @@
       "parentUuid": "4523d4d8_d1cae884",
       "revId": "c40b6f05784a1aae3e16fe1e60a01b56f9b14821",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa169d75_3f0cafc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-15T22:34:06Z",
+      "side": 1,
+      "message": "There is no agreement to get full build support here, and you can\u0027t convert all of hardware/interfaces to cmake. That will absolutely not happen. I\u0027d strongly recommend to avoid making random or just-potentially useful changes. This kind of thing can be done pretty quickly if needed. I think we have bigger issues.",
+      "parentUuid": "2587adbd_454d8a6e",
+      "revId": "c40b6f05784a1aae3e16fe1e60a01b56f9b14821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
