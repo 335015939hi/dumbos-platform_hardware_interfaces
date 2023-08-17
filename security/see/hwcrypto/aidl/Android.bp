@@ -16,9 +16,6 @@ aidl_interface {
         "android/hardware/security/see/hwcrypto/*.aidl",
         "android/hardware/security/see/hwcrypto/types/*.aidl",
     ],
-    imports: [
-        "android.hardware.security.see.dma",
-    ],
     //stability: "vintf",
     backend: {
         java: {
