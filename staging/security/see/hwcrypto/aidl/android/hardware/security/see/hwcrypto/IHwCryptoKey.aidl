@@ -18,6 +18,7 @@ package android.hardware.security.see.hwcrypto;
 import android.hardware.security.see.hwcrypto.CryptoOperationErrorAdditionalInfo;
 import android.hardware.security.see.hwcrypto.CryptoOperationResult;
 import android.hardware.security.see.hwcrypto.CryptoOperationSet;
+import android.hardware.security.see.hwcrypto.IHwCryptoDeviceKeyAccess;
 import android.hardware.security.see.hwcrypto.IHwCryptoKeyGeneration;
 
 /*
@@ -33,6 +34,14 @@ interface IHwCryptoKey {
      *      IHwCryptoKeyGeneration on success
      */
     IHwCryptoKeyGeneration getKeyGeneration();
+
+    /*
+     * getDeviceKeyGeneration() - Returns an interface with used to access device specific keys
+     *
+     * Return:
+     *      IHwCryptoDeviceKeyAccess on success
+     */
+    IHwCryptoDeviceKeyAccess getDeviceKeyGeneration();
 
     /*
      * processCommandList() - Executes a list of cryptographic commands in order
