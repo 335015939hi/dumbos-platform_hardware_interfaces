@@ -65,7 +65,10 @@ cc_test {
     ],
     srcs: [
         "AttestKeyTest.cpp",
+<<<<<<< HEAD   (fed7d5 Don't use String8::empty)
         "AuthTest.cpp",
+=======
+>>>>>>> BRANCH (e0fb4d KeyMint: Add Root-of-Trust test cases)
         "BootloaderStateTest.cpp",
         "DeviceUniqueAttestationTest.cpp",
         "KeyBlobUpgradeTest.cpp",

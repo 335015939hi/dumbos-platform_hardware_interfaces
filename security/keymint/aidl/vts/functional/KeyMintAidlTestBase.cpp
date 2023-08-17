@@ -115,6 +115,7 @@ bool KeyCharacteristicsBasicallyValid(SecurityLevel secLevel,
     return true;
 }
 
+<<<<<<< HEAD   (fed7d5 Don't use String8::empty)
 void check_crl_distribution_points_extension_not_present(X509* certificate) {
     ASN1_OBJECT_Ptr crl_dp_oid(OBJ_txt2obj(kCrlDPOid, 1 /* dotted string format */));
     ASSERT_TRUE(crl_dp_oid.get());
@@ -124,6 +125,8 @@ void check_crl_distribution_points_extension_not_present(X509* certificate) {
     ASSERT_EQ(location, -1);
 }
 
+=======
+>>>>>>> BRANCH (e0fb4d KeyMint: Add Root-of-Trust test cases)
 void check_attestation_version(uint32_t attestation_version, int32_t aidl_version) {
     // Version numbers in attestation extensions should be a multiple of 100.
     EXPECT_EQ(attestation_version % 100, 0);

@@ -33,6 +33,10 @@ using ::std::vector;
 
 // Since this test needs to talk to Keymaster HAL, it can only run as root. Thus,
 // bootloader can not be locked.
+<<<<<<< HEAD   (fed7d5 Don't use String8::empty)
+=======
+// @CddTest = 9.10/C-0-2
+>>>>>>> BRANCH (e0fb4d KeyMint: Add Root-of-Trust test cases)
 class BootloaderStateTest : public KeymasterHidlTest {
   public:
     virtual void SetUp() override {
