@@ -16,6 +16,8 @@
 package android.hardware.security.see.hwcrypto;
 
 import android.hardware.security.see.hwcrypto.IAeadOperation;
+import android.hardware.security.see.hwcrypto.IDmaAeadOperation;
+import android.hardware.security.see.hwcrypto.IDmaEmittingOperation;
 import android.hardware.security.see.hwcrypto.IEmittingOperation;
 import android.hardware.security.see.hwcrypto.IOpaqueKey;
 import android.hardware.security.see.hwcrypto.types.SymmetricAuthCryptoParameters;
@@ -56,5 +58,38 @@ interface IHwCryptoKeySymmetricOperations {
      *      Ok(IAeadOperation) on success, specific error code on error.
      */
     IAeadOperation begin_aead(in IOpaqueKey key, in SymmetricOperation direction,
+            in SymmetricAuthCryptoParameters parameters);
+
+    /*
+     * begin_dma() - start a symmetric cryptographic operation using DMA.
+     * @key:
+     *      key to be used on the operation
+     * @direction:
+     *      Encryption or Decryption
+     * @parameters:
+     *      parameters that specify the desired cryptographic operation. Should match the provided
+     *      key.
+     *
+     * Return:
+     *      Ok(IEmittingOperation) on success, specific error code on error.
+     */
+    IDmaEmittingOperation begin_dma(in IOpaqueKey key, in SymmetricOperation direction,
+            in SymmetricCryptoParameters parameters);
+
+    /*
+     * begin_dma_aead() - start an authenticated encryption with additional data
+     *                                        cryptographic operation using DMA.
+     * @key:
+     *      key to be used on the operation
+     * @direction:
+     *      Encryption or Decryption
+     * @parameters:
+     *      parameters that specify the desired cryptographic operation. Should match the provided
+     *      key.
+     *
+     * Return:
+     *      Ok(IAeadOperation) on success, specific error code on error.
+     */
+    IDmaAeadOperation begin_dma_aead(in IOpaqueKey key, in SymmetricOperation direction,
             in SymmetricAuthCryptoParameters parameters);
 }
