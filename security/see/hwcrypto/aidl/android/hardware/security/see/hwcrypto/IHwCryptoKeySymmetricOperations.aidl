@@ -16,6 +16,8 @@
 package android.hardware.security.see.hwcrypto;
 
 import android.hardware.security.see.hwcrypto.IAeadOperation;
+import android.hardware.security.see.hwcrypto.IDmaAeadOperation;
+import android.hardware.security.see.hwcrypto.IDmaEmittingOperation;
 import android.hardware.security.see.hwcrypto.IEmittingOperation;
 import android.hardware.security.see.hwcrypto.types.OpaqueKeyMaterial;
 import android.hardware.security.see.hwcrypto.types.SymmetricOperationParameters;
@@ -49,4 +51,33 @@ interface IHwCryptoKeySymmetricOperations {
      *      Ok(IAeadOperation) on success, specific error code on error.
      */
     IAeadOperation begin_aead(in OpaqueKeyMaterial key, in SymmetricOperationParameters parameters);
+
+    /*
+     * begin_dma() - start a symmetric cryptographic operation using DMA.
+     * @key:
+     *      key to be used on the operation
+     * @parameters:
+     *      parameters that specify the desired cryptographic operation. Should match the provided
+     *      key.
+     *
+     * Return:
+     *      Ok(IEmittingOperation) on success, specific error code on error.
+     */
+    IDmaEmittingOperation begin_dma(
+            in OpaqueKeyMaterial key, in SymmetricOperationParameters parameters);
+
+    /*
+     * begin_dma_aead() - start an authenticated encryption with additional data
+     *                                        cryptographic operation using DMA.
+     * @key:
+     *      key to be used on the operation
+     * @parameters:
+     *      parameters that specify the desired cryptographic operation. Should match the provided
+     *      key.
+     *
+     * Return:
+     *      Ok(IAeadOperation) on success, specific error code on error.
+     */
+    IDmaAeadOperation begin_dma_aead(
+            in OpaqueKeyMaterial key, in SymmetricOperationParameters parameters);
 }
