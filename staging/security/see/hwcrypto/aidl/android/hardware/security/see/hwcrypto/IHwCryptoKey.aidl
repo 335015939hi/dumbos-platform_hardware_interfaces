@@ -18,6 +18,7 @@ package android.hardware.security.see.hwcrypto;
 import android.hardware.security.see.hwcrypto.CryptoOperationErrorAdditionalInfo;
 import android.hardware.security.see.hwcrypto.CryptoOperationResult;
 import android.hardware.security.see.hwcrypto.CryptoOperationSet;
+import android.hardware.security.see.hwcrypto.IHwCryptoDeviceKeyAccess;
 import android.hardware.security.see.hwcrypto.IHwCryptoKeyGeneration;
 
 /*
