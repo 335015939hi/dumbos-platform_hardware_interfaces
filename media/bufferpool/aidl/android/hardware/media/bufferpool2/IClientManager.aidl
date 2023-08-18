@@ -28,16 +28,6 @@ import android.hardware.media.bufferpool2.IAccessor;
 @VintfStability
 interface IClientManager {
     /**
-     * Result of registerSender.
-     */
-    @VintfStability
-    parcelable Registration {
-        /** registered connection id    */
-        long connectionId;
-        /** true when the connection is new */
-        boolean isNew = true;
-    }
-    /**
      * Sets up a buffer receiving communication node for the specified
      * buffer pool. A manager must create a IConnection to the buffer
      * pool if it does not already have a connection.
@@ -49,7 +39,8 @@ interface IClientManager {
      *     sent to that connection during transfers.
      * @throws ServiceSpecificException with one of the following values:
      *     ResultStatus::NO_MEMORY        - Memory allocation failure occurred.
+     *     ResultStatus::ALREADY_EXISTS   - A sender was registered already.
      *     ResultStatus::CRITICAL_ERROR   - Other errors.
      */
-    Registration registerSender(in IAccessor bufferPool);
+    long registerSender(in IAccessor bufferPool);
 }
