@@ -33,6 +33,24 @@
       "message": "I might word this a little differently, something like:\n\n\u003e For importWrappedKey, there is no way to specify the value of this tag for the wrapped key, so a value of 0 is used for certificate generation.\n\nwith the intent of making this look like a spec clarification rather than an API change...",
       "revId": "d2ce196b5bee7f90ddb539615d6a83d9da511f6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b751ced8_53ecb2aa",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1124693
+      },
+      "writtenOn": "2023-08-18T19:25:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bc0d625_1c8e8986",
+      "revId": "d2ce196b5bee7f90ddb539615d6a83d9da511f6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
