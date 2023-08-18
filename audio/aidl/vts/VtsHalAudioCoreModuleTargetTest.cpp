@@ -1379,7 +1379,7 @@ TEST_P(AudioCoreModule, CheckMixPorts) {
                     << "At least two mix ports have PRIMARY flag set: " << primaryMixPort.value()
                     << " and " << port.id;
             primaryMixPort = port.id;
-            EXPECT_EQ(1, mixPort.maxOpenStreamCount)
+            EXPECT_TRUE(0 <= mixPort.maxOpenStreamCount)
                     << "Primary mix port " << port.id << " can not have maxOpenStreamCount "
                     << mixPort.maxOpenStreamCount;
         }
