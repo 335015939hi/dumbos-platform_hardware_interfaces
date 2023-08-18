@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76480d44_34bc6947",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-08-18T21:24:32Z",
+      "side": 1,
+      "message": "Please review the presubmit failure -\n\nerror: hardware/interfaces/security/keymint/aidl/vts/functional/Android.bp:69:1: \"libkeymint_vts_test_utils\" depends on undefined module \"packagemanager_aidl-cpp\"",
+      "revId": "a02db3bab5502087b52ecd47ca0c4f96e0389bf9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
