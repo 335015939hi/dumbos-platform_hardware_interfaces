@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "240ab826_7b547e72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2023-08-18T21:22:47Z",
+      "side": 1,
+      "message": "error: hardware/interfaces/security/keymint/aidl/vts/functional/Android.bp:69:1: \"libkeymint_vts_test_utils\" depends on undefined module \"packagemanager_aidl-cpp\"",
+      "parentUuid": "78564edc_42c38b6c",
+      "revId": "a99b22b0a8a7cfdef4290f3284e4910582b1b4ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5309b5aa_a013cade",
         "filename": "security/keymint/aidl/vts/functional/Android.bp",
         "patchSetId": 2
