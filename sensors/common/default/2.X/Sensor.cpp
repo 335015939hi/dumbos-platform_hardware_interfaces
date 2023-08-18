@@ -43,6 +43,7 @@ Sensor::Sensor(ISensorsEventCallback* callback)
       mCallback(callback),
       mMode(OperationMode::NORMAL) {
     mRunThread = std::thread(startThread, this);
+    mStopThread = false;
 }
 
 Sensor::~Sensor() {
