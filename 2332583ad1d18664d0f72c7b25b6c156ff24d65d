@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f04682ed_c67bc62e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-08-18T12:46:49Z",
+      "side": 1,
+      "message": "FYI, our DICE profile has graduated to live alongside the Open Profile for DICE on which it is based. We\u0027re still in charge of defining it but it now looks more official, will be easier to share across HALs and even across partners who have previously expressed interest in using the Android profile.",
+      "revId": "2332583ad1d18664d0f72c7b25b6c156ff24d65d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
