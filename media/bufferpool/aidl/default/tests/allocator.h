@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,18 +14,17 @@
  * limitations under the License.
  */
 
-#pragma once
+#ifndef VNDK_HIDL_BUFFERPOOL_V2_0_ALLOCATOR_H
+#define VNDK_HIDL_BUFFERPOOL_V2_0_ALLOCATOR_H
 
 #include <pthread.h>
-#include <bufferpool2/BufferPoolTypes.h>
+#include <bufferpool/BufferPoolTypes.h>
 
-using aidl::android::hardware::media::bufferpool2::implementation::
-    BufferPoolStatus;
-using aidl::android::hardware::media::bufferpool2::implementation::
+using android::hardware::media::bufferpool::V2_0::ResultStatus;
+using android::hardware::media::bufferpool::V2_0::implementation::
     BufferPoolAllocation;
-using aidl::android::hardware::media::bufferpool2::implementation::
+using android::hardware::media::bufferpool::V2_0::implementation::
     BufferPoolAllocator;
-using aidl::android::hardware::media::bufferpool2::ResultStatus;
 
 struct IpcMutex {
   pthread_mutex_t lock;
@@ -45,7 +44,7 @@ class TestBufferPoolAllocator : public BufferPoolAllocator {
 
   ~TestBufferPoolAllocator() override {}
 
-  BufferPoolStatus allocate(const std::vector<uint8_t> &params,
+  ResultStatus allocate(const std::vector<uint8_t> &params,
                         std::shared_ptr<BufferPoolAllocation> *alloc,
                         size_t *allocSize) override;
 
@@ -61,7 +60,9 @@ class TestBufferPoolAllocator : public BufferPoolAllocator {
   static bool UnmapMemoryForMutex(void *mem);
 };
 
-// retrieve buffer allocator parameters
+// retrieve buffer allocator paramters
 void getTestAllocatorParams(std::vector<uint8_t> *params);
 
 void getIpcMutexParams(std::vector<uint8_t> *params);
+
+#endif  // VNDK_HIDL_BUFFERPOOL_V2_0_ALLOCATOR_H

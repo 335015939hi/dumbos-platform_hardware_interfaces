@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +14,29 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "AidlBufferPoolStatus"
+#define LOG_TAG "BufferPoolStatus"
 //#define LOG_NDEBUG 0
 
 #include <thread>
 #include <time.h>
-#include <aidl/android/hardware/media/bufferpool2/BufferStatus.h>
 #include "BufferStatus.h"
 
-namespace aidl::android::hardware::media::bufferpool2::implementation {
+namespace android {
+namespace hardware {
+namespace media {
+namespace bufferpool {
+namespace V2_0 {
+namespace implementation {
 
-using aidl::android::hardware::media::bufferpool2::BufferStatus;
+int64_t getTimestampNow() {
+    int64_t stamp;
+    struct timespec ts;
+    // TODO: CLOCK_MONOTONIC_COARSE?
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    stamp = ts.tv_nsec / 1000;
+    stamp += (ts.tv_sec * 1000000LL);
+    return stamp;
+}
 
 bool isMessageLater(uint32_t curMsgId, uint32_t prevMsgId) {
     return curMsgId != prevMsgId && curMsgId - prevMsgId < prevMsgId - curMsgId;
@@ -41,26 +53,30 @@ bool isBufferInRange(BufferId from, BufferId to, BufferId bufferId) {
 static constexpr int kNumElementsInQueue = 1024*16;
 static constexpr int kMinElementsToSyncInQueue = 128;
 
-BufferPoolStatus BufferStatusObserver::open(
-        ConnectionId id, StatusDescriptor* fmqDescPtr) {
+ResultStatus BufferStatusObserver::open(
+        ConnectionId id, const StatusDescriptor** fmqDescPtr) {
     if (mBufferStatusQueues.find(id) != mBufferStatusQueues.end()) {
-        ALOGE("connection id collision %lld", (unsigned long long)id);
+        // TODO: id collision log?
         return ResultStatus::CRITICAL_ERROR;
     }
-    auto queue = std::make_unique<BufferStatusQueue>(kNumElementsInQueue);
+    std::unique_ptr<BufferStatusQueue> queue =
+            std::make_unique<BufferStatusQueue>(kNumElementsInQueue);
     if (!queue || queue->isValid() == false) {
+        *fmqDescPtr = nullptr;
         return ResultStatus::NO_MEMORY;
+    } else {
+        *fmqDescPtr = queue->getDesc();
     }
-    *fmqDescPtr = queue->dupeDesc();
     auto result = mBufferStatusQueues.insert(
             std::make_pair(id, std::move(queue)));
     if (!result.second) {
+        *fmqDescPtr = nullptr;
         return ResultStatus::NO_MEMORY;
     }
     return ResultStatus::OK;
 }
 
-BufferPoolStatus BufferStatusObserver::close(ConnectionId id) {
+ResultStatus BufferStatusObserver::close(ConnectionId id) {
     if (mBufferStatusQueues.find(id) == mBufferStatusQueues.end()) {
         return ResultStatus::CRITICAL_ERROR;
     }
@@ -74,7 +90,7 @@ void BufferStatusObserver::getBufferStatusChanges(std::vector<BufferStatusMessag
         size_t avail = it->second->availableToRead();
         while (avail > 0) {
             if (!it->second->read(&message, 1)) {
-                // Since available # of reads are already confirmed,
+                // Since avaliable # of reads are already confirmed,
                 // this should not happen.
                 // TODO: error handling (spurious client?)
                 ALOGW("FMQ message cannot be read from %lld", (long long)it->first);
@@ -89,7 +105,8 @@ void BufferStatusObserver::getBufferStatusChanges(std::vector<BufferStatusMessag
 
 BufferStatusChannel::BufferStatusChannel(
         const StatusDescriptor &fmqDesc) {
-    auto queue = std::make_unique<BufferStatusQueue>(fmqDesc);
+    std::unique_ptr<BufferStatusQueue> queue =
+            std::make_unique<BufferStatusQueue>(fmqDesc);
     if (!queue || queue->isValid() == false) {
         mValid = false;
         return;
@@ -119,11 +136,11 @@ void BufferStatusChannel::postBufferRelease(
         BufferStatusMessage message;
         for (size_t i = 0 ; i < avail; ++i) {
             BufferId id = pending.front();
-            message.status = BufferStatus::NOT_USED;
+            message.newStatus = BufferStatus::NOT_USED;
             message.bufferId = id;
             message.connectionId = connectionId;
             if (!mBufferStatusQueue->write(&message, 1)) {
-                // Since available # of writes are already confirmed,
+                // Since avaliable # of writes are already confirmed,
                 // this should not happen.
                 // TODO: error handing?
                 ALOGW("FMQ message cannot be sent from %lld", (long long)connectionId);
@@ -143,11 +160,11 @@ void BufferStatusChannel::postBufferInvalidateAck(
         size_t avail = mBufferStatusQueue->availableToWrite();
         if (avail > 0) {
             BufferStatusMessage message;
-            message.status = BufferStatus::INVALIDATION_ACK;
+            message.newStatus = BufferStatus::INVALIDATION_ACK;
             message.bufferId = invalidateId;
             message.connectionId = connectionId;
             if (!mBufferStatusQueue->write(&message, 1)) {
-                // Since available # of writes are already confirmed,
+                // Since avaliable # of writes are already confirmed,
                 // this should not happen.
                 // TODO: error handing?
                 ALOGW("FMQ message cannot be sent from %lld", (long long)connectionId);
@@ -169,11 +186,11 @@ bool BufferStatusChannel::postBufferStatusMessage(
             BufferStatusMessage release, message;
             for (size_t i = 0; i < numPending; ++i) {
                 BufferId id = pending.front();
-                release.status = BufferStatus::NOT_USED;
+                release.newStatus = BufferStatus::NOT_USED;
                 release.bufferId = id;
                 release.connectionId = connectionId;
                 if (!mBufferStatusQueue->write(&release, 1)) {
-                    // Since available # of writes are already confirmed,
+                    // Since avaliable # of writes are already confirmed,
                     // this should not happen.
                     // TODO: error handling?
                     ALOGW("FMQ message cannot be sent from %lld", (long long)connectionId);
@@ -184,13 +201,13 @@ bool BufferStatusChannel::postBufferStatusMessage(
             }
             message.transactionId = transactionId;
             message.bufferId = bufferId;
-            message.status = status;
+            message.newStatus = status;
             message.connectionId = connectionId;
             message.targetConnectionId = targetId;
             // TODO : timesatamp
             message.timestampUs = 0;
             if (!mBufferStatusQueue->write(&message, 1)) {
-                // Since available # of writes are already confirmed,
+                // Since avaliable # of writes are already confirmed,
                 // this should not happen.
                 ALOGW("FMQ message cannot be sent from %lld", (long long)connectionId);
                 return false;
@@ -259,11 +276,12 @@ bool BufferInvalidationChannel::isValid() {
     return mValid;
 }
 
-void BufferInvalidationChannel::getDesc(InvalidationDescriptor *fmqDescPtr) {
+void BufferInvalidationChannel::getDesc(const InvalidationDescriptor **fmqDescPtr) {
     if (mValid) {
-        *fmqDescPtr = mBufferInvalidationQueue->dupeDesc();
+        *fmqDescPtr = mBufferInvalidationQueue->getDesc();
+    } else {
+        *fmqDescPtr = nullptr;
     }
-    // TODO: writing invalid descriptor?
 }
 
 void BufferInvalidationChannel::postInvalidation(
@@ -277,5 +295,10 @@ void BufferInvalidationChannel::postInvalidation(
     mBufferInvalidationQueue->write(&message);
 }
 
-}  // namespace ::aidl::android::hardware::media::bufferpool2::implementation
+}  // namespace implementation
+}  // namespace V2_0
+}  // namespace bufferpool
+}  // namespace media
+}  // namespace hardware
+}  // namespace android
 

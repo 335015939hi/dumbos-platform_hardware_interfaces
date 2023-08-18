@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,74 +13,122 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "AidlBufferPoolMgr"
+#define LOG_TAG "BufferPoolManager"
 //#define LOG_NDEBUG 0
 
-#include <aidl/android/hardware/media/bufferpool2/ResultStatus.h>
-#include <bufferpool2/ClientManager.h>
-
+#include <bufferpool/ClientManager.h>
+#include <hidl/HidlTransportSupport.h>
 #include <sys/types.h>
-#include <utils/SystemClock.h>
+#include <time.h>
 #include <unistd.h>
 #include <utils/Log.h>
-
-#include <chrono>
-
 #include "BufferPoolClient.h"
 #include "Observer.h"
 #include "Accessor.h"
 
-namespace aidl::android::hardware::media::bufferpool2::implementation {
+namespace android {
+namespace hardware {
+namespace media {
+namespace bufferpool {
+namespace V2_0 {
+namespace implementation {
 
-using namespace std::chrono_literals;
+static constexpr int64_t kRegisterTimeoutUs = 500000; // 0.5 sec
+static constexpr int64_t kCleanUpDurationUs = 1000000; // TODO: 1 sec tune
+static constexpr int64_t kClientTimeoutUs = 5000000; // TODO: 5 secs tune
 
-using Registration = aidl::android::hardware::media::bufferpool2::IClientManager::Registration;
-using aidl::android::hardware::media::bufferpool2::ResultStatus;
+/**
+ * The holder of the cookie of remote IClientManager.
+ * The cookie is process locally unique for each IClientManager.
+ * (The cookie is used to notify death of clients to bufferpool process.)
+ */
+class ClientManagerCookieHolder {
+public:
+    /**
+     * Creates a cookie holder for remote IClientManager(s).
+     */
+    ClientManagerCookieHolder();
 
-static constexpr int64_t kRegisterTimeoutMs = 500; // 0.5 sec
-static constexpr int64_t kCleanUpDurationMs = 1000; // TODO: 1 sec tune
-static constexpr int64_t kClientTimeoutMs = 5000; // TODO: 5 secs tune
+    /**
+     * Gets a cookie for a remote IClientManager.
+     *
+     * @param manager   the specified remote IClientManager.
+     * @param added     true when the specified remote IClientManager is added
+     *                  newly, false otherwise.
+     *
+     * @return the process locally unique cookie for the specified IClientManager.
+     */
+    uint64_t getCookie(const sp<IClientManager> &manager, bool *added);
+
+private:
+    uint64_t mSeqId;
+    std::mutex mLock;
+    std::list<std::pair<const wp<IClientManager>, uint64_t>> mManagers;
+};
+
+ClientManagerCookieHolder::ClientManagerCookieHolder() : mSeqId(0){}
+
+uint64_t ClientManagerCookieHolder::getCookie(
+        const sp<IClientManager> &manager,
+        bool *added) {
+    std::lock_guard<std::mutex> lock(mLock);
+    for (auto it = mManagers.begin(); it != mManagers.end();) {
+        const sp<IClientManager> key = it->first.promote();
+        if (key) {
+            if (interfacesEqual(key, manager)) {
+                *added = false;
+                return it->second;
+            }
+            ++it;
+        } else {
+            it = mManagers.erase(it);
+        }
+    }
+    uint64_t id = mSeqId++;
+    *added = true;
+    mManagers.push_back(std::make_pair(manager, id));
+    return id;
+}
 
 class ClientManager::Impl {
 public:
     Impl();
 
     // BnRegisterSender
-    BufferPoolStatus registerSender(const std::shared_ptr<IAccessor> &accessor,
-                                Registration *pRegistration);
+    ResultStatus registerSender(const sp<IAccessor> &accessor,
+                                ConnectionId *pConnectionId);
 
     // BpRegisterSender
-    BufferPoolStatus registerSender(const std::shared_ptr<IClientManager> &receiver,
+    ResultStatus registerSender(const sp<IClientManager> &receiver,
                                 ConnectionId senderId,
-                                ConnectionId *receiverId,
-                                bool *isNew);
+                                ConnectionId *receiverId);
 
-    BufferPoolStatus create(const std::shared_ptr<BufferPoolAllocator> &allocator,
+    ResultStatus create(const std::shared_ptr<BufferPoolAllocator> &allocator,
                         ConnectionId *pConnectionId);
 
-    BufferPoolStatus close(ConnectionId connectionId);
+    ResultStatus close(ConnectionId connectionId);
 
-    BufferPoolStatus flush(ConnectionId connectionId);
+    ResultStatus flush(ConnectionId connectionId);
 
-    BufferPoolStatus allocate(ConnectionId connectionId,
+    ResultStatus allocate(ConnectionId connectionId,
                           const std::vector<uint8_t> &params,
                           native_handle_t **handle,
                           std::shared_ptr<BufferPoolData> *buffer);
 
-    BufferPoolStatus receive(ConnectionId connectionId,
+    ResultStatus receive(ConnectionId connectionId,
                          TransactionId transactionId,
                          BufferId bufferId,
-                         int64_t timestampMs,
+                         int64_t timestampUs,
                          native_handle_t **handle,
                          std::shared_ptr<BufferPoolData> *buffer);
 
-    BufferPoolStatus postSend(ConnectionId receiverId,
+    ResultStatus postSend(ConnectionId receiverId,
                           const std::shared_ptr<BufferPoolData> &buffer,
                           TransactionId *transactionId,
-                          int64_t *timestampMs);
+                          int64_t *timestampUs);
 
-    BufferPoolStatus getAccessor(ConnectionId connectionId,
-                             std::shared_ptr<IAccessor> *accessor);
+    ResultStatus getAccessor(ConnectionId connectionId,
+                             sp<IAccessor> *accessor);
 
     void cleanUp(bool clearCache = false);
 
@@ -91,13 +139,13 @@ private:
         // This lock is held for brief duration.
         // Blocking operation is not performed while holding the lock.
         std::mutex mMutex;
-        std::list<std::pair<const std::weak_ptr<IAccessor>, const std::weak_ptr<BufferPoolClient>>>
+        std::list<std::pair<const wp<IAccessor>, const std::weak_ptr<BufferPoolClient>>>
                 mClients;
         std::condition_variable mConnectCv;
         bool mConnecting;
-        int64_t mLastCleanUpMs;
+        int64_t mLastCleanUpUs;
 
-        ClientCache() : mConnecting(false), mLastCleanUpMs(::android::elapsedRealtime()) {}
+        ClientCache() : mConnecting(false), mLastCleanUpUs(getTimestampNow()) {}
     } mCache;
 
     // Active clients which can be retrieved via ConnectionId
@@ -109,31 +157,30 @@ private:
                 mClients;
     } mActive;
 
-    std::shared_ptr<Observer> mObserver;
+    sp<Observer> mObserver;
+
+    ClientManagerCookieHolder mRemoteClientCookies;
 };
 
 ClientManager::Impl::Impl()
-    : mObserver(::ndk::SharedRefBase::make<Observer>()) {}
+    : mObserver(new Observer()) {}
 
-BufferPoolStatus ClientManager::Impl::registerSender(
-        const std::shared_ptr<IAccessor> &accessor, Registration *pRegistration) {
+ResultStatus ClientManager::Impl::registerSender(
+        const sp<IAccessor> &accessor, ConnectionId *pConnectionId) {
     cleanUp();
-    int64_t timeoutMs = ::android::elapsedRealtime() + kRegisterTimeoutMs;
+    int64_t timeoutUs = getTimestampNow() + kRegisterTimeoutUs;
     do {
         std::unique_lock<std::mutex> lock(mCache.mMutex);
         for (auto it = mCache.mClients.begin(); it != mCache.mClients.end(); ++it) {
-            std::shared_ptr<IAccessor> sAccessor = it->first.lock();
-            if (sAccessor && sAccessor.get() == accessor.get()) {
+            sp<IAccessor> sAccessor = it->first.promote();
+            if (sAccessor && interfacesEqual(sAccessor, accessor)) {
                 const std::shared_ptr<BufferPoolClient> client = it->second.lock();
                 if (client) {
                     std::lock_guard<std::mutex> lock(mActive.mMutex);
-                    pRegistration->connectionId = client->getConnectionId();
-                    if (mActive.mClients.find(pRegistration->connectionId)
-                            != mActive.mClients.end()) {
-                        ALOGV("register existing connection %lld",
-                              (long long)pRegistration->connectionId);
-                        pRegistration->isNew = false;
-                        return ResultStatus::OK;
+                    *pConnectionId = client->getConnectionId();
+                    if (mActive.mClients.find(*pConnectionId) != mActive.mClients.end()) {
+                        ALOGV("register existing connection %lld", (long long)*pConnectionId);
+                        return ResultStatus::ALREADY_EXISTS;
                     }
                 }
                 mCache.mClients.erase(it);
@@ -143,7 +190,7 @@ BufferPoolStatus ClientManager::Impl::registerSender(
         if (!mCache.mConnecting) {
             mCache.mConnecting = true;
             lock.unlock();
-            BufferPoolStatus result = ResultStatus::OK;
+            ResultStatus result = ResultStatus::OK;
             const std::shared_ptr<BufferPoolClient> client =
                     std::make_shared<BufferPoolClient>(accessor, mObserver);
             lock.lock();
@@ -162,27 +209,26 @@ BufferPoolStatus ClientManager::Impl::registerSender(
                     std::lock_guard<std::mutex> lock(mActive.mMutex);
                     mActive.mClients.insert(std::make_pair(conId, client));
                 }
-                pRegistration->connectionId = conId;
-                pRegistration->isNew = true;
-                ALOGV("register new connection %lld", (long long)conId);
+                *pConnectionId = conId;
+                ALOGV("register new connection %lld", (long long)*pConnectionId);
             }
             mCache.mConnecting = false;
             lock.unlock();
             mCache.mConnectCv.notify_all();
             return result;
         }
-        mCache.mConnectCv.wait_for(lock, kRegisterTimeoutMs*1ms);
-    } while (::android::elapsedRealtime() < timeoutMs);
+        mCache.mConnectCv.wait_for(
+                lock, std::chrono::microseconds(kRegisterTimeoutUs));
+    } while (getTimestampNow() < timeoutUs);
     // TODO: return timeout error
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus ClientManager::Impl::registerSender(
-        const std::shared_ptr<IClientManager> &receiver,
+ResultStatus ClientManager::Impl::registerSender(
+        const sp<IClientManager> &receiver,
         ConnectionId senderId,
-        ConnectionId *receiverId,
-        bool *isNew) {
-    std::shared_ptr<IAccessor> accessor;
+        ConnectionId *receiverId) {
+    sp<IAccessor> accessor;
     bool local = false;
     {
         std::lock_guard<std::mutex> lock(mActive.mMutex);
@@ -193,32 +239,38 @@ BufferPoolStatus ClientManager::Impl::registerSender(
         it->second->getAccessor(&accessor);
         local = it->second->isLocal();
     }
+    ResultStatus rs = ResultStatus::CRITICAL_ERROR;
     if (accessor) {
-        Registration registration;
-        ::ndk::ScopedAStatus status = receiver->registerSender(accessor, &registration);
-        if (!status.isOk()) {
+       Return<void> transResult = receiver->registerSender(
+                accessor,
+                [&rs, receiverId](
+                        ResultStatus status,
+                        int64_t connectionId) {
+                    rs = status;
+                    *receiverId = connectionId;
+                });
+        if (!transResult.isOk()) {
             return ResultStatus::CRITICAL_ERROR;
-        } else if (local) {
-            std::shared_ptr<ConnectionDeathRecipient> recipient =
-                    Accessor::getConnectionDeathRecipient();
+        } else if (local && rs == ResultStatus::OK) {
+            sp<ConnectionDeathRecipient> recipient = Accessor::getConnectionDeathRecipient();
             if (recipient)  {
                 ALOGV("client death recipient registered %lld", (long long)*receiverId);
-                recipient->addCookieToConnection(receiver->asBinder().get(), *receiverId);
-                AIBinder_linkToDeath(receiver->asBinder().get(), recipient->getRecipient(),
-                                     receiver->asBinder().get());
+                bool added;
+                uint64_t cookie = mRemoteClientCookies.getCookie(receiver, &added);
+                recipient->addCookieToConnection(cookie, *receiverId);
+                if (added) {
+                    Return<bool> transResult = receiver->linkToDeath(recipient, cookie);
+                }
             }
         }
-        *receiverId = registration.connectionId;
-        *isNew = registration.isNew;
-        return ResultStatus::OK;
     }
-    return ResultStatus::CRITICAL_ERROR;
+    return rs;
 }
 
-BufferPoolStatus ClientManager::Impl::create(
+ResultStatus ClientManager::Impl::create(
         const std::shared_ptr<BufferPoolAllocator> &allocator,
         ConnectionId *pConnectionId) {
-    std::shared_ptr<Accessor> accessor = ::ndk::SharedRefBase::make<Accessor>(allocator);
+    const sp<Accessor> accessor = new Accessor(allocator);
     if (!accessor || !accessor->isValid()) {
         return ResultStatus::CRITICAL_ERROR;
     }
@@ -248,19 +300,19 @@ BufferPoolStatus ClientManager::Impl::create(
     return ResultStatus::OK;
 }
 
-BufferPoolStatus ClientManager::Impl::close(ConnectionId connectionId) {
+ResultStatus ClientManager::Impl::close(ConnectionId connectionId) {
     std::unique_lock<std::mutex> lock1(mCache.mMutex);
     std::unique_lock<std::mutex> lock2(mActive.mMutex);
     auto it = mActive.mClients.find(connectionId);
     if (it != mActive.mClients.end()) {
-        std::shared_ptr<IAccessor> accessor;
+        sp<IAccessor> accessor;
         it->second->getAccessor(&accessor);
         std::shared_ptr<BufferPoolClient> closing = it->second;
         mActive.mClients.erase(connectionId);
         for (auto cit = mCache.mClients.begin(); cit != mCache.mClients.end();) {
             // clean up dead client caches
-            std::shared_ptr<IAccessor> cAccessor = cit->first.lock();
-            if (!cAccessor || (accessor && cAccessor.get() ==  accessor.get())) {
+            sp<IAccessor> cAccessor = cit->first.promote();
+            if (!cAccessor || (accessor && interfacesEqual(cAccessor, accessor))) {
                 cit = mCache.mClients.erase(cit);
             } else {
                 cit++;
@@ -274,7 +326,7 @@ BufferPoolStatus ClientManager::Impl::close(ConnectionId connectionId) {
     return ResultStatus::NOT_FOUND;
 }
 
-BufferPoolStatus ClientManager::Impl::flush(ConnectionId connectionId) {
+ResultStatus ClientManager::Impl::flush(ConnectionId connectionId) {
     std::shared_ptr<BufferPoolClient> client;
     {
         std::lock_guard<std::mutex> lock(mActive.mMutex);
@@ -287,7 +339,7 @@ BufferPoolStatus ClientManager::Impl::flush(ConnectionId connectionId) {
     return client->flush();
 }
 
-BufferPoolStatus ClientManager::Impl::allocate(
+ResultStatus ClientManager::Impl::allocate(
         ConnectionId connectionId, const std::vector<uint8_t> &params,
         native_handle_t **handle, std::shared_ptr<BufferPoolData> *buffer) {
     std::shared_ptr<BufferPoolClient> client;
@@ -301,7 +353,7 @@ BufferPoolStatus ClientManager::Impl::allocate(
     }
 #ifdef BUFFERPOOL_CLONE_HANDLES
     native_handle_t *origHandle;
-    BufferPoolStatus res = client->allocate(params, &origHandle, buffer);
+    ResultStatus res = client->allocate(params, &origHandle, buffer);
     if (res != ResultStatus::OK) {
         return res;
     }
@@ -316,9 +368,9 @@ BufferPoolStatus ClientManager::Impl::allocate(
 #endif
 }
 
-BufferPoolStatus ClientManager::Impl::receive(
+ResultStatus ClientManager::Impl::receive(
         ConnectionId connectionId, TransactionId transactionId,
-        BufferId bufferId, int64_t timestampMs,
+        BufferId bufferId, int64_t timestampUs,
         native_handle_t **handle, std::shared_ptr<BufferPoolData> *buffer) {
     std::shared_ptr<BufferPoolClient> client;
     {
@@ -331,8 +383,8 @@ BufferPoolStatus ClientManager::Impl::receive(
     }
 #ifdef BUFFERPOOL_CLONE_HANDLES
     native_handle_t *origHandle;
-    BufferPoolStatus res = client->receive(
-            transactionId, bufferId, timestampMs, &origHandle, buffer);
+    ResultStatus res = client->receive(
+            transactionId, bufferId, timestampUs, &origHandle, buffer);
     if (res != ResultStatus::OK) {
         return res;
     }
@@ -343,13 +395,13 @@ BufferPoolStatus ClientManager::Impl::receive(
     }
     return ResultStatus::OK;
 #else
-    return client->receive(transactionId, bufferId, timestampMs, handle, buffer);
+    return client->receive(transactionId, bufferId, timestampUs, handle, buffer);
 #endif
 }
 
-BufferPoolStatus ClientManager::Impl::postSend(
+ResultStatus ClientManager::Impl::postSend(
         ConnectionId receiverId, const std::shared_ptr<BufferPoolData> &buffer,
-        TransactionId *transactionId, int64_t *timestampMs) {
+        TransactionId *transactionId, int64_t *timestampUs) {
     ConnectionId connectionId = buffer->mConnectionId;
     std::shared_ptr<BufferPoolClient> client;
     {
@@ -360,11 +412,11 @@ BufferPoolStatus ClientManager::Impl::postSend(
         }
         client = it->second;
     }
-    return client->postSend(receiverId, buffer, transactionId, timestampMs);
+    return client->postSend(receiverId, buffer, transactionId, timestampUs);
 }
 
-BufferPoolStatus ClientManager::Impl::getAccessor(
-        ConnectionId connectionId, std::shared_ptr<IAccessor> *accessor) {
+ResultStatus ClientManager::Impl::getAccessor(
+        ConnectionId connectionId, sp<IAccessor> *accessor) {
     std::shared_ptr<BufferPoolClient> client;
     {
         std::lock_guard<std::mutex> lock(mActive.mMutex);
@@ -378,16 +430,16 @@ BufferPoolStatus ClientManager::Impl::getAccessor(
 }
 
 void ClientManager::Impl::cleanUp(bool clearCache) {
-    int64_t now = ::android::elapsedRealtime();
-    int64_t lastTransactionMs;
+    int64_t now = getTimestampNow();
+    int64_t lastTransactionUs;
     std::lock_guard<std::mutex> lock1(mCache.mMutex);
-    if (clearCache || mCache.mLastCleanUpMs + kCleanUpDurationMs < now) {
+    if (clearCache || mCache.mLastCleanUpUs + kCleanUpDurationUs < now) {
         std::lock_guard<std::mutex> lock2(mActive.mMutex);
         int cleaned = 0;
         for (auto it = mActive.mClients.begin(); it != mActive.mClients.end();) {
-            if (!it->second->isActive(&lastTransactionMs, clearCache)) {
-                if (lastTransactionMs + kClientTimeoutMs < now) {
-                  std::shared_ptr<IAccessor> accessor;
+            if (!it->second->isActive(&lastTransactionUs, clearCache)) {
+                if (lastTransactionUs + kClientTimeoutUs < now) {
+                    sp<IAccessor> accessor;
                     it->second->getAccessor(&accessor);
                     it = mActive.mClients.erase(it);
                     ++cleaned;
@@ -398,7 +450,7 @@ void ClientManager::Impl::cleanUp(bool clearCache) {
         }
         for (auto cit = mCache.mClients.begin(); cit != mCache.mClients.end();) {
             // clean up dead client caches
-          std::shared_ptr<IAccessor> cAccessor = cit->first.lock();
+            sp<IAccessor> cAccessor = cit->first.promote();
             if (!cAccessor) {
                 cit = mCache.mClients.erase(cit);
             } else {
@@ -406,32 +458,30 @@ void ClientManager::Impl::cleanUp(bool clearCache) {
             }
         }
         ALOGV("# of cleaned connections: %d", cleaned);
-        mCache.mLastCleanUpMs = now;
+        mCache.mLastCleanUpUs = now;
     }
 }
 
-::ndk::ScopedAStatus ClientManager::registerSender(
-        const std::shared_ptr<IAccessor>& in_bufferPool, Registration* _aidl_return) {
-    BufferPoolStatus status = ResultStatus::CRITICAL_ERROR;
+// Methods from ::android::hardware::media::bufferpool::V2_0::IClientManager follow.
+Return<void> ClientManager::registerSender(const sp<::android::hardware::media::bufferpool::V2_0::IAccessor>& bufferPool, registerSender_cb _hidl_cb) {
     if (mImpl) {
-        status = mImpl->registerSender(in_bufferPool, _aidl_return);
+        ConnectionId connectionId = -1;
+        ResultStatus status = mImpl->registerSender(bufferPool, &connectionId);
+        _hidl_cb(status, connectionId);
+    } else {
+        _hidl_cb(ResultStatus::CRITICAL_ERROR, -1);
     }
-    if (status != ResultStatus::OK) {
-        return ::ndk::ScopedAStatus::fromServiceSpecificError(status);
-    }
-    return ::ndk::ScopedAStatus::ok();
+    return Void();
 }
 
 // Methods for local use.
-std::shared_ptr<ClientManager> ClientManager::sInstance;
+sp<ClientManager> ClientManager::sInstance;
 std::mutex ClientManager::sInstanceLock;
 
-std::shared_ptr<ClientManager> ClientManager::getInstance() {
+sp<ClientManager> ClientManager::getInstance() {
     std::lock_guard<std::mutex> lock(sInstanceLock);
     if (!sInstance) {
-        sInstance = ::ndk::SharedRefBase::make<ClientManager>();
-        // TODO: configure thread count for threadpool properly
-        // after b/261652496 is resolved.
+        sInstance = new ClientManager();
     }
     Accessor::createInvalidator();
     Accessor::createEvictor();
@@ -443,7 +493,7 @@ ClientManager::ClientManager() : mImpl(new Impl()) {}
 ClientManager::~ClientManager() {
 }
 
-BufferPoolStatus ClientManager::create(
+ResultStatus ClientManager::create(
         const std::shared_ptr<BufferPoolAllocator> &allocator,
         ConnectionId *pConnectionId) {
     if (mImpl) {
@@ -452,32 +502,31 @@ BufferPoolStatus ClientManager::create(
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus ClientManager::registerSender(
-        const std::shared_ptr<IClientManager> &receiver,
+ResultStatus ClientManager::registerSender(
+        const sp<IClientManager> &receiver,
         ConnectionId senderId,
-        ConnectionId *receiverId,
-        bool *isNew) {
+        ConnectionId *receiverId) {
     if (mImpl) {
-        return mImpl->registerSender(receiver, senderId, receiverId, isNew);
+        return mImpl->registerSender(receiver, senderId, receiverId);
     }
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus ClientManager::close(ConnectionId connectionId) {
+ResultStatus ClientManager::close(ConnectionId connectionId) {
     if (mImpl) {
         return mImpl->close(connectionId);
     }
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus ClientManager::flush(ConnectionId connectionId) {
+ResultStatus ClientManager::flush(ConnectionId connectionId) {
     if (mImpl) {
         return mImpl->flush(connectionId);
     }
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus ClientManager::allocate(
+ResultStatus ClientManager::allocate(
         ConnectionId connectionId, const std::vector<uint8_t> &params,
         native_handle_t **handle, std::shared_ptr<BufferPoolData> *buffer) {
     if (mImpl) {
@@ -486,22 +535,22 @@ BufferPoolStatus ClientManager::allocate(
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus ClientManager::receive(
+ResultStatus ClientManager::receive(
         ConnectionId connectionId, TransactionId transactionId,
-        BufferId bufferId, int64_t timestampMs,
+        BufferId bufferId, int64_t timestampUs,
         native_handle_t **handle, std::shared_ptr<BufferPoolData> *buffer) {
     if (mImpl) {
         return mImpl->receive(connectionId, transactionId, bufferId,
-                              timestampMs, handle, buffer);
+                              timestampUs, handle, buffer);
     }
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus ClientManager::postSend(
+ResultStatus ClientManager::postSend(
         ConnectionId receiverId, const std::shared_ptr<BufferPoolData> &buffer,
-        TransactionId *transactionId, int64_t* timestampMs) {
+        TransactionId *transactionId, int64_t* timestampUs) {
     if (mImpl && buffer) {
-        return mImpl->postSend(receiverId, buffer, transactionId, timestampMs);
+        return mImpl->postSend(receiverId, buffer, transactionId, timestampUs);
     }
     return ResultStatus::CRITICAL_ERROR;
 }
@@ -512,4 +561,9 @@ void ClientManager::cleanUp() {
     }
 }
 
-}  // namespace ::aidl::android::hardware::media::bufferpool2::implementation
+}  // namespace implementation
+}  // namespace V2_0
+}  // namespace bufferpool
+}  // namespace media
+}  // namespace hardware
+}  // namespace android

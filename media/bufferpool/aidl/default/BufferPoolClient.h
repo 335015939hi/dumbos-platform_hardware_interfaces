@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,29 @@
  * limitations under the License.
  */
 
-#pragma once
+#ifndef ANDROID_HARDWARE_MEDIA_BUFFERPOOL_V2_0_BUFFERPOOLCLIENT_H
+#define ANDROID_HARDWARE_MEDIA_BUFFERPOOL_V2_0_BUFFERPOOLCLIENT_H
 
 #include <memory>
-#include <aidl/android/hardware/media/bufferpool2/IAccessor.h>
-#include <aidl/android/hardware/media/bufferpool2/IObserver.h>
-#include <bufferpool2/BufferPoolTypes.h>
+#include <android/hardware/media/bufferpool/2.0/IAccessor.h>
+#include <android/hardware/media/bufferpool/2.0/IConnection.h>
+#include <android/hardware/media/bufferpool/2.0/IObserver.h>
+#include <bufferpool/BufferPoolTypes.h>
+#include <cutils/native_handle.h>
+#include "Accessor.h"
 
-namespace aidl::android::hardware::media::bufferpool2::implementation {
+namespace android {
+namespace hardware {
+namespace media {
+namespace bufferpool {
+namespace V2_0 {
+namespace implementation {
 
-using aidl::android::hardware::media::bufferpool2::IAccessor;
-using aidl::android::hardware::media::bufferpool2::IObserver;
-
-struct Accessor;
+using ::android::hardware::media::bufferpool::V2_0::IAccessor;
+using ::android::hardware::media::bufferpool::V2_0::IConnection;
+using ::android::hardware::media::bufferpool::V2_0::IObserver;
+using ::android::hardware::media::bufferpool::V2_0::ResultStatus;
+using ::android::sp;
 
 /**
  * A buffer pool client for a buffer pool. For a specific buffer pool, at most
@@ -39,8 +49,8 @@ public:
      * Creates a buffer pool client from a local buffer pool
      * (via ClientManager#create).
      */
-    explicit BufferPoolClient(const std::shared_ptr<Accessor> &accessor,
-                              const std::shared_ptr<IObserver> &observer);
+    explicit BufferPoolClient(const sp<Accessor> &accessor,
+                              const sp<IObserver> &observer);
 
     /**
      * Creates a buffer pool client from a remote buffer pool
@@ -48,8 +58,8 @@ public:
      * Note: A buffer pool client created with remote buffer pool cannot
      * allocate a buffer.
      */
-    explicit BufferPoolClient(const std::shared_ptr<IAccessor> &accessor,
-                              const std::shared_ptr<IObserver> &observer);
+    explicit BufferPoolClient(const sp<IAccessor> &accessor,
+                              const sp<IObserver> &observer);
 
     /** Destructs a buffer pool client. */
     ~BufferPoolClient();
@@ -59,30 +69,30 @@ private:
 
     bool isLocal();
 
-    bool isActive(int64_t *lastTransactionMs, bool clearCache);
+    bool isActive(int64_t *lastTransactionUs, bool clearCache);
 
     ConnectionId getConnectionId();
 
-    BufferPoolStatus getAccessor(std::shared_ptr<IAccessor> *accessor);
+    ResultStatus getAccessor(sp<IAccessor> *accessor);
 
     void receiveInvalidation(uint32_t msgId);
 
-    BufferPoolStatus flush();
+    ResultStatus flush();
 
-    BufferPoolStatus allocate(const std::vector<uint8_t> &params,
+    ResultStatus allocate(const std::vector<uint8_t> &params,
                           native_handle_t **handle,
                           std::shared_ptr<BufferPoolData> *buffer);
 
-    BufferPoolStatus receive(TransactionId transactionId,
+    ResultStatus receive(TransactionId transactionId,
                          BufferId bufferId,
-                         int64_t timestampMs,
+                         int64_t timestampUs,
                          native_handle_t **handle,
                          std::shared_ptr<BufferPoolData> *buffer);
 
-    BufferPoolStatus postSend(ConnectionId receiver,
+    ResultStatus postSend(ConnectionId receiver,
                           const std::shared_ptr<BufferPoolData> &buffer,
                           TransactionId *transactionId,
-                          int64_t *timestampMs);
+                          int64_t *timestampUs);
 
     class Impl;
     std::shared_ptr<Impl> mImpl;
@@ -91,4 +101,11 @@ private:
     friend struct Observer;
 };
 
-}  // namespace aidl::android::hardware::bufferpool2::implementation
+}  // namespace implementation
+}  // namespace V2_0
+}  // namespace bufferpool
+}  // namespace media
+}  // namespace hardware
+}  // namespace android
+
+#endif  // ANDROID_HARDWARE_MEDIA_BUFFERPOOL_V2_0_BUFFERPOOLCLIENT_H

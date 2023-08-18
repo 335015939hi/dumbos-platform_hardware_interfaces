@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,28 +14,38 @@
  * limitations under the License.
  */
 
-#pragma once
+#ifndef ANDROID_HARDWARE_MEDIA_BUFFERPOOL_V2_0_CLIENTMANAGER_H
+#define ANDROID_HARDWARE_MEDIA_BUFFERPOOL_V2_0_CLIENTMANAGER_H
 
-#include <aidl/android/hardware/media/bufferpool2/IAccessor.h>
-#include <aidl/android/hardware/media/bufferpool2/BnClientManager.h>
+#include <android/hardware/media/bufferpool/2.0/IClientManager.h>
+#include <hidl/MQDescriptor.h>
+#include <hidl/Status.h>
 #include <memory>
 #include "BufferPoolTypes.h"
 
-namespace aidl::android::hardware::media::bufferpool2::implementation {
+namespace android {
+namespace hardware {
+namespace media {
+namespace bufferpool {
+namespace V2_0 {
+namespace implementation {
 
-using aidl::android::hardware::media::bufferpool2::BnClientManager;
-using aidl::android::hardware::media::bufferpool2::IClientManager;
-using aidl::android::hardware::media::bufferpool2::IAccessor;
+using ::android::hardware::hidl_array;
+using ::android::hardware::hidl_memory;
+using ::android::hardware::hidl_string;
+using ::android::hardware::hidl_vec;
+using ::android::hardware::media::bufferpool::V2_0::IAccessor;
+using ::android::hardware::media::bufferpool::V2_0::ResultStatus;
+using ::android::hardware::Return;
+using ::android::hardware::Void;
+using ::android::sp;
 
-struct ClientManager : public BnClientManager {
-    // Methods from ::aidl::android::hardware::media::bufferpool2::IClientManager follow.
-    ::ndk::ScopedAStatus registerSender(
-        const std::shared_ptr<IAccessor>& in_bufferPool,
-        ::aidl::android::hardware::media::bufferpool2::IClientManager::Registration* _aidl_return)
-        override;
+struct ClientManager : public IClientManager {
+    // Methods from ::android::hardware::media::bufferpool::V2_0::IClientManager follow.
+    Return<void> registerSender(const sp<::android::hardware::media::bufferpool::V2_0::IAccessor>& bufferPool, registerSender_cb _hidl_cb) override;
 
     /** Gets an instance. */
-    static std::shared_ptr<ClientManager> getInstance();
+    static sp<ClientManager> getInstance();
 
     /**
      * Creates a local connection with a newly created buffer pool.
@@ -46,10 +56,10 @@ struct ClientManager : public BnClientManager {
      *
      * @return OK when a buffer pool and a local connection is successfully
      *         created.
-     *         ResultStatus::NO_MEMORY when there is no memory.
+     *         NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus create(const std::shared_ptr<BufferPoolAllocator> &allocator,
+    ResultStatus create(const std::shared_ptr<BufferPoolAllocator> &allocator,
                         ConnectionId *pConnectionId);
 
     /**
@@ -59,17 +69,16 @@ struct ClientManager : public BnClientManager {
      * @param senderId      A local connection which will send buffers to.
      * @param receiverId    Id of the created receiving connection on the receiver
      *                      process.
-     * @param isNew         @true when the receiving connection is newly created.
      *
      * @return OK when the receiving connection is successfully created on the
      *         receiver process.
      *         NOT_FOUND when the sender connection was not found.
+     *         ALREADY_EXISTS the receiving connection is already made.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus registerSender(const std::shared_ptr<IClientManager> &receiver,
+    ResultStatus registerSender(const sp<IClientManager> &receiver,
                                 ConnectionId senderId,
-                                ConnectionId *receiverId,
-                                bool *isNew);
+                                ConnectionId *receiverId);
 
     /**
      * Closes the specified connection.
@@ -80,7 +89,7 @@ struct ClientManager : public BnClientManager {
      *         NOT_FOUND when the specified connection was not found.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus close(ConnectionId connectionId);
+    ResultStatus close(ConnectionId connectionId);
 
     /**
      * Evicts cached allocations. If it's local connection, release the
@@ -92,7 +101,7 @@ struct ClientManager : public BnClientManager {
      *         NOT_FOUND when the specified connection was not found.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus flush(ConnectionId connectionId);
+    ResultStatus flush(ConnectionId connectionId);
 
     /**
      * Allocates a buffer from the specified connection. The output parameter
@@ -110,7 +119,7 @@ struct ClientManager : public BnClientManager {
      *         NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus allocate(ConnectionId connectionId,
+    ResultStatus allocate(ConnectionId connectionId,
                           const std::vector<uint8_t> &params,
                           native_handle_t **handle,
                           std::shared_ptr<BufferPoolData> *buffer);
@@ -123,7 +132,7 @@ struct ClientManager : public BnClientManager {
      * @param connectionId  The id of the receiving connection.
      * @param transactionId The id for the transaction.
      * @param bufferId      The id for the buffer.
-     * @param timestampMs   The timestamp of the buffer is being sent.
+     * @param timestampUs   The timestamp of the buffer is being sent.
      * @param handle        The native handle to the allocated buffer. handle
      *                      should be cloned before use.
      * @param buffer        The received buffer.
@@ -133,10 +142,10 @@ struct ClientManager : public BnClientManager {
      *         NO_MEMORY when there is no memory.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus receive(ConnectionId connectionId,
+    ResultStatus receive(ConnectionId connectionId,
                          TransactionId transactionId,
                          BufferId bufferId,
-                         int64_t timestampMs,
+                         int64_t timestampUs,
                           native_handle_t **handle,
                          std::shared_ptr<BufferPoolData> *buffer);
 
@@ -147,17 +156,17 @@ struct ClientManager : public BnClientManager {
      * @param receiverId    The id of the receiving connection.
      * @param buffer        to transfer
      * @param transactionId Id of the transfer transaction.
-     * @param timestampMs   The timestamp of the buffer transaction is being
+     * @param timestampUs   The timestamp of the buffer transaction is being
      *                      posted.
      *
      * @return OK when a buffer transaction was posted successfully.
      *         NOT_FOUND when the sending connection was not found.
      *         CRITICAL_ERROR otherwise.
      */
-    BufferPoolStatus postSend(ConnectionId receiverId,
+    ResultStatus postSend(ConnectionId receiverId,
                           const std::shared_ptr<BufferPoolData> &buffer,
                           TransactionId *transactionId,
-                          int64_t *timestampMs);
+                          int64_t *timestampUs);
 
     /**
      *  Time out inactive lingering connections and close.
@@ -167,16 +176,20 @@ struct ClientManager : public BnClientManager {
     /** Destructs the manager of buffer pool clients.  */
     ~ClientManager();
 private:
-    static std::shared_ptr<ClientManager> sInstance;
+    static sp<ClientManager> sInstance;
     static std::mutex sInstanceLock;
 
     class Impl;
     const std::unique_ptr<Impl> mImpl;
 
-    friend class ::ndk::SharedRefBase;
-
     ClientManager();
 };
 
-}  // namespace aidl::android::hardware::media::bufferpool2::implementation
+}  // namespace implementation
+}  // namespace V2_0
+}  // namespace bufferpool
+}  // namespace media
+}  // namespace hardware
+}  // namespace android
 
+#endif  // ANDROID_HARDWARE_MEDIA_BUFFERPOOL_V2_0_CLIENTMANAGER_H

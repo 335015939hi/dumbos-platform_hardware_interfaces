@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,37 +14,33 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "AidlBufferPoolCli"
+#define LOG_TAG "BufferPoolClient"
 //#define LOG_NDEBUG 0
 
 #include <thread>
-#include <aidlcommonsupport/NativeHandle.h>
 #include <utils/Log.h>
 #include "BufferPoolClient.h"
-#include "Accessor.h"
 #include "Connection.h"
 
-namespace aidl::android::hardware::media::bufferpool2::implementation {
+namespace android {
+namespace hardware {
+namespace media {
+namespace bufferpool {
+namespace V2_0 {
+namespace implementation {
 
-using aidl::android::hardware::media::bufferpool2::IConnection;
-using aidl::android::hardware::media::bufferpool2::ResultStatus;
-using FetchInfo = aidl::android::hardware::media::bufferpool2::IConnection::FetchInfo;
-using FetchResult = aidl::android::hardware::media::bufferpool2::IConnection::FetchResult;
-
-static constexpr int64_t kReceiveTimeoutMs = 2000; // 2s
+static constexpr int64_t kReceiveTimeoutUs = 2000000; // 2s
 static constexpr int kPostMaxRetry = 3;
-static constexpr int kCacheTtlMs = 1000;
+static constexpr int kCacheTtlUs = 1000000; // TODO: tune
 static constexpr size_t kMaxCachedBufferCount = 64;
 static constexpr size_t kCachedBufferCountTarget = kMaxCachedBufferCount - 16;
 
 class BufferPoolClient::Impl
         : public std::enable_shared_from_this<BufferPoolClient::Impl> {
 public:
-    explicit Impl(const std::shared_ptr<Accessor> &accessor,
-                  const std::shared_ptr<IObserver> &observer);
+    explicit Impl(const sp<Accessor> &accessor, const sp<IObserver> &observer);
 
-    explicit Impl(const std::shared_ptr<IAccessor> &accessor,
-                  const std::shared_ptr<IObserver> &observer);
+    explicit Impl(const sp<IAccessor> &accessor, const sp<IObserver> &observer);
 
     bool isValid() {
         return mValid;
@@ -58,35 +54,35 @@ public:
         return mConnectionId;
     }
 
-    std::shared_ptr<IAccessor> &getAccessor() {
+    sp<IAccessor> &getAccessor() {
         return mAccessor;
     }
 
-    bool isActive(int64_t *lastTransactionMs, bool clearCache);
+    bool isActive(int64_t *lastTransactionUs, bool clearCache);
 
     void receiveInvalidation(uint32_t msgID);
 
-    BufferPoolStatus flush();
+    ResultStatus flush();
 
-    BufferPoolStatus allocate(const std::vector<uint8_t> &params,
+    ResultStatus allocate(const std::vector<uint8_t> &params,
                           native_handle_t **handle,
                           std::shared_ptr<BufferPoolData> *buffer);
 
-    BufferPoolStatus receive(
+    ResultStatus receive(
             TransactionId transactionId, BufferId bufferId,
-            int64_t timestampMs,
+            int64_t timestampUs,
             native_handle_t **handle, std::shared_ptr<BufferPoolData> *buffer);
 
     void postBufferRelease(BufferId bufferId);
 
     bool postSend(
             BufferId bufferId, ConnectionId receiver,
-            TransactionId *transactionId, int64_t *timestampMs);
+            TransactionId *transactionId, int64_t *timestampUs);
 private:
 
     bool postReceive(
             BufferId bufferId, TransactionId transactionId,
-            int64_t timestampMs);
+            int64_t timestampUs);
 
     bool postReceiveResult(
             BufferId bufferId, TransactionId transactionId, bool result, bool *needsSync);
@@ -101,11 +97,11 @@ private:
 
     void invalidateRange(BufferId from, BufferId to);
 
-    BufferPoolStatus allocateBufferHandle(
+    ResultStatus allocateBufferHandle(
             const std::vector<uint8_t>& params, BufferId *bufferId,
             native_handle_t **handle);
 
-    BufferPoolStatus fetchBufferHandle(
+    ResultStatus fetchBufferHandle(
             TransactionId transactionId, BufferId bufferId,
             native_handle_t **handle);
 
@@ -114,12 +110,12 @@ private:
 
     bool mLocal;
     bool mValid;
-    std::shared_ptr<IAccessor> mAccessor;
-    std::shared_ptr<Connection> mLocalConnection;
-    std::shared_ptr<IConnection> mRemoteConnection;
+    sp<IAccessor> mAccessor;
+    sp<Connection> mLocalConnection;
+    sp<IConnection> mRemoteConnection;
     uint32_t mSeqId;
     ConnectionId mConnectionId;
-    int64_t mLastEvictCacheMs;
+    int64_t mLastEvictCacheUs;
     std::unique_ptr<BufferInvalidationListener> mInvalidationListener;
 
     // CachedBuffers
@@ -129,19 +125,18 @@ private:
         std::condition_variable mCreateCv;
         std::map<BufferId, std::unique_ptr<ClientBuffer>> mBuffers;
         int mActive;
-        int64_t mLastChangeMs;
+        int64_t mLastChangeUs;
 
-        BufferCache() : mCreating(false), mActive(0),
-                mLastChangeMs(::android::elapsedRealtime()) {}
+        BufferCache() : mCreating(false), mActive(0), mLastChangeUs(getTimestampNow()) {}
 
         void incActive_l() {
             ++mActive;
-            mLastChangeMs = ::android::elapsedRealtime();
+            mLastChangeUs = getTimestampNow();
         }
 
         void decActive_l() {
             --mActive;
-            mLastChangeMs = ::android::elapsedRealtime();
+            mLastChangeUs = getTimestampNow();
         }
 
         int cachedBufferCount() const {
@@ -152,6 +147,7 @@ private:
     // FMQ - release notifier
     struct ReleaseCache {
         std::mutex mLock;
+        // TODO: use only one list?(using one list may dealy sending messages?)
         std::list<BufferId> mReleasingIds;
         std::list<BufferId> mReleasedIds;
         uint32_t mInvalidateId; // TODO: invalidation ACK to bufferpool
@@ -162,7 +158,7 @@ private:
     } mReleasing;
 
     // This lock is held during synchronization from remote side.
-    // In order to minimize remote calls and locking duration, this lock is held
+    // In order to minimize remote calls and locking durtaion, this lock is held
     // by best effort approach using try_lock().
     std::mutex mRemoteSyncLock;
 };
@@ -185,7 +181,7 @@ struct BufferPoolClient::Impl::BlockPoolDataDtor {
 
 struct BufferPoolClient::Impl::ClientBuffer {
 private:
-    int64_t mExpireMs;
+    int64_t mExpireUs;
     bool mHasCache;
     ConnectionId mConnectionId;
     BufferId mId;
@@ -193,7 +189,7 @@ private:
     std::weak_ptr<BufferPoolData> mCache;
 
     void updateExpire() {
-        mExpireMs = ::android::elapsedRealtime() + kCacheTtlMs;
+        mExpireUs = getTimestampNow() + kCacheTtlUs;
     }
 
 public:
@@ -201,7 +197,7 @@ public:
             ConnectionId connectionId, BufferId id, native_handle_t *handle)
             : mHasCache(false), mConnectionId(connectionId),
               mId(id), mHandle(handle) {
-        mExpireMs = ::android::elapsedRealtime() + kCacheTtlMs;
+        mExpireUs = getTimestampNow() + kCacheTtlUs;
     }
 
     ~ClientBuffer() {
@@ -216,8 +212,8 @@ public:
     }
 
     bool expire() const {
-        int64_t now = ::android::elapsedRealtime();
-        return now >= mExpireMs;
+        int64_t now = getTimestampNow();
+        return now >= mExpireUs;
     }
 
     bool hasCache() const {
@@ -269,21 +265,20 @@ public:
     }
 };
 
-BufferPoolClient::Impl::Impl(const std::shared_ptr<Accessor> &accessor,
-                             const std::shared_ptr<IObserver> &observer)
+BufferPoolClient::Impl::Impl(const sp<Accessor> &accessor, const sp<IObserver> &observer)
     : mLocal(true), mValid(false), mAccessor(accessor), mSeqId(0),
-      mLastEvictCacheMs(::android::elapsedRealtime()) {
-    StatusDescriptor statusDesc;
-    InvalidationDescriptor invDesc;
-    BufferPoolStatus status = accessor->connect(
+      mLastEvictCacheUs(getTimestampNow()) {
+    const StatusDescriptor *statusDesc;
+    const InvalidationDescriptor *invDesc;
+    ResultStatus status = accessor->connect(
             observer, true,
             &mLocalConnection, &mConnectionId, &mReleasing.mInvalidateId,
             &statusDesc, &invDesc);
     if (status == ResultStatus::OK) {
         mReleasing.mStatusChannel =
-                std::make_unique<BufferStatusChannel>(statusDesc);
+                std::make_unique<BufferStatusChannel>(*statusDesc);
         mInvalidationListener =
-                std::make_unique<BufferInvalidationListener>(invDesc);
+                std::make_unique<BufferInvalidationListener>(*invDesc);
         mValid = mReleasing.mStatusChannel &&
                 mReleasing.mStatusChannel->isValid() &&
                 mInvalidationListener &&
@@ -291,36 +286,46 @@ BufferPoolClient::Impl::Impl(const std::shared_ptr<Accessor> &accessor,
     }
 }
 
-BufferPoolClient::Impl::Impl(const std::shared_ptr<IAccessor> &accessor,
-                             const std::shared_ptr<IObserver> &observer)
+BufferPoolClient::Impl::Impl(const sp<IAccessor> &accessor, const sp<IObserver> &observer)
     : mLocal(false), mValid(false), mAccessor(accessor), mSeqId(0),
-      mLastEvictCacheMs(::android::elapsedRealtime()) {
-    IAccessor::ConnectionInfo conInfo;
+      mLastEvictCacheUs(getTimestampNow()) {
     bool valid = false;
-    if(accessor->connect(observer, &conInfo).isOk()) {
-        auto channel = std::make_unique<BufferStatusChannel>(conInfo.toFmqDesc);
-        auto observer = std::make_unique<BufferInvalidationListener>(conInfo.fromFmqDesc);
-
-        if (channel && channel->isValid()
-            && observer && observer->isValid()) {
-            mRemoteConnection = conInfo.connection;
-            mConnectionId = conInfo.connectionId;
-            mReleasing.mInvalidateId = conInfo.msgId;
-            mReleasing.mStatusChannel = std::move(channel);
-            mInvalidationListener = std::move(observer);
-            valid = true;
-        }
-    }
-    mValid = valid;
+    sp<IConnection>& outConnection = mRemoteConnection;
+    ConnectionId& id = mConnectionId;
+    uint32_t& outMsgId = mReleasing.mInvalidateId;
+    std::unique_ptr<BufferStatusChannel>& outChannel =
+            mReleasing.mStatusChannel;
+    std::unique_ptr<BufferInvalidationListener>& outObserver =
+            mInvalidationListener;
+    Return<void> transResult = accessor->connect(
+            observer,
+            [&valid, &outConnection, &id, &outMsgId, &outChannel, &outObserver]
+            (ResultStatus status, sp<IConnection> connection,
+             ConnectionId connectionId, uint32_t msgId,
+             const StatusDescriptor& statusDesc,
+             const InvalidationDescriptor& invDesc) {
+                if (status == ResultStatus::OK) {
+                    outConnection = connection;
+                    id = connectionId;
+                    outMsgId = msgId;
+                    outChannel = std::make_unique<BufferStatusChannel>(statusDesc);
+                    outObserver = std::make_unique<BufferInvalidationListener>(invDesc);
+                    if (outChannel && outChannel->isValid() &&
+                        outObserver && outObserver->isValid()) {
+                        valid = true;
+                    }
+                }
+            });
+    mValid = transResult.isOk() && valid;
 }
 
-bool BufferPoolClient::Impl::isActive(int64_t *lastTransactionMs, bool clearCache) {
+bool BufferPoolClient::Impl::isActive(int64_t *lastTransactionUs, bool clearCache) {
     bool active = false;
     {
         std::lock_guard<std::mutex> lock(mCache.mLock);
         syncReleased();
         evictCaches(clearCache);
-        *lastTransactionMs = mCache.mLastChangeMs;
+        *lastTransactionUs = mCache.mLastChangeUs;
         active = mCache.mActive > 0;
     }
     if (mValid && mLocal && mLocalConnection) {
@@ -336,7 +341,7 @@ void BufferPoolClient::Impl::receiveInvalidation(uint32_t messageId) {
     // TODO: evict cache required?
 }
 
-BufferPoolStatus BufferPoolClient::Impl::flush() {
+ResultStatus BufferPoolClient::Impl::flush() {
     if (!mLocal || !mLocalConnection || !mValid) {
         return ResultStatus::CRITICAL_ERROR;
     }
@@ -348,7 +353,7 @@ BufferPoolStatus BufferPoolClient::Impl::flush() {
     }
 }
 
-BufferPoolStatus BufferPoolClient::Impl::allocate(
+ResultStatus BufferPoolClient::Impl::allocate(
         const std::vector<uint8_t> &params,
         native_handle_t **pHandle,
         std::shared_ptr<BufferPoolData> *buffer) {
@@ -358,7 +363,7 @@ BufferPoolStatus BufferPoolClient::Impl::allocate(
     BufferId bufferId;
     native_handle_t *handle = nullptr;
     buffer->reset();
-    BufferPoolStatus status = allocateBufferHandle(params, &bufferId, &handle);
+    ResultStatus status = allocateBufferHandle(params, &bufferId, &handle);
     if (status == ResultStatus::OK) {
         if (handle) {
             std::unique_lock<std::mutex> lock(mCache.mLock);
@@ -393,20 +398,20 @@ BufferPoolStatus BufferPoolClient::Impl::allocate(
     return status;
 }
 
-BufferPoolStatus BufferPoolClient::Impl::receive(
-        TransactionId transactionId, BufferId bufferId, int64_t timestampMs,
+ResultStatus BufferPoolClient::Impl::receive(
+        TransactionId transactionId, BufferId bufferId, int64_t timestampUs,
         native_handle_t **pHandle,
         std::shared_ptr<BufferPoolData> *buffer) {
     if (!mValid) {
         return ResultStatus::CRITICAL_ERROR;
     }
-    if (timestampMs != 0) {
-        timestampMs += kReceiveTimeoutMs;
+    if (timestampUs != 0) {
+        timestampUs += kReceiveTimeoutUs;
     }
-    if (!postReceive(bufferId, transactionId, timestampMs)) {
+    if (!postReceive(bufferId, transactionId, timestampUs)) {
         return ResultStatus::CRITICAL_ERROR;
     }
-    BufferPoolStatus status = ResultStatus::CRITICAL_ERROR;
+    ResultStatus status = ResultStatus::CRITICAL_ERROR;
     buffer->reset();
     while(1) {
         std::unique_lock<std::mutex> lock(mCache.mLock);
@@ -500,7 +505,7 @@ void BufferPoolClient::Impl::postBufferRelease(BufferId bufferId) {
 // TODO: revise ad-hoc posting data structure
 bool BufferPoolClient::Impl::postSend(
         BufferId bufferId, ConnectionId receiver,
-        TransactionId *transactionId, int64_t *timestampMs) {
+        TransactionId *transactionId, int64_t *timestampUs) {
     {
         // TODO: don't need to call syncReleased every time
         std::lock_guard<std::mutex> lock(mCache.mLock);
@@ -510,7 +515,7 @@ bool BufferPoolClient::Impl::postSend(
     bool needsSync = false;
     {
         std::lock_guard<std::mutex> lock(mReleasing.mLock);
-        *timestampMs = ::android::elapsedRealtime();
+        *timestampUs = getTimestampNow();
         *transactionId = (mConnectionId << 32) | mSeqId++;
         // TODO: retry, add timeout, target?
         ret =  mReleasing.mStatusChannel->postBufferStatusMessage(
@@ -528,11 +533,11 @@ bool BufferPoolClient::Impl::postSend(
 }
 
 bool BufferPoolClient::Impl::postReceive(
-        BufferId bufferId, TransactionId transactionId, int64_t timestampMs) {
+        BufferId bufferId, TransactionId transactionId, int64_t timestampUs) {
     for (int i = 0; i < kPostMaxRetry; ++i) {
         std::unique_lock<std::mutex> lock(mReleasing.mLock);
-        int64_t now = ::android::elapsedRealtime();
-        if (timestampMs == 0 || now < timestampMs) {
+        int64_t now = getTimestampNow();
+        if (timestampUs == 0 || now < timestampUs) {
             bool result = mReleasing.mStatusChannel->postBufferStatusMessage(
                     transactionId, bufferId, BufferStatus::TRANSFER_FROM,
                     mConnectionId, -1, mReleasing.mReleasingIds,
@@ -574,7 +579,16 @@ void BufferPoolClient::Impl::trySyncFromRemote() {
             needsSync = mReleasing.mStatusChannel->needsSync();
         }
         if (needsSync) {
-            if (!mRemoteConnection->sync().isOk()) {
+            TransactionId transactionId = (mConnectionId << 32);
+            BufferId bufferId = Connection::SYNC_BUFFERID;
+            Return<void> transResult = mRemoteConnection->fetch(
+                    transactionId, bufferId,
+                    []
+                    (ResultStatus outStatus, Buffer outBuffer) {
+                        (void) outStatus;
+                        (void) outBuffer;
+                    });
+            if (!transResult.isOk()) {
                 ALOGD("sync from client %lld failed: bufferpool process died.",
                       (long long)mConnectionId);
             }
@@ -602,12 +616,12 @@ bool BufferPoolClient::Impl::syncReleased(uint32_t messageId) {
                         mCache.decActive_l();
                     } else {
                         // should not happen!
-                        ALOGW("client %lld cache release status inconsistent!",
+                        ALOGW("client %lld cache release status inconsitent!",
                             (long long)mConnectionId);
                     }
                 } else {
                     // should not happen!
-                    ALOGW("client %lld cache status inconsistent!", (long long)mConnectionId);
+                    ALOGW("client %lld cache status inconsitent!", (long long)mConnectionId);
                 }
             }
             mReleasing.mReleasedIds.clear();
@@ -659,8 +673,8 @@ bool BufferPoolClient::Impl::syncReleased(uint32_t messageId) {
 
 // should have mCache.mLock
 void BufferPoolClient::Impl::evictCaches(bool clearCache) {
-    int64_t now = ::android::elapsedRealtime();
-    if (now >= mLastEvictCacheMs + kCacheTtlMs ||
+    int64_t now = getTimestampNow();
+    if (now >= mLastEvictCacheUs + kCacheTtlUs ||
             clearCache || mCache.cachedBufferCount() > kMaxCachedBufferCount) {
         size_t evicted = 0;
         for (auto it = mCache.mBuffers.begin(); it != mCache.mBuffers.end();) {
@@ -674,7 +688,7 @@ void BufferPoolClient::Impl::evictCaches(bool clearCache) {
         }
         ALOGV("cache count %lld : total %zu, active %d, evicted %zu",
               (long long)mConnectionId, mCache.mBuffers.size(), mCache.mActive, evicted);
-        mLastEvictCacheMs = now;
+        mLastEvictCacheUs = now;
     }
 }
 
@@ -687,7 +701,7 @@ void BufferPoolClient::Impl::invalidateBuffer(BufferId id) {
                 ALOGV("cache invalidated %lld : buffer %u",
                       (long long)mConnectionId, id);
             } else {
-                ALOGW("Inconsistent invalidation %lld : activer buffer!! %u",
+                ALOGW("Inconsitent invalidation %lld : activer buffer!! %u",
                       (long long)mConnectionId, (unsigned int)id);
             }
             break;
@@ -721,12 +735,12 @@ void BufferPoolClient::Impl::invalidateRange(BufferId from, BufferId to) {
           (long long)mConnectionId, invalidated);
 }
 
-BufferPoolStatus BufferPoolClient::Impl::allocateBufferHandle(
+ResultStatus BufferPoolClient::Impl::allocateBufferHandle(
         const std::vector<uint8_t>& params, BufferId *bufferId,
         native_handle_t** handle) {
     if (mLocalConnection) {
         const native_handle_t* allocHandle = nullptr;
-        BufferPoolStatus status = mLocalConnection->allocate(
+        ResultStatus status = mLocalConnection->allocate(
                 params, bufferId, &allocHandle);
         if (status == ResultStatus::OK) {
             *handle = native_handle_clone(allocHandle);
@@ -739,38 +753,37 @@ BufferPoolStatus BufferPoolClient::Impl::allocateBufferHandle(
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus BufferPoolClient::Impl::fetchBufferHandle(
+ResultStatus BufferPoolClient::Impl::fetchBufferHandle(
         TransactionId transactionId, BufferId bufferId,
         native_handle_t **handle) {
-    std::shared_ptr<IConnection> connection;
+    sp<IConnection> connection;
     if (mLocal) {
         connection = mLocalConnection;
     } else {
         connection = mRemoteConnection;
     }
-    std::vector<FetchInfo> infos;
-    std::vector<FetchResult> results;
-    infos.emplace_back(FetchInfo{ToAidl(transactionId), ToAidl(bufferId)});
-    ndk::ScopedAStatus status = connection->fetch(infos, &results);
-    if (!status.isOk()) {
-        BufferPoolStatus svcSpecific = status.getServiceSpecificError();
-        return svcSpecific ? svcSpecific : ResultStatus::CRITICAL_ERROR;
-    }
-    if (results[0].getTag() == FetchResult::buffer) {
-        *handle = ::android::dupFromAidl(results[0].get<FetchResult::buffer>().buffer);
-        return ResultStatus::OK;
-    }
-    return results[0].get<FetchResult::failure>();
+    ResultStatus status;
+    Return<void> transResult = connection->fetch(
+            transactionId, bufferId,
+            [&status, &handle]
+            (ResultStatus outStatus, Buffer outBuffer) {
+                status = outStatus;
+                if (status == ResultStatus::OK) {
+                    *handle = native_handle_clone(
+                            outBuffer.buffer.getNativeHandle());
+                }
+            });
+    return transResult.isOk() ? status : ResultStatus::CRITICAL_ERROR;
 }
 
 
-BufferPoolClient::BufferPoolClient(const std::shared_ptr<Accessor> &accessor,
-                                   const std::shared_ptr<IObserver> &observer) {
+BufferPoolClient::BufferPoolClient(const sp<Accessor> &accessor,
+                                   const sp<IObserver> &observer) {
     mImpl = std::make_shared<Impl>(accessor, observer);
 }
 
-BufferPoolClient::BufferPoolClient(const std::shared_ptr<IAccessor> &accessor,
-                                   const std::shared_ptr<IObserver> &observer) {
+BufferPoolClient::BufferPoolClient(const sp<IAccessor> &accessor,
+                                   const sp<IObserver> &observer) {
     mImpl = std::make_shared<Impl>(accessor, observer);
 }
 
@@ -786,12 +799,12 @@ bool BufferPoolClient::isLocal() {
     return mImpl && mImpl->isLocal();
 }
 
-bool BufferPoolClient::isActive(int64_t *lastTransactionMs, bool clearCache) {
+bool BufferPoolClient::isActive(int64_t *lastTransactionUs, bool clearCache) {
     if (!isValid()) {
-        *lastTransactionMs = 0;
+        *lastTransactionUs = 0;
         return false;
     }
-    return mImpl->isActive(lastTransactionMs, clearCache);
+    return mImpl->isActive(lastTransactionUs, clearCache);
 }
 
 ConnectionId BufferPoolClient::getConnectionId() {
@@ -801,7 +814,7 @@ ConnectionId BufferPoolClient::getConnectionId() {
     return -1;
 }
 
-BufferPoolStatus BufferPoolClient::getAccessor(std::shared_ptr<IAccessor> *accessor) {
+ResultStatus BufferPoolClient::getAccessor(sp<IAccessor> *accessor) {
     if (isValid()) {
         *accessor = mImpl->getAccessor();
         return ResultStatus::OK;
@@ -816,14 +829,14 @@ void BufferPoolClient::receiveInvalidation(uint32_t msgId) {
     }
 }
 
-BufferPoolStatus BufferPoolClient::flush() {
+ResultStatus BufferPoolClient::flush() {
     if (isValid()) {
         return mImpl->flush();
     }
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus BufferPoolClient::allocate(
+ResultStatus BufferPoolClient::allocate(
         const std::vector<uint8_t> &params,
         native_handle_t **handle,
         std::shared_ptr<BufferPoolData> *buffer) {
@@ -833,26 +846,31 @@ BufferPoolStatus BufferPoolClient::allocate(
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus BufferPoolClient::receive(
-        TransactionId transactionId, BufferId bufferId, int64_t timestampMs,
+ResultStatus BufferPoolClient::receive(
+        TransactionId transactionId, BufferId bufferId, int64_t timestampUs,
         native_handle_t **handle, std::shared_ptr<BufferPoolData> *buffer) {
     if (isValid()) {
-        return mImpl->receive(transactionId, bufferId, timestampMs, handle, buffer);
+        return mImpl->receive(transactionId, bufferId, timestampUs, handle, buffer);
     }
     return ResultStatus::CRITICAL_ERROR;
 }
 
-BufferPoolStatus BufferPoolClient::postSend(
+ResultStatus BufferPoolClient::postSend(
         ConnectionId receiverId,
         const std::shared_ptr<BufferPoolData> &buffer,
         TransactionId *transactionId,
-        int64_t *timestampMs) {
+        int64_t *timestampUs) {
     if (isValid()) {
         bool result = mImpl->postSend(
-                buffer->mId, receiverId, transactionId, timestampMs);
+                buffer->mId, receiverId, transactionId, timestampUs);
         return result ? ResultStatus::OK : ResultStatus::CRITICAL_ERROR;
     }
     return ResultStatus::CRITICAL_ERROR;
 }
 
-}  // namespace aidl::android::hardware::media::bufferpool2::implementation
+}  // namespace implementation
+}  // namespace V2_0
+}  // namespace bufferpool
+}  // namespace media
+}  // namespace hardware
+}  // namespace android
