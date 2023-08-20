@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a788f19_3667fe77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2023-08-20T12:28:56Z",
+      "side": 1,
+      "message": "This commit may not be necessary, remove the reviewers for now.",
+      "revId": "40f533e4dc5111965685250611a50d5195a616aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecf42e85_6adc27d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2023-08-20T12:28:56Z",
+      "side": 1,
+      "message": "This commit may not be necessary, remove the reviewers for now.",
+      "revId": "40f533e4dc5111965685250611a50d5195a616aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
