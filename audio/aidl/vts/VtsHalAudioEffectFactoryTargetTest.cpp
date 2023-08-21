@@ -137,14 +137,12 @@ TEST_P(EffectFactoryTest, CanBeRestarted) {
  */
 TEST_P(EffectFactoryTest, ExpectAllAospEffectTypes) {
     std::vector<Descriptor> descs;
-    std::set<AudioUuid> typeUuidSet(
-            {aidl::android::hardware::audio::effect::getEffectTypeUuidBassBoost(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidEqualizer(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidEnvReverb(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidPresetReverb(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidDynamicsProcessing(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidHapticGenerator(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidVirtualizer()});
+    std::set<AudioUuid> typeUuidSet({
+            aidl::android::hardware::audio::effect::getEffectTypeUuidEqualizer(),
+            aidl::android::hardware::audio::effect::getEffectTypeUuidDynamicsProcessing(),
+            aidl::android::hardware::audio::effect::getEffectTypeUuidLoudnessEnhancer(),
+            aidl::android::hardware::audio::effect::getEffectTypeUuidVisualizer(),
+    });
 
     EXPECT_IS_OK(mEffectFactory->queryEffects(std::nullopt, std::nullopt, std::nullopt, &descs));
     EXPECT_TRUE(descs.size() >= typeUuidSet.size());
