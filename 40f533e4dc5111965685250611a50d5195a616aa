@@ -33,6 +33,41 @@
       "message": "This commit may not be necessary, remove the reviewers for now.",
       "revId": "40f533e4dc5111965685250611a50d5195a616aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30a9189c_1a1ffbdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2023-08-21T11:14:46Z",
+      "side": 1,
+      "message": "Synced with Lorenzo that we need to merge Thread changes to the udc-mainline-prod branch. So we do need to freeze the HAL API",
+      "parentUuid": "3a788f19_3667fe77",
+      "revId": "40f533e4dc5111965685250611a50d5195a616aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "234aed14_ad8833db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2023-08-21T11:14:46Z",
+      "side": 1,
+      "message": "@xyk@google.com @zhanglongxia@google.com Please help +2",
+      "revId": "40f533e4dc5111965685250611a50d5195a616aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
