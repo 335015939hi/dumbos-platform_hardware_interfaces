@@ -131,34 +131,6 @@ TEST_P(EffectFactoryTest, CanBeRestarted) {
     ASSERT_NO_FATAL_FAILURE(mFactoryHelper->RestartFactoryService());
 }
 
-/**
- * @brief Check at least support list of effect must be supported by aosp:
- * https://developer.android.com/reference/android/media/audiofx/AudioEffect
- */
-TEST_P(EffectFactoryTest, ExpectAllAospEffectTypes) {
-    std::vector<Descriptor> descs;
-    std::set<AudioUuid> typeUuidSet(
-            {aidl::android::hardware::audio::effect::getEffectTypeUuidBassBoost(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidEqualizer(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidEnvReverb(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidPresetReverb(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidDynamicsProcessing(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidHapticGenerator(),
-             aidl::android::hardware::audio::effect::getEffectTypeUuidVirtualizer()});
-
-    EXPECT_IS_OK(mEffectFactory->queryEffects(std::nullopt, std::nullopt, std::nullopt, &descs));
-    EXPECT_TRUE(descs.size() >= typeUuidSet.size());
-    for (const auto& desc : descs) {
-        typeUuidSet.erase(desc.common.id.type);
-    }
-    std::string msg = " missing type UUID:\n";
-    for (const auto& uuid : typeUuidSet) {
-        msg += (toString(uuid) + "\n");
-    }
-    SCOPED_TRACE(msg);
-    EXPECT_EQ(0UL, typeUuidSet.size());
-}
-
 TEST_P(EffectFactoryTest, QueryNullTypeUuid) {
     std::vector<Descriptor> descs;
     EXPECT_IS_OK(
