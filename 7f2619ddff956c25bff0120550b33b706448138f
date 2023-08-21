@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba45f5be_93c1df08",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectFactoryTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-21T19:40:33Z",
+      "side": 0,
+      "message": "I think, it makes sense to follow CDD: https://source.android.com/docs/compatibility/13/android-13-cdd#552_audio_effects. If there is the effects factory (which implies there is support for audio on this device), then we must be able to find the equalizer, loudness enhancer, visualizer, and dynamics processing. In the HIDL test, we only tested the first two, but I think that\u0027s an omission on our side: https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:hardware/interfaces/audio/effect/all-versions/vts/functional/VtsHalAudioEffectTargetTest.cpp;l\u003d992;drc\u003d8e3480edfe9933306f82c1656deb8e6b7090273c",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 53
+      },
+      "revId": "7f2619ddff956c25bff0120550b33b706448138f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
