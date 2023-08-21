@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62c335e1_cdc59cab",
+        "filename": "uwb/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-08-21T04:44:30Z",
+      "side": 1,
+      "message": "Does cuttlefish need to install android.hardware.uwb permission xml as well? It\u0027s not as of today.",
+      "revId": "9df09efa0da548cc009036b4318ce18f4afb6fc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
