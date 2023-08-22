@@ -52,6 +52,24 @@
       "parentUuid": "6443fdf0_a5dd3e1c",
       "revId": "ee148fe88e7b30e5a4379c297db6274cd0ea4157",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dfaaae8_6c665375",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-08-22T22:46:20Z",
+      "side": 1,
+      "message": "c2 aidl is a big work. we will use the change and test in Aug/Sep.\nAnd this change is crucial for further work.\n(dependency to grpahics makes c2aidl work a little bit more complicated and this is a part of it.)",
+      "parentUuid": "65c96015_5fd604df",
+      "revId": "ee148fe88e7b30e5a4379c297db6274cd0ea4157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
