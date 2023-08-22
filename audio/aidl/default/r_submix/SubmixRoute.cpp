@@ -76,20 +76,14 @@ bool SubmixRoute::hasAtleastOneStreamOpen() {
 // We DO block if:
 // - the input was never activated to avoid discarding first frames in the pipe in case capture
 // start was delayed
-bool SubmixRoute::shouldBlockWrite() {
+bool SubmixRoute::shouldBlockWrite(int readCounterFrames) {
     std::lock_guard guard(mLock);
-    return (mStreamInOpen || (mStreamInStandby && (mReadCounterFrames != 0)));
+    return (mStreamInOpen || (mStreamInStandby && (readCounterFrames != 0)));
 }
 
 int SubmixRoute::notifyReadError() {
     std::lock_guard guard(mLock);
     return ++mReadErrorCount;
-}
-
-long SubmixRoute::updateReadCounterFrames(size_t frameCount) {
-    std::lock_guard guard(mLock);
-    mReadCounterFrames += frameCount;
-    return mReadCounterFrames;
 }
 
 void SubmixRoute::openStream(bool isInput) {
@@ -102,7 +96,6 @@ void SubmixRoute::openStream(bool isInput) {
             mStreamInOpen = true;
         }
         mStreamInStandby = true;
-        mReadCounterFrames = 0;
         mReadErrorCount = 0;
     } else {
         mStreamOutOpen = true;
@@ -217,7 +210,6 @@ void SubmixRoute::exitStandby(bool isInput) {
             // keep track of when we exit input standby (== first read == start "real recording")
             // or when we start recording silence, and reset projected time
             mRecordStartTime = std::chrono::steady_clock::now();
-            mReadCounterFrames = 0;
         }
     } else {
         if (mStreamOutStandby) {

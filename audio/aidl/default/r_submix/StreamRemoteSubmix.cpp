@@ -179,7 +179,7 @@ void StreamRemoteSubmix::shutdown() {
         LOG(ERROR) << __func__ << ": transfer without a pipe!";
         return ::android::UNEXPECTED_NULL;
     }
-
+    mCurrentRoute->exitStandby(mIsInput);
     return (mIsInput ? inRead(buffer, frameCount, actualFrameCount)
                      : outWrite(buffer, frameCount, actualFrameCount));
 }
@@ -195,13 +195,8 @@ void StreamRemoteSubmix::shutdown() {
     }
     if (mIsInput) {
         position->frames += framesInPipe;
-    } else {
-        if (position->frames > framesInPipe) {
-            position->frames -= framesInPipe;
-        } else {
-            position->frames = 0;
-        }
     }
+    position->timeNs = ::android::elapsedRealtimeNano();
     return ::android::OK;
 }
 
@@ -237,7 +232,8 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
     sp<MonoPipeReader> source = mCurrentRoute->getSource();
     // If the write to the sink should be blocked, flush enough frames from the pipe to make space
     // to write the most recent data.
-    if (!mCurrentRoute->shouldBlockWrite() && availableToWrite < frameCount) {
+    if (!mCurrentRoute->shouldBlockWrite(mContext.getFrameCount()) &&
+        availableToWrite < frameCount) {
         static uint8_t flushBuffer[64];
         const size_t flushBufferSizeFrames = sizeof(flushBuffer) / mStreamConfig.frameSize;
         size_t framesToFlushFromSource = frameCount - availableToWrite;
@@ -336,8 +332,8 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
                remainingBytes);
     }
 
-    long readCounterFrames = mCurrentRoute->updateReadCounterFrames(frameCount);
     *actualFrameCount = frameCount;
+    long readCounterFrames = mContext.getFrameCount() + frameCount;
 
     // compute how much we need to sleep after reading the data by comparing the wall clock with
     //   the projected time at which we should return.
