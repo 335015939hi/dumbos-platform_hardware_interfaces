@@ -34,6 +34,24 @@
       "parentUuid": "f366349d_ad565491",
       "revId": "ee148fe88e7b30e5a4379c297db6274cd0ea4157",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65c96015_5fd604df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-08-22T22:43:32Z",
+      "side": 1,
+      "message": "Is it possible to submit what we have now so we can make sure the changes are used and correct? Or is that going to cause too much more work for your team?",
+      "parentUuid": "6443fdf0_a5dd3e1c",
+      "revId": "ee148fe88e7b30e5a4379c297db6274cd0ea4157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
