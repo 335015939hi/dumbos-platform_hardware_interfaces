@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f366349d_ad565491",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-08-22T22:22:04Z",
+      "side": 1,
+      "message": "Do we have default impl/VTS/framework changes yet that we can use these changes with?",
+      "revId": "ee148fe88e7b30e5a4379c297db6274cd0ea4157",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
