@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc9e9ae3_701ba420",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-22T22:08:53Z",
+      "side": 1,
+      "message": "One thing I would like to clarify. `Stream` actually maintains the frame count and updates it with the value provided by the HAL from the `transfer` function (`actualFrameCount`): https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/Stream.cpp;l\u003d320;drc\u003dff1f1f34940662b2ebd94c933259c4d0161b4c44 (and same for the output case). This frame counter is then passed to `refinePosition`: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/Stream.cpp;l\u003d122;drc\u003dff1f1f34940662b2ebd94c933259c4d0161b4c44. Thus, we should really not have a need to maintain a separate frame counters in the `SubmixRoute`, and ideally we should be able to remove them. Could you please check if these counters in the route are actually needed because that adds extra complexity to the remote submix code.",
+      "range": {
+        "startLine": 197,
+        "startChar": 27,
+        "endLine": 197,
+        "endChar": 65
+      },
+      "revId": "019b13ef3e9fad8bc117ddf6bceee868b9e27551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f33b61f_ca49b28e",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-22T22:08:53Z",
+      "side": 1,
+      "message": "For consistency with the input code, can we also assign the value to `frames` directly, and then correct it if needed?",
+      "range": {
+        "startLine": 203,
+        "startChar": 8,
+        "endLine": 203,
+        "endChar": 72
+      },
+      "revId": "019b13ef3e9fad8bc117ddf6bceee868b9e27551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b4a7693_466afbcc",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-22T22:08:53Z",
+      "side": 1,
+      "message": "This line can be factored out after the `if (mIsInput)` statement.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 64
+      },
+      "revId": "019b13ef3e9fad8bc117ddf6bceee868b9e27551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
