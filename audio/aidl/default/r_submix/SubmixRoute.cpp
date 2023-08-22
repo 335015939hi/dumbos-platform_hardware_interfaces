@@ -92,6 +92,11 @@ long SubmixRoute::updateReadCounterFrames(size_t frameCount) {
     return mReadCounterFrames;
 }
 
+void SubmixRoute::updateWrittenFrames(size_t frameCount) {
+    std::lock_guard guard(mLock);
+    mWrittenFrames += frameCount;
+}
+
 void SubmixRoute::openStream(bool isInput) {
     std::lock_guard guard(mLock);
     if (isInput) {

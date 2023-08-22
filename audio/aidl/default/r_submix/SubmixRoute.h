@@ -76,6 +76,10 @@ class SubmixRoute {
         std::lock_guard guard(mLock);
         return mReadCounterFrames;
     }
+    long getWrittenFrames() {
+        std::lock_guard guard(mLock);
+        return mWrittenFrames;
+    }
     int getReadErrorCount() {
         std::lock_guard guard(mLock);
         return mReadErrorCount;
@@ -105,6 +109,7 @@ class SubmixRoute {
     bool shouldBlockWrite();
     void standby(bool isInput);
     long updateReadCounterFrames(size_t frameCount);
+    void updateWrittenFrames(size_t frameCount);
 
   private:
     bool isStreamConfigCompatible(const AudioConfig& streamConfig);
@@ -120,6 +125,7 @@ class SubmixRoute {
     // how many frames have been requested to be read since standby
     long mReadCounterFrames GUARDED_BY(mLock) = 0;
     int mReadErrorCount GUARDED_BY(mLock) = 0;
+    long mWrittenFrames GUARDED_BY(mLock) = 0;
     // wall clock when recording starts
     std::chrono::time_point<std::chrono::steady_clock> mRecordStartTime GUARDED_BY(mLock);
 

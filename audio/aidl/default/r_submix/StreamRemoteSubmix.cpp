@@ -179,7 +179,7 @@ void StreamRemoteSubmix::shutdown() {
         LOG(ERROR) << __func__ << ": transfer without a pipe!";
         return ::android::UNEXPECTED_NULL;
     }
-
+    mCurrentRoute->exitStandby(mIsInput);
     return (mIsInput ? inRead(buffer, frameCount, actualFrameCount)
                      : outWrite(buffer, frameCount, actualFrameCount));
 }
@@ -194,12 +194,19 @@ void StreamRemoteSubmix::shutdown() {
         return ::android::INVALID_OPERATION;
     }
     if (mIsInput) {
-        position->frames += framesInPipe;
+        position->frames = mCurrentRoute->getReadCounterFrames();
+        if (framesInPipe > 0) {
+            position->frames += framesInPipe;
+        }
+        position->timeNs = ::android::elapsedRealtimeNano();
     } else {
-        if (position->frames > framesInPipe) {
-            position->frames -= framesInPipe;
-        } else {
-            position->frames = 0;
+        const ssize_t writtenFrames = mCurrentRoute->getWrittenFrames();
+        if (framesInPipe >= 0) {
+            position->frames = writtenFrames;
+            position->timeNs = ::android::elapsedRealtimeNano();
+        } else if (writtenFrames >= framesInPipe) {
+            position->frames = writtenFrames - framesInPipe;
+            position->timeNs = ::android::elapsedRealtimeNano();
         }
     }
     return ::android::OK;
@@ -224,6 +231,7 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
             const size_t delayUs = static_cast<size_t>(
                     std::roundf(frameCount * MICROS_PER_SECOND / mStreamConfig.sampleRate));
             usleep(delayUs);
+            mCurrentRoute->updateWrittenFrames(frameCount);
             *actualFrameCount = frameCount;
             return ::android::OK;
         }
@@ -272,6 +280,7 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
         return ::android::UNKNOWN_ERROR;
     }
     LOG(VERBOSE) << __func__ << ": wrote " << writtenFrames << "frames";
+    mCurrentRoute->updateWrittenFrames(writtenFrames);
     *actualFrameCount = writtenFrames;
     return ::android::OK;
 }
