@@ -179,7 +179,7 @@ void StreamRemoteSubmix::shutdown() {
         LOG(ERROR) << __func__ << ": transfer without a pipe!";
         return ::android::UNEXPECTED_NULL;
     }
-
+    mCurrentRoute->exitStandby(mIsInput);
     return (mIsInput ? inRead(buffer, frameCount, actualFrameCount)
                      : outWrite(buffer, frameCount, actualFrameCount));
 }
@@ -190,16 +190,13 @@ void StreamRemoteSubmix::shutdown() {
         return ::android::NO_INIT;
     }
     const ssize_t framesInPipe = source->availableToRead();
-    if (framesInPipe < 0) {
-        return ::android::INVALID_OPERATION;
-    }
     if (mIsInput) {
-        position->frames += framesInPipe;
+        if (framesInPipe > 0) {
+            position->frames += framesInPipe;
+        }
     } else {
-        if (position->frames > framesInPipe) {
+        if ((frames_in_pipe < 0) && ((uint64_t)position->frames >= (uint64_t)framesInPipe)) {
             position->frames -= framesInPipe;
-        } else {
-            position->frames = 0;
         }
     }
     return ::android::OK;
