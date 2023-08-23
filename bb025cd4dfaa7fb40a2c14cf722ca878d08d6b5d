@@ -69,6 +69,24 @@
       "parentUuid": "070c8318_acfe2cae",
       "revId": "bb025cd4dfaa7fb40a2c14cf722ca878d08d6b5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4edc3f1_66b2a09a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-23T00:14:55Z",
+      "side": 1,
+      "message": "(1) should be fine in the existing IWeaver interface as well. For (2), would it be possible to write 0\u0027s to each slot?",
+      "parentUuid": "0affcbd8_441c5112",
+      "revId": "bb025cd4dfaa7fb40a2c14cf722ca878d08d6b5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
