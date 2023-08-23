@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "312c357c_9e1e0af6",
+        "filename": "audio/aidl/default/Config.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-23T21:31:23Z",
+      "side": 1,
+      "message": "should we return the status `mAudioPolicyConverter.getStatus()` here?",
+      "range": {
+        "startLine": 40,
+        "startChar": 11,
+        "endLine": 40,
+        "endChar": 36
+      },
+      "revId": "1e25ef808f5e6a29d2a889213f4b42cf58ecdc29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c921c499_6fe0944b",
+        "filename": "audio/aidl/default/Config.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-08-23T21:31:23Z",
+      "side": 1,
+      "message": "same question here",
+      "range": {
+        "startLine": 65,
+        "startChar": 11,
+        "endLine": 65,
+        "endChar": 35
+      },
+      "revId": "1e25ef808f5e6a29d2a889213f4b42cf58ecdc29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
