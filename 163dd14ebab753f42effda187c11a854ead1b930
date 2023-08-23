@@ -22,6 +22,30 @@
       },
       "revId": "163dd14ebab753f42effda187c11a854ead1b930",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b44f08c8_1962ad95",
+        "filename": "health/storage/aidl/vts/functional/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1409599
+      },
+      "writtenOn": "2023-08-23T14:22:42Z",
+      "side": 1,
+      "message": "The Systems Team bug component doesn\u0027t allow the creation of bugs (e.g., https://b.corp.google.com/issues/new?component\u003d30545\u0026template\u003d183496) and should be deprecated.\nI thought the HIDL bug component was the most pertinent for this subsystem.\nIs there something better we can use?",
+      "parentUuid": "0b49dfe4_9f637da9",
+      "range": {
+        "startLine": 1,
+        "startChar": 17,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "163dd14ebab753f42effda187c11a854ead1b930",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
