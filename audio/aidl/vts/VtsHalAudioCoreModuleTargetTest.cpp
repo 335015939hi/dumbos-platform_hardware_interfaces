@@ -4001,6 +4001,139 @@ INSTANTIATE_TEST_SUITE_P(AudioPatchTest, AudioModulePatch,
                          android::PrintInstanceNameToString);
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AudioModulePatch);
 
+class AudioModuleRemoteSubmix : public AudioCoreModule {
+  public:
+    void SetUp() override {
+        ASSERT_NO_FATAL_FAILURE(AudioCoreModule::SetUp());
+        ASSERT_NO_FATAL_FAILURE(SetUpModuleConfig());
+    }
+
+    std::optional<AudioPort> getSubmixOutputDeviceAudioPort() {
+        return getAudioPortForDeviceType(AudioDeviceType::OUT_SUBMIX);
+    }
+
+    std::optional<AudioPort> getSubmixInputDeviceAudioPort() {
+        return getAudioPortForDeviceType(AudioDeviceType::IN_SUBMIX);
+    }
+
+    std::optional<AudioPort> getAudioPortForDeviceType(AudioDeviceType deviceType) {
+        std::vector<AudioPort> ports;
+        module->getAudioPorts(&ports);
+        for (const auto& port : ports) {
+            if (port.ext.getTag() != AudioPortExt::Tag::device) continue;
+            const auto& devicePort = port.ext.get<AudioPortExt::Tag::device>();
+            if (devicePort.device.type.type == deviceType) return port;
+        }
+        return {};
+    }
+
+    void TearDown() override { ASSERT_NO_FATAL_FAILURE(TearDownImpl()); }
+
+    void sendBurstCommands(const StreamContext* context, StreamEventReceiver* eventReceiver) {
+        StreamLogicDefaultDriver driver(makeBurstCommands(true), context->getFrameSizeBytes());
+        typename IOTraits<IStreamOut>::Worker worker(*context, &driver, eventReceiver);
+
+        LOG(DEBUG) << __func__ << ": starting worker...";
+        ASSERT_TRUE(worker.start());
+        LOG(DEBUG) << __func__ << ": joining worker...";
+        worker.join();
+        EXPECT_FALSE(worker.hasError()) << worker.getError();
+        EXPECT_EQ("", driver.getUnexpectedStateTransition());
+        EXPECT_TRUE(driver.hasObservablePositionIncrease());
+        EXPECT_FALSE(driver.hasRetrogradeObservablePosition());
+    }
+};
+
+TEST_P(AudioModuleRemoteSubmix, OutputDoesNotBlockWhenNoInput) {
+    auto port = getSubmixOutputDeviceAudioPort();
+    if (!port.has_value()) {
+        LOG(DEBUG) << __func__ << ": OUT_SUBMIX device AudioPort not found";
+        GTEST_SKIP() << "No output device port";
+    }
+    WithDevicePortConnectedState portConnected(GenerateUniqueDeviceAddress(port.value()));
+    ASSERT_NO_FATAL_FAILURE(portConnected.SetUp(module.get()));
+    moduleConfig->onExternalDeviceConnected(portConnected.get());
+
+    // Get mix port config for output stream and setup patch for it.
+    const auto portConfig = moduleConfig->getSingleConfigForMixPort(false);
+    if (!portConfig.has_value()) {
+        LOG(DEBUG) << __func__ << ": portOutConfig not found";
+        GTEST_SKIP() << "No mix port for attached devices";
+    }
+    const auto devicePorts =
+            moduleConfig->getAttachedDevicesPortsForMixPort(false, portConfig.value());
+    ASSERT_FALSE(devicePorts.empty());
+    auto devicePortConfig = moduleConfig->getSingleConfigForDevicePort(devicePorts[0]);
+    WithAudioPatch patch(false, portConfig.value(), devicePortConfig);
+    ASSERT_NO_FATAL_FAILURE(patch.SetUp(module.get()));
+    // open output stream
+    WithStream<IStreamOut> stream(patch.getPortConfig(false));
+    ASSERT_NO_FATAL_FAILURE(stream.SetUp(module.get(), kDefaultBufferSizeFrames));
+    // write something to stream
+    sendBurstCommands(stream.getContext(), stream.getEventReceiver());
+}
+
+TEST_P(AudioModuleRemoteSubmix, OutputDoesNotBlockWhenInputStuck) {
+    auto portOut = getSubmixOutputDeviceAudioPort();
+    if (!portOut.has_value()) {
+        LOG(DEBUG) << __func__ << ": OUT_SUBMIX device AudioPort not found";
+        GTEST_SKIP() << "No output device port";
+    }
+    WithDevicePortConnectedState portOutConnected(GenerateUniqueDeviceAddress(portOut.value()));
+    ASSERT_NO_FATAL_FAILURE(portOutConnected.SetUp(module.get()));
+    auto address = portOutConnected.get().ext.get<AudioPortExt::Tag::device>().device.address;
+    moduleConfig->onExternalDeviceConnected(portOutConnected.get());
+
+    // Get mix port config for output stream and setup patch for it.
+    const auto portOutConfig = moduleConfig->getSingleConfigForMixPort(false);
+    if (!portOutConfig.has_value()) {
+        LOG(DEBUG) << __func__ << ": portOutConfig not found";
+        GTEST_SKIP() << "No mix port for attached devices";
+    }
+    const auto deviceOutPorts =
+            moduleConfig->getAttachedDevicesPortsForMixPort(false, portOutConfig.value());
+    ASSERT_FALSE(deviceOutPorts.empty());
+    auto deviceOutPortConfig = moduleConfig->getSingleConfigForDevicePort(deviceOutPorts[0]);
+    WithAudioPatch patchOut(false, portOutConfig.value(), deviceOutPortConfig);
+    ASSERT_NO_FATAL_FAILURE(patchOut.SetUp(module.get()));
+    // open output stream
+    WithStream<IStreamOut> streamOut(patchOut.getPortConfig(false));
+    ASSERT_NO_FATAL_FAILURE(streamOut.SetUp(module.get(), kDefaultBufferSizeFrames));
+
+    // Temporarily connect input virtual port
+    auto portIn = getSubmixInputDeviceAudioPort();
+    if (!portIn.has_value()) {
+        LOG(DEBUG) << __func__ << ": IN_SUBMIX device AudioPort not found";
+        GTEST_SKIP() << "No input device port";
+    }
+    portIn.value().ext.get<AudioPortExt::Tag::device>().device.address = address;
+    WithDevicePortConnectedState portInConnected(portIn.value());
+    ASSERT_NO_FATAL_FAILURE(portInConnected.SetUp(module.get()));
+    moduleConfig->onExternalDeviceConnected(portInConnected.get());
+
+    // open input stream
+    const auto portInConfig = moduleConfig->getSingleConfigForMixPort(/*isInput*/ true);
+    if (!portInConfig.has_value()) {
+        LOG(DEBUG) << __func__ << ": portInConfig not found";
+        GTEST_SKIP() << "No mix port for attached devices";
+    }
+    const auto deviceInPorts =
+            moduleConfig->getAttachedDevicesPortsForMixPort(true, portInConfig.value());
+    ASSERT_FALSE(deviceInPorts.empty());
+    auto deviceInPortConfig = moduleConfig->getSingleConfigForDevicePort(deviceInPorts[0]);
+    WithAudioPatch patchIn(true, portInConfig.value(), deviceInPortConfig);
+    ASSERT_NO_FATAL_FAILURE(patchIn.SetUp(module.get()));
+
+    WithStream<IStreamIn> streamIn(patchIn.getPortConfig(true));
+    ASSERT_NO_FATAL_FAILURE(streamIn.SetUp(module.get(), kDefaultBufferSizeFrames));
+    // write something to stream
+    sendBurstCommands(streamOut.getContext(), streamOut.getEventReceiver());
+}
+
+INSTANTIATE_TEST_SUITE_P(AudioModuleRemoteSubmixTest, AudioModuleRemoteSubmix,
+                         ::testing::Values("android.hardware.audio.core.IModule/r_submix"));
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AudioModuleRemoteSubmix);
+
 class TestExecutionTracer : public ::testing::EmptyTestEventListener {
   public:
     void OnTestStart(const ::testing::TestInfo& test_info) override {

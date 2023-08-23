@@ -139,6 +139,8 @@ class ModuleConfig {
         return *config.begin();
     }
 
+    void onExternalDeviceConnected(const aidl::android::media::audio::common::AudioPort& port);
+
     bool isMmapSupported() const;
 
     std::string toString() const;
@@ -161,6 +163,7 @@ class ModuleConfig {
             const std::vector<aidl::android::media::audio::common::AudioPort>& ports,
             bool singleProfile) const;
 
+    aidl::android::hardware::audio::core::IModule* mModule;
     ndk::ScopedAStatus mStatus = ndk::ScopedAStatus::ok();
     std::vector<aidl::android::media::audio::common::AudioPort> mPorts;
     std::vector<aidl::android::media::audio::common::AudioPortConfig> mInitialConfigs;

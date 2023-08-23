@@ -84,7 +84,8 @@ auto findById(const std::vector<T>& v, int32_t id) {
 }
 
 ModuleConfig::ModuleConfig(IModule* module) {
-    mStatus = module->getAudioPorts(&mPorts);
+    mModule = module;
+    mStatus = mModule->getAudioPorts(&mPorts);
     if (!mStatus.isOk()) return;
     for (const auto& port : mPorts) {
         if (port.ext.getTag() != AudioPortExt::Tag::device) continue;
@@ -105,9 +106,9 @@ ModuleConfig::ModuleConfig(IModule* module) {
         }
     }
     if (!mStatus.isOk()) return;
-    mStatus = module->getAudioRoutes(&mRoutes);
+    mStatus = mModule->getAudioRoutes(&mRoutes);
     if (!mStatus.isOk()) return;
-    mStatus = module->getAudioPortConfigs(&mInitialConfigs);
+    mStatus = mModule->getAudioPortConfigs(&mInitialConfigs);
 }
 
 std::vector<AudioPort> ModuleConfig::getAttachedDevicePorts() const {
@@ -441,6 +442,26 @@ std::vector<AudioPortConfig> ModuleConfig::generateAudioDevicePortConfigs(
         if (singleProfile) return result;
     }
     return result;
+}
+
+void ModuleConfig::onExternalDeviceConnected(const AudioPort& port) {
+    // Update ports and routes
+    mStatus = mModule->getAudioPorts(&mPorts);
+    if (!mStatus.isOk()) return;
+    mStatus = mModule->getAudioRoutes(&mRoutes);
+    if (!mStatus.isOk()) return;
+
+    // Validate port is present in module
+    if (std::find(mPorts.begin(), mPorts.end(), port) == mPorts.end()) {
+        return;
+    }
+
+    // Add the connected port to attached devices
+    if (port.flags.getTag() == aidl::android::media::audio::common::AudioIoFlags::Tag::input) {
+        mAttachedSourceDevicePorts.insert(port.id);
+    } else {
+        mAttachedSinkDevicePorts.insert(port.id);
+    }
 }
 
 bool ModuleConfig::isMmapSupported() const {
