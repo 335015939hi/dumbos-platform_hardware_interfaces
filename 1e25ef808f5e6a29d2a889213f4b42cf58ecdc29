@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09dea65f_3655afc8",
+        "filename": "audio/aidl/default/Config.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-23T21:36:57Z",
+      "side": 1,
+      "message": "Per the interface specification, no errors must be returned from this method (https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/android/hardware/audio/core/IConfig.aidl;l\u003d37;drc\u003ddb11b2db44c36900692e49aaeebd93fd647633e4). In case there is a problem with a legacy config file, default configuration is returned.",
+      "parentUuid": "312c357c_9e1e0af6",
+      "range": {
+        "startLine": 40,
+        "startChar": 11,
+        "endLine": 40,
+        "endChar": 36
+      },
+      "revId": "1e25ef808f5e6a29d2a889213f4b42cf58ecdc29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c921c499_6fe0944b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-23T21:31:23Z",
       "side": 1,
       "message": "same question here",
+      "range": {
+        "startLine": 65,
+        "startChar": 11,
+        "endLine": 65,
+        "endChar": 35
+      },
+      "revId": "1e25ef808f5e6a29d2a889213f4b42cf58ecdc29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ccd140d_1a91f103",
+        "filename": "audio/aidl/default/Config.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-23T21:36:57Z",
+      "side": 1,
+      "message": "Same thing here.",
+      "parentUuid": "c921c499_6fe0944b",
       "range": {
         "startLine": 65,
         "startChar": 11,
