@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6838ba_0f15672c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1845383
+      },
+      "writtenOn": "2023-08-23T10:00:34Z",
+      "side": 1,
+      "message": "Yes, this change is needed for older versions as well.\nAs per process We push to main and then our Google contact will cherry-pick to Android 12(our target) and to other versions as well.",
+      "parentUuid": "bd5cd0a2_30f66480",
+      "revId": "2b6c4ae9cf639b3bc131c570d95d3734e1fbe53e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af960d51_40243528",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-08-22T17:06:50Z",
       "side": 1,
       "message": "I think it might be good to add a null check for the `wifi_chip` before we perform the `HIDL_INVOKE`.\n\nSee [here](https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp;drc\u003db1c2d07e4e2d0b2b80f3e6ac5043f9122326360d;l\u003d69) for an example (ignoring the check for `configured_mode_id`).",
+      "range": {
+        "startLine": 96,
+        "startChar": 35,
+        "endLine": 96,
+        "endChar": 46
+      },
+      "revId": "2b6c4ae9cf639b3bc131c570d95d3734e1fbe53e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efa1a4eb_c7980e82",
+        "filename": "wifi/1.0/vts/functional/wifi_hidl_test_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1845383
+      },
+      "writtenOn": "2023-08-23T10:00:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af960d51_40243528",
       "range": {
         "startLine": 96,
         "startChar": 35,
