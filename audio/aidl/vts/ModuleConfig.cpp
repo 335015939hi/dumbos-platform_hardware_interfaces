@@ -66,15 +66,33 @@ std::optional<AudioOffloadInfo> ModuleConfig::generateOffloadInfoIfNeeded(
     return {};
 }
 
+std::vector<aidl::android::media::audio::common::AudioPort>
+ModuleConfig::getAudioPortsForDeviceTypes(std::vector<AudioDeviceType> deviceTypes) {
+    return getAudioPortsForDeviceTypes(mPorts, deviceTypes);
+}
+
 // static
 std::vector<aidl::android::media::audio::common::AudioPort> ModuleConfig::getBuiltInMicPorts(
         const std::vector<aidl::android::media::audio::common::AudioPort>& ports) {
+    return getAudioPortsForDeviceTypes(
+            ports, std::vector<AudioDeviceType>{AudioDeviceType::IN_MICROPHONE,
+                                                AudioDeviceType::IN_MICROPHONE_BACK});
+}
+
+std::vector<aidl::android::media::audio::common::AudioPort>
+ModuleConfig::getAudioPortsForDeviceTypes(
+        const std::vector<aidl::android::media::audio::common::AudioPort>& ports,
+        std::vector<AudioDeviceType> deviceTypes) {
     std::vector<AudioPort> result;
-    std::copy_if(ports.begin(), ports.end(), std::back_inserter(result), [](const auto& port) {
-        const auto type = port.ext.template get<AudioPortExt::Tag::device>().device.type;
-        return type.connection.empty() && (type.type == AudioDeviceType::IN_MICROPHONE ||
-                                           type.type == AudioDeviceType::IN_MICROPHONE_BACK);
-    });
+    for (const auto& port : ports) {
+        if (port.ext.getTag() != AudioPortExt::Tag::device) continue;
+        const auto& devicePort = port.ext.get<AudioPortExt::Tag::device>();
+        for (auto deviceType : deviceTypes) {
+            if (devicePort.device.type.type == deviceType) {
+                result.push_back(port);
+            }
+        }
+    }
     return result;
 }
 
@@ -126,57 +144,57 @@ std::vector<AudioPort> ModuleConfig::getExternalDevicePorts() const {
     return result;
 }
 
-std::vector<AudioPort> ModuleConfig::getInputMixPorts(bool attachedOnly) const {
+std::vector<AudioPort> ModuleConfig::getInputMixPorts(bool connectedOnly) const {
     std::vector<AudioPort> result;
     std::copy_if(mPorts.begin(), mPorts.end(), std::back_inserter(result), [&](const auto& port) {
         return port.ext.getTag() == AudioPortExt::Tag::mix &&
                port.flags.getTag() == AudioIoFlags::Tag::input &&
-               (!attachedOnly || !getAttachedSourceDevicesPortsForMixPort(port).empty());
+               (!connectedOnly || !getConnectedSourceDevicesPortsForMixPort(port).empty());
     });
     return result;
 }
 
-std::vector<AudioPort> ModuleConfig::getOutputMixPorts(bool attachedOnly) const {
+std::vector<AudioPort> ModuleConfig::getOutputMixPorts(bool connectedOnly) const {
     std::vector<AudioPort> result;
     std::copy_if(mPorts.begin(), mPorts.end(), std::back_inserter(result), [&](const auto& port) {
         return port.ext.getTag() == AudioPortExt::Tag::mix &&
                port.flags.getTag() == AudioIoFlags::Tag::output &&
-               (!attachedOnly || !getAttachedSinkDevicesPortsForMixPort(port).empty());
+               (!connectedOnly || !getConnectedSinkDevicesPortsForMixPort(port).empty());
     });
     return result;
 }
 
-std::vector<AudioPort> ModuleConfig::getNonBlockingMixPorts(bool attachedOnly,
+std::vector<AudioPort> ModuleConfig::getNonBlockingMixPorts(bool connectedOnly,
                                                             bool singlePort) const {
-    return findMixPorts(false /*isInput*/, attachedOnly, singlePort, [&](const AudioPort& port) {
+    return findMixPorts(false /*isInput*/, connectedOnly, singlePort, [&](const AudioPort& port) {
         return isBitPositionFlagSet(port.flags.get<AudioIoFlags::Tag::output>(),
                                     AudioOutputFlags::NON_BLOCKING);
     });
 }
 
-std::vector<AudioPort> ModuleConfig::getOffloadMixPorts(bool attachedOnly, bool singlePort) const {
-    return findMixPorts(false /*isInput*/, attachedOnly, singlePort, [&](const AudioPort& port) {
+std::vector<AudioPort> ModuleConfig::getOffloadMixPorts(bool connectedOnly, bool singlePort) const {
+    return findMixPorts(false /*isInput*/, connectedOnly, singlePort, [&](const AudioPort& port) {
         return isBitPositionFlagSet(port.flags.get<AudioIoFlags::Tag::output>(),
                                     AudioOutputFlags::COMPRESS_OFFLOAD);
     });
 }
 
-std::vector<AudioPort> ModuleConfig::getPrimaryMixPorts(bool attachedOnly, bool singlePort) const {
-    return findMixPorts(false /*isInput*/, attachedOnly, singlePort, [&](const AudioPort& port) {
+std::vector<AudioPort> ModuleConfig::getPrimaryMixPorts(bool connectedOnly, bool singlePort) const {
+    return findMixPorts(false /*isInput*/, connectedOnly, singlePort, [&](const AudioPort& port) {
         return isBitPositionFlagSet(port.flags.get<AudioIoFlags::Tag::output>(),
                                     AudioOutputFlags::PRIMARY);
     });
 }
 
-std::vector<AudioPort> ModuleConfig::getMmapOutMixPorts(bool attachedOnly, bool singlePort) const {
-    return findMixPorts(false /*isInput*/, attachedOnly, singlePort, [&](const AudioPort& port) {
+std::vector<AudioPort> ModuleConfig::getMmapOutMixPorts(bool connectedOnly, bool singlePort) const {
+    return findMixPorts(false /*isInput*/, connectedOnly, singlePort, [&](const AudioPort& port) {
         return isBitPositionFlagSet(port.flags.get<AudioIoFlags::Tag::output>(),
                                     AudioOutputFlags::MMAP_NOIRQ);
     });
 }
 
-std::vector<AudioPort> ModuleConfig::getMmapInMixPorts(bool attachedOnly, bool singlePort) const {
-    return findMixPorts(true /*isInput*/, attachedOnly, singlePort, [&](const AudioPort& port) {
+std::vector<AudioPort> ModuleConfig::getMmapInMixPorts(bool connectedOnly, bool singlePort) const {
+    return findMixPorts(true /*isInput*/, connectedOnly, singlePort, [&](const AudioPort& port) {
         return isBitPositionFlagSet(port.flags.get<AudioIoFlags::Tag::input>(),
                                     AudioInputFlags::MMAP_NOIRQ);
     });
@@ -191,11 +209,12 @@ std::vector<AudioPort> ModuleConfig::getAttachedDevicesPortsForMixPort(
     return {};
 }
 
-std::vector<AudioPort> ModuleConfig::getAttachedSinkDevicesPortsForMixPort(
+std::vector<AudioPort> ModuleConfig::getConnectedSinkDevicesPortsForMixPort(
         const AudioPort& mixPort) const {
     std::vector<AudioPort> result;
     for (const auto& route : mRoutes) {
-        if (mAttachedSinkDevicePorts.count(route.sinkPortId) != 0 &&
+        if ((mAttachedSinkDevicePorts.count(route.sinkPortId) != 0 ||
+             mConnectedExternalSinkDevicePorts.count(route.sinkPortId) != 0) &&
             std::find(route.sourcePortIds.begin(), route.sourcePortIds.end(), mixPort.id) !=
                     route.sourcePortIds.end()) {
             const auto devicePortIt = findById<AudioPort>(mPorts, route.sinkPortId);
@@ -205,13 +224,14 @@ std::vector<AudioPort> ModuleConfig::getAttachedSinkDevicesPortsForMixPort(
     return result;
 }
 
-std::vector<AudioPort> ModuleConfig::getAttachedSourceDevicesPortsForMixPort(
+std::vector<AudioPort> ModuleConfig::getConnectedSourceDevicesPortsForMixPort(
         const AudioPort& mixPort) const {
     std::vector<AudioPort> result;
     for (const auto& route : mRoutes) {
         if (route.sinkPortId == mixPort.id) {
             for (const auto srcId : route.sourcePortIds) {
-                if (mAttachedSourceDevicePorts.count(srcId) != 0) {
+                if (mAttachedSourceDevicePorts.count(srcId) != 0 ||
+                    mConnectedExternalSourceDevicePorts.count(srcId) != 0) {
                     const auto devicePortIt = findById<AudioPort>(mPorts, srcId);
                     if (devicePortIt != mPorts.end()) result.push_back(*devicePortIt);
                 }
@@ -233,7 +253,7 @@ std::optional<AudioPort> ModuleConfig::getSourceMixPortForAttachedDevice() const
 
 std::optional<ModuleConfig::SrcSinkPair> ModuleConfig::getNonRoutableSrcSinkPair(
         bool isInput) const {
-    const auto mixPorts = getMixPorts(isInput, false /*attachedOnly*/);
+    const auto mixPorts = getMixPorts(isInput, false /*connectedOnly*/);
     std::set<std::pair<int32_t, int32_t>> allowedRoutes;
     for (const auto& route : mRoutes) {
         for (const auto srcPortId : route.sourcePortIds) {
@@ -384,10 +404,10 @@ static bool isDynamicProfile(const AudioProfile& profile) {
 }
 
 std::vector<AudioPort> ModuleConfig::findMixPorts(
-        bool isInput, bool attachedOnly, bool singlePort,
+        bool isInput, bool connectedOnly, bool singlePort,
         const std::function<bool(const AudioPort&)>& pred) const {
     std::vector<AudioPort> result;
-    const auto mixPorts = getMixPorts(isInput, attachedOnly);
+    const auto mixPorts = getMixPorts(isInput, connectedOnly);
     for (auto mixPortIt = mixPorts.begin(); mixPortIt != mixPorts.end();) {
         mixPortIt = std::find_if(mixPortIt, mixPorts.end(), pred);
         if (mixPortIt == mixPorts.end()) break;
@@ -443,10 +463,43 @@ std::vector<AudioPortConfig> ModuleConfig::generateAudioDevicePortConfigs(
     return result;
 }
 
+void ModuleConfig::onExternalDeviceConnected(IModule* module, const AudioPort& port) {
+    // Update ports and routes
+    mStatus = module->getAudioPorts(&mPorts);
+    if (!mStatus.isOk()) return;
+    mStatus = module->getAudioRoutes(&mRoutes);
+    if (!mStatus.isOk()) return;
+
+    // Validate port is present in module
+    if (std::find(mPorts.begin(), mPorts.end(), port) == mPorts.end()) {
+        return;
+    }
+
+    if (port.flags.getTag() == aidl::android::media::audio::common::AudioIoFlags::Tag::input) {
+        mConnectedExternalSourceDevicePorts.insert(port.id);
+    } else {
+        mConnectedExternalSinkDevicePorts.insert(port.id);
+    }
+}
+
+void ModuleConfig::onExternalDeviceDisconnected(IModule* module, const AudioPort& port) {
+    // Update ports and routes
+    mStatus = module->getAudioPorts(&mPorts);
+    if (!mStatus.isOk()) return;
+    mStatus = module->getAudioRoutes(&mRoutes);
+    if (!mStatus.isOk()) return;
+
+    if (port.flags.getTag() == aidl::android::media::audio::common::AudioIoFlags::Tag::input) {
+        mConnectedExternalSourceDevicePorts.erase(port.id);
+    } else {
+        mConnectedExternalSinkDevicePorts.erase(port.id);
+    }
+}
+
 bool ModuleConfig::isMmapSupported() const {
     const std::vector<AudioPort> mmapOutMixPorts =
-            getMmapOutMixPorts(false /*attachedOnly*/, false /*singlePort*/);
+            getMmapOutMixPorts(false /*connectedOnly*/, false /*singlePort*/);
     const std::vector<AudioPort> mmapInMixPorts =
-            getMmapInMixPorts(false /*attachedOnly*/, false /*singlePort*/);
+            getMmapInMixPorts(false /*connectedOnly*/, false /*singlePort*/);
     return !mmapOutMixPorts.empty() || !mmapInMixPorts.empty();
 }
