@@ -16,6 +16,24 @@
       "message": "memtrack is owned by the systems team, and this folder contains AIDL + HIDL",
       "revId": "f1b13d4b683e2deef2306c12ef8309d63646e462",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e8bbebd_000b7d22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1409599
+      },
+      "writtenOn": "2023-08-23T14:23:33Z",
+      "side": 1,
+      "message": "Copy-pasted from the other patch:\n\nThe Systems Team bug component doesn\u0027t allow the creation of bugs (e.g., https://b.corp.google.com/issues/new?component\u003d30545\u0026template\u003d183496) and should be deprecated.\nI thought the HIDL bug component was the most pertinent for this subsystem.\nIs there something better we can use?",
+      "parentUuid": "87ca6b9b_eabca803",
+      "revId": "f1b13d4b683e2deef2306c12ef8309d63646e462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
