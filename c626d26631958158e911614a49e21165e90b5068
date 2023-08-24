@@ -22,6 +22,30 @@
       },
       "revId": "c626d26631958158e911614a49e21165e90b5068",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ce91083_de2e439f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2023-08-24T08:12:13Z",
+      "side": 1,
+      "message": "You can follow the guide go/thread-aosp-dev-g3doc to run the threadnetwork HAL.",
+      "parentUuid": "7fdbe533_14bb78d1",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "c626d26631958158e911614a49e21165e90b5068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
