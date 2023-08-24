@@ -22,6 +22,30 @@
       },
       "revId": "868b8968bf9908708fefdfa304c9f147fa971390",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be97bac2_ce82de44",
+        "filename": "threadnetwork/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2023-08-24T08:44:06Z",
+      "side": 0,
+      "message": "The difference between these two binaries are: the parameters of the `android.hardware.threadnetwork-service.sim` are fixed, the parameter of the  `android.hardware.threadnetwork-service` should be configured by the device. I think we can use the same binary. I can update the code later to make the binary uses the same method to get configurations from devices.",
+      "parentUuid": "e238ba08_ea496699",
+      "range": {
+        "startLine": 45,
+        "startChar": 11,
+        "endLine": 45,
+        "endChar": 55
+      },
+      "revId": "868b8968bf9908708fefdfa304c9f147fa971390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
