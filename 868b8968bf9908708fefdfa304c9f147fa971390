@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e238ba08_ea496699",
+        "filename": "threadnetwork/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-08-24T08:02:40Z",
+      "side": 0,
+      "message": "I thought we can use the same binary instead of a different one (even though they are equivalent).\n\nIf we need to use a different binary (with .sim suffix), then we can restore this and use it in APEX. Besides, if necessary, we can have two apexes: one for generic case, the other for cuttlefish.\n\nThoughts?",
+      "range": {
+        "startLine": 45,
+        "startChar": 11,
+        "endLine": 45,
+        "endChar": 55
+      },
+      "revId": "868b8968bf9908708fefdfa304c9f147fa971390",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
