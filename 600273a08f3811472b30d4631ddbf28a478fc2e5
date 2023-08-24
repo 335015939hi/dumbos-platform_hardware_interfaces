@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "008075e9_8b731660",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-24T17:01:22Z",
+      "side": 1,
+      "message": "nit: I would prefer to use `EXPECT_GE(mixPort.maxOpenStreamCount, 0)`.",
+      "range": {
+        "startLine": 1382,
+        "startChar": 12,
+        "endLine": 1382,
+        "endChar": 56
+      },
+      "revId": "600273a08f3811472b30d4631ddbf28a478fc2e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
