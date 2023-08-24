@@ -46,6 +46,30 @@
       },
       "revId": "c626d26631958158e911614a49e21165e90b5068",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f6cc4d_71859ceb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-08-24T08:31:27Z",
+      "side": 1,
+      "message": "Thanks, Zhanglong for the pointer.\n\nThe doc looks a bit outdated. I ran a VTS, but it fails 2 out of 6 testcases. Is it expected? \n\n```\n08-24 17:27:59 I/ModuleListener: [3/4] 0.0.0.0:6520 VtsHalThreadNetworkTargetTest Thread/ThreadNetworkAidl#Reset/0_android_hardware_threadnetwork_IThreadChip_chip0 FAILURE: hardware/interfaces/threadnetwork/aidl/vts/VtsHalThreadNetworkTargetTest.cpp:94: Failure\nValue of: thread_chip-\u003ehardwareReset().isOk()\n  Actual: false\nExpected: true\n08-24 17:28:00 D/ModuleDefinition: Running module x86 VtsHalThreadNetworkTargetTest\n08-24 17:28:01 E/GTestResultParser: Name for current test does not match test we started with, expected: Reset/0_android_hardware_threadnetwork_IThreadChip_chip0  but got: Reset/0_android_hardware_threadnetwork_IThreadChip_chip0, where GetParam() \u003d \"android\n08-24 17:28:01 I/ModuleListener: [3/4] 0.0.0.0:6520 VtsHalThreadNetworkTargetTest Thread/ThreadNetworkAidl#Reset/0_android_hardware_threadnetwork_IThreadChip_chip0 FAILURE: hardware/interfaces/threadnetwork/aidl/vts/VtsHalThreadNetworkTargetTest.cpp:94: Failure\nValue of: thread_chip-\u003ehardwareReset().isOk()\n  Actual: false\nExpected: true\n```",
+      "parentUuid": "6ce91083_de2e439f",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "c626d26631958158e911614a49e21165e90b5068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
