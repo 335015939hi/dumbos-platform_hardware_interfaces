@@ -49,6 +49,10 @@ parcelable KEResult {
 
     /**
      * The signature over the session id, created by the party who computed the session id.
+     * If there is one or more `DiceChainEntry` in the `ExplicitKeyDiceCertChain` of the party's
+     * identity, the signature is verified with the public key in the leaf of the chain of
+     * DiceChainEntries (i.e the public key in the last of the array of DiceChainEntries).
+     * Otherwise, the signature is verified with the `DiceCertChainInitialPayload`.
      */
     @nullable KESignature signature;
 
