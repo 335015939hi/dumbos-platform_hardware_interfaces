@@ -1,0 +1,12 @@
+ExplicitKeyDiceCertChain = [
+    1, ; version, hopefully will never change
+    DiceCertChainInitialPayload,
+    * DiceChainEntry  ; see hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/
+                      ; generateCertificateRequestV2.cddl for the CDDL of DiceChainEntry
+]
+
+DiceCertChainInitialPayload = {
+    -4670552 : bstr .cbor PubKeyEd25519 /
+               bstr .cbor PubKeyECDSA256 /
+               bstr .cbor PubKeyECDSA384 ; subjectPublicKey
+}

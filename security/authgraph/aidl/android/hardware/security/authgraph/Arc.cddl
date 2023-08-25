@@ -20,18 +20,27 @@ ArcProtectedHeaders = {
 ; Permissions indicate what an arc can be used with. Permissions are added to an arc during the
 ; `create()` primitive operation and are propagated during `mint` and `snap` primitive operations.
 Permission = &(
-    -4770552 : Identity,  ; "source_id" - in the source specific operations, the source adds
-                          ; its own identity to the permissions of an arc.
-    -4770553 : Identity,  ; "sink_id" - in the sink specific operations, the sink adds its
-                          ; own identity to the permissions of an arc.
-    -4770555 : [ +Identity ]  ; "minting_allowed" - dsefines the set of TA identities
-                              ; to whom the payload key is allowed to be minted.
-   ?-4770556 : bool           ; "deleted_on_biometric_change" - A Boolean value that
-                              ; indicates whether an auth key issued from a biometric TA is
+    -4770552 : CertChain, ; "source_id" - in the operations performed by a source, the source adds
+                          ; its own certificate chain to the permissions of an arc.
+
+    -4770553 : CertChain, ; "sink_id" - in the operations performed by a sink, the sink adds its
+                          ; own certificate chain to the permissions of an arc.
+
+    -4770554 : Policy,    ; "source_policy" - in the operations performed by a source, the source
+                          ;  adds its own identity verification policy to the permissions of an arc.
+
+    -4770555 : Policy,    ; "sink_policy" - in the operations performed by a sink, the sink adds
+                          ; its own identity verification policy to the permissions of an arc.
+
+    -4770556 : [ +Policy ]    ; "minting_allowed" - dsefines the set of policies based on which
+                              ; the payload key is allowed to be minted.
+
+    -4770557 : bool           ; "deleted_on_biometric_change" - A Boolean value that
+                              ; indicates whether an authorization key issued from a biometric TA is
                               ; invalidated on new biometric enrollment or removal of all
                               ; biometrics.
 
-    -4770557 : int        ; "user id" - Android user id
+    -4770558 : int        ; "secure user id" - secure user id
 )
 
 ; Limitations indicate what restrictions are applied on the usage of an arc. Permissions are added
@@ -43,13 +52,9 @@ Limitation = &(
                           ; A challenge is issued by a sink (e.g. Keymint TA, Biometric TAs).
 )
 
-; As the first (temporary) step, the identity of a party is defined as their public signing key.
-; This will be updated to include DICE certificate chain and the identity verification policy.
+CertChain = bstr .cbor ExplicitKeyDiceCertChain ; see ExplicitKeyDiceCertChain.cddl
 
-Identity = &(
-    bstr .cbor PubKeyEd25519,
-    bstr .cbor PubKeyECDSA256,
-)
+Policy = bstr .cbor DicePolicy ; see DicePolicy.cddl
 
 Payload = &(
     SecretKey_Tagged,
