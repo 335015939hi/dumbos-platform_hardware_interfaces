@@ -23,6 +23,7 @@
 
 #include <atomic>
 #include <memory>
+#include <tuple>
 #include <vector>
 
 #include <fmq/EventFlag.h>
@@ -178,6 +179,17 @@ struct Effect : public IEffect {
     using GetSupportedConfigsSuccessCallback =
         std::function<void(uint32_t supportedConfigs, void* configsData)>;
 
+<<<<<<< HEAD   (da32b9 Align default implementation with latest VSR.)
+||||||| BASE
+    // Sets the limit on the maximum size of vendor-provided data structures.
+    static constexpr size_t kMaxDataSize = 1 << 20;
+
+=======
+    // Sets the limit on the maximum size of vendor-provided data structures.
+    static constexpr size_t kMaxDataSize = 1 << 20;
+    static constexpr effect_handle_t kInvalidEffectHandle = nullptr;
+
+>>>>>>> CHANGE (0d9205 audio: Properly handle closed effects in HIDL implementation)
     static const char* sContextResultOfCommand;
     static const char* sContextCallToCommand;
     static const char* sContextCallFunction;
@@ -199,6 +211,7 @@ struct Effect : public IEffect {
     static size_t alignedSizeIn(size_t s);
     template <typename T>
     std::unique_ptr<uint8_t[]> hidlVecToHal(const hidl_vec<T>& vec, uint32_t* halDataSize);
+    std::tuple<Result, effect_handle_t> closeImpl();
     void effectAuxChannelsConfigFromHal(const channel_config_t& halConfig,
                                         EffectAuxChannelsConfig* config);
     static void effectAuxChannelsConfigToHal(const EffectAuxChannelsConfig& config,
@@ -209,7 +222,8 @@ struct Effect : public IEffect {
                                                uint32_t valueSize, const void** valueData);
 
     Result analyzeCommandStatus(const char* commandName, const char* context, status_t status);
-    void getConfigImpl(int commandCode, const char* commandName, GetConfigCallback cb);
+    Return<void> getConfigImpl(int commandCode, const char* commandName,
+                               GetConfigCallback _hidl_cb);
     Result getCurrentConfigImpl(uint32_t featureId, uint32_t configSize,
                                 GetCurrentConfigSuccessCallback onSuccess);
     Result getSupportedConfigsImpl(uint32_t featureId, uint32_t maxConfigs, uint32_t configSize,

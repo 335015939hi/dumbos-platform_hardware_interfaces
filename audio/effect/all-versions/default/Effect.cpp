@@ -149,7 +149,7 @@ Effect::Effect(bool isInput, effect_handle_t handle)
 
 Effect::~Effect() {
     ATRACE_CALL();
-    (void)close();
+    auto [_, handle] = closeImpl();
     if (mProcessThread.get()) {
         ATRACE_NAME("mProcessThread->join");
         status_t status = mProcessThread->join();
@@ -162,11 +162,10 @@ Effect::~Effect() {
     mInBuffer.clear();
     mOutBuffer.clear();
 #if MAJOR_VERSION <= 5
-    int status = EffectRelease(mHandle);
-    ALOGW_IF(status, "Error releasing effect %p: %s", mHandle, strerror(-status));
+    int status = EffectRelease(handle);
+    ALOGW_IF(status, "Error releasing effect %p: %s", handle, strerror(-status));
 #endif
-    EffectMap::getInstance().remove(mHandle);
-    mHandle = 0;
+    EffectMap::getInstance().remove(handle);
 }
 
 // static
@@ -278,7 +277,19 @@ Result Effect::analyzeStatus(const char* funcName, const char* subFuncName,
     }
 }
 
-void Effect::getConfigImpl(int commandCode, const char* commandName, GetConfigCallback cb) {
+#define RETURN_IF_EFFECT_CLOSED()          \
+    if (mHandle == kInvalidEffectHandle) { \
+        return Result::INVALID_STATE;      \
+    }
+#define RETURN_RESULT_IF_EFFECT_CLOSED(result)   \
+    if (mHandle == kInvalidEffectHandle) {       \
+        _hidl_cb(Result::INVALID_STATE, result); \
+        return Void();                           \
+    }
+
+Return<void> Effect::getConfigImpl(int commandCode, const char* commandName,
+                                   GetConfigCallback _hidl_cb) {
+    RETURN_RESULT_IF_EFFECT_CLOSED(EffectConfig());
     uint32_t halResultSize = sizeof(effect_config_t);
     effect_config_t halConfig{};
     status_t status =
@@ -287,7 +298,8 @@ void Effect::getConfigImpl(int commandCode, const char* commandName, GetConfigCa
     if (status == OK) {
         status = EffectUtils::effectConfigFromHal(halConfig, mIsInput, &config);
     }
-    cb(analyzeCommandStatus(commandName, sContextCallToCommand, status), config);
+    _hidl_cb(analyzeCommandStatus(commandName, sContextCallToCommand, status), config);
+    return Void();
 }
 
 Result Effect::getCurrentConfigImpl(uint32_t featureId, uint32_t configSize,
@@ -336,6 +348,7 @@ Result Effect::getSupportedConfigsImpl(uint32_t featureId, uint32_t maxConfigs, 
 }
 
 Return<void> Effect::prepareForProcessing(prepareForProcessing_cb _hidl_cb) {
+    RETURN_RESULT_IF_EFFECT_CLOSED(StatusMQ::Descriptor());
     status_t status;
     // Create message queue.
     if (mStatusMQ) {
@@ -373,6 +386,7 @@ Return<void> Effect::prepareForProcessing(prepareForProcessing_cb _hidl_cb) {
 
 Return<Result> Effect::setProcessBuffers(const AudioBuffer& inBuffer,
                                          const AudioBuffer& outBuffer) {
+    RETURN_IF_EFFECT_CLOSED();
     AudioBufferManager& manager = AudioBufferManager::getInstance();
     sp<AudioBufferWrapper> tempInBuffer, tempOutBuffer;
     if (!manager.wrap(inBuffer, &tempInBuffer)) {
@@ -397,6 +411,7 @@ Result Effect::sendCommand(int commandCode, const char* commandName) {
 }
 
 Result Effect::sendCommand(int commandCode, const char* commandName, uint32_t size, void* data) {
+    RETURN_IF_EFFECT_CLOSED();
     status_t status = (*mHandle)->command(mHandle, commandCode, size, data, 0, NULL);
     return analyzeCommandStatus(commandName, sContextCallToCommand, status);
 }
@@ -408,6 +423,7 @@ Result Effect::sendCommandReturningData(int commandCode, const char* commandName
 
 Result Effect::sendCommandReturningData(int commandCode, const char* commandName, uint32_t size,
                                         void* data, uint32_t* replySize, void* replyData) {
+    RETURN_IF_EFFECT_CLOSED();
     uint32_t expectedReplySize = *replySize;
     status_t status = (*mHandle)->command(mHandle, commandCode, size, data, replySize, replyData);
     if (status == OK && *replySize != expectedReplySize) {
@@ -432,6 +448,7 @@ Result Effect::sendCommandReturningStatusAndData(int commandCode, const char* co
                                                  uint32_t size, void* data, uint32_t* replySize,
                                                  void* replyData, uint32_t minReplySize,
                                                  CommandSuccessCallback onSuccess) {
+    RETURN_IF_EFFECT_CLOSED();
     status_t status = (*mHandle)->command(mHandle, commandCode, size, data, replySize, replyData);
     Result retval;
     if (status == OK && minReplySize >= sizeof(uint32_t) && *replySize >= minReplySize) {
@@ -587,13 +604,11 @@ Return<Result> Effect::setConfigReverse(
 }
 
 Return<void> Effect::getConfig(getConfig_cb _hidl_cb) {
-    getConfigImpl(EFFECT_CMD_GET_CONFIG, "GET_CONFIG", _hidl_cb);
-    return Void();
+    return getConfigImpl(EFFECT_CMD_GET_CONFIG, "GET_CONFIG", _hidl_cb);
 }
 
 Return<void> Effect::getConfigReverse(getConfigReverse_cb _hidl_cb) {
-    getConfigImpl(EFFECT_CMD_GET_CONFIG_REVERSE, "GET_CONFIG_REVERSE", _hidl_cb);
-    return Void();
+    return getConfigImpl(EFFECT_CMD_GET_CONFIG_REVERSE, "GET_CONFIG_REVERSE", _hidl_cb);
 }
 
 Return<void> Effect::getSupportedAuxChannelsConfigs(uint32_t maxConfigs,
@@ -640,6 +655,7 @@ Return<Result> Effect::offload(const EffectOffloadParameter& param) {
 }
 
 Return<void> Effect::getDescriptor(getDescriptor_cb _hidl_cb) {
+    RETURN_RESULT_IF_EFFECT_CLOSED(EffectDescriptor());
     effect_descriptor_t halDescriptor;
     memset(&halDescriptor, 0, sizeof(effect_descriptor_t));
     status_t status = (*mHandle)->get_descriptor(mHandle, &halDescriptor);
@@ -653,6 +669,10 @@ Return<void> Effect::getDescriptor(getDescriptor_cb _hidl_cb) {
 
 Return<void> Effect::command(uint32_t commandId, const hidl_vec<uint8_t>& data,
                              uint32_t resultMaxSize, command_cb _hidl_cb) {
+    if (mHandle == kInvalidEffectHandle) {
+        _hidl_cb(-ENODATA, hidl_vec<uint8_t>());
+        return Void();
+    }
     uint32_t halDataSize;
     std::unique_ptr<uint8_t[]> halData = hidlVecToHal(data, &halDataSize);
     uint32_t halResultSize = resultMaxSize;
@@ -724,24 +744,31 @@ Return<Result> Effect::setCurrentConfigForFeature(uint32_t featureId,
                                       halCmd.size(), &halCmd[0]);
 }
 
-Return<Result> Effect::close() {
+std::tuple<Result, effect_handle_t> Effect::closeImpl() {
     if (mStopProcessThread.load(std::memory_order_relaxed)) {  // only this thread modifies
-        return Result::INVALID_STATE;
+        return {Result::INVALID_STATE, kInvalidEffectHandle};
     }
     mStopProcessThread.store(true, std::memory_order_release);
     if (mEfGroup) {
         mEfGroup->wake(static_cast<uint32_t>(MessageQueueFlagBits::REQUEST_QUIT));
     }
+    effect_handle_t handle = mHandle;
+    mHandle = kInvalidEffectHandle;
 #if MAJOR_VERSION <= 5
-    return Result::OK;
+    return {Result::OK, handle};
 #elif MAJOR_VERSION >= 6
     // No need to join the processing thread, it is part of the API contract that the client
     // must finish processing before closing the effect.
-    Result retval =
-            analyzeStatus("EffectRelease", "", sContextCallFunction, EffectRelease(mHandle));
-    EffectMap::getInstance().remove(mHandle);
-    return retval;
+    Result retval = analyzeStatus("EffectRelease", "", sContextCallFunction, EffectRelease(handle));
+    EffectMap::getInstance().remove(handle);
+    return {retval, handle};
 #endif
+}
+
+Return<Result> Effect::close() {
+    RETURN_IF_EFFECT_CLOSED();
+    auto [result, _] = closeImpl();
+    return result;
 }
 
 Return<void> Effect::debug(const hidl_handle& fd, const hidl_vec<hidl_string>& /* options */) {
