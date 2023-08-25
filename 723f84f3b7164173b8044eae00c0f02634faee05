@@ -16,6 +16,144 @@
       "message": "Folks,\n\nSteven pointed out yesterday that it\u0027s not clear how the various security-related HALs interact and why each of them are necessary, so I had a go at a quick summary of their basic interactions.\n\nAssuming this all makes sense, it would be nice to keep this updated if more HALs come along later (e.g. AuthGraph), so vendors can get a sense of what they need to implement and why.",
       "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a958421_8e789cb7",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-08-25T16:52:22Z",
+      "side": 1,
+      "message": "I don\u0027t think we should directly reference the \"Google-signed\" bit in AOSP, since the HAL can produce an attestation backed by any authority producing the phone.",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 50
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60f68653_6cd80d9d",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-08-25T16:52:22Z",
+      "side": 1,
+      "message": "certificates, since the keys themselves are generated on device",
+      "range": {
+        "startLine": 68,
+        "startChar": 74,
+        "endLine": 68,
+        "endChar": 78
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36151ebf_673b30e0",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-08-25T16:52:22Z",
+      "side": 1,
+      "message": "nit: \"can be\"",
+      "range": {
+        "startLine": 68,
+        "startChar": 95,
+        "endLine": 68,
+        "endChar": 98
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c2cc0ff_a91f599f",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-08-25T16:52:22Z",
+      "side": 1,
+      "message": "Nit: no comma",
+      "range": {
+        "startLine": 69,
+        "startChar": 40,
+        "endLine": 69,
+        "endChar": 41
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93fca54e_fbbe2a5f",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-08-25T16:52:22Z",
+      "side": 1,
+      "message": "In line with the above comment: \"provision certificates for KeyMint\u0027s signing keys\"",
+      "range": {
+        "startLine": 70,
+        "startChar": 36,
+        "endLine": 70,
+        "endChar": 49
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30b00531_f85a66dc",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-08-25T16:52:22Z",
+      "side": 1,
+      "message": "May want to mention widevine here directly as another concrete example.",
+      "range": {
+        "startLine": 71,
+        "startChar": 61,
+        "endLine": 71,
+        "endChar": 72
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
