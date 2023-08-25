@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fca75ef1_438538b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-08-25T16:34:07Z",
+      "side": 1,
+      "message": "Folks,\n\nSteven pointed out yesterday that it\u0027s not clear how the various security-related HALs interact and why each of them are necessary, so I had a go at a quick summary of their basic interactions.\n\nAssuming this all makes sense, it would be nice to keep this updated if more HALs come along later (e.g. AuthGraph), so vendors can get a sense of what they need to implement and why.",
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
