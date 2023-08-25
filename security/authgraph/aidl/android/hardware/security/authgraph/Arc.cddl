@@ -22,9 +22,9 @@ ArcProtectedHeaders = {
 ; Permissions indicate what an arc can be used with. Permissions are added to an arc during the
 ; `create()` primitive operation and are propagated during `mint` and `snap` primitive operations.
 Permission = &(
-    -4770552 : Identity,  ; "source_id" - in the source specific operations, the source adds
+    -4770552 : Identity,  ; "source_id" - in the operations performed by a source, the source adds
                           ; its own identity to the permissions of an arc.
-    -4770553 : Identity,  ; "sink_id" - in the sink specific operations, the sink adds its
+    -4770553 : Identity,  ; "sink_id" - in the operations performed by a sink, the sink adds its
                           ; own identity to the permissions of an arc.
     -4770555 : [ +Identity ]  ; "minting_allowed" - dsefines the set of TA identities
                               ; to whom the payload key is allowed to be minted.
@@ -43,13 +43,7 @@ Limitation = &(
                           ; A challenge is issued by a sink (e.g. Keymint TA, Biometric TAs).
 )
 
-; As the first (temporary) step, the identity of a party is defined as their public signing key.
-; This will be updated to include DICE certificate chain and the identity verification policy.
-
-Identity = &(
-    bstr .cbor PubKeyEd25519,
-    bstr .cbor PubKeyECDSA256,
-)
+Identity = bstr .cbor Identity ; see Identity.cddl
 
 PayloadType = &(
     SecretKey: 1,
