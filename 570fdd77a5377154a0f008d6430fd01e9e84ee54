@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "808622b8_28f68265",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-08-25T20:30:14Z",
+      "side": 1,
+      "message": "General nit: Could we split disjoint structures into their own CDD files rather than dumping them all into a singular file? Or could they be more clearly delineated in the CDDL presented?",
+      "revId": "570fdd77a5377154a0f008d6430fd01e9e84ee54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
