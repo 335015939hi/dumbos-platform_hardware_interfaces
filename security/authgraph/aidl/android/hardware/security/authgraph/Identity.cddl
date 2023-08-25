@@ -1,0 +1,5 @@
+Identity = [
+    1, ; Version
+    ExplicitKeyDiceCertChain, ; See ExplicitKeyDiceCertChain.cddl
+    ? DicePolicy ; See DicePolicy.cddl
+]
