@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "882b3905_1d415523",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-25T16:58:56Z",
+      "side": 1,
+      "message": "could this also point to other HALs other than \u0027keymaster\u0027 which are not in security/ also due to historical reasons, such as: authsecret, weaver, identity (?), confirmationui (?)",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 65
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a958421_8e789cb7",
         "filename": "security/README.md",
         "patchSetId": 2
@@ -36,6 +59,29 @@
         "startChar": 4,
         "endLine": 26,
         "endChar": 50
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80988d4c_586337f4",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-25T16:58:56Z",
+      "side": 1,
+      "message": "I\u0027m assuming it would be beyond the scope of this document to explain how this would integrate with biometrics?",
+      "range": {
+        "startLine": 32,
+        "startChar": 20,
+        "endLine": 32,
+        "endChar": 64
       },
       "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
