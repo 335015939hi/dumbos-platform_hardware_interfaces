@@ -16,6 +16,23 @@
       "message": "This is needed for",
       "revId": "2cc480c07790777ec9b82cae8aaa23a1e0a13cfc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49b4664a_34294e68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-08-25T16:50:47Z",
+      "side": 1,
+      "message": "unrelated build issue in presubmit, retrying",
+      "revId": "2cc480c07790777ec9b82cae8aaa23a1e0a13cfc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
