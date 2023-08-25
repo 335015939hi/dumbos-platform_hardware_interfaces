@@ -94,6 +94,30 @@
       },
       "revId": "c626d26631958158e911614a49e21165e90b5068",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11af5fdc_6d5cc35e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-08-25T00:23:54Z",
+      "side": 1,
+      "message": "Even without this topic I got the same test result\n```\nTotal Tests       : 8\nPASSED            : 6\nFAILED            : 2\n```\nIt looks like the changes aren\u0027t the reason for failures.",
+      "parentUuid": "ffcea861_afab1fe3",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "c626d26631958158e911614a49e21165e90b5068",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
