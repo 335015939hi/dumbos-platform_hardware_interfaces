@@ -34,5 +34,6 @@
 package android.hardware.security.authgraph;
 @VintfStability
 parcelable Identity {
-  byte[] identity;
+  byte[] certChain;
+  @nullable byte[] policy;
 }
