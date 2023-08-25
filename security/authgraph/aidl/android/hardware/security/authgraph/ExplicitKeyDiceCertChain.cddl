@@ -1,0 +1,31 @@
+ExplicitKeyDiceCertChain = [
+    1, ; version, hopefully will never change
+    DiceCertChainInitialPayload,
+    + DiceChainEntry
+]
+
+DiceCertChainInitialPayload = {
+    -4670552 : bstr .cbor PubKeyEd25519 /
+               bstr .cbor PubKeyECDSA256 /
+               bstr .cbor PubKeyECDSA384 ; subjectPublicKey
+}
+
+DiceChainEntry = [                            ; COSE_Sign1 (untagged)
+    protected : bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 / AlgorithmES384 },
+    unprotected: {},
+    payload: bstr .cbor DiceChainEntryPayload/ COSE_Sign1,
+    signature: bstr ; PureEd25519(SigningKey, DiceChainEntryInput) /
+                    ; ECDSA(SigningKey, DiceChainEntryInput)
+                    ; See RFC 8032 for details of how to encode the signature value
+                    ; for Ed25519.
+]
+
+DiceChainEntryInput = [
+    context: "Signature1",
+    protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 / AlgorithmES384 },
+    external_aad: bstr .size 0,
+    payload: bstr .cbor DiceChainEntryPayload/ COSE_Sign1
+]
+
+; see hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/
+; IRemotelyProvisionedComponent.aidl for the CDDL of DiceChainEntryPayload

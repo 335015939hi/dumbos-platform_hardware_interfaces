@@ -1,0 +1,22 @@
+DicePolicy = [
+    1, ; version, hopefully will never change
+    + certificateConstraintList
+]
+
+certificateConstraintList = [
+    * certificateConstraint
+]
+
+certificateConstraint = exactMatchConstraint / hashConstraint / geConstraint
+
+exactMatchConstraint = [1, keySpec, value]
+hashConstraint = [2, keySpec, hashAlgorithm, bstr]
+geConstraint = [3, keySpec, int]
+
+keySpec = [value+]
+
+value = bool / int / tstr / bstr
+
+; This is totally arbitrary, suggestions welcome
+hashAlgorithm = 
+    256 / 384 ; SHA-2
