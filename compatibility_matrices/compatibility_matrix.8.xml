@@ -441,7 +441,7 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
+    <hal format="hidl" optional="true" updatable-via-apex="true">
         <name>android.hardware.neuralnetworks</name>
         <version>1.0-3</version>
         <interface>
