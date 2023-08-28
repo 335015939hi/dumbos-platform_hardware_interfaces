@@ -37,8 +37,6 @@ android_hardware_audio_config_default {
 cc_binary {
     name: "android.hardware.audio.service",
 
-    init_rc: ["android.hardware.audio.service.rc"],
-    vintf_fragments: ["android.hardware.audio.sounddose-aidl.xml"],
     relative_install_path: "hw",
     vendor: true,
 
@@ -71,4 +69,33 @@ cc_binary {
 phony {
     name: "android.hardware.audio@2.0-service",
     required: ["android.hardware.audio.service"],
+}
+
+prebuilt_etc {
+    name: "android.hardware.audio.service.rc",
+    src: "android.hardware.audio.service.rc",
+    installable: false,
+}
+
+prebuilt_etc {
+    name: "android.hardware.audio.sounddose-aidl.xml",
+    src: "android.hardware.audio.sounddose-aidl.xml",
+    sub_dir: "vintf",
+    installable: false,
+}
+
+apex {
+    name: "com.android.hardware.audio",
+    manifest: "manifest.json",
+    file_contexts: "file_contexts",  // Default, please edit, see go/android-apex-howto
+    key: "com.android.hardware.key",
+    certificate: ":com.android.hardware.certificate",
+    updatable: false,
+    vendor: true,
+
+    binaries: ["android.hardware.audio.service"],
+    prebuilts: [
+        "android.hardware.audio.service.rc",
+        "android.hardware.audio.sounddose-aidl.xml",
+    ]
 }
