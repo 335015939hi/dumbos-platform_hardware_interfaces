@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+#include <VtsCoreUtil.h>
+
 #include <android-base/logging.h>
 #include <cutils/properties.h>
 
@@ -48,6 +50,19 @@ class HostapdHidlTest
     virtual void SetUp() override {
         wifi_instance_name_ = std::get<0>(GetParam());
         hostapd_instance_name_ = std::get<1>(GetParam());
+        isWifiEnabled_ = testing::checkSubstringInCommandOutput(
+            "/system/bin/cmd wifi status",
+            "Wifi is enabled");
+        isScanAlwaysEnabled_ = testing::checkSubstringInCommandOutput(
+            "/system/bin/cmd wifi status",
+            "Wifi scanning is always available");
+        // Disable Wi-Fi framework to avoid interferences
+        testing::checkSubstringInCommandOutput(
+            "/system/bin/cmd wifi set-wifi-enabled disabled",
+            "X");
+        testing::checkSubstringInCommandOutput(
+            "/system/bin/cmd wifi set-scan-always-available disabled",
+            "X");
         stopSupplicantIfNeeded(wifi_instance_name_);
         startHostapdAndWaitForHidlService(wifi_instance_name_,
                                           hostapd_instance_name_);
@@ -58,9 +73,23 @@ class HostapdHidlTest
     virtual void TearDown() override {
         HIDL_INVOKE_VOID_WITHOUT_ARGUMENTS(hostapd_, terminate);
         stopHostapd(wifi_instance_name_);
+        // restore Wi-Fi state
+        if (isWifiEnabled_) {
+            testing::checkSubstringInCommandOutput(
+                "/system/bin/cmd wifi set-wifi-enabled enabled",
+                "X");
+        }
+        if (isScanAlwaysEnabled_) {
+            testing::checkSubstringInCommandOutput(
+                "/system/bin/cmd wifi set-scan-always-available enabled",
+                "X");
+        }
     }
 
    protected:
+     bool isWifiEnabled_ = false;
+     bool isScanAlwaysEnabled_ = false;
+
     std::string getPrimaryWlanIfaceName() {
         std::array<char, PROPERTY_VALUE_MAX> buffer;
         property_get("wifi.interface", buffer.data(), "wlan0");
