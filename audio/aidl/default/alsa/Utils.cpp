@@ -248,6 +248,11 @@ std::optional<struct pcm_config> getPcmConfig(const StreamContext& context, bool
         LOG(ERROR) << __func__ << ": invalid sample rate=" << config.rate;
         return std::nullopt;
     }
+
+    config.period_size = 0x400;
+    config.period_count = 4;
+    config.start_threshold = config.period_count * config.period_size;
+    config.stop_threshold = config.start_threshold >> 1;
     return config;
 }
 
