@@ -52,6 +52,24 @@
       "parentUuid": "808622b8_28f68265",
       "revId": "570fdd77a5377154a0f008d6430fd01e9e84ee54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "285486e4_25701012",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-08-28T14:07:41Z",
+      "side": 1,
+      "message": "`generateCertificateRequest.cddl` and `generateCertificateRequestV2.cddl` seem like reasonable choices?",
+      "parentUuid": "e1c81ee3_84c47ac3",
+      "revId": "570fdd77a5377154a0f008d6430fd01e9e84ee54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
