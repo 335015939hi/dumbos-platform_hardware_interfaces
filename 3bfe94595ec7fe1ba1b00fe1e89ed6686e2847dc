@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55dac639_8f1dd763",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-08-29T20:56:32Z",
+      "side": 1,
+      "message": "Rather than doing this, please move `health/aidl/OWNERS` to `health/OWNERS`",
+      "revId": "3bfe94595ec7fe1ba1b00fe1e89ed6686e2847dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
