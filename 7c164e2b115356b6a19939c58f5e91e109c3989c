@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5bf5cf2_df4d005e",
+        "filename": "audio/aidl/vts/ModuleConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-29T21:04:51Z",
+      "side": 1,
+      "message": "`ModuleConfig` must not store a raw pointer to `IModule`, because this can easily lead to use after free problems. However, we don\u0027t want to use a shared pointer either in order to avoid holding the module instance. The correct approach is to pass a raw pointer to `IModule` here as well.",
+      "range": {
+        "startLine": 447,
+        "startChar": 5,
+        "endLine": 447,
+        "endChar": 67
+      },
+      "revId": "7c164e2b115356b6a19939c58f5e91e109c3989c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85aef5c3_ddb55800",
+        "filename": "audio/aidl/vts/ModuleConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-29T21:04:51Z",
+      "side": 1,
+      "message": "There seems to be a misunderstanding what does \"attached\" mean. It does not mean \"currently connected,\" instead, \"attached\" is used to label devices that are permanently connected (the value of `connection` in their type is empty), see line 95. I would suggest adding another set like `std::set\u003cint32_t\u003e mConnectedExternalDevicePorts` to hold ids of these ports.",
+      "range": {
+        "startLine": 461,
+        "startChar": 8,
+        "endLine": 461,
+        "endChar": 34
+      },
+      "revId": "7c164e2b115356b6a19939c58f5e91e109c3989c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98d3093f_cc699865",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4028,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-29T21:04:51Z",
+      "side": 1,
+      "message": "This should be in `ModuleConfig`. There is already `ModuleConfig::getBuiltInMicPorts`, it can be generalized to take in a list of types that it needs to filter for.",
+      "range": {
+        "startLine": 4019,
+        "startChar": 0,
+        "endLine": 4028,
+        "endChar": 5
+      },
+      "revId": "7c164e2b115356b6a19939c58f5e91e109c3989c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbb2373b_8691b9fd",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4052,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-29T21:04:51Z",
+      "side": 1,
+      "message": "In the case of remote submix, not finding this port is actually an error in the module configuration, as the module is not usable without it. Thus, the test must fail in this case.",
+      "range": {
+        "startLine": 4049,
+        "startChar": 0,
+        "endLine": 4052,
+        "endChar": 5
+      },
+      "revId": "7c164e2b115356b6a19939c58f5e91e109c3989c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86a94536_8c08285f",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4062,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-29T21:04:51Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 4059,
+        "startChar": 0,
+        "endLine": 4062,
+        "endChar": 5
+      },
+      "revId": "7c164e2b115356b6a19939c58f5e91e109c3989c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "842a4ddb_bd544c94",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4134,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-29T21:04:51Z",
+      "side": 1,
+      "message": "This approach will cause the test to fail if there is no remote submix module in the system. Instead we need to generate the parameters dynamically. A static function needs to get the list of registered modules from `android::getAidlHalInstanceNames(IModule::descriptor)` and filter it of `r_submix` only. Thus, there always be either 1 or 0 elements in the parameter list.",
+      "range": {
+        "startLine": 4134,
+        "startChar": 25,
+        "endLine": 4134,
+        "endChar": 91
+      },
+      "revId": "7c164e2b115356b6a19939c58f5e91e109c3989c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
