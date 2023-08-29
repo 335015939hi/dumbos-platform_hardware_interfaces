@@ -16,6 +16,23 @@
       "message": "Fixed a Typo in AddressType.aidl",
       "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58440214_61fc9be2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-08-29T23:41:33Z",
+      "side": 1,
+      "message": "It looks like this interface needs to be added to the compatibility matrix:\n\n```\nList \u0027out/target/product/generic_arm64/system/etc/vintf/\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.8.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.5.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.9.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.6.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.4.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.device.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/manifest.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.7.xml\u0027: OK\nERROR: The following AIDL packages are not found in any compatibility matrix fragments:\nandroid.hardware.bluetooth.lmp_event@1\n- If this is a new package, add it to the latest framework compatibility matrix.\n- If no interface should be added to the framework compatibility matrix (e.g. types-only package), add it to the exempt list in libvintf_fcm_exclude.\n```",
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
