@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd3b287_08f8d4fb",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-08-29T15:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc9e9ae3_701ba420",
+      "range": {
+        "startLine": 197,
+        "startChar": 27,
+        "endLine": 197,
+        "endChar": 65
+      },
+      "revId": "019b13ef3e9fad8bc117ddf6bceee868b9e27551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f33b61f_ca49b28e",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd1461e4_2c6b5802",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-08-29T15:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f33b61f_ca49b28e",
+      "range": {
+        "startLine": 203,
+        "startChar": 8,
+        "endLine": 203,
+        "endChar": 72
+      },
+      "revId": "019b13ef3e9fad8bc117ddf6bceee868b9e27551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b4a7693_466afbcc",
@@ -60,6 +108,54 @@
       "writtenOn": "2023-08-22T22:08:53Z",
       "side": 1,
       "message": "This line can be factored out after the `if (mIsInput)` statement.",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 64
+      },
+      "revId": "019b13ef3e9fad8bc117ddf6bceee868b9e27551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcc50d30_2e3b0bff",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-08-29T15:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b4a7693_466afbcc",
+      "range": {
+        "startLine": 209,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 64
+      },
+      "revId": "019b13ef3e9fad8bc117ddf6bceee868b9e27551",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f3f34d8_0f74bbc9",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-08-29T15:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b4a7693_466afbcc",
       "range": {
         "startLine": 209,
         "startChar": 0,
