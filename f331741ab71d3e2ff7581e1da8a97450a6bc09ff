@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "956cb10d_6474e554",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-29T20:40:14Z",
+      "side": 1,
+      "message": "The `Stream` code actually does this before calling `refinePosition`: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/Stream.cpp;l\u003d123;drc\u003dff1f1f34940662b2ebd94c933259c4d0161b4c44. Since this code only corrects frames offset, there is no need to re-query current time.",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 56
+      },
+      "revId": "f331741ab71d3e2ff7581e1da8a97450a6bc09ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "315e6953_0151cc5f",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-29T20:40:14Z",
+      "side": 1,
+      "message": "This seems like the case where \"readCounterFrames\" is actually needed. The reason is because the context exists per stream, thus there is a context for an input stream, and the context for the output stream. Thus, the frame count from the context is the number of frames received by the writer. Whereas, the original code was checking the frame counter for the frames send by the reader.\n\nSo we need to retain \"mReadCounterFrames\" and use it for this case, but for this case only.",
+      "range": {
+        "startLine": 235,
+        "startChar": 24,
+        "endLine": 235,
+        "endChar": 66
+      },
+      "revId": "f331741ab71d3e2ff7581e1da8a97450a6bc09ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

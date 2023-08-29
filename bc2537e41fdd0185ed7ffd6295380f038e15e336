@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ca87814_1828abe6",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-08-29T20:40:14Z",
+      "side": 0,
+      "message": "Did you mention you plan to restore this code? Was it causing any issues?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 46
+      },
+      "revId": "bc2537e41fdd0185ed7ffd6295380f038e15e336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
