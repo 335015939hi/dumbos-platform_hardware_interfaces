@@ -87,6 +87,24 @@
       "parentUuid": "0affcbd8_441c5112",
       "revId": "bb025cd4dfaa7fb40a2c14cf722ca878d08d6b5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f97a9874_cd8006ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-08-29T18:31:44Z",
+      "side": 1,
+      "message": "As discussed offline, IWeaver cannot be used in ISecretkeeper because:\nWeaver allows retrieval of value if the given key matches the key stored in the slot. \nHowever, Secretkeeper must not release secrets even if the `key` matches the stored key - this is done via Session setup api (which is tbd), which establishes shared key between the 2 end point. Most messages will be encrypted after that. The final method would actually be quite simple: \n`byte[] processMessage(in Uuid clientId, in byte[] payload);` \u0026 HAL will be the CDDL in the comments.\n\n\nhttps://docs.google.com/document/d/1IOV35H1gdi-pFfr4pnlBzO6DNJ-Ifmk4bBikIoWkwEo/edit contains the rought sketch of what it roughly might look like.",
+      "parentUuid": "e4edc3f1_66b2a09a",
+      "revId": "bb025cd4dfaa7fb40a2c14cf722ca878d08d6b5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
