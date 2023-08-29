@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "879bc11d_ef9df345",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2023-08-29T15:52:42Z",
+      "side": 1,
+      "message": "we also don\u0027t have https://en.cppreference.com/w/cpp/string/basic_string/starts_with until the libc++ upgrade. (but when we do, removing StartsWith/EndsWith from libbase will be _another_ cleanup we can do!)",
+      "revId": "9e53281dc01f5fd9a32b27086a4cdebc258a2ad0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
