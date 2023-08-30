@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86ef8397_f63c4aaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-08-30T17:54:49Z",
+      "side": 1,
+      "message": "@cmllamas@google.com could you please check if this fix is the correct fix, after reading https://b.corp.google.com/issues/296817256#comment19? I do not have enough knowledge in binder to understand it. The change itself looks okay, except that if an object is dead and the dead notification is not received for any reason, there might be a memory leak.\n\nPerhaps we should crash the service and soft restart the device in this case to avoid the memory leak?",
+      "revId": "41c586fff4591d75ce26a0e1d77579f55a29cdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e3066be_c76e7329",
         "filename": "health/aidl/default/Health.cpp",
         "patchSetId": 1
