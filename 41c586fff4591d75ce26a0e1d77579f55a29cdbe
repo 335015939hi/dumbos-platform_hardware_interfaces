@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e3066be_c76e7329",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-08-30T17:49:49Z",
+      "side": 1,
+      "message": "You still need to call isOk() on the returned `res`. Otherwise, if the object is dead or the binder transaction fails for any reason, the service restarts.\n\nPerhaps:\n\n```\nauto res \u003d callback-\u003ehealthInfoChanged(health_info);\nif (!res.isOk()) {\n    LOG(WARNING) \u003c\u003c \"Cannot call healthInfoChanged on callback: \" \u003c\u003c ret.getDescription(); // and some other codes, etc.\n}\n// b/296817256: Not deleting the callback even on failed transactions.\n```",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 281,
+        "endChar": 45
+      },
+      "revId": "41c586fff4591d75ce26a0e1d77579f55a29cdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01be798b_a5826652",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-08-30T17:49:49Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 328,
+        "startChar": 8,
+        "endLine": 328,
+        "endChar": 45
+      },
+      "revId": "41c586fff4591d75ce26a0e1d77579f55a29cdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
