@@ -33,6 +33,121 @@
       "message": "It looks like this interface needs to be added to the compatibility matrix:\n\n```\nList \u0027out/target/product/generic_arm64/system/etc/vintf/\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.8.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.5.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.9.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.6.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.4.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.device.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/manifest.xml\u0027: OK\nFetch \u0027out/target/product/generic_arm64/system/etc/vintf/compatibility_matrix.7.xml\u0027: OK\nERROR: The following AIDL packages are not found in any compatibility matrix fragments:\nandroid.hardware.bluetooth.lmp_event@1\n- If this is a new package, add it to the latest framework compatibility matrix.\n- If no interface should be added to the framework compatibility matrix (e.g. types-only package), add it to the exempt list in libvintf_fcm_exclude.\n```",
       "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4bd3f86_39ec6249",
+        "filename": "bluetooth/lmp_event/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-30T22:33:23Z",
+      "side": 1,
+      "message": "is there a reason this is a subpackage, vs as part of the existing interfaces?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24bffda3_0469897b",
+        "filename": "bluetooth/lmp_event/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-30T22:33:23Z",
+      "side": 1,
+      "message": "we cannot add qti-owned interface here",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce029de_f91568f5",
+        "filename": "bluetooth/lmp_event/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-30T22:33:23Z",
+      "side": 1,
+      "message": "please do not freeze the interface as we will want to freeze it before the release",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f06795a_d6a0d39e",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/AddressType.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-30T22:33:23Z",
+      "side": 1,
+      "message": "describe what public/random means?",
+      "range": {
+        "startLine": 25,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bf2f988_f9c4b674",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/AddressType.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-30T22:33:23Z",
+      "side": 1,
+      "message": "remove prefix\n\nhttps://source.android.com/docs/core/architecture/aidl/stable-aidl-apis#4_avoid_redundant_prefixes_and_suffixes\n\nConsider enabling warnings in Android.bp: \"-Wredundant-name\"",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
