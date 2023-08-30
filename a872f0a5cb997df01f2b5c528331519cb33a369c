@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c136435_d11b7a2b",
+        "filename": "secretkeeper/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-30T22:37:08Z",
+      "side": 1,
+      "message": "I know we met on this\n\n- can you update the interface to include something that makes it clear it is not a subset of the weaver interface\n- Please also update hardware/interfaces/security/readme.md that David is adding to point to this.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 42
+      },
+      "revId": "a872f0a5cb997df01f2b5c528331519cb33a369c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83d36935_50e0969b",
+        "filename": "secretkeeper/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-30T22:37:08Z",
+      "side": 1,
+      "message": "why not android.hardware.security.secretkeeper? should we put all these trustzone HALs in a specific directory?",
+      "range": {
+        "startLine": 25,
+        "startChar": 28,
+        "endLine": 25,
+        "endChar": 40
+      },
+      "revId": "a872f0a5cb997df01f2b5c528331519cb33a369c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "108616f4_9a61a078",
+        "filename": "secretkeeper/aidl/android/hardware/secretkeeper/default/secretkeeper.rc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-30T22:37:08Z",
+      "side": 1,
+      "message": "nit: root is needed? not nobody?",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 14
+      },
+      "revId": "a872f0a5cb997df01f2b5c528331519cb33a369c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f283fc6_665c8eb1",
+        "filename": "secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-08-30T22:37:08Z",
+      "side": 1,
+      "message": "can we use the full name instead of abbreviation?",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 19
+      },
+      "revId": "a872f0a5cb997df01f2b5c528331519cb33a369c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
