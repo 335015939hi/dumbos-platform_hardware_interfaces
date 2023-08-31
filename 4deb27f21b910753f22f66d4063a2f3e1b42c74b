@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2461ff3a_d4b26201",
+        "filename": "bluetooth/lmp_event/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-08-31T05:16:00Z",
+      "side": 1,
+      "message": "The interface is for client other than BT stack (e.g. digital key framework). So kept it as a separate package.",
+      "parentUuid": "c4bd3f86_39ec6249",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24bffda3_0469897b",
         "filename": "bluetooth/lmp_event/aidl/Android.bp",
         "patchSetId": 7
@@ -71,6 +95,30 @@
       "writtenOn": "2023-08-30T22:33:23Z",
       "side": 1,
       "message": "we cannot add qti-owned interface here",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1656222a_b975e7bd",
+        "filename": "bluetooth/lmp_event/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-08-31T05:16:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "24bffda3_0469897b",
       "range": {
         "startLine": 12,
         "startChar": 0,
@@ -94,6 +142,30 @@
       "writtenOn": "2023-08-30T22:33:23Z",
       "side": 1,
       "message": "please do not freeze the interface as we will want to freeze it before the release",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dce73110_40e74ac4",
+        "filename": "bluetooth/lmp_event/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-08-31T05:16:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dce029de_f91568f5",
       "range": {
         "startLine": 30,
         "startChar": 0,
@@ -140,6 +212,54 @@
       "writtenOn": "2023-08-30T22:33:23Z",
       "side": 1,
       "message": "remove prefix\n\nhttps://source.android.com/docs/core/architecture/aidl/stable-aidl-apis#4_avoid_redundant_prefixes_and_suffixes\n\nConsider enabling warnings in Android.bp: \"-Wredundant-name\"",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 18
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "148957a1_9395f619",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/AddressType.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-08-31T05:16:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8f06795a_d6a0d39e",
+      "range": {
+        "startLine": 25,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "244245e1_cbbb8028",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/AddressType.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-08-31T05:16:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0bf2f988_f9c4b674",
       "range": {
         "startLine": 25,
         "startChar": 4,
