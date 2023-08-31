@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86265dc9_8108a124",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2023-08-31T19:47:42Z",
+      "side": 1,
+      "message": "nit: Could rename the function as `checkMapPatchLevelEntryV3()` since the check is only applied for v3, and avoid the comment here.",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 44
+      },
+      "revId": "c1536fa66f25630287939effa6aaaf843dda2d45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
