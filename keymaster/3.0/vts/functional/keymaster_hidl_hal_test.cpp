@@ -1629,7 +1629,7 @@ TEST_P(SigningOperationsTest, RsaNoDigest) {
               Begin(KeyPurpose::SIGN,
                     AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::RSA_PSS)));
 
-    ASSERT_EQ(ErrorCode::UNSUPPORTED_DIGEST,
+    ASSERT_EQ(ErrorCode::INCOMPATIBLE_DIGEST,
               Begin(KeyPurpose::SIGN, AuthorizationSetBuilder().Padding(PaddingMode::RSA_PSS)));
 }
 
