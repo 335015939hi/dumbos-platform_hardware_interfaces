@@ -20,6 +20,7 @@
 #include <android/binder_process.h>
 #include <utils/Log.h>
 
+#include "config_file.hpp"
 #include "service.hpp"
 #include "thread_chip.hpp"
 
@@ -28,23 +29,20 @@ using aidl::android::hardware::threadnetwork::ThreadChip;
 
 int main(int argc, char* argv[]) {
     CHECK_GT(argc, 1);
-    std::vector<std::shared_ptr<ThreadChip>> threadChips;
+    const char kRadioUrl[] = "radio_url";
+    const std::string serviceName(std::string() + IThreadChip::descriptor + "/chip0");
     aidl::android::hardware::threadnetwork::Service service;
+    ot::Posix::ConfigFile configFile(argv[1]);
+    std::shared_ptr<ThreadChip> threadChip;
+    char url[512];
+    int iterator = 0;
 
-    for (int id = 0; id < argc - 1; id++) {
-        binder_status_t status;
-        const std::string serviceName(std::string() + IThreadChip::descriptor + "/chip" +
-                                      std::to_string(id));
-        auto threadChip = ndk::SharedRefBase::make<ThreadChip>(argv[id + 1]);
+    CHECK_EQ(configFile.Get(kRadioUrl, iterator, url, sizeof(url)), OT_ERROR_NONE);
+    ALOGI("ServiceName: %s, Url: %s", serviceName.c_str(), url);
 
-        CHECK_NE(threadChip, nullptr);
-
-        status = AServiceManager_addService(threadChip->asBinder().get(), serviceName.c_str());
-        CHECK_EQ(status, STATUS_OK);
-
-        ALOGI("ServiceName: %s, Url: %s", serviceName.c_str(), argv[id + 1]);
-        threadChips.push_back(std::move(threadChip));
-    }
+    CHECK_NE((threadChip = ndk::SharedRefBase::make<ThreadChip>(url)), nullptr);
+    CHECK_EQ(AServiceManager_addService(threadChip->asBinder().get(), serviceName.c_str()),
+             STATUS_OK);
 
     ALOGI("Thread Network HAL is running");
 
