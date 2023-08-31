@@ -103,6 +103,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27262958_303ab612",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-08-31T17:54:56Z",
+      "side": 1,
+      "message": "The usage of isOk() is to suppress the restarting of the service. Printing of the warning log is just an extra; you could achieve the same effect with `(void)res.isOk();`",
+      "parentUuid": "2ee4fc62_474519cd",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 281,
+        "endChar": 45
+      },
+      "revId": "41c586fff4591d75ce26a0e1d77579f55a29cdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01be798b_a5826652",
         "filename": "health/aidl/default/Health.cpp",
         "patchSetId": 1
