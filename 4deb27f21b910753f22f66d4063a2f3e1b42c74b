@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dde5c4c0_65b37f3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2007845
+      },
+      "writtenOn": "2023-08-31T06:16:22Z",
+      "side": 1,
+      "message": "Added the compatibility matrix change in latest patch set",
+      "parentUuid": "58440214_61fc9be2",
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4bd3f86_39ec6249",
