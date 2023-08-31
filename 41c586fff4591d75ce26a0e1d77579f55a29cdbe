@@ -79,6 +79,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ee4fc62_474519cd",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2023-08-31T02:12:17Z",
+      "side": 1,
+      "message": "IIUC, binder dead notification should be reliable, and worrys about memory leak in health service seems unnecessary. If we don\u0027t want to restart service here, the only usage of isOk judgement is printing warning logs?",
+      "parentUuid": "9e3066be_c76e7329",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 281,
+        "endChar": 45
+      },
+      "revId": "41c586fff4591d75ce26a0e1d77579f55a29cdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01be798b_a5826652",
         "filename": "health/aidl/default/Health.cpp",
         "patchSetId": 1
