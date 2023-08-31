@@ -35,5 +35,11 @@ aidl_interface {
                 "libnativewindow",
             ],
         },
+        rust: {
+            enabled: true,
+            additional_rustlibs: [
+                "libnativewindow_rust",
+            ],
+        },
     },
 }
