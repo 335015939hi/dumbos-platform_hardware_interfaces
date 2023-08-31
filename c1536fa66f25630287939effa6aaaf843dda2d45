@@ -141,6 +141,30 @@
       },
       "revId": "c1536fa66f25630287939effa6aaaf843dda2d45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4574696e_8ff9e7b9",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-08-31T21:29:43Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure this check is for v3+ only.\n\nNote the fallthrough below to v2.",
+      "parentUuid": "706a0888_0397dbc0",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 44
+      },
+      "revId": "c1536fa66f25630287939effa6aaaf843dda2d45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
