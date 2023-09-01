@@ -151,6 +151,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c743f101_262843f6",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-09-01T17:04:42Z",
+      "side": 1,
+      "message": "\u003e Doesn\u0027t this operation just ignore status?\n\nYou are right; I was thinking about HIDL. In AIDL, `callback-\u003ehealthInfoChanged(health_info);` would indeed ignore the status.\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:frameworks/native/libs/binder/ndk/status.cpp;l\u003d82;drc\u003d6b2ee3f79238893b7f02566d35d73629ad00ea0d\n\n----\n\nThat being said, ignoring returned values like this are considered bad practice because it can\u0027t be determined later whether the author of this code (you) intentionally ignored the transaction errors, or simply forgot to check transaction errors. That\u0027s why I suggest adding a log line.\n\nHowever, on the second thought, this has the potential to introduce a log spam if:\n\n- Some process DoS the service by calling registerCallback() / update() repeatedly\n- The death notification has not arrive\n\nSo maybe just use a INFO or DEBUG level log:\n\n```\nauto res \u003d callback-\u003ehealthInfoChanged(health_info);\nif (!res.isOk()) {\n    LOG(DEBUG) \u003c\u003c \"Cannot call healthInfoChanged. Dead callbacks will be cleaned up later. \" \u003c\u003c ret.getDescription(); // and some other codes, etc.\n}\n// b/296817256: Not deleting the callback even on failed transactions.\n```\n\nor at the bare minimum, write a comment:\n\n```\n// Ignoring errors because ...\n(void)callback-\u003ehealthInfoChanged(health_info);\n// Not deleting callbacks on failed transactions because ...\n```",
+      "parentUuid": "67b934b9_5beebbb8",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 281,
+        "endChar": 45
+      },
+      "revId": "41c586fff4591d75ce26a0e1d77579f55a29cdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01be798b_a5826652",
         "filename": "health/aidl/default/Health.cpp",
         "patchSetId": 1
