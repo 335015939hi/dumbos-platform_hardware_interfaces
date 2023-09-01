@@ -127,6 +127,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67b934b9_5beebbb8",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2023-09-01T14:35:41Z",
+      "side": 1,
+      "message": "Sorry that I don\u0027t understand why not using a variable to store the ret value would cause the process to crash(or service restart). Doesn\u0027t this operation just ignore status? Regardless of whether the status is OK or not?\n```\ncallback-\u003ehealthInfoChanged(health_info);\n```\nThe only possiblity that service restart I could think of is ScopedAStatus destructor, but I found nothing  related in it. So could you please give more hints? Thanks!",
+      "parentUuid": "27262958_303ab612",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 281,
+        "endChar": 45
+      },
+      "revId": "41c586fff4591d75ce26a0e1d77579f55a29cdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "01be798b_a5826652",
         "filename": "health/aidl/default/Health.cpp",
         "patchSetId": 1
