@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54d32547_ff609469",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequest.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2023-09-01T19:28:55Z",
+      "side": 1,
+      "message": "Let\u0027s do that as a separate CL, I want to land this!",
+      "parentUuid": "db4662b2_37dc3a71",
+      "revId": "01f2755889e1080754d2c483a4bdddaf2dfdaea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c67f787_4772b2e1",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-09-01T18:53:15Z",
       "side": 1,
       "message": "nit: misaligned",
+      "range": {
+        "startLine": 35,
+        "startChar": 25,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "01f2755889e1080754d2c483a4bdddaf2dfdaea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca42ecd1_a4f18f06",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2023-09-01T19:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c67f787_4772b2e1",
       "range": {
         "startLine": 35,
         "startChar": 25,
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11c3eb92_7f7e95ec",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2023-09-01T19:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5900c405_463a31c9",
+      "range": {
+        "startLine": 61,
+        "startChar": 29,
+        "endLine": 62,
+        "endChar": 29
+      },
+      "revId": "01f2755889e1080754d2c483a4bdddaf2dfdaea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "918ce9a9_01a419a9",
@@ -94,6 +160,30 @@
       "writtenOn": "2023-09-01T18:53:15Z",
       "side": 1,
       "message": "nit: misaligned",
+      "range": {
+        "startLine": 75,
+        "startChar": 37,
+        "endLine": 76,
+        "endChar": 37
+      },
+      "revId": "01f2755889e1080754d2c483a4bdddaf2dfdaea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2891e99d_8cb6ade0",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2023-09-01T19:28:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "918ce9a9_01a419a9",
       "range": {
         "startLine": 75,
         "startChar": 37,
