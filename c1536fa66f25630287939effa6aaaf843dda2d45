@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c3b6583_a86adf7d",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-09-01T18:41:56Z",
+      "side": 1,
+      "message": "Yeah, that should do it.\n\nI completely blanked on the fact that this runs in-factory as well!",
+      "parentUuid": "4b4f42a6_2c98fdfe",
+      "range": {
+        "startLine": 424,
+        "startChar": 12,
+        "endLine": 424,
+        "endChar": 35
+      },
+      "revId": "c1536fa66f25630287939effa6aaaf843dda2d45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86265dc9_8108a124",
