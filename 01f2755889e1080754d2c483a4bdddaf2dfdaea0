@@ -16,6 +16,92 @@
       "message": "Thanks, PTAL!",
       "revId": "01f2755889e1080754d2c483a4bdddaf2dfdaea0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db4662b2_37dc3a71",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequest.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-09-01T18:53:15Z",
+      "side": 1,
+      "message": "If you\u0027re looking for more CDDL, ProtectedData.aidl has some that could go in here too. I\u0027ll leave it up to you.",
+      "revId": "01f2755889e1080754d2c483a4bdddaf2dfdaea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c67f787_4772b2e1",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-09-01T18:53:15Z",
+      "side": 1,
+      "message": "nit: misaligned",
+      "range": {
+        "startLine": 35,
+        "startChar": 25,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "01f2755889e1080754d2c483a4bdddaf2dfdaea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5900c405_463a31c9",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-09-01T18:53:15Z",
+      "side": 1,
+      "message": "nit: misaligned",
+      "range": {
+        "startLine": 61,
+        "startChar": 29,
+        "endLine": 62,
+        "endChar": 29
+      },
+      "revId": "01f2755889e1080754d2c483a4bdddaf2dfdaea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "918ce9a9_01a419a9",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-09-01T18:53:15Z",
+      "side": 1,
+      "message": "nit: misaligned",
+      "range": {
+        "startLine": 75,
+        "startChar": 37,
+        "endLine": 76,
+        "endChar": 37
+      },
+      "revId": "01f2755889e1080754d2c483a4bdddaf2dfdaea0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
