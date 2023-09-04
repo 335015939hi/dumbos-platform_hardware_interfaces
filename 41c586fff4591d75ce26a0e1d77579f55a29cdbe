@@ -173,6 +173,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1102244e_817f92d9",
+        "filename": "health/aidl/default/Health.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1868486
+      },
+      "writtenOn": "2023-09-04T02:58:17Z",
+      "side": 1,
+      "message": "\u003e That being said, ignoring returned values like this are considered bad practice.\n\nAgree with this, and we solved some binder oneway spam issue before, so we know how important it is! Update a new patchset, please help review again, thanks!",
+      "parentUuid": "c743f101_262843f6",
+      "range": {
+        "startLine": 281,
+        "startChar": 4,
+        "endLine": 281,
+        "endChar": 45
+      },
+      "revId": "41c586fff4591d75ce26a0e1d77579f55a29cdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01be798b_a5826652",
