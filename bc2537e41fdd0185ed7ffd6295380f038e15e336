@@ -22,6 +22,30 @@
       },
       "revId": "bc2537e41fdd0185ed7ffd6295380f038e15e336",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31dcf138_4f60d417",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-04T14:41:23Z",
+      "side": 0,
+      "message": "Yeah I had missed a check which was causing an issue. Updated it now.",
+      "parentUuid": "6ca87814_1828abe6",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 46
+      },
+      "revId": "bc2537e41fdd0185ed7ffd6295380f038e15e336",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
