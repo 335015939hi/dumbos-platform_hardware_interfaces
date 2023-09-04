@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "363e404d_80423ecd",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-04T12:05:45Z",
+      "side": 1,
+      "message": "Added a pointer to a later section which talks about some but not all of those.\n\n(I don\u0027t know anything about authsecret and only a little about identity, and AFAIK neither interact much with the security HALs here.)",
+      "parentUuid": "882b3905_1d415523",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 65
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a958421_8e789cb7",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d96805d2_058cf0b0",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-04T12:05:45Z",
+      "side": 1,
+      "message": "Went for \"trusted\" (leaving aside the question of \"by whom?\")",
+      "parentUuid": "1a958421_8e789cb7",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 50
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80988d4c_586337f4",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-08-25T16:58:56Z",
       "side": 1,
       "message": "I\u0027m assuming it would be beyond the scope of this document to explain how this would integrate with biometrics?",
+      "range": {
+        "startLine": 32,
+        "startChar": 20,
+        "endLine": 32,
+        "endChar": 64
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aa8f914_22915ec1",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-04T12:05:45Z",
+      "side": 1,
+      "message": "Afraid so (particularly as I don\u0027t understand all of it!)",
+      "parentUuid": "80988d4c_586337f4",
       "range": {
         "startLine": 32,
         "startChar": 20,
@@ -133,6 +205,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d81096a_6c735279",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-04T12:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60f68653_6cd80d9d",
+      "range": {
+        "startLine": 68,
+        "startChar": 74,
+        "endLine": 68,
+        "endChar": 78
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f90eecb1_a7cd6861",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-04T12:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36151ebf_673b30e0",
+      "range": {
+        "startLine": 68,
+        "startChar": 95,
+        "endLine": 68,
+        "endChar": 98
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c2cc0ff_a91f599f",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-08-25T16:52:22Z",
       "side": 1,
       "message": "Nit: no comma",
+      "range": {
+        "startLine": 69,
+        "startChar": 40,
+        "endLine": 69,
+        "endChar": 41
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78b84b9e_4944dc55",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-04T12:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c2cc0ff_a91f599f",
       "range": {
         "startLine": 69,
         "startChar": 40,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5634fbec_362799c1",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-04T12:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93fca54e_fbbe2a5f",
+      "range": {
+        "startLine": 70,
+        "startChar": 36,
+        "endLine": 70,
+        "endChar": 49
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30b00531_f85a66dc",
@@ -192,6 +360,30 @@
       "writtenOn": "2023-08-25T16:52:22Z",
       "side": 1,
       "message": "May want to mention widevine here directly as another concrete example.",
+      "range": {
+        "startLine": 71,
+        "startChar": 61,
+        "endLine": 71,
+        "endChar": 72
+      },
+      "revId": "723f84f3b7164173b8044eae00c0f02634faee05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab5701bb_1c0c1d85",
+        "filename": "security/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-04T12:05:45Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure how public Widevine is, but given there\u0027s a developer page for it... done.",
+      "parentUuid": "30b00531_f85a66dc",
       "range": {
         "startLine": 71,
         "startChar": 61,
