@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d04c82c7_55839283",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-09-04T12:08:42Z",
+      "side": 1,
+      "message": "Are",
+      "revId": "1d5b2daffef540767d37b0acd10de958fbfc916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb90d231_ae1db317",
+        "filename": "security/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-09-04T12:08:42Z",
+      "side": 1,
+      "message": "Should we add Secretkeeper HAL here? Or if you\u0027re intending on merging this soon, I can add it in the follow up patch.",
+      "revId": "1d5b2daffef540767d37b0acd10de958fbfc916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
