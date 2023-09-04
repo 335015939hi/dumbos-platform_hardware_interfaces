@@ -33,6 +33,24 @@
       "message": "Should we add Secretkeeper HAL here? Or if you\u0027re intending on merging this soon, I can add it in the follow up patch.",
       "revId": "1d5b2daffef540767d37b0acd10de958fbfc916d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2147693b_5f968d76",
+        "filename": "security/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-04T12:11:58Z",
+      "side": 1,
+      "message": "I think it\u0027s probably best to keep this as a description of the previously-existing HALs in this CL. We can then update it for any new HALs (like Secretkeeper) in separate CLs.",
+      "parentUuid": "fb90d231_ae1db317",
+      "revId": "1d5b2daffef540767d37b0acd10de958fbfc916d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
