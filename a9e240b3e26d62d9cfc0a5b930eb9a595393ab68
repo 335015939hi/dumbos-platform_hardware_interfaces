@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95ea6a1e_676958e4",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4188,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-05T11:37:29Z",
+      "side": 1,
+      "message": "This test fails here.\nSTACKTRACE:\nhardware/interfaces/audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp:4037: Failure\nValue of: worker.hasError()\n  Actual: true\nExpected: false\nReceived ABORT from the logic cycle\nhardware/interfaces/audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp:4039: Failure\nValue of: driver.hasObservablePositionIncrease()\n  Actual: false\nExpected: true\n\ninRead recieves frames to be read as 0.",
+      "range": {
+        "startLine": 4188,
+        "startChar": 0,
+        "endLine": 4188,
+        "endChar": 74
+      },
+      "revId": "a9e240b3e26d62d9cfc0a5b930eb9a595393ab68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb89ae82_55cc1867",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4251,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-05T11:37:29Z",
+      "side": 1,
+      "message": "When we send burst command after closing the stream, it stops responding and test fails due to timeout.",
+      "range": {
+        "startLine": 4247,
+        "startChar": 0,
+        "endLine": 4251,
+        "endChar": 0
+      },
+      "revId": "a9e240b3e26d62d9cfc0a5b930eb9a595393ab68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
