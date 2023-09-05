@@ -135,6 +135,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd97a9bb_9ba1d052",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4031,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-05T23:27:19Z",
+      "side": 1,
+      "message": "This type here needs to depend on whether we are working with an input or an output stream, thus this methods needs to be templated.",
+      "range": {
+        "startLine": 4031,
+        "startChar": 26,
+        "endLine": 4031,
+        "endChar": 36
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "305d9ada_ea304c58",
         "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
         "patchSetId": 3
