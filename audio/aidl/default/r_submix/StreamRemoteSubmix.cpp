@@ -275,6 +275,11 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
 
 ::android::status_t StreamRemoteSubmix::inRead(void* buffer, size_t frameCount,
                                                size_t* actualFrameCount) {
+    if (frameCount == 0) {
+        LOG(VERBOSE) << __func__ << ": frames to be read are 0.";
+        *actualFrameCount = frameCount;
+        return ::android::OK;
+    }
     // about to read from audio source
     sp<MonoPipeReader> source = mCurrentRoute->getSource();
     if (source == nullptr || source->availableToRead() == 0) {
