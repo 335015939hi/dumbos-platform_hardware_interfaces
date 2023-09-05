@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f998eda_52b69204",
+        "filename": "audio/aidl/vts/ModuleConfig.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-05T20:40:39Z",
+      "side": 1,
+      "message": "We need to specify the connection type (string) as well and check it. The reason is that types like \"headset\" can have different types of connections, and microphones, too. The remote submix devices can only have one connection indeed, but their case is more like an exception than rule.",
+      "range": {
+        "startLine": 85,
+        "startChar": 48,
+        "endLine": 85,
+        "endChar": 51
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df1b1551_53295dbe",
+        "filename": "audio/aidl/vts/ModuleConfig.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-05T20:40:39Z",
+      "side": 1,
+      "message": "Since this is for use in tests, it\u0027s better to bubble up these errors. The simplest solution is to make these new methods to return a boolean, and check the result at the test side.",
+      "range": {
+        "startLine": 468,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 5
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04cba76a_8113c1ee",
+        "filename": "audio/aidl/vts/ModuleConfig.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-05T20:40:39Z",
+      "side": 1,
+      "message": "Please use a `const` reference here and below.",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 42,
+        "endChar": 77
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00ecaf39_80251822",
+        "filename": "audio/aidl/vts/ModuleConfig.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-05T20:40:39Z",
+      "side": 1,
+      "message": "Please add a comment that \"connected\" means both permanently attached and currently connected external devices.",
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b73f4965_12d5fa22",
+        "filename": "audio/aidl/vts/ModuleConfig.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-05T20:40:39Z",
+      "side": 1,
+      "message": "This one also needs to be renamed along with the overload on the line 82.",
+      "range": {
+        "startLine": 77,
+        "startChar": 64,
+        "endLine": 77,
+        "endChar": 97
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4d9fdd1_a8a9d87d",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-05T20:40:39Z",
+      "side": 1,
+      "message": "Missing initialization `\u003d nullptr`.",
+      "range": {
+        "startLine": 548,
+        "startChar": 31,
+        "endLine": 548,
+        "endChar": 32
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
