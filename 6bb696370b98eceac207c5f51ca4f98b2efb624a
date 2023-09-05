@@ -69,6 +69,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a4d0004_3487d79a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-05T11:29:49Z",
+      "side": 1,
+      "message": "Added a CL to add tests. https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2731393",
+      "parentUuid": "147261de_aaf86bba",
+      "revId": "6bb696370b98eceac207c5f51ca4f98b2efb624a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "73d629c8_79be3412",
