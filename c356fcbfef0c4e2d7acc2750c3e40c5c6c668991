@@ -131,6 +131,29 @@
       },
       "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "305d9ada_ea304c58",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4092,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-05T22:26:54Z",
+      "side": 1,
+      "message": "Please avoid duplicating the same setup code in each test. What I would suggest is to create a helper class `WithRemoteSubmix` which combines necessary setup steps. Please see `WithAudioPatch` helper which encapsulates setting up two port configs and establishing a patch between them: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp;l\u003d1184;drc\u003d2461891a1c7cc29352e82cb6fd1f23587422aa28\n\nThis way, the purpose of each individual test will become more clear as it will not be obscured by all the numerous setup steps.",
+      "range": {
+        "startLine": 4071,
+        "startChar": 0,
+        "endLine": 4092,
+        "endChar": 85
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
