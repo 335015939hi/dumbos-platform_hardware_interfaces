@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "698e119a_55b2a3fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-09-06T03:59:49Z",
+      "side": 1,
+      "message": "Basically, here in the HAL, I am deleting strong references to binder objects on two cases:\n\n- When I receive dead notification\n- When I call a oneway method on the object and receive DEAD_OBJECT\n\nNote that this HAL uses polling and has a single thread in the process, unlike other HALs. It uses polling so it can also poll on health uevents.\n\nHowever, Hang Lu (the author) think that the second deletion is problematic. See their analysis in the bug (it includes some implementation details in the binder kernel driver that I don\u0027t understand).\n\nHence, please advise whether this CL should go in before the underlying binder bug is fixed.",
+      "parentUuid": "6d04cd63_3fda8d5d",
+      "revId": "41c586fff4591d75ce26a0e1d77579f55a29cdbe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e3066be_c76e7329",
         "filename": "health/aidl/default/Health.cpp",
         "patchSetId": 1
