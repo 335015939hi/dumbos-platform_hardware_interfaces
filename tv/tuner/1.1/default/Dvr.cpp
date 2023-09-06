@@ -35,11 +35,15 @@ Dvr::Dvr(DvrType type, uint32_t bufferSize, const sp<IDvrCallback>& cb, sp<Demux
     mBufferSize = bufferSize;
     mCallback = cb;
     mDemux = demux;
+    if (mType == DvrType::PLAYBACK) {
+        mDvrThreadStart = true;
+        pthread_create(&mDvrThread, NULL, __threadLoopPlayback, this);
+        pthread_setname_np(mDvrThread, "playback_waiting_loop");
+    }
 }
 
 Dvr::~Dvr() {
     mDvrThreadRunning = false;
-    lock_guard<mutex> lock(mDvrThreadLock);
 }
 
 Return<void> Dvr::getQueueDesc(getQueueDesc_cb _hidl_cb) {
@@ -120,9 +124,6 @@ Return<Result> Dvr::detachFilter(const sp<V1_0::IFilter>& filter) {
 
 Return<Result> Dvr::start() {
     ALOGV("%s", __FUNCTION__);
-    if (mDvrThreadRunning) {
-        return Result::SUCCESS;
-    }
 
     if (!mCallback) {
         return Result::NOT_INITIALIZED;
@@ -134,8 +135,6 @@ Return<Result> Dvr::start() {
 
     if (mType == DvrType::PLAYBACK) {
         mDvrThreadRunning = true;
-        pthread_create(&mDvrThread, NULL, __threadLoopPlayback, this);
-        pthread_setname_np(mDvrThread, "playback_waiting_loop");
     } else if (mType == DvrType::RECORD) {
         mRecordStatus = RecordStatus::DATA_READY;
         mDemux->setIsRecording(mType == DvrType::RECORD);
@@ -150,7 +149,6 @@ Return<Result> Dvr::stop() {
     ALOGV("%s", __FUNCTION__);
 
     mDvrThreadRunning = false;
-    lock_guard<mutex> lock(mDvrThreadLock);
 
     mIsRecordStarted = false;
     mDemux->setIsRecording(false);
@@ -160,7 +158,10 @@ Return<Result> Dvr::stop() {
 
 Return<Result> Dvr::flush() {
     ALOGV("%s", __FUNCTION__);
-
+    int size = mDvrMQ->availableToRead();
+    char* buffer = new char[size];
+    mDvrMQ->read((unsigned char*)&buffer[0], size);
+    delete[] buffer;
     mRecordStatus = RecordStatus::DATA_READY;
 
     return Result::SUCCESS;
@@ -169,8 +170,10 @@ Return<Result> Dvr::flush() {
 Return<Result> Dvr::close() {
     ALOGV("%s", __FUNCTION__);
 
-    mDvrThreadRunning = false;
-    lock_guard<mutex> lock(mDvrThreadLock);
+    if (mType == DvrType::PLAYBACK) {
+        mDvrThreadStart = false;
+        pthread_join(mDvrThread, NULL);
+    }
     return Result::SUCCESS;
 }
 
@@ -207,41 +210,43 @@ void Dvr::playbackThreadLoop() {
     ALOGD("[Dvr] playback threadLoop start.");
     lock_guard<mutex> lock(mDvrThreadLock);
 
-    while (mDvrThreadRunning) {
-        uint32_t efState = 0;
-        status_t status =
-                mDvrEventFlag->wait(static_cast<uint32_t>(DemuxQueueNotifyBits::DATA_READY),
-                                    &efState, WAIT_TIMEOUT, true /* retry on spurious wake */);
-        if (status != OK) {
-            ALOGD("[Dvr] wait for data ready on the playback FMQ");
-            continue;
-        }
+    while (mDvrThreadStart) {
+        if (mDvrThreadRunning) {
+            uint32_t efState = 0;
+            status_t status =
+                    mDvrEventFlag->wait(static_cast<uint32_t>(DemuxQueueNotifyBits::DATA_READY),
+                                        &efState, WAIT_TIMEOUT, true /* retry on spurious wake */);
+            if (status != OK) {
+                ALOGD("[Dvr] wait for data ready on the playback FMQ");
+                continue;
+            }
 
-        // If the both dvr playback and dvr record are created, the playback will be treated as
-        // the source of the record. isVirtualFrontend set to true would direct the dvr playback
-        // input to the demux record filters or live broadcast filters.
-        bool isRecording = mDemux->isRecording();
-        bool isVirtualFrontend = isRecording;
+            // If the both dvr playback and dvr record are created, the playback will be treated as
+            // the source of the record. isVirtualFrontend set to true would direct the dvr playback
+            // input to the demux record filters or live broadcast filters.
+            bool isRecording = mDemux->isRecording();
+            bool isVirtualFrontend = isRecording;
 
-        if (mDvrSettings.playback().dataFormat == DataFormat::ES) {
-            if (!processEsDataOnPlayback(isVirtualFrontend, isRecording)) {
-                ALOGE("[Dvr] playback es data failed to be filtered. Ending thread");
+            if (mDvrSettings.playback().dataFormat == DataFormat::ES) {
+                if (!processEsDataOnPlayback(isVirtualFrontend, isRecording)) {
+                    ALOGE("[Dvr] playback es data failed to be filtered. Ending thread");
+                    break;
+                }
+                maySendPlaybackStatusCallback();
+                continue;
+            }
+
+            // Our current implementation filter the data and write it into the filter FMQ immediately
+            // after the DATA_READY from the VTS/framework
+            // This is for the non-ES data source, real playback use case handling.
+            if (!readPlaybackFMQ(isVirtualFrontend, isRecording) ||
+                !startFilterDispatcher(isVirtualFrontend, isRecording)) {
+                ALOGE("[Dvr] playback data failed to be filtered. Ending thread");
                 break;
             }
+
             maySendPlaybackStatusCallback();
-            continue;
         }
-
-        // Our current implementation filter the data and write it into the filter FMQ immediately
-        // after the DATA_READY from the VTS/framework
-        // This is for the non-ES data source, real playback use case handling.
-        if (!readPlaybackFMQ(isVirtualFrontend, isRecording) ||
-            !startFilterDispatcher(isVirtualFrontend, isRecording)) {
-            ALOGE("[Dvr] playback data failed to be filtered. Ending thread");
-            break;
-        }
-
-        maySendPlaybackStatusCallback();
     }
 
     mDvrThreadRunning = false;

@@ -138,6 +138,7 @@ class Dvr : public IDvr {
      * If a specific filter's writing loop is still running
      */
     bool mDvrThreadRunning;
+    bool mDvrThreadStart;
     bool mKeepFetchingDataFromFrontend;
     /**
      * Lock to protect writes to the FMQs
