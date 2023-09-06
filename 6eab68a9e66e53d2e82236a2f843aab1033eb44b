@@ -16,6 +16,24 @@
       "message": "Cherry-picked from aosp/2653804 to the Android 12 test branch.",
       "revId": "6eab68a9e66e53d2e82236a2f843aab1033eb44b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb65721c_aa81652e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2023-09-06T16:31:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec886a7_ca2b9e16",
+      "revId": "6eab68a9e66e53d2e82236a2f843aab1033eb44b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
