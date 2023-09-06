@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d9fa082_03acce13",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4162,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-06T13:25:20Z",
+      "side": 1,
+      "message": "@tommychiu@google.com :  I *think* StrongBox may need a fix here -- IIUC (see the linked bug) it\u0027s not possible for a Java app to import EC keys into StrongBox pre-Android U.",
+      "revId": "9b8d75eacb8288f98f8697d7884123840f54c60c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
