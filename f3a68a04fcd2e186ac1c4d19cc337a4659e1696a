@@ -33,6 +33,23 @@
       "message": "Albert, can you provide code review (for Code-owners flag)?",
       "revId": "f3a68a04fcd2e186ac1c4d19cc337a4659e1696a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c17f1d9_affc9248",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1110792
+      },
+      "writtenOn": "2023-09-06T17:28:36Z",
+      "side": 1,
+      "message": "Albert, please provide Code Owner vote.",
+      "revId": "f3a68a04fcd2e186ac1c4d19cc337a4659e1696a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
