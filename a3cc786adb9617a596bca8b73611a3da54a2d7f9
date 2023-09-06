@@ -33,6 +33,24 @@
       "message": "Will merge this in [this cherry-pick](https://r.android.com/2740896) in order to get the fix into the Android 12 test suite.",
       "revId": "a3cc786adb9617a596bca8b73611a3da54a2d7f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29a51117_341de6b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1845383
+      },
+      "writtenOn": "2023-09-06T05:12:56Z",
+      "side": 1,
+      "message": "Thank you. But shouldn\u0027t this fix get merged into mainline as well? I believe all newer Android versions will be better with this patch.",
+      "parentUuid": "04e4ebf8_f29114ec",
+      "revId": "a3cc786adb9617a596bca8b73611a3da54a2d7f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
