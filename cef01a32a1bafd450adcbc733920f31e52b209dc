@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79004094_09625dde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-09-06T03:56:04Z",
+      "side": 1,
+      "message": "As a health HAL owner, I am okay with this change, but I also agree with Steven that the potential binder bug that cause this should be fixed instead. I am not that familiar with binder to recommend which one is the best practice (actively delete DEAD_OBJECT binder objects, or not)\n\nHence I\u0027ll leave this to the binder folks to +2. @smoreland@google.com @cmllamas@google.com please advise on whether this change should go in.",
+      "revId": "cef01a32a1bafd450adcbc733920f31e52b209dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
