@@ -161,3 +161,7 @@ PubKeyECDSA384 = {               ; COSE_Key
 AlgorithmES256 = -7
 AlgorithmES384 = -35
 AlgorithmEdDSA = -8
+
+; see PublicKey.cddl for PublicKey definition
+
+; see the appropriate DeviceInfoV*.cddl file for DeviceInfo definition
