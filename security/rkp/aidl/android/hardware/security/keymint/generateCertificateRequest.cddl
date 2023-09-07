@@ -10,8 +10,8 @@ SignedSignatureKey = [              ; COSE_Sign1
     unprotected: {},
     payload: bstr .cbor SignatureKeyEd25519 /
                 bstr .cbor SignatureKeyP256,
-    signature: bstr PureEd25519(.cbor SignatureKeySignatureInput) /
-                bstr ECDSA(.cbor SignatureKeySignatureInput)
+    signature: bstr ; PureEd25519(.cbor SignatureKeySignatureInput) /
+                    ; ECDSA(.cbor SignatureKeySignatureInput)
 ]
 
 SignatureKeyEd25519 = {             ; COSE_Key
@@ -41,9 +41,9 @@ SignatureKeySignatureInput = [
 SignedEek = [
     protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 },
     unprotected: {},
-    payload: bstr .cbor EekX25519 / .cbor EekP256,
-    signature: bstr PureEd25519(.cbor EekSignatureInput) /
-                bstr ECDSA(.cbor EekSignatureInput)
+    payload: bstr .cbor EekX25519 / EekP256,
+    signature: bstr ; PureEd25519(.cbor EekSignatureInput) /
+                    ; ECDSA(.cbor EekSignatureInput)
 ]
 
 EekX25519 = {            ; COSE_Key
@@ -67,7 +67,7 @@ EekSignatureInput = [
     context: "Signature1",
     body_protected: bstr .cbor { 1 : AlgorithmEdDSA / AlgorithmES256 },
     external_aad: bstr .size 0,
-    payload: bstr .cbor EekX25519 / .cbor EekP256
+    payload: bstr .cbor EekX25519 / EekP256
 ]
 
 AlgorithmES256 = -7      ; RFC 8152 section 8.1
@@ -90,3 +90,5 @@ KeysToMacStructure = [
     ; Payload is PublicKeys from keysToSign argument, in provided order.
     payload : bstr .cbor [ * PublicKey ]
 ]
+
+; see PublicKey.cddl for PublicKey definition
