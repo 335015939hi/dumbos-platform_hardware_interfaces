@@ -1,0 +1,4 @@
+service vendor.lmp_event-default /vendor/bin/hw/android.hardware.bluetooth.lmp_event-service.example
+    class hal
+    user bluetooth
+    group bluetooth
