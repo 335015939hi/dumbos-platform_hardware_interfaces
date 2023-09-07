@@ -251,10 +251,10 @@ class EffectHelper {
         if (s.size()) {
             const auto min = *s.begin(), max = *s.rbegin();
             s.insert(min + (max - min) / 2);
-            if (min != minLimit) {
+            if (min > minLimit) {
                 s.insert(min - 1);
             }
-            if (max != maxLimit) {
+            if (max < maxLimit) {
                 s.insert(max + 1);
             }
         }
