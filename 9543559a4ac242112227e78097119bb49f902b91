@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2245dee6_a2e1edeb",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-07T21:30:52Z",
+      "side": 1,
+      "message": "I\u0027m wondering—if min or max is off limits, aren\u0027t we risking of having an overflow when trying to calculate the middle value as well?",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 44
+      },
+      "revId": "9543559a4ac242112227e78097119bb49f902b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
