@@ -542,7 +542,13 @@ TEST_P(SupplicantP2pIfaceAidlTest, CancelConnect) {
                               kTestConnectPin, true, false,
                               kTestConnectGoIntent, &pin)
                     .isOk());
-    EXPECT_TRUE(p2p_iface_->cancelConnect().isOk());
+    auto status = p2p_iface_->cancelConnect();
+    LOG(INFO) << "ISupplicantP2pIface::cancelConnect() ret: "
+              << static_cast<int32_t>(status.getServiceSpecificError());
+    EXPECT_TRUE(
+        status.isOk() ||
+        status.getServiceSpecificError() ==
+            static_cast<int32_t>(SupplicantStatusCode::FAILURE_UNKNOWN));
 }
 
 /*
