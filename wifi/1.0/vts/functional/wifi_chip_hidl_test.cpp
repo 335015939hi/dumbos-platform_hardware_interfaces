@@ -75,6 +75,7 @@ class WifiChipHidlTest : public ::testing::TestWithParam<std::string> {
 
         wifi_chip_ = getWifiChip(GetInstanceName());
         ASSERT_NE(nullptr, wifi_chip_.get());
+        p2p_supported_ = doesChipSupportIfaceType(wifi_chip_, IfaceType::P2P);
     }
 
     virtual void TearDown() override { stopWifi(GetInstanceName()); }
@@ -123,6 +124,7 @@ class WifiChipHidlTest : public ::testing::TestWithParam<std::string> {
     }
 
     sp<IWifiChip> wifi_chip_;
+    bool p2p_supported_;
 
    protected:
     std::string GetInstanceName() { return GetParam(); }
@@ -335,6 +337,7 @@ TEST_P(WifiChipHidlTest, GetDebugHostWakeReasonStats) {
  * succeeds.
  */
 TEST_P(WifiChipHidlTest, CreateP2pIface) {
+    if (!p2p_supported_) GTEST_SKIP() << "P2P is not supported";
     configureChipForIfaceType(IfaceType::P2P, true);
 
     sp<IWifiP2pIface> iface;
@@ -349,6 +352,7 @@ TEST_P(WifiChipHidlTest, CreateP2pIface) {
  * iface name is returned via the list.
  */
 TEST_P(WifiChipHidlTest, GetP2pIfaceNames) {
+    if (!p2p_supported_) GTEST_SKIP() << "P2P is not supported";
     configureChipForIfaceType(IfaceType::P2P, true);
 
     const auto& status_and_iface_names1 =
@@ -381,6 +385,7 @@ TEST_P(WifiChipHidlTest, GetP2pIfaceNames) {
  * doesn't retrieve an iface object.
  */
 TEST_P(WifiChipHidlTest, GetP2pIface) {
+    if (!p2p_supported_) GTEST_SKIP() << "P2P is not supported";
     configureChipForIfaceType(IfaceType::P2P, true);
 
     sp<IWifiP2pIface> p2p_iface;
@@ -407,6 +412,7 @@ TEST_P(WifiChipHidlTest, GetP2pIface) {
  * doesn't remove the iface.
  */
 TEST_P(WifiChipHidlTest, RemoveP2pIface) {
+    if (!p2p_supported_) GTEST_SKIP() << "P2P is not supported";
     configureChipForIfaceType(IfaceType::P2P, true);
 
     sp<IWifiP2pIface> p2p_iface;

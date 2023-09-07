@@ -17,6 +17,7 @@
 #include <android-base/logging.h>
 
 #include <android/hardware/wifi/1.0/IWifi.h>
+#include <android/hardware/wifi/1.0/IWifiChip.h>
 #include <android/hardware/wifi/1.0/IWifiP2pIface.h>
 #include <gtest/gtest.h>
 #include <hidl/GtestPrinter.h>
@@ -25,7 +26,9 @@
 #include "wifi_hidl_test_utils.h"
 
 using ::android::sp;
+using ::android::hardware::wifi::V1_0::IfaceType;
 using ::android::hardware::wifi::V1_0::IWifi;
+using ::android::hardware::wifi::V1_0::IWifiChip;
 using ::android::hardware::wifi::V1_0::IWifiP2pIface;
 
 /**
@@ -36,6 +39,11 @@ class WifiP2pIfaceHidlTest : public ::testing::TestWithParam<std::string> {
     virtual void SetUp() override {
         // Make sure test starts with a clean state
         stopWifi(GetInstanceName());
+        sp<IWifiChip> wifi_chip = getWifiChip(GetInstanceName());
+        ASSERT_NE(nullptr, wifi_chip.get());
+        if (!doesChipSupportIfaceType(wifi_chip, IfaceType::P2P)) {
+            GTEST_SKIP() << "P2P is not supported";
+        }
     }
 
     virtual void TearDown() override { stopWifi(GetInstanceName()); }
