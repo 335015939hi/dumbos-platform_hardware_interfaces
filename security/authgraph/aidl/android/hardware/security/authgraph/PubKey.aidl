@@ -24,7 +24,9 @@ import android.hardware.security.authgraph.SignedPubKey;
  */
 @VintfStability
 union PubKey {
-    /*Plain public key material encoded as a CoseKey.*/
+    /**
+     * Plain public key material encoded as a COSE_Key.
+     */
     PlainPubKey plainKey;
 
     /**

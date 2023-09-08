@@ -1,4 +1,4 @@
-Arc = [                            ; COSE_Encrypt0
+Arc = [                            ; COSE_Encrypt0 [RFC9052 s5.2]
     protected : bstr .cbor ArcProtectedHeaders,
     unprotected : {
         5 : bstr .size 12          ; IV
@@ -24,16 +24,16 @@ ArcProtectedHeaders = {
 ; Permissions indicate what an arc can be used with. Permissions are added to an arc during the
 ; `create()` primitive operation and are propagated during `mint` and `snap` primitive operations.
 Permission = &(
-    -4770552 : Identity,  ; "source_id" - in the operations performed by a source, the source adds
-                          ; its own identity to the permissions of an arc.
-    -4770553 : Identity,  ; "sink_id" - in the operations performed by a sink, the sink adds its
-                          ; own identity to the permissions of an arc.
-    -4770555 : [ +Identity ]  ; "minting_allowed" - dsefines the set of TA identities
-                              ; to whom the payload key is allowed to be minted.
-   ?-4770556 : bool           ; "deleted_on_biometric_change" - A Boolean value that
-                              ; indicates whether an auth key issued from a biometric TA is
-                              ; invalidated on new biometric enrollment or removal of all
-                              ; biometrics.
+    -4770552 : IdentityEncoded,  ; "source_id" - in the operations performed by a source, the source adds
+                                 ; its own identity to the permissions of an arc.
+    -4770553 : IdentityEncoded,  ; "sink_id" - in the operations performed by a sink, the sink adds its
+                                 ; own identity to the permissions of an arc.
+    -4770555 : [ +IdentityEncoded ]  ; "minting_allowed" - dsefines the set of TA identities
+                                     ; to whom the payload key is allowed to be minted.
+   ?-4770556 : bool                  ; "deleted_on_biometric_change" - A Boolean value that
+                                     ; indicates whether an auth key issued from a biometric TA is
+                                     ; invalidated on new biometric enrollment or removal of all
+                                     ; biometrics.
 )
 
 ; Limitations indicate what restrictions are applied on the usage of an arc. Permissions are added
@@ -45,8 +45,8 @@ Limitation = &(
                           ; A challenge is issued by a sink (e.g. Keymint TA, Biometric TAs).
 )
 
-; INCLUDE Identity.cddl
-Identity = bstr .cbor Identity
+; INCLUDE Identity.cddl for: Identity
+IdentityEncoded = bstr .cbor Identity
 
 Direction = &(
     In:  1,
@@ -66,11 +66,11 @@ Payload = &(
 )
 
 SecretKey = &(                     ; One of the payload types of an Arc is a secret key
-        SymmetricKey,
-        ECPrivateKey,    ; Private key of a key pair generated for key agreement
+    SymmetricKey,
+    ECPrivateKey,    ; Private key of a key pair generated for key agreement
 )
 
-ECPrivateKey = {              ; COSE_Key
+ECPrivateKey = {              ; COSE_Key [RFC9052 s7]
     1 : 2,                    ; Key type : EC2
     3 : -25,                  ; Algorithm: ECDH ES w/ HKDF 256 - generate key directly
  ?  4 : [7],                  ; Key_ops: [derive key]
@@ -80,15 +80,18 @@ ECPrivateKey = {              ; COSE_Key
    -4 : bstr,                 ; private key (d)
 }
 
-SymmetricKey = {              ; COSE_Key - For symmetric key encryption
+SymmetricKey = {              ; COSE_Key [RFC9052 s7] - For symmetric key encryption
     1 : 4,                    ; Key type : Symmetric
     3 : 3,                    ; Algorithm : AES-GCM mode w/ 256-bit key, 128-bit tag
     4 : [ 4 ],                ; Key_ops: [decrypt]
    -1 : bstr .size 32,        ; Key value (k)
 }
 
-ArcEncStruct = [              ; COSE_Enc_structure
+ArcEncStruct = [              ; COSE_Enc_structure [RFC9052 s5.3]
     context   : "Encrypt0",
     protected : bstr .cbor ArcProtectedHeaders,
     external_aad : bstr .size 0,
 ]
+
+; INCLUDE generateCertificateRequestV2.cddl for: PubKeyEd25519, PubKeyECDSA256, PubKeyECDSA384
+; from hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/

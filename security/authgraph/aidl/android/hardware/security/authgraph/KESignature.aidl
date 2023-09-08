@@ -21,6 +21,6 @@ package android.hardware.security.authgraph;
  */
 @VintfStability
 parcelable KESignature {
-    // TODO: define the CDDL (this is CoseSign1)
+    /* Data is CBOR-encoded according to the `KESignature` CDDL definition in KESignature.cddl */
     byte[] signature;
 }
