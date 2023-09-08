@@ -46,6 +46,30 @@
       },
       "revId": "9543559a4ac242112227e78097119bb49f902b91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d15d5b7f_bb5a3d31",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-08T17:48:43Z",
+      "side": 1,
+      "message": "That\u0027s cool! I was not aware of this trick :) http://aggregate.org/MAGIC/#Average%20of%20Integers",
+      "parentUuid": "bf960f67_a2b7d91e",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 44
+      },
+      "revId": "9543559a4ac242112227e78097119bb49f902b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
