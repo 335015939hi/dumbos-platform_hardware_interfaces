@@ -25,7 +25,9 @@ import android.hardware.security.authgraph.PubKey;
  */
 @VintfStability
 parcelable Key {
-    /*If the Key is an asymmetric key, public key should be present.*/
+    /**
+     * If the Key is an asymmetric key, public key should be present.
+     */
     @nullable PubKey pubKey;
 
     /**

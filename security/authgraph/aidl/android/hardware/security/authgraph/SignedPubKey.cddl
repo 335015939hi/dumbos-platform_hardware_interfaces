@@ -1,0 +1,24 @@
+SignedPubKey = [ ; COSE_Sign1 (untagged) [RFC9052 s4.2]
+    protected: bstr .cbor SignedPubKeyProtected,
+    unprotected: {},
+    payload: bstr .cbor PlainPubKey,
+    signature: bstr     ; PureEd25519(privateKey, SignedPubKeySigStruct) /
+                        ; ECDSA(privateKey, SignedPubKeySigStruct)
+]
+
+SignedPubKeyProtected = {
+    1 : AlgorithmEdDSA / AlgorithmES256,
+    ; TODO: add permission: <self_id, Identity>
+}
+
+SignedPubKeySigStruct = [ ; Sig_structure for SignedPubKey [ RFC9052 s4.4]
+    context: "Signature1",
+    protected: bstr SignedPubKeyProtected,
+    external_aad: bstr .size 0,
+    payload: bstr .cbor PlainPubKey,
+]
+
+AlgorithmES256 = -7              ; [RFC9053 s2.1]
+AlgorithmEdDSA = -8              ; [RFC9053 s2.2]
+
+; INCLUDE PlainPubKey.cddl for: PlainPubKey

@@ -18,10 +18,10 @@ package android.hardware.security.authgraph;
 
 /**
  * One of the two enum variants of the enum type: `PubKey`. This represents the plain public key
- * material encoded as a CoseKey.
+ * material encoded as a COSE_Key.
  */
 @VintfStability
 parcelable PlainPubKey {
-    // TODO: add the CoseKey data format for a public key.
+    /* Data is CBOR-encoded according to the `PlainPubKey` CDDL definition in PlainPubKey.cddl */
     byte[] plainPubKey;
 }
