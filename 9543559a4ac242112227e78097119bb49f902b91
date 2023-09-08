@@ -22,6 +22,30 @@
       },
       "revId": "9543559a4ac242112227e78097119bb49f902b91",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf960f67_a2b7d91e",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-09-08T17:15:52Z",
+      "side": 1,
+      "message": "Right, I updated how we get the mid here with bit op. Thanks!",
+      "parentUuid": "2245dee6_a2e1edeb",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 44
+      },
+      "revId": "9543559a4ac242112227e78097119bb49f902b91",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
