@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86aeb7ee_0b57658d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-09-08T23:29:14Z",
+      "side": 1,
+      "message": "I added the Bug component ID myself after looking through some of the bugs in the git history. Please CMIIW!",
+      "revId": "1627874b5bad0042d853919a864d0766a8489cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
