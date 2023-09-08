@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a2b2bfe_cf8a338e",
+        "filename": "compatibility_matrices/compatibility_matrix.7.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-08T18:07:49Z",
+      "side": 1,
+      "message": "1-2 (though, mostly matters for backporting to Android T)",
+      "range": {
+        "startLine": 407,
+        "startChar": 17,
+        "endLine": 407,
+        "endChar": 18
+      },
+      "revId": "7e2962f03a649dd4eb34c86c0eb93c98a3bc93b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
