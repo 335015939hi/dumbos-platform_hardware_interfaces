@@ -22,6 +22,30 @@
       },
       "revId": "2079fbcd04745b6c4ceb3a7c67d1a48e7be24cd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "057652aa_93eec530",
+        "filename": "radio/aidl/compat/OWNERS",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-09-08T23:14:34Z",
+      "side": 0,
+      "message": "Yes! The top level OWNERS file will take care of the `include`, but I removed twasilczyk from that one and into this one.",
+      "parentUuid": "08656b50_5eb2acc0",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 28
+      },
+      "revId": "2079fbcd04745b6c4ceb3a7c67d1a48e7be24cd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
