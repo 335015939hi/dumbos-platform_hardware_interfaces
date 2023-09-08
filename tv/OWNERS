@@ -1,0 +1,13 @@
+# Bug component: 136752
+
+include platform/frameworks/base:/core/java/android/hardware/hdmi/OWNERS
+
+amyjojo@google.com
+hgchen@google.com
+nchalko@google.com
+quxiangfang@google.com
+shubang@google.com
+yixiaoluo@google.com
+
+# The following lines are unrecognized and need to be handled automatically
+# Bug component: 826094
