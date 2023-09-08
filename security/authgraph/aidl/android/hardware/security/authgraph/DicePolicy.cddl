@@ -13,7 +13,7 @@ exactMatchConstraint = [1, keySpec, value]
 hashConstraint = [2, keySpec, hashAlgorithm, bstr]
 geConstraint = [3, keySpec, int]
 
-keySpec = [value+]
+keySpec = [+value]
 
 value = bool / int / tstr / bstr
 

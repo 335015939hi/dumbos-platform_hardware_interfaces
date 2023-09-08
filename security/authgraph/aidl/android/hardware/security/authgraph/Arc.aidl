@@ -27,7 +27,7 @@ parcelable Arc {
      * An arc is simply AES-GCM. Encryption of a payload P with a key K and additional
      * authentication data (AAD) D: (i.e. Arc = Enc(K, P, D)).
      *
-     * The CDDL of an arc is in Arc.cddl file.
+     * Data is CBOR-encoded according to the `Arc` CDDL definition in Arc.cddl.
      */
     byte[] arc;
 }
