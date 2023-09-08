@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf0c16de_9e7f7b4e",
+        "filename": "tv/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1345588
+      },
+      "writtenOn": "2023-09-08T23:05:38Z",
+      "side": 1,
+      "message": "Hi Devin, please also remove me from the owners, thank you!",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 18
+      },
+      "revId": "eab888f6caed552bed9b29194f9f6189bbfa9d92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "492e698c_270fb1de",
         "filename": "tv/OWNERS",
         "patchSetId": 2
