@@ -37,6 +37,6 @@ package android.hardware.security.authgraph;
  */
 @VintfStability
 parcelable Identity {
-    /* See Identity.cddl */
+    /* Data is CBOR-encoded according to the `Identity` CDDL definition in Identity.cddl */
     byte[] identity;
 }
