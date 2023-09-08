@@ -1,7 +1,8 @@
 Identity = [
     1, ; Version
-    ; INCLUDE ExplicitKeyDiceCertChain.cddl
     cert_chain: bstr .cbor ExplicitKeyDiceCertChain,
-    ; INCLUDE DicePolicy.cddl
     policy: bstr .cbor DicePolicy / nil,
 ]
+
+; INCLUDE ExplicitKeyDiceCertChain.cddl for: ExplicitKeyDiceCertChain
+; INCLUDE DicePolicy.cddl for: DicePolicy
