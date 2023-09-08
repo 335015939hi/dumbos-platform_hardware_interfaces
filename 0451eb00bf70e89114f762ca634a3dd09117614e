@@ -22,6 +22,30 @@
       },
       "revId": "0451eb00bf70e89114f762ca634a3dd09117614e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94a6a65a_8d247eb2",
+        "filename": "broadcastradio/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-09-08T22:53:49Z",
+      "side": 1,
+      "message": "Done. Thank you!",
+      "parentUuid": "8d01fb82_af2c3b94",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 20
+      },
+      "revId": "0451eb00bf70e89114f762ca634a3dd09117614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
