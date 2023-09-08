@@ -34,6 +34,24 @@
       "parentUuid": "7d9fa082_03acce13",
       "revId": "9b8d75eacb8288f98f8697d7884123840f54c60c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ac72419_10f1dd7a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4162,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2023-09-08T06:16:21Z",
+      "side": 1,
+      "message": "Yes, Strongbox used to expect the EC_CURVE be specified. I\u0027ll update it later.\nPlease feel free to merge this CL since it\u0027s guarded by AidlVersion().",
+      "parentUuid": "9e123dfc_cb622ed2",
+      "revId": "9b8d75eacb8288f98f8697d7884123840f54c60c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
