@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78470776_3b0164ad",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/VehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2023-09-08T16:29:05Z",
+      "side": 1,
+      "message": "`rawHandle` should be deleted by `native_handle_delete`?",
+      "revId": "e8f0cf29494e14875ccdaa9ff87d350fb223e7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
