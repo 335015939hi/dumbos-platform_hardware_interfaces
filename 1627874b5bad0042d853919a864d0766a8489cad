@@ -16,6 +16,23 @@
       "message": "I added the Bug component ID myself after looking through some of the bugs in the git history. Please CMIIW!",
       "revId": "1627874b5bad0042d853919a864d0766a8489cad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "657e3b5c_57be81e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2023-09-08T23:35:51Z",
+      "side": 1,
+      "message": "The correct fate of this code is to be deprecated and removed now that server-based RoR is the main solution to this problem, but this is a reasonable fix in the mean time!",
+      "revId": "1627874b5bad0042d853919a864d0766a8489cad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
