@@ -22,6 +22,6 @@ package android.hardware.security.authgraph;
  */
 @VintfStability
 parcelable SignedPubKey {
-    // TODO: add the CoseSign1 data format for a signed public key.
+    /* Data is CBOR-encoded according to the `SignedPubKey` CDDL definition in SignedPubKey.cddl */
     byte[] signedPubKey;
 }
