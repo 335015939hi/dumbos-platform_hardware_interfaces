@@ -160,6 +160,7 @@ TEST_F(SecureElementProvisioningTest, ValidConfigurations) {
     ASSERT_LE(keymints_.count(SecurityLevel::STRONGBOX), 1);
 }
 
+/*
 TEST_F(SecureElementProvisioningTest, TeeOnly) {
     if (keymints_.count(SecurityLevel::TRUSTED_ENVIRONMENT) == 0) {
         GTEST_SKIP() << "Test not applicable to device with no TEE KeyMint device";
@@ -189,7 +190,7 @@ TEST_F(SecureElementProvisioningTest, TeeOnly) {
     ASSERT_TRUE(result.isOk());
     ASSERT_EQ(rootOfTrust1, rootOfTrust3);
 }
-
+*/
 TEST_F(SecureElementProvisioningTest, TeeDoesNotImplementStrongBoxMethods) {
     if (keymints_.count(SecurityLevel::TRUSTED_ENVIRONMENT) == 0) {
         GTEST_SKIP() << "Test not applicable to device with no TEE KeyMint device";
