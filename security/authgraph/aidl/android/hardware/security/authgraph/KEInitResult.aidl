@@ -16,18 +16,21 @@
 
 package android.hardware.security.authgraph;
 
+import android.hardware.security.authgraph.SessionInfo;
+import android.hardware.security.authgraph.SessionInitiationInfo;
+
 /**
- * AuthGraph error codes. Aidl will return these error codes as service specific errors in
- * EX_SERVICE_SPECIFIC.
- * @hide
+ * The return type for the init() step of Diffie-Hellman based authenticated key exchange.
  */
 @VintfStability
-@Backing(type="int")
-enum Error {
-    OK = 0,
-    OPERATION_NOT_SUPPORTED = -1,
-    INVALID_SIGNATURE = -2,
-    INVALID_EC_KEY = -3,
+parcelable KEInitResult {
+    /**
+     * Session identity information.
+     */
+    SessionInitiationInfo sessionInitiationInfo;
 
-    UNKNOWN = -99,
+    /**
+     * Session information.
+     */
+    SessionInfo sessionInfo;
 }
