@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31b2fda6_ff1b5a15",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-09-11T16:25:21Z",
+      "side": 1,
+      "message": "I got the bug component for Android TC core framework from some bugs in the Lights manager framework code. Seems like the right one?\n\nI got the names of OWNERS from go/triage-vintf-test.\n\nPlease let me know alternatives if these aren\u0027t right!",
+      "revId": "58760ada6f7fff3b1a9bfa4b0cc544331bebeff0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
