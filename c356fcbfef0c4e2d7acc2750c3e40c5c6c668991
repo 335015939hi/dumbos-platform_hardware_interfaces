@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "591ce1ea_1179c855",
+        "filename": "audio/aidl/vts/ModuleConfig.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f998eda_52b69204",
+      "range": {
+        "startLine": 85,
+        "startChar": 48,
+        "endLine": 85,
+        "endChar": 51
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df1b1551_53295dbe",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-05T20:40:39Z",
       "side": 1,
       "message": "Since this is for use in tests, it\u0027s better to bubble up these errors. The simplest solution is to make these new methods to return a boolean, and check the result at the test side.",
+      "range": {
+        "startLine": 468,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 5
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a89793c_fa25dba9",
+        "filename": "audio/aidl/vts/ModuleConfig.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df1b1551_53295dbe",
       "range": {
         "startLine": 468,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "803e4124_4e6aa15f",
+        "filename": "audio/aidl/vts/ModuleConfig.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04cba76a_8113c1ee",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 42,
+        "endChar": 77
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00ecaf39_80251822",
@@ -87,6 +159,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35b10d4b_6ff4558d",
+        "filename": "audio/aidl/vts/ModuleConfig.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00ecaf39_80251822",
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b73f4965_12d5fa22",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-09-05T20:40:39Z",
       "side": 1,
       "message": "This one also needs to be renamed along with the overload on the line 82.",
+      "range": {
+        "startLine": 77,
+        "startChar": 64,
+        "endLine": 77,
+        "endChar": 97
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "698eabfc_96aaebf3",
+        "filename": "audio/aidl/vts/ModuleConfig.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b73f4965_12d5fa22",
       "range": {
         "startLine": 77,
         "startChar": 64,
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44357fe1_c535fc52",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4d9fdd1_a8a9d87d",
+      "range": {
+        "startLine": 548,
+        "startChar": 31,
+        "endLine": 548,
+        "endChar": 32
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd97a9bb_9ba1d052",
@@ -156,6 +294,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85b8e786_61c80700",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4031,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd97a9bb_9ba1d052",
+      "range": {
+        "startLine": 4031,
+        "startChar": 26,
+        "endLine": 4031,
+        "endChar": 36
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "305d9ada_ea304c58",
@@ -169,6 +331,30 @@
       "writtenOn": "2023-09-05T22:26:54Z",
       "side": 1,
       "message": "Please avoid duplicating the same setup code in each test. What I would suggest is to create a helper class `WithRemoteSubmix` which combines necessary setup steps. Please see `WithAudioPatch` helper which encapsulates setting up two port configs and establishing a patch between them: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp;l\u003d1184;drc\u003d2461891a1c7cc29352e82cb6fd1f23587422aa28\n\nThis way, the purpose of each individual test will become more clear as it will not be obscured by all the numerous setup steps.",
+      "range": {
+        "startLine": 4071,
+        "startChar": 0,
+        "endLine": 4092,
+        "endChar": 85
+      },
+      "revId": "c356fcbfef0c4e2d7acc2750c3e40c5c6c668991",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a6c3b84_5ff8f542",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4092,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:44:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "305d9ada_ea304c58",
       "range": {
         "startLine": 4071,
         "startChar": 0,
