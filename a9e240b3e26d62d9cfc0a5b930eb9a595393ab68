@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "935b3b99_cf4f3f4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:46:40Z",
+      "side": 1,
+      "message": "Resolved the comments and merged the test with previous test cases.\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/2731393",
+      "revId": "a9e240b3e26d62d9cfc0a5b930eb9a595393ab68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b44d0cc_3036168f",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-09-05T23:29:16Z",
       "side": 1,
       "message": "In this scenario, we should not validate increase of the presentation position. In the case of the remote submix, the \"presentation\" event is consumption of the data by the reader. Since there is no reader, the presentation never happens, thus the presentation position never increases.\n\nYou need to make the validation of the position increase to be optional and do not engage it in this case.",
+      "range": {
+        "startLine": 4080,
+        "startChar": 0,
+        "endLine": 4080,
+        "endChar": 70
+      },
+      "revId": "a9e240b3e26d62d9cfc0a5b930eb9a595393ab68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32490ca1_dfdc344d",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4080,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:46:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b44d0cc_3036168f",
       "range": {
         "startLine": 4080,
         "startChar": 0,
@@ -71,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2678b43_2194ee3b",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4188,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:46:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54250419_8da299ba",
+      "range": {
+        "startLine": 4188,
+        "startChar": 0,
+        "endLine": 4188,
+        "endChar": 74
+      },
+      "revId": "a9e240b3e26d62d9cfc0a5b930eb9a595393ab68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb89ae82_55cc1867",
@@ -108,6 +173,30 @@
       "side": 1,
       "message": "This test does not make sense for the AIDL implementation. In the legacy (C API) implementation, the HAL was in the same process as the audioserver, thus the \"read\" and \"write\" methods were usual in-process method calls, and we could expect them to return an error after the stream was closed. Starting with HIDL, reads and writes are implemented via FMQ and a separate thread. When we close the stream, the thread exits, and the FMQ is released on the HAL side. However, it remains valid on the audioserver side (unfortunately, there is no ability in the FMQ to \"invalidate\" itself), so it can write into it and try to read from it, there just will be no response.",
       "parentUuid": "eb89ae82_55cc1867",
+      "range": {
+        "startLine": 4247,
+        "startChar": 0,
+        "endLine": 4251,
+        "endChar": 0
+      },
+      "revId": "a9e240b3e26d62d9cfc0a5b930eb9a595393ab68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0b92ef8_2e291dae",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4251,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-11T12:46:40Z",
+      "side": 1,
+      "message": "Alright, thanks for the clarification. Removed this test for AIDL.",
+      "parentUuid": "f68c1525_f9a159d7",
       "range": {
         "startLine": 4247,
         "startChar": 0,
