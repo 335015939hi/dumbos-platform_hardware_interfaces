@@ -18,10 +18,13 @@ package android.hardware.security.authgraph;
 
 import android.hardware.security.authgraph.Arc;
 import android.hardware.security.authgraph.Identity;
-import android.hardware.security.authgraph.KEResult;
-import android.hardware.security.authgraph.KESignature;
+import android.hardware.security.authgraph.KEAuthCompleteResult;
+import android.hardware.security.authgraph.KEInitResult;
 import android.hardware.security.authgraph.Key;
 import android.hardware.security.authgraph.PubKey;
+import android.hardware.security.authgraph.SessionIdSignature;
+import android.hardware.security.authgraph.SessionInfo;
+import android.hardware.security.authgraph.SessionInitiationInfo;
 
 /**
  * AuthGraph interface definition for authenticated key exchange between two parties: P1 (source)
@@ -55,7 +58,7 @@ interface IAuthGraphKeyExchange {
      * `Key` sent to `finish` is from an unfinished instance of a key agreement protocol, to prevent
      * any replay attacks in `finish`.
      */
-    KEResult create();
+    SessionInitiationInfo create();
 
     /**
      * This method is invoked on P2 (sink).
@@ -112,7 +115,7 @@ interface IAuthGraphKeyExchange {
      * any replay attacks in `authenticationComplete` and in any subsequent AuthGraph protocol
      * methods which use the shared keys to encrypt the secret messages.
      */
-    KEResult init(
+    KEInitResult init(
             in PubKey peerPubKey, in Identity peerId, in byte[] peerNonce, in int peerVersion);
 
     /**
@@ -165,7 +168,7 @@ interface IAuthGraphKeyExchange {
      *
      * @param ownKey - the key created by P1 (source) in `create()` for key agreement
      *
-     * @return KEResult including the two shared key arcs from step #3, session id and the
+     * @return SessionInfo including the two shared key arcs from step #9, session id and the
      * signature over the session id.
      *
      * Note: The two shared key arcs in the return type: `SessionInfo` serves two purposes:
@@ -176,8 +179,9 @@ interface IAuthGraphKeyExchange {
      * arcs sent to any subsequent AuthGraph protocol methods are valid shared keys agreed with the
      * party identified by `peerId`, to prevent any replay attacks.
      */
-    KEResult finish(in PubKey peerPubKey, in Identity peerId, in KESignature peerSignature,
-            in byte[] peerNonce, in int peerVersion, in Key ownKey);
+    SessionInfo finish(in PubKey peerPubKey, in Identity peerId,
+            in SessionIdSignature peerSignature, in byte[] peerNonce, in int peerVersion,
+            in Key ownKey);
 
     /**
      * This method is invoked on P2 (sink).
@@ -197,7 +201,8 @@ interface IAuthGraphKeyExchange {
      *                     protected headers, the session id and the peer's identity to verify the
      *                     peer's signature over the session id.
      *
-     * @param KEResult including the updated shared key arcs
+     * @param KEAuthCompleteResult including the updated shared key arcs
      */
-    KEResult authenticationComplete(in KESignature peerSignature, in Arc[] sharedKeys);
+    KEAuthCompleteResult authenticationComplete(
+            in SessionIdSignature peerSignature, in Arc[] sharedKeys);
 }
