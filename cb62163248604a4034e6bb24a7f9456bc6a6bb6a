@@ -16,6 +16,24 @@
       "message": "Does this belong in the `ShouldCheckMissingAidlHalsInFcm()` variant below (as it\u0027s AIDL not HIDL)?",
       "revId": "cb62163248604a4034e6bb24a7f9456bc6a6bb6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "058ed918_53dc2673",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-11T19:27:06Z",
+      "side": 1,
+      "message": "Thanks! I changed it now.\nThis was added due to some pre-submit failures and those went away after adding this.",
+      "parentUuid": "9e327b07_011466f3",
+      "revId": "cb62163248604a4034e6bb24a7f9456bc6a6bb6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
