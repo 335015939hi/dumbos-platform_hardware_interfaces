@@ -13,6 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include <android-base/logging.h>
+#include <utils/Log.h>
+
 #include <HdmiCecMock.h>
 #include <fuzzbinder/libbinder_ndk_driver.h>
 #include <fuzzer/FuzzedDataProvider.h>
@@ -24,7 +27,7 @@ using ndk::SharedRefBase;
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
     auto hdmiCecAidl = SharedRefBase::make<HdmiCecMock>();
 
-    fuzzService(hdmiCecAidl->asBinder().get(), FuzzedDataProvider(data, size));
+    fuzzService(hdmiCecAidl->asBinder().get(), std::move(FuzzedDataProvider(data, size)));
 
     return 0;
 }
