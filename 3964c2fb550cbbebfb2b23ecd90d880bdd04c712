@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14870ea7_7f99933d",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-11T16:59:01Z",
+      "side": 1,
+      "message": "I think, we are more interested to know the value of `availableToRead` variable here.",
+      "range": {
+        "startLine": 305,
+        "startChar": 69,
+        "endLine": 305,
+        "endChar": 95
+      },
+      "revId": "3964c2fb550cbbebfb2b23ecd90d880bdd04c712",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
