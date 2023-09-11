@@ -16,6 +16,24 @@
       "message": "I couldn\u0027t find any owners at all here. So it gets explicit default OWNERS and a bug component. Last changes were around 2017!",
       "revId": "b9f2e4fb914f3728858780aa80d4592d89128f7c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8e0bf12_9ec82126",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-11T16:56:11Z",
+      "side": 1,
+      "message": "yeah, it\u0027s deprecated - only in FCM 4 and 5. Very silly interface \"set VR mode on!\" -haha - very basic.",
+      "parentUuid": "f25be664_5c30ac33",
+      "revId": "b9f2e4fb914f3728858780aa80d4592d89128f7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
