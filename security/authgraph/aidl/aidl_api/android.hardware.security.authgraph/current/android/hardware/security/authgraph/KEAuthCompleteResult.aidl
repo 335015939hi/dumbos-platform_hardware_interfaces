@@ -33,6 +33,6 @@
 
 package android.hardware.security.authgraph;
 @VintfStability
-parcelable KESignature {
-  byte[] signature;
+parcelable KEAuthCompleteResult {
+  android.hardware.security.authgraph.Arc[] sharedKeys;
 }

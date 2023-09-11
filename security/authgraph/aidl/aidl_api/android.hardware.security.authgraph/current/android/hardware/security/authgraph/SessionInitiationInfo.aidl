@@ -32,19 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.authgraph;
-/* @hide */
-@Backing(type="int") @VintfStability
-enum Error {
-  OK = 0,
-  INVALID_PEER_NONCE = (-1) /* -1 */,
-  INVALID_KE_KEY = (-2) /* -2 */,
-  INVALID_IDENTITY = (-3) /* -3 */,
-  INVALID_CERT_CHAIN = (-4) /* -4 */,
-  INVALID_SIGNATURE = (-5) /* -5 */,
-  INVALID_PUB_KEY_IN_KEY = (-6) /* -6 */,
-  MISSING_PRIV_KEY_ARC_IN_KEY = (-7) /* -7 */,
-  INVALID_SHARED_KEY_ARCS = (-8) /* -8 */,
-  MEMORY_ALLOCATION_FAILED = (-9) /* -9 */,
-  INTERNAL_ERROR = (-10) /* -10 */,
-  UNIMPLEMENTED = (-11) /* -11 */,
+@VintfStability
+parcelable SessionInitiationInfo {
+  android.hardware.security.authgraph.Key key;
+  android.hardware.security.authgraph.Identity identity;
+  byte[] nonce;
+  int version;
 }

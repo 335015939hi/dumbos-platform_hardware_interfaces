@@ -22,29 +22,30 @@ package android.hardware.security.authgraph;
  * @hide
  */
 @VintfStability
-union Error {
+@Backing(type="int")
+enum Error {
     /* Success */
-    int OK = 0;
+    OK = 0,
     /* Invalid peer nonce for key agreement */
-    int INVALID_PEER_NONCE = -1;
+    INVALID_PEER_NONCE = -1,
     /* Invalid key agreement public key by the peer */
-    int INVALID_KE_KEY = -2;
+    INVALID_KE_KEY = -2,
     /* Invalid identity of the peer */
-    int INVALID_IDENTITY = -3;
+    INVALID_IDENTITY = -3,
     /* Invalid certificate chain in the identity of the peer */
-    int INVALID_CERT_CHAIN = -4;
+    INVALID_CERT_CHAIN = -4,
     /* Invalid signature by the peer */
-    int INVALID_SIGNATURE = -5;
+    INVALID_SIGNATURE = -5,
     /* Invalid public key in the `Key` struct */
-    int INVALID_PUB_KEY_IN_KEY = -6;
+    INVALID_PUB_KEY_IN_KEY = -6,
     /* Invalid private key arc in the `Key` struct */
-    int MISSING_PRIV_KEY_ARC_IN_KEY = -7;
+    MISSING_PRIV_KEY_ARC_IN_KEY = -7,
     /* Invalid shared key arcs */
-    int INVALID_SHARED_KEY_ARCS = -8;
+    INVALID_SHARED_KEY_ARCS = -8,
     /* Memory allocation failed */
-    int MEMORY_ALLOCATION_FAILED = -9;
+    MEMORY_ALLOCATION_FAILED = -9,
     /* Internal processing error */
-    int INTERNAL_ERROR = -10;
+    INTERNAL_ERROR = -10,
     /* Unimplemented */
-    int UNIMPLEMENTED = -11;
+    UNIMPLEMENTED = -11,
 }
