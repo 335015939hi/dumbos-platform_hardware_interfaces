@@ -16,11 +16,16 @@
 
 package android.hardware.security.authgraph;
 
+import android.hardware.security.authgraph.Arc;
+
 /**
- * Signature computed by a party over the session id during authenticated key exchange.
+ * The return type for the authComplete() step of Diffie-Hellman based authenticated key exchange.
  */
 @VintfStability
-parcelable KESignature {
-    /* Data is CBOR-encoded according to the `KESignature` CDDL definition in KESignature.cddl */
-    byte[] signature;
+parcelable KEAuthCompleteResult {
+    /**
+     * The arcs that encrypt the two derived symmetric encryption keys (for two-way communication)
+     * from the party's per-boot key.
+     */
+    Arc[] sharedKeys;
 }

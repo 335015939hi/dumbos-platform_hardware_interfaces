@@ -33,18 +33,18 @@
 
 package android.hardware.security.authgraph;
 /* @hide */
-@VintfStability
-union Error {
-  int OK = 0;
-  int INVALID_PEER_NONCE = (-1) /* -1 */;
-  int INVALID_KE_KEY = (-2) /* -2 */;
-  int INVALID_IDENTITY = (-3) /* -3 */;
-  int INVALID_CERT_CHAIN = (-4) /* -4 */;
-  int INVALID_SIGNATURE = (-5) /* -5 */;
-  int INVALID_PUB_KEY_IN_KEY = (-6) /* -6 */;
-  int MISSING_PRIV_KEY_ARC_IN_KEY = (-7) /* -7 */;
-  int INVALID_SHARED_KEY_ARCS = (-8) /* -8 */;
-  int MEMORY_ALLOCATION_FAILED = (-9) /* -9 */;
-  int INTENAL_ERROR = 10;
-  int UNIMPLEMENTED = (-11) /* -11 */;
+@Backing(type="int") @VintfStability
+enum Error {
+  OK = 0,
+  INVALID_PEER_NONCE = (-1) /* -1 */,
+  INVALID_KE_KEY = (-2) /* -2 */,
+  INVALID_IDENTITY = (-3) /* -3 */,
+  INVALID_CERT_CHAIN = (-4) /* -4 */,
+  INVALID_SIGNATURE = (-5) /* -5 */,
+  INVALID_PUB_KEY_IN_KEY = (-6) /* -6 */,
+  MISSING_PRIV_KEY_ARC_IN_KEY = (-7) /* -7 */,
+  INVALID_SHARED_KEY_ARCS = (-8) /* -8 */,
+  MEMORY_ALLOCATION_FAILED = (-9) /* -9 */,
+  INTERNAL_ERROR = (-10) /* -10 */,
+  UNIMPLEMENTED = (-11) /* -11 */,
 }
