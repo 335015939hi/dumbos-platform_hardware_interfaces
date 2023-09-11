@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8e562ce_0d10481c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-09-11T17:30:54Z",
+      "side": 1,
+      "message": "Using the same bug component of the top level health HAL. Please CMIIW.",
+      "revId": "b0ab0a863b37d16db15e756babfa282497bb1a26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
