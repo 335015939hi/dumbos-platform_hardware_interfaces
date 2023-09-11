@@ -34,6 +34,7 @@
 package android.hardware.security.authgraph;
 /* @hide */
 <<<<<<< HEAD
+<<<<<<< HEAD
 @VintfStability
 union Error {
   int OK = 0;
@@ -49,10 +50,13 @@ union Error {
   int INTERNAL_ERROR = (-10) /* -10 */;
   int UNIMPLEMENTED = (-11) /* -11 */;
 =======
+=======
+>>>>>>> c2f6bee80 (authgraph: split result type)
 @Backing(type="int") @VintfStability
 enum Error {
   OK = 0,
   INVALID_PEER_NONCE = (-1) /* -1 */,
+<<<<<<< HEAD
   INVALID_PEER_KE_KEY = (-2) /* -2 */,
   INVALID_IDENTITY = (-3) /* -3 */,
   INVALID_CERT_CHAIN = (-4) /* -4 */,
@@ -65,4 +69,16 @@ enum Error {
   INTERNAL_ERROR = (-11) /* -11 */,
   UNIMPLEMENTED = (-12) /* -12 */,
 >>>>>>> c19c933b8 (ke)
+=======
+  INVALID_KE_KEY = (-2) /* -2 */,
+  INVALID_IDENTITY = (-3) /* -3 */,
+  INVALID_CERT_CHAIN = (-4) /* -4 */,
+  INVALID_SIGNATURE = (-5) /* -5 */,
+  INVALID_PUB_KEY_IN_KEY = (-6) /* -6 */,
+  MISSING_PRIV_KEY_ARC_IN_KEY = (-7) /* -7 */,
+  INVALID_SHARED_KEY_ARCS = (-8) /* -8 */,
+  MEMORY_ALLOCATION_FAILED = (-9) /* -9 */,
+  INTERNAL_ERROR = (-10) /* -10 */,
+  UNIMPLEMENTED = (-11) /* -11 */,
+>>>>>>> c2f6bee80 (authgraph: split result type)
 }
