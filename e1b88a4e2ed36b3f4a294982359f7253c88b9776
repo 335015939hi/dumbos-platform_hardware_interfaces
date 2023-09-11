@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9d9c55_a80398aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 28
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-11T16:33:21Z",
+      "side": 1,
+      "message": "Now there\u0027s an `interface` does the change to `fcm_exclude.cpp` in the parent CL need to be removed?",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09c5c98f_66f13b47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-11T16:33:21Z",
+      "side": 1,
+      "message": "(I\u0027m not yet fully up to speed, so apologies if I\u0027m asking unhelpful questions.)",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70fa7a16_e9b4c2f6",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-11T16:33:21Z",
+      "side": 1,
+      "message": "Should this be \"AuthGraph\" ?",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5ba702e_c6ce2ba2",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-11T16:33:21Z",
+      "side": 1,
+      "message": "For ease of testing, would it make sense to have a `getSupportedRoles` method that indicates whether a given IAuthGraphKeyExchange instance supports being a source, a sink, or both?  \n\nOr are we assuming that all instances will support either role (which shouldn\u0027t be too hard for vendors as long as they\u0027re based on the reference implementation)?",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c1ffc23_bad94de8",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-11T16:33:21Z",
+      "side": 1,
+      "message": "Doesn\u0027t `init()` also need to return the sink\u0027s `dh_key` so it can be passed to the source on `finish()`?",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3762940_d03973d8",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-11T16:33:21Z",
+      "side": 1,
+      "message": "Is this value also present as signature.payload?  If so, would it make sense to skip this field and just have a `signedSessionId` field?",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "814c0be2_ec6f5458",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-11T16:33:21Z",
+      "side": 1,
+      "message": "Can we clarify which pubkey would be used to validate the signature?  Is it the leaf of the identity?",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

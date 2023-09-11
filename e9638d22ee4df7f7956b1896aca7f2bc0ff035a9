@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2ce9639_940e21ec",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-11T16:33:21Z",
+      "side": 1,
+      "message": "I wonder if these might be better as distinct result types, given the limited overlap between variants?  You could have:\n\n```\ncreate() -\u003e SessionIdentity \u003d {dh_key, identity, nonce}\ninit() -\u003e ResultInit \u003d {SessionInfo, SessionIdentity}\n  SessionInfo \u003d {shared_keys, session_id, signature}\nfinish() -\u003e SessionInfo\nauth_complete() -\u003e ResultAuthComplete \u003d {shared_keys}\n```\n\nWould that work?",
+      "revId": "e9638d22ee4df7f7956b1896aca7f2bc0ff035a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e631d68_eab959de",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-11T16:33:21Z",
+      "side": 1,
+      "message": "super-nit: other field names start with lowercase letter",
+      "revId": "e9638d22ee4df7f7956b1896aca7f2bc0ff035a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30d98154_6a3075ac",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SignedPubKey.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-11T16:33:21Z",
+      "side": 1,
+      "message": "super-nit: other field names start with lowercase letter",
+      "revId": "e9638d22ee4df7f7956b1896aca7f2bc0ff035a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
