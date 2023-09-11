@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f25be664_5c30ac33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-09-11T16:35:18Z",
+      "side": 1,
+      "message": "I couldn\u0027t find any owners at all here. So it gets explicit default OWNERS and a bug component. Last changes were around 2017!",
+      "revId": "b9f2e4fb914f3728858780aa80d4592d89128f7c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
