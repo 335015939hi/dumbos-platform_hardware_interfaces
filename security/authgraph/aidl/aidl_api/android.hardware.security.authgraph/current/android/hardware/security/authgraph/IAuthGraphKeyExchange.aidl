@@ -35,8 +35,8 @@ package android.hardware.security.authgraph;
 /* @hide */
 @VintfStability
 interface IAuthGraphKeyExchange {
-  android.hardware.security.authgraph.KEResult create();
-  android.hardware.security.authgraph.KEResult init(in android.hardware.security.authgraph.PubKey peerDHKey, in android.hardware.security.authgraph.Identity peerId, in byte[] peerNonce);
-  android.hardware.security.authgraph.KEResult finish(in android.hardware.security.authgraph.PubKey peerDHKey, in android.hardware.security.authgraph.Identity peerId, in android.hardware.security.authgraph.KESignature peerSignature, in byte[] peerNonce, in android.hardware.security.authgraph.Key ownDHKey);
-  android.hardware.security.authgraph.KEResult authenticationComplete(in android.hardware.security.authgraph.KESignature peerSignature, in android.hardware.security.authgraph.Arc[] sharedKeys);
+  android.hardware.security.authgraph.SessionInitiationInfo create();
+  android.hardware.security.authgraph.KEInitResult init(in android.hardware.security.authgraph.PubKey peerDHKey, in android.hardware.security.authgraph.Identity peerId, in byte[] peerNonce);
+  android.hardware.security.authgraph.SessionInfo finish(in android.hardware.security.authgraph.PubKey peerDHKey, in android.hardware.security.authgraph.Identity peerId, in android.hardware.security.authgraph.SessionIdSignature peerSignature, in byte[] peerNonce, in android.hardware.security.authgraph.Key ownDHKey);
+  android.hardware.security.authgraph.KEAuthCompleteResult authenticationComplete(in android.hardware.security.authgraph.SessionIdSignature peerSignature, in android.hardware.security.authgraph.Arc[] sharedKeys);
 }

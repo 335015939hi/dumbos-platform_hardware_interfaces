@@ -17,17 +17,11 @@
 package android.hardware.security.authgraph;
 
 /**
- * AuthGraph error codes. Aidl will return these error codes as service specific errors in
- * EX_SERVICE_SPECIFIC.
- * @hide
+ * Signature computed by a party over the session id during authenticated key exchange.
  */
 @VintfStability
-@Backing(type="int")
-enum Error {
-    OK = 0,
-    OPERATION_NOT_SUPPORTED = -1,
-    INVALID_SIGNATURE = -2,
-    INVALID_EC_KEY = -3,
-
-    UNKNOWN = -99,
+parcelable SessionIdSignature {
+    /* Data is CBOR-encoded according to the `SessionIdSignature` CDDL definition in
+     * SessionIdSignature.cddl */
+    byte[] signature;
 }

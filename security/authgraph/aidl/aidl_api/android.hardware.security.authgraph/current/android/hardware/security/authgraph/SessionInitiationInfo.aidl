@@ -33,6 +33,8 @@
 
 package android.hardware.security.authgraph;
 @VintfStability
-parcelable KESignature {
-  byte[] signature;
+parcelable SessionInitiationInfo {
+  android.hardware.security.authgraph.Key dh_key;
+  android.hardware.security.authgraph.Identity identity;
+  byte[] nonce;
 }
