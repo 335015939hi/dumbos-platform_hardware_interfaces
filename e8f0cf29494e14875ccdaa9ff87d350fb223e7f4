@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aecc07eb_d39dcbf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2023-09-11T17:02:28Z",
+      "side": 1,
+      "message": "Marking unresolved.",
+      "parentUuid": "d6db242b_60c2c349",
+      "revId": "e8f0cf29494e14875ccdaa9ff87d350fb223e7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78470776_3b0164ad",
         "filename": "automotive/vehicle/2.0/default/tests/fuzzer/VehicleManager_fuzzer.cpp",
         "patchSetId": 2
