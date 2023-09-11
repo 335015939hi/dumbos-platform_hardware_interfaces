@@ -22,17 +22,18 @@ package android.hardware.security.authgraph;
  * @hide
  */
 @VintfStability
+@Backing(type="int")
 enum Error {
     /* Success */
-    int OK = 0;
+    OK = 0,
     /* Invalid peer nonce for key agreement */
-    int INVALID_PEER_NONCE = -1;
+    INVALID_PEER_NONCE = -1,
     /* Invalid key agreement public key by the peer */
     INVALID_PEER_KE_KEY = -2,
     /* Invalid identity of the peer */
-    int INVALID_IDENTITY = -3;
+    INVALID_IDENTITY = -3,
     /* Invalid certificate chain in the identity of the peer */
-    int INVALID_CERT_CHAIN = -4;
+    INVALID_CERT_CHAIN = -4,
     /* Invalid signature by the peer */
     INVALID_SIGNATURE = -5,
     /* Invalid key agreement key created by a particular party themselves to be used as a handle */
