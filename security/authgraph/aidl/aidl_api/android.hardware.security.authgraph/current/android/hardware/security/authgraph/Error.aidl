@@ -33,10 +33,11 @@
 
 package android.hardware.security.authgraph;
 /* @hide */
-@VintfStability
-union Error {
-  int OK = 0;
-  int OPERATION_NOT_SUPPORTED = (-1) /* -1 */;
-  int INVALID_SIGNATURE = (-2) /* -2 */;
-  int INVALID_EC_KEY = (-3) /* -3 */;
+@Backing(type="int") @VintfStability
+enum Error {
+  OK = 0,
+  OPERATION_NOT_SUPPORTED = (-1) /* -1 */,
+  INVALID_SIGNATURE = (-2) /* -2 */,
+  INVALID_EC_KEY = (-3) /* -3 */,
+  UNKNOWN = (-99) /* -99 */,
 }

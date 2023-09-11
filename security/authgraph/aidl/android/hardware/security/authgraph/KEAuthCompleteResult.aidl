@@ -16,18 +16,16 @@
 
 package android.hardware.security.authgraph;
 
+import android.hardware.security.authgraph.Arc;
+
 /**
- * AuthGraph error codes. Aidl will return these error codes as service specific errors in
- * EX_SERVICE_SPECIFIC.
- * @hide
+ * The return type for the authComplete() step of Diffie-Hellman based authenticated key exchange.
  */
 @VintfStability
-@Backing(type="int")
-enum Error {
-    OK = 0,
-    OPERATION_NOT_SUPPORTED = -1,
-    INVALID_SIGNATURE = -2,
-    INVALID_EC_KEY = -3,
-
-    UNKNOWN = -99,
+parcelable KEAuthCompleteResult {
+    /**
+     * The arcs that encrypt the two derived symmetric encryption keys (for two-way communication)
+     * from the party's per-boot key.
+     */
+    Arc[] sharedKeys;
 }

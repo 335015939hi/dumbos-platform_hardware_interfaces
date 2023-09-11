@@ -18,10 +18,13 @@ package android.hardware.security.authgraph;
 
 import android.hardware.security.authgraph.Arc;
 import android.hardware.security.authgraph.Identity;
-import android.hardware.security.authgraph.KEResult;
+import android.hardware.security.authgraph.KEAuthCompleteResult;
+import android.hardware.security.authgraph.KEInitResult;
 import android.hardware.security.authgraph.KESignature;
 import android.hardware.security.authgraph.Key;
 import android.hardware.security.authgraph.PubKey;
+import android.hardware.security.authgraph.SessionInfo;
+import android.hardware.security.authgraph.SessionInitiationInfo;
 
 /**
  * AuthGraph interface definition for authenticated key exchange between two parties: P1 (source)
@@ -38,12 +41,13 @@ import android.hardware.security.authgraph.PubKey;
 interface IAuthGraphKeyExchange {
     /**
      * This method is invoked on P1 (source).
-     * Creates an ephermeral ECDH key pair and a nonce (of 16 bytes).
+     * Creates an ephemeral ECDH key pair and a nonce (of 16 bytes).
      *
-     * @return: KEResult including the `Key` containing the public key of the created key pair and
-     * an arc from the per-boot key to the private key, the nonce and the persistent identity.
+     * @return: SessionInitiationInfo including the `Key` containing the public key of the created
+     * key pair and an arc from the per-boot key to the private key, the nonce and the persistent
+     * identity.
      */
-    KEResult create();
+    SessionInitiationInfo create();
 
     /**
      * This method is invoked on P2 (sink).
@@ -66,11 +70,11 @@ interface IAuthGraphKeyExchange {
      *
      * @param peerNonce - nonce created by the peer
      *
-     * @return KEResult including the `Key` containing the public key of the created key pair, the
-     * nonce, the persistent identity, two shared key arcs from step #5, session id and the
+     * @return KEInitResult including the `Key` containing the public key of the created key pair,
+     * the nonce, the persistent identity, two shared key arcs from step #5, session id and the
      * signature over the session id.
      */
-    KEResult init(in PubKey peerDHKey, in Identity peerId, in byte[] peerNonce);
+    KEInitResult init(in PubKey peerDHKey, in Identity peerId, in byte[] peerNonce);
 
     /**
      * This method is invoked on P1 (source).
@@ -97,10 +101,10 @@ interface IAuthGraphKeyExchange {
      *
      * @param ownDHKey - the key created by P1 (source) in `create()` for key agreement
      *
-     * @return KEResult including the two shared key arcs from step #3, session id and the
+     * @return SessionInfo including the two shared key arcs from step #3, session id and the
      * signature over the session id.
      */
-    KEResult finish(in PubKey peerDHKey, in Identity peerId, in KESignature peerSignature,
+    SessionInfo finish(in PubKey peerDHKey, in Identity peerId, in KESignature peerSignature,
             in byte[] peerNonce, in Key ownDHKey);
 
     /**
@@ -117,7 +121,7 @@ interface IAuthGraphKeyExchange {
      *                     session id and the peer's identity to verify peer's signature over the
      *                     session id, from the information attached to the arcs' protected headers.
      *
-     * @param KEResult including the updated shared key arcs
+     * @param KEAuthCompleteResult including the updated shared key arcs
      */
-    KEResult authenticationComplete(in KESignature peerSignature, in Arc[] sharedKeys);
+    KEAuthCompleteResult authenticationComplete(in KESignature peerSignature, in Arc[] sharedKeys);
 }
