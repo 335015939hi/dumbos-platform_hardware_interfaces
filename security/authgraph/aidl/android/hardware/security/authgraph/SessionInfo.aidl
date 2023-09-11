@@ -17,35 +17,25 @@
 package android.hardware.security.authgraph;
 
 import android.hardware.security.authgraph.Arc;
-import android.hardware.security.authgraph.Identity;
-import android.hardware.security.authgraph.KESignature;
-import android.hardware.security.authgraph.Key;
+import android.hardware.security.authgraph.SessionIdSignature;
 
 /**
- * The return type of the methods used for Diffie-Hellman based authenticated key exchange.
- * Following are the fields filled in by each method:
- * create       : dh_key, identity, nonce
- * init         : dh_key, shared_keys, session_id, signature, identity, nonce
- * finish       : shared_keys, session_id, signature
- * authComplete : shared_keys
+ * Session information returned as part of Diffie-Hellman based authenticated key exchange.
  */
 @VintfStability
-parcelable KEResult {
-    /* An EC key created for ECDH. */
-    @nullable Key dh_key;
-
+parcelable SessionInfo {
     /**
-     * The arc that encrypts the two derived symmetric encryption keys (for two-way communication)
+     * The arcs that encrypt the two derived symmetric encryption keys (for two-way communication)
      * from the party's per-boot key.
      */
-    @nullable Arc[] sharedKeys;
+    Arc[] sharedKeys;
 
     /**
      * The value of the session id computed by the two parties during the authenticate key
      * exchange. Apart from the usage of the session id by the two peers, session id is also useful
      * to verify (by a third party) that the key exchange was successful.
      */
-    @nullable byte[] sessionId;
+    byte[] sessionId;
 
     /**
      * The signature over the session id, created by the party who computed the session id.
@@ -55,18 +45,5 @@ parcelable KEResult {
      * DiceChainEntries (i.e the public key in the last of the array of DiceChainEntries).
      * Otherwise, the signature is verified with the `DiceCertChainInitialPayload`.
      */
-    @nullable KESignature signature;
-
-    /**
-     * The identity of the party who creates the `dh_key`.
-     */
-    @nullable Identity identity;
-
-    /**
-     * The nonce serves three purposes:
-     * 1. freshness of channel establishment
-     * 2. creting a session id
-     * 3. usage as salt into the HKDF-EXTRACT function during key derivation from the shared DH key
-     */
-    @nullable byte[] nonce;
+    SessionIdSignature signature;
 }

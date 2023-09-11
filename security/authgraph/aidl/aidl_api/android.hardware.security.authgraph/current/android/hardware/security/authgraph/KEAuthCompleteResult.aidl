@@ -33,11 +33,6 @@
 
 package android.hardware.security.authgraph;
 @VintfStability
-parcelable KEResult {
-  @nullable android.hardware.security.authgraph.Key dh_key;
-  @nullable android.hardware.security.authgraph.Arc[] sharedKeys;
-  @nullable byte[] sessionId;
-  @nullable android.hardware.security.authgraph.KESignature signature;
-  @nullable android.hardware.security.authgraph.Identity identity;
-  @nullable byte[] nonce;
+parcelable KEAuthCompleteResult {
+  android.hardware.security.authgraph.Arc[] sharedKeys;
 }
