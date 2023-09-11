@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6db242b_60c2c349",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2023-09-11T17:01:54Z",
+      "side": 1,
+      "message": "Should this change land in the internal branch instead?",
+      "revId": "e8f0cf29494e14875ccdaa9ff87d350fb223e7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78470776_3b0164ad",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "Hi Eric,\nFrom the fuzzer, there is no need to explicitly call `native_handle_delete()` on `rawHandle` as it will be called from `hidl_handle::freeHandle()` of system/libhidl/base/HidlSupport.cpp [Reference: https://cs.android.com/android/platform/superproject/main/+/main:system/libhidl/base/HidlSupport.cpp;l\u003d132;drc\u003d0a5abc5903d20b76024f6ffeb9e27ce335f2cf69;bpv\u003d0;bpt\u003d1]\n\nFor more details about the entire call flow, you could refer to https://b.corp.google.com/issues/232476708#comment2",
       "parentUuid": "78470776_3b0164ad",
+      "revId": "e8f0cf29494e14875ccdaa9ff87d350fb223e7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e48cbaeb_449469c1",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/VehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1594173
+      },
+      "writtenOn": "2023-09-11T17:01:54Z",
+      "side": 1,
+      "message": "`native_handle_clone` creates a new copy of the handle.\n\nsystem/core/libcutils/native_handle.cpp\n```\n    native_handle_t* clone \u003d native_handle_create(handle-\u003enumFds, handle-\u003enumInts);\n    ...\n    memcpy(\u0026clone-\u003edata[handle-\u003enumFds], \u0026handle-\u003edata[handle-\u003enumFds],\n           sizeof(int) * handle-\u003enumInts);\n```\n\nhidl_handle only deletes the cloned copy. The original copy is still owned by the caller. It needs to deleted explicitly before returning from this method.",
+      "parentUuid": "13e3a847_60dd826e",
       "revId": "e8f0cf29494e14875ccdaa9ff87d350fb223e7f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
