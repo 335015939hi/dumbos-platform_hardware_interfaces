@@ -16,6 +16,24 @@
       "message": "`rawHandle` should be deleted by `native_handle_delete`?",
       "revId": "e8f0cf29494e14875ccdaa9ff87d350fb223e7f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13e3a847_60dd826e",
+        "filename": "automotive/vehicle/2.0/default/tests/fuzzer/VehicleManager_fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1889939
+      },
+      "writtenOn": "2023-09-11T05:15:11Z",
+      "side": 1,
+      "message": "Hi Eric,\nFrom the fuzzer, there is no need to explicitly call `native_handle_delete()` on `rawHandle` as it will be called from `hidl_handle::freeHandle()` of system/libhidl/base/HidlSupport.cpp [Reference: https://cs.android.com/android/platform/superproject/main/+/main:system/libhidl/base/HidlSupport.cpp;l\u003d132;drc\u003d0a5abc5903d20b76024f6ffeb9e27ce335f2cf69;bpv\u003d0;bpt\u003d1]\n\nFor more details about the entire call flow, you could refer to https://b.corp.google.com/issues/232476708#comment2",
+      "parentUuid": "78470776_3b0164ad",
+      "revId": "e8f0cf29494e14875ccdaa9ff87d350fb223e7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
