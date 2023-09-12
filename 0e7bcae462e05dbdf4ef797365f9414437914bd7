@@ -22,6 +22,30 @@
       },
       "revId": "0e7bcae462e05dbdf4ef797365f9414437914bd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1083623a_e85b2a62",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-12T21:41:00Z",
+      "side": 1,
+      "message": "This must be the TID exactly, because the other part in `StreamWorker` uses the same calls to get the worker thread TID (called on the line 730): https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/common/StreamWorker.cpp;l\u003d110;drc\u003d4bf6899cc7b7fdd24a43f39f0457829e428d4097.\n\nI think it\u0027s indeed not a big deal if, say, on the host, we will always have 0 here. I don\u0027t think anyone currently runs Android HALs on a non-Android system. This `#define` is just to clarify that it\u0027s an Android-specific thing.",
+      "parentUuid": "26739ba3_47548c4f",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 12
+      },
+      "revId": "0e7bcae462e05dbdf4ef797365f9414437914bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
