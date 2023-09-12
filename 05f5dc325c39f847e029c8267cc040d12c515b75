@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39b938d4_2b50f2fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2023-09-12T13:13:49Z",
+      "side": 1,
+      "message": "Because of merge conflict from revert of https://android-review.git.corp.google.com/q/submissionid:2742356, I uploaded an interim fix for that.",
+      "revId": "05f5dc325c39f847e029c8267cc040d12c515b75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
