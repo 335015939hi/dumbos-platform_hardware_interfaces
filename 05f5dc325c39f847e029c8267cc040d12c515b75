@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf3d3652_d19fc454",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-12T18:00:12Z",
+      "side": 1,
+      "message": "why? what does it do? who reads it?",
+      "revId": "05f5dc325c39f847e029c8267cc040d12c515b75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "39b938d4_2b50f2fc",
