@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "880ec354_894cd927",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-12T06:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e631d68_eab959de",
+      "revId": "e9638d22ee4df7f7956b1896aca7f2bc0ff035a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30d98154_6a3075ac",
@@ -66,6 +84,24 @@
       "writtenOn": "2023-09-11T16:33:21Z",
       "side": 1,
       "message": "super-nit: other field names start with lowercase letter",
+      "revId": "e9638d22ee4df7f7956b1896aca7f2bc0ff035a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3813d8c_1d8f4cd4",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SignedPubKey.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-12T06:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30d98154_6a3075ac",
       "revId": "e9638d22ee4df7f7956b1896aca7f2bc0ff035a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
