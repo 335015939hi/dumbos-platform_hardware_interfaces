@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0811c902_46f443e4",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-12T09:34:30Z",
+      "side": 1,
+      "message": "WithDevicePortConnectedState needs to holds an instance of moduleConfig.",
+      "parentUuid": "1b2eb2e3_c23225bf",
+      "range": {
+        "startLine": 506,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 47
+      },
+      "revId": "6801be153087571e54a0cb03de195d91d6f6f089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5df3d1a0_84675740",
         "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2023-09-11T17:18:54Z",
       "side": 1,
       "message": "Please use `std::unique_ptr` for managing these objects. Manual memory management is too error-prone.",
+      "range": {
+        "startLine": 4030,
+        "startChar": 0,
+        "endLine": 4032,
+        "endChar": 63
+      },
+      "revId": "6801be153087571e54a0cb03de195d91d6f6f089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dd477d9_69ce1e85",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4032,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-12T09:34:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5df3d1a0_84675740",
       "range": {
         "startLine": 4030,
         "startChar": 0,
@@ -77,6 +125,30 @@
       "writtenOn": "2023-09-11T17:18:54Z",
       "side": 1,
       "message": "Using `GTEST_SKIP` in a function will not make the test to exit early. `GTEST_SKIP` can only abort the current function: https://cs.android.com/android/platform/superproject/main/+/main:external/googletest/googletest/include/gtest/gtest.h;l\u003d1887;drc\u003d050b51751840837e9da6dad684c5ae0f87ab1f60. Since skipping a test does not generate a fatal failure (skipping is neither a failure nor a success), `ASSERT_NO_FATAL_FAILURE` will not react to it.\n\nWhat I would suggest is to add a boolean flag field to `WithRemoteSubmix` class which needs to be set to true if the test has to be skipped. Then the test needs to check that flag after doing the setup and use `GTEST_SKIP` at the level of the test function, where it should work properly.",
+      "range": {
+        "startLine": 4070,
+        "startChar": 0,
+        "endLine": 4070,
+        "endChar": 63
+      },
+      "revId": "6801be153087571e54a0cb03de195d91d6f6f089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b1096a1_a6d9690e",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4070,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-12T09:34:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04815a72_c0b0db77",
       "range": {
         "startLine": 4070,
         "startChar": 0,
