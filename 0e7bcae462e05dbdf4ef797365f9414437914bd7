@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26739ba3_47548c4f",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-09-12T21:05:13Z",
+      "side": 1,
+      "message": "nit: do we want to return something like `mCookieId ++` or timestamp so it will also generate different return value?\nThere maybe really rarely case without `__ANDROID__` macro I assume so not really big deal",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 12
+      },
+      "revId": "0e7bcae462e05dbdf4ef797365f9414437914bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
