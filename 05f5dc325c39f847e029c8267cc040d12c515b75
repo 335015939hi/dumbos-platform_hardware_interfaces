@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "78254f67_d06478ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1386891
+      },
+      "writtenOn": "2023-09-12T22:59:03Z",
+      "side": 1,
+      "message": "It is passed in https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/compatibility_matrices/compatibility_matrix.mk;l\u003d114?q\u003dLOCAL_ASSEMBLE_VINTF_ENV_VARS\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain\n\nand used in assemble_vintf\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/libvintf/AssembleVintf.cpp;l\u003d699?q\u003dPOLICYVERS%20assemblevintf\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain",
+      "parentUuid": "cf3d3652_d19fc454",
+      "revId": "05f5dc325c39f847e029c8267cc040d12c515b75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "39b938d4_2b50f2fc",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
