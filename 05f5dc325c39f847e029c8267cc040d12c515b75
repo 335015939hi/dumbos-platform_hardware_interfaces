@@ -33,6 +33,29 @@
       "message": "Because of merge conflict from revert of https://android-review.git.corp.google.com/q/submissionid:2742356, I uploaded an interim fix for that.",
       "revId": "05f5dc325c39f847e029c8267cc040d12c515b75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c780f00a_d0b68d1b",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-12T18:01:08Z",
+      "side": 1,
+      "message": "this is the only other reference I can find in the codebase to this variable",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 16
+      },
+      "revId": "05f5dc325c39f847e029c8267cc040d12c515b75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
