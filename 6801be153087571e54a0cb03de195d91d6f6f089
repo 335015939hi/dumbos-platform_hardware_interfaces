@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e49f37f_1cfa354f",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-12T15:57:39Z",
+      "side": 1,
+      "message": "It doesn\u0027t hold an instance, it uses a raw pointer: `ModuleConfig* mModuleConfig`. Holding a raw pointer does not affect the lifetime of an object, even if somewhere else a smart pointer is used. Would we actually need to hold an instance, we would use a `shared_ptr` in `WithDevicePortConnectedState`.\n\nHowever, the instance of `ModuleConfig` is owned by the test, thus it\u0027s OK to use a raw pointer in `WithDevicePortConnectedState`. That\u0027s why we can keep using `unique_ptr` here, as the test is the sole owner for `ModuleConfig`.\n\nAs a side note, we always use `shared_ptr` for instances of AIDL interfaces (for example, `std::shared_ptr\u003cIModule\u003e`), that\u0027s because they are intended to be held by multiple instances. However, for simple cases it\u0027s preferred to use a simpler `unique_ptr`.",
+      "parentUuid": "0811c902_46f443e4",
+      "range": {
+        "startLine": 506,
+        "startChar": 0,
+        "endLine": 506,
+        "endChar": 47
+      },
+      "revId": "6801be153087571e54a0cb03de195d91d6f6f089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5df3d1a0_84675740",
         "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
         "patchSetId": 4

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee666730_b5a2d4cc",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 4109,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-12T15:57:39Z",
+      "side": 1,
+      "message": "Note: there is no need to init smart pointers with a nullptr explicitly like here. That\u0027s because unlike raw pointers they are classes with a constructor which does this job automatically.",
+      "range": {
+        "startLine": 4109,
+        "startChar": 64,
+        "endLine": 4109,
+        "endChar": 74
+      },
+      "revId": "c49b2bf8fea8eb1baf396ceae1352153f5897a3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
