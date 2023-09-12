@@ -16,6 +16,24 @@
       "message": "There are no breakages in compatibility between go/rfc/8152 and go/rfc/9052 with respect to anything you specifically tagged in here, right? I couldn\u0027t find anything when I last reviewed the two, but wanted to check with you.",
       "revId": "04d2ed4ff01dcfb62d8e6fce492d315b3749e3cc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b6cd47d_714b0d1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-12T06:28:32Z",
+      "side": 1,
+      "message": "No, I don\u0027t think there are any relevant changes (we don\u0027t use countersignatures), I was just using the most recent RFC in references.",
+      "parentUuid": "a2bbd4b2_4a9fa477",
+      "revId": "04d2ed4ff01dcfb62d8e6fce492d315b3749e3cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
