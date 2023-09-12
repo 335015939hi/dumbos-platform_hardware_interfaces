@@ -46,6 +46,30 @@
       },
       "revId": "0e7bcae462e05dbdf4ef797365f9414437914bd7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e1ea982_def5ad00",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-09-12T21:43:18Z",
+      "side": 1,
+      "message": "sgtm, thanks",
+      "parentUuid": "1083623a_e85b2a62",
+      "range": {
+        "startLine": 103,
+        "startChar": 4,
+        "endLine": 103,
+        "endChar": 12
+      },
+      "revId": "0e7bcae462e05dbdf4ef797365f9414437914bd7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
