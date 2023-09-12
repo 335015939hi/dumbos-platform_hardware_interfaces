@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "730cbade_5a60f337",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 28
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-12T05:10:43Z",
+      "side": 1,
+      "message": "Let me try removing it and see if I do not get the pre-submit errors anymore. Thanks for pointing it out.",
+      "parentUuid": "2a9d9c55_a80398aa",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "09c5c98f_66f13b47",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00edb93b_bead10fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-12T05:10:43Z",
+      "side": 1,
+      "message": "Not at all, I really appreciate your questions/comments, which help me to think better and make relevant changes. Thank you!",
+      "parentUuid": "09c5c98f_66f13b47",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70fa7a16_e9b4c2f6",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-09-11T16:33:21Z",
       "side": 1,
       "message": "Should this be \"AuthGraph\" ?",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2fddb27_92bf2827",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-12T05:10:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70fa7a16_e9b4c2f6",
       "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -71,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e60cf80_27e166c7",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-12T05:10:43Z",
+      "side": 1,
+      "message": "`source`/ `sink` distinction actually matters in the context of the auth-bound key management feature of AuthgGraph.\n\nBut I added it here because the persistent arcs created during auth-bound key management stage are based on the channel arcs created in the key agreement stage.\n\nIn the key agreement protocol, this role distinction is used when a party is attaching their identity and the peer\u0027s identity in the protected header. When the key agreement methods are dedicated to either source or sink, they can attach the identity in the protected header using the proper keys (i.e. `source_identity` or `sink_identity`). If we are only concerned about the key agreement protocol, we can simply use `self_identity` and `peer_identity` for this purpose, but I thought it does not extend well when we want to build the auth-bound key management feature on top of the key agreement protocol.\n\nFor the use-cases that use only the key agreement protocol (e.g. LLVM), this distinction is not very relevant, IMO. I assumed that the party who orchestrates the key agreement would know who is a source and who is a sink (in case of GK and Keymint, if the lock setting service orchestrates the key agreement, we can assume that the lock setting service knows that GK is source and KM is sink). \n\nTherefore, I am not yet sure if we need a method like `getSupportedRoles`. But I will keep this question open for now and will try to get @paulcrowley@google.com\u0027s opinion too.",
+      "parentUuid": "d5ba702e_c6ce2ba2",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c1ffc23_bad94de8",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
         "patchSetId": 28
@@ -82,6 +154,24 @@
       "writtenOn": "2023-09-11T16:33:21Z",
       "side": 1,
       "message": "Doesn\u0027t `init()` also need to return the sink\u0027s `dh_key` so it can be passed to the source on `finish()`?",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e10d4ef4_7ce025c3",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-12T05:10:43Z",
+      "side": 1,
+      "message": "Yes, that is right. I updated the list.\n\n(I had the `dh_key` in the returned result for both create and init in the previous patch set, but somehow I had removed it when fixing the order of the methods)",
+      "parentUuid": "5c1ffc23_bad94de8",
       "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -105,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e960f09b_e0c97ebd",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-12T05:10:43Z",
+      "side": 1,
+      "message": "I thought of not adding a signature payload in CoseSign1 for KESignature. Because ideally, each party should compute session_id on their own and verify the other party\u0027s signature on it.\nBut session_id is added in the returned result, so that it can be used by the key agreement orchestrator to compare the session ids returned by the two parties and decide whether the key agreement was successful at the end of `finish`.",
+      "parentUuid": "c3762940_d03973d8",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "814c0be2_ec6f5458",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
         "patchSetId": 28
@@ -116,6 +224,24 @@
       "writtenOn": "2023-09-11T16:33:21Z",
       "side": 1,
       "message": "Can we clarify which pubkey would be used to validate the signature?  Is it the leaf of the identity?",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f41853bd_ab8046ca",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-12T05:10:43Z",
+      "side": 1,
+      "message": "As of this CL, identity is just a public key, however, in the 3rd CL on this stack, I expand the definition of identity. So in the final version, the signature is verified by the public key in the leaf of `DiceChainEntry` if there is one or more `DiceChainEntry`, otherwise, it is verified with `DiceCertChainInitialPayload`. The latter is applicable to the parties who do not have/cannot present a DICE chain (e.g. remote device).\n\nI will add this clarifications in this CL and the next CL.",
+      "parentUuid": "814c0be2_ec6f5458",
       "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

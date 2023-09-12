@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e168b61_0aeac3ed",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-12T05:10:43Z",
+      "side": 1,
+      "message": "Yes, that sounds good to me. Thanks for the suggestion.\n\nI will not make this change here since your CL makes that change.\n\nA minor suggestion is: Would it better to re-name `SessionIdentity` to `SessionInitiatingInfo` or something like that? Because `SessionIdentity` seems to overlap with `session_id`.\nAnd then maybe change the order of the fields in `ResultInit` (\u003d {SessionInitiatingInfo (or a better alternative for this), SessionInfo})",
+      "parentUuid": "f2ce9639_940e21ec",
+      "revId": "e9638d22ee4df7f7956b1896aca7f2bc0ff035a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e631d68_eab959de",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.aidl",
         "patchSetId": 27
