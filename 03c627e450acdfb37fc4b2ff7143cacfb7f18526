@@ -69,6 +69,24 @@
       "parentUuid": "edce0705_a6709d4b",
       "revId": "03c627e450acdfb37fc4b2ff7143cacfb7f18526",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95adfdab_b4ae916e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-09-13T17:52:54Z",
+      "side": 1,
+      "message": "Based on your feedback, I have made changes to the RsaPkcs1Success test to verify whether the same bad-padding ciphertext is returned again when an OK response is received. Please inform me if this also applies to OAEP tests.",
+      "parentUuid": "c13c9c5f_b170b0ad",
+      "revId": "03c627e450acdfb37fc4b2ff7143cacfb7f18526",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
