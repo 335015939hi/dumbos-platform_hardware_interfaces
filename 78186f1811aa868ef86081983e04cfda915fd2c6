@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c281b0b_a520381a",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Arc.cddl",
+        "patchSetId": 26
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-13T21:29:34Z",
+      "side": 1,
+      "message": "Note to myself:\nTODO: add `authentication_completed` as a protected header",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 19
+      },
+      "revId": "78186f1811aa868ef86081983e04cfda915fd2c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
