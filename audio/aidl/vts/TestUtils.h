@@ -22,10 +22,28 @@
 
 #include <android/binder_auto_utils.h>
 #include <gtest/gtest.h>
-
+#include <system/audio_aidl_utils.h>
 namespace android::hardware::audio::common::testing {
 
 namespace detail {
+class TestExecutionTracer : public ::testing::EmptyTestEventListener {
+  public:
+    void OnTestStart(const ::testing::TestInfo& test_info) override {
+        TraceTestState("Started", test_info);
+    }
+    void OnTestEnd(const ::testing::TestInfo& test_info) override {
+        TraceTestState("Completed", test_info);
+    }
+    void OnTestPartResult(const ::testing::TestPartResult& result) override {
+        LOG(INFO) << "---- OnTestPartResult Start ----";
+        LOG(INFO) << result;
+        LOG(INFO) << "---- OnTestPartResult End ----";
+    }
+  private:
+    static void TraceTestState(const std::string& state, const ::testing::TestInfo& test_info) {
+        LOG(INFO) << state << " " << test_info.test_suite_name() << "::" << test_info.name();
+    }
+};
 
 inline ::testing::AssertionResult assertIsOk(const char* expr, const ::ndk::ScopedAStatus& status) {
     if (status.isOk()) {
