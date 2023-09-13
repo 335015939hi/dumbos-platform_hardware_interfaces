@@ -16,6 +16,29 @@
       "message": "Hello Team, requesting a review for this issue. Thanks!",
       "revId": "2a4bbba944c3564773e903dd36daffa67012ecb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35b023c_284c2837",
+        "filename": "keymaster/3.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2023-09-13T23:17:26Z",
+      "side": 1,
+      "message": "According to https://source.android.com/docs/security/features/keystore/implementer-ref#begin_rsa_keys:\n\n\"RSA signing and verification operations need a digest, as do RSA encryption and decryption operations with OAEP padding mode. For those cases, the caller specifies exactly one digest in inParams. If unspecified or specified more than once, the method returns ErrorCode::UNSUPPORTED_DIGEST\"\n\nHere is the case where digest is not specified, shouldn\u0027t the error code be UNSUPPORTED_DIGEST as expected?",
+      "range": {
+        "startLine": 1632,
+        "startChar": 25,
+        "endLine": 1632,
+        "endChar": 44
+      },
+      "revId": "2a4bbba944c3564773e903dd36daffa67012ecb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
