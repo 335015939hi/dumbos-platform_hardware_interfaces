@@ -16,6 +16,23 @@
       "message": "Joe, Jeff, are there any issues if an Android U device to also have a \"virtual\" instance?\n\nb/300320120 Cuttlefish \u0027next\u0027 config is an Android U device, so it can\u0027t built with a \"virtual\" instance.\n\nThe other option I can think of would be to register this default example as \"default\" in the \u0027next\u0027 config until \u0027next\u0027 is V (after V releases).",
       "revId": "f42620199188f780e2bb8dbb5c73e1f2b7e28717",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf3d57c2_bd638b8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-13T23:38:42Z",
+      "side": 1,
+      "message": "as a one-time workaround, okay",
+      "revId": "f42620199188f780e2bb8dbb5c73e1f2b7e28717",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
