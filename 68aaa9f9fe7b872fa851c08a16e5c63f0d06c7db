@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "061d108e_c0d59f1a",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KESignature.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-14T16:47:29Z",
+      "side": 1,
+      "message": "Yes, in the key agreement protocol, the only thing signed is the session id. Therefore, we can rename it as you suggested. Thank you!",
+      "parentUuid": "dc954cdf_d072a723",
+      "range": {
+        "startLine": 18,
+        "startChar": 27,
+        "endLine": 18,
+        "endChar": 46
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "81bea979_2908e4df",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.cddl",
         "patchSetId": 1
@@ -214,6 +238,30 @@
       "side": 1,
       "message": "I was guessing SS because of the text in [RFC9053 s6.3.1]:\n\n\u003e COSE does not have an Ephemeral-Ephemeral version defined. The reason for this is that COSE is not an online protocol by itself and thus does not have a method of establishing ephemeral secrets on both sides. The expectation is that a protocol would establish the secrets for both sides, and then they would be used as Static-Static for the purposes of COSE, or that the protocol would generate a shared secret and a direct encryption would be used.",
       "parentUuid": "81bea979_2908e4df",
+      "range": {
+        "startLine": 5,
+        "startChar": 52,
+        "endLine": 5,
+        "endChar": 54
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26b64d89_78f7c092",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-14T16:47:29Z",
+      "side": 1,
+      "message": "I didn\u0027t see that part. I read the section on: `Ephemeral-Static or Static-Static`. It seems like the two texts suggest two different things. But since the text you copied explicitly mentions that we can use static-static, let\u0027s stick with that. Thanks!",
+      "parentUuid": "ba494730_6dd9ba41",
       "range": {
         "startLine": 5,
         "startChar": 52,
