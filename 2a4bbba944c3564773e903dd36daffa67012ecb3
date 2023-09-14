@@ -39,6 +39,30 @@
       },
       "revId": "2a4bbba944c3564773e903dd36daffa67012ecb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db5e4625_bd373f09",
+        "filename": "keymaster/3.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1998845
+      },
+      "writtenOn": "2023-09-14T17:28:34Z",
+      "side": 1,
+      "message": "Isn\u0027t this case conforming to this statement below, please help to clarify. \n\nhttps://source.android.com/docs/security/features/keystore/implementer-ref#begin_rsa_keys\n\n\"Private key operations (KeyPurpose::DECYPT and KeyPurpose::SIGN) need authorization of digest and padding, which means that the key authorizations need to contain the specified values. If not, the method returns ErrorCode::INCOMPATIBLE_DIGEST or ErrorCode::INCOMPATIBLE_PADDING, as appropriate. Public key operations (KeyPurpose::ENCRYPT and KeyPurpose::VERIFY) are permitted with unauthorized digest or padding.\"",
+      "parentUuid": "f35b023c_284c2837",
+      "range": {
+        "startLine": 1632,
+        "startChar": 25,
+        "endLine": 1632,
+        "endChar": 44
+      },
+      "revId": "2a4bbba944c3564773e903dd36daffa67012ecb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
