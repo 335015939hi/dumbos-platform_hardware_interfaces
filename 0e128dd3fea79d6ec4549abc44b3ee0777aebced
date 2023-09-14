@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5252f9ef_78218601",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-14T20:02:30Z",
+      "side": 1,
+      "message": "That\u0027s intentional, it\u0027s a common abbreviation for [\"if and only if\"](https://en.wikipedia.org/wiki/If_and_only_if).",
+      "parentUuid": "e27f8319_f429996d",
+      "range": {
+        "startLine": 11,
+        "startChar": 45,
+        "endLine": 11,
+        "endChar": 48
+      },
+      "revId": "0e128dd3fea79d6ec4549abc44b3ee0777aebced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "793c7d4a_1b39f67e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-14T16:52:55Z",
       "side": 1,
       "message": "please also update the comment here.",
+      "range": {
+        "startLine": 143,
+        "startChar": 21,
+        "endLine": 143,
+        "endChar": 25
+      },
+      "revId": "0e128dd3fea79d6ec4549abc44b3ee0777aebced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc7075ef_0b5098d0",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-14T20:02:30Z",
+      "side": 1,
+      "message": "The comment in fact still holds, the intention was right—in the list, we should only see ids of mix ports that have dynamic profiles. The technical issue was that when two external devices get connected, the implementation logic was not correct, and could lead to premature erasing of mix port profiles, depending on the order in which we disconnect external devices.",
+      "parentUuid": "793c7d4a_1b39f67e",
       "range": {
         "startLine": 143,
         "startChar": 21,
