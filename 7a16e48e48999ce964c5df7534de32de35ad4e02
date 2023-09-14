@@ -16,6 +16,24 @@
       "message": "It is unclear to me the motivation of this work, could you please elaborate?",
       "revId": "7a16e48e48999ce964c5df7534de32de35ad4e02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c7b42d0_96afa9ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-09-14T01:11:00Z",
+      "side": 1,
+      "message": "Left a comment in the linked bug. TLDR is that we\u0027re making HALs into Vendor APEXes in AOSP so that vendors can reference for their own good: e.g. making it easier to update HAL under GRF.",
+      "parentUuid": "6a024d36_27d8144f",
+      "revId": "7a16e48e48999ce964c5df7534de32de35ad4e02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
