@@ -201,6 +201,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a4d51ea_286890a5",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KESignature.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-14T17:39:36Z",
+      "side": 1,
+      "message": "OK, I\u0027ll do that in the later \"split result type\" commit.",
+      "parentUuid": "061d108e_c0d59f1a",
+      "range": {
+        "startLine": 18,
+        "startChar": 27,
+        "endLine": 18,
+        "endChar": 46
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81bea979_2908e4df",
