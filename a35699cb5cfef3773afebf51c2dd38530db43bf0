@@ -16,6 +16,24 @@
       "message": "Looks reasonable to me, and I believe it would solve our current problem.\n\nWe\u0027ll build and test it and be back with the results.",
       "revId": "a35699cb5cfef3773afebf51c2dd38530db43bf0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b6ccca8_0254e21c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1041495
+      },
+      "writtenOn": "2023-09-14T13:26:18Z",
+      "side": 1,
+      "message": "As Robert noted in the issue, this test change allows our device to pass. LGTM!",
+      "parentUuid": "dae77085_b0ad2124",
+      "revId": "a35699cb5cfef3773afebf51c2dd38530db43bf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
