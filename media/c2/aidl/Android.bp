@@ -11,12 +11,11 @@ package {
 
 aidl_interface {
     name: "android.hardware.media.c2",
+    min_sdk_version: "31",
     vendor_available: true,
     double_loadable: true,
     srcs: ["android/hardware/media/c2/*.aidl"],
-    include_dirs: [
-        "frameworks/base/core/java",
-    ],
+    headers: ["HardwareBuffer_aidl"],
     imports: [
         "android.hardware.common-V2",
         "android.hardware.media.bufferpool2-V1",
@@ -31,6 +30,11 @@ aidl_interface {
         },
         ndk: {
             enabled: true,
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.media.swcodec",
+                "test_com.android.media.swcodec",
+            ],
             additional_shared_libraries: [
                 "libnativewindow",
             ],
