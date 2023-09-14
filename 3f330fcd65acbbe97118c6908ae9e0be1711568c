@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3908ba35_65e0268c",
+        "filename": "security/authgraph/aidl/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-14T17:57:02Z",
+      "side": 1,
+      "message": "This is not related to this CL and just out of curiosity: Do we not have Rust support for VTS tests?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 7
+      },
+      "revId": "3f330fcd65acbbe97118c6908ae9e0be1711568c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
