@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3107a115_d79c27e9",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Arc.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-14T06:05:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da6fb33f_c57fff64",
+      "range": {
+        "startLine": 27,
+        "startChar": 100,
+        "endLine": 27,
+        "endChar": 105
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "039ba8db_1cf17868",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eacc329f_3bcce481",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ExplicitKeyDiceCertChain.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-14T06:05:12Z",
+      "side": 1,
+      "message": "Done.  (I was thinking a single line would be easier for whatever tool might arrive in the future, but given that\u0027s probably far in the future...)",
+      "parentUuid": "039ba8db_1cf17868",
+      "range": {
+        "startLine": 13,
+        "startChar": 100,
+        "endLine": 13,
+        "endChar": 108
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2afdc65a_442d75e4",
@@ -60,6 +108,24 @@
       "writtenOn": "2023-09-14T04:51:03Z",
       "side": 1,
       "message": "Nit: KESignatureProtected",
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e1daafa_2bebaa63",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KESignature.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-14T06:05:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2afdc65a_442d75e4",
       "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -89,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc954cdf_d072a723",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KESignature.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-14T06:05:12Z",
+      "side": 1,
+      "message": "Done.   That does mean that `KESignature` is implicitly only for a signed session ID, not for any other signed data.  If that\u0027s so, should we rename it to `SessionIdSignature` or somesuch?",
+      "parentUuid": "3eaba24d_f9f0266d",
+      "range": {
+        "startLine": 18,
+        "startChar": 27,
+        "endLine": 18,
+        "endChar": 46
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "81bea979_2908e4df",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.cddl",
         "patchSetId": 1
@@ -100,6 +190,30 @@
       "writtenOn": "2023-09-14T04:51:03Z",
       "side": 1,
       "message": "I think this is ES, because according to the description in the spec, whether it is SS or ES is decided based on whether the sender uses an ephemeral key or a static key. Since we always use ephemeral keys on both sides, I think it is ES.\n\nAnd we have used ES before in RKP as well: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequest.cddl;l\u003d59",
+      "range": {
+        "startLine": 5,
+        "startChar": 52,
+        "endLine": 5,
+        "endChar": 54
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba494730_6dd9ba41",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-14T06:05:12Z",
+      "side": 1,
+      "message": "I was guessing SS because of the text in [RFC9053 s6.3.1]:\n\n\u003e COSE does not have an Ephemeral-Ephemeral version defined. The reason for this is that COSE is not an online protocol by itself and thus does not have a method of establishing ephemeral secrets on both sides. The expectation is that a protocol would establish the secrets for both sides, and then they would be used as Static-Static for the purposes of COSE, or that the protocol would generate a shared secret and a direct encryption would be used.",
+      "parentUuid": "81bea979_2908e4df",
       "range": {
         "startLine": 5,
         "startChar": 52,
