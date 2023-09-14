@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da6fb33f_c57fff64",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Arc.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-14T04:51:03Z",
+      "side": 1,
+      "message": "Nit: formatting",
+      "range": {
+        "startLine": 27,
+        "startChar": 100,
+        "endLine": 27,
+        "endChar": 105
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "039ba8db_1cf17868",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ExplicitKeyDiceCertChain.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-14T04:51:03Z",
+      "side": 1,
+      "message": "Nit: Formatting",
+      "range": {
+        "startLine": 13,
+        "startChar": 100,
+        "endLine": 13,
+        "endChar": 108
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2afdc65a_442d75e4",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KESignature.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-14T04:51:03Z",
+      "side": 1,
+      "message": "Nit: KESignatureProtected",
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eaba24d_f9f0266d",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KESignature.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-14T04:51:03Z",
+      "side": 1,
+      "message": "Nit: I think it would be useful to mention in the comment that payload is the session_id (though we do not add it in COSE_Sign1)",
+      "range": {
+        "startLine": 18,
+        "startChar": 27,
+        "endLine": 18,
+        "endChar": 46
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81bea979_2908e4df",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-14T04:51:03Z",
+      "side": 1,
+      "message": "I think this is ES, because according to the description in the spec, whether it is SS or ES is decided based on whether the sender uses an ephemeral key or a static key. Since we always use ephemeral keys on both sides, I think it is ES.\n\nAnd we have used ES before in RKP as well: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequest.cddl;l\u003d59",
+      "range": {
+        "startLine": 5,
+        "startChar": 52,
+        "endLine": 5,
+        "endChar": 54
+      },
+      "revId": "68aaa9f9fe7b872fa851c08a16e5c63f0d06c7db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
