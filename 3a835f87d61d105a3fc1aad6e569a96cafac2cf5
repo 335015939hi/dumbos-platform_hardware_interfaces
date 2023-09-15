@@ -16,6 +16,46 @@
       "message": "Update patch set 2, to update V3 -\u003e V2.",
       "revId": "3a835f87d61d105a3fc1aad6e569a96cafac2cf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb8c9f3d_26ad24ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2023-09-15T03:36:27Z",
+      "side": 1,
+      "message": "LGTM with a minor nit.",
+      "revId": "3a835f87d61d105a3fc1aad6e569a96cafac2cf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96702572_75c0e28f",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2023-09-15T03:36:27Z",
+      "side": 1,
+      "message": "nit: This is not used. Delete?",
+      "range": {
+        "startLine": 549,
+        "startChar": 0,
+        "endLine": 549,
+        "endChar": 45
+      },
+      "revId": "3a835f87d61d105a3fc1aad6e569a96cafac2cf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
