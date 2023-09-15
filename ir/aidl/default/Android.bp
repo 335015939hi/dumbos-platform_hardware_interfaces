@@ -25,19 +25,51 @@ package {
 cc_binary {
     name: "android.hardware.ir-service.example",
     relative_install_path: "hw",
-    init_rc: ["android.hardware.ir-service.example.rc"],
     vendor: true,
-    vintf_fragments: ["android.hardware.ir-service.example.xml"],
 
-    shared_libs: [
-        "libbase",
-        "libbinder_ndk",
-        "libcutils",
-        "liblog",
-        "libutils",
+    stl: "c++_static",
+    static_libs: [
         "android.hardware.ir-V1-ndk",
-        "libhardware"
+        "libbase",
+    ],
+    shared_libs: [
+        "libbinder_ndk",
+        "liblog",
     ],
 
     srcs: ["main.cpp"],
+
+    installable: false, // installed in APEX
+}
+
+prebuilt_etc {
+    name: "android.hardware.ir-service.example.rc",
+    src: "android.hardware.ir-service.example.rc",
+    installable: false,
+}
+
+prebuilt_etc {
+    name: "android.hardware.ir-service.example.xml",
+    src: "android.hardware.ir-service.example.xml",
+    sub_dir: "vintf",
+    installable: false,
+}
+
+apex {
+    name: "com.android.hardware.ir",
+    file_contexts: "apex_file_contexts",
+    manifest: "apex_manifest.json",
+    key: "com.android.hardware.key",
+    certificate: ":com.android.hardware.certificate",
+    updatable: false,
+    vendor: true,
+
+    binaries: [
+        "android.hardware.ir-service.example",
+    ],
+    prebuilts: [
+        "android.hardware.ir-service.example.rc",
+        "android.hardware.ir-service.example.xml",
+        "android.hardware.consumerir.prebuilt.xml", // feature
+    ],
 }
