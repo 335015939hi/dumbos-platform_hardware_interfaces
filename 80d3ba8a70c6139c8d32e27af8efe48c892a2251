@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d164ffda_459a7cef",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-15T03:46:16Z",
+      "side": 1,
+      "message": "I am totally fine with using an enum. The only reason I used union was because AFAIR, we discussed before about AIDL enums not getting converted to proper Rust enums. So just wanted to clarify.",
+      "parentUuid": "2e16e129_5bc3ff3a",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 4
+      },
+      "revId": "80d3ba8a70c6139c8d32e27af8efe48c892a2251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a9eb3b5_cc67c026",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEInitResult.aidl",
         "patchSetId": 2
