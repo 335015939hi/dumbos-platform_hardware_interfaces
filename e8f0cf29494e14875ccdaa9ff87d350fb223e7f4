@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfe344cc_0faa1a10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2023-09-15T05:13:20Z",
+      "side": 1,
+      "message": "Hi Eric,\nThe fuzzer is actually present in udc-dev too.\n\nAlthough the fuzzer is present, the fix is required only in the main branch as clusterfuzz builds and executes from main branch only. It does not use *-dev branches.",
+      "parentUuid": "90d68ac2_685ecc20",
+      "revId": "e8f0cf29494e14875ccdaa9ff87d350fb223e7f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78470776_3b0164ad",
         "filename": "automotive/vehicle/2.0/default/tests/fuzzer/VehicleManager_fuzzer.cpp",
         "patchSetId": 2
