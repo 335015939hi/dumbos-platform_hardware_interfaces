@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b18d6263_ee4fed33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-09-15T15:17:39Z",
+      "side": 1,
+      "message": "aosp/2751969 added the CONDUMERIR_HARDWARE_MODULE_ID from @sangweilin529619@gmail.com.\n\nIt looks like it\u0027s only used to get these default values that haven\u0027t changed since 2013, so it seems fine to replace it like this. WDYT @sangweilin529619@gmail.com?",
+      "revId": "14ccfa02c20b4162c7090a83384a7b8c451709a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ab2bdaa_5d78f92b",
         "filename": "ir/aidl/default/main.cpp",
         "patchSetId": 1
