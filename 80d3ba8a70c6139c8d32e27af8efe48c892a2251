@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "474c22c8_c2f8fd5f",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-15T11:56:39Z",
+      "side": 1,
+      "message": "AIDL enums don\u0027t become Rust enums (they come out as `MyEnum(i32)` with associated constants for the variants), but AIDL unions seem worse -- they come out as enums where *each variant* has an associated value.\n\n```rust\npub enum Error {\n  OK(i32),\n  OPERATION_NOT_SUPPORTED(i32),\n  INVALID_SIGNATURE(i32),\n  INVALID_EC_KEY(i32),\n}\n```\n\nMore completely:\n- C++: https://paste.googleplex.com/4526116403412992\n- Rust: https://paste.googleplex.com/6550495886835712",
+      "parentUuid": "d164ffda_459a7cef",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 4
+      },
+      "revId": "80d3ba8a70c6139c8d32e27af8efe48c892a2251",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a9eb3b5_cc67c026",
