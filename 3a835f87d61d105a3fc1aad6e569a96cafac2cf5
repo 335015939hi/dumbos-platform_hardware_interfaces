@@ -56,6 +56,30 @@
       },
       "revId": "3a835f87d61d105a3fc1aad6e569a96cafac2cf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44ddb2b8_6006289a",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1482458
+      },
+      "writtenOn": "2023-09-15T05:46:31Z",
+      "side": 1,
+      "message": "Ah, this was left by mistake. addressed with patch set 3. thanks.",
+      "parentUuid": "96702572_75c0e28f",
+      "range": {
+        "startLine": 549,
+        "startChar": 0,
+        "endLine": 549,
+        "endChar": 45
+      },
+      "revId": "3a835f87d61d105a3fc1aad6e569a96cafac2cf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
