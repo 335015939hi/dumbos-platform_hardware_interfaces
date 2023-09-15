@@ -22,6 +22,30 @@
       },
       "revId": "3f330fcd65acbbe97118c6908ae9e0be1711568c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10790a3c_6ec3fb8c",
+        "filename": "security/authgraph/aidl/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-15T12:01:33Z",
+      "side": 1,
+      "message": "I don\u0027t know -- I just stuck with what I could get building quickly by referencing elsewhere.\n\n(A quick hunt for .rs files in `hardware/interfaces/**/vts/` finds nothing...)",
+      "parentUuid": "3908ba35_65e0268c",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 7
+      },
+      "revId": "3f330fcd65acbbe97118c6908ae9e0be1711568c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
