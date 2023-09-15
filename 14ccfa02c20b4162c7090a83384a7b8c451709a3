@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a0793c2_ec10ba7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-09-15T15:41:18Z",
+      "side": 1,
+      "message": "Oh, I missed you in aosp/2738620. Since now we\u0027re just turning every updatable-via-apex in FCM on, I removed the check for convenience. Probably need to clean them up in FCM. What do you think? Do you think we need the check?",
+      "parentUuid": "d8797518_e7007dad",
+      "revId": "14ccfa02c20b4162c7090a83384a7b8c451709a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ab2bdaa_5d78f92b",
         "filename": "ir/aidl/default/main.cpp",
         "patchSetId": 1
