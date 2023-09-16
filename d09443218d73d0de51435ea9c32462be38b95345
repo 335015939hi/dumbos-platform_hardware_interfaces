@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab56e082_93f79210",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyDomain.aidl",
+        "patchSetId": 46
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2023-09-16T23:23:11Z",
+      "side": 1,
+      "message": "we cannot really use vmDomain as VM-ID are expected to be recycled and this creates of risk of impersonation attack.\nuntil there is a clean way to identify VM handles shared between VMs I don\u0027t think we have a way to specify VMs.\nI would be tempted to simply here and only keep the enums defined in KeyNonDomain, with the expectation to evolve this to a \"PartitionHandle\" in a subsequent release.",
+      "revId": "d09443218d73d0de51435ea9c32462be38b95345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2864d67_d47967b9",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
+        "patchSetId": 46
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2023-09-16T23:23:11Z",
+      "side": 1,
+      "message": "nit typo `used`\u003d",
+      "revId": "d09443218d73d0de51435ea9c32462be38b95345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83a61288_19e42d6c",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/OpaqueKeyMaterial.aidl",
+        "patchSetId": 46
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2023-09-16T23:23:11Z",
+      "side": 1,
+      "message": "domain impersonation:\nit seems important to specify that the OpaqueKeyMaterial might be used by one of the allowed domain while the session used to generate the opaque handle is still active. Or do we want to allow allowed domains to use opauqe key material after the session which created them was closed?",
+      "revId": "d09443218d73d0de51435ea9c32462be38b95345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
