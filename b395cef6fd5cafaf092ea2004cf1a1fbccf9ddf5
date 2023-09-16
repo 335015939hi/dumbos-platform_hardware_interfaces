@@ -16,6 +16,40 @@
       "message": "ping",
       "revId": "b395cef6fd5cafaf092ea2004cf1a1fbccf9ddf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af537590_551d57ac",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2023-09-16T20:41:00Z",
+      "side": 1,
+      "message": "It also seems important to specify that an ISecureStorage session from a given client is isolated from another client entirely, allowing to provide the confidentiality guarantees of the secure storage.\n\nThe cross-domain capabilities shall be discussed further.\nFor example, it might be necessary to give a lower-privilege domain the ability to delete a dir/file.\nOpportunity to align with the HWCrypto domain feature:\nhttps://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2429176/46/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyDomain.aidl",
+      "revId": "b395cef6fd5cafaf092ea2004cf1a1fbccf9ddf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b15cb910_55479482",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2023-09-16T20:41:00Z",
+      "side": 1,
+      "message": "let\u0027s describe each parameter properly, especially how FileProperties is used in conjunction with the previously opened Dir and finally the fileName to uniquely identify/retrieve a file.\n\nIt seems important to specify whether it is possible to openDir (resp. openFile) with the same name but different properties.",
+      "revId": "b395cef6fd5cafaf092ea2004cf1a1fbccf9ddf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
