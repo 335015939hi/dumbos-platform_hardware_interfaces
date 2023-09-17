@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93c559c3_f8b5baa4",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyDomain.aidl",
+        "patchSetId": 46
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2023-09-17T01:25:37Z",
+      "side": 1,
+      "message": "further through: for a subsequent release: we could discuss the possibility to define the allowed domain via a DICE policy too - might be easier than a real-time partition handle.\nalso we need to be wary not to over design here as we don\u0027t have a clear use case for the domain impersonation between VMs.",
+      "parentUuid": "ab56e082_93f79210",
+      "revId": "d09443218d73d0de51435ea9c32462be38b95345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2864d67_d47967b9",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
         "patchSetId": 46
