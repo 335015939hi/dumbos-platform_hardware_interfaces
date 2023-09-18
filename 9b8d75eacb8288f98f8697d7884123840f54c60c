@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea674dc6_86d41494",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4156,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-18T12:18:39Z",
+      "side": 1,
+      "message": "There\u0027s already a `ImportKeyTest.EcdsaCurveMismatch` test case further down, which checks that if the provided `EC_CURVE` doesn\u0027t match the value deduced from the key material then the import fails -- does that cover what you\u0027re after?",
+      "parentUuid": "64ef8df5_f2b119b6",
+      "range": {
+        "startLine": 4156,
+        "startChar": 22,
+        "endLine": 4156,
+        "endChar": 51
+      },
+      "revId": "9b8d75eacb8288f98f8697d7884123840f54c60c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d9fa082_03acce13",
