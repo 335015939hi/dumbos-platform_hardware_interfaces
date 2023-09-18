@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52f6fe33_dc05ffd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-09-18T14:08:11Z",
+      "side": 1,
+      "message": "Per OOB discussion: The change looks good but possible failures of this test might surprise the person that upgrades KM to v4. We should highlight this test case when the upgrade happens.",
+      "revId": "9b8d75eacb8288f98f8697d7884123840f54c60c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64ef8df5_f2b119b6",
@@ -38,6 +55,30 @@
       "side": 1,
       "message": "There\u0027s already a `ImportKeyTest.EcdsaCurveMismatch` test case further down, which checks that if the provided `EC_CURVE` doesn\u0027t match the value deduced from the key material then the import fails -- does that cover what you\u0027re after?",
       "parentUuid": "64ef8df5_f2b119b6",
+      "range": {
+        "startLine": 4156,
+        "startChar": 22,
+        "endLine": 4156,
+        "endChar": 51
+      },
+      "revId": "9b8d75eacb8288f98f8697d7884123840f54c60c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c644ab99_38fbfc4d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4156,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-09-18T14:08:11Z",
+      "side": 1,
+      "message": "Yes, thanks for pointing out.",
+      "parentUuid": "ea674dc6_86d41494",
       "range": {
         "startLine": 4156,
         "startChar": 22,
