@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64ef8df5_f2b119b6",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4156,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-09-18T12:12:49Z",
+      "side": 1,
+      "message": "How about a negative test case? From the aidl change it seems pretty straightforward to add?",
+      "range": {
+        "startLine": 4156,
+        "startChar": 22,
+        "endLine": 4156,
+        "endChar": 51
+      },
+      "revId": "9b8d75eacb8288f98f8697d7884123840f54c60c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7d9fa082_03acce13",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 3
