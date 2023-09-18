@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99433e90_e1483227",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-18T14:42:24Z",
+      "side": 1,
+      "message": "I think ascull@ is the most likely victim^H^H^H candidate for doing the HAL v4 upgrade.",
+      "parentUuid": "52f6fe33_dc05ffd6",
+      "revId": "9b8d75eacb8288f98f8697d7884123840f54c60c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64ef8df5_f2b119b6",
