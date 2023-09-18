@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34474e12_1998b52d",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-09-18T21:17:01Z",
+      "side": 1,
+      "message": "IMO, that doesn\u0027t seem like something we want to specify here, but rather where the client connects to get an `ISecureStorage` instance. Depending on what/how the client is connecting, it might not be entirely isolated; other clients might be able to access the same files.",
+      "parentUuid": "af537590_551d57ac",
+      "revId": "b395cef6fd5cafaf092ea2004cf1a1fbccf9ddf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b15cb910_55479482",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-09-16T20:41:00Z",
       "side": 1,
       "message": "let\u0027s describe each parameter properly, especially how FileProperties is used in conjunction with the previously opened Dir and finally the fileName to uniquely identify/retrieve a file.\n\nIt seems important to specify whether it is possible to openDir (resp. openFile) with the same name but different properties.",
+      "revId": "b395cef6fd5cafaf092ea2004cf1a1fbccf9ddf5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38b20eb0_21f4d9f5",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-09-18T21:17:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b15cb910_55479482",
       "revId": "b395cef6fd5cafaf092ea2004cf1a1fbccf9ddf5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
