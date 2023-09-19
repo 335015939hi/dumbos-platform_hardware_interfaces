@@ -63,6 +63,30 @@
       },
       "revId": "2a4bbba944c3564773e903dd36daffa67012ecb3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fb361a7_4599a75d",
+        "filename": "keymaster/3.0/vts/functional/keymaster_hidl_hal_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1632,
+      "author": {
+        "id": 1132849
+      },
+      "writtenOn": "2023-09-19T19:21:29Z",
+      "side": 1,
+      "message": "My understanding of the documentation is as follows:\n\n1) The first specification paragraph says: \"All RSA key operations specify exactly one padding mode. If not specified, return UNSUPPORTED_DIGEST\". This fits the test case here as it doesn\u0027t specify padding mode.\n\n2) \"Private key operations (KeyPurpose::DECYPT and KeyPurpose::SIGN) need authorization of digest and padding, which means that the key authorizations need to contain the specified values.\" Because of 1), this specification assumes digest and padding are specified and is talking about the value of the digest and padding. Here the padding mode is specified as PaddingMode::RSA_PSS, and if the digest is None it returns INCOMPATIBLE_DIGEST according to the Specification paragraph pasted below. However, there\u0027s no digest specified, and we fall back to the first specification paragraph and return UNSUPPORTED_DIGEST instead.\n\n---\nSpecification for SIGN purpose with RSA_PSS padding and None digest:\n\n\"PaddingMode::RSA_PSS padding requires a digest, which may not be Digest::NONE. If Digest::NONE is specified, the method returns ErrorCode::INCOMPATIBLE_DIGEST. In addition, the size of the RSA key has to be at least 2 + D bytes larger than the output size of the digest, where D is the size of the digest, in bytes. Otherwise the method returns ErrorCode::INCOMPATIBLE_DIGEST. The salt size is D.\"\n\n\n\n\nDoes this helps clarifying it?",
+      "parentUuid": "db5e4625_bd373f09",
+      "range": {
+        "startLine": 1632,
+        "startChar": 25,
+        "endLine": 1632,
+        "endChar": 44
+      },
+      "revId": "2a4bbba944c3564773e903dd36daffa67012ecb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
