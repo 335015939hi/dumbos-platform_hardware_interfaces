@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a50dd30_b656e574",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1527754
+      },
+      "writtenOn": "2023-09-19T14:57:01Z",
+      "side": 1,
+      "message": "I think we need to add checks for device indication as well.",
+      "revId": "7dfc12dd280ca5ff5bdb945f2f991706cd2dc3e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
