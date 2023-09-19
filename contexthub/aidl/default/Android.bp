@@ -44,8 +44,8 @@ cc_library_static {
 cc_binary {
     name: "android.hardware.contexthub-service.example",
     relative_install_path: "hw",
-    init_rc: ["contexthub-default.rc"],
-    vintf_fragments: ["contexthub-default.xml"],
+    init_rc: ["android.hardware.contexthub-service.example.rc"],
+    vintf_fragments: ["android.hardware.contexthub-service.example.xml"],
     vendor: true,
     shared_libs: [
         "libbase",
@@ -56,4 +56,56 @@ cc_binary {
         "libcontexthubexampleimpl",
     ],
     srcs: ["main.cpp"],
+}
+
+prebuilt_etc {
+    name: "android.hardware.contexthub-service.apex.rc",
+    src: "android.hardware.contexthub-service.apex.rc",
+    installable: false,
+}
+
+prebuilt_etc {
+    name: "android.hardware.contexthub-service.example.xml",
+    src: "android.hardware.contexthub-service.example.xml",
+    sub_dir: "vintf",
+    installable: false,
+}
+
+cc_binary {
+    name: "android.hardware.contexthub-service.apex",
+    stem: "android.hardware.contexthub-service.example",
+    relative_install_path: "hw",
+    vendor: true,
+
+    stl: "c++_static",
+    shared_libs: [
+        "libbinder_ndk",
+        "liblog",
+    ],
+    static_libs: [
+        "android.hardware.contexthub-V1-ndk",
+        "libbase",
+        "libcontexthubexampleimpl",
+    ],
+    srcs: ["main.cpp"],
+
+    installable: false, // installed in APEX
+}
+
+apex {
+    name: "com.android.hardware.contexthub",
+    vendor: true,
+    manifest: "apex_manifest.json",
+    file_contexts: "apex_file_contexts",
+    key: "com.android.hardware.key",
+    certificate: ":com.android.hardware.certificate",
+    updatable: false,
+
+    binaries: [
+        "android.hardware.contexthub-service.apex",
+    ],
+    prebuilts: [
+        "android.hardware.contexthub-service.apex.rc",
+        "android.hardware.contexthub-service.example.xml",
+    ],
 }
