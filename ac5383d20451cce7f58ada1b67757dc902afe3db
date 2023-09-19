@@ -16,6 +16,24 @@
       "message": "```\nld.lld: error: undefined symbol: _ZN7android4base8BasenameENSt3__117basic_string_viewIcNS1_11char_traitsIcEEEE\n\u003e\u003e\u003e referenced by fstab.cpp:912 (system/core/fs_mgr/libfstab/fstab.cpp:912)\n...fstab.o:(_ZN7android6fs_mgr19GetVerityDeviceNameERKNS0_10FstabEntryE) in archive out/soong/.intermediates/system/core/fs_mgr/libfstab/libfstab/android_recovery_arm_armv8-a_cortex-a53_static/libfstab.a\nclang++: error: linker command failed with exit code 1 (use -v to see invocation)\n```\n\nlooks like the mokey failure is related",
       "revId": "ac5383d20451cce7f58ada1b67757dc902afe3db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d49315ee_1f65aac1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-09-19T23:19:48Z",
+      "side": 1,
+      "message": "The fix for the mokey build is uploaded in the internal branch. Once that lands, this should be fixed.",
+      "parentUuid": "640755cf_1a897cdc",
+      "revId": "ac5383d20451cce7f58ada1b67757dc902afe3db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
