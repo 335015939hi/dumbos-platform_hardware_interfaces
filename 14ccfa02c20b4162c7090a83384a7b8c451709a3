@@ -179,6 +179,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad5071f0_4ac69310",
+        "filename": "ir/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-20T16:12:45Z",
+      "side": 1,
+      "message": "\u003e I think we can/should move away from libhardware. What do you think?\n\nSure, but having the shim means that existing implementations work. So removing this would break them and require OEMs to do more work. We would need a strong reason to do this.",
+      "parentUuid": "e4a019ff_70a7036d",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "14ccfa02c20b4162c7090a83384a7b8c451709a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ab2bdaa_5d78f92b",
         "filename": "ir/aidl/default/main.cpp",
         "patchSetId": 1
