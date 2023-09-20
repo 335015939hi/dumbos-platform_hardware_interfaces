@@ -91,6 +91,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d63f45e_f904dba6",
+        "filename": "ir/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1956847
+      },
+      "writtenOn": "2023-09-20T07:11:05Z",
+      "side": 1,
+      "message": "Hi JooYung \u0026 Devin,\n\nthe main purpose of CL! aosp/2278322 is just to make this service run with real ir hardware.\n\n1.since consumerir_freqs related to hardware, we should just get it by api, not hardcode)\n\n2.the main function of this service is to transmit data(send from application) to hardware,  ConsumerIr::transmit function transmit nothing if changed. so we should keep mDevice part to transmit data.\n\nso, I think we should keep most of this file as not changed.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "14ccfa02c20b4162c7090a83384a7b8c451709a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ab2bdaa_5d78f92b",
         "filename": "ir/aidl/default/main.cpp",
         "patchSetId": 1
