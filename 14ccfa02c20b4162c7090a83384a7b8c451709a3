@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a0989ce_687c3ddd",
+        "filename": "ir/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-09-20T07:26:44Z",
+      "side": 1,
+      "message": "Do you use `android.hardware.ir-service.example`? If yes, does it load your own implementation (e.g. `/vendor/lib/hw/consumerir.xxxx.so`)? Can you merge that into your own `ir-service` just like this?\n\nHi Devin, I think we can/should move away from libhardware. What do you think?",
+      "parentUuid": "9d63f45e_f904dba6",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "14ccfa02c20b4162c7090a83384a7b8c451709a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ab2bdaa_5d78f92b",
         "filename": "ir/aidl/default/main.cpp",
         "patchSetId": 1
