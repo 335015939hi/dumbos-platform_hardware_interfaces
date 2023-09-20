@@ -91,6 +91,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67f8e6bb_b01c525d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-20T16:11:47Z",
+      "side": 1,
+      "message": "what\u0027s the performance difference of adding this? No one really uses consumer IR? any reason we are switching everything to APEX? it seems more complicated and I\u0027m not clear the benefits",
+      "revId": "14ccfa02c20b4162c7090a83384a7b8c451709a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d63f45e_f904dba6",
         "filename": "ir/aidl/default/main.cpp",
         "patchSetId": 1
