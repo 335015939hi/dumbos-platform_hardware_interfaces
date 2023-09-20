@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4a019ff_70a7036d",
+        "filename": "ir/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1956847
+      },
+      "writtenOn": "2023-09-20T08:40:27Z",
+      "side": 1,
+      "message": "yes, we use android.hardware.ir-service.example. and it load out implementation consumer.ir.xxxx.so.\n\nour implement is just a hal lib, we don\u0027t have own ir-service since it is provide by AOSP already. so we just use this AOSP version. \n\nir-service just like other modules\u0027s hal service, they should be provided by AOSP I think. (by the way, hidl version ir service is provided by AOSP)\n\nand actually, CL! aosp/2278322 also fix VTS issue in aidl version ir-service since AOSP just defined aidl vts test case, but not implement this aidl ir-service.",
+      "parentUuid": "5a0989ce_687c3ddd",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 57
+      },
+      "revId": "14ccfa02c20b4162c7090a83384a7b8c451709a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ab2bdaa_5d78f92b",
         "filename": "ir/aidl/default/main.cpp",
         "patchSetId": 1
