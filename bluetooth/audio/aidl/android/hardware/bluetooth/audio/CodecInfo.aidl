@@ -18,6 +18,7 @@ package android.hardware.bluetooth.audio;
 
 import android.hardware.bluetooth.audio.ChannelMode;
 import android.hardware.bluetooth.audio.CodecId;
+import android.hardware.bluetooth.audio.ConfigurationFlags;
 import android.hardware.bluetooth.audio.Void;
 
 /**
@@ -64,11 +65,46 @@ parcelable CodecInfo {
     }
 
     /**
+     * LE Audio Context
+     */
+    parcelable LeAudio {
+        /**
+         * Channel configuration: Mono, Dual-Mono or Stereo
+         */
+        ChannelMode[] channelMode;
+
+        /**
+         * Supported sampling frequencies, in Hz.
+         */
+        int[] samplingFrequencyHz;
+
+        /*
+         * FrameDuration in microseconds.
+         */
+        int[] frameDurationUs;
+
+        /**
+         * - Fixed point resolution, basically 16, 24 or 32 bits by samples.
+         *   The value 32 should be used for floating point representation.
+         *
+         * When the bitdepth is not an encoding/decoding parameter (don't take
+         * part in the interoperability), the `bitdepth` list shall have a
+         * single element indicating the bitdepth selected for the platform.
+         */
+        int[] bitdepth;
+
+        /**
+         * Additional configuration flags
+         */
+        ConfigurationFlags[] flags;
+    }
+
+    /**
      * Specific informations,
      * depending on transport.
      */
     union Transport {
-        Void leAudio;
+        LeAudio leAudio;
         A2dp a2dp;
         Void hfp;
     }
