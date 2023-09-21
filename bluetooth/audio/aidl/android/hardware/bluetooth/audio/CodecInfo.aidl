@@ -19,6 +19,7 @@ package android.hardware.bluetooth.audio;
 import android.hardware.bluetooth.audio.ChannelMode;
 import android.hardware.bluetooth.audio.CodecId;
 import android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv;
+import android.hardware.bluetooth.audio.ConfigurationFlags;
 import android.hardware.bluetooth.audio.MetadataLtv;
 
 /**  
@@ -75,7 +76,24 @@ parcelable CodecInfo {
          * The capabilities as defined by PACS 'Codec Specific Capabilities`.
          */
         CodecSpecificCapabilitiesLtv[] capabilities;
+
+        /**
+         * PCM characteristics:
+         * - Mono, Dual-Mono or Stereo
+         * - Supported sampling frequencies, in Hz.
+         * - Fixed point resolution, basically 16, 24 or 32 bits by samples.
+         *   The value 32 should be used for floating point representation.
+         *
+         * When the bitdepth is not an encoding/decoding parameter (don't take part
+         * in the interoperability), the `bitdepth` list shall have a single element
+         * indicating the bitdepth selected for the platform.
+         */
+        ChannelMode[] channelMode;
+        int[] samplingFrequencyHz;
+        int[] bitdepth;
+
         MetadataLtv[] metadata;
+        ConfigurationFlags[] flags;
     }
 
     /**
