@@ -17,6 +17,7 @@
 package android.hardware.bluetooth.audio;
 
 import android.hardware.bluetooth.audio.AudioCapabilities;
+import android.hardware.bluetooth.audio.CodecInfo;
 import android.hardware.bluetooth.audio.IBluetoothAudioProvider;
 import android.hardware.bluetooth.audio.SessionType;
 /**
@@ -51,6 +52,26 @@ interface IBluetoothAudioProviderFactory {
      *    encoding.
      */
     AudioCapabilities[] getProviderCapabilities(in SessionType sessionType);
+
+    /**
+     * General information relative to a provider
+     * - An optional name
+     * - A list of codec informations
+     */
+    @VintfStability
+    parcelable ProviderInfo {
+        String name;
+        CodecInfo[] codecInfos;
+    }
+
+    /**
+     * Get general informations relative to a provider.
+     *
+     * @param sessionType Identify the provider
+     * @return General information relative to the provider. The `null` value can be
+     *         returned when the provider is not available
+     */
+    @nullable ProviderInfo getProviderInfo(in SessionType sessionType);
 
     /**
      * Opens an audio provider for a session type. To close the provider, it is
