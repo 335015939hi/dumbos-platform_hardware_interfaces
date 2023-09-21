@@ -17,6 +17,8 @@
 package android.hardware.bluetooth.audio;
 
 import android.hardware.bluetooth.audio.CodecType;
+import android.hardware.bluetooth.audio.ConfigurationFlags;
+import android.hardware.bluetooth.audio.LeAudioAseConfiguration;
 import android.hardware.bluetooth.audio.LeAudioCodecConfiguration;
 
 @VintfStability
@@ -29,16 +31,41 @@ parcelable LeAudioConfiguration {
          */
         char streamHandle;
         /*
-         * Audio channel allocation is  a bit field, each enabled bit means that given audio
-         * direction, i.e. "left", or "right" is used. Ordering of audio channels comes from the
-         * least significant bit to the most significant bit. The valus follows the Bluetooth SIG
-         * Audio Location assigned number.
+         * Audio channel allocation is a bit field, each enabled bit means that
+         * given audio direction, i.e. "left", or "right" is used. Ordering of
+         * audio channels comes from the least significant bit to the most
+         * significant bit. The valus follows the Bluetooth SIG Audio Location
+         * assigned number.
          */
         int audioChannelAllocation;
         /*
          * The stream handle status
          */
         boolean isStreamActive;
+        /*
+         * LE Audio device ASE configuration
+         */
+        @nullable LeAudioAseConfiguration aseConfiguration;
+        /*
+         * Additional flags, used for configurations with special features
+         */
+        ConfigurationFlags[] flags;
+        parcelable BluetoothDeviceAddress {
+            enum DeviceAddressType {
+                BLE_ADDR_PUBLIC = 0x00,
+                BLE_ADDR_RANDOM = 0x01,
+                BLE_ADDR_ANONYMOUS = 0xFF,
+            }
+            /**
+             * Peer device address. It should be non zero when isStreamActive is true
+             */
+            byte[6] deviceAddress;
+            /**
+             * Peer device address type.
+             */
+            DeviceAddressType deviceAddressType;
+        }
+        @nullable BluetoothDeviceAddress bluetoothDeviceAddress;
     }
     CodecType codecType;
     StreamMap[] streamMap;
