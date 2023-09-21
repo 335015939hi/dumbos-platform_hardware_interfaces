@@ -88,6 +88,24 @@
       "parentUuid": "656bc062_e712fb78",
       "revId": "4df23e605d754560f5a489fa0bab7de73ae377bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcd850e0_961286af",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-09-21T16:48:50Z",
+      "side": 1,
+      "message": "We now have profile versions in the certificates and hwtrust translates from VSR level to the set of allowed profile versions.",
+      "parentUuid": "2bb0b7b2_c58329e1",
+      "revId": "4df23e605d754560f5a489fa0bab7de73ae377bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
