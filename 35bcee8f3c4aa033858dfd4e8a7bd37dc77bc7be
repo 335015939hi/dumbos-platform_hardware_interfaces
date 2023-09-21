@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9665582_1e4b2b6e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-09-21T13:25:07Z",
+      "side": 1,
+      "message": "this can be removed as we have it later on in getLeAudioDataPathConfiguration",
+      "range": {
+        "startLine": 235,
+        "startChar": 8,
+        "endLine": 238,
+        "endChar": 58
+      },
+      "revId": "35bcee8f3c4aa033858dfd4e8a7bd37dc77bc7be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
