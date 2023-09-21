@@ -18,8 +18,11 @@ package android.hardware.bluetooth.audio;
 
 import android.hardware.bluetooth.audio.AudioConfiguration;
 import android.hardware.bluetooth.audio.BluetoothAudioStatus;
+import android.hardware.bluetooth.audio.CodecId;
 import android.hardware.bluetooth.audio.IBluetoothAudioPort;
 import android.hardware.bluetooth.audio.LatencyMode;
+import android.hardware.bluetooth.audio.LeAudioConfiguration.StreamMap;
+import android.hardware.bluetooth.audio.LtvData;
 import android.hardware.common.fmq.MQDescriptor;
 import android.hardware.common.fmq.SynchronizedReadWrite;
 
@@ -75,6 +78,264 @@ interface IBluetoothAudioProvider {
      * @param status true for SUCCESS or false for FAILURE
      */
     void streamSuspended(in BluetoothAudioStatus status);
+
+    /**
+     * Set specific codec priority
+     *
+     *  It should be assumed that the external module will start with all its
+     *  integrated codecs priority 0 by default.
+     *
+     * @param codecId: 	codecId
+     * @param priority: 	0 for no priority, -1 for codec disabled,
+     *				1 - n priority, where 1 is highiest.
+     */
+    void setCodecPriority(in CodecId codecId, int priority);
+
+    /**
+     * LE Audio device Capabilities
+     */
+    @VintfStability
+    parcelable LeAudioDeviceCapabilities {
+        /**
+         * Codec Identifier
+         */
+        CodecId codecId;
+
+        /**
+         * Codec capabilities, packed as LTV.
+         */
+        LtvData[] codecSpecificCapabilities;
+
+        /**
+         * Audio capabilities metadata, packed as LTV.
+         */
+        @nullable LtvData[] metadata;
+    }
+
+    /**
+     * Used in the HCI_LE_Setup_ISO_Data_Path (0x006E)
+     */
+    @VintfStability
+    parcelable IsoDataPathConfiguration {
+        /**
+         * Codec ID - Valid Codec coding format for in-controller encoding,
+         *            or 0x03 (transparent) in other cases.
+         */
+        CodecId codecId;
+
+        /**
+         * Vendor specific data path identifier
+         */
+        int dataPathId;
+
+        /**
+         * Vendor specific LE Audio ISO data path configuration
+         */
+        @nullable byte[] configuration;
+    }
+
+    /**
+     * Used in HCI_Configure_Data_Path (0x0083)
+     */
+    @VintfStability
+    parcelable DataPathConfiguration {
+        /**
+         * Vendor specific data path identifier
+         */
+        int dataPathId;
+
+        /**
+         * Vendor specific data path configuration
+         */
+        @nullable byte[] configuration;
+    }
+
+    /**
+     * ASE configuration
+     */
+    @VintfStability
+    parcelable AseConfiguration {
+        /**
+         *  Target latency used in Configure Codec command
+         */
+        int targetLatency;
+
+        /**
+         *  Target PHY used in Configure Codec command
+         */
+        int targetPhy;
+
+        /**
+         * Codec ID
+         */
+        CodecId codecId;
+
+        /**
+         * Codec configuration for ASE. This shall contain all the LTVs but
+         * allocation. Audio Channel Allocation will be added by the
+         * Bluetooth stack.
+         */
+        LtvData[] codecConfiguration;
+
+        /**
+         * Metadata, packed as LTV - used to enable ASE. This is optional
+         */
+        @nullable LtvData[] metadata;
+    }
+
+    @VintfStability
+    @Backing(type="int")
+    enum Flags {
+        NONE = 0x0000,
+    }
+
+    @VintfStability
+    parcelable LeAudioAseConfiguration {
+        /**
+         * Data path configuration
+         */
+        DataPathConfiguration dataPathConfiguration;
+
+        /**
+         * Proposed ASE configurations
+         */
+        AseConfiguration aseConfiguration;
+
+        /**
+         * Additional flags, used to request configurations with special
+         *  features
+         */
+        @nullable Flags[] flags;
+    }
+
+    /**
+     * ASE configuration hint which could help codec manager to propose
+     * best configuration.
+     */
+    @VintfStability
+    parcelable LeAudioConfigurationHint {
+        int contextType;
+        int channelCount;
+        /**
+         * Additional flags, used to request configurations with special
+         *  features
+         */
+        Flags[] flags;
+        /** Optional configuration recommendation */
+        @nullable LeAudioAseConfiguration requestedAseConfig;
+    }
+
+    /**
+     * Method that returns a proposed ASE configuration
+     *
+     * Note: _ENCODING session provides SINK ASE configuration
+     *       _DECODING session provides SOURCE ASE configuration
+     *
+     * @param remotePacsCapabilities List of remote capabilities supported
+     *        by an active group devices.
+     * @param hint Hint for codec manager to propose best ASE configurations
+     *
+     * @return LeAudioAseConfiguration
+     */
+    LeAudioAseConfiguration getLeAudioAseConfiguration(
+            in List<LeAudioDeviceCapabilities> remoteAudioCapabilities,
+            in LeAudioConfigurationHint hint);
+
+    @VintfStability
+    parcelable AseQosConfiguration {
+        /**
+         * SDU Interval used in Set CIG Parameters command and Configure QoS
+         */
+        int sduInterval;
+
+        /**
+         * Flush timeout used in Set CIG Parameters command
+         */
+        int flushTimeout;
+
+        /**
+         * Framing used in Set CIG Parameters command and Configure QoS
+         */
+        int framing;
+
+        /**
+         * Max transport latency used in Set CIG Parameters command and
+         * Configure QoS.
+         */
+        int maxTransportLatency;
+
+        /**
+         * Max SDU used in Set CIG Parameters command and Configure QoS
+         */
+        int maxSdu;
+
+        /**
+         * Retransmission number used in Set CIG Parameters command and
+         * Configure QoS
+         */
+        int retransmissionNum;
+    }
+
+    @VintfStability
+    parcelable LeAudioAseQosConfiguration {
+        /**
+         * ISO data path configuration
+         */
+        IsoDataPathConfiguration isoDataPathConfiguration;
+
+        /**
+         * Sequential or interleave packing used in Set CIG Parameters command
+         */
+        int packing;
+
+        /**
+         * ASE QoS configuration
+         */
+        AseQosConfiguration aseQos;
+    }
+
+    /**
+     * ASE configuration hint which could help codec manager to propose
+     * best configuration.
+     */
+    @VintfStability
+    parcelable LeAudioQosConfigurationHint {
+        int preferedRetransmisionNumber;
+        int maxTransportLatency;
+
+        CodecId codecId;
+        LtvData[] codecConfiguration;
+    }
+
+    /**
+     * Method that returns QoS configuration for ASE
+     *
+     * @param hint Hint for codec manager to propose best ASE configurations
+     *
+     * @return LeAudioGroupConfiguration
+     */
+    LeAudioAseQosConfiguration getLeAudioAseQosConfiguration(
+            in LeAudioQosConfigurationHint qosConfigurationHint);
+
+    @VintfStability
+    parcelable LeAudioDataPathConfiguration {
+        /**
+         * Data path configuration
+         */
+        DataPathConfiguration dataPathConfiguration;
+
+        /**
+         * ISO data path configuration
+         */
+        IsoDataPathConfiguration isoDataPathConfiguration;
+    }
+
+    /**
+     * Get data path configuration
+     *
+     * @param streamMap as defined in LeAudioConfiguration.aidl
+     */
+    LeAudioDataPathConfiguration getLeAudioDataPathConfiguration(StreamMap[] streamMap);
 
     /**
      * Called when the audio configuration of the stream has been changed.
