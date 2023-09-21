@@ -21,11 +21,17 @@ import android.hardware.bluetooth.audio.A2dpConfigurationHint;
 import android.hardware.bluetooth.audio.A2dpRemoteCapabilities;
 import android.hardware.bluetooth.audio.A2dpStatus;
 import android.hardware.bluetooth.audio.AudioConfiguration;
+import android.hardware.bluetooth.audio.AudioContext;
 import android.hardware.bluetooth.audio.BluetoothAudioStatus;
 import android.hardware.bluetooth.audio.CodecId;
 import android.hardware.bluetooth.audio.CodecParameters;
+import android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv;
+import android.hardware.bluetooth.audio.ConfigurationFlags;
 import android.hardware.bluetooth.audio.IBluetoothAudioPort;
 import android.hardware.bluetooth.audio.LatencyMode;
+import android.hardware.bluetooth.audio.LeAudioAseConfiguration;
+import android.hardware.bluetooth.audio.MetadataLtv;
+import android.hardware.bluetooth.audio.Phy;
 import android.hardware.common.fmq.MQDescriptor;
 import android.hardware.common.fmq.SynchronizedReadWrite;
 
@@ -125,4 +131,321 @@ interface IBluetoothAudioProvider {
      */
     @nullable A2dpConfiguration getA2dpConfiguration(
             in List<A2dpRemoteCapabilities> remoteA2dpCapabilities, in A2dpConfigurationHint hint);
+
+    /**
+     * Set specific codec priority
+     *
+     *  It should be assumed that the external module will start with all its
+     *  integrated codecs priority 0 by default.
+     *
+     * @param codecId:  codecId
+     * @param priority: 0 for no priority, -1 for codec disabled,
+     *				    1 - n priority, where 1 is highiest.
+     */
+    void setCodecPriority(in CodecId codecId, int priority);
+
+    /**
+     * LE Audio device Capabilities
+     */
+    @VintfStability
+    parcelable LeAudioDeviceCapabilities {
+        /**
+         * Codec Identifier
+         */
+        CodecId codecId;
+        /**
+         * Codec capabilities, packed as LTV.
+         */
+        CodecSpecificCapabilitiesLtv[] codecSpecificCapabilities;
+        /**
+         * Vondor codec specific capabilities.
+         *
+         * This will not be parsed by the BT stack.
+         */
+        byte[] vendorCodecSpecificCapabilities;
+        /**
+         * Audio capabilities metadata, packed as LTV.
+         */
+        @nullable MetadataLtv[] metadata;
+    }
+
+    @VintfStability
+    parcelable LeAudioDataPathConfiguration {
+        /**
+         * Vendor specific data path identifier
+         */
+        int dataPathId;
+
+        /**
+         * Used in the HCI_LE_Setup_ISO_Data_Path (0x006E)
+         */
+        @VintfStability
+        parcelable IsoDataPathConfiguration {
+            /**
+             * Codec ID - Valid Codec Identifier matching the selected codec
+             */
+            CodecId codecId;
+            /**
+             * Whether the transparent air mode should be set as a coding format
+             * in the HCI_LE_Setup_ISO_Data_Path command, indicating that the
+             * codec is not in the controller.
+             *
+             * If set to true, 0x03 (transparent air mode) will be used as a
+             * Codec_ID coding format and the `byte[] configuration` field shall
+             * remain empty. Otherwise the Codec_ID field will be set to
+             * according to BT specification (0xFF coding format, company ID,
+             * codec ID for vendor codecs, or according to Codec_ID identifiers
+             * defined in the Assigned Numbers for the non-vendor codecs).
+             */
+            boolean isTransparent;
+            /**
+             * Controller delay
+             */
+            int controllerDelay;
+            /**
+             * Codec specific LE Audio ISO data path configuration
+             * must be zero when codec ID is 0x03 transparent
+             */
+            byte[] configuration;
+        }
+
+        /**
+         * Used in HCI_Configure_Data_Path (0x0083)
+         */
+        @VintfStability
+        parcelable DataPathConfiguration {
+            /**
+             * Vendor specific data path configuration
+             */
+            byte[] configuration;
+        }
+        /**
+         * Data path configuration
+         */
+        DataPathConfiguration dataPathConfiguration;
+        /**
+         * ISO data path configuration
+         */
+        IsoDataPathConfiguration isoDataPathConfiguration;
+    }
+
+    @VintfStability
+    parcelable LeAudioAseQosConfiguration {
+        /**
+         * SDU Interval used in Set CIG Parameters command and Configure QoS
+         */
+        int sduInterval;
+        /**
+         * Flush timeout used in Set CIG Parameters command
+         */
+        int flushTimeout;
+        /**
+         * Framing used in Set CIG Parameters command and Configure QoS
+         */
+        Framing framing;
+        /**
+         * Max transport latency used in Set CIG Parameters command and
+         * Configure QoS.
+         */
+        int maxTransportLatency;
+        /**
+         * Max SDU used in Set CIG Parameters command and Configure QoS
+         */
+        int maxSdu;
+        /**
+         * Retransmission number used in Set CIG Parameters command and
+         * Configure QoS
+         */
+        int retransmissionNum;
+    }
+
+    @VintfStability
+    @Backing(type="byte")
+    enum Packing {
+        SEQUENTIAL = 0x00,
+        INTERLEAVED = 0x01,
+    }
+
+    @VintfStability
+    @Backing(type="byte")
+    enum Framing {
+        UNFRAMED = 0x00,
+        FRAMED = 0x01,
+    }
+
+    @VintfStability
+    parcelable LeAudioAseConfigurationSetting {
+        /**
+         * Audio Context that this configuration apply to
+         */
+        AudioContext audioContext;
+        /**
+         * Sequential or interleave packing used in Set CIG Parameters command
+         */
+        Packing packing;
+
+        @VintfStability
+        parcelable AseDirectionConfiguration {
+            /**
+             * Channel count - number of channels in CIS for an ASE
+             */
+            int channelCount;
+            /**
+             * ASE configuration
+             */
+            LeAudioAseConfiguration aseConfiguration;
+            /**
+             * QoS Configuration
+             */
+            @nullable LeAudioAseQosConfiguration qosConfiguration;
+            /**
+             * Data path configuration
+             */
+            LeAudioDataPathConfiguration dataPathConfiguration;
+        }
+        /**
+         * Sink ASEs configuration
+         */
+        @nullable AseDirectionConfiguration sinkAseConfiguration;
+        /**
+         * Source ASEs configuration
+         */
+        @nullable AseDirectionConfiguration sourceAseConfiguration;
+        /**
+         * Additional flags, used for configurations with special features
+         */
+        @nullable ConfigurationFlags[] flags;
+    }
+
+    /**
+     * ASE configuration requirements set by the BT stack.
+     */
+    @VintfStability
+    parcelable LeAudioConfigurationRequirement {
+        /**
+         * Audio Contect that this requirements apply to
+         */
+        AudioContext audioContext;
+
+        @VintfStability
+        parcelable AseDirectionRequirement {
+            /**
+             * Channel count
+             */
+            int channelCount;
+            /**
+             * Optional ASE configurations requirements
+             *
+             * Note that the Host can set as many or as little parameters in
+             * the `aseConfiguration.codecConfiguration` field as needed, to
+             * closely or loosely specify the requirements. If any parameter
+             * is not specified, the offloader can choose it freely. The
+             * offloader should put all the specified parameters into the
+             * `aseConfiguration.codecConfiguration` field of the returned
+             * configuration to let the BT stack verify if the requirements
+             * were met.
+             */
+            @nullable LeAudioAseConfiguration aseConfiguration;
+        }
+        /**
+         * Sink ASEs configuration setting
+         */
+        @nullable AseDirectionRequirement sinkAseRequirement;
+        /**
+         * Source ASEs configuration setting
+         */
+        @nullable AseDirectionRequirement sourceAseRequirement;
+        /**
+         * Additional flags, used to request configurations with special
+         * features
+         */
+        @nullable ConfigurationFlags[] flags;
+    }
+
+    /**
+     * Method that returns a proposed ASE configuration settings for each
+     * requested audio context type
+     *
+     * Note: _ENCODING session provides SINK ASE configuration
+     *       and _DECODING session provides SOURCE ASE configuration unless
+     *       BluetoothAudioProvider sets supportsMultidirectionalCapabilities to
+     *       true in ProviderInfo.
+     *       If supportsMultidirectionalCapabilities is set to true then the
+     *       BluetoothStack expects to get configuration list for SINK and SOURCE
+     *       on either _ENCODING or _DECODING session.
+     *
+     * @param remoteSinkAudioCapabilities List of remote sink capabilities
+     *        supported by an active group devices.
+     * @param remoteSourceAudioCapabilities List of remote source capabilities
+     *        supported by an active group devices.
+     * @param requirements ASE configuration requirements
+     *
+     * @return List<LeAudioAseConfigurationSetting>
+     */
+    List<LeAudioAseConfigurationSetting> getLeAudioAseConfiguration(
+            in @nullable List<LeAudioDeviceCapabilities> remoteSinkAudioCapabilities,
+            in @nullable List<LeAudioDeviceCapabilities> remoteSourceAudioCapabilities,
+            in List<LeAudioConfigurationRequirement> requirements);
+
+    @VintfStability
+    parcelable LeAudioAseQosConfigurationRequirement {
+        /**
+         * Audio Contect Type that this requirements apply to
+         */
+        AudioContext contextType;
+
+        @VintfStability
+        parcelable AseQosDirectionRequirement {
+            /** QoS preferences received in Codec Configured ASE state */
+            Phy preferredPhy;
+            int preferredRetransmissionNum;
+            int maxTransportLatency;
+            int presentationDelayMin;
+            int presentationDelayMax;
+            int preferredPresentationDelayMin;
+            int preferredPresentationDelayMax;
+
+            /**
+             * ASE configuration
+             */
+            LeAudioAseConfiguration aseConfiguration;
+        }
+        /**
+         * Sink ASEs configuration setting
+         */
+        @nullable AseQosDirectionRequirement sinkAseQosRequirement;
+        /**
+         * Source ASEs configuration setting
+         */
+        @nullable AseQosDirectionRequirement sourceAseQosRequirement;
+        /**
+         * Additional configuration flags requirements
+         */
+        @nullable ConfigurationFlags[] flags;
+    }
+
+    /**
+     * A directional pair for QoS configuration. Either one or both directions
+     * can be set, depending on the audio context and the requirements provided
+     * to getLeAudioAseQosConfiguration().
+     */
+    @VintfStability
+    parcelable LeAudioAseQosConfigurationPair {
+        @nullable LeAudioAseQosConfiguration sinkQosConfiguration;
+        @nullable LeAudioAseQosConfiguration sourceQosConfiguration;
+    }
+
+    /**
+     * Method that returns an ASE QoS configuration settings for the given ASE
+     * configuration,taking an ASE preferenced QoS parameters. It should be used
+     * to negotiaite the QoS parameters, when the initialy received QoS
+     * parameters are not within the boundaries received from the remote device
+     * after configuring the ASEs.
+     *
+     * @param qosRequirement ASE QoS configurations requirements
+     *
+     * @return LeAudioAseQosConfigurationPair
+     */
+    LeAudioAseQosConfigurationPair getLeAudioAseQosConfiguration(
+            in LeAudioAseQosConfigurationRequirement qosRequirement);
 }
