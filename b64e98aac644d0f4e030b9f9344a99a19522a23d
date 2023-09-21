@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "025d450d_ee07c6d8",
+        "filename": "ir/aidl/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-09-21T16:26:44Z",
+      "side": 1,
+      "message": "Are partners supposed to use their own private cert for this? What happens if they use this one?",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 53
+      },
+      "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
