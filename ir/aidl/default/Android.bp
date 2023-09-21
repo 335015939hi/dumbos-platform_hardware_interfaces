@@ -36,8 +36,47 @@ cc_binary {
         "liblog",
         "libutils",
         "android.hardware.ir-V1-ndk",
-        "libhardware"
+        "libhardware",
     ],
 
     srcs: ["main.cpp"],
+}
+
+prebuilt_etc {
+    name: "android.hardware.ir-service.example.rc",
+    src: ":gen-android.hardware.ir-service.example.rc",
+    installable: false,
+}
+
+genrule {
+    name: "gen-android.hardware.ir-service.example.rc",
+    srcs: ["android.hardware.ir-service.example.rc"],
+    out: ["android.hardware.ir-service.example.apex.rc"],
+    cmd: "sed -e 's@/vendor/bin/@/apex/com.android.hardware.ir/bin/@' $(in) > $(out)",
+}
+
+prebuilt_etc {
+    name: "android.hardware.ir-service.example.xml",
+    src: "android.hardware.ir-service.example.xml",
+    sub_dir: "vintf",
+    installable: false,
+}
+
+apex {
+    name: "com.android.hardware.ir",
+    file_contexts: "apex_file_contexts",
+    manifest: "apex_manifest.json",
+    key: "com.android.hardware.key",
+    certificate: ":com.android.hardware.certificate",
+    updatable: false,
+    vendor: true,
+
+    binaries: [
+        "android.hardware.ir-service.example",
+    ],
+    prebuilts: [
+        "android.hardware.ir-service.example.rc",
+        "android.hardware.ir-service.example.xml",
+        "android.hardware.consumerir.prebuilt.xml", // feature
+    ],
 }

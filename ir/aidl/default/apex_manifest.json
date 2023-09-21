@@ -1,0 +1,8 @@
+{
+    "name": "com.android.hardware.ir",
+    "version": 1,
+    "requireNativeLibs": [
+        // for libhardware to load .so file /vendor/lib/hw
+        ":sphal"
+    ]
+}
