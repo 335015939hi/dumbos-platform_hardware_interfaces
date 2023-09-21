@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "717ae2ff_8314de6e",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-21T09:48:04Z",
+      "side": 1,
+      "message": "Could these three arguments just be a `SessionInitiationInfo` struct as returned by `create`?",
+      "range": {
+        "startLine": 77,
+        "startChar": 22,
+        "endLine": 77,
+        "endChar": 82
+      },
+      "revId": "b00d74a12cec2371c72b99dcc5d18e84dc173be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
