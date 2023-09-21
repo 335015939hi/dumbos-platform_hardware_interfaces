@@ -286,6 +286,100 @@ interface IBluetoothAudioProvider {
     LeAudioDataPathConfiguration getLeAudioDataPathConfiguration(StreamMap[] streamMap);
 
     /**
+     * It is used in LeAudioBroadcastConfigurationHint
+     */
+    @VintfStability
+    parcelable LeAudioBroadcastSubgroupConfigurationHint {
+        int contextType;
+        int quality;
+        int bisNumPerSubgroup;
+    }
+
+    /*
+     * It is used in getLeAudioBroadcastConfiguration method
+     * When any group id is provided, then Provider should check Pacs
+     * capabilities of the group(s) and provide Broadcast configuration
+     * supported by the group
+     */
+    @VintfStability
+    parcelable LeAudioBroadcastConfigurationHint {
+        List<LeAudioBroadcastSubgroupConfigurationHint> subgroupConfigurationHit;
+    }
+
+    /**
+     * BIS configuration
+     */
+    @VintfStability
+    parcelable LeAudioBisConfiguration {
+        /**
+         * Codec ID
+         */
+        CodecId codecId;
+
+        /**
+         * Codec configuration for ASE. This shall contain all the LTVs but
+         * allocation. Audio Channel Allocation will be added by the
+         * Bluetooth stack.
+         */
+        LtvData[] codecConfiguration;
+
+        /**
+         * Metadata, packed as LTV - used to enable ASE. This is optional
+         */
+        LtvData[] metadata;
+    }
+
+    /**
+     * Subgroup BIS configuration
+     *
+     */
+    @VintfStability
+    parcelable LeAudioSubgroupBisConfiguration {
+        Int numBis;
+        LeAudioBisConfiguration bisConfiguration;
+    }
+
+    /**
+     * List of subgroups configuration
+     *
+     */
+    @VintfStability
+    parcelable LeAudioBroadcastSubgroupConfiguration {
+        List<LeAudioSubgroupBisConfiguration> bisConfigurations;
+    }
+
+    /**
+     * LeAudioBroadcastConfiguration is a result of getLeAudioBroadcastConfiguration
+     * in HCI_LE_Create_BIG  (0x0068) command
+     *
+     */
+    @VintfStability
+    parcelable LeAudioBroadcastConfiguration {
+        int SduInterval;
+        int numBis;
+        int maxSdu;
+        int maxTransportLatency;
+        int retransmitionNum;
+        int phy;
+        int packing;
+        int framing;
+
+        DataPathConfiguration dataPathConfiguration;
+        IsoDataPathConfiguration isoDataPath;
+
+        List<LeAudioBroadcastSubgroupConfiguration> subgroupsConfigurations;
+    }
+
+    /**
+     * Get Broadcast configuration. Output of this function will be used
+     * in HCI_LE_Create_BIG  (0x0068) command and also to create BIG INFO
+     *
+     */
+    LeAudioBroadcastConfiguration getLeAudioBroadcastConfiguration(
+            in List<LeAudioCapabilities> remoteAudioCapabilities,
+            in LeAudioBroadcastConfigurationHint hint);
+
+    /**
      * Called when the audio configuration of the stream has been changed.
      *
      * @param audioConfig The audio configuration negotiated with the remote
