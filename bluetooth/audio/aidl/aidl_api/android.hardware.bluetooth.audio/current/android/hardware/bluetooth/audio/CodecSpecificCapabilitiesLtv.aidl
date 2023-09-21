@@ -33,27 +33,51 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-parcelable CodecInfo {
-  android.hardware.bluetooth.audio.CodecId id;
-  String name;
-  android.hardware.bluetooth.audio.CodecInfo.Transport transport;
-  parcelable A2dp {
-    byte[] capabilities;
-    android.hardware.bluetooth.audio.ChannelMode[] channelMode;
-    int[] samplingFrequencyHz;
-    int[] bitdepth;
-    boolean lossless;
+union CodecSpecificCapabilitiesLtv {
+  android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv.SupportedSamplingFrequencies supportedSamplingFrequencies;
+  android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv.SupportedFrameDurations supportedFrameDurations;
+  android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv.SupportedAudioChannelCounts supportedAudioChannelCounts;
+  android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv.SupportedOctetsPerCodecFrame supportedOctetsPerCodecFrame;
+  android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv.SupportedMaxCodecFramesPerSDU supportedMaxCodecFramesPerSDU;
+  parcelable SupportedSamplingFrequencies {
+    int bitmask;
+    const int HZ8000 = 0x0001;
+    const int HZ11025 = 0x0002;
+    const int HZ16000 = 0x0004;
+    const int HZ22050 = 0x0008;
+    const int HZ24000 = 0x0010;
+    const int HZ32000 = 0x0020;
+    const int HZ44100 = 0x0040;
+    const int HZ48000 = 0x0080;
+    const int HZ88200 = 0x0100;
+    const int HZ96000 = 0x0200;
+    const int HZ176400 = 0x0400;
+    const int HZ192000 = 0x0800;
+    const int HZ384000 = 0x1000;
   }
-  parcelable LeAudio {
-    android.hardware.bluetooth.audio.ChannelMode[] channelMode;
-    int[] samplingFrequencyHz;
-    int[] frameDurationUs;
-    int[] bitdepth;
-    @nullable android.hardware.bluetooth.audio.ConfigurationFlags flags;
+  parcelable SupportedFrameDurations {
+    int US7500 = 0x01;
+    int US1000 = 0x02;
+    int US7500PREFERRED = 0x10;
+    int US1000PREFERRED = 0x20;
+    int bitmask;
   }
-  union Transport {
-    android.hardware.bluetooth.audio.CodecInfo.LeAudio leAudio;
-    android.hardware.bluetooth.audio.CodecInfo.A2dp a2dp;
-    android.hardware.bluetooth.audio.Void hfp;
+  parcelable SupportedAudioChannelCounts {
+    int ONE = 0x01;
+    int TWO = 0x02;
+    int THREE = 0x04;
+    int FOUR = 0x08;
+    int FIVE = 0x10;
+    int SIX = 0x20;
+    int SEVEN = 0x40;
+    int EIGHT = 0x80;
+    int bitmask;
+  }
+  parcelable SupportedOctetsPerCodecFrame {
+    int minimum;
+    int maximum;
+  }
+  parcelable SupportedMaxCodecFramesPerSDU {
+    int value;
   }
 }
