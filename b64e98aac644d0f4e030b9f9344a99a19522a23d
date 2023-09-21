@@ -22,6 +22,29 @@
       },
       "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cf89daf_1a7f9800",
+        "filename": "ir/aidl/default/apex_manifest.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-21T23:41:23Z",
+      "side": 1,
+      "message": "Let me clarify - because these HALs should not be marked as sphal or be same_process_hal_file. Can you confirm this is only for loading?\n\nAlso - libhardware interfaces are not guaranteed to be stable, so if things can be loaded like this, doesn\u0027t it risk ABI stability in the future? Also if this VAPEX loads the implementation, then it\u0027s a thin layer, and there\u0027s virtually nothing that would ever be updatable.\n\nI would imagine that we would want to keep the existing implementation unchanged, but if someone wanted to make a pure IR implementation (directly implementing AIDL without a shim to the old API), then that would make more sense in an APEX.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 16
+      },
+      "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
