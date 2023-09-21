@@ -17,7 +17,9 @@
 package android.hardware.bluetooth.audio;
 
 import android.hardware.bluetooth.audio.CodecType;
+import android.hardware.bluetooth.audio.LeAudioAseConfiguration;
 import android.hardware.bluetooth.audio.LeAudioCodecConfiguration;
+import android.hardware.bluetooth.audio.LeAudioFlags;
 
 @VintfStability
 parcelable LeAudioConfiguration {
@@ -39,6 +41,15 @@ parcelable LeAudioConfiguration {
          * The stream handle status
          */
         boolean isStreamActive;
+        /*
+         * LE Audio device ASE configuration
+         */
+        LeAudioAseConfiguration aseConfiguration;
+        /*
+         * Additional flags, used to request configurations with special
+         * features
+         */
+        LeAudioFlags[] flags;
     }
     CodecType codecType;
     StreamMap[] streamMap;
