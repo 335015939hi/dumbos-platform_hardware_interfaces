@@ -16,6 +16,24 @@
       "message": "\"remove static_cast\u003cuint32_t\u003e\" since minHz and maxHz are int.\ncomment in CL! aosp/2278322 by Devin.\nI think we can remove the cast by this chance.",
       "revId": "a39e854ef5497432104bf650b84879f8064d075a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e63846_d41e3ec3",
+        "filename": "ir/aidl/default/main.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-09-21T12:43:44Z",
+      "side": 0,
+      "message": "Since I reverted the changes on main.cpp, we\u0027d better do that in a separate change.",
+      "parentUuid": "6376cb48_19d6044f",
+      "revId": "a39e854ef5497432104bf650b84879f8064d075a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
