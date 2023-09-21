@@ -22,6 +22,30 @@
       },
       "revId": "b00d74a12cec2371c72b99dcc5d18e84dc173be8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09a5a0d6_7644dcf7",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-21T15:57:43Z",
+      "side": 1,
+      "message": "Yes, thanks for pointing it out. \nSimilarly, we can update the `finish` inputs to be: `SessionInitiationInfo`, `SessionIdSignature` and `Key`?\nI will make these two changes in the implementation too.",
+      "parentUuid": "717ae2ff_8314de6e",
+      "range": {
+        "startLine": 77,
+        "startChar": 22,
+        "endLine": 77,
+        "endChar": 82
+      },
+      "revId": "b00d74a12cec2371c72b99dcc5d18e84dc173be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
