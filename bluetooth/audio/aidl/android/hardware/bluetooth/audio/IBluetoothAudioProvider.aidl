@@ -21,10 +21,12 @@ import android.hardware.bluetooth.audio.AudioContext;
 import android.hardware.bluetooth.audio.BluetoothAudioStatus;
 import android.hardware.bluetooth.audio.CodecId;
 import android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv;
+import android.hardware.bluetooth.audio.CodecSpecificConfigurationLtv;
 import android.hardware.bluetooth.audio.ConfigurationFlags;
 import android.hardware.bluetooth.audio.IBluetoothAudioPort;
 import android.hardware.bluetooth.audio.LatencyMode;
 import android.hardware.bluetooth.audio.LeAudioAseConfiguration;
+import android.hardware.bluetooth.audio.LeAudioBisConfiguration;
 import android.hardware.bluetooth.audio.MetadataLtv;
 import android.hardware.bluetooth.audio.Phy;
 import android.hardware.common.fmq.MQDescriptor;
@@ -494,4 +496,133 @@ interface IBluetoothAudioProvider {
             in @nullable MetadataLtv[] metadata);
     void onSourceAseMetadataChanged(in AseState state,
             in @nullable MetadataLtv[] metadata);
+
+    /**
+     * Broadcast quality index
+     */
+    @VintfStability
+    @Backing(type="byte")
+    enum BroadcastQuality {
+        QUALITY_STANDARD,
+        QUALITY_HIGH,
+    }
+
+    /**
+     * It is used in LeAudioBroadcastConfigurationRequirement
+     */
+    @VintfStability
+    parcelable LeAudioBroadcastSubgroupConfigurationRequirement {
+        /**
+         * Streaming Audio Context for the given subgroup.
+         * This can serve as a hint for selecting the proper configuration by
+         * the offloader.
+         */
+        AudioContext context;
+        /**
+         * Streaming Broadcast Audio Quality
+         */
+        BroadcastQuality quality;
+        /**
+         * Number of BISes for the given subgroup
+         */
+        int bisNumPerSubgroup;
+    }
+
+    /**
+     * It is used in getLeAudioBroadcastConfiguration method
+     * If any group id is provided, the Provider should check Pacs capabilities
+     * of the group(s) and provide Broadcast configuration supported by the
+     * group.
+     */
+    @VintfStability
+    parcelable LeAudioBroadcastConfigurationRequirement {
+        List<LeAudioBroadcastSubgroupConfigurationRequirement> subgroupConfigurationRequirements;
+    }
+
+    /**
+     * Subgroup BIS configuration
+     *
+     */
+    @VintfStability
+    parcelable LeAudioSubgroupBisConfiguration {
+        /**
+         * The number of BISes with the given configuration
+         */
+        int numBis;
+        /**
+         * LE Audio BIS configuration for the `numBis` number of BISes
+         */
+        LeAudioBisConfiguration bisConfiguration;
+    }
+
+    /**
+     * Subgroup configuration with a list of BIS configurations
+     *
+     */
+    @VintfStability
+    parcelable LeAudioBroadcastSubgroupConfiguration {
+        List<LeAudioSubgroupBisConfiguration> bisConfigurations;
+    }
+
+    /**
+     * LeAudioBroadcastConfigurationSetting is a result of
+     * getLeAudioBroadcastConfiguration. It is used in HCI_LE_Create_BIG command
+     * and for creating the Broadcast Announcements.
+     *
+     */
+    @VintfStability
+    parcelable LeAudioBroadcastConfigurationSetting {
+        /**
+         * SDU Interval (in microseconds) used in LE Create BIG command
+         */
+        int sduIntervalUs;
+        /**
+         * Total number of BISes in the BIG
+         */
+        int numBis;
+        /**
+         *  Maximum size of an SDU in octets
+         */
+        int maxSduOctets;
+        /**
+         * Maximum transport latency (in milliseconds)
+         */
+        int maxTransportLatencyMs;
+        /**
+         * The number of times every PDU should be retransmitted
+         */
+        int retransmitionNum;
+        /**
+         * A Bit field that indicates the PHY used for transmission of PDUs of
+         * BISes in the BIG.
+         */
+        Phy[] phy;
+        /**
+         * The preferred method of arranging subevents of multiple BISes
+         */
+        Packing packing;
+        /**
+         * format for sending BIS Data PDUs
+         */
+        Framing framing;
+
+        /**
+         * Data path configuration
+         */
+        LeAudioDataPathConfiguration dataPathConfiguration;
+
+        /**
+         * A list of subgroup configurations in the broadcast.
+         */
+        List<LeAudioBroadcastSubgroupConfiguration> subgroupsConfigurations;
+    }
+
+    /**
+     * Get Broadcast configuration. Output of this function will be used
+     * in HCI_LE_Create_BIG  (0x0068) command and also to create BIG INFO
+     *
+     */
+    LeAudioBroadcastConfigurationSetting getLeAudioBroadcastConfiguration(
+            in @nullable List<LeAudioDeviceCapabilities> remoteSinkAudioCapabilities,
+            in LeAudioBroadcastConfigurationRequirement requirement);
 }
