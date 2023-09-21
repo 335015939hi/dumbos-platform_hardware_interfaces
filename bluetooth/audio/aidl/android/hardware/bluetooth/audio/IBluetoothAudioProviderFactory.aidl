@@ -17,9 +17,9 @@
 package android.hardware.bluetooth.audio;
 
 import android.hardware.bluetooth.audio.AudioCapabilities;
+import android.hardware.bluetooth.audio.CodecInfo;
 import android.hardware.bluetooth.audio.IBluetoothAudioProvider;
 import android.hardware.bluetooth.audio.SessionType;
-import android.hardware.bluetooth.audio.CodecInfo;
 
 /**
  * This factory allows a HAL implementation to be split into multiple
@@ -69,19 +69,33 @@ interface IBluetoothAudioProviderFactory {
      * General information relative to a provider
      * - An optional name
      * - A list of codec information
+     * - supportsMultidirectionalCapabilities if is set to false it means each
+     * session i.e. _ENCODING and _DECODING is responsible to provide
+     * configuration for a single direction:
+     *    _ENCODING for SINK ASE
+     *    _DECODING for SOURCE ASE
+     *
+     * If supportsMultidirectionalCapabilities is set to true, then either
+     * _ENCODING or _DECODING session can provide the configurations for either
+     * direction.
      */
     @VintfStability
     parcelable ProviderInfo {
         String name;
         CodecInfo[] codecInfos;
+        boolean supportsMultidirectionalCapabilities;
     }
 
     /**
      * Get general information relative to a provider.
      *
+     * This can be called at any time, or just once during the BT stack
+     * initialization.
+     *
      * @param sessionType Hardware Offload provider (*_HARDWARE_OFFLOAD_*)
      * @return General information relative to the provider.
-     *         The `null` value can be returned when the provider is not available
+     *         The `null` value can be returned when the provider is not
+     *         available
      */
     @nullable ProviderInfo getProviderInfo(in SessionType sessionType);
 }
