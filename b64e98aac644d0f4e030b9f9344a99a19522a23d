@@ -93,6 +93,30 @@
       },
       "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8910b109_5b8285b5",
+        "filename": "ir/aidl/default/apex_manifest.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-22T23:01:31Z",
+      "side": 1,
+      "message": "I don\u0027t think it should be possible for an APEX to load an unstable ABI like this. Could we prevent that?\n\nAlso, I agree it\u0027s possible to load an APEX which doesn\u0027t have the implementation, and then it does, but this would waste space on the device, and it would require all updates to be really careful and require a re-working of the entire design. Can we avoid the dangerous design in the first place?\n\nIf we\u0027re showing APEX as example, do we need examples of all APEXes, or can we live with other ones? If the implementation is self-contained, I think it would make a better example. If vendors repeat this, I don\u0027t think it would make a lot of sense. What do you think?",
+      "parentUuid": "18a764e6_60bc708f",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 16
+      },
+      "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
