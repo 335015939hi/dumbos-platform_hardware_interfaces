@@ -16,6 +16,24 @@
       "message": "Could we reduce the repetition by moving `is_mgf_digest_present()` from being a free function to being a method on `KeyMintAidlTestBase`, and then do the version check inside the function?",
       "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c3fa11b_75e23517",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4866,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-09-22T10:07:16Z",
+      "side": 1,
+      "message": "If I move the version check in `is_mgf_digest_present()` method I have to return true if `AidlVersion() \u003c 3`, which I think would be wrong interpretation of that method.",
+      "parentUuid": "a2da5c0d_f6579a8a",
+      "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
