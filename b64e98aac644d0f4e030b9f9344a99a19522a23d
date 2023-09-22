@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a1527b34_d3cee310",
+        "filename": "ir/aidl/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-09-22T02:15:02Z",
+      "side": 1,
+      "message": "If a partner wants to use the AOSP version of this APEX, then they need a new key for production use. APEXes should be re-signed with release keys during the image signing process.",
+      "parentUuid": "025d450d_ee07c6d8",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 53
+      },
+      "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8cf89daf_1a7f9800",
         "filename": "ir/aidl/default/apex_manifest.json",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-21T23:41:23Z",
       "side": 1,
       "message": "Let me clarify - because these HALs should not be marked as sphal or be same_process_hal_file. Can you confirm this is only for loading?\n\nAlso - libhardware interfaces are not guaranteed to be stable, so if things can be loaded like this, doesn\u0027t it risk ABI stability in the future? Also if this VAPEX loads the implementation, then it\u0027s a thin layer, and there\u0027s virtually nothing that would ever be updatable.\n\nI would imagine that we would want to keep the existing implementation unchanged, but if someone wanted to make a pure IR implementation (directly implementing AIDL without a shim to the old API), then that would make more sense in an APEX.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 16
+      },
+      "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18a764e6_60bc708f",
+        "filename": "ir/aidl/default/apex_manifest.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-09-22T02:15:02Z",
+      "side": 1,
+      "message": "\u003e Can you confirm this is only for loading?\n\nlibhardware loads the real implementation using `android_sphal_load_library`, which needs this configuration (`requireNativeLibs: sphal`) so that the API can work.\n\n\u003e Also - libhardware interfaces are not guaranteed to be stable, so if things can be loaded like this, doesn\u0027t it risk ABI stability in the future? Also if this VAPEX loads the implementation, then it\u0027s a thin layer, and there\u0027s virtually nothing that would ever be updatable.\n\nThe APEX definition here is for the reference for partners who want to create their own APEX. (Just like many \"default\" / \"example\" HAL implementations in hardware/interfaces)\n\nEven if a device installs IR VAPEX which is just a shim/thin layer for a real implementation in /vendor/lib/hw, the device can get a new updated APEX which somehow includes the implementation in it.\n\nYea the ABI problem still exists if an updated APEX still wants to load the real implementation from /vendor/lib/hw which is not built together. This isn\u0027t supported yet but IMO is easily detected with testing.\n\n\u003e would imagine that we would want to keep the existing implementation unchanged\n\nThe latest patset keeps the original implementation unchanged.\n\n\u003e but if someone wanted to make a pure IR implementation (directly implementing AIDL without a shim to the old API), then that would make more sense in an APEX.\n\nAdding the APEX definition here is to help the future implementers.",
+      "parentUuid": "8cf89daf_1a7f9800",
       "range": {
         "startLine": 5,
         "startChar": 0,
