@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e63b06_ff012e49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-22T00:12:35Z",
+      "side": 1,
+      "message": "effect",
+      "range": {
+        "startLine": 7,
+        "startChar": 43,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0abf9b82_6a47184e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-22T00:12:35Z",
+      "side": 1,
+      "message": "Please provide a short explanation about what this effect is.",
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ae2398c_ddf5cb06",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-22T00:12:35Z",
+      "side": 1,
+      "message": "supported?",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 55
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77b741b4_a4c794af",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-22T00:12:35Z",
+      "side": 1,
+      "message": "parameter or parameters?\n\nAlso, I must note that it\u0027s not clear to me what this parameter tunes. Could you please elaborate a bit more on this in the comment?",
+      "range": {
+        "startLine": 25,
+        "startChar": 66,
+        "endLine": 25,
+        "endChar": 75
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28c5111c_82edbff7",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-22T00:12:35Z",
+      "side": 1,
+      "message": "We should only have one definition. What I suggest to do is to move SpatializationLevel into stable types in system/hardware/interfaces/media/ (package android.media.audio.common), and reference it here.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 7
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4d1d157_8b4a07d2",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-22T00:12:35Z",
+      "side": 1,
+      "message": "Extra empty line here, or missing delimiting empty lines below.",
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d21d9a_7ec8d8eb",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-22T00:12:35Z",
+      "side": 1,
+      "message": "Same comment as for `Level`.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 7
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc873be9_39bfadbd",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-22T00:12:35Z",
+      "side": 1,
+      "message": "Same comment as for `Level`.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 7
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02035f43_9f32d946",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-22T00:12:35Z",
+      "side": 1,
+      "message": "Why is this needed here? There is `IModule.updateScreenRotation` to handle rotation events. I would prefer to centralize updates sent to the HAL in order to prevent race conditions.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 29
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fa5d40a_cbaf4c20",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-22T00:12:35Z",
+      "side": 1,
+      "message": "Same question for these. We don\u0027t have corresponding methods in `IModule` yet, however, I was planning to add \"fold state\" as this is something that framework already communicates to the HAL and is currently implemented as a vendor parameter.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 22
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
