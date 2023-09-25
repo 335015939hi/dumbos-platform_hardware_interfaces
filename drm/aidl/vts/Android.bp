@@ -65,7 +65,7 @@ cc_test {
             data: [":libvtswidevine-x86-prebuilts"],
         },
         x86_64: {
-            data: [":libvtswidevine-x86_64-prebuilts"],
+            data: [":libvtswidevine-x86_64-prebuilts", ":libvtswidevine-x86-prebuilts"],
         },
     },
     test_suites: [
