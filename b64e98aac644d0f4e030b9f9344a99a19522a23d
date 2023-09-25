@@ -141,6 +141,30 @@
       },
       "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "308f5ce2_e128c229",
+        "filename": "ir/aidl/default/apex_manifest.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-09-25T20:01:53Z",
+      "side": 1,
+      "message": "libhardware has never had a stable ABI or an easily stabilizable ABI. This was one of the motivations for HIDL (later HALs with AIDL). The existing ABIs had no structure and would change year after year, even if they tried to be compatible.\n\nAfter all these years, I don\u0027t think we should stabilize it.\n\nIt\u0027s fine to have a standalone consumerir implementation in the APEX, but consumerir.default isn\u0027t really useful except maybe for testing. So, it would be an example only. If you want an example, that\u0027s fine, but we can\u0027t rely on stable libhardware.",
+      "parentUuid": "d87e83e8_b087be1f",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 16
+      },
+      "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
