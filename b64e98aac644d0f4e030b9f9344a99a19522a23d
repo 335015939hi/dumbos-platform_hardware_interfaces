@@ -117,6 +117,30 @@
       },
       "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d87e83e8_b087be1f",
+        "filename": "ir/aidl/default/apex_manifest.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-09-25T01:50:52Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t think it should be possible for an APEX to load an unstable ABI like this. Could we prevent that?\n\nIMO, this isn\u0027t a new problem. I can\u0027t see any ABI check against libraries implementing legacy hardware (in this case consumerir.default). Probably, it\u0027s an independent problem which APEX can benefit as well. Are we going to add that check for legacy libhardware implementations?\n\n\u003e do we need examples of all APEXes,\n\nNo, but, having all in APEX would encourage/help the migration.\n\n\u003e  If the implementation is self-contained, I think it would make a better example. \n\nThat\u0027s why Patchset#1 looked that way (merging consumerir.default into the implementation). The Patchset#3 is an attempt to keep the original implementation unchanged because weilin asked it. But I hope they migrate to AIDL implementation instead of using legacy model.",
+      "parentUuid": "8910b109_5b8285b5",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 16
+      },
+      "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
