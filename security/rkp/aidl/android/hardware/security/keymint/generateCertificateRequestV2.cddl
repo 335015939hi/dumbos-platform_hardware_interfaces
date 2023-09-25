@@ -106,6 +106,7 @@ DiceChainEntryPayload = {                    ; CWT [RFC8392]
         ? -70003 : int / tstr,                   ; Component version
         ? -70004 : null,                         ; Resettable
         ? -70005 : uint,                         ; Security version
+        ? -70007 : uint,                         ; Vm type
     },
     -4670549 : bstr,                         ; Authority Hash
     ? -4670550 : bstr,                       ; Authority Descriptor
