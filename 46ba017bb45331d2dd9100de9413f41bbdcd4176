@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "13f7c8c1_0cfc5d97",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-25T06:05:11Z",
+      "side": 1,
+      "message": "Need an explanation why there\u0027s a version gate.",
+      "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1ba1ac6_529ab0d4",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4777,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-25T06:05:11Z",
+      "side": 1,
+      "message": "Need an explanation of why the test is not applicable.",
+      "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a2da5c0d_f6579a8a",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 1
@@ -32,6 +66,24 @@
       "side": 1,
       "message": "If I move the version check in `is_mgf_digest_present()` method I have to return true if `AidlVersion() \u003c 3`, which I think would be wrong interpretation of that method.",
       "parentUuid": "a2da5c0d_f6579a8a",
+      "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4fe4ee6_2d9f8e36",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4866,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-25T06:05:11Z",
+      "side": 1,
+      "message": "Yeah, it wouldn\u0027t quite fit with the name of the method. Would a rename to `check_mgf_digest_present()` work though?\n\nIf we leave the version gate outside the method call, all of the instances will need a comment explaining why the MGF digest is only checked for \u003e\u003d V3.",
+      "parentUuid": "8c3fa11b_75e23517",
       "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
