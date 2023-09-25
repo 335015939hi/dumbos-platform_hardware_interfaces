@@ -16,6 +16,24 @@
       "message": "Does cuttlefish currently support USB audio?",
       "revId": "5d2bfbac3340a58919406427bc8f8abb76906a99",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15c56879_1892786a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-25T15:59:54Z",
+      "side": 1,
+      "message": "I don\u0027t think they support it, but we have the HAL module :) Also, the ALSA implementation part is shared between the primary module and the USB HAL module, s that we exercise as much code from the USB HAL as possible even if it\u0027s not supported on CF.",
+      "parentUuid": "b7ec2594_f62df5b1",
+      "revId": "5d2bfbac3340a58919406427bc8f8abb76906a99",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
