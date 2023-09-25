@@ -16,6 +16,24 @@
       "message": "CL has +1 from Nate, which was lost during a rebase.",
       "revId": "46538346af90bf93dcafa36206fc2ea5c545dd93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51cbdbb3_e23c6064",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2023-09-25T22:34:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cd3d560_4a2e36a1",
+      "revId": "46538346af90bf93dcafa36206fc2ea5c545dd93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
