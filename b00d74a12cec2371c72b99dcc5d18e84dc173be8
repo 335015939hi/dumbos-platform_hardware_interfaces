@@ -46,6 +46,30 @@
       },
       "revId": "b00d74a12cec2371c72b99dcc5d18e84dc173be8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "278591ca_d9ebfc46",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-25T20:28:37Z",
+      "side": 1,
+      "message": "Actually, when I tried to make this change in the ref. implementation, I realized that it is not a 1-1 mapping. Because in the return type: `SessionInitiationInfo`, we have the type: `Key` (which may have both pub key and the arc containing the private key) where as in the input parameters, peerDHKey is only the public key. So I think we cannot make this change. Please let me know if you see a better way to combine these inputs.",
+      "parentUuid": "09a5a0d6_7644dcf7",
+      "range": {
+        "startLine": 77,
+        "startChar": 22,
+        "endLine": 77,
+        "endChar": 82
+      },
+      "revId": "b00d74a12cec2371c72b99dcc5d18e84dc173be8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
