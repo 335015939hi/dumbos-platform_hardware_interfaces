@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8bb28de_4de41524",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 38
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-26T11:28:27Z",
+      "side": 1,
+      "message": "s/INTENAL/INTERNAL/\n\nShould this be -10?",
+      "revId": "1431470db205890a1e43c043f4afc7beb122e70c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "560d8463_0dddbc09",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 38
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-09-26T11:28:27Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Common Typos: Common typo found: \"the the\" -- should it be \"the\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"the the\" -- should it be \"the\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 73,
+        "startChar": 38,
+        "endLine": 73,
+        "endChar": 45
+      },
+      "revId": "1431470db205890a1e43c043f4afc7beb122e70c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
