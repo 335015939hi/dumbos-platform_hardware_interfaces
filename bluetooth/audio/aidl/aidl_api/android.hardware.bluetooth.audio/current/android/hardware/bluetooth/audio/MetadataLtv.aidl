@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,13 +33,23 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-interface IBluetoothAudioProviderFactory {
-  android.hardware.bluetooth.audio.AudioCapabilities[] getProviderCapabilities(in android.hardware.bluetooth.audio.SessionType sessionType);
-  android.hardware.bluetooth.audio.IBluetoothAudioProvider openProvider(in android.hardware.bluetooth.audio.SessionType sessionType);
-  @nullable android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory.ProviderInfo getProviderInfo(in android.hardware.bluetooth.audio.SessionType sessionType);
-  @VintfStability
-  parcelable ProviderInfo {
-    String name;
-    android.hardware.bluetooth.audio.CodecInfo[] codecInfos;
+union MetadataLtv {
+  android.hardware.bluetooth.audio.MetadataLtv.PreferredAudioContexts preferredAudioContexts;
+  android.hardware.bluetooth.audio.MetadataLtv.StreamingAudioContexts streamingAudioContexts;
+  android.hardware.bluetooth.audio.MetadataLtv.ExtendedMetadata extendedMetadata;
+  android.hardware.bluetooth.audio.MetadataLtv.VendorSpecific vendorSpecific;
+  parcelable PreferredAudioContexts {
+    android.hardware.bluetooth.audio.AudioContext[] values;
+  }
+  parcelable StreamingAudioContexts {
+    android.hardware.bluetooth.audio.AudioContext[] values;
+  }
+  parcelable ExtendedMetadata {
+    int type;
+    byte[] value;
+  }
+  parcelable VendorSpecific {
+    int companyId;
+    byte[] value;
   }
 }
