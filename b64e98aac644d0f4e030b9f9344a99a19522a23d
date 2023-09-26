@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7634327f_b8859541",
+        "filename": "ir/aidl/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-09-26T10:22:12Z",
+      "side": 1,
+      "message": "Changed it to apex_default. any implementers need to specify keyset.",
+      "parentUuid": "a1527b34_d3cee310",
+      "range": {
+        "startLine": 70,
+        "startChar": 4,
+        "endLine": 70,
+        "endChar": 53
+      },
+      "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cf89daf_1a7f9800",
@@ -157,6 +181,30 @@
       "side": 1,
       "message": "libhardware has never had a stable ABI or an easily stabilizable ABI. This was one of the motivations for HIDL (later HALs with AIDL). The existing ABIs had no structure and would change year after year, even if they tried to be compatible.\n\nAfter all these years, I don\u0027t think we should stabilize it.\n\nIt\u0027s fine to have a standalone consumerir implementation in the APEX, but consumerir.default isn\u0027t really useful except maybe for testing. So, it would be an example only. If you want an example, that\u0027s fine, but we can\u0027t rely on stable libhardware.",
       "parentUuid": "d87e83e8_b087be1f",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 16
+      },
+      "revId": "b64e98aac644d0f4e030b9f9344a99a19522a23d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48c04642_6a2cc639",
+        "filename": "ir/aidl/default/apex_manifest.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-09-26T10:22:12Z",
+      "side": 1,
+      "message": "New patchset (#4) provides `apex_defaults` and Cuttlefish provides an example APEX with it by having consumerir.default in the apex. I think this serves my purpose. And, in the topic, a new change of libhardware prevents libhardware from loading libhardware-compliant legacy modules as you suggested. libhardware, when used in apex, can only load modules from the same apex. I think this can help when someone wants to migrate existing libharhare-style HALs into VAPEX.\n\nSteven, thanks for the ideas.",
+      "parentUuid": "308f5ce2_e128c229",
       "range": {
         "startLine": 5,
         "startChar": 0,
