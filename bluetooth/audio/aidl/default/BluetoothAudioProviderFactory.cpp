@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -132,6 +132,16 @@ ndk::ScopedAStatus BluetoothAudioProviderFactory::getProviderCapabilities(
 
   LOG(INFO) << __func__ << " - SessionType=" << toString(session_type)
             << " supports " << _aidl_return->size() << " codecs";
+  return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus BluetoothAudioProviderFactory::getProviderInfo(
+    SessionType session_type, std::optional<ProviderInfo>* _aidl_return) {
+
+  *_aidl_return = std::nullopt;
+
+  (void)session_type;
+
   return ndk::ScopedAStatus::ok();
 }
 
