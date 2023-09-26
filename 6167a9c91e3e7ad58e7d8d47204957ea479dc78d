@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ea3dca_91e2b042",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyProperties.aidl",
+        "patchSetId": 48
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1809582
+      },
+      "writtenOn": "2023-09-26T22:29:01Z",
+      "side": 1,
+      "message": "Nit: this has the same signature as the other method, so could you merge them into a `set_impersonation_domains` with an extra `impersonation_mode` parameter?",
+      "revId": "6167a9c91e3e7ad58e7d8d47204957ea479dc78d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
