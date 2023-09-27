@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "139c4c5f_05173e74",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1283,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-09-27T19:18:05Z",
+      "side": 1,
+      "message": "Q: Isn\u0027t returning empty vector enough here?\n\nI think when the returned mmap policy info is empty, AAudioService won\u0027t be instantiated. \n\nSee https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/audioserver/main_audioserver.cpp;l\u003d192?q\u003dframeworks%2Fav%2Fmedia%2Faudioserver%2Fmain_audioserver.cpp",
+      "range": {
+        "startLine": 1283,
+        "startChar": 22,
+        "endLine": 1283,
+        "endChar": 31
+      },
+      "revId": "850649147504d09a6b6a96d2421211ca1d934878",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
