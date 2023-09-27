@@ -16,6 +16,24 @@
       "message": "The bug doesn\u0027t say why this is being refactored. This is now missing coverage for if multiple surfaces are called in a row.",
       "revId": "2fd4e9d71dd77eb9c094cb89ef1acd1c464309a2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08cd8305_ce108cc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1930641
+      },
+      "writtenOn": "2023-09-27T15:39:31Z",
+      "side": 1,
+      "message": "Hi Steven, there are updates here on the changes, Ittiam indicated they found a High severity bug during local testing after these refactoring improvements: \n\nThe following are the updates to the fuzzer:\n1. Added checks to the fuzzer to prevent fuzzer errors.\n2. Updated the scope of the `handler` variable to avoid it going out of scope.\n3. Moved `startstream` outside to ensure the proper opening of the stream.",
+      "parentUuid": "301cb363_da1a88bb",
+      "revId": "2fd4e9d71dd77eb9c094cb89ef1acd1c464309a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
