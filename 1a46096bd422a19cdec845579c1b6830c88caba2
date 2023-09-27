@@ -16,6 +16,24 @@
       "message": "are there CLs for VTS test and framework code as welL?",
       "revId": "1a46096bd422a19cdec845579c1b6830c88caba2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e5be948_befbb03b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2007880
+      },
+      "writtenOn": "2023-09-27T21:25:13Z",
+      "side": 1,
+      "message": "The framework code will be implemented by Google DCK team later. We have tested it using the internal test  app w which acts as client of this AIDL interface.",
+      "parentUuid": "5c5d07e9_30ed495d",
+      "revId": "1a46096bd422a19cdec845579c1b6830c88caba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
