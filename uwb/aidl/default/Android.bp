@@ -15,11 +15,13 @@ rust_binary {
     prefer_rlib: true,
     rustlibs: [
         "android.hardware.uwb-V1-rust",
+        "libbytes",
         "liblogger",
         "liblog_rust",
         "libbinder_rs",
         "libbinder_tokio_rs",
         "libtokio",
+        "libtokio_util",
         "libnix",
         "libanyhow",
     ],
