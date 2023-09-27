@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39b522a7_92c39562",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2023-09-27T22:26:19Z",
+      "side": 1,
+      "message": "TAMPER_DETECT_ALLOW_ROLLBACK_ON_AB_BOOT_FAILURE\nin that case writes can be accepted during A/B updates, checkpoint is taken, and rollback might happen in case of boot failure.",
+      "revId": "8390a40d54ffc951e1b21abaa02a01eb3a22341d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
