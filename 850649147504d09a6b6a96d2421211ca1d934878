@@ -46,6 +46,30 @@
       },
       "revId": "850649147504d09a6b6a96d2421211ca1d934878",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "818b158e_3757474e",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1283,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-09-27T20:33:59Z",
+      "side": 1,
+      "message": "I see! Thanks for the information! Let\u0027s keep this CL as is now. I will talk with Phil to see if we want to improve the logic from the builder side.",
+      "parentUuid": "4e5afe22_10442235",
+      "range": {
+        "startLine": 1283,
+        "startChar": 22,
+        "endLine": 1283,
+        "endChar": 31
+      },
+      "revId": "850649147504d09a6b6a96d2421211ca1d934878",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
