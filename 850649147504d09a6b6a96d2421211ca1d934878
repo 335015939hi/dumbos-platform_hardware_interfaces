@@ -22,6 +22,30 @@
       },
       "revId": "850649147504d09a6b6a96d2421211ca1d934878",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5afe22_10442235",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1283,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-09-27T19:55:44Z",
+      "side": 1,
+      "message": "The service isn\u0027t instantiated, that\u0027s true. However, the Builder still tries to talk to `media.aaudio` service for low latency tracks: https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/libaaudio/src/core/AudioStreamBuilder.cpp;l\u003d178;drc\u003ded782c88e69314fc03184beb9e55f4e87b91baaf",
+      "parentUuid": "139c4c5f_05173e74",
+      "range": {
+        "startLine": 1283,
+        "startChar": 22,
+        "endLine": 1283,
+        "endChar": 31
+      },
+      "revId": "850649147504d09a6b6a96d2421211ca1d934878",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
