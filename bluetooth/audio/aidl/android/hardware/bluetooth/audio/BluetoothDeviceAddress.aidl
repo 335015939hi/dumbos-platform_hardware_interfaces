@@ -16,20 +16,11 @@
 
 package android.hardware.bluetooth.audio;
 
-import android.hardware.bluetooth.audio.A2dpStreamConfiguration;
-import android.hardware.bluetooth.audio.CodecConfiguration;
-import android.hardware.bluetooth.audio.LeAudioBroadcastConfiguration;
-import android.hardware.bluetooth.audio.LeAudioConfiguration;
-import android.hardware.bluetooth.audio.PcmConfiguration;
-
 /**
- * Used to configure either a Hardware or Software Encoding session based on session type
+ * Bluetooth device address
+ * This is not intended to carry random or anonymous address.
  */
 @VintfStability
-union AudioConfiguration {
-    PcmConfiguration pcmConfig;
-    CodecConfiguration a2dpConfig;
-    LeAudioConfiguration leAudioConfig;
-    LeAudioBroadcastConfiguration leAudioBroadcastConfig;
-    A2dpStreamConfiguration a2dp;
+parcelable BluetoothDeviceAddress {
+    byte[6] v;
 }
