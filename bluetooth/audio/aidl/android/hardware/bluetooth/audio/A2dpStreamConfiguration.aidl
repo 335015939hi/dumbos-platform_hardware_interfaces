@@ -16,20 +16,23 @@
 
 package android.hardware.bluetooth.audio;
 
-import android.hardware.bluetooth.audio.A2dpStreamConfiguration;
-import android.hardware.bluetooth.audio.CodecConfiguration;
-import android.hardware.bluetooth.audio.LeAudioBroadcastConfiguration;
-import android.hardware.bluetooth.audio.LeAudioConfiguration;
-import android.hardware.bluetooth.audio.PcmConfiguration;
+import android.hardware.bluetooth.audio.CodecId;
 
-/**
- * Used to configure either a Hardware or Software Encoding session based on session type
- */
 @VintfStability
-union AudioConfiguration {
-    PcmConfiguration pcmConfig;
-    CodecConfiguration a2dpConfig;
-    LeAudioConfiguration leAudioConfig;
-    LeAudioBroadcastConfiguration leAudioBroadcastConfig;
-    A2dpStreamConfiguration a2dp;
+parcelable A2dpStreamConfiguration {
+    /**
+     * Peer MTU (in two-octets)
+     */
+    int peerMtu;
+
+    /**
+     * Content protection by SCMS-T
+     */
+    boolean isScmstEnabled;
+
+    /**
+     * Codec configuration
+     */
+    CodecId codec;
+    byte[] configuration;
 }
