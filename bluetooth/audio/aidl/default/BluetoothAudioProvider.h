@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -49,6 +49,13 @@ class BluetoothAudioProvider : public BnBluetoothAudioProvider {
   ndk::ScopedAStatus updateAudioConfiguration(
       const AudioConfiguration& audio_config);
   ndk::ScopedAStatus setLowLatencyModeAllowed(bool allowed);
+
+  ndk::ScopedAStatus parseA2dpConfiguration(
+    const CodecId& codec_id, const std::vector<uint8_t>& configuration,
+    CodecParameters* codec_parameters, A2dpStatus* _aidl_return);
+  ndk::ScopedAStatus getA2dpConfiguration(
+    const std::vector<A2dpRemoteCapabilities>& remote_a2dp_capabilities,
+    const A2dpConfigurationHint& hint, std::optional<audio::A2dpConfiguration>* _aidl_return);
 
   virtual bool isValid(const SessionType& sessionType) = 0;
 
