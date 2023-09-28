@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fc48e19_cd49a480",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4170,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-28T07:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a79fc9dc_44e4dab2",
+      "range": {
+        "startLine": 4170,
+        "startChar": 0,
+        "endLine": 4170,
+        "endChar": 4
+      },
+      "revId": "6ff3d69c758068ef84ae8f8d98ee6851c9c06287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d817b8c_4286fd0e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-27T17:32:25Z",
       "side": 1,
       "message": "BTW, since this seems to be a helper method not expected to be called by itself, let\u0027s move it into the `private` section. Same for `SetupPatch`.",
+      "range": {
+        "startLine": 4191,
+        "startChar": 0,
+        "endLine": 4191,
+        "endChar": 75
+      },
+      "revId": "6ff3d69c758068ef84ae8f8d98ee6851c9c06287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14adcb27_4729d777",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4191,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-28T07:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d817b8c_4286fd0e",
       "range": {
         "startLine": 4191,
         "startChar": 0,
@@ -93,6 +141,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8e8aaa4_b86d3282",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4197,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-28T07:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1e4f2e8_e0578c1d",
+      "range": {
+        "startLine": 4197,
+        "startChar": 56,
+        "endLine": 4197,
+        "endChar": 73
+      },
+      "revId": "6ff3d69c758068ef84ae8f8d98ee6851c9c06287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b58ea63b_5d0350b3",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4197,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-28T07:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c98d969_c72a1413",
+      "range": {
+        "startLine": 4197,
+        "startChar": 47,
+        "endLine": 4197,
+        "endChar": 48
+      },
+      "revId": "6ff3d69c758068ef84ae8f8d98ee6851c9c06287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3843cde0_c72e7a87",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-09-27T17:32:25Z",
       "side": 1,
       "message": "Large structures should be passed via a const reference (`const AudioPort\u0026`), here and in `SetUp`.",
+      "range": {
+        "startLine": 4199,
+        "startChar": 20,
+        "endLine": 4199,
+        "endChar": 29
+      },
+      "revId": "6ff3d69c758068ef84ae8f8d98ee6851c9c06287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "952dcfc2_3afc9578",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4199,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-28T07:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3843cde0_c72e7a87",
       "range": {
         "startLine": 4199,
         "startChar": 20,
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c0f029d_5a29e563",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4246,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-28T07:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fe98551_ae296137",
+      "range": {
+        "startLine": 4246,
+        "startChar": 20,
+        "endLine": 4246,
+        "endChar": 21
+      },
+      "revId": "6ff3d69c758068ef84ae8f8d98ee6851c9c06287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aeae8f8f_f1a02ccc",
@@ -152,6 +296,30 @@
       "writtenOn": "2023-09-27T17:32:25Z",
       "side": 1,
       "message": "`const`",
+      "range": {
+        "startLine": 4335,
+        "startChar": 4,
+        "endLine": 4335,
+        "endChar": 7
+      },
+      "revId": "6ff3d69c758068ef84ae8f8d98ee6851c9c06287",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e805ba67_fc04dd0a",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4335,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-28T07:22:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aeae8f8f_f1a02ccc",
       "range": {
         "startLine": 4335,
         "startChar": 4,
