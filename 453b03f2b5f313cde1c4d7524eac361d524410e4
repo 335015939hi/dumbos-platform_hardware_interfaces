@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f1dc8ef_322f0327",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-09-28T13:50:12Z",
+      "side": 1,
+      "message": "The serviceDied not being called does not cause an issue with this CL since there\u0027s an explicit destructor that ensures the thread exits.",
+      "revId": "453b03f2b5f313cde1c4d7524eac361d524410e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
