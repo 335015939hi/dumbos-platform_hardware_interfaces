@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aae0d3c7_c8565391",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Identity.aidl",
+        "patchSetId": 39
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-09-28T16:04:12Z",
+      "side": 1,
+      "message": "It would be helpful to scope out how persistent these need to be.\n\nFWIW, it can be per boot if the node has ways around it... (I\u0027m unable to come up with a constructive suggestion)",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "80dc85d1a81f4bf3401732a2c55cf2c703ac6c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f04bd2f_69daa4bd",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 39
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-09-28T16:04:12Z",
+      "side": 1,
+      "message": "We discussed at one point that result of interfaces may need to have encrypted shared keys or handles as optional.\n\nFor ex, a remote service (such as Secretkeeper) may chose to store these in memory \u0026 not send opaque handles to the other end?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "80dc85d1a81f4bf3401732a2c55cf2c703ac6c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
