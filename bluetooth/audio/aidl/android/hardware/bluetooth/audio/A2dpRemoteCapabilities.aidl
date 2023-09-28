@@ -16,20 +16,23 @@
 
 package android.hardware.bluetooth.audio;
 
-import android.hardware.bluetooth.audio.A2dpStreamConfiguration;
-import android.hardware.bluetooth.audio.CodecConfiguration;
-import android.hardware.bluetooth.audio.LeAudioBroadcastConfiguration;
-import android.hardware.bluetooth.audio.LeAudioConfiguration;
-import android.hardware.bluetooth.audio.PcmConfiguration;
+import android.hardware.bluetooth.audio.CodecId;
 
 /**
- * Used to configure either a Hardware or Software Encoding session based on session type
+ * A2DP Remote Capabilites
  */
 @VintfStability
-union AudioConfiguration {
-    PcmConfiguration pcmConfig;
-    CodecConfiguration a2dpConfig;
-    LeAudioConfiguration leAudioConfig;
-    LeAudioBroadcastConfiguration leAudioBroadcastConfig;
-    A2dpStreamConfiguration a2dp;
+parcelable A2dpRemoteCapabilities {
+    /**
+     * Remote Stream Endpoint identifier
+     */
+    int seid;
+
+    /**
+     * Codec Identifier and capabilities as defined
+     * by the A2DP's `Codec Specific Information Elements`,
+     * or `Vendor Specific Value` when CodecId format is set to `VENDOR`.
+     */
+    CodecId id;
+    byte[] capabilities;
 }
