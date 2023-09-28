@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,14 +32,34 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@VintfStability
-interface IBluetoothAudioProvider {
-  void endSession();
-  android.hardware.common.fmq.MQDescriptor<byte,android.hardware.common.fmq.SynchronizedReadWrite> startSession(in android.hardware.bluetooth.audio.IBluetoothAudioPort hostIf, in android.hardware.bluetooth.audio.AudioConfiguration audioConfig, in android.hardware.bluetooth.audio.LatencyMode[] supportedLatencyModes);
-  void streamStarted(in android.hardware.bluetooth.audio.BluetoothAudioStatus status);
-  void streamSuspended(in android.hardware.bluetooth.audio.BluetoothAudioStatus status);
-  void updateAudioConfiguration(in android.hardware.bluetooth.audio.AudioConfiguration audioConfig);
-  void setLowLatencyModeAllowed(in boolean allowed);
-  android.hardware.bluetooth.audio.A2dpStatus parseA2dpConfiguration(in android.hardware.bluetooth.audio.CodecId codecId, in byte[] configuration, out android.hardware.bluetooth.audio.CodecParameters codecParameters);
-  @nullable android.hardware.bluetooth.audio.A2dpConfiguration getA2dpConfiguration(in List<android.hardware.bluetooth.audio.A2dpRemoteCapabilities> remoteA2dpCapabilities, in android.hardware.bluetooth.audio.A2dpConfigurationHint hint);
+@Backing(type="byte") @VintfStability
+enum A2dpStatus {
+  OK = 0,
+  BAD_LENGTH = 0x11u8,
+  BAD_PAYLOAD_FORMAT = 0x18u8,
+  INVALID_CODEC_TYPE = 0xC1u8,
+  NOT_SUPPORTED_CODEC_TYPE = 0xC2u8,
+  INVALID_SAMPLING_FREQUENCY = 0xC3u8,
+  NOT_SUPPORTED_SAMPLING_FREQUENCY = 0xC4u8,
+  INVALID_CHANNEL_MODE = 0xC5u8,
+  NOT_SUPPORTED_CHANNEL_MODE = 0xC6u8,
+  INVALID_SUBBANDS = 0xC7u8,
+  NOT_SUPPORTED_SUBBANDS = 0xC8u8,
+  INVALID_ALLOCATION_METHOD = 0xC9u8,
+  NOT_SUPPORTED_ALLOCATION_METHOD = 0xCAu8,
+  INVALID_MINIMUM_BITPOOL_VALUE = 0xCBu8,
+  NOT_SUPPORTED_MINIMUM_BITPOOL_VALUE = 0xCCu8,
+  INVALID_MAXIMUM_BITPOOL_VALUE = 0xCDu8,
+  NOT_SUPPORTED_MAXIMUM_BITPOOL_VALUE = 0xCEu8,
+  NOT_SUPPORTED_VBR = 0xD3u8,
+  NOT_SUPPORTED_BIT_RATE = 0xD5u8,
+  INVALID_OBJECT_TYPE = 0xD6u8,
+  NOT_SUPPORTED_OBJECT_TYPE = 0xD7u8,
+  INVALID_CHANNELS = 0xD8u8,
+  NOT_SUPPORTED_CHANNELS = 0xD9u8,
+  INVALID_BLOCK_LENGTH = 0xDDu8,
+  INVALID_CODEC_PARAMETER = 0xE2u8,
+  NOT_SUPPORTED_CODEC_PARAMETER = 0xE3u8,
+  INVALID_DRC = 0xE4u8,
+  NOT_SUPPORTED_DRC = 0xE5u8,
 }
