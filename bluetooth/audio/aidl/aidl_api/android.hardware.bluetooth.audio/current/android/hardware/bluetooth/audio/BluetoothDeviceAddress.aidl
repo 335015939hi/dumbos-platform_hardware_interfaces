@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,13 +33,6 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-interface IBluetoothAudioProvider {
-  void endSession();
-  android.hardware.common.fmq.MQDescriptor<byte,android.hardware.common.fmq.SynchronizedReadWrite> startSession(in android.hardware.bluetooth.audio.IBluetoothAudioPort hostIf, in android.hardware.bluetooth.audio.AudioConfiguration audioConfig, in android.hardware.bluetooth.audio.LatencyMode[] supportedLatencyModes);
-  void streamStarted(in android.hardware.bluetooth.audio.BluetoothAudioStatus status);
-  void streamSuspended(in android.hardware.bluetooth.audio.BluetoothAudioStatus status);
-  void updateAudioConfiguration(in android.hardware.bluetooth.audio.AudioConfiguration audioConfig);
-  void setLowLatencyModeAllowed(in boolean allowed);
-  android.hardware.bluetooth.audio.A2dpStatus parseA2dpConfiguration(in android.hardware.bluetooth.audio.CodecId codecId, in byte[] configuration, out android.hardware.bluetooth.audio.CodecParameters codecParameters);
-  @nullable android.hardware.bluetooth.audio.A2dpConfiguration getA2dpConfiguration(in List<android.hardware.bluetooth.audio.A2dpRemoteCapabilities> remoteA2dpCapabilities, in android.hardware.bluetooth.audio.A2dpConfigurationHint hint);
+parcelable BluetoothDeviceAddress {
+  byte[6] v;
 }
