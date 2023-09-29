@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33d83506_9f0ab539",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-09-29T11:12:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f857bd98_8ec33501",
+      "range": {
+        "startLine": 40,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "5113ad593aa5e1c573a9293073f01f236c4edf2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "971f6021_85b3d315",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-21T11:58:38Z",
       "side": 1,
       "message": "Maybe we could add flags here?",
+      "range": {
+        "startLine": 61,
+        "startChar": 2,
+        "endLine": 62,
+        "endChar": 21
+      },
+      "revId": "5113ad593aa5e1c573a9293073f01f236c4edf2a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9361f78a_1ef6946c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-09-29T11:12:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "971f6021_85b3d315",
       "range": {
         "startLine": 61,
         "startChar": 2,
