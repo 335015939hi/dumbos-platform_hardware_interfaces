@@ -211,6 +211,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f96c663_f3b969b2",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-29T08:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e960f09b_e0c97ebd",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "814c0be2_ec6f5458",
@@ -242,6 +260,24 @@
       "side": 1,
       "message": "As of this CL, identity is just a public key, however, in the 3rd CL on this stack, I expand the definition of identity. So in the final version, the signature is verified by the public key in the leaf of `DiceChainEntry` if there is one or more `DiceChainEntry`, otherwise, it is verified with `DiceCertChainInitialPayload`. The latter is applicable to the parties who do not have/cannot present a DICE chain (e.g. remote device).\n\nI will add this clarifications in this CL and the next CL.",
       "parentUuid": "814c0be2_ec6f5458",
+      "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "531fa0c2_607ae5c3",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-29T08:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f41853bd_ab8046ca",
       "revId": "e1b88a4e2ed36b3f4a294982359f7253c88b9776",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

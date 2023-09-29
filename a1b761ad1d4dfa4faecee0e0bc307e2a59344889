@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51ee9bdb_2ee27db4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 40
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-29T08:29:24Z",
+      "side": 1,
+      "message": "I will rebase the upper CLs on the stack after resolving merge conflicts.",
+      "revId": "a1b761ad1d4dfa4faecee0e0bc307e2a59344889",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

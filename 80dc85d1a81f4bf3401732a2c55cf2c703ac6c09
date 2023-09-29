@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac95bf0f_1467c4c3",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Identity.aidl",
+        "patchSetId": 39
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-29T08:29:24Z",
+      "side": 1,
+      "message": "I have added the proper definition of identity in the next CL on the stack. For the scope of this CL, I have defined identity as a persistent signing key of the party.\n\nCan you please see: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2726696/23/security/authgraph/aidl/android/hardware/security/authgraph/Identity.aidl and let me know if you have any further questions? Thanks!",
+      "parentUuid": "aae0d3c7_c8565391",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 22
+      },
+      "revId": "80dc85d1a81f4bf3401732a2c55cf2c703ac6c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f04bd2f_69daa4bd",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
         "patchSetId": 39
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-28T16:04:12Z",
       "side": 1,
       "message": "We discussed at one point that result of interfaces may need to have encrypted shared keys or handles as optional.\n\nFor ex, a remote service (such as Secretkeeper) may chose to store these in memory \u0026 not send opaque handles to the other end?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "80dc85d1a81f4bf3401732a2c55cf2c703ac6c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4cc501c_00fae22c",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 39
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-29T08:29:24Z",
+      "side": 1,
+      "message": "This is not optional anymore (see https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2750486/5/security/authgraph/aidl/android/hardware/security/authgraph/SessionInfo.aidl)\n\nYou can certainly ignore the shared key arcs once you are done with the key agreement protocol and use the in-memory stored keys for the encryption of the subsequent communication. However, for the scope of the key agreement protocol (i.e. return types and inputs of the four methods of the key agreement protocol), are you ok with the arcs?",
+      "parentUuid": "7f04bd2f_69daa4bd",
       "range": {
         "startLine": 41,
         "startChar": 0,

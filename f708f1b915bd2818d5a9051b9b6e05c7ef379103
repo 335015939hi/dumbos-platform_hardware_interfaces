@@ -22,6 +22,30 @@
       },
       "revId": "f708f1b915bd2818d5a9051b9b6e05c7ef379103",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a18b171b_7a59a073",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-29T08:29:24Z",
+      "side": 1,
+      "message": "AFAIU, the only change we might be able to do is remove/minimize the use of the word \"DH\" (for Diffie-Hellman) from the API/spec (which I did with the latest patch set).\nBut we anyway have to specify that the two parties need to create an ephemeral EC key pair on the P-256 curve for key agreement, in the spec.\n\nDid you have any other changes in mind with this suggestion? Thanks!",
+      "parentUuid": "2b1220dc_ee5129c6",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "f708f1b915bd2818d5a9051b9b6e05c7ef379103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

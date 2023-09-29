@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "065d9bda_3cefdc22",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEResult.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-09-29T08:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e168b61_0aeac3ed",
+      "revId": "e9638d22ee4df7f7956b1896aca7f2bc0ff035a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e631d68_eab959de",
