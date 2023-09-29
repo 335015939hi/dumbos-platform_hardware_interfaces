@@ -16,6 +16,9 @@
 
 #define LOG_TAG "BTAudioProviderStub"
 
+#include "A2dpOffloadCodecAac.h"
+#include "A2dpOffloadCodecFactory.h"
+#include "A2dpOffloadCodecSbc.h"
 #include "BluetoothAudioProvider.h"
 
 #include <BluetoothAudioSessionReport.h>
@@ -71,6 +74,21 @@ ndk::ScopedAStatus BluetoothAudioProvider::startSession(
   stack_iface_ = host_if;
   BluetoothAudioProviderContext* cookie =
       new BluetoothAudioProviderContext{session_type_};
+
+  if (audio_config.getTag() == AudioConfiguration::Tag::a2dp) {
+    auto a2dp_config = audio_config.get<AudioConfiguration::Tag::a2dp>();
+
+    if (a2dp_config.codecId == A2dpOffloadCodecSbc::GetInstance()->GetCodecId()) {
+      SbcParameters sbc_parameters;
+      A2dpOffloadCodecSbc::GetInstance()->
+        ParseConfiguration(a2dp_config.configuration, &sbc_parameters);
+
+    } else if (a2dp_config.codecId == A2dpOffloadCodecAac::GetInstance()->GetCodecId()) {
+      AacParameters aac_parameters;
+      A2dpOffloadCodecAac::GetInstance()->
+        ParseConfiguration(a2dp_config.configuration, &aac_parameters);
+    }
+  }
 
   AIBinder_linkToDeath(stack_iface_->asBinder().get(), death_recipient_.get(),
                        cookie);
@@ -174,11 +192,22 @@ ndk::ScopedAStatus BluetoothAudioProvider::parseA2dpConfiguration(
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
   }
 
-  *_aidl_return = A2dpStatus::OK;
+  if (session_type_ != SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+      session_type_ != SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " is illegal";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+  }
 
-  (void)codec_id;
-  (void)configuration;
-  (void)codec_parameters;
+  auto codec = A2dpOffloadCodecFactory::GetInstance()->GetCodec(codec_id);
+  if (!codec) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+                          << " - CodecId=" << codec_id.toString()
+              << " is not found";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+  }
+
+  *_aidl_return = codec->ParseConfiguration(configuration, codec_parameters);
 
   return ndk::ScopedAStatus::ok();
 }
@@ -193,10 +222,19 @@ ndk::ScopedAStatus BluetoothAudioProvider::getA2dpConfiguration(
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
   }
 
-  *_aidl_return = std::nullopt;
+  if (session_type_ != SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+      session_type_ != SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " is illegal";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+  }
 
-  (void)remote_a2dp_capabilities;
-  (void)hint;
+  *_aidl_return = std::nullopt;
+  A2dpConfiguration avdtp_configuration;
+
+  if (A2dpOffloadCodecFactory::GetInstance()->
+      GetConfiguration(remote_a2dp_capabilities, hint, &avdtp_configuration))
+    *_aidl_return = std::make_optional<A2dpConfiguration>(std::move(avdtp_configuration));
 
   return ndk::ScopedAStatus::ok();
 }
