@@ -22,6 +22,10 @@
 #include <BluetoothAudioSessionReport.h>
 #include <android-base/logging.h>
 
+#include "A2dpOffloadCodecAac.h"
+#include "A2dpOffloadCodecFactory.h"
+#include "A2dpOffloadCodecSbc.h"
+
 namespace aidl {
 namespace android {
 namespace hardware {
@@ -48,7 +52,22 @@ ndk::ScopedAStatus A2dpOffloadAudioProvider::startSession(
     const std::shared_ptr<IBluetoothAudioPort>& host_if,
     const AudioConfiguration& audio_config,
     const std::vector<LatencyMode>& latency_modes, DataMQDesc* _aidl_return) {
-  if (audio_config.getTag() != AudioConfiguration::a2dpConfig) {
+  if (audio_config.getTag() == AudioConfiguration::Tag::a2dp) {
+    auto a2dp_config = audio_config.get<AudioConfiguration::Tag::a2dp>();
+
+    if (a2dp_config.codecId ==
+        A2dpOffloadCodecSbc::GetInstance()->GetCodecId()) {
+      SbcParameters sbc_parameters;
+      A2dpOffloadCodecSbc::GetInstance()->ParseConfiguration(
+          a2dp_config.configuration, &sbc_parameters);
+
+    } else if (a2dp_config.codecId ==
+               A2dpOffloadCodecAac::GetInstance()->GetCodecId()) {
+      AacParameters aac_parameters;
+      A2dpOffloadCodecAac::GetInstance()->ParseConfiguration(
+          a2dp_config.configuration, &aac_parameters);
+    }
+  } else if (audio_config.getTag() != AudioConfiguration::a2dpConfig) {
     LOG(WARNING) << __func__ << " - Invalid Audio Configuration="
                  << audio_config.toString();
     *_aidl_return = DataMQDesc();

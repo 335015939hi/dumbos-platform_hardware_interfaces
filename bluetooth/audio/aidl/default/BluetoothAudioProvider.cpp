@@ -21,6 +21,8 @@
 #include <BluetoothAudioSessionReport.h>
 #include <android-base/logging.h>
 
+#include "A2dpOffloadCodecFactory.h"
+
 namespace aidl {
 namespace android {
 namespace hardware {
@@ -167,17 +169,21 @@ ndk::ScopedAStatus BluetoothAudioProvider::setLowLatencyModeAllowed(
 ndk::ScopedAStatus BluetoothAudioProvider::parseA2dpConfiguration(
     const CodecId& codec_id, const std::vector<uint8_t>& configuration,
     CodecParameters* codec_parameters, A2dpStatus* _aidl_return) {
-  if (stack_iface_ == nullptr) {
+  if (session_type_ != SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+      session_type_ != SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
-              << " has NO session";
+              << " is illegal";
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
   }
 
-  *_aidl_return = A2dpStatus::OK;
+  auto codec = A2dpOffloadCodecFactory::GetInstance()->GetCodec(codec_id);
+  if (!codec) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " - CodecId=" << codec_id.toString() << " is not found";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+  }
 
-  (void)codec_id;
-  (void)configuration;
-  (void)codec_parameters;
+  *_aidl_return = codec->ParseConfiguration(configuration, codec_parameters);
 
   return ndk::ScopedAStatus::ok();
 }
@@ -186,16 +192,20 @@ ndk::ScopedAStatus BluetoothAudioProvider::getA2dpConfiguration(
     const std::vector<A2dpRemoteCapabilities>& remote_a2dp_capabilities,
     const A2dpConfigurationHint& hint,
     std::optional<audio::A2dpConfiguration>* _aidl_return) {
-  if (stack_iface_ == nullptr) {
+  if (session_type_ != SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
+      session_type_ != SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
     LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
-              << " has NO session";
+              << " is illegal";
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
   }
 
   *_aidl_return = std::nullopt;
+  A2dpConfiguration avdtp_configuration;
 
-  (void)remote_a2dp_capabilities;
-  (void)hint;
+  if (A2dpOffloadCodecFactory::GetInstance()->GetConfiguration(
+          remote_a2dp_capabilities, hint, &avdtp_configuration))
+    *_aidl_return =
+        std::make_optional<A2dpConfiguration>(std::move(avdtp_configuration));
 
   return ndk::ScopedAStatus::ok();
 }
