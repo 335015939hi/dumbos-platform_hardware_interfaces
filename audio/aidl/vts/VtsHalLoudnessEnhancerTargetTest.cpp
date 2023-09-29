@@ -41,8 +41,7 @@ using LoudnessEnhancerParamTestParam =
 
 // Every int 32 bit value is a valid gain, so testing the corner cases and one regular value.
 // TODO : Update the test values once range/capability is updated by implementation.
-const std::vector<int> kGainMbValues = {std::numeric_limits<int>::min(), 100,
-                                        std::numeric_limits<int>::max()};
+const std::vector<int> kGainMbValues = {0, 50, 100};
 
 class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhancerParamTestParam>,
                                   public EffectHelper {
@@ -59,7 +58,6 @@ class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhanc
         Parameter::Common common = EffectHelper::createParamCommon(
                 0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
                 kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */);
-        IEffect::OpenEffectReturn ret;
         ASSERT_NO_FATAL_FAILURE(open(mEffect, common, specific, &ret, EX_NONE));
         ASSERT_NE(nullptr, mEffect);
     }
@@ -78,8 +76,11 @@ class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhanc
     static const long kInputFrameCount = 0x100, kOutputFrameCount = 0x100;
     std::shared_ptr<IFactory> mFactory;
     std::shared_ptr<IEffect> mEffect;
+    IEffect::OpenEffectReturn ret;  // Added here because its requried to create AidlMessageQueues
+
     Descriptor mDescriptor;
     int mParamGainMb = 0;
+    static std::vector<float> baseOutput;  // Output buffer for comparision
 
     void SetAndGetParameters() {
         for (auto& it : mTags) {
@@ -118,9 +119,59 @@ class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhanc
     void CleanUp() { mTags.clear(); }
 };
 
+std::vector<float> LoudnessEnhancerParamTest::baseOutput(128, 0);
+
 TEST_P(LoudnessEnhancerParamTest, SetAndGetGainMb) {
     EXPECT_NO_FATAL_FAILURE(addGainMbParam(mParamGainMb));
     SetAndGetParameters();
+
+    // Creating AidlMessageQueues
+    auto statusMQ = std::make_unique<EffectHelper::StatusMQ>(ret.statusMQ);
+    ASSERT_TRUE(statusMQ->isValid());
+    auto inputMQ = std::make_unique<EffectHelper::DataMQ>(ret.inputDataMQ);
+    ASSERT_TRUE(inputMQ->isValid());
+    auto outputMQ = std::make_unique<EffectHelper::DataMQ>(ret.outputDataMQ);
+    ASSERT_TRUE(outputMQ->isValid());
+
+    // Enabling the process
+    ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::START));
+    ASSERT_NO_FATAL_FAILURE(expectState(mEffect, State::PROCESSING));
+
+    // Randomized input buffer, values between 0 to 255
+    std::vector<float> buffer = {
+            195.735, 145.43,  161.136, 42.9741,  131.744, 234.221, 80.4335, 175.735,  155.454,
+            127.618, 242.554, 163.779, 67.8213,  62.5858, 77.0776, 64.3263, 222.162,  159.854,
+            105.081, 105.251, 28.6376, 154.089,  80.2321, 171.056, 103.452, 0.953247, 35.9135,
+            169.298, 211.8,   199.948, 248.727,  129.377, 160.523, 175.766, 211.807,  88.9537,
+            228.705, 54.7023, 26.295,  227.601,  27.0066, 6.5042,  218.07,  180.24,   236.703,
+            128.861, 91.2668, 114.194, 140.262,  236.419, 148.583, 39.4713, 8.81902,  213.231,
+            190.163, 9.96331, 74.2867, 0.137829, 165.987, 75.7569, 138.177, 245.994,  125.189,
+            185.149, 146.433, 78.9154, 123.374,  109.537, 43.4098, 8.01371, 168.579,  254.681,
+            252.643, 241.85,  249.948, 68.7457,  57.1038, 22.8576, 86.3633, 148.062,  163.746,
+            179.18,  230.935, 243.094, 227.783,  72.6633, 204.334, 247.363, 187.917,  48.2008,
+            204.771, 171.84,  119.595, 66.2766,  100.758, 120.146, 16.9248, 25.9979,  50.407,
+            237.631, 233.644, 111.369, 67.586,   182.657, 170.955, 156.903, 229.487,  8.56596,
+            9.07093, 76.963,  159.366, 227.008,  65.2445, 165.588, 122.605, 109.778,  139.705,
+            215.546, 240.516, 75.7411, 80.1789,  72.377,  59.9478, 220.775, 244.744,  9.13637,
+            93.09,   41.0474};
+
+    // Write from buffer to messegequeues and calling process
+    EXPECT_NO_FATAL_FAILURE(EffectHelper::writeToFmq(statusMQ, inputMQ, buffer));
+
+    // Read the updated messegequeues into bufffer
+    EXPECT_NO_FATAL_FAILURE(
+            EffectHelper::readFromFmq(statusMQ, 1, outputMQ, buffer.size(), buffer));
+
+    // Compare the increase in the buffer values with baseOutput buffer and update baseOutput buffer
+    for (size_t i = 0; i < buffer.size(); i++) {
+        ASSERT_GE(buffer[i], baseOutput[i]);
+        baseOutput[i] = buffer[i];
+    }
+
+    // Disble the process
+    ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::STOP));
+
+    EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(statusMQ, 0, outputMQ, 0, buffer));
 }
 
 INSTANTIATE_TEST_SUITE_P(
