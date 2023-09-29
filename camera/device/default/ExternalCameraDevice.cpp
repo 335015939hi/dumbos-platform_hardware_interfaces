@@ -359,6 +359,9 @@ status_t ExternalCameraDevice::initDefaultCharsKeys(
     const uint8_t hardware_level = ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL_EXTERNAL;
     UPDATE(ANDROID_INFO_SUPPORTED_HARDWARE_LEVEL, &hardware_level, 1);
 
+    const uint8_t bufMgrVer = ANDROID_INFO_SUPPORTED_BUFFER_MANAGEMENT_VERSION_HIDL_DEVICE_3_5;
+    UPDATE(ANDROID_INFO_SUPPORTED_BUFFER_MANAGEMENT_VERSION, &bufMgrVer, 1);
+
     // android.colorCorrection
     const uint8_t availableAberrationModes[] = {ANDROID_COLOR_CORRECTION_ABERRATION_MODE_OFF};
     UPDATE(ANDROID_COLOR_CORRECTION_AVAILABLE_ABERRATION_MODES, availableAberrationModes,
