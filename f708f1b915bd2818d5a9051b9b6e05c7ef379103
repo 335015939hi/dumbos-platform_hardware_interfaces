@@ -46,6 +46,30 @@
       },
       "revId": "f708f1b915bd2818d5a9051b9b6e05c7ef379103",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0000fc33_33eea8fe",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 37
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-09-29T10:05:28Z",
+      "side": 1,
+      "message": "I was just channeling Paul. I think he was in favor of basing it on KEM to make it easier to move to other ciphers, and also because it\u0027s just a better formulation.\nBut I guess we have to be clear about specifically what we\u0027re sending.",
+      "parentUuid": "a18b171b_7a59a073",
+      "range": {
+        "startLine": 73,
+        "startChar": 4,
+        "endLine": 73,
+        "endChar": 80
+      },
+      "revId": "f708f1b915bd2818d5a9051b9b6e05c7ef379103",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
