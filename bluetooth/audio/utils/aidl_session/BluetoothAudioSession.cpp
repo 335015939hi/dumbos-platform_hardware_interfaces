@@ -297,7 +297,8 @@ bool BluetoothAudioSession::UpdateAudioConfig(
        audio_config_tag == AudioConfiguration::pcmConfig);
   bool is_a2dp_offload_audio_config =
       (is_offload_a2dp_session &&
-       audio_config_tag == AudioConfiguration::a2dpConfig);
+       (audio_config_tag == AudioConfiguration::a2dp ||
+        audio_config_tag == AudioConfiguration::a2dpConfig));
   bool is_le_audio_offload_unicast_audio_config =
       (is_offload_le_audio_unicast_session &&
        audio_config_tag == AudioConfiguration::leAudioConfig);
