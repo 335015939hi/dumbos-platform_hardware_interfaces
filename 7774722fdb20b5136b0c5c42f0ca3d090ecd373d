@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e06cc80_737e4e5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-29T10:35:27Z",
+      "side": 1,
+      "message": "Great first draft.\nI have added a few review comments.\nThanks",
+      "revId": "7774722fdb20b5136b0c5c42f0ca3d090ecd373d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24be42ff_37c4acbd",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-29T10:35:27Z",
+      "side": 1,
+      "message": "can be renamed to mOpenEffectReturn\nNo need for the comment",
+      "range": {
+        "startLine": 79,
+        "startChar": 30,
+        "endLine": 79,
+        "endChar": 33
+      },
+      "revId": "7774722fdb20b5136b0c5c42f0ca3d090ecd373d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a0f7745_39340a6a",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-29T10:35:27Z",
+      "side": 1,
+      "message": "We should create a new test, not modify the exsiting test.",
+      "range": {
+        "startLine": 124,
+        "startChar": 34,
+        "endLine": 124,
+        "endChar": 49
+      },
+      "revId": "7774722fdb20b5136b0c5c42f0ca3d090ecd373d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1340da2b_243e51f3",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-29T10:35:27Z",
+      "side": 1,
+      "message": "Since we don\u0027t plan on having a static output anymore, we can generate it everytime.",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "7774722fdb20b5136b0c5c42f0ca3d090ecd373d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c9430b2_325e1e07",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-29T10:35:27Z",
+      "side": 1,
+      "message": "Why do we perform this read?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 89
+      },
+      "revId": "7774722fdb20b5136b0c5c42f0ca3d090ecd373d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7834edb5_1440a9c6",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-09-29T10:35:27Z",
+      "side": 1,
+      "message": "We should restore the new line on end of the page",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 1
+      },
+      "revId": "7774722fdb20b5136b0c5c42f0ca3d090ecd373d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
