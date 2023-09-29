@@ -41,8 +41,6 @@ using LoudnessEnhancerParamTestParam =
 
 // Every int 32 bit value is a valid gain, so testing the corner cases and one regular value.
 // TODO : Update the test values once range/capability is updated by implementation.
-const std::vector<int> kGainMbValues = {std::numeric_limits<int>::min(), 100,
-                                        std::numeric_limits<int>::max()};
 
 class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhancerParamTestParam>,
                                   public EffectHelper {
@@ -59,8 +57,7 @@ class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhanc
         Parameter::Common common = EffectHelper::createParamCommon(
                 0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
                 kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */);
-        IEffect::OpenEffectReturn ret;
-        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, specific, &ret, EX_NONE));
+        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, specific, &mOpenEffectReturn, EX_NONE));
         ASSERT_NE(nullptr, mEffect);
     }
     void TearDown() override {
@@ -78,6 +75,8 @@ class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhanc
     static const long kInputFrameCount = 0x100, kOutputFrameCount = 0x100;
     std::shared_ptr<IFactory> mFactory;
     std::shared_ptr<IEffect> mEffect;
+    IEffect::OpenEffectReturn mOpenEffectReturn;
+
     Descriptor mDescriptor;
     int mParamGainMb = 0;
 
@@ -113,6 +112,40 @@ class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhanc
         mTags.push_back({LoudnessEnhancer::gainMb, le});
     }
 
+    void fillInput(std::vector<float>& buffer) {
+        for (size_t i = 0; i < buffer.size(); i++) {
+            buffer[i] = static_cast<float>(std::rand()) / RAND_MAX * 255;
+        }
+    }
+
+    void process(std::vector<float>& input, std::vector<float>& output, int gain) {
+        // Setting the parameters
+        EXPECT_NO_FATAL_FAILURE(addGainMbParam(gain));
+        SetAndGetParameters();
+
+        // Creating AidlMessageQueues
+        auto statusMQ = std::make_unique<EffectHelper::StatusMQ>(mOpenEffectReturn.statusMQ);
+        ASSERT_TRUE(statusMQ->isValid());
+        auto inputMQ = std::make_unique<EffectHelper::DataMQ>(mOpenEffectReturn.inputDataMQ);
+        ASSERT_TRUE(inputMQ->isValid());
+        auto outputMQ = std::make_unique<EffectHelper::DataMQ>(mOpenEffectReturn.outputDataMQ);
+        ASSERT_TRUE(outputMQ->isValid());
+
+        // Enabling the process
+        ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::START));
+        ASSERT_NO_FATAL_FAILURE(expectState(mEffect, State::PROCESSING));
+
+        // Write from buffer to message queues and calling process
+        EXPECT_NO_FATAL_FAILURE(EffectHelper::writeToFmq(statusMQ, inputMQ, input));
+
+        // Read the updated message queues into buffer
+        EXPECT_NO_FATAL_FAILURE(
+                EffectHelper::readFromFmq(statusMQ, 1, outputMQ, output.size(), output));
+
+        // Disable the process
+        ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::STOP));
+    }
+
   private:
     std::vector<std::pair<LoudnessEnhancer::Tag, LoudnessEnhancer>> mTags;
     void CleanUp() { mTags.clear(); }
@@ -123,11 +156,55 @@ TEST_P(LoudnessEnhancerParamTest, SetAndGetGainMb) {
     SetAndGetParameters();
 }
 
+TEST_P(LoudnessEnhancerParamTest, LoudnessValidation) {
+    std::vector<float> buffer(128);
+    // Fill input buffer with random values between 0 to 255
+    fillInput(buffer);
+
+    std::vector<float> baseOutput(128);
+    int baseGain = 0;
+
+    // Get the baseOutput for gain=0, only compressed values
+    process(buffer, baseOutput, baseGain);
+
+    // Compare the outputs for increasing gain
+    int gainValues[] = {50, 100, INT_MAX};
+
+    for (int gain : gainValues) {
+        std::vector<float> output(128);
+
+        // Add gains to the input buffer
+        process(buffer, output, gain);
+
+        // Compare the increase in the buffer values with baseOutput and update it
+        for (size_t i = 0; i < buffer.size(); i++) {
+            ASSERT_GE(output[i], baseOutput[i]);
+            baseOutput[i] = output[i];
+        }
+    }
+}
+
+TEST_P(LoudnessEnhancerParamTest, MinimumGain) {
+    std::vector<float> buffer(128);
+    // Fill input buffer with random values between 0 to 255
+    fillInput(buffer);
+
+    // Add gains to the input buffer
+    process(buffer, buffer, INT_MIN);
+
+    // buffer values are 0 with INT_MIN gain
+    for (size_t i = 0; i < buffer.size(); i++) {
+        ASSERT_EQ(buffer[i], 0);
+    }
+    // Disable the process
+    ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::STOP));
+}
+
 INSTANTIATE_TEST_SUITE_P(
         LoudnessEnhancerTest, LoudnessEnhancerParamTest,
         ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
                                    IFactory::descriptor, getEffectTypeUuidLoudnessEnhancer())),
-                           testing::ValuesIn(kGainMbValues)),
+                           testing::Values(0)),
         [](const testing::TestParamInfo<LoudnessEnhancerParamTest::ParamType>& info) {
             auto descriptor = std::get<PARAM_INSTANCE_NAME>(info.param).second;
             std::string gainMb = std::to_string(std::get<PARAM_GAIN_MB>(info.param));
