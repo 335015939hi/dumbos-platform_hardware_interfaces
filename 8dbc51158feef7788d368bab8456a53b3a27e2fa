@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27d7e4b5_58fdcd69",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-10-02T22:51:14Z",
+      "side": 1,
+      "message": "Does `0` here indicate unlimited open count?",
+      "range": {
+        "startLine": 240,
+        "startChar": 86,
+        "endLine": 240,
+        "endChar": 87
+      },
+      "revId": "8dbc51158feef7788d368bab8456a53b3a27e2fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
