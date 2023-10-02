@@ -22,6 +22,30 @@
       },
       "revId": "8dbc51158feef7788d368bab8456a53b3a27e2fa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af0db671_583b3c51",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-02T23:16:12Z",
+      "side": 1,
+      "message": "Yes. That\u0027s the convention which is used in the framework: https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/libaudiofoundation/include/media/AudioPort.h;l\u003d125;drc\u003d51270857d8f242eb88d8109abb8ad9dd085aeb4a. Having a mix port with no open streams allowed on it wouldn\u0027t make much sense.",
+      "parentUuid": "27d7e4b5_58fdcd69",
+      "range": {
+        "startLine": 240,
+        "startChar": 86,
+        "endLine": 240,
+        "endChar": 87
+      },
+      "revId": "8dbc51158feef7788d368bab8456a53b3a27e2fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
