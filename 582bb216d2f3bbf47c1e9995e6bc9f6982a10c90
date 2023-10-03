@@ -22,6 +22,30 @@
       },
       "revId": "582bb216d2f3bbf47c1e9995e6bc9f6982a10c90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d0c0aaf_2cc11345",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-03T17:32:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96e30afb_d23096ac",
+      "range": {
+        "startLine": 149,
+        "startChar": 9,
+        "endLine": 149,
+        "endChar": 26
+      },
+      "revId": "582bb216d2f3bbf47c1e9995e6bc9f6982a10c90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
