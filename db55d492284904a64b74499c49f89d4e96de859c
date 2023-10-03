@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98f1648c_78e9682d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-03T22:21:32Z",
+      "side": 1,
+      "message": "Hi Steven,\n\nCan you please help review this AIDL interface?\nAPI tracker: b/299653596\nUpdatability tracker: b/299653597\n\nThank you!",
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
