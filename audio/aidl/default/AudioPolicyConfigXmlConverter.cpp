@@ -32,15 +32,139 @@
 #include "core-impl/AudioPolicyConfigXmlConverter.h"
 #include "core-impl/XsdcConversion.h"
 
+using aidl::android::media::audio::common::AudioChannelLayout;
+using aidl::android::media::audio::common::AudioDeviceDescription;
+using aidl::android::media::audio::common::AudioDeviceType;
 using aidl::android::media::audio::common::AudioFormatDescription;
+using aidl::android::media::audio::common::AudioFormatType;
 using aidl::android::media::audio::common::AudioHalEngineConfig;
 using aidl::android::media::audio::common::AudioHalVolumeCurve;
 using aidl::android::media::audio::common::AudioHalVolumeGroup;
+using aidl::android::media::audio::common::AudioIoFlags;
+using aidl::android::media::audio::common::AudioPort;
+using aidl::android::media::audio::common::AudioPortDeviceExt;
+using aidl::android::media::audio::common::AudioPortExt;
+using aidl::android::media::audio::common::AudioPortMixExt;
+using aidl::android::media::audio::common::AudioProfile;
 using aidl::android::media::audio::common::AudioStreamType;
+using aidl::android::media::audio::common::PcmType;
 
 namespace ap_xsd = android::audio::policy::configuration;
 
 namespace aidl::android::hardware::audio::core::internal {
+
+namespace {
+
+void fillProfile(AudioProfile* profile, const std::vector<int32_t>& channelLayouts,
+                 const std::vector<int32_t>& sampleRates) {
+    for (auto layout : channelLayouts) {
+        profile->channelMasks.push_back(
+                AudioChannelLayout::make<AudioChannelLayout::layoutMask>(layout));
+    }
+    profile->sampleRates.insert(profile->sampleRates.end(), sampleRates.begin(), sampleRates.end());
+}
+
+AudioPortExt createDeviceExt(AudioDeviceType devType, int32_t flags, std::string connection = "") {
+    AudioPortDeviceExt deviceExt;
+    deviceExt.device.type.type = devType;
+    deviceExt.device.type.connection = std::move(connection);
+    deviceExt.flags = flags;
+    return AudioPortExt::make<AudioPortExt::Tag::device>(deviceExt);
+}
+
+AudioPortExt createPortMixExt(int32_t maxOpenStreamCount, int32_t maxActiveStreamCount) {
+    AudioPortMixExt mixExt;
+    mixExt.maxOpenStreamCount = maxOpenStreamCount;
+    mixExt.maxActiveStreamCount = maxActiveStreamCount;
+    return AudioPortExt::make<AudioPortExt::Tag::mix>(mixExt);
+}
+
+AudioPort createPort(int32_t id, const std::string& name, int32_t flags, bool isInput,
+                     const AudioPortExt& ext) {
+    AudioPort port;
+    port.id = id;
+    port.name = name;
+    port.flags = isInput ? AudioIoFlags::make<AudioIoFlags::Tag::input>(flags)
+                         : AudioIoFlags::make<AudioIoFlags::Tag::output>(flags);
+    port.ext = ext;
+    return port;
+}
+
+AudioProfile createProfile(PcmType pcmType, const std::vector<int32_t>& channelLayouts,
+                           const std::vector<int32_t>& sampleRates) {
+    AudioProfile profile;
+    profile.format.type = AudioFormatType::PCM;
+    profile.format.pcm = pcmType;
+    fillProfile(&profile, channelLayouts, sampleRates);
+    return profile;
+}
+
+AudioRoute createRoute(const std::vector<AudioPort>& sources, const AudioPort& sink) {
+    AudioRoute route;
+    route.sinkPortId = sink.id;
+    std::transform(sources.begin(), sources.end(), std::back_inserter(route.sourcePortIds),
+                   [](const auto& port) { return port.id; });
+    return route;
+}
+
+// Note: When transitioning to loading of XML configs, either keep the configuration
+// of the remote submix sources from this static configuration, or update the XML
+// config to match it. There are several reasons for that:
+//   1. The "Remote Submix In" device is listed in the XML config as "attached",
+//      however in the AIDL scheme its device type has a "virtual" connection.
+//   2. The canonical r_submix configuration only lists 'STEREO' and '48000',
+//      however the framework attempts to open streams for other sample rates
+//      as well. The legacy r_submix implementation allowed that, but libaudiohal@aidl
+//      will not find a mix port to use. Because of that, list all channel
+//      masks and sample rates that the legacy implementation allowed.
+//   3. The legacy implementation had a hard limit on the number of routes (10),
+//      and this is checked indirectly by AudioPlaybackCaptureTest#testPlaybackCaptureDoS
+//      CTS test. Instead of hardcoding the number of routes, we can use
+//      "maxOpen/ActiveStreamCount" to enforce a similar limit. However, the canonical
+//      XML file lacks this specification.
+
+Module::Configuration getStandardRemoteSubmixConfiguration() {
+    Module::Configuration c;
+    const std::vector<AudioProfile> standardPcmAudioProfiles{
+            createProfile(PcmType::INT_16_BIT,
+                          {AudioChannelLayout::LAYOUT_MONO, AudioChannelLayout::LAYOUT_STEREO},
+                          {8000, 11025, 16000, 32000, 44100, 48000})};
+
+    // Device ports
+
+    AudioPort rsubmixOutDevice =
+            createPort(c.nextPortId++, "Remote Submix Out", 0, false,
+                       createDeviceExt(AudioDeviceType::OUT_SUBMIX, 0,
+                                       AudioDeviceDescription::CONNECTION_VIRTUAL));
+    c.ports.push_back(rsubmixOutDevice);
+    c.connectedProfiles[rsubmixOutDevice.id] = standardPcmAudioProfiles;
+
+    AudioPort rsubmixInDevice =
+            createPort(c.nextPortId++, "Remote Submix In", 0, true,
+                       createDeviceExt(AudioDeviceType::IN_SUBMIX, 0,
+                                       AudioDeviceDescription::CONNECTION_VIRTUAL));
+    c.ports.push_back(rsubmixInDevice);
+    c.connectedProfiles[rsubmixInDevice.id] = standardPcmAudioProfiles;
+
+    // Mix ports
+
+    AudioPort rsubmixOutMix =
+            createPort(c.nextPortId++, "r_submix output", 0, false, createPortMixExt(20, 10));
+    rsubmixOutMix.profiles = standardPcmAudioProfiles;
+    c.ports.push_back(rsubmixOutMix);
+
+    AudioPort rsubmixInMix =
+            createPort(c.nextPortId++, "r_submix input", 0, true, createPortMixExt(20, 10));
+    rsubmixInMix.profiles = standardPcmAudioProfiles;
+    c.ports.push_back(rsubmixInMix);
+
+    c.routes.push_back(createRoute({rsubmixOutMix}, rsubmixOutDevice));
+    c.routes.push_back(createRoute({rsubmixInDevice}, rsubmixInMix));
+
+    return c;
+}
+
+}  // namespace
 
 static const int kDefaultVolumeIndexMin = 0;
 static const int kDefaultVolumeIndexMax = 100;
@@ -181,9 +305,14 @@ void AudioPolicyConfigXmlConverter::init() {
         for (const ap_xsd::Modules& xsdcModulesType : getXsdcConfig()->getModules()) {
             if (xsdcModulesType.has_module()) {
                 for (const ap_xsd::Modules::Module& xsdcModule : xsdcModulesType.get_module()) {
-                    mModuleConfigurations->emplace_back(
-                            xsdcModule.getName(),
-                            VALUE_OR_FATAL(convertModuleConfigToAidl(xsdcModule)));
+                    if (xsdcModule.getName() != "r_submix") {
+                        mModuleConfigurations->emplace_back(
+                                xsdcModule.getName(),
+                                VALUE_OR_FATAL(convertModuleConfigToAidl(xsdcModule)));
+                    } else {
+                        mModuleConfigurations->emplace_back(xsdcModule.getName(),
+                                                            getStandardRemoteSubmixConfiguration());
+                    }
                 }
             }
         }
