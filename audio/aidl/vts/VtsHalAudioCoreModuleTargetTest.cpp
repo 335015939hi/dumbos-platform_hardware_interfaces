@@ -1586,7 +1586,8 @@ TEST_P(AudioCoreModule, ResetAudioPortConfigToInitialValue) {
         EXPECT_NE(portConfigsAfter.end(), afterIt)
                 << " port config ID " << c.id << " was removed by reset";
         if (afterIt != portConfigsAfter.end()) {
-            EXPECT_EQ(c, *afterIt);
+            EXPECT_TRUE(c == *afterIt)
+                    << "Expected: " << c.toString() << "; Actual: " << afterIt->toString();
         }
     }
 }
