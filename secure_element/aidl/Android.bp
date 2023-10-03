@@ -20,6 +20,13 @@ aidl_interface {
         java: {
             sdk_version: "system_current",
         },
+        ndk: {
+            enabled: true,
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.nfc",
+            ],
+        },
     },
 }
 
