@@ -16,6 +16,29 @@
       "message": "The serviceDied not being called does not cause an issue with this CL since there\u0027s an explicit destructor that ensures the thread exits.",
       "revId": "453b03f2b5f313cde1c4d7524eac361d524410e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d57a7d0a_bedde356",
+        "filename": "tv/hdmi/cec/aidl/default/fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2023-10-03T05:25:24Z",
+      "side": 1,
+      "message": "is this really needed?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "453b03f2b5f313cde1c4d7524eac361d524410e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
