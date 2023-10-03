@@ -204,11 +204,13 @@ class Module : public BnModule {
             std::shared_ptr<IStreamCallback> asyncCallback,
             std::shared_ptr<IStreamOutEventCallback> outEventCallback,
             ::aidl::android::hardware::audio::core::StreamContext* out_context);
+    void fillPortProfiles(::aidl::android::media::audio::common::AudioPort& port);
     std::vector<::aidl::android::media::audio::common::AudioDevice> findConnectedDevices(
             int32_t portConfigId);
     std::set<int32_t> findConnectedPortConfigIds(int32_t portConfigId);
     ndk::ScopedAStatus findPortIdForNewStream(
             int32_t in_portConfigId, ::aidl::android::media::audio::common::AudioPort** port);
+    void getAudioRoutesForAudioPortImpl(int32_t portId, std::vector<AudioRoute>* portRoutes);
     virtual BtProfileHandles getBtProfileManagerHandles();
     Configuration& getConfig();
     const ConnectedDevicePorts& getConnectedDevicePorts() const { return mConnectedDevicePorts; }
@@ -220,9 +222,12 @@ class Module : public BnModule {
     const std::string& getType() const { return mType; }
     bool isMmapSupported();
     void populateConnectedProfiles();
+    void populateInitialConfigs();
     template <typename C>
     std::set<int32_t> portIdsFromPortConfigIds(C portConfigIds);
     void registerPatch(const AudioPatch& patch);
+    std::optional<::aidl::android::media::audio::common::AudioPortConfig>
+    suggestInitialConfigForDevicePort(::aidl::android::media::audio::common::AudioPort& port);
     ndk::ScopedAStatus updateStreamsConnectedState(const AudioPatch& oldPatch,
                                                    const AudioPatch& newPatch);
 };

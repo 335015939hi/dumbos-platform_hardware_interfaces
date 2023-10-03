@@ -66,6 +66,41 @@ namespace aidl::android::hardware::audio::core {
 
 namespace {
 
+struct PreferredChannelMaskComparator {
+    bool operator()(const AudioChannelLayout& lhs, const AudioChannelLayout& rhs) const {
+        // Layout masks are preferred, among them stereo, otherwise, use the generated comparator.
+        return lhs == rhs ? true
+                          : (lhs.getTag() == AudioChannelLayout::layoutMask
+                                     ? (lhs.getTag() == rhs.getTag()
+                                                ? lhs.get<AudioChannelLayout::layoutMask>() ==
+                                                          AudioChannelLayout::LAYOUT_STEREO
+                                                : true)
+                                     : lhs < rhs);
+    }
+};
+
+struct PreferredFormatComparator {
+    bool operator()(const AudioFormatDescription& lhs, const AudioFormatDescription& rhs) const {
+        return lhs == rhs ? true
+                          // PCM is preferred
+                          : (lhs.type == AudioFormatType::PCM
+                                     ?
+                                     // The order of PCM types is good, but is in a reverse.
+                                     (lhs.type == rhs.type ? !(lhs.pcm < rhs.pcm) : true)
+                                     : false);
+    }
+};
+
+struct PreferredProfileComparator {
+    bool operator()(const AudioProfile& lhs, const AudioProfile& rhs) const {
+        PreferredFormatComparator c;
+        return c(lhs.format, rhs.format);
+    }
+};
+
+static constexpr int32_t kPreferredSampleRate = 48000;
+
+// Note: does not assign an ID to the config.
 bool generateDefaultPortConfig(const AudioPort& port, AudioPortConfig* config) {
     *config = {};
     config->portId = port.id;
@@ -73,25 +108,27 @@ bool generateDefaultPortConfig(const AudioPort& port, AudioPortConfig* config) {
         LOG(ERROR) << __func__ << ": port " << port.id << " has no profiles";
         return false;
     }
-    const auto& profile = port.profiles.begin();
-    config->format = profile->format;
-    if (profile->channelMasks.empty()) {
-        LOG(ERROR) << __func__ << ": the first profile in port " << port.id
-                   << " has no channel masks";
-        return false;
+    auto profiles = port.profiles;
+    std::sort(profiles.begin(), profiles.end(), PreferredProfileComparator());
+    for (auto& profile : profiles) {
+        if (profile.channelMasks.empty() || profile.sampleRates.empty()) continue;
+        std::sort(profile.channelMasks.begin(), profile.channelMasks.end(),
+                  PreferredChannelMaskComparator{});
+        std::sort(profile.sampleRates.begin(), profile.sampleRates.end(), std::greater<int32_t>());
+        auto srIt = std::find(profile.sampleRates.begin(), profile.sampleRates.end(),
+                              kPreferredSampleRate);
+        if (srIt != profile.sampleRates.end() && srIt != profile.sampleRates.begin()) {
+            std::iter_swap(srIt, profile.sampleRates.begin());
+        }
+        config->format = profile.format;
+        config->channelMask = *profile.channelMasks.begin();
+        Int sampleRate{.value = *profile.sampleRates.begin()};
+        config->sampleRate = sampleRate;
+        config->flags = port.flags;
+        config->ext = port.ext;
+        return true;
     }
-    config->channelMask = *profile->channelMasks.begin();
-    if (profile->sampleRates.empty()) {
-        LOG(ERROR) << __func__ << ": the first profile in port " << port.id
-                   << " has no sample rates";
-        return false;
-    }
-    Int sampleRate;
-    sampleRate.value = *profile->sampleRates.begin();
-    config->sampleRate = sampleRate;
-    config->flags = port.flags;
-    config->ext = port.ext;
-    return true;
+    return false;
 }
 
 std::vector<AudioProfile> getStandardPcmAudioProfiles() {
@@ -127,6 +164,7 @@ bool findAudioProfile(const AudioPort& port, const AudioFormatDescription& forma
 Module::Module(const std::string& type, Configuration&& config)
     : mType(type), mConfig(std::make_unique<Configuration>(std::move(config))) {
     populateConnectedProfiles();
+    populateInitialConfigs();
 }
 
 void Module::cleanUpPatch(int32_t patchId) {
@@ -191,6 +229,26 @@ ndk::ScopedAStatus Module::createStreamContext(
         // TODO: Implement simulation of MMAP buffer allocation
     }
     return ndk::ScopedAStatus::ok();
+}
+
+void Module::fillPortProfiles(AudioPort& port) {
+    auto& ports = getConfig().ports;
+    std::set<AudioProfile> profiles;
+    auto addPortProfiles = [&ports, &profiles](int32_t portId) {
+        if (auto portsIt = findById<AudioPort>(ports, portId); portsIt != ports.end()) {
+            profiles.insert(portsIt->profiles.begin(), portsIt->profiles.end());
+        }
+    };
+    std::vector<AudioRoute> routes;
+    getAudioRoutesForAudioPortImpl(port.id, &routes);
+    for (auto& r : routes) {
+        if (r.sinkPortId == port.id) {
+            for (int32_t srcPortId : r.sourcePortIds) addPortProfiles(srcPortId);
+        } else {
+            addPortProfiles(r.sinkPortId);
+        }
+    }
+    port.profiles.insert(port.profiles.end(), profiles.begin(), profiles.end());
 }
 
 std::vector<AudioDevice> Module::findConnectedDevices(int32_t portConfigId) {
@@ -274,6 +332,37 @@ void Module::populateConnectedProfiles() {
             }
         }
     }
+    LOG(DEBUG) << __func__ << ": " << mType << ": created " << config.connectedProfiles.size()
+               << " connected profiles";
+}
+
+void Module::populateInitialConfigs() {
+    Configuration& config = getConfig();
+    for (AudioPort& port : config.ports) {
+        if (port.ext.getTag() == AudioPortExt::device) {
+            if (auto devicePort = port.ext.get<AudioPortExt::device>();
+                devicePort.device.type.connection.empty() && port.profiles.empty()) {
+                auto maybeConfig = suggestInitialConfigForDevicePort(port);
+                if (maybeConfig.has_value()) {
+                    config.initialConfigs.push_back(std::move(*maybeConfig));
+                }
+            }
+        }
+    }
+    LOG(DEBUG) << __func__ << ": " << mType << ": created " << config.initialConfigs.size()
+               << " initial configs";
+    config.portConfigs.insert(config.portConfigs.end(), config.initialConfigs.begin(),
+                              config.initialConfigs.end());
+}
+
+// Since attached ports should have profiles filled out, this method also takes
+// care of that, as a side effect of creating an initial config.
+std::optional<AudioPortConfig> Module::suggestInitialConfigForDevicePort(AudioPort& port) {
+    fillPortProfiles(port);
+    AudioPortConfig result;
+    if (!generateDefaultPortConfig(port, &result)) return {};
+    result.id = getConfig().nextPortId++;
+    return result;
 }
 
 template <typename C>
@@ -287,6 +376,14 @@ std::set<int32_t> Module::portIdsFromPortConfigIds(C portConfigIds) {
         }
     }
     return result;
+}
+
+void Module::getAudioRoutesForAudioPortImpl(int32_t portId, std::vector<AudioRoute>* portRoutes) {
+    auto& routes = getConfig().routes;
+    std::copy_if(routes.begin(), routes.end(), std::back_inserter(*portRoutes), [&](const auto& r) {
+        const auto& srcs = r.sourcePortIds;
+        return r.sinkPortId == portId || std::find(srcs.begin(), srcs.end(), portId) != srcs.end();
+    });
 }
 
 Module::Configuration& Module::getConfig() {
@@ -677,13 +774,7 @@ ndk::ScopedAStatus Module::getAudioRoutesForAudioPort(int32_t in_portId,
         LOG(ERROR) << __func__ << ": port id " << in_portId << " not found";
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
-    auto& routes = getConfig().routes;
-    std::copy_if(routes.begin(), routes.end(), std::back_inserter(*_aidl_return),
-                 [&](const auto& r) {
-                     const auto& srcs = r.sourcePortIds;
-                     return r.sinkPortId == in_portId ||
-                            std::find(srcs.begin(), srcs.end(), in_portId) != srcs.end();
-                 });
+    getAudioRoutesForAudioPortImpl(in_portId, _aidl_return);
     return ndk::ScopedAStatus::ok();
 }
 
