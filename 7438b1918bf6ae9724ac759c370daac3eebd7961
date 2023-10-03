@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f5b432_80ba5659",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-03T17:37:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e40f9cc_e6b2815f",
+      "revId": "7438b1918bf6ae9724ac759c370daac3eebd7961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d420437d_1e64d5d0",
@@ -88,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49b9063a_db72c52e",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-03T17:37:04Z",
+      "side": 1,
+      "message": "Since we use it for `VALUE_OR_FATAL`, dumped message will include the source code line.",
+      "parentUuid": "049b1fd8_b27ee924",
+      "range": {
+        "startLine": 45,
+        "startChar": 34,
+        "endLine": 46,
+        "endChar": 52
+      },
+      "revId": "7438b1918bf6ae9724ac759c370daac3eebd7961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c39df9f_31c2e17d",
@@ -101,6 +143,30 @@
       "writtenOn": "2023-01-18T23:43:28Z",
       "side": 1,
       "message": "`const auto\u0026` should save some copying effort",
+      "range": {
+        "startLine": 320,
+        "startChar": 9,
+        "endLine": 320,
+        "endChar": 20
+      },
+      "revId": "7438b1918bf6ae9724ac759c370daac3eebd7961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cbb26a1_d0b70f0f",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-03T17:37:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c39df9f_31c2e17d",
       "range": {
         "startLine": 320,
         "startChar": 9,
@@ -134,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f1313bd_ce88cfee",
+        "filename": "audio/aidl/default/include/core-impl/Config.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-03T17:37:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cdc0339_fa7ac33d",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 71
+      },
+      "revId": "7438b1918bf6ae9724ac759c370daac3eebd7961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50deb2ee_e7b1fa54",
@@ -157,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90985167_fc750909",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-03T17:37:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50deb2ee_e7b1fa54",
+      "range": {
+        "startLine": 47,
+        "startChar": 86,
+        "endLine": 47,
+        "endChar": 92
+      },
+      "revId": "7438b1918bf6ae9724ac759c370daac3eebd7961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f008969_0a5db4bc",
@@ -170,6 +284,30 @@
       "writtenOn": "2023-01-18T23:43:28Z",
       "side": 1,
       "message": "This does not look as a good style. If we intend to move from `config`, we should use an rvalue reference here (`\u0026\u0026`), and `std::move` at the call location. Otherwise the caller is unaware that we render its `config` to an unusable state by moving from it.",
+      "range": {
+        "startLine": 54,
+        "startChar": 48,
+        "endLine": 54,
+        "endChar": 77
+      },
+      "revId": "7438b1918bf6ae9724ac759c370daac3eebd7961",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c3b6f46_8ab096de",
+        "filename": "audio/aidl/default/main.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-03T17:37:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f008969_0a5db4bc",
       "range": {
         "startLine": 54,
         "startChar": 48,
