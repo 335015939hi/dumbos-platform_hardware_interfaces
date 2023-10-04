@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d331b9b_ac63e6e3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-04T12:24:20Z",
+      "side": 1,
+      "message": "why is this a problem now? Aren\u0027t we able to handle de ice ports that do not have static profiles?",
+      "range": {
+        "startLine": 9,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "bf063cb5664c15e412a264814c652358ab721f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8308e135_c9ab6eda",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-04T12:24:20Z",
+      "side": 1,
+      "message": "not ordering between non PCM types?",
+      "range": {
+        "startLine": 90,
+        "startChar": 39,
+        "endLine": 90,
+        "endChar": 44
+      },
+      "revId": "bf063cb5664c15e412a264814c652358ab721f05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
