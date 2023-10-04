@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48eb9bb4_4373b382",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-04T10:25:04Z",
+      "side": 1,
+      "message": "This is an important point to outline with SoC vendors and OEMs because several variants of the audio policy configuration file exist on a given target and are loaded according to the value of system/vendor properties. so all configurations must be tested",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 8
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3307118_f710f6c0",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-04T10:25:04Z",
+      "side": 1,
+      "message": "I wold rather see this as a post check once all deices are loaded to avoid passing the config to this method",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 95
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b08a8f9b_fb5fa34e",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-04T10:25:04Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be 0?",
+      "range": {
+        "startLine": 141,
+        "startChar": 96,
+        "endLine": 141,
+        "endChar": 97
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6adadb58_12fe3ceb",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-04T10:25:04Z",
+      "side": 1,
+      "message": "shouldn\u0027t we assert if we get more than one device ports vector?",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 74
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d5fac7b_882f5c02",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-04T10:25:04Z",
+      "side": 1,
+      "message": "we could pass xDefaultOutputDevice here so that it is resolved only once",
+      "range": {
+        "startLine": 265,
+        "startChar": 61,
+        "endLine": 265,
+        "endChar": 74
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
