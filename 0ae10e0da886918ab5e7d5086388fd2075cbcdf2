@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9af8e5_342bebde",
+        "filename": "security/secretkeeper/aidl/aidl_api/android.hardware.security.secretkeeper/current/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "Nit: needs a better name - one a bit more verb-y.\nprocessRequest, requestResponse, ... ?",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e25ad5f4_e212ebb0",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "I think this should mention CBOR.",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 66
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00f0079f_795024ab",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "Args -\u003e Request?",
+      "range": {
+        "startLine": 29,
+        "startChar": 22,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a78d03e_d58afe24",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "Can we have 2 types?\nResponsePacket \u003d (error_code: 0, message: Result) / (error_code: ErrorCode, message: ErrorMessage)",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 76
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c1a8301_e9388caa",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "Nit: Could we have a blank line between each args/result pair?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56b740c6_bc8858fc",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "Why 64?",
+      "range": {
+        "startLine": 50,
+        "startChar": 23,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0536fa4_cc67a07c",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "secret? Should be symmetric with GetArgs",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 9
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb504fa0_7f824a60",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "We could name this type - Secret ?",
+      "range": {
+        "startLine": 50,
+        "startChar": 12,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ec93ff_338293c6",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "Traditional UUIDs are 128 bits / 16 bytes, which should really be enough for anyone.\nOr you could go as far as 32 bytes. 64 bytes for an ID seems excessive.",
+      "range": {
+        "startLine": 62,
+        "startChar": 11,
+        "endLine": 62,
+        "endChar": 24
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8fafefa_55add261",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "If we don\u0027t have a use for this other than VmSecret, why do we have it?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 1
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a021ddb0_a7f3be16",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "Key, AesKey, ... ?",
+      "range": {
+        "startLine": 79,
+        "startChar": 23,
+        "endLine": 79,
+        "endChar": 24
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a53d020_f8a64454",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "We should have some link to rfc9052 somewhere in the text.",
+      "range": {
+        "startLine": 79,
+        "startChar": 40,
+        "endLine": 79,
+        "endChar": 53
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6170794e_549f417d",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "This needs some more explanation.\nDoes it identify the key or the session?\nWho allocates it, who uses it, how?",
+      "range": {
+        "startLine": 82,
+        "startChar": 20,
+        "endLine": 82,
+        "endChar": 65
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "339ae4c2_c184a61b",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "human-readable context ?\nShould it be marked optional?",
+      "range": {
+        "startLine": 103,
+        "startChar": 13,
+        "endLine": 103,
+        "endChar": 20
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "509304cc_9bde1ed9",
+        "filename": "security/secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "Dnt abbrvt",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 19
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80cf5248_f8f64c57",
+        "filename": "security/secretkeeper/aidl/vts/VtsHalSecretkeeperTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "There\u0027s no store in ISecretkeeper?",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 13
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf5ad880_04087870",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-04T13:39:01Z",
+      "side": 1,
+      "message": "You can import these from top-level binder:: now.",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 50
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
