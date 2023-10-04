@@ -29,11 +29,6 @@
 
 #include "log/log.h"
 
-// TODO: Remove custom logging defines from PDL packets.
-#undef LOG_INFO
-#undef LOG_DEBUG
-#include "hci/hci_packets.h"
-
 namespace {
 int SetTerminalRaw(int fd) {
   termios terminal_settings;
@@ -54,6 +49,19 @@ using aidl::android::hardware::bluetooth::Status;
 namespace aidl::android::hardware::bluetooth::impl {
 
 void OnDeath(void* cookie);
+
+std::optional<std::string> GetSystemProperty(const std::string& property) {
+  std::array<char, PROPERTY_VALUE_MAX> value_array{0};
+  auto value_len = property_get(property.c_str(), value_array.data(), nullptr);
+  if (value_len <= 0) {
+    return std::nullopt;
+  }
+  return std::string(value_array.data(), value_len);
+}
+
+bool starts_with(const std::string& str, const std::string& prefix) {
+  return str.compare(0, prefix.length(), prefix) == 0;
+}
 
 class BluetoothDeathRecipient {
  public:
@@ -127,9 +135,7 @@ int BluetoothHci::getFdFromDevPath() {
 void BluetoothHci::reset() {
   // Send a reset command and wait until the command complete comes back.
 
-  std::vector<uint8_t> reset;
-  ::bluetooth::packet::BitInserter bi{reset};
-  ::bluetooth::hci::ResetBuilder::Create()->Serialize(bi);
+  std::vector<uint8_t> reset = {0x03, 0x0c, 0x00};
 
   auto resetPromise = std::make_shared<std::promise<void>>();
   auto resetFuture = resetPromise->get_future();
@@ -149,13 +155,15 @@ void BluetoothHci::reset() {
               static_cast<int>(raw_sco.size()));
       },
       [resetPromise](const std::vector<uint8_t>& raw_event) {
-        bool valid = ::bluetooth::hci::ResetCompleteView::Create(
-                         ::bluetooth::hci::CommandCompleteView::Create(
-                             ::bluetooth::hci::EventView::Create(
-                                 ::bluetooth::hci::PacketView<true>(
-                                     std::make_shared<std::vector<uint8_t>>(
-                                         raw_event)))))
-                         .IsValid();
+        std::vector<uint8_t> reset_complete = {0x0e, 0x04, 0x01,
+                                               0x03, 0x0c, 0x00};
+        bool valid = raw_event.size() == 6 &&
+                     raw_event[0] == reset_complete[0] &&
+                     raw_event[1] == reset_complete[1] &&
+                     // Don't compare the number of packets field.
+                     raw_event[3] == reset_complete[3] &&
+                     raw_event[4] == reset_complete[4] &&
+                     raw_event[5] == reset_complete[5];
         if (valid) {
           resetPromise->set_value();
         } else {
@@ -232,8 +240,19 @@ ndk::ScopedAStatus BluetoothHci::initialize(
 
   mDeathRecipient->LinkToDeath(mCb);
 
-  // TODO: This should not be necessary when the device implements rfkill.
-  reset();
+  // TODO: HCI Reset on emulators since the bluetooth controller
+  // cannot be powered on/off during the HAL setup; and the stack
+  // might received spurious packets/events during boottime.
+  // Proper solution would be to use bt-virtio or vsock to better
+  // control the link to rootcanal and the controller lifetime.
+  const std::string kBoardProperty = "ro.product.board";
+  const std::string kCuttlefishBoard = "cutf";
+  auto board_name = GetSystemProperty(kBoardProperty);
+  if (board_name.has_value() && (
+        starts_with(board_name.value(), "cutf") ||
+        starts_with(board_name.value(), "goldfish"))) {
+    reset();
+  }
 
   mH4 = std::make_shared<H4Protocol>(
       mFd,
@@ -282,7 +301,8 @@ ndk::ScopedAStatus BluetoothHci::close() {
   {
     std::lock_guard<std::mutex> guard(mStateMutex);
     if (mState != HalState::ONE_CLIENT) {
-      ASSERT(mState != HalState::INITIALIZING);
+      LOG_ALWAYS_FATAL_IF(mState == HalState::INITIALIZING,
+                          "mState is INITIALIZING");
       ALOGI("Already closed");
       return ndk::ScopedAStatus::ok();
     }

@@ -88,7 +88,6 @@ string get_imei(int slot) {
 
     return imei;
 }
-
 }  // namespace
 
 class AttestKeyTest : public KeyMintAidlTestBase {
@@ -133,7 +132,7 @@ TEST_P(AttestKeyTest, AllRsaSizes) {
         vector<uint8_t> attested_key_blob;
         vector<KeyCharacteristics> attested_key_characteristics;
         vector<Certificate> attested_key_cert_chain;
-        EXPECT_EQ(ErrorCode::OK,
+        ASSERT_EQ(ErrorCode::OK,
                   GenerateKey(AuthorizationSetBuilder()
                                       .RsaSigningKey(2048, 65537)
                                       .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -144,9 +143,11 @@ TEST_P(AttestKeyTest, AllRsaSizes) {
                               &attested_key_cert_chain));
         KeyBlobDeleter attested_deleter(keymint_, attested_key_blob);
 
+        ASSERT_GT(attested_key_cert_chain.size(), 0);
+
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
-        EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
+        ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
                                               SecLevel(),
                                               attested_key_cert_chain[0].encodedCertificate));
 
@@ -163,7 +164,7 @@ TEST_P(AttestKeyTest, AllRsaSizes) {
          */
         attested_key_characteristics.resize(0);
         attested_key_cert_chain.resize(0);
-        EXPECT_EQ(ErrorCode::OK,
+        ASSERT_EQ(ErrorCode::OK,
                   GenerateKey(AuthorizationSetBuilder()
                                       .RsaEncryptionKey(2048, 65537)
                                       .Digest(Digest::NONE)
@@ -176,9 +177,11 @@ TEST_P(AttestKeyTest, AllRsaSizes) {
                               &attested_key_cert_chain));
         KeyBlobDeleter attested_deleter2(keymint_, attested_key_blob);
 
+        ASSERT_GT(attested_key_cert_chain.size(), 0);
+
         hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
-        EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo2", "bar2", sw_enforced,
+        ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo2", "bar2", sw_enforced,
                                               hw_enforced, SecLevel(),
                                               attested_key_cert_chain[0].encodedCertificate));
 
@@ -196,7 +199,7 @@ TEST_P(AttestKeyTest, AllRsaSizes) {
         attested_key_characteristics.resize(0);
         attested_key_cert_chain.resize(0);
         uint64_t timestamp = 1619621648000;
-        EXPECT_EQ(ErrorCode::OK,
+        ASSERT_EQ(ErrorCode::OK,
                   GenerateKey(AuthorizationSetBuilder()
                                       .EcdsaSigningKey(EcCurve::P_256)
                                       .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -207,6 +210,8 @@ TEST_P(AttestKeyTest, AllRsaSizes) {
                               attest_key, &attested_key_blob, &attested_key_characteristics,
                               &attested_key_cert_chain));
         KeyBlobDeleter attested_deleter3(keymint_, attested_key_blob);
+
+        ASSERT_GT(attested_key_cert_chain.size(), 0);
 
         // The returned key characteristics will include CREATION_DATETIME (checked below)
         // in SecurityLevel::KEYSTORE; this will be stripped out in the CheckCharacteristics()
@@ -223,7 +228,7 @@ TEST_P(AttestKeyTest, AllRsaSizes) {
         EXPECT_TRUE(sw_enforced.Contains(TAG_CREATION_DATETIME, timestamp))
                 << "expected CREATION_TIMESTAMP in sw_enforced:" << sw_enforced
                 << " not in hw_enforced:" << hw_enforced;
-        EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
+        ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
                                               SecLevel(),
                                               attested_key_cert_chain[0].encodedCertificate));
 
@@ -313,7 +318,7 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
 
     AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attest_key_characteristics);
     AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attest_key_characteristics);
-    EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id,  //
+    ASSERT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id,  //
                                           sw_enforced, hw_enforced, SecLevel(),
                                           attest_key_cert_chain[0].encodedCertificate));
 
@@ -331,7 +336,7 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
     uint64_t serial_int2 = 255;
     vector<uint8_t> serial_blob2(build_serial_blob(serial_int2));
 
-    EXPECT_EQ(ErrorCode::OK,
+    ASSERT_EQ(ErrorCode::OK,
               GenerateKey(AuthorizationSetBuilder()
                                   .RsaSigningKey(2048, 65537)
                                   .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -344,9 +349,11 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
                           &attested_key_cert_chain));
     KeyBlobDeleter attested_deleter(keymint_, attested_key_blob);
 
+    ASSERT_GT(attested_key_cert_chain.size(), 0);
+
     AuthorizationSet hw_enforced2 = HwEnforcedAuthorizations(attested_key_characteristics);
     AuthorizationSet sw_enforced2 = SwEnforcedAuthorizations(attested_key_characteristics);
-    EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced2, hw_enforced2,
+    ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced2, hw_enforced2,
                                           SecLevel(),
                                           attested_key_cert_chain[0].encodedCertificate));
 
@@ -414,7 +421,7 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
         ASSERT_GT(cert_chain_list[i].size(), 0);
-        EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
+        ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
                                               SecLevel(),
                                               cert_chain_list[i][0].encodedCertificate));
 
@@ -489,7 +496,7 @@ TEST_P(AttestKeyTest, EcAttestKeyChaining) {
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
         ASSERT_GT(cert_chain_list[i].size(), 0);
-        EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
+        ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
                                               SecLevel(),
                                               cert_chain_list[i][0].encodedCertificate));
 
@@ -605,7 +612,7 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
         ASSERT_GT(cert_chain_list[i].size(), 0);
-        EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
+        ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
                                               SecLevel(),
                                               cert_chain_list[i][0].encodedCertificate));
 
@@ -655,7 +662,7 @@ TEST_P(AttestKeyTest, MissingChallenge) {
         vector<uint8_t> attested_key_blob;
         vector<KeyCharacteristics> attested_key_characteristics;
         vector<Certificate> attested_key_cert_chain;
-        EXPECT_EQ(ErrorCode::ATTESTATION_CHALLENGE_MISSING,
+        ASSERT_EQ(ErrorCode::ATTESTATION_CHALLENGE_MISSING,
                   GenerateKey(AuthorizationSetBuilder()
                                       .RsaSigningKey(2048, 65537)
                                       .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -664,7 +671,7 @@ TEST_P(AttestKeyTest, MissingChallenge) {
                               attest_key, &attested_key_blob, &attested_key_characteristics,
                               &attested_key_cert_chain));
 
-        EXPECT_EQ(ErrorCode::ATTESTATION_CHALLENGE_MISSING,
+        ASSERT_EQ(ErrorCode::ATTESTATION_CHALLENGE_MISSING,
                   GenerateKey(AuthorizationSetBuilder()
                                       .EcdsaSigningKey(EcCurve::P_256)
                                       .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -702,7 +709,7 @@ TEST_P(AttestKeyTest, AllEcCurves) {
         vector<uint8_t> attested_key_blob;
         vector<KeyCharacteristics> attested_key_characteristics;
         vector<Certificate> attested_key_cert_chain;
-        EXPECT_EQ(ErrorCode::OK,
+        ASSERT_EQ(ErrorCode::OK,
                   GenerateKey(AuthorizationSetBuilder()
                                       .RsaSigningKey(2048, 65537)
                                       .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -717,7 +724,7 @@ TEST_P(AttestKeyTest, AllEcCurves) {
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
-        EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
+        ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
                                               SecLevel(),
                                               attested_key_cert_chain[0].encodedCertificate));
 
@@ -733,7 +740,7 @@ TEST_P(AttestKeyTest, AllEcCurves) {
         /*
          * Use attestation key to sign EC key
          */
-        EXPECT_EQ(ErrorCode::OK,
+        ASSERT_EQ(ErrorCode::OK,
                   GenerateKey(AuthorizationSetBuilder()
                                       .EcdsaSigningKey(EcCurve::P_256)
                                       .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -748,7 +755,7 @@ TEST_P(AttestKeyTest, AllEcCurves) {
 
         hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
-        EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
+        ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
                                               SecLevel(),
                                               attested_key_cert_chain[0].encodedCertificate));
 
@@ -786,7 +793,7 @@ TEST_P(AttestKeyTest, AttestWithNonAttestKey) {
     vector<uint8_t> attested_key_blob;
     vector<KeyCharacteristics> attested_key_characteristics;
     vector<Certificate> attested_key_cert_chain;
-    EXPECT_EQ(ErrorCode::INCOMPATIBLE_PURPOSE,
+    ASSERT_EQ(ErrorCode::INCOMPATIBLE_PURPOSE,
               GenerateKey(AuthorizationSetBuilder()
                                   .EcdsaSigningKey(EcCurve::P_256)
                                   .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -798,11 +805,6 @@ TEST_P(AttestKeyTest, AttestWithNonAttestKey) {
 }
 
 TEST_P(AttestKeyTest, EcdsaAttestationID) {
-    if (is_gsi_image()) {
-        // GSI sets up a standard set of device identifiers that may not match
-        // the device identifiers held by the device.
-        GTEST_SKIP() << "Test not applicable under GSI";
-    }
     // Create attestation key.
     AttestationKey attest_key;
     vector<KeyCharacteristics> attest_key_characteristics;
@@ -822,39 +824,12 @@ TEST_P(AttestKeyTest, EcdsaAttestationID) {
 
     // Collection of valid attestation ID tags.
     auto attestation_id_tags = AuthorizationSetBuilder();
-    // Use ro.product.brand_for_attestation property for attestation if it is present else fallback
-    // to ro.product.brand
-    std::string prop_value =
-            ::android::base::GetProperty("ro.product.brand_for_attestation", /* default= */ "");
-    if (!prop_value.empty()) {
-        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_BRAND,
-                          "ro.product.brand_for_attestation");
-    } else {
-        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
-    }
-    add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_DEVICE, "ro.product.device");
-    // Use ro.product.name_for_attestation property for attestation if it is present else fallback
-    // to ro.product.name
-    prop_value = ::android::base::GetProperty("ro.product.name_for_attestation", /* default= */ "");
-    if (!prop_value.empty()) {
-        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_PRODUCT,
-                          "ro.product.name_for_attestation");
-    } else {
-        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
-    }
+    add_attestation_id(&attestation_id_tags, TAG_ATTESTATION_ID_BRAND, "brand");
+    add_attestation_id(&attestation_id_tags, TAG_ATTESTATION_ID_DEVICE, "device");
+    add_attestation_id(&attestation_id_tags, TAG_ATTESTATION_ID_PRODUCT, "name");
+    add_attestation_id(&attestation_id_tags, TAG_ATTESTATION_ID_MANUFACTURER, "manufacturer");
+    add_attestation_id(&attestation_id_tags, TAG_ATTESTATION_ID_MODEL, "model");
     add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_SERIAL, "ro.serialno");
-    add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_MANUFACTURER,
-                      "ro.product.manufacturer");
-    // Use ro.product.model_for_attestation property for attestation if it is present else fallback
-    // to ro.product.model
-    prop_value =
-            ::android::base::GetProperty("ro.product.model_for_attestation", /* default= */ "");
-    if (!prop_value.empty()) {
-        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_MODEL,
-                          "ro.product.model_for_attestation");
-    } else {
-        add_tag_from_prop(&attestation_id_tags, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
-    }
 
     string imei = get_imei(0);
     if (!imei.empty()) {
@@ -881,6 +856,7 @@ TEST_P(AttestKeyTest, EcdsaAttestationID) {
         }
 
         ASSERT_EQ(result, ErrorCode::OK);
+        ASSERT_GT(attested_key_cert_chain.size(), 0);
         KeyBlobDeleter attested_deleter(keymint_, attested_key_blob);
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
@@ -891,7 +867,7 @@ TEST_P(AttestKeyTest, EcdsaAttestationID) {
         // attestation extension should contain them, so make sure the extra tag is added.
         hw_enforced.push_back(tag);
 
-        EXPECT_TRUE(verify_attestation_record(AidlVersion(), "challenge", "foo", sw_enforced,
+        ASSERT_TRUE(verify_attestation_record(AidlVersion(), "challenge", "foo", sw_enforced,
                                               hw_enforced, SecLevel(),
                                               attested_key_cert_chain[0].encodedCertificate));
     }
@@ -928,7 +904,9 @@ TEST_P(AttestKeyTest, EcdsaAttestationMismatchID) {
                     .Authorization(TAG_ATTESTATION_ID_MODEL, "malicious-model");
 
     if (isSecondImeiIdAttestationRequired()) {
-        attestation_id_tags.Authorization(TAG_ATTESTATION_ID_SECOND_IMEI, "invalid-second-imei");
+        // Note: the invalid value here is < 16 bytes long to avoid triggering any implementation
+        // checks on valid IMEI lengths.
+        attestation_id_tags.Authorization(TAG_ATTESTATION_ID_SECOND_IMEI, "invalid-imei2");
     }
     vector<uint8_t> key_blob;
     vector<KeyCharacteristics> key_characteristics;
@@ -955,12 +933,6 @@ TEST_P(AttestKeyTest, EcdsaAttestationMismatchID) {
 }
 
 TEST_P(AttestKeyTest, SecondIMEIAttestationIDSuccess) {
-    if (is_gsi_image()) {
-        // GSI sets up a standard set of device identifiers that may not match
-        // the device identifiers held by the device.
-        GTEST_SKIP() << "Test not applicable under GSI";
-    }
-
     // Skip the test if there is no second IMEI exists.
     string second_imei = get_imei(1);
     if (second_imei.empty()) {
@@ -1011,6 +983,7 @@ TEST_P(AttestKeyTest, SecondIMEIAttestationIDSuccess) {
     }
 
     ASSERT_EQ(result, ErrorCode::OK);
+    ASSERT_GT(attested_key_cert_chain.size(), 0);
     KeyBlobDeleter attested_deleter(keymint_, attested_key_blob);
 
     AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
@@ -1023,18 +996,12 @@ TEST_P(AttestKeyTest, SecondIMEIAttestationIDSuccess) {
     KeyParameter imei_tag = Authorization(TAG_ATTESTATION_ID_SECOND_IMEI, imei_blob);
     hw_enforced.push_back(imei_tag);
 
-    EXPECT_TRUE(verify_attestation_record(AidlVersion(), "challenge", "foo", sw_enforced,
+    ASSERT_TRUE(verify_attestation_record(AidlVersion(), "challenge", "foo", sw_enforced,
                                           hw_enforced, SecLevel(),
                                           attested_key_cert_chain[0].encodedCertificate));
 }
 
 TEST_P(AttestKeyTest, MultipleIMEIAttestationIDSuccess) {
-    if (is_gsi_image()) {
-        // GSI sets up a standard set of device identifiers that may not match
-        // the device identifiers held by the device.
-        GTEST_SKIP() << "Test not applicable under GSI";
-    }
-
     // Skip the test if there is no first IMEI exists.
     string imei = get_imei(0);
     if (imei.empty()) {
@@ -1088,6 +1055,7 @@ TEST_P(AttestKeyTest, MultipleIMEIAttestationIDSuccess) {
     }
 
     ASSERT_EQ(result, ErrorCode::OK);
+    ASSERT_GT(attested_key_cert_chain.size(), 0);
     KeyBlobDeleter attested_deleter(keymint_, attested_key_blob);
 
     AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
@@ -1103,7 +1071,7 @@ TEST_P(AttestKeyTest, MultipleIMEIAttestationIDSuccess) {
     KeyParameter sec_imei_tag = Authorization(TAG_ATTESTATION_ID_SECOND_IMEI, sec_imei_blob);
     hw_enforced.push_back(sec_imei_tag);
 
-    EXPECT_TRUE(verify_attestation_record(AidlVersion(), "challenge", "foo", sw_enforced,
+    ASSERT_TRUE(verify_attestation_record(AidlVersion(), "challenge", "foo", sw_enforced,
                                           hw_enforced, SecLevel(),
                                           attested_key_cert_chain[0].encodedCertificate));
 }

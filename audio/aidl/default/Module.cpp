@@ -25,13 +25,13 @@
 #include <android/binder_ibinder_platform.h>
 #include <error/expected_utils.h>
 
-#include "core-impl/Bluetooth.h"
 #include "core-impl/Module.h"
+#include "core-impl/ModuleBluetooth.h"
+#include "core-impl/ModulePrimary.h"
 #include "core-impl/ModuleRemoteSubmix.h"
+#include "core-impl/ModuleStub.h"
 #include "core-impl/ModuleUsb.h"
 #include "core-impl/SoundDose.h"
-#include "core-impl/StreamStub.h"
-#include "core-impl/Telephony.h"
 #include "core-impl/utils.h"
 
 using aidl::android::hardware::audio::common::getFrameSizeInBytes;
@@ -110,13 +110,16 @@ bool findAudioProfile(const AudioPort& port, const AudioFormatDescription& forma
 // static
 std::shared_ptr<Module> Module::createInstance(Type type) {
     switch (type) {
-        case Module::Type::USB:
-            return ndk::SharedRefBase::make<ModuleUsb>(type);
-        case Type::R_SUBMIX:
-            return ndk::SharedRefBase::make<ModuleRemoteSubmix>(type);
         case Type::DEFAULT:
-        default:
-            return ndk::SharedRefBase::make<Module>(type);
+            return ndk::SharedRefBase::make<ModulePrimary>();
+        case Type::R_SUBMIX:
+            return ndk::SharedRefBase::make<ModuleRemoteSubmix>();
+        case Type::STUB:
+            return ndk::SharedRefBase::make<ModuleStub>();
+        case Type::USB:
+            return ndk::SharedRefBase::make<ModuleUsb>();
+        case Type::BLUETOOTH:
+            return ndk::SharedRefBase::make<ModuleBluetooth>();
     }
 }
 
@@ -128,8 +131,14 @@ std::ostream& operator<<(std::ostream& os, Module::Type t) {
         case Module::Type::R_SUBMIX:
             os << "r_submix";
             break;
+        case Module::Type::STUB:
+            os << "stub";
+            break;
         case Module::Type::USB:
             os << "usb";
+            break;
+        case Module::Type::BLUETOOTH:
+            os << "bluetooth";
             break;
     }
     return os;
@@ -283,19 +292,31 @@ std::set<int32_t> Module::portIdsFromPortConfigIds(C portConfigIds) {
     return result;
 }
 
+std::unique_ptr<internal::Configuration> Module::initializeConfig() {
+    std::unique_ptr<internal::Configuration> config;
+    switch (getType()) {
+        case Type::DEFAULT:
+            config = std::move(internal::getPrimaryConfiguration());
+            break;
+        case Type::R_SUBMIX:
+            config = std::move(internal::getRSubmixConfiguration());
+            break;
+        case Type::STUB:
+            config = std::move(internal::getStubConfiguration());
+            break;
+        case Type::USB:
+            config = std::move(internal::getUsbConfiguration());
+            break;
+        case Type::BLUETOOTH:
+            config = std::move(internal::getBluetoothConfiguration());
+            break;
+    }
+    return config;
+}
+
 internal::Configuration& Module::getConfig() {
     if (!mConfig) {
-        switch (mType) {
-            case Type::DEFAULT:
-                mConfig = std::move(internal::getPrimaryConfiguration());
-                break;
-            case Type::R_SUBMIX:
-                mConfig = std::move(internal::getRSubmixConfiguration());
-                break;
-            case Type::USB:
-                mConfig = std::move(internal::getUsbConfiguration());
-                break;
-        }
+        mConfig = std::move(initializeConfig());
     }
     return *mConfig;
 }
@@ -319,21 +340,43 @@ void Module::registerPatch(const AudioPatch& patch) {
 
 ndk::ScopedAStatus Module::updateStreamsConnectedState(const AudioPatch& oldPatch,
                                                        const AudioPatch& newPatch) {
-    // Streams from the old patch need to be disconnected, streams from the new
-    // patch need to be connected. If the stream belongs to both patches, no need
-    // to update it.
+    // Notify streams about the new set of devices they are connected to.
     auto maybeFailure = ndk::ScopedAStatus::ok();
-    std::set<int32_t> idsToDisconnect, idsToConnect, idsToDisconnectOnFailure;
-    idsToDisconnect.insert(oldPatch.sourcePortConfigIds.begin(),
-                           oldPatch.sourcePortConfigIds.end());
-    idsToDisconnect.insert(oldPatch.sinkPortConfigIds.begin(), oldPatch.sinkPortConfigIds.end());
-    idsToConnect.insert(newPatch.sourcePortConfigIds.begin(), newPatch.sourcePortConfigIds.end());
-    idsToConnect.insert(newPatch.sinkPortConfigIds.begin(), newPatch.sinkPortConfigIds.end());
-    std::for_each(idsToDisconnect.begin(), idsToDisconnect.end(), [&](const auto& portConfigId) {
-        if (idsToConnect.count(portConfigId) == 0 && mStreams.count(portConfigId) != 0) {
-            if (auto status = mStreams.setStreamConnectedDevices(portConfigId, {}); status.isOk()) {
+    using Connections =
+            std::map<int32_t /*mixPortConfigId*/, std::set<int32_t /*devicePortConfigId*/>>;
+    Connections oldConnections, newConnections;
+    auto fillConnectionsHelper = [&](Connections& connections,
+                                     const std::vector<int32_t>& mixPortCfgIds,
+                                     const std::vector<int32_t>& devicePortCfgIds) {
+        for (int32_t mixPortCfgId : mixPortCfgIds) {
+            connections[mixPortCfgId].insert(devicePortCfgIds.begin(), devicePortCfgIds.end());
+        }
+    };
+    auto fillConnections = [&](Connections& connections, const AudioPatch& patch) {
+        if (std::find_if(patch.sourcePortConfigIds.begin(), patch.sourcePortConfigIds.end(),
+                         [&](int32_t portConfigId) { return mStreams.count(portConfigId) > 0; }) !=
+            patch.sourcePortConfigIds.end()) {
+            // Sources are mix ports.
+            fillConnectionsHelper(connections, patch.sourcePortConfigIds, patch.sinkPortConfigIds);
+        } else if (std::find_if(patch.sinkPortConfigIds.begin(), patch.sinkPortConfigIds.end(),
+                                [&](int32_t portConfigId) {
+                                    return mStreams.count(portConfigId) > 0;
+                                }) != patch.sinkPortConfigIds.end()) {
+            // Sources are device ports.
+            fillConnectionsHelper(connections, patch.sinkPortConfigIds, patch.sourcePortConfigIds);
+        }  // Otherwise, there are no streams to notify.
+    };
+    fillConnections(oldConnections, oldPatch);
+    fillConnections(newConnections, newPatch);
+
+    std::for_each(oldConnections.begin(), oldConnections.end(), [&](const auto& connectionPair) {
+        const int32_t mixPortConfigId = connectionPair.first;
+        if (auto it = newConnections.find(mixPortConfigId);
+            it == newConnections.end() || it->second != connectionPair.second) {
+            if (auto status = mStreams.setStreamConnectedDevices(mixPortConfigId, {});
+                status.isOk()) {
                 LOG(DEBUG) << "updateStreamsConnectedState: The stream on port config id "
-                           << portConfigId << " has been disconnected";
+                           << mixPortConfigId << " has been disconnected";
             } else {
                 // Disconnection is tricky to roll back, just register a failure.
                 maybeFailure = std::move(status);
@@ -341,23 +384,26 @@ ndk::ScopedAStatus Module::updateStreamsConnectedState(const AudioPatch& oldPatc
         }
     });
     if (!maybeFailure.isOk()) return maybeFailure;
-    std::for_each(idsToConnect.begin(), idsToConnect.end(), [&](const auto& portConfigId) {
-        if (idsToDisconnect.count(portConfigId) == 0 && mStreams.count(portConfigId) != 0) {
-            const auto connectedDevices = findConnectedDevices(portConfigId);
+    std::set<int32_t> idsToDisconnectOnFailure;
+    std::for_each(newConnections.begin(), newConnections.end(), [&](const auto& connectionPair) {
+        const int32_t mixPortConfigId = connectionPair.first;
+        if (auto it = oldConnections.find(mixPortConfigId);
+            it == oldConnections.end() || it->second != connectionPair.second) {
+            const auto connectedDevices = findConnectedDevices(mixPortConfigId);
             if (connectedDevices.empty()) {
                 // This is important as workers use the vector size to derive the connection status.
                 LOG(FATAL) << "updateStreamsConnectedState: No connected devices found for port "
                               "config id "
-                           << portConfigId;
+                           << mixPortConfigId;
             }
-            if (auto status = mStreams.setStreamConnectedDevices(portConfigId, connectedDevices);
+            if (auto status = mStreams.setStreamConnectedDevices(mixPortConfigId, connectedDevices);
                 status.isOk()) {
                 LOG(DEBUG) << "updateStreamsConnectedState: The stream on port config id "
-                           << portConfigId << " has been connected to: "
+                           << mixPortConfigId << " has been connected to: "
                            << ::android::internal::ToString(connectedDevices);
             } else {
                 maybeFailure = std::move(status);
-                idsToDisconnectOnFailure.insert(portConfigId);
+                idsToDisconnectOnFailure.insert(mixPortConfigId);
             }
         }
     });
@@ -395,38 +441,26 @@ ndk::ScopedAStatus Module::setModuleDebug(
 }
 
 ndk::ScopedAStatus Module::getTelephony(std::shared_ptr<ITelephony>* _aidl_return) {
-    if (!mTelephony) {
-        mTelephony = ndk::SharedRefBase::make<Telephony>();
-    }
-    *_aidl_return = mTelephony.getPtr();
-    LOG(DEBUG) << __func__ << ": returning instance of ITelephony: " << _aidl_return->get();
+    *_aidl_return = nullptr;
+    LOG(DEBUG) << __func__ << ": returning null";
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Module::getBluetooth(std::shared_ptr<IBluetooth>* _aidl_return) {
-    if (!mBluetooth) {
-        mBluetooth = ndk::SharedRefBase::make<Bluetooth>();
-    }
-    *_aidl_return = mBluetooth.getPtr();
-    LOG(DEBUG) << __func__ << ": returning instance of IBluetooth: " << _aidl_return->get();
+    *_aidl_return = nullptr;
+    LOG(DEBUG) << __func__ << ": returning null";
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Module::getBluetoothA2dp(std::shared_ptr<IBluetoothA2dp>* _aidl_return) {
-    if (!mBluetoothA2dp) {
-        mBluetoothA2dp = ndk::SharedRefBase::make<BluetoothA2dp>();
-    }
-    *_aidl_return = mBluetoothA2dp.getPtr();
-    LOG(DEBUG) << __func__ << ": returning instance of IBluetoothA2dp: " << _aidl_return->get();
+    *_aidl_return = nullptr;
+    LOG(DEBUG) << __func__ << ": returning null";
     return ndk::ScopedAStatus::ok();
 }
 
 ndk::ScopedAStatus Module::getBluetoothLe(std::shared_ptr<IBluetoothLe>* _aidl_return) {
-    if (!mBluetoothLe) {
-        mBluetoothLe = ndk::SharedRefBase::make<BluetoothLe>();
-    }
-    *_aidl_return = mBluetoothLe.getPtr();
-    LOG(DEBUG) << __func__ << ": returning instance of IBluetoothLe: " << _aidl_return->get();
+    *_aidl_return = nullptr;
+    LOG(DEBUG) << __func__ << ": returning null";
     return ndk::ScopedAStatus::ok();
 }
 
@@ -445,14 +479,13 @@ ndk::ScopedAStatus Module::connectExternalDevice(const AudioPort& in_templateIdA
             LOG(ERROR) << __func__ << ": port id " << templateId << " is not a device port";
             return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
         }
-        if (!templateIt->profiles.empty()) {
-            LOG(ERROR) << __func__ << ": port id " << templateId
-                       << " does not have dynamic profiles";
-            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
-        }
         auto& templateDevicePort = templateIt->ext.get<AudioPortExt::Tag::device>();
         if (templateDevicePort.device.type.connection.empty()) {
             LOG(ERROR) << __func__ << ": port id " << templateId << " is permanently attached";
+            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+        }
+        if (mConnectedDevicePorts.find(templateId) != mConnectedDevicePorts.end()) {
+            LOG(ERROR) << __func__ << ": port id " << templateId << " is a connected device port";
             return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
         }
         // Postpone id allocation until we ensure that there are no client errors.
@@ -477,19 +510,23 @@ ndk::ScopedAStatus Module::connectExternalDevice(const AudioPort& in_templateIdA
         }
     }
 
-    if (!mDebug.simulateDeviceConnections) {
-        RETURN_STATUS_IF_ERROR(populateConnectedDevicePort(&connectedPort));
-    } else {
-        auto& connectedProfiles = getConfig().connectedProfiles;
-        if (auto connectedProfilesIt = connectedProfiles.find(templateId);
-            connectedProfilesIt != connectedProfiles.end()) {
-            connectedPort.profiles = connectedProfilesIt->second;
-        }
-    }
     if (connectedPort.profiles.empty()) {
-        LOG(ERROR) << "Profiles of a connected port still empty after connecting external device "
-                   << connectedPort.toString();
-        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+        if (!mDebug.simulateDeviceConnections) {
+            RETURN_STATUS_IF_ERROR(populateConnectedDevicePort(&connectedPort));
+        } else {
+            auto& connectedProfiles = getConfig().connectedProfiles;
+            if (auto connectedProfilesIt = connectedProfiles.find(templateId);
+                connectedProfilesIt != connectedProfiles.end()) {
+                connectedPort.profiles = connectedProfilesIt->second;
+            }
+        }
+        if (connectedPort.profiles.empty()) {
+            LOG(ERROR) << __func__
+                       << ": profiles of a connected port still empty after connecting external "
+                          "device "
+                       << connectedPort.toString();
+            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+        }
     }
 
     for (auto profile : connectedPort.profiles) {
@@ -503,9 +540,9 @@ ndk::ScopedAStatus Module::connectExternalDevice(const AudioPort& in_templateIdA
         }
     }
 
-    connectedPort.id = ++getConfig().nextPortId;
+    connectedPort.id = getConfig().nextPortId++;
     auto [connectedPortsIt, _] =
-            mConnectedDevicePorts.insert(std::pair(connectedPort.id, std::vector<int32_t>()));
+            mConnectedDevicePorts.insert(std::pair(connectedPort.id, std::set<int32_t>()));
     LOG(DEBUG) << __func__ << ": template port " << templateId << " external device connected, "
                << "connected port ID " << connectedPort.id;
     ports.push_back(connectedPort);
@@ -538,9 +575,21 @@ ndk::ScopedAStatus Module::connectExternalDevice(const AudioPort& in_templateIdA
     // of all profiles from all routable dynamic device ports would be more involved.
     for (const auto mixPortId : routablePortIds) {
         auto portsIt = findById<AudioPort>(ports, mixPortId);
-        if (portsIt != ports.end() && portsIt->profiles.empty()) {
-            portsIt->profiles = connectedPort.profiles;
-            connectedPortsIt->second.push_back(portsIt->id);
+        if (portsIt != ports.end()) {
+            if (portsIt->profiles.empty()) {
+                portsIt->profiles = connectedPort.profiles;
+                connectedPortsIt->second.insert(portsIt->id);
+            } else {
+                // Check if profiles are non empty because they were populated by
+                // a previous connection. Otherwise, it means that they are not empty because
+                // the mix port has static profiles.
+                for (const auto cp : mConnectedDevicePorts) {
+                    if (cp.second.count(portsIt->id) > 0) {
+                        connectedPortsIt->second.insert(portsIt->id);
+                        break;
+                    }
+                }
+            }
         }
     }
     *_aidl_return = std::move(connectedPort);
@@ -595,13 +644,20 @@ ndk::ScopedAStatus Module::disconnectExternalDevice(int32_t in_portId) {
         }
     }
 
-    for (const auto mixPortId : connectedPortsIt->second) {
+    // Clear profiles for mix ports that are not connected to any other ports.
+    std::set<int32_t> mixPortsToClear = std::move(connectedPortsIt->second);
+    mConnectedDevicePorts.erase(connectedPortsIt);
+    for (const auto& connectedPort : mConnectedDevicePorts) {
+        for (int32_t mixPortId : connectedPort.second) {
+            mixPortsToClear.erase(mixPortId);
+        }
+    }
+    for (int32_t mixPortId : mixPortsToClear) {
         auto mixPortIt = findById<AudioPort>(ports, mixPortId);
         if (mixPortIt != ports.end()) {
             mixPortIt->profiles = {};
         }
     }
-    mConnectedDevicePorts.erase(connectedPortsIt);
 
     return ndk::ScopedAStatus::ok();
 }
@@ -675,7 +731,7 @@ ndk::ScopedAStatus Module::openInputStream(const OpenInputStreamArguments& in_ar
                                                nullptr, nullptr, &context));
     context.fillDescriptor(&_aidl_return->desc);
     std::shared_ptr<StreamIn> stream;
-    RETURN_STATUS_IF_ERROR(createInputStream(in_args.sinkMetadata, std::move(context),
+    RETURN_STATUS_IF_ERROR(createInputStream(std::move(context), in_args.sinkMetadata,
                                              mConfig->microphones, &stream));
     StreamWrapper streamWrapper(stream);
     if (auto patchIt = mPatches.find(in_args.portConfigId); patchIt != mPatches.end()) {
@@ -721,7 +777,7 @@ ndk::ScopedAStatus Module::openOutputStream(const OpenOutputStreamArguments& in_
                                                in_args.eventCallback, &context));
     context.fillDescriptor(&_aidl_return->desc);
     std::shared_ptr<StreamOut> stream;
-    RETURN_STATUS_IF_ERROR(createOutputStream(in_args.sourceMetadata, std::move(context),
+    RETURN_STATUS_IF_ERROR(createOutputStream(std::move(context), in_args.sourceMetadata,
                                               in_args.offloadInfo, &stream));
     StreamWrapper streamWrapper(stream);
     if (auto patchIt = mPatches.find(in_args.portConfigId); patchIt != mPatches.end()) {
@@ -834,6 +890,7 @@ ndk::ScopedAStatus Module::setAudioPatch(const AudioPatch& in_requested, AudioPa
         patches.push_back(*_aidl_return);
     } else {
         oldPatch = *existing;
+        *existing = *_aidl_return;
     }
     patchesBackup = mPatches;
     registerPatch(*_aidl_return);
@@ -1129,7 +1186,7 @@ ndk::ScopedAStatus Module::getSoundDose(std::shared_ptr<ISoundDose>* _aidl_retur
     if (!mSoundDose) {
         mSoundDose = ndk::SharedRefBase::make<sounddose::SoundDose>();
     }
-    *_aidl_return = mSoundDose.getPtr();
+    *_aidl_return = mSoundDose.getInstance();
     LOG(DEBUG) << __func__ << ": returning instance of ISoundDose: " << _aidl_return->get();
     return ndk::ScopedAStatus::ok();
 }
@@ -1246,6 +1303,12 @@ ndk::ScopedAStatus Module::getMmapPolicyInfos(AudioMMapPolicyType mmapPolicyType
             mmapSources.insert(port.id);
         }
     }
+    if (mmapSources.empty() && mmapSinks.empty()) {
+        AudioMMapPolicyInfo never;
+        never.mmapPolicy = AudioMMapPolicy::NEVER;
+        _aidl_return->push_back(never);
+        return ndk::ScopedAStatus::ok();
+    }
     for (const auto& route : getConfig().routes) {
         if (mmapSinks.count(route.sinkPortId) != 0) {
             // The sink is a mix port, add the sources if they are device ports.
@@ -1334,22 +1397,6 @@ bool Module::isMmapSupported() {
     return mIsMmapSupported.value();
 }
 
-ndk::ScopedAStatus Module::createInputStream(const SinkMetadata& sinkMetadata,
-                                             StreamContext&& context,
-                                             const std::vector<MicrophoneInfo>& microphones,
-                                             std::shared_ptr<StreamIn>* result) {
-    return createStreamInstance<StreamInStub>(result, sinkMetadata, std::move(context),
-                                              microphones);
-}
-
-ndk::ScopedAStatus Module::createOutputStream(const SourceMetadata& sourceMetadata,
-                                              StreamContext&& context,
-                                              const std::optional<AudioOffloadInfo>& offloadInfo,
-                                              std::shared_ptr<StreamOut>* result) {
-    return createStreamInstance<StreamOutStub>(result, sourceMetadata, std::move(context),
-                                               offloadInfo);
-}
-
 ndk::ScopedAStatus Module::populateConnectedDevicePort(AudioPort* audioPort __unused) {
     LOG(VERBOSE) << __func__ << ": do nothing and return ok";
     return ndk::ScopedAStatus::ok();
@@ -1376,6 +1423,15 @@ ndk::ScopedAStatus Module::onMasterMuteChanged(bool mute __unused) {
 ndk::ScopedAStatus Module::onMasterVolumeChanged(float volume __unused) {
     LOG(VERBOSE) << __func__ << ": do nothing and return ok";
     return ndk::ScopedAStatus::ok();
+}
+
+Module::BtProfileHandles Module::getBtProfileManagerHandles() {
+    return std::make_tuple(std::weak_ptr<IBluetooth>(), std::weak_ptr<IBluetoothA2dp>(),
+                           std::weak_ptr<IBluetoothLe>());
+}
+
+ndk::ScopedAStatus Module::bluetoothParametersUpdated() {
+    return mStreams.bluetoothParametersUpdated();
 }
 
 }  // namespace aidl::android::hardware::audio::core

@@ -33,8 +33,12 @@ aidl_interface {
             apex_available: [
                 "//apex_available:platform",
                 "com.android.btservices",
+                "com.android.media.swcodec",
             ],
             min_sdk_version: "29",
+        },
+        rust: {
+            enabled: true,
         },
     },
     frozen: true,

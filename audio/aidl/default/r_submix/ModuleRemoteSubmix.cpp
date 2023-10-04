@@ -19,8 +19,8 @@
 #include <vector>
 
 #include <android-base/logging.h>
+#include <error/expected_utils.h>
 
-#include "RemoteSubmixUtils.h"
 #include "core-impl/ModuleRemoteSubmix.h"
 #include "core-impl/StreamRemoteSubmix.h"
 
@@ -33,18 +33,6 @@ using aidl::android::media::audio::common::MicrophoneInfo;
 
 namespace aidl::android::hardware::audio::core {
 
-ndk::ScopedAStatus ModuleRemoteSubmix::getTelephony(std::shared_ptr<ITelephony>* _aidl_return) {
-    *_aidl_return = nullptr;
-    LOG(DEBUG) << __func__ << ": returning null";
-    return ndk::ScopedAStatus::ok();
-}
-
-ndk::ScopedAStatus ModuleRemoteSubmix::getBluetooth(std::shared_ptr<IBluetooth>* _aidl_return) {
-    *_aidl_return = nullptr;
-    LOG(DEBUG) << __func__ << ": returning null";
-    return ndk::ScopedAStatus::ok();
-}
-
 ndk::ScopedAStatus ModuleRemoteSubmix::getMicMute(bool* _aidl_return __unused) {
     LOG(DEBUG) << __func__ << ": is not supported";
     return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -56,37 +44,40 @@ ndk::ScopedAStatus ModuleRemoteSubmix::setMicMute(bool in_mute __unused) {
 }
 
 ndk::ScopedAStatus ModuleRemoteSubmix::createInputStream(
-        const SinkMetadata& sinkMetadata, StreamContext&& context,
+        StreamContext&& context, const SinkMetadata& sinkMetadata,
         const std::vector<MicrophoneInfo>& microphones, std::shared_ptr<StreamIn>* result) {
-    return createStreamInstance<StreamInRemoteSubmix>(result, sinkMetadata, std::move(context),
+    return createStreamInstance<StreamInRemoteSubmix>(result, std::move(context), sinkMetadata,
                                                       microphones);
 }
 
 ndk::ScopedAStatus ModuleRemoteSubmix::createOutputStream(
-        const SourceMetadata& sourceMetadata, StreamContext&& context,
+        StreamContext&& context, const SourceMetadata& sourceMetadata,
         const std::optional<AudioOffloadInfo>& offloadInfo, std::shared_ptr<StreamOut>* result) {
-    return createStreamInstance<StreamOutRemoteSubmix>(result, sourceMetadata, std::move(context),
+    return createStreamInstance<StreamOutRemoteSubmix>(result, std::move(context), sourceMetadata,
                                                        offloadInfo);
 }
 
 ndk::ScopedAStatus ModuleRemoteSubmix::populateConnectedDevicePort(AudioPort* audioPort) {
-    LOG(VERBOSE) << __func__ << ": Profiles already populated by Configuration";
-    for (auto profile : audioPort->profiles) {
-        for (auto channelMask : profile.channelMasks) {
-            if (!r_submix::isChannelMaskSupported(channelMask)) {
-                LOG(ERROR) << __func__ << ": the profile " << profile.name
-                           << " has unsupported channel mask : " << channelMask.toString();
-                return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
-            }
-        }
-        for (auto sampleRate : profile.sampleRates) {
-            if (!r_submix::isSampleRateSupported(sampleRate)) {
-                LOG(ERROR) << __func__ << ": the profile " << profile.name
-                           << " has unsupported sample rate : " << sampleRate;
-                return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
-            }
-        }
+    // Find the corresponding mix port and copy its profiles.
+    std::vector<AudioRoute> routes;
+    // At this moment, the port has the same ID as the template port, see connectExternalDevice.
+    RETURN_STATUS_IF_ERROR(getAudioRoutesForAudioPort(audioPort->id, &routes));
+    if (routes.empty()) {
+        LOG(ERROR) << __func__ << ": no routes found for the port " << audioPort->toString();
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
+    const auto& route = *routes.begin();
+    AudioPort mixPort;
+    if (route.sinkPortId == audioPort->id) {
+        if (route.sourcePortIds.empty()) {
+            LOG(ERROR) << __func__ << ": invalid route " << route.toString();
+            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+        }
+        RETURN_STATUS_IF_ERROR(getAudioPort(*route.sourcePortIds.begin(), &mixPort));
+    } else {
+        RETURN_STATUS_IF_ERROR(getAudioPort(route.sinkPortId, &mixPort));
+    }
+    audioPort->profiles = mixPort.profiles;
     return ndk::ScopedAStatus::ok();
 }
 
@@ -104,12 +95,6 @@ ndk::ScopedAStatus ModuleRemoteSubmix::checkAudioPatchEndpointsMatch(
         }
     }
     return ndk::ScopedAStatus::ok();
-}
-
-void ModuleRemoteSubmix::onExternalDeviceConnectionChanged(
-        const ::aidl::android::media::audio::common::AudioPort& audioPort __unused,
-        bool connected __unused) {
-    LOG(DEBUG) << __func__ << ": do nothing and return";
 }
 
 ndk::ScopedAStatus ModuleRemoteSubmix::onMasterMuteChanged(bool __unused) {
