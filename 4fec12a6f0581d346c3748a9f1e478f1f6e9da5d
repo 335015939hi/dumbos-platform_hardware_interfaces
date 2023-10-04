@@ -1,5 +1,178 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ac7567d_3aeb9a2c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-04T17:23:43Z",
+      "side": 1,
+      "message": "`Bug: 293284598` as well for using `DeathRecipient`?",
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62ddf668_fd2815a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-04T17:23:43Z",
+      "side": 1,
+      "message": "This is Jaewan Kim working on the NFC HAL which I also found the same issue.\n\nCould you take a look at my comments? It would be a great help to understand how UWB had fixed the issue.",
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45203e51_04e02215",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-04T17:23:43Z",
+      "side": 1,
+      "message": "`OptionOptions::new().custom_flags(libc::O_NONBLOCK)`?\n\nI\u0027m not sure whether it\u0027s related with making FD raw.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 0
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e10432bd_962bd933",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-04T17:23:43Z",
+      "side": 1,
+      "message": "what is this?",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 7
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eeb6099_de4eb02b",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-04T17:23:43Z",
+      "side": 1,
+      "message": "nit; mixed logging function usages.\n\n- `info!()` with `use log::info`.\n- `log::info!()` with `use log::info`.\n- `log::error!()` without `use log::error`.",
+      "range": {
+        "startLine": 124,
+        "startChar": 12,
+        "endLine": 124,
+        "endChar": 21
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef1efb4a_494d66b6",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-04T17:23:43Z",
+      "side": 1,
+      "message": "`close()` internally calls `callbacks.onHalEvent()`, and it would fail if `DeathRecipient `is notified. You may want to simply error, instead of `unwrap()`.",
+      "range": {
+        "startLine": 125,
+        "startChar": 26,
+        "endLine": 125,
+        "endChar": 32
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a42ee48c_44787e9e",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-04T17:23:43Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 162,
+        "startChar": 63,
+        "endLine": 162,
+        "endChar": 64
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad9a605_1a953bc8",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-04T17:23:43Z",
+      "side": 1,
+      "message": "When matched `cloned_token.cancelled()`, then we only read UWB header and payloads are remaining unread.\n\nSo I expect that next `open()` will create another task which would read from the leftover payloads. Am I correct?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 0
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
