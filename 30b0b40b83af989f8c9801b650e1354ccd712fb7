@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38c5539b_668e391f",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-04T12:06:25Z",
+      "side": 1,
+      "message": "isn\u0027t there a way to handle the virtual connection that allows the input device to be attached while the output device is removable?\nNot supporting this means that we get rid of supporting \"legacy\" remote submix devices (Address \"0\") in audio policy?",
+      "range": {
+        "startLine": 112,
+        "startChar": 40,
+        "endLine": 113,
+        "endChar": 31
+      },
+      "revId": "30b0b40b83af989f8c9801b650e1354ccd712fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ed4bd42_6ead79cc",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-04T12:06:25Z",
+      "side": 1,
+      "message": "why not use dynamic profiles for remote submix?",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 70
+      },
+      "revId": "30b0b40b83af989f8c9801b650e1354ccd712fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec499817_05720879",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-04T12:06:25Z",
+      "side": 1,
+      "message": "why not update the default XML file?",
+      "range": {
+        "startLine": 122,
+        "startChar": 64,
+        "endLine": 123,
+        "endChar": 42
+      },
+      "revId": "30b0b40b83af989f8c9801b650e1354ccd712fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
