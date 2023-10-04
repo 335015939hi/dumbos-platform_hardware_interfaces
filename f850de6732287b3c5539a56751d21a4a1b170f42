@@ -22,6 +22,30 @@
       },
       "revId": "f850de6732287b3c5539a56751d21a4a1b170f42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cadb640_e77df549",
+        "filename": "bluetooth/audio/utils/le_audio_codec_capabilities/le_audio_codec_capabilities.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2023-10-04T05:44:41Z",
+      "side": 1,
+      "message": "The original code only set the capabilities for the unidirectional CIS. The patch doesn\u0027t add more content on it. The goal is to move all of them to be configurable per project.",
+      "parentUuid": "32060417_0aac4037",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 76
+      },
+      "revId": "f850de6732287b3c5539a56751d21a4a1b170f42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
