@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f658fa3f_6bf8b2c6",
+        "filename": "security/secretkeeper/aidl/aidl_api/android.hardware.security.secretkeeper/current/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "I\u0027ve change it to `processSecretManagementRequest`, a bit long - but more accurate imo",
+      "parentUuid": "1d9af8e5_342bebde",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e25ad5f4_e212ebb0",
@@ -71,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "529c3d03_9ffb50e7",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "I\u0027ve added \"CBOR-encoded\". CBOR encodings is defined in rfc8949",
+      "parentUuid": "14c4adfd_7b28e92e",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 66
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b31a16ee_75e4e40f",
@@ -88,6 +136,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d112058_18c1428c",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "This file is adjascent to ISecretkeeper.aidl \u0026 any change in cddl should be treated as HAL version update (and rules similar to other HALs apply).\n\nAdditionally, we provide method `ProtectedGetVersionRequest` to get the the version of this SecretManagementApi (from the TA over secure channel).",
+      "parentUuid": "b31a16ee_75e4e40f",
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00f0079f_795024ab",
@@ -101,6 +167,30 @@
       "writtenOn": "2023-10-04T13:39:01Z",
       "side": 1,
       "message": "Args -\u003e Request?",
+      "range": {
+        "startLine": 29,
+        "startChar": 22,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4dbe6ec_5a382fd5",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "I\u0027ve changed it to Params",
+      "parentUuid": "00f0079f_795024ab",
       "range": {
         "startLine": 29,
         "startChar": 22,
@@ -134,6 +224,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d5a7ca8_2637f42b",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "Done, added ResponsePacketError / ResponsePacketSuccess",
+      "parentUuid": "4a78d03e_d58afe24",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 76
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c1a8301_e9388caa",
@@ -147,6 +261,30 @@
       "writtenOn": "2023-10-04T13:39:01Z",
       "side": 1,
       "message": "Nit: Could we have a blank line between each args/result pair?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c3d5fff_04d0040a",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c1a8301_e9388caa",
       "range": {
         "startLine": 47,
         "startChar": 0,
@@ -226,6 +364,78 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfdebdb2_9d86a54f",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0536fa4_cc67a07c",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 9
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76e98ad4_df53deca",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "changed it to client_id/secret pair",
+      "parentUuid": "eb504fa0_7f824a60",
+      "range": {
+        "startLine": 50,
+        "startChar": 12,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7d82ba4_187b5af5",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "I wanted to match it with DICE_CDI_SIZE, but that look 32... Changing...",
+      "parentUuid": "56b740c6_bc8858fc",
+      "range": {
+        "startLine": 50,
+        "startChar": 23,
+        "endLine": 50,
+        "endChar": 25
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35ec93ff_338293c6",
@@ -249,6 +459,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95397ce0_ddec157a",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "The salt used in Dice is 64 bytes (becuase the HIDDEN input in the dice is so), lets call it id",
+      "parentUuid": "35ec93ff_338293c6",
+      "range": {
+        "startLine": 62,
+        "startChar": 11,
+        "endLine": 62,
+        "endChar": 24
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8fafefa_55add261",
@@ -262,6 +496,30 @@
       "writtenOn": "2023-10-04T13:39:01Z",
       "side": 1,
       "message": "If we don\u0027t have a use for this other than VmSecret, why do we have it?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 1
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33517869_d772e39d",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "Lets remove it, we can extend it when we need.",
+      "parentUuid": "f8fafefa_55add261",
       "range": {
         "startLine": 65,
         "startChar": 0,
@@ -318,6 +576,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "130f8163_fbff6388",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "I dont follow? K is a generic parameter. TODO(b/291228560): Link to KeyL \u0026 KeyR derivation",
+      "parentUuid": "a021ddb0_a7f3be16",
+      "range": {
+        "startLine": 79,
+        "startChar": 23,
+        "endLine": 79,
+        "endChar": 24
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36aba297_700657bb",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "Added.",
+      "parentUuid": "1a53d020_f8a64454",
+      "range": {
+        "startLine": 79,
+        "startChar": 40,
+        "endLine": 79,
+        "endChar": 53
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6170794e_549f417d",
@@ -341,6 +647,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1edecc0_8d0c94fd",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "This has to be linked to one of the identifier in Key Exchange protocol, it could be the . Let me add a TODO on this part.",
+      "parentUuid": "6170794e_549f417d",
+      "range": {
+        "startLine": 82,
+        "startChar": 20,
+        "endLine": 82,
+        "endChar": 65
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "339ae4c2_c184a61b",
@@ -354,6 +684,30 @@
       "writtenOn": "2023-10-04T13:39:01Z",
       "side": 1,
       "message": "human-readable context ?\nShould it be marked optional?",
+      "range": {
+        "startLine": 103,
+        "startChar": 13,
+        "endLine": 103,
+        "endChar": 20
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "155af73e_a4549dd6",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "I\u0027ve removed ErrorMessage \u0026 simply used tstr.\nNote:  missing field in cbor array might mess with the decoding. So, I\u0027d prefer empty tstr instead if no context is needed.",
+      "parentUuid": "339ae4c2_c184a61b",
       "range": {
         "startLine": 103,
         "startChar": 13,
@@ -389,6 +743,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ccae025d_6b08d8b0",
+        "filename": "security/secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "I\u0027m moving the file to a separate patch. Keeping this comment unresolved for reminder.",
+      "parentUuid": "509304cc_9bde1ed9",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 19
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "80cf5248_f8f64c57",
         "filename": "security/secretkeeper/aidl/vts/VtsHalSecretkeeperTargetTest.cpp",
         "patchSetId": 8
@@ -412,6 +790,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ca9478e_4c31d540",
+        "filename": "security/secretkeeper/aidl/vts/VtsHalSecretkeeperTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "I\u0027m moving the file to a separate patch. Keeping this comment unresolved for reminder.\n\nBtw, this Vts correspond to previous definition of HAL",
+      "parentUuid": "80cf5248_f8f64c57",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 13
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf5ad880_04087870",
         "filename": "security/secretkeeper/default/src/main.rs",
         "patchSetId": 8
@@ -423,6 +825,30 @@
       "writtenOn": "2023-10-04T13:39:01Z",
       "side": 1,
       "message": "You can import these from top-level binder:: now.",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 50
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32fd04e0_8a496748",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "I\u0027m moving the file to a separate patch. Keeping this comment unresolved for reminder.",
+      "parentUuid": "cf5ad880_04087870",
       "range": {
         "startLine": 17,
         "startChar": 4,

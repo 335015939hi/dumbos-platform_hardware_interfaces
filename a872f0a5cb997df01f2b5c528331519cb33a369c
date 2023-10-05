@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef0cdec2_2fc7d9b1",
+        "filename": "secretkeeper/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "Moved it.",
+      "parentUuid": "83d36935_50e0969b",
+      "range": {
+        "startLine": 25,
+        "startChar": 28,
+        "endLine": 25,
+        "endChar": 40
+      },
+      "revId": "a872f0a5cb997df01f2b5c528331519cb33a369c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "108616f4_9a61a078",
@@ -70,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "150cf875_58da62a5",
+        "filename": "secretkeeper/aidl/android/hardware/secretkeeper/default/secretkeeper.rc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "It will work fine now with nobody as well, so I have changed to user/group to nobody (\u0026 moved the file to  a separate patch).\n\nLater we will need this service to access persistent storage in /data/. But we will see then",
+      "parentUuid": "108616f4_9a61a078",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 14
+      },
+      "revId": "a872f0a5cb997df01f2b5c528331519cb33a369c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f283fc6_665c8eb1",
@@ -83,6 +131,30 @@
       "writtenOn": "2023-08-30T22:37:08Z",
       "side": 1,
       "message": "can we use the full name instead of abbreviation?",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 19
+      },
+      "revId": "a872f0a5cb997df01f2b5c528331519cb33a369c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d87ceac_12a809e2",
+        "filename": "secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T19:10:25Z",
+      "side": 1,
+      "message": "Sounds good (Done in a different patch)",
+      "parentUuid": "8f283fc6_665c8eb1",
       "range": {
         "startLine": 27,
         "startChar": 17,
