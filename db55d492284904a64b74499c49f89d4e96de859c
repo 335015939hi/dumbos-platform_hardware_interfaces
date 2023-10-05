@@ -39,6 +39,92 @@
       },
       "revId": "db55d492284904a64b74499c49f89d4e96de859c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c32d835_277b8f64",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-05T20:16:45Z",
+      "side": 1,
+      "message": "Will built-in error codes, maybe like EX_UNSUPPORTED_OPERATION work for this?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2810724_81200309",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-05T20:16:45Z",
+      "side": 1,
+      "message": "KE?",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 13
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a89d8e27_74059f03",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-05T20:16:45Z",
+      "side": 1,
+      "message": "nit: if it\u0027s only used for one method, define it in place?\n\ninterface Foo {\n    parcelable Result { ... }\n    Result foo();\n}\n\nThis is in a parcelable to make extending it easier? I see a lot of single parcelables that contain a single byte array. I get it makes things more typed, but it\u0027s also a lot of layers of indirection.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6464a87a_06d19b90",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-05T20:16:45Z",
+      "side": 1,
+      "message": "should we build CBOR into AIDL at this point? file a meeting, let\u0027s see what it would take?",
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
