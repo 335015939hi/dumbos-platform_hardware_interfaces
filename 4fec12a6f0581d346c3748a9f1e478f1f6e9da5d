@@ -487,6 +487,30 @@
       },
       "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "567ba2d5_a1d69384",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-05T23:39:31Z",
+      "side": 1,
+      "message": "Great explanation.\n\nJust out of my curiosity, one follow up question to understand this CL better (i.e. you don\u0027t need to write CL) What about using tokio\u0027s File? `tokio.io.AsyncRead` provides `poll_read()` and it seems to provide easy way to wait for data. Not sure whether `AsyncFd` from `*nix` is required.",
+      "parentUuid": "4db2f53d_47cec7e4",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 0
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
