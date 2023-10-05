@@ -6,7 +6,6 @@ use android_hardware_uwb::binder;
 use async_trait::async_trait;
 use binder::{DeathRecipient, IBinder, Result, Strong};
 
-use log::info;
 use std::sync::Arc;
 use tokio::io::unix::AsyncFd;
 use tokio::select;
@@ -16,6 +15,7 @@ use tokio_util::sync::CancellationToken;
 use std::fs::{File, OpenOptions};
 use std::io::{self, Read, Write};
 use std::os::fd::AsRawFd;
+use std::os::unix::fs::OpenOptionsExt;
 
 enum State {
     Closed,
@@ -69,11 +69,6 @@ pub fn makeraw(file: File) -> io::Result<File> {
     cfmakeraw(&mut attrs);
     tcsetattr(fd, SetArg::TCSANOW, &attrs)?;
 
-    // Configure the file descriptor as non blocking.
-    use nix::fcntl::*;
-    let flags = OFlag::from_bits(fcntl(fd, FcntlArg::F_GETFL)?).unwrap();
-    fcntl(fd, FcntlArg::F_SETFL(flags | OFlag::O_NONBLOCK))?;
-
     Ok(file)
 }
 
@@ -114,6 +109,7 @@ impl IUwbChipAsyncServer for UwbChip {
             .read(true)
             .write(true)
             .create(false)
+            .custom_flags(libc::O_NONBLOCK)
             .open(&self.path)
             .and_then(makeraw)
             .map_err(|_| binder::StatusCode::UNKNOWN_ERROR)?;
@@ -122,7 +118,10 @@ impl IUwbChipAsyncServer for UwbChip {
         let mut death_recipient = DeathRecipient::new(move || {
             let mut state = state_death_recipient.blocking_lock();
             log::info!("Uwb service has died");
-            state.close().unwrap();
+            if let State::Opened { token, .. } = *state {
+                token.cancel();
+                *state = State::Closed;
+            }
         });
 
         callbacks.as_binder().link_to_death(&mut death_recipient)?;
@@ -137,7 +136,7 @@ impl IUwbChipAsyncServer for UwbChip {
             .map_err(|_| binder::StatusCode::UNKNOWN_ERROR)?;
 
         let join_handle = tokio::task::spawn(async move {
-            info!("UCI reader task started");
+            log::info!("UCI reader task started");
             let mut reader = AsyncFd::new(reader).unwrap();
 
             loop {
@@ -159,7 +158,7 @@ impl IUwbChipAsyncServer for UwbChip {
                     // the OS will only notify Tokio when the file descriptor
                     // transitions from not-ready to ready. For this to work
                     // you should first try to read or write and only poll for
-                    // readiness if that fails with an error of 
+                    // readiness if that fails with an error of
                     // std::io::ErrorKind::WouldBlock.
                     match reader.get_mut().read(&mut buffer) {
                         Ok(0) => {
@@ -173,7 +172,7 @@ impl IUwbChipAsyncServer for UwbChip {
 
                     let mut guard = select! {
                         _ = cloned_token.cancelled() => {
-                            info!("task is cancelled!");
+                            log::info!("task is cancelled!");
                             return;
                         },
                         result = reader.readable() => result.unwrap()
