@@ -31,8 +31,6 @@ cc_defaults {
         "libutils",
     ],
     cflags: [
-        "-Wall",
-        "-Wextra",
         "-Werror",
         "-Wthread-safety",
     ],
