@@ -49,6 +49,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14c4adfd_7b28e92e",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-05T00:38:07Z",
+      "side": 1,
+      "message": "and all the details required to understand how it would translate, yeah",
+      "parentUuid": "e25ad5f4_e212ebb0",
+      "range": {
+        "startLine": 68,
+        "startChar": 37,
+        "endLine": 68,
+        "endChar": 66
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b31a16ee_75e4e40f",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-05T00:38:07Z",
+      "side": 1,
+      "message": "how do we manage changes to such a definition?",
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "00f0079f_795024ab",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
         "patchSetId": 8
