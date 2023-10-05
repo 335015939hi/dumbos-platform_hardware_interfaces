@@ -33,6 +33,15 @@ enum SessionType {
      */
     HEARING_AID_SOFTWARE_ENCODING_DATAPATH,
     /**
+     * Used when encoded and decoded by Bluetooth Stack and streaming to HFP device.
+     */
+    HFP_SOFTWARE_DATAPATH,
+    /**
+     * Used when encoded and decoded by hardware offload and is streamed to HFP device.
+     * This is a control path only.
+     */
+    HFP_HARDWARE_OFFLOAD_DATAPATH,
+    /**
      * Used when audio is encoded by the Bluetooth Stack and is streamed to LE
      * Audio unicast device.
      */
