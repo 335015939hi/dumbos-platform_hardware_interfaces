@@ -39,6 +39,30 @@
       },
       "revId": "453b03f2b5f313cde1c4d7524eac361d524410e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19a861c4_5e92fc8d",
+        "filename": "tv/hdmi/cec/aidl/default/fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-10-05T12:50:39Z",
+      "side": 1,
+      "message": "Removed the includes.",
+      "parentUuid": "d57a7d0a_bedde356",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "453b03f2b5f313cde1c4d7524eac361d524410e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

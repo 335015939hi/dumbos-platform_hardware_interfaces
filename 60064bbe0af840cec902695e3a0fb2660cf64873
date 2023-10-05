@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42576bbc_38cfe9a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1068291
+      },
+      "writtenOn": "2023-10-05T12:50:39Z",
+      "side": 1,
+      "message": "This solves the issue mentioned in b/293249165. PTAL",
+      "revId": "60064bbe0af840cec902695e3a0fb2660cf64873",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
