@@ -140,6 +140,24 @@
       "parentUuid": "b4fe4ee6_2d9f8e36",
       "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c397fe16_8b1753d9",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4866,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-05T09:15:06Z",
+      "side": 1,
+      "message": "So would `check_mgf_digest_present(true, key_characteristics_, Digest::SHA1)` work?\n\n(Also, making this a method would mean we could have an overload that assumed the use of `key_characteristics_`, so this would just be `check_mgf_digest_present(true, Digest::SHA1)`)",
+      "parentUuid": "22a5a464_494af074",
+      "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
