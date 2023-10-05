@@ -16,6 +16,29 @@
       "message": "Hi Steven,\n\nCan you please help review this AIDL interface?\nAPI tracker: b/299653596\nUpdatability tracker: b/299653597\n\nThank you!",
       "revId": "db55d492284904a64b74499c49f89d4e96de859c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a35d92b_7abd0f15",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/DicePolicy.cddl",
+        "patchSetId": 35
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-05T17:34:41Z",
+      "side": 1,
+      "message": "After a bit of back \u0026 forth code-review with Alan \u0026 conversation with Paul, this is the CDDL we merged in the dice-policy lib : https://source.corp.google.com/h/googleplex-android/platform/superproject/master/+/master:packages/modules/Virtualization/libs/dice_policy/src/lib.rs;l\u003d39-59\n\nWe didn\u0027t have to support hashConstraint (it is an optimization), if same is true for other users too, then maybe we can drop it?\n\u0026 renaming certificateConstraintList -\u003e nodeConstraintList \n\ncertificateConstraint -\u003e nodeConstraint\n\n(because 1st dice node is a key \u0026 not a cert)\n\n\nI\u0027ll suggest the change in Paul\u0027s spec too to reduce fragmentation..",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 14
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
