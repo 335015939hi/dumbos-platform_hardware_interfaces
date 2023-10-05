@@ -53,6 +53,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b14db009_d522386c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-05T00:42:55Z",
+      "side": 1,
+      "message": "One more question: I can see the similar packet loss in the NFC, but I could reproduce the issue even when FD is closed after reading all necessary bits, and write happens after FD is fully recreated.\n\nAfter I turned off NFC, I confirmed that all bytes from casimir (a.k.a. NFC rootcanal) are fully read. And turned on NFC after that. So I think that there had been no cancelled read between turning off/on. What do you think? I\u0027m unsure whether this issue is happened because of the cancelled file read or not.",
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45203e51_04e02215",
@@ -113,6 +130,30 @@
       "side": 1,
       "message": "Warning sign /!\\\nApparently not as explicit as I thought it was :)",
       "parentUuid": "e10432bd_962bd933",
+      "range": {
+        "startLine": 81,
+        "startChar": 4,
+        "endLine": 81,
+        "endChar": 7
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "214fb399_ee3a74bb",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-05T00:42:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b8252a82_6d63e8b9",
       "range": {
         "startLine": 81,
         "startChar": 4,
@@ -229,6 +270,30 @@
       "side": 1,
       "message": "When cloned_token.cancelled() is matched, no packet byte (header or payload) has been read yet, so it is safe to exit.",
       "parentUuid": "aad9a605_1a953bc8",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 0
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c571591_dc62b2c4",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-05T00:42:55Z",
+      "side": 1,
+      "message": "I thought that L164-L172 reads header. Isn\u0027t it?",
+      "parentUuid": "06f009d3_7131b609",
       "range": {
         "startLine": 174,
         "startChar": 0,
