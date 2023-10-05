@@ -70,6 +70,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a868569_5a34dbf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-10-05T16:22:55Z",
+      "side": 1,
+      "message": "Follow up fixed in https://r.android.com/2775687",
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45203e51_04e02215",
@@ -83,6 +100,30 @@
       "writtenOn": "2023-10-04T17:23:43Z",
       "side": 1,
       "message": "`OptionOptions::new().custom_flags(libc::O_NONBLOCK)`?\n\nI\u0027m not sure whether it\u0027s related with making FD raw.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 0
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ecfbc49_a7fab578",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-10-05T16:22:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45203e51_04e02215",
       "range": {
         "startLine": 72,
         "startChar": 0,
@@ -187,6 +228,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "602b638b_043eb5bb",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-10-05T16:22:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4eeb6099_de4eb02b",
+      "range": {
+        "startLine": 124,
+        "startChar": 12,
+        "endLine": 124,
+        "endChar": 21
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef1efb4a_494d66b6",
@@ -210,6 +275,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "669d394e_701104aa",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-10-05T16:22:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef1efb4a_494d66b6",
+      "range": {
+        "startLine": 125,
+        "startChar": 26,
+        "endLine": 125,
+        "endChar": 32
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a42ee48c_44787e9e",
@@ -223,6 +312,30 @@
       "writtenOn": "2023-10-04T17:23:43Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 162,
+        "startChar": 63,
+        "endLine": 162,
+        "endChar": 64
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51b8b4c9_ebc2e56e",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-10-05T16:22:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a42ee48c_44787e9e",
       "range": {
         "startLine": 162,
         "startChar": 63,
