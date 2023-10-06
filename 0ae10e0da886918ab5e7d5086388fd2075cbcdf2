@@ -648,6 +648,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af7c3b0d_a3d8d31c",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T11:05:30Z",
+      "side": 1,
+      "message": "Key get used in the generation of ciphertext (from Payload). Yes. it should be an Aes Key (but that is restricted to due to a protected header (alg) indicating algorithm, specifically `1 (alg) :3 (AEAD_AES_256_GCM)`). I\u0027ve replaced K \u003d\u003e Key",
+      "parentUuid": "168d1988_21cdf64f",
+      "range": {
+        "startLine": 79,
+        "startChar": 23,
+        "endLine": 79,
+        "endChar": 24
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6170794e_549f417d",
