@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5630722e_c3de45e3",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/DicePolicy.cddl",
+        "patchSetId": 35
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-06T00:41:25Z",
+      "side": 1,
+      "message": "Thanks for the clarification! I took the cddl from Paul\u0027s design doc. It would be great if we could sync the design doc to the latest one. I will update this to match the definition in the link you shared.",
+      "parentUuid": "9a35d92b_7abd0f15",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 14
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c32d835_277b8f64",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-05T20:16:45Z",
       "side": 1,
       "message": "Will built-in error codes, maybe like EX_UNSUPPORTED_OPERATION work for this?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a50ee15_beddee0a",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-06T00:41:25Z",
+      "side": 1,
+      "message": "I think we can use `EX_UNSUPPORTED_OPERATION` and `EX_SERVICE_SPECIFIC` from https://cs.android.com/android/platform/superproject/main/+/main:frameworks/native/libs/binder/ndk/include_ndk/android/binder_status.h;drc\u003dce8d982b30ffbf490b151c0acab4e05a61b53ba7;l\u003d103 instead of `UNIMPLEMENTED` and `INTERNAL_ERROR` respectively.\n\nHowever, the Android binder error code space and our error code space overlap. Is there any recommendation of any error code space that we should not overlap with when defining AIDL errors?\n\nThere are other existing AIDLs (e.g. Keymint) which define these types of error codes (https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/ErrorCode.aidl;l\u003d112).\n\nIf you have a strong preference on using the binder error codes, I can certainly change this. In that case, can you please let me know which rust crate that I can find the definition of these error codes (to be used from our implementation)?\n\nThank you!",
+      "parentUuid": "2c32d835_277b8f64",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7469f05_486f2452",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-06T00:41:25Z",
+      "side": 1,
+      "message": "Sorry, I am not sure if I understood your comment. Did you mean to say that this should be camel case?",
+      "parentUuid": "b2810724_81200309",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 13
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a89d8e27_74059f03",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
         "patchSetId": 35
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9bd376d0_1f2f00b0",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-06T00:41:25Z",
+      "side": 1,
+      "message": "The two main reasons behind the single parcelables that contain a single byte array are:\n1. They have a CDDL.\n2. They are re-used across multiple return types and method inputs.\n\nE.g. \ni. `Arc` (has `Arc.cddl` and is part of `Key` type, `SessionInfo` type, `sharedKeys` input and output of `authenticationComplete` method)\nii. `Identity` (has `Identity.cddl` and is part of `SessionInitiationInfo`, input for `init` and `finish` methods)\niii. `SessionIdSignature` (has `SessionIdSignature.cddl` and is part of `SessionInfo` type and input for `finish` and `authenticationComplete`)\niv. `PlainPubKey` (has `PlainPubKey.cddl` and is one variant of `PubKey`. `PubKey` is part of the `Key` type and inputs for `init` and `finish` methods. `Key` is in turn part of `SessioInitiationInfo` type)\nv. `SignedPubKey` (has `SignedPubKey.cddl` and is one variant of `PubKey`. `PubKey` is part of the `Key` type.\n\nSo the main motivation for having them as parcelables are: isolation of the definition and re-usability in multiple places. \n\nWe haven\u0027t defined parcels for other primitive types which do not have a specific definition - such as `peerNonce` (of type `byte[]`) and `version` (of type `int`) used as inputs for `init` and `finish`.\n\nHowever, in the above analysis I realized that we can get rid of the KEAuthCompleteResult parcelable, because it is not re-used anywhere. So I removed it and marked the return type to be an array of Arcs (the array only contains two elements)\n\nPlease let me know if you have further questions/feedback on this. Thanks!",
+      "parentUuid": "a89d8e27_74059f03",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6464a87a_06d19b90",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.aidl",
         "patchSetId": 35
@@ -123,6 +219,24 @@
       "writtenOn": "2023-10-05T20:16:45Z",
       "side": 1,
       "message": "should we build CBOR into AIDL at this point? file a meeting, let\u0027s see what it would take?",
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50ac956d_55324d29",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-06T00:41:25Z",
+      "side": 1,
+      "message": "That would be great! I will discuss with David too and set up a meeting a next week. Thanks!",
+      "parentUuid": "6464a87a_06d19b90",
       "revId": "db55d492284904a64b74499c49f89d4e96de859c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
