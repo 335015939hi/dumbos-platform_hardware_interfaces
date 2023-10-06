@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1236b195_df51a9d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-06T19:49:38Z",
+      "side": 1,
+      "message": "Updated message.",
+      "parentUuid": "48eb9bb4_4373b382",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 8
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3307118_f710f6c0",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-04T10:25:04Z",
       "side": 1,
       "message": "I wold rather see this as a post check once all deices are loaded to avoid passing the config to this method",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 95
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4bd2477_64a6e16f",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-06T19:49:38Z",
+      "side": 1,
+      "message": "In order to perform this check, we need to know the AIDL device type (because the connection type is specified there). The type is converted from XML right above, on the line 96. If we want to do this check somewhere earlier, we will have to perform the same device type conversion there. Not sure this worth the trouble.",
+      "parentUuid": "a3307118_f710f6c0",
       "range": {
         "startLine": 108,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66817272_adfdbd50",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-06T19:49:38Z",
+      "side": 1,
+      "message": "Thanks for catching that! Fixed.",
+      "parentUuid": "b08a8f9b_fb5fa34e",
+      "range": {
+        "startLine": 141,
+        "startChar": 96,
+        "endLine": 141,
+        "endChar": 97
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6adadb58_12fe3ceb",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd90b071_dcaa765d",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-06T19:49:38Z",
+      "side": 1,
+      "message": "Done. Same for mix ports.",
+      "parentUuid": "6adadb58_12fe3ceb",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 74
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d5fac7b_882f5c02",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-10-04T10:25:04Z",
       "side": 1,
       "message": "we could pass xDefaultOutputDevice here so that it is resolved only once",
+      "range": {
+        "startLine": 265,
+        "startChar": 61,
+        "endLine": 265,
+        "endChar": 74
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ebc80f9_105c7b55",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-06T19:49:38Z",
+      "side": 1,
+      "message": "Agree. Moved extraction of these parameters into `convertDevicePortsInModuleToAidl`.",
+      "parentUuid": "2d5fac7b_882f5c02",
       "range": {
         "startLine": 265,
         "startChar": 61,
