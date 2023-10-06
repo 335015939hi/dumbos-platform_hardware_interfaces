@@ -535,6 +535,30 @@
       },
       "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df29028a_2828a30b",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1019013
+      },
+      "writtenOn": "2023-10-06T01:04:53Z",
+      "side": 1,
+      "message": "What a nice finding. Thank you for the explanation.",
+      "parentUuid": "d46b5f58_35f0c81a",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 0
+      },
+      "revId": "4fec12a6f0581d346c3748a9f1e478f1f6e9da5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
