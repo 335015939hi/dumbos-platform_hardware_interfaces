@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c3b020b_51166221",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-06T19:50:00Z",
+      "side": 1,
+      "message": "Let me explain why having a connection is required. In the AIDL model, device ports of external devices are \"templates\" (regardless whether the device has dynamic profiles or not). Once the device is connected, a real device port is created, with address assigned (if any). For permanently attached devices, the device port is the real device port, and its address is fixed. If we set up remote submix input as a permanently attached device, it could only have one device port, with one address. Obviously, this will not work for the screen capture scenario.\n\nAnd we can\u0027t have a permanently attached and a removable device port of the same device type because device attachment ability is associated with the device type.\n\n\u003e Not supporting this means that we get rid of supporting \"legacy\" remote submix devices (Address \"0\") in audio policy?\n\nI will find or write a test for this scenario. Since it\u0027s legacy, I\u0027m not sure how important is it. If needed, I will implement connection of remote submix device with address 0 in libaudiohal@aidl.",
+      "parentUuid": "38c5539b_668e391f",
+      "range": {
+        "startLine": 112,
+        "startChar": 40,
+        "endLine": 113,
+        "endChar": 31
+      },
+      "revId": "30b0b40b83af989f8c9801b650e1354ccd712fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ed4bd42_6ead79cc",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "141ad3a5_4e8b0c90",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-06T19:50:00Z",
+      "side": 1,
+      "message": "With aosp/2775704, we now have two options for dynamic profiles:\n\n1. Both template device port and the mix port have dynamic profiles. In this case, the HAL module must populate profiles of the device port by querying the device, and these get propagated to both ports.\n\n2. The template device port has dynamic profiles, while routable mix ports have static profiles. In this case, the profiles of the connected device can remain blank. This is what we use for remote submix, and this is similar to the configuration we specified before in the XML file.\n\nThus, in any of those cases, the mix port will get concrete profiles at some point. This is important, because when the framework opens a stream with an unspecified configuration, the HAL module can use the profiles of the mix port to pick one. If there are no profiles specified, the HAL module has to hardcode some choice. I don\u0027t think that this is a good approach.",
+      "parentUuid": "4ed4bd42_6ead79cc",
+      "range": {
+        "startLine": 114,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 70
+      },
+      "revId": "30b0b40b83af989f8c9801b650e1354ccd712fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec499817_05720879",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-10-04T12:06:25Z",
       "side": 1,
       "message": "why not update the default XML file?",
+      "range": {
+        "startLine": 122,
+        "startChar": 64,
+        "endLine": 123,
+        "endChar": 42
+      },
+      "revId": "30b0b40b83af989f8c9801b650e1354ccd712fb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "472922fe_97c39dbc",
+        "filename": "audio/aidl/default/AudioPolicyConfigXmlConverter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-06T19:50:00Z",
+      "side": 1,
+      "message": "We can update that, however the major obstacle is that currently there is only one version of the remote submix configuration—since it did not have any lists with more than one element, it remained compatible both with pre-7.0 and 7.0 parsers. If we want to bring the XML file on par with this configuration for AIDL, we will also have to add lists for sample rates and channel masks. This will require forking the config file for pre-7.0 and 7.0, and updating bunch of other resources: other .xml files that include it, and Android.bp files. Not sure all of this worth the effort.\n\nSince it has turned out that the canonical configuration has that many exceptions compared to what we expect for the AIDL implementation, and it was unlikely that partners actually modified it, to me it seems easier to provide a hardcoded configuration instead. This also aligns with the fact that in the long term we plan to move remote submix module to the framework side because it does not depend on the silicon or on anything in the kernel.",
+      "parentUuid": "ec499817_05720879",
       "range": {
         "startLine": 122,
         "startChar": 64,
