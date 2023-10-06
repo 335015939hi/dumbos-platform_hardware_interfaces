@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e81caa8a_af63d3b5",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-06T23:40:27Z",
+      "side": 1,
+      "message": "How do we test the packets really are this format? How do we make sure the format used by the framework doesn\u0027t drift from this?",
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "471a62ea_678d00e1",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-06T23:40:27Z",
+      "side": 1,
+      "message": "error codes can\u0027t be in AIDL directly?",
+      "range": {
+        "startLine": 77,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 1
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
