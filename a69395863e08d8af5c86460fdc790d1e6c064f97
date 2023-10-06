@@ -1,0 +1,423 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8ce9c59_bf326091",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 36
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Nit: Lets settle on one name. Will it be key exchange or key agreement?",
+      "range": {
+        "startLine": 7,
+        "startChar": 40,
+        "endLine": 7,
+        "endChar": 53
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa16d051_3a4fb9ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 36
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Hi Hasini! I have part reviewed the patch (mostly 1st 2 methods \u0026 related parcels of the Key Exchange protocol).\n\nThe other half, I can get to early next week. Thank you very much!",
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68978c00_072edc22",
+        "filename": "compatibility_matrices/compatibility_matrix.9.xml",
+        "patchSetId": 36
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Should we update the compatibility matrix in this patch? \n\nIf you\u0027re planning on adding the default implementation in a different patch, maybe we should move the compatibility matrix change into that patch?",
+      "range": {
+        "startLine": 593,
+        "startChar": 14,
+        "endLine": 593,
+        "endChar": 49
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5c319d7_bcee21c9",
+        "filename": "security/authgraph/aidl/Android.bp",
+        "patchSetId": 36
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Most newly created files in Android start with a license, following the pattern in this repo..\n\n```\n// Copyright (C) 2023 The Android Open Source Project\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n//      http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\npackage {\n    // See: http://go/android-license-faq\n    // A large-scale-change added \u0027default_applicable_licenses\u0027 to import\n    // all of the \u0027license_kinds\u0027 from \"hardware_interfaces_license\"\n    // to get the below license kinds:\n    //   SPDX-license-identifier-Apache-2.0\n    default_applicable_licenses: [\"hardware_interfaces_license\"],\n}\n\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f50ee9c_2b4a9a87",
+        "filename": "security/authgraph/aidl/Android.bp",
+        "patchSetId": 36
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Not: The rust interface need to be available in virt apex. Can you please include \n\n```\n        rust: {\n            enabled: true,\n            apex_available: [\n                \"//apex_available:platform\",\n                \"com.android.virt\",\n            ],\n        },\n```\n\nbut you can also chose to do it a following patch. Upto you",
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0c19bed_3cc5ba0c",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ExplicitKeyDiceCertChain.cddl",
+        "patchSetId": 36
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "I\u0027m curious if we have to append the AOSP Copyright license on cddl files too? Other files like generateCertificateRequestV2.cddl havent used it either. I will also ask around..",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 28
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f606dcf7_b21f2b20",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Is that a hard requirement? For Secretkeeper, we have a per boot asymmetric key \u0026 we\u0027ve figured the authentication solution based on that.",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 29
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84843a81_87c2a678",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Nit: Maybe add \"of the participant\" [`per-boot life time` -\u003e `per-boot life time of the participant`] to disambiguate what per-boot mean for participant which can dynamically boot, shutdown several time during the boot lifetime of device (or boot lifetime of the other participant). For ex. pVM and non-critical TA.",
+      "range": {
+        "startLine": 34,
+        "startChar": 75,
+        "endLine": 34,
+        "endChar": 76
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86e38356_a226ab0a",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Nit: Why `INVALID_PEER_KE_KEY` and not `INVALID_PEER_PUBLIC_KEY`?",
+      "range": {
+        "startLine": 66,
+        "startChar": 22,
+        "endLine": 66,
+        "endChar": 41
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bf90c11_6b2fd26b",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Nit: Maybe replace `KE_FIRST_ENCRYPTION_KEY` \u0026 `KE_SECOND_ENCRYPTION_KEY` with `KE_ENCRYPTION_KEY_SOURCE_TO_SINK`, `KE_ENCRYPTION_KEY_SINK_TO_SOURCE` for more readable context ?",
+      "range": {
+        "startLine": 82,
+        "startChar": 18,
+        "endLine": 82,
+        "endChar": 42
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b034160_53a6256b",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "How about we rename `peerPubKey` to `sourcePubKey`, similarly for peerId, peerNonce, peerVersion to disambiguate which peer. As you mentioned in the beginning of this file, there will always be a source \u0026 sink, so maybe worth structuring the protocol messages like those?",
+      "range": {
+        "startLine": 95,
+        "startChar": 14,
+        "endLine": 95,
+        "endChar": 24
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0745ebdb_ba503b95",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "The previous `create()` would return `Key` which contains `PubKey` as well as `Arc`. Do you expect system component to extract the `PubKey` from the `Key` while calling this function?\n\nAlso, (a bit unrelated to HAL interface), where will you implement this component (that does the trigger/translation)?",
+      "range": {
+        "startLine": 118,
+        "startChar": 22,
+        "endLine": 118,
+        "endChar": 32
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24cd023d_d5584e8b",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Identity.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Nit: \"how\"",
+      "range": {
+        "startLine": 23,
+        "startChar": 41,
+        "endLine": 23,
+        "endChar": 45
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "922c0ad1_372db2b0",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Identity.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Nit: Maybe rephrase \"Retain access of persistent resources for the newer version of the party that created those resources\"",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 92
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79b3499f_9d8e98ab",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Identity.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "IIUC, you could use policy to \"Update access to the persistent storage such that the older versions of party cannot access them anymore\" as well, which is superset of statement[2]",
+      "range": {
+        "startLine": 32,
+        "startChar": 13,
+        "endLine": 32,
+        "endChar": 80
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff0f2749_6f6cebb6",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Key.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Nit: This parcel contains public key as well as private key, and at first glance, gives the idea that having \"Key\" could compromise the security, but really the private key or the symmetric key is encrypted. How about we rename this to something like `KeyHandle` `ProtectedKey` or something?",
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b180afac_8b68c2fe",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.cddl",
+        "patchSetId": 36
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Please use a bugId TODO(b/xxx), easy to track TODOs",
+      "range": {
+        "startLine": 4,
+        "startChar": 10,
+        "endLine": 4,
+        "endChar": 11
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21a310f7_eba49b2c",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SessionInitiationInfo.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "Nit: maybe replace this with `used in authenticated key exchange protocol.` to indicate this is a full protocol (and not just 1 method).",
+      "range": {
+        "startLine": 24,
+        "startChar": 34,
+        "endLine": 24,
+        "endChar": 80
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "542d9782_ce28f582",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SessionInitiationInfo.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-06T18:46:06Z",
+      "side": 1,
+      "message": "And what is the use of that?",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
