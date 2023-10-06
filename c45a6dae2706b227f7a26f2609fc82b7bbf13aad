@@ -16,6 +16,24 @@
       "message": "but why?",
       "revId": "c45a6dae2706b227f7a26f2609fc82b7bbf13aad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6777336a_aba1421e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 4837,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-10-06T08:36:12Z",
+      "side": 1,
+      "message": "modified the comment in `assert_mgf_digests_present_or_not_in_key_characteristics`",
+      "parentUuid": "ef110e71_b9a122ca",
+      "revId": "c45a6dae2706b227f7a26f2609fc82b7bbf13aad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

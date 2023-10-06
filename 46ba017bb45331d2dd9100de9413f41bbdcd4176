@@ -158,6 +158,24 @@
       "parentUuid": "22a5a464_494af074",
       "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "370cf675_330cb65d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4866,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-10-06T08:36:12Z",
+      "side": 1,
+      "message": "Modified `assert_mgf_digests_present_or_not_in_key_characteristics` to assert if MGF1 digests are present or not in key characteristics.",
+      "parentUuid": "c397fe16_8b1753d9",
+      "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
