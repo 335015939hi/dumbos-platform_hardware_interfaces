@@ -26,6 +26,7 @@ namespace aidl::android::hardware::audio::core {
 using aidl::android::hardware::audio::common::SinkMetadata;
 using aidl::android::hardware::audio::common::SourceMetadata;
 using aidl::android::media::audio::common::AudioOffloadInfo;
+using aidl::android::media::audio::common::AudioPort;
 using aidl::android::media::audio::common::MicrophoneInfo;
 
 ndk::ScopedAStatus ModuleBluetooth::getBluetoothA2dp(
@@ -78,6 +79,22 @@ ndk::ScopedAStatus ModuleBluetooth::createOutputStream(
         const std::optional<AudioOffloadInfo>& offloadInfo, std::shared_ptr<StreamOut>* result) {
     return createStreamInstance<StreamOutBluetooth>(result, std::move(context), sourceMetadata,
                                                     offloadInfo, getBtProfileManagerHandles());
+}
+
+ndk::ScopedAStatus ModuleBluetooth::populateConnectedDevicePort(AudioPort*) {
+    // Since the configuration of the BT module is static, there is nothing to populate here.
+    // However, this method must return an error when the device can not be connected,
+    // this is determined by the status of BT profiles.
+    bool isA2dpEnabled = false;
+    if (!!mBluetoothA2dp) {
+        RETURN_STATUS_IF_ERROR(mBluetoothA2dp.getInstance()->isEnabled(&isA2dpEnabled));
+    }
+    bool isLeEnabled = false;
+    if (!!mBluetoothLe) {
+        RETURN_STATUS_IF_ERROR(mBluetoothLe.getInstance()->isEnabled(&isLeEnabled));
+    }
+    return (isA2dpEnabled || isLeEnabled) ? ndk::ScopedAStatus::ok()
+                                          : ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
 }
 
 ndk::ScopedAStatus ModuleBluetooth::onMasterMuteChanged(bool) {
