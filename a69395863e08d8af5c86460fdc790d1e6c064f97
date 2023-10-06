@@ -106,6 +106,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79e3a725_564b9a9c",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Arc.cddl",
+        "patchSetId": 36
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-06T23:45:49Z",
+      "side": 1,
+      "message": "on all of these:\n\nHow do we test the packets really are this format? How do we make sure the format used by the framework doesn\u0027t drift from this?",
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0c19bed_3cc5ba0c",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ExplicitKeyDiceCertChain.cddl",
         "patchSetId": 36
