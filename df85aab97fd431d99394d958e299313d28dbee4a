@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b80affdb_793acc54",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-09T17:57:43Z",
+      "side": 1,
+      "message": "Ah, sorry, I must have misread the wording \"post check.\" Actually, I agree with the idea as it makes redundant passing the attached device set down the line. Done.",
+      "parentUuid": "a4766893_e83155db",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 95
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b08a8f9b_fb5fa34e",
