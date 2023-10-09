@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36df5fc1_863c52f0",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-09T10:20:53Z",
+      "side": 1,
+      "message": "Can we remove 0 as the testcase?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 52
+      },
+      "revId": "4d0f9e4f06327272854e276f40aa164729eed394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fe88409_75014131",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-09T10:20:53Z",
+      "side": 1,
+      "message": "For gain\u003d0, this buffer is being compared to the compressed values and then getting updated in test.\n\nCan we get the baseOutput filled with compressed values without gain\u003d0 testcase?",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 65
+      },
+      "revId": "4d0f9e4f06327272854e276f40aa164729eed394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
