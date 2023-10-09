@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b18ea88_9ae50873",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-09T11:04:19Z",
+      "side": 1,
+      "message": "Both the approach works. Static values or randomly generated values as well.",
+      "parentUuid": "96a2a75f_4a90a0e9",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "7774722fdb20b5136b0c5c42f0ca3d090ecd373d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c9430b2_325e1e07",
         "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
         "patchSetId": 1

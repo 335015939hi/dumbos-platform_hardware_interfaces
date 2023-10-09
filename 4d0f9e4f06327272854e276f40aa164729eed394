@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "68b7241a_40643d17",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-09T11:04:19Z",
+      "side": 1,
+      "message": "We can create different gain values for different tests.\nLet the set and get use min, 100, max\nAnd you can remove 0 test case for your test.",
+      "parentUuid": "36df5fc1_863c52f0",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 52
+      },
+      "revId": "4d0f9e4f06327272854e276f40aa164729eed394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3fe88409_75014131",
         "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
         "patchSetId": 2
@@ -42,6 +66,53 @@
         "startChar": 0,
         "endLine": 122,
         "endChar": 65
+      },
+      "revId": "4d0f9e4f06327272854e276f40aa164729eed394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c8e012f_3682bc4a",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-09T11:04:19Z",
+      "side": 1,
+      "message": "Yes, we can update baseOutput with gain 0 values before the test itself",
+      "parentUuid": "3fe88409_75014131",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 65
+      },
+      "revId": "4d0f9e4f06327272854e276f40aa164729eed394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fccd2b5_0068ba64",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-09T11:04:19Z",
+      "side": 1,
+      "message": "Should be greater",
+      "range": {
+        "startLine": 169,
+        "startChar": 8,
+        "endLine": 169,
+        "endChar": 17
       },
       "revId": "4d0f9e4f06327272854e276f40aa164729eed394",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
