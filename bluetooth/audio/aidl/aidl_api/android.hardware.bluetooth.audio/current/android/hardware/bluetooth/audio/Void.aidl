@@ -33,13 +33,5 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-interface IBluetoothAudioProviderFactory {
-  android.hardware.bluetooth.audio.AudioCapabilities[] getProviderCapabilities(in android.hardware.bluetooth.audio.SessionType sessionType);
-  android.hardware.bluetooth.audio.IBluetoothAudioProvider openProvider(in android.hardware.bluetooth.audio.SessionType sessionType);
-  @nullable android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory.ProviderInfo getProviderInfo(in android.hardware.bluetooth.audio.SessionType sessionType);
-  @VintfStability
-  parcelable ProviderInfo {
-    String name;
-    android.hardware.bluetooth.audio.CodecInfo[] codecInfos;
-  }
+parcelable Void {
 }

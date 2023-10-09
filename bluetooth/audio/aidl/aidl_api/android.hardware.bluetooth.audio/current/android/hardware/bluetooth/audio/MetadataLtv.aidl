@@ -33,13 +33,43 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-interface IBluetoothAudioProviderFactory {
-  android.hardware.bluetooth.audio.AudioCapabilities[] getProviderCapabilities(in android.hardware.bluetooth.audio.SessionType sessionType);
-  android.hardware.bluetooth.audio.IBluetoothAudioProvider openProvider(in android.hardware.bluetooth.audio.SessionType sessionType);
-  @nullable android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory.ProviderInfo getProviderInfo(in android.hardware.bluetooth.audio.SessionType sessionType);
-  @VintfStability
-  parcelable ProviderInfo {
-    String name;
-    android.hardware.bluetooth.audio.CodecInfo[] codecInfos;
+union MetadataLtv {
+  android.hardware.bluetooth.audio.MetadataLtv.PreferredAudioContexts preferredAudioContexts;
+  android.hardware.bluetooth.audio.MetadataLtv.StreamingAudioContexts streamingAudioContexts;
+  android.hardware.bluetooth.audio.MetadataLtv.ProgramInfo programInfo;
+  android.hardware.bluetooth.audio.MetadataLtv.Language language;
+  android.hardware.bluetooth.audio.MetadataLtv.CCIDList ccidList;
+  android.hardware.bluetooth.audio.MetadataLtv.ParentalRating parentalRating;
+  android.hardware.bluetooth.audio.MetadataLtv.ProgramInfoURI programInfoURI;
+  android.hardware.bluetooth.audio.MetadataLtv.ExtendedMetadata extendedMetadata;
+  android.hardware.bluetooth.audio.MetadataLtv.VendorSpecific vendorSpecific;
+  parcelable PreferredAudioContexts {
+    android.hardware.bluetooth.audio.AudioContext[] values;
+  }
+  parcelable StreamingAudioContexts {
+    android.hardware.bluetooth.audio.AudioContext[] values;
+  }
+  parcelable ProgramInfo {
+    String title;
+  }
+  parcelable Language {
+    byte[3] iso6393Code;
+  }
+  parcelable CCIDList {
+    int[] values;
+  }
+  parcelable ParentalRating {
+    int value;
+  }
+  parcelable ProgramInfoURI {
+    String url;
+  }
+  parcelable ExtendedMetadata {
+    int type;
+    byte[] value;
+  }
+  parcelable VendorSpecific {
+    int companyId;
+    byte[] value;
   }
 }

@@ -33,13 +33,48 @@
 
 package android.hardware.bluetooth.audio;
 @VintfStability
-interface IBluetoothAudioProviderFactory {
-  android.hardware.bluetooth.audio.AudioCapabilities[] getProviderCapabilities(in android.hardware.bluetooth.audio.SessionType sessionType);
-  android.hardware.bluetooth.audio.IBluetoothAudioProvider openProvider(in android.hardware.bluetooth.audio.SessionType sessionType);
-  @nullable android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory.ProviderInfo getProviderInfo(in android.hardware.bluetooth.audio.SessionType sessionType);
-  @VintfStability
-  parcelable ProviderInfo {
-    String name;
-    android.hardware.bluetooth.audio.CodecInfo[] codecInfos;
+union CodecSpecificCapabilitiesLtv {
+  android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv.SupportedSamplingFrequencies supportedSamplingFrequencies;
+  android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv.SupportedFrameDurations supportedFrameDurations;
+  android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv.SupportedAudioChannelCounts supportedAudioChannelCounts;
+  android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv.SupportedOctetsPerCodecFrame supportedOctetsPerCodecFrame;
+  android.hardware.bluetooth.audio.CodecSpecificCapabilitiesLtv.SupportedMaxCodecFramesPerSDU supportedMaxCodecFramesPerSDU;
+  parcelable SupportedSamplingFrequencies {
+    boolean b8000Hz;
+    boolean b11025Hz;
+    boolean b16000Hz;
+    boolean b22050Hz;
+    boolean b24000Hz;
+    boolean b32000Hz;
+    boolean b44100Hz;
+    boolean b48000Hz;
+    boolean b88200Hz;
+    boolean b96000Hz;
+    boolean b176400Hz;
+    boolean b192000Hz;
+    boolean b384000Hz;
+  }
+  parcelable SupportedFrameDurations {
+    boolean b7ms5;
+    boolean b10ms;
+    boolean b7ms5Preferred;
+    boolean b10msPreferred;
+  }
+  parcelable SupportedAudioChannelCounts {
+    boolean b1;
+    boolean b2;
+    boolean b3;
+    boolean b4;
+    boolean b5;
+    boolean b6;
+    boolean b7;
+    boolean b8;
+  }
+  parcelable SupportedOctetsPerCodecFrame {
+    int minimum;
+    int maximum;
+  }
+  parcelable SupportedMaxCodecFramesPerSDU {
+    int value;
   }
 }
