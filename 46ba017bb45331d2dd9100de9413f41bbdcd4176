@@ -176,6 +176,24 @@
       "parentUuid": "c397fe16_8b1753d9",
       "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41139f50_eb40f84f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4866,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-09T13:49:55Z",
+      "side": 1,
+      "message": "And the override?",
+      "parentUuid": "370cf675_330cb65d",
+      "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

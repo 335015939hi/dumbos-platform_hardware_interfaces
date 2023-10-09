@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc54a4db_eac6ca49",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2079,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-09T13:49:55Z",
+      "side": 1,
+      "message": "Can this be `const`?",
+      "revId": "191930263a3de4760f294449f6a277f94920ecc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "751f21c4_4322028a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-09T13:49:55Z",
+      "side": 1,
+      "message": "Does this skip the entirety of the test that invokes this method? (i.e. should this just be `return`?)",
+      "revId": "191930263a3de4760f294449f6a277f94920ecc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03a19b65_bfbffeea",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-09T13:49:55Z",
+      "side": 1,
+      "message": "Why not include an override that assumes use of `key_characteristics_` ?",
+      "revId": "191930263a3de4760f294449f6a277f94920ecc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
