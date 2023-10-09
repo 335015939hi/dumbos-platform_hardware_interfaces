@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4766893_e83155db",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-09T15:11:59Z",
+      "side": 1,
+      "message": "I meant to do this check after all devices are imported. I don\u0027t understand why you say \" If we want to do this check somewhere earlier,\"?",
+      "parentUuid": "a4bd2477_64a6e16f",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 95
+      },
+      "revId": "df85aab97fd431d99394d958e299313d28dbee4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b08a8f9b_fb5fa34e",
