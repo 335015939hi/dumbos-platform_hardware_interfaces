@@ -115,6 +115,7 @@ class VtsVehicleCallback final : public ISubscriptionCallback {
 };
 
 class VtsHalAutomotiveVehicleTargetTest : public testing::TestWithParam<ServiceDescriptor> {
+<<<<<<< HEAD   (be23bf Merge "Setting layer brightness doesn't need nit info for re)
   public:
     void verifyProperty(VehicleProperty propId, VehiclePropertyAccess access,
                         VehiclePropertyChangeMode changeMode, VehiclePropertyGroup group,
@@ -126,11 +127,24 @@ class VtsHalAutomotiveVehicleTargetTest : public testing::TestWithParam<ServiceD
         } else {
             mVhalClient = IVhalClient::tryCreateHidlClient(descriptor.name.c_str());
         }
+=======
+protected:
+  void checkIsSupported(int32_t propertyId);
+>>>>>>> CHANGE (6c7911 Allow CDD required properties to be absent in VTS.)
 
-        ASSERT_NE(mVhalClient, nullptr) << "Failed to connect to VHAL";
-
-        mCallback = std::make_shared<VtsVehicleCallback>();
+public:
+  virtual void SetUp() override {
+    auto descriptor = GetParam();
+    if (descriptor.isAidlService) {
+      mVhalClient = IVhalClient::tryCreateAidlClient(descriptor.name.c_str());
+    } else {
+      mVhalClient = IVhalClient::tryCreateHidlClient(descriptor.name.c_str());
     }
+
+    ASSERT_NE(mVhalClient, nullptr) << "Failed to connect to VHAL";
+
+    mCallback = std::make_shared<VtsVehicleCallback>();
+  }
 
     static bool isBooleanGlobalProp(int32_t property) {
         return (property & toInt(VehiclePropertyType::MASK)) ==
@@ -155,7 +169,7 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, useHidlBackend) {
     }
 }
 
-// Test getAllPropConfig() returns at least 4 property configs.
+// Test getAllPropConfigs() returns at least 1 property configs.
 TEST_P(VtsHalAutomotiveVehicleTargetTest, getAllPropConfigs) {
     ALOGD("VtsHalAutomotiveVehicleTargetTest::getAllPropConfigs");
 
@@ -163,25 +177,31 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, getAllPropConfigs) {
 
     ASSERT_TRUE(result.ok()) << "Failed to get all property configs, error: "
                              << result.error().message();
-    ASSERT_GE(result.value().size(), 4u) << StringPrintf(
-            "Expect to get at least 4 property configs, got %zu", result.value().size());
+    ASSERT_GE(result.value().size(), 1u)
+        << StringPrintf("Expect to get at least 1 property config, got %zu",
+                        result.value().size());
 }
 
-// Test getPropConfigs() can query all properties listed in CDD.
+// Test getPropConfig() can query properties returned by getAllPropConfigs.
 TEST_P(VtsHalAutomotiveVehicleTargetTest, getRequiredPropConfigs) {
     ALOGD("VtsHalAutomotiveVehicleTargetTest::getRequiredPropConfigs");
 
-    // Check the properties listed in CDD
-    std::vector<int32_t> properties = {
-            toInt(VehicleProperty::GEAR_SELECTION), toInt(VehicleProperty::NIGHT_MODE),
-            toInt(VehicleProperty::PARKING_BRAKE_ON), toInt(VehicleProperty::PERF_VEHICLE_SPEED)};
+    std::vector<int32_t> properties;
+    auto result = mVhalClient->getAllPropConfigs();
+
+    ASSERT_TRUE(result.ok()) << "Failed to get all property configs, error: "
+                             << result.error().message();
+    for (const auto &cfgPtr : result.value()) {
+      properties.push_back(cfgPtr->propId());
+    }
 
     auto result = mVhalClient->getPropConfigs(properties);
 
     ASSERT_TRUE(result.ok()) << "Failed to get required property config, error: "
                              << result.error().message();
-    ASSERT_EQ(result.value().size(), 4u)
-            << StringPrintf("Expect to get exactly 4 configs, got %zu", result.value().size());
+    ASSERT_EQ(result.value().size(), properties.size())
+        << StringPrintf("Expect to get exactly %zu configs, got %zu",
+                        properties.size(), result.value().size());
 }
 
 // Test getPropConfig() with an invalid propertyId returns an error code.
@@ -195,11 +215,22 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, getPropConfigsWithInvalidProp) {
     ASSERT_NE(result.error().message(), "") << "Expect error message not to be empty";
 }
 
+void VtsHalAutomotiveVehicleTargetTest::checkIsSupported(int32_t propertyId) {
+  auto result = mVhalClient->getPropConfigs({propertId});
+  ASSERT_TRUE(result.ok()) << "Failed to get required property config, error: "
+                           << result.error().message();
+  if (result.value().size() == 0) {
+    GTEST_SKIP() << "Property: " << propertyId
+                 << " is not supported, skip the test";
+  }
+}
+
 // Test get() return current value for properties.
 TEST_P(VtsHalAutomotiveVehicleTargetTest, get) {
     ALOGD("VtsHalAutomotiveVehicleTargetTest::get");
 
     int32_t propId = toInt(VehicleProperty::PERF_VEHICLE_SPEED);
+    checkIsSupported(propId);
     auto result = mVhalClient->getValueSync(*mVhalClient->createHalPropValue(propId));
 
     ASSERT_TRUE(result.ok()) << StringPrintf("Failed to get value for property: %" PRId32
@@ -285,6 +316,8 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, setNotWritableProp) {
     ALOGD("VtsHalAutomotiveVehicleTargetTest::setNotWritableProp");
 
     int32_t propId = toInt(VehicleProperty::PERF_VEHICLE_SPEED);
+    checkIsSupported(propId);
+
     auto getValueResult = mVhalClient->getValueSync(*mVhalClient->createHalPropValue(propId));
     ASSERT_TRUE(getValueResult.ok())
             << StringPrintf("Failed to get value for property: %" PRId32 ", error: %s", propId,
@@ -325,6 +358,7 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, subscribeAndUnsubscribe) {
     ALOGD("VtsHalAutomotiveVehicleTargetTest::subscribeAndUnsubscribe");
 
     int32_t propId = toInt(VehicleProperty::PERF_VEHICLE_SPEED);
+    checkIsSupported(propId);
 
     auto propConfigsResult = mVhalClient->getPropConfigs({propId});
 
@@ -414,6 +448,7 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, testGetValuesTimestampAIDL) {
     }
 
     int32_t propId = toInt(VehicleProperty::PARKING_BRAKE_ON);
+    checkIsSupported(propId);
     auto prop = mVhalClient->createHalPropValue(propId);
 
     auto result = mVhalClient->getValueSync(*prop);
