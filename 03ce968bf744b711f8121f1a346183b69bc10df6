@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d987c059_64256e8a",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-09T10:21:19Z",
+      "side": 1,
+      "message": "should we do this if AT LEAST ONE OF the routable mix ports has a dynamic profile?",
+      "range": {
+        "startLine": 548,
+        "startChar": 61,
+        "endLine": 548,
+        "endChar": 83
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89ffb218_ea672161",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-09T10:21:19Z",
+      "side": 1,
+      "message": "dynamic profiles",
+      "range": {
+        "startLine": 578,
+        "startChar": 86,
+        "endLine": 578,
+        "endChar": 94
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38f3a181_920dcd36",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-09T10:21:19Z",
+      "side": 1,
+      "message": "don\u0027t we need to clear this when the device is disconnected?\nUnless I don\u0027t understand what we are really doing here...",
+      "range": {
+        "startLine": 608,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 85
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4c21d1b_504f07df",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-09T10:21:19Z",
+      "side": 1,
+      "message": "Isn\u0027t this going to change soon when we read the xml config file for all module types?",
+      "range": {
+        "startLine": 85,
+        "startChar": 7,
+        "endLine": 85,
+        "endChar": 57
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
