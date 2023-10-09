@@ -185,6 +185,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "14a1cdeb_abd44c20",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-09T12:55:59Z",
+      "side": 1,
+      "message": "Can we keep it static? If we generate randomly then we wont be able to compare with the previous output.",
+      "parentUuid": "4b18ea88_9ae50873",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "7774722fdb20b5136b0c5c42f0ca3d090ecd373d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c9430b2_325e1e07",
         "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
         "patchSetId": 1

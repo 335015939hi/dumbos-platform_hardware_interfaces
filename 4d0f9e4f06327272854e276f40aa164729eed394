@@ -116,6 +116,30 @@
       },
       "revId": "4d0f9e4f06327272854e276f40aa164729eed394",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "194f0d30_297eb9a9",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-09T12:55:59Z",
+      "side": 1,
+      "message": "But the test cases fail because few values are equal after the gain.",
+      "parentUuid": "2fccd2b5_0068ba64",
+      "range": {
+        "startLine": 169,
+        "startChar": 8,
+        "endLine": 169,
+        "endChar": 17
+      },
+      "revId": "4d0f9e4f06327272854e276f40aa164729eed394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
