@@ -39,6 +39,30 @@
       },
       "revId": "6d50e5c05ec53ace4d65eac65d7f3f6985059ca4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3888e8a6_752d653b",
+        "filename": "automotive/can/1.0/default/tests/fuzzer/AutomotiveCanV1_0Fuzzer.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1947108
+      },
+      "writtenOn": "2023-10-09T05:57:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18140b8b_8c2d245b",
+      "range": {
+        "startLine": 59,
+        "startChar": 33,
+        "endLine": 59,
+        "endChar": 39
+      },
+      "revId": "6d50e5c05ec53ace4d65eac65d7f3f6985059ca4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
