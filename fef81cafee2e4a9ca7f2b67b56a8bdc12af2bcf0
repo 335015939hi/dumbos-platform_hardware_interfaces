@@ -16,6 +16,24 @@
       "message": "Hi Antoine, I am wondering should we add an empty \n```\nparcelable Hfp {}\n```\nto `Transport`",
       "revId": "fef81cafee2e4a9ca7f2b67b56a8bdc12af2bcf0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee88a481_ff3d4176",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecInfo.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-09T18:44:45Z",
+      "side": 1,
+      "message": "Yes, LGTM.",
+      "parentUuid": "2e6cdada_7fc0619c",
+      "revId": "fef81cafee2e4a9ca7f2b67b56a8bdc12af2bcf0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
