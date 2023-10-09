@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd486e5_e5c08394",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-09T15:14:21Z",
+      "side": 1,
+      "message": "We can review how the legacy remote submix input device is connected initially in a later CL",
+      "revId": "319cc3c030a535905f00ee8c50013dd16091a16f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
