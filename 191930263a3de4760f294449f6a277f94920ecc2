@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cee45c2f_e0347a5e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2079,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-10-09T16:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc54a4db_eac6ca49",
+      "revId": "191930263a3de4760f294449f6a277f94920ecc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "751f21c4_4322028a",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62a40132_984479df",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-10-09T16:49:01Z",
+      "side": 1,
+      "message": "This ignores the calling test, if we simply `return`, the test would be considered as passed. Still if you want me to replace with `return` statement, please let me know.",
+      "parentUuid": "751f21c4_4322028a",
+      "revId": "191930263a3de4760f294449f6a277f94920ecc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03a19b65_bfbffeea",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
         "patchSetId": 4
@@ -48,6 +84,24 @@
       "writtenOn": "2023-10-09T13:49:55Z",
       "side": 1,
       "message": "Why not include an override that assumes use of `key_characteristics_` ?",
+      "revId": "191930263a3de4760f294449f6a277f94920ecc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57662d24_c4306b85",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-10-09T16:49:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03a19b65_bfbffeea",
       "revId": "191930263a3de4760f294449f6a277f94920ecc2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

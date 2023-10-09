@@ -194,6 +194,24 @@
       "parentUuid": "370cf675_330cb65d",
       "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "555c17aa_5427b950",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4866,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2023-10-09T16:49:01Z",
+      "side": 1,
+      "message": "Added the overloaded method with assumed `key_characteristics_`.",
+      "parentUuid": "41139f50_eb40f84f",
+      "revId": "46ba017bb45331d2dd9100de9413f41bbdcd4176",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
