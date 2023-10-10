@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4c3494a_4048206b",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-10-10T01:46:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d62825eb_b45e0785",
+      "revId": "5d5c74845974a7e92bd6dd10f659d5443a79a6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ce7a4f9_5c1e38e9",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-10T01:34:39Z",
       "side": 1,
       "message": "auto\u0026 cfgPtr",
+      "range": {
+        "startLine": 182,
+        "startChar": 15,
+        "endLine": 182,
+        "endChar": 21
+      },
+      "revId": "5d5c74845974a7e92bd6dd10f659d5443a79a6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "587c8d15_c2b05cd4",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-10-10T01:46:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ce7a4f9_5c1e38e9",
       "range": {
         "startLine": 182,
         "startChar": 15,
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b26cb56f_978f44b3",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-10-10T01:46:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcbcfbb8_236d2f74",
+      "revId": "5d5c74845974a7e92bd6dd10f659d5443a79a6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa49d10f_fe4886c4",
@@ -71,6 +131,30 @@
       "writtenOn": "2023-10-10T01:34:39Z",
       "side": 1,
       "message": "nit: can be joined to the prev line.",
+      "range": {
+        "startLine": 212,
+        "startChar": 17,
+        "endLine": 212,
+        "endChar": 55
+      },
+      "revId": "5d5c74845974a7e92bd6dd10f659d5443a79a6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75be9af0_13f59069",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-10-10T01:46:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa49d10f_fe4886c4",
       "range": {
         "startLine": 212,
         "startChar": 17,
