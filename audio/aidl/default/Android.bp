@@ -164,6 +164,28 @@ cc_binary {
     ],
 }
 
+// The fragment `android.hardware.audio.service-aidl.xml` lists `default` and `r_submix`
+// HAL modules. Depending on the device configuration (for example, the legacy APM config file),
+// other modules can be added.
+
+phony {
+    name: "android.hardware.audio.service-aidl.example.bluetooth",
+    vintf_fragments: ["android.hardware.audio.service-aidl.bluetooth.xml"],
+    required: ["android.hardware.audio.service-aidl.example"],
+}
+
+phony {
+    name: "android.hardware.audio.service-aidl.example.usb",
+    vintf_fragments: ["android.hardware.audio.service-aidl.usb.xml"],
+    required: ["android.hardware.audio.service-aidl.example"],
+}
+
+phony {
+    name: "android.hardware.audio.service-aidl.example.stub",
+    vintf_fragments: ["android.hardware.audio.service-aidl.stub.xml"],
+    required: ["android.hardware.audio.service-aidl.example"],
+}
+
 cc_test {
     name: "audio_policy_config_xml_converter_tests",
     vendor_available: true,
