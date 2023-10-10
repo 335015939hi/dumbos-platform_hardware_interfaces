@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c256f7a3_9a6c4dcd",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-10T22:17:28Z",
+      "side": 1,
+      "message": "Agree. Changed to the proposed condition.",
+      "parentUuid": "e58b1383_24a36c77",
+      "range": {
+        "startLine": 548,
+        "startChar": 61,
+        "endLine": 548,
+        "endChar": 83
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89ffb218_ea672161",
@@ -285,6 +309,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "781c1557_6e4f98ee",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-10T22:17:28Z",
+      "side": 1,
+      "message": "No. It\u0027s called always, to give the HAL a chance to reject the operation.",
+      "parentUuid": "2af07cbc_a7c99619",
+      "range": {
+        "startLine": 85,
+        "startChar": 7,
+        "endLine": 85,
+        "endChar": 57
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76b9b73d_6fd4a924",
@@ -298,6 +346,30 @@
       "writtenOn": "2023-10-10T09:27:53Z",
       "side": 1,
       "message": "shouldn\u0027t we only check A2DP if the connected device if of A2DP type and LE if the connected device is on LE type",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 88
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d55a5022_139b9cac",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-10T22:17:28Z",
+      "side": 1,
+      "message": "Good point! Done.\n\nThere are also hearing aids, for which the protocol may vary. For them, we try to establish a session to the device, which should fail under VTS conditions (this is expected).",
+      "parentUuid": "76b9b73d_6fd4a924",
       "range": {
         "startLine": 90,
         "startChar": 0,
