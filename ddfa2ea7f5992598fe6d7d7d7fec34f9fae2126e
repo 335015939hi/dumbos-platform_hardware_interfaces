@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bc1aa08_a7ffc832",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2023-10-10T19:56:37Z",
+      "side": 1,
+      "message": "nit: update name to match what test is actually testing",
+      "range": {
+        "startLine": 175,
+        "startChar": 42,
+        "endLine": 176,
+        "endChar": 67
+      },
+      "revId": "ddfa2ea7f5992598fe6d7d7d7fec34f9fae2126e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
