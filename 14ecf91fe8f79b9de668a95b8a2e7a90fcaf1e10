@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7884fe1b_6d2ecd40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2023-10-10T20:10:09Z",
+      "side": 1,
+      "message": "Ah, thank you for catching this. It is an oversight in ExternalCameraDevice. External Camera HAL should always use its own buffers, i.e. mUseHalBufManager should always be true. We already have an internal discussion on it. I will upload a patch shortly for you to test out.",
+      "revId": "14ecf91fe8f79b9de668a95b8a2e7a90fcaf1e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
