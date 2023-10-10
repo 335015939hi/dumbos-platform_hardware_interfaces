@@ -16,6 +16,29 @@
       "message": "Hi Ross and Samip,\nCould you give a Dr.No approval for this VTS fix?",
       "revId": "0a20ecf402b460f66431b4038a00f6d0bac36878",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c780b0da_90855522",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2023-10-10T19:57:07Z",
+      "side": 1,
+      "message": "nit: update test name",
+      "range": {
+        "startLine": 175,
+        "startChar": 42,
+        "endLine": 176,
+        "endChar": 68
+      },
+      "revId": "0a20ecf402b460f66431b4038a00f6d0bac36878",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
