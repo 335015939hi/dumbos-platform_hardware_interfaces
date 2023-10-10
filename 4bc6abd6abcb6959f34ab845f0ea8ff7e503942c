@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68750e38_f95a146e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-10T23:08:56Z",
+      "side": 0,
+      "message": "We usually only use the current year in new files.",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "4bc6abd6abcb6959f34ab845f0ea8ff7e503942c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69ae38d6_f5eb6d60",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProviderFactory.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-10T23:08:56Z",
+      "side": 0,
+      "message": "2022 still, since the file isn\u0027t new.",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "4bc6abd6abcb6959f34ab845f0ea8ff7e503942c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
