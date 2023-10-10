@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "708af6d6_88b719d4",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-10T04:12:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68b7241a_40643d17",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 52
+      },
+      "revId": "4d0f9e4f06327272854e276f40aa164729eed394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fe88409_75014131",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Yes, we can update baseOutput with gain 0 values before the test itself",
       "parentUuid": "3fe88409_75014131",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 65
+      },
+      "revId": "4d0f9e4f06327272854e276f40aa164729eed394",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57d58b67_63987e83",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-10T04:12:05Z",
+      "side": 1,
+      "message": "I ran the process for Gain \u003d0 and then used those values to fill the buffer",
+      "parentUuid": "9c8e012f_3682bc4a",
       "range": {
         "startLine": 122,
         "startChar": 0,
