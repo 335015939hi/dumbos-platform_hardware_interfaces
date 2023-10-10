@@ -233,6 +233,9 @@ class ExternalCameraDeviceSession : public BnCameraDeviceSession, public OutputT
         std::string mExifModel;
 
         const std::shared_ptr<BufferRequestThread> mBufferRequestThread;
+
+      private:
+        bool mUseHalBufManager = false;
     };
 
   private:
@@ -386,6 +389,7 @@ class ExternalCameraDeviceSession : public BnCameraDeviceSession, public OutputT
 
     std::string mExifMake;
     std::string mExifModel;
+    bool mUseHalBufManager = false;
     /* End of members not changed after initialize() */
 };
 
