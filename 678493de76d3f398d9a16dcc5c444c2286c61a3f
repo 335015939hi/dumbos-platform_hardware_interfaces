@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9fedc96_04cab23b",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2023-10-10T19:58:00Z",
+      "side": 1,
+      "message": "update test name",
+      "range": {
+        "startLine": 169,
+        "startChar": 42,
+        "endLine": 171,
+        "endChar": 0
+      },
+      "revId": "678493de76d3f398d9a16dcc5c444c2286c61a3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
