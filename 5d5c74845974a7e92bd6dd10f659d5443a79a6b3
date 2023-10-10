@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d62825eb_b45e0785",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2023-10-10T01:34:39Z",
+      "side": 1,
+      "message": "nit: one empty line ahead of \"public:\"",
+      "revId": "5d5c74845974a7e92bd6dd10f659d5443a79a6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ce7a4f9_5c1e38e9",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2023-10-10T01:34:39Z",
+      "side": 1,
+      "message": "auto\u0026 cfgPtr",
+      "range": {
+        "startLine": 182,
+        "startChar": 15,
+        "endLine": 182,
+        "endChar": 21
+      },
+      "revId": "5d5c74845974a7e92bd6dd10f659d5443a79a6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcbcfbb8_236d2f74",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2023-10-10T01:34:39Z",
+      "side": 1,
+      "message": "I would place this function after all TEST functions.",
+      "revId": "5d5c74845974a7e92bd6dd10f659d5443a79a6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa49d10f_fe4886c4",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2023-10-10T01:34:39Z",
+      "side": 1,
+      "message": "nit: can be joined to the prev line.",
+      "range": {
+        "startLine": 212,
+        "startChar": 17,
+        "endLine": 212,
+        "endChar": 55
+      },
+      "revId": "5d5c74845974a7e92bd6dd10f659d5443a79a6b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
