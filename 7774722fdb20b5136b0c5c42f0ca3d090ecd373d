@@ -207,6 +207,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c70b3c2d_1fcd16f8",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-10T18:11:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14a1cdeb_abd44c20",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 33
+      },
+      "revId": "7774722fdb20b5136b0c5c42f0ca3d090ecd373d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c9430b2_325e1e07",
@@ -244,6 +268,30 @@
       "side": 1,
       "message": "Mostly its to indicate there are no message queues available to read.\nBut the test works without it.",
       "parentUuid": "6c9430b2_325e1e07",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 89
+      },
+      "revId": "7774722fdb20b5136b0c5c42f0ca3d090ecd373d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40969913_8716bcb8",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-10T18:11:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea378573_09b72c04",
       "range": {
         "startLine": 174,
         "startChar": 0,

@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d845d67_a98b1457",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-10T18:11:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2740107_37a34a55",
+      "range": {
+        "startLine": 139,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 0
+      },
+      "revId": "032f6b341948fdfc40649f21f73ab8bf3f8c4148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3da819b6_81fcb795",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-10T15:29:59Z",
       "side": 1,
       "message": "Do we need equal check?",
+      "range": {
+        "startLine": 186,
+        "startChar": 12,
+        "endLine": 186,
+        "endChar": 21
+      },
+      "revId": "032f6b341948fdfc40649f21f73ab8bf3f8c4148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "113eb8b5_6dbfe491",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-10T18:11:02Z",
+      "side": 1,
+      "message": "Yes because few input and output are same after process. And the test fails for only greater than check.",
+      "parentUuid": "3da819b6_81fcb795",
       "range": {
         "startLine": 186,
         "startChar": 12,
