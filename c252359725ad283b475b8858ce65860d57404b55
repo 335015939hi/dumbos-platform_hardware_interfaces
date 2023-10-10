@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f15bd4c7_5d15b071",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2023-10-10T19:28:05Z",
+      "side": 1,
+      "message": "Could you add the crash stack (at least the relevant bits) to commit message? It would help contextualize the change, and help anyone running into a similar crash.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "c252359725ad283b475b8858ce65860d57404b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "701bd466_68bb4b5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2023-10-10T19:28:05Z",
+      "side": 1,
+      "message": "Thank you for the patches!",
+      "revId": "c252359725ad283b475b8858ce65860d57404b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78929f5f_ed453f88",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2023-10-10T19:28:05Z",
+      "side": 1,
+      "message": "minor nit: We should close the threads in the opposite order of initialization, this should go after the `mOutputThread` block.",
+      "range": {
+        "startLine": 231,
+        "startChar": 4,
+        "endLine": 234,
+        "endChar": 5
+      },
+      "revId": "c252359725ad283b475b8858ce65860d57404b55",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
