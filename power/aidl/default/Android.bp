@@ -30,7 +30,7 @@ cc_binary {
     shared_libs: [
         "libbase",
         "libbinder_ndk",
-        "android.hardware.power-V3-ndk",
+        "android.hardware.power-V4-ndk",
     ],
     srcs: [
         "main.cpp",
@@ -39,9 +39,11 @@ cc_binary {
     ],
 }
 
-filegroup {
+prebuilt_etc {
     name: "android.hardware.power.xml",
-    srcs: ["power-default.xml"],
+    src: "power-default.xml",
+    sub_dir: "vintf",
+    installable: false,
 }
 
 filegroup {
