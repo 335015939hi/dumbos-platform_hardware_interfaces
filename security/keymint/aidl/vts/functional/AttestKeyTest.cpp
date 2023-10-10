@@ -983,8 +983,13 @@ TEST_P(AttestKeyTest, SecondIMEIAttestationIDSuccess) {
     }
 
     ASSERT_EQ(result, ErrorCode::OK);
+<<<<<<< HEAD   (b8c23a Merge "Ensure AIMapper and underlying IMPL outlive IMapperPr)
     ASSERT_GT(attested_key_cert_chain.size(), 0);
     KeyBlobDeleter attested_deleter(keymint_, attested_key_blob);
+=======
+
+    CheckedDeleteKey(&attested_key_blob);
+>>>>>>> BRANCH (be23bf Merge "Setting layer brightness doesn't need nit info for re)
 
     AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
     AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
@@ -1055,8 +1060,13 @@ TEST_P(AttestKeyTest, MultipleIMEIAttestationIDSuccess) {
     }
 
     ASSERT_EQ(result, ErrorCode::OK);
+<<<<<<< HEAD   (b8c23a Merge "Ensure AIMapper and underlying IMPL outlive IMapperPr)
     ASSERT_GT(attested_key_cert_chain.size(), 0);
     KeyBlobDeleter attested_deleter(keymint_, attested_key_blob);
+=======
+
+    CheckedDeleteKey(&attested_key_blob);
+>>>>>>> BRANCH (be23bf Merge "Setting layer brightness doesn't need nit info for re)
 
     AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
     AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);

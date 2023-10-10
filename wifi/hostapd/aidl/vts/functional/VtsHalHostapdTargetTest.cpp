@@ -32,6 +32,7 @@
 #include <wifi_hidl_test_utils_1_5.h>
 #include <wifi_hidl_test_utils_1_6.h>
 
+#include "hostapd_test_utils.h"
 #include "wifi_aidl_test_utils.h"
 
 using aidl::android::hardware::wifi::hostapd::BandMask;
@@ -56,10 +57,7 @@ const std::string kInvalidMaxPassphrase =
 const int kIfaceChannel = 6;
 const int kIfaceInvalidChannel = 567;
 const std::vector<uint8_t> kTestZeroMacAddr(6, 0x0);
-const Ieee80211ReasonCode kTestDisconnectReasonCode =
-    Ieee80211ReasonCode::WLAN_REASON_UNSPECIFIED;
-const std::string kWifiAidlInstanceNameStr = std::string() + IWifi::descriptor + "/default";
-const char* kWifiAidlInstanceName = kWifiAidlInstanceNameStr.c_str();
+const Ieee80211ReasonCode kTestDisconnectReasonCode = Ieee80211ReasonCode::WLAN_REASON_UNSPECIFIED;
 
 inline BandMask operator|(BandMask a, BandMask b) {
     return static_cast<BandMask>(static_cast<int32_t>(a) |
@@ -70,10 +68,13 @@ inline BandMask operator|(BandMask a, BandMask b) {
 class HostapdAidl : public testing::TestWithParam<std::string> {
    public:
     virtual void SetUp() override {
-        hostapd = IHostapd::fromBinder(ndk::SpAIBinder(
-            AServiceManager_waitForService(GetParam().c_str())));
+        disableHalsAndFramework();
+        initializeHostapdAndVendorHal(GetParam());
+
+        hostapd = getHostapd(GetParam());
         ASSERT_NE(hostapd, nullptr);
         EXPECT_TRUE(hostapd->setDebugParams(DebugLevel::EXCESSIVE).isOk());
+
         isAcsSupport = testing::checkSubstringInCommandOutput(
             "/system/bin/cmd wifi get-softap-supported-features",
             "wifi_softap_acs_supported");
@@ -81,29 +82,24 @@ class HostapdAidl : public testing::TestWithParam<std::string> {
             "/system/bin/cmd wifi get-softap-supported-features",
             "wifi_softap_wpa3_sae_supported");
         isBridgedSupport = testing::checkSubstringInCommandOutput(
-            "/system/bin/cmd wifi get-softap-supported-features",
-            "wifi_softap_bridged_ap_supported");
-        if (!isAidlServiceAvailable(kWifiAidlInstanceName)) {
-            const std::vector<std::string> instances = android::hardware::getAllHalInstanceNames(
-                    ::android::hardware::wifi::V1_0::IWifi::descriptor);
-            EXPECT_NE(0, instances.size());
-            wifiHidlInstanceName = instances[0];
-        }
+                "/system/bin/cmd wifi get-softap-supported-features",
+                "wifi_softap_bridged_ap_supported");
     }
 
     virtual void TearDown() override {
-        stopVendorHal();
         hostapd->terminate();
         //  Wait 3 seconds to allow terminate to complete
         sleep(3);
+        stopHostapdAndVendorHal();
+        startWifiFramework();
     }
 
     std::shared_ptr<IHostapd> hostapd;
-    std::string wifiHidlInstanceName;
     bool isAcsSupport;
     bool isWpa3SaeSupport;
     bool isBridgedSupport;
 
+<<<<<<< HEAD   (b8c23a Merge "Ensure AIMapper and underlying IMPL outlive IMapperPr)
     void stopVendorHal() {
         if (isAidlServiceAvailable(kWifiAidlInstanceName)) {
             // HIDL and AIDL versions of getWifi() take different arguments
@@ -156,6 +152,8 @@ class HostapdAidl : public testing::TestWithParam<std::string> {
         return status_and_name.second;
     }
 
+=======
+>>>>>>> BRANCH (be23bf Merge "Setting layer brightness doesn't need nit info for re)
     IfaceParams getIfaceParamsWithoutAcs(std::string iface_name) {
         IfaceParams iface_params;
         ChannelParams channelParams;

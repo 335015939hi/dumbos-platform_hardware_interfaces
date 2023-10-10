@@ -165,6 +165,119 @@ The actors in the above diagram are:
 *   **KeyMint** is the secure area component that manages cryptographic keys and
     performs attestations (or perhaps some other secure area component).
 
+<<<<<<< HEAD   (b8c23a Merge "Ensure AIMapper and underlying IMPL outlive IMapperPr)
+=======
+### `BCC`
+
+The _Boot Certificate Chain_ (BCC) is the chain of certificates that contains
+DK\_pub as well as other often device-unique certificates. The BCC is
+represented as a COSE\_Key containing DK\_pub followed by an array of
+COSE\_Sign1 "certificates" containing public keys and optional additional
+information, ordered from root to leaf, with each certificate signing the next.
+The first certificate in the array is signed by DK\_pub, the last certificate
+has the KeyMint (or whatever) signing key's public key, KM\_pub. In phase 1
+there is only one entry; DK\_pub and KM\_pub are the same key and the
+certificate is self-signed.
+
+Each COSE\_Sign1 certificate is a CBOR Web Token (CWT) as described in [RFC
+8392](https://tools.ietf.org/html/rfc8392) with additional fields as described
+in the Open Profile for DICE. Of these additional fields, only the
+_subjectPublicKey_ and _keyUsage_ fields are expected to be present for the
+KM\_pub entry (that is, the last entry) in a BCC, but all fields required by the
+Open Profile for DICE are expected for other entries (each of which corresponds
+to a particular firmware component or boot stage). The CWT fields _iss_ and
+_sub_ identify the issuer and subject of the certificate and are consistent
+along the BCC entries; the issuer of a given entry matches the subject of the
+previous entry.
+
+The BCC is designed to be constructed using the Open Profile for DICE. In this
+case the DK key pair is derived from the UDS as described by that profile and
+all BCC entries before the leaf are CBOR CDI certificates chained from DK\_pub.
+The KM key pair is not part of the derived DICE chain. It is generated (not
+derived) by the KeyMint module, certified by the last key in the DICE chain, and
+added as the leaf BCC entry. The key usage field in this leaf certificate must
+indicate the key is not used to sign certificates. If a UDS certificate is
+available on the device it should appear in the certificate request as the leaf
+of a DKCertChain in AdditionalDKSignatures (see
+[CertificateRequest](#certificaterequest)).
+
+#### Mode
+
+The Open Profile for DICE specifies four possible modes with the most important
+mode being `normal`. A certificate must only set the mode to `normal` when all
+of the following conditions are met when loading and verifying the software
+component that is being described by the certificate:
+
+*   verified boot with anti-rollback protection is enabled
+*   only the verified boot authorities for production images are enabled
+*   debug ports, fuses or other debug facilities are disabled
+*   device booted software from the normal primary source e.g. internal flash
+
+If any of these conditions are not met then it is recommended to explicitly
+acknowledge this fact by using the `debug` mode. The mode should never be `not
+configured`.
+
+#### Configuration descriptor
+
+The Open Profile for DICE allows for an arbitrary configuration descriptor. For
+BCC entries, this configuration descriptor is a CBOR map with the following
+optional fields. If no fields are relevant, an empty map should be encoded.
+Additional implementation-specific fields may be added using key values not in
+the range \[-70000, -70999\] (these are reserved for future additions here).
+
+```
+| Name              | Key    | Value type | Meaning                           |
+| ----------------- | ------ | ---------- | ----------------------------------|
+| Component name    | -70002 | tstr       | Name of firmware component / boot |
+:                   :        :            : stage                             :
+| Component version | -70003 | int / tstr | Version of firmware component /   |
+:                   :        :            : boot stage                        :
+| Resettable        | -70004 | null       | If present, key changes on factory|
+:                   :        :            : reset                             :
+| Security version  | -70005 | uint       | Machine-comparable, monotonically |
+:                   :        :            : increasing version of the firmware:
+:                   :        :            : component / boot stage where a    :
+:                   :        :            : greater value indicates a newer   :
+:                   :        :            : version                           :
+```
+
+Please see
+[ProtectedData.aidl](https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/ProtectedData.aidl)
+for a full CDDL definition of the BCC.
+
+### `CertificateRequest`
+
+The full CBOR message that will be sent to the server to request certificates
+is:
+
+```cddl
+CertificateRequest = [
+    DeviceInfo,
+    challenge : bstr,       // Provided by the server
+    ProtectedData,          // See ProtectedData.aidl
+    MacedKeysToSign         // See IRemotelyProvisionedComponent.aidl
+]
+
+DeviceInfo = [
+    VerifiedDeviceInfo,     // See DeviceInfo.aidl
+    UnverifiedDeviceInfo
+]
+
+// Unverified info is anything provided by the HLOS. Subject to change out of
+// step with the HAL.
+UnverifiedDeviceInfo = {
+    ? "fingerprint" : tstr,
+}
+
+```
+
+It will be the responsibility of Keystore and the Provisioner to construct the
+`CertificateRequest`. The HAL provides a method to generate the elements that
+need to be constructed on the secure side, which are the tag field of
+`MacedKeysToSign`, `VerifiedDeviceInfo`, and the ciphertext field of
+`ProtectedData`.
+
+>>>>>>> BRANCH (be23bf Merge "Setting layer brightness doesn't need nit info for re)
 ### HAL
 
 The remote provisioning HAL provides a simple interface that can be implemented

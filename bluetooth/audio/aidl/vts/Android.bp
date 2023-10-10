@@ -16,7 +16,11 @@ cc_test {
     tidy_timeout_srcs: ["VtsHalBluetoothAudioTargetTest.cpp"],
     srcs: ["VtsHalBluetoothAudioTargetTest.cpp"],
     static_libs: [
+<<<<<<< HEAD   (b8c23a Merge "Ensure AIMapper and underlying IMPL outlive IMapperPr)
         "android.hardware.audio.common-V2-ndk",
+=======
+        "android.hardware.audio.common-V1-ndk",
+>>>>>>> BRANCH (be23bf Merge "Setting layer brightness doesn't need nit info for re)
         "android.hardware.bluetooth.audio-V3-ndk",
         "android.hardware.common-V2-ndk",
         "android.hardware.common.fmq-V1-ndk",
