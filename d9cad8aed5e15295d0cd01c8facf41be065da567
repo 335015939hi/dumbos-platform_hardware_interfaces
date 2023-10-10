@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6d27bb7_4cafcfd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2023-10-10T19:55:15Z",
+      "side": 1,
+      "message": "Thank you for the patch!",
+      "revId": "d9cad8aed5e15295d0cd01c8facf41be065da567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be08e4e1_590b7871",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2828,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2023-10-10T19:55:15Z",
+      "side": 1,
+      "message": "```suggestion\n            // For some webcam, the first few V4L2 frames might be malformed...\n            ALOGE(\"%s: Convert V4L2 frame to YU12 failed! res %d\", __FUNCTION__, res);\n            res \u003d waitForBufferRequestDone(\u0026req-\u003ebuffers);\n            if (res !\u003d 0) {\n                ALOGE(\"%s: wait for BufferRequest done failed! res %d\", __FUNCTION__, res);\n                lk.unlock();\n                return onDeviceError(\"%s: failed to process buffer request error!\", __FUNCTION__);\n            }\n```",
+      "range": {
+        "startLine": 2820,
+        "startChar": 0,
+        "endLine": 2828,
+        "endChar": 86
+      },
+      "revId": "d9cad8aed5e15295d0cd01c8facf41be065da567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
