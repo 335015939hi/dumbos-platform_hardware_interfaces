@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e385679_28cf227b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2085,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-10T06:20:18Z",
+      "side": 1,
+      "message": "It seems like a full `GTEST_SKIP` here would remove a whole bunch of test functionality, so just bypassing the one specific check is better.",
+      "parentUuid": "62a40132_984479df",
+      "revId": "191930263a3de4760f294449f6a277f94920ecc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03a19b65_bfbffeea",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h",
         "patchSetId": 4
