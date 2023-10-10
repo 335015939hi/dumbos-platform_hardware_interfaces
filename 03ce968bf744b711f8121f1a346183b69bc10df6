@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e58b1383_24a36c77",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-10T09:27:53Z",
+      "side": 1,
+      "message": "Yes but the condition is still that at least one mix port is dynamic. It is possible that non dynamic mix ports also have a route to a device with empty profiles. This is typically the case for USB devices where the primary output or deep buffer output can be routed to USB and only the hifi output has a dynamic profile and can be routed to USB.",
+      "parentUuid": "5e75efd2_d7a25b5b",
+      "range": {
+        "startLine": 548,
+        "startChar": 61,
+        "endLine": 548,
+        "endChar": 83
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89ffb218_ea672161",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "We are looking for static (specified) profiles here. The condition on the line 580 is `!p.profiles.empty()`. We are checking if there is at least one routable mix port that has a static profile.",
       "parentUuid": "89ffb218_ea672161",
+      "range": {
+        "startLine": 578,
+        "startChar": 86,
+        "endLine": 578,
+        "endChar": 94
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "969c17dc_2c1a93e8",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-10T09:27:53Z",
+      "side": 1,
+      "message": "See my comment above: having at least one static mix port is not a valid condition: all mix ports must be static.",
+      "parentUuid": "cfa693b1_66c225e8",
       "range": {
         "startLine": 578,
         "startChar": 86,
@@ -142,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a5cd7b5_6de409b2",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-10T09:27:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d04b3a33_78f3fc26",
+      "range": {
+        "startLine": 608,
+        "startChar": 0,
+        "endLine": 610,
+        "endChar": 85
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4c21d1b_504f07df",
@@ -184,6 +256,53 @@
         "startChar": 7,
         "endLine": 85,
         "endChar": 57
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2af07cbc_a7c99619",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-10T09:27:53Z",
+      "side": 1,
+      "message": "so populateConnectedDevicePort() is only called if the connected device port profile list is empty?",
+      "parentUuid": "4d8f39e6_22ed60a5",
+      "range": {
+        "startLine": 85,
+        "startChar": 7,
+        "endLine": 85,
+        "endChar": 57
+      },
+      "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76b9b73d_6fd4a924",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-10-10T09:27:53Z",
+      "side": 1,
+      "message": "shouldn\u0027t we only check A2DP if the connected device if of A2DP type and LE if the connected device is on LE type",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 88
       },
       "revId": "03ce968bf744b711f8121f1a346183b69bc10df6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
