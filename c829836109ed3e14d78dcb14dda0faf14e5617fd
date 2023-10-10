@@ -16,6 +16,23 @@
       "message": "Hey, Isaac, can you take a look?",
       "revId": "c829836109ed3e14d78dcb14dda0faf14e5617fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8038e955_e21d95f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-10-10T01:23:45Z",
+      "side": 1,
+      "message": "This is a relanding. The issue was in the other branch and now it\u0027s fixed.",
+      "revId": "c829836109ed3e14d78dcb14dda0faf14e5617fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
