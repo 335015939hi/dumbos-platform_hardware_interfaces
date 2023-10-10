@@ -44,7 +44,7 @@ aidl_interface {
     ],
     frozen: true,
     imports: [
-        "android.media.audio.common.types-V2",
+        "android.media.audio.common.types-V3",
     ],
     backend: {
         cpp: {
@@ -69,11 +69,11 @@ aidl_interface {
     versions_with_info: [
         {
             version: "1",
-            imports: ["android.media.audio.common.types-V2"],
+            imports: ["android.media.audio.common.types-V3"],
         },
         {
             version: "2",
-            imports: ["android.media.audio.common.types-V2"],
+            imports: ["android.media.audio.common.types-V3"],
         },
 
         // IMPORTANT: Update latest_android_hardware_audio_common every time you
@@ -140,7 +140,7 @@ aidl_interface {
         "android.hardware.audio.common-V2",
         "android.hardware.audio.core.sounddose-V1",
         "android.hardware.audio.effect-V1",
-        "android.media.audio.common.types-V2",
+        "android.media.audio.common.types-V3",
     ],
     backend: {
         // The C++ backend is disabled transitively due to use of FMQ.
@@ -160,7 +160,7 @@ aidl_interface {
                 "android.hardware.audio.common-V2",
                 "android.hardware.audio.core.sounddose-V1",
                 "android.hardware.audio.effect-V1",
-                "android.media.audio.common.types-V2",
+                "android.media.audio.common.types-V3",
             ],
         },
 
@@ -200,7 +200,7 @@ aidl_interface {
         "android/hardware/audio/core/sounddose/ISoundDose.aidl",
     ],
     imports: [
-        "android.media.audio.common.types-V2",
+        "android.media.audio.common.types-V3",
     ],
     backend: {
         // The C++ backend is disabled transitively due to use of FMQ by the core HAL.
@@ -214,7 +214,7 @@ aidl_interface {
     versions_with_info: [
         {
             version: "1",
-            imports: ["android.media.audio.common.types-V2"],
+            imports: ["android.media.audio.common.types-V3"],
         },
 
         // IMPORTANT: Update latest_android_hardware_audio_core_sounddose every time you
@@ -281,7 +281,7 @@ aidl_interface {
         "android.hardware.common-V2",
         "android.hardware.common.fmq-V1",
         "android.hardware.audio.common-V2",
-        "android.media.audio.common.types-V2",
+        "android.media.audio.common.types-V3",
     ],
     backend: {
         // The C++ backend is disabled transitively due to use of FMQ.
@@ -299,7 +299,7 @@ aidl_interface {
                 "android.hardware.common-V2",
                 "android.hardware.common.fmq-V1",
                 "android.hardware.audio.common-V2",
-                "android.media.audio.common.types-V2",
+                "android.media.audio.common.types-V3",
             ],
         },
     ],
