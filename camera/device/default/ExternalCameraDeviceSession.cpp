@@ -233,6 +233,11 @@ void ExternalCameraDeviceSession::closeOutputThreadImpl() {
         mOutputThread->requestExitAndWait();
         mOutputThread.reset();
     }
+
+    if (mBufferRequestThread != nullptr) {
+        mBufferRequestThread->requestExitAndWait();
+        mBufferRequestThread.reset();
+    }
 }
 
 Status ExternalCameraDeviceSession::initStatus() const {
