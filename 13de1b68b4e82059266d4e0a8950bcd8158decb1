@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3240038_06a11c57",
+        "filename": "graphics/mapper/stable-c/implutils/include/android/hardware/graphics/mapper/utils/IMapperProvider.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2023-10-10T19:06:00Z",
+      "side": 0,
+      "message": "this is just a basic C struct so you don\u0027t have to change this to a heap allocation. It doesn\u0027t really have a destructor.",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 26
+      },
+      "revId": "13de1b68b4e82059266d4e0a8950bcd8158decb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
