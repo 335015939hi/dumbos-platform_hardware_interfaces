@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ccfe345_72a2b7c4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfigurationHint.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-11T18:11:26Z",
+      "side": 1,
+      "message": "nit: means ?",
+      "range": {
+        "startLine": 39,
+        "startChar": 54,
+        "endLine": 39,
+        "endChar": 60
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96772130_f0317553",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfigurationHint.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-11T18:11:26Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Common Typos: Common typo found: \"prefered\" -- should it be \"preferred\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"prefered\" -- should it be \"preferred\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 39,
+        "startChar": 28,
+        "endLine": 39,
+        "endChar": 36
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd9ea710_e793772a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-11T18:11:26Z",
+      "side": 1,
+      "message": "Is this enforceable?",
+      "range": {
+        "startLine": 24,
+        "startChar": 17,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc7476cf_5b788dee",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BluetoothDeviceAddress.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-11T18:11:26Z",
+      "side": 1,
+      "message": "nit: why v?",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 13
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d17f30c0_4645d876",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecParameters.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-11T18:11:26Z",
+      "side": 1,
+      "message": "nit: no need for these commas",
+      "range": {
+        "startLine": 43,
+        "startChar": 44,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65637882_80a524c7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecParameters.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-11T18:11:26Z",
+      "side": 1,
+      "message": "nit: metadata",
+      "range": {
+        "startLine": 59,
+        "startChar": 25,
+        "endLine": 59,
+        "endChar": 34
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7a69f9_44efd346",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecParameters.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-11T18:11:26Z",
+      "side": 1,
+      "message": "nit: controllerData",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdf3e250_9340712d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-11T18:11:26Z",
+      "side": 1,
+      "message": "unrelated change?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 4
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d5ceab8_cd0722bf",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-11T18:11:26Z",
+      "side": 1,
+      "message": "nit: succeeds or succeeded?",
+      "range": {
+        "startLine": 110,
+        "startChar": 69,
+        "endLine": 110,
+        "endChar": 76
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
