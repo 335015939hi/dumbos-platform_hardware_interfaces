@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8909ea69_5e2c6eb8",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 2056220
+      },
+      "writtenOn": "2023-10-11T12:45:40Z",
+      "side": 1,
+      "message": "I think this assert is incorrect, getPropConfigs method info says: \n\n     * If requested VehicleProperty wasn\u0027t found it must return\n     * StatusCode::INVALID_ARG, otherwise a list of vehicle property\n     * configurations with StatusCode::OK\n\nVHAL instance will just return rc\u003dStatusCode::INVALID_ARG if the property is missing and test will be treated as failed one.",
+      "revId": "f45029d53dea2e11d4c86e4237ff285824007f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
