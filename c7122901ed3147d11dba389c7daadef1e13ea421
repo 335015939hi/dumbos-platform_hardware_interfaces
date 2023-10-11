@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab2f0ff3_8adca4fb",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecId.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-10-11T18:17:12Z",
+      "side": 1,
+      "message": "Octets 0 and 1 Company ID, see Assigned Numbers for Company Identifier\nOctets 2 and 3 Vendor-defined codec ID\n\nIt looks like it\u0027s 32-bits total",
+      "parentUuid": "4d107aad_84e3253c",
+      "range": {
+        "startLine": 37,
+        "startChar": 16,
+        "endLine": 37,
+        "endChar": 18
+      },
+      "revId": "c7122901ed3147d11dba389c7daadef1e13ea421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99389052_090e65fa",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.aidl",
         "patchSetId": 5
