@@ -16,6 +16,24 @@
       "message": "Ah, thank you for catching this. It is an oversight in ExternalCameraDevice. External Camera HAL should always use its own buffers, i.e. mUseHalBufManager should always be true. We already have an internal discussion on it. I will upload a patch shortly for you to test out.",
       "revId": "14ecf91fe8f79b9de668a95b8a2e7a90fcaf1e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca29628c_18e53aa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2023-10-11T01:17:39Z",
+      "side": 1,
+      "message": "Can you try https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2781566 and let me know if it fixes the log spam. The External Camera HAL should always support buffer management, so we add the field the camera device\u0027s characteristics.",
+      "parentUuid": "7884fe1b_6d2ecd40",
+      "revId": "14ecf91fe8f79b9de668a95b8a2e7a90fcaf1e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
