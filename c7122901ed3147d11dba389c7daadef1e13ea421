@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "abf8d66a_d064dbf8",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecId.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-11T18:19:54Z",
+      "side": 1,
+      "message": "Yep vendorId is 16 bits, and vendorCodecId is 16 bits.\nThe A2DP spec reserve 32 bits for vendorId, but only 16 bits are useful.",
+      "parentUuid": "4d107aad_84e3253c",
+      "range": {
+        "startLine": 37,
+        "startChar": 16,
+        "endLine": 37,
+        "endChar": 18
+      },
+      "revId": "c7122901ed3147d11dba389c7daadef1e13ea421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99389052_090e65fa",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.aidl",
         "patchSetId": 5
