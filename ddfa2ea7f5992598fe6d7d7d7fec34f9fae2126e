@@ -22,6 +22,30 @@
       },
       "revId": "ddfa2ea7f5992598fe6d7d7d7fec34f9fae2126e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae89949f_6923f47c",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-10-11T00:43:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bc1aa08_a7ffc832",
+      "range": {
+        "startLine": 175,
+        "startChar": 42,
+        "endLine": 176,
+        "endChar": 67
+      },
+      "revId": "ddfa2ea7f5992598fe6d7d7d7fec34f9fae2126e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
