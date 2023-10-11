@@ -16,6 +16,23 @@
       "message": "I think this assert is incorrect, getPropConfigs method info says: \n\n     * If requested VehicleProperty wasn\u0027t found it must return\n     * StatusCode::INVALID_ARG, otherwise a list of vehicle property\n     * configurations with StatusCode::OK\n\nVHAL instance will just return rc\u003dStatusCode::INVALID_ARG if the property is missing and test will be treated as failed one.",
       "revId": "f45029d53dea2e11d4c86e4237ff285824007f79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ffedd61_6314bc8c",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 2056220
+      },
+      "writtenOn": "2023-10-11T14:32:29Z",
+      "side": 1,
+      "message": "It seems like GTEST_SKIP can be used only in SetUp method of test fixture or in a test method directly, because it aborts only a current function:\n\nGTEST_SKIP() can be used in individual test cases or in the SetUp() methods of classes derived from either ::testing::Environment or ::testing::Test\nhttps://google.github.io/googletest/advanced.html#skipping-test-execution\n\nIn this case it will abort checkIsSupported() function, but the rest of code from in test itself will be still executed:\n\n[ RUN      ] PerInstance/VehicleHalHidlTest.get/3_powerpolicy\nhardware/interfaces/automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp:181: Skipped\nProperty: 291504647 is not supported, skip the test\nhardware/interfaces/automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp:192: Failure\nExpected equality of these values:\n  StatusCode::OK\n    Which is: OK\n  mActualStatusCode\n    Which is: INVALID_ARG\n[  FAILED  ] PerInstance/VehicleHalHidlTest.get/3_powerpolicy, where GetParam() \u003d \"powerpolicy\" (2 ms)",
+      "revId": "f45029d53dea2e11d4c86e4237ff285824007f79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
