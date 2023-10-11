@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2ebd56f_80b24ab1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-10-11T04:16:02Z",
+      "side": 1,
+      "message": "The original CL was reverted due to the breakage in other branch. It\u0027s fixed now there (pa/2631983 is the fix).",
+      "parentUuid": "676a44e2_620a4c0a",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 35
+      },
+      "revId": "c829836109ed3e14d78dcb14dda0faf14e5617fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34d2b312_d8678697",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-11T04:12:28Z",
       "side": 1,
       "message": "why is this hex string here?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "c829836109ed3e14d78dcb14dda0faf14e5617fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d79fa9b_b560fe98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-10-11T04:16:02Z",
+      "side": 1,
+      "message": "I don\u0027t know. I reverted this topic with Gerrit UI. It\u0027s the commit id of the change being reverted.",
+      "parentUuid": "34d2b312_d8678697",
       "range": {
         "startLine": 9,
         "startChar": 0,
