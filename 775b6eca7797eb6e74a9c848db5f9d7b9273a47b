@@ -22,6 +22,30 @@
       },
       "revId": "775b6eca7797eb6e74a9c848db5f9d7b9273a47b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2795bde_a3ab3863",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-10-11T20:31:24Z",
+      "side": 1,
+      "message": "This is just for testing whether the property is supported and I want to avoid additional checking here. Technically the size should be 1 if status is okay, but this function is not for verifying this.",
+      "parentUuid": "76d7b426_69eb8b10",
+      "range": {
+        "startLine": 180,
+        "startChar": 31,
+        "endLine": 180,
+        "endChar": 47
+      },
+      "revId": "775b6eca7797eb6e74a9c848db5f9d7b9273a47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
