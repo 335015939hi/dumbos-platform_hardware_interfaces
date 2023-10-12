@@ -72,6 +72,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04b00b6c_40162749",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-12T00:45:42Z",
+      "side": 1,
+      "message": "You might want to consider `byte[2] peerMtu`. Though it is a heap allocation. Unfortunately, AIDL doesn\u0027t support 16-bit types",
+      "parentUuid": "cd9ea710_e793772a",
+      "range": {
+        "startLine": 24,
+        "startChar": 17,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc7476cf_5b788dee",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BluetoothDeviceAddress.aidl",
         "patchSetId": 5
