@@ -1,0 +1,11 @@
+<<<<<<< HEAD   (54d248 Add SvStatus interval tests)
+=======
+{
+    "name": "com.android.hardware.cas",
+    "version": 1,
+    // For CAS HAL to open plugins from /vendor/lib/mediacas
+    "requireNativeLibs": [
+        ":mediacas"
+    ]
+}
+>>>>>>> CHANGE (9e73b2 Use explicit requirements from APEX)

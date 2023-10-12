@@ -50,8 +50,11 @@ cc_defaults {
         "android.hardware.cas-V1-ndk",
         "libbinder_ndk",
         "liblog",
+<<<<<<< HEAD   (54d248 Add SvStatus interval tests)
         "libutils",
         "libcutils",
+=======
+>>>>>>> CHANGE (9e73b2 Use explicit requirements from APEX)
     ],
     header_libs: ["media_plugin_headers"],
     vintf_fragments: ["android.hardware.cas-service.xml"],

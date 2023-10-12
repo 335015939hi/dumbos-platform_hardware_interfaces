@@ -26,7 +26,11 @@ namespace hardware {
 namespace cas {
 
 SharedLibrary::SharedLibrary(const String8& path) {
+<<<<<<< HEAD   (54d248 Add SvStatus interval tests)
     mLibHandle = dlopen(path.string(), RTLD_NOW);
+=======
+    mLibHandle = dlopen(path.c_str(), RTLD_NOW);
+>>>>>>> CHANGE (9e73b2 Use explicit requirements from APEX)
 }
 
 SharedLibrary::~SharedLibrary() {
