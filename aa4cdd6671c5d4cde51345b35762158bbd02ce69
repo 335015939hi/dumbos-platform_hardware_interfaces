@@ -142,6 +142,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ed0e63b_51d982c0",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-10-12T01:00:32Z",
+      "side": 1,
+      "message": "This parcelable (and SupportedFrameDurations, SupportedAudioChannelCounts) are defined to be as close to the LE audio specification as possible, which explains that they look like a bitfield.",
+      "parentUuid": "d05d8b7b_5a2a9edf",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f184ef80_820bd47d",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
         "patchSetId": 6
