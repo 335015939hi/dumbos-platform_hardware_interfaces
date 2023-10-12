@@ -96,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a13e9375_18511bd3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecId.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-12T23:37:38Z",
+      "side": 1,
+      "message": "I have modified the comment. Ok?",
+      "parentUuid": "2869c094_d158f653",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 36
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "70929743_c9024562",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
         "patchSetId": 6
@@ -107,6 +131,30 @@
       "writtenOn": "2023-10-12T00:51:51Z",
       "side": 1,
       "message": "where are these used? would you always use a list of them, or?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a4aaa99_4a54d19e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-12T23:37:38Z",
+      "side": 1,
+      "message": "Nowhere, this is specific for LE Audio. But to simplify merging of LE Audio Extensibility, I have added the LE Audio specificity here.\nIf the LE Audio Extensibility does not land, this shall be removed.",
+      "parentUuid": "70929743_c9024562",
       "range": {
         "startLine": 20,
         "startChar": 0,
@@ -166,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b1b23cb7_9f9da8d7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-12T23:37:38Z",
+      "side": 1,
+      "message": "Yes this is intended to match the definition given in https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf - 6.12.4.1\nThis is intended to limit what the stack supports for formatting the protocol structure.",
+      "parentUuid": "4ed0e63b_51d982c0",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f184ef80_820bd47d",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
         "patchSetId": 6
@@ -177,6 +249,30 @@
       "writtenOn": "2023-10-12T00:51:51Z",
       "side": 1,
       "message": "is there really only 2 here?\n\ncan both be preferred? can neither?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59741c00_8314f40b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-12T23:37:38Z",
+      "side": 1,
+      "message": "Same as above. Intended to match https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf - 6.12.4.2",
+      "parentUuid": "f184ef80_820bd47d",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -212,6 +308,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f9b013eb_b162b41e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-12T23:37:38Z",
+      "side": 1,
+      "message": "Same as above. Intended to match https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf - 6.12.4.3",
+      "parentUuid": "c99c3657_2db4ef02",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48d1fa95_7f4711cb",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
         "patchSetId": 6
@@ -235,6 +355,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6a79816_617f9deb",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-12T23:37:38Z",
+      "side": 1,
+      "message": "Same as above. Intended to match\nhttps://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf - 6.12.4.5",
+      "parentUuid": "48d1fa95_7f4711cb",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 60,
+        "endChar": 44
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8c259bd_2dec1dbe",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
         "patchSetId": 6
@@ -246,6 +390,30 @@
       "writtenOn": "2023-10-12T00:51:51Z",
       "side": 1,
       "message": "where are these defined?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c627350_2a0fdc4e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-12T23:37:38Z",
+      "side": 1,
+      "message": "When it\u0027s standardized, we should use the CodecSpecificCapabilitiesLtv or MetadataLtv. This type should only be used like a byte array, but retaining the structure. The `type` and `value[]` should be vendor specific.",
+      "parentUuid": "f8c259bd_2dec1dbe",
       "range": {
         "startLine": 24,
         "startChar": 0,
