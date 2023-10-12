@@ -110,6 +110,30 @@
       },
       "revId": "032f6b341948fdfc40649f21f73ab8bf3f8c4148",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5db3466_66d36259",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-12T12:14:25Z",
+      "side": 1,
+      "message": "Thanks for the clarification.",
+      "parentUuid": "113eb8b5_6dbfe491",
+      "range": {
+        "startLine": 186,
+        "startChar": 12,
+        "endLine": 186,
+        "endChar": 21
+      },
+      "revId": "032f6b341948fdfc40649f21f73ab8bf3f8c4148",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

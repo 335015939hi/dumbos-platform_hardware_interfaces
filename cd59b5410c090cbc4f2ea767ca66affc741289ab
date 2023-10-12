@@ -1,0 +1,211 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce6a429b_b310d20f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-12T12:14:25Z",
+      "side": 1,
+      "message": "LoudnessEnhancer: Added test cases to validate effect processing",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "cd59b5410c090cbc4f2ea767ca66affc741289ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ae4e478_3fc1d5c6",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-12T12:14:25Z",
+      "side": 1,
+      "message": "We won\u0027t need this if we directly store the Message Queues.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 48
+      },
+      "revId": "cd59b5410c090cbc4f2ea767ca66affc741289ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da1e5bf5_7cef05c9",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-12T12:14:25Z",
+      "side": 1,
+      "message": "generateInputBuffer",
+      "range": {
+        "startLine": 115,
+        "startChar": 9,
+        "endLine": 115,
+        "endChar": 18
+      },
+      "revId": "cd59b5410c090cbc4f2ea767ca66affc741289ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff78be85_e47f4cff",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-12T12:14:25Z",
+      "side": 1,
+      "message": "Can be moved to setup",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 0
+      },
+      "revId": "cd59b5410c090cbc4f2ea767ca66affc741289ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6224afb_78309242",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-12T12:14:25Z",
+      "side": 1,
+      "message": "inputBuffer",
+      "range": {
+        "startLine": 160,
+        "startChar": 23,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "cd59b5410c090cbc4f2ea767ca66affc741289ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9caaa71b_9f942a14",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-12T12:14:25Z",
+      "side": 1,
+      "message": "We can directly use 0 value here. And comment should clarify what we are doing.",
+      "range": {
+        "startLine": 168,
+        "startChar": 32,
+        "endLine": 168,
+        "endChar": 40
+      },
+      "revId": "cd59b5410c090cbc4f2ea767ca66affc741289ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68011fa0_c59ffe10",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-12T12:14:25Z",
+      "side": 1,
+      "message": "inputBuffer",
+      "range": {
+        "startLine": 188,
+        "startChar": 23,
+        "endLine": 188,
+        "endChar": 29
+      },
+      "revId": "cd59b5410c090cbc4f2ea767ca66affc741289ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71133404_5bfb459b",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-12T12:14:25Z",
+      "side": 1,
+      "message": "We should create a seperate outputBuffer",
+      "range": {
+        "startLine": 193,
+        "startChar": 20,
+        "endLine": 193,
+        "endChar": 26
+      },
+      "revId": "cd59b5410c090cbc4f2ea767ca66affc741289ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f108e8a4_8541f26b",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-12T12:14:25Z",
+      "side": 1,
+      "message": "// Validate outputBuffer has 0 values for INT_MIN gain",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 44
+      },
+      "revId": "cd59b5410c090cbc4f2ea767ca66affc741289ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
