@@ -69,6 +69,167 @@
       "parentUuid": "c18d466a_f401d135",
       "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2869c094_d158f653",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecId.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-12T00:51:51Z",
+      "side": 1,
+      "message": "3 things in comment, 4 things listed?",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 36
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70929743_c9024562",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-12T00:51:51Z",
+      "side": 1,
+      "message": "where are these used? would you always use a list of them, or?",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d05d8b7b_5a2a9edf",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-12T00:51:51Z",
+      "side": 1,
+      "message": "how about int[]? having to add new frequencies for this in the future seems potentially painful, no?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f184ef80_820bd47d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-12T00:51:51Z",
+      "side": 1,
+      "message": "is there really only 2 here?\n\ncan both be preferred? can neither?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c99c3657_2db4ef02",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-12T00:51:51Z",
+      "side": 1,
+      "message": "bool[8]? int[]? same",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48d1fa95_7f4711cb",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-12T00:51:51Z",
+      "side": 1,
+      "message": "Sdu",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 60,
+        "endChar": 44
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8c259bd_2dec1dbe",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-12T00:51:51Z",
+      "side": 1,
+      "message": "where are these defined?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
