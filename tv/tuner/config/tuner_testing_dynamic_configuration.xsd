@@ -101,8 +101,10 @@
     <xs:complexType name="isdbtFrontendSettings">
         <xs:attribute name="serviceAreaId" type="xs:nonNegativeInteger" use="required"/>
         <xs:attribute name="inversion" type="xs:nonNegativeInteger" use="required"/>
+        <xs:attribute name="modulation" type="xs:nonNegativeInteger" use="required"/>
         <xs:attribute name="bandwidth" type="xs:nonNegativeInteger" use="required"/>
         <xs:attribute name="mode" type="xs:nonNegativeInteger" use="required"/>
+        <xs:attribute name="coderate" type="xs:nonNegativeInteger" use="required"/>
         <xs:attribute name="guardInterval" type="xs:nonNegativeInteger" use="required"/>
         <xs:attribute name="partialReceptionFlag" type="xs:nonNegativeInteger" use="required"/>
         <xs:element name="FrontendIsdbtLayerSettings" type="FrontendIsdbtLayerSettings"/>
