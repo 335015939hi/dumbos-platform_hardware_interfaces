@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79a2501e_24c24d46",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfiguration.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T22:45:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "20ddaccb_3064e42a",
+      "range": {
+        "startLine": 34,
+        "startChar": 22,
+        "endLine": 34,
+        "endChar": 57
+      },
+      "revId": "16cce37ca35f28d8f9245816cb560eecda455b4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0c164c8_6325a9de",
@@ -95,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "518a0752_fc4d2084",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpRemoteCapabilities.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T22:45:22Z",
+      "side": 1,
+      "message": "Thanks, I missed \u0027remote\u0027 in the structure name. I agree.",
+      "parentUuid": "d227f1f3_22ddaa56",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 12
+      },
+      "revId": "16cce37ca35f28d8f9245816cb560eecda455b4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "281a2ec1_16a968d4",
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "Comment changed, ok?",
       "parentUuid": "281a2ec1_16a968d4",
+      "range": {
+        "startLine": 37,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "16cce37ca35f28d8f9245816cb560eecda455b4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a90ee856_925ba7e5",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T22:45:22Z",
+      "side": 1,
+      "message": "yes, it is. I\u0027m curious on these though, how do different vendors avoid getting this data confused? Would two vendors confuse data here?",
+      "parentUuid": "2171d248_01755153",
       "range": {
         "startLine": 37,
         "startChar": 3,

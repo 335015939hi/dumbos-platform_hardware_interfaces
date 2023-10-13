@@ -168,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03880039_8b44c6b1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T22:45:22Z",
+      "side": 1,
+      "message": "I\u0027d assume lower two octets, but yeah, it might be good to specify this",
+      "parentUuid": "18fa1579_e14f1b9c",
+      "range": {
+        "startLine": 24,
+        "startChar": 17,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc7476cf_5b788dee",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BluetoothDeviceAddress.aidl",
         "patchSetId": 5
