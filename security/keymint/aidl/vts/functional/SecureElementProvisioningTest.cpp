@@ -114,6 +114,7 @@ class SecureElementProvisioningTest : public testing::Test {
         const auto& vbKey = rot->asArray()->get(pos++);
         ASSERT_TRUE(vbKey);
         ASSERT_TRUE(vbKey->asBstr());
+        ASSERT_LE(vbKey->asBstr()->value().size(), 32);
 
         const auto& deviceLocked = rot->asArray()->get(pos++);
         ASSERT_TRUE(deviceLocked);
