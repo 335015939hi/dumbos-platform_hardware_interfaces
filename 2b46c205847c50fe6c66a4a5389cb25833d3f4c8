@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "092f0493_b27d36d7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioConfiguration.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T22:58:35Z",
+      "side": 1,
+      "message": "This CL will hit other build errors before it hits this one, but yes.",
+      "parentUuid": "6defdfea_5dc37b7d",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "2b46c205847c50fe6c66a4a5389cb25833d3f4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12176a28_17ca3979",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/HfpConfiguration.aidl",
         "patchSetId": 5
