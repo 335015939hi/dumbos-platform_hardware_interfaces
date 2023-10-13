@@ -413,10 +413,11 @@ void verify_serial(X509* cert, const uint64_t expected_serial);
 void verify_subject_and_serial(const Certificate& certificate,  //
                                const uint64_t expected_serial,  //
                                const string& subject, bool self_signed);
-void verify_root_of_trust(const vector<uint8_t>& verified_boot_key,  //
-                          bool device_locked,                        //
-                          VerifiedBoot verified_boot_state,          //
-                          const vector<uint8_t>& verified_boot_hash);
+void verify_root_of_trust(const vector<uint8_t>& verified_boot_key,   //
+                          bool device_locked,                         //
+                          VerifiedBoot verified_boot_state,           //
+                          const vector<uint8_t>& verified_boot_hash,  //
+                          int32_t aidl_version);
 bool verify_attestation_record(int aidl_version,                       //
                                const string& challenge,                //
                                const string& app_id,                   //

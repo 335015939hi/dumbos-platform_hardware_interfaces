@@ -59,7 +59,7 @@ class SecureElementProvisioningTest : public testing::Test {
         }
     }
 
-    void validateMacedRootOfTrust(const vector<uint8_t>& rootOfTrust) {
+    void validateMacedRootOfTrust(const vector<uint8_t>& rootOfTrust, int32_t aidl_version) {
         SCOPED_TRACE(testing::Message() << "RoT: " << bin2hex(rootOfTrust));
 
         const auto [macItem, macEndPos, macErrMsg] = cppbor::parse(rootOfTrust);
@@ -90,7 +90,7 @@ class SecureElementProvisioningTest : public testing::Test {
         const auto& payload = macItem->asArray()->get(cppcose::kCoseMac0Payload);
         ASSERT_TRUE(payload);
         ASSERT_TRUE(payload->asBstr());
-        validateRootOfTrust(payload->asBstr()->value());
+        validateRootOfTrust(payload->asBstr()->value(), aidl_version);
 
         const auto& tag = macItem->asArray()->get(cppcose::kCoseMac0Tag);
         ASSERT_TRUE(tag);
@@ -99,7 +99,7 @@ class SecureElementProvisioningTest : public testing::Test {
         // Cannot validate tag correctness.  Only the secure side has the necessary key.
     }
 
-    void validateRootOfTrust(const vector<uint8_t>& payload) {
+    void validateRootOfTrust(const vector<uint8_t>& payload, int32_t aidl_version) {
         SCOPED_TRACE(testing::Message() << "RoT payload: " << bin2hex(payload));
 
         const auto [rot, rotPos, rotErrMsg] = cppbor::parse(payload);
@@ -114,6 +114,12 @@ class SecureElementProvisioningTest : public testing::Test {
         const auto& vbKey = rot->asArray()->get(pos++);
         ASSERT_TRUE(vbKey);
         ASSERT_TRUE(vbKey->asBstr());
+        if (aidl_version >= 4) {
+            // The attestation should contain the SHA-256 hash of the verified boot
+            // key.  However, this not was checked for earlier versions of the KeyMint
+            // HAL so only be strict for v4 and above.
+            ASSERT_LE(vbKey->asBstr()->value().size(), 32);
+        }
 
         const auto& deviceLocked = rot->asArray()->get(pos++);
         ASSERT_TRUE(deviceLocked);
@@ -133,7 +139,7 @@ class SecureElementProvisioningTest : public testing::Test {
 
         verify_root_of_trust(vbKey->asBstr()->value(), deviceLocked->asBool()->value(),
                              static_cast<VerifiedBoot>(verifiedBootState->asInt()->value()),
-                             verifiedBootHash->asBstr()->value());
+                             verifiedBootHash->asBstr()->value(), aidl_version);
     }
 
     int32_t AidlVersion(shared_ptr<IKeyMintDevice> keymint) {
@@ -176,12 +182,12 @@ TEST_F(SecureElementProvisioningTest, TeeOnly) {
     vector<uint8_t> rootOfTrust1;
     Status result = tee->getRootOfTrust(challenge1, &rootOfTrust1);
     ASSERT_TRUE(result.isOk()) << "getRootOfTrust returned " << result.getServiceSpecificError();
-    validateMacedRootOfTrust(rootOfTrust1);
+    validateMacedRootOfTrust(rootOfTrust1, AidlVersion(tee));
 
     vector<uint8_t> rootOfTrust2;
     result = tee->getRootOfTrust(challenge2, &rootOfTrust2);
     ASSERT_TRUE(result.isOk());
-    validateMacedRootOfTrust(rootOfTrust2);
+    validateMacedRootOfTrust(rootOfTrust2, AidlVersion(tee));
     ASSERT_NE(rootOfTrust1, rootOfTrust2);
 
     vector<uint8_t> rootOfTrust3;
@@ -321,7 +327,7 @@ TEST_F(SecureElementProvisioningTest, ProvisioningTest) {
     result = tee->getRootOfTrust(challenge, &rootOfTrust);
     ASSERT_TRUE(result.isOk());
 
-    validateMacedRootOfTrust(rootOfTrust);
+    validateMacedRootOfTrust(rootOfTrust, AidlVersion(tee));
 
     result = sb->sendRootOfTrust(rootOfTrust);
     ASSERT_TRUE(result.isOk());
@@ -365,7 +371,7 @@ TEST_F(SecureElementProvisioningTest, InvalidProvisioningTest) {
     result = tee->getRootOfTrust(challenge, &rootOfTrust);
     ASSERT_TRUE(result.isOk());
 
-    validateMacedRootOfTrust(rootOfTrust);
+    validateMacedRootOfTrust(rootOfTrust, AidlVersion(tee));
 
     vector<uint8_t> corruptedRootOfTrust = rootOfTrust;
     corruptedRootOfTrust[corruptedRootOfTrust.size() / 2]++;

@@ -1756,7 +1756,7 @@ void verify_subject_and_serial(const Certificate& certificate,  //
 
 void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_locked,
                           VerifiedBoot verified_boot_state,
-                          const vector<uint8_t>& verified_boot_hash) {
+                          const vector<uint8_t>& verified_boot_hash, int32_t aidl_version) {
     char property_value[PROPERTY_VALUE_MAX] = {};
 
     if (avb_verification_enabled()) {
@@ -1786,6 +1786,12 @@ void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_
     std::string empty_boot_key(32, '\0');
     std::string verified_boot_key_str((const char*)verified_boot_key.data(),
                                       verified_boot_key.size());
+    if (aidl_version >= 4) {
+        // The attestation should contain the SHA-256 hash of the verified boot
+        // key.  However, this was not checked for earlier versions of the KeyMint
+        // HAL so only be strict for v4 and above.
+        EXPECT_LE(verified_boot_key.size(), 32);
+    }
     EXPECT_NE(property_get("ro.boot.verifiedbootstate", property_value, ""), 0);
     if (!strcmp(property_value, "green")) {
         EXPECT_EQ(verified_boot_state, VerifiedBoot::VERIFIED);
@@ -1920,7 +1926,8 @@ bool verify_attestation_record(int32_t aidl_version,                   //
     error = parse_root_of_trust(attest_rec->data, attest_rec->length, &verified_boot_key,
                                 &verified_boot_state, &device_locked, &verified_boot_hash);
     EXPECT_EQ(ErrorCode::OK, error);
-    verify_root_of_trust(verified_boot_key, device_locked, verified_boot_state, verified_boot_hash);
+    verify_root_of_trust(verified_boot_key, device_locked, verified_boot_state, verified_boot_hash,
+                         aidl_version);
 
     att_sw_enforced.Sort();
     expected_sw_enforced.Sort();
