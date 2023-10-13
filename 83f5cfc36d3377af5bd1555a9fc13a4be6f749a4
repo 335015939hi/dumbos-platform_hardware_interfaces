@@ -16,6 +16,23 @@
       "message": "I\u0027m not very familiar with APEX, over to Tai who reviewed some of the work from b/238146976.",
       "revId": "83f5cfc36d3377af5bd1555a9fc13a4be6f749a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "860fbc9a_9535f3f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-10-13T06:28:18Z",
+      "side": 1,
+      "message": "Thanks Tai.\n\nLais, can you give this an owner vote or add others who can?",
+      "revId": "83f5cfc36d3377af5bd1555a9fc13a4be6f749a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
