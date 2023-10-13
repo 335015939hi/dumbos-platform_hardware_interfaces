@@ -189,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1a0affa_8769010e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T23:53:46Z",
+      "side": 1,
+      "message": "Yes, it can be.\nLet\u0027s remove.",
+      "parentUuid": "3acd2ea5_2339a07d",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d05d8b7b_5a2a9edf",
@@ -260,6 +284,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92d86509_0d3bf0ef",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T23:53:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b1b23cb7_9f9da8d7",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f184ef80_820bd47d",
@@ -297,6 +345,30 @@
       "side": 1,
       "message": "Same as above. Intended to match https://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf - 6.12.4.2",
       "parentUuid": "f184ef80_820bd47d",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3af6b987_380ee9ab",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T23:53:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "59741c00_8314f40b",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -378,6 +450,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a971ecb_41b8d181",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T23:53:46Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "f542f16f_f02ba005",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48d1fa95_7f4711cb",
@@ -449,6 +545,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "97957800_95542d49",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T23:53:46Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "7c5cee03_9f8d291a",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 60,
+        "endChar": 44
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8c259bd_2dec1dbe",
@@ -510,6 +630,30 @@
       "side": 1,
       "message": "Please reference the standard that defines this format in the interface itself.\n\nWhen will this standard be released? If it\u0027s after the HAL API Freeze deadline, please start an email thread so we can understand in more detail.",
       "parentUuid": "9c627350_2a0fdc4e",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b048ad5f_f50b5ca4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T23:53:46Z",
+      "side": 1,
+      "message": "Regarding LE Audio, we hope that vendor defined types becomes standardized at a time. But this assumption seems not valid.\nIt\u0027s used by the A2DP Codec Extensibility as a pass-through of parameters between the Audio HAL (present AIDL) and the controller.\nThe format is defined by Google, but not yet published.",
+      "parentUuid": "cf3263da_01f636f7",
       "range": {
         "startLine": 24,
         "startChar": 0,
