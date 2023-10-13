@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6910da73_1a3c446b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "This line should be implied from title. We don\u0027t need to mention it.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a932e4a6_147e3840",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "Added test to verify increase in loudness with gains.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 69
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b680ff0e_9fd71bb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "Added test to verify that outputs are 0 for INT_MIN gain value.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b82506b4_fc65d4d5",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "mStatuMQ\nWe use m to define that it\u0027s a member variable and k for constant values.\nSimilarly for other message queues",
+      "range": {
+        "startLine": 87,
+        "startChar": 12,
+        "endLine": 87,
+        "endChar": 20
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df7df5f_26c782b4",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "We can use kGainMbValues here.",
+      "range": {
+        "startLine": 168,
+        "startChar": 20,
+        "endLine": 168,
+        "endChar": 30
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc27a12c_591e0d9d",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "IncreasingGains",
+      "range": {
+        "startLine": 174,
+        "startChar": 34,
+        "endLine": 174,
+        "endChar": 52
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be5d406a_6ce351d5",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "It is not compulsory to be compressed, we can update comment according to that.\nAnd second line in not needed.",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 0
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d13d024e_d091b634",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "0 /* gain */",
+      "range": {
+        "startLine": 183,
+        "startChar": 37,
+        "endLine": 183,
+        "endChar": 38
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebcc51dd_33cb8a9d",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 7
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0411c5d1_3bda9658",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "Apply gain to the input buffer",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 39
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "820d34b8_eb7b2d6e",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-13T06:30:38Z",
+      "side": 1,
+      "message": "outputBuffer",
+      "range": {
+        "startLine": 195,
+        "startChar": 31,
+        "endLine": 195,
+        "endChar": 42
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
