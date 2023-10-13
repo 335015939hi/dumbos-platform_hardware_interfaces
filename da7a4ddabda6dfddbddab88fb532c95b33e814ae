@@ -16,6 +16,24 @@
       "message": "Hi, Please review presubmit errors. Thanks",
       "revId": "da7a4ddabda6dfddbddab88fb532c95b33e814ae",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e606f7_9a6c029f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-10-13T23:12:54Z",
+      "side": 1,
+      "message": "Passed now after the CL in the other branch is merged",
+      "parentUuid": "5ede3439_b5ee57fe",
+      "revId": "da7a4ddabda6dfddbddab88fb532c95b33e814ae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
