@@ -167,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3acd2ea5_2339a07d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T22:39:10Z",
+      "side": 1,
+      "message": "Can we only add things that are used? Or add them as they are used?",
+      "parentUuid": "3a4aaa99_4a54d19e",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d05d8b7b_5a2a9edf",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
         "patchSetId": 6
@@ -332,6 +356,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f542f16f_f02ba005",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T22:39:10Z",
+      "side": 1,
+      "message": "]",
+      "parentUuid": "f9b013eb_b162b41e",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 5
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48d1fa95_7f4711cb",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
         "patchSetId": 6
@@ -379,6 +427,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c5cee03_9f8d291a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T22:39:10Z",
+      "side": 1,
+      "message": "https://source.android.com/docs/core/architecture/aidl/stable-aidl-apis#2_casing",
+      "parentUuid": "e6a79816_617f9deb",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 60,
+        "endChar": 44
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8c259bd_2dec1dbe",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
         "patchSetId": 6
@@ -414,6 +486,30 @@
       "side": 1,
       "message": "When it\u0027s standardized, we should use the CodecSpecificCapabilitiesLtv or MetadataLtv. This type should only be used like a byte array, but retaining the structure. The `type` and `value[]` should be vendor specific.",
       "parentUuid": "f8c259bd_2dec1dbe",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf3263da_01f636f7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-13T22:39:10Z",
+      "side": 1,
+      "message": "Please reference the standard that defines this format in the interface itself.\n\nWhen will this standard be released? If it\u0027s after the HAL API Freeze deadline, please start an email thread so we can understand in more detail.",
+      "parentUuid": "9c627350_2a0fdc4e",
       "range": {
         "startLine": 24,
         "startChar": 0,
