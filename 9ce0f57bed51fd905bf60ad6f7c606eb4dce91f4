@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fdbd3b3_f8dbd17e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6910da73_1a3c446b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a932e4a6_147e3840",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-13T06:30:38Z",
       "side": 1,
       "message": "Added test to verify increase in loudness with gains.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 69
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9f1b2e_e65db8fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a932e4a6_147e3840",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "990db08d_c9a3a324",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b680ff0e_9fd71bb9",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b82506b4_fc65d4d5",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-10-13T06:30:38Z",
       "side": 1,
       "message": "mStatuMQ\nWe use m to define that it\u0027s a member variable and k for constant values.\nSimilarly for other message queues",
+      "range": {
+        "startLine": 87,
+        "startChar": 12,
+        "endLine": 87,
+        "endChar": 20
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7155d382_6b2cdbd9",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b82506b4_fc65d4d5",
       "range": {
         "startLine": 87,
         "startChar": 12,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e740c61d_5836d42d",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0df7df5f_26c782b4",
+      "range": {
+        "startLine": 168,
+        "startChar": 20,
+        "endLine": 168,
+        "endChar": 30
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc27a12c_591e0d9d",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-10-13T06:30:38Z",
       "side": 1,
       "message": "IncreasingGains",
+      "range": {
+        "startLine": 174,
+        "startChar": 34,
+        "endLine": 174,
+        "endChar": 52
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e4ed880_5b3c2428",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc27a12c_591e0d9d",
       "range": {
         "startLine": 174,
         "startChar": 34,
@@ -185,6 +329,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59bd574a_fe9b089f",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d13d024e_d091b634",
+      "range": {
+        "startLine": 183,
+        "startChar": 37,
+        "endLine": 183,
+        "endChar": 38
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3245787_176275f6",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be5d406a_6ce351d5",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 0
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebcc51dd_33cb8a9d",
@@ -198,6 +390,30 @@
       "writtenOn": "2023-10-13T06:30:38Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 7
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f7b446b_264c2c5a",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebcc51dd_33cb8a9d",
       "range": {
         "startLine": 186,
         "startChar": 4,
@@ -231,6 +447,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8c4c183_4f4f7bab",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0411c5d1_3bda9658",
+      "range": {
+        "startLine": 191,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 39
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "820d34b8_eb7b2d6e",
@@ -244,6 +484,30 @@
       "writtenOn": "2023-10-13T06:30:38Z",
       "side": 1,
       "message": "outputBuffer",
+      "range": {
+        "startLine": 195,
+        "startChar": 31,
+        "endLine": 195,
+        "endChar": 42
+      },
+      "revId": "9ce0f57bed51fd905bf60ad6f7c606eb4dce91f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1f96ceb_a4297e60",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-13T06:49:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "820d34b8_eb7b2d6e",
       "range": {
         "startLine": 195,
         "startChar": 31,
