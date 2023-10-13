@@ -47,6 +47,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a8709ed_9f615da1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfigurationHint.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T00:09:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5ccfe345_72a2b7c4",
+      "range": {
+        "startLine": 39,
+        "startChar": 54,
+        "endLine": 39,
+        "endChar": 60
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b541f061_ff79d7db",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfigurationHint.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T00:09:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "96772130_f0317553",
+      "range": {
+        "startLine": 39,
+        "startChar": 28,
+        "endLine": 39,
+        "endChar": 36
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd9ea710_e793772a",
@@ -96,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "18fa1579_e14f1b9c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T00:09:37Z",
+      "side": 1,
+      "message": "This is a copy of https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecConfiguration.aidl;l\u003d64?q\u003dpeerMtu\u0026sq\u003d\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain:hardware%2Finterfaces%2Fbluetooth%2Faudio%2Faidl%2Fandroid%2Fhardware%2Fbluetooth%2Faudio%2F\nI think the meaning is the value is lower than 65535. Should I change to be more clear?",
+      "parentUuid": "cd9ea710_e793772a",
+      "range": {
+        "startLine": 24,
+        "startChar": 17,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc7476cf_5b788dee",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BluetoothDeviceAddress.aidl",
         "patchSetId": 5
@@ -107,6 +179,30 @@
       "writtenOn": "2023-10-11T18:11:26Z",
       "side": 1,
       "message": "nit: why v?",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 13
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c12ef746_61db18b6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BluetoothDeviceAddress.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T00:09:37Z",
+      "side": 1,
+      "message": "v for value, do you prefer b ? Or octet ?",
+      "parentUuid": "cc7476cf_5b788dee",
       "range": {
         "startLine": 25,
         "startChar": 12,
@@ -140,6 +236,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aedb2be8_511782f2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecParameters.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T00:09:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d17f30c0_4645d876",
+      "range": {
+        "startLine": 43,
+        "startChar": 44,
+        "endLine": 43,
+        "endChar": 45
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "65637882_80a524c7",
@@ -153,6 +273,30 @@
       "writtenOn": "2023-10-11T18:11:26Z",
       "side": 1,
       "message": "nit: metadata",
+      "range": {
+        "startLine": 59,
+        "startChar": 25,
+        "endLine": 59,
+        "endChar": 34
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90cf763d_254a295a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecParameters.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T00:09:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "65637882_80a524c7",
       "range": {
         "startLine": 59,
         "startChar": 25,
@@ -186,6 +330,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efc568ad_9e84503e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecParameters.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T00:09:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fa7a69f9_44efd346",
+      "range": {
+        "startLine": 62,
+        "startChar": 10,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdf3e250_9340712d",
@@ -209,6 +377,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08eb35d1_d6f75b52",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T00:09:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cdf3e250_9340712d",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 4
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d5ceab8_cd0722bf",
@@ -222,6 +414,30 @@
       "writtenOn": "2023-10-11T18:11:26Z",
       "side": 1,
       "message": "nit: succeeds or succeeded?",
+      "range": {
+        "startLine": 110,
+        "startChar": 69,
+        "endLine": 110,
+        "endChar": 76
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48f58f2a_d0e3da06",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-13T00:09:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5d5ceab8_cd0722bf",
       "range": {
         "startLine": 110,
         "startChar": 69,
