@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20699a13_805f8ca5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-13T13:45:04Z",
+      "side": 1,
+      "message": "This is of no importance really, but it would be nice to be able to easily refer to what a configuration descriptor looks like, especially when defining extensions to it.",
+      "revId": "8cbbc15bc367183e739989086d52f81637ee475f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
