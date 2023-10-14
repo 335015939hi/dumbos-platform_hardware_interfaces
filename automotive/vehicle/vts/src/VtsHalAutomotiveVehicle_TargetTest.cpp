@@ -115,6 +115,7 @@ class VtsVehicleCallback final : public ISubscriptionCallback {
 };
 
 class VtsHalAutomotiveVehicleTargetTest : public testing::TestWithParam<ServiceDescriptor> {
+<<<<<<< HEAD   (03a2fb Merge changes from topic "revert-2770886-AidlAudioHalModuleC)
   protected:
     bool checkIsSupported(int32_t propertyId);
 
@@ -129,11 +130,24 @@ class VtsHalAutomotiveVehicleTargetTest : public testing::TestWithParam<ServiceD
         } else {
             mVhalClient = IVhalClient::tryCreateHidlClient(descriptor.name.c_str());
         }
+=======
+protected:
+  bool checkIsSupported(int32_t propertyId);
+>>>>>>> BRANCH (da7a4d Allow CDD required properties to be absent in VTS.)
 
-        ASSERT_NE(mVhalClient, nullptr) << "Failed to connect to VHAL";
+public:
+  virtual void SetUp() override {
+      auto descriptor = GetParam();
+      if (descriptor.isAidlService) {
+          mVhalClient = IVhalClient::tryCreateAidlClient(descriptor.name.c_str());
+      } else {
+          mVhalClient = IVhalClient::tryCreateHidlClient(descriptor.name.c_str());
+      }
 
-        mCallback = std::make_shared<VtsVehicleCallback>();
-    }
+      ASSERT_NE(mVhalClient, nullptr) << "Failed to connect to VHAL";
+
+      mCallback = std::make_shared<VtsVehicleCallback>();
+  }
 
     static bool isBooleanGlobalProp(int32_t property) {
         return (property & toInt(VehiclePropertyType::MASK)) ==
@@ -471,6 +485,7 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, testGetValuesTimestampAIDL) {
     }
 }
 
+<<<<<<< HEAD   (03a2fb Merge changes from topic "revert-2770886-AidlAudioHalModuleC)
 // Helper function to compare actual vs expected property config
 void VtsHalAutomotiveVehicleTargetTest::verifyProperty(VehicleProperty propId,
                                                        VehiclePropertyAccess access,
@@ -890,6 +905,11 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, verifyLaneCenteringAssistStateConfig) 
 bool VtsHalAutomotiveVehicleTargetTest::checkIsSupported(int32_t propertyId) {
     auto result = mVhalClient->getPropConfigs({propertyId});
     return result.ok();
+=======
+bool VtsHalAutomotiveVehicleTargetTest::checkIsSupported(int32_t propertyId) {
+  auto result = mVhalClient->getPropConfigs({propertyId});
+  return result.ok();
+>>>>>>> BRANCH (da7a4d Allow CDD required properties to be absent in VTS.)
 }
 
 std::vector<ServiceDescriptor> getDescriptors() {
