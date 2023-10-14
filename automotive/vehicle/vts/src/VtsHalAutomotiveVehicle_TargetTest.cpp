@@ -115,6 +115,7 @@ class VtsVehicleCallback final : public ISubscriptionCallback {
 };
 
 class VtsHalAutomotiveVehicleTargetTest : public testing::TestWithParam<ServiceDescriptor> {
+<<<<<<< HEAD   (984823 Merge "OMX: allow in 8" into android14-tests-dev)
   protected:
     bool checkIsSupported(int32_t propertyId);
 
@@ -129,11 +130,24 @@ class VtsHalAutomotiveVehicleTargetTest : public testing::TestWithParam<ServiceD
         } else {
             mVhalClient = IVhalClient::tryCreateHidlClient(descriptor.name.c_str());
         }
+=======
+protected:
+  bool checkIsSupported(int32_t propertyId);
+>>>>>>> BRANCH (da7a4d Allow CDD required properties to be absent in VTS.)
 
-        ASSERT_NE(mVhalClient, nullptr) << "Failed to connect to VHAL";
+public:
+  virtual void SetUp() override {
+      auto descriptor = GetParam();
+      if (descriptor.isAidlService) {
+          mVhalClient = IVhalClient::tryCreateAidlClient(descriptor.name.c_str());
+      } else {
+          mVhalClient = IVhalClient::tryCreateHidlClient(descriptor.name.c_str());
+      }
 
-        mCallback = std::make_shared<VtsVehicleCallback>();
-    }
+      ASSERT_NE(mVhalClient, nullptr) << "Failed to connect to VHAL";
+
+      mCallback = std::make_shared<VtsVehicleCallback>();
+  }
 
     static bool isBooleanGlobalProp(int32_t property) {
         return (property & toInt(VehiclePropertyType::MASK)) ==
@@ -471,6 +485,7 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, testGetValuesTimestampAIDL) {
     }
 }
 
+<<<<<<< HEAD   (984823 Merge "OMX: allow in 8" into android14-tests-dev)
 // Helper function to compare actual vs expected property config
 void VtsHalAutomotiveVehicleTargetTest::verifyProperty(VehicleProperty propId,
                                                        VehiclePropertyAccess access,
@@ -887,6 +902,8 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, verifyLaneCenteringAssistStateConfig) 
                    VehicleArea::GLOBAL, VehiclePropertyType::INT32);
 }
 
+=======
+>>>>>>> BRANCH (da7a4d Allow CDD required properties to be absent in VTS.)
 bool VtsHalAutomotiveVehicleTargetTest::checkIsSupported(int32_t propertyId) {
   auto result = mVhalClient->getPropConfigs({propertyId});
   return result.ok();
