@@ -190,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7af1426c_5157f76c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-14T00:36:20Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "03880039_8b44c6b1",
+      "range": {
+        "startLine": 24,
+        "startChar": 17,
+        "endLine": 24,
+        "endChar": 30
+      },
+      "revId": "0712f2342eb0afdbeae1318356e228d019cf4923",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc7476cf_5b788dee",

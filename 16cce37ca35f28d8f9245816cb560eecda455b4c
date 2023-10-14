@@ -212,6 +212,30 @@
       },
       "revId": "16cce37ca35f28d8f9245816cb560eecda455b4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbf27405_8bfe47a1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-10-14T00:36:20Z",
+      "side": 1,
+      "message": "The format is defined according the codecId.\nFor standard Codec, it\u0027s defined by the A2DP standard.\nFor vendor codec, there is a vendor ID allocated by the BT Sig, and an ID specific to each vendor. In this case the format is perhaps known (we have the format of open-sourced codecs), or completely unknown (only vendor that provide HAL implementation, and equips the remote device can handle this).\nBy the way the format is freezed according CodecId, and can be known or not.",
+      "parentUuid": "a90ee856_925ba7e5",
+      "range": {
+        "startLine": 37,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "16cce37ca35f28d8f9245816cb560eecda455b4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
