@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6fc24c1_facdfe27",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-16T10:03:31Z",
+      "side": 1,
+      "message": "// Process a reference output buffer with 0 gain",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 85
+      },
+      "revId": "d256cfa5a6cfd341fa07f439fdd83f667535a006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dae53a4_264f1b46",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2023-10-16T10:03:31Z",
+      "side": 1,
+      "message": "const std::vector\u003cint\u003e gainMbValues",
+      "range": {
+        "startLine": 185,
+        "startChar": 4,
+        "endLine": 185,
+        "endChar": 29
+      },
+      "revId": "d256cfa5a6cfd341fa07f439fdd83f667535a006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
