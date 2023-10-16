@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a2a112d_6bd19e78",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-16T10:33:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6fc24c1_facdfe27",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 85
+      },
+      "revId": "d256cfa5a6cfd341fa07f439fdd83f667535a006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dae53a4_264f1b46",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-16T10:03:31Z",
       "side": 1,
       "message": "const std::vector\u003cint\u003e gainMbValues",
+      "range": {
+        "startLine": 185,
+        "startChar": 4,
+        "endLine": 185,
+        "endChar": 29
+      },
+      "revId": "d256cfa5a6cfd341fa07f439fdd83f667535a006",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3852bcc6_91f0ecf1",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-16T10:33:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dae53a4_264f1b46",
       "range": {
         "startLine": 185,
         "startChar": 4,
