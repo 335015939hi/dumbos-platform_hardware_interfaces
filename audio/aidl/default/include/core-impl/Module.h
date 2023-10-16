@@ -142,7 +142,7 @@ class Module : public BnModule {
     // ids of device ports created at runtime via 'connectExternalDevice'.
     // Also stores a list of ids of mix ports with dynamic profiles that were populated from
     // the connected port. This list can be empty, thus an int->int multimap can't be used.
-    using ConnectedDevicePorts = std::map<int32_t, std::vector<int32_t>>;
+    using ConnectedDevicePorts = std::map<int32_t, std::set<int32_t>>;
     // Maps port ids and port config ids to patch ids.
     // Multimap because both ports and configs can be used by multiple patches.
     using Patches = std::multimap<int32_t, int32_t>;
@@ -202,6 +202,7 @@ class Module : public BnModule {
     std::set<int32_t> findConnectedPortConfigIds(int32_t portConfigId);
     ndk::ScopedAStatus findPortIdForNewStream(
             int32_t in_portConfigId, ::aidl::android::media::audio::common::AudioPort** port);
+    std::vector<AudioRoute*> getAudioRoutesForAudioPortImpl(int32_t portId);
     virtual BtProfileHandles getBtProfileManagerHandles();
     internal::Configuration& getConfig();
     const ConnectedDevicePorts& getConnectedDevicePorts() const { return mConnectedDevicePorts; }
@@ -209,6 +210,8 @@ class Module : public BnModule {
     bool getMasterVolume() const { return mMasterVolume; }
     bool getMicMute() const { return mMicMute; }
     const Patches& getPatches() const { return mPatches; }
+    std::set<int32_t> getRoutableAudioPortIds(int32_t portId,
+                                              std::vector<AudioRoute*>* routes = nullptr);
     const Streams& getStreams() const { return mStreams; }
     Type getType() const { return mType; }
     bool isMmapSupported();

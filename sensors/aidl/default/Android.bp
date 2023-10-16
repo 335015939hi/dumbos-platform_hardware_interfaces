@@ -28,9 +28,11 @@ filegroup {
     srcs: ["sensors-default.rc"],
 }
 
-filegroup {
+prebuilt_etc {
     name: "sensors-default.xml",
-    srcs: ["sensors-default.xml"],
+    src: "sensors-default.xml",
+    sub_dir: "vintf",
+    installable: false,
 }
 
 cc_library_static {
@@ -41,7 +43,7 @@ cc_library_static {
         "libfmq",
         "libpower",
         "libbinder_ndk",
-        "android.hardware.sensors-V1-ndk",
+        "android.hardware.sensors-V2-ndk",
     ],
     export_include_dirs: ["include"],
     srcs: [
@@ -68,7 +70,7 @@ cc_binary {
         "libcutils",
         "liblog",
         "libutils",
-        "android.hardware.sensors-V1-ndk",
+        "android.hardware.sensors-V2-ndk",
     ],
     static_libs: [
         "libsensorsexampleimpl",

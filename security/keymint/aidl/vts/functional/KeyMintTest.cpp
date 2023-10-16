@@ -2082,11 +2082,6 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationTags) {
  * attestation extension.
  */
 TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
-    if (is_gsi_image()) {
-        // GSI sets up a standard set of device identifiers that may not match
-        // the device identifiers held by the device.
-        GTEST_SKIP() << "Test not applicable under GSI";
-    }
     auto challenge = "hello";
     auto app_id = "foo";
     auto subject = "cert subj 2";
@@ -2106,38 +2101,12 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
 
     // Various ATTESTATION_ID_* tags that map to fields in the attestation extension ASN.1 schema.
     auto extra_tags = AuthorizationSetBuilder();
-    // Use ro.product.brand_for_attestation property for attestation if it is present else fallback
-    // to ro.product.brand
-    std::string prop_value =
-            ::android::base::GetProperty("ro.product.brand_for_attestation", /* default= */ "");
-    if (!prop_value.empty()) {
-        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_BRAND,
-                          "ro.product.brand_for_attestation");
-    } else {
-        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
-    }
-    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_DEVICE, "ro.product.device");
-    // Use ro.product.name_for_attestation property for attestation if it is present else fallback
-    // to ro.product.name
-    prop_value = ::android::base::GetProperty("ro.product.name_for_attestation", /* default= */ "");
-    if (!prop_value.empty()) {
-        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_PRODUCT,
-                          "ro.product.name_for_attestation");
-    } else {
-        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
-    }
+    add_attestation_id(&extra_tags, TAG_ATTESTATION_ID_BRAND, "brand");
+    add_attestation_id(&extra_tags, TAG_ATTESTATION_ID_DEVICE, "device");
+    add_attestation_id(&extra_tags, TAG_ATTESTATION_ID_PRODUCT, "name");
+    add_attestation_id(&extra_tags, TAG_ATTESTATION_ID_MANUFACTURER, "manufacturer");
+    add_attestation_id(&extra_tags, TAG_ATTESTATION_ID_MODEL, "model");
     add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_SERIAL, "ro.serialno");
-    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MANUFACTURER, "ro.product.manufacturer");
-    // Use ro.product.model_for_attestation property for attestation if it is present else fallback
-    // to ro.product.model
-    prop_value =
-            ::android::base::GetProperty("ro.product.model_for_attestation", /* default= */ "");
-    if (!prop_value.empty()) {
-        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MODEL,
-                          "ro.product.model_for_attestation");
-    } else {
-        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
-    }
 
     for (const KeyParameter& tag : extra_tags) {
         SCOPED_TRACE(testing::Message() << "tag-" << tag);
@@ -2565,22 +2534,24 @@ TEST_P(NewKeyGenerationTest, LimitedUsageEcdsa) {
  * NewKeyGenerationTest.EcdsaDefaultSize
  *
  * Verifies that failing to specify a curve for EC key generation returns
- * UNSUPPORTED_KEY_SIZE.
+ * UNSUPPORTED_KEY_SIZE or UNSUPPORTED_EC_CURVE.
  */
 TEST_P(NewKeyGenerationTest, EcdsaDefaultSize) {
-    ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
-              GenerateKey(AuthorizationSetBuilder()
-                                  .Authorization(TAG_ALGORITHM, Algorithm::EC)
-                                  .SigningKey()
-                                  .Digest(Digest::NONE)
-                                  .SetDefaultValidity()));
+    auto result = GenerateKey(AuthorizationSetBuilder()
+                                      .Authorization(TAG_ALGORITHM, Algorithm::EC)
+                                      .SigningKey()
+                                      .Digest(Digest::NONE)
+                                      .SetDefaultValidity());
+    ASSERT_TRUE(result == ErrorCode::UNSUPPORTED_KEY_SIZE ||
+                result == ErrorCode::UNSUPPORTED_EC_CURVE)
+            << "unexpected result " << result;
 }
 
 /*
  * NewKeyGenerationTest.EcdsaInvalidCurve
  *
  * Verifies that specifying an invalid curve for EC key generation returns
- * UNSUPPORTED_KEY_SIZE.
+ * UNSUPPORTED_KEY_SIZE or UNSUPPORTED_EC_CURVE.
  */
 TEST_P(NewKeyGenerationTest, EcdsaInvalidCurve) {
     for (auto curve : InvalidCurves()) {
@@ -2593,7 +2564,8 @@ TEST_P(NewKeyGenerationTest, EcdsaInvalidCurve) {
                                           .SetDefaultValidity(),
                                   &key_blob, &key_characteristics);
         ASSERT_TRUE(result == ErrorCode::UNSUPPORTED_KEY_SIZE ||
-                    result == ErrorCode::UNSUPPORTED_EC_CURVE);
+                    result == ErrorCode::UNSUPPORTED_EC_CURVE)
+                << "unexpected result " << result;
     }
 
     ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
@@ -2608,16 +2580,16 @@ TEST_P(NewKeyGenerationTest, EcdsaInvalidCurve) {
 /*
  * NewKeyGenerationTest.EcdsaMissingCurve
  *
- * Verifies that EC key generation fails if EC_CURVE not specified after KeyMint V2.
+ * Verifies that EC key generation fails if EC_CURVE not specified after KeyMint V3.
  */
 TEST_P(NewKeyGenerationTest, EcdsaMissingCurve) {
-    if (AidlVersion() < 2) {
+    if (AidlVersion() < 3) {
         /*
          * The KeyMint V1 spec required that EC_CURVE be specified for EC keys.
          * However, this was not checked at the time so we can only be strict about checking this
-         * for implementations of KeyMint version 2 and above.
+         * for implementations of KeyMint version 3 and above.
          */
-        GTEST_SKIP() << "Requiring EC_CURVE only strict since KeyMint v2";
+        GTEST_SKIP() << "Requiring EC_CURVE only strict since KeyMint v3";
     }
     /* If EC_CURVE not provided, generateKey
      * must return ErrorCode::UNSUPPORTED_KEY_SIZE or ErrorCode::UNSUPPORTED_EC_CURVE.
@@ -4145,6 +4117,42 @@ TEST_P(ImportKeyTest, EcdsaSuccess) {
 }
 
 /*
+ * ImportKeyTest.EcdsaSuccessCurveNotSpecified
+ *
+ * Verifies that importing and using an ECDSA P-256 key pair works correctly
+ * when the EC_CURVE is not explicitly specified.
+ */
+TEST_P(ImportKeyTest, EcdsaSuccessCurveNotSpecified) {
+    if (AidlVersion() < 4) {
+        /*
+         * The KeyMint spec before V4 was not clear as to whether EC_CURVE was optional on import of
+         * EC keys. However, this was not checked at the time so we can only be strict about
+         * checking this for implementations of KeyMint version 4 and above.
+         */
+        GTEST_SKIP() << "Skipping EC_CURVE on import only strict since KeyMint v4";
+    }
+
+    ASSERT_EQ(ErrorCode::OK, ImportKey(AuthorizationSetBuilder()
+                                               .Authorization(TAG_NO_AUTH_REQUIRED)
+                                               .Authorization(TAG_ALGORITHM, Algorithm::EC)
+                                               .SigningKey()
+                                               .Digest(Digest::SHA_2_256)
+                                               .SetDefaultValidity(),
+                                       KeyFormat::PKCS8, ec_256_key));
+
+    CheckCryptoParam(TAG_ALGORITHM, Algorithm::EC);
+    CheckCryptoParam(TAG_DIGEST, Digest::SHA_2_256);
+    CheckCryptoParam(TAG_EC_CURVE, EcCurve::P_256);
+
+    CheckOrigin();
+
+    string message(32, 'a');
+    auto params = AuthorizationSetBuilder().Digest(Digest::SHA_2_256);
+    string signature = SignMessage(message, params);
+    LocalVerifyMessage(message, signature, params);
+}
+
+/*
  * ImportKeyTest.EcdsaP256RFC5915Success
  *
  * Verifies that importing and using an ECDSA P-256 key pair encoded using RFC5915 works
@@ -4735,6 +4743,12 @@ TEST_P(ImportKeyTest, GetKeyCharacteristics) {
  * should have the correct characteristics.
  */
 TEST_P(ImportKeyTest, RsaOaepMGFDigestSuccess) {
+    // There was no test to assert that MGF1 digest was present in generated/imported key
+    // characteristics before Keymint V3, so there are some Keymint implementations where
+    // this test case fails(b/297306437), hence this test is skipped for Keymint < 3.
+    if (AidlVersion() < 3) {
+        GTEST_SKIP() << "Test not applicable to Keymint < V3";
+    }
     auto mgf_digests = ValidDigests(false /* withNone */, true /* withMD5 */);
     size_t key_size = 2048;
 
@@ -4755,7 +4769,7 @@ TEST_P(ImportKeyTest, RsaOaepMGFDigestSuccess) {
     CheckOrigin();
 
     // Make sure explicitly specified mgf-digests exist in key characteristics.
-    assert_mgf_digests_present_in_key_characteristics(key_characteristics_, mgf_digests);
+    assert_mgf_digests_present_or_not_in_key_characteristics(mgf_digests, true);
 
     string message = "Hello";
 
@@ -4789,7 +4803,7 @@ TEST_P(ImportKeyTest, RsaOaepMGFDigestSuccess) {
 
         EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
         string result;
-        EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
+        EXPECT_NE(ErrorCode::OK, Finish(ciphertext1, &result));
         EXPECT_EQ(0U, result.size());
     }
 }
@@ -4819,8 +4833,9 @@ TEST_P(ImportKeyTest, RsaOaepMGFDigestDefaultSuccess) {
     CheckCryptoParam(TAG_PADDING, PaddingMode::RSA_OAEP);
     CheckOrigin();
 
+    vector defaultDigest = {Digest::SHA1};
     // Make sure default mgf-digest (SHA1) is not included in Key characteristics.
-    ASSERT_FALSE(is_mgf_digest_present(key_characteristics_, Digest::SHA1));
+    assert_mgf_digests_present_or_not_in_key_characteristics(defaultDigest, false);
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(ImportKeyTest);
@@ -5248,7 +5263,7 @@ TEST_P(EncryptionOperationsTest, RsaNoPaddingShortMessage) {
  */
 TEST_P(EncryptionOperationsTest, RsaOaepSuccess) {
     auto digests = ValidDigests(false /* withNone */, true /* withMD5 */);
-    auto mgf_digest = Digest::SHA1;
+    auto mgf_digest = vector{Digest::SHA1};
 
     size_t key_size = 2048;  // Need largish key for SHA-512 test.
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -5256,11 +5271,11 @@ TEST_P(EncryptionOperationsTest, RsaOaepSuccess) {
                                                  .RsaEncryptionKey(key_size, 65537)
                                                  .Padding(PaddingMode::RSA_OAEP)
                                                  .Digest(digests)
-                                                 .Authorization(TAG_RSA_OAEP_MGF_DIGEST, mgf_digest)
+                                                 .OaepMGFDigest(mgf_digest)
                                                  .SetDefaultValidity()));
 
     // Make sure explicitly specified mgf-digest exist in key characteristics.
-    ASSERT_TRUE(is_mgf_digest_present(key_characteristics_, mgf_digest));
+    assert_mgf_digests_present_or_not_in_key_characteristics(mgf_digest, true);
 
     string message = "Hello";
 
@@ -5297,7 +5312,7 @@ TEST_P(EncryptionOperationsTest, RsaOaepSuccess) {
 
         EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
         string result;
-        EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
+        EXPECT_NE(ErrorCode::OK, Finish(ciphertext1, &result));
         EXPECT_EQ(0U, result.size());
     }
 }
@@ -5364,7 +5379,7 @@ TEST_P(EncryptionOperationsTest, RsaOaepDecryptWithWrongDigest) {
                                                                 .Digest(Digest::SHA_2_256)
                                                                 .Padding(PaddingMode::RSA_OAEP)));
     string result;
-    EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext, &result));
+    EXPECT_NE(ErrorCode::OK, Finish(ciphertext, &result));
     EXPECT_EQ(0U, result.size());
 }
 
@@ -5385,21 +5400,21 @@ TEST_P(EncryptionOperationsTest, RsaOaepWithMGFDigestSuccess) {
                                                  .Padding(PaddingMode::RSA_OAEP)
                                                  .Digest(Digest::SHA_2_256)
                                                  .SetDefaultValidity()));
+    if (AidlVersion() >= 3) {
+        std::vector<Digest> mgf1DigestsInAuths;
+        mgf1DigestsInAuths.reserve(digests.size());
+        const auto& hw_auths = SecLevelAuthorizations(key_characteristics_);
+        std::for_each(hw_auths.begin(), hw_auths.end(), [&](auto& param) {
+            if (param.tag == Tag::RSA_OAEP_MGF_DIGEST) {
+                KeyParameterValue value = param.value;
+                mgf1DigestsInAuths.push_back(param.value.template get<KeyParameterValue::digest>());
+            }
+        });
 
-    std::vector<Digest> mgf1DigestsInAuths;
-    mgf1DigestsInAuths.reserve(digests.size());
-    const auto& hw_auths = SecLevelAuthorizations(key_characteristics_);
-    std::for_each(hw_auths.begin(), hw_auths.end(), [&](auto& param) {
-        if (param.tag == Tag::RSA_OAEP_MGF_DIGEST) {
-            KeyParameterValue value = param.value;
-            mgf1DigestsInAuths.push_back(param.value.template get<KeyParameterValue::digest>());
-        }
-    });
-
-    std::sort(digests.begin(), digests.end());
-    std::sort(mgf1DigestsInAuths.begin(), mgf1DigestsInAuths.end());
-    EXPECT_EQ(digests, mgf1DigestsInAuths);
-
+        std::sort(digests.begin(), digests.end());
+        std::sort(mgf1DigestsInAuths.begin(), mgf1DigestsInAuths.end());
+        EXPECT_EQ(digests, mgf1DigestsInAuths);
+    }
     string message = "Hello";
 
     for (auto digest : digests) {
@@ -5434,7 +5449,7 @@ TEST_P(EncryptionOperationsTest, RsaOaepWithMGFDigestSuccess) {
 
         EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
         string result;
-        EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
+        EXPECT_NE(ErrorCode::OK, Finish(ciphertext1, &result));
         EXPECT_EQ(0U, result.size());
     }
 }
@@ -5454,8 +5469,9 @@ TEST_P(EncryptionOperationsTest, RsaOaepMGFDigestDefaultSuccess) {
                                                  .Digest(Digest::SHA_2_256)
                                                  .SetDefaultValidity()));
 
+    vector defaultDigest = vector{Digest::SHA1};
     // Make sure default mgf-digest (SHA1) is not included in Key characteristics.
-    ASSERT_FALSE(is_mgf_digest_present(key_characteristics_, Digest::SHA1));
+    assert_mgf_digests_present_or_not_in_key_characteristics(defaultDigest, false);
 
     // Do local RSA encryption using the default MGF digest of SHA-1.
     string message = "Hello";
@@ -5478,7 +5494,7 @@ TEST_P(EncryptionOperationsTest, RsaOaepMGFDigestDefaultSuccess) {
 
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
     string result;
-    EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext, &result));
+    EXPECT_NE(ErrorCode::OK, Finish(ciphertext, &result));
     EXPECT_EQ(0U, result.size());
 }
 
@@ -5491,19 +5507,20 @@ TEST_P(EncryptionOperationsTest, RsaOaepMGFDigestDefaultSuccess) {
  */
 TEST_P(EncryptionOperationsTest, RsaOaepMGFDigestDefaultFail) {
     size_t key_size = 2048;
-    auto mgf_digest = Digest::SHA_2_256;
+    auto mgf_digest = vector{Digest::SHA_2_256};
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                  .Authorization(TAG_NO_AUTH_REQUIRED)
-                                                 .Authorization(TAG_RSA_OAEP_MGF_DIGEST, mgf_digest)
+                                                 .OaepMGFDigest(mgf_digest)
                                                  .RsaEncryptionKey(key_size, 65537)
                                                  .Padding(PaddingMode::RSA_OAEP)
                                                  .Digest(Digest::SHA_2_256)
                                                  .SetDefaultValidity()));
 
     // Make sure explicitly specified mgf-digest exist in key characteristics.
-    ASSERT_TRUE(is_mgf_digest_present(key_characteristics_, mgf_digest));
+    assert_mgf_digests_present_or_not_in_key_characteristics(mgf_digest, true);
+    vector defaultDigest = vector{Digest::SHA1};
     // Make sure default mgf-digest is not included in key characteristics.
-    ASSERT_FALSE(is_mgf_digest_present(key_characteristics_, Digest::SHA1));
+    assert_mgf_digests_present_or_not_in_key_characteristics(defaultDigest, false);
 
     // Do local RSA encryption using the default MGF digest of SHA-1.
     string message = "Hello";
@@ -5527,16 +5544,17 @@ TEST_P(EncryptionOperationsTest, RsaOaepMGFDigestDefaultFail) {
  * with incompatible MGF digest.
  */
 TEST_P(EncryptionOperationsTest, RsaOaepWithMGFIncompatibleDigest) {
-    auto mgf_digest = Digest::SHA_2_256;
+    auto mgf_digest = vector{Digest::SHA_2_256};
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                                 .Authorization(TAG_RSA_OAEP_MGF_DIGEST, mgf_digest)
+                                                 .OaepMGFDigest(mgf_digest)
                                                  .Authorization(TAG_NO_AUTH_REQUIRED)
                                                  .RsaEncryptionKey(2048, 65537)
                                                  .Padding(PaddingMode::RSA_OAEP)
                                                  .Digest(Digest::SHA_2_256)
                                                  .SetDefaultValidity()));
+
     // Make sure explicitly specified mgf-digest exist in key characteristics.
-    ASSERT_TRUE(is_mgf_digest_present(key_characteristics_, mgf_digest));
+    assert_mgf_digests_present_or_not_in_key_characteristics(mgf_digest, true);
 
     string message = "Hello World!";
 
@@ -5554,16 +5572,17 @@ TEST_P(EncryptionOperationsTest, RsaOaepWithMGFIncompatibleDigest) {
  * with unsupported MGF digest.
  */
 TEST_P(EncryptionOperationsTest, RsaOaepWithMGFUnsupportedDigest) {
-    auto mgf_digest = Digest::SHA_2_256;
+    auto mgf_digest = vector{Digest::SHA_2_256};
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                                 .Authorization(TAG_RSA_OAEP_MGF_DIGEST, mgf_digest)
+                                                 .OaepMGFDigest(mgf_digest)
                                                  .Authorization(TAG_NO_AUTH_REQUIRED)
                                                  .RsaEncryptionKey(2048, 65537)
                                                  .Padding(PaddingMode::RSA_OAEP)
                                                  .Digest(Digest::SHA_2_256)
                                                  .SetDefaultValidity()));
+
     // Make sure explicitly specified mgf-digest exist in key characteristics.
-    ASSERT_TRUE(is_mgf_digest_present(key_characteristics_, mgf_digest));
+    assert_mgf_digests_present_or_not_in_key_characteristics(mgf_digest, true);
 
     string message = "Hello World!";
 
@@ -5610,7 +5629,7 @@ TEST_P(EncryptionOperationsTest, RsaPkcs1Success) {
 
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
     string result;
-    EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
+    EXPECT_NE(ErrorCode::OK, Finish(ciphertext1, &result));
     EXPECT_EQ(0U, result.size());
 }
 

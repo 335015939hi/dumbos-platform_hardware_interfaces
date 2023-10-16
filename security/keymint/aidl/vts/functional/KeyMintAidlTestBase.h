@@ -95,7 +95,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
 
     void InitializeKeyMint(std::shared_ptr<IKeyMintDevice> keyMint);
     IKeyMintDevice& keyMint() { return *keymint_; }
-    int32_t AidlVersion();
+    int32_t AidlVersion() const;
     uint32_t os_version() { return os_version_; }
     uint32_t os_patch_level() { return os_patch_level_; }
     uint32_t vendor_patch_level() { return vendor_patch_level_; }
@@ -373,6 +373,15 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     bool shouldSkipAttestKeyTest(void) const;
     void skipAttestKeyTest(void) const;
 
+    void assert_mgf_digests_present_or_not_in_key_characteristics(
+            const vector<KeyCharacteristics>& key_characteristics,
+            std::vector<android::hardware::security::keymint::Digest>& expected_mgf_digests,
+            bool is_mgf_digest_expected) const;
+
+    void assert_mgf_digests_present_or_not_in_key_characteristics(
+            std::vector<android::hardware::security::keymint::Digest>& expected_mgf_digests,
+            bool is_mgf_digest_expected) const;
+
   protected:
     std::shared_ptr<IKeyMintDevice> keymint_;
     uint32_t os_version_;
@@ -430,11 +439,6 @@ string bin2hex(const vector<uint8_t>& data);
 X509_Ptr parse_cert_blob(const vector<uint8_t>& blob);
 ASN1_OCTET_STRING* get_attestation_record(X509* certificate);
 vector<uint8_t> make_name_from_str(const string& name);
-void assert_mgf_digests_present_in_key_characteristics(
-        const vector<KeyCharacteristics>& key_characteristics,
-        std::vector<android::hardware::security::keymint::Digest>& expected_mgf_digests);
-bool is_mgf_digest_present(const vector<KeyCharacteristics>& key_characteristics,
-                           android::hardware::security::keymint::Digest expected_mgf_digest);
 void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
                         vector<uint8_t>* payload_value);
 void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey);
@@ -454,6 +458,29 @@ ErrorCode GetReturnErrorCode(const Status& result);
                              ::android::PrintInstanceNameToString);                  \
     GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(name);
 
+// Use `ro.product.<property>_for_attestation` property for attestation if it is present else
+// fallback to use `ro.product.vendor.<property>` if it is present else fallback to
+// `ro.product.<property>`. Similar logic can be seen in Java method `getVendorDeviceIdProperty`
+// in frameworks/base/core/java/android/os/Build.java.
+template <Tag tag>
+void add_attestation_id(AuthorizationSetBuilder* attestation_id_tags,
+                        TypedTag<TagType::BYTES, tag> tag_type, const char* prop) {
+    ::android::String8 prop_name =
+            ::android::String8::format("ro.product.%s_for_attestation", prop);
+    std::string prop_value = ::android::base::GetProperty(prop_name.c_str(), /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(attestation_id_tags, tag_type, prop_name.c_str());
+    } else {
+        prop_name = ::android::String8::format("ro.product.vendor.%s", prop);
+        prop_value = ::android::base::GetProperty(prop_name.c_str(), /* default= */ "");
+        if (!prop_value.empty()) {
+            add_tag_from_prop(attestation_id_tags, tag_type, prop_name.c_str());
+        } else {
+            prop_name = ::android::String8::format("ro.product.%s", prop);
+            add_tag_from_prop(attestation_id_tags, tag_type, prop_name.c_str());
+        }
+    }
+}
 }  // namespace test
 
 }  // namespace aidl::android::hardware::security::keymint
