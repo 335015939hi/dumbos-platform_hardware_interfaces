@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f000b6f1_f7e7fb87",
+        "filename": "automotive/evs/1.0/vts/functional/VtsHalEvsV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1605607
+      },
+      "writtenOn": "2023-10-17T23:47:30Z",
+      "side": 1,
+      "message": "Why is that? The comment clearly says that the values are called out in the EVS design doc, so if we are changing the values shouldn\u0027t the design doc needs to be changed?",
+      "parentUuid": "b2834dde_f78ea38a",
+      "revId": "50bb298e1392528e15b32912392bd4d4571389e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26acc23d_c7d7379b",
         "filename": "automotive/evs/1.0/vts/functional/VtsHalEvsV1_0TargetTest.cpp",
         "patchSetId": 4
