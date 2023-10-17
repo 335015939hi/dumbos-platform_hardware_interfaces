@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "583bd207_4214c7bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-10-17T17:07:29Z",
+      "side": 1,
+      "message": "Hi Tomas, do you mind giving a code owner\u0027s review since KY and Felipe are no longer in the team?",
+      "revId": "775b6eca7797eb6e74a9c848db5f9d7b9273a47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76d7b426_69eb8b10",
