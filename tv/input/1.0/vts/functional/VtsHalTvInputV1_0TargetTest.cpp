@@ -48,9 +48,9 @@ class TvInputHidlTest : public testing::TestWithParam<std::string> {
   public:
     virtual void SetUp() override {
         tv_input_ = ITvInput::getService(GetParam());
-        tv_input_callback_ = new TvInputCallback(*this);
+        tv_input_callback_ = std::make_shared<TvInputCallback>(*this);
         ASSERT_NE(tv_input_callback_, nullptr);
-        tv_input_->setCallback(tv_input_callback_);
+        tv_input_->setCallback(tv_input_callback_.get());
         // All events received within the timeout should be handled.
         sleep(WAIT_FOR_EVENT_TIMEOUT);
     }
@@ -168,7 +168,7 @@ class TvInputHidlTest : public testing::TestWithParam<std::string> {
     sp<ITvInput> tv_input_;
 
     /* The TvInputCallback used for the test. */
-    sp<ITvInputCallback> tv_input_callback_;
+    std::shared_ptr<TvInputCallback> tv_input_callback_;
 
     /*
      * A KeyedVector stores device information of every available device.
