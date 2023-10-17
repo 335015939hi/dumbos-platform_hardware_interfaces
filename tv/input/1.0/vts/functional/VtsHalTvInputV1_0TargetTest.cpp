@@ -48,14 +48,17 @@ class TvInputHidlTest : public testing::TestWithParam<std::string> {
   public:
     virtual void SetUp() override {
         tv_input_ = ITvInput::getService(GetParam());
-        tv_input_callback_ = new TvInputCallback(*this);
+        tv_input_callback_ = sp<TvInputCallback>::make(*this);
         ASSERT_NE(tv_input_callback_, nullptr);
         tv_input_->setCallback(tv_input_callback_);
         // All events received within the timeout should be handled.
         sleep(WAIT_FOR_EVENT_TIMEOUT);
     }
 
-    virtual void TearDown() override {}
+    virtual void TearDown() override {
+        tv_input_ = nullptr;
+        tv_input_callback_ = nullptr;
+    }
 
     /* Called when a DEVICE_AVAILABLE event is received. */
     void onDeviceAvailable(const TvInputDeviceInfo& deviceInfo) {
