@@ -728,12 +728,12 @@ Result Filter::startRecordFilterHandler() {
         };
         mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
         mFilterEventExt.events.resize(0);
+    } else if (mCallback != nullptr) {
+        mCallback->onFilterEvent(mFilterEvent);
     }
 
-    if (mCallback != nullptr) {
-        mCallback->onFilterEvent(mFilterEvent);
-        mFilterEvent.events.resize(0);
-    }
+    mFilterEvent.events.resize(0);
+
     mFilterOutput.clear();
     return Result::SUCCESS;
 }
@@ -791,9 +791,7 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table) 
     if (mCallback_1_1 != nullptr) {
         mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
         mFilterEventExt.events.resize(0);
-    }
-
-    if (mCallback != nullptr) {
+    } else if (mCallback != nullptr) {
         mCallback->onFilterEvent(mFilterEvent);
     }
 
@@ -931,12 +929,11 @@ Result Filter::createIndependentMediaEvents(vector<uint8_t> output) {
     if (mCallback_1_1 != nullptr) {
         mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
         mFilterEventExt.events.resize(0);
+    } else if (mCallback != nullptr) {
+        mCallback->onFilterEvent(mFilterEvent);
     }
 
-    if (mCallback != nullptr) {
-        mCallback->onFilterEvent(mFilterEvent);
-        mFilterEvent.events.resize(0);
-    }
+    mFilterEvent.events.resize(0);
 
     output.clear();
     mAvBufferCopyCount = 0;
@@ -990,10 +987,15 @@ Result Filter::createShareMemMediaEvents(vector<uint8_t> output) {
     mFilterEvent.events.resize(size + 1);
     mFilterEvent.events[size].media(mediaEvent);
 
-    if (mCallback != nullptr) {
+    if (mCallback_1_1 != nullptr) {
+        mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
+        mFilterEventExt.events.resize(0);
+    } else if (mCallback != nullptr) {
         mCallback->onFilterEvent(mFilterEvent);
-        mFilterEvent.events.resize(0);
     }
+
+    mFilterEvent.events.resize(0);
+
     int result = munmap(sharedAvBuffer, output.size() + pa_alignment);
     output.clear();
     if (result == -1) {
