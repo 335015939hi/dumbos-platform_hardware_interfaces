@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2834dde_f78ea38a",
+        "filename": "automotive/evs/1.0/vts/functional/VtsHalEvsV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2023-10-17T21:10:08Z",
+      "side": 1,
+      "message": "This does not need to be updated.",
+      "parentUuid": "2bd1da3f_d98ac158",
+      "revId": "50bb298e1392528e15b32912392bd4d4571389e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26acc23d_c7d7379b",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca560894_857e78f2",
+        "filename": "automotive/evs/1.0/vts/functional/VtsHalEvsV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2023-10-17T21:10:08Z",
+      "side": 1,
+      "message": "See a comment on another file.",
+      "parentUuid": "26acc23d_c7d7379b",
+      "range": {
+        "startLine": 367,
+        "startChar": 44,
+        "endLine": 367,
+        "endChar": 55
+      },
+      "revId": "50bb298e1392528e15b32912392bd4d4571389e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3723c54c_0dcf035a",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-10-17T19:43:18Z",
       "side": 1,
       "message": "same as before. This comments looks very subjective and open to multiple interpretations",
+      "range": {
+        "startLine": 537,
+        "startChar": 45,
+        "endLine": 537,
+        "endChar": 56
+      },
+      "revId": "50bb298e1392528e15b32912392bd4d4571389e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f80104ff_f046dff5",
+        "filename": "automotive/evs/1.1/vts/functional/VtsHalEvsV1_1TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2023-10-17T21:10:08Z",
+      "side": 1,
+      "message": "Because it\u0027s not an intention of this line to break a test with arbitrarily large number, I don\u0027t think this comment causes any misinterpretations.\n\nAlso, please note that this is a cherry pick of a change already applied to other branches.",
+      "parentUuid": "3723c54c_0dcf035a",
       "range": {
         "startLine": 537,
         "startChar": 45,
