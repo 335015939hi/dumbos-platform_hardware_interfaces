@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48535073_b2c27e60",
+        "filename": "tv/input/1.0/vts/functional/VtsHalTvInputV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2023-10-17T21:50:28Z",
+      "side": 1,
+      "message": "it is better to set tv_input_callback_ and tv_input_ to null in TearDown().",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 25
+      },
+      "revId": "06b68718d2bf4df4c90ff549a1dbaca97213c77b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25352862_75071977",
+        "filename": "tv/input/1.0/vts/functional/VtsHalTvInputV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2023-10-17T21:50:28Z",
+      "side": 1,
+      "message": "change this to shared_ptr as well.",
+      "range": {
+        "startLine": 164,
+        "startChar": 8,
+        "endLine": 164,
+        "endChar": 33
+      },
+      "revId": "06b68718d2bf4df4c90ff549a1dbaca97213c77b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
