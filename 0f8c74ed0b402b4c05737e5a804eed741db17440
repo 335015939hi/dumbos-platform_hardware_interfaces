@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba7f6788_5be8e5a6",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-17T21:41:23Z",
+      "side": 1,
+      "message": "That doesn\u0027t look right. Float audio samples normally must be in the range from -1.0 to 1.0.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 73
+      },
+      "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed752ffa_6fb96869",
         "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
         "patchSetId": 1
@@ -42,6 +65,29 @@
         "startChar": 34,
         "endLine": 201,
         "endChar": 45
+      },
+      "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8b1f317_9458a6f5",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-17T21:41:23Z",
+      "side": 1,
+      "message": "I would suggest using `ASSERT_FLOAT_EQ` since it will tolerate very small values which are equivalent to zero but not exactly zero, which can happen to floats.",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 17
       },
       "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
