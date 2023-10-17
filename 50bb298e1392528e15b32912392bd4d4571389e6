@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "693b3242_86212f9f",
+        "filename": "automotive/evs/1.0/vts/functional/VtsHalEvsV1_0TargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2023-10-17T23:51:00Z",
+      "side": 1,
+      "message": "Please note that this is for 1.0 that has been deprecated. We haven\u0027t made any changes since this was created.",
+      "parentUuid": "f000b6f1_f7e7fb87",
+      "revId": "50bb298e1392528e15b32912392bd4d4571389e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26acc23d_c7d7379b",
