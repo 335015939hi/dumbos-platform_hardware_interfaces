@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed752ffa_6fb96869",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-10-17T17:07:47Z",
+      "side": 1,
+      "message": "Better create a new local variable instead of reusing kGainMbValues (see line#43).\nBut it will be nice to have kGainMbValues a super set of all gain values we test in data testing so it can be verified with parameter test case `SetAndGetGainMb`.\n\nAlso see the comment at line#218, these test cases may no fit into parameter testing.",
+      "range": {
+        "startLine": 185,
+        "startChar": 27,
+        "endLine": 185,
+        "endChar": 40
+      },
+      "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a061ac05_cd21c93b",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-10-17T17:07:47Z",
+      "side": 1,
+      "message": "Do we want a maximum gain testing as well?\nAlso we need to get the minimum/maximum gain supported by the effect before setting, here we just use `std::numeric_limits` which maybe not supported by effect implementations.\nThe original test case `TEST_P(LoudnessEnhancerParamTest, SetAndGetGainMb)` didn\u0027t take this into consideration as well which needs to be updated.",
+      "range": {
+        "startLine": 201,
+        "startChar": 34,
+        "endLine": 201,
+        "endChar": 45
+      },
+      "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd614ba_a689f69d",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-10-17T17:07:47Z",
+      "side": 1,
+      "message": "This test suite is named `LoudnessEnhancerParamTest`, maybe it\u0027s better to create another test suite for `LoudnessEnhancerDataTest`, and move these added test cases into the new suite?",
+      "range": {
+        "startLine": 218,
+        "startChar": 30,
+        "endLine": 218,
+        "endChar": 55
+      },
+      "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

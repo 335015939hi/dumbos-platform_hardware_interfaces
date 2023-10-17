@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b26c171c_e3327b00",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-10-17T17:07:47Z",
+      "side": 0,
+      "message": "prefer to keep this parameter in `LoudnessEnhancerParamTest`",
+      "range": {
+        "startLine": 38,
+        "startChar": 38,
+        "endLine": 38,
+        "endChar": 51
+      },
+      "revId": "afdfa1d07980f6f827abe3796c07e86d4ba53518",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
