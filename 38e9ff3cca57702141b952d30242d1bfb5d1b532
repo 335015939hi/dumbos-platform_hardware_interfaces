@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5fee742_be7c96a2",
+        "filename": "security/authgraph/aidl/vts/functional/AuthGraphSessionTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T20:22:43Z",
+      "side": 1,
+      "message": "Can you please clarify what is the purpose of this line and line 223?",
+      "range": {
+        "startLine": 216,
+        "startChar": 4,
+        "endLine": 216,
+        "endChar": 50
+      },
+      "revId": "38e9ff3cca57702141b952d30242d1bfb5d1b532",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
