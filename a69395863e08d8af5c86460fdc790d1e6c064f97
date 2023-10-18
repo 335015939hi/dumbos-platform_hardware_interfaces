@@ -804,6 +804,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1790d46b_73ff645f",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SessionInitiationInfo.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T06:54:36Z",
+      "side": 1,
+      "message": "This is the description for the return type. So I think it is fine.",
+      "parentUuid": "21a310f7_eba49b2c",
+      "range": {
+        "startLine": 24,
+        "startChar": 34,
+        "endLine": 24,
+        "endChar": 80
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "542d9782_ce28f582",
@@ -817,6 +841,30 @@
       "writtenOn": "2023-10-06T18:46:06Z",
       "side": 1,
       "message": "And what is the use of that?",
+      "range": {
+        "startLine": 41,
+        "startChar": 10,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef34369_cd1411a7",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SessionInitiationInfo.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T06:54:36Z",
+      "side": 1,
+      "message": "Added a brief description in the brackets. More details can be found in the description of the sessionId field in `SessionInfo`",
+      "parentUuid": "542d9782_ce28f582",
       "range": {
         "startLine": 41,
         "startChar": 10,
