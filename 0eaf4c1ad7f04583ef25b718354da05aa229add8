@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46465809_1a1fc3b9",
+        "filename": "tv/tuner/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1101748
+      },
+      "writtenOn": "2023-10-18T00:28:50Z",
+      "side": 1,
+      "message": "Why is this API file changed without changing the IsdbtFrontendSettings class?",
+      "range": {
+        "startLine": 507,
+        "startChar": 15,
+        "endLine": 507,
+        "endChar": 36
+      },
+      "revId": "0eaf4c1ad7f04583ef25b718354da05aa229add8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
