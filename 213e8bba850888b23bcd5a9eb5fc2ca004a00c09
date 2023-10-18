@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a83ebd4_24f2017f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958854
+      },
+      "writtenOn": "2023-10-18T22:24:15Z",
+      "side": 1,
+      "message": "I mentioned something very similar on another CL but the exec / sec here is dangerously low (6 / s) here for fuzzing. Is it possible that the initialization code is too expensive and we can refactor this into `LLVMFuzzerInitialize()`?",
+      "revId": "213e8bba850888b23bcd5a9eb5fc2ca004a00c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
