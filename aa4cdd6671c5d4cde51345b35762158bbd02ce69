@@ -662,6 +662,30 @@
       },
       "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b4bfcf2_475f7c50",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-18T01:36:31Z",
+      "side": 1,
+      "message": "Can they add vendor extensions instead?\n\nhttps://source.android.com/docs/core/architecture/aidl/aidl-hals#extension-interfaces",
+      "parentUuid": "b048ad5f_f50b5ca4",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 14
+      },
+      "revId": "aa4cdd6671c5d4cde51345b35762158bbd02ce69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
