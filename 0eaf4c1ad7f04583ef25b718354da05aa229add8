@@ -22,6 +22,30 @@
       },
       "revId": "0eaf4c1ad7f04583ef25b718354da05aa229add8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e15b7b5c_5b8b2b8a",
+        "filename": "tv/tuner/config/api/current.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1110443
+      },
+      "writtenOn": "2023-10-18T06:54:24Z",
+      "side": 1,
+      "message": "I understand that some test config API is automatically created by xsd file. In fact, current.txt is changed by the build command \"m tuner_testing_dynamic_configuration_V1_0_parser.docs-update-current-api\". And if not changing chrrent.txt, the build \"m droid\" is error.",
+      "parentUuid": "46465809_1a1fc3b9",
+      "range": {
+        "startLine": 507,
+        "startChar": 15,
+        "endLine": 507,
+        "endChar": 36
+      },
+      "revId": "0eaf4c1ad7f04583ef25b718354da05aa229add8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
