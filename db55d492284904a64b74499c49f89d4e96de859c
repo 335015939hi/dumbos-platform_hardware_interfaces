@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6925547_8e41d7f7",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-18T01:41:11Z",
+      "side": 1,
+      "message": "They would be here, in libbinder_rs:\n\nhttps://cs.android.com/android/platform/superproject/+/master:frameworks/native/libs/binder/rust/src/error.rs;l\u003d71;drc\u003de731c4900ba0bd9872da6645720ebb8963e2e54b\n\nI believe they are copied from bindgen, but you can see the names of the exceptions used in the functions there.\n\nIf these error codes were defined by a 3rd party standard, I think it would make sense to use them like this, but in order to make the interface more standardized and behave as people expect in Android, I\u0027d suggest using the standard error codes.",
+      "parentUuid": "6a50ee15_beddee0a",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2810724_81200309",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
         "patchSetId": 35
