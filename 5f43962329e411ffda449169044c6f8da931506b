@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98f4d9f_506a3b69",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2023-10-18T19:31:49Z",
+      "side": 1,
+      "message": "please move the atomic segment apis into a different CL in case we don\u0027t need it.",
+      "revId": "5f43962329e411ffda449169044c6f8da931506b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
