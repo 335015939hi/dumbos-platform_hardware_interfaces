@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fbc7e0dc_4ce04d9d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 36
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8ce9c59_bf326091",
+      "range": {
+        "startLine": 7,
+        "startChar": 40,
+        "endLine": 7,
+        "endChar": 53
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fa16d051_3a4fb9ba",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 36
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c205b4b_c4d8354d",
+        "filename": "compatibility_matrices/compatibility_matrix.9.xml",
+        "patchSetId": 36
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "It is changed to non-secure in a later CL: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2786800/2/compatibility_matrices/compatibility_matrix.9.xml\n\nSince we will have to land the CLs in this topic together, I hope it is fine. Thanks for pointing out.",
+      "parentUuid": "68978c00_072edc22",
+      "range": {
+        "startLine": 593,
+        "startChar": 14,
+        "endLine": 593,
+        "endChar": 49
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5c319d7_bcee21c9",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-10-06T18:46:06Z",
       "side": 1,
       "message": "Most newly created files in Android start with a license, following the pattern in this repo..\n\n```\n// Copyright (C) 2023 The Android Open Source Project\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n//      http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\npackage {\n    // See: http://go/android-license-faq\n    // A large-scale-change added \u0027default_applicable_licenses\u0027 to import\n    // all of the \u0027license_kinds\u0027 from \"hardware_interfaces_license\"\n    // to get the below license kinds:\n    //   SPDX-license-identifier-Apache-2.0\n    default_applicable_licenses: [\"hardware_interfaces_license\"],\n}\n\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 16
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "266bc18b_f1a23249",
+        "filename": "security/authgraph/aidl/Android.bp",
+        "patchSetId": 36
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Thanks! Done.",
+      "parentUuid": "c5c319d7_bcee21c9",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -104,6 +176,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15e65e07_fa3503ae",
+        "filename": "security/authgraph/aidl/Android.bp",
+        "patchSetId": 36
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f50ee9c_2b4a9a87",
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79e3a725_564b9a9c",
@@ -121,6 +211,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1405e9ce_a6862de5",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Arc.cddl",
+        "patchSetId": 36
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "In the reference implementation of this AIDL, (https://cs.android.com/android/platform/superproject/main/+/main:system/authgraph/), we use this format and the protocol functions would fail if one party who doesn\u0027t use the reference implementation drift away from the CDDL defined here, while other parties are using the reference implementation.\nThe goal is to get all vendors who implement this AIDL to use the reference implementation.\n\nApart from that, we will add the VTS tests to enforce the usage of specified CDDL in the return types (b/306047240).",
+      "parentUuid": "79e3a725_564b9a9c",
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0c19bed_3cc5ba0c",
@@ -134,6 +242,30 @@
       "writtenOn": "2023-10-06T18:46:06Z",
       "side": 1,
       "message": "I\u0027m curious if we have to append the AOSP Copyright license on cddl files too? Other files like generateCertificateRequestV2.cddl havent used it either. I will also ask around..",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 28
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a214f273_8f19e05c",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ExplicitKeyDiceCertChain.cddl",
+        "patchSetId": 36
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "I added the license to all CDDL files. I guess there is no harm in adding.",
+      "parentUuid": "a0c19bed_3cc5ba0c",
       "range": {
         "startLine": 1,
         "startChar": 0,
@@ -167,6 +299,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd26f2a1_76b7fb60",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "It is a requirement for the rest of the AuthGraph protocol to work. However, for your particular case, it should be fine to have a per-boot signing key pair for the SecretKeeper side. I will not add it to the spec, because it is a special case, and not the general case.",
+      "parentUuid": "f606dcf7_b21f2b20",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 29
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84843a81_87c2a678",
@@ -180,6 +336,30 @@
       "writtenOn": "2023-10-06T18:46:06Z",
       "side": 1,
       "message": "Nit: Maybe add \"of the participant\" [`per-boot life time` -\u003e `per-boot life time of the participant`] to disambiguate what per-boot mean for participant which can dynamically boot, shutdown several time during the boot lifetime of device (or boot lifetime of the other participant). For ex. pVM and non-critical TA.",
+      "range": {
+        "startLine": 34,
+        "startChar": 75,
+        "endLine": 34,
+        "endChar": 76
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "803839e4_d587bbe6",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84843a81_87c2a678",
       "range": {
         "startLine": 34,
         "startChar": 75,
@@ -213,6 +393,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b49dd44_f9bd7e58",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Because the peer only shares the public key of the key exchange key. Therefore, it is implied that it is the `public` key when we say `peer`.",
+      "parentUuid": "86e38356_a226ab0a",
+      "range": {
+        "startLine": 66,
+        "startChar": 22,
+        "endLine": 66,
+        "endChar": 41
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bf90c11_6b2fd26b",
@@ -226,6 +430,30 @@
       "writtenOn": "2023-10-06T18:46:06Z",
       "side": 1,
       "message": "Nit: Maybe replace `KE_FIRST_ENCRYPTION_KEY` \u0026 `KE_SECOND_ENCRYPTION_KEY` with `KE_ENCRYPTION_KEY_SOURCE_TO_SINK`, `KE_ENCRYPTION_KEY_SINK_TO_SOURCE` for more readable context ?",
+      "range": {
+        "startLine": 82,
+        "startChar": 18,
+        "endLine": 82,
+        "endChar": 42
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61488f57_55987416",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Thanks! Done!",
+      "parentUuid": "4bf90c11_6b2fd26b",
       "range": {
         "startLine": 82,
         "startChar": 18,
@@ -259,6 +487,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f7bdc29_403f6dae",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Since we specify at the beginning of the description of each method, which party it is supposed to be executed by, I think it is implied which party is referred to by `peer` in the input parameters.\nI do not have a preference and could have changed this. But we use the same naming convention in the library too. So I would keep it as it is unless you have a strong opinion.",
+      "parentUuid": "5b034160_53a6256b",
+      "range": {
+        "startLine": 95,
+        "startChar": 14,
+        "endLine": 95,
+        "endChar": 24
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0745ebdb_ba503b95",
@@ -272,6 +524,30 @@
       "writtenOn": "2023-10-06T18:46:06Z",
       "side": 1,
       "message": "The previous `create()` would return `Key` which contains `PubKey` as well as `Arc`. Do you expect system component to extract the `PubKey` from the `Key` while calling this function?\n\nAlso, (a bit unrelated to HAL interface), where will you implement this component (that does the trigger/translation)?",
+      "range": {
+        "startLine": 118,
+        "startChar": 22,
+        "endLine": 118,
+        "endChar": 32
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85c92b20_6d1561e6",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Q1: Yes. It is straight forward, because `Key` is a parcelable.\n\nQ2: It can be done by any party who calls the API. E.g. it is done in the VTS tests here: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2750487/16/security/authgraph/aidl/vts/functional/AuthGraphSessionTest.cpp#98",
+      "parentUuid": "0745ebdb_ba503b95",
       "range": {
         "startLine": 118,
         "startChar": 22,
@@ -305,6 +581,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb8826e5_05d4eafb",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Identity.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "24cd023d_d5584e8b",
+      "range": {
+        "startLine": 23,
+        "startChar": 41,
+        "endLine": 23,
+        "endChar": 45
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "922c0ad1_372db2b0",
@@ -318,6 +618,30 @@
       "writtenOn": "2023-10-06T18:46:06Z",
       "side": 1,
       "message": "Nit: Maybe rephrase \"Retain access of persistent resources for the newer version of the party that created those resources\"",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 92
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "934fea87_2631c542",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Identity.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "922c0ad1_372db2b0",
       "range": {
         "startLine": 30,
         "startChar": 13,
@@ -351,6 +675,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e2c02a5_b064bf2f",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Identity.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "The part of that statement: ` the older versions of party cannot access them anymore` implies `deny`. Isn\u0027t it?",
+      "parentUuid": "79b3499f_9d8e98ab",
+      "range": {
+        "startLine": 32,
+        "startChar": 13,
+        "endLine": 32,
+        "endChar": 80
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff0f2749_6f6cebb6",
@@ -368,6 +716,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dacb7af7_c1ac4978",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Key.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "I think it is fine to keep it as `Key` for two reasons:\n1. It is expected that we wouldn\u0027t return a plain text secret key from an API\n2. The description of the second field `arcFromPBK` explains that it is encrypted.",
+      "parentUuid": "ff0f2749_6f6cebb6",
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b180afac_8b68c2fe",
@@ -381,6 +747,30 @@
       "writtenOn": "2023-10-06T18:46:06Z",
       "side": 1,
       "message": "Please use a bugId TODO(b/xxx), easy to track TODOs",
+      "range": {
+        "startLine": 4,
+        "startChar": 10,
+        "endLine": 4,
+        "endChar": 11
+      },
+      "revId": "a69395863e08d8af5c86460fdc790d1e6c064f97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea994f6c_79dcaa71",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/PlainPubKey.cddl",
+        "patchSetId": 36
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-18T01:59:10Z",
+      "side": 1,
+      "message": "Thanks! It is already finalized. So I removed the TODO.",
+      "parentUuid": "b180afac_8b68c2fe",
       "range": {
         "startLine": 4,
         "startChar": 10,
