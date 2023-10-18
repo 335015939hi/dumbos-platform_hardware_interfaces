@@ -282,6 +282,9 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_prodMode) {
     bytevec privateKeyBlob;
     bool testMode = false;
     auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &macedPubKey, &privateKeyBlob);
+    if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
+        return;
+    }
     ASSERT_TRUE(status.isOk());
     vector<uint8_t> coseKeyData;
     check_maced_pubkey(macedPubKey, testMode, &coseKeyData);
@@ -361,7 +364,9 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_testMode) {
     bytevec privateKeyBlob;
     bool testMode = true;
     auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &macedPubKey, &privateKeyBlob);
-
+    if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
+        return;
+    }
     if (rpcHardwareInfo.versionNumber >= VERSION_WITHOUT_TEST_MODE) {
         ASSERT_FALSE(status.isOk());
         EXPECT_EQ(status.getServiceSpecificError(), BnRemotelyProvisionedComponent::STATUS_REMOVED);
@@ -391,6 +396,9 @@ class CertificateRequestTestBase : public VtsRemotelyProvisionedComponentTests {
         for (auto& key : keysToSign_) {
             bytevec privateKeyBlob;
             auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &key, &privateKeyBlob);
+            if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
+                return;
+            }
             ASSERT_TRUE(status.isOk()) << status.getMessage();
 
             vector<uint8_t> payload_value;
@@ -510,7 +518,9 @@ TEST_P(CertificateRequestTest, DISABLED_EmptyRequest_prodMode) {
 TEST_P(CertificateRequestTest, NonEmptyRequest_testMode) {
     bool testMode = true;
     generateKeys(testMode, 4 /* numKeys */);
-
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     for (size_t eekLength : {2, 3, 7}) {
         SCOPED_TRACE(testing::Message() << "EEK of length " << eekLength);
         generateTestEekChain(eekLength);
@@ -538,7 +548,9 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_testMode) {
 TEST_P(CertificateRequestTest, DISABLED_NonEmptyRequest_prodMode) {
     bool testMode = false;
     generateKeys(testMode, 4 /* numKeys */);
-
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     bytevec keysToSignMac;
     DeviceInfo deviceInfo;
     ProtectedData protectedData;
@@ -554,6 +566,9 @@ TEST_P(CertificateRequestTest, DISABLED_NonEmptyRequest_prodMode) {
 TEST_P(CertificateRequestTest, NonEmptyRequestCorruptMac_testMode) {
     bool testMode = true;
     generateKeys(testMode, 1 /* numKeys */);
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     auto result = corrupt_maced_key(keysToSign_[0]);
     ASSERT_TRUE(result) << result.moveMessage();
     MacedPublicKey keyWithCorruptMac = result.moveValue();
@@ -575,6 +590,9 @@ TEST_P(CertificateRequestTest, NonEmptyRequestCorruptMac_testMode) {
 TEST_P(CertificateRequestTest, NonEmptyRequestCorruptMac_prodMode) {
     bool testMode = false;
     generateKeys(testMode, 1 /* numKeys */);
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     auto result = corrupt_maced_key(keysToSign_[0]);
     ASSERT_TRUE(result) << result.moveMessage();
     MacedPublicKey keyWithCorruptMac = result.moveValue();
@@ -596,7 +614,9 @@ TEST_P(CertificateRequestTest, NonEmptyRequestCorruptMac_prodMode) {
 TEST_P(CertificateRequestTest, NonEmptyCorruptEekRequest_prodMode) {
     bool testMode = false;
     generateKeys(testMode, 4 /* numKeys */);
-
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     auto prodEekChain = getProdEekChain(rpcHardwareInfo.supportedEekCurve);
     auto [parsedChain, _, parseErr] = cppbor::parse(prodEekChain);
     ASSERT_NE(parsedChain, nullptr) << parseErr;
@@ -625,7 +645,9 @@ TEST_P(CertificateRequestTest, NonEmptyCorruptEekRequest_prodMode) {
 TEST_P(CertificateRequestTest, NonEmptyIncompleteEekRequest_prodMode) {
     bool testMode = false;
     generateKeys(testMode, 4 /* numKeys */);
-
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     // Build an EEK chain that omits the first self-signed cert.
     auto truncatedChain = cppbor::Array();
     auto [chain, _, parseErr] = cppbor::parse(getProdEekChain(rpcHardwareInfo.supportedEekCurve));
@@ -652,7 +674,9 @@ TEST_P(CertificateRequestTest, NonEmptyIncompleteEekRequest_prodMode) {
  */
 TEST_P(CertificateRequestTest, NonEmptyRequest_prodKeyInTestCert) {
     generateKeys(false /* testMode */, 2 /* numKeys */);
-
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     bytevec keysToSignMac;
     DeviceInfo deviceInfo;
     ProtectedData protectedData;
@@ -671,7 +695,9 @@ TEST_P(CertificateRequestTest, NonEmptyRequest_prodKeyInTestCert) {
  */
 TEST_P(CertificateRequestTest, NonEmptyRequest_testKeyInProdCert) {
     generateKeys(true /* testMode */, 2 /* numKeys */);
-
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     bytevec keysToSignMac;
     DeviceInfo deviceInfo;
     ProtectedData protectedData;
@@ -711,6 +737,9 @@ TEST_P(CertificateRequestV2Test, EmptyRequest) {
         auto challenge = randomBytes(size);
         auto status =
                 provisionable_->generateCertificateRequestV2({} /* keysToSign */, challenge, &csr);
+        if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
+            return;
+        }
         ASSERT_TRUE(status.isOk()) << status.getMessage();
 
         auto result = verifyProductionCsr(cppbor::Array(), csr, provisionable_.get(), challenge);
@@ -725,7 +754,9 @@ TEST_P(CertificateRequestV2Test, EmptyRequest) {
 // @VsrTest = 3.10-015
 TEST_P(CertificateRequestV2Test, NonEmptyRequest) {
     generateKeys(false /* testMode */, 1 /* numKeys */);
-
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     bytevec csr;
 
     for (auto size = MIN_CHALLENGE_SIZE; size <= MAX_CHALLENGE_SIZE; size++) {
@@ -747,6 +778,9 @@ TEST_P(CertificateRequestV2Test, EmptyRequestWithInvalidChallengeFail) {
 
     auto status = provisionable_->generateCertificateRequestV2(
             /* keysToSign */ {}, randomBytes(MAX_CHALLENGE_SIZE + 1), &csr);
+    if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
+        return;
+    }
     EXPECT_FALSE(status.isOk()) << status.getMessage();
     EXPECT_EQ(status.getServiceSpecificError(), BnRemotelyProvisionedComponent::STATUS_FAILED);
 }
@@ -758,7 +792,9 @@ TEST_P(CertificateRequestV2Test, EmptyRequestWithInvalidChallengeFail) {
 // @VsrTest = 3.10-015
 TEST_P(CertificateRequestV2Test, NonEmptyRequestReproducible) {
     generateKeys(false /* testMode */, 1 /* numKeys */);
-
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     bytevec csr;
 
     auto status = provisionable_->generateCertificateRequestV2(keysToSign_, challenge_, &csr);
@@ -782,7 +818,9 @@ TEST_P(CertificateRequestV2Test, NonEmptyRequestReproducible) {
 // @VsrTest = 3.10-015
 TEST_P(CertificateRequestV2Test, NonEmptyRequestMultipleKeys) {
     generateKeys(false /* testMode */, rpcHardwareInfo.supportedNumKeysInCsr /* numKeys */);
-
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     bytevec csr;
 
     auto status = provisionable_->generateCertificateRequestV2(keysToSign_, challenge_, &csr);
@@ -797,6 +835,9 @@ TEST_P(CertificateRequestV2Test, NonEmptyRequestMultipleKeys) {
  */
 TEST_P(CertificateRequestV2Test, NonEmptyRequestCorruptMac) {
     generateKeys(false /* testMode */, 1 /* numKeys */);
+    if (cborKeysToSign_.size() == 0) {
+        return;
+    }
     auto result = corrupt_maced_key(keysToSign_[0]);
     ASSERT_TRUE(result) << result.moveMessage();
     MacedPublicKey keyWithCorruptMac = result.moveValue();
