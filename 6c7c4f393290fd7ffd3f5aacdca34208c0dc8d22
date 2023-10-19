@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fa361f2_920a8253",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-19T17:08:20Z",
+      "side": 1,
+      "message": "Jaideep, thank you very much for doing this work! Please see my comments.",
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a71a0135_769cdf52",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-19T17:08:20Z",
+      "side": 1,
+      "message": "Not sure why this include is needed. If this is for pulling in the logging headers, this should be done explicitly instead.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72b78d21_d6d4e59e",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-19T17:08:20Z",
+      "side": 1,
+      "message": "nit: Please add an empty line before the class",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a99b68b_37001c30",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-19T17:08:20Z",
+      "side": 1,
+      "message": "I would write \"Partial Result Start\" instead, same for \"End\".",
+      "range": {
+        "startLine": 38,
+        "startChar": 27,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f2b4884_d6527096",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-19T17:08:20Z",
+      "side": 1,
+      "message": "Producing logs from code in a header file is usually discouraged. That\u0027s because logs use the `LOG_TAG` preprocessor define, and it\u0027s value will depend on where this header is included.\n\nPlease add TestUtils.cpp file for placing the implementations of the class methods.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
