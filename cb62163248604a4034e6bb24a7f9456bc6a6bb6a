@@ -34,6 +34,24 @@
       "parentUuid": "9e327b07_011466f3",
       "revId": "cb62163248604a4034e6bb24a7f9456bc6a6bb6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f9cd326_e1f1431b",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-19T01:09:11Z",
+      "side": 1,
+      "message": "This change is no longer in the CL.",
+      "parentUuid": "058ed918_53dc2673",
+      "revId": "cb62163248604a4034e6bb24a7f9456bc6a6bb6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

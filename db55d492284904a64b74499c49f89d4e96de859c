@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77636ec4_123044d4",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-19T01:09:11Z",
+      "side": 1,
+      "message": "Thanks Steven for the pointer!\n\nWhen trying to incorporate this change, I realized that there is a problem.\n\nThis AIDL is to be implemented by a Trusted applet (e.g. SecretKeeper, Keymint, Gatekeeper, etc) implemented by the vendors, running in the secure hardware.\n(This is not an AIDL for a system component)\nWe provide the reference implementation in Rust (https://cs.android.com/android/platform/superproject/main/+/main:system/authgraph/core/)\nIn the implementation of the Trusted applet code, we cannot assume the availability of the binder dependencies. Therefore, I think we cannot use the binder errors in this case.\n\nHowever, we do use the binder errors in the hal service implementation, which lives in the Android side and therefore has access to the binder dependencies: e.g. https://android-review.git.corp.google.com/c/platform/system/authgraph/+/2786459/2/hal/src/lib.rs#136 \n\nPlease let me know if the above understanding is not correct.\n\nThank you!",
+      "parentUuid": "d6925547_8e41d7f7",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2810724_81200309",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
         "patchSetId": 35
@@ -173,6 +197,30 @@
       "side": 1,
       "message": "Sorry, I am not sure if I understood your comment. Did you mean to say that this should be camel case?",
       "parentUuid": "b2810724_81200309",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 13
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efd6ad23_dcd1bee5",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-19T01:09:11Z",
+      "side": 1,
+      "message": "I hope using KE for Key Exchange is fine.",
+      "parentUuid": "e7469f05_486f2452",
       "range": {
         "startLine": 25,
         "startChar": 11,
@@ -220,6 +268,30 @@
       "side": 1,
       "message": "The two main reasons behind the single parcelables that contain a single byte array are:\n1. They have a CDDL.\n2. They are re-used across multiple return types and method inputs.\n\nE.g. \ni. `Arc` (has `Arc.cddl` and is part of `Key` type, `SessionInfo` type, `sharedKeys` input and output of `authenticationComplete` method)\nii. `Identity` (has `Identity.cddl` and is part of `SessionInitiationInfo`, input for `init` and `finish` methods)\niii. `SessionIdSignature` (has `SessionIdSignature.cddl` and is part of `SessionInfo` type and input for `finish` and `authenticationComplete`)\niv. `PlainPubKey` (has `PlainPubKey.cddl` and is one variant of `PubKey`. `PubKey` is part of the `Key` type and inputs for `init` and `finish` methods. `Key` is in turn part of `SessioInitiationInfo` type)\nv. `SignedPubKey` (has `SignedPubKey.cddl` and is one variant of `PubKey`. `PubKey` is part of the `Key` type.\n\nSo the main motivation for having them as parcelables are: isolation of the definition and re-usability in multiple places. \n\nWe haven\u0027t defined parcels for other primitive types which do not have a specific definition - such as `peerNonce` (of type `byte[]`) and `version` (of type `int`) used as inputs for `init` and `finish`.\n\nHowever, in the above analysis I realized that we can get rid of the KEAuthCompleteResult parcelable, because it is not re-used anywhere. So I removed it and marked the return type to be an array of Arcs (the array only contains two elements)\n\nPlease let me know if you have further questions/feedback on this. Thanks!",
       "parentUuid": "a89d8e27_74059f03",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 0
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e98c984a_8e273e86",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-19T01:09:11Z",
+      "side": 1,
+      "message": "I assume the above reasoning is fine. Please feel free to re-open if you have further questions/feedback on this.",
+      "parentUuid": "9bd376d0_1f2f00b0",
       "range": {
         "startLine": 22,
         "startChar": 0,
