@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aa04f97_a296ea89",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a922305_f0809756",
+      "range": {
+        "startLine": 34,
+        "startChar": 59,
+        "endLine": 34,
+        "endChar": 70
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c8bd839_37703e9d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-19T01:45:28Z",
       "side": 1,
       "message": "Why only 64 bytes?",
+      "range": {
+        "startLine": 45,
+        "startChar": 76,
+        "endLine": 45,
+        "endChar": 84
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89d7f094_5fa23c5d",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Its actually 32 bytes (The comment was a mistake, fixed it). This is the vm secrets\u0027 size.\n\nI wanted to match the size with DICE_CDI_SIZE. Is there an issue with 32 bytes secret? Please reopen the comment if so",
+      "parentUuid": "6c8bd839_37703e9d",
       "range": {
         "startLine": 45,
         "startChar": 76,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3932f9d_b9b35cfb",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "ed9a6fe6_903ed33f",
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e81caa8a_af63d3b5",
@@ -77,6 +143,24 @@
       "writtenOn": "2023-10-06T23:40:27Z",
       "side": 1,
       "message": "How do we test the packets really are this format? How do we make sure the format used by the framework doesn\u0027t drift from this?",
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30886e4e_941e2827",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "We provide a library secretkeeper_comm (aosp/2792898) which constructs requests/response/packet from the CBOR encoding specified in this spec \u0026 vice-versa.\n  \nThe Secretkeeper client (as well as VTS) uses this library. We will have serializaration/deserialtion VTS for each possible requests/response/error structures - aosp/2797757.\n\n\u003e How do we make sure the format used by the framework\n\nI\u0027m not sure I fully understand the question. As long as secretkeeper_comm library used is the same (or versioned in parallel to HAL versioning), we can enforce framework won\u0027t drift away from this definition.\n\nI cannot think of any stricter way to guard it. Ideas?",
+      "parentUuid": "e81caa8a_af63d3b5",
       "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -98,6 +182,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63a77153_07f787db",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1fbf804_4b928316",
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c51fdc04_5e48ef54",
@@ -111,6 +213,30 @@
       "writtenOn": "2023-10-19T10:24:55Z",
       "side": 1,
       "message": "Should this be `KeyR`?\n\nAssuming yes, then the specification of KeyL/KeyR into the generics is redundant -- requests always use KeyL, responses always use KeyR, and there\u0027s no need for the second generic parameter.",
+      "range": {
+        "startLine": 16,
+        "startChar": 80,
+        "endLine": 16,
+        "endChar": 84
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dbed63a_b8af178e",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "You\u0027re right. Changed. Thanks!",
+      "parentUuid": "c51fdc04_5e48ef54",
       "range": {
         "startLine": 16,
         "startChar": 80,
@@ -144,6 +270,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4212974b_7cfe3ca5",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "We decided to do a fully encrypted channel instead of only encrypting sensitive content because we wanted to ensure integrity of entire request along with encryption.\n\nFor ex, an adversary should not be able to pick encrypted secret from a request intended as `store_secret(id, secret, policy)` \u0026 instead trigger `get_secret(id, policy)`. [An alternative would be including opcode an aad but then opcode will need to be bytes \u0026 their wouldn\u0027t be any point doing store()/read() as different AIDL methods]. Also, protocol would be too complex in that case.\n\n\u003e Why does the get version request?\nIf your question extends to why the get version response is encrypted, it is to prevent downgrade attacks of inner APIs such as SecretManagement \u0026 Dice Policy.",
+      "parentUuid": "9fa061d4_204f7550",
+      "range": {
+        "startLine": 45,
+        "startChar": 31,
+        "endLine": 45,
+        "endChar": 70
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "763532f3_b2bf32e6",
@@ -157,6 +307,30 @@
       "writtenOn": "2023-10-19T10:24:55Z",
       "side": 1,
       "message": "\"identifier\" (x 2)",
+      "range": {
+        "startLine": 54,
+        "startChar": 45,
+        "endLine": 54,
+        "endChar": 55
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cee8861a_a1d68d11",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "763532f3_b2bf32e6",
       "range": {
         "startLine": 54,
         "startChar": 45,
@@ -192,6 +366,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b6c06de_64f75c61",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Yes. It is defined in https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2606133/41/security/authgraph/aidl/android/hardware/security/authgraph/DicePolicy.cddl\n\nWe should perhaps move it out of /interfaces/*/authgraph since, dice policy spec is required for both \u0026 it has an independent library (libdice_policy)\n\n@hasinitg@google.com?",
+      "parentUuid": "3cc63163_0e8949ef",
+      "range": {
+        "startLine": 56,
+        "startChar": 42,
+        "endLine": 56,
+        "endChar": 57
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "471a62ea_678d00e1",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
         "patchSetId": 11
@@ -203,6 +401,30 @@
       "writtenOn": "2023-10-06T23:40:27Z",
       "side": 1,
       "message": "error codes can\u0027t be in AIDL directly?",
+      "range": {
+        "startLine": 77,
+        "startChar": 10,
+        "endLine": 82,
+        "endChar": 1
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e72ee98_8cccee8b",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "The errors originate from insider TZ (in Secretkeeper TA). Having AIDL errors would require the TA depending on AIDL parcels \u0026 I\u0027m not sure all TZ impl support those?",
+      "parentUuid": "471a62ea_678d00e1",
       "range": {
         "startLine": 77,
         "startChar": 10,
@@ -236,6 +458,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d33fc33c_a738e9af",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d593fb3c_d6324b11",
+      "range": {
+        "startLine": 96,
+        "startChar": 43,
+        "endLine": 96,
+        "endChar": 51
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f5c0f3e_a6d1e817",
@@ -249,6 +495,30 @@
       "writtenOn": "2023-10-19T01:45:28Z",
       "side": 1,
       "message": "On what criteria you decide that the session is expired?",
+      "range": {
+        "startLine": 101,
+        "startChar": 20,
+        "endLine": 101,
+        "endChar": 34
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c2db29c_a29cc78d",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "I tried not to be too specific about when should HAL throw these errors.\n\nOne of the example where a HAL may throw session_expired is if the number of sessions has reached some upper limit \u0026 TA uses a FIFO queue to expire sessions.\n\nDoes Authgraph have the concept of expiration/disconnect protocol?",
+      "parentUuid": "7f5c0f3e_a6d1e817",
       "range": {
         "startLine": 101,
         "startChar": 20,

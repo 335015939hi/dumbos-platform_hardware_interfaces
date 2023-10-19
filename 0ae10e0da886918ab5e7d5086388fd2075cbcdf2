@@ -813,6 +813,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74e94c7d_9af0ba97",
+        "filename": "security/secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccae025d_6b08d8b0",
+      "range": {
+        "startLine": 27,
+        "startChar": 17,
+        "endLine": 27,
+        "endChar": 19
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80cf5248_f8f64c57",
@@ -860,6 +884,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "118ccf96_5962683f",
+        "filename": "security/secretkeeper/aidl/vts/VtsHalSecretkeeperTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ca9478e_4c31d540",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 13
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf5ad880_04087870",
@@ -897,6 +945,54 @@
       "side": 1,
       "message": "I\u0027m moving the file to a separate patch. Keeping this comment unresolved for reminder.",
       "parentUuid": "cf5ad880_04087870",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 50
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e726e9d2_7f6cadc8",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32fd04e0_8a496748",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 17,
+        "endChar": 50
+      },
+      "revId": "0ae10e0da886918ab5e7d5086388fd2075cbcdf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30721ac8_ab48dab5",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-10-19T21:04:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32fd04e0_8a496748",
       "range": {
         "startLine": 17,
         "startChar": 4,
