@@ -34,6 +34,24 @@
       "parentUuid": "7884fe1b_6d2ecd40",
       "revId": "14ecf91fe8f79b9de668a95b8a2e7a90fcaf1e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7031c22_686d17c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130869
+      },
+      "writtenOn": "2023-10-19T06:02:16Z",
+      "side": 1,
+      "message": "Sorry, seems I have no SSO username and password to access the page.",
+      "parentUuid": "ca29628c_18e53aa2",
+      "revId": "14ecf91fe8f79b9de668a95b8a2e7a90fcaf1e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
