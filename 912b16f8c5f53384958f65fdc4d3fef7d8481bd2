@@ -16,6 +16,24 @@
       "message": "Please review presubmit errors",
       "revId": "912b16f8c5f53384958f65fdc4d3fef7d8481bd2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9554eaf2_77c29e31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1384660
+      },
+      "writtenOn": "2023-10-19T02:31:00Z",
+      "side": 1,
+      "message": "Reported presubmit failure is not relevant to this CL. There is a ticket tracking that issue, b/306195464.",
+      "parentUuid": "939a1d41_4bd58198",
+      "revId": "912b16f8c5f53384958f65fdc4d3fef7d8481bd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
