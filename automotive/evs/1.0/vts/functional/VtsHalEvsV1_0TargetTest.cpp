@@ -17,7 +17,10 @@
 #define LOG_TAG "VtsHalEvsTest"
 
 
+<<<<<<< HEAD   (9e9ee9 [automerger skipped] Allow CDD required properties to be abs)
 // These values are called out in the EVS design doc (as of Mar 8, 2017)
+=======
+>>>>>>> BRANCH (ab7860 Update VtsHalEvsV1_*TargetTest)
 static const int kMaxStreamStartMilliseconds = 1000;
 static const int kMinimumFramesPerSecond = 10;
 
