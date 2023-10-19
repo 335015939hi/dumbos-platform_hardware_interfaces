@@ -52,6 +52,24 @@
       "parentUuid": "ca29628c_18e53aa2",
       "revId": "14ecf91fe8f79b9de668a95b8a2e7a90fcaf1e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff2f9174_c43d9326",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-10-19T15:06:17Z",
+      "side": 1,
+      "message": "Can you access https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2781566?  I think that should be the publicly accessible link (apologies in that Google internal tooling defaults to giving URLs which are internal-only access).",
+      "parentUuid": "f7031c22_686d17c1",
+      "revId": "14ecf91fe8f79b9de668a95b8a2e7a90fcaf1e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
