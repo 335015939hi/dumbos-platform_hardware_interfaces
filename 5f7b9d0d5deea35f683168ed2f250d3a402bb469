@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2a922305_f0809756",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-19T01:45:28Z",
+      "side": 1,
+      "message": "Nit: public key cryptography",
+      "range": {
+        "startLine": 34,
+        "startChar": 59,
+        "endLine": 34,
+        "endChar": 70
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c8bd839_37703e9d",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-19T01:45:28Z",
+      "side": 1,
+      "message": "Why only 64 bytes?",
+      "range": {
+        "startLine": 45,
+        "startChar": 76,
+        "endLine": 45,
+        "endChar": 84
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e81caa8a_af63d3b5",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
         "patchSetId": 11
@@ -14,6 +60,46 @@
       "writtenOn": "2023-10-06T23:40:27Z",
       "side": 1,
       "message": "How do we test the packets really are this format? How do we make sure the format used by the framework doesn\u0027t drift from this?",
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1fbf804_4b928316",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-19T01:45:28Z",
+      "side": 1,
+      "message": "Nit: formatting",
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fa061d4_204f7550",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-19T01:45:28Z",
+      "side": 1,
+      "message": "Why does the `get version` request need to go in an encrypted request?\n\nIn the same line of thinking, what is the reason behind the API not exposing three methods for `getVersion`, `store` and `read` and only encrypt the sensitive content of the input/output of `store` and `read`?",
+      "range": {
+        "startLine": 45,
+        "startChar": 31,
+        "endLine": 45,
+        "endChar": 70
+      },
       "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -36,6 +122,29 @@
         "startChar": 10,
         "endLine": 82,
         "endChar": 1
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f5c0f3e_a6d1e817",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-19T01:45:28Z",
+      "side": 1,
+      "message": "On what criteria you decide that the session is expired?",
+      "range": {
+        "startLine": 101,
+        "startChar": 20,
+        "endLine": 101,
+        "endChar": 34
       },
       "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
