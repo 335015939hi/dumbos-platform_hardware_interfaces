@@ -49,6 +49,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed9a6fe6_903ed33f",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-19T10:24:55Z",
+      "side": 1,
+      "message": "nit: it would be nice (and clearer) to include the word \"encryption\" more explicitly somewhere here, and to point out why encryption is required.",
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e81caa8a_af63d3b5",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
         "patchSetId": 11
@@ -83,6 +100,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c51fdc04_5e48ef54",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-19T10:24:55Z",
+      "side": 1,
+      "message": "Should this be `KeyR`?\n\nAssuming yes, then the specification of KeyL/KeyR into the generics is redundant -- requests always use KeyL, responses always use KeyR, and there\u0027s no need for the second generic parameter.",
+      "range": {
+        "startLine": 16,
+        "startChar": 80,
+        "endLine": 16,
+        "endChar": 84
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9fa061d4_204f7550",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
         "patchSetId": 11
@@ -106,6 +146,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "763532f3_b2bf32e6",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-19T10:24:55Z",
+      "side": 1,
+      "message": "\"identifier\" (x 2)",
+      "range": {
+        "startLine": 54,
+        "startChar": 45,
+        "endLine": 54,
+        "endChar": 55
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cc63163_0e8949ef",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-19T10:24:55Z",
+      "side": 1,
+      "message": "Is DicePolicy.cddl coming in a different CL, or does it already exist somewhere else?",
+      "range": {
+        "startLine": 56,
+        "startChar": 42,
+        "endLine": 56,
+        "endChar": 57
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "471a62ea_678d00e1",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
         "patchSetId": 11
@@ -122,6 +208,29 @@
         "startChar": 10,
         "endLine": 82,
         "endChar": 1
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d593fb3c_d6324b11",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-19T10:24:55Z",
+      "side": 1,
+      "message": "nit: refer to consistent RFC versions (i.e. use RFC9052 as above) \nsuper-nit: use consistent spacing (RFC9052 or RFC 9052?)",
+      "range": {
+        "startLine": 96,
+        "startChar": 43,
+        "endLine": 96,
+        "endChar": 51
       },
       "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
