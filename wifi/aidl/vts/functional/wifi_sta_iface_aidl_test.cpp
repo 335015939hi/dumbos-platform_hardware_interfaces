@@ -107,6 +107,17 @@ class WifiStaIfaceAidlTest : public testing::TestWithParam<std::string> {
         return true;
     }
 
+    bool isAndroidTvDevice() {
+        const std::string oem_key1 = getPropertyString("ro.oem.key1");
+        if (oem_key1.size() < 9) {
+            return false;
+        }
+        if (oem_key1.substr(0, 3) != "ATV") {
+            return false;
+        }
+        return true;
+    }
+
     std::string getPropertyString(const char* property_name) {
         char property_string_raw_bytes[PROPERTY_VALUE_MAX] = {};
         int len = property_get(property_name, property_string_raw_bytes, "");
@@ -144,6 +155,11 @@ TEST_P(WifiStaIfaceAidlTest, GetFeatureSet) {
  */
 // @VsrTest = 5.3.12
 TEST_P(WifiStaIfaceAidlTest, CheckApfIsSupported) {
+    // Set-top-box devices do not have to implement APF if the WiFi chipset does not have
+    // sufficient RAM to do so.
+    if (isAndroidTvDevice() && !isPanelTvDevice()) {
+        GTEST_SKIP() << "Set-top-box device is not required to support APF";
+    }
     // Flat panel TV devices that support MDNS offload do not have to implement APF if the WiFi
     // chipset does not have sufficient RAM to do so.
     if (isPanelTvDevice() && isMdnsOffloadServicePresent()) {
