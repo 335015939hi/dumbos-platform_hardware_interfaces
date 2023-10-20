@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19b6ddfd_8c237939",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-20T21:40:11Z",
+      "side": 1,
+      "message": "The Android side code could translate the underlying code, but I don\u0027t think implementation of any details should determine the interface, e.g. the implementation may be switched out next year etc. I\u0027d still say it\u0027s good to have uniformity in the Android HAL layer.",
+      "parentUuid": "77636ec4_123044d4",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2810724_81200309",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
         "patchSetId": 35
