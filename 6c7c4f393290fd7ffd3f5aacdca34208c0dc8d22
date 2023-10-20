@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b1b73e4_dac5d44e",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-20T16:53:32Z",
+      "side": 1,
+      "message": "Thanks for pointing this out! In this case, perhaps we can just avoid logging these Start/End markers because it will be pretty obvious that the output comes from the test, so they just create visual noise.",
+      "parentUuid": "601a1018_ee21516f",
+      "range": {
+        "startLine": 38,
+        "startChar": 27,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f2b4884_d6527096",
         "filename": "audio/aidl/vts/TestUtils.h",
         "patchSetId": 2
@@ -196,6 +220,30 @@
       "side": 1,
       "message": "It was intentional to keep it here, so these methods can be mapped against the file from where test is run (will help to identify the class being executed.)",
       "parentUuid": "6f2b4884_d6527096",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97eacc5f_9e4a5577",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-20T16:53:32Z",
+      "side": 1,
+      "message": "The problem with this approach is that if the order of includes is not what you expect, for example, this header is included before `LOG_TAG` is defined, then the logging library will define the tag by itself: https://cs.android.com/android/platform/superproject/main/+/main:system/logging/liblog/include_vndk/log/log.h;l\u003d26;drc\u003d1ef5858d728fc33a1510522b276b7a868af8e1c7. That\u0027s why use of logging in header files is usually discouraged.\n\nIn case when there is template code that has to be in the header, and must log, a more careful approach regarding LOG_TAG handling must be employed, see example: https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/include/media/Interpolator.h;l\u003d28;drc\u003d71ba4b37056733c078fafae83cabeaa00bb19f8e\n\nHowever, in this case it\u0027s better just to keep any code that emits logs in a .cpp file.\n\nThe class being executed is already printed by `test_info.test_suite_name()`.",
+      "parentUuid": "a1474b33_3e31aae6",
       "range": {
         "startLine": 44,
         "startChar": 0,
