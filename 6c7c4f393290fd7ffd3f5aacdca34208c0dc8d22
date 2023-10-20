@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fc37a1d_e343a6ba",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2023-10-20T03:32:41Z",
+      "side": 1,
+      "message": "This header has a overriden toString to print uuids in hex format.\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/media/audio/include/system/audio_aidl_utils.h;l\u003d34?q\u003daudio_aidl_utils.h\n\nIncluded it here to leverage across the cpp files to have prints in hex for uuids.",
+      "parentUuid": "a71a0135_769cdf52",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 36
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72b78d21_d6d4e59e",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-19T17:08:20Z",
       "side": 1,
       "message": "nit: Please add an empty line before the class",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 5
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e67ef8b6_83ab0b79",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2023-10-20T03:32:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "72b78d21_d6d4e59e",
       "range": {
         "startLine": 29,
         "startChar": 0,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "601a1018_ee21516f",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2023-10-20T03:32:41Z",
+      "side": 1,
+      "message": "OnTestPartResult can be fired on succeed command as well, in that case it won\u0027t be a partial result. ( not sure if Part is abbreviation of Partial in this case)\n\n  // Fired after a failed assertion or a SUCCEED() invocation.\n  // If you want to throw an exception from this function to skip to the next\n  // TEST, it must be AssertionException defined above, or inherited from it.\n  virtual void OnTestPartResult(const TestPartResult\u0026 test_part_result) \u003d 0;",
+      "parentUuid": "0a99b68b_37001c30",
+      "range": {
+        "startLine": 38,
+        "startChar": 27,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f2b4884_d6527096",
         "filename": "audio/aidl/vts/TestUtils.h",
         "patchSetId": 2
@@ -100,6 +172,30 @@
       "writtenOn": "2023-10-19T17:08:20Z",
       "side": 1,
       "message": "Producing logs from code in a header file is usually discouraged. That\u0027s because logs use the `LOG_TAG` preprocessor define, and it\u0027s value will depend on where this header is included.\n\nPlease add TestUtils.cpp file for placing the implementations of the class methods.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1474b33_3e31aae6",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2023-10-20T03:32:41Z",
+      "side": 1,
+      "message": "It was intentional to keep it here, so these methods can be mapped against the file from where test is run (will help to identify the class being executed.)",
+      "parentUuid": "6f2b4884_d6527096",
       "range": {
         "startLine": 44,
         "startChar": 0,
