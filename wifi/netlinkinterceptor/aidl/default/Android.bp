@@ -25,8 +25,6 @@ package {
 
 cc_binary {
     name: "android.hardware.net.nlinterceptor-service.default",
-    init_rc: ["nlinterceptor-default.rc"],
-    vintf_fragments: ["nlinterceptor-default.xml"],
     vendor: true,
     relative_install_path: "hw",
     defaults: ["nlinterceptor@defaults"],
@@ -45,4 +43,17 @@ cc_binary {
         "service.cpp",
         "util.cpp",
     ],
+}
+
+prebuilt_etc {
+    name: "nlinterceptor-default.rc",
+    src: "nlinterceptor-default.rc",
+    installable: false,
+}
+
+prebuilt_etc {
+    name: "nlinterceptor-default.xml",
+    src: "nlinterceptor-default.xml",
+    sub_dir: "vintf",
+    installable: false,
 }

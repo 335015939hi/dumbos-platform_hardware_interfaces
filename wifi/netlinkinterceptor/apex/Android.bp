@@ -1,0 +1,49 @@
+//
+// Copyright (C) 2023 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+package {
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+apex {
+    name: "com.android.hardware.nlinterceptor",
+    vendor: true,
+    manifest: "apex_manifest.json",
+    file_contexts: "apex_file_contexts",
+    key: "com.android.hardware.key",
+    certificate: ":com.android.hardware.certificate",
+    updatable: false,
+    binaries: [
+        "android.hardware.net.nlinterceptor-service.default",
+    ],
+    prebuilts: [
+        "nlinterceptor-service.rc",
+        "nlinterceptor-service.xml",
+    ],
+}
+
+prebuilt_etc {
+    name: "nlinterceptor-service.rc",
+    src: "nlinterceptor.rc",
+    installable: false,
+}
+
+prebuilt_etc {
+    name: "nlinterceptor-service.xml",
+    src: "nlinterceptor.xml",
+    sub_dir: "vintf",
+    installable: false,
+}
