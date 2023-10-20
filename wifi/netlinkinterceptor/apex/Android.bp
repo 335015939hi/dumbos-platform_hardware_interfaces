@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2021 The Android Open Source Project
+// Copyright (C) 2023 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,39 +15,11 @@
 //
 
 package {
-    // See: http://go/android-license-faq
-    // A large-scale-change added 'default_applicable_licenses' to import
-    // all of the 'license_kinds' from "hardware_interfaces_license"
-    // to get the below license kinds:
-    //   SPDX-license-identifier-Apache-2.0
     default_applicable_licenses: ["hardware_interfaces_license"],
 }
 
-cc_binary {
-    name: "android.hardware.net.nlinterceptor-service.default",
-    vendor: true,
-    relative_install_path: "hw",
-    defaults: ["nlinterceptor@defaults"],
-    shared_libs: [
-        "android.hardware.net.nlinterceptor-V1-ndk",
-        "libbase",
-        "libbinder_ndk",
-    ],
-    static_libs: [
-        "libnlinterceptor",
-        "libnl++",
-    ],
-    srcs: [
-        "InterceptorRelay.cpp",
-        "NetlinkInterceptor.cpp",
-        "service.cpp",
-        "util.cpp",
-    ],
-    installable: false, // installed in APEX
-}
-
 apex {
-    name: "com.android.hardware.net.nlinterceptor",
+    name: "com.android.hardware.nlinterceptor",
     vendor: true,
     manifest: "apex_manifest.json",
     file_contexts: "apex_file_contexts",
@@ -58,19 +30,19 @@ apex {
         "android.hardware.net.nlinterceptor-service.default",
     ],
     prebuilts: [
-        "nlinterceptor.rc",
-        "nlinterceptor.xml",
+        "nlinterceptor-service.rc",
+        "nlinterceptor-service.xml",
     ],
 }
 
 prebuilt_etc {
-    name: "nlinterceptor.rc",
+    name: "nlinterceptor-service.rc",
     src: "nlinterceptor.rc",
     installable: false,
 }
 
 prebuilt_etc {
-    name: "nlinterceptor.xml",
+    name: "nlinterceptor-service.xml",
     src: "nlinterceptor.xml",
     sub_dir: "vintf",
     installable: false,
