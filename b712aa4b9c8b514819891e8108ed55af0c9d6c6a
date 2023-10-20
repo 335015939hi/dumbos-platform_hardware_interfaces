@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e30fd34_b0a6fcf6",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-20T11:41:05Z",
+      "side": 1,
+      "message": "(Personal preference: the length of these method names is a bit unwieldy; the type already has \"Secretkeeper\" in its name so maybe the `_secret_management_request_` is redundant?)",
+      "revId": "b712aa4b9c8b514819891e8108ed55af0c9d6c6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad759c2e_e46c77c1",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-20T11:41:05Z",
+      "side": 1,
+      "message": "Maybe add a TODO to make it clear that encryption is to be added.  \n\n\"SSL added and removed here :-)\"",
+      "revId": "b712aa4b9c8b514819891e8108ed55af0c9d6c6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "711e361c_4b412809",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-20T11:41:05Z",
+      "side": 1,
+      "message": "I\u0027ve seen other Rust HALs redirect panics to logcat, might be worth having here too:\n\n```rust\n    // Redirect panic messages to logcat.\n    std::panic::set_hook(Box::new(|panic_info| {\n        error!(\"{}\", panic_info);\n    }));\n```",
+      "revId": "b712aa4b9c8b514819891e8108ed55af0c9d6c6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
