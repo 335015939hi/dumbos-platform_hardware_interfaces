@@ -16,6 +16,24 @@
       "message": "I mentioned something very similar on another CL but the exec / sec here is dangerously low (6 / s) here for fuzzing. Is it possible that the initialization code is too expensive and we can refactor this into `LLVMFuzzerInitialize()`?",
       "revId": "213e8bba850888b23bcd5a9eb5fc2ca004a00c09",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2aab467_4937a944",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1947108
+      },
+      "writtenOn": "2023-10-20T08:39:38Z",
+      "side": 1,
+      "message": "The initialization time for VehicleManager_Fuzzer is approximately 100 milliseconds. Therefore, using LLVMFuzzerInitialize() will not speed up the fuzzer. VehicleManager_fuzzer calls WatchdogClient::initialize(), which utilizes AServiceManager_getService(). AServiceManager_getService() is a deprecated function and is a part of the libbinder_ndk library. AServiceManager_getService() polls for 5 seconds, and due to this polling time, the execution speed of the fuzzer is slow. Furthermore, the fuzzer is using the lib64 version of libbinder_ndk, making it device-dependent and beyond our control from within the fuzzer.",
+      "parentUuid": "0a83ebd4_24f2017f",
+      "revId": "213e8bba850888b23bcd5a9eb5fc2ca004a00c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
