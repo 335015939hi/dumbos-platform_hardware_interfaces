@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab4053b_69142ef2",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-20T11:20:09Z",
+      "side": 1,
+      "message": "Is the `cfg` and `mod` needed?  I\u0027m not sure how Soong interacts with things that look like integration tests.",
+      "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cbe7493_5af31b68",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-20T11:20:09Z",
+      "side": 1,
+      "message": "Given that `ISecretkeeper` is optional, do we need to cope with devices that have no registered instance?\n\n(For C++ VTS tests I\u0027ve seen, they\u0027re usually parameterized on the HAL instances, but then also have a `GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST` so the test doesn\u0027t barf on devices with no instances.)",
+      "range": {
+        "startLine": 33,
+        "startChar": 55,
+        "endLine": 33,
+        "endChar": 61
+      },
+      "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12143b40_50b9325f",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-20T11:20:09Z",
+      "side": 1,
+      "message": "Could do with a TODO to make it clear that this will need updating when the encryption layer is turned on.",
+      "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
