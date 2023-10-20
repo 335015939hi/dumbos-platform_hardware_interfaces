@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "671186fc_df2fcb2e",
+        "filename": "audio/common/all-versions/test/utility/src/ValidateXml.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-20T20:53:52Z",
+      "side": 1,
+      "message": "Isn\u0027t this the same as aosp/2772704?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 26
+      },
+      "revId": "b88ea50b5a59c9ac03fdbeb7ef95c767d054ce54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
