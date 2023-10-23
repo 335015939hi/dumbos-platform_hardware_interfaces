@@ -160,6 +160,29 @@
       },
       "revId": "5a24b1b990ef9628d56ef89baaea137205b01f39",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ac71ed_7294ffc0",
+        "filename": "wifi/netlinkinterceptor/apex/nlinterceptor.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-10-23T07:45:15Z",
+      "side": 1,
+      "message": "Path to the binary is wrong. `/hw/` is missing",
+      "range": {
+        "startLine": 1,
+        "startChar": 66,
+        "endLine": 1,
+        "endChar": 68
+      },
+      "revId": "5a24b1b990ef9628d56ef89baaea137205b01f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
