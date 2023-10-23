@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7d6cfb6_8421bbd2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificConfigurationLtv.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-10-23T13:21:04Z",
+      "side": 1,
+      "message": "I don\u0027t like this underscore, but the enum value cannot start with a number.\nFor the capabilities these are bits so we use names like `b8000HZ`.\n\nAny suggestion for naming the individual values?",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 39,
+        "endChar": 25
+      },
+      "revId": "ddc832296b972fbf6cbcc97fe2e064c87579669d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
