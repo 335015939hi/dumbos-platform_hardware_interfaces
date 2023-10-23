@@ -43,6 +43,7 @@ namespace V1_0 {
 namespace implementation {
 
 #define WAIT_TIMEOUT 3000000000
+#define IS_32BIT (sizeof(long) == 4 ? true : false)
 
 Filter::Filter() {}
 
@@ -919,7 +920,11 @@ Result Filter::createIndependentMediaEvents(vector<uint8_t> output) {
             .avDataId = dataId,
     };
     if (mPts) {
-        mediaEvent.pts = mPts;
+        if(IS_32BIT)
+            mediaEvent.pts = mPts / 90;
+        else
+            mediaEvent.pts = mPts;
+
         mPts = 0;
     }
     int size = mFilterEvent.events.size();
@@ -977,7 +982,11 @@ Result Filter::createShareMemMediaEvents(vector<uint8_t> output) {
     };
     mSharedAvMemOffset += output.size();
     if (mPts) {
-        mediaEvent.pts = (mPts/90)*1000;
+        if(IS_32BIT)
+            mediaEvent.pts = mPts / 90;
+        else
+            mediaEvent.pts = mPts;
+
         mediaEvent.isPtsPresent = true;
     }
 
