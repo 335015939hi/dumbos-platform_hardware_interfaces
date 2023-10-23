@@ -93,6 +93,29 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "785a9ae5_d65792cb",
+        "filename": "wifi/netlinkinterceptor/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-10-23T07:31:41Z",
+      "side": 1,
+      "message": "nit: apex name may follow the hal interface name. e.g. `com.android.hardware.net.nlinterceptor`.",
+      "range": {
+        "startLine": 22,
+        "startChar": 11,
+        "endLine": 22,
+        "endChar": 46
+      },
+      "revId": "5a24b1b990ef9628d56ef89baaea137205b01f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9dd7aef_7d4bbae0",
