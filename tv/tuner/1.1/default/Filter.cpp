@@ -34,6 +34,7 @@
 #include "FileTuner/TsPlayPump/tsBinaryTable.h"
 #include "FileTuner/TsPlayPump/tsAbstractLongTable.h"
 #include "FileTuner/TsPlayPump/tsDuckContext.h"
+#include "FileTuner/TsPlayPump/tsSDT.h"
 
 namespace android {
 namespace hardware {
@@ -43,6 +44,7 @@ namespace V1_0 {
 namespace implementation {
 
 #define WAIT_TIMEOUT 3000000000
+#define SDT_PID 0x11
 #define IS_32BIT (sizeof(long) == 4 ? true : false)
 
 Filter::Filter() {}
@@ -55,10 +57,11 @@ Filter::Filter(DemuxFilterType type, uint64_t filterId, uint32_t bufferSize,
     mDemux = demux;
 
     mLastVersion = -1;
-    mPesDuckCotext = new ts::DuckContext();
-    mPes_demux = new ts::PESDemux(*mPesDuckCotext, this);
-    ts::DuckContext * duck = new ts::DuckContext();
+    ts::DuckContext* pesDuckContext = new ts::DuckContext();
+    mPes_demux = new ts::PESDemux(*pesDuckContext, this);
+    ts::DuckContext* duck = new ts::DuckContext();
     mSectionDemux = new ts::SectionDemux(*duck, this, this);
+    mDuckContext = new ts::DuckContext();
 
     switch (mType.mainType) {
         case DemuxFilterMainType::TS:
@@ -102,6 +105,9 @@ Filter::Filter(DemuxFilterType type, uint64_t filterId, uint32_t bufferSize,
 Filter::~Filter() {
     mFilterStarted = false;
     mLastVersion = -1;
+    delete mPes_demux;
+    delete mSectionDemux;
+    delete mDuckContext;
 }
 
 Return<void> Filter::getId64Bit(getId64Bit_cb _hidl_cb) {
@@ -763,7 +769,14 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table) 
     if (data.size() == 0) {
         return;
     }
-
+    if (table.sourcePID() == SDT_PID) {
+        ts::SDT* mSDT = new ts::SDT(*mDuckContext, table);
+        if (!mSDT->isActual()) {
+            delete mSDT;
+            return;
+        }
+        delete mSDT;
+    }
     if (mLastVersion != -1 && mLastVersion == table.version()) {
         ALOGD("[Filter] same version");
         return;

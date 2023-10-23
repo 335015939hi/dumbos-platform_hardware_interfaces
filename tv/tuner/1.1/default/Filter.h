@@ -181,6 +181,7 @@ class Filter : public ts::PESHandlerInterface, public ts::TableHandlerInterface,
 
     ts::DuckContext* mPesDuckCotext;
 
+    ts::DuckContext* mDuckContext;
     ts::SectionDemux* mSectionDemux;
 
     // FMQ status local records
