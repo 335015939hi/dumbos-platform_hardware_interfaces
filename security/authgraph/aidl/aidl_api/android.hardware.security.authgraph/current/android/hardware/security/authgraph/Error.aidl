@@ -46,7 +46,5 @@ enum Error {
   INVALID_PRIV_KEY_ARC_IN_KEY = (-8) /* -8 */,
   INVALID_SHARED_KEY_ARCS = (-9) /* -9 */,
   MEMORY_ALLOCATION_FAILED = (-10) /* -10 */,
-  INTERNAL_ERROR = (-11) /* -11 */,
-  UNIMPLEMENTED = (-12) /* -12 */,
-  INCOMPATIBLE_PROTOCOL_VERSION = (-13) /* -13 */,
+  INCOMPATIBLE_PROTOCOL_VERSION = (-11) /* -11 */,
 }

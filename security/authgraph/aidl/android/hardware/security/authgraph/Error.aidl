@@ -46,10 +46,6 @@ enum Error {
     INVALID_SHARED_KEY_ARCS = -9,
     /* Memory allocation failed */
     MEMORY_ALLOCATION_FAILED = -10,
-    /* Internal processing error */
-    INTERNAL_ERROR = -11,
-    /* Unimplemented */
-    UNIMPLEMENTED = -12,
     /* The protocol version negotiated with the sink is incompatible */
-    INCOMPATIBLE_PROTOCOL_VERSION = -13,
+    INCOMPATIBLE_PROTOCOL_VERSION = -11,
 }
