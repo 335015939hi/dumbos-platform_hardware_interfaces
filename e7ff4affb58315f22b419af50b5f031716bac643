@@ -45,6 +45,40 @@
       },
       "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f53f72ad_f4b70bdf",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-10-24T15:49:05Z",
+      "side": 1,
+      "message": "Let\u0027s just fix things up here instead of editing each test individually.\n\nWe should also special-case the RKP VM instance, so _only_ it is allowed to return unsupported. We never want \"default\" or \"strongbox\" to ever report unsupported for any calls.\n\nI _think_ this is as simple as:\n```\n::ndk::ScoptedAStatus status \u003d provisionable_-\u003egetHardwareInfo(\u0026rpcHardwareInfo);\nif (GetParam() \u003d\u003d RKP_VM_INSTANCE_NAME \u0026\u0026 status.getExceptionCode() \u003d\u003d EX_UNSUPPORTED_OPERATION) {\n  GTEST_SKIP() \u003c\u003c \"The RKP VM is not supported on this system.\"\n}\nASSERT_TRUE(status.isOk());\n```",
+      "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dc27df1_24815210",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-10-24T15:49:05Z",
+      "side": 1,
+      "message": "From a purist perspective, it\u0027s probably cleaner to explicitly drop the `RKP_VM_INSTANCE_NAME` from the `params` vector here when the RKP VM is unupported.\n\nHowever, this requires more code (rather than a single `if` statement in the above function). I prefer the solution with the simplest code, which I think is the `GTEST_SKIP` suggestion above.\n\nIf you find that the `GTEST_SKIP` either doesn\u0027t work or results in excessive log spam, then please drop the RKP VM\u0027s instance name here instead when it\u0027s unsupported.",
+      "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
