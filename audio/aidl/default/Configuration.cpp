@@ -32,6 +32,7 @@ using aidl::android::media::audio::common::AudioDeviceType;
 using aidl::android::media::audio::common::AudioFormatDescription;
 using aidl::android::media::audio::common::AudioFormatType;
 using aidl::android::media::audio::common::AudioGainConfig;
+using aidl::android::media::audio::common::AudioInputFlags;
 using aidl::android::media::audio::common::AudioIoFlags;
 using aidl::android::media::audio::common::AudioOutputFlags;
 using aidl::android::media::audio::common::AudioPort;
@@ -321,20 +322,25 @@ std::unique_ptr<Configuration> getPrimaryConfiguration() {
 //
 // Mix ports:
 //  * "r_submix output", maximum 20 opened streams, maximum 10 active streams
-//    - profile PCM 16-bit; MONO, STEREO; 8000, 11025, 16000, 32000, 44100, 48000
+//    - profile PCM 16-bit; MONO, STEREO; 8000, 11025, 16000, 32000, 44100, 48000, 192000
 //  * "r_submix input", maximum 20 opened streams, maximum 10 active streams
-//    - profile PCM 16-bit; MONO, STEREO; 8000, 11025, 16000, 32000, 44100, 48000
+//    - profile PCM 16-bit; MONO, STEREO; 8000, 11025, 16000, 32000, 44100, 48000, 192000
+//  * "r_submix input direct", maximum 20 opened streams, maximum 10 active streams
+//    - profile PCM 16-bit; MONO, STEREO; 8000, 11025, 16000, 32000, 44100, 48000, 192000
 //
 // Routes:
 //  "r_submix output" -> "Remote Submix Out"
-//  "Remote Submix In" -> "r_submix input"
+//  "Remote Submix In" -> "r_submix input", "r_submix input direct"
 //
 std::unique_ptr<Configuration> getRSubmixConfiguration() {
     static const Configuration configuration = []() {
         Configuration c;
         const std::vector<AudioProfile> remoteSubmixPcmAudioProfiles{
                 createProfile(PcmType::INT_16_BIT, {AudioChannelLayout::LAYOUT_STEREO},
-                              {8000, 11025, 16000, 32000, 44100, 48000})};
+                              {8000, 11025, 16000, 32000, 44100, 48000, 192000})};
+        const std::vector<AudioProfile> eac3jocAudioProfiles{
+                createProfile(::android::MEDIA_MIMETYPE_AUDIO_EAC3_JOC,
+                              {AudioChannelLayout::LAYOUT_STEREO}, {48000})};
 
         // Device ports
 
@@ -359,13 +365,60 @@ std::unique_ptr<Configuration> getRSubmixConfiguration() {
         rsubmixOutMix.profiles = remoteSubmixPcmAudioProfiles;
         c.ports.push_back(rsubmixOutMix);
 
+        // Adding a DIRECT flag to rsubmixInMix breaks the mixer paths, so we need separate
+        // non direct and direct paths. It is added because for IEC61937 encapsualated over PCM, we
+        // need the DIRECT and IEC958_NONAUDIO flags as AudioFlinger adds them.
+        AudioPort rsubmixOutDirectMix =
+                createPort(c.nextPortId++, "r_submix output direct",
+                                makeBitPositionFlagMask({
+                                        AudioOutputFlags::DIRECT,
+                                        AudioOutputFlags::IEC958_NONAUDIO}),
+                                false,
+                                createPortMixExt(20, 10));
+        rsubmixOutDirectMix.profiles = remoteSubmixPcmAudioProfiles;
+        c.ports.push_back(rsubmixOutDirectMix);
+
+        // Add e-ac3-joc format as a capability so that createAudioPatch when sent from APM -> AF
+        // with mixFormat e-ac3-joc succeeds, even though AF may be opening the HAL with PCM
+        // (IEC61937) and encoding the e-ac3-joc elementary stream.
+        AudioPort rsubmixOutEac3JocMix =
+                createPort(c.nextPortId++, "r_submix output eac3joc",
+                                makeBitPositionFlagMask({AudioOutputFlags::DIRECT}), false,
+                                createPortMixExt(20, 10));
+        rsubmixOutEac3JocMix.profiles = eac3jocAudioProfiles;
+        c.ports.push_back(rsubmixOutEac3JocMix);
+
+
         AudioPort rsubmixInMix =
                 createPort(c.nextPortId++, "r_submix input", 0, true, createPortMixExt(20, 10));
         rsubmixInMix.profiles = remoteSubmixPcmAudioProfiles;
         c.ports.push_back(rsubmixInMix);
 
-        c.routes.push_back(createRoute({rsubmixOutMix}, rsubmixOutDevice));
+        // Adding a DIRECT flag to rsubmixInMix breaks the capture paths, so we need separate
+        // non direct and direct paths. It is added because for IEC61937 encapsualated over PCM, we
+        // need the DIRECT flag for the capability so AudioFlinger can find a DIRECT input match.
+        AudioPort rsubmixInDirectMix =
+                createPort(c.nextPortId++, "r_submix input direct",
+                                makeBitPositionFlagMask({AudioInputFlags::DIRECT}), true,
+                                createPortMixExt(20, 10));
+        rsubmixInDirectMix.profiles = remoteSubmixPcmAudioProfiles;
+        c.ports.push_back(rsubmixInDirectMix);
+
+        // Add e-ac3-joc format as an input capability so that createAudioPatch when sent from
+        // APM -> AF with mixFormat e-ac3-joc succeeds, even though AF may be opening the HAL with
+        // PCM (IEC61937) and deccoding the e-ac3-joc elementary stream.
+        AudioPort rsubmixInEac3JocMix =
+                createPort(c.nextPortId++, "r_submix input eac3joc",
+                                makeBitPositionFlagMask({AudioInputFlags::DIRECT}), true,
+                                createPortMixExt(20, 10));
+        rsubmixInEac3JocMix.profiles = eac3jocAudioProfiles;
+        c.ports.push_back(rsubmixInEac3JocMix);
+
+        c.routes.push_back(createRoute(
+                {rsubmixOutMix, rsubmixOutDirectMix, rsubmixOutEac3JocMix}, rsubmixOutDevice));
         c.routes.push_back(createRoute({rsubmixInDevice}, rsubmixInMix));
+        c.routes.push_back(createRoute({rsubmixInDevice}, rsubmixInDirectMix));
+        c.routes.push_back(createRoute({rsubmixInDevice}, rsubmixInEac3JocMix));
 
         return c;
     }();
