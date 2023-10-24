@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8b1a679_7612dd7e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1851100
+      },
+      "writtenOn": "2023-10-24T15:44:19Z",
+      "side": 1,
+      "message": "I\u0027m not familiar with how a fuzzer is typically used, and how it\u0027s tested. Could you explain to me how you tested this CL?",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "e9eec45d3631fd51fd7aba1d6ec3c9db8c23ed36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "76a385b1_791e27b3",
@@ -14,6 +37,69 @@
       "writtenOn": "2023-10-23T12:20:56Z",
       "side": 1,
       "message": "Yan, Paul, could you please review this fix?",
+      "revId": "e9eec45d3631fd51fd7aba1d6ec3c9db8c23ed36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c4bbb18_86b08baa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1851100
+      },
+      "writtenOn": "2023-10-24T15:44:19Z",
+      "side": 1,
+      "message": "Thank you for the fix. I left a few questions for my own understanding, since this code is new to me and my C++ is rusty.",
+      "revId": "e9eec45d3631fd51fd7aba1d6ec3c9db8c23ed36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6e72846_4ff5bbc8",
+        "filename": "tv/hdmi/cec/aidl/default/HdmiCecMock.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1851100
+      },
+      "writtenOn": "2023-10-24T15:44:19Z",
+      "side": 1,
+      "message": "In the attached bug, you mentioned that `serviceDied` isn\u0027t called even when `linkToDeath` is successful. Then, in what scenarios is `serviceDied` called? And how did this CL change the scenarios where `serviceDied` is called?",
+      "range": {
+        "startLine": 95,
+        "startChar": 8,
+        "endLine": 95,
+        "endChar": 99
+      },
+      "revId": "e9eec45d3631fd51fd7aba1d6ec3c9db8c23ed36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1cb461c_8047fa68",
+        "filename": "tv/hdmi/cec/aidl/default/fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1851100
+      },
+      "writtenOn": "2023-10-24T15:44:19Z",
+      "side": 1,
+      "message": "Could you please explain why you added `std::move` here? \n\n`fuzzService` takes `FuzzedDataProvider\u0026\u0026`, which to my understanding already prevents `FuzzedDataProvider` from being copied.\n\nIn the codebase, I see `std::move` used with this method when passing a local variable, but not when passing a `FuzzedDataProvider` constructed in place.",
+      "range": {
+        "startLine": 27,
+        "startChar": 47,
+        "endLine": 27,
+        "endChar": 56
+      },
       "revId": "e9eec45d3631fd51fd7aba1d6ec3c9db8c23ed36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
