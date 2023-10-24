@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05183405_aae1a642",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T15:48:08Z",
+      "side": 1,
+      "message": "OK, but what is this code doing in the meantime ?",
+      "range": {
+        "startLine": 523,
+        "startChar": 0,
+        "endLine": 525,
+        "endChar": 50
+      },
+      "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "636701eb_1cd793bf",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T15:48:08Z",
+      "side": 1,
+      "message": "Should this be flagged?",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 528,
+        "endChar": 5
+      },
+      "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
