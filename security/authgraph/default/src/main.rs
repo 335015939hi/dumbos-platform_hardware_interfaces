@@ -30,8 +30,8 @@ use android_hardware_security_authgraph::aidl::android::hardware::security::auth
 };
 use authgraph_boringssl as boring;
 use authgraph_core::{key::MillisecondsSinceEpoch, keyexchange as ke, traits};
-use authgraph_hal::{Innto, TryInnto};
-use log::{error, info, warn};
+use authgraph_hal::{err_to_binder, Innto, TryInnto};
+use log::{error, info};
 use std::ffi::CString;
 use std::sync::Mutex;
 
@@ -206,12 +206,6 @@ impl IAuthGraphKeyExchange for AuthGraphService {
             .map_err(err_to_binder)?;
         Ok(arcs.into_iter().map(|arc| Arc { arc }).collect())
     }
-}
-
-/// Convert an error from the AuthGraph core library into a binder error.
-fn err_to_binder(err: authgraph_core::error::Error) -> binder::Status {
-    warn!("operation failed: {err:?}");
-    binder::Status::new_service_specific_error(err.0 as i32, CString::new(err.1).ok().as_deref())
 }
 
 /// Monotonic clock.
