@@ -52,14 +52,11 @@ std::vector<uint8_t> SigningKeyFromIdentity(const Identity& identity) {
 
 class AuthGraphSessionTest : public ::testing::TestWithParam<std::string> {
   public:
-    Error GetReturnError(const ::ndk::ScopedAStatus& result) {
-        if (result.isOk()) {
-            return Error::OK;
-        }
+    int32_t GetReturnError(const ::ndk::ScopedAStatus& result) {
         if (result.getExceptionCode() == EX_SERVICE_SPECIFIC) {
-            return static_cast<Error>(result.getServiceSpecificError());
+            return result.getServiceSpecificError();
         }
-        return Error::INTERNAL_ERROR;
+        return result.getExceptionCode();
     }
 
     // Build the parameters for the VTS test by enumerating the available HAL instances
@@ -88,15 +85,15 @@ TEST_P(AuthGraphSessionTest, Mainline) {
 
     // Step 1: create an ephemeral ECDH key at the source.
     SessionInitiationInfo source_init_info;
-    ASSERT_EQ(Error::OK, GetReturnError(source->create(&source_init_info)));
+    ASSERT_EQ(0, GetReturnError(source->create(&source_init_info)));
     ASSERT_TRUE(source_init_info.key.pubKey.has_value());
     ASSERT_TRUE(source_init_info.key.arcFromPBK.has_value());
 
     // Step 2: pass the source's ECDH public key and other session info to the sink.
     KEInitResult init_result;
-    ASSERT_EQ(Error::OK, GetReturnError(sink->init(
-                                 source_init_info.key.pubKey.value(), source_init_info.identity,
-                                 source_init_info.nonce, source_init_info.version, &init_result)));
+    ASSERT_EQ(0, GetReturnError(sink->init(source_init_info.key.pubKey.value(),
+                                           source_init_info.identity, source_init_info.nonce,
+                                           source_init_info.version, &init_result)));
     SessionInitiationInfo sink_init_info = init_result.sessionInitiationInfo;
     ASSERT_TRUE(sink_init_info.key.pubKey.has_value());
     // The sink_init_info.arcFromPBK need not be populated, as the ephemeral key agreement
@@ -111,10 +108,10 @@ TEST_P(AuthGraphSessionTest, Mainline) {
     // Step 3: pass the sink's ECDH public key and other session info to the source, so it can
     // calculate the same pair of symmetric keys.
     SessionInfo source_info;
-    ASSERT_EQ(Error::OK, GetReturnError(source->finish(sink_init_info.key.pubKey.value(),
-                                                       sink_init_info.identity, sink_info.signature,
-                                                       sink_init_info.nonce, sink_init_info.version,
-                                                       source_init_info.key, &source_info)));
+    ASSERT_EQ(0, GetReturnError(source->finish(sink_init_info.key.pubKey.value(),
+                                               sink_init_info.identity, sink_info.signature,
+                                               sink_init_info.nonce, sink_init_info.version,
+                                               source_init_info.key, &source_info)));
     ASSERT_EQ((int)source_info.sharedKeys.size(), 2) << "Expect two symmetric keys from finsh()";
     ASSERT_GT((int)source_info.sessionId.size(), 0) << "Expect non-empty session ID from source";
     std::vector<uint8_t> source_signing_key = SigningKeyFromIdentity(source_init_info.identity);
@@ -126,9 +123,8 @@ TEST_P(AuthGraphSessionTest, Mainline) {
     // Step 4: pass the source's session ID info back to the sink, so it can check it and
     // update the symmetric keys so they're marked as authentication complete.
     std::vector<Arc> auth_complete_result;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink->authenticationComplete(
-                      source_info.signature, sink_info.sharedKeys, &auth_complete_result)));
+    ASSERT_EQ(0, GetReturnError(sink->authenticationComplete(
+                         source_info.signature, sink_info.sharedKeys, &auth_complete_result)));
     ASSERT_EQ((int)auth_complete_result.size(), 2)
             << "Expect two symmetric keys from authComplete()";
     sink_info.sharedKeys = auth_complete_result;
@@ -144,20 +140,19 @@ TEST_P(AuthGraphSessionTest, ParallelSink) {
 
     // Step 1: create ephemeral ECDH keys at the source.
     SessionInitiationInfo source_init1_info;
-    ASSERT_EQ(Error::OK, GetReturnError(source->create(&source_init1_info)));
+    ASSERT_EQ(0, GetReturnError(source->create(&source_init1_info)));
     ASSERT_TRUE(source_init1_info.key.pubKey.has_value());
     ASSERT_TRUE(source_init1_info.key.arcFromPBK.has_value());
     SessionInitiationInfo source_init2_info;
-    ASSERT_EQ(Error::OK, GetReturnError(source->create(&source_init2_info)));
+    ASSERT_EQ(0, GetReturnError(source->create(&source_init2_info)));
     ASSERT_TRUE(source_init2_info.key.pubKey.has_value());
     ASSERT_TRUE(source_init2_info.key.arcFromPBK.has_value());
 
     // Step 2: pass the source's ECDH public keys and other session info to the sinks.
     KEInitResult init1_result;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink1->init(source_init1_info.key.pubKey.value(),
-                                         source_init1_info.identity, source_init1_info.nonce,
-                                         source_init1_info.version, &init1_result)));
+    ASSERT_EQ(0, GetReturnError(sink1->init(source_init1_info.key.pubKey.value(),
+                                            source_init1_info.identity, source_init1_info.nonce,
+                                            source_init1_info.version, &init1_result)));
     SessionInitiationInfo sink1_init_info = init1_result.sessionInitiationInfo;
     ASSERT_TRUE(sink1_init_info.key.pubKey.has_value());
 
@@ -167,10 +162,9 @@ TEST_P(AuthGraphSessionTest, ParallelSink) {
     std::vector<uint8_t> sink1_signing_key = SigningKeyFromIdentity(sink1_init_info.identity);
     CheckSignature(sink1_signing_key, sink1_info.sessionId, sink1_info.signature);
     KEInitResult init2_result;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink2->init(source_init2_info.key.pubKey.value(),
-                                         source_init2_info.identity, source_init2_info.nonce,
-                                         source_init2_info.version, &init2_result)));
+    ASSERT_EQ(0, GetReturnError(sink2->init(source_init2_info.key.pubKey.value(),
+                                            source_init2_info.identity, source_init2_info.nonce,
+                                            source_init2_info.version, &init2_result)));
     SessionInitiationInfo sink2_init_info = init2_result.sessionInitiationInfo;
     ASSERT_TRUE(sink2_init_info.key.pubKey.has_value());
 
@@ -183,19 +177,19 @@ TEST_P(AuthGraphSessionTest, ParallelSink) {
     // Step 3: pass each sink's ECDH public key and other session info to the source, so it can
     // calculate the same pair of symmetric keys.
     SessionInfo source_info1;
-    ASSERT_EQ(Error::OK, GetReturnError(source->finish(
-                                 sink1_init_info.key.pubKey.value(), sink1_init_info.identity,
-                                 sink1_info.signature, sink1_init_info.nonce,
-                                 sink1_init_info.version, source_init1_info.key, &source_info1)));
+    ASSERT_EQ(0, GetReturnError(source->finish(sink1_init_info.key.pubKey.value(),
+                                               sink1_init_info.identity, sink1_info.signature,
+                                               sink1_init_info.nonce, sink1_init_info.version,
+                                               source_init1_info.key, &source_info1)));
     ASSERT_EQ((int)source_info1.sharedKeys.size(), 2) << "Expect two symmetric keys from finsh()";
     ASSERT_GT((int)source_info1.sessionId.size(), 0) << "Expect non-empty session ID from source";
     std::vector<uint8_t> source_signing_key1 = SigningKeyFromIdentity(source_init1_info.identity);
     CheckSignature(source_signing_key1, source_info1.sessionId, source_info1.signature);
     SessionInfo source_info2;
-    ASSERT_EQ(Error::OK, GetReturnError(source->finish(
-                                 sink2_init_info.key.pubKey.value(), sink2_init_info.identity,
-                                 sink2_info.signature, sink2_init_info.nonce,
-                                 sink2_init_info.version, source_init2_info.key, &source_info2)));
+    ASSERT_EQ(0, GetReturnError(source->finish(sink2_init_info.key.pubKey.value(),
+                                               sink2_init_info.identity, sink2_info.signature,
+                                               sink2_init_info.nonce, sink2_init_info.version,
+                                               source_init2_info.key, &source_info2)));
     ASSERT_EQ((int)source_info2.sharedKeys.size(), 2) << "Expect two symmetric keys from finsh()";
     ASSERT_GT((int)source_info2.sessionId.size(), 0) << "Expect non-empty session ID from source";
     std::vector<uint8_t> source_signing_key2 = SigningKeyFromIdentity(source_init2_info.identity);
@@ -208,16 +202,14 @@ TEST_P(AuthGraphSessionTest, ParallelSink) {
     // Step 4: pass the source's session ID info back to the sink, so it can check it and
     // update the symmetric keys so they're marked as authentication complete.
     std::vector<Arc> auth_complete_result1;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink1->authenticationComplete(
-                      source_info1.signature, sink1_info.sharedKeys, &auth_complete_result1)));
+    ASSERT_EQ(0, GetReturnError(sink1->authenticationComplete(
+                         source_info1.signature, sink1_info.sharedKeys, &auth_complete_result1)));
     ASSERT_EQ((int)auth_complete_result1.size(), 2)
             << "Expect two symmetric keys from authComplete()";
     sink1_info.sharedKeys = auth_complete_result1;
     std::vector<Arc> auth_complete_result2;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink2->authenticationComplete(
-                      source_info2.signature, sink2_info.sharedKeys, &auth_complete_result2)));
+    ASSERT_EQ(0, GetReturnError(sink2->authenticationComplete(
+                         source_info2.signature, sink2_info.sharedKeys, &auth_complete_result2)));
     ASSERT_EQ((int)auth_complete_result2.size(), 2)
             << "Expect two symmetric keys from authComplete()";
     sink2_info.sharedKeys = auth_complete_result2;
@@ -230,20 +222,19 @@ TEST_P(AuthGraphSessionTest, ParallelSource) {
 
     // Step 1: create an ephemeral ECDH key at each of the sources.
     SessionInitiationInfo source1_init_info;
-    ASSERT_EQ(Error::OK, GetReturnError(source1->create(&source1_init_info)));
+    ASSERT_EQ(0, GetReturnError(source1->create(&source1_init_info)));
     ASSERT_TRUE(source1_init_info.key.pubKey.has_value());
     ASSERT_TRUE(source1_init_info.key.arcFromPBK.has_value());
     SessionInitiationInfo source2_init_info;
-    ASSERT_EQ(Error::OK, GetReturnError(source1->create(&source2_init_info)));
+    ASSERT_EQ(0, GetReturnError(source1->create(&source2_init_info)));
     ASSERT_TRUE(source2_init_info.key.pubKey.has_value());
     ASSERT_TRUE(source2_init_info.key.arcFromPBK.has_value());
 
     // Step 2: pass each source's ECDH public key and other session info to the sink.
     KEInitResult init1_result;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink->init(source1_init_info.key.pubKey.value(),
-                                        source1_init_info.identity, source1_init_info.nonce,
-                                        source1_init_info.version, &init1_result)));
+    ASSERT_EQ(0, GetReturnError(sink->init(source1_init_info.key.pubKey.value(),
+                                           source1_init_info.identity, source1_init_info.nonce,
+                                           source1_init_info.version, &init1_result)));
     SessionInitiationInfo sink_init1_info = init1_result.sessionInitiationInfo;
     ASSERT_TRUE(sink_init1_info.key.pubKey.has_value());
 
@@ -254,10 +245,9 @@ TEST_P(AuthGraphSessionTest, ParallelSource) {
     CheckSignature(sink_signing_key1, sink_info1.sessionId, sink_info1.signature);
 
     KEInitResult init2_result;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink->init(source2_init_info.key.pubKey.value(),
-                                        source2_init_info.identity, source2_init_info.nonce,
-                                        source2_init_info.version, &init2_result)));
+    ASSERT_EQ(0, GetReturnError(sink->init(source2_init_info.key.pubKey.value(),
+                                           source2_init_info.identity, source2_init_info.nonce,
+                                           source2_init_info.version, &init2_result)));
     SessionInitiationInfo sink_init2_info = init2_result.sessionInitiationInfo;
     ASSERT_TRUE(sink_init2_info.key.pubKey.has_value());
 
@@ -269,20 +259,20 @@ TEST_P(AuthGraphSessionTest, ParallelSource) {
 
     // Step 3: pass the sink's ECDH public keys and other session info to the each of the sources.
     SessionInfo source1_info;
-    ASSERT_EQ(Error::OK, GetReturnError(source1->finish(
-                                 sink_init1_info.key.pubKey.value(), sink_init1_info.identity,
-                                 sink_info1.signature, sink_init1_info.nonce,
-                                 sink_init1_info.version, source1_init_info.key, &source1_info)));
+    ASSERT_EQ(0, GetReturnError(source1->finish(sink_init1_info.key.pubKey.value(),
+                                                sink_init1_info.identity, sink_info1.signature,
+                                                sink_init1_info.nonce, sink_init1_info.version,
+                                                source1_init_info.key, &source1_info)));
     ASSERT_EQ((int)source1_info.sharedKeys.size(), 2) << "Expect two symmetric keys from finsh()";
     ASSERT_GT((int)source1_info.sessionId.size(), 0) << "Expect non-empty session ID from source";
     std::vector<uint8_t> source1_signing_key = SigningKeyFromIdentity(source1_init_info.identity);
     CheckSignature(source1_signing_key, source1_info.sessionId, source1_info.signature);
 
     SessionInfo source2_info;
-    ASSERT_EQ(Error::OK, GetReturnError(source2->finish(
-                                 sink_init2_info.key.pubKey.value(), sink_init2_info.identity,
-                                 sink_info2.signature, sink_init2_info.nonce,
-                                 sink_init2_info.version, source2_init_info.key, &source2_info)));
+    ASSERT_EQ(0, GetReturnError(source2->finish(sink_init2_info.key.pubKey.value(),
+                                                sink_init2_info.identity, sink_info2.signature,
+                                                sink_init2_info.nonce, sink_init2_info.version,
+                                                source2_init_info.key, &source2_info)));
     ASSERT_EQ((int)source2_info.sharedKeys.size(), 2) << "Expect two symmetric keys from finsh()";
     ASSERT_GT((int)source2_info.sessionId.size(), 0) << "Expect non-empty session ID from source";
     std::vector<uint8_t> source2_signing_key = SigningKeyFromIdentity(source2_init_info.identity);
@@ -295,16 +285,14 @@ TEST_P(AuthGraphSessionTest, ParallelSource) {
     // Step 4: pass the each source's session ID info back to the sink, so it can check it and
     // update the symmetric keys so they're marked as authentication complete.
     std::vector<Arc> auth_complete_result1;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink->authenticationComplete(
-                      source1_info.signature, sink_info1.sharedKeys, &auth_complete_result1)));
+    ASSERT_EQ(0, GetReturnError(sink->authenticationComplete(
+                         source1_info.signature, sink_info1.sharedKeys, &auth_complete_result1)));
     ASSERT_EQ((int)auth_complete_result1.size(), 2)
             << "Expect two symmetric keys from authComplete()";
     sink_info1.sharedKeys = auth_complete_result1;
     std::vector<Arc> auth_complete_result2;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink->authenticationComplete(
-                      source2_info.signature, sink_info2.sharedKeys, &auth_complete_result2)));
+    ASSERT_EQ(0, GetReturnError(sink->authenticationComplete(
+                         source2_info.signature, sink_info2.sharedKeys, &auth_complete_result2)));
     ASSERT_EQ((int)auth_complete_result2.size(), 2)
             << "Expect two symmetric keys from authComplete()";
     sink_info2.sharedKeys = auth_complete_result2;
@@ -315,9 +303,9 @@ TEST_P(AuthGraphSessionTest, FreshNonces) {
     std::shared_ptr<IAuthGraphKeyExchange> sink = authNode_;
 
     SessionInitiationInfo source_init_info1;
-    ASSERT_EQ(Error::OK, GetReturnError(source->create(&source_init_info1)));
+    ASSERT_EQ(0, GetReturnError(source->create(&source_init_info1)));
     SessionInitiationInfo source_init_info2;
-    ASSERT_EQ(Error::OK, GetReturnError(source->create(&source_init_info2)));
+    ASSERT_EQ(0, GetReturnError(source->create(&source_init_info2)));
 
     // Two calls to create() should result in the same identity but different nonce values.
     ASSERT_EQ(source_init_info1.identity, source_init_info2.identity);
@@ -326,15 +314,13 @@ TEST_P(AuthGraphSessionTest, FreshNonces) {
     ASSERT_NE(source_init_info1.key.arcFromPBK, source_init_info2.key.arcFromPBK);
 
     KEInitResult init_result1;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink->init(source_init_info1.key.pubKey.value(),
-                                        source_init_info1.identity, source_init_info1.nonce,
-                                        source_init_info1.version, &init_result1)));
+    ASSERT_EQ(0, GetReturnError(sink->init(source_init_info1.key.pubKey.value(),
+                                           source_init_info1.identity, source_init_info1.nonce,
+                                           source_init_info1.version, &init_result1)));
     KEInitResult init_result2;
-    ASSERT_EQ(Error::OK,
-              GetReturnError(sink->init(source_init_info2.key.pubKey.value(),
-                                        source_init_info2.identity, source_init_info2.nonce,
-                                        source_init_info2.version, &init_result2)));
+    ASSERT_EQ(0, GetReturnError(sink->init(source_init_info2.key.pubKey.value(),
+                                           source_init_info2.identity, source_init_info2.nonce,
+                                           source_init_info2.version, &init_result2)));
 
     // Two calls to init() should result in the same identity buf different nonces and session IDs.
     ASSERT_EQ(init_result1.sessionInitiationInfo.identity,
