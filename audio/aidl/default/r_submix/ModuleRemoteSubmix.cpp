@@ -27,6 +27,7 @@
 
 using aidl::android::hardware::audio::common::SinkMetadata;
 using aidl::android::hardware::audio::common::SourceMetadata;
+using aidl::android::media::audio::common::AudioFormatType;
 using aidl::android::media::audio::common::AudioOffloadInfo;
 using aidl::android::media::audio::common::AudioPort;
 using aidl::android::media::audio::common::AudioPortConfig;
@@ -47,6 +48,10 @@ ndk::ScopedAStatus ModuleRemoteSubmix::setMicMute(bool in_mute __unused) {
 ndk::ScopedAStatus ModuleRemoteSubmix::createInputStream(
         StreamContext&& context, const SinkMetadata& sinkMetadata,
         const std::vector<MicrophoneInfo>& microphones, std::shared_ptr<StreamIn>* result) {
+    if (context.getFormat().type != AudioFormatType::PCM) {
+        LOG(DEBUG) << __func__ << ": not supported for non PCM";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+    }
     return createStreamInstance<StreamInRemoteSubmix>(result, std::move(context), sinkMetadata,
                                                       microphones);
 }
@@ -54,6 +59,10 @@ ndk::ScopedAStatus ModuleRemoteSubmix::createInputStream(
 ndk::ScopedAStatus ModuleRemoteSubmix::createOutputStream(
         StreamContext&& context, const SourceMetadata& sourceMetadata,
         const std::optional<AudioOffloadInfo>& offloadInfo, std::shared_ptr<StreamOut>* result) {
+    if (context.getFormat().type != AudioFormatType::PCM) {
+        LOG(DEBUG) << __func__ << ": not supported for non PCM";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+    }
     return createStreamInstance<StreamOutRemoteSubmix>(result, std::move(context), sourceMetadata,
                                                        offloadInfo);
 }
@@ -85,6 +94,11 @@ ndk::ScopedAStatus ModuleRemoteSubmix::checkAudioPatchEndpointsMatch(
         const std::vector<AudioPortConfig*>& sources, const std::vector<AudioPortConfig*>& sinks) {
     for (const auto& source : sources) {
         for (const auto& sink : sinks) {
+            if (source->format->type != AudioFormatType::PCM ||
+                    sink->format->type != AudioFormatType::PCM) {
+                LOG(WARNING) << __func__ << ": skip format check for non-PCM sources and sinks";
+                continue;
+            }
             if (source->sampleRate != sink->sampleRate ||
                 source->channelMask != sink->channelMask || source->format != sink->format) {
                 LOG(ERROR) << __func__
