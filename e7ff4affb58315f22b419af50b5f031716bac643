@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0ba6b14_cc1206f7",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T16:18:42Z",
+      "side": 1,
+      "message": "Ack - I just think the comment should say so.",
+      "parentUuid": "fa8134fb_a4e96fc0",
+      "range": {
+        "startLine": 523,
+        "startChar": 0,
+        "endLine": 525,
+        "endChar": 50
+      },
+      "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "636701eb_1cd793bf",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 3
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "None of this is used by Android proper. This is used in:\n1. Tests\n2. RKP factory tooling (`rkp_factory_extraction_tool`)\n\nI\u0027m not up to speed on the flagging rules, so it\u0027s not clear to me if we need to flag what\u0027s basically a test only change or not.",
       "parentUuid": "636701eb_1cd793bf",
+      "range": {
+        "startLine": 526,
+        "startChar": 0,
+        "endLine": 528,
+        "endChar": 5
+      },
+      "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "109b1817_20ab6ce4",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-24T16:18:42Z",
+      "side": 1,
+      "message": "Cool - if it doesn\u0027t break anything for pre-V releases, then we\u0027re good.",
+      "parentUuid": "fe73d434_4bd2b9a9",
       "range": {
         "startLine": 526,
         "startChar": 0,
