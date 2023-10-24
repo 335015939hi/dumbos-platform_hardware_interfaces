@@ -186,6 +186,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "052ef3ab_1f3dab67",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-24T22:49:52Z",
+      "side": 1,
+      "message": "Hi Steven,\n\nI added two pilot CLs to incorporate this change at: https://android-review.git.corp.google.com/q/topic:%22fixup_ag_error%22.\n\nMainly I did the following changes:\n1. Removed the two error codes from the Error.aidl definition as you suggested: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2802953/2/security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl#b49\n\n2. Translated the reference implementation error codes (https://android-review.git.corp.google.com/c/platform/system/authgraph/+/2802674/1/core/src/error.rs#25) into binder errors at: https://android-review.git.corp.google.com/c/platform/system/authgraph/+/2802674/1/hal/src/lib.rs#143\n\n`Q1:` Can you please let me know if this looks fine?\n\n`Q2:` I still have a question that I asked in my first reply in this thread: that is: the Android binder error code space and our error code space overlap. Is there any recommendation of any error code space that we should avoid with when defining AIDL errors?\n\nThank you!",
+      "parentUuid": "19b6ddfd_8c237939",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2810724_81200309",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
         "patchSetId": 35
