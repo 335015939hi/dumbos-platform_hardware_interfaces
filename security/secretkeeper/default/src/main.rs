@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+use android_logger::Config;
 use binder::{BinderFeatures, Interface};
 use log::{error, info, Level};
 use secretkeeper_comm::data_types::error::SecretkeeperError;
@@ -23,15 +23,23 @@ use secretkeeper_comm::data_types::request_response_impl::{
     GetVersionRequest, GetVersionResponse, Opcode,
 };
 use secretkeeper_comm::data_types::response::Response;
-
+use std::collections::HashMap;
+use secretkeeper_comm::data_types::error::InternalError;
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::{
     BnSecretkeeper, BpSecretkeeper, ISecretkeeper,
 };
+use secretkeeperservice::KeyValStore;
+use secretkeeper_comm::data_types::error::StorageError;
+use secretkeeperservice::DicePolicyAwareAuth;
+use secretkeeperservice::SecretkeeperStore;
 
 const CURRENT_VERSION: u64 = 1;
 
 #[derive(Debug, Default)]
-pub struct NonSecureSecretkeeper;
+pub struct NonSecureSecretkeeper {
+    /// TODO
+    volatile_store: HashMap<Vec<u8>, Vec<u8>>,
+}
 
 impl Interface for NonSecureSecretkeeper {}
 
@@ -42,6 +50,12 @@ impl ISecretkeeper for NonSecureSecretkeeper {
 }
 
 impl NonSecureSecretkeeper {
+    fn init() -> Self {
+        NonSecureSecretkeeper {
+            volatile_store: HashMap::new(),
+        }
+    }
+
     // A set of requests to Secretkeeper are 'opaque' - encrypted bytes with inner structure
     // described by CDDL. They need to be decrypted, deserialized and processed accordingly.
     fn process_opaque_request(&self, request: &[u8]) -> Vec<u8> {
@@ -93,6 +107,31 @@ impl NonSecureSecretkeeper {
     }
 }
 
+impl KeyValStore for NonSecureSecretkeeper {
+    fn store(&mut self, key: Vec<u8>, val: Vec<u8>) -> Result<(), StorageError> {
+        // This will overwrite the value if key is already present.
+        let _ = self.volatile_store.insert(key, val);
+        Ok(())
+    }
+
+    fn get(&self, key: &[u8]) -> Result<Option<Vec<u8>>, StorageError> {
+        let optional_val = self.volatile_store.get(key);
+        Ok(optional_val.cloned())
+    }
+}
+
+impl DicePolicyAwareAuth for NonSecureSecretkeeper {
+    fn authenticate_against_dice_policy(
+        dice_chain: &[u8],
+        policy: &[u8],
+    ) -> Result<(), InternalError> {
+        dice_policy::authenticate_against_dice_policy(dice_chain, policy)
+            .map_err(|_| InternalError::DicePolicyError)
+    }
+}
+
+impl SecretkeeperStore for NonSecureSecretkeeper {}
+
 fn main() {
     // Initialize Android logging.
     android_logger::init_once(
@@ -106,7 +145,7 @@ fn main() {
         error!("{}", panic_info);
     }));
 
-    let service = NonSecureSecretkeeper::default();
+    let service = NonSecureSecretkeeper::init();
     let service_binder = BnSecretkeeper::new_binder(service, BinderFeatures::default());
     let service_name = format!(
         "{}/nonsecure",

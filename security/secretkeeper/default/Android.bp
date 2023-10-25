@@ -28,8 +28,10 @@ rust_binary {
         "android.hardware.security.secretkeeper-V1-rust",
         "libandroid_logger",
         "libbinder_rs",
+        "libdice_policy",
         "liblog_rust",
         "libsecretkeeper_comm_nostd",
+        "libsecretkeeperservice",
     ],
     srcs: [
         "src/main.rs",
