@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e6c35e0_5fda695b",
+        "filename": "security/secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-25T15:58:04Z",
+      "side": 1,
+      "message": "You can just directly referenc Apache 2.0 here",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baddd8af_903931e4",
+        "filename": "security/secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-10-25T15:58:04Z",
+      "side": 1,
+      "message": "Do you need this? It\u0027s supposed to default on in the absence of a test.xml",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 26
+      },
+      "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1ab4053b_69142ef2",
