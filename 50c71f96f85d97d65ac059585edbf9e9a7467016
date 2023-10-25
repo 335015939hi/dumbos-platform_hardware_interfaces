@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "024336c4_1d0392d4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1175853
+      },
+      "writtenOn": "2023-10-25T18:55:22Z",
+      "side": 1,
+      "message": "The title seems to be cut off. Could we shorten the title like \"Initialize additionalInfo for VTS InjectSensorEventData test\"?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 80
+      },
+      "revId": "50c71f96f85d97d65ac059585edbf9e9a7467016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7b95644_70cd64ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1175853
+      },
+      "writtenOn": "2023-10-25T18:55:22Z",
+      "side": 1,
+      "message": "The comment seems to be cut off - could we add a newline where $ is to avoid the cut off?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 70
+      },
+      "revId": "50c71f96f85d97d65ac059585edbf9e9a7467016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
