@@ -3,6 +3,46 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4d34d697_a9ec671b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-25T15:26:20Z",
+      "side": 1,
+      "message": "Thank you very much Jaideep for doing this! Just one comment to address. After fixing it, please ask Banajit for QC review.",
+      "revId": "0bcfbd7309f7239b53b3f65f193e17df7cece61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca4672ac_f7e9a799",
+        "filename": "audio/aidl/vts/TestUtils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-25T15:26:20Z",
+      "side": 1,
+      "message": "Please define `LOG_TAG` before including the logging header.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "0bcfbd7309f7239b53b3f65f193e17df7cece61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d2c49b0d_6733d567",
         "filename": "audio/aidl/vts/TestUtils.cpp",
         "patchSetId": 4
@@ -14,6 +54,24 @@
       "writtenOn": "2023-10-25T06:04:35Z",
       "side": 1,
       "message": "Removed the \"start/ stop \" marker now.\n\nresult is multiline in my observations, so I wanted to have start/stop markers, but yes, we can identify \u0026 figure out from the logs without markers as well.\n\nIn case of a failure the the result could look like this:\n\n\n\n10-25 04:23:53.165 27459 27459 I VtsHalAudioCoreTargetTest: hardware/interfaces/audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp:535: Fatal failure:\n10-25 04:23:53.165 27459 27459 I VtsHalAudioCoreTargetTest: Expected the transaction \u0027module-\u003econnectExternalDevice(mIdAndData, \u0026mConnectedPort)\u0027 to succeed\n10-25 04:23:53.165 27459 27459 I VtsHalAudioCoreTargetTest:   but it has failed with: Status(-5, EX_ILLEGAL_STATE): \u0027\u0027\n10-25 04:23:53.165 27459 27459 I VtsHalAudioCoreTargetTest: when connecting device port ID \u0026 data AudioPort{id: 10, name: wired_headset, profiles: [], flags: AudioIoFlags{output: 0}, extraAudioDescriptors: [], gains: [], ext: AudioPortExt{device: AudioPortDeviceExt{device: AudioDevice{type: AudioDeviceDescription{type: OUT_HEADSET, connection: analog}, address: AudioDeviceAddress{id: 1}}, flags: 0, encodedFormats: [], encapsulationModes: 0, encapsulationMetadataTypes: 0}}}\n10-25 04:23:53.165 27459 27459 I VtsHalAudioCoreTargetTest: hardware/interfaces/audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp:1435: Fatal failure:\n10-25 04:23:53.165 27459 27459 I VtsHalAudioCoreTargetTest: Expected: portConnected.SetUp(module.get(), moduleConfig.get()) doesn\u0027t generate new fatal failures in the current thread.\n10-25 04:23:53.165 27459 27459 I VtsHalAudioCoreTargetTest:   Actual: it does.\n10-25 04:23:53.165 27593 27632 D AHAL_QModule: setModuleDebug: default: old flags:ModuleDebug{simulateDeviceConnections: true, streamTransientStateDelayMs: 0}, new flags: ModuleDebug{simulateDeviceConnections: false, streamTransientStateDelayMs: 0}\n\n10-25 04:23:53.166 27459 27459 I VtsHalAudioCoreTargetTest: Completed AudioCoreModuleTest/AudioCoreModule::GetAudioPortWithExternalDevices/0_android_hardware_audio_core_IModule_default",
+      "revId": "0bcfbd7309f7239b53b3f65f193e17df7cece61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "008edd5a_e1bbded0",
+        "filename": "audio/aidl/vts/TestUtils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-25T15:26:20Z",
+      "side": 1,
+      "message": "Thank you! I think the result looks fine.",
+      "parentUuid": "d2c49b0d_6733d567",
       "revId": "0bcfbd7309f7239b53b3f65f193e17df7cece61a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
