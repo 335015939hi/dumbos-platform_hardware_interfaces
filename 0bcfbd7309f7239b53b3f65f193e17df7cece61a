@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a78e31f_3d865c26",
+        "filename": "audio/aidl/vts/TestUtils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-25T19:53:33Z",
+      "side": 1,
+      "message": "Ah, sorry for not noticing this—you need to add this .cpp file to targets in Android.bp.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "0bcfbd7309f7239b53b3f65f193e17df7cece61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca4672ac_f7e9a799",
         "filename": "audio/aidl/vts/TestUtils.cpp",
         "patchSetId": 4
