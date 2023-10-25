@@ -252,6 +252,30 @@
       },
       "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6470d19e_ac9400c4",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2023-10-25T05:58:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97eacc5f_9e4a5577",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "6c7c4f393290fd7ffd3f5aacdca34208c0dc8d22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
