@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e48ab6_b4b4be59",
+        "filename": "tv/input/1.0/vts/functional/VtsHalTvInputV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1986430
+      },
+      "writtenOn": "2023-10-25T13:40:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48535073_b2c27e60",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 25
+      },
+      "revId": "06b68718d2bf4df4c90ff549a1dbaca97213c77b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25352862_75071977",
