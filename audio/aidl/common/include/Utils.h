@@ -174,4 +174,12 @@ constexpr U makeBitPositionFlagMask(std::initializer_list<E> flags) {
     return result;
 }
 
+constexpr int32_t frameCountFromDurationMs(int32_t durationMs, int32_t sampleRateHz) {
+    return (durationMs * sampleRateHz) / 1000;
+}
+
+constexpr int32_t frameCountFromDurationUs(int32_t durationUs, int32_t sampleRateHz) {
+    return (durationUs * sampleRateHz) / 1000000;
+}
+
 }  // namespace aidl::android::hardware::audio::common
