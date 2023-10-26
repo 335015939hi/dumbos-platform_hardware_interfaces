@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9a57d1f_46ff531f",
+        "filename": "audio/aidl/vts/TestUtils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2023-10-26T02:33:25Z",
+      "side": 1,
+      "message": "Sorry for making a blunder, I had to manually copy the changes from my workspace to  aosp/main\u0027s workspace, and had only the git project of hardware/interfaces/audio, so could not test the compilation, missed the file in manual copy of changes.",
+      "parentUuid": "1a78e31f_3d865c26",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 2
+      },
+      "revId": "0bcfbd7309f7239b53b3f65f193e17df7cece61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca4672ac_f7e9a799",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-25T15:26:20Z",
       "side": 1,
       "message": "Please define `LOG_TAG` before including the logging header.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "0bcfbd7309f7239b53b3f65f193e17df7cece61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf2ade45_debb6613",
+        "filename": "audio/aidl/vts/TestUtils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2023-10-26T02:33:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ca4672ac_f7e9a799",
       "range": {
         "startLine": 18,
         "startChar": 0,
