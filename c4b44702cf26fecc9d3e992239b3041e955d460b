@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51a57a0e_06eee55f",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IComponent.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-10-26T16:58:21Z",
+      "side": 1,
+      "message": "nit: sorry I just read this again - does it might make more sense as `GbAllocator` or `GraphicsBufferAllocator` or something like that? gbaAllocator is like `GraphicsBufferAllocatorAllocator`?",
+      "range": {
+        "startLine": 56,
+        "startChar": 15,
+        "endLine": 56,
+        "endChar": 27
+      },
+      "revId": "c4b44702cf26fecc9d3e992239b3041e955d460b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
