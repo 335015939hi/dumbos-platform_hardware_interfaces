@@ -346,7 +346,8 @@ ndk::ScopedAStatus BluetoothHci::sendIsoData(
 
 ndk::ScopedAStatus BluetoothHci::send(PacketType type,
     const std::vector<uint8_t>& v) {
-  if (mH4 == nullptr) {
+  std::lock_guard<std::mutex> guard(mStateMutex);
+  if (mState != HalState::ONE_CLIENT || mH4 == nullptr) {
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
   }
   if (v.empty()) {
