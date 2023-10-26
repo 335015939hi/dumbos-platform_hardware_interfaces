@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba355d11_edb5056d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2007599
+      },
+      "writtenOn": "2023-10-26T02:49:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "024336c4_1d0392d4",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 80
+      },
+      "revId": "50c71f96f85d97d65ac059585edbf9e9a7467016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7b95644_70cd64ca",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-25T18:55:22Z",
       "side": 1,
       "message": "The comment seems to be cut off - could we add a newline where $ is to avoid the cut off?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 70
+      },
+      "revId": "50c71f96f85d97d65ac059585edbf9e9a7467016",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f4ff6c6_456cdb18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2007599
+      },
+      "writtenOn": "2023-10-26T02:49:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7b95644_70cd64ca",
       "range": {
         "startLine": 9,
         "startChar": 0,
