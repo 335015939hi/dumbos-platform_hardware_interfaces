@@ -210,6 +210,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1aec0119_719748e4",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-26T22:29:45Z",
+      "side": 1,
+      "message": "Do you think it would be useful to separate the error code space here:https://cs.android.com/android/platform/superproject/+/master:frameworks/native/libs/binder/ndk/include_ndk/android/binder_status.h;l\u003d95?q\u003dbinder_status.h between binder error codes (i.e. built-in error codes) and AIDL-defined error codes (at least for newly defined AIDLs)?",
+      "parentUuid": "052ef3ab_1f3dab67",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2810724_81200309",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
         "patchSetId": 35
