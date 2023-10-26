@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fb03c55_937d7dc1",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IComponent.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-10-26T16:30:59Z",
+      "side": 1,
+      "message": "`GbaAllocator`? It\u0027s kind of odd to start with the `I` for a parcelable.",
+      "range": {
+        "startLine": 56,
+        "startChar": 15,
+        "endLine": 56,
+        "endChar": 28
+      },
+      "revId": "e89a5f12fbd408948e5049326f2638dd3fd9899a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
