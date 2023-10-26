@@ -888,8 +888,13 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, verifyLaneCenteringAssistStateConfig) 
 }
 
 bool VtsHalAutomotiveVehicleTargetTest::checkIsSupported(int32_t propertyId) {
+<<<<<<< HEAD   (e4d528 Merge "Merge android14-tests-dev" into main)
     auto result = mVhalClient->getPropConfigs({propertyId});
     return result.ok();
+=======
+  auto result = mVhalClient->getPropConfigs({propertyId});
+  return result.ok();
+>>>>>>> BRANCH (076976 Allow CDD required properties to be absent in VTS.)
 }
 
 std::vector<ServiceDescriptor> getDescriptors() {
