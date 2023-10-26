@@ -21,6 +21,8 @@ import android.hardware.media.c2.IComponentInterface;
 import android.hardware.media.c2.IConfigurable;
 import android.hardware.media.c2.IGraphicBufferAllocator;
 import android.hardware.media.c2.WorkBundle;
+import android.os.ParcelFileDescriptor;
+
 
 /**
  * Interface for an AIDL Codec2 component.
@@ -45,6 +47,18 @@ interface IComponent {
     }
 
     /**
+     * C2AIDL allocator interface along with a waitable fd.
+     *
+     * The interface is used from a specific type of C2BlockPool to allocate
+     * graphic blocks. the waitable fd is used to create a specific type of
+     * C2Fence which can be used for waiting until to allocate is not blocked.
+     */
+    parcelable IgbaAllocator {
+        IGraphicBufferAllocator igba;
+        ParcelFileDescriptor waitableFd;
+    }
+
+    /**
      * Allocator for C2BlockPool.
      *
      * C2BlockPool will use a C2Allocator which is specified by an id.
@@ -52,7 +66,7 @@ interface IComponent {
      */
     union BlockPoolAllocator {
         int allocatorId;
-        IGraphicBufferAllocator igba;
+        IgbaAllocator igba;
     }
 
     /**
@@ -100,6 +114,7 @@ interface IComponent {
      *
      * @param allocator AIDL allocator interface or C2Allocator specifier
      *     for C2BlockPool
+     * @param fd file descriptor to create C2Fence based waitable object
      * @param out configurable Configuration interface for the created pool. This
      *     must not be null.
      * @return Created block pool information. This could be used to config/query and
