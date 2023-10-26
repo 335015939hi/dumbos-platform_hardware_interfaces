@@ -16,6 +16,41 @@
       "message": "Hi Steven @smoreland@google.com,\n\nCan you please provide any insights on what could be the reason for this VTS test failure on this CL topic?\nhttps://android-build.corp.google.com/test_investigate/?blocking\u003dblocking\u0026invocationId\u003dI30900010208590507\u0026status\u003dnone\u0026testResultId\u003dTR58529004965195668\n\n```\ndevice/google/cuttlefish/tests/hal/hal_implementation_test.cpp:571: Failure\nFailed\nThe latest version (1) of the module is not implemented: android.hardware.security.authgraph which declares the following types:\n    android.hardware.security.authgraph.Arc ...\n```\nThis CL topic contains an implementation of the interface in (aosp/2786800).\n\nI tried to read the failing test at https://cs.android.com/android/platform/superproject/+/master:device/google/cuttlefish/tests/hal/hal_implementation_test.cpp;l\u003d568.\nBut it is not clear to me what that test is about. Any clarifications would be appreciated.\n\nThank you!",
       "revId": "03674b5565559323f5b6a6a9ef71cd13b2b25e44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c194f4ce_9f0d3861",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 41
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-26T20:41:07Z",
+      "side": 1,
+      "message": "Now we are getting a different pre-submit error: https://android-build.corp.google.com/test_investigate/?blocking\u003dblocking\u0026invocationId\u003dI32500010210934190\u0026status\u003dnone\u0026testResultId\u003dTR94129017701433310\n\n```\ncom.android.tradefed.device.DeviceNotAvailableException[DEVICE_UNAVAILABLE|520750|LOST_SYSTEM_UNDER_TEST]: Could not find device localhost:42847\n\tat com.android.tradefed.device.WaitDeviceRecovery.handleDeviceNotAvailable(WaitDeviceRecovery.java:263)\n```\nWhich seems to be unrelated to this CL.",
+      "revId": "03674b5565559323f5b6a6a9ef71cd13b2b25e44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf46ec5f_dded5950",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 41
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-26T20:41:07Z",
+      "side": 1,
+      "message": "Please ignore this for now. After adding this CL to the same topic which has the cuttlefish implementation, the above error didn\u0027t show up.",
+      "parentUuid": "6c8d1bfd_fea61ac0",
+      "revId": "03674b5565559323f5b6a6a9ef71cd13b2b25e44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
