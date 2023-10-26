@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4bb7ff2_0a1a4397",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-26T11:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba7f6788_5be8e5a6",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 73
+      },
+      "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed752ffa_6fb96869",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-17T17:07:47Z",
       "side": 1,
       "message": "Better create a new local variable instead of reusing kGainMbValues (see line#43).\nBut it will be nice to have kGainMbValues a super set of all gain values we test in data testing so it can be verified with parameter test case `SetAndGetGainMb`.\n\nAlso see the comment at line#218, these test cases may no fit into parameter testing.",
+      "range": {
+        "startLine": 185,
+        "startChar": 27,
+        "endLine": 185,
+        "endChar": 40
+      },
+      "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23f601b8_134ea6c1",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-26T11:54:10Z",
+      "side": 1,
+      "message": "Created kGainMbValues variable which has all the values that are used in data test.",
+      "parentUuid": "ed752ffa_6fb96869",
       "range": {
         "startLine": 185,
         "startChar": 27,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "555fd3c7_970a73bd",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-26T11:54:10Z",
+      "side": 1,
+      "message": "Added maximum gain test. Also added a method to check if the input gains are valid.",
+      "parentUuid": "a061ac05_cd21c93b",
+      "range": {
+        "startLine": 201,
+        "startChar": 34,
+        "endLine": 201,
+        "endChar": 45
+      },
+      "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8b1f317_9458a6f5",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f626c2d_f3c1074d",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-26T11:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8b1f317_9458a6f5",
+      "range": {
+        "startLine": 213,
+        "startChar": 8,
+        "endLine": 213,
+        "endChar": 17
+      },
+      "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fd614ba_a689f69d",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-10-17T17:07:47Z",
       "side": 1,
       "message": "This test suite is named `LoudnessEnhancerParamTest`, maybe it\u0027s better to create another test suite for `LoudnessEnhancerDataTest`, and move these added test cases into the new suite?",
+      "range": {
+        "startLine": 218,
+        "startChar": 30,
+        "endLine": 218,
+        "endChar": 55
+      },
+      "revId": "0f8c74ed0b402b4c05737e5a804eed741db17440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "095eda96_f898db17",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-26T11:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fd614ba_a689f69d",
       "range": {
         "startLine": 218,
         "startChar": 30,
