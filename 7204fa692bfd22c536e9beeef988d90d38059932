@@ -1,0 +1,280 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "258038bf_808d6b77",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "Please use `float` for clarity.",
+      "range": {
+        "startLine": 34,
+        "startChar": 17,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f699555_b3854611",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "nit: `-100, -50` for symmetry.",
+      "range": {
+        "startLine": 42,
+        "startChar": 57,
+        "endLine": 42,
+        "endChar": 66
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64985f33_3ef22de3",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "It\u0027s not really a test fixture class anymore after we have removed `TestWithParam` from ancestors. Thus, something like `LoudnessEnhancerEffectHelper` looks like a more appropriate name.",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 32
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33766b90_cbfb7d30",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "-kMaxAudioSample and kMaxAudioSample",
+      "range": {
+        "startLine": 174,
+        "startChar": 51,
+        "endLine": 174,
+        "endChar": 58
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "717fc51d_965c110a",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "Since this function is called by every test, I would suggest calling it from the constructor and having the buffer stored in the test fixture.",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 175,
+        "endChar": 58
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c601a64_4b9d186a",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "Did you actually mean `kMaxAudioSample * ((static_cast\u003cfloat\u003e(std::rand()) / RAND_MAX) * 2 - 1)`? In the current form, the formula produces balanced positive and negative values only when `kMaxAudioSample \u003d\u003d 1`.",
+      "range": {
+        "startLine": 177,
+        "startChar": 24,
+        "endLine": 177,
+        "endChar": 90
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0440daa5_b005e1c0",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "Do we expect that `second[i]` must be `0` when `first[i]` is `0`?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 72
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd6c2b53_26e8e3b6",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "Every call to `process` must be wrapped into `ASSERT_NO_FATAL_FAILURE` in order to catch any produced failures.",
+      "range": {
+        "startLine": 221,
+        "startChar": 4,
+        "endLine": 221,
+        "endChar": 11
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7ff5578_1d882d08",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "Same note about the need to wrap into `ASSERT_NO_FATAL_FAILURE`.",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 52
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91f07ce3_f78d6da0",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "Why not just to assign the entire vector? `baseOutput \u003d outputBuffer`",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 9
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d682938_01344d3d",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "This is almost identical to `IncreasingGains` except for the vector and the arguments order in the call to `assertGreaterGain`. Please make a helper function with common part an call it from both tests.",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 51
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e485d2e4_9f2e7386",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-26T16:16:57Z",
+      "side": 1,
+      "message": "Is it OK if **all** elements of `outputBuffer` will end up being `0`? If it is not, there needs to be a check for that.",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 35
+      },
+      "revId": "7204fa692bfd22c536e9beeef988d90d38059932",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
