@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 The Android Open Source Project
+ * Copyright 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,21 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.audio;
-@Backing(type="byte") @VintfStability
-enum SessionType {
-  UNKNOWN = 0,
-  A2DP_SOFTWARE_ENCODING_DATAPATH = 1,
-  A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH = 2,
-  HEARING_AID_SOFTWARE_ENCODING_DATAPATH = 3,
-  LE_AUDIO_SOFTWARE_ENCODING_DATAPATH = 4,
-  LE_AUDIO_SOFTWARE_DECODING_DATAPATH = 5,
-  LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH = 6,
-  LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH = 7,
-  LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH = 8,
-  LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH = 9,
-  A2DP_SOFTWARE_DECODING_DATAPATH = 10,
-  A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH = 11,
-  HFP_SOFTWARE_ENCODING_DATAPATH,
-  HFP_SOFTWARE_DECODING_DATAPATH,
-  HFP_HARDWARE_OFFLOAD_DATAPATH,
+@VintfStability
+parcelable HfpConfiguration {
+  android.hardware.bluetooth.audio.CodecId codecId;
+  int connectionHandle;
+  boolean nrec;
+  boolean controllerCodec;
 }
