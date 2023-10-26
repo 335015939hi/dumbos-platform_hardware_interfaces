@@ -352,6 +352,7 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+<<<<<<< TARGET BRANCH (d77224 [automerger skipped] Allow CDD required properties to be abs)
         <name>android.hardware.media.c2</name>
         <version>1.0</version>
         <interface>
@@ -361,6 +362,8 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
+=======
+>>>>>>> SOURCE BRANCH (984823 Merge "OMX: allow in 8" into android14-tests-dev)
         <name>android.hardware.media.omx</name>
         <version>1.0</version>
         <interface>
