@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4b0f648_d384ed92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-27T16:31:36Z",
+      "side": 1,
+      "message": "LGTM modulo comments.\n\nShunkai, any comments from your side?",
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88e29e1c_c22be46d",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-27T16:31:36Z",
+      "side": 1,
+      "message": "Since there is actually only one parameter (the pair), there is no need to use tuple here. In this case, line `150` will become just `std::tie(mFactory, mDescriptor) \u003d GetParam()`, and in the test instantiation, there is nothing to `Combine`.",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 99
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2a71290_9e73b15e",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-27T16:31:36Z",
+      "side": 1,
+      "message": "Please use const references.",
+      "range": {
+        "startLine": 195,
+        "startChar": 27,
+        "endLine": 195,
+        "endChar": 79
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4281ff1_fc850b9a",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-27T16:31:36Z",
+      "side": 1,
+      "message": "Please pass by a const reference.",
+      "range": {
+        "startLine": 206,
+        "startChar": 31,
+        "endLine": 206,
+        "endChar": 48
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
