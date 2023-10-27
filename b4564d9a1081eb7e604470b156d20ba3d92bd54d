@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1adfe7a6_a83bf567",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-27T23:43:08Z",
+      "side": 1,
+      "message": "Hi David,\n\nThis CL topic `fixup_aga-error` addresses the outstanding comment on the AIDL CL at: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2606133/comment/2c32d835_277b8f64/\n\nIf you are too fine with this change, I will merge it with the original CL stack.\n\nThanks!",
+      "revId": "b4564d9a1081eb7e604470b156d20ba3d92bd54d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
