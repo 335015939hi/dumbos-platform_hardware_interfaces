@@ -24,7 +24,7 @@ import android.hardware.security.authgraph.SessionInitiationInfo;
  */
 @VintfStability
 @RustDerive(Clone=true, Eq=true, PartialEq=true)
-parcelable KEInitResult {
+parcelable KeInitResult {
     /**
      * Session initiation information.
      */

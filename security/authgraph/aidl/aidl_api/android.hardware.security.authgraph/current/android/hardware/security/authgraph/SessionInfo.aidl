@@ -34,7 +34,7 @@
 package android.hardware.security.authgraph;
 @RustDerive(Clone=true, Eq=true, PartialEq=true) @VintfStability
 parcelable SessionInfo {
-  android.hardware.security.authgraph.Arc[] sharedKeys;
+  android.hardware.security.authgraph.Arc[2] sharedKeys;
   byte[] sessionId;
   android.hardware.security.authgraph.SessionIdSignature signature;
 }

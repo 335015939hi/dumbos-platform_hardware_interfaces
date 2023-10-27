@@ -36,7 +36,7 @@ package android.hardware.security.authgraph;
 @VintfStability
 interface IAuthGraphKeyExchange {
   android.hardware.security.authgraph.SessionInitiationInfo create();
-  android.hardware.security.authgraph.KEInitResult init(in android.hardware.security.authgraph.PubKey peerPubKey, in android.hardware.security.authgraph.Identity peerId, in byte[] peerNonce, in int peerVersion);
+  android.hardware.security.authgraph.KeInitResult init(in android.hardware.security.authgraph.PubKey peerPubKey, in android.hardware.security.authgraph.Identity peerId, in byte[] peerNonce, in int peerVersion);
   android.hardware.security.authgraph.SessionInfo finish(in android.hardware.security.authgraph.PubKey peerPubKey, in android.hardware.security.authgraph.Identity peerId, in android.hardware.security.authgraph.SessionIdSignature peerSignature, in byte[] peerNonce, in int peerVersion, in android.hardware.security.authgraph.Key ownKey);
-  android.hardware.security.authgraph.Arc[] authenticationComplete(in android.hardware.security.authgraph.SessionIdSignature peerSignature, in android.hardware.security.authgraph.Arc[] sharedKeys);
+  android.hardware.security.authgraph.Arc[2] authenticationComplete(in android.hardware.security.authgraph.SessionIdSignature peerSignature, in android.hardware.security.authgraph.Arc[2] sharedKeys);
 }
