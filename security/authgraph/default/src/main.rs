@@ -24,7 +24,7 @@
 
 use android_hardware_security_authgraph::aidl::android::hardware::security::authgraph::{
     Arc::Arc, IAuthGraphKeyExchange::BnAuthGraphKeyExchange,
-    IAuthGraphKeyExchange::IAuthGraphKeyExchange, Identity::Identity, KEInitResult::KEInitResult,
+    IAuthGraphKeyExchange::IAuthGraphKeyExchange, Identity::Identity, KeInitResult::KeInitResult,
     Key::Key, PubKey::PubKey, SessionIdSignature::SessionIdSignature, SessionInfo::SessionInfo,
     SessionInitiationInfo::SessionInitiationInfo,
 };
@@ -146,7 +146,7 @@ impl IAuthGraphKeyExchange for AuthGraphService {
         peer_id: &Identity,
         peer_nonce: &[u8],
         peer_version: i32,
-    ) -> binder::Result<KEInitResult> {
+    ) -> binder::Result<KeInitResult> {
         info!("init(v={peer_version})");
         let mut imp = self.imp.lock().unwrap();
         let peer_pub_key = unsigned_pub_key(peer_pub_key)?;
@@ -191,20 +191,14 @@ impl IAuthGraphKeyExchange for AuthGraphService {
     fn authenticationComplete(
         &self,
         peer_signature: &SessionIdSignature,
-        shared_keys: &[Arc],
-    ) -> binder::Result<Vec<Arc>> {
+        shared_keys: &[Arc; 2],
+    ) -> binder::Result<[Arc; 2]> {
         info!("authComplete()");
         let mut imp = self.imp.lock().unwrap();
-        if shared_keys.len() != 2 {
-            return Err(binder::Status::new_exception(
-                binder::ExceptionCode::ILLEGAL_ARGUMENT,
-                Some(&CString::new("unexpected number of shared keys").unwrap()),
-            ));
-        }
         let shared_keys = [shared_keys[0].arc.clone(), shared_keys[1].arc.clone()];
         let arcs = ke::authentication_complete(&mut *imp, &peer_signature.signature, shared_keys)
             .map_err(err_to_binder)?;
-        Ok(arcs.into_iter().map(|arc| Arc { arc }).collect())
+        Ok(arcs.map(|arc| Arc { arc }))
     }
 }
 
