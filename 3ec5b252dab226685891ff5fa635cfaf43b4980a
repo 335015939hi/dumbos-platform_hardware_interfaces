@@ -22,6 +22,30 @@
       },
       "revId": "3ec5b252dab226685891ff5fa635cfaf43b4980a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "361695e4_5bf6aaf4",
+        "filename": "tv/tuner/aidl/vts/functional/FilterTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1947190
+      },
+      "writtenOn": "2023-10-27T08:17:00Z",
+      "side": 1,
+      "message": "Fixed. Thank you!",
+      "parentUuid": "3ec69f2f_203e2e55",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 1
+      },
+      "revId": "3ec5b252dab226685891ff5fa635cfaf43b4980a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
