@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c32951d6_2bdc10c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-10-27T20:20:17Z",
+      "side": 1,
+      "message": "A bunch of unrelated presubmit failures. I would expect builds to fail with this if there were a problem, not unrelated tests.\n\nThis can wait til next week to be submitted just in case. Better than a Friday afternoon with broken/flaky presubmits.",
+      "revId": "93139269399f5b95f0f0b1bee548786c105fd0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
