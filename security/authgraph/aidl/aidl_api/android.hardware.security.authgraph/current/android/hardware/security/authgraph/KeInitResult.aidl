@@ -33,7 +33,7 @@
 
 package android.hardware.security.authgraph;
 @RustDerive(Clone=true, Eq=true, PartialEq=true) @VintfStability
-parcelable KEInitResult {
+parcelable KeInitResult {
   android.hardware.security.authgraph.SessionInitiationInfo sessionInitiationInfo;
   android.hardware.security.authgraph.SessionInfo sessionInfo;
 }
