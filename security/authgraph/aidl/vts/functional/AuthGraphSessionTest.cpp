@@ -90,7 +90,7 @@ TEST_P(AuthGraphSessionTest, Mainline) {
     ASSERT_TRUE(source_init_info.key.arcFromPBK.has_value());
 
     // Step 2: pass the source's ECDH public key and other session info to the sink.
-    KEInitResult init_result;
+    KeInitResult init_result;
     ASSERT_EQ(0, GetReturnError(sink->init(source_init_info.key.pubKey.value(),
                                            source_init_info.identity, source_init_info.nonce,
                                            source_init_info.version, &init_result)));
@@ -122,7 +122,7 @@ TEST_P(AuthGraphSessionTest, Mainline) {
 
     // Step 4: pass the source's session ID info back to the sink, so it can check it and
     // update the symmetric keys so they're marked as authentication complete.
-    std::vector<Arc> auth_complete_result;
+    std::array<Arc, 2> auth_complete_result;
     ASSERT_EQ(0, GetReturnError(sink->authenticationComplete(
                          source_info.signature, sink_info.sharedKeys, &auth_complete_result)));
     ASSERT_EQ((int)auth_complete_result.size(), 2)
@@ -149,7 +149,7 @@ TEST_P(AuthGraphSessionTest, ParallelSink) {
     ASSERT_TRUE(source_init2_info.key.arcFromPBK.has_value());
 
     // Step 2: pass the source's ECDH public keys and other session info to the sinks.
-    KEInitResult init1_result;
+    KeInitResult init1_result;
     ASSERT_EQ(0, GetReturnError(sink1->init(source_init1_info.key.pubKey.value(),
                                             source_init1_info.identity, source_init1_info.nonce,
                                             source_init1_info.version, &init1_result)));
@@ -161,7 +161,7 @@ TEST_P(AuthGraphSessionTest, ParallelSink) {
     ASSERT_GT((int)sink1_info.sessionId.size(), 0) << "Expect non-empty session ID from sink";
     std::vector<uint8_t> sink1_signing_key = SigningKeyFromIdentity(sink1_init_info.identity);
     CheckSignature(sink1_signing_key, sink1_info.sessionId, sink1_info.signature);
-    KEInitResult init2_result;
+    KeInitResult init2_result;
     ASSERT_EQ(0, GetReturnError(sink2->init(source_init2_info.key.pubKey.value(),
                                             source_init2_info.identity, source_init2_info.nonce,
                                             source_init2_info.version, &init2_result)));
@@ -201,13 +201,13 @@ TEST_P(AuthGraphSessionTest, ParallelSink) {
 
     // Step 4: pass the source's session ID info back to the sink, so it can check it and
     // update the symmetric keys so they're marked as authentication complete.
-    std::vector<Arc> auth_complete_result1;
+    std::array<Arc, 2> auth_complete_result1;
     ASSERT_EQ(0, GetReturnError(sink1->authenticationComplete(
                          source_info1.signature, sink1_info.sharedKeys, &auth_complete_result1)));
     ASSERT_EQ((int)auth_complete_result1.size(), 2)
             << "Expect two symmetric keys from authComplete()";
     sink1_info.sharedKeys = auth_complete_result1;
-    std::vector<Arc> auth_complete_result2;
+    std::array<Arc, 2> auth_complete_result2;
     ASSERT_EQ(0, GetReturnError(sink2->authenticationComplete(
                          source_info2.signature, sink2_info.sharedKeys, &auth_complete_result2)));
     ASSERT_EQ((int)auth_complete_result2.size(), 2)
@@ -231,7 +231,7 @@ TEST_P(AuthGraphSessionTest, ParallelSource) {
     ASSERT_TRUE(source2_init_info.key.arcFromPBK.has_value());
 
     // Step 2: pass each source's ECDH public key and other session info to the sink.
-    KEInitResult init1_result;
+    KeInitResult init1_result;
     ASSERT_EQ(0, GetReturnError(sink->init(source1_init_info.key.pubKey.value(),
                                            source1_init_info.identity, source1_init_info.nonce,
                                            source1_init_info.version, &init1_result)));
@@ -244,7 +244,7 @@ TEST_P(AuthGraphSessionTest, ParallelSource) {
     std::vector<uint8_t> sink_signing_key1 = SigningKeyFromIdentity(sink_init1_info.identity);
     CheckSignature(sink_signing_key1, sink_info1.sessionId, sink_info1.signature);
 
-    KEInitResult init2_result;
+    KeInitResult init2_result;
     ASSERT_EQ(0, GetReturnError(sink->init(source2_init_info.key.pubKey.value(),
                                            source2_init_info.identity, source2_init_info.nonce,
                                            source2_init_info.version, &init2_result)));
@@ -284,13 +284,13 @@ TEST_P(AuthGraphSessionTest, ParallelSource) {
 
     // Step 4: pass the each source's session ID info back to the sink, so it can check it and
     // update the symmetric keys so they're marked as authentication complete.
-    std::vector<Arc> auth_complete_result1;
+    std::array<Arc, 2> auth_complete_result1;
     ASSERT_EQ(0, GetReturnError(sink->authenticationComplete(
                          source1_info.signature, sink_info1.sharedKeys, &auth_complete_result1)));
     ASSERT_EQ((int)auth_complete_result1.size(), 2)
             << "Expect two symmetric keys from authComplete()";
     sink_info1.sharedKeys = auth_complete_result1;
-    std::vector<Arc> auth_complete_result2;
+    std::array<Arc, 2> auth_complete_result2;
     ASSERT_EQ(0, GetReturnError(sink->authenticationComplete(
                          source2_info.signature, sink_info2.sharedKeys, &auth_complete_result2)));
     ASSERT_EQ((int)auth_complete_result2.size(), 2)
@@ -313,11 +313,11 @@ TEST_P(AuthGraphSessionTest, FreshNonces) {
     ASSERT_NE(source_init_info1.key.pubKey, source_init_info2.key.pubKey);
     ASSERT_NE(source_init_info1.key.arcFromPBK, source_init_info2.key.arcFromPBK);
 
-    KEInitResult init_result1;
+    KeInitResult init_result1;
     ASSERT_EQ(0, GetReturnError(sink->init(source_init_info1.key.pubKey.value(),
                                            source_init_info1.identity, source_init_info1.nonce,
                                            source_init_info1.version, &init_result1)));
-    KEInitResult init_result2;
+    KeInitResult init_result2;
     ASSERT_EQ(0, GetReturnError(sink->init(source_init_info2.key.pubKey.value(),
                                            source_init_info2.identity, source_init_info2.nonce,
                                            source_init_info2.version, &init_result2)));
