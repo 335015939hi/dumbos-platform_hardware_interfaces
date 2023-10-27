@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "043a5649_f017ad99",
+        "filename": "security/authgraph/aidl/vts/functional/AuthGraphSessionTest.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-27T23:59:32Z",
+      "side": 1,
+      "message": "Just curious why we need this here?\n\n(I noticed this when trying to add the same for the AuthGraphSessionTest, when the AIDL implementation is placed behind a flag)",
+      "revId": "e75e3106ec702d8263f157337df0f007e785d374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
