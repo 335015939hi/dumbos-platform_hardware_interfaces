@@ -88,6 +88,23 @@
       "parentUuid": "ff2f9174_c43d9326",
       "revId": "14ecf91fe8f79b9de668a95b8a2e7a90fcaf1e10",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e047126_2163c8d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130869
+      },
+      "writtenOn": "2023-10-27T09:24:19Z",
+      "side": 1,
+      "message": "I checked patch, it just populates the meta entry, but where is the buffer manager code? I also tried the patch, preview block and met error as below.\n10-10 19:43:03.529  3474  3474 E ExtCamUtils: importBufferImpl: output buffer for stream 0 is invalid!\n10-10 19:43:03.529   495  3522 E AidlCamera3-Device: processBatchCaptureRequests Error with processCaptureRequest  \n\nShould due to no buffer manager, Did I miss something? Code base on my side is tag \"android-14.0.0_r1\".",
+      "revId": "14ecf91fe8f79b9de668a95b8a2e7a90fcaf1e10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
