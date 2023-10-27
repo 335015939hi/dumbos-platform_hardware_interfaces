@@ -234,6 +234,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b362f2d5_5549a8fd",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 35
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-27T00:24:39Z",
+      "side": 1,
+      "message": "Android has multiple different fields for error codes. It will store the service-specific error code in a different place. It doesn\u0027t combine both of these values into the same place",
+      "parentUuid": "1aec0119_719748e4",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 24
+      },
+      "revId": "db55d492284904a64b74499c49f89d4e96de859c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2810724_81200309",
         "filename": "security/authgraph/aidl/android/hardware/security/authgraph/KEAuthCompleteResult.aidl",
         "patchSetId": 35
