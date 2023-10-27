@@ -20,7 +20,7 @@ use secretkeeper_comm::data_types::error::SecretkeeperError;
 use secretkeeper_comm::data_types::packet::{RequestPacket, ResponsePacket};
 use secretkeeper_comm::data_types::request::Request;
 use secretkeeper_comm::data_types::request_response_impl::{
-    GetVersionRequest, GetVersionResponse, Opcode,
+    GetVersionRequest, GetVersionResponse, StoreSecretRequest, StoreSecretResponse, GetSecretRequest, GetSecretResponse, Opcode,
 };
 use secretkeeper_comm::data_types::response::Response;
 use std::collections::HashMap;
@@ -28,17 +28,19 @@ use secretkeeper_comm::data_types::error::InternalError;
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::{
     BnSecretkeeper, BpSecretkeeper, ISecretkeeper,
 };
-use secretkeeperservice::KeyValStore;
+use secretkeepercore::KeyValStore;
 use secretkeeper_comm::data_types::error::StorageError;
-use secretkeeperservice::DicePolicyAwareAuth;
-use secretkeeperservice::SecretkeeperStore;
+use secretkeepercore::SecretkeeperStore;
+
+use std::sync::Mutex;
 
 const CURRENT_VERSION: u64 = 1;
+const HYPOTHETICAL_DICE_CHAIN: &str = "82a101008440a05834a3017374657374696e675f646963655f706f6c6963790274756e636f6e73747261696e65645f737472696e670346a1186419e9754464646566";
+// const HYPOTHETICAL_UPDATED_DICE_CHAIN:"82a101008440a0583da3017374657374696e675f646963655f706f6c69637902781c616e6f746865725f756e636f6e73747261696e65645f737472696e670346a1186419e9764464646566"
 
 #[derive(Debug, Default)]
 pub struct NonSecureSecretkeeper {
-    /// TODO
-    volatile_store: HashMap<Vec<u8>, Vec<u8>>,
+    sk_store: SecretkeeperStore, // TODO: rename this to Authenticated storage
 }
 
 impl Interface for NonSecureSecretkeeper {}
@@ -50,10 +52,9 @@ impl ISecretkeeper for NonSecureSecretkeeper {
 }
 
 impl NonSecureSecretkeeper {
-    fn init() -> Self {
-        NonSecureSecretkeeper {
-            volatile_store: HashMap::new(),
-        }
+    /// TODO - arguments
+    fn init(secure_store: Box<dyn KeyValStore>) -> Self {
+        Self{ sk_store: SecretkeeperStore::init(secure_store)}
     }
 
     // A set of requests to Secretkeeper are 'opaque' - encrypted bytes with inner structure
@@ -85,6 +86,8 @@ impl NonSecureSecretkeeper {
             .map_err(|_| SecretkeeperError::RequestMalformed)?
         {
             Opcode::GetVersion => Self::process_get_version_request(request_packet)?,
+            Opcode::StoreSecret => self.process_store_secret_request(request_packet)?,
+            Opcode::GetSecret => self.process_get_secret_request(request_packet)?,
             _ => todo!("TODO(b/291224769): Unimplemented operations"),
         };
 
@@ -105,28 +108,72 @@ impl NonSecureSecretkeeper {
         };
         Ok(response.serialize_to_packet())
     }
+
+    fn process_store_secret_request(
+        &self,
+        request: RequestPacket,
+    ) -> Result<ResponsePacket, SecretkeeperError> {
+        // Deserialization really just verifies the structural integrity of the request such
+        // as args being empty.
+        let request = StoreSecretRequest::deserialize_from_packet(request)
+            .map_err(|_| SecretkeeperError::RequestMalformed)?;
+        // TODO: get a better fake dice chain.
+        SecretkeeperStore::store(
+            self,
+            request.id,
+            request.secret,
+            request.sealing_policy,
+            // TODO: get the dice chain from AuthgraphKE
+            &hex::decode(HYPOTHETICAL_DICE_CHAIN)
+                .map_err(|_| SecretkeeperError::UnexpectedServerError)?,
+        )?;
+        let response = StoreSecretResponse {};
+        Ok(response.serialize_to_packet())
+    }
+
+    fn process_get_secret_request(
+        &self,
+        request: RequestPacket,
+    ) -> Result<ResponsePacket, SecretkeeperError> {
+        // Deserialization really just verifies the structural integrity of the request such
+        // as args being empty.
+        let request = GetSecretRequest::deserialize_from_packet(request)
+            .map_err(|_| SecretkeeperError::RequestMalformed)?;
+        // TODO: get a better fake dice chain.
+        let secret = SecretkeeperStore::get(
+            self,
+            &request.id,
+            // TODO: Add functionality to update the policy as we get the secret (atomic update),
+            // TODO: get the dice chain from AuthgraphKey
+            &hex::decode(HYPOTHETICAL_DICE_CHAIN)
+                .map_err(|_| SecretkeeperError::UnexpectedServerError)?,
+        )?;
+        let response = GetSecretResponse { secret };
+        Ok(response.serialize_to_packet())
+    }
 }
 
-impl KeyValStore for NonSecureSecretkeeper {
-    fn store(&mut self, key: Vec<u8>, val: Vec<u8>) -> Result<(), StorageError> {
+// Maybe move this secretkeeper fake/device library - cf/trusty can implement differently.
+struct FakeKeyValStore(Mutex<HashMap<Vec<u8>, Vec<u8>>>);
+
+impl FakeKeyValStore {
+    fn init() -> Self {
+        Self(Mutex::new(HashMap::new()))
+    }
+}
+
+impl KeyValStore for FakeKeyValStore {
+    fn store(&self, key: Vec<u8>, val: Vec<u8>) -> Result<(), StorageError> {
         // This will overwrite the value if key is already present.
-        let _ = self.volatile_store.insert(key, val);
+        let _ = self.0.lock().unwrap().insert(key, val);
         Ok(())
     }
 
     fn get(&self, key: &[u8]) -> Result<Option<Vec<u8>>, StorageError> {
-        let optional_val = self.volatile_store.get(key);
+        // Why cant we support multiple readers
+        let db = self.0.lock().unwrap();
+        let optional_val = db.get(key);
         Ok(optional_val.cloned())
-    }
-}
-
-impl DicePolicyAwareAuth for NonSecureSecretkeeper {
-    fn authenticate_against_dice_policy(
-        dice_chain: &[u8],
-        policy: &[u8],
-    ) -> Result<(), InternalError> {
-        dice_policy::authenticate_against_dice_policy(dice_chain, policy)
-            .map_err(|_| InternalError::DicePolicyError)
     }
 }
 

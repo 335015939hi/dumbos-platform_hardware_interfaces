@@ -29,9 +29,10 @@ rust_binary {
         "libandroid_logger",
         "libbinder_rs",
         "libdice_policy",
+        "libhex",
         "liblog_rust",
         "libsecretkeeper_comm_nostd",
-        "libsecretkeeperservice",
+        "libsecretkeepercore",
     ],
     srcs: [
         "src/main.rs",
