@@ -29,7 +29,7 @@ parcelable SessionInfo {
      * The arcs that encrypt the two derived symmetric encryption keys (for two-way communication)
      * from the party's per-boot key.
      */
-    Arc[] sharedKeys;
+    Arc[2] sharedKeys;
 
     /**
      * The value of the session id computed by the two parties during the authenticate key

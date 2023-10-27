@@ -18,7 +18,7 @@ package android.hardware.security.authgraph;
 
 import android.hardware.security.authgraph.Arc;
 import android.hardware.security.authgraph.Identity;
-import android.hardware.security.authgraph.KEInitResult;
+import android.hardware.security.authgraph.KeInitResult;
 import android.hardware.security.authgraph.Key;
 import android.hardware.security.authgraph.PubKey;
 import android.hardware.security.authgraph.SessionIdSignature;
@@ -103,12 +103,12 @@ interface IAuthGraphKeyExchange {
      *
      * @param peerVersion - latest version of the protocol supported by the peer
      *
-     * @return KEInitResult including the `Key` containing the public key of the created key pair,
+     * @return KeInitResult including the `Key` containing the public key of the created key pair,
      * the nonce, the persistent identity, two shared key arcs from step #7, session id, signature
      * over the session id and the negotiated protocol version. The negotiated protocol version
      * should be less than or equal to the peer's version.
      *
-     * Note: The two shared key arcs in the return type: `KEInitResult` serves two purposes:
+     * Note: The two shared key arcs in the return type: `KeInitResult` serves two purposes:
      * i. A mapping to correlate `init` and `authenticationComplete` calls to P2 in a particular
      *    instance of the key exchange protocol.
      * ii.A way to minimize the in-memory storage of P2 allocated for key exchange.
@@ -118,7 +118,7 @@ interface IAuthGraphKeyExchange {
      * any replay attacks in `authenticationComplete` and in any subsequent AuthGraph protocol
      * methods which use the shared keys to encrypt the secret messages.
      */
-    KEInitResult init(
+    KeInitResult init(
             in PubKey peerPubKey, in Identity peerId, in byte[] peerNonce, in int peerVersion);
 
     /**
@@ -210,5 +210,5 @@ interface IAuthGraphKeyExchange {
      *
      * @return Arc[] - an array of two updated shared key arcs
      */
-    Arc[] authenticationComplete(in SessionIdSignature peerSignature, in Arc[] sharedKeys);
+    Arc[2] authenticationComplete(in SessionIdSignature peerSignature, in Arc[2] sharedKeys);
 }
