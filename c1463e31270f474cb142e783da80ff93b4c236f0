@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daeb1225_ce5923f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-27T23:49:36Z",
+      "side": 1,
+      "message": "Hi David,\n\nThis (fixup) CL topic contains some fixes to the AIDL and related CLs based on what I read in the documents linked to go/hal-check-list.\n\nIf you are fine with them too, I will merge them to the original CLs.\n\nThanks!",
+      "revId": "c1463e31270f474cb142e783da80ff93b4c236f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
