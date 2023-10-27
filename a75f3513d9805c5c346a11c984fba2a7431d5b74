@@ -39,6 +39,30 @@
       },
       "revId": "a75f3513d9805c5c346a11c984fba2a7431d5b74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dc35125_806aaa00",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-10-27T20:03:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "072d964b_3ed28959",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 9
+      },
+      "revId": "a75f3513d9805c5c346a11c984fba2a7431d5b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
