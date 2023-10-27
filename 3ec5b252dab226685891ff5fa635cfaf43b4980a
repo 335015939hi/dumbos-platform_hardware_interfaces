@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ec69f2f_203e2e55",
+        "filename": "tv/tuner/aidl/vts/functional/FilterTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2023-10-27T03:54:45Z",
+      "side": 1,
+      "message": "We should have one empty line after this.",
+      "range": {
+        "startLine": 309,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 1
+      },
+      "revId": "3ec5b252dab226685891ff5fa635cfaf43b4980a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
