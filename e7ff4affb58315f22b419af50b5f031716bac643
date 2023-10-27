@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddf5f932_44c6e57c",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-27T10:47:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0ba6b14_cc1206f7",
+      "range": {
+        "startLine": 523,
+        "startChar": 0,
+        "endLine": 525,
+        "endChar": 50
+      },
+      "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "636701eb_1cd793bf",
@@ -160,6 +184,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30d93995_52bf3298",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-27T10:47:22Z",
+      "side": 1,
+      "message": "Yes, this works. Thank you!",
+      "parentUuid": "f53f72ad_f4b70bdf",
+      "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dc27df1_24815210",
@@ -173,6 +215,24 @@
       "writtenOn": "2023-10-24T15:49:05Z",
       "side": 1,
       "message": "From a purist perspective, it\u0027s probably cleaner to explicitly drop the `RKP_VM_INSTANCE_NAME` from the `params` vector here when the RKP VM is unupported.\n\nHowever, this requires more code (rather than a single `if` statement in the above function). I prefer the solution with the simplest code, which I think is the `GTEST_SKIP` suggestion above.\n\nIf you find that the `GTEST_SKIP` either doesn\u0027t work or results in excessive log spam, then please drop the RKP VM\u0027s instance name here instead when it\u0027s unsupported.",
+      "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2e9b67e_102a104c",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2023-10-27T10:47:22Z",
+      "side": 1,
+      "message": "The first approach works. That really doesn\u0027t add so much code.",
+      "parentUuid": "8dc27df1_24815210",
       "revId": "e7ff4affb58315f22b419af50b5f031716bac643",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
