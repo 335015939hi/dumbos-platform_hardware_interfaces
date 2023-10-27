@@ -16,6 +16,29 @@
       "message": "Shunkai, please review, we need to reviewers from G to submit.",
       "revId": "a75f3513d9805c5c346a11c984fba2a7431d5b74",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "072d964b_3ed28959",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-10-27T18:33:33Z",
+      "side": 1,
+      "message": "nit: add an empty line above",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 9
+      },
+      "revId": "a75f3513d9805c5c346a11c984fba2a7431d5b74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
