@@ -34,6 +34,24 @@
       "parentUuid": "043a5649_f017ad99",
       "revId": "e75e3106ec702d8263f157337df0f007e785d374",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa4a2cbe_5e42c96d",
+        "filename": "security/authgraph/aidl/vts/functional/AuthGraphSessionTest.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-28T00:10:36Z",
+      "side": 1,
+      "message": "Thanks for the reply! Fixed that.",
+      "parentUuid": "29f017a2_24afad4b",
+      "revId": "e75e3106ec702d8263f157337df0f007e785d374",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
