@@ -46,6 +46,8 @@ interface IFile {
      *     the number of bytes written successfully
      *
      * May return service-specific errors:
+     *   - ERR_UNSUPPORTED_PROPERTIES if this the second file modified as part of an atomic segment
+     *       on a filesystem that does not support multi-file atomics.
      *   - ERR_FS_* if the filesystem has been tampered with in a way that the `readIntegrity` the
      *       file was opened with does not acknowledge
      */
@@ -70,6 +72,8 @@ interface IFile {
      *     the file's new size
      *
      * May return service-specific errors:
+     *   - ERR_UNSUPPORTED_PROPERTIES if this the second file modified as part of an atomic segment
+     *       on a filesystem that does not support multi-file atomics.
      *   - ERR_FS_* if the filesystem has been tampered with in a way that the `readIntegrity` the
      *       file was opened with does not acknowledge
      */
@@ -87,6 +91,8 @@ interface IFile {
      *   - ERR_NOT_FOUND if no file exists at @destPath and @destCreateMode is `NO_CREATE`
      *   - ERR_ALREADY_EXISTS if a file already exists at @destPath and @destCreateMode is
      *       `CREATE_EXCLUSIVE`
+     *   - ERR_UNSUPPORTED_PROPERTIES if this rename is part of an atomic segment on a filesystem
+     *       that does not support multi-file atomics.
      *   - ERR_FS_* if the filesystem has been tampered with in a way that the `readIntegrity` the
      *       file was opened with does not acknowledge
      */
