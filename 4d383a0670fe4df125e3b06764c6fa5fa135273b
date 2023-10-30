@@ -88,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c701d147_1eb9c70d",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-30T15:44:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d850a7df_2e59b825",
+      "range": {
+        "startLine": 86,
+        "startChar": 23,
+        "endLine": 86,
+        "endChar": 36
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88e29e1c_c22be46d",
@@ -101,6 +125,30 @@
       "writtenOn": "2023-10-27T16:31:36Z",
       "side": 1,
       "message": "Since there is actually only one parameter (the pair), there is no need to use tuple here. In this case, line `150` will become just `std::tie(mFactory, mDescriptor) \u003d GetParam()`, and in the test instantiation, there is nothing to `Combine`.",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 99
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe670f60_b9cf9ece",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-30T15:44:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88e29e1c_c22be46d",
       "range": {
         "startLine": 144,
         "startChar": 0,
@@ -134,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a1faef9_124207c2",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-30T15:44:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2a71290_9e73b15e",
+      "range": {
+        "startLine": 195,
+        "startChar": 27,
+        "endLine": 195,
+        "endChar": 79
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4281ff1_fc850b9a",
@@ -147,6 +219,30 @@
       "writtenOn": "2023-10-27T16:31:36Z",
       "side": 1,
       "message": "Please pass by a const reference.",
+      "range": {
+        "startLine": 206,
+        "startChar": 31,
+        "endLine": 206,
+        "endChar": 48
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95afc3cd_78301da0",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-30T15:44:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4281ff1_fc850b9a",
       "range": {
         "startLine": 206,
         "startChar": 31,
@@ -180,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d125da86_f3a16f28",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-30T15:44:16Z",
+      "side": 1,
+      "message": "Changed the name to processAndWriteToOutput and added the comment at its definition.",
+      "parentUuid": "2acb0389_0d42321b",
+      "range": {
+        "startLine": 221,
+        "startChar": 15,
+        "endLine": 221,
+        "endChar": 43
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2c3e17e_fe9bd611",
@@ -203,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4715beaa_112c8e3e",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-30T15:44:16Z",
+      "side": 1,
+      "message": "Added isGainValid function call in the test body, followed by setParameters call.",
+      "parentUuid": "d2c3e17e_fe9bd611",
+      "range": {
+        "startLine": 258,
+        "startChar": 8,
+        "endLine": 258,
+        "endChar": 21
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffd71beb_cf3a70bd",
@@ -216,6 +360,30 @@
       "writtenOn": "2023-10-27T18:20:14Z",
       "side": 1,
       "message": "Thanks for split param and data test into two test suites.\n\nnit: maybe move this line to line#303",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 73
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "807ac608_cd4d69aa",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-30T15:44:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffd71beb_cf3a70bd",
       "range": {
         "startLine": 316,
         "startChar": 0,
