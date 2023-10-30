@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e34af84a_04f09317",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-10-30T16:52:51Z",
+      "side": 1,
+      "message": "how about `std::memset(\u0026mOpenEffectReturn, 0, sizeof(mOpenEffectReturn));` in `TearDownLoudnessEnhancer`?",
+      "parentUuid": "b4ae3373_c0a06b60",
+      "range": {
+        "startLine": 54,
+        "startChar": 65,
+        "endLine": 54,
+        "endChar": 82
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d850a7df_2e59b825",
         "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
         "patchSetId": 3
