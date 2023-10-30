@@ -50,6 +50,28 @@ interface IStorageSession {
     void abandonChanges();
 
     /**
+     * Starts an sequence of changes to be applied atomically.
+     *
+     * Any changes made through this session after the call to `StartAtomicSegment` will be
+     * applied as one atomic unit. Calling `EndAtomicSegment` will end the segment, allowing
+     * more non-atomic changes to be added to the same commit. Committing or abandoning pending
+     * changes will also end the atomic segment.
+     *
+     * Some implementations may not support atomic segments containing changes to multiple files.
+     * The file-modifying methods of `IFile` or  `ISecureStorageISecureStorage` will  return
+     * `ERR_UNSUPPORTED_PROPERTIES` if a second file is attempted to be modified and the
+     * implementation doesn't support multi-file atomics.
+     */
+    void startAtomicSegment();
+    /**
+     * Ends the current atomic sequence.
+     *
+     * Allows subsequent changes (and/or atomic segments) to be added to the same commit as
+     * the ended atomic segment.
+     */
+    void endAtomicSegment();
+
+    /**
      * Opens a secure file for writing and/or reading.
      *
      * Changes made to the file are part of the current transaction. Dropping this session
@@ -78,6 +100,8 @@ interface IStorageSession {
      *
      * May return service-specific errors:
      *   - ERR_NOT_FOUND
+     *   - ERR_UNSUPPORTED_PROPERTIES if this the second file modified as part of an atomic segment
+     *       on a filesystem that does not support multi-file atomics.
      *   - ERR_FS_* if the filesystem has been tampered with in a way that @options.readIntegrity
      *       does not acknowledge
      */
@@ -100,6 +124,8 @@ interface IStorageSession {
      *       `NO_CREATE` and no file exists at @destPath
      *   - ERR_ALREADY_EXISTS if @options.destCreateMode is `CREATE_EXCLUSIVE` and a file exists at
      *       @destPath
+     *   - ERR_UNSUPPORTED_PROPERTIES if this rename is part of an atomic segment on a filesystem
+     *       that does not support multi-file atomics.
      *   - ERR_FS_* if the filesystem has been tampered with in a way that @options.readIntegrity
      *       does not acknowledge
      */
