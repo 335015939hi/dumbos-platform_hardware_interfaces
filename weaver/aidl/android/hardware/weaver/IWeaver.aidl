@@ -62,6 +62,17 @@ interface IWeaver {
      * applied on a per-slot basis so that a successful read from one slot does
      * not reset the throttling state of any other slot.
      *
+     * The throttling mechanism must calculate the timeout in seconds as a function
+     * of the failure counter 'x' as follows:
+     *
+     * [0, 5) -> 0
+     * 5 -> 30
+     * [6, 10) -> 0
+     * [11, 30) -> 30
+     * [30, 140) -> 30 * (2^((x - 30)/10))
+     * [140, inf) -> 1 day
+     *
+     *
      * Service status return:
      *
      * OK if the value was successfully read from slot.
