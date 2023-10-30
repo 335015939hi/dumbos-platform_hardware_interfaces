@@ -393,6 +393,31 @@ TEST_P(WeaverTest, ReadWithTooLargeKeyFails) {
     EXPECT_EQ(response.status, WeaverReadStatus::FAILED);
 }
 
+TEST_P(WeaverTest, ThrottlingWithMultipleReadFailures) {
+    const uint32_t slotId = first_free_slot_;
+    const auto initialWriteRet = weaver_->write(slotId, KEY, VALUE);
+    ASSERT_TRUE(initialWriteRet.isOk());
+    const int maxFailAttempts = 10;
+
+    for (int failureCount = 1; failureCount <= maxFailAttempts; ++failureCount) {
+        WeaverReadResponse response;
+        const auto readRet = weaver_->read(slotId, WRONG_KEY, &response);
+        ASSERT_TRUE(readRet.isOk());
+        ASSERT_TRUE(response.value.empty());
+        if (failureCount < 5) {
+            ASSERT_EQ(response.status, WeaverReadStatus::INCORRECT_KEY);
+            EXPECT_EQ(response.timeout, 0u);
+        } else {
+            ASSERT_EQ(response.status, WeaverReadStatus::THROTTLE);
+            if (failureCount == 5) {
+                ASSERT_EQ(response.timeout, 30000);
+            } else {
+                ASSERT_LE(response.timeout, 30000);
+            }
+        }
+    }
+}
+
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(WeaverTest);
 
 // Instantiate the test for each HIDL Weaver service.
