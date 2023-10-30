@@ -34,6 +34,9 @@ namespace hardware {
 namespace bluetooth {
 namespace audio {
 
+static const std::string kLeAudioOffloadProviderName =
+    "LE_AUDIO_OFFLOAD_HARDWARE_OFFLOAD_PROVIDER";
+
 BluetoothAudioProviderFactory::BluetoothAudioProviderFactory() {}
 
 ndk::ScopedAStatus BluetoothAudioProviderFactory::openProvider(
@@ -139,7 +142,21 @@ ndk::ScopedAStatus BluetoothAudioProviderFactory::getProviderInfo(
     SessionType session_type, std::optional<ProviderInfo>* _aidl_return) {
   *_aidl_return = std::nullopt;
 
-  (void)session_type;
+  if (session_type ==
+          SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+      session_type ==
+          SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH ||
+      session_type ==
+          SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {
+    std::vector<CodecInfo> db_codec_info =
+        BluetoothAudioCodecs::GetLeAudioOffloadCodecInfo(session_type);
+    if (!db_codec_info.empty()) {
+      auto& provider_info = _aidl_return->emplace();
+      provider_info.name = kLeAudioOffloadProviderName;
+      provider_info.codecInfos = db_codec_info;
+      *_aidl_return = provider_info;
+    }
+  }
 
   return ndk::ScopedAStatus::ok();
 }
