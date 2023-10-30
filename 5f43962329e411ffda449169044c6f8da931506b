@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea228385_6f1dc2cc",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2023-10-30T00:42:38Z",
+      "side": 1,
+      "message": "can we add \"rollback to a valid checkpoint\".\nalso describing as another sentence that a valid checkpoint is implementation-defined; a typical implementation would be a taken a checkpoint upon first boot post factory exit.",
+      "revId": "5f43962329e411ffda449169044c6f8da931506b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f98f4d9f_506a3b69",
         "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
         "patchSetId": 17
