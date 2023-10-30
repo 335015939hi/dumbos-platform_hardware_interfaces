@@ -230,6 +230,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddf85e37_a9bb3175",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-10-30T16:24:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8d52e9c_d19565b3",
+      "range": {
+        "startLine": 195,
+        "startChar": 27,
+        "endLine": 195,
+        "endChar": 79
+      },
+      "revId": "4d383a0670fe4df125e3b06764c6fa5fa135273b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4281ff1_fc850b9a",
