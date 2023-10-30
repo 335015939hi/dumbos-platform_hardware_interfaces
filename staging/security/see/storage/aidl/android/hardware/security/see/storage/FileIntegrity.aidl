@@ -36,4 +36,11 @@ enum FileIntegrity {
      * during an A/B update, then a boot failure caused a rollback to a checkpoint.
      */
     TAMPER_DETECT_IGNORE_ROLLBACK_AB_BOOT_FAILURE,
+    /**
+     * REE may alter written data. Changes other than a rollback to a valid checkpoint
+     * will be detected and reported. (What makes a checkpoint valid is
+     * implementation defined; an implementation might take a checkpoint on its
+     * first post-factory boot. A reset is a rollback to the initial state.)
+     */
+    TAMPER_DETECT_IGNORE_ROLLBACK,
 }
