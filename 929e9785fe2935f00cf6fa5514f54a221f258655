@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3be848c7_92401fe1",
+        "filename": "security/authgraph/aidl/vts/functional/AuthGraphSessionTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-30T10:10:43Z",
+      "side": 1,
+      "message": "why not just `return lhs \u003d\u003d rhs;` ?",
+      "revId": "929e9785fe2935f00cf6fa5514f54a221f258655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1752674_c38158b4",
+        "filename": "security/authgraph/aidl/vts/functional/AuthGraphSessionTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-30T10:10:43Z",
+      "side": 1,
+      "message": "Is it possible to have a constant for `OK` and use it everywhere?",
+      "revId": "929e9785fe2935f00cf6fa5514f54a221f258655",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
