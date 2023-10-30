@@ -44,6 +44,7 @@ const std::vector<uint8_t> KEY{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 const std::vector<uint8_t> WRONG_KEY{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 const std::vector<uint8_t> VALUE{16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
 const std::vector<uint8_t> OTHER_VALUE{0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 255, 255};
+const int kWaitTimeSeconds = 32;
 
 class WeaverAdapter {
   public:
@@ -390,6 +391,41 @@ TEST_P(WeaverTest, ReadWithTooLargeKeyFails) {
     EXPECT_TRUE(response.value.empty());
     EXPECT_EQ(response.timeout, 0u);
     EXPECT_EQ(response.status, WeaverReadStatus::FAILED);
+}
+
+/*
+ * This test case evaluates the throttling mechanism according to the
+ * specification when multiple incorrect passwords are attempted. The test
+ * is designed to run for the initial 11 failure attempts, considering the
+ * challenge of managing extended wait timeouts for the test case.
+ */
+TEST_P(WeaverTest, ThrottlingWithMultipleReadFailures) {
+    const uint32_t slotId = first_free_slot_;
+    const auto initialWriteRet = weaver_->write(slotId, KEY, VALUE);
+    ASSERT_TRUE(initialWriteRet.isOk());
+    const int maxFailAttempts = 11;
+
+    for (int failureCount = 1; failureCount <= maxFailAttempts; ++failureCount) {
+        SCOPED_TRACE(testing::Message() << "failureCount: " << failureCount);
+        WeaverReadResponse response;
+        const auto readRet = weaver_->read(slotId, WRONG_KEY, &response);
+        ASSERT_TRUE(readRet.isOk());
+        ASSERT_TRUE(response.value.empty());
+        if (failureCount > 0 && failureCount <= 10) {
+            if (failureCount % 5 == 0) {
+                EXPECT_EQ(response.status, WeaverReadStatus::THROTTLE);
+                EXPECT_EQ(response.timeout, 30000);
+                sleep(kWaitTimeSeconds);
+            } else {
+                EXPECT_EQ(response.status, WeaverReadStatus::INCORRECT_KEY);
+                EXPECT_EQ(response.timeout, 0u);
+            }
+        } else if (failureCount <= maxFailAttempts) {
+            EXPECT_EQ(response.status, WeaverReadStatus::THROTTLE);
+            EXPECT_EQ(response.timeout, 30000);
+            sleep(kWaitTimeSeconds);
+        }
+    }
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(WeaverTest);

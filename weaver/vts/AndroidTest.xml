@@ -1,0 +1,16 @@
+<configuration description="Runs VtsHalWeaverTargetTest.">
+    <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer">
+    </target_preparer>
+
+    <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
+        <option name="cleanup" value="true" />
+        <option name="push"
+                value="VtsHalWeaverTargetTest->/data/local/tmp/VtsHalWeaverTargetTest" />
+    </target_preparer>
+
+    <test class="com.android.tradefed.testtype.GTest" >
+        <option name="native-test-device-path" value="/data/local/tmp" />
+        <option name="module-name" value="VtsHalWeaverTargetTest" />
+        <option name="native-test-timeout" value="180000"/>
+    </test>
+</configuration>
