@@ -69,6 +69,30 @@
       },
       "revId": "06b68718d2bf4df4c90ff549a1dbaca97213c77b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd946863_a21888ae",
+        "filename": "tv/input/1.0/vts/functional/VtsHalTvInputV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1986430
+      },
+      "writtenOn": "2023-10-31T07:25:31Z",
+      "side": 1,
+      "message": "Because of a pure virtual destructor call, we cannot make this a shared_ptr.",
+      "parentUuid": "25352862_75071977",
+      "range": {
+        "startLine": 164,
+        "startChar": 8,
+        "endLine": 164,
+        "endChar": 33
+      },
+      "revId": "06b68718d2bf4df4c90ff549a1dbaca97213c77b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
