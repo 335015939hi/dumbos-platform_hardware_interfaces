@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3e45888_2b4a9aeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-10-31T16:19:58Z",
+      "side": 1,
+      "message": "Why all the reverts? Why didn\u0027t we just turn off the flag?",
+      "revId": "247b39a92f67354a29a474570ff61a2fdb8e7786",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
