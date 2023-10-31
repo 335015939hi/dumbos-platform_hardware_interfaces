@@ -343,4 +343,9 @@ interface IGnss {
      * Stops the NMEA output stream.
      */
     void stopNmea();
+
+    /**
+     * Update screeen interactive state.
+     */
+    void updateScreenInteractive(boolean interactive);
 }
