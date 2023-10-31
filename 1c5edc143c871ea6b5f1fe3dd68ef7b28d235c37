@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "303eaac0_660d1a7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-10-31T09:08:56Z",
+      "side": 1,
+      "message": "PTAL - shifted to only check VB key length in the future, to allow for pre-existing implementations that use longer keys",
+      "revId": "1c5edc143c871ea6b5f1fe3dd68ef7b28d235c37",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
