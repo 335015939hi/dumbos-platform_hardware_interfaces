@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "845b3bde_eee9641f",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 43
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-31T23:21:57Z",
+      "side": 1,
+      "message": "I expanded the documentation for `peerVersion`. Protocol version refers to the AIDL version supported by each of the parties engaged in the key exchange protocol.\n\nThis is useful to prevent version downgrade attacks when we have more than one version of this AIDL (I have added a detailed description at https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2606133/45/security/authgraph/aidl/android/hardware/security/authgraph/SessionInitiationInfo.aidl#48 as response to the other comment).\n\nHope this answered your question.",
+      "parentUuid": "2d581d20_c46af1fa",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 73
+      },
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7371e8d_526145c0",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82aaff34_0ae162fa",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 43
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-31T23:21:57Z",
+      "side": 1,
+      "message": "This return value is two cipher texts containing two encryption keys agreed by the two parties who ran the key exchange protocol. \n\nThe two encryption keys are for two-way communication. \n\nI will discuss with the team whether we need any other shared keys from the key exchange protocol and change this if needed before the API is frozen.",
+      "parentUuid": "b7371e8d_526145c0",
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2a0664a_60f8b2fe",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-10-31T20:58:43Z",
       "side": 1,
       "message": "these are comments?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 9
+      },
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed787064_0abd4856",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Identity.cddl",
+        "patchSetId": 43
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-31T23:21:57Z",
+      "side": 1,
+      "message": "Yes, these are comments for now. But thanks to @drysdale@google.com\u0027s idea, we would like to use these as key words when there is tooling support to build the full CDDL from multiple CDDL files.\n\nThis is also related to our previous brief conversation here: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2606133/comment/6464a87a_06d19b90/, for which I am yet to schedule a meeting to discuss further. Since this is not aimed for Android V, I was prioritizing Android V work.",
+      "parentUuid": "e2a0664a_60f8b2fe",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd976272_6b1ade28",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SessionIdSignature.cddl",
+        "patchSetId": 43
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-31T23:21:57Z",
+      "side": 1,
+      "message": "Removed the TODO. We do not plan to add any custom protected headers.",
+      "parentUuid": "99c3aa85_54de3ec7",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72857b7c_901977bb",
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dde848e6_f343978a",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SessionInitiationInfo.aidl",
+        "patchSetId": 43
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-31T23:21:57Z",
+      "side": 1,
+      "message": "I added a description with the details on how the downgrades are prevented. Please let me know if you see any issues. Thanks!",
+      "parentUuid": "72857b7c_901977bb",
+      "range": {
+        "startLine": 48,
+        "startChar": 30,
+        "endLine": 48,
+        "endChar": 67
+      },
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6ff3c5d_d4afeffe",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-10-31T20:58:43Z",
       "side": 1,
       "message": "same, dangling TODO",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 47
+      },
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6a36666_ed7a6313",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SignedPubKey.cddl",
+        "patchSetId": 43
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-10-31T23:21:57Z",
+      "side": 1,
+      "message": "Done. Thanks for pointing out!",
+      "parentUuid": "c6ff3c5d_d4afeffe",
       "range": {
         "startLine": 26,
         "startChar": 0,
