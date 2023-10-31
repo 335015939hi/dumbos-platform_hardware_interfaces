@@ -20,7 +20,11 @@ cc_test {
         "android.hardware.bluetooth.audio-V3-ndk",
         "android.hardware.common-V2-ndk",
         "android.hardware.common.fmq-V1-ndk",
+<<<<<<< HEAD   (ba2236 Update CameraStreamBuffering test and correct instance name )
         "android.media.audio.common.types-V2-ndk",
+=======
+        "android.media.audio.common.types-V1-ndk",
+>>>>>>> BRANCH (58d8a5 BluetoothAudio: Statically link HAL dependencies)
     ],
     shared_libs: [
         "libbase",
@@ -28,7 +32,6 @@ cc_test {
         "libcutils",
         "libfmq",
     ],
-    test_config: "VtsHalBluetoothAudioTargetTest.xml",
     test_suites: [
         "general-tests",
         "vts",
