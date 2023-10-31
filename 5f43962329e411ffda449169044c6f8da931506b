@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aa0bab2_18cda1c3",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-10-31T18:55:12Z",
+      "side": 1,
+      "message": "Added to the docs on `FileIntegrity::IGNORE_ROLLBACK`. Removed this option b/c per our conversation in the team meeting last week.",
+      "parentUuid": "ea228385_6f1dc2cc",
+      "revId": "5f43962329e411ffda449169044c6f8da931506b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f98f4d9f_506a3b69",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-10-18T19:31:49Z",
       "side": 1,
       "message": "please move the atomic segment apis into a different CL in case we don\u0027t need it.",
+      "revId": "5f43962329e411ffda449169044c6f8da931506b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c09e5d7_904fa0ea",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2023-10-31T18:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f98f4d9f_506a3b69",
       "revId": "5f43962329e411ffda449169044c6f8da931506b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
