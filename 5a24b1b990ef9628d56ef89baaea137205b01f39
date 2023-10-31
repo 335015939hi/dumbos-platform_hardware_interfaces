@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e13f6b36_db28d67c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1965505
+      },
+      "writtenOn": "2023-10-31T23:47:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1b69aba_b96f54d7",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "5a24b1b990ef9628d56ef89baaea137205b01f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "845c12ba_57ad5f7e",
@@ -61,6 +85,30 @@
       "writtenOn": "2023-10-23T01:39:07Z",
       "side": 1,
       "message": "Let\u0027s add\n```\ninstallable: false, // installed in APEX\n```\nto make sure this binary is supposed to be packaged in APEX.",
+      "range": {
+        "startLine": 45,
+        "startChar": 3,
+        "endLine": 45,
+        "endChar": 6
+      },
+      "revId": "5a24b1b990ef9628d56ef89baaea137205b01f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "687081dc_31afeeda",
+        "filename": "wifi/netlinkinterceptor/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1965505
+      },
+      "writtenOn": "2023-10-31T23:47:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "845c12ba_57ad5f7e",
       "range": {
         "startLine": 45,
         "startChar": 3,
@@ -94,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52d88961_c682d4be",
+        "filename": "wifi/netlinkinterceptor/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1965505
+      },
+      "writtenOn": "2023-10-31T23:47:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26e4733f_d80cd7e2",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 1
+      },
+      "revId": "5a24b1b990ef9628d56ef89baaea137205b01f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdef493c_97875f63",
@@ -107,6 +179,30 @@
       "writtenOn": "2023-10-23T01:39:07Z",
       "side": 1,
       "message": "Let\u0027s put this (and others below) in hardware/interfaces/wifi/netlinkinterceptor/aidl/default/Android.bp (right beside the binary)",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 4
+      },
+      "revId": "5a24b1b990ef9628d56ef89baaea137205b01f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e051a35_15a22892",
+        "filename": "wifi/netlinkinterceptor/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1965505
+      },
+      "writtenOn": "2023-10-31T23:47:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdef493c_97875f63",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -163,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea2ebb5_cdfc0ddd",
+        "filename": "wifi/netlinkinterceptor/apex/apex_file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1965505
+      },
+      "writtenOn": "2023-10-31T23:47:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9dd7aef_7d4bbae0",
+      "range": {
+        "startLine": 3,
+        "startChar": 74,
+        "endLine": 3,
+        "endChar": 95
+      },
+      "revId": "5a24b1b990ef9628d56ef89baaea137205b01f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49ffc954_ffc4ee05",
@@ -199,6 +319,54 @@
       "writtenOn": "2023-10-23T07:45:15Z",
       "side": 1,
       "message": "Path to the binary is wrong. `/hw/` is missing",
+      "range": {
+        "startLine": 1,
+        "startChar": 66,
+        "endLine": 1,
+        "endChar": 68
+      },
+      "revId": "5a24b1b990ef9628d56ef89baaea137205b01f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16fde83f_c7202473",
+        "filename": "wifi/netlinkinterceptor/apex/nlinterceptor.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1965505
+      },
+      "writtenOn": "2023-10-31T23:47:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49ffc954_ffc4ee05",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 100
+      },
+      "revId": "5a24b1b990ef9628d56ef89baaea137205b01f39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2074c80c_56457e3d",
+        "filename": "wifi/netlinkinterceptor/apex/nlinterceptor.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1965505
+      },
+      "writtenOn": "2023-10-31T23:47:50Z",
+      "side": 1,
+      "message": "fixed.",
+      "parentUuid": "88ac71ed_7294ffc0",
       "range": {
         "startLine": 1,
         "startChar": 66,
