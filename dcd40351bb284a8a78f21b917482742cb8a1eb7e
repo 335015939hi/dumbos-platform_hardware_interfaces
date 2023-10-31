@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d581d20_c46af1fa",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 43
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-31T20:58:43Z",
+      "side": 1,
+      "message": "is there more information about this? protocol version in what standard?",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 73
+      },
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7371e8d_526145c0",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 43
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-31T20:58:43Z",
+      "side": 1,
+      "message": "is this guaranteed to always be \u00272\u0027? if you think another size would ever be needed, I\u0027d recommend making it dynamic for future compat",
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2a0664a_60f8b2fe",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Identity.cddl",
+        "patchSetId": 43
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-31T20:58:43Z",
+      "side": 1,
+      "message": "these are comments?",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 9
+      },
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99c3aa85_54de3ec7",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SessionIdSignature.cddl",
+        "patchSetId": 43
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-31T20:58:43Z",
+      "side": 1,
+      "message": "dangling TODO",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72857b7c_901977bb",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SessionInitiationInfo.aidl",
+        "patchSetId": 43
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-31T20:58:43Z",
+      "side": 1,
+      "message": "Allowing something to specify the version could also allow them. Specify more information on how downgrades are prevented?",
+      "range": {
+        "startLine": 48,
+        "startChar": 30,
+        "endLine": 48,
+        "endChar": 67
+      },
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6ff3c5d_d4afeffe",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/SignedPubKey.cddl",
+        "patchSetId": 43
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-10-31T20:58:43Z",
+      "side": 1,
+      "message": "same, dangling TODO",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 47
+      },
+      "revId": "dcd40351bb284a8a78f21b917482742cb8a1eb7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
