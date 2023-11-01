@@ -16,6 +16,24 @@
       "message": "Is there some reason you can\u0027t just use `Instant::now()` or some other existing safe API?",
       "revId": "948bda5f482b3b7bddaa1b920530207602cf419a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bcc286e_24e88516",
+        "filename": "security/authgraph/default/src/lib.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-01T15:53:32Z",
+      "side": 1,
+      "message": "Hmm, there was in the place that this got borrowed from (aosp/2405813) but in the context of a fuzzer I don\u0027t think there\u0027s a need for a consistent clock, so the \"before\" version of that CL would probably work.",
+      "parentUuid": "0d0a93c3_184d1ee5",
+      "revId": "948bda5f482b3b7bddaa1b920530207602cf419a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
