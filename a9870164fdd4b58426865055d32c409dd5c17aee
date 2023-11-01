@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3046896_d0b26d6d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-11-01T09:16:17Z",
+      "side": 1,
+      "message": "typo here: nlinterceptor",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "a9870164fdd4b58426865055d32c409dd5c17aee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
