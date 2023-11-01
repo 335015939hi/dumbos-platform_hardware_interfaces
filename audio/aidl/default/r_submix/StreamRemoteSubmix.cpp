@@ -40,6 +40,26 @@ StreamRemoteSubmix::StreamRemoteSubmix(StreamContext* context, const Metadata& m
     mStreamConfig.format = context->getFormat();
     mStreamConfig.channelLayout = context->getChannelLayout();
     mStreamConfig.sampleRate = context->getSampleRate();
+
+#if DUMP_DATA
+    const char *fileName = mIsInput ? DUMP_IN_FILENAME : DUMP_OUT_FILENAME;
+    mFd = fopen(fileName, "w");
+    if (!mFd) {
+        LOG(ERROR) << "failed to open dump " << fileName;
+    } else {
+        LOG(INFO) << "created dump " << fileName;
+    }
+#endif
+
+}
+
+StreamRemoteSubmix::~StreamRemoteSubmix() {
+#if DUMP_DATA
+    if(mFd) {
+        fclose(mFd);
+    }
+#endif
+
 }
 
 std::mutex StreamRemoteSubmix::sSubmixRoutesLock;
@@ -249,6 +269,14 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
     }
 
     ssize_t writtenFrames = sink->write(buffer, frameCount);
+
+#if DUMP_DATA
+    if (mFd) {
+        const size_t writtenBytes = writtenFrames * mStreamConfig.frameSize;
+        fwrite(buffer, writtenBytes,1 , mFd);
+    }
+#endif
+
     if (writtenFrames < 0) {
         if (writtenFrames == (ssize_t)::android::NEGOTIATE) {
             LOG(ERROR) << __func__ << ": write to pipe returned NEGOTIATE";
@@ -268,7 +296,7 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
         *actualFrameCount = 0;
         return ::android::UNKNOWN_ERROR;
     }
-    LOG(VERBOSE) << __func__ << ": wrote " << writtenFrames << "frames";
+    LOG(VERBOSE) << __func__ << ": wrote " << writtenFrames << "frames" << " requested frames " << frameCount;
     *actualFrameCount = writtenFrames;
     return ::android::OK;
 }
@@ -330,6 +358,14 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
         memset(((char*)buffer) + (mStreamConfig.frameSize * frameCount) - remainingBytes, 0,
                remainingBytes);
     }
+
+#if DUMP_DATA
+    if (mFd) {
+        const size_t readBytes = frameCount * mStreamConfig.frameSize;
+        fwrite((char*)(buffer), readBytes,1 , mFd);
+
+    }
+#endif
 
     long readCounterFrames = mCurrentRoute->updateReadCounterFrames(frameCount);
     *actualFrameCount = frameCount;

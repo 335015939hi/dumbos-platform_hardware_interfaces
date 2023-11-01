@@ -18,10 +18,16 @@
 
 #include <mutex>
 #include <vector>
+#include <fcntl.h>
 
 #include "core-impl/Stream.h"
 #include "core-impl/StreamSwitcher.h"
 #include "r_submix/SubmixRoute.h"
+
+#define DUMP_DATA 1
+#define DUMP_LOCATION "/data/vendor/audio/"
+#define DUMP_IN_FILENAME DUMP_LOCATION "r_submix_in.raw"
+#define DUMP_OUT_FILENAME DUMP_LOCATION "r_submix_out.raw"
 
 namespace aidl::android::hardware::audio::core {
 
@@ -31,6 +37,7 @@ class StreamRemoteSubmix : public StreamCommonImpl {
             StreamContext* context, const Metadata& metadata,
             const ::aidl::android::media::audio::common::AudioDeviceAddress& deviceAddress);
 
+    ~StreamRemoteSubmix();
     ::android::status_t init() override;
     ::android::status_t drain(StreamDescriptor::DrainMode) override;
     ::android::status_t flush() override;
@@ -44,7 +51,6 @@ class StreamRemoteSubmix : public StreamCommonImpl {
 
     // Overridden methods of 'StreamCommonImpl', called on a Binder thread.
     ndk::ScopedAStatus prepareToClose() override;
-
   private:
     size_t getPipeSizeInFrames();
     size_t getStreamPipeSizeInFrames();
@@ -71,6 +77,9 @@ class StreamRemoteSubmix : public StreamCommonImpl {
     static constexpr int kMaxReadFailureAttempts = 3;
     // 5ms between two read attempts when pipe is empty
     static constexpr int kReadAttemptSleepUs = 5000;
+#if DUMP_DATA
+    FILE *mFd = NULL;
+#endif
 };
 
 class StreamInRemoteSubmix final : public StreamIn, public StreamSwitcher {
