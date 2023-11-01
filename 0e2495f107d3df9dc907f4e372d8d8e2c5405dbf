@@ -22,6 +22,30 @@
       },
       "revId": "0e2495f107d3df9dc907f4e372d8d8e2c5405dbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6534ce64_bbfb482b",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-01T01:09:10Z",
+      "side": 1,
+      "message": "Thanks for the pointer.\n\nThe way this interface is used is a bit different from other interfaces.\n\nTwo TAs (let\u0027s say source and sink) would implement this interface and a system component in the middle would invoke two methods each on the source (`create`, `finish`) and sink (`init`, `authenticationComplete`), at the end of which the two TAs end up with shared encryption keys. Please see the sequence diagram here for more clarity: https://sequencediagram.googleplex.com/edit/4657908673413120\n\nWe can get the system component who orchestrates the protocol to invoke `getInterfaceVersion` on each of the two TAs and feed that information into the `peerVersion` input parameter in `init` and `finish`, instead of getting the two TAs to return it in the `version` field of `SessionInitiationInfo` https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2606133/45/security/authgraph/aidl/android/hardware/security/authgraph/SessionInitiationInfo.aidl#68 as we do now.\nHowever, I do not see the benefit of doing that because:\n1. We still need to have `peerVersion` input parameter in `init` and `finish` to feed-in the peer\u0027s version.\n2. We will introduce two additional calls to the TAs during the protocol run which increases the latency.\n\nPlease let me know if you see any further issues.",
+      "parentUuid": "8a3496cd_81638ed3",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 49
+      },
+      "revId": "0e2495f107d3df9dc907f4e372d8d8e2c5405dbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
