@@ -46,6 +46,30 @@
       },
       "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b656cfab_c091c190",
+        "filename": "compatibility_matrices/compatibility_matrix.9.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-01T00:30:51Z",
+      "side": 1,
+      "message": "I think \u0027nonsecure\u0027 is a good name for the default/reference implementation.\n\nHowever, this change is saying, the only interface name that is supported is \u0027nonsecure\u0027. For instance, if you added another instance called \u0027secure\u0027 it would not be able to register because it\u0027s not in the compatibility matrix. Is that intentional?",
+      "parentUuid": "1a0ba7b2_f6c2a5dd",
+      "range": {
+        "startLine": 516,
+        "startChar": 22,
+        "endLine": 516,
+        "endChar": 31
+      },
+      "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
