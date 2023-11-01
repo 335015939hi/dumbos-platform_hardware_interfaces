@@ -34,6 +34,24 @@
       "parentUuid": "0d0a93c3_184d1ee5",
       "revId": "948bda5f482b3b7bddaa1b920530207602cf419a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9740c496_9089e746",
+        "filename": "security/authgraph/default/src/lib.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2023-11-01T16:01:28Z",
+      "side": 1,
+      "message": "Thanks. If for some reason `Instant::now` isn\u0027t good enough, you can also use the safe wrapper from nix: https://docs.rs/nix/latest/nix/time/struct.ClockId.html#method.now",
+      "parentUuid": "2bcc286e_24e88516",
+      "revId": "948bda5f482b3b7bddaa1b920530207602cf419a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
