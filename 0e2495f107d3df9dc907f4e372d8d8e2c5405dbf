@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11f599e8_0912b45c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 45
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-01T01:41:02Z",
+      "side": 1,
+      "message": "Thanks for approving the interface.",
+      "revId": "0e2495f107d3df9dc907f4e372d8d8e2c5405dbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a3496cd_81638ed3",
@@ -62,6 +79,30 @@
       "side": 1,
       "message": "ack.\n\ngetInterfaceVersion (like the versions here) could also be misrepresented, of course",
       "parentUuid": "6534ce64_bbfb482b",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 49
+      },
+      "revId": "0e2495f107d3df9dc907f4e372d8d8e2c5405dbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "104828d6_d33c70c0",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-01T01:41:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c52406d0_79262ebb",
       "range": {
         "startLine": 104,
         "startChar": 0,
