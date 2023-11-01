@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5559d7e_4aecce69",
+        "filename": "compatibility_matrices/compatibility_matrix.9.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-01T00:05:46Z",
+      "side": 1,
+      "message": "this would mean that we only support \u0027nonsecure\u0027 and we don\u0027t support other names.\n\nShould this include other names as well? or regex-instance?",
+      "range": {
+        "startLine": 516,
+        "startChar": 22,
+        "endLine": 516,
+        "endChar": 31
+      },
+      "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
