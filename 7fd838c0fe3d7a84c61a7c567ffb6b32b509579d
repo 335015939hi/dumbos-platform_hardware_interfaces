@@ -118,6 +118,23 @@
       },
       "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4127861b_e2c6637c",
+        "filename": "security/authgraph/default/src/main.rs",
+        "patchSetId": 9
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1892347
+      },
+      "writtenOn": "2023-11-01T09:50:43Z",
+      "side": 1,
+      "message": "Usually you would put the SAFETY comment above the `let rc` line to avoid the weird formatting.\n\nYou also do not need the cast, because mutable reference coerce into raw pointers automatically.\n```\n// Safety: `time` is a valid structure.\nlet rc \u003d unsafe { libc::clock_gettime(libc::CLOCK_BOOTTIME, \u0026mut time) };\n```\nThat said, the unsafe code looks correct.\n\nI have only reviewed the unsafe block, and haven\u0027t looked at anything else.",
+      "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
