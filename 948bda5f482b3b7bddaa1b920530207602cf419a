@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d0a93c3_184d1ee5",
+        "filename": "security/authgraph/default/src/lib.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2023-11-01T15:36:43Z",
+      "side": 1,
+      "message": "Is there some reason you can\u0027t just use `Instant::now()` or some other existing safe API?",
+      "revId": "948bda5f482b3b7bddaa1b920530207602cf419a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
