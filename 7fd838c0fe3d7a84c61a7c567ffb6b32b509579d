@@ -22,6 +22,30 @@
       },
       "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a0ba7b2_f6c2a5dd",
+        "filename": "compatibility_matrices/compatibility_matrix.9.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-01T00:27:04Z",
+      "side": 1,
+      "message": "There wouldn\u0027t be other names.\n\nThere is a nice explanation by @drysdale@google.com in reply to another similar question at https://android-review.git.corp.google.com/c/platform/system/sepolicy/+/2786255/comment/0d031e4b_0a64d12d/.\n\nLet me copy-paste it here for the convenience of reference (In particular, the 2nd paragraph below answers your question):\n\n\"/nonsecure is to make it clear that the implementation is running inside the HAL service process in Android, rather than being in a separate secure environment as would be expected/required for a real implementation.\n\nIn actual use, the AuthGraph HAL is intended to be a re-usable building block that forms part of other secure components accessed via their own HALs -- so (for example) the ISecretkeeper HAL would have a getAuthGraph() method that returns its IAuthGraphKeyExchange instance, allowing the client to know that it\u0027s performing key exchange with the correct component. (There\u0027s also DICE chain identity checks as well, btw).\n\nSo I went for /nonsecure because a) it\u0027s not secure and b) there\u0027s not really a sensible \"default\" AuthGraph implementation, it should always be tied to some other component.\n\n(However, we do want some kind of Cuttlefish implementation to allow testing and to tick the relevant boxes for new HAL definitions.)\"",
+      "parentUuid": "e5559d7e_4aecce69",
+      "range": {
+        "startLine": 516,
+        "startChar": 22,
+        "endLine": 516,
+        "endChar": 31
+      },
+      "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
