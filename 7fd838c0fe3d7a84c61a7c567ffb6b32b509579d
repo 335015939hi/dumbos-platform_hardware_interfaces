@@ -94,6 +94,30 @@
       },
       "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0566b390_29e6775e",
+        "filename": "compatibility_matrices/compatibility_matrix.9.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-01T01:13:44Z",
+      "side": 1,
+      "message": "it is strange to see IAuthGraphKeyExchange listed as a top-level object if it\u0027s not normally used as a top-level object, but I guess if you want it for testing, it works.\n\nThe VTS test would probably need to be updated if this is the case then, to be able to test the other subinterfaces.",
+      "parentUuid": "cff0ca18_e891ae18",
+      "range": {
+        "startLine": 516,
+        "startChar": 22,
+        "endLine": 516,
+        "endChar": 31
+      },
+      "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
