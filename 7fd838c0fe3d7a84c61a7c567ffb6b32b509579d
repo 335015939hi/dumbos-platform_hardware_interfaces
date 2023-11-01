@@ -70,6 +70,30 @@
       },
       "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cff0ca18_e891ae18",
+        "filename": "compatibility_matrices/compatibility_matrix.9.xml",
+        "patchSetId": 9
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-01T00:42:09Z",
+      "side": 1,
+      "message": "I think we do not plan to register other instances of IAuthGraphKeyExchange in the compatibility matrix. For example, in this diagram https://sequencediagram.googleplex.com/view/5967481282756608 - which depicts how IAuthGraphKeyExchange is used in its first immediate use case, the IAuthGraphKeyExchange instance is retrieved from the other interface object which implements it - ISecreKeeper in this case.\n\nHowever, I will let David @drysdale@google.com confirm the answer to the above question.",
+      "parentUuid": "b656cfab_c091c190",
+      "range": {
+        "startLine": 516,
+        "startChar": 22,
+        "endLine": 516,
+        "endChar": 31
+      },
+      "revId": "7fd838c0fe3d7a84c61a7c567ffb6b32b509579d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
