@@ -46,6 +46,30 @@
       },
       "revId": "0e2495f107d3df9dc907f4e372d8d8e2c5405dbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c52406d0_79262ebb",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyExchange.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-01T01:12:32Z",
+      "side": 1,
+      "message": "ack.\n\ngetInterfaceVersion (like the versions here) could also be misrepresented, of course",
+      "parentUuid": "6534ce64_bbfb482b",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 49
+      },
+      "revId": "0e2495f107d3df9dc907f4e372d8d8e2c5405dbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
