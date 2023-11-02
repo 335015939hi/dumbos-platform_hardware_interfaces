@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46cf4fe7_817c0516",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-02T17:30:20Z",
+      "side": 1,
+      "message": "A couple of questions:\n\n1. Are you using an up to date checkout? I\u0027m asking because https://r.android.com/q/topic:%22Reland-AidlAudioHalModuleConfig%22 switches configuration ingestion from hardcoded to XML. Thus, changing the hardcoded configuration for the primary module should not affect the outcome of the test as it is not really used 😊\n\n2. I think we should try to understand why two simultaneous active clients appear. I don\u0027t think this will work correctly. If we connect two HAL streams to the same device port for reading, they will effectively be \"stealing\" audio data from each other. At least on CF, we don\u0027t implement any intermediate layering for giving multiple clients simultaneous access to the same hardware data.",
+      "revId": "d75163e48d72f91d37ed2a45e575046c6dddf6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
