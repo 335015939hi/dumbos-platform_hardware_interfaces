@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8cb539c_2eb804cb",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-02T22:53:44Z",
+      "side": 1,
+      "message": "Should we add BLE_ADDR_ANYONYMOUS \u003d 0xFF as well? \n\nSince the device may not have an address",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 39
+      },
+      "revId": "dc3bb86588a107cbbcd9272a3e9d42dddd4a4270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
