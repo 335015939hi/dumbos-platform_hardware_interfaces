@@ -16,6 +16,23 @@
       "message": "A couple of questions:\n\n1. Are you using an up to date checkout? I\u0027m asking because https://r.android.com/q/topic:%22Reland-AidlAudioHalModuleConfig%22 switches configuration ingestion from hardcoded to XML. Thus, changing the hardcoded configuration for the primary module should not affect the outcome of the test as it is not really used 😊\n\n2. I think we should try to understand why two simultaneous active clients appear. I don\u0027t think this will work correctly. If we connect two HAL streams to the same device port for reading, they will effectively be \"stealing\" audio data from each other. At least on CF, we don\u0027t implement any intermediate layering for giving multiple clients simultaneous access to the same hardware data.",
       "revId": "d75163e48d72f91d37ed2a45e575046c6dddf6e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1142216f_c7c93951",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2023-11-02T17:34:59Z",
+      "side": 1,
+      "message": "Shunkai and I had a discussion about this yesterday.  Essentially the test has a problem.\n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:frameworks/av/media/libaudioclient/tests/audioeffect_tests.cpp;drc\u003ddb1235321df363a4a618de3f54d19ef8c19e73e1;l\u003d246\n\n\nif capture is a sp\u003c\u003e the code here creates the new AudioRecord before releasing the old one.\n\n    capture \u003d new AudioCapture(AUDIO_SOURCE_MIC, sampleRate, format, channelMask);",
+      "revId": "d75163e48d72f91d37ed2a45e575046c6dddf6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
