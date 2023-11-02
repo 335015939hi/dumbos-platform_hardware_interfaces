@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a0cd812_54a8cc78",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-11-02T18:42:49Z",
+      "side": 1,
+      "message": "@khei@google.com I notice that mH4 is never set to nullptr, e.g. in close(). Is that intentional?",
+      "range": {
+        "startLine": 350,
+        "startChar": 40,
+        "endLine": 350,
+        "endChar": 54
+      },
+      "revId": "dd1afa0afbcfb00433c95860fb213e074b2ecd81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
