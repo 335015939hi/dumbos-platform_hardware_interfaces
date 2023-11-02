@@ -46,6 +46,30 @@
       },
       "revId": "dd1afa0afbcfb00433c95860fb213e074b2ecd81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c81ed53_d5d245bd",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1994610
+      },
+      "writtenOn": "2023-11-02T21:01:37Z",
+      "side": 1,
+      "message": "It looks like that bug/CL didn\u0027t completely solve the issue. It seems that if someone calls send() concurrently or after close(), mH4 be null on line 357.",
+      "parentUuid": "339c5ae2_02129a3e",
+      "range": {
+        "startLine": 350,
+        "startChar": 40,
+        "endLine": 350,
+        "endChar": 54
+      },
+      "revId": "dd1afa0afbcfb00433c95860fb213e074b2ecd81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
