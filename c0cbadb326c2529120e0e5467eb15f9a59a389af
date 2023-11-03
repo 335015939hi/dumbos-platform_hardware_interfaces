@@ -16,6 +16,24 @@
       "message": "long or auto ?",
       "revId": "c0cbadb326c2529120e0e5467eb15f9a59a389af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d8062a6_31e2bea9",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-03T18:35:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f1e91fa_4057990b",
+      "revId": "c0cbadb326c2529120e0e5467eb15f9a59a389af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
