@@ -16,6 +16,98 @@
       "message": "Eric, ping for reviews.",
       "revId": "dc2d61fcfdfa54048d22b46d5d7d13f0254774b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d02e37b4_446751b9",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2639,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-11-03T15:03:01Z",
+      "side": 1,
+      "message": "the number of overloaded method with this name make it hard to understand.\n\nAlso only this one has to be public. making the other ones private would help",
+      "range": {
+        "startLine": 2639,
+        "startChar": 9,
+        "endLine": 2639,
+        "endChar": 24
+      },
+      "revId": "dc2d61fcfdfa54048d22b46d5d7d13f0254774b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b5b9540_86c4e99b",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2697,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-11-03T15:03:01Z",
+      "side": 1,
+      "message": "maybe use SetUpStream prefix instead of SetUp for all those methods.",
+      "range": {
+        "startLine": 2697,
+        "startChar": 9,
+        "endLine": 2697,
+        "endChar": 14
+      },
+      "revId": "dc2d61fcfdfa54048d22b46d5d7d13f0254774b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2700f330_4183961f",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3434,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-11-03T15:03:01Z",
+      "side": 1,
+      "message": "this should go before line 3434 because !atLeastOnePort \u003d\u003e !atLeastOneSupports.",
+      "range": {
+        "startLine": 3434,
+        "startChar": 0,
+        "endLine": 3434,
+        "endChar": 26
+      },
+      "revId": "dc2d61fcfdfa54048d22b46d5d7d13f0254774b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5dd01a9_f621bd69",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3464,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-11-03T15:03:01Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3464,
+        "startChar": 9,
+        "endLine": 3464,
+        "endChar": 23
+      },
+      "revId": "dc2d61fcfdfa54048d22b46d5d7d13f0254774b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
