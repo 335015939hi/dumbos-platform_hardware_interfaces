@@ -46,6 +46,30 @@
       },
       "revId": "d26f7fd5713db4b0985ca3f2fab2edf9a72056cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d61bf073_87a67f64",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-03T20:59:25Z",
+      "side": 1,
+      "message": "Also, changed the type of `durationUs` in `frameCountFromDurationUs` to `long`.",
+      "parentUuid": "e354c228_2b92526a",
+      "range": {
+        "startLine": 178,
+        "startChar": 11,
+        "endLine": 178,
+        "endChar": 46
+      },
+      "revId": "d26f7fd5713db4b0985ca3f2fab2edf9a72056cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
