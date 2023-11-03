@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6e33219_3b4b76fc",
+        "filename": "security/secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-03T17:38:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e6c35e0_5fda695b",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baddd8af_903931e4",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-25T15:58:04Z",
       "side": 1,
       "message": "Do you need this? It\u0027s supposed to default on in the absence of a test.xml",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 26
+      },
+      "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dbad62e_23af9a5d",
+        "filename": "security/secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-03T17:38:16Z",
+      "side": 1,
+      "message": "go/Android.bp says:\n\nIf AndroidTest.xml doesn\u0027t exist next to the Android.bp, this attribute doesn\u0027t need to be set to true explicitly.\n\nSo we don\u0027t need it afterall",
+      "parentUuid": "baddd8af_903931e4",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "632a7901_52677e39",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-03T17:38:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4cbe7493_5af31b68",
+      "range": {
+        "startLine": 33,
+        "startChar": 55,
+        "endLine": 33,
+        "endChar": 61
+      },
+      "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12143b40_50b9325f",
         "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
         "patchSetId": 3
@@ -100,6 +172,24 @@
       "writtenOn": "2023-10-20T11:20:09Z",
       "side": 1,
       "message": "Could do with a TODO to make it clear that this will need updating when the encryption layer is turned on.",
+      "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be523c17_61f915ca",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-03T17:38:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12143b40_50b9325f",
       "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
