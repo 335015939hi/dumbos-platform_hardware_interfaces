@@ -3,6 +3,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e73b4a89_9e45c019",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-03T01:29:10Z",
+      "side": 1,
+      "message": "Myles/Antoine, did you reach a conclusion?",
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a4179cf_f4ba5aca",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfiguration.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-03T01:29:10Z",
+      "side": 1,
+      "message": "can you put the doc comment on this, what the format is?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 25
+      },
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc5d335f_6029af8d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpRemoteCapabilities.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-03T01:29:10Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f837a96_05b1c0fe",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
         "patchSetId": 11
