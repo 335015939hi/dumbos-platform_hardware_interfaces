@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10202e04_e258e859",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-03T18:26:37Z",
+      "side": 1,
+      "message": "The interfaces are unfrozen right now and can be developed. They\u0027re intentionally not frozen at this time.",
+      "revId": "d4a16e76f3cd4460e44d3351c4e3442592f7c5c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
