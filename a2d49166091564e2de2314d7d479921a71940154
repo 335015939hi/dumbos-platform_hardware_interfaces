@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f3a2b65_9609023f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-03T20:54:11Z",
+      "side": 1,
+      "message": "Please have a look at the AIDL changes. Once the AIDL changes comments are resolved. We will make the VTS tests and implementation ready.",
+      "revId": "a2d49166091564e2de2314d7d479921a71940154",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
