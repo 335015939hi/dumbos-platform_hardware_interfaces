@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be898f9c_295b14df",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-06T07:15:37Z",
+      "side": 1,
+      "message": "Is it forbidden to be called for *_SOFTWARE_* sessions now?",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0fe6d4e4_1c7df189",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
         "patchSetId": 10
