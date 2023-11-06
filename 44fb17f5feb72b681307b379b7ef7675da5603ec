@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88e44239_6d83abec",
+        "filename": "audio/aidl/vts/AudioHalBinderServiceUtil.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-06T23:35:02Z",
+      "side": 1,
+      "message": "Names of local variables should start with lower case.",
+      "range": {
+        "startLine": 86,
+        "startChar": 27,
+        "endLine": 86,
+        "endChar": 39
+      },
+      "revId": "44fb17f5feb72b681307b379b7ef7675da5603ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
