@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8a0bf49_2e70cd93",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2023-11-06T19:25:24Z",
+      "side": 1,
+      "message": "Number of?",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe1792a5_b71f552a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2023-11-06T19:25:24Z",
+      "side": 1,
+      "message": "configuration supported?",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a83920b4_635903db",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2023-11-06T19:25:24Z",
+      "side": 1,
+      "message": "maybe add some descriptions for those two fields as well?",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8a6bfdb_f5a91921",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioBroadcastConfiguration.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2023-11-06T19:25:24Z",
+      "side": 1,
+      "message": "why is this nullable? no BIS configuration allowed?",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cde2a57_8629bb7d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioBroadcastConfiguration.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2023-11-06T19:25:24Z",
+      "side": 1,
+      "message": "shouldn\u0027t this be nullable?",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
