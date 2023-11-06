@@ -20,6 +20,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ebda0e7a_e492e195",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-06T19:34:52Z",
+      "side": 1,
+      "message": "Indentation",
+      "revId": "dc3bb86588a107cbbcd9272a3e9d42dddd4a4270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16e67826_81e3e5d5",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-06T19:34:52Z",
+      "side": 1,
+      "message": "Typo \"Vendor\"",
+      "revId": "dc3bb86588a107cbbcd9272a3e9d42dddd4a4270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6678d5d0_506f8b30",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-06T19:34:52Z",
+      "side": 1,
+      "message": "Flush timeout is not a QoS param from host. It\u0027s deduced by controller based on MaxTransportLatency and Retransmission number during CIG creation.\n\nInstead PHY should be part of QoS and SetCIG param which should be there.",
+      "revId": "dc3bb86588a107cbbcd9272a3e9d42dddd4a4270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a8cb539c_2eb804cb",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
         "patchSetId": 14
