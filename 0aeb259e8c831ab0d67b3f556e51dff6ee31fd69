@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0fa1e42_47f625c6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioContext.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-06T16:55:04Z",
+      "side": 1,
+      "message": "It\u0027s log2(n) of the values of the standard. We can\u0027t use bit mask in AIDL interface.",
+      "parentUuid": "88b97d77_3ddc0820",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe48995d_d7722ce0",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecId.aidl",
         "patchSetId": 10
@@ -72,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba9327c1_57405427",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-06T16:55:04Z",
+      "side": 1,
+      "message": "Yes, the codec extensibility is restricted to offload for now.\nNon-AOSP codecs (non open-sourced) codecs cannot be handled today.",
+      "parentUuid": "be898f9c_295b14df",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0fe6d4e4_1c7df189",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
         "patchSetId": 10
@@ -83,6 +119,24 @@
       "writtenOn": "2023-11-06T07:08:57Z",
       "side": 1,
       "message": "Any conclusion on this?",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd18c70e_22921736",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-06T16:55:04Z",
+      "side": 1,
+      "message": "Yes, should be removed.",
+      "parentUuid": "0fe6d4e4_1c7df189",
       "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
