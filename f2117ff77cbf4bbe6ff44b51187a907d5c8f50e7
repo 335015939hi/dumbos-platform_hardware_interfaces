@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85a0a826_7afc2e3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-06T17:08:51Z",
+      "side": 1,
+      "message": "I had a minor question about `errorcode_to_binder`, which I added in the CL which defines the method.",
+      "revId": "f2117ff77cbf4bbe6ff44b51187a907d5c8f50e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
