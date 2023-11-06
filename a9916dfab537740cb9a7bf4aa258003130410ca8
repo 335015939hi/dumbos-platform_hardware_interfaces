@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3390d86b_6a202e30",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecInfo.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-06T19:57:28Z",
+      "side": 1,
+      "message": "Please add documentation for this",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 34
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a5dee64_2ea164ab",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecInfo.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-06T19:57:28Z",
+      "side": 1,
+      "message": "Note: this is a new interface and hence can still be modified\n\nThe original Void one was added in https://r.android.com/2763946",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 24
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb690258_6655b4e3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificConfigurationLtv.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-06T19:57:28Z",
+      "side": 1,
+      "message": "Please add documentation to this file",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 37
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a05aa76f_4243e9ef",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-06T19:57:28Z",
+      "side": 1,
+      "message": "please also add documentation",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 5
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed8fa8ab_a60df134",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-06T19:57:28Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 46
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a39f74c0_f3d440ab",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-06T19:57:28Z",
+      "side": 1,
+      "message": "double checked with rlukasz@. It seems BLE_ADDR_ANONYMOUS is only for non-connectable advertisement. Please double check if we could have an unicast connection with BLE_ADDR_ANONYMOUS, if not, feel free to remove.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 42
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da274836_e0a97716",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/MetadataLtv.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-06T19:57:28Z",
+      "side": 1,
+      "message": "please add documentation with reference to the specifications",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
