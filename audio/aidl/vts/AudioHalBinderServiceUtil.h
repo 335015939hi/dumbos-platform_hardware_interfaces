@@ -94,7 +94,7 @@ class AudioHalBinderServiceUtil {
             return false;
         }
         if (!DeathHandler.waitForFired(timeoutMs)) {
-            LOG(ERROR) << "Timeout wait for death";
+            LOG(ERROR) << "Timeout wait for death of " << mServiceName;
             return false;
         }
         return true;
