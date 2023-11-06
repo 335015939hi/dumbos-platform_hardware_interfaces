@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5dc59e3_441e2367",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-06T16:52:03Z",
+      "side": 1,
+      "message": "Yes, Myles proposed using a fixed length array. Something like `@nullable byte[64] vendorControllerData\".\nI am a bit concerned with the padding, that can be sent outside the SoC, and can perhaps contain sensitive data. Moreover, this will not be uniform with standard commands that waits flexible amount of data.\nThe main concern of Myles, is that crash of the stack with a too big array. Do you know if we can limit the size of a \"byte[]\" by design?\nBy the way, I\u0027ve asked to QC if that fits, we can probably move forward with that.",
+      "parentUuid": "e73b4a89_9e45c019",
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a4179cf_f4ba5aca",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfiguration.aidl",
         "patchSetId": 11
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70ed23c2_d717f701",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfiguration.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-06T16:52:03Z",
+      "side": 1,
+      "message": "It\u0027s two lines above. As theses 3 fields works together, makes sense to me to keep them together.",
+      "parentUuid": "3a4179cf_f4ba5aca",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 25
+      },
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc5d335f_6029af8d",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpRemoteCapabilities.aidl",
         "patchSetId": 11
@@ -54,6 +96,30 @@
       "writtenOn": "2023-11-03T01:29:10Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76d6d072_4565c563",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpRemoteCapabilities.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-06T16:52:03Z",
+      "side": 1,
+      "message": "Same, one line above.",
+      "parentUuid": "fc5d335f_6029af8d",
       "range": {
         "startLine": 37,
         "startChar": 0,
