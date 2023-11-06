@@ -72,6 +72,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ec1f2d1_1a1d7b82",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificConfigurationLtv.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-06T20:18:56Z",
+      "side": 1,
+      "message": "Can Source/Sink Audio location also be passed to vendor in case vendor want to make Audio Channel Allocation also in config selection?",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0843a892_6485a827",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-06T20:18:56Z",
+      "side": 1,
+      "message": "Can Sink/Source Audio location of PAC record be provided to Vendor module so that it can make right decision for Vendor config in case it opt to choose using this flag. I see places where channel count is being passed but not channel locations any reason for doing so?",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2e15a2d_26e449d2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-06T20:18:56Z",
+      "side": 1,
+      "message": "Should it be Mono_Mic_Config as if Dual Mic is present it should be default and selecting Mono mic should be a configurability option.",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a05aa76f_4243e9ef",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 18
@@ -118,6 +169,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a25fb2cd_29d5128a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-06T20:18:56Z",
+      "side": 1,
+      "message": "Any reason to keep this LE Audio ASE Config inside stream map? One reason I can think of is CIS are asymmetric config (for spatial audio maybe) but is there any other reason for doing so?",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a39f74c0_f3d440ab",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
         "patchSetId": 18
@@ -135,6 +203,23 @@
         "endLine": 57,
         "endChar": 42
       },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c1028de_3cde0c12",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-06T20:18:56Z",
+      "side": 1,
+      "message": "1. Any reason for keeping BluetoothDeviceAddress within stream map rather outside of it?\n\n2. For CSIP device what will be our bd address? will it be one of those addresses will be use as StartSession for LE Audio might happen once only for LE Encoding/Decoding?",
       "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
