@@ -146,6 +146,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c32a24c9_8cf27ad4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-06T20:22:02Z",
+      "side": 1,
+      "message": "what is this channel count here? Is it different from channel location?",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed8fa8ab_a60df134",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 18
