@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb704c5_4df9f7d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-06T17:18:49Z",
+      "side": 1,
+      "message": "Do we need to add this CL and the one-liner in aosp/2813013 into a topic?",
+      "revId": "6fb22dc9ef6e481ef6d37205f279f386871a5d4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
