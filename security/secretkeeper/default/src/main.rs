@@ -23,15 +23,21 @@ use secretkeeper_comm::data_types::request_response_impl::{
     GetVersionRequest, GetVersionResponse, Opcode,
 };
 use secretkeeper_comm::data_types::response::Response;
+use std::sync::{Arc, Mutex};
 
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::{
     BnSecretkeeper, BpSecretkeeper, ISecretkeeper,
 };
+use android_hardware_security_authgraph::aidl::android::hardware::security::authgraph::{
+    IAuthGraphKeyExchange::IAuthGraphKeyExchange,
+};
 
 const CURRENT_VERSION: u64 = 1;
 
-#[derive(Debug, Default)]
-pub struct NonSecureSecretkeeper;
+#[derive(Debug)]
+pub struct NonSecureSecretkeeper {
+    authgraph: binder::Strong<dyn IAuthGraphKeyExchange>,
+}
 
 impl Interface for NonSecureSecretkeeper {}
 
@@ -39,9 +45,17 @@ impl ISecretkeeper for NonSecureSecretkeeper {
     fn processSecretManagementRequest(&self, request: &[u8]) -> binder::Result<Vec<u8>> {
         Ok(self.process_opaque_request(request))
     }
+    fn getAuthGraphKE(&self) -> binder::Result<binder::Strong<dyn IAuthGraphKeyExchange>> {
+        Ok(self.authgraph.clone())
+    }
 }
 
 impl NonSecureSecretkeeper {
+    fn new() -> Self {
+        let local_authgraph_ta = Arc::new(Mutex::new(authgraph_nonsecure::LocalTa::new().unwrap()));
+        let authgraph = authgraph_hal::service::AuthGraphService::new_as_binder(local_authgraph_ta);
+        Self { authgraph }
+    }
     // A set of requests to Secretkeeper are 'opaque' - encrypted bytes with inner structure
     // described by CDDL. They need to be decrypted, deserialized and processed accordingly.
     fn process_opaque_request(&self, request: &[u8]) -> Vec<u8> {
@@ -104,7 +118,7 @@ fn main() {
         error!("{}", panic_info);
     }));
 
-    let service = NonSecureSecretkeeper::default();
+    let service = NonSecureSecretkeeper::new();
     let service_binder = BnSecretkeeper::new_binder(service, BinderFeatures::default());
     let service_name = format!(
         "{}/nonsecure",
