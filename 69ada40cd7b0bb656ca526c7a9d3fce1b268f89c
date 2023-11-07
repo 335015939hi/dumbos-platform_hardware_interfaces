@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdae374a_73c2447b",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2027455
+      },
+      "writtenOn": "2023-11-07T12:18:25Z",
+      "side": 1,
+      "message": "bytes",
+      "range": {
+        "startLine": 24,
+        "startChar": 39,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df1daf3a_ce8340a7",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2027455
+      },
+      "writtenOn": "2023-11-07T12:18:25Z",
+      "side": 1,
+      "message": "enablement status of the feature\nOr even rewrite the entire fragment to something like \"API for retrieving feature enablement status\"",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 46
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d8e9602_dc1175c7",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 2027455
+      },
+      "writtenOn": "2023-11-07T12:18:25Z",
+      "side": 1,
+      "message": "was",
+      "range": {
+        "startLine": 40,
+        "startChar": 24,
+        "endLine": 40,
+        "endChar": 25
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
