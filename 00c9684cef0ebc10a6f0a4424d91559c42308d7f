@@ -54,6 +54,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1fd0748d_6fe7c374",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 2033006
+      },
+      "writtenOn": "2023-11-07T07:29:48Z",
+      "side": 1,
+      "message": "Why we need define two parcelables for subgroup: LeAudioBroadcastSubgroupConfiguration and LeAudioSubgroupBisConfiguration?\n\n\nIf we define the LeAudioBroadcastSubgroupConfiguration like below, then LeAudioSubgroupBisConfiguration seems not be required.\n\n\n parcelable LeAudioBroadcastSubgroupConfiguration {\n        int numBis;\n        List\u003cLeAudioBisConfiguration\u003e bisConfigurations;\n }",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b8a6bfdb_f5a91921",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioBroadcastConfiguration.aidl",
         "patchSetId": 17
