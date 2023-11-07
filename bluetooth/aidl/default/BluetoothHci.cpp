@@ -119,15 +119,24 @@ BluetoothHci::BluetoothHci(const std::string& dev_path) {
 }
 
 int BluetoothHci::getFdFromDevPath() {
-  int fd = open(mDevPath.c_str(), O_RDWR);
-  if (fd < 0) {
-    ALOGE("Could not connect to bt: %s (%s)", mDevPath.c_str(),
+  int retry = 50;
+  int fd = -1;
+  while (retry > 0) {
+    fd = open(mDevPath.c_str(), O_RDWR);
+    if (fd >= 0) {
+      if (int ret = SetTerminalRaw(fd) < 0) {
+        ALOGI("Could not make %s a raw terminal %d(%s)", mDevPath.c_str(), ret,
+            strerror(errno));
+      }
+      return fd;
+    } else if (errno == EAGAIN) {
+      std::this_thread::sleep_for(std::chrono::milliseconds(200));
+      retry --;
+    } else {
+      ALOGE("Could not connect to bt: %s (%s)", mDevPath.c_str(),
           strerror(errno));
-    return fd;
-  }
-  if (int ret = SetTerminalRaw(fd) < 0) {
-    ALOGI("Could not make %s a raw terminal %d(%s)", mDevPath.c_str(), ret,
-          strerror(errno));
+      return fd;
+    }
   }
   return fd;
 }
