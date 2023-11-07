@@ -49,6 +49,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cec27767_ff86f937",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-07T10:15:02Z",
+      "side": 1,
+      "message": "Lets refere here Bluetooth Assigned numbers.",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb690258_6655b4e3",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificConfigurationLtv.aidl",
         "patchSetId": 18
@@ -89,6 +106,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85597f56_e9114660",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificConfigurationLtv.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-07T10:15:02Z",
+      "side": 1,
+      "message": "Bluetooth stack calles vendor lib to get configuration per direction and not by allocation.\n\nAllocation is added by Bluetooth stack if the standard Le Audio allocation is used.\nOtherwise vendor lib has no chance to set allocation.\n\n@Jakub, maybe we should remove this enum?",
+      "parentUuid": "7ec1f2d1_1a1d7b82",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0843a892_6485a827",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
         "patchSetId": 18
@@ -106,6 +141,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a288b195_6f2ecbda",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-07T10:15:02Z",
+      "side": 1,
+      "message": "Channel count is provided so the vendor lib knows if Bluetooth request a configuration for 1 or more channels in single CIS.\n\nAllocation is handled by Bluetooth stack.",
+      "parentUuid": "0843a892_6485a827",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2e15a2d_26e449d2",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
         "patchSetId": 18
@@ -117,6 +170,24 @@
       "writtenOn": "2023-11-06T20:18:56Z",
       "side": 1,
       "message": "Should it be Mono_Mic_Config as if Dual Mic is present it should be default and selecting Mono mic should be a configurability option.",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52202980_8de051ee",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-07T10:15:02Z",
+      "side": 1,
+      "message": "I agree, we should assume that DUAL_MIC is a default configuration and the flag should be to configure for MONO_MIC. \n\n@Jakub what do you think?",
+      "parentUuid": "c2e15a2d_26e449d2",
       "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -146,6 +217,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f3ba8f1_951b1765",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-07T10:15:02Z",
+      "side": 1,
+      "message": "lets refer to Bluetooth spec",
+      "parentUuid": "a05aa76f_4243e9ef",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 5
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c32a24c9_8cf27ad4",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 18
@@ -157,6 +252,24 @@
       "writtenOn": "2023-11-06T20:22:02Z",
       "side": 1,
       "message": "what is this channel count here? Is it different from channel location?",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56665dc2_b3d56f9f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-07T10:15:02Z",
+      "side": 1,
+      "message": "lets document it here Jakub.\n\nchannelCount here is a number of audio channels in single CIS.",
+      "parentUuid": "c32a24c9_8cf27ad4",
       "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -203,6 +316,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a9c0e26_cb08468b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-07T10:15:02Z",
+      "side": 1,
+      "message": "the reason you mentioned should be sufficient 😊",
+      "parentUuid": "a25fb2cd_29d5128a",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a39f74c0_f3d440ab",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
         "patchSetId": 18
@@ -226,6 +357,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a5a1a78_e69633d8",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-07T10:15:02Z",
+      "side": 1,
+      "message": "We should remove it. the only \"anonymous\" could be used in the extended advertising  report. When we are connected, type is either public or random.",
+      "parentUuid": "a39f74c0_f3d440ab",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 42
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c1028de_3cde0c12",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
         "patchSetId": 18
@@ -237,6 +392,24 @@
       "writtenOn": "2023-11-06T20:18:56Z",
       "side": 1,
       "message": "1. Any reason for keeping BluetoothDeviceAddress within stream map rather outside of it?\n\n2. For CSIP device what will be our bd address? will it be one of those addresses will be use as StartSession for LE Audio might happen once only for LE Encoding/Decoding?",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "446222ee_1c709789",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-07T10:15:02Z",
+      "side": 1,
+      "message": "1. it is just makes sens to have complete configuration and matching CIS handle with the device.\n\n2. It will be always remote address, BUT this is going to be address used during bonding.",
+      "parentUuid": "8c1028de_3cde0c12",
       "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
