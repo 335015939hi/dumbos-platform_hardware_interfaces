@@ -46,6 +46,30 @@
       },
       "revId": "8ffafbe57adfe3b9e3af9f7e6cbb51ae2c087f17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bee762f9_888e3d5b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfiguration.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-07T18:37:35Z",
+      "side": 1,
+      "message": "One of the points of the HAL is to constrain the data that can be passed through it to improve the chances of things working.  What\u0027s the argument against specifying the size?",
+      "parentUuid": "f8e35860_000a200a",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 10
+      },
+      "revId": "8ffafbe57adfe3b9e3af9f7e6cbb51ae2c087f17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
