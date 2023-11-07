@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dde202cd_e23535c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-07T01:38:53Z",
+      "side": 1,
+      "message": "e.g. as opaque vendor data). Also, if you can name the types as \u0027vendorOpaqueData\u0027 or similar, that would be preferred, as how they should be used would be self-documenting, and it\u0027d be easier to see in framework code if they are inspected",
+      "parentUuid": "0a816b07_932c9a82",
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a4179cf_f4ba5aca",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfiguration.aidl",
         "patchSetId": 11
