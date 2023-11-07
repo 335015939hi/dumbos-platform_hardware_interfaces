@@ -34,6 +34,24 @@
       "parentUuid": "85a0a826_7afc2e3a",
       "revId": "f2117ff77cbf4bbe6ff44b51187a907d5c8f50e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d278b73_b72e7f7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-07T18:06:24Z",
+      "side": 1,
+      "message": "Sorry, I removed that question later, after getting a better understanding about error handling.\nMy question was, whether it is intentional to remove the error message in the binder error returned to the caller, as in https://android-review.git.corp.google.com/c/platform/system/authgraph/+/2815937/7/hal/src/lib.rs#149.\n\nLater I realized that we do not send the error message anyway from TA to HAL in the response message, and that we log the error message in the TA and only return the error code to the HAL. So the above question is irrelevant.",
+      "parentUuid": "1f007e74_744ca5c6",
+      "revId": "f2117ff77cbf4bbe6ff44b51187a907d5c8f50e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
