@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06a45d6d_cc1d0893",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecInfo.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3390d86b_6a202e30",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 34
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a5dee64_2ea164ab",
@@ -64,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09cecc0f_abbd6382",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cec27767_ff86f937",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb690258_6655b4e3",
@@ -77,6 +119,30 @@
       "writtenOn": "2023-11-06T19:57:28Z",
       "side": 1,
       "message": "Please add documentation to this file",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 37
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2857cdbd_54789607",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificConfigurationLtv.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb690258_6655b4e3",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -118,6 +184,24 @@
       "side": 1,
       "message": "Bluetooth stack calles vendor lib to get configuration per direction and not by allocation.\n\nAllocation is added by Bluetooth stack if the standard Le Audio allocation is used.\nOtherwise vendor lib has no chance to set allocation.\n\n@Jakub, maybe we should remove this enum?",
       "parentUuid": "7ec1f2d1_1a1d7b82",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "295b4dd8_0cb0b146",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificConfigurationLtv.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85597f56_e9114660",
       "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -192,6 +276,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9956b144_fb2da13b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52202980_8de051ee",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a05aa76f_4243e9ef",
@@ -239,6 +341,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e58ca0b7_811dd12d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f3ba8f1_951b1765",
+      "range": {
+        "startLine": 262,
+        "startChar": 4,
+        "endLine": 274,
+        "endChar": 5
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c32a24c9_8cf27ad4",
@@ -270,6 +396,24 @@
       "side": 1,
       "message": "lets document it here Jakub.\n\nchannelCount here is a number of audio channels in single CIS.",
       "parentUuid": "c32a24c9_8cf27ad4",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d16528b2_a760581a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56665dc2_b3d56f9f",
       "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -379,6 +523,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d340c9f_1f1dbdda",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a5a1a78_e69633d8",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 42
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c1028de_3cde0c12",
@@ -427,6 +595,30 @@
       "writtenOn": "2023-11-06T19:57:28Z",
       "side": 1,
       "message": "please add documentation with reference to the specifications",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4734c99d_3afeec63",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/MetadataLtv.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da274836_e0a97716",
       "range": {
         "startLine": 27,
         "startChar": 0,

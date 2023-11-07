@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7802dfca_6d7b063b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebda0e7a_e492e195",
+      "revId": "dc3bb86588a107cbbcd9272a3e9d42dddd4a4270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16e67826_81e3e5d5",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-11-06T19:34:52Z",
       "side": 1,
       "message": "Typo \"Vendor\"",
+      "revId": "dc3bb86588a107cbbcd9272a3e9d42dddd4a4270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fc550d7_13629989",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e67826_81e3e5d5",
       "revId": "dc3bb86588a107cbbcd9272a3e9d42dddd4a4270",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -83,6 +119,24 @@
       "side": 1,
       "message": "Looks like left over - it shall be removed as in the design doc.",
       "parentUuid": "6678d5d0_506f8b30",
+      "revId": "dc3bb86588a107cbbcd9272a3e9d42dddd4a4270",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62ddeb4e_e349dee1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-07T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99642fc9_43045419",
       "revId": "dc3bb86588a107cbbcd9272a3e9d42dddd4a4270",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
