@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e7a3570_a25de8f7",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-11-07T12:04:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "777235e3_70f6ef8a",
+      "revId": "eb80451befdc93e7a04cd889553b9fc5604286da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c9c070a_f99d197f",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acd95fcd_a338c6b7",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-11-07T12:04:28Z",
+      "side": 1,
+      "message": "Replace from key to EID",
+      "parentUuid": "0c9c070a_f99d197f",
+      "range": {
+        "startLine": 26,
+        "startChar": 39,
+        "endLine": 26,
+        "endChar": 43
+      },
+      "revId": "eb80451befdc93e7a04cd889553b9fc5604286da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12268f38_1b6dee46",
@@ -54,6 +96,24 @@
       "writtenOn": "2023-11-07T10:38:25Z",
       "side": 1,
       "message": "Incomplete sentence.",
+      "revId": "eb80451befdc93e7a04cd889553b9fc5604286da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd883f3b_273cf901",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-11-07T12:04:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12268f38_1b6dee46",
       "revId": "eb80451befdc93e7a04cd889553b9fc5604286da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
