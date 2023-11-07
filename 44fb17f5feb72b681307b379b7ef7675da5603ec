@@ -22,6 +22,30 @@
       },
       "revId": "44fb17f5feb72b681307b379b7ef7675da5603ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "362704d2_2dfa75cf",
+        "filename": "audio/aidl/vts/AudioHalBinderServiceUtil.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2023-11-07T00:13:59Z",
+      "side": 1,
+      "message": "Thanks for having reported this. I wasn\u0027t sure about the coding style in this source file.",
+      "parentUuid": "88e44239_6d83abec",
+      "range": {
+        "startLine": 86,
+        "startChar": 27,
+        "endLine": 86,
+        "endChar": 39
+      },
+      "revId": "44fb17f5feb72b681307b379b7ef7675da5603ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
