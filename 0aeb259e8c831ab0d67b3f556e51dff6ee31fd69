@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0d58e04_43c12d93",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioContext.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-07T17:01:46Z",
+      "side": 1,
+      "message": "I think Steven would say `1 \u003c\u003c n` for `2^n\u0027.\nI agree with the Steven, it\u0027s the idea behind that. But I don\u0027t read suggestion of modification. Btw, I have update the comment.",
+      "parentUuid": "c7bed469_5eae546e",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe48995d_d7722ce0",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecId.aidl",
         "patchSetId": 10
@@ -142,6 +160,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bdc5ef4_cd3e73ff",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-07T17:01:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ba9327c1_57405427",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fe6d4e4_1c7df189",
@@ -173,6 +209,24 @@
       "side": 1,
       "message": "Yes, should be removed.",
       "parentUuid": "0fe6d4e4_1c7df189",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af75e31f_89245673",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Ltv.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-07T17:01:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dd18c70e_22921736",
       "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
