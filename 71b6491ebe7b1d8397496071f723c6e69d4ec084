@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a816b07_932c9a82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-07T01:37:45Z",
+      "side": 1,
+      "message": "I don\u0027t think you should use a fixed-sized array. Resource exhaustion is possible with almost any type (String, vector, etc...). If you are worried about this, you should keep the length limit in framework code. Yeah?\n\nPlease also document on all of these fields that they should not be inspected in the framework, and document how they should be used (e.g.",
+      "parentUuid": "b5dc59e3_441e2367",
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a4179cf_f4ba5aca",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfiguration.aidl",
         "patchSetId": 11
