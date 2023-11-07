@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1588744b_3acea966",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioContext.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-07T00:42:17Z",
+      "side": 1,
+      "message": "Btw, it would be okay to use \u0027GAME \u003d 2 \u003c\u003c 3\u0027 etc if you wanted, though bit index may be easier to use, since it\u0027s slightly easier to do \u00272 \u003c\u003c x\u0027 than \u0027log2(x)\u0027 in client code.",
+      "parentUuid": "a0fa1e42_47f625c6",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe48995d_d7722ce0",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecId.aidl",
         "patchSetId": 10
