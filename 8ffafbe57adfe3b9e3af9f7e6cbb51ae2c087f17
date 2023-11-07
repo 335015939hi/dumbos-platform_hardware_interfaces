@@ -70,6 +70,30 @@
       },
       "revId": "8ffafbe57adfe3b9e3af9f7e6cbb51ae2c087f17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01920bdf_47b74cf4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfiguration.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-07T19:12:52Z",
+      "side": 1,
+      "message": "I added limit to 128 Bytes in the comments, looks huge for me. I think the client can blindly reject size greater than that.",
+      "parentUuid": "bee762f9_888e3d5b",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 10
+      },
+      "revId": "8ffafbe57adfe3b9e3af9f7e6cbb51ae2c087f17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
