@@ -24,12 +24,19 @@ rust_binary {
     vendor: true,
     init_rc: ["secretkeeper.rc"],
     vintf_fragments: ["secretkeeper.xml"],
+    defaults: [
+        "authgraph_use_latest_hal_aidl_rust",
+    ],
     rustlibs: [
         "android.hardware.security.secretkeeper-V1-rust",
         "libandroid_logger",
+        "libauthgraph_boringssl",
+        "libauthgraph_core",
+        "libauthgraph_hal",
         "libbinder_rs",
         "liblog_rust",
         "libsecretkeeper_comm_nostd",
+        "libsecretkeeper_hal",
     ],
     srcs: [
         "src/main.rs",
