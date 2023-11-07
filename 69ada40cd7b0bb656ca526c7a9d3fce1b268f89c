@@ -26,6 +26,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "006b89b8_aff090ec",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-07T23:48:46Z",
+      "side": 1,
+      "message": "you could also do:\n\n    parcelable Eid { byte[20] bytes; }\n    void sendEids(in Eid[] eids);\n\nwould that make sense?",
+      "range": {
+        "startLine": 24,
+        "startChar": 18,
+        "endLine": 24,
+        "endChar": 65
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5c3ad7c_2b7f97fe",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-07T23:48:46Z",
+      "side": 1,
+      "message": "sendEids",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "585991b9_d60152ea",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-07T23:48:46Z",
+      "side": 1,
+      "message": "\u0027setPoweredOffMode(false)\u0027 would be a double-negative. Would it make sense to reverse the name of this metod?",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df1daf3a_ce8340a7",
         "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
         "patchSetId": 3
