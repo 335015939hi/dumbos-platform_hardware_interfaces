@@ -24,15 +24,21 @@ use secretkeeper_comm::data_types::request_response_impl::{
     GetVersionRequest, GetVersionResponse, Opcode,
 };
 use secretkeeper_comm::data_types::response::Response;
+use std::sync::{Arc, Mutex};
 
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::{
     BnSecretkeeper, BpSecretkeeper, ISecretkeeper,
 };
+use android_hardware_security_authgraph::aidl::android::hardware::security::authgraph::{
+    IAuthGraphKeyExchange::IAuthGraphKeyExchange,
+};
 
 const CURRENT_VERSION: u64 = 1;
 
-#[derive(Debug, Default)]
-pub struct NonSecureSecretkeeper;
+#[derive(Debug)]
+pub struct NonSecureSecretkeeper {
+    authgraph: binder::Strong<dyn IAuthGraphKeyExchange>,
+}
 
 impl Interface for NonSecureSecretkeeper {}
 
@@ -40,9 +46,17 @@ impl ISecretkeeper for NonSecureSecretkeeper {
     fn processSecretManagementRequest(&self, request: &[u8]) -> binder::Result<Vec<u8>> {
         Ok(self.process_secret_management_request_inner(request))
     }
+    fn getAuthGraphKE(&self) -> binder::Result<binder::Strong<dyn IAuthGraphKeyExchange>> {
+        Ok(self.authgraph.clone())
+    }
 }
 
 impl NonSecureSecretkeeper {
+    fn new() -> Self {
+        let local_authgraph_ta = Arc::new(Mutex::new(authgraph_nonsecure::LocalTa::new()));
+        let authgraph = authgraph_hal::service::AuthGraphService::new_as_binder(local_authgraph_ta);
+        Self { authgraph }
+    }
     fn process_secret_management_request_inner(&self, request: &[u8]) -> Vec<u8> {
         // TODO(b/291224769) The request will need to be decrypted & response need to be encrypted
         // with key & related artifacts pre-shared via Authgraph Key Exchange HAL.
@@ -99,7 +113,7 @@ fn main() {
             .with_min_level(Level::Info)
             .with_log_id(android_logger::LogId::System),
     );
-    let service = NonSecureSecretkeeper::default();
+    let service = NonSecureSecretkeeper::new();
     let service_binder = BnSecretkeeper::new_binder(service, BinderFeatures::default());
     let service_name = format!(
         "{}/nonsecure",

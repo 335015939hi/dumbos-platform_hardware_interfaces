@@ -20,8 +20,15 @@ aidl_interface {
     name: "android.hardware.security.secretkeeper",
     vendor_available: true,
     srcs: ["android/hardware/security/secretkeeper/*.aidl"],
+    imports: [
+        "android.hardware.security.authgraph-V1",
+    ],
     stability: "vintf",
+    frozen: false,
     backend: {
+        java: {
+            platform_apis: true,
+        },
         ndk: {
             enabled: true,
         },

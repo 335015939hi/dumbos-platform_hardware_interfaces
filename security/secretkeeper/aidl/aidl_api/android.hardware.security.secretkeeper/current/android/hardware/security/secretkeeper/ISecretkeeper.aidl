@@ -34,5 +34,6 @@
 package android.hardware.security.secretkeeper;
 @VintfStability
 interface ISecretkeeper {
+  android.hardware.security.authgraph.IAuthGraphKeyExchange getAuthGraphKE();
   byte[] processSecretManagementRequest(in byte[] request);
 }

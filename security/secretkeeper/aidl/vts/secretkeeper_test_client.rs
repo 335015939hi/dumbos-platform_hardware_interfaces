@@ -24,6 +24,8 @@ mod tests {
     use secretkeeper_comm::data_types::response::Response;
     use secretkeeper_comm::data_types::packet::{ResponsePacket, ResponseType};
     use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::ISecretkeeper;
+    use authgraph_vts_test as ag_vts;
+    use authgraph_core::key;
 
     const SECRETKEEPER_IDENTIFIER: &str =
         "android.hardware.security.secretkeeper.ISecretkeeper/nonsecure";
@@ -33,9 +35,47 @@ mod tests {
         binder::get_interface(SECRETKEEPER_IDENTIFIER).unwrap()
     }
 
+    fn authgraph_key_exchange(sk: binder::Strong<dyn ISecretkeeper>) -> [key::AesKey; 2] {
+        let sink = sk.getAuthGraphKE().expect("failed to get AuthGraph");
+        let mut impls = ag_vts::test_impls();
+        ag_vts::sink::test_mainline(&mut impls, sink)
+    }
+
+    /// Test that the AuthGraph instance returned by SecretKeeper correctly performs
+    /// mainline key exchange against a local source implementation.
+    #[test]
+    fn authgraph_mainline() {
+        let sk = get_connection();
+        let _aes_keys = authgraph_key_exchange(sk);
+    }
+
+    /// Test that the AuthGraph instance returned by SecretKeeper correctly rejects
+    /// a corrupted session ID signature.
+    #[test]
+    fn authgraph_corrupt_sig() {
+        let sink = get_connection()
+            .getAuthGraphKE()
+            .expect("failed to get AuthGraph");
+        let mut impls = ag_vts::test_impls();
+        ag_vts::sink::test_corrupt_sig(&mut impls, sink);
+    }
+
+    /// Test that the AuthGraph instance returned by SecretKeeper correctly detects
+    /// when corrupted keys are returned to it.
+    #[test]
+    fn authgraph_corrupt_keys() {
+        let sink = get_connection()
+            .getAuthGraphKE()
+            .expect("failed to get AuthGraph");
+        let mut impls = ag_vts::test_impls();
+        ag_vts::sink::test_corrupt_keys(&mut impls, sink);
+    }
+
     #[test]
     fn secret_management_get_version() {
         let secretkeeper = get_connection();
+        let _aes_keys = authgraph_key_exchange(secretkeeper.clone());
+
         let request = GetVersionRequest {};
         let request_packet = request.serialize_to_packet();
         let request_bytes = request_packet.to_bytes().unwrap();
@@ -48,7 +88,10 @@ mod tests {
             .unwrap();
 
         let response_packet = ResponsePacket::from_bytes(&response_bytes).unwrap();
-        assert_eq!(response_packet.response_type().unwrap(), ResponseType::Success);
+        assert_eq!(
+            response_packet.response_type().unwrap(),
+            ResponseType::Success
+        );
         let get_version_response =
             *GetVersionResponse::deserialize_from_packet(response_packet).unwrap();
         assert_eq!(get_version_response.version, CURRENT_VERSION);
@@ -72,7 +115,10 @@ mod tests {
             .unwrap();
 
         let response_packet = ResponsePacket::from_bytes(&response_bytes).unwrap();
-        assert_eq!(response_packet.response_type().unwrap(), ResponseType::Error);
+        assert_eq!(
+            response_packet.response_type().unwrap(),
+            ResponseType::Error
+        );
         let err = *SecretkeeperError::deserialize_from_packet(response_packet).unwrap();
         assert_eq!(err, SecretkeeperError::RequestMalformed);
     }
