@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d90b07a6_162516fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-07T18:17:59Z",
+      "side": 1,
+      "message": "I changed to `vendorSpecificParameters` in CodecParameters. Please take a look.",
+      "parentUuid": "dde202cd_e23535c1",
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a4179cf_f4ba5aca",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfiguration.aidl",
         "patchSetId": 11
@@ -179,6 +197,30 @@
       "writtenOn": "2023-11-03T01:19:43Z",
       "side": 1,
       "message": "Content protection is not supported in the stack.\nThis field is never set for the legacy CodecConfiguration, and can be safely deprecated.",
+      "range": {
+        "startLine": 31,
+        "startChar": 12,
+        "endLine": 31,
+        "endChar": 26
+      },
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c7690a2_31e48c0f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-07T18:17:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f837a96_05b1c0fe",
       "range": {
         "startLine": 31,
         "startChar": 12,
