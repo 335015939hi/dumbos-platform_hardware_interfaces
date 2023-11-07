@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "777235e3_70f6ef8a",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2027455
+      },
+      "writtenOn": "2023-11-07T10:38:25Z",
+      "side": 1,
+      "message": "Should we elaborate about the format (concatenation of 20 bytes EIDs)?",
+      "revId": "eb80451befdc93e7a04cd889553b9fc5604286da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c9c070a_f99d197f",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 2027455
+      },
+      "writtenOn": "2023-11-07T10:38:25Z",
+      "side": 1,
+      "message": "Consider calling them eids (or ephmeralsIds) rather than keys.",
+      "range": {
+        "startLine": 26,
+        "startChar": 39,
+        "endLine": 26,
+        "endChar": 43
+      },
+      "revId": "eb80451befdc93e7a04cd889553b9fc5604286da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12268f38_1b6dee46",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 2027455
+      },
+      "writtenOn": "2023-11-07T10:38:25Z",
+      "side": 1,
+      "message": "Incomplete sentence.",
+      "revId": "eb80451befdc93e7a04cd889553b9fc5604286da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
