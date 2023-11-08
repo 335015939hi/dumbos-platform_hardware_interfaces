@@ -47,6 +47,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b126a564_5a39b3ca",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-11-08T03:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdae374a_73c2447b",
+      "range": {
+        "startLine": 24,
+        "startChar": 39,
+        "endLine": 24,
+        "endChar": 44
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7d98b45_4599500f",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-11-08T03:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "006b89b8_aff090ec",
+      "range": {
+        "startLine": 24,
+        "startChar": 18,
+        "endLine": 24,
+        "endChar": 65
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5c3ad7c_2b7f97fe",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-11-07T23:48:46Z",
       "side": 1,
       "message": "sendEids",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e866e17e_636abdf2",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-11-08T03:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c3ad7c_2b7f97fe",
       "range": {
         "startLine": 27,
         "startChar": 9,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "839cfd3b_f684121f",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-11-08T03:17:56Z",
+      "side": 1,
+      "message": "Are you looking for something like:\nvoid enablePoweredOffMode()\nvoid disablePoweredOffMode()",
+      "parentUuid": "585991b9_d60152ea",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df1daf3a_ce8340a7",
         "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
         "patchSetId": 3
@@ -106,6 +202,30 @@
       "writtenOn": "2023-11-07T12:18:25Z",
       "side": 1,
       "message": "enablement status of the feature\nOr even rewrite the entire fragment to something like \"API for retrieving feature enablement status\"",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 46
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "421b3268_ee4c5cdc",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-11-08T03:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df1daf3a_ce8340a7",
       "range": {
         "startLine": 37,
         "startChar": 22,
@@ -129,6 +249,30 @@
       "writtenOn": "2023-11-07T12:18:25Z",
       "side": 1,
       "message": "was",
+      "range": {
+        "startLine": 40,
+        "startChar": 24,
+        "endLine": 40,
+        "endChar": 25
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29b48fc1_15068f1d",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-11-08T03:17:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d8e9602_dc1175c7",
       "range": {
         "startLine": 40,
         "startChar": 24,
