@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a139ef75_d7aa0d41",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-08T13:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a0bf49_2e70cd93",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe1792a5_b71f552a",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "921bd97e_8149cf5f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-08T13:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe1792a5_b71f552a",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a83920b4_635903db",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-11-06T19:25:24Z",
       "side": 1,
       "message": "maybe add some descriptions for those two fields as well?",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7493637_afea0340",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-08T13:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a83920b4_635903db",
       "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -71,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e678ba16_88a13d30",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 549,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-08T13:23:35Z",
+      "side": 1,
+      "message": "The comments do not explain it properly. I\u0027ll fix that.\n\nAnyway, the explaination is as follows:\nEach Subgroup (`LeAudioBroadcastSubgroupConfiguration`) has a list of distinct configurations for the number of BISes (`List\u003cLeAudioSubgroupBisConfiguration\u003e bisConfigurations`), where each configuration (`LeAudioBisConfiguration bisConfiguration`) can be applied to `int numBis` number of BISes. `numBis` is there to not duplicate the same configuration when more than one BIS has the same configuration, and it the reason for this additional structure nesting.\n\nWith your proposal I\u0027m not sure how multiple configurations `List\u003cLeAudioBisConfiguration\u003e bisConfigurations` are applied to `int numBis` number of BISes.",
+      "parentUuid": "1fd0748d_6fe7c374",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b8a6bfdb_f5a91921",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioBroadcastConfiguration.aidl",
         "patchSetId": 17
@@ -88,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "36a77bbc_a40dac50",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioBroadcastConfiguration.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-08T13:23:35Z",
+      "side": 1,
+      "message": "Since we extend the existing parcellable, we have to be backwards compatible. Making it nullable we make sure this member is automatically set to null when the older implementation does not set it.",
+      "parentUuid": "b8a6bfdb_f5a91921",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1cde2a57_8629bb7d",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioBroadcastConfiguration.aidl",
         "patchSetId": 17
@@ -99,6 +189,24 @@
       "writtenOn": "2023-11-06T19:25:24Z",
       "side": 1,
       "message": "shouldn\u0027t this be nullable?",
+      "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d608becc_d6c3e5a1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioBroadcastConfiguration.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-08T13:23:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cde2a57_8629bb7d",
       "revId": "00c9684cef0ebc10a6f0a4424d91559c42308d7f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
