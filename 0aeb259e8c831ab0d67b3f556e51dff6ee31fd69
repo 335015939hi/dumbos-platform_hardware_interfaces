@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa161f0c_41c58761",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioContext.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-08T11:47:39Z",
+      "side": 1,
+      "message": "in the comment above it is stayed \"as defined by Pacs\"\n\nIt is actually defined by Assigned Numbers and in Assigned numbers it says \"values\"\n\nhttps://btprodspecificationrefs.blob.core.windows.net/assigned-numbers/Assigned%20Number%20Types/Assigned_Numbers.pdf\n\n6.12.3 Context Type",
+      "parentUuid": "3b0949ee_7ebba6a4",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe48995d_d7722ce0",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecId.aidl",
         "patchSetId": 10
