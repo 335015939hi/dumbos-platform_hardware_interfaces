@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db0463e6_f127c8ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-08T16:34:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d90b07a6_162516fe",
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d5f9a8e_51731ca9",
@@ -184,6 +202,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45b5e01d_dcbabce8",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfiguration.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-08T16:34:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "70ed23c2_d717f701",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 25
+      },
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc5d335f_6029af8d",
@@ -221,6 +263,30 @@
       "side": 1,
       "message": "Same, one line above.",
       "parentUuid": "fc5d335f_6029af8d",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "199272bd_4d25864c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpRemoteCapabilities.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-08T16:34:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "76d6d072_4565c563",
       "range": {
         "startLine": 37,
         "startChar": 0,
