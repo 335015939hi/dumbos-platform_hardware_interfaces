@@ -22,6 +22,30 @@
       },
       "revId": "cffd0422ba85b432108da2706fbf6ade9b2b8286",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1be127f0_67973493",
+        "filename": "bluetooth/audio/aidl/default/A2dpOffloadCodecAac.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-08T17:29:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbddb900_2d584e7b",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 17
+      },
+      "revId": "cffd0422ba85b432108da2706fbf6ade9b2b8286",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
