@@ -16,6 +16,24 @@
       "message": "Do we need to add this CL and the one-liner in aosp/2813013 into a topic?",
       "revId": "6fb22dc9ef6e481ef6d37205f279f386871a5d4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cb29b77_edd4ebf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-08T07:30:50Z",
+      "side": 1,
+      "message": "We certainly need both, although IIUC it should also be possible for this to go in first and aosp/2813013 to follow after.",
+      "parentUuid": "3fb704c5_4df9f7d5",
+      "revId": "6fb22dc9ef6e481ef6d37205f279f386871a5d4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
