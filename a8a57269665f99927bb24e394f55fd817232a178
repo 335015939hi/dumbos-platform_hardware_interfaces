@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e787ed3b_b4e1575a",
+        "filename": "security/authgraph/aidl/vts/functional/lib.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-08T07:40:31Z",
+      "side": 1,
+      "message": "Ah, left over from where I refactored it into a helper -- fixed.",
+      "parentUuid": "fdedc30e_c6d5e294",
+      "range": {
+        "startLine": 53,
+        "startChar": 78,
+        "endLine": 53,
+        "endChar": 84
+      },
+      "revId": "a8a57269665f99927bb24e394f55fd817232a178",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07c28d6e_e24fde00",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff2d60f_c573ea30",
+        "filename": "security/authgraph/aidl/vts/functional/lib.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-08T07:40:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07c28d6e_e24fde00",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 13
+      },
+      "revId": "a8a57269665f99927bb24e394f55fd817232a178",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1ba5c52_09186c73",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-11-08T00:24:18Z",
       "side": 1,
       "message": "Is this comment intended to be here?",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 31
+      },
+      "revId": "a8a57269665f99927bb24e394f55fd817232a178",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d7ce1f7_ec2d3463",
+        "filename": "security/authgraph/aidl/vts/functional/sink.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-08T07:40:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1ba5c52_09186c73",
       "range": {
         "startLine": 46,
         "startChar": 4,
