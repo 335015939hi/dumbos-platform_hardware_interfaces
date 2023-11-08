@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b0949ee_7ebba6a4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioContext.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-08T01:03:25Z",
+      "side": 1,
+      "message": "Yeah, `1 \u003c\u003c n`. Anyway, I\u0027m not suggesting a change.\n\nThough, if you don\u0027t actually need to use \u0027bit index\u0027 in code and you just need to use the bit mask, it would be okay to change.",
+      "parentUuid": "e0d58e04_43c12d93",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe48995d_d7722ce0",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecId.aidl",
         "patchSetId": 10
