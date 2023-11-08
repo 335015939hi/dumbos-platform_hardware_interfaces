@@ -443,6 +443,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b25b499_1e7f28db",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-08T06:25:25Z",
+      "side": 1,
+      "message": "Has this been resolved?",
+      "parentUuid": "ed8fa8ab_a60df134",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 406,
+        "endChar": 46
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a25fb2cd_29d5128a",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
         "patchSetId": 18
@@ -578,6 +602,24 @@
       "side": 1,
       "message": "1. it is just makes sens to have complete configuration and matching CIS handle with the device.\n\n2. It will be always remote address, BUT this is going to be address used during bonding.",
       "parentUuid": "8c1028de_3cde0c12",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55e32469_2fd676e7",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1121403
+      },
+      "writtenOn": "2023-11-08T06:25:25Z",
+      "side": 1,
+      "message": "A StreamMap would include multiple devices in a CSIP group. Hence, we would have an address for each device in the set. \n\nFor a pair of dual mode earbud, the dual mode bud will have a PUBLIC address, but the LE only bud could have either PUBLIC or RANDOM address. You should use the PUBLIC address. \n\nIf the earbud is LE only, then either one is fine since there is no difference between either one of them. For example, you dynamic list can match either left or right earbud for a LE only set.",
+      "parentUuid": "446222ee_1c709789",
       "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
