@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdedc30e_c6d5e294",
+        "filename": "security/authgraph/aidl/vts/functional/lib.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-08T00:24:18Z",
+      "side": 1,
+      "message": "Do we need to mention about `init()` in this helper method? Same for the next error message.",
+      "range": {
+        "startLine": 53,
+        "startChar": 78,
+        "endLine": 53,
+        "endChar": 84
+      },
+      "revId": "a8a57269665f99927bb24e394f55fd817232a178",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07c28d6e_e24fde00",
+        "filename": "security/authgraph/aidl/vts/functional/lib.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-08T00:24:18Z",
+      "side": 1,
+      "message": "Nit: When I first read this, I read `verify` as a verb, not as the `verify_key` noun. So I wonder whether it is better to rename it as `extract_key_from_identity` or `verification_key_from_identity`",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 13
+      },
+      "revId": "a8a57269665f99927bb24e394f55fd817232a178",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1ba5c52_09186c73",
+        "filename": "security/authgraph/aidl/vts/functional/sink.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-08T00:24:18Z",
+      "side": 1,
+      "message": "Is this comment intended to be here?",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 47,
+        "endChar": 31
+      },
+      "revId": "a8a57269665f99927bb24e394f55fd817232a178",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
