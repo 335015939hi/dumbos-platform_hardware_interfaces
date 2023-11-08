@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80b932b8_e29afaae",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-08T23:05:38Z",
+      "side": 1,
+      "message": "Thanks for your feedback.\nIt\u0027s a mistake in the sequence diagram, I updated them.\nI can confirm that we will call startSession() after the MTU and L2CP Channel ID known. I think it is the current behavior, and that will not change.",
+      "parentUuid": "06d0ac2d_60cdcec6",
+      "revId": "71f49ed9ff001792b93e8eed36bd9db0bf8b878a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a864400a_d4ac0ad2",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecParameters.aidl",
         "patchSetId": 15
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-08T19:30:52Z",
       "side": 1,
       "message": "Any reason for 64 bytes in particular? Can it be made 128 byte?",
+      "revId": "71f49ed9ff001792b93e8eed36bd9db0bf8b878a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61bee3bb_8d4a4bbe",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecParameters.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-08T23:05:38Z",
+      "side": 1,
+      "message": "No particular reason, it\u0027s arbitrary. We just want a limit to this buffer. I do the update with 128 Bytes.",
+      "parentUuid": "a864400a_d4ac0ad2",
       "revId": "71f49ed9ff001792b93e8eed36bd9db0bf8b878a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
