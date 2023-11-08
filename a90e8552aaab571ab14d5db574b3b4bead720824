@@ -33,6 +33,24 @@
       "message": "and client code changes? I also don\u0027t see these",
       "revId": "a90e8552aaab571ab14d5db574b3b4bead720824",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ad3b4d6_0afcb595",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2023-11-08T01:15:14Z",
+      "side": 1,
+      "message": "Yes, @quocbaodo@google.com is working on the VTS test",
+      "parentUuid": "f252582f_de5772d4",
+      "revId": "a90e8552aaab571ab14d5db574b3b4bead720824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
