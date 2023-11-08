@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06d0ac2d_60cdcec6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpStreamConfiguration.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-08T19:30:52Z",
+      "side": 1,
+      "message": "peerMtu is available after AVDTP_OPEN where we negotiate AVDTP_MEDIA L2CAP channel open for L2CAP MTU. Are we going to call updateAudioConfig(A2dpStreamConfiguration) once this is made available after A2DP Session Open?\n\nReference taken from seq where StartSession happen before L2CAP Channel open request for AVDTP_MEDIA. https://docs.google.com/document/d/1KxMw2xK4XPhI4i56CC1MDdO3u1H3VJf1I4WK11qYLTw/edit#heading\u003dh.d4k0rvu50ooy",
+      "revId": "71f49ed9ff001792b93e8eed36bd9db0bf8b878a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a864400a_d4ac0ad2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecParameters.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-08T19:30:52Z",
+      "side": 1,
+      "message": "Any reason for 64 bytes in particular? Can it be made 128 byte?",
+      "revId": "71f49ed9ff001792b93e8eed36bd9db0bf8b878a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

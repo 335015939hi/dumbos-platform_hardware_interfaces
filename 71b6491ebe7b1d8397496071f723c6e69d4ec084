@@ -228,6 +228,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "774b4b6c_5fd21b31",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpConfigurationHint.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-08T19:30:52Z",
+      "side": 1,
+      "message": "typo",
+      "revId": "71b6491ebe7b1d8397496071f723c6e69d4ec084",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc5d335f_6029af8d",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/A2dpRemoteCapabilities.aidl",
         "patchSetId": 11
