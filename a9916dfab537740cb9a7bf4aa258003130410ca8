@@ -243,6 +243,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "883829bf_9931cc03",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-08T19:20:53Z",
+      "side": 1,
+      "message": "I am talking about condition where Vendor codec/module actually make use willing to set Audio Channel Allocation (not Bluetooth Stack) which this flag is meant for I believe vendor(non-standard) codec then Sink/Source Audio location PAC should also be made available (along-with Source/Sink PAC records) so that vendor module can send it to Bluetooth Stack.",
+      "parentUuid": "a288b195_6f2ecbda",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2e15a2d_26e449d2",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
         "patchSetId": 18
@@ -520,6 +538,24 @@
       "side": 1,
       "message": "the reason you mentioned should be sufficient 😊",
       "parentUuid": "a25fb2cd_29d5128a",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77574e5_67d67f85",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-08T19:20:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6a9c0e26_cb08468b",
       "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

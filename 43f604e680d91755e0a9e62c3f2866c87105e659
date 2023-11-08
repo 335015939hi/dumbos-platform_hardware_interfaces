@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cf86ca4_beb12881",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificConfigurationLtv.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-08T19:20:53Z",
+      "side": 1,
+      "message": "Please bring Audio Channel Allocation structure back for cases in which we intend to use flag DONT_USE_AUDIO_CHANNEL_ALLOCATIONS",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d8742a0_2485420b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-08T19:20:53Z",
+      "side": 1,
+      "message": "Should PHY should also be made member of this QoS structure?",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44d5b2f3_0c556a8d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-08T19:20:53Z",
+      "side": 1,
+      "message": "Any reason to make this as nullable?",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "060fb4a7_fc833b19",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-08T19:20:53Z",
+      "side": 1,
+      "message": "Possible to also send Source/Sink Audio locations PAC also as part of the function arguments.",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3130b98b_6c4754f1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioAseConfiguration.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-08T19:20:53Z",
+      "side": 1,
+      "message": "Vendor shall put any parameters defined by the Assigned Numbers if needed\nfor this particular vendor codec configuration.\n\nWhat does above line signify here?",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
