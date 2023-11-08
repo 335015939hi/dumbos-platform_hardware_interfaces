@@ -34,6 +34,24 @@
       "parentUuid": "3fb704c5_4df9f7d5",
       "revId": "6fb22dc9ef6e481ef6d37205f279f386871a5d4d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e91f3f5_b1f7a7a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-08T19:07:48Z",
+      "side": 1,
+      "message": "Yes, it should be fine. I just suggested so we can run pre-submit and see if there are any errors. But we can do that on the other CL once this is submitted too.",
+      "parentUuid": "9cb29b77_edd4ebf9",
+      "revId": "6fb22dc9ef6e481ef6d37205f279f386871a5d4d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
