@@ -541,6 +541,7 @@ TEST_P(SupplicantP2pIfaceAidlTest, Connect) {
                         ->connect(kTestMacAddr, WpsProvisionMethod::PBC, kTestConnectPin, true,
                                   false, kTestConnectGoIntent, &pin)
                         .isOk());
+    sleep(1);
 }
 
 /*
