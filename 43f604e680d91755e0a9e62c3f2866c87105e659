@@ -54,6 +54,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67154988_6402c0e1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-09T12:46:56Z",
+      "side": 1,
+      "message": "Apologies from bringing this back lately again but is this possible to decouple this Data path config from this structure.\nThere are two reasons for below ask at the moment after our internal CL review in team.\n\n1. It seems this info will be made properly available after Create CIG only as dependency with stream handle still remains for us due to AOSP stack order implementation unfortunately 😞.\n\nAOSP Cmds order:\n(1) Create CIG -\u003e (2) HCI Config data path -\u003e (3) Create CIS -\u003e (4) CIS established -\u003e (5) SetUp ISO Datapath\n\nInitially we thought we can rightly identify a group using data_path_id but data_path_id needs an association with proper stream_handle before Create CIS\n\nWe obtain stream_conn_handles as part of SetCIG but which unless we pass stream handle in HCI_Config data path as vendor data we can\u0027t do this association.\n\n\n2. There might be cases where after codec config, remote modify QoS params and datapath fields (like vendor conig in HCI_Config_Datapath and codec_specific_config data in SetUp ISO) populated much before migth also get modified and with current approach that cannot be updated/modified as per newly modified QoS params.\n\nCan we have something like below API triggered just after SetCIG command like it\u0027s there for QoS. I know it might have some latency incurred but it seems we can\u0027t get away with removal of stream handle dependency (accordingly sequence diagram can be modified). Either we have below implementation OR have Create CIS after SetUp ISO Datapath (latter seems unreasonable here).\n\nLeAudioDataPathConfigurationPair\n    @nullable LeAudioDataPathConfigurationPair inputConfig;\n    @nullable LeAudioDataPathConfigurationPair outputConfig;\n}\n\nLeAudioDataPathConfigurationPair getLeAudioAseDatapathConfiguration(\n            in LeAudioDatapathRequirement datapathRequirement);\n\t\t\t\nLeAudioDatapathRequirement {\n  AudioContext contextType;\n  vector\u003cuint16_t\u003e stream_connection_handles; \n}\n\nCan we have a call to have a for quick closure on this?",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "060fb4a7_fc833b19",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 21
