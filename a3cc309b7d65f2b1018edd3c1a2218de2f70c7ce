@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a44ddc5_563f69a4",
+        "filename": "bluetooth/finder/aidl/aidl_api/android.hardware.bluetooth.finder/current/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 2027455
+      },
+      "writtenOn": "2023-11-09T10:14:56Z",
+      "side": 1,
+      "message": "Finder",
+      "range": {
+        "startLine": 39,
+        "startChar": 23,
+        "endLine": 39,
+        "endChar": 28
+      },
+      "revId": "a3cc309b7d65f2b1018edd3c1a2218de2f70c7ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
