@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "384c54cd_8fa409c0",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-09T01:30:54Z",
+      "side": 1,
+      "message": "This is actually a nit, but I mean:\n\n     void poweredOnMode(bool on);\n\nThis way, neither \u0027poweredOnMode(true)\u0027 nor \u0027poweredOnMode(false)\u0027 is a double negative.\n\nWhat does \u0027Powered Off Mode\u0027 do anyway? If it\u0027s a feature, what does it do? The name change might not make sense, depending on what the feature does.",
+      "parentUuid": "839cfd3b_f684121f",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df1daf3a_ce8340a7",
         "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
         "patchSetId": 3
