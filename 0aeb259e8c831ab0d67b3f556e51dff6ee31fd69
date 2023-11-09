@@ -146,6 +146,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a22d513b_c9acb5f2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioContext.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-09T01:39:13Z",
+      "side": 1,
+      "message": "\u003e I also think, this will always be used as a bitmask\n\nbtw - this is not true. C/C++ will pad these as 8 bits a piece (alignof(bool) \u003d 1 _byte_). Java and Rust standards give the compiler purview to do what they want. Other comment mentions situation in the binder wire format.\n\nEither way - I\u0027m okay with it.",
+      "parentUuid": "a0ac11ae_89a985c0",
+      "revId": "0aeb259e8c831ab0d67b3f556e51dff6ee31fd69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe48995d_d7722ce0",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecId.aidl",
         "patchSetId": 10
