@@ -215,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a3cc4fa_15298e30",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 2027455
+      },
+      "writtenOn": "2023-11-09T07:09:42Z",
+      "side": 1,
+      "message": "The feature is \"powered off finding\". I.e., the Android device is findable also when powered off. Therefore, poweredOnMode won\u0027t make sense. Here \"off\" is not a negative word, but part of the phrase \"powered off\".",
+      "parentUuid": "384c54cd_8fa409c0",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df1daf3a_ce8340a7",
         "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
         "patchSetId": 3
