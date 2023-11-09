@@ -530,6 +530,7 @@ TEST_P(SupplicantP2pIfaceAidlTest, Connect) {
                             kTestConnectPin, true, false, kTestConnectGoIntent,
                             &pin)
                   .isOk());
+  sleep(1);
 }
 
 /*
