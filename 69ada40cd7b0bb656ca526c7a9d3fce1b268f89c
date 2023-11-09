@@ -237,6 +237,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5408d8d_57e2eff0",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-11-09T09:55:52Z",
+      "side": 1,
+      "message": "Rename the API to setPoweredOffFinderMode and add more information in description.",
+      "parentUuid": "6a3cc4fa_15298e30",
+      "range": {
+        "startLine": 34,
+        "startChar": 9,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "69ada40cd7b0bb656ca526c7a9d3fce1b268f89c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df1daf3a_ce8340a7",
