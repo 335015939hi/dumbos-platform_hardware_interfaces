@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f013ab88_543645e1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecInfo.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-09T17:28:54Z",
+      "side": 1,
+      "message": "The build system will catch it if this type of modification is done on a frozen interface, but thank you for the confirmation :)",
+      "parentUuid": "5a5dee64_2ea164ab",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 24
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cec27767_ff86f937",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
         "patchSetId": 18
