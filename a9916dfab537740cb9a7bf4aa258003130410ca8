@@ -261,6 +261,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "198772d7_ae70ea96",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-09T13:35:57Z",
+      "side": 1,
+      "message": "It seems that BT stack can just pass the Audio Channel Allocation as part of the requirements. This way the BT stack has the control over the audio channel allocations (and this is what we want), but the vendor module still has a chance to return different configuration for each allocation as now we return a List\u003cAseConfiguration\u003e for each direction and audio locations are part of the requirements.\n\nThe flag does not seem helpful at all, since the BT stack wants the control over the allocations, and it will not add them anyway when the vendor specific and opaque configuration byte array is used. I just removed it.\n\nPlease let me know if you see any problem with this mechanism.",
+      "parentUuid": "883829bf_9931cc03",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2e15a2d_26e449d2",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
         "patchSetId": 18
