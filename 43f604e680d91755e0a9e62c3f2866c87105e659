@@ -88,6 +88,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bdf40150_d301dd02",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioAseConfiguration.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-09T13:03:21Z",
+      "side": 1,
+      "message": "Just to reconfirm, I am perceiving on high level that first stack will check \n\nFor Vendor/Non-Standard codec:\nbyte[] vendorCodecConfiguration will be non-empty and will be appended as payload in codec config ATT command however it\u0027s also vendor lib\u0027s responsibility to populate the same standard LE parameters in SIG defined format in \nCodecSpecificConfigurationLtv[] codecConfiguration;\nas well just for updating 3rd party apps and dev UI etc.\n\nFor Standard codecs like LC3:\nbyte[] vendorCodecConfiguration wouldn\u0027t get populated and \nCodecSpecificConfigurationLtv[] codecConfiguration;\nwill serve both to be sent to Remote in codec config ATT command and for updating 3rd party apps and dev UI etc.\n\nIs this right understanding?",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3130b98b_6c4754f1",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioAseConfiguration.aidl",
         "patchSetId": 21
