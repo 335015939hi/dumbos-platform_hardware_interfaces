@@ -536,11 +536,21 @@ TEST_P(SupplicantP2pIfaceAidlTest, Flush) {
  * Connect
  */
 TEST_P(SupplicantP2pIfaceAidlTest, Connect) {
+<<<<<<< HEAD   (634ecd Merge "ExternalCameraHAL: Fix memory leak when copying buffe)
     std::string pin;
     EXPECT_TRUE(p2p_iface_
                         ->connect(kTestMacAddr, WpsProvisionMethod::PBC, kTestConnectPin, true,
                                   false, kTestConnectGoIntent, &pin)
                         .isOk());
+=======
+  std::string pin;
+  EXPECT_TRUE(p2p_iface_
+                  ->connect(kTestMacAddr, WpsProvisionMethod::PBC,
+                            kTestConnectPin, true, false, kTestConnectGoIntent,
+                            &pin)
+                  .isOk());
+  sleep(1);
+>>>>>>> CHANGE (63263b p2p: wait for offload scan complete after connect test)
 }
 
 /*
