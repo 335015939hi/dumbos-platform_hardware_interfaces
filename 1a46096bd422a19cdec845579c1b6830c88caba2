@@ -34,6 +34,24 @@
       "parentUuid": "5c5d07e9_30ed495d",
       "revId": "1a46096bd422a19cdec845579c1b6830c88caba2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3f045b_1cb7bef1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2007880
+      },
+      "writtenOn": "2023-11-09T23:34:08Z",
+      "side": 1,
+      "message": "Added VTS and default implementation in this gerrit",
+      "parentUuid": "4e5be948_befbb03b",
+      "revId": "1a46096bd422a19cdec845579c1b6830c88caba2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
