@@ -46,6 +46,30 @@
       },
       "revId": "35e4b6a9f717267936edd74f4ca8fa837edff382",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72c87878_dd3d097f",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-09T13:46:13Z",
+      "side": 1,
+      "message": "I was thinking we could move the empty check out of the lock, like this:\n\n\n  if (v.empty()) {\n    ALOGE(\"Packet is empty, no data was found to be sent\");\n    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);\n  }\n  \n  std::lock_guard\u003cstd::mutex\u003e guard(mStateMutex);\n  if (mH4 \u003d\u003d nullptr) {\n    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);\n  }\n  mH4-\u003eSend(type, v);\n  return ndk::ScopedAStatus::ok();",
+      "parentUuid": "1793c65e_fcb6df39",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 3
+      },
+      "revId": "35e4b6a9f717267936edd74f4ca8fa837edff382",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
