@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0aede3b8_3e250902",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-10T17:28:39Z",
+      "side": 1,
+      "message": "Instead of above suggested API, we can call below API just after CreateCIG once we have stream_connection_handles available as part of StreamMap (which you suggested earlier)\n\nLeAudioDataPathConfigurationPair\n@nullable LeAudioDataPathConfiguration inputConfig;  //host_to_controller \n@nullable LeAudioDataPathConfiguration outputConfig; //controller_to_host\n}\n\nLeAudioDataPathConfigurationPair getLeAudioAseDatapathConfiguration(in AudioContext context, in StreamMap[] stream_mapdatapathRequirement);\n\nCan you share your thoughts on this?",
+      "parentUuid": "67154988_6402c0e1",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "060fb4a7_fc833b19",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 21
@@ -154,6 +172,24 @@
       "side": 1,
       "message": "These are now passed as part of the requirement (mandatory), since the BT stack chooses the audio locations based on the PAC service characteristic values.",
       "parentUuid": "060fb4a7_fc833b19",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42f1302d_ea7f51a3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-10T17:28:39Z",
+      "side": 1,
+      "message": "Once we have List\u003cAseDirectionConfiguration\u003e and List\u003cAseDirectionRequirement\u003e do you think we should remove List parameter and redefine this API as below?\n\nLeAudioAseConfigurationSetting getLeAudioAseConfiguration(\nin @nullable List\u003cLeAudioDeviceCapabilities\u003e remoteSinkAudioCapabilities,\nin @nullable List\u003cLeAudioDeviceCapabilities\u003e remoteSourceAudioCapabilities,\nin LeAudioConfigurationRequirement requirements);",
+      "parentUuid": "088726b9_f9ecde19",
       "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
