@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c692c953_0e9a7de5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-10T02:17:17Z",
+      "side": 1,
+      "message": "union",
+      "range": {
+        "startLine": 9,
+        "startChar": 17,
+        "endLine": 9,
+        "endChar": 23
+      },
+      "revId": "c1d95325f00b049dcc929f07db5af1c72edd2d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "995d0ae8_762b3cbd",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-10T02:17:17Z",
+      "side": 1,
+      "message": "I think, conceptually spatialization is emulation of **audio sources** placed around the listener. Speakers are just one kind of a source. If we were actually emulating speakers, then we had to also emulate their artefacts like comb filtering when the same sound is played by speakers at a different distance to the ear. Instead of that, we are actually trying to reproduce the original sources in the recording.\n\nBut if you want to stay fully synced with SDK docs, then leave as is.",
+      "range": {
+        "startLine": 28,
+        "startChar": 3,
+        "endLine": 28,
+        "endChar": 51
+      },
+      "revId": "c1d95325f00b049dcc929f07db5af1c72edd2d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81c7a067_846adaa4",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-10T02:17:17Z",
+      "side": 1,
+      "message": "for example,",
+      "range": {
+        "startLine": 70,
+        "startChar": 28,
+        "endLine": 70,
+        "endChar": 34
+      },
+      "revId": "c1d95325f00b049dcc929f07db5af1c72edd2d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed835595_56a914d3",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-10T02:17:17Z",
+      "side": 1,
+      "message": "Should it be lower case?",
+      "range": {
+        "startLine": 76,
+        "startChar": 7,
+        "endLine": 76,
+        "endChar": 8
+      },
+      "revId": "c1d95325f00b049dcc929f07db5af1c72edd2d0b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
