@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "366308dd_87c547b4",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/Eid.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-10T22:00:29Z",
+      "side": 1,
+      "message": "nit; comment what this stands for as well?",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "4d43249e90d603e2515122bcaad460df05daacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
