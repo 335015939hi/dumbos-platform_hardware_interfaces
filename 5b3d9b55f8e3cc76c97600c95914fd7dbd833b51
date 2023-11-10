@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97ccd368_ba4a04ec",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Phy.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-10T18:08:50Z",
+      "side": 1,
+      "message": "If UNDEFINED is selected by vendor module, will the stack populate right PHY based on local controller PHY support?",
+      "revId": "5b3d9b55f8e3cc76c97600c95914fd7dbd833b51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

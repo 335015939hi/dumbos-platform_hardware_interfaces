@@ -106,6 +106,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66d5c87b_167cc9e3",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-10T18:08:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e838c587_bc5fb9b0",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67154988_6402c0e1",
@@ -224,6 +242,24 @@
       "writtenOn": "2023-11-08T19:20:53Z",
       "side": 1,
       "message": "Vendor shall put any parameters defined by the Assigned Numbers if needed\nfor this particular vendor codec configuration.\n\nWhat does above line signify here?",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2633d20_3972c47f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioAseConfiguration.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-10T18:08:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3130b98b_6c4754f1",
       "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
