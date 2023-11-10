@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93471b50_eec895eb",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-10T16:40:26Z",
+      "side": 1,
+      "message": "I\u0027ve added more comments on that in LeAudioBisConfiguration.aidl. There\u0027s no need to duplicate this structure here. Please let me know in case we need more details there. Thanks.",
+      "parentUuid": "cabc85c5_719737e6",
+      "range": {
+        "startLine": 538,
+        "startChar": 44,
+        "endLine": 539,
+        "endChar": 34
+      },
+      "revId": "0f2d7ccd88f3c6acb842cd72d87afd7adbacd469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9079cda_99bbb8c8",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef7b1692_f46d0957",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-10T16:40:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9079cda_99bbb8c8",
+      "range": {
+        "startLine": 590,
+        "startChar": 12,
+        "endLine": 590,
+        "endChar": 23
+      },
+      "revId": "0f2d7ccd88f3c6acb842cd72d87afd7adbacd469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8eef3e2e_c22be9b0",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-11-10T01:28:02Z",
       "side": 1,
       "message": "units",
+      "range": {
+        "startLine": 596,
+        "startChar": 20,
+        "endLine": 596,
+        "endChar": 24
+      },
+      "revId": "0f2d7ccd88f3c6acb842cd72d87afd7adbacd469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6486bf0b_5a800b8b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-10T16:40:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8eef3e2e_c22be9b0",
       "range": {
         "startLine": 596,
         "startChar": 20,
