@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "917661bf_7a658426",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificConfigurationLtv.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-10T10:50:40Z",
+      "side": 1,
+      "message": "I guess we need to decide on a single way of passing bit fields.\nEither:\n```\n@Backing(type\u003d\"byte\")\nenum A {\n  a1 \u003d 0x01,\n  a2 \u003d 0x02,\n  a3 \u003d 0x04,\n}\nA[] bitfieldA;\n```\n\nor:\n```\nparcelable B {\n  boolean b1;\n  boolean b2;\n  boolean b3;\n}\nB bitfieldB;\n```\n\nIf we would like to pass only a single bit (let\u0027s say 0x01), solution `A` takes 1 byte, solution `B` takes 12 bytes.\n\nSolution `B` is not scallable as for Audio ChannelAllocation it would always use 116 bytes (4 bytes per bit defined), while `A` just 4 bytes (4 bytes per bit used).",
+      "revId": "60be5cee72a982bc5170c8e5768e2ac8cb4e8b5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d368eae6_6045f670",
