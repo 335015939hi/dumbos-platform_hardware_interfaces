@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b79eeca_d52d1ff1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3e63b06_ff012e49",
+      "range": {
+        "startLine": 7,
+        "startChar": 43,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0abf9b82_6a47184e",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-09-22T00:12:35Z",
       "side": 1,
       "message": "Please provide a short explanation about what this effect is.",
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aca57340_d3ed6ebe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0abf9b82_6a47184e",
       "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -87,6 +129,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "deab7e2f_8ca68e68",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ae2398c_ddf5cb06",
+      "range": {
+        "startLine": 25,
+        "startChar": 48,
+        "endLine": 25,
+        "endChar": 55
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d205029_ad0d07bd",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77b741b4_a4c794af",
+      "range": {
+        "startLine": 25,
+        "startChar": 66,
+        "endLine": 25,
+        "endChar": 75
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28c5111c_82edbff7",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-09-22T00:12:35Z",
       "side": 1,
       "message": "We should only have one definition. What I suggest to do is to move SpatializationLevel into stable types in system/hardware/interfaces/media/ (package android.media.audio.common), and reference it here.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 7
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b691bae7_7cc7fb3a",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28c5111c_82edbff7",
       "range": {
         "startLine": 46,
         "startChar": 0,
@@ -127,6 +241,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44f63d64_e2f9f174",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4d1d157_8b4a07d2",
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4d21d9a_7ec8d8eb",
@@ -140,6 +272,30 @@
       "writtenOn": "2023-09-22T00:12:35Z",
       "side": 1,
       "message": "Same comment as for `Level`.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 7
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4abf4974_54d6dec4",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4d21d9a_7ec8d8eb",
       "range": {
         "startLine": 70,
         "startChar": 0,
@@ -173,6 +329,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6f5ff39_43e8e267",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc873be9_39bfadbd",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 7
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02035f43_9f32d946",
@@ -196,6 +376,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eea7024f_5f965fef",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02035f43_9f32d946",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 29
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fa5d40a_cbaf4c20",
@@ -209,6 +413,30 @@
       "writtenOn": "2023-09-22T00:12:35Z",
       "side": 1,
       "message": "Same question for these. We don\u0027t have corresponding methods in `IModule` yet, however, I was planning to add \"fold state\" as this is something that framework already communicates to the HAL and is currently implemented as a vendor parameter.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 22
+      },
+      "revId": "4f7dc43ddb012731250df95aafd9b62494a412c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e09010c_fe4fe52c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fa5d40a_cbaf4c20",
       "range": {
         "startLine": 142,
         "startChar": 0,
