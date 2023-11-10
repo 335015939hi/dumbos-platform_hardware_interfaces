@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2750f2a6_492bca74",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 26
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-10T22:05:05Z",
+      "side": 1,
+      "message": "BroadcastQuality::QUALITY_STANDARD \u003d\u003e BroadcastQuality::STANDARD",
+      "range": {
+        "startLine": 506,
+        "startChar": 8,
+        "endLine": 506,
+        "endChar": 24
+      },
+      "revId": "9fb77e9c2a2eab622467070cf3d8563e17d2e4b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
