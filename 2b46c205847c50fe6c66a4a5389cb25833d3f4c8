@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "978c7a5c_d434e1f4",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/HfpConfiguration.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2023-11-10T23:11:10Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "878b225a_4a17e6c0",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 8
+      },
+      "revId": "2b46c205847c50fe6c66a4a5389cb25833d3f4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c52d7f3_f15235a3",
