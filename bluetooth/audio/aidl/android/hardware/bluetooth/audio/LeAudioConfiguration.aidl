@@ -52,8 +52,8 @@ parcelable LeAudioConfiguration {
         @nullable ConfigurationFlags[] flags;
         parcelable BluetoothDeviceAddress {
             enum DeviceAddressType {
-                BLE_ADDR_PUBLIC = 0x00,
-                BLE_ADDR_RANDOM = 0x01,
+                BLE_ADDRESS_PUBLIC = 0x00,
+                BLE_ADDRESS_RANDOM = 0x01,
             }
             /**
              * Peer device address. It should be non zero when isStreamActive is true
