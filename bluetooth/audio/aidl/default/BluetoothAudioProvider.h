@@ -49,6 +49,49 @@ class BluetoothAudioProvider : public BnBluetoothAudioProvider {
   ndk::ScopedAStatus updateAudioConfiguration(
       const AudioConfiguration& audio_config);
   ndk::ScopedAStatus setLowLatencyModeAllowed(bool allowed);
+  ndk::ScopedAStatus setCodecPriority(
+      const ::aidl::android::hardware::bluetooth::audio::CodecId& in_codecId,
+      int32_t in_priority) override;
+  ndk::ScopedAStatus getLeAudioAseConfiguration(
+      const std::optional<std::vector<std::optional<
+          ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
+              LeAudioDeviceCapabilities>>>& in_remoteSinkAudioCapabilities,
+      const std::optional<std::vector<std::optional<
+          ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
+              LeAudioDeviceCapabilities>>>& in_remoteSourceAudioCapabilities,
+      const std::vector<
+          ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
+              LeAudioConfigurationRequirement>& in_requirements,
+      std::vector<::aidl::android::hardware::bluetooth::audio::
+                      IBluetoothAudioProvider::LeAudioAseConfigurationSetting>*
+          _aidl_return) override;
+  ndk::ScopedAStatus getLeAudioAseQosConfiguration(
+      const ::aidl::android::hardware::bluetooth::audio::
+          IBluetoothAudioProvider::LeAudioAseQosConfigurationRequirement&
+              in_qosRequirement,
+      ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
+          LeAudioAseQosConfigurationPair* _aidl_return) override;
+  ndk::ScopedAStatus onSinkAseMetadataChanged(
+      ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
+          AseState in_state,
+      const std::optional<std::vector<std::optional<
+          ::aidl::android::hardware::bluetooth::audio::MetadataLtv>>>&
+          in_metadata) override;
+  ndk::ScopedAStatus onSourceAseMetadataChanged(
+      ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
+          AseState in_state,
+      const std::optional<std::vector<std::optional<
+          ::aidl::android::hardware::bluetooth::audio::MetadataLtv>>>&
+          in_metadata) override;
+  ndk::ScopedAStatus getLeAudioBroadcastConfiguration(
+      const std::optional<std::vector<std::optional<
+          ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
+              LeAudioDeviceCapabilities>>>& in_remoteSinkAudioCapabilities,
+      const ::aidl::android::hardware::bluetooth::audio::
+          IBluetoothAudioProvider::LeAudioBroadcastConfigurationRequirement&
+              in_requirement,
+      ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
+          LeAudioBroadcastConfigurationSetting* _aidl_return) override;
 
   virtual bool isValid(const SessionType& sessionType) = 0;
 
