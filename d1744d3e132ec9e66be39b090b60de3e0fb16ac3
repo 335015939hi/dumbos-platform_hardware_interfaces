@@ -34,6 +34,24 @@
       "parentUuid": "7e55411e_67729104",
       "revId": "d1744d3e132ec9e66be39b090b60de3e0fb16ac3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8561186a_12d6af71",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioContext.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-10T16:57:48Z",
+      "side": 1,
+      "message": "New proposition.\n\nIn this way, I think:\n- The framework just need to copy the value used internally, no need to do boring conversions.\n- The vendor can use the `const int` values listed, and the supported values for a given version of the interface is well defined.\n- It\u0027s well defined that it\u0027s a bitmask.\n\nWhich is less good:\n- The `const int` values are mapped to `enum` backed in `int32_t` in C++. You should need to cast each values to avoid compilation warning.\n- There is more opportunity to set unspecified values. But as this will come from the framework to the HAL, I think it\u0027s fine.\n\n\nWhat do you think?",
+      "parentUuid": "5e025564_4008b854",
+      "revId": "d1744d3e132ec9e66be39b090b60de3e0fb16ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
