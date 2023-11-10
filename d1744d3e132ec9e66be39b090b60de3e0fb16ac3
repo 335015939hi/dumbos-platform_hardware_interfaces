@@ -16,6 +16,24 @@
       "message": "fun fact about binder! each boolean will be written as 4-bytes, so this parcelable of 12 bools will be written as 48 bytes. You could make it smaller by using a bitfield, but hey! it\u0027s 2023. What is 48 bytes?\n\n(writing this after I realized this was just changed from bitfield to bools)",
       "revId": "d1744d3e132ec9e66be39b090b60de3e0fb16ac3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e025564_4008b854",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioContext.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-10T10:55:42Z",
+      "side": 1,
+      "message": "I think these bools do not scale well for large bitfields like AudioChannelAllocation with 29 bits: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2758969/comment/917661bf_7a658426/\n\nEven though we should be consistent I don\u0027t like the idea of using 116 bytes to pass a single bit for AudioChannelAllocation value.",
+      "parentUuid": "7e55411e_67729104",
+      "revId": "d1744d3e132ec9e66be39b090b60de3e0fb16ac3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
