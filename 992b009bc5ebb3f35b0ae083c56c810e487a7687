@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1ffea761_cbb21f7b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T23:08:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6639a628_f25fc1a7",
+      "range": {
+        "startLine": 9,
+        "startChar": 72,
+        "endLine": 9,
+        "endChar": 79
+      },
+      "revId": "992b009bc5ebb3f35b0ae083c56c810e487a7687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d8c36e94_15c8f12b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-10T18:00:33Z",
       "side": 1,
       "message": "How about \"simulates sound sources around the listener, based on their representations in the original recording.\"",
+      "range": {
+        "startLine": 27,
+        "startChar": 24,
+        "endLine": 28,
+        "endChar": 45
+      },
+      "revId": "992b009bc5ebb3f35b0ae083c56c810e487a7687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbfa4359_aa91b910",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T23:08:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe2141f8_48f49e5b",
       "range": {
         "startLine": 27,
         "startChar": 24,
@@ -100,6 +148,54 @@
       "writtenOn": "2023-11-10T18:00:33Z",
       "side": 1,
       "message": "It seems to me that \"the translation vector\" and \"the rotation vector\" would sound more natural.",
+      "range": {
+        "startLine": 75,
+        "startChar": 86,
+        "endLine": 75,
+        "endChar": 99
+      },
+      "revId": "992b009bc5ebb3f35b0ae083c56c810e487a7687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d132fd96_df7fd09e",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T23:08:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7733c713_3f5dfadf",
+      "range": {
+        "startLine": 75,
+        "startChar": 27,
+        "endLine": 75,
+        "endChar": 30
+      },
+      "revId": "992b009bc5ebb3f35b0ae083c56c810e487a7687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f344528_fb93f758",
+        "filename": "audio/aidl/android/hardware/audio/effect/Spatializer.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-11-10T23:08:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7573fa52_4eb0d642",
       "range": {
         "startLine": 75,
         "startChar": 86,
