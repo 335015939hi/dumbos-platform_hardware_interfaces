@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "63d2386f_97aa9756",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-11-10T18:44:45Z",
+      "side": 1,
+      "message": "We return a List\u003cAseConfiguration\u003e for each direction and audio locations are part of the requirements. Here are few open queries:\n1. Instead of AseDirectionRequirement Src \u0026 Sink requirement along with channel count which now being replaced to List\u003cAseDirectionRequirement\u003e Src \u0026 Sink requirement. Is the AseDirectionRequirement a config recommendation with Audio Location must be decided already and must be passed populated as requirement for each source ASEs and Sink ASEs? \n2. Here list size of List\u003cAseDirectionRequirement\u003e is total number of Source/Sink ASE available in idle state? \n3. Earlier we used to return source and sink config only for AseDirectionConfiguration which used to be applied commonly for all source/sink ASEs. But now we have this list of requirements (defined per ASE??) now we will have List\u003cAseDirectionConfiguration\u003e for each ASE. And theoretically this also mean each source ASE can be configured heterogeneously in list elements?\n4. AseDirectionRequirement is must have audio allocation sent now for (each ASE??) does that mean AseDirectionConfiguration also need to sent audio allocation OR not from Vendor lib? If yes then can this audio allocation be modified also by Vendor lib?",
+      "revId": "5b3d9b55f8e3cc76c97600c95914fd7dbd833b51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "97ccd368_ba4a04ec",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Phy.aidl",
         "patchSetId": 28
