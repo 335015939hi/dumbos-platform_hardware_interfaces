@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47438e60_458dbde8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-10T22:01:52Z",
+      "side": 1,
+      "message": "is there a framework change associated with this as well that\u0027s using this API?",
+      "revId": "f42f6e86ed0a4db9c499d466c0444e0b340f7421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a649dc4c_0c1c743e",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/Timestamp.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-10T22:01:52Z",
+      "side": 1,
+      "message": "nit: systemTimeUs - might as well include the units in these. bluetoothTimeUs",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 7
+      },
+      "revId": "f42f6e86ed0a4db9c499d466c0444e0b340f7421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
