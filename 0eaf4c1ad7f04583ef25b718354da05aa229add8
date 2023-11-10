@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "722a641f_64891250",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1110443
+      },
+      "writtenOn": "2023-11-10T00:06:54Z",
+      "side": 1,
+      "message": "I run the lint command \"lint hardware/interfaces\", I confirmed that there is no error related to this patches.",
+      "revId": "0eaf4c1ad7f04583ef25b718354da05aa229add8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46465809_1a1fc3b9",
