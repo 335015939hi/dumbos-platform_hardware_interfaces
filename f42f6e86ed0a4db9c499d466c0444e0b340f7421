@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ebbf384_1e92ae07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2007880
+      },
+      "writtenOn": "2023-11-11T01:18:26Z",
+      "side": 1,
+      "message": "There will be change required on proprietary sidecar Java Service to support this AIDL interface. We will work later with Hang Shi and team for that for Android-V.",
+      "parentUuid": "47438e60_458dbde8",
+      "revId": "f42f6e86ed0a4db9c499d466c0444e0b340f7421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a649dc4c_0c1c743e",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-11-10T22:01:52Z",
       "side": 1,
       "message": "nit: systemTimeUs - might as well include the units in these. bluetoothTimeUs",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 7
+      },
+      "revId": "f42f6e86ed0a4db9c499d466c0444e0b340f7421",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "164c5a1f_f0629373",
+        "filename": "bluetooth/lmp_event/aidl/android/hardware/bluetooth/lmp_event/Timestamp.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 2007880
+      },
+      "writtenOn": "2023-11-11T01:18:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a649dc4c_0c1c743e",
       "range": {
         "startLine": 25,
         "startChar": 12,

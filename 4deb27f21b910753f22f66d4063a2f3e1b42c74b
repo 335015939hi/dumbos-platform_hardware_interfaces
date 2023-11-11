@@ -100,6 +100,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3223bdd2_37b98c82",
+        "filename": "bluetooth/lmp_event/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 2007880
+      },
+      "writtenOn": "2023-11-11T01:18:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2461ff3a_d4b26201",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "4deb27f21b910753f22f66d4063a2f3e1b42c74b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24bffda3_0469897b",
