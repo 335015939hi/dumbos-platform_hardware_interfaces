@@ -514,6 +514,7 @@
         <interface>
             <name>IAuthGraphKeyExchange</name>
             <instance>nonsecure</instance>
+            <instance>default</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true" updatable-via-apex="true">
