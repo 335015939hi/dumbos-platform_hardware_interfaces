@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3abd34b5_5515b628",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-13T11:37:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d368eae6_6045f670",
+      "range": {
+        "startLine": 391,
+        "startChar": 11,
+        "endLine": 411,
+        "endChar": 46
+      },
+      "revId": "60be5cee72a982bc5170c8e5768e2ac8cb4e8b5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b185039_f21b70a0",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-11-09T17:28:54Z",
       "side": 1,
       "message": "can you specify, not parsed by framework or any code on system.img, only passed back to vendor.img? that\u0027s right, right?",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 75,
+        "endChar": 10
+      },
+      "revId": "60be5cee72a982bc5170c8e5768e2ac8cb4e8b5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad0b848e_7bbc59d2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioAseConfiguration.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-13T11:37:54Z",
+      "side": 1,
+      "message": "It goes both ways as it is part of the configuration we get from the vendor module and pass it to the remote device, or we get it from the remote device (as part of the configured state notification) and pass it to the vendor module when asking for QoS parameters for that configuration. In both directions the BT stack only pass this data between the two endpoint who understand the vendor format (vendor.img and the remote device) without interpreting it.",
+      "parentUuid": "2b185039_f21b70a0",
       "range": {
         "startLine": 73,
         "startChar": 6,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb14e862_c03f35bf",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/MetadataLtv.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-13T11:37:54Z",
+      "side": 1,
+      "message": "It is an extension for the case when the type byte from the Bluetooth defined LTV type reaches it\u0027s highest possible value. That\u0027s only possible at BT specification level where types are passed over the air as byte values. We are not limited by this, since here types are true and distinct parcelable types. I\u0027ll remove this parcelable. Thanks for asking.",
+      "parentUuid": "302b93f8_0398f659",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 5
+      },
+      "revId": "60be5cee72a982bc5170c8e5768e2ac8cb4e8b5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1508209_c3549347",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-11-09T17:28:54Z",
       "side": 1,
       "message": "same, and also how will it be used?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "60be5cee72a982bc5170c8e5768e2ac8cb4e8b5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2093cd31_0fcbac4f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/MetadataLtv.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-13T11:37:54Z",
+      "side": 1,
+      "message": "That\u0027s the opaque part of the metadata that we get from the remote device. The BT stack does not understand or interpret it, and just passes it over the AIDL to the vendor module who might be integrating a particular vendor codec and understands the format of this byte array. It can contain a valuable vendor specific data needed by the vendor module to decide on the Codec or QoS configuration that the BT stack gets back from the vendor module. The configuration that the BT stack got from the vendor module is then applied to the remote device endpoint and it can also have this VendorSpecific metadata. But again the BT stack would not understand or interpret this data, just verify the max length defined by the Bluetooth specification and pass it between the remote and the vendor module.",
+      "parentUuid": "c1508209_c3549347",
       "range": {
         "startLine": 39,
         "startChar": 0,
