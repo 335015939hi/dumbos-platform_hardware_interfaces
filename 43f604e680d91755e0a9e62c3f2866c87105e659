@@ -159,6 +159,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5242a60_7e9f99ef",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-13T10:56:48Z",
+      "side": 1,
+      "message": "Ok, lets make it nullable and when it is not provided then bluetooth stack will call vendor library after CIG is created.\n\nWe will update this. We will also add the information that if null provided it will increase latency for stream creation.",
+      "parentUuid": "0aede3b8_3e250902",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "060fb4a7_fc833b19",
