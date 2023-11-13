@@ -83,6 +83,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9336172f_b088bf8a",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-13T22:12:31Z",
+      "side": 1,
+      "message": "I changed it to `process_opaque_request` \u0026 `process_opaque_request_unhandled_error`.",
+      "parentUuid": "0c144839_d0b0ce56",
+      "revId": "b712aa4b9c8b514819891e8108ed55af0c9d6c6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad759c2e_e46c77c1",
@@ -196,6 +214,24 @@
       "side": 1,
       "message": "ACK",
       "parentUuid": "711e361c_4b412809",
+      "revId": "b712aa4b9c8b514819891e8108ed55af0c9d6c6a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a510926b_b4aee343",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-13T22:12:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f950d4a_d8955ca1",
       "revId": "b712aa4b9c8b514819891e8108ed55af0c9d6c6a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
