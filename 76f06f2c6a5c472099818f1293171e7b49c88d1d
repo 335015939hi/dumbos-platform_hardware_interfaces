@@ -70,6 +70,30 @@
       },
       "revId": "76f06f2c6a5c472099818f1293171e7b49c88d1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d938f7_4552113d",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-13T20:45:07Z",
+      "side": 1,
+      "message": "OK, yeah, I\u0027ve checked x86 MSVC on Godbolt (I can\u0027t find clang or gcc for this arch, perhaps I need to use flags or something), and indeed only the 2nd variant (with long long) actually expands a 32-bit word into 64-bit double word before multiplying. Perhaps, the rule for expansion is trickier than I imagined.\n\nThanks for fixing, Michael!",
+      "parentUuid": "9daba529_dfa80c57",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 1
+      },
+      "revId": "76f06f2c6a5c472099818f1293171e7b49c88d1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
