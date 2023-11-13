@@ -22,6 +22,30 @@
       },
       "revId": "3b47e81f1ce058ce97dd11b1917e8d2b5d3b889d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a0be510_b5cf9d08",
+        "filename": "keymaster/4.0/support/fuzzer/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1619864
+      },
+      "writtenOn": "2023-11-13T13:29:10Z",
+      "side": 1,
+      "message": "Yes Eran.",
+      "parentUuid": "cb8916a9_0767d3d2",
+      "range": {
+        "startLine": 49,
+        "startChar": 17,
+        "endLine": 49,
+        "endChar": 45
+      },
+      "revId": "3b47e81f1ce058ce97dd11b1917e8d2b5d3b889d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
