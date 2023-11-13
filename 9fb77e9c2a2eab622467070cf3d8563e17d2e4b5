@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6426329_d8ada5c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-13T16:41:21Z",
+      "side": 1,
+      "message": "So far there are only empty stubs at https://r.android.com/2824794 to compile this.",
+      "parentUuid": "ece26f30_22c3418d",
+      "revId": "9fb77e9c2a2eab622467070cf3d8563e17d2e4b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2750f2a6_492bca74",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 26
