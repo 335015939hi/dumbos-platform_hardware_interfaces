@@ -22,6 +22,30 @@
       },
       "revId": "76f06f2c6a5c472099818f1293171e7b49c88d1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32af1d48_1c25800c",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2023-11-13T17:42:54Z",
+      "side": 1,
+      "message": "I think for LP64, the code is identical.  For ILP32, the code is different.",
+      "parentUuid": "52962cee_1ddd9f57",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 1
+      },
+      "revId": "76f06f2c6a5c472099818f1293171e7b49c88d1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
