@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb8916a9_0767d3d2",
+        "filename": "keymaster/4.0/support/fuzzer/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2023-11-13T12:39:19Z",
+      "side": 1,
+      "message": "Does this mean that every (regular, unprivileged) 4Android app can talk to the service? If so, that\u0027s correct.",
+      "range": {
+        "startLine": 49,
+        "startChar": 17,
+        "endLine": 49,
+        "endChar": 45
+      },
+      "revId": "3b47e81f1ce058ce97dd11b1917e8d2b5d3b889d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
