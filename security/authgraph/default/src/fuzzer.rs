@@ -25,7 +25,8 @@ use libfuzzer_sys::fuzz_target;
 use std::sync::{Arc, Mutex};
 
 fuzz_target!(|data: &[u8]| {
-    let local_ta = LocalTa::new();
+    // TODO: handle error properly
+    let local_ta = LocalTa::new().unwrap();
     let service = AuthGraphService::new_as_binder(Arc::new(Mutex::new(local_ta)));
     fuzz_service(&mut service.as_binder(), data);
 });
