@@ -46,6 +46,30 @@
       },
       "revId": "76f06f2c6a5c472099818f1293171e7b49c88d1d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9daba529_dfa80c57",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1281351
+      },
+      "writtenOn": "2023-11-13T20:17:22Z",
+      "side": 1,
+      "message": "Hi Mikhail/Andy,\nI am testing on the aosp_cf_x86_phone target and can see the overflow happening when the expression durationUs * sampleRateHz is evaluated via 32-bit long integer multiplication.",
+      "parentUuid": "32af1d48_1c25800c",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 1
+      },
+      "revId": "76f06f2c6a5c472099818f1293171e7b49c88d1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
