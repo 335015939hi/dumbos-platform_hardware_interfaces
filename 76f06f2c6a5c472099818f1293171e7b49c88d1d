@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52962cee_1ddd9f57",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-13T17:23:02Z",
+      "side": 1,
+      "message": "Michael, could you please correct me if I\u0027m wrong, but to me it seems that both variants generate the same code: https://godbolt.org/z/cxs9ochGc\n\nFrom my understanding, all types in an arithmetic expression get automatically expanded to the largest type, which is already \"long long\" due to the `1000000LL` constant.",
+      "range": {
+        "startLine": 177,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 1
+      },
+      "revId": "76f06f2c6a5c472099818f1293171e7b49c88d1d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
