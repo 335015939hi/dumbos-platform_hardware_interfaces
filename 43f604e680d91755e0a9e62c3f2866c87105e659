@@ -266,6 +266,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "240be463_ba3df9af",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-14T14:03:16Z",
+      "side": 1,
+      "message": "Please reopen in case you have any more questions.",
+      "parentUuid": "1940d7be_2b719bf6",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdf40150_d301dd02",
@@ -297,6 +315,24 @@
       "side": 1,
       "message": "\u003e Just to reconfirm, I am perceiving on high level that first stack will check \n\u003e \n\u003e For Vendor/Non-Standard codec:\n\u003e byte[] vendorCodecConfiguration will be non-empty and will be appended as payload in codec config ATT command however it\u0027s also vendor lib\u0027s responsibility to populate the same standard LE parameters in SIG defined format in \n\u003e CodecSpecificConfigurationLtv[] codecConfiguration;\n\u003e as well just for updating 3rd party apps and dev UI etc.\n\nYes, the vendor lib should understand the SIG defined LTV type format as it is used as a requirement in getAseConfiguration request, and the BT stack will look into the `CodecSpecificConfigurationLtv[] codecConfiguration` to verify the requirements even when byte[] vendorCodecConfiguration is returned. Audio location is the mandatory requirement, and it is expected to be equally mandatory (along with the sampling frequency) in `CodecSpecificConfigurationLtv[] codecConfiguration` returned by the vendor lib. This way the BT stack will know which codec configuration should be applied with each audio location. Sampling Frequency is also mandatory to be there even when proprietary byte[] configuration is returned. It is also ok to put any additional Bluetooth defined LTV type if the vendor codec happen to have an equivalent parameter in its proprietary vendor specific configuration byte array.\n\n\u003e \n\u003e For Standard codecs like LC3:\n\u003e byte[] vendorCodecConfiguration wouldn\u0027t get populated and \n\u003e CodecSpecificConfigurationLtv[] codecConfiguration;\n\u003e will serve both to be sent to Remote in codec config ATT command and for updating 3rd party apps and dev UI etc.\n\u003e \n\u003e Is this right understanding?\n\nYes, and to verify the requirements as always.",
       "parentUuid": "bdf40150_d301dd02",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b39c5bdb_9df2844a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioAseConfiguration.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-14T14:03:16Z",
+      "side": 1,
+      "message": "Please reopen in case you have any more questions.",
+      "parentUuid": "64b58b13_d9ad9460",
       "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

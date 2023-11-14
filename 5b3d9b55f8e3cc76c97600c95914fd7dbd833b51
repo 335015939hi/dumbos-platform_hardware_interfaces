@@ -65,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee3d2b8f_c2d1e6fd",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-14T14:03:16Z",
+      "side": 1,
+      "message": "1. Yes. The audio location for each requirement must be set. The number of requirements per direction is equal to the number of ASEs which the BT stack is about to configure (not per device but per group) in that direction.\n2. No. Not the list of all the available ASEs but the list of ASEs the BT stack wants to configure.\n3. Yes, exactly.\n4. Allocation cannot be changed by the vendor module and shall be returned exactly as the BT stack requested it in the requirements. It is dictated by the BT stack and is not negotiable. It is also a part of the request\u003c-\u003eresponse contract and the BT stack will verify the returned location LTV in the response if it matches the previously sent request. Please note however that the BT stack has no way to verify if the vendor specific configuration byte array actually has this allocation set in the proprietary format or uses something else instead. Nor it has any knowledge how to append the BT stack managed allocations to the proprietary codec configuration format, so in such case the allocation will be used only internally by the BT stack, and the remote device will receive exactly what the vendor module has set in the (opaque to BT stack) vendor specific configuration for that ASE.",
+      "parentUuid": "63d2386f_97aa9756",
+      "revId": "5b3d9b55f8e3cc76c97600c95914fd7dbd833b51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97ccd368_ba4a04ec",
