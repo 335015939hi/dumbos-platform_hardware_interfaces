@@ -60,7 +60,9 @@ class EffectContext {
         mOutputMQ = std::make_shared<DataMQ>(outBufferSizeInFloat);
 
         if (!mStatusMQ->isValid() || !mInputMQ->isValid() || !mOutputMQ->isValid()) {
-            LOG(ERROR) << __func__ << " created invalid FMQ";
+            LOG(ERROR) << __func__ << " created invalid FMQ: statusDepth " << statusDepth
+                       << ", inBufSize " << inBufferSizeInFloat << ", outBufSize "
+                       << outBufferSizeInFloat;
         }
         mWorkBuffer.reserve(std::max(inBufferSizeInFloat, outBufferSizeInFloat));
         mCommon = common;
