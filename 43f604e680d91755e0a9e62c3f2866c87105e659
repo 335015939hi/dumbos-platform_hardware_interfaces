@@ -177,6 +177,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60559e38_d7e5b09e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-14T13:36:55Z",
+      "side": 1,
+      "message": "I\u0027ve added the new API. PTAL.",
+      "parentUuid": "c5242a60_7e9f99ef",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "060fb4a7_fc833b19",
