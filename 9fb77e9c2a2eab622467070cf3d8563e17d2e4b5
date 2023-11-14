@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21797934_6bed1b70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-14T07:27:59Z",
+      "side": 1,
+      "message": "That\u0027s the implementation. I was asking about the code that calls and uses this interface. We should have interfaces being used and implemented, working end-to-end.",
+      "parentUuid": "c6426329_d8ada5c0",
+      "revId": "9fb77e9c2a2eab622467070cf3d8563e17d2e4b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2750f2a6_492bca74",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 26
