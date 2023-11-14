@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0c1f27f_ddc7c707",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-14T13:33:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f3775c0_018519d2",
+      "revId": "6716dd762258f28dd4e375844a4faa8381f87327",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86218c2d_c4fe83c5",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-14T07:56:56Z",
       "side": 1,
       "message": "You mean `US10000`, 10k instead of 1k?\n\nSame for `US1000PREFERRED`.",
+      "revId": "6716dd762258f28dd4e375844a4faa8381f87327",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb557773_829d48c9",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-14T13:33:58Z",
+      "side": 1,
+      "message": "Oh, yes! Thanks for catching this.",
+      "parentUuid": "86218c2d_c4fe83c5",
       "revId": "6716dd762258f28dd4e375844a4faa8381f87327",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

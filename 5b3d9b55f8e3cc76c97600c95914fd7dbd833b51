@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad6038c_b68b6caa",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-14T13:33:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d6fdac7_c1ab1176",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "5b3d9b55f8e3cc76c97600c95914fd7dbd833b51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63d2386f_97aa9756",
@@ -54,6 +78,24 @@
       "writtenOn": "2023-11-10T18:08:50Z",
       "side": 1,
       "message": "If UNDEFINED is selected by vendor module, will the stack populate right PHY based on local controller PHY support?",
+      "revId": "5b3d9b55f8e3cc76c97600c95914fd7dbd833b51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33defe0d_22244ad9",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Phy.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-14T13:33:58Z",
+      "side": 1,
+      "message": "We will set the best possible (2M) and supported by the remote an local controller support",
+      "parentUuid": "97ccd368_ba4a04ec",
       "revId": "5b3d9b55f8e3cc76c97600c95914fd7dbd833b51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
