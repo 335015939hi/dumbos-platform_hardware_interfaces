@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f42b45e_9c3fe920",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/AddressType.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-15T17:18:53Z",
+      "side": 1,
+      "message": "We can\u0027t connect to anonymous addresses, so I don\u0027t think we\u0027ll be able to range with them.  Remove?",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
