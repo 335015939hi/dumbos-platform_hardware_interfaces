@@ -22,6 +22,52 @@
       },
       "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a2f7c20_002fedcb",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSession.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2023-11-15T17:30:06Z",
+      "side": 1,
+      "message": "Why do we need this? I don\u0027t remember seeing this in the design doc.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 41
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "facdad6a_7a7ed567",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSessionCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2023-11-15T17:30:06Z",
+      "side": 1,
+      "message": "Even for `hardware_offload` flow, we will need the `onResult()` eventually when the distance measurement meets the app specified proximity threshold.",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 43
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
