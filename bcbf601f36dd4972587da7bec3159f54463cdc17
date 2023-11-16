@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58a8fb33_60f4eb6d",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-16T18:27:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90c80615_0c426b65",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 3
+      },
+      "revId": "bcbf601f36dd4972587da7bec3159f54463cdc17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b50fdfd8_c033837d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-16T17:05:52Z",
       "side": 1,
       "message": "Check is not required: getA2dpConfiguration can be called when the session is not started",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 3
+      },
+      "revId": "bcbf601f36dd4972587da7bec3159f54463cdc17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e834eaca_88a06461",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-16T18:27:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b50fdfd8_c033837d",
       "range": {
         "startLine": 218,
         "startChar": 0,
