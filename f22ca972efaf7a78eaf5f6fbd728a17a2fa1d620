@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03764f2e_a5f141f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-16T09:03:47Z",
+      "side": 1,
+      "message": "mple",
+      "revId": "f22ca972efaf7a78eaf5f6fbd728a17a2fa1d620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4a414fe_f8e2aa79",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-16T09:03:47Z",
+      "side": 1,
+      "message": "personal preference: you don\u0027t need to use a different name, you can just re-use and re-define `secretkeeper` (shadowing names is much more common in Rust than other languages)",
+      "revId": "f22ca972efaf7a78eaf5f6fbd728a17a2fa1d620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf7aa52e_234627b3",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-16T09:03:47Z",
+      "side": 1,
+      "message": "super-nit: Where possible, prefer to rearrange code to avoid the need for an `unwrap`.  So for example:\n```\nlet secretkeeper \u003d match get_connection() {\n  Some(sk) \u003d\u003e sk,\n  None \u003d\u003e {\n    warn!(\"Secretkeeper HAL is unavailable, skipping test\");\n    return;\n  }\n};\n```\nreduces the chance of a future modification to the code making the `unwrap()` fire.",
+      "revId": "f22ca972efaf7a78eaf5f6fbd728a17a2fa1d620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
