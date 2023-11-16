@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f71b0bb4_fbdcfb4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-16T06:41:13Z",
+      "side": 1,
+      "message": "lg, just waiting because it seems there needs to be VTS tests added for this as well as client code updates to use this interface",
+      "revId": "17fc7a638cc8d877d0793b9e21e0e238bfaabc02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4990ba3_05412fcf",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Void.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-16T06:41:13Z",
+      "side": 1,
+      "message": "nit: can we use \u0027bool _mono\u0027 as this or something? it\u0027ll be cheaper than adding a class like this - \u0027struct Void{}\u0027 would still be \u003e\u003d 1 byte of memory",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "17fc7a638cc8d877d0793b9e21e0e238bfaabc02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
