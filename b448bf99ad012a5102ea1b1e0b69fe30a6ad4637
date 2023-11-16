@@ -765,6 +765,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8889659_9d28c0b5",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T12:57:10Z",
+      "side": 1,
+      "message": "chinweihsu@, could you please help to provide more detail description about this?\nThanks!",
+      "parentUuid": "be2619ad_a7b8313d",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 16
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1c6de1d_c906e2ae",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Reason.aidl",
         "patchSetId": 4
