@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae2e66a1_8278fbd8",
+        "filename": "bluetooth/lmp_event/aidl/vts/VtsHalLmpEventTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1884410
+      },
+      "writtenOn": "2023-11-16T17:40:25Z",
+      "side": 1,
+      "message": "see presubmit failure, please fix.\nhardware/interfaces/bluetooth/lmp_event/aidl/vts/VtsHalLmpEventTargetTest.cpp\nhardware/interfaces/bluetooth/lmp_event/aidl/vts/VtsHalLmpEventTargetTest.cpp:102:68: error: format specifies type \u0027long\u0027 but the argument has type \u0027int64_t\u0027 (aka \u0027long long\u0027) [-Werror,-Wformat]\nALOGD(\"%s: time: %ld counter value: %x\", __func__, timestamp.bluetoothTimeUs, conn_event_counter);\n~~~                               ^~~~~~~~~~~~~~~~~~~~~~~~~\n%lld\nsystem/logging/liblog/include/log/log_main.h:227:52: note: expanded from macro \u0027ALOGD\u0027\n#define ALOGD(...) ((void)ALOG(LOG_DEBUG, LOG_TAG, __VA_ARGS__))\n^~~~~~~~~~~",
+      "range": {
+        "startLine": 102,
+        "startChar": 15,
+        "endLine": 102,
+        "endChar": 114
+      },
+      "revId": "6dd1a0eb56cd414dd47e1f7f06cb46c276ea5ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
