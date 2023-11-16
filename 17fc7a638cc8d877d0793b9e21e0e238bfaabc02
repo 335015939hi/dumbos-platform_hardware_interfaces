@@ -39,6 +39,30 @@
       },
       "revId": "17fc7a638cc8d877d0793b9e21e0e238bfaabc02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef8c5ea5_4cb6d8aa",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Void.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-16T18:11:27Z",
+      "side": 1,
+      "message": "This has been inspired by https://cs.android.com/android/platform/superproject/main/+/main:system/hardware/interfaces/media/aidl/android/media/audio/common/Void.aidl?q\u003dVoid.aidl\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain, used by https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl;l\u003d22?q\u003dVoid\u0026ss\u003dandroid%2Fplatform%2Fsuperproject:hardware%2Finterfaces%2Faudio%2Faidl%2Fandroid%2Fhardware%2Faudio%2Fcore%2F when no addition parameters relative to an union is needed.\nIt\u0027s like a place holder.\nToday, as Hfp now have parameters, perhapse should it be removed?",
+      "parentUuid": "a4990ba3_05412fcf",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "17fc7a638cc8d877d0793b9e21e0e238bfaabc02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
