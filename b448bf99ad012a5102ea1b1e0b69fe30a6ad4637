@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13945bc9_f7113c0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Many thanks for your help with the review!",
+      "parentUuid": "231ba56a_06ff0f58",
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6645bbb9_cf69ccc4",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f3c778_720cbd68",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Consulted with Tech Eng team, phase-based ranging and sounding phase-based ranging are slightly different. This means the local device supports CS phase-based ranging from an RTT sounding sequence. This is defined in Optional_Subfeatures_Supported of CS Supported Capabilities.",
+      "parentUuid": "6645bbb9_cf69ccc4",
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f42b45e_9c3fe920",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-11-15T17:18:53Z",
       "side": 1,
       "message": "We can\u0027t connect to anonymous addresses, so I don\u0027t think we\u0027ll be able to range with them.  Remove?",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 20
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3bb28ec_9652ee3e",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/AddressType.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Yes, you are right.\nRemoved, thanks!",
+      "parentUuid": "0f42b45e_9c3fe920",
       "range": {
         "startLine": 24,
         "startChar": 4,
@@ -104,6 +164,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e22ed62c_0fce8907",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "You\u0027re right; using \u0027char\u0027 is confusing. Let\u0027s use \u0027int\u0027 for it.\nThanks",
+      "parentUuid": "ab9d4108_bc79476c",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 8
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db7c726b_24a2f4f9",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7d620c53_e34096a6",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 8
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4667a871_d875ab1d",
@@ -117,6 +225,30 @@
       "writtenOn": "2023-11-16T05:31:34Z",
       "side": 1,
       "message": "nit:\nlocalSupports...\n\nlocalSupportsPhaseBasedRanging sounds better to me.  Is Sounding Phase-Based Ranging more expressive?",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 49
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee3d2bb6_c248c968",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Yes, I consulted with Tech Eng team, phase-based ranging and sounding phase-based ranging are slightly different. This means the local device supports CS phase-based ranging from an RTT sounding sequence. This is defined in Optional_Subfeatures_Supported of CS Supported Capabilities. LE CS Subevent Result event use this to check the format of step data.",
+      "parentUuid": "4667a871_d875ab1d",
       "range": {
         "startLine": 49,
         "startChar": 12,
@@ -150,6 +282,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ef2cd1c_038e4d5c",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5de344e4_a522b314",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 8
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccae036b_7361c83a",
@@ -173,6 +329,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85af3272_7533be53",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Based on the spec, this is a 16-bit signed integer.\nLet\u0027s use int for it as well.",
+      "parentUuid": "ccae036b_7361c83a",
+      "range": {
+        "startLine": 48,
+        "startChar": 14,
+        "endLine": 48,
+        "endChar": 18
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "650c06d0_b1446f37",
@@ -186,6 +366,30 @@
       "writtenOn": "2023-11-16T05:31:34Z",
       "side": 1,
       "message": "6-byte array?",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 10
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "068fac59_5315c5bd",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/DeviceAddress.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "650c06d0_b1446f37",
       "range": {
         "startLine": 27,
         "startChar": 3,
@@ -242,6 +446,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8c78bd2_2e593a17",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSession.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "In the original design, ChannelSoundingSingleSideData has a variable running_tone_pct with is a three-dimensional array (std::vector\u003cstd::vector\u003cstd::vector\u003cstd::complex\u003cdouble\u003e\u003e\u003e\u003e). It is a buffer that stores the previous procedures\u0027 tone_pct, including aborted subevents.\n\nAIDL doesn\u0027t support multi-dimensional arrays with dynamic size, so we need to create another Parcelable object for this. Moreover, the Bluetooth stack needs to create a buffer for this data and send it to HAL, with most of the data being duplicates.\n\nAfter discussing with the Tech Eng team, we concluded that sending abort event data to the HAL would eliminate the need for the aforementioned efforts. The HAL would be responsible for buffering the event data, and a boolean flag should be implemented to allow the HAL to determine whether abort event data is required for tuning the ranging algorithm.\n\nThis also benefit for running_step_channels.\nThanks!",
+      "parentUuid": "8a2f7c20_002fedcb",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 41
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "facdad6a_7a7ed567",
@@ -255,6 +483,30 @@
       "writtenOn": "2023-11-15T17:30:06Z",
       "side": 1,
       "message": "Even for `hardware_offload` flow, we will need the `onResult()` eventually when the distance measurement meets the app specified proximity threshold.",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 42,
+        "endChar": 43
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c205c33_f2fb48b9",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSessionCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "facdad6a_7a7ed567",
       "range": {
         "startLine": 37,
         "startChar": 1,
@@ -288,6 +540,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da4790e4_e19820d0",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSessionCallback.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f8899ac_b9dbdcee",
+      "range": {
+        "startLine": 48,
+        "startChar": 61,
+        "endLine": 48,
+        "endChar": 69
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23adf1b5_856618a3",
@@ -305,6 +581,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3236277_415e7cf0",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23adf1b5_856618a3",
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04baa774_825c9adf",
@@ -318,6 +612,30 @@
       "writtenOn": "2023-11-16T05:31:34Z",
       "side": 1,
       "message": "nit: remove?  \"from the remote device.\" ?",
+      "range": {
+        "startLine": 27,
+        "startChar": 36,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9461ef1_4d2fa532",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04baa774_825c9adf",
       "range": {
         "startLine": 27,
         "startChar": 36,
@@ -351,6 +669,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7406c917_c817e7f7",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "plus or minus, always positive.\nUpdated the comments.\nThanks!",
+      "parentUuid": "6fef6b85_28e1471b",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 22
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b20a145c_d6ca6951",
@@ -364,6 +706,30 @@
       "writtenOn": "2023-11-16T05:31:34Z",
       "side": 1,
       "message": "Estimated Error?",
+      "range": {
+        "startLine": 53,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 12
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e474d9ce_9cd3845e",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b20a145c_d6ca6951",
       "range": {
         "startLine": 53,
         "startChar": 7,
@@ -410,6 +776,24 @@
       "writtenOn": "2023-11-16T05:31:34Z",
       "side": 1,
       "message": "Are LOCAL_STACK_REQUEST and HAL_INITIATED successful?",
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f8da4cc_d905e33e",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Reason.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-16T09:53:34Z",
+      "side": 1,
+      "message": "Yes, they are for successful case\nonOpened(Reason reason) -\u003e LOCAL_STACK_REQUEST\nonOpenFailed(Reason reason) -\u003e ERROR_INVALID_PARAMETER, ERROR_UNKNOWN\nonClose(Reason reason) -\u003e LOCAL_STACK_REQUEST, HAL_INITIATED\nonCloseFailed(Reason reason) -\u003e ERROR_INVALID_PARAMETER, ERROR_UNKNOWN",
+      "parentUuid": "b1c6de1d_c906e2ae",
       "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
