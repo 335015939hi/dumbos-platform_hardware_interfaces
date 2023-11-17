@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4d746aa_98f893e7",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 16
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-17T18:37:50Z",
+      "side": 1,
+      "message": "This CryptoErrorCode needs to extended. I will do those in follow up patches.",
+      "parentUuid": "bdd32b5c_63b1a090",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 68
+      },
+      "revId": "e62bf5c3e45ee987d5f5f38e015f1c2e0946de87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "24b6bc32_3c5c9c2d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-16T06:37:57Z",
       "side": 1,
       "message": "dangling?",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 63
+      },
+      "revId": "e62bf5c3e45ee987d5f5f38e015f1c2e0946de87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "759c9d6c_5484d7a7",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 16
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-17T18:37:50Z",
+      "side": 1,
+      "message": "This ErrorCode needs to extended. I will do those in follow up patches.",
+      "parentUuid": "24b6bc32_3c5c9c2d",
       "range": {
         "startLine": 108,
         "startChar": 0,
