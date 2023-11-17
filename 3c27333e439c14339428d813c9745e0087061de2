@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27ee4834_def20663",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-11-17T11:35:38Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b6df6c4e_05d85742",
+      "revId": "3c27333e439c14339428d813c9745e0087061de2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d636d1bf_7d9d8be8",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-17T11:28:30Z",
       "side": 1,
       "message": "encapsulated",
+      "revId": "3c27333e439c14339428d813c9745e0087061de2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b935bc5a_74d520a7",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-11-17T11:35:38Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d636d1bf_7d9d8be8",
       "revId": "3c27333e439c14339428d813c9745e0087061de2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
