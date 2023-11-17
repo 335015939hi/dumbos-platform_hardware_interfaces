@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8081357_d0512727",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-17T18:50:30Z",
+      "side": 1,
+      "message": "Is my understanding correct that these direct mix ports are effectively only added for routing purposes, but streams can\u0027t actually be opened on them? I think, that\u0027s confusing, and can lead to failing VTS tests if they attempt to open all configurations listed in profiles.\n\nSince it\u0027s a problem on the framework side, a workaround should be created there, not on the HAL side.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45d6714f_2842666c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-17T18:50:30Z",
+      "side": 1,
+      "message": "Could you please reference / create a bug for this functionality?",
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b628bf85_d9b14878",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-17T18:50:30Z",
+      "side": 1,
+      "message": "Please add `r_submix output direct` and add `DIRECT, IEC958_NONAUDIO` flags on it.\n\nPlease add `DIRECT` flag on the input.\n\nAlso, the profiles do not seem to match what the code specifies, please align.",
+      "range": {
+        "startLine": 328,
+        "startChar": 31,
+        "endLine": 328,
+        "endChar": 38
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "334c1b36_b1725670",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-17T18:50:30Z",
+      "side": 1,
+      "message": "Missing route for the direct output.",
+      "range": {
+        "startLine": 332,
+        "startChar": 5,
+        "endLine": 332,
+        "endChar": 13
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c9f63f8_220b4509",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-17T18:50:30Z",
+      "side": 1,
+      "message": "I would suggest defining a lambda for creating a mix port ext just to ensure consistency of the stream count limits.",
+      "range": {
+        "startLine": 364,
+        "startChar": 72,
+        "endLine": 364,
+        "endChar": 96
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b9212f2_cc82957d",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-17T18:50:30Z",
+      "side": 1,
+      "message": "decoding",
+      "range": {
+        "startLine": 409,
+        "startChar": 30,
+        "endLine": 409,
+        "endChar": 39
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ddf29c5_4ecabaee",
+        "filename": "audio/aidl/default/r_submix/ModuleRemoteSubmix.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-17T18:50:30Z",
+      "side": 1,
+      "message": "I think, we actually need a different kind of a check, for example to ensure that the encodings match. Otherwise, this is too loose.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 96
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
