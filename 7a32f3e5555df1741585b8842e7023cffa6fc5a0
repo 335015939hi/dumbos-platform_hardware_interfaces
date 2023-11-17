@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2302e2e0_f3d1b98c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-17T07:44:26Z",
+      "side": 1,
+      "message": "LGTM but I\u0027ve not checked the cryptographic descriptions.",
+      "revId": "7a32f3e5555df1741585b8842e7023cffa6fc5a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
