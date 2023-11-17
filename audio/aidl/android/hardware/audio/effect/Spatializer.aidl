@@ -52,19 +52,14 @@ union Spatializer {
     VendorExtension vendor;
 
     /**
-     * Level of spatialization.
-     */
-    Spatialization.Level spatializationLevel;
-
-    /**
-     * Head tracking mode for spatialization.
-     */
-    HeadTracking.Mode headTrackingMode;
-
-    /**
      * List of supported input channel layouts.
      */
     AudioChannelLayout[] supportedChannelLayout;
+
+    /**
+     * Level of spatialization.
+     */
+    Spatialization.Level spatializationLevel;
 
     /**
      * Spatialization mode, Binaural or Transaural for example.
@@ -72,9 +67,23 @@ union Spatializer {
     Spatialization.Mode spatializationMode;
 
     /**
-     * Vector representing of the head-to-stage pose with six floats: first three are a translation
-     * vector, and the last three are a rotation vector.
+     * Headtracking sensor ID.
      */
-    const int HEAD_TO_STAGE_VEC_SIZE = 6;
-    float[HEAD_TO_STAGE_VEC_SIZE] headToStage;
+    int headTrackingSensorId;
+
+    /**
+     * Head tracking mode for spatialization.
+     */
+    HeadTracking.Mode headTrackingMode;
+
+    /**
+     * Head tracking mode for spatialization.
+     */
+    HeadTracking.ConnectionMode headTrackingConnectionMode;
+
+    /**
+     * Headtracking sensor data.
+     * Only head-to-stage pose vector will be send for now.
+     */
+    HeadTracking.SensorData headTrackingSensorData;
 }
