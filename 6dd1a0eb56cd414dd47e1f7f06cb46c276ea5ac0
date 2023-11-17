@@ -22,6 +22,30 @@
       },
       "revId": "6dd1a0eb56cd414dd47e1f7f06cb46c276ea5ac0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60940786_bed45b5c",
+        "filename": "bluetooth/lmp_event/aidl/vts/VtsHalLmpEventTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 2007880
+      },
+      "writtenOn": "2023-11-17T05:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae2e66a1_8278fbd8",
+      "range": {
+        "startLine": 102,
+        "startChar": 15,
+        "endLine": 102,
+        "endChar": 114
+      },
+      "revId": "6dd1a0eb56cd414dd47e1f7f06cb46c276ea5ac0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
