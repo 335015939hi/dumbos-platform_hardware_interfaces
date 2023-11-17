@@ -423,6 +423,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "020c0a68_465cfe78",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Filter.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-17T10:08:30Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "f1a0b67c_e41c0cf5",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 7
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a2f7c20_002fedcb",
@@ -801,6 +825,30 @@
       "side": 1,
       "message": "Sorry I used the wrong word. I mean severity (or richness) of the multipath.\nI think a better way to comment this is:\nEstimated delay spread in meters of the measured channel. This is a measure of multipath richness of the channel.\n\nDelay spread is a well known term in wireless communications. There is a formal definition of delay spread of a channel:\nhttps://en.wikipedia.org/wiki/Delay_spread\n\nThanks!",
       "parentUuid": "e8889659_9d28c0b5",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 16
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "549b2406_4e15d1f4",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-17T10:08:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4d55588_db7c2504",
       "range": {
         "startLine": 72,
         "startChar": 7,
