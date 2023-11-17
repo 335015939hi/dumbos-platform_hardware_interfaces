@@ -16,6 +16,24 @@
       "message": "prebumit fail, please fix it.\nhardware/interfaces/bluetooth/lmp_event/aidl/vts/VtsHalLmpEventTargetTest.cpp\nhardware/interfaces/bluetooth/lmp_event/aidl/vts/VtsHalLmpEventTargetTest.cpp:102:69: error: format specifies type \u0027long long\u0027 but the argument has type \u0027int64_t\u0027 (aka \u0027long\u0027) [-Werror,-Wformat]\nALOGD(\"%s: time: %lld counter value: %x\", __func__, timestamp.bluetoothTimeUs, conn_event_counter);\n~~~~                               ^~~~~~~~~~~~~~~~~~~~~~~~~\n%ld\n\nsystem/logging/liblog/include/log/log_main.h:227:52: note: expanded from macro \u0027ALOGD\u0027\n#define ALOGD(...) ((void)ALOG(LOG_DEBUG, LOG_TAG, __VA_ARGS__))\n^~~~~~~~~~~\nsystem/logging/liblog/include/log/log_main.h:336:67: note: expanded from macro \u0027ALOG\u0027\n#define ALOG(priority, tag, ...) LOG_PRI(ANDROID_##priority, tag, __VA_ARGS__)\n^~~~~~~~~~~\nsystem/logging/liblog/include/log/log_main.h:94:69: note: expanded from macro \u0027LOG_PRI\u0027\n#define LOG_PRI(priority, tag, ...) android_printLog(priority, tag, __VA_ARGS__)\n^~~~~~~~~~~\nsystem/logging/liblog/include/log/log_main.h:85:34: note: expanded from macro \u0027android_printLog\u0027\n__android_log_print(prio, tag, __VA_ARGS__)\n^~~~~~~~~~~\n1 error generated.",
       "revId": "f050943fba0741a8b2a7b07ed0b5db36ecf9563e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aee4e195_dee750aa",
+        "filename": "bluetooth/lmp_event/aidl/vts/VtsHalLmpEventTargetTest.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1957100
+      },
+      "writtenOn": "2023-11-17T20:03:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5d13988_7a6eb420",
+      "revId": "f050943fba0741a8b2a7b07ed0b5db36ecf9563e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
