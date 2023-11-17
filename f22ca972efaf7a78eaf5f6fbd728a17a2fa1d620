@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "88fd097d_764788c9",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-17T18:36:01Z",
+      "side": 1,
+      "message": "Sure. Once, I used shadowing heavily in the other lib I wrote, I felt heavy usage of it can add to the cognitive load wile reading the code later.\n\nThe other recommendation leads to this comment being noop",
+      "parentUuid": "a4a414fe_f8e2aa79",
+      "revId": "f22ca972efaf7a78eaf5f6fbd728a17a2fa1d620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "bf7aa52e_234627b3",
         "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2023-11-16T09:03:47Z",
       "side": 1,
       "message": "super-nit: Where possible, prefer to rearrange code to avoid the need for an `unwrap`.  So for example:\n```\nlet secretkeeper \u003d match get_connection() {\n  Some(sk) \u003d\u003e sk,\n  None \u003d\u003e {\n    warn!(\"Secretkeeper HAL is unavailable, skipping test\");\n    return;\n  }\n};\n```\nreduces the chance of a future modification to the code making the `unwrap()` fire.",
+      "revId": "f22ca972efaf7a78eaf5f6fbd728a17a2fa1d620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "933177d0_98ac2fd6",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-17T18:36:01Z",
+      "side": 1,
+      "message": "Thanks for suggestion. Done.",
+      "parentUuid": "bf7aa52e_234627b3",
       "revId": "f22ca972efaf7a78eaf5f6fbd728a17a2fa1d620",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
