@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2021 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,12 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.health;
-@VintfStability
-parcelable BatteryHealthData {
-  long batteryManufacturingDateSeconds;
-  long batteryFirstUsageSeconds;
-  long batteryStateOfHealth;
-  long batteryCurrentMaxCapacityMilliAmpHours;
-  String batterySerial;
-  android.hardware.health.BatteryPartStatus batteryPartStatus = android.hardware.health.BatteryPartStatus.UNSUPPORTED;
+@Backing(type="int") @VintfStability
+enum BatteryStatus {
+  UNKNOWN = 1,
+  CHARGING = 2,
+  DISCHARGING = 3,
+  NOT_CHARGING = 4,
+  FULL = 5,
 }

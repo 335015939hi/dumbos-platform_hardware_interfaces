@@ -37,7 +37,8 @@ parcelable BatteryHealthData {
   long batteryManufacturingDateSeconds;
   long batteryFirstUsageSeconds;
   long batteryStateOfHealth;
+  long batteryRatedCapacityMilliAmpHours;
   long batteryCurrentMaxCapacityMilliAmpHours;
-  String batterySerial;
+  long batterySerial;
   android.hardware.health.BatteryPartStatus batteryPartStatus = android.hardware.health.BatteryPartStatus.UNSUPPORTED;
 }

@@ -32,12 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.health;
-@VintfStability
-parcelable BatteryHealthData {
-  long batteryManufacturingDateSeconds;
-  long batteryFirstUsageSeconds;
-  long batteryStateOfHealth;
-  long batteryCurrentMaxCapacityMilliAmpHours;
-  String batterySerial;
-  android.hardware.health.BatteryPartStatus batteryPartStatus = android.hardware.health.BatteryPartStatus.UNSUPPORTED;
+@Backing(type="int") @VintfStability
+enum BatteryChargingPolicy {
+  INVALID = 0,
+  DEFAULT = 1,
+  LONG_LIFE = 2,
+  ADAPTIVE = 3,
 }
