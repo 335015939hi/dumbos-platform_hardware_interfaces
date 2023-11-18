@@ -33,6 +33,213 @@
       "message": "(elsk@ is anapic contact for wi-fi, but I\u0027ll take a quick look as well)",
       "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a629d33_b22f5d09",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-18T00:45:53Z",
+      "side": 1,
+      "message": "add \u0027const int ... \u003d ... \u0027 values for these?",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab2f02c6_29b2eb5f",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-18T00:45:53Z",
+      "side": 1,
+      "message": "casing",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d2ba74_cc3f31ed",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-18T00:45:53Z",
+      "side": 1,
+      "message": "nit: timestampMs",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 18
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d126825_b1bdd61a",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-18T00:45:53Z",
+      "side": 1,
+      "message": "units?",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 41
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92ec8a4e_a2ae85db",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Config.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-18T00:45:53Z",
+      "side": 1,
+      "message": "how to interpret this?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 24
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b85074e2_7f234065",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-18T00:45:53Z",
+      "side": 1,
+      "message": "should this be byte?",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "277afbe0_8947fa77",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-18T00:45:53Z",
+      "side": 1,
+      "message": "nit: velocityMetersPerSecond",
+      "range": {
+        "startLine": 87,
+        "startChar": 11,
+        "endLine": 87,
+        "endChar": 19
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7bbbd08_53e2766f",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-18T00:45:53Z",
+      "side": 1,
+      "message": "document how is this interpreted?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 32
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c910bca8_14fdcfb1",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/VendorSpecificData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-18T00:45:53Z",
+      "side": 1,
+      "message": "is this opaque to the framework? Can we rename \u0027value\u0027 to \u0027opaqueValue\u0027? Otherwise, how should it be used?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 1
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
