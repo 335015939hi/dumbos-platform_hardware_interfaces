@@ -1,0 +1,26 @@
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+cc_test {
+    name: "hci_proxy",
+    srcs: [
+        "main.cc",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+        "libcutils",
+        "libhidlbase",
+        "liblog",
+        "libutils",
+    ],
+    whole_static_libs: [
+        "android.hardware.bluetooth@1.0",
+        "android.hardware.bluetooth@1.1",
+        "android.hardware.bluetooth-V1-ndk",
+    ],
+    test_suites: [
+        "device-tests",
+    ],
+}
