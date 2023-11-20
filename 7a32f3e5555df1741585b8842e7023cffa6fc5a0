@@ -16,6 +16,23 @@
       "message": "LGTM but I\u0027ve not checked the cryptographic descriptions.",
       "revId": "7a32f3e5555df1741585b8842e7023cffa6fc5a0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "999cf2ed_f0a28e10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-20T17:48:02Z",
+      "side": 1,
+      "message": "Hi Devin @devinmoore@google.com,\n\nThis is the CL addressing the API council feedback (https://docs.google.com/document/d/1VyFXguxF7IK4p55uZdJbXGxQQdV9E7PevoL5Eyiu6XM/edit) and few other changes found to be fixed during proof reading.\n\nCan you please let me know if you have any further questions?\n\nThank you!",
+      "revId": "7a32f3e5555df1741585b8842e7023cffa6fc5a0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
