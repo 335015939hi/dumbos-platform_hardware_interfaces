@@ -87,6 +87,7 @@ class BluetoothAudioProvider : public BnBluetoothAudioProvider {
   ndk::ScopedAStatus onSourceAseMetadataChanged(
       ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
           AseState in_state,
+      int32_t in_cigId, int32_t in_cisId,
       const std::optional<std::vector<std::optional<
           ::aidl::android::hardware::bluetooth::audio::MetadataLtv>>>&
           in_metadata) override;
