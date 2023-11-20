@@ -86,3 +86,219 @@ cc_defaults {
         "VtsHalHidlTargetTestBase",
     ],
 }
+
+test_spec {
+    name: "interfaces917-test-spec-5663596411224064",
+    teamId: 5663596411224064,
+    tests: [
+        "VtsHalRadioTargetTest",
+        "VtsHalRadioConfigV1_2TargetTest",
+        "VtsHalRadioConfigV1_0TargetTest",
+        "VtsHalRadioConfigV1_1TargetTest",
+        "VtsHalRadioConfigV1_3TargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-4662491074134016",
+    teamId: 4662491074134016,
+    tests: [
+        "VtsHalTvInputTargetTest",
+        "VtsHalTvHdmiConnectionAidlTargetTest",
+        "android.hardware.tv.hdmi.earc-service_fuzzer",
+        "VtsHalTvHdmiCecAidlTargetTest",
+        "android.hardware.tv.hdmi.connection-service_fuzzer",
+        "VtsHalTvHdmiEArcAidlTargetTest",
+        "android.hardware.tv.hdmi.cec-service_fuzzer",
+        "VtsHalTvCecV1_1TargetTest",
+        "VtsHalTvCecV1_0TargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-4999436357238784",
+    teamId: 4999436357238784,
+    tests: [
+        "VtsHalInputClassifierV1_0TargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-5260625399644160",
+    teamId: 5260625399644160,
+    tests: [
+        "VtsHalGraphicsAllocatorAidl_TargetTest",
+        "VtsHalGraphicsComposerV2_2TargetTest",
+        "VtsHalGraphicsComposerV2_4TargetTest",
+        "VtsHalGraphicsComposer3_TargetTest",
+        "android.hardware.graphics.composer3-hidl2aidl-asserts",
+        "VtsHalGraphicsComposerV2_1TargetTest",
+        "VtsHalGraphicsComposerV2_3TargetTest",
+        "VtsHalGraphicsMapperStableC_TargetTest",
+        "VtsHalGraphicsMapperV2_1TargetTest",
+        "VtsHalGraphicsMapperV2_0TargetTest",
+        "libimapper_providerutils_tests",
+        "VtsHalGraphicsMapperV3_0TargetTest",
+        "VtsHalGraphicsMapperV4_0TargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-6455244783222784",
+    teamId: 6455244783222784,
+    tests: [
+        "VtsHalCameraProviderV2_4TargetTest",
+        "VtsAidlHalCameraProvider_TargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-6398595556343808",
+    teamId: 6398595556343808,
+    tests: [
+        "VtsHalWeaverTargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-5983733408235520",
+    teamId: 5983733408235520,
+    tests: [
+        "VtsHalUwbTargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-5962312512864256",
+    teamId: 5962312512864256,
+    tests: [
+        "VtsHalNfcV1_0TargetTest",
+        "VtsHalNfcV1_2TargetTest",
+        "VtsHalNfcV1_1TargetTest",
+        "VtsAidlHalNfcTargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-5080704467501056",
+    teamId: 5080704467501056,
+    tests: [
+        "VtsAidlHalContextHubTargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-5895438509441024",
+    teamId: 5895438509441024,
+    tests: [
+        "VibratorHalIntegrationBenchmark",
+        "VtsHalVibratorManagerTargetTest",
+        "android.hardware.vibrator-service.example_fuzzer",
+        "VtsHalVibratorTargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-4943966050844672",
+    teamId: 4943966050844672,
+    tests: [
+        "VtsHalMediaOmxV1_0TargetAudioDecTest",
+        "VtsHalMediaOmxV1_0TargetComponentTest",
+        "VtsHalMediaOmxV1_0TargetVideoDecTest",
+        "VtsHalMediaOmxV1_0TargetAudioEncTest",
+        "VtsHalMediaOmxV1_0TargetStoreTest",
+        "VtsHalMediaOmxV1_0TargetVideoEncTest",
+        "VtsVndkAidlBufferpool2V1_0TargetSingleTest",
+        "VtsVndkAidlBufferpool2V1_0TargetMultiTest",
+        "VtsVndkAidlBufferpool2V1_0TargetCondTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-5823575353065472",
+    teamId: 5823575353065472,
+    tests: [
+        "VtsHalAudioPolicyV1_0TargetTest",
+        "android.hardware.audio.common@6.0-util_tests",
+        "android.hardware.audio.common@7.0-util_tests",
+        "android.hardware.audio.common.test.utility_tests",
+        "android.hardware.audio.common@7.1-util_tests",
+        "VtsHalAudioEffectV4_0TargetTest",
+        "VtsHalAudioEffectV6_0TargetTest",
+        "android.hardware.audio.effect@7.0-util_tests",
+        "VtsHalAudioEffectV2_0TargetTest",
+        "VtsHalAudioEffectV5_0TargetTest",
+        "VtsHalAudioEffectV7_0TargetTest",
+        "VtsHalLoudnessEnhancerTargetTest",
+        "VtsHalDownmixTargetTest",
+        "VtsHalDynamicsProcessingTargetTest",
+        "VtsHalSoundDoseFactoryTargetTest",
+        "VtsHalAudioEffectFactoryTargetTest",
+        "VtsHalAudioCoreTargetTest",
+        "VtsHalVirtualizerTargetTest",
+        "VtsHalBassBoostTargetTest",
+        "VtsHalPresetReverbTargetTest",
+        "libaudioaidlcommon_test",
+        "VtsHalAGC2TargetTest",
+        "audio_policy_config_xml_converter_tests",
+        "VtsHalAECTargetTest",
+        "VtsHalAudioEffectTargetTest",
+        "VtsHalEnvironmentalReverbTargetTest",
+        "VtsHalVisualizerTargetTest",
+        "VtsHalEqualizerTargetTest",
+        "VtsHalAGC1TargetTest",
+        "VtsHalNSTargetTest",
+        "VtsHalHapticGeneratorTargetTest",
+        "VtsHalVolumeTargetTest",
+        "VtsHalAudioV6_0TargetTest",
+        "android.hardware.audio@7.1-util_tests",
+        "VtsHalAudioV2_0TargetTest",
+        "HalAudioStreamWorkerTest",
+        "VtsHalAudioV7_0TargetTest",
+        "android.hardware.audio@7.0-util_tests",
+        "HalAudioV7_0GeneratorTest",
+        "VtsHalAudioV5_0TargetTest",
+        "VtsHalAudioV4_0TargetTest",
+        "HalAudioV6_0GeneratorTest",
+        "VtsHalAudioV7_1TargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-5470082364735488",
+    teamId: 5470082364735488,
+    tests: [
+        "VtsHalNetlinkInterceptorV1_0Test",
+        "VtsHalWifiSupplicantV1_0TargetTest",
+        "VtsHalWifiSupplicantP2pV1_4TargetTest",
+        "VtsHalWifiSupplicantStaNetworkTargetTest",
+        "VtsHalWifiSupplicantV1_1TargetTest",
+        "VtsHalWifiSupplicantP2pIfaceTargetTest",
+        "VtsHalWifiSupplicantP2pV1_2TargetTest",
+        "VtsHalWifiSupplicantV1_2TargetTest",
+        "VtsHalWifiSupplicantStaIfaceTargetTest",
+        "VtsHalWifiSupplicantP2pV1_0TargetTest",
+        "VtsHalWifiSupplicantV1_3TargetTest",
+        "VtsHalWifiSupplicantV1_4TargetTest",
+        "VtsHalHostapdTargetTest",
+        "VtsHalWifiHostapdV1_0TargetTest",
+        "VtsHalWifiHostapdV1_2TargetTest",
+        "VtsHalWifiHostapdV1_3TargetTest",
+        "VtsHalWifiHostapdV1_1TargetTest",
+        "VtsHalWifiChipTargetTest",
+        "VtsHalWifiApIfaceTargetTest",
+        "VtsHalWifiRttControllerTargetTest",
+        "android.hardware.wifi-service-tests",
+        "VtsHalWifiNanIfaceTargetTest",
+        "VtsHalWifiStaIfaceTargetTest"
+    ],
+}
+
+test_spec {
+    name: "interfaces917-test-spec-4776371090259968",
+    teamId: 4776371090259968,
+    tests: [
+        "android.hardware.sensors@2.X-halproxy-unit-tests",
+        "VtsAidlHalSensorsTargetTest"
+    ],
+}
