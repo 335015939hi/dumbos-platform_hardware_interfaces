@@ -131,6 +131,7 @@ cc_binary {
         "libbluetooth_audio_session_aidl",
         "libmedia_helper",
         "libstagefright_foundation",
+        "android.hardware.bluetooth.audio-impl",
     ],
     srcs: ["main.cpp"],
     cflags: [
