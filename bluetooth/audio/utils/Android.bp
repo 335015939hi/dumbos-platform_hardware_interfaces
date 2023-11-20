@@ -68,6 +68,8 @@ cc_library_shared {
     generated_headers: [
         "le_audio_codec_capabilities",
         "AIDLLeAudioSetConfigSchemas_h",
+        "AIDLLeAudioSetScenariosSchema_bfbs",
+        "AIDLLeAudioSetConfigsSchema_bfbs",
     ],
 }
 

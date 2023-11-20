@@ -32,9 +32,7 @@
     (p) += 4;                                                         \
   }
 
-#define LOG_TAG "BTAudioCodecsAidl"
-
-#include "BluetoothLeAudioAseConfigurationSettingProvider.h"
+#define LOG_TAG "BTAudioAseConfigAidl"
 
 #include <aidl/android/hardware/bluetooth/audio/AudioConfiguration.h>
 #include <aidl/android/hardware/bluetooth/audio/AudioContext.h>
@@ -47,6 +45,7 @@
 #include <aidl/android/hardware/bluetooth/audio/Phy.h>
 #include <android-base/logging.h>
 
+#include "BluetoothLeAudioAseConfigurationSettingProvider.h"
 #include "flatbuffers/idl.h"
 #include "flatbuffers/util.h"
 
@@ -243,13 +242,13 @@ std::map<uint32_t, uint32_t> audio_channel_allocation_map = {
 static const std::vector<
     std::pair<const char* /*schema*/, const char* /*content*/>>
     kLeAudioSetConfigs = {
-        {"../le_audio_configuration_set/aidl_audio_set_configurations.bfbs",
-         "../le_audio_configuration_set/aidl_audio_set_configurations.json"}};
+        {"audio_set_configurations.bfbs",
+         "le_audio_configuration_set/audio_set_configurations.json"}};
 static const std::vector<
     std::pair<const char* /*schema*/, const char* /*content*/>>
     kLeAudioSetScenarios = {
-        {"../le_audio_configuration_set/aidl_audio_set_scenarios.bfbs",
-         "../le_audio_configuration_set/aidl_audio_set_scenarios.json"}};
+        {"audio_set_scenarios.bfbs",
+         "le_audio_configuration_set/audio_set_scenarios.json"}};
 
 /* Implementation */
 
@@ -561,6 +560,7 @@ bool AudioSetConfigurationProviderJson::LoadConfigurationsFromFiles(
     const char* schema_file, const char* content_file, CodecLocation location) {
   flatbuffers::Parser configurations_parser_;
   std::string configurations_schema_binary_content;
+  LOG(INFO) << "Loading file " << schema_file;
   bool ok = flatbuffers::LoadFile(schema_file, true,
                                   &configurations_schema_binary_content);
   if (!ok) return ok;
@@ -572,6 +572,7 @@ bool AudioSetConfigurationProviderJson::LoadConfigurationsFromFiles(
   if (!ok) return ok;
 
   /* Load the content from JSON */
+  LOG(INFO) << "Loading file " << content_file;
   std::string configurations_json_content;
   ok = flatbuffers::LoadFile(content_file, false, &configurations_json_content);
   if (!ok) return ok;
