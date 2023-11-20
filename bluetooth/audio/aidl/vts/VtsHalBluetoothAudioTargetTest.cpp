@@ -2138,6 +2138,23 @@ TEST_P(
   }
 }
 
+TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
+       GetEmptyBroadcastConfigurationEmptyCapability) {
+  std::vector<std::optional<LeAudioDeviceCapabilities>> empty_capability;
+  IBluetoothAudioProvider::LeAudioBroadcastConfigurationRequirement
+      empty_requirement;
+
+  IBluetoothAudioProvider::LeAudioBroadcastConfigurationSetting* configuration =
+      nullptr;
+
+  // Check empty capability for source direction
+  auto aidl_retval = audio_provider_->getLeAudioBroadcastConfiguration(
+      empty_capability, empty_requirement, configuration);
+
+  ASSERT_TRUE(aidl_retval.isOk());
+  ASSERT_TRUE(configuration == nullptr);
+}
+
 /**
  * Test whether each provider of type
  * SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH can be

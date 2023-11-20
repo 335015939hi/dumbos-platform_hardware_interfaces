@@ -221,7 +221,7 @@ ndk::ScopedAStatus BluetoothAudioProvider::getLeAudioAseDatapathConfiguration(
 ndk::ScopedAStatus BluetoothAudioProvider::onSinkAseMetadataChanged(
     ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
         AseState in_state,
-    int cigId, int cisId,
+    int /*cigId*/, int /*cisId*/,
     const std::optional<std::vector<std::optional<
         ::aidl::android::hardware::bluetooth::audio::MetadataLtv>>>&
         in_metadata) {
@@ -234,6 +234,7 @@ ndk::ScopedAStatus BluetoothAudioProvider::onSinkAseMetadataChanged(
 ndk::ScopedAStatus BluetoothAudioProvider::onSourceAseMetadataChanged(
     ::aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider::
         AseState in_state,
+    int32_t /*in_cigId*/, int32_t /*in_cisId*/,
     const std::optional<std::vector<std::optional<
         ::aidl::android::hardware::bluetooth::audio::MetadataLtv>>>&
         in_metadata) {
