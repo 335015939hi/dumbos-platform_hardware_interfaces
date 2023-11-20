@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10c0377a_ebd82939",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-11-20T02:32:55Z",
+      "side": 1,
+      "message": "Yes that\u0027s correct. If the APM needs to be aware of the Spdif adapatation format and not pass raw formats to createPatch then this will probably require some changes. I have made said change as shown in https://android-review.googlesource.com/c/platform/frameworks/av/+/2833452/2..3 that allows for these e-ac3-joc ports to not require to be reported in remote submix.",
+      "parentUuid": "c8081357_d0512727",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 39
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45d6714f_2842666c",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc732144_897d0438",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-11-20T02:32:55Z",
+      "side": 1,
+      "message": "Acknowledged: will update to reference 311830316.",
+      "parentUuid": "45d6714f_2842666c",
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b628bf85_d9b14878",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-11-17T18:50:30Z",
       "side": 1,
       "message": "Please add `r_submix output direct` and add `DIRECT, IEC958_NONAUDIO` flags on it.\n\nPlease add `DIRECT` flag on the input.\n\nAlso, the profiles do not seem to match what the code specifies, please align.",
+      "range": {
+        "startLine": 328,
+        "startChar": 31,
+        "endLine": 328,
+        "endChar": 38
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0bcdad2_e2dff7e5",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-11-20T02:32:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b628bf85_d9b14878",
       "range": {
         "startLine": 328,
         "startChar": 31,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3002467_b5c5dacd",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-11-20T02:32:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "334c1b36_b1725670",
+      "range": {
+        "startLine": 332,
+        "startChar": 5,
+        "endLine": 332,
+        "endChar": 13
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c9f63f8_220b4509",
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fd8927f_53d2d85d",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-11-20T02:32:55Z",
+      "side": 1,
+      "message": "Acknowledged. I have modified the stream count limits to align with the configuration for direct/offload on the primary HAL.",
+      "parentUuid": "4c9f63f8_220b4509",
+      "range": {
+        "startLine": 364,
+        "startChar": 72,
+        "endLine": 364,
+        "endChar": 96
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b9212f2_cc82957d",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-11-17T18:50:30Z",
       "side": 1,
       "message": "decoding",
+      "range": {
+        "startLine": 409,
+        "startChar": 30,
+        "endLine": 409,
+        "endChar": 39
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b40d841d_cfdf0e79",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-11-20T02:32:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9b9212f2_cc82957d",
       "range": {
         "startLine": 409,
         "startChar": 30,
