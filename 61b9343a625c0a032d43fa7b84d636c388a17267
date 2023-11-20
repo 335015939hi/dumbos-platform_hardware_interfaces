@@ -292,6 +292,30 @@
       },
       "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e29ca9f1_b741cd6d",
+        "filename": "audio/aidl/default/r_submix/ModuleRemoteSubmix.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-11-20T02:44:21Z",
+      "side": 1,
+      "message": "Acknowledged. Fortunately this code is no longer needed with the changes in https://android-review.googlesource.com/c/platform/frameworks/av/+/2833452/2..3 .",
+      "parentUuid": "6ddf29c5_4ecabaee",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 96
+      },
+      "revId": "61b9343a625c0a032d43fa7b84d636c388a17267",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
