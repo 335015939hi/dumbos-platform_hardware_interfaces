@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adae8b92_6b08eb09",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-20T06:05:55Z",
+      "side": 1,
+      "message": "All bits are independent. For example, bit 5 is used for indoor, not line of sight ,enhance security. And we may define other bits in the feature, so we prefer to use a bit mask here. Thank you!\"",
+      "parentUuid": "7a629d33_b22f5d09",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab2f02c6_29b2eb5f",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-11-18T00:45:53Z",
       "side": 1,
       "message": "casing",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf41689d_047706dc",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-20T06:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab2f02c6_29b2eb5f",
       "range": {
         "startLine": 30,
         "startChar": 8,
@@ -104,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c17c8ba_c20e65c7",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-20T06:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10d2ba74_cc3f31ed",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 18
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d126825_b1bdd61a",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-11-18T00:45:53Z",
       "side": 1,
       "message": "units?",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 41
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cb03004_231dc35e",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-20T06:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d126825_b1bdd61a",
       "range": {
         "startLine": 51,
         "startChar": 16,
@@ -150,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41cc071_338a8029",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Config.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-20T06:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92ec8a4e_a2ae85db",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 24
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b85074e2_7f234065",
@@ -163,6 +283,30 @@
       "writtenOn": "2023-11-18T00:45:53Z",
       "side": 1,
       "message": "should this be byte?",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eec9678_28d431b2",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-20T06:05:55Z",
+      "side": 1,
+      "message": "0xFF is not acceptable for byte\n\"Invalid type specifier for an int32 literal: byte (0xFF)\nEnumerator type differs from enum backing type\"",
+      "parentUuid": "b85074e2_7f234065",
       "range": {
         "startLine": 20,
         "startChar": 15,
@@ -196,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a34a15a_544c7111",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-20T06:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "277afbe0_8947fa77",
+      "range": {
+        "startLine": 87,
+        "startChar": 11,
+        "endLine": 87,
+        "endChar": 19
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7bbbd08_53e2766f",
@@ -219,6 +387,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae9fdc08_5d8e59a3",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-20T06:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7bbbd08_53e2766f",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 32
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c910bca8_14fdcfb1",
@@ -232,6 +424,30 @@
       "writtenOn": "2023-11-18T00:45:53Z",
       "side": 1,
       "message": "is this opaque to the framework? Can we rename \u0027value\u0027 to \u0027opaqueValue\u0027? Otherwise, how should it be used?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 1
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8c15f1a_7e2b264a",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/VendorSpecificData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-20T06:05:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c910bca8_14fdcfb1",
       "range": {
         "startLine": 19,
         "startChar": 0,
