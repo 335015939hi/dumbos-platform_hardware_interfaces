@@ -251,7 +251,7 @@ static const std::vector<
     kLeAudioSetScenarios = {{"/vendor/etc/aidl/le_audio/"
                              "aidl_audio_set_scenarios.bfbs",
                              "/vendor/etc/aidl/le_audio/"
-                             "aidl_audio_set_configurations.json"}};
+                             "aidl_audio_set_scenarios.json"}};
 
 /* Implementation */
 
@@ -565,7 +565,7 @@ bool AudioSetConfigurationProviderJson::LoadConfigurationsFromFiles(
   std::string configurations_schema_binary_content;
   bool ok = flatbuffers::LoadFile(schema_file, true,
                                   &configurations_schema_binary_content);
-  LOG(INFO) << __func__ << "Loading file " << schema_file;
+  LOG(INFO) << __func__ << ": Loading file " << schema_file;
   if (!ok) return ok;
 
   /* Load the binary schema */
@@ -576,17 +576,17 @@ bool AudioSetConfigurationProviderJson::LoadConfigurationsFromFiles(
 
   /* Load the content from JSON */
   std::string configurations_json_content;
-  LOG(INFO) << __func__ << "Loading file " << schema_file;
+  LOG(INFO) << __func__ << ": Loading file " << content_file;
   ok = flatbuffers::LoadFile(content_file, false, &configurations_json_content);
   if (!ok) return ok;
 
   /* Parse */
-  LOG(INFO) << __func__ << "Parse JSON content" << schema_file;
+  LOG(INFO) << __func__ << ": Parse JSON content";
   ok = configurations_parser_.Parse(configurations_json_content.c_str());
   if (!ok) return ok;
 
   /* Import from flatbuffers */
-  LOG(INFO) << __func__ << "Build flat buffer structure" << schema_file;
+  LOG(INFO) << __func__ << ": Build flat buffer structure";
   auto configurations_root = le_audio::GetAudioSetConfigurations(
       configurations_parser_.builder_.GetBufferPointer());
   if (!configurations_root) return false;
@@ -641,6 +641,7 @@ bool AudioSetConfigurationProviderJson::LoadScenariosFromFiles(
   std::string scenarios_schema_binary_content;
   bool ok = flatbuffers::LoadFile(schema_file, true,
                                   &scenarios_schema_binary_content);
+  LOG(INFO) << __func__ << ": Loading file " << schema_file;
   if (!ok) return ok;
 
   /* Load the binary schema */
@@ -650,15 +651,18 @@ bool AudioSetConfigurationProviderJson::LoadScenariosFromFiles(
   if (!ok) return ok;
 
   /* Load the content from JSON */
+  LOG(INFO) << __func__ << ": Loading file " << content_file;
   std::string scenarios_json_content;
   ok = flatbuffers::LoadFile(content_file, false, &scenarios_json_content);
   if (!ok) return ok;
 
   /* Parse */
+  LOG(INFO) << __func__ << ": Parse json content";
   ok = scenarios_parser_.Parse(scenarios_json_content.c_str());
   if (!ok) return ok;
 
   /* Import from flatbuffers */
+  LOG(INFO) << __func__ << ": Build flat buffer structure";
   auto scenarios_root = le_audio::GetAudioSetScenarios(
       scenarios_parser_.builder_.GetBufferPointer());
   if (!scenarios_root) return false;
