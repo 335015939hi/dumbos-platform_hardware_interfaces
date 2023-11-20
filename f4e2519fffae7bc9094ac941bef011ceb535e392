@@ -22,6 +22,30 @@
       },
       "revId": "f4e2519fffae7bc9094ac941bef011ceb535e392",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff24a7b9_2bdbcd1b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-11-20T19:55:03Z",
+      "side": 1,
+      "message": "Yeah -- you requested it in https://b.corp.google.com/issues/290408770#comment22. I think the issue is for a few media HALs. See TH error in CL:2652626.",
+      "parentUuid": "221879af_5a7908a9",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "f4e2519fffae7bc9094ac941bef011ceb535e392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
