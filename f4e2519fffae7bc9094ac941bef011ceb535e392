@@ -70,6 +70,30 @@
       },
       "revId": "f4e2519fffae7bc9094ac941bef011ceb535e392",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ba38ef5_7c0d7860",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-11-21T00:43:43Z",
+      "side": 1,
+      "message": "\u003e Do we hae a case that\u0027s not?\n\nSee error in CL:2652626. The list was \n\n```\nandroid.hardware.media.c2\nandroid.hardware.radio\nandroid.hardware.radio.config\n```\n\n\u003e I don\u0027t understand why this is coupled with the package-level check.\n\nIt\u0027s not coupled. \n\nI reverted it because the instance-level check is incomplete. It needs CL:2652626 to complete the check, but we cannot land CL:2652626 because of the HALs above. Hence, I think I should rather delete the unused code (revert the CL).\n\nIn other words: we can\u0027t do instance-level checks, so I reverted the work that attempts to do instance-level checks.\n\nThe package-level check is separately implemented. WIP in CL:2834718, but I need to make some design decisions first (See internal doc \"VINTF Deprecation check refactoring\").\n\nThe instance-level checks and package-level checks are mostly orthogonal. (Well, depending on how I implement it, but I try to make them as orthogonal as possible.)\n\n\u003e Can you ping me to discuss this week?\n\nI\u0027ll put something on your calendar.",
+      "parentUuid": "e2b4602a_f957a5a7",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "f4e2519fffae7bc9094ac941bef011ceb535e392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
