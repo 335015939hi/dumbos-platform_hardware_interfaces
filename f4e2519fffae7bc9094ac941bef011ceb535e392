@@ -46,6 +46,30 @@
       },
       "revId": "f4e2519fffae7bc9094ac941bef011ceb535e392",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2b4602a_f957a5a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T00:06:25Z",
+      "side": 1,
+      "message": "Hmmm - I still think that all core HALs should be in the systems instance. Do we hae a case that\u0027s not? I don\u0027t understand why this is coupled with the package-level check.\n\nCan you ping me to discuss this week?",
+      "parentUuid": "ff24a7b9_2bdbcd1b",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "f4e2519fffae7bc9094ac941bef011ceb535e392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
