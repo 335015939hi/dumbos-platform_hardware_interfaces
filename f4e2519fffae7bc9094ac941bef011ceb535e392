@@ -94,6 +94,30 @@
       },
       "revId": "f4e2519fffae7bc9094ac941bef011ceb535e392",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62927004_9db0eb07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T00:50:56Z",
+      "side": 1,
+      "message": "android.hardware.media.c2 is wrongly declared in device-specific manifests. It should only be declared in the system manifest. I cleaned up all the device manifests. That error shouldn\u0027t exist anymore.",
+      "parentUuid": "6ba38ef5_7c0d7860",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "f4e2519fffae7bc9094ac941bef011ceb535e392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
