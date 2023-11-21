@@ -34,6 +34,24 @@
       "parentUuid": "36431c47_ed77ff6e",
       "revId": "2e84410046b6d8f70d169d28c7a522e1c674fcfe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8020bcd_6edd0876",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T01:01:01Z",
+      "side": 1,
+      "message": "btw, there is no requirement to flag this. It\u0027s a source-level breakage only.",
+      "parentUuid": "fb7e9d36_964de214",
+      "revId": "2e84410046b6d8f70d169d28c7a522e1c674fcfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
