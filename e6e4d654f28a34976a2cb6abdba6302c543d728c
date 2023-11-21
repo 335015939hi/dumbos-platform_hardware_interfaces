@@ -84,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3afd994e_de3ee747",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T00:21:47Z",
+      "side": 1,
+      "message": "Please define the constants in the file, not the comment. For instance, in the file, above the \u0027int\u0027 outside the comment, add:\n\n```\nconst int ALGORITHM_INDOOR \u003d 1;\nconst int ALGORITHM_LINE_OF_SIGHT \u003d 2;\nconst int ALGORITHM_NADM \u003d 3;\n```",
+      "parentUuid": "adae8b92_6b08eb09",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab2f02c6_29b2eb5f",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
         "patchSetId": 7
@@ -307,6 +331,30 @@
       "side": 1,
       "message": "0xFF is not acceptable for byte\n\"Invalid type specifier for an int32 literal: byte (0xFF)\nEnumerator type differs from enum backing type\"",
       "parentUuid": "b85074e2_7f234065",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83293f6f_440b3160",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T00:21:47Z",
+      "side": 1,
+      "message": "You can use \u00270xFFu8\u0027 if you want",
+      "parentUuid": "7eec9678_28d431b2",
       "range": {
         "startLine": 20,
         "startChar": 15,
