@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85fc2d84_4bcfae62",
+        "filename": "security/authgraph/aidl/vts/functional/role_test.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-21T10:05:27Z",
+      "side": 1,
+      "message": "What prevents this VTS test being run on a device that has no AuthGraph/nonsecure instance on it?  \n\n(Which I think boils down to: does the `\"test_suites\": \"vts\"` marker in `Android.bp` trigger this test on arbitrary devices?)",
+      "revId": "5d28913514d546577e2eb09cec46a02e6a9856a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
