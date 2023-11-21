@@ -130,6 +130,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e4e7e1_ce7e9ac8",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-21T12:39:49Z",
+      "side": 1,
+      "message": "Got it, thanks",
+      "parentUuid": "58ce6b2a_8c4fdf75",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab2f02c6_29b2eb5f",
@@ -379,6 +403,30 @@
       "side": 1,
       "message": "You can use \u00270xFFu8\u0027 if you want",
       "parentUuid": "7eec9678_28d431b2",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ffcd008_2b36520e",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-21T12:39:49Z",
+      "side": 1,
+      "message": "Got it, thanks!",
+      "parentUuid": "83293f6f_440b3160",
       "range": {
         "startLine": 20,
         "startChar": 15,

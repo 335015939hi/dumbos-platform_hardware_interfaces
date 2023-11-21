@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e05311ba_3daec26d",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-21T12:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b3f871f_a1e2307e",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 28
+      },
+      "revId": "8e06426a7a1a7dbc80486c46cf0b112c734bcc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd2c7d30_62f7a468",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-21T00:21:47Z",
       "side": 1,
       "message": "const int for these as well",
+      "range": {
+        "startLine": 30,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 6
+      },
+      "revId": "8e06426a7a1a7dbc80486c46cf0b112c734bcc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88674c1a_d18a3c60",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-21T12:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd2c7d30_62f7a468",
       "range": {
         "startLine": 30,
         "startChar": 6,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ac93578_dcda6f42",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-21T12:39:49Z",
+      "side": 1,
+      "message": "It is defined in the Channel Sounding spec.\nhttps://bluetooth.com/specifications/specs/channel-sounding-cr-pr/\nAdded link in the comment.\nThanks!",
+      "parentUuid": "5237e023_d58bb31e",
+      "range": {
+        "startLine": 37,
+        "startChar": 22,
+        "endLine": 37,
+        "endChar": 31
+      },
+      "revId": "8e06426a7a1a7dbc80486c46cf0b112c734bcc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd61bce2_3e138d2b",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-11-21T00:21:47Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 36,
+        "startChar": 8,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "8e06426a7a1a7dbc80486c46cf0b112c734bcc90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39d8637e_5c3ba36b",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-21T12:39:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd61bce2_3e138d2b",
       "range": {
         "startLine": 36,
         "startChar": 8,
