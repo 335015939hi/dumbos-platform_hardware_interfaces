@@ -16,6 +16,24 @@
       "message": "I am not sure if core HALs should be disallowed on product / system_ext / DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE by default, since it may break old devices.\n\nPerhaps this check should be hidden behind some flag?",
       "revId": "2e84410046b6d8f70d169d28c7a522e1c674fcfe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb7e9d36_964de214",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2023-11-21T00:58:39Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "36431c47_ed77ff6e",
+      "revId": "2e84410046b6d8f70d169d28c7a522e1c674fcfe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
