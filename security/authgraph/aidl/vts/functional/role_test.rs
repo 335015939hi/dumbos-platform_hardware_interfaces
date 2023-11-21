@@ -27,21 +27,11 @@ const AUTH_GRAPH_NONSECURE: &str =
     "android.hardware.security.authgraph.IAuthGraphKeyExchange/nonsecure";
 
 /// Retrieve the /nonsecure instance of AuthGraph, which supports both sink and source roles.
-fn get_nonsecure() -> Option<binder::Strong<dyn IAuthGraphKeyExchange>> {
-    binder::get_interface(AUTH_GRAPH_NONSECURE).ok()
-}
-
-/// Macro to require availability of a /nonsecure instance of AuthGraph.
-///
-/// Note that this macro triggers `return` if not found.
-macro_rules! require_nonsecure {
-    {} => {
-        match get_nonsecure() {
-            Some(v) => v,
-            None => {
-                eprintln!("Skipping test as no /nonsecure impl found");
-                return;
-            }
+fn get_nonsecure() -> binder::Strong<dyn IAuthGraphKeyExchange> {
+    match binder::get_interface(AUTH_GRAPH_NONSECURE) {
+        Ok(v) => v,
+        Err(e) => {
+            panic!("error in retrieving {AUTH_GRAPH_NONSECURE} due to {e:?}.");
         }
     }
 }
@@ -49,30 +39,30 @@ macro_rules! require_nonsecure {
 #[test]
 fn test_nonsecure_source_mainline() {
     let mut sink = vts::test_ag_participant().expect("failed to create a local sink");
-    vts::source::test_mainline(&mut sink, require_nonsecure!());
+    vts::source::test_mainline(&mut sink, get_nonsecure());
 }
 #[test]
 fn test_nonsecure_source_corrupt_sig() {
     let mut sink = vts::test_ag_participant().expect("failed to create a local sink");
-    vts::source::test_corrupt_sig(&mut sink, require_nonsecure!());
+    vts::source::test_corrupt_sig(&mut sink, get_nonsecure());
 }
 #[test]
 fn test_nonsecure_source_corrupt_keys() {
     let mut sink = vts::test_ag_participant().expect("failed to create a local sink");
-    vts::source::test_corrupt_key(&mut sink, require_nonsecure!());
+    vts::source::test_corrupt_key(&mut sink, get_nonsecure());
 }
 #[test]
 fn test_nonsecure_sink_mainline() {
     let mut source = vts::test_ag_participant().expect("failed to create a local source");
-    vts::sink::test_mainline(&mut source, require_nonsecure!());
+    vts::sink::test_mainline(&mut source, get_nonsecure());
 }
 #[test]
 fn test_nonsecure_sink_corrupt_sig() {
     let mut source = vts::test_ag_participant().expect("failed to create a local source");
-    vts::sink::test_corrupt_sig(&mut source, require_nonsecure!());
+    vts::sink::test_corrupt_sig(&mut source, get_nonsecure());
 }
 #[test]
 fn test_nonsecure_sink_corrupt_keys() {
     let mut source = vts::test_ag_participant().expect("failed to create a local source");
-    vts::sink::test_corrupt_keys(&mut source, require_nonsecure!());
+    vts::sink::test_corrupt_keys(&mut source, get_nonsecure());
 }
