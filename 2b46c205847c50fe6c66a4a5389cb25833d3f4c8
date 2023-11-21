@@ -240,6 +240,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a164c8d9_3d082bb0",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/HfpConfiguration.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2023-11-21T18:07:51Z",
+      "side": 1,
+      "message": "`CodecInfo.aidl` is updated",
+      "parentUuid": "5f7a1214_b012c202",
+      "range": {
+        "startLine": 43,
+        "startChar": 12,
+        "endLine": 43,
+        "endChar": 27
+      },
+      "revId": "2b46c205847c50fe6c66a4a5389cb25833d3f4c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3f8c23c_5cd294e8",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/SessionType.aidl",
         "patchSetId": 5
