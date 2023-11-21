@@ -165,6 +165,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a31e4267_b0d0d92e",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-21T17:58:39Z",
+      "side": 1,
+      "message": "Resolving this as I believe this has been answered.",
+      "parentUuid": "30886e4e_941e2827",
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1fbf804_4b928316",
@@ -543,6 +561,30 @@
       "side": 1,
       "message": "I tried not to be too specific about when should HAL throw these errors.\n\nOne of the example where a HAL may throw session_expired is if the number of sessions has reached some upper limit \u0026 TA uses a FIFO queue to expire sessions.\n\nDoes Authgraph have the concept of expiration/disconnect protocol?",
       "parentUuid": "7f5c0f3e_a6d1e817",
+      "range": {
+        "startLine": 101,
+        "startChar": 20,
+        "endLine": 101,
+        "endChar": 34
+      },
+      "revId": "5f7b9d0d5deea35f683168ed2f250d3a402bb469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24cecbcf_3cf8bf71",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 11
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-21T17:58:39Z",
+      "side": 1,
+      "message": "Resolving this as I believe this has been answered.",
+      "parentUuid": "4c2db29c_a29cc78d",
       "range": {
         "startLine": 101,
         "startChar": 20,
