@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c99b12a6_3eb1b7a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-11-21T08:19:52Z",
+      "side": 1,
+      "message": "Hi David,\n\nWe\u0027re converting AOSP HALs into vendor APEXes.",
+      "revId": "9f3f37f28801ef26c3c15fdfe8906ca218a5983a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
