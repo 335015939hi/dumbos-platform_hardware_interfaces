@@ -16,6 +16,23 @@
       "message": "Hi David,\n\nWe\u0027re converting AOSP HALs into vendor APEXes.",
       "revId": "9f3f37f28801ef26c3c15fdfe8906ca218a5983a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0de4a2d5_fec6eea5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-11-21T23:27:20Z",
+      "side": 1,
+      "message": "Hi David and Andrew,\n\nWe\u0027re moving AOSP HALs into Vendor APEXes for better componentization of vendor partition. No behavioral changes, just loading HAL from its own APEX. Please take a look.",
+      "revId": "9f3f37f28801ef26c3c15fdfe8906ca218a5983a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
