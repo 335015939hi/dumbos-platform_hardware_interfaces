@@ -108,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "58ce6b2a_8c4fdf75",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-21T00:22:07Z",
+      "side": 1,
+      "message": "err, or probably `const int ALGORITHM_NADM \u003d 4;`",
+      "parentUuid": "3afd994e_de3ee747",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "e6e4d654f28a34976a2cb6abdba6302c543d728c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab2f02c6_29b2eb5f",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
         "patchSetId": 7
