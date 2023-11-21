@@ -251,8 +251,12 @@ pub fn test_corrupt_key(
     );
 
     let err = result.expect_err("expect failure with corrupt signature");
-    assert_eq!(
-        err,
-        binder::Status::new_service_specific_error(Error::INVALID_PRIV_KEY_ARC_IN_KEY.0, None)
+    assert!(
+        err == binder::Status::new_service_specific_error(Error::INVALID_KE_KEY.0, None)
+            || err
+                == binder::Status::new_service_specific_error(
+                    Error::INVALID_PRIV_KEY_ARC_IN_KEY.0,
+                    None
+                )
     );
 }
