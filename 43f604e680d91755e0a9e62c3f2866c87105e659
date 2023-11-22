@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e504344_834e41d9",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificConfigurationLtv.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-22T08:59:38Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "20654293_ab7c407e",
+      "revId": "43f604e680d91755e0a9e62c3f2866c87105e659",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d8742a0_2485420b",

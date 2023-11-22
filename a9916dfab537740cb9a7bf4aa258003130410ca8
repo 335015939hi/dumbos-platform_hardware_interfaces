@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65be6a76_2417bf31",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecInfo.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-22T08:59:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f013ab88_543645e1",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 24
+      },
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cec27767_ff86f937",
@@ -297,6 +321,24 @@
       "side": 1,
       "message": "It seems that BT stack can just pass the Audio Channel Allocation as part of the requirements. This way the BT stack has the control over the audio channel allocations (and this is what we want), but the vendor module still has a chance to return different configuration for each allocation as now we return a List\u003cAseConfiguration\u003e for each direction and audio locations are part of the requirements.\n\nThe flag does not seem helpful at all, since the BT stack wants the control over the allocations, and it will not add them anyway when the vendor specific and opaque configuration byte array is used. I just removed it.\n\nPlease let me know if you see any problem with this mechanism.",
       "parentUuid": "883829bf_9931cc03",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a636019a_5d94dd70",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-22T08:59:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "198772d7_ae70ea96",
       "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -722,6 +764,24 @@
       "side": 1,
       "message": "A StreamMap would include multiple devices in a CSIP group. Hence, we would have an address for each device in the set. \n\nFor a pair of dual mode earbud, the dual mode bud will have a PUBLIC address, but the LE only bud could have either PUBLIC or RANDOM address. You should use the PUBLIC address. \n\nIf the earbud is LE only, then either one is fine since there is no difference between either one of them. For example, you dynamic list can match either left or right earbud for a LE only set.",
       "parentUuid": "446222ee_1c709789",
+      "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbb19140_c9dd59ed",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioConfiguration.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-11-22T08:59:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55e32469_2fd676e7",
       "revId": "a9916dfab537740cb9a7bf4aa258003130410ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
