@@ -33,6 +33,24 @@
       "message": "Test failure: \n\ndevice/google/cuttlefish/tests/hal/hal_implementation_test.cpp:574: Failure\nFailed\nThe latest version (1) of the module is not implemented: android.hardware.bluetooth.lmp_event which declares the following types:\n    android.hardware.bluetooth.lmp_event.AddressType\n    android.hardware.bluetooth.lmp_event.Direction\n    android.hardware.bluetooth.lmp_event.IBluetoothLmpEvent\n    android.hardware.bluetooth.lmp_event.IBluetoothLmpEventCallback\n    android.hardware.bluetooth.lmp_event.LmpEventId\n    android.hardware.bluetooth.lmp_event.Timestamp",
       "revId": "8cdf219a045e63ede8e267db6df45c931e4378e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f9adc60_4aea50dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884410
+      },
+      "writtenOn": "2023-11-22T18:20:42Z",
+      "side": 1,
+      "message": "Also\n\ndevice/google/cuttlefish/tests/hal/hal_implementation_test.cpp:568: Failure\nFailed\nThe latest version (1) of the module is not implemented: android.hardware.bluetooth.lmp_event which declares the following types:\n    android.hardware.bluetooth.lmp_event.AddressType\n    android.hardware.bluetooth.lmp_event.Direction\n    android.hardware.bluetooth.lmp_event.IBluetoothLmpEvent\n    android.hardware.bluetooth.lmp_event.IBluetoothLmpEventCallback\n    android.hardware.bluetooth.lmp_event.LmpEventId\n    android.hardware.bluetooth.lmp_event.Timestamp",
+      "parentUuid": "2592f751_4ee6708f",
+      "revId": "8cdf219a045e63ede8e267db6df45c931e4378e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
