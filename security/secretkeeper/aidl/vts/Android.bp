@@ -14,18 +14,22 @@
  * limitations under the License.
  */
 
-#![allow(missing_docs)]
-#![no_main]
-extern crate libfuzzer_sys;
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
 
-use authgraph_hal::service::AuthGraphService;
-use authgraph_nonsecure::LocalTa;
-use binder_random_parcel_rs::fuzz_service;
-use libfuzzer_sys::fuzz_target;
-use std::sync::{Arc, Mutex};
-
-fuzz_target!(|data: &[u8]| {
-    let local_ta = LocalTa::new().expect("Failed to create an AuthGraph local TA.");
-    let service = AuthGraphService::new_as_binder(Arc::new(Mutex::new(local_ta)));
-    fuzz_service(&mut service.as_binder(), data);
-});
+rust_test {
+    name: "VtsSecretkeeperTargetTest",
+    srcs: ["secretkeeper_test_client.rs"],
+    test_suites: [
+        "general-tests",
+        "vts",
+    ],
+    rustlibs: [
+        "libsecretkeeper_comm_nostd",
+        "android.hardware.security.secretkeeper-V1-rust",
+        "libbinder_rs",
+        "liblog_rust",
+    ],
+    require_root: true,
+}

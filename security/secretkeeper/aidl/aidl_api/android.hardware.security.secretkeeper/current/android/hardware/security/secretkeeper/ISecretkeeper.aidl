@@ -31,20 +31,8 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.audio.effect;
+package android.hardware.security.secretkeeper;
 @VintfStability
-union Spatializer {
-  android.hardware.audio.effect.VendorExtension vendor;
-  android.media.audio.common.AudioChannelLayout[] supportedChannelLayout;
-  android.media.audio.common.Spatialization.Level spatializationLevel;
-  android.media.audio.common.Spatialization.Mode spatializationMode;
-  int headTrackingSensorId;
-  android.media.audio.common.HeadTracking.Mode headTrackingMode;
-  android.media.audio.common.HeadTracking.ConnectionMode headTrackingConnectionMode;
-  android.media.audio.common.HeadTracking.SensorData headTrackingSensorData;
-  @VintfStability
-  union Id {
-    android.hardware.audio.effect.VendorExtension vendorExtensionTag;
-    android.hardware.audio.effect.Spatializer.Tag commonTag;
-  }
+interface ISecretkeeper {
+  byte[] processSecretManagementRequest(in byte[] request);
 }
