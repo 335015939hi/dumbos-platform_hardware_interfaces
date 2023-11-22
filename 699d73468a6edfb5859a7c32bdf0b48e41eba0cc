@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba1ae81a_8c23e3f4",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-22T03:20:03Z",
+      "side": 1,
+      "message": "Bits 0 to 3 do not function as a bit mask; instead, each value represents a different quality of tone.",
+      "parentUuid": "a02dfad5_14a012b7",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 43
+      },
+      "revId": "699d73468a6edfb5859a7c32bdf0b48e41eba0cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c923bee_469662a5",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e99c5b_5f69ec1a",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-22T03:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c923bee_469662a5",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 18
+      },
+      "revId": "699d73468a6edfb5859a7c32bdf0b48e41eba0cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "499aed9f_f9da4da7",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-11-21T20:30:27Z",
       "side": 1,
       "message": "these are not bits 4to7 set - add \u0027const int TONE_SHIFT_AMOUNT \u003d 4;\u0027?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 46
+      },
+      "revId": "699d73468a6edfb5859a7c32bdf0b48e41eba0cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00c1d138_9c596dbf",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-22T03:20:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "499aed9f_f9da4da7",
       "range": {
         "startLine": 31,
         "startChar": 0,
