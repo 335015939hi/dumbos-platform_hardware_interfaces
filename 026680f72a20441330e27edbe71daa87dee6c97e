@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "154dac7c_a56eb0cb",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-22T14:49:18Z",
+      "side": 1,
+      "message": "We should also add `@nullable byte[] vendorCodecSpecificConfigration;` on the subgroup level, since for the vendor specific data we cannot extract a common part from the BIS level configuration and put on the subgroup level of the BIG info as the data format is not known. We can do that only when the LTV format is used.",
+      "range": {
+        "startLine": 590,
+        "startChar": 4,
+        "endLine": 590,
+        "endChar": 5
+      },
+      "revId": "026680f72a20441330e27edbe71daa87dee6c97e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

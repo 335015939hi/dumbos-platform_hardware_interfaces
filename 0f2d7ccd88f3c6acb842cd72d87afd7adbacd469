@@ -157,6 +157,24 @@
       "message": "same",
       "revId": "0f2d7ccd88f3c6acb842cd72d87afd7adbacd469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fceb492_7a4e7526",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioBisConfiguration.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-22T14:49:18Z",
+      "side": 1,
+      "message": "Comments were extended and reference to specification was added.",
+      "parentUuid": "0794941f_0a799c2c",
+      "revId": "0f2d7ccd88f3c6acb842cd72d87afd7adbacd469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
