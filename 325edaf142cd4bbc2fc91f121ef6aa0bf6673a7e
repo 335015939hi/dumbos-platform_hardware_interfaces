@@ -16,6 +16,24 @@
       "message": "You need to patch `A2dpOffloadAudioProvider::startSession` to accept the `AudioConfiguration` type `a2dp`.",
       "revId": "325edaf142cd4bbc2fc91f121ef6aa0bf6673a7e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "326daff7_1fcd3ec9",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.cpp",
+        "patchSetId": 26
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-22T00:44:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a784602e_6a9ccb12",
+      "revId": "325edaf142cd4bbc2fc91f121ef6aa0bf6673a7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
