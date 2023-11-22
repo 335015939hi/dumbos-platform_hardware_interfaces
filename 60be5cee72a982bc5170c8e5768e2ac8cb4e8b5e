@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cab6c0a_79f66a36",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioAseConfiguration.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-22T12:37:49Z",
+      "side": 1,
+      "message": "The comment was updated to be more specific who uses that. Please reopen the comment in case we need more details here.",
+      "parentUuid": "ad0b848e_7bbc59d2",
+      "range": {
+        "startLine": 73,
+        "startChar": 6,
+        "endLine": 75,
+        "endChar": 10
+      },
+      "revId": "60be5cee72a982bc5170c8e5768e2ac8cb4e8b5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "302b93f8_0398f659",
@@ -220,6 +244,30 @@
       "side": 1,
       "message": "Can you specify where in the bluetooth spec this is from? Or how it should be used?\n\nAlso, maybe consider renaming this to \"opaqueVendorValue\" or similar, so it\u0027s more clear when operating on this, it shouldn\u0027t be used",
       "parentUuid": "2093cd31_0fcbac4f",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "60be5cee72a982bc5170c8e5768e2ac8cb4e8b5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "904299e6_f2a25f32",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/MetadataLtv.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-11-22T12:37:49Z",
+      "side": 1,
+      "message": "Added more comments and the reference to Assigned Numbers document at the top of this file. If you don\u0027t mind, I would keep the original name as it matches to what the BT specification uses.",
+      "parentUuid": "f99d5215_b222bb3d",
       "range": {
         "startLine": 39,
         "startChar": 0,
