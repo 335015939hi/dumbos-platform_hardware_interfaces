@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e122703_6605d974",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/MetadataLtv.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-23T00:26:37Z",
+      "side": 1,
+      "message": "nit: must",
+      "range": {
+        "startLine": 34,
+        "startChar": 29,
+        "endLine": 34,
+        "endChar": 33
+      },
+      "revId": "2212e132118b6558287f505b562059ea169214f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81589649_ce5a2179",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/MetadataLtv.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-11-23T00:26:37Z",
+      "side": 1,
+      "message": "can you rename this \u0027opaqueValue\u0027 so it is more clear to people writing the stack?",
+      "range": {
+        "startLine": 38,
+        "startChar": 15,
+        "endLine": 38,
+        "endChar": 20
+      },
+      "revId": "2212e132118b6558287f505b562059ea169214f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
