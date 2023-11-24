@@ -64,8 +64,14 @@ void BluetoothAudioSession::OnSessionStarted(
   } else {
     stack_iface_ = stack_iface;
     latency_modes_ = latency_modes;
+
+    std::stringstream latencyModesStr;
+    for (LatencyMode mode : latency_modes) {
+      latencyModesStr << " " << toString(mode);
+    }
     LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
-              << ", AudioConfiguration=" << audio_config.toString();
+              << ", AudioConfiguration=" << audio_config.toString()
+              << ", LatencyModes =" << latencyModesStr.str();
     ReportSessionStatus();
   }
 }
@@ -593,6 +599,7 @@ std::vector<LatencyMode> BluetoothAudioSession::GetSupportedLatencyModes() {
   }
 
   std::vector<LatencyMode> supported_latency_modes;
+  std::stringstream latencyModesStr;
   if (session_type_ ==
       SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {
     for (LatencyMode mode : latency_modes_) {
@@ -601,6 +608,7 @@ std::vector<LatencyMode> BluetoothAudioSession::GetSupportedLatencyModes() {
         continue;
       }
       supported_latency_modes.push_back(mode);
+      latencyModesStr << " " << toString(mode);
     }
   } else {
     for (LatencyMode mode : latency_modes_) {
@@ -614,8 +622,11 @@ std::vector<LatencyMode> BluetoothAudioSession::GetSupportedLatencyModes() {
         continue;
       }
       supported_latency_modes.push_back(mode);
+      latencyModesStr << " " << toString(mode);
     }
   }
+  LOG(DEBUG) << __func__
+             << " - Supported LatencyModes =" << latencyModesStr.str();
   return supported_latency_modes;
 }
 
