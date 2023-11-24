@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a12973e4_78a6af8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156808
+      },
+      "writtenOn": "2023-11-24T11:08:27Z",
+      "side": 1,
+      "message": "This fixes HW offload issue using Sony WH-1000XM3 headphones (which deafult to LDAC codec) on Qualcomm sm8350-based device.",
+      "revId": "35c7af6f2e82b5f64f54ff92c9012f588e18fa23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
