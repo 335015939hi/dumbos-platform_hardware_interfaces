@@ -51,6 +51,18 @@ interface IGraphicBufferAllocator {
     }
 
     /**
+     * File descriptors in order to wait for ready and/or stop events.
+     *
+     * file descriptors are checked whether there is events using ::poll for readable status.
+     * Specfically \p ready is used for waiting until being ready to allocate.
+     * \p end is used for notifying end of the life-cycle of the interface.
+     */
+    parcelable WaitableFds {
+        ParcelFileDescriptor ready;
+        ParcelFileDescriptor stop;
+    }
+
+    /**
      * Allocate a graphic buffer.
      *
      * @param desc Allocation parameters.
@@ -75,22 +87,18 @@ interface IGraphicBufferAllocator {
     boolean deallocate(in long id);
 
     /**
-     * Gets a waitable file descriptor.
+     * Gets waitable file descriptors.
      *
-     * Use this method once and cache it in order not to create unnecessary duplicated fds.
+     * Use this method once and cache fds in order not to create unnecessary duplicated fds.
      *
-     * Two file descriptors are created by pipe2(), and the reading end will be returned
-     * and shared by this method. Whenever a dequeuable buffer is ready a byte will be
-     * written to the writing end. Whenever a buffer is allocated(or dequeued) a byte will
-     * be read from the reading end.
+     * Two file descriptors are created by eventfd(). one fd is used for mirroring
+     * the current # of allocatable buffers using EFD_SEMAPHORE. the other fd is used
+     * for notifying the end-of-lifecycle of the interface. see the description of
+     * the returned {@code parcelable}.
      *
-     * The returned file descriptor(the reading end) can be polled whether the read is ready
-     * via ::poll(). If no more allocate() can be fulfilled(by status change or etc.), the
-     * writing end will be closed. In the case, POLLHUP event can be retrieved via ::poll().
-     *
-     * C2Fence object should be implemented based on this Fd. Thus, C2Fence can return
-     * either by allocation being ready or allocation being infeasible by the client status
-     * change.
+     * The both returned file descriptors can be polled whether the read is ready
+     * via ::poll(). C2Fence object should be implemented based on this Fds. C2Fence
+     * may utilize ::poll() for waiting for being ready to allocate and/or end-of-life-cycle.
      *
      * If many waitable objects based on the same fd are competing, all watiable objects will be
      * notified. After being notified, they should invoke allocate(). At least one of them can
@@ -98,8 +106,7 @@ interface IGraphicBufferAllocator {
      * as return value. They should wait again via waitable objects based on the fds which are
      * already returned from this interface.
      *
-     * @return an fd array which will be wrapped to C2Fence and will be waited for
-     *     until allocating is unblocked.
+     * @return a parcelable which has two fds.
      */
-    ParcelFileDescriptor getWaitableFd();
+    WaitableFds getWaitableFd();
 }

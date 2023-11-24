@@ -51,7 +51,7 @@ interface IComponent {
   }
   parcelable C2AidlGbAllocator {
     android.hardware.media.c2.IGraphicBufferAllocator igba;
-    ParcelFileDescriptor waitableFd;
+    android.hardware.media.c2.IGraphicBufferAllocator.WaitableFds waitableFds;
   }
   union BlockPoolAllocator {
     int allocatorId;
