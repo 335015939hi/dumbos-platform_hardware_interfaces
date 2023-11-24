@@ -44,6 +44,13 @@ BluetoothAudioSession::BluetoothAudioSession(const SessionType& session_type)
  * Callback methods
  *
  ***/
+std::string getLatencyModesStr(const vector<LatencyMode>& latencies) {
+  std::stringstream latencyModesStr;
+  for (LatencyMode mode : latencies) {
+    latencyModesStr << " " << toString(mode);
+  }
+  return latencyModesStr.str();
+}
 
 void BluetoothAudioSession::OnSessionStarted(
     const std::shared_ptr<IBluetoothAudioPort> stack_iface,
@@ -65,7 +72,8 @@ void BluetoothAudioSession::OnSessionStarted(
     stack_iface_ = stack_iface;
     latency_modes_ = latency_modes;
     LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
-              << ", AudioConfiguration=" << audio_config.toString();
+              << ", AudioConfiguration=" << audio_config.toString()
+              << ", LatencyModes =" << getLatencyModesStr.str();
     ReportSessionStatus();
   }
 }
@@ -616,6 +624,10 @@ std::vector<LatencyMode> BluetoothAudioSession::GetSupportedLatencyModes() {
       supported_latency_modes.push_back(mode);
     }
   }
+  LOG(INFO) << __func__ << toString(session_type_) <<
+             << " - All LatencyModes =" << getLatencyModesStr(latency_modes_);
+  LOG(INFO) << __func__ << toString(session_type_) <<
+             << " - Supported LatencyModes =" << getLatencyModesStr(supported_latency_modes);
   return supported_latency_modes;
 }
 
