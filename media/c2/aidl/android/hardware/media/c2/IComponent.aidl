@@ -55,7 +55,7 @@ interface IComponent {
      */
     parcelable C2AidlGbAllocator {
         IGraphicBufferAllocator igba;
-        ParcelFileDescriptor waitableFd;
+        IGraphicBufferAllocator.WaitableFds waitableFds;
     }
 
     /**
