@@ -46,6 +46,30 @@
       },
       "revId": "6c419352c29a48f73aa0bede47e20d3727b4768d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9d8d40b_0f683fcc",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-11-27T17:28:21Z",
+      "side": 1,
+      "message": "OK noted.",
+      "parentUuid": "00f7453e_58f30b42",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 37
+      },
+      "revId": "6c419352c29a48f73aa0bede47e20d3727b4768d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
