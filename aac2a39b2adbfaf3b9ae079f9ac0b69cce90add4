@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5441eafe_1da5f608",
+        "filename": "bluetooth/finder/aidl/default/bluetooth-finder-service-default.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-27T18:24:35Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 6,
+        "endChar": 33
+      },
+      "revId": "aac2a39b2adbfaf3b9ae079f9ac0b69cce90add4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf3344fc_e5eeea9b",
+        "filename": "bluetooth/finder/aidl/default/service.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-27T18:24:35Z",
+      "side": 1,
+      "message": "nit: This seems like an error if we stop at this point.",
+      "range": {
+        "startLine": 30,
+        "startChar": 4,
+        "endLine": 30,
+        "endChar": 9
+      },
+      "revId": "aac2a39b2adbfaf3b9ae079f9ac0b69cce90add4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38d62d22_012de4f2",
+        "filename": "bluetooth/finder/aidl/vts/VtsHalBluetoothFinderTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-27T18:24:35Z",
+      "side": 1,
+      "message": "nit: is this many?  How many do we expect an implementation to handle?",
+      "range": {
+        "startLine": 80,
+        "startChar": 34,
+        "endLine": 80,
+        "endChar": 36
+      },
+      "revId": "aac2a39b2adbfaf3b9ae079f9ac0b69cce90add4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
