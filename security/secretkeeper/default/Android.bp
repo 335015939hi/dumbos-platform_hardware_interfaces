@@ -28,6 +28,8 @@ rust_binary {
         "android.hardware.security.secretkeeper-V1-rust",
         "libandroid_logger",
         "libbinder_rs",
+        "libcoset",
+        "libhex",
         "liblog_rust",
         "libsecretkeeper_comm_nostd",
         "libsecretkeeper_core_nostd",
