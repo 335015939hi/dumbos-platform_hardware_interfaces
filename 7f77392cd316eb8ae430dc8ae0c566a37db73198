@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5b1fcc97_bbc7f751",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-27T16:18:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52e9d4fc_26e847f2",
+      "range": {
+        "startLine": 18,
+        "startChar": 53,
+        "endLine": 19,
+        "endChar": 10
+      },
+      "revId": "7f77392cd316eb8ae430dc8ae0c566a37db73198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2e437f48_7d85722b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1dde915d_1368efc6",
+        "filename": "security/secretkeeper/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-27T16:18:33Z",
+      "side": 1,
+      "message": "Dunno TBH -- I just needed to sync the backends with AuthGraph to get the build to work.",
+      "parentUuid": "50a6cea2_fb2f2b04",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "7f77392cd316eb8ae430dc8ae0c566a37db73198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "07dadb25_a39e2e58",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
         "patchSetId": 3
@@ -77,6 +125,30 @@
       "writtenOn": "2023-11-23T12:29:51Z",
       "side": 1,
       "message": "Its not entire clear in the comments, why would IAuthGraphKeyExchange be uses or what the exchanged key will be used for.\n\n```suggestion\n     * Retrieve the instance of the `IAuthGraphKeyExchange` HAL that must be used for establishing a cryptographically secure channel between client \u0026 Secretkeeper.\n```",
+      "range": {
+        "startLine": 42,
+        "startChar": 64,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "7f77392cd316eb8ae430dc8ae0c566a37db73198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12f54e03_a69388b7",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-27T16:18:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07dadb25_a39e2e58",
       "range": {
         "startLine": 42,
         "startChar": 64,
@@ -100,6 +172,24 @@
       "writtenOn": "2023-11-23T12:29:51Z",
       "side": 1,
       "message": "Suggestion: We could run `sink::test()` for full coverage. That seems to include all relevant authgraph VTS \u0026 we are ensured that any additional VTS  (added to the `authgraph_vts_test`) are included here too?",
+      "revId": "7f77392cd316eb8ae430dc8ae0c566a37db73198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e10315d5_a6d6facb",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-27T16:18:33Z",
+      "side": 1,
+      "message": "`sink::test()` doesn\u0027t give very good granularity of failure, so having individual tests is preferable.",
+      "parentUuid": "3939fe13_221b0f04",
       "revId": "7f77392cd316eb8ae430dc8ae0c566a37db73198",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
