@@ -18,6 +18,7 @@
 
 use binder::StatusCode;
 use log::{info,warn};
+use secretkeeper_comm::cipher;
 use secretkeeper_comm::data_types::error::SecretkeeperError;
 use secretkeeper_comm::data_types::request::Request;
 use secretkeeper_comm::data_types::request_response_impl::{
@@ -27,7 +28,9 @@ use secretkeeper_comm::data_types::response::Response;
 use secretkeeper_comm::data_types::packet::{ResponsePacket, ResponseType};
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::ISecretkeeper;
 use authgraph_vts_test as ag_vts;
+use authgraph_boringssl as boring;
 use authgraph_core::key;
+use coset::{CborSerializable, CoseEncrypt0};
 
 const SECRETKEEPER_SERVICE: &str = "android.hardware.security.secretkeeper.ISecretkeeper";
 const SECRETKEEPER_INSTANCES: [&'static str; 2] = ["nonsecure", "default"];
@@ -59,7 +62,9 @@ fn get_connection() -> Option<binder::Strong<dyn ISecretkeeper>> {
     }
     None
 }
-fn authgraph_key_exchange(sk: binder::Strong<dyn ISecretkeeper>) -> [key::AesKey; 2] {
+
+/// Perform AuthGraph key exchange, returning the session keys and session ID.
+fn authgraph_key_exchange(sk: binder::Strong<dyn ISecretkeeper>) -> ([key::AesKey; 2], Vec<u8>) {
     let sink = sk.getAuthGraphKe().expect("failed to get AuthGraph");
     let mut source = ag_vts::test_ag_participant().expect("failed to create a local source");
     ag_vts::sink::test_mainline(&mut source, sink)
@@ -76,7 +81,7 @@ fn authgraph_mainline() {
             return;
         }
     };
-    let _aes_keys = authgraph_key_exchange(sk);
+    let (_aes_keys, _session_id) = authgraph_key_exchange(sk);
 }
 
 /// Test that the AuthGraph instance returned by SecretKeeper correctly rejects
@@ -123,16 +128,24 @@ fn secret_management_get_version() {
             return;
         }
     };
+    let (aes_keys, session_id) = authgraph_key_exchange(secretkeeper.clone());
+    let aes_gcm = boring::BoringAes;
+    let rng = boring::BoringRng;
+
     let request = GetVersionRequest {};
     let request_packet = request.serialize_to_packet();
     let request_bytes = request_packet.into_bytes().unwrap();
 
-    // TODO(b/291224769) The request will need to be encrypted & response need to be decrypted
-    // with key & related artifacts pre-shared via Authgraph Key Exchange HAL.
+    let request_bytes =
+        cipher::encrypt_message(&aes_gcm, &rng, &aes_keys[0], &session_id, &request_bytes).unwrap();
 
     let response_bytes = secretkeeper
         .processSecretManagementRequest(&request_bytes)
         .unwrap();
+
+    let response_encrypt0 = CoseEncrypt0::from_slice(&response_bytes).unwrap();
+    let response_bytes =
+        cipher::decrypt_message(&aes_gcm, &aes_keys[1], &response_encrypt0).unwrap();
 
     let response_packet = ResponsePacket::from_bytes(&response_bytes).unwrap();
     assert_eq!(
@@ -153,6 +166,10 @@ fn secret_management_malformed_request() {
             return;
         }
     };
+    let (aes_keys, session_id) = authgraph_key_exchange(secretkeeper.clone());
+    let aes_gcm = boring::BoringAes;
+    let rng = boring::BoringRng;
+
     let request = GetVersionRequest {};
     let request_packet = request.serialize_to_packet();
     let mut request_bytes = request_packet.into_bytes().unwrap();
@@ -160,12 +177,16 @@ fn secret_management_malformed_request() {
     // Deform the request
     request_bytes[0] = !request_bytes[0];
 
-    // TODO(b/291224769) The request will need to be encrypted & response need to be decrypted
-    // with key & related artifacts pre-shared via Authgraph Key Exchange HAL.
+    let request_bytes =
+        cipher::encrypt_message(&aes_gcm, &rng, &aes_keys[0], &session_id, &request_bytes).unwrap();
 
     let response_bytes = secretkeeper
         .processSecretManagementRequest(&request_bytes)
         .unwrap();
+
+    let response_encrypt0 = CoseEncrypt0::from_slice(&response_bytes).unwrap();
+    let response_bytes =
+        cipher::decrypt_message(&aes_gcm, &aes_keys[1], &response_encrypt0).unwrap();
 
     let response_packet = ResponsePacket::from_bytes(&response_bytes).unwrap();
     assert_eq!(
