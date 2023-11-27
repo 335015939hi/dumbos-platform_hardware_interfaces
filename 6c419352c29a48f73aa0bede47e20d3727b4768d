@@ -22,6 +22,30 @@
       },
       "revId": "6c419352c29a48f73aa0bede47e20d3727b4768d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00f7453e_58f30b42",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-27T17:17:43Z",
+      "side": 1,
+      "message": "I tried doing that initially, however the culprit seems to be in performing the I/O operation itself. As I understand it, if the receiving end is already stuffed with data, an attempt to write even 1 byte will cause an unwanted delay. This is why I decided just to skip an entire write or read. I think, this situation really only happens on writes, however I think it\u0027s better to keep the code generic.",
+      "parentUuid": "57178102_73e439c5",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 37
+      },
+      "revId": "6c419352c29a48f73aa0bede47e20d3727b4768d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
