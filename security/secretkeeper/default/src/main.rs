@@ -20,18 +20,29 @@ use secretkeeper_comm::data_types::error::SecretkeeperError;
 use secretkeeper_comm::data_types::packet::{RequestPacket, ResponsePacket};
 use secretkeeper_comm::data_types::request::Request;
 use secretkeeper_comm::data_types::request_response_impl::{
-    GetVersionRequest, GetVersionResponse, Opcode,
+    GetVersionRequest, GetVersionResponse, Opcode, StoreSecretRequest, StoreSecretResponse,
+    GetSecretRequest, GetSecretResponse,
 };
+use secretkeeper_comm::data_types::cbor_ser::CborBytesConversion;
 use secretkeeper_comm::data_types::response::Response;
-
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::{
     BnSecretkeeper, BpSecretkeeper, ISecretkeeper,
 };
+use secretkeeper_core::SecretkeeperStore;
+use std::sync::Arc;
 
 const CURRENT_VERSION: u64 = 1;
 
-#[derive(Debug, Default)]
-pub struct NonSecureSecretkeeper;
+// Developer note: I've got this chain by patching libdice_policy such that it dumps the
+// dice_policy corresponding to a hypothetical dice_chain (which is hard-coded input in
+// VTS secretkeeper_test_client.rs)
+const HYPOTHETICAL_DICE_CHAIN: &str
+ = "82a101008440a05834a3017374657374696e675f646963655f706f6c6963790274756e636f6e73747261696e65645f737472696e670346a1186419e9754464646566";
+
+pub struct NonSecureSecretkeeper {
+    // Authentication capable storage
+    auth_store: Arc<SecretkeeperStore>,
+}
 
 impl Interface for NonSecureSecretkeeper {}
 
@@ -42,6 +53,13 @@ impl ISecretkeeper for NonSecureSecretkeeper {
 }
 
 impl NonSecureSecretkeeper {
+    fn new() -> Self {
+        let kv_store = secretkeeper_nonsecure::InMemoryStore::new();
+        Self {
+            auth_store: Arc::new(SecretkeeperStore::init(Arc::new(kv_store))),
+        }
+    }
+
     // A set of requests to Secretkeeper are 'opaque' - encrypted bytes with inner structure
     // described by CDDL. They need to be decrypted, deserialized and processed accordingly.
     fn process_opaque_request(&self, request: &[u8]) -> Vec<u8> {
@@ -52,7 +70,7 @@ impl NonSecureSecretkeeper {
                 // SecretkeeperError is also a valid 'Response', serialize to a response packet.
                 |sk_err| {
                     Response::serialize_to_packet(&sk_err)
-                        .into_bytes()
+                        .to_vec()
                         .expect("Panicking due to serialization failing")
                 },
             )
@@ -62,7 +80,7 @@ impl NonSecureSecretkeeper {
         &self,
         request: &[u8],
     ) -> Result<Vec<u8>, SecretkeeperError> {
-        let request_packet = RequestPacket::from_bytes(request).map_err(|e| {
+        let request_packet = RequestPacket::from_slice(request).map_err(|e| {
             error!("Failed to get Request packet from bytes: {:?}", e);
             SecretkeeperError::RequestMalformed
         })?;
@@ -71,11 +89,13 @@ impl NonSecureSecretkeeper {
             .map_err(|_| SecretkeeperError::RequestMalformed)?
         {
             Opcode::GetVersion => Self::process_get_version_request(request_packet)?,
-            _ => todo!("TODO(b/291224769): Unimplemented operations"),
+            Opcode::StoreSecret => self.process_store_secret_request(request_packet)?,
+            Opcode::GetSecret => self.process_get_secret_request(request_packet)?,
+            _ => panic!("Unknown operation.."),
         };
 
         response_packet
-            .into_bytes()
+            .to_vec()
             .map_err(|_| SecretkeeperError::UnexpectedServerError)
     }
 
@@ -87,6 +107,43 @@ impl NonSecureSecretkeeper {
         let _request = GetVersionRequest::deserialize_from_packet(request)
             .map_err(|_| SecretkeeperError::RequestMalformed)?;
         let response = GetVersionResponse::new(CURRENT_VERSION);
+        Ok(response.serialize_to_packet())
+    }
+
+    fn process_store_secret_request(
+        &self,
+        request: RequestPacket,
+    ) -> Result<ResponsePacket, SecretkeeperError> {
+        let request = StoreSecretRequest::deserialize_from_packet(request)
+            .map_err(|_| SecretkeeperError::RequestMalformed)?;
+        self.auth_store.store(
+            request.id().clone(),
+            request.secret().clone(),
+            request.sealing_policy().clone(),
+            // TODO(b/291228560): Dice chain should be received during AuthgraphKeyExchange
+            // instead of being hard-coded.
+            &hex::decode(HYPOTHETICAL_DICE_CHAIN)
+                .map_err(|_| SecretkeeperError::UnexpectedServerError)?,
+        )?;
+        let response = StoreSecretResponse {};
+        Ok(response.serialize_to_packet())
+    }
+
+    fn process_get_secret_request(
+        &self,
+        request: RequestPacket,
+    ) -> Result<ResponsePacket, SecretkeeperError> {
+        let request = GetSecretRequest::deserialize_from_packet(request)
+            .map_err(|_| SecretkeeperError::RequestMalformed)?;
+        let secret = self.auth_store.get(
+            request.id(),
+            // TODO(b/291228560): Dice chain should be received during AuthgraphKeyExchange
+            // instead of being hard-coded.
+            &hex::decode(HYPOTHETICAL_DICE_CHAIN)
+                .map_err(|_| SecretkeeperError::UnexpectedServerError)?,
+            request.updated_sealing_policy().clone(),
+        )?;
+        let response = GetSecretResponse::new(secret);
         Ok(response.serialize_to_packet())
     }
 }
@@ -104,7 +161,7 @@ fn main() {
         error!("{}", panic_info);
     }));
 
-    let service = NonSecureSecretkeeper::default();
+    let service = NonSecureSecretkeeper::new();
     let service_binder = BnSecretkeeper::new_binder(service, BinderFeatures::default());
     let service_name = format!(
         "{}/nonsecure",
