@@ -16,17 +16,20 @@
 
 use binder::{BinderFeatures, Interface};
 use log::{error, info, Level};
-use secretkeeper_comm::data_types::error::SecretkeeperError;
+use secretkeeper_comm::data_types::error::{Error, SecretkeeperError};
 use secretkeeper_comm::data_types::packet::{RequestPacket, ResponsePacket};
 use secretkeeper_comm::data_types::request::Request;
 use secretkeeper_comm::data_types::request_response_impl::{
     GetVersionRequest, GetVersionResponse, Opcode,
 };
 use secretkeeper_comm::data_types::response::Response;
+use secretkeeper_core::KeyValueStore;
 
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::{
     BnSecretkeeper, BpSecretkeeper, ISecretkeeper,
 };
+use std::collections::HashMap;
+use std::sync::{Arc, Mutex};
 
 const CURRENT_VERSION: u64 = 1;
 
@@ -88,6 +91,28 @@ impl NonSecureSecretkeeper {
             .map_err(|_| SecretkeeperError::RequestMalformed)?;
         let response = GetVersionResponse::new(CURRENT_VERSION);
         Ok(response.serialize_to_packet())
+    }
+}
+
+/// An in-memory implementation of KeyValueStore. Please note that this is entirely for
+/// testing purposes. Refer to the documentation of `AuthCapableStorage` & Secretkeeper HAL for
+/// persistence requirements.
+#[derive(Default)]
+pub struct InMemoryStore(Arc<Mutex<HashMap<Vec<u8>, Vec<u8>>>>);
+impl KeyValueStore for InMemoryStore {
+    fn store(&self, key: &[u8], val: &[u8]) -> Result<(), Error> {
+        // This will overwrite the value if key is already present.
+        error!("KeyValueStore storing {:?}", key);
+        let _ = self.0.lock().unwrap().insert(key.to_vec(), val.to_vec());
+        Ok(())
+    }
+
+    fn get(&self, key: &[u8]) -> Result<Option<Vec<u8>>, Error> {
+        let db = self.0.lock().unwrap();
+        error!("Getting key {:?}", key);
+
+        let optional_val = db.get(key);
+        Ok(optional_val.cloned())
     }
 }
 
