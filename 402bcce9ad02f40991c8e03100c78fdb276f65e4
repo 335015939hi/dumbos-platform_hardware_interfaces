@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "449561e3_e2c32e91",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-27T22:19:51Z",
+      "side": 1,
+      "message": "This change should be tested with `atest VtsHalAudioCoreTargetTest`. Does it pass? Please also add `Test: atest VtsHalAudioCoreTargetTest` line.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "402bcce9ad02f40991c8e03100c78fdb276f65e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63eb3166_fdd1b7a4",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-11-27T22:19:51Z",
+      "side": 1,
+      "message": "It looks like these ports do have profiles. Please specify them for consistency with code.",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 329,
+        "endChar": 63
+      },
+      "revId": "402bcce9ad02f40991c8e03100c78fdb276f65e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
