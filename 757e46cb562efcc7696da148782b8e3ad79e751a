@@ -16,6 +16,98 @@
       "message": "This patch will most likely conflict with aosp/2846993. Sending it out for first pass of review to collect feedback. We can the discuss rebasing one on the top of other",
       "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e400fc1_07864be7",
+        "filename": "security/secretkeeper/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-28T10:50:05Z",
+      "side": 1,
+      "message": "Doesn\u0027t appear to exist - need a topic/dependency?",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 37
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "134a3a51_3b9f08aa",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-28T10:50:05Z",
+      "side": 1,
+      "message": "You can split long strings like this with a trailing \\ at the end of the line.\nhttps://doc.rust-lang.org/stable/reference/tokens.html#string-literals",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 137
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "885b856d_d0f5b664",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-28T10:50:05Z",
+      "side": 1,
+      "message": "Derive default here, and in SecretkeeperStore, would also help to avoid the boilerplate in new().",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2846187_3c218e48",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-28T10:50:05Z",
+      "side": 1,
+      "message": "The comment suggests this is a bad name (or you wouldn\u0027t need the comment).\nTBH I\u0027d just call it \"store\". It doesn\u0027t store auths :-)",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 14
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
