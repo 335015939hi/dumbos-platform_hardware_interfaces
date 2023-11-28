@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d39b9a8_a8c9be9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-28T16:34:00Z",
+      "side": 1,
+      "message": "At this point the default implementation just saves the parameters in memory.  A lot of the questions that I would have about a default implementation are unanswered.\n - Does Bluetooth still turn off normally when the device is powered off?\n - Who initializes the Bluetooth chip, downloads firmware, etc?\n - Is the HCI interface used by someone other than the stack for this?",
+      "revId": "3d17006d83a032b9593be1fa9ca3e1a4651c2fe2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
