@@ -22,13 +22,23 @@ use secretkeeper_comm::data_types::request::Request;
 use secretkeeper_comm::data_types::request_response_impl::{
     GetVersionRequest, GetVersionResponse,
 };
+use secretkeeper_comm::data_types::{Id, Secret};
 use secretkeeper_comm::data_types::response::Response;
 use secretkeeper_comm::data_types::packet::{ResponsePacket, ResponseType};
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::ISecretkeeper;
+use secretkeeper_comm::data_types::request_response_impl::StoreSecretRequest;
+use secretkeeper_comm::data_types::request_response_impl::StoreSecretResponse;
+use secretkeeper_comm::data_types::request_response_impl::GetSecretRequest;
+use secretkeeper_comm::data_types::request_response_impl::GetSecretResponse;
+use secretkeeper_comm::data_types::cbor_ser::CborBytesConversion;
 
 const SECRETKEEPER_IDENTIFIER: &str =
     "android.hardware.security.secretkeeper.ISecretkeeper/nonsecure";
 const CURRENT_VERSION: u64 = 1;
+// TODO(b/291238565): This will change once serialization of dice_policy is changed & it switches to
+// Explicit-key DiceCertChain
+const HYPOTHETICAL_DICE_POLICY: &str = "a26776657273696f6e01756e6f64655f636f6e73747261696e74735f6c\
+    6973748281830180a1010082830181017374657374696e675f646963655f706f6c69637983028203186419e975";
 
 fn get_connection() -> Option<binder::Strong<dyn ISecretkeeper>> {
     match binder::get_interface(SECRETKEEPER_IDENTIFIER) {
@@ -57,7 +67,7 @@ fn secret_management_get_version() {
     };
     let request = GetVersionRequest {};
     let request_packet = request.serialize_to_packet();
-    let request_bytes = request_packet.into_bytes().unwrap();
+    let request_bytes = request_packet.to_vec().unwrap();
 
     // TODO(b/291224769) The request will need to be encrypted & response need to be decrypted
     // with key & related artifacts pre-shared via Authgraph Key Exchange HAL.
@@ -66,7 +76,7 @@ fn secret_management_get_version() {
         .processSecretManagementRequest(&request_bytes)
         .unwrap();
 
-    let response_packet = ResponsePacket::from_bytes(&response_bytes).unwrap();
+    let response_packet = ResponsePacket::from_slice(&response_bytes).unwrap();
     assert_eq!(
         response_packet.response_type().unwrap(),
         ResponseType::Success
@@ -87,7 +97,7 @@ fn secret_management_malformed_request() {
     };
     let request = GetVersionRequest {};
     let request_packet = request.serialize_to_packet();
-    let mut request_bytes = request_packet.into_bytes().unwrap();
+    let mut request_bytes = request_packet.to_vec().unwrap();
 
     // Deform the request
     request_bytes[0] = !request_bytes[0];
@@ -99,11 +109,74 @@ fn secret_management_malformed_request() {
         .processSecretManagementRequest(&request_bytes)
         .unwrap();
 
-    let response_packet = ResponsePacket::from_bytes(&response_bytes).unwrap();
+    let response_packet = ResponsePacket::from_slice(&response_bytes).unwrap();
     assert_eq!(
         response_packet.response_type().unwrap(),
         ResponseType::Error
     );
     let err = *SecretkeeperError::deserialize_from_packet(response_packet).unwrap();
     assert_eq!(err, SecretkeeperError::RequestMalformed);
+}
+
+#[test]
+fn secret_management_store_get_secret() {
+    let secretkeeper = match get_connection() {
+        Some(sk) => sk,
+        None => {
+            warn!("Secretkeeper HAL is unavailable, skipping test");
+            return;
+        }
+    };
+
+    let store_request = StoreSecretRequest::new(
+        ex_id(),
+        ex_secret(),
+        hex::decode(HYPOTHETICAL_DICE_POLICY).unwrap(),
+    );
+    let store_request = store_request.serialize_to_packet().to_vec().unwrap();
+
+    let store_response = secretkeeper
+        .processSecretManagementRequest(&store_request)
+        .unwrap();
+    let store_response = ResponsePacket::from_slice(&store_response).unwrap();
+    assert_eq!(
+        store_response.response_type().unwrap(),
+        ResponseType::Success
+    );
+    // Really just checking that the response is indeed StoreSecretResponse
+    let _ = StoreSecretResponse::deserialize_from_packet(store_response).unwrap();
+
+    // Get the secret that was just stored
+    let get_request = GetSecretRequest::new(ex_id(), None);
+    // Move some of the asserts to a common function
+    let get_request = get_request.serialize_to_packet().to_vec().unwrap();
+
+    let get_response = secretkeeper
+        .processSecretManagementRequest(&get_request)
+        .unwrap();
+    let get_response = ResponsePacket::from_slice(&get_response).unwrap();
+    assert_eq!(get_response.response_type().unwrap(), ResponseType::Success);
+    let get_response = *GetSecretResponse::deserialize_from_packet(get_response).unwrap();
+    assert_eq!(get_response.secret().0, ex_secret().0);
+}
+
+fn ex_id() -> Id {
+    let id: Box<[u8; 64]> = Box::new([
+        0xF1, 0xB2, 0xED, 0x3B, 0xD1, 0xBD, 0xF0, 0x7D, 0xE1, 0xF0, 0x01, 0xFC, 0x61, 0x71, 0xD3,
+        0x42, 0xE5, 0x8A, 0xAF, 0x33, 0x6C, 0x11, 0xDC, 0xC8, 0x6F, 0xAE, 0x12, 0x5C, 0x26, 0x44,
+        0x6B, 0x86, 0xCC, 0x24, 0xFD, 0xBF, 0x91, 0x4A, 0x54, 0x84, 0xF9, 0x01, 0x59, 0x25, 0x70,
+        0x89, 0x38, 0x8D, 0x5E, 0xE6, 0x91, 0xDF, 0x68, 0x60, 0x69, 0x26, 0xBE, 0xFE, 0x79, 0x58,
+        0xF7, 0xEA, 0x81, 0x7D,
+    ]);
+
+    Id(id)
+}
+
+fn ex_secret() -> Secret {
+    let secret: Box<[u8; 32]> = Box::new([
+        0xA9, 0x89, 0x97, 0xFE, 0xAE, 0x97, 0x55, 0x4B, 0x32, 0x35, 0xF0, 0xE8, 0x93, 0xDA, 0xEA,
+        0x24, 0x06, 0xAC, 0x36, 0x8B, 0x3C, 0x95, 0x50, 0x16, 0x67, 0x71, 0x65, 0x26, 0xEB, 0xD0,
+        0xC3, 0x98,
+    ]);
+    Secret(secret)
 }
