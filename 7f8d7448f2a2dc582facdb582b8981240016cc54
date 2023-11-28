@@ -34,6 +34,24 @@
       "parentUuid": "a05b09ce_668029af",
       "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53e1f338_07bdc75c",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-11-28T16:36:25Z",
+      "side": 1,
+      "message": "As I\u0027ve been saying, I want it to be documented against the HAL and not in the profile so that there won\u0027t be anything that can\u0027t be deprecated. The profile should just reserve the -70006 for the RKP HAL and not provide any semantics to other observers. Defining it here also means you can explicitly say what it means for each of these cases without trying to map from the vague language that had to be used in the profile and the CDD to try and figure out how it applies here.",
+      "parentUuid": "e9a21dea_035518e2",
+      "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
