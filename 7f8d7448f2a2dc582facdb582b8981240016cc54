@@ -16,6 +16,24 @@
       "message": "Document the RKP VM marker semantics here",
       "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9a21dea_035518e2",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-11-28T16:30:50Z",
+      "side": 1,
+      "message": "I thought about that, but it felt a bit like duplication -- the RKP vm marker is documented over in the android profile (or will be soon, I lost track of commits).\n\nMaybe we just link to the profile?",
+      "parentUuid": "a05b09ce_668029af",
+      "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
