@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a125b24d_41251148",
+        "filename": "security/secretkeeper/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-28T10:38:19Z",
+      "side": 1,
+      "message": "Is this likely to be re-used anywhere else?  If not, could avoid multiplying entities without necessity and put `InMemoryStore` into the existing target.",
+      "revId": "17b5730b6c75a2272581039cc42059a443bcedc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ed506a_ceb77b75",
+        "filename": "security/secretkeeper/default/src/lib.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-28T10:38:19Z",
+      "side": 1,
+      "message": "Once the dust settles I think this impl will end up being used in a single-threaded context, and so the `Arc\u003cMutex\u003c..\u003e\u003e` won\u0027t be needed.",
+      "revId": "17b5730b6c75a2272581039cc42059a443bcedc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "959933db_b55ec773",
+        "filename": "security/secretkeeper/default/src/lib.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-28T10:38:19Z",
+      "side": 1,
+      "message": "I think you could drop `new()` and just `[derive(Default)]`",
+      "revId": "17b5730b6c75a2272581039cc42059a443bcedc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
