@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e773e52f_ec8052b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-11-28T23:36:02Z",
+      "side": 1,
+      "message": "presubmit build failures: I had to move the shared lib dependency to `libaudioserviceexampleimpl` after moving the call to `ModuleBluetooth.cpp`. Checkbuilds caught the error.",
+      "revId": "8d928e918d974c533daa32572afb33d27edd2eb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
