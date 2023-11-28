@@ -111,6 +111,30 @@
       },
       "revId": "17fc7a638cc8d877d0793b9e21e0e238bfaabc02",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3907c88e_d5cc7f9b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Void.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-28T19:36:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff5e3132_da174af5",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "17fc7a638cc8d877d0793b9e21e0e238bfaabc02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
