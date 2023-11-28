@@ -23,6 +23,8 @@ cc_library_shared {
         "libdl",
         "libbase",
         "libhidlbase",
+        "libRS_internal",
+        "libRSDriver",
         "libutils",
         "android.hardware.renderscript@1.0",
     ],
