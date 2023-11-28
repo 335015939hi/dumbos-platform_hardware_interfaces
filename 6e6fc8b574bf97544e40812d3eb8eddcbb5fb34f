@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ebe57a9_b9af05e6",
+        "filename": "renderscript/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-11-28T06:50:22Z",
+      "side": 1,
+      "message": "Can we make this as `runtime_libs` instead? AFAIK, dependencies being `dlopen`ed are typically declared as `runtime_libs`, not `shared_libs`.",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "6e6fc8b574bf97544e40812d3eb8eddcbb5fb34f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7172d0af_576b5955",
+        "filename": "renderscript/1.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-11-28T06:50:22Z",
+      "side": 1,
+      "message": "Why do we need this?",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 20
+      },
+      "revId": "6e6fc8b574bf97544e40812d3eb8eddcbb5fb34f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
