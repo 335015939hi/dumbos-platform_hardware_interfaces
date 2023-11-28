@@ -45,6 +45,98 @@
       },
       "revId": "402bcce9ad02f40991c8e03100c78fdb276f65e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02c0aa09_061971f6",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2023-11-28T04:21:58Z",
+      "side": 1,
+      "message": "/* isInput */",
+      "range": {
+        "startLine": 374,
+        "startChar": 37,
+        "endLine": 374,
+        "endChar": 38
+      },
+      "revId": "402bcce9ad02f40991c8e03100c78fdb276f65e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc8884ce_8eda6a91",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2023-11-28T04:21:58Z",
+      "side": 1,
+      "message": "/* maxOpenStreamCount */ ... /* maxActiveStreamCount */",
+      "range": {
+        "startLine": 375,
+        "startChar": 49,
+        "endLine": 375,
+        "endChar": 51
+      },
+      "revId": "402bcce9ad02f40991c8e03100c78fdb276f65e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbbc7698_7fa5f6fb",
+        "filename": "audio/aidl/default/Configuration.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2023-11-28T04:21:58Z",
+      "side": 1,
+      "message": "/* isInput */",
+      "range": {
+        "startLine": 389,
+        "startChar": 87,
+        "endLine": 389,
+        "endChar": 89
+      },
+      "revId": "402bcce9ad02f40991c8e03100c78fdb276f65e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e01472e_cce40070",
+        "filename": "audio/aidl/default/r_submix/ModuleRemoteSubmix.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2023-11-28T04:21:58Z",
+      "side": 1,
+      "message": "nit: do you want to expose the type as well?  here and on line 63?",
+      "range": {
+        "startLine": 52,
+        "startChar": 34,
+        "endLine": 52,
+        "endChar": 37
+      },
+      "revId": "402bcce9ad02f40991c8e03100c78fdb276f65e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
