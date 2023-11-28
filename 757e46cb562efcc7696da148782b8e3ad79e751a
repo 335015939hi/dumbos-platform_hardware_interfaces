@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5abc93e_c0f62dd8",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-28T10:55:49Z",
+      "side": 1,
+      "message": "Or you can use `concat!`, e.g. https://github.com/google/coset/blob/main/src/sign/tests.rs#L33",
+      "parentUuid": "134a3a51_3b9f08aa",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 137
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "885b856d_d0f5b664",
         "filename": "security/secretkeeper/default/src/main.rs",
         "patchSetId": 1
