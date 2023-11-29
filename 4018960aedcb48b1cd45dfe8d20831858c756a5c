@@ -16,6 +16,24 @@
       "message": "Is `runtime_libs` the actual correct designation here or should this have been `required` instead?",
       "revId": "4018960aedcb48b1cd45dfe8d20831858c756a5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3f8e97b_c9bcca18",
+        "filename": "renderscript/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2023-11-29T07:44:58Z",
+      "side": 1,
+      "message": "We need those libraries with vendor variants, but `required` does not support vendor variants.",
+      "parentUuid": "2fcb7f5f_96fc0314",
+      "revId": "4018960aedcb48b1cd45dfe8d20831858c756a5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
