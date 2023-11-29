@@ -329,6 +329,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "674c921f_b844c272",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-29T12:11:21Z",
+      "side": 1,
+      "message": "Thanks for point this out, it should be Procedure Counter",
+      "parentUuid": "bd3ccb22_6caa5f78",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccae036b_7361c83a",
