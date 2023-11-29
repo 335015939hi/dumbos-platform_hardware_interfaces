@@ -52,6 +52,24 @@
       "parentUuid": "e9a21dea_035518e2",
       "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d9977d8_ba04e20a",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-11-29T18:38:40Z",
+      "side": 1,
+      "message": "I \"ported\" Alan\u0027s changes from [here](https://pigweed-review.git.corp.google.com/c/open-dice/+/181691) into this CL.\n\nPTAL -- I tried to keep wording changes to a minimum.\n\nOnce this goes in, we can undo most of [Alan\u0027s change](https://pigweed-review.git.corp.google.com/c/open-dice/+/181691) to the Android profile.",
+      "parentUuid": "53e1f338_07bdc75c",
+      "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
