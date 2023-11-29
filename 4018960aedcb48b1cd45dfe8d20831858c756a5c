@@ -70,6 +70,24 @@
       "parentUuid": "63826b9d_bab4bd51",
       "revId": "4018960aedcb48b1cd45dfe8d20831858c756a5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee626855_6c94cfb9",
+        "filename": "renderscript/1.0/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1010056
+      },
+      "writtenOn": "2023-11-29T07:56:05Z",
+      "side": 1,
+      "message": "Yes. That CL might have other effects at runtime for RenderScript, which is deprecated, so we don\u0027t want to change it if we can avoid that. I\u0027ll go comment there as well. Thanks for resolving this problem though.",
+      "parentUuid": "fafbfeb9_4850b17f",
+      "revId": "4018960aedcb48b1cd45dfe8d20831858c756a5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
