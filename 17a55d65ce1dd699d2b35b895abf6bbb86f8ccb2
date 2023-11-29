@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c48a4ff1_f437b14c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-29T17:47:30Z",
+      "side": 1,
+      "message": "This is a good start.  It looks like more of an empty implementation than a default implementation.  Are we planning on more?",
+      "revId": "17a55d65ce1dd699d2b35b895abf6bbb86f8ccb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ef7594c_19775888",
+        "filename": "bluetooth/ranging/aidl/default/bluetooth-ranging-service-default.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-29T17:47:30Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 6,
+        "endChar": 36
+      },
+      "revId": "17a55d65ce1dd699d2b35b895abf6bbb86f8ccb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3038211_d3b11fed",
+        "filename": "bluetooth/ranging/aidl/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-29T17:47:30Z",
+      "side": 1,
+      "message": "nit: This seems like it should be an error, since it causes an early exit.",
+      "range": {
+        "startLine": 32,
+        "startChar": 9,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "17a55d65ce1dd699d2b35b895abf6bbb86f8ccb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
