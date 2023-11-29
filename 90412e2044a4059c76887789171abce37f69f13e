@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fd6af95_868f5af6",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-29T13:33:06Z",
+      "side": 1,
+      "message": "Where does this come from? What does it mean?",
+      "range": {
+        "startLine": 41,
+        "startChar": 39,
+        "endLine": 42,
+        "endChar": 96
+      },
+      "revId": "90412e2044a4059c76887789171abce37f69f13e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
