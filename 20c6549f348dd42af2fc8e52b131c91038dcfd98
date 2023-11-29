@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b3436c8_19fd3a5d",
+        "filename": "security/authgraph/aidl/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-29T14:58:32Z",
+      "side": 0,
+      "message": "Just for my information: what is the difference between apps_enabled and enabled?\n(This was just a copy-paste from Keymint\u0027s Android.bp - I searched for the Android.bp language - but didn\u0027t find any good reference.)",
+      "revId": "20c6549f348dd42af2fc8e52b131c91038dcfd98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
