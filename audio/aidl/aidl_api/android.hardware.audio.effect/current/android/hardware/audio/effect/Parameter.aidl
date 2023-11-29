@@ -41,6 +41,7 @@ union Parameter {
   boolean offload;
   android.hardware.audio.effect.Parameter.VolumeStereo volumeStereo;
   android.hardware.audio.effect.Parameter.Specific specific;
+  android.hardware.audio.effect.Parameter.AudioTrackMetadata audioTrackMetadata;
   @VintfStability
   union Id {
     android.hardware.audio.effect.VendorExtension vendorEffectTag;
@@ -93,5 +94,10 @@ union Parameter {
     android.hardware.audio.effect.Visualizer visualizer;
     android.hardware.audio.effect.Volume volume;
     android.hardware.audio.effect.Spatializer spatializer;
+  }
+  @VintfStability
+  union AudioTrackMetadata {
+    android.hardware.audio.common.SinkMetadata sinkMetadata;
+    android.hardware.audio.common.SourceMetadata sourceMetadata;
   }
 }
