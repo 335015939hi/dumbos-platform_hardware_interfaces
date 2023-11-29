@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "651dd7b5_8bbcf59c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-11-29T10:43:22Z",
+      "side": 1,
+      "message": "Its not entirely clear to me why we need the Secretkeeper HAL in an apex. Can you explain (maybe in patch description as well?)",
+      "revId": "bc19229812eb7c5e3da3e47ed67940b5c6d0f745",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
