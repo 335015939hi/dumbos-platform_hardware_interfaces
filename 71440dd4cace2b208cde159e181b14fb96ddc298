@@ -39,6 +39,23 @@
       "message": "LGTM",
       "revId": "71440dd4cace2b208cde159e181b14fb96ddc298",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "beca6311_ca58c99c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-29T18:48:48Z",
+      "side": 1,
+      "message": "smoreland@: Are you the right person to look at the (small) change to the AIDL files from an AIDL-API-Review perspective?  Thanks!",
+      "revId": "71440dd4cace2b208cde159e181b14fb96ddc298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
