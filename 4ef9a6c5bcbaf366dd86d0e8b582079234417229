@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcd8fd5d_c34745e0",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-11-29T19:07:24Z",
+      "side": 1,
+      "message": "Add -70006 for the RKP VM marker",
+      "revId": "4ef9a6c5bcbaf366dd86d0e8b582079234417229",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
