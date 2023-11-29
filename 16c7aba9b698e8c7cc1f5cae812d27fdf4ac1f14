@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1657af35_2db42b51",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSounding.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-29T17:34:03Z",
+      "side": 1,
+      "message": "I read this section of the spec, but I\u0027m still confused about this value.\n\nIt looks like the procedure is specified in terms of the current security level, but I don\u0027t understand why a device would have a max security level.",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 46
+      },
+      "revId": "16c7aba9b698e8c7cc1f5cae812d27fdf4ac1f14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f641ca0_08500fdb",
@@ -19,6 +42,29 @@
         "startChar": 9,
         "endLine": 82,
         "endChar": 29
+      },
+      "revId": "16c7aba9b698e8c7cc1f5cae812d27fdf4ac1f14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3623be8d_2326744c",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SecurityLevel.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-29T17:34:03Z",
+      "side": 1,
+      "message": "Should this be in the API?  The device should require it, why is it helpful to have it here?",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 18
       },
       "revId": "16c7aba9b698e8c7cc1f5cae812d27fdf4ac1f14",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
