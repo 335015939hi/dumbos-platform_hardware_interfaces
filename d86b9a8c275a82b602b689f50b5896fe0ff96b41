@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9453591_b715ca84",
+        "filename": "security/authgraph/aidl/vts/functional/lib.rs",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-30T14:47:24Z",
+      "side": 1,
+      "message": "No, I don\u0027t think so -- the destination type involves a trait object, so the compiler needs to get a concrete type from somewhere.",
+      "parentUuid": "8e07a4b9_f9135717",
+      "range": {
+        "startLine": 38,
+        "startChar": 8,
+        "endLine": 38,
+        "endChar": 71
+      },
+      "revId": "d86b9a8c275a82b602b689f50b5896fe0ff96b41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61a4aeb4_43cfad55",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-30T14:26:07Z",
       "side": 1,
       "message": "Comment that this can never fail because of the single thread?",
+      "range": {
+        "startLine": 71,
+        "startChar": 47,
+        "endLine": 71,
+        "endChar": 57
+      },
+      "revId": "d86b9a8c275a82b602b689f50b5896fe0ff96b41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61ce594a_48c64511",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-30T14:47:24Z",
+      "side": 1,
+      "message": "True, but a bit incomplete -- added a comment.",
+      "parentUuid": "61a4aeb4_43cfad55",
       "range": {
         "startLine": 71,
         "startChar": 47,
