@@ -88,6 +88,24 @@
       "parentUuid": "4d9977d8_ba04e20a",
       "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9f09ee3_feb0c2bc",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-11-30T00:43:14Z",
+      "side": 1,
+      "message": "If you don\u0027t mind, please edit this CL and suggest a change.\n\nI don\u0027t quite follow what you have in mind.",
+      "parentUuid": "e7800239_da982238",
+      "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
