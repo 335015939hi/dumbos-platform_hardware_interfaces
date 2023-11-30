@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bcc26e2_b6d9051d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-30T13:46:15Z",
+      "side": 1,
+      "message": "This interface is designed for vendors to implement their proprietary ranging algorithms, which is not a mandatory requirement. Most APIs allow null return values.\nI added some basic implementation details. We can add a default ranging algorithm in the future if necessary. But I think if we have default ranging algorithm we can implement it on the Bluetooth stack.\nMany thanks!",
+      "parentUuid": "c48a4ff1_f437b14c",
+      "revId": "17a55d65ce1dd699d2b35b895abf6bbb86f8ccb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ef7594c_19775888",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3791c106_b4a74007",
+        "filename": "bluetooth/ranging/aidl/default/bluetooth-ranging-service-default.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-30T13:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ef7594c_19775888",
+      "range": {
+        "startLine": 6,
+        "startChar": 18,
+        "endLine": 6,
+        "endChar": 36
+      },
+      "revId": "17a55d65ce1dd699d2b35b895abf6bbb86f8ccb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3038211_d3b11fed",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-11-29T17:47:30Z",
       "side": 1,
       "message": "nit: This seems like it should be an error, since it causes an early exit.",
+      "range": {
+        "startLine": 32,
+        "startChar": 9,
+        "endLine": 32,
+        "endChar": 10
+      },
+      "revId": "17a55d65ce1dd699d2b35b895abf6bbb86f8ccb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "531d28db_f2d6a032",
+        "filename": "bluetooth/ranging/aidl/default/service.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-30T13:46:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3038211_d3b11fed",
       "range": {
         "startLine": 32,
         "startChar": 9,
