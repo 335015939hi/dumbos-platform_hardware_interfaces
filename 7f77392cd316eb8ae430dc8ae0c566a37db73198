@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f329374d_e00a4c4d",
+        "filename": "security/secretkeeper/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-11-30T14:26:07Z",
+      "side": 1,
+      "message": "You could probably put enabled: false here instead?",
+      "parentUuid": "1dde915d_1368efc6",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 10
+      },
+      "revId": "7f77392cd316eb8ae430dc8ae0c566a37db73198",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "07dadb25_a39e2e58",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
         "patchSetId": 3
