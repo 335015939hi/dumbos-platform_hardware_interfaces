@@ -34,6 +34,24 @@
       "parentUuid": "5b3436c8_19fd3a5d",
       "revId": "20c6549f348dd42af2fc8e52b131c91038dcfd98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20dbf82e_4352615a",
+        "filename": "security/authgraph/aidl/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-11-30T14:07:17Z",
+      "side": 0,
+      "message": "Thanks!",
+      "parentUuid": "9d28cba1_410602ba",
+      "revId": "20c6549f348dd42af2fc8e52b131c91038dcfd98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
