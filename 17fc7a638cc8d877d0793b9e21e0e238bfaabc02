@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fac60fe_9436c841",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-11-30T18:08:50Z",
+      "side": 1,
+      "message": "Hey, the VTS has been added.\nCan you have a look ?\nThanks.",
+      "parentUuid": "f71b0bb4_fbdcfb4c",
+      "revId": "17fc7a638cc8d877d0793b9e21e0e238bfaabc02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4990ba3_05412fcf",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Void.aidl",
         "patchSetId": 16
