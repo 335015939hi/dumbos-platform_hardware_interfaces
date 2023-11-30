@@ -16,6 +16,24 @@
       "message": "Just for my information: what is the difference between apps_enabled and enabled?\n(This was just a copy-paste from Keymint\u0027s Android.bp - I searched for the Android.bp language - but didn\u0027t find any good reference.)",
       "revId": "20c6549f348dd42af2fc8e52b131c91038dcfd98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d28cba1_410602ba",
+        "filename": "security/authgraph/aidl/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-11-30T11:28:57Z",
+      "side": 0,
+      "message": "go/android.bp is the best reference I know, which says: \n\n- **apps_enabled** _bool_, If set to false, the ndk backend is exclusive to platform and is not available to applications. Default is true (i.e. available to both applications and platform).\n- **enabled** _bool_, Whether to generate code in the corresponding backend. Default:\n  - for Java/NDK/CPP backends - True\n  - for Rust backend - False\n  \nSo I _think_ we definitely want `enabled: true` so Rust code is emitted, but I\u0027m not sure about `apps_enabled`",
+      "parentUuid": "5b3436c8_19fd3a5d",
+      "revId": "20c6549f348dd42af2fc8e52b131c91038dcfd98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
