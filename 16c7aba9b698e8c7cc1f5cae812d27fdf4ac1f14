@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d48cba3c_38a4eacc",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSounding.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-30T06:37:26Z",
+      "side": 1,
+      "message": "Based on the spec, the application can select preferred security level for CS.\nThe max supported security level of CS is depends on capabilities of local/remote device which exchaged during setup phase.\n\nLevel 1 - All mandatory CS features\nLevel 2 - All mandatory CS features\nLevel 3 - All mandatory CS features, RTT_Capability\u003d0x7\nLevel 4 - All mandatory CS features, RTT_Capability\u003d0x7, Optional_NADM_Sounding_Capability\u003d0x1, Optional_NADM_Random_Capability\u003d0x1\n\nOn the other hand, I think the ranging algorithm should be able to handle the corresponding ranging data as well.\nFor example, if an APP enable CS with level 2, we will get ranging data that contains Tone and RTT.\nIf the ranging algorithm can only handle tone data but ignore RTT, we should not claim we support level 2.\nThis is why we need this API to check the max supported security level for ranging algorithms.\n\nThanks!",
+      "parentUuid": "1657af35_2db42b51",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 46
+      },
+      "revId": "16c7aba9b698e8c7cc1f5cae812d27fdf4ac1f14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f641ca0_08500fdb",
@@ -60,6 +84,30 @@
       "writtenOn": "2023-11-29T17:34:03Z",
       "side": 1,
       "message": "Should this be in the API?  The device should require it, why is it helpful to have it here?",
+      "range": {
+        "startLine": 21,
+        "startChar": 5,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "16c7aba9b698e8c7cc1f5cae812d27fdf4ac1f14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31c67d3b_14385482",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SecurityLevel.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-11-30T06:37:26Z",
+      "side": 1,
+      "message": "This is a enum for the valid return value of getMaxSupportedSecurityLevel",
+      "parentUuid": "3623be8d_2326744c",
       "range": {
         "startLine": 21,
         "startChar": 5,
