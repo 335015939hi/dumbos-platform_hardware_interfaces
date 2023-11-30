@@ -129,6 +129,30 @@
       },
       "revId": "15346dcd76fdceb93d414b48048aba7a237543d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7093b127_49839d47",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/AudioLocation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-30T19:22:30Z",
+      "side": 1,
+      "message": "That was my question.  Thanks!",
+      "parentUuid": "a22b65ba_574499d3",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "15346dcd76fdceb93d414b48048aba7a237543d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
