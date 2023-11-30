@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "37e32cb5_1cc6561f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1851100
+      },
+      "writtenOn": "2023-11-30T16:32:15Z",
+      "side": 1,
+      "message": "Thanks for the explanation.",
+      "parentUuid": "5d8098cb_1b1e4aa0",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "e9eec45d3631fd51fd7aba1d6ec3c9db8c23ed36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "76a385b1_791e27b3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -146,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64053f2e_1d6d2bb3",
+        "filename": "tv/hdmi/cec/aidl/default/HdmiCecMock.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1851100
+      },
+      "writtenOn": "2023-11-30T16:32:15Z",
+      "side": 1,
+      "message": "Thanks for the explanation.",
+      "parentUuid": "125f0ea7_07b77e5d",
+      "range": {
+        "startLine": 95,
+        "startChar": 8,
+        "endLine": 95,
+        "endChar": 99
+      },
+      "revId": "e9eec45d3631fd51fd7aba1d6ec3c9db8c23ed36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1cb461c_8047fa68",
@@ -183,6 +231,30 @@
       "side": 1,
       "message": "This need not be a move, corrected.",
       "parentUuid": "c1cb461c_8047fa68",
+      "range": {
+        "startLine": 27,
+        "startChar": 47,
+        "endLine": 27,
+        "endChar": 56
+      },
+      "revId": "e9eec45d3631fd51fd7aba1d6ec3c9db8c23ed36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3656ad2b_27d0a0ec",
+        "filename": "tv/hdmi/cec/aidl/default/fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1851100
+      },
+      "writtenOn": "2023-11-30T16:32:15Z",
+      "side": 1,
+      "message": "Thanks, resolving.",
+      "parentUuid": "12c13c0a_a10e4812",
       "range": {
         "startLine": 27,
         "startChar": 47,
