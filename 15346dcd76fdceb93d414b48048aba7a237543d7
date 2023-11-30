@@ -105,6 +105,30 @@
       },
       "revId": "15346dcd76fdceb93d414b48048aba7a237543d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a22b65ba_574499d3",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/AudioLocation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-11-30T18:41:33Z",
+      "side": 1,
+      "message": "I don\u0027t think we should be editing generated files like that...\nAnd it *is* declared like a bit mask in the source : https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/bluetooth/audio/aidl/android/hardware/bluetooth/audio/AudioLocation.aidl",
+      "parentUuid": "525aedde_58d21978",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "15346dcd76fdceb93d414b48048aba7a237543d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
