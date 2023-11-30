@@ -106,6 +106,24 @@
       "parentUuid": "e7800239_da982238",
       "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5165a1dd_59779a41",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-11-30T11:10:41Z",
+      "side": 1,
+      "message": "Just to make RKP\u0027s expectations of the marker based on the certificate type explicit type, rather than having to guess that \"TEE components\" in the readme means the \"keymint\" and \"widevine\" certificate types.",
+      "parentUuid": "d9f09ee3_feb0c2bc",
+      "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
