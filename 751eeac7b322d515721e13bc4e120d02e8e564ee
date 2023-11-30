@@ -22,6 +22,30 @@
       },
       "revId": "751eeac7b322d515721e13bc4e120d02e8e564ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7507cb08_35d2142e",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-11-30T15:57:14Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "594bc24e_7bb0de62",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 18
+      },
+      "revId": "751eeac7b322d515721e13bc4e120d02e8e564ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

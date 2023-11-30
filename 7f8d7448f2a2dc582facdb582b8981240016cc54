@@ -124,6 +124,24 @@
       "parentUuid": "d9f09ee3_feb0c2bc",
       "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c9da0a5_ccff1ded",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-11-30T15:57:14Z",
+      "side": 1,
+      "message": "Thanks for the suggested edit -- I had no idea they actually worked in gerrit! I\u0027ve always copy and pasted them into a git repo.",
+      "parentUuid": "5165a1dd_59779a41",
+      "revId": "7f8d7448f2a2dc582facdb582b8981240016cc54",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
