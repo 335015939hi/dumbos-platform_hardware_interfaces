@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6560788_4dc914df",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/AudioConfiguration.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-11-30T18:25:16Z",
+      "side": 1,
+      "message": "Remove",
+      "revId": "15346dcd76fdceb93d414b48048aba7a237543d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "26fbb902_6461aef9",
         "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/AudioLocation.aidl",
         "patchSetId": 1
@@ -14,6 +31,30 @@
       "writtenOn": "2023-11-30T18:19:59Z",
       "side": 1,
       "message": "This one seems odd.  Was it already a bitmask?  Why might you \u0027or\u0027 UNKNOWN and FRONT_LEFT together?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "15346dcd76fdceb93d414b48048aba7a237543d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45458a01_9808cedf",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/AudioLocation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-11-30T18:25:16Z",
+      "side": 1,
+      "message": "This is an automatic commit. I figure they just improved the generator to keep the original declarations as much as possible.",
+      "parentUuid": "26fbb902_6461aef9",
       "range": {
         "startLine": 37,
         "startChar": 0,
