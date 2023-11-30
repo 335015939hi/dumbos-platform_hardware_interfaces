@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "594bc24e_7bb0de62",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-11-30T10:44:13Z",
+      "side": 1,
+      "message": "```suggestion\nThe following describes which certificate types may be request based on the RKP VM marker:\n1. \"rkp-vm\": If a DICE chain has zero or more certificates without the RKP VM\n   marker followed by one or more certificates with the marker, then that chain\n   describes an RKP VM. If there are further certificates without the RKP VM\n   marker, then the chain does not describe an RKP VM.\n\n   Implementations must include the first RPK VM marker as early as possible\n   after the point of divergence between TEE and non-TEE components in the DICE\n   chain, prior to loading the Android Bootloader (ABL).\n2. \"widevine\" or \"keymint\": If there are no certificates with the RKP VM\n   marker then it describes a TEE component.\n3. None: Any component described by a DICE chain that does not match the above\n   two categories.\n```",
+      "range": {
+        "startLine": 207,
+        "startChar": 0,
+        "endLine": 220,
+        "endChar": 18
+      },
+      "revId": "751eeac7b322d515721e13bc4e120d02e8e564ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
