@@ -81,6 +81,30 @@
       },
       "revId": "15346dcd76fdceb93d414b48048aba7a237543d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "525aedde_58d21978",
+        "filename": "bluetooth/audio/aidl/aidl_api/android.hardware.bluetooth.audio/current/android/hardware/bluetooth/audio/AudioLocation.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-11-30T18:31:04Z",
+      "side": 1,
+      "message": "It seems like it assumed that it was a bitmask.  I\u0027d prefer not applying that change, unless it is a bitmask.  It makes it less understandable to me.",
+      "parentUuid": "45458a01_9808cedf",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 33
+      },
+      "revId": "15346dcd76fdceb93d414b48048aba7a237543d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
