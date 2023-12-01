@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee965f9e_d5586774",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-01T17:59:29Z",
+      "side": 1,
+      "message": "Shunkai, do you have any comments?",
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "085d61a8_61554560",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-01T17:59:29Z",
+      "side": 1,
+      "message": "increment",
+      "range": {
+        "startLine": 151,
+        "startChar": 15,
+        "endLine": 151,
+        "endChar": 25
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d8ee5e2_07942ea7",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-01T17:59:29Z",
+      "side": 1,
+      "message": "I would suggest making this a constant so that it has a name explaining what it is.",
+      "range": {
+        "startLine": 167,
+        "startChar": 12,
+        "endLine": 167,
+        "endChar": 92
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80faf824_98d1d233",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-01T17:59:29Z",
+      "side": 1,
+      "message": "I think we need to add an assert that input buffer size is \u003e\u003d output buffer size.",
+      "range": {
+        "startLine": 390,
+        "startChar": 38,
+        "endLine": 390,
+        "endChar": 55
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
