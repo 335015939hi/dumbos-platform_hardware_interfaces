@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f0e5ddc_5be8ccd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T01:21:46Z",
+      "side": 1,
+      "message": "nit: can we pick a better title for the CL? Not sure what the word default adds here. Maybe \"Channel Sounding interface\" or even \"Add Channel Sounding implementation\" and in the description, clarify that the ranging algorithm is not included",
+      "parentUuid": "5bcc26e2_b6d9051d",
+      "revId": "17a55d65ce1dd699d2b35b895abf6bbb86f8ccb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ef7594c_19775888",
