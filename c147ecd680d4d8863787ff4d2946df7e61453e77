@@ -1,0 +1,383 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19dd960f_a682b0bc",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "Consider adding units to the variable name (for this and anything else)",
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15abe39d_e3e0f375",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "Azymuth is already an angle, and is missing units (e.g. degrees, radians, ...)\nSuggest renaming to azimuthDegrees",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "478ea2bc_c1a68d9c",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "Similar to above. Suggest renaming to altitudeDegrees",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 28
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "731001ad_39c83e57",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/ResultType.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "Need units. Suggest replacing _ANGLE with _DEGREES",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 30
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15383658_d3827ed9",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "I assume this refers to phase/tone based CS (vs. RTT-based CS)? I don\u0027t think either of them are mandatory, so do we need a separate capability for RTT ranging?",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 51
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a596a46_b121ed4d",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "These assume the use case knows the environment, while it may not (e.g. indoors/outdoors/unknown)\nIt is also unclear what the 0 case refers too (e.g. outdoors vs. unknown)",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50740218_371d7a29",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "For future proofing, would it make sense to have this as byte abortReason",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 20
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bda9b9e_cbeb1b98",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "nit: mode-0, mode-1, or mode-3",
+      "range": {
+        "startLine": 37,
+        "startChar": 35,
+        "endLine": 37,
+        "endChar": 47
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abd89122_140dbbb6",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "Add units",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 32
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0ce8d4b_770deb7c",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "more?\nnit: mode-1 or mode-3",
+      "range": {
+        "startLine": 41,
+        "startChar": 22,
+        "endLine": 41,
+        "endChar": 26
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "980534fd_6c1ce1fd",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "Suggest replacing Angle with Degrees in the variable names",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 30
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "546a1a2b_a5fa782f",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "nit: Normalized to what?",
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db3d6933_2e9c7313",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ResultType.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "Suggest replacing _ANGLE with _DEGREES",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 32
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72cb27fa_bb9d2db8",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SessionType.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "Shouldn\u0027t either both or none have _DATA_PARSING at the end?",
+      "range": {
+        "startLine": 25,
+        "startChar": 18,
+        "endLine": 25,
+        "endChar": 31
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff5d99f1_4d82bd7f",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SessionType.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "Could this be used for (potential future) BT chip processing the data too?\nIf so, maybe a more generic name, such as HARDWARE_DATA_PARSING",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c05b727b_8ec72794",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "nit: Bits",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 10
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6db95a0a_82501167",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T20:50:23Z",
+      "side": 1,
+      "message": "nit: Bits",
+      "range": {
+        "startLine": 47,
+        "startChar": 7,
+        "endLine": 47,
+        "endChar": 10
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
