@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8e1312e_4ffbd3ad",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2023-12-01T17:12:55Z",
+      "side": 1,
+      "message": "What does setting `ProtectionId.WIDEVINE` enforce?",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3c60ae0_5dcc48fa",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2023-12-01T17:12:55Z",
+      "side": 1,
+      "message": "Is it feasible to add the option to compute an opaque shared secret (that cannot be re-derived in the clear)? I saw that `hwkey_derive_versioned` does something similar with the option to derive either clear or opaque keys.",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adda930e_f371009c",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyFlags.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2023-12-01T17:12:55Z",
+      "side": 1,
+      "message": "What is `KeyFlags` used for? I don\u0027t see any references in this CL.",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
