@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69de9731_f1d71ff4",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e32833ee_8924d7e1",
+      "range": {
+        "startLine": 289,
+        "startChar": 40,
+        "endLine": 289,
+        "endChar": 65
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3030cf6d_5365086c",
@@ -70,6 +94,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14241513_d8cd85a7",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Added it.",
+      "parentUuid": "3030cf6d_5365086c",
+      "range": {
+        "startLine": 52,
+        "startChar": 45,
+        "endLine": 52,
+        "endChar": 46
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ffa5c6f_85688c99",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0cc35314_e4cf7a3f",
+      "range": {
+        "startLine": 52,
+        "startChar": 28,
+        "endLine": 52,
+        "endChar": 45
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12138d48_e108bf81",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-11-28T18:44:43Z",
       "side": 1,
       "message": "It should be possible to write `auto dm \u003d Downmix::make\u003cDownmix::type\u003e(type);` instead.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 36
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20258ba1_5a7c0a1b",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12138d48_e108bf81",
       "range": {
         "startLine": 108,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eee9dfec_2deb807d",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e943407_f68a1ac9",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 49
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5dd2985b_16c3b96e",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-11-28T18:44:43Z",
       "side": 1,
       "message": "Are you finding the channel count here? In that case, I would suggest to use `getChannelCount`: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/common/include/Utils.h;l\u003d79;drc\u003d76f06f2c6a5c472099818f1293171e7b49c88d1d\n\nFor anything extra, it\u0027s better to use bit utilities from `system/core/libutils/include/utils/BitSet.h`.",
+      "range": {
+        "startLine": 144,
+        "startChar": 12,
+        "endLine": 144,
+        "endChar": 28
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04fcce76_a06e043a",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Using the check from ChannelMix.h\n \nhttps://cs.android.com/android/platform/superproject/main/+/main:prebuilts/vndk/v34/arm/include/system/media/audio_utils/include/audio_utils/ChannelMix.h;l\u003d520#:~:text\u003dif%20(inputChannelMask%20%26%20~((1%20%3C%3C%20MAX_INPUT_CHANNELS_SUPPORTED)%20%2D%201))",
+      "parentUuid": "5dd2985b_16c3b96e",
       "range": {
         "startLine": 144,
         "startChar": 12,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4642111c_34121912",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Moved to SetUp",
+      "parentUuid": "997df602_3c74a686",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 54
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bf4237d_89b38b17",
@@ -175,6 +343,30 @@
       "writtenOn": "2023-11-28T18:44:43Z",
       "side": 1,
       "message": "Why in hex?\nShould it be `constexpr`?",
+      "range": {
+        "startLine": 159,
+        "startChar": 41,
+        "endLine": 159,
+        "endChar": 74
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb193265_33d8dd5d",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Changed it to decimal and made it constexpr",
+      "parentUuid": "0bf4237d_89b38b17",
       "range": {
         "startLine": 159,
         "startChar": 41,
@@ -208,6 +400,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a27351be_37397e9f",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Changed to size_t",
+      "parentUuid": "96a618ba_1e2e0a25",
+      "range": {
+        "startLine": 169,
+        "startChar": 21,
+        "endLine": 169,
+        "endChar": 26
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60f0829f_b92fde6c",
@@ -221,6 +437,30 @@
       "writtenOn": "2023-11-28T18:44:43Z",
       "side": 1,
       "message": "Please wrap all calls to auxiliary functions into `ASSERT_NO_FATAL_FAILURE` or `EXPECT_NO_FATAL_FAILURE`.",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 35
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87bae455_8f92693c",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60f0829f_b92fde6c",
       "range": {
         "startLine": 198,
         "startChar": 0,
@@ -254,6 +494,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5672258c_61a25be3",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Added the cases",
+      "parentUuid": "c0f6ad9d_b9222099",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 9
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39508c14_51183ced",
@@ -267,6 +531,30 @@
       "writtenOn": "2023-11-28T18:44:43Z",
       "side": 1,
       "message": "I would strongly suggest using values from `kChannels` here instead of generating channel masks by hand.",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 9
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff8cc32_0ad03cb5",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39508c14_51183ced",
       "range": {
         "startLine": 288,
         "startChar": 0,
@@ -300,6 +588,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3904927_076342ab",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83b02b3f_4aba7acb",
+      "range": {
+        "startLine": 342,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 5
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebb16967_0b3d18c4",
@@ -313,6 +625,30 @@
       "writtenOn": "2023-11-28T18:44:43Z",
       "side": 1,
       "message": "Do we need to check the values in remaining channels?",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 9
+      },
+      "revId": "0ab01f76072da69ab0d420829719a462f5580d0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0678f04_15edb7c5",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-01T12:56:50Z",
+      "side": 1,
+      "message": "Added the check for the rest values.",
+      "parentUuid": "ebb16967_0b3d18c4",
       "range": {
         "startLine": 354,
         "startChar": 0,
