@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6faf8082_b02b6659",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-01T18:59:26Z",
+      "side": 1,
+      "message": "It seems that the test is currently failing for all invocations, pasting one example:\n\n```\nhardware/interfaces/audio/aidl/vts/EffectHelper.h:184: Failure\nExpected equality of these values:\n  expectStatus.value()\n    Which is: 0\n  status.status\n    Which is: -3\nhardware/interfaces/audio/aidl/vts/EffectHelper.h:308: Failure\nExpected: EffectHelper::readFromFmq(statusMQ, 1, outputMQ, outputBuffer.size(), outputBuffer) doesn\u0027t generate new fatal failures in the current thread.\n  Actual: it does.\nhardware/interfaces/audio/aidl/vts/VtsHalDownmixTargetTest.cpp:410: Failure\nExpected: processAndWriteToOutput(mInputBuffer, mOutputBuffer, mEffect, \u0026mOpenEffectReturn) doesn\u0027t generate new fatal failures in the current thread.\n  Actual: it does.\n```",
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "085d61a8_61554560",
