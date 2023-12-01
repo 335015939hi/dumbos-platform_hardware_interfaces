@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "993dc095_381eb2e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-12-01T03:50:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd164f63_edd03047",
+      "revId": "69baf781c6ea194cea9b50757539ae43c7a6b4e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f156f56_ac179ec5",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-11-27T17:18:06Z",
       "side": 1,
       "message": "array?",
+      "range": {
+        "startLine": 26,
+        "startChar": 19,
+        "endLine": 26,
+        "endChar": 32
+      },
+      "revId": "69baf781c6ea194cea9b50757539ae43c7a6b4e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55d87cc8_311a5f67",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/IBluetoothFinder.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-12-01T03:50:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f156f56_ac179ec5",
       "range": {
         "startLine": 26,
         "startChar": 19,

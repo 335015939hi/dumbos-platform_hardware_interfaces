@@ -46,6 +46,30 @@
       },
       "revId": "4d43249e90d603e2515122bcaad460df05daacb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17614f18_52d1fc1d",
+        "filename": "bluetooth/finder/aidl/android/hardware/bluetooth/finder/Eid.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2023-12-01T03:50:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f97569fe_9b5c9906",
+      "range": {
+        "startLine": 20,
+        "startChar": 11,
+        "endLine": 20,
+        "endChar": 14
+      },
+      "revId": "4d43249e90d603e2515122bcaad460df05daacb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
