@@ -16,6 +16,24 @@
       "message": "nit: it\u0027s more like the (detected attack) level, instead of what could be incorrectly perceived as the (attack detection capability) level. \nRenaming it can help clarify the API. Say, for example, to detectedAttackLevel",
       "revId": "90bb9731f33b79113675d9b1b251af04bf43bc9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56e983b3_66abb414",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-12-01T00:24:46Z",
+      "side": 1,
+      "message": "This isn\u0027t clear to me, yet.\n\nIs this supposed to measure \"If there\u0027s an attack, the chance it will be detected\"?",
+      "parentUuid": "1f8434fb_eb48d022",
+      "revId": "90bb9731f33b79113675d9b1b251af04bf43bc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
