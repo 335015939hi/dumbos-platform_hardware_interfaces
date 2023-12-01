@@ -61,6 +61,10 @@ cc_library_shared {
         "liblog",
         "libhidlbase",
         "libxml2",
+        "server_configurable_flags",
+    ],
+    static_libs: [
+        "btaudiohal_flags_c_lib",
     ],
     generated_sources: ["le_audio_codec_capabilities"],
     generated_headers: ["le_audio_codec_capabilities"],
