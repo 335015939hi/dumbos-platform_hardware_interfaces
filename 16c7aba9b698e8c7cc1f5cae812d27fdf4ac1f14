@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "107b4051_5b6f5e5f",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSounding.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-01T16:27:19Z",
+      "side": 1,
+      "message": "Yes, the app can use SetMinimumSecurityLevel to select the security level.\nHowever, I believe that the app/stack should also be able to know the maximum value for the HAL (ranging algorithm).\nIf an app sets the minimum security level to 4 and both the local and remote controllers support level 4,\nthen we can enable channel sounding at level 4. \nHowever, if the ranging algorithm can only handle data for level 1, the app will get raning result with level 1 even it SetMinimumSecurityLevel with level 4",
+      "parentUuid": "c718ac92_7f4fe7ef",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 46
+      },
+      "revId": "16c7aba9b698e8c7cc1f5cae812d27fdf4ac1f14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f641ca0_08500fdb",
