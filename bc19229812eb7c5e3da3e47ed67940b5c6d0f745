@@ -16,6 +16,24 @@
       "message": "Its not entirely clear to me why we need the Secretkeeper HAL in an apex. Can you explain (maybe in patch description as well?)",
       "revId": "bc19229812eb7c5e3da3e47ed67940b5c6d0f745",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea3098e4_669026b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-12-01T09:07:10Z",
+      "side": 1,
+      "message": "Vendor APEX in general improves the modularization in vendor image and eventually helps maintainability by providing cleaner boundaries between HAL and other parts of the system. For now, we don\u0027t support vapex updates, but we think it\u0027s still good to have HALs in VAPEX from the modularization aspect. And we\u0027re also investigating the vapex updatability. Vapexifying could be a preparation for updatability.\n\nBtw, putting CF HALs in VAPEX might be questionable. We\u0027re doing this for two goals: a) provide references/examples and b) make sure vapex is ready for use.",
+      "parentUuid": "651dd7b5_8bbcf59c",
+      "revId": "bc19229812eb7c5e3da3e47ed67940b5c6d0f745",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
