@@ -336,6 +336,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2be9b94b_572eb4ba",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SessionType.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-12-01T20:53:48Z",
+      "side": 1,
+      "message": "nit: OFFLOAD (if that still ends up being part of the name.",
+      "parentUuid": "ff5d99f1_4d82bd7f",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c05b727b_8ec72794",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
         "patchSetId": 14
