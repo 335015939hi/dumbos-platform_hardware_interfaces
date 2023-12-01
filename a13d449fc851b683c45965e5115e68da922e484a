@@ -37,6 +37,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8fb4ef7_b3d8a75a",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-12-01T19:11:20Z",
+      "side": 1,
+      "message": "not sure if you want to replace it with enum_range:\n`enum_range\u003cDownmix::Type\u003e()`\n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:frameworks/native/libs/binder/include/binder/Enums.h;l\u003d37;bpv\u003d1;bpt\u003d1?q\u003denum_range\u0026sq\u003drepo:googleplex-android%2Fplatform%2Fsuperproject%2Fmain%20b:main",
+      "range": {
+        "startLine": 37,
+        "startChar": 40,
+        "endLine": 37,
+        "endChar": 51
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32bacae3_b0f79779",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-12-01T19:11:20Z",
+      "side": 1,
+      "message": "not used",
+      "range": {
+        "startLine": 109,
+        "startChar": 8,
+        "endLine": 109,
+        "endChar": 53
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "085d61a8_61554560",
         "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
         "patchSetId": 2
@@ -83,6 +129,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4e05e97_e6188684",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-12-01T19:11:20Z",
+      "side": 1,
+      "message": "const?",
+      "range": {
+        "startLine": 208,
+        "startChar": 18,
+        "endLine": 208,
+        "endChar": 28
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "80faf824_98d1d233",
         "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
         "patchSetId": 2
@@ -97,6 +166,29 @@
       "range": {
         "startLine": 390,
         "startChar": 38,
+        "endLine": 390,
+        "endChar": 55
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30731cc6_d754a7d8",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-12-01T19:11:20Z",
+      "side": 1,
+      "message": "should also validate i in input buffer range as well",
+      "range": {
+        "startLine": 390,
+        "startChar": 34,
         "endLine": 390,
         "endChar": 55
       },
