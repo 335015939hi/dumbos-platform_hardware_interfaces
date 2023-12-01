@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c718ac92_7f4fe7ef",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSounding.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-12-01T00:14:06Z",
+      "side": 1,
+      "message": "If I were an app developer, I would want to set a required security level, and have the rest handled in the background.\n\nIf my application requires security level 2, any higher level should be fine.\n\nSetMinimumSecurityLevel()\n\nOr maybe have a minimum security level as part of StartSession?\n\nIt feels like SetMinimumSecurityLevel could have the same effect as GetMaximum, but it would be easier to use.",
+      "parentUuid": "d48cba3c_38a4eacc",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 46
+      },
+      "revId": "16c7aba9b698e8c7cc1f5cae812d27fdf4ac1f14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f641ca0_08500fdb",
