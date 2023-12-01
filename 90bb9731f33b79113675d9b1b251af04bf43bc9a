@@ -34,6 +34,24 @@
       "parentUuid": "1f8434fb_eb48d022",
       "revId": "90bb9731f33b79113675d9b1b251af04bf43bc9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c42828a_a2a6fbd9",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-01T01:06:01Z",
+      "side": 1,
+      "message": "My understanding was that this is \"what is the chance I am being attacked right now\". I could very well be wrong though",
+      "parentUuid": "56e983b3_66abb414",
+      "revId": "90bb9731f33b79113675d9b1b251af04bf43bc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
