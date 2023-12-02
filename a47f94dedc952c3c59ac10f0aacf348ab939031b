@@ -16,6 +16,23 @@
       "message": "Thank you",
       "revId": "a47f94dedc952c3c59ac10f0aacf348ab939031b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0174aed_b47cb4f6",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 34
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-02T17:40:36Z",
+      "side": 1,
+      "message": "It seems we missed CIG/CIS IDs alongwith ASE State and MetadataLtv.\nIs it possible to pass CIG/CIS IDs as well as notification response also has CIG/CIS IDs.\n\n\n\nAs per ASCS v1.0 Table 4.5: Format of the Additional_ASE_Parameters field when ASE_State \u003d 0x03 (Enabling), 0x04 (Streaming), or 0x05 (Disabling) - CIG/CIS ID are also passed and we require it to rightly identify the streams.",
+      "revId": "a47f94dedc952c3c59ac10f0aacf348ab939031b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
