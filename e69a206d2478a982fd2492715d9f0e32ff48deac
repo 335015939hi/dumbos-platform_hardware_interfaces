@@ -22,6 +22,30 @@
       },
       "revId": "e69a206d2478a982fd2492715d9f0e32ff48deac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d18b2375_ac415f2a",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-02T08:09:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcbaf122_d0e6c6d5",
+      "range": {
+        "startLine": 47,
+        "startChar": 38,
+        "endLine": 47,
+        "endChar": 40
+      },
+      "revId": "e69a206d2478a982fd2492715d9f0e32ff48deac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
