@@ -112,6 +112,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8abc12e_5766092b",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1987836
+      },
+      "writtenOn": "2023-12-02T02:53:23Z",
+      "side": 1,
+      "message": "Sounding phase-based ranging is an optional feature that enables the device to calculate the distance based-on RTT sounding sequence phase, not timing.",
+      "parentUuid": "15383658_d3827ed9",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 51
+      },
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a596a46_b121ed4d",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/BluetoothChannelSoundingParameters.aidl",
         "patchSetId": 14
