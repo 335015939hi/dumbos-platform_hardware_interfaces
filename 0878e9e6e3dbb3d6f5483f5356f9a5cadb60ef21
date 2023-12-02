@@ -22,6 +22,30 @@
       },
       "revId": "0878e9e6e3dbb3d6f5483f5356f9a5cadb60ef21",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edc8dd7d_d61f5334",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-02T00:40:16Z",
+      "side": 1,
+      "message": "Right, I think I have misread `\u0026\u0026` for `||`.",
+      "parentUuid": "f4ccda96_0c23ed33",
+      "range": {
+        "startLine": 251,
+        "startChar": 8,
+        "endLine": 251,
+        "endChar": 44
+      },
+      "revId": "0878e9e6e3dbb3d6f5483f5356f9a5cadb60ef21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
