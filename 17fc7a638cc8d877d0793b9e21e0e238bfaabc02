@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6290b58e_1dc89ccd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-12-02T20:37:27Z",
+      "side": 1,
+      "message": "The patch is here https://r.android.com/2787102 (along with other patches in the chain). It won\u0027t make sense to merge it before the changes specific to A2DP (next CL in this chain).",
+      "parentUuid": "36b49b90_441faa36",
+      "revId": "17fc7a638cc8d877d0793b9e21e0e238bfaabc02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a4990ba3_05412fcf",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/Void.aidl",
         "patchSetId": 16
