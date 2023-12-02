@@ -106,6 +106,7 @@ struct Gnss : public IGnss {
     std::atomic<long> mMinIntervalMs;
     sp<GnssConfiguration> mGnssConfiguration;
     std::atomic<bool> mIsActive;
+    std::atomic<bool> mFirstFixReceived;
     std::thread mThread;
     mutable std::mutex mMutex;
     hidl_vec<GnssSvInfo> filterBlacklistedSatellitesV2_1(hidl_vec<GnssSvInfo> gnssSvInfoList);

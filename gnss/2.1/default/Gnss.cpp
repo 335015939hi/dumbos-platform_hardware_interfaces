@@ -39,8 +39,10 @@ sp<V2_1::IGnssCallback> Gnss::sGnssCallback_2_1 = nullptr;
 sp<V2_0::IGnssCallback> Gnss::sGnssCallback_2_0 = nullptr;
 sp<V1_1::IGnssCallback> Gnss::sGnssCallback_1_1 = nullptr;
 sp<V1_0::IGnssCallback> Gnss::sGnssCallback_1_0 = nullptr;
+constexpr int TTFF_MILLIS = 2200;
 
-Gnss::Gnss() : mMinIntervalMs(1000), mGnssConfiguration{new GnssConfiguration()} {}
+Gnss::Gnss()
+    : mMinIntervalMs(1000), mGnssConfiguration{new GnssConfiguration()}, mFirstFixReceived(false) {}
 
 Gnss::~Gnss() {
     stop();
@@ -58,7 +60,10 @@ Return<bool> Gnss::start() {
         while (mIsActive == true) {
             auto svStatus = filterBlacklistedSatellitesV2_1(Utils::getMockSvInfoListV2_1());
             this->reportSvStatus(svStatus);
-
+            if (!mFirstFixReceived) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(TTFF_MILLIS));
+                mFirstFixReceived = true;
+            }
             if (sGnssCallback_2_1 != nullptr || sGnssCallback_2_0 != nullptr) {
                 const auto location = Utils::getMockLocationV2_0();
                 this->reportLocation(location);
@@ -132,8 +137,9 @@ Return<bool> Gnss::injectLocation(double, double, float) {
     return true;
 }
 
-Return<void> Gnss::deleteAidingData(V1_0::IGnss::GnssAidingData) {
-    // TODO implement
+Return<void> Gnss::deleteAidingData(V1_0::IGnss::GnssAidingData aidingDataFlags) {
+    ALOGD("deleteAidingData. flags:%d", (int)aidingDataFlags);
+    mFirstFixReceived = false;
     return Void();
 }
 

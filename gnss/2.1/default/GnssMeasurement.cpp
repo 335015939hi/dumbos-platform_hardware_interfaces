@@ -65,15 +65,11 @@ Return<V1_0::IGnssMeasurement::GnssMeasurementStatus> GnssMeasurement::setCallba
 Return<V1_0::IGnssMeasurement::GnssMeasurementStatus> GnssMeasurement::setCallback_2_0(
         const sp<V2_0::IGnssMeasurementCallback>& callback, bool) {
     ALOGD("setCallback_2_0");
-    std::unique_lock<std::mutex> lock(mMutex);
-    sCallback_2_0 = callback;
-
-    if (mIsActive) {
-        ALOGW("GnssMeasurement callback already set. Resetting the callback...");
-        stop();
+    {
+        std::unique_lock<std::mutex> lock(mMutex);
+        sCallback_2_0 = callback;
     }
     start();
-
     return V1_0::IGnssMeasurement::GnssMeasurementStatus::SUCCESS;
 }
 
@@ -81,15 +77,11 @@ Return<V1_0::IGnssMeasurement::GnssMeasurementStatus> GnssMeasurement::setCallba
 Return<V1_0::IGnssMeasurement::GnssMeasurementStatus> GnssMeasurement::setCallback_2_1(
         const sp<V2_1::IGnssMeasurementCallback>& callback, bool) {
     ALOGD("setCallback_2_1");
-    std::unique_lock<std::mutex> lock(mMutex);
-    sCallback_2_1 = callback;
-
-    if (mIsActive) {
-        ALOGW("GnssMeasurement callback already set. Resetting the callback...");
-        stop();
+    {
+        std::unique_lock<std::mutex> lock(mMutex);
+        sCallback_2_1 = callback;
     }
     start();
-
     return V1_0::IGnssMeasurement::GnssMeasurementStatus::SUCCESS;
 }
 
