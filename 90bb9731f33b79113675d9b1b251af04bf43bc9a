@@ -70,6 +70,24 @@
       "parentUuid": "8c42828a_a2a6fbd9",
       "revId": "90bb9731f33b79113675d9b1b251af04bf43bc9a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c14d8563_450ec1fd",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-03T08:45:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0829bd64_3301a727",
+      "revId": "90bb9731f33b79113675d9b1b251af04bf43bc9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
