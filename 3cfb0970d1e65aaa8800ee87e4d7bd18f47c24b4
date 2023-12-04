@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec54a8f2_3a0d952a",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2023-12-04T15:46:39Z",
+      "side": 1,
+      "message": "kMaxChannelMask",
+      "range": {
+        "startLine": 186,
+        "startChar": 29,
+        "endLine": 186,
+        "endChar": 43
+      },
+      "revId": "3cfb0970d1e65aaa8800ee87e4d7bd18f47c24b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
