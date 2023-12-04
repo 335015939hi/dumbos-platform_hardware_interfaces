@@ -51,6 +51,24 @@
       "message": "Just for my information, what is a HAL APEX and why do we need it? Thanks!",
       "revId": "bc19229812eb7c5e3da3e47ed67940b5c6d0f745",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9c673e3_b41acad5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-12-04T03:33:37Z",
+      "side": 1,
+      "message": "I think my above question got answered after seeing your response to Shikha\u0027s comment. A follow up question is: do you plan to vapexify all the HALs under hardware/interfaces? or only selected HALs?",
+      "parentUuid": "5b396dd8_bca39e6b",
+      "revId": "bc19229812eb7c5e3da3e47ed67940b5c6d0f745",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
