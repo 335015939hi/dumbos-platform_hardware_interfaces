@@ -85,6 +85,16 @@ void RadioNetworkTest::stopNetworkScan() {
 TEST_P(RadioNetworkTest, setGetAllowedNetworkTypesBitmap) {
     serial = GetRandomSerialNumber();
 
+    // get aidl version
+    int32_t aidl_version;
+    ndk::ScopedAStatus aidl_status = radio_network->getInterfaceVersion(&aidl_version);
+    ASSERT_OK(aidl_status);
+
+    if (aidl_version < 2) {
+        ALOGI("Test not applicable Until Android T");
+        GTEST_SKIP();
+    }
+
     // save current value
     radio_network->getAllowedNetworkTypesBitmap(serial);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
