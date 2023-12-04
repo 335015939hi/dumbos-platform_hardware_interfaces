@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d838980_63dfdd99",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-04T23:38:05Z",
+      "side": 1,
+      "message": "Looking at the presubmit run, it seems suspicious to me that more than half of the test cases are ignored:\n\n```\nVtsHalDownmixTargetTest \n All passed (464 ignored) 677\n DownmixTest/DownmixFoldDataTest \n   All passed (464 ignored) 650\n DownmixTest/DownmixParamTest \n   All passed 2\n DownmixTest/DownmixStripDataTest \n   All passed 25\n```\n\nShould parameters for `DownmixFoldDataTest` be adjusted to avoid trying combinations that are ignored?",
+      "revId": "b1294bddf274e188e9940e69864a3513f3697212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
