@@ -168,6 +168,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba043c7b_66aed8d4",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSounding.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-04T12:41:16Z",
+      "side": 1,
+      "message": "Yes, we should not allow Apps to request an level that higher than we can supported.\nThe Bluetooth Stack should report error for this.\nThe max supported securty level is depends on:\n1. supported security levels of CS for local controller\n2. supported security levels of CS for remote controller\n3. supported levels of CS for ranging algorithms (HAL).\n\nSo we need this API for the Bluetooth stack to get max support level for the raning algorithm (HAL).",
+      "parentUuid": "5bc8e776_d161317e",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 46
+      },
+      "revId": "16c7aba9b698e8c7cc1f5cae812d27fdf4ac1f14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1f641ca0_08500fdb",
