@@ -565,6 +565,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d493852_3b583cd2",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-04T14:45:07Z",
+      "side": 1,
+      "message": "Thanks for the explanation, updated comment. The return value in the design doc is uint_8, so let\u0027s use 0 to 100 for it, thanks.",
+      "parentUuid": "e4f858cc_ffe1ecbe",
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db3d6933_2e9c7313",
