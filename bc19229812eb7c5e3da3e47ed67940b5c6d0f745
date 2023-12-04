@@ -34,6 +34,23 @@
       "parentUuid": "651dd7b5_8bbcf59c",
       "revId": "bc19229812eb7c5e3da3e47ed67940b5c6d0f745",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b396dd8_bca39e6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-12-04T02:59:44Z",
+      "side": 1,
+      "message": "Just for my information, what is a HAL APEX and why do we need it? Thanks!",
+      "revId": "bc19229812eb7c5e3da3e47ed67940b5c6d0f745",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
