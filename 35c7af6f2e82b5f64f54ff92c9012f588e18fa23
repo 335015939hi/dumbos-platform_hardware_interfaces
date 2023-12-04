@@ -33,6 +33,23 @@
       "message": "Any update here?",
       "revId": "35c7af6f2e82b5f64f54ff92c9012f588e18fa23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7af786c_d6e4ecc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156808
+      },
+      "writtenOn": "2023-12-04T11:01:02Z",
+      "side": 1,
+      "message": "Merge?",
+      "revId": "35c7af6f2e82b5f64f54ff92c9012f588e18fa23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
