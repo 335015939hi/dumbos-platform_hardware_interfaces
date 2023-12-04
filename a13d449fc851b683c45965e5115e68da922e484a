@@ -75,6 +75,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b4ba69e_470be900",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-04T13:15:22Z",
+      "side": 1,
+      "message": "Using this instead\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:prebuilts/vndk/v30/arm/include/frameworks/native/libs/binder/ndk/include_ndk/android/binder_enums.h;l\u003d52;bpv\u003d1;bpt\u003d0?q\u003dndk::enum_range\u0026sq\u003d#:~:text\u003dis_enum%3CEnumType%3E%3A%3Avalue%3E%3E-,struct%20enum_range,-%7B",
+      "parentUuid": "d8fb4ef7_b3d8a75a",
+      "range": {
+        "startLine": 37,
+        "startChar": 40,
+        "endLine": 37,
+        "endChar": 51
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32bacae3_b0f79779",
@@ -88,6 +112,30 @@
       "writtenOn": "2023-12-01T19:11:20Z",
       "side": 1,
       "message": "not used",
+      "range": {
+        "startLine": 109,
+        "startChar": 8,
+        "endLine": 109,
+        "endChar": 53
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "988e3cc0_c5879736",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-04T13:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32bacae3_b0f79779",
       "range": {
         "startLine": 109,
         "startChar": 8,
@@ -121,6 +169,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "784aba78_86bf0d0d",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-04T13:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "085d61a8_61554560",
+      "range": {
+        "startLine": 151,
+        "startChar": 15,
+        "endLine": 151,
+        "endChar": 25
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d8ee5e2_07942ea7",
@@ -144,6 +216,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8a5de7f_d7c0704c",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-04T13:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d8ee5e2_07942ea7",
+      "range": {
+        "startLine": 167,
+        "startChar": 12,
+        "endLine": 167,
+        "endChar": 92
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4e05e97_e6188684",
@@ -157,6 +253,30 @@
       "writtenOn": "2023-12-01T19:11:20Z",
       "side": 1,
       "message": "const?",
+      "range": {
+        "startLine": 208,
+        "startChar": 18,
+        "endLine": 208,
+        "endChar": 28
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78095220_2f40f3c0",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-04T13:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4e05e97_e6188684",
       "range": {
         "startLine": 208,
         "startChar": 18,
@@ -203,6 +323,54 @@
       "writtenOn": "2023-12-01T19:11:20Z",
       "side": 1,
       "message": "should also validate i in input buffer range as well",
+      "range": {
+        "startLine": 390,
+        "startChar": 34,
+        "endLine": 390,
+        "endChar": 55
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ba0adcf_0b1b75b8",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-04T13:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80faf824_98d1d233",
+      "range": {
+        "startLine": 390,
+        "startChar": 38,
+        "endLine": 390,
+        "endChar": 55
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aefeecb_357d9daa",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-04T13:15:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30731cc6_d754a7d8",
       "range": {
         "startLine": 390,
         "startChar": 34,
