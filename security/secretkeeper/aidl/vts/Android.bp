@@ -32,6 +32,7 @@ rust_test {
         "libauthgraph_vts_test",
         "libbinder_rs",
         "liblog_rust",
+        "liblogger",
     ],
     require_root: true,
 }
