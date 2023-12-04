@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60016bbe_05f13e25",
+        "filename": "security/secretkeeper/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-04T22:35:50Z",
+      "side": 1,
+      "message": "Moving to `android.hardware.security.secretkeeper-service.nonsecure`",
+      "parentUuid": "a125b24d_41251148",
+      "revId": "17b5730b6c75a2272581039cc42059a443bcedc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08ed506a_ceb77b75",
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f82e187b_e6b3847f",
+        "filename": "security/secretkeeper/default/src/lib.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-04T22:35:50Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "08ed506a_ceb77b75",
+      "revId": "17b5730b6c75a2272581039cc42059a443bcedc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "959933db_b55ec773",
         "filename": "security/secretkeeper/default/src/lib.rs",
         "patchSetId": 1
@@ -65,6 +101,24 @@
       "writtenOn": "2023-11-28T10:38:19Z",
       "side": 1,
       "message": "I think you could drop `new()` and just `[derive(Default)]`",
+      "revId": "17b5730b6c75a2272581039cc42059a443bcedc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfa0799c_b891ad16",
+        "filename": "security/secretkeeper/default/src/lib.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-04T22:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "959933db_b55ec773",
       "revId": "17b5730b6c75a2272581039cc42059a443bcedc9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
