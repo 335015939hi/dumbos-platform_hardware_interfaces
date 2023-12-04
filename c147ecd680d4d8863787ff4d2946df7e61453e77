@@ -549,6 +549,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4f858cc_ffe1ecbe",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1987836
+      },
+      "writtenOn": "2023-12-04T11:50:51Z",
+      "side": 1,
+      "message": "Normalized to 1, the confidenceLevel will be a 0 (low confidence) to 1 (high confidence) number to represent how confident is the algorithm with its calculated distance. This number will change based on the signal quality, environment interference, etc.\n\nFor example, the algo may report dist\u003d8m, confidenceLevel\u003d0.3; or dist\u003d3m, confidenceLevel\u003d0.9.",
+      "parentUuid": "546a1a2b_a5fa782f",
+      "revId": "c147ecd680d4d8863787ff4d2946df7e61453e77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db3d6933_2e9c7313",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ResultType.aidl",
         "patchSetId": 14
