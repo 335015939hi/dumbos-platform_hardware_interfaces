@@ -379,6 +379,30 @@
       },
       "revId": "a13d449fc851b683c45965e5115e68da922e484a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38698fec_483bd465",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-04T19:29:20Z",
+      "side": 1,
+      "message": "Input buffer size is still unchecked.",
+      "parentUuid": "8ba0adcf_0b1b75b8",
+      "range": {
+        "startLine": 390,
+        "startChar": 38,
+        "endLine": 390,
+        "endChar": 55
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
