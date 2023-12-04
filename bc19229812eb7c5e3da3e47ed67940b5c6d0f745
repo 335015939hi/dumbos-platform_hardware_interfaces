@@ -69,6 +69,24 @@
       "parentUuid": "5b396dd8_bca39e6b",
       "revId": "bc19229812eb7c5e3da3e47ed67940b5c6d0f745",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19a70971_fa82d78f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-12-04T03:39:59Z",
+      "side": 1,
+      "message": "Yes, the plan is to make every HAL in hardware/interfaces into Vendor APEX. Practically, we won\u0027t touch HALs that are not in use (for example, there are HIDL implementations but we\u0027re deprecating them.)\n\nIn AOSP, we\u0027re targeting HALs used by the cuttlefish (aosp_cf_x86_64_phone). As of now, 90% of them are in VAPEX.",
+      "parentUuid": "d9c673e3_b41acad5",
+      "revId": "bc19229812eb7c5e3da3e47ed67940b5c6d0f745",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
