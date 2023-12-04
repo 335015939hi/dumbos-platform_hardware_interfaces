@@ -24,6 +24,7 @@ use secretkeeper_comm::data_types::request_response_impl::{
     GetVersionRequest, GetVersionResponse, Opcode, StoreSecretRequest, StoreSecretResponse,
     GetSecretRequest, GetSecretResponse,
 };
+use secretkeeper_comm::data_types::Id;
 use secretkeeper_comm::data_types::response::Response;
 use secretkeeper_core::{AuthCapableStorage, KeyValueStore};
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::{
@@ -51,6 +52,22 @@ impl Interface for NonSecureSecretkeeper {}
 impl ISecretkeeper for NonSecureSecretkeeper {
     fn processSecretManagementRequest(&self, request: &[u8]) -> binder::Result<Vec<u8>> {
         Ok(self.process_opaque_request(request))
+    }
+
+    fn deleteById(&self, id: &[u8]) -> binder::Result<()> {
+        // TODO: maybe index using the internal bstr
+        info!("Id, size {:?}", id.len());
+        let id = Id::from_slice(id).unwrap();
+        info!("Id.from_slice(id).unwrap().0.len(): {:?}", id.0.len());
+        // TODO: dont ignore error
+        let _ = self.store.delete_by_id(&id);
+        Ok(())
+    }
+
+    fn deleteAll(&self) -> binder::Result<()> {
+        // TODO: dont ignore error
+        let _ = self.store.delete_all();
+        Ok(())
     }
 }
 
@@ -171,6 +188,15 @@ impl KeyValueStore for InMemoryStore {
 
         let optional_val = db.get(key);
         Ok(optional_val.cloned())
+    }
+
+    fn delete_by_key(&self, key: &[u8]) -> Result<(), Error> {
+        let _ = self.0.lock().unwrap().remove(key);
+        Ok(())
+    }
+    fn delete_all(&self) -> Result<(), Error> {
+        self.0.lock().unwrap().clear();
+        Ok(())
     }
 }
 

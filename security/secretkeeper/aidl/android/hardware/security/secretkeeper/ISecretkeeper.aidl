@@ -71,4 +71,20 @@ interface ISecretkeeper {
      * @return CBOR-encoded ProtectedResponsePacket. See SecretManagement.cddl for its definition
      */
     byte[] processSecretManagementRequest(in byte[] request);
+
+    /**
+     * Delete the data corresponding to an `id`.
+     * Note: Unlike requests for `processSecretManagementRequest`, deleteSecret are in plaintext.
+     * Further, there is no client authentication required.
+     *
+     * @param CBOR-encoded Id. See SecretManagement.cddl for its definition.
+     */
+    void deleteById(in byte[] id);
+
+    /**
+     * Delete data of all clients.
+     *
+     * @param CBOR-encoded Id. See SecretManagement.cddl for its definition.
+     */
+    void deleteAll();
 }

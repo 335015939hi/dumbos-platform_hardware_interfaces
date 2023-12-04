@@ -35,4 +35,6 @@ package android.hardware.security.secretkeeper;
 @VintfStability
 interface ISecretkeeper {
   byte[] processSecretManagementRequest(in byte[] request);
+  void deleteById(in byte[] id);
+  void deleteAll();
 }
