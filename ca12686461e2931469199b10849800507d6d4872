@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7826d1be_a5e7912b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-04T20:07:11Z",
+      "side": 1,
+      "message": "Great job! Left a couple of small comments",
+      "revId": "ca12686461e2931469199b10849800507d6d4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b90c74e_988e0bb8",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/SecurityLevel.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-04T20:07:11Z",
+      "side": 1,
+      "message": "WDYT about we change this to CsSecurityLevel to avoid confusion with the BLE security level?",
+      "revId": "ca12686461e2931469199b10849800507d6d4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34fe0b3f_7f9c2210",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-04T20:07:11Z",
+      "side": 1,
+      "message": "nit: Nadm isn\u0027t normalized",
+      "range": {
+        "startLine": 81,
+        "startChar": 9,
+        "endLine": 81,
+        "endChar": 19
+      },
+      "revId": "ca12686461e2931469199b10849800507d6d4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
