@@ -25,6 +25,7 @@
 #include <binder/IServiceManager.h>
 #include <cppbor.h>
 #include <cppbor_parse.h>
+#include <cutils/properties.h>
 #include <gmock/gmock.h>
 #include <keymaster/cppcose/cppcose.h>
 #include <keymaster/keymaster_configuration.h>
@@ -70,6 +71,13 @@ using bytevec = std::vector<uint8_t>;
 using testing::MatchesRegex;
 using namespace remote_prov;
 using namespace keymaster;
+
+void checkRkpSupportLevel() {
+    int32_t apiLevel = property_get_int32("ro.product.first_api_level", 0);
+    if (apiLevel < __ANDROID_API_T__) {
+        GTEST_SKIP() << "RKP is only required starting with Android 13/T.";
+    }
+}
 
 bytevec string_to_bytevec(const char* s) {
     const uint8_t* p = reinterpret_cast<const uint8_t*>(s);
@@ -178,6 +186,8 @@ bool matching_keymint_device(const string& rp_name, std::shared_ptr<IKeyMintDevi
 class VtsRemotelyProvisionedComponentTests : public testing::TestWithParam<std::string> {
   public:
     virtual void SetUp() override {
+        checkRkpSupportLevel();
+
         if (AServiceManager_isDeclared(GetParam().c_str())) {
             ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
             provisionable_ = IRemotelyProvisionedComponent::fromBinder(binder);
@@ -205,6 +215,7 @@ class VtsRemotelyProvisionedComponentTests : public testing::TestWithParam<std::
  * Verify that every implementation reports a different unique id.
  */
 TEST(NonParameterizedTests, eachRpcHasAUniqueId) {
+    checkRkpSupportLevel();
     std::set<std::string> uniqueIds;
     for (auto hal : ::android::getAidlHalInstanceNames(IRemotelyProvisionedComponent::descriptor)) {
         ASSERT_TRUE(AServiceManager_isDeclared(hal.c_str()));
