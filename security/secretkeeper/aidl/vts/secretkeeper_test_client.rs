@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-#[cfg(test)]
+#![cfg(test)]
+
 use binder::StatusCode;
 use coset::CborSerializable;
-use log::warn;
+use log::{info,warn};
 use secretkeeper_comm::data_types::error::SecretkeeperError;
 use secretkeeper_comm::data_types::request::Request;
 use secretkeeper_comm::data_types::request_response_impl::{
@@ -29,21 +30,35 @@ use android_hardware_security_secretkeeper::aidl::android::hardware::security::s
 use authgraph_vts_test as ag_vts;
 use authgraph_core::key;
 
-const SECRETKEEPER_IDENTIFIER: &str =
-    "android.hardware.security.secretkeeper.ISecretkeeper/nonsecure";
+const SECRETKEEPER_SERVICE: &str = "android.hardware.security.secretkeeper.ISecretkeeper";
+const SECRETKEEPER_INSTANCES: [&'static str; 2] = ["nonsecure", "default"];
 const CURRENT_VERSION: u64 = 1;
 
 fn get_connection() -> Option<binder::Strong<dyn ISecretkeeper>> {
-    match binder::get_interface(SECRETKEEPER_IDENTIFIER) {
-        Ok(sk) => Some(sk),
-        Err(StatusCode::NAME_NOT_FOUND) => None,
-        Err(e) => {
-            panic!(
-                "unexpected error while fetching connection to Secretkeeper {:?}",
-                e
-            );
+    // Initialize logging (which is OK to call multiple times).
+    logger::init(logger::Config::default().with_min_level(log::Level::Debug));
+
+    // TODO: replace this with a parameterized set of tests that run for each available instance of
+    // ISecretkeeper (rather than having a fixed set of instance names to look for).
+    for instance in &SECRETKEEPER_INSTANCES {
+        let name = format!("{SECRETKEEPER_SERVICE}/{instance}");
+        match binder::get_interface(&name) {
+            Ok(sk) => {
+                info!("Running test against /{instance}");
+                return Some(sk);
+            }
+            Err(StatusCode::NAME_NOT_FOUND) => {
+                info!("No /{instance} instance of ISecretkeeper present");
+            }
+            Err(e) => {
+                panic!(
+                    "unexpected error while fetching connection to Secretkeeper {:?}",
+                    e
+                );
+            }
         }
     }
+    None
 }
 fn authgraph_key_exchange(sk: binder::Strong<dyn ISecretkeeper>) -> [key::AesKey; 2] {
     let sink = sk.getAuthGraphKe().expect("failed to get AuthGraph");
