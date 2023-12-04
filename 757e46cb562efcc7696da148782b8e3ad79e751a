@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "938b7740_2e6a2234",
+        "filename": "security/secretkeeper/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-04T22:36:47Z",
+      "side": 1,
+      "message": "Its part of the topic: Introduced in aosp/2855619",
+      "parentUuid": "6e400fc1_07864be7",
+      "range": {
+        "startLine": 45,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 37
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "134a3a51_3b9f08aa",
@@ -88,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f00f5c4f_1454d9e4",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-04T22:36:47Z",
+      "side": 1,
+      "message": "Done. Thanks",
+      "parentUuid": "c5abc93e_c0f62dd8",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 137
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "885b856d_d0f5b664",
@@ -111,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b79c11c3_2b50f875",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-04T22:36:47Z",
+      "side": 1,
+      "message": "`Default` cannot be derived if `AuthCapableStorage` (previously `SecretkeeperStore`) doesn\u0027t have default. The latter is deliberate, we do not want to initialize it with an In-Memory store by default.",
+      "parentUuid": "885b856d_d0f5b664",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2846187_3c218e48",
@@ -124,6 +196,30 @@
       "writtenOn": "2023-11-28T10:50:05Z",
       "side": 1,
       "message": "The comment suggests this is a bad name (or you wouldn\u0027t need the comment).\nTBH I\u0027d just call it \"store\". It doesn\u0027t store auths :-)",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 14
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cda71bfc_85debf86",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-04T22:36:47Z",
+      "side": 1,
+      "message": "Ive renamed `SecretkeeperStore` -\u003e AuthCapableStorage. That makes more sense.",
+      "parentUuid": "f2846187_3c218e48",
       "range": {
         "startLine": 44,
         "startChar": 4,
