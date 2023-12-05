@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3773a3d4_bcc798e2",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-05T10:30:29Z",
+      "side": 1,
+      "message": "nit: mention provenance of test data -- presumably these are just random bytes?",
+      "revId": "70381b467995668fd039e0503cf9241dff6a88e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4811a04a_992653f2",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-05T10:30:29Z",
+      "side": 1,
+      "message": "super-nit: seems inconsistent to use `hex::decode` for one piece of test data but not for others",
+      "revId": "70381b467995668fd039e0503cf9241dff6a88e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
