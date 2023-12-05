@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbf313f8_d2dae24e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-05T07:39:43Z",
+      "side": 1,
+      "message": "\"Maintenance\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "2312d1833d5cc67268491ea60545ed94d8c35691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb27c07d_1739ebbb",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-05T07:39:43Z",
+      "side": 1,
+      "message": "s/deleteSecret/`deleteById` requests/",
+      "range": {
+        "startLine": 77,
+        "startChar": 67,
+        "endLine": 77,
+        "endChar": 79
+      },
+      "revId": "2312d1833d5cc67268491ea60545ed94d8c35691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb51c995_7d3a0c07",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-05T07:39:43Z",
+      "side": 1,
+      "message": "This sounds scary -- maybe have some context?",
+      "revId": "2312d1833d5cc67268491ea60545ed94d8c35691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b9eb8cd_28c79f74",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-05T07:39:43Z",
+      "side": 1,
+      "message": "no param here",
+      "revId": "2312d1833d5cc67268491ea60545ed94d8c35691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2f267a7_5f4139e0",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-05T07:39:43Z",
+      "side": 1,
+      "message": "You\u0027re going to need to get rid of the `unwrap()` sooner or later, so why not sooner?",
+      "range": {
+        "startLine": 60,
+        "startChar": 35,
+        "endLine": 60,
+        "endChar": 42
+      },
+      "revId": "2312d1833d5cc67268491ea60545ed94d8c35691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a7569f5_c6a4c2ea",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-05T07:39:43Z",
+      "side": 1,
+      "message": "Are the log lines left over from an experiment? They seem a bit odd.",
+      "revId": "2312d1833d5cc67268491ea60545ed94d8c35691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
