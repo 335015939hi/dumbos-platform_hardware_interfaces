@@ -61,13 +61,11 @@ impl State {
 }
 
 pub fn makeraw(file: File) -> io::Result<File> {
-    let fd = file.as_raw_fd();
-
-    // Configure the file descritpro as raw fd.
+    // Configure the file descriptor as raw fd.
     use nix::sys::termios::*;
-    let mut attrs = tcgetattr(fd)?;
+    let mut attrs = tcgetattr(&file)?;
     cfmakeraw(&mut attrs);
-    tcsetattr(fd, SetArg::TCSANOW, &attrs)?;
+    tcsetattr(&file, SetArg::TCSANOW, &attrs)?;
 
     Ok(file)
 }
