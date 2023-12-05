@@ -39,6 +39,30 @@
       },
       "revId": "60199511a5d847a8d594eb383f9db28d0f2be3e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "453a04d0_79413d42",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1886547
+      },
+      "writtenOn": "2023-12-05T20:06:25Z",
+      "side": 1,
+      "message": "Why do we need to run this every time , say if response doesnt have LTE_CA at all",
+      "parentUuid": "14755500_b09c3512",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 92
+      },
+      "revId": "60199511a5d847a8d594eb383f9db28d0f2be3e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
