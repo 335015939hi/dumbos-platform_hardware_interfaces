@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14103b20_fb76fe86",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-05T06:19:23Z",
+      "side": 1,
+      "message": "If there\u0027s some reason that the `Arc\u003cMutex\u003c .. \u003e\u003e` is needed temporarily, can we have a TODO as a reminder to remove it?",
+      "revId": "4b42a59c578070d91890e2efb54ed6acf2a9f7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61dfd39c_2ad44da3",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-05T06:19:23Z",
+      "side": 1,
+      "message": "error -\u003e info? (x2)",
+      "revId": "4b42a59c578070d91890e2efb54ed6acf2a9f7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
