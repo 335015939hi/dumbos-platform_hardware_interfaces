@@ -16,6 +16,24 @@
       "message": "Won\u0027t this possibly wind up skipping validating implementations for manufacturers that do choose to ship RKP on VSR-12?",
       "revId": "35817461e39a2bc6768c6808432212012ebe42ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da3de448_7d5331a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-12-05T14:14:01Z",
+      "side": 1,
+      "message": "We talked about skipping only on VSR-12 if the HAL is not present so that devices with the HAL are still run against the tests, but it doesn\u0027t require the HAL to be present.",
+      "parentUuid": "32ef7829_fe59238c",
+      "revId": "35817461e39a2bc6768c6808432212012ebe42ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
