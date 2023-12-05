@@ -242,6 +242,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fd7630e3_f54ae0a7",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSounding.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-05T09:14:27Z",
+      "side": 1,
+      "message": "Yes, LE pairing security level is (currently) independent from the CS level.\nIf they are not independent in the future, we should handle the logic in the Bluetooth stack.  \nSure, let\u0027s change the name to getMaxSupportedCsSecurityLevel\nMany thanks!",
+      "parentUuid": "c4cf1907_5e8c3e9c",
+      "range": {
+        "startLine": 56,
+        "startChar": 18,
+        "endLine": 56,
+        "endChar": 46
+      },
+      "revId": "16c7aba9b698e8c7cc1f5cae812d27fdf4ac1f14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1f641ca0_08500fdb",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
         "patchSetId": 11

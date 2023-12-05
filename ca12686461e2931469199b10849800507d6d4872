@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b897404_6ad611b0",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/SecurityLevel.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-05T09:14:27Z",
+      "side": 1,
+      "message": "Sounds good, thanks!",
+      "parentUuid": "3b90c74e_988e0bb8",
+      "revId": "ca12686461e2931469199b10849800507d6d4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34fe0b3f_7f9c2210",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-12-04T20:07:11Z",
       "side": 1,
       "message": "nit: Nadm isn\u0027t normalized",
+      "range": {
+        "startLine": 81,
+        "startChar": 9,
+        "endLine": 81,
+        "endChar": 19
+      },
+      "revId": "ca12686461e2931469199b10849800507d6d4872",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0986121_fa25d6d3",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-05T09:14:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34fe0b3f_7f9c2210",
       "range": {
         "startLine": 81,
         "startChar": 9,
