@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32ef7829_fe59238c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2023-12-05T12:28:07Z",
+      "side": 1,
+      "message": "Won\u0027t this possibly wind up skipping validating implementations for manufacturers that do choose to ship RKP on VSR-12?",
+      "revId": "35817461e39a2bc6768c6808432212012ebe42ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
