@@ -49,6 +49,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d851f547_b3165823",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-05T17:32:34Z",
+      "side": 1,
+      "message": "I suspect we should allow passing a bunch of Ids, rather than requiring a call per Id.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 34
+      },
+      "revId": "2312d1833d5cc67268491ea60545ed94d8c35691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb51c995_7d3a0c07",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
         "patchSetId": 1
