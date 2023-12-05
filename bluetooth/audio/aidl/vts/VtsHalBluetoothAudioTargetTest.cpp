@@ -33,6 +33,7 @@
 
 using aidl::android::hardware::audio::common::SinkMetadata;
 using aidl::android::hardware::audio::common::SourceMetadata;
+using aidl::android::hardware::bluetooth::audio::A2dpStatus;
 using aidl::android::hardware::bluetooth::audio::AacCapabilities;
 using aidl::android::hardware::bluetooth::audio::AacConfiguration;
 using aidl::android::hardware::bluetooth::audio::AptxAdaptiveLeCapabilities;
@@ -49,6 +50,7 @@ using aidl::android::hardware::bluetooth::audio::CodecConfiguration;
 using aidl::android::hardware::bluetooth::audio::CodecId;
 using aidl::android::hardware::bluetooth::audio::CodecInfo;
 using aidl::android::hardware::bluetooth::audio::CodecType;
+using aidl::android::hardware::bluetooth::audio::CodecParameters;
 using aidl::android::hardware::bluetooth::audio::IBluetoothAudioPort;
 using aidl::android::hardware::bluetooth::audio::IBluetoothAudioProvider;
 using aidl::android::hardware::bluetooth::audio::IBluetoothAudioProviderFactory;
@@ -71,6 +73,9 @@ using aidl::android::hardware::bluetooth::audio::SbcCapabilities;
 using aidl::android::hardware::bluetooth::audio::SbcChannelMode;
 using aidl::android::hardware::bluetooth::audio::SbcConfiguration;
 using aidl::android::hardware::bluetooth::audio::SessionType;
+using aidl::android::hardware::bluetooth::audio::A2dpRemoteCapabilities;
+using aidl::android::hardware::bluetooth::audio::A2dpConfiguration;
+using aidl::android::hardware::bluetooth::audio::A2dpConfigurationHint;
 using aidl::android::hardware::bluetooth::audio::UnicastCapability;
 using aidl::android::hardware::common::fmq::MQDescriptor;
 using aidl::android::hardware::common::fmq::SynchronizedReadWrite;
@@ -689,6 +694,177 @@ TEST_P(BluetoothAudioProviderFactoryAidl, getProviderInfo_leAudioSessionTypes) {
       // ASSERT_EQ(codec_info.transport.getTag(),
       // CodecInfo::Transport::le_audio);
     }
+  }
+}
+
+class BluetoothAudioProviderAidl
+    : public BluetoothAudioProviderFactoryAidl {
+  protected:
+    std::optional<IBluetoothAudioProviderFactory::ProviderInfo> a2dp_encoding_provider_info_{};
+    std::optional<IBluetoothAudioProviderFactory::ProviderInfo> a2dp_decoding_provider_info_{};
+    std::shared_ptr<IBluetoothAudioProvider> a2dp_encoding_provider_{nullptr};
+    std::shared_ptr<IBluetoothAudioProvider> a2dp_decoding_provider_{nullptr};
+
+  public:
+    void SetUp() override {
+      BluetoothAudioProviderFactoryAidl::SetUp();
+
+      (void)provider_factory_->getProviderInfo(
+        SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
+        &a2dp_encoding_provider_info_);
+
+      (void)provider_factory_->getProviderInfo(
+        SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH,
+        &a2dp_decoding_provider_info_);
+
+      (void)provider_factory_->openProvider(
+        SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
+        &a2dp_encoding_provider_);
+
+      (void)provider_factory_->openProvider(
+        SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH,
+        &a2dp_decoding_provider_);
+    }
+};
+
+/**
+ * Calling parseA2dpConfiguration on a session of a different type than
+ * A2DP_HARDWARE_OFFLOAD_(ENCODING|DECODING)_DATAPATH must fail.
+ */
+TEST_P(BluetoothAudioProviderAidl, parseA2dpParameters_invalidSessionType) {
+  static constexpr SessionType kInvalidSessionTypes[] = {
+      SessionType::UNKNOWN,
+      SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH,
+      SessionType::HEARING_AID_SOFTWARE_ENCODING_DATAPATH,
+      SessionType::LE_AUDIO_SOFTWARE_ENCODING_DATAPATH,
+      SessionType::LE_AUDIO_SOFTWARE_DECODING_DATAPATH,
+      SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
+      SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH,
+      SessionType::LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH,
+      SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
+      SessionType::A2DP_SOFTWARE_DECODING_DATAPATH,
+  };
+
+  for (auto session_type : kInvalidSessionTypes) {
+    // Open a BluetoothAudioProvider instance of the selected session type.
+    // Skip validation if the provider cannot be opened.
+    std::shared_ptr<IBluetoothAudioProvider> provider{nullptr};
+    (void)provider_factory_->openProvider(session_type, &provider);
+    if (provider == nullptr) {
+      continue;
+    }
+
+    // parseA2dpConfiguration must fail without returning an A2dpStatus.
+    CodecId codec_id(CodecId::A2dp::SBC);
+    CodecParameters codec_parameters;
+    A2dpStatus a2dp_status = A2dpStatus::OK;
+    auto aidl_retval = provider->parseA2dpConfiguration(
+      codec_id, std::vector<uint8_t>{}, &codec_parameters, &a2dp_status);
+    EXPECT_FALSE(aidl_retval.isOk());
+  }
+}
+
+/**
+ * Calling parseA2dpConfiguration with an unknown codec must fail
+ * with the A2dpStatus code INVALID_CODEC_TYPE or NOT_SUPPORTED_CODEC_TYPE.
+ */
+TEST_P(BluetoothAudioProviderAidl, parseA2dpParameters_unsupportedCodecType) {
+  CodecId unsupported_core_id(CodecId::Core::CVSD);
+  CodecId unsupported_vendor_id(CodecId::Vendor(0xFCB1, 0x42)); // Google Codec #42
+
+  for (auto& provider : {a2dp_encoding_provider_, a2dp_decoding_provider_}) {
+    if (provider == nullptr) {
+      continue;
+    }
+
+    CodecParameters codec_parameters;
+    A2dpStatus a2dp_status = A2dpStatus::OK;
+    ::ndk::ScopedAStatus aidl_retval;
+
+    // Test with two invalid codec identifiers: vendor or core.
+    aidl_retval = provider->parseA2dpConfiguration(
+      unsupported_core_id, std::vector<uint8_t>{}, &codec_parameters, &a2dp_status);
+    EXPECT_TRUE(!aidl_retval.isOk() ||
+                a2dp_status == A2dpStatus::NOT_SUPPORTED_CODEC_TYPE);
+
+    aidl_retval = provider->parseA2dpConfiguration(
+      unsupported_vendor_id, std::vector<uint8_t>{}, &codec_parameters, &a2dp_status);
+    EXPECT_TRUE(!aidl_retval.isOk() ||
+                a2dp_status == A2dpStatus::NOT_SUPPORTED_CODEC_TYPE);
+  }
+}
+
+/**
+ * Calling parseA2dpConfiguration with a known codec and invalid configuration
+ * must fail with an A2dpStatus code different from INVALID_CODEC_TYPE or
+ * NOT_SUPPORTED_CODEC_TYPE.
+ */
+TEST_P(BluetoothAudioProviderAidl, parseA2dpParameters_invalidConfiguration) {
+  for (auto& [provider, provider_info] : {
+      std::pair(a2dp_encoding_provider_, a2dp_encoding_provider_info_),
+      std::pair(a2dp_decoding_provider_, a2dp_decoding_provider_info_)}) {
+    if (provider == nullptr || !provider_info.has_value() ||
+        provider_info->codecInfos.empty()) {
+      continue;
+    }
+
+    CodecParameters codec_parameters;
+    A2dpStatus a2dp_status = A2dpStatus::OK;
+    ::ndk::ScopedAStatus aidl_retval;
+
+    // Test with the first available codec in the provider info for testing.
+    // The test runs with an empty parameters array, anything more specific
+    // would need understanding the codec.
+    aidl_retval = provider->parseA2dpConfiguration(
+      provider_info->codecInfos[0].id, std::vector<uint8_t>{},
+      &codec_parameters, &a2dp_status);
+    ASSERT_TRUE(aidl_retval.isOk());
+    EXPECT_TRUE(a2dp_status != A2dpStatus::OK &&
+                a2dp_status != A2dpStatus::NOT_SUPPORTED_CODEC_TYPE &&
+                a2dp_status != A2dpStatus::INVALID_CODEC_TYPE);
+  }
+}
+
+/**
+ * Calling parseA2dpConfiguration with a known codec and valid parameters
+ * must return with A2dpStatus OK.
+ */
+TEST_P(BluetoothAudioProviderAidl, parseA2dpParameters_valid) {
+  for (auto& [provider, provider_info] : {
+      std::pair(a2dp_encoding_provider_, a2dp_encoding_provider_info_),
+      std::pair(a2dp_decoding_provider_, a2dp_decoding_provider_info_)}) {
+    if (provider == nullptr || !provider_info.has_value() ||
+        provider_info->codecInfos.empty()) {
+      continue;
+    }
+
+    CodecParameters codec_parameters;
+    A2dpStatus a2dp_status = A2dpStatus::OK;
+    ::ndk::ScopedAStatus aidl_retval;
+
+    // Test with the first available codec in the provider info for testing.
+    // To get a valid configuration (the capabilities array in the provider
+    // info is not a selection), getA2dpConfiguration is used with the
+    // selected codec parameters as input.
+    auto const& codec_info = provider_info->codecInfos[0];
+    auto transport =
+      codec_info.transport.get<CodecInfo::Transport::a2dp>();
+    A2dpRemoteCapabilities remote_capabilities(/*seid*/ 0,
+      codec_info.id,
+      transport.capabilities);
+    std::optional<A2dpConfiguration> configuration;
+    aidl_retval = provider->getA2dpConfiguration(
+      std::vector<A2dpRemoteCapabilities>{remote_capabilities},
+      A2dpConfigurationHint(), &configuration);
+    ASSERT_TRUE(aidl_retval.isOk());
+    ASSERT_TRUE(configuration.has_value());
+
+    aidl_retval = provider->parseA2dpConfiguration(
+      configuration->id, configuration->configuration,
+      &codec_parameters, &a2dp_status);
+    ASSERT_TRUE(aidl_retval.isOk());
+    EXPECT_TRUE(a2dp_status == A2dpStatus::OK);
+    EXPECT_EQ(codec_parameters, configuration->parameters);
   }
 }
 
@@ -2187,6 +2363,13 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(
     BluetoothAudioProviderFactoryAidl);
 INSTANTIATE_TEST_SUITE_P(PerInstance, BluetoothAudioProviderFactoryAidl,
+                         testing::ValuesIn(android::getAidlHalInstanceNames(
+                             IBluetoothAudioProviderFactory::descriptor)),
+                         android::PrintInstanceNameToString);
+
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(
+    BluetoothAudioProviderAidl);
+INSTANTIATE_TEST_SUITE_P(PerInstance, BluetoothAudioProviderAidl,
                          testing::ValuesIn(android::getAidlHalInstanceNames(
                              IBluetoothAudioProviderFactory::descriptor)),
                          android::PrintInstanceNameToString);
