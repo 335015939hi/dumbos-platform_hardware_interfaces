@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e69eb18e_fae7a531",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1244622
+      },
+      "writtenOn": "2023-12-05T18:43:43Z",
+      "side": 1,
+      "message": "CL requires owner CR+2.",
+      "revId": "60199511a5d847a8d594eb383f9db28d0f2be3e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14755500_b09c3512",
