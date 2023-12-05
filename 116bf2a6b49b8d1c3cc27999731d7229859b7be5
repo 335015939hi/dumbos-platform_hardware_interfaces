@@ -16,6 +16,24 @@
       "message": "Is this CL required because there is a change in the interface (from a file descriptor to File) ?",
       "revId": "116bf2a6b49b8d1c3cc27999731d7229859b7be5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61afd04b_ae7e2fc8",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1380243
+      },
+      "writtenOn": "2023-12-05T17:32:35Z",
+      "side": 1,
+      "message": "These function previously took a `RawFd`, now they take anything implementing `AsFd`, which `File` and `\u0026File` do.",
+      "parentUuid": "004f7533_0006d510",
+      "revId": "116bf2a6b49b8d1c3cc27999731d7229859b7be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
