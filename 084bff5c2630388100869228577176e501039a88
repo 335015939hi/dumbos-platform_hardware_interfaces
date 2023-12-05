@@ -22,6 +22,30 @@
       },
       "revId": "084bff5c2630388100869228577176e501039a88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "942a032f_ea93d45b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/LeAudioAseConfiguration.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-05T11:34:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52051b8a_022c6d1a",
+      "range": {
+        "startLine": 59,
+        "startChar": 7,
+        "endLine": 59,
+        "endChar": 16
+      },
+      "revId": "084bff5c2630388100869228577176e501039a88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
