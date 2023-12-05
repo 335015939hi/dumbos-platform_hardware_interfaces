@@ -73,6 +73,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a41fdbbd_a7e86bec",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1767925
+      },
+      "writtenOn": "2023-12-05T11:30:18Z",
+      "side": 1,
+      "message": "We found that some more params required for different channel sounding modes(mode 0 to 2). Different vendors may require these parameters based on their algorithm implementation.\n\nAlso qcom may requires vendor specific param for ChannelSoundingSingleSideData to hanlde AOA or any other features also in near term.\n\ncan you please review below requied/missing params?\n\nInt8   aaQual           /*   (mode 0 and 1)      Access address quality */\nInt8  freqOff[3]        /*   (mode 0) Measured frequency offset - initiator only */\nInt16 freqCmp         /*  (mode 0) Frequency compensation - initiator only */\nUint16 Security       /*   (mode 1) Security */\nInt8  timeEst[3]       /*  (mode 1) Time estimate  */\nUint8 antPerm        /*  (mode 2) Antenna permutation index */\n\n@nullable byte[] vendorSpecificCSSingleSidedata                                  /* vendor specific params required  in ChannelSoundingSingleSideData AIDL for qcom */",
+      "range": {
+        "startLine": 36,
+        "startChar": 11,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5e5963_6bcb4e7a",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/Config.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1767925
+      },
+      "writtenOn": "2023-12-05T11:30:18Z",
+      "side": 1,
+      "message": "BCS Config params will be multiple sets identified with different config IDs.\n\n  config_id;\n  Create_Context\n  main_mode_type;\n  sub_mode_type;\n  main_mode_min_steps;\n  main_mode_max_steps;\n  main_mode_rep;\n  mode_0_steps;\n  role;\n  rtt_type;\n  cs_sync_phy;\n  channel_map[CS_CHANNEL_MAP_SIZE];\n  channel_map_rep;\n  Channel_Selection_Type;\n  Ch3c_Shape;\n  Ch3c_Jump;\n  comp_signal_enable;\n\n Is there any approach finalized to provide config parameters to BT stack??\n    New conf file provided for BCS ?? Or config params will be fetched from vendor HAL ??\n\n\nProcedure parameters also will be multiple sets inline with config params.\n\nConfig_ID,\nMax_Procedure_Len,\nMin_Procedure_Interval,\nMax_Procedure_Interval,\nMax_Procedure_Count,\nMin_Subevent_Len,\nMax_Subevent_Len,\nTone_Antenna_Config_Selection,\nPHY,\nTx_Pwr_Delta,\nPreferred_Peer_Antenna\n\n\n Is there any approach finalized to provide Procedure parameters to BT stack??\n    New conf file provided for BCS ?? Or Procedure parameters will be fetched from vendor HAL ??",
+      "range": {
+        "startLine": 36,
+        "startChar": 11,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "509caec7_4eef686a",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1767925
+      },
+      "writtenOn": "2023-12-05T11:30:18Z",
+      "side": 1,
+      "message": "Qcom may requires vendor specific param for RangingResult to hanlde AOA or any other features also in near term.\n\ncan you please review below required param?\n\n@nullable byte[] vendorSpecificCSRangingResultsdata                       /* vendor specific params required  in RangingResult AIDL for qcom */",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 11
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f42b45e_9c3fe920",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/AddressType.aidl",
         "patchSetId": 4
