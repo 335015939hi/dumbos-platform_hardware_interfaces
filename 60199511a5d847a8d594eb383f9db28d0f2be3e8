@@ -63,6 +63,30 @@
       },
       "revId": "60199511a5d847a8d594eb383f9db28d0f2be3e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "908abe65_59edd383",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1886547
+      },
+      "writtenOn": "2023-12-05T20:17:54Z",
+      "side": 1,
+      "message": "Also from the comment , we are sure the respone, is suppose to receive just LTE and LTE CA as per understanding .\n\nRef : \nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/+/tm-qpr-dev:vendor/samsung_slsi/telephony/s5300/exynos-ril/sitril/protocol/sit/core/protocolnetadapter.cpp;l\u003d2532",
+      "parentUuid": "453a04d0_79413d42",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 92
+      },
+      "revId": "60199511a5d847a8d594eb383f9db28d0f2be3e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
