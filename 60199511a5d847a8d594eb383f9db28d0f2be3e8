@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14755500_b09c3512",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2023-12-05T18:22:16Z",
+      "side": 1,
+      "message": "shouldn\u0027t it be like this?\n\n```\nif (aidl \u003c 2) {\n    networkTypeBitmapResponse \u0026\u003d ~LTE_CA\n}\n```",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 92
+      },
+      "revId": "60199511a5d847a8d594eb383f9db28d0f2be3e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
