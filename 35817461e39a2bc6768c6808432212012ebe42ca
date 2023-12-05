@@ -70,6 +70,24 @@
       "parentUuid": "85ef125f_e3cf9ee9",
       "revId": "35817461e39a2bc6768c6808432212012ebe42ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1279978_ce28c90d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-12-05T18:25:28Z",
+      "side": 1,
+      "message": "The missing tests in the case that the tests are expected to be run was made Max turn his nose up. Would it be difficult to drop in a `getAidlHalInstanceNames()` in the check to see if there are any HALs to test?\n\nMax, how badly did you dislike the removal of all testing?",
+      "parentUuid": "a00e2c91_60fa7215",
+      "revId": "35817461e39a2bc6768c6808432212012ebe42ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
