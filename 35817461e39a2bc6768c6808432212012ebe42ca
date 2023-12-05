@@ -34,6 +34,24 @@
       "parentUuid": "32ef7829_fe59238c",
       "revId": "35817461e39a2bc6768c6808432212012ebe42ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85ef125f_e3cf9ee9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-12-05T16:23:15Z",
+      "side": 1,
+      "message": "This only skips implementations on devices that initially shipped with Android \u003c 13. So this only skips VTS tests on a relatively small number of devices. Those devices still have to pass GTS, so we know RKP will work on them.\n\nAny device shipping with Android 13+ (which should be the vast majority of devices now) will have to pass VTS as well.\n\nAre there concerns about missing coverage if we don\u0027t run VTS on the devices that did ship with RKP + Android 12 (e.g. Pixel 6).",
+      "parentUuid": "da3de448_7d5331a8",
+      "revId": "35817461e39a2bc6768c6808432212012ebe42ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
