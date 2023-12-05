@@ -403,6 +403,30 @@
       },
       "revId": "a13d449fc851b683c45965e5115e68da922e484a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05089963_4742df0b",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-05T12:49:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38698fec_483bd465",
+      "range": {
+        "startLine": 390,
+        "startChar": 38,
+        "endLine": 390,
+        "endChar": 55
+      },
+      "revId": "a13d449fc851b683c45965e5115e68da922e484a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

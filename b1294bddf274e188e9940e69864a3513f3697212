@@ -16,6 +16,24 @@
       "message": "Looking at the presubmit run, it seems suspicious to me that more than half of the test cases are ignored:\n\n```\nVtsHalDownmixTargetTest \n All passed (464 ignored) 677\n DownmixTest/DownmixFoldDataTest \n   All passed (464 ignored) 650\n DownmixTest/DownmixParamTest \n   All passed 2\n DownmixTest/DownmixStripDataTest \n   All passed 25\n```\n\nShould parameters for `DownmixFoldDataTest` be adjusted to avoid trying combinations that are ignored?",
       "revId": "b1294bddf274e188e9940e69864a3513f3697212",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1dfdb24_2d0b6713",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2023-12-05T12:49:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d838980_63dfdd99",
+      "revId": "b1294bddf274e188e9940e69864a3513f3697212",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
