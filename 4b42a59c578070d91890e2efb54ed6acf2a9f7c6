@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3094f4db_26e34364",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-05T15:03:30Z",
+      "side": 1,
+      "message": "Ideally this CL \u0026 the next one would be squashed together - I don\u0027t like introducing a type that isn\u0027t used, it\u0027s hard to tell if it\u0027s right.\nBut no need at this stage.",
+      "revId": "4b42a59c578070d91890e2efb54ed6acf2a9f7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14103b20_fb76fe86",
