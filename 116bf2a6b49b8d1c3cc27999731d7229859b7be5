@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "004f7533_0006d510",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1955705
+      },
+      "writtenOn": "2023-12-05T17:22:13Z",
+      "side": 1,
+      "message": "Is this CL required because there is a change in the interface (from a file descriptor to File) ?",
+      "revId": "116bf2a6b49b8d1c3cc27999731d7229859b7be5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
