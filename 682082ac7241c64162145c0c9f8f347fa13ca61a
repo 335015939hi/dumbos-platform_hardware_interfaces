@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "847f71b7_fd5d8729",
+        "filename": "bluetooth/audio/aidl/default/HfpSoftwareAudioProvider.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2023-12-06T03:00:49Z",
+      "side": 1,
+      "message": "Wrong name, per .h file it\u0027s `HfpSoftwareAudioOutputProvider`\n\nSame for the input provider",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 30
+      },
+      "revId": "682082ac7241c64162145c0c9f8f347fa13ca61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "784ca63d_caeda59c",
+        "filename": "bluetooth/audio/aidl/default/HfpSoftwareAudioProvider.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2023-12-06T03:00:49Z",
+      "side": 1,
+      "message": "Should be checking `\u0026\u0026` condition",
+      "revId": "682082ac7241c64162145c0c9f8f347fa13ca61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
