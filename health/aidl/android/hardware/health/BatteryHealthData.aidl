@@ -16,6 +16,8 @@
 
 package android.hardware.health;
 
+import android.hardware.health.BatteryPartStatus;
+
 /*
  * Battery health data
  */
@@ -36,4 +38,13 @@ parcelable BatteryHealthData {
      * Otherwise, value must be in the range 0 to 100.
      */
     long batteryStateOfHealth;
+    /**
+     * Serial number of the battery. Null if not supported. If supported, a string of at least 6
+     * case-insensitive alphanumeric characters.
+     */
+    @nullable String batterySerial;
+    /**
+     * Indicator for part originality of the battery.
+     */
+    BatteryPartStatus batteryPartStatus = BatteryPartStatus.UNSUPPORTED;
 }
