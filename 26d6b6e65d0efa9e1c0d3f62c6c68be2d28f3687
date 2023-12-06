@@ -148,6 +148,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e664177_db83496a",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-06T11:55:02Z",
+      "side": 1,
+      "message": "For future reference, the `!` in the previous comment was needed/relevant (so that it becomes an inner attribute that applies to the whole module).",
+      "parentUuid": "0eb92df2_4ac58bed",
+      "revId": "26d6b6e65d0efa9e1c0d3f62c6c68be2d28f3687",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4cbe7493_5af31b68",
