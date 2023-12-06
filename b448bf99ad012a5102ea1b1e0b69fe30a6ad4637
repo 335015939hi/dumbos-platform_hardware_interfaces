@@ -94,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "beeb0101_263a27a2",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-06T11:47:43Z",
+      "side": 1,
+      "message": "// Int8 aaQual /* (mode 0 and 1) Access address quality\nThis is \u0027Packet_Quality\u0027 which already defined as  byte[] packetQuality\n\n// Int8 freqOff[3] / (mode 0) Measured frequency offset - initiator only \n// Int16 freqCmp / (mode 0) Frequency compensation - initiator only\nI think these two parameters are related to \u0027Measured_Freq_Offset\u0027 in the spec, whose size are 2 octets. The spec does define Frequency compensation.\n\n// Uint16 Security / (mode 1) Security\nI can\u0027t find parameter call \u0027Security\u0027 for mode 1 in the spec, is this Packet_NADM?\n\n//Int8 timeEst[3] / (mode 1) Time estimate\nI can\u0027t find parameter call \u0027timeEst\u0027 for mode 1 in the spec, is this toa_tod_initiator - tod_toa_reflector? If yes, we already have parameters for them\n\n// Uint8 antPerm / (mode 2) Antenna permutation index\nThe Bluetooth stack will handle this and sort antenna_path with increasing order, the HAL doesn\u0027t need this.",
+      "parentUuid": "a41fdbbd_a7e86bec",
+      "range": {
+        "startLine": 36,
+        "startChar": 11,
+        "endLine": 36,
+        "endChar": 41
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb5e5963_6bcb4e7a",
@@ -117,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ae1f59b_c0946ca9",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/Config.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-06T11:47:43Z",
+      "side": 1,
+      "message": "Config (related to security level)and parameter should be determined by APP/Bluetooth Stack, the HAL only in charge to convert raw ranging data into meaningful ranging result.",
+      "parentUuid": "fb5e5963_6bcb4e7a",
+      "range": {
+        "startLine": 36,
+        "startChar": 11,
+        "endLine": 36,
+        "endChar": 18
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "509caec7_4eef686a",
@@ -130,6 +178,30 @@
       "writtenOn": "2023-12-05T11:30:18Z",
       "side": 1,
       "message": "Qcom may requires vendor specific param for RangingResult to hanlde AOA or any other features also in near term.\n\ncan you please review below required param?\n\n@nullable byte[] vendorSpecificCSRangingResultsdata                       /* vendor specific params required  in RangingResult AIDL for qcom */",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 11
+      },
+      "revId": "b448bf99ad012a5102ea1b1e0b69fe30a6ad4637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10123f13_a3d1228e",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-06T11:47:43Z",
+      "side": 1,
+      "message": "We already defined parameters for angles (azimuthDegrees, altitudeDegrees)",
+      "parentUuid": "509caec7_4eef686a",
       "range": {
         "startLine": 36,
         "startChar": 0,
