@@ -16,6 +16,29 @@
       "message": "sethmo@google.com",
       "revId": "0996f83ab9be1e6b48f7ddc28439b33b38a0fe4f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6efa4cd3_da639c46",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-12-06T18:48:32Z",
+      "side": 1,
+      "message": "Looks like we also need to fix [this test](https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/support/remote_prov_utils_test.cpp;drc\u003deacb1c16f1576ea9de0c432d9a3dae6f0241e5ef;l\u003d188) so it passes \"ro.serialno\" as an input.",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 93
+      },
+      "revId": "0996f83ab9be1e6b48f7ddc28439b33b38a0fe4f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
