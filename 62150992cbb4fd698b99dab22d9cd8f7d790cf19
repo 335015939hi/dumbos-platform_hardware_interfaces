@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "073e2998_7e7d7b7b",
+        "filename": "compatibility_matrices/compatibility_matrix.9.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2023-12-06T01:48:22Z",
+      "side": 1,
+      "message": "Thanks, fixed.",
+      "parentUuid": "d5e87d7e_08b8602d",
+      "range": {
+        "startLine": 252,
+        "startChar": 18,
+        "endLine": 252,
+        "endChar": 19
+      },
+      "revId": "62150992cbb4fd698b99dab22d9cd8f7d790cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5b553fc_d0d88a1f",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b91b26b_1718f6ad",
+        "filename": "health/aidl/aidl_api/android.hardware.health/3/.hash",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2023-12-06T01:48:22Z",
+      "side": 1,
+      "message": "I\u0027ve set \"frozen: false\" in the .bp file if that\u0027s enough.",
+      "parentUuid": "b5b553fc_d0d88a1f",
+      "revId": "62150992cbb4fd698b99dab22d9cd8f7d790cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36ca6567_eb788d66",
@@ -71,6 +113,30 @@
       "writtenOn": "2023-11-21T20:15:56Z",
       "side": 1,
       "message": "should this be a string? how is it used?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 23
+      },
+      "revId": "62150992cbb4fd698b99dab22d9cd8f7d790cf19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ad55525_def9a71a",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2023-12-06T01:48:22Z",
+      "side": 1,
+      "message": "Thanks, that was a typo.",
+      "parentUuid": "36ca6567_eb788d66",
       "range": {
         "startLine": 49,
         "startChar": 0,
