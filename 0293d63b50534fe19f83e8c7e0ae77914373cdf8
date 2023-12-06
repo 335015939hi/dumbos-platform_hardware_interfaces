@@ -22,6 +22,30 @@
       },
       "revId": "0293d63b50534fe19f83e8c7e0ae77914373cdf8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58fa8a35_418d94f7",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-12-06T15:57:47Z",
+      "side": 1,
+      "message": "https://screenshot.googleplex.com/7ELL5t37ujPebwR",
+      "parentUuid": "adcc7189_5656e613",
+      "range": {
+        "startLine": 199,
+        "startChar": 10,
+        "endLine": 199,
+        "endChar": 12
+      },
+      "revId": "0293d63b50534fe19f83e8c7e0ae77914373cdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
