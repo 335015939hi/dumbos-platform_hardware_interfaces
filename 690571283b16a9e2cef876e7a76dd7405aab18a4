@@ -57,6 +57,30 @@
       },
       "revId": "690571283b16a9e2cef876e7a76dd7405aab18a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "282ab593_e9b9278a",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-12-06T15:53:35Z",
+      "side": 1,
+      "message": "That\u0027s unfortunate.\n\nSee aosp/2861887",
+      "parentUuid": "87a28776_4354b892",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 118
+      },
+      "revId": "690571283b16a9e2cef876e7a76dd7405aab18a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
