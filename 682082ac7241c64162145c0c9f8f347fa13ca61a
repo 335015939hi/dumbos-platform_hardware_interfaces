@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42b43246_8f926aca",
+        "filename": "bluetooth/audio/aidl/default/HfpSoftwareAudioProvider.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2023-12-06T03:43:16Z",
+      "side": 1,
+      "message": "Thanks! I just realize the wrong name matching",
+      "parentUuid": "847f71b7_fd5d8729",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 30
+      },
+      "revId": "682082ac7241c64162145c0c9f8f347fa13ca61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "784ca63d_caeda59c",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-12-06T03:00:49Z",
       "side": 1,
       "message": "Should be checking `\u0026\u0026` condition",
+      "revId": "682082ac7241c64162145c0c9f8f347fa13ca61a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b7777eb_f096efb1",
+        "filename": "bluetooth/audio/aidl/default/HfpSoftwareAudioProvider.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2023-12-06T03:43:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "784ca63d_caeda59c",
       "revId": "682082ac7241c64162145c0c9f8f347fa13ca61a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
