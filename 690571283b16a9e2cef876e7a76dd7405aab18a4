@@ -34,6 +34,29 @@
       "parentUuid": "22f69dca_4aa59b39",
       "revId": "690571283b16a9e2cef876e7a76dd7405aab18a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87a28776_4354b892",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-06T10:09:56Z",
+      "side": 1,
+      "message": "It looks like these don\u0027t render at all:\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/security/rkp/README.md?q\u003dsecurity%2Frkp%2FREADME.md\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain\n\nhttps://android.googlesource.com/platform/hardware/interfaces/+/main/security/rkp/README.md#support-for-android-virtualization-framework",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 118
+      },
+      "revId": "690571283b16a9e2cef876e7a76dd7405aab18a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
