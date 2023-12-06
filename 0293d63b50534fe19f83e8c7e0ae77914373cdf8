@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2912dc4a_31a34da2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-06T16:13:40Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "0293d63b50534fe19f83e8c7e0ae77914373cdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adcc7189_5656e613",
@@ -62,6 +79,30 @@
       "side": 1,
       "message": "Hooray! Thanks\n\nhttps://screenshot.googleplex.com/87aCcBrkjamiZN3",
       "parentUuid": "58fa8a35_418d94f7",
+      "range": {
+        "startLine": 199,
+        "startChar": 10,
+        "endLine": 199,
+        "endChar": 12
+      },
+      "revId": "0293d63b50534fe19f83e8c7e0ae77914373cdf8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c6e66c2_7ed9a503",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-06T16:13:40Z",
+      "side": 1,
+      "message": "Yeah, that link is totally undiscoverable.",
+      "parentUuid": "0baa1a2a_e54fff0b",
       "range": {
         "startLine": 199,
         "startChar": 10,
