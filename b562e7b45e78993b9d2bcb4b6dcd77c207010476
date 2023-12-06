@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19caedb8_c6d0abec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-06T11:53:00Z",
+      "side": 1,
+      "message": "I quickly reviewed the latest comments.\nSome of the parameters are already defined, while others lack clear definitions.\nIt seems we need more time to clarify these parameters to define the corresponding AIDL APIs. To prevent this patch from being blocked, I would like to add them in another patch.",
+      "revId": "b562e7b45e78993b9d2bcb4b6dcd77c207010476",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
