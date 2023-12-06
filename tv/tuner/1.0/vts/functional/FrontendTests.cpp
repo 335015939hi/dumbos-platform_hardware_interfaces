@@ -371,12 +371,13 @@ AssertionResult FrontendTests::tuneFrontend(FrontendConfig config, bool testWith
     mIsSoftwareFe = config.isSoftwareFe;
     bool result = true;
     if (mIsSoftwareFe && testWithDemux) {
-        result &= mDvrTests.openDvrInDemux(mDvrConfig.type, mDvrConfig.bufferSize) == success();
-        result &= mDvrTests.configDvrPlayback(mDvrConfig.settings) == success();
-        result &= mDvrTests.getDvrPlaybackMQDescriptor() == success();
-        mDvrTests.startPlaybackInputThread(mDvrConfig.playbackInputFile,
-                                           mDvrConfig.settings.playback());
-        mDvrTests.startDvrPlayback();
+        result &=
+                getDvrTests()->openDvrInDemux(mDvrConfig.type, mDvrConfig.bufferSize) == success();
+        result &= getDvrTests()->configDvrPlayback(mDvrConfig.settings) == success();
+        result &= getDvrTests()->getDvrPlaybackMQDescriptor() == success();
+        getDvrTests()->startPlaybackInputThread(mDvrConfig.playbackInputFile,
+                                                mDvrConfig.settings.playback());
+        getDvrTests()->startDvrPlayback();
         if (!result) {
             ALOGW("[vts] Software frontend dvr configure failed.");
             return failure();
@@ -399,9 +400,9 @@ AssertionResult FrontendTests::stopTuneFrontend(bool testWithDemux) {
     Result status;
     status = mFrontend->stopTune();
     if (mIsSoftwareFe && testWithDemux) {
-        mDvrTests.stopPlaybackThread();
-        mDvrTests.stopDvrPlayback();
-        mDvrTests.closeDvrPlayback();
+        getDvrTests()->stopPlaybackThread();
+        getDvrTests()->stopDvrPlayback();
+        getDvrTests()->closeDvrPlayback();
     }
     return AssertionResult(status == Result::SUCCESS);
 }
@@ -417,15 +418,15 @@ AssertionResult FrontendTests::closeFrontend() {
 
 void FrontendTests::getFrontendIdByType(FrontendType feType, uint32_t& feId) {
     ASSERT_TRUE(getFrontendIds());
-    feId = INVALID_ID;
     for (size_t i = 0; i < mFeIds.size(); i++) {
         ASSERT_TRUE(getFrontendInfo(mFeIds[i]));
         if (mFrontendInfo.type != feType) {
-                continue;
+            continue;
         }
         feId = mFeIds[i];
         return;
     }
+    feId = INVALID_ID;
 }
 
 void FrontendTests::tuneTest(FrontendConfig frontendConf) {

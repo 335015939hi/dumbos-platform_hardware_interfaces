@@ -64,11 +64,11 @@ void FilterCallback::testStartIdAfterReconfigure() {
     ALOGW("[vts] pass and stop");
 }
 
-void FilterCallback::readFilterEventData() {
+void FilterCallback::readFilterEventData(const DemuxFilterEvent& filterEvent) {
     ALOGW("[vts] reading filter event");
     // todo separate filter handlers
-    for (int i = 0; i < mFilterEvent.events.size(); i++) {
-        auto event = mFilterEvent.events[i];
+    for (int i = 0; i < filterEvent.events.size(); i++) {
+        auto event = filterEvent.events[i];
         switch (event.getDiscriminator()) {
             case DemuxFilterEvent::Event::hidl_discriminator::media:
                 ALOGD("[vts] Media filter event, avMemHandle numFds=%d.",
@@ -79,8 +79,13 @@ void FilterCallback::readFilterEventData() {
                 break;
         }
     }
-    for (int i = 0; i < mFilterEventExt.events.size(); i++) {
-        auto eventExt = mFilterEventExt.events[i];
+}
+
+void FilterCallback::readFilterEventExtData(const DemuxFilterEventExt& filterEventExt) {
+    ALOGW("[vts] reading filter event ext");
+    // todo separate filter handlers
+    for (int i = 0; i < filterEventExt.events.size(); i++) {
+        auto eventExt = filterEventExt.events[i];
         switch (eventExt.getDiscriminator()) {
             case DemuxFilterEventExt::Event::hidl_discriminator::tsRecord:
                 ALOGD("[vts] Extended TS record filter event, pts=%" PRIu64 ", firstMbInSlice=%d",
@@ -114,7 +119,7 @@ void FilterCallback::readFilterEventData() {
     }
 }
 
-bool FilterCallback::dumpAvData(DemuxFilterMediaEvent event) {
+bool FilterCallback::dumpAvData(DemuxFilterMediaEvent& event) {
     uint32_t length = event.dataLength;
     uint32_t offset = event.offset;
     // read data from buffer pointed by a handle
@@ -306,17 +311,22 @@ AssertionResult FilterTests::configureMonitorEvent(uint64_t filterId, uint32_t m
             android::hardware::tv::tuner::V1_1::IFilter::castFrom(mFilters[filterId]);
     if (filter_v1_1 != NULL) {
         status = filter_v1_1->configureMonitorEvent(monitorEventTypes);
-        if (monitorEventTypes & DemuxFilterMonitorEventType::SCRAMBLING_STATUS) {
-            mFilterCallbacks[filterId]->testFilterScramblingEvent();
-        }
-        if (monitorEventTypes & DemuxFilterMonitorEventType::IP_CID_CHANGE) {
-            mFilterCallbacks[filterId]->testFilterIpCidEvent();
-        }
     } else {
         ALOGW("[vts] Can't cast IFilter into v1_1.");
         return failure();
     }
     return AssertionResult(status == Result::SUCCESS);
+}
+
+AssertionResult FilterTests::testMonitorEvent(uint64_t filterId, uint32_t monitorEventTypes) {
+    EXPECT_TRUE(mFilterCallbacks[filterId]) << "Test with getNewlyOpenedFilterId first.";
+    if (monitorEventTypes & DemuxFilterMonitorEventType::SCRAMBLING_STATUS) {
+        mFilterCallbacks[filterId]->testFilterScramblingEvent();
+    }
+    if (monitorEventTypes & DemuxFilterMonitorEventType::IP_CID_CHANGE) {
+        mFilterCallbacks[filterId]->testFilterIpCidEvent();
+    }
+    return AssertionResult(true);
 }
 
 AssertionResult FilterTests::startIdTest(uint64_t filterId) {

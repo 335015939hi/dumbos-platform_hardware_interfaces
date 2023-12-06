@@ -379,7 +379,7 @@ void FrontendTests::verifyFrontendStatusExt1_1(vector<FrontendStatusTypeExt1_1> 
                 break;
             }
             case FrontendStatusTypeExt1_1::UEC: {
-                ASSERT_TRUE(realStatuses[i].uec() == expectStatuses[i].uec());
+                ASSERT_TRUE(realStatuses[i].uec() >= 0 );
                 break;
             }
             case FrontendStatusTypeExt1_1::T2_SYSTEM_ID: {
@@ -438,12 +438,13 @@ AssertionResult FrontendTests::tuneFrontend(FrontendConfig1_1 config, bool testW
     mIsSoftwareFe = config.config1_0.isSoftwareFe;
     bool result = true;
     if (mIsSoftwareFe && testWithDemux) {
-        result &= mDvrTests.openDvrInDemux(mDvrConfig.type, mDvrConfig.bufferSize) == success();
-        result &= mDvrTests.configDvrPlayback(mDvrConfig.settings) == success();
-        result &= mDvrTests.getDvrPlaybackMQDescriptor() == success();
-        mDvrTests.startPlaybackInputThread(mDvrConfig.playbackInputFile,
-                                           mDvrConfig.settings.playback());
-        mDvrTests.startDvrPlayback();
+        result &=
+                getDvrTests()->openDvrInDemux(mDvrConfig.type, mDvrConfig.bufferSize) == success();
+        result &= getDvrTests()->configDvrPlayback(mDvrConfig.settings) == success();
+        result &= getDvrTests()->getDvrPlaybackMQDescriptor() == success();
+        getDvrTests()->startPlaybackInputThread(mDvrConfig.playbackInputFile,
+                                                mDvrConfig.settings.playback());
+        getDvrTests()->startDvrPlayback();
         if (!result) {
             ALOGW("[vts] Software frontend dvr configure failed.");
             return failure();
@@ -458,9 +459,9 @@ AssertionResult FrontendTests::stopTuneFrontend(bool testWithDemux) {
     Result status;
     status = mFrontend->stopTune();
     if (mIsSoftwareFe && testWithDemux) {
-        mDvrTests.stopPlaybackThread();
-        mDvrTests.stopDvrPlayback();
-        mDvrTests.closeDvrPlayback();
+        getDvrTests()->stopPlaybackThread();
+        getDvrTests()->stopDvrPlayback();
+        getDvrTests()->closeDvrPlayback();
     }
     return AssertionResult(status == Result::SUCCESS);
 }

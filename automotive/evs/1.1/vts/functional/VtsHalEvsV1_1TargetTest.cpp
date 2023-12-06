@@ -534,8 +534,14 @@ TEST_P(EvsHidlTest, CameraStreamPerformance) {
 TEST_P(EvsHidlTest, CameraStreamBuffering) {
     LOG(INFO) << "Starting CameraStreamBuffering test";
 
-    // Arbitrary constant (should be > 1 and not too big)
-    static const unsigned int kBuffersToHold = 2;
+    // Maximum number of frames in flight this test case will attempt. This test
+    // case chooses an arbitrary number that is large enough to run a camera
+    // pipeline for a single client.
+    constexpr unsigned int kMaxBuffersToHold = 20;
+
+    // Initial value for setMaxFramesInFlight() call. This number should be
+    // greater than 1.
+    unsigned int buffersToHold = 2;
 
     // Get the camera list
     loadCameraList();
@@ -562,13 +568,20 @@ TEST_P(EvsHidlTest, CameraStreamBuffering) {
         activeCameras.push_back(pCam);
 
         // Ask for a very large number of buffers in flight to ensure it errors correctly
-        Return<EvsResult> badResult = pCam->setMaxFramesInFlight(0xFFFFFFFF);
+        Return<EvsResult> badResult =
+                pCam->setMaxFramesInFlight(std::numeric_limits<int32_t>::max());
         EXPECT_EQ(EvsResult::BUFFER_NOT_AVAILABLE, badResult);
 
         // Now ask for exactly two buffers in flight as we'll test behavior in that case
-        Return<EvsResult> goodResult = pCam->setMaxFramesInFlight(kBuffersToHold);
-        EXPECT_EQ(EvsResult::OK, goodResult);
+        while (buffersToHold < kMaxBuffersToHold) {
+            Return<EvsResult> goodResult = pCam->setMaxFramesInFlight(buffersToHold);
+            if (goodResult == EvsResult::OK) {
+                break;
+            }
 
+            ++buffersToHold;
+        }
+        EXPECT_LE(buffersToHold, kMaxBuffersToHold);
 
         // Set up a frame receiver object which will fire up its own thread.
         sp<FrameHandler> frameHandler = new FrameHandler(pCam, cam,
@@ -584,7 +597,7 @@ TEST_P(EvsHidlTest, CameraStreamBuffering) {
         sleep(1);   // 1 second should be enough for at least 5 frames to be delivered worst case
         unsigned framesReceived = 0;
         frameHandler->getFramesCounters(&framesReceived, nullptr);
-        ASSERT_EQ(kBuffersToHold, framesReceived) << "Stream didn't stall at expected buffer limit";
+        ASSERT_EQ(buffersToHold, framesReceived) << "Stream didn't stall at expected buffer limit";
 
 
         // Give back one buffer
@@ -595,7 +608,7 @@ TEST_P(EvsHidlTest, CameraStreamBuffering) {
         // filled since we require 10fps minimum -- but give a 10% allowance just in case.
         usleep(110 * kMillisecondsToMicroseconds);
         frameHandler->getFramesCounters(&framesReceived, nullptr);
-        EXPECT_EQ(kBuffersToHold+1, framesReceived) << "Stream should've resumed";
+        EXPECT_EQ(buffersToHold+1, framesReceived) << "Stream should've resumed";
 
         // Even when the camera pointer goes out of scope, the FrameHandler object will
         // keep the stream alive unless we tell it to shutdown.
@@ -629,29 +642,29 @@ TEST_P(EvsHidlTest, CameraToDisplayRoundTrip) {
         targetDisplayId = ids[0];
     });
 
-    // Request exclusive access to the first EVS display
-    sp<IEvsDisplay_1_1> pDisplay = pEnumerator->openDisplay_1_1(targetDisplayId);
-    ASSERT_NE(pDisplay, nullptr);
-    LOG(INFO) << "Display " << targetDisplayId << " is alreay in use.";
-
-    // Get the display descriptor
-    pDisplay->getDisplayInfo_1_1([](const HwDisplayConfig& config, const HwDisplayState& state) {
-        ASSERT_GT(config.size(), 0);
-        ASSERT_GT(state.size(), 0);
-
-        android::ui::DisplayMode* pConfig = (android::ui::DisplayMode*)config.data();
-        const auto width = pConfig->resolution.getWidth();
-        const auto height = pConfig->resolution.getHeight();
-        LOG(INFO) << "    Resolution: " << width << "x" << height;
-        ASSERT_GT(width, 0);
-        ASSERT_GT(height, 0);
-
-        android::ui::DisplayState* pState = (android::ui::DisplayState*)state.data();
-        ASSERT_NE(pState->layerStack, -1);
-    });
-
     // Test each reported camera
     for (auto&& cam: cameraInfo) {
+        // Request exclusive access to the first EVS display
+        sp<IEvsDisplay_1_1> pDisplay = pEnumerator->openDisplay_1_1(targetDisplayId);
+        ASSERT_NE(pDisplay, nullptr);
+        LOG(INFO) << "Display " << targetDisplayId << " is already in use.";
+
+        // Get the display descriptor
+        pDisplay->getDisplayInfo_1_1([](const HwDisplayConfig& config, const HwDisplayState& state) {
+            ASSERT_GT(config.size(), 0);
+            ASSERT_GT(state.size(), 0);
+
+            android::ui::DisplayMode* pConfig = (android::ui::DisplayMode*)config.data();
+            const auto width = pConfig->resolution.getWidth();
+            const auto height = pConfig->resolution.getHeight();
+            LOG(INFO) << "    Resolution: " << width << "x" << height;
+            ASSERT_GT(width, 0);
+            ASSERT_GT(height, 0);
+
+            android::ui::DisplayState* pState = (android::ui::DisplayState*)state.data();
+            ASSERT_NE(pState->layerStack, android::ui::INVALID_LAYER_STACK);
+        });
+
         bool isLogicalCam = false;
         getPhysicalCameraIds(cam.v1.cameraId, isLogicalCam);
         if (mIsHwModule && isLogicalCam) {
@@ -706,10 +719,10 @@ TEST_P(EvsHidlTest, CameraToDisplayRoundTrip) {
         // Explicitly release the camera
         pEnumerator->closeCamera(pCam);
         activeCameras.clear();
-    }
 
-    // Explicitly release the display
-    pEnumerator->closeDisplay(pDisplay);
+        // Explicitly release the display
+        pEnumerator->closeDisplay(pDisplay);
+    }
 }
 
 
@@ -1630,12 +1643,12 @@ TEST_P(EvsHidlTest, HighPriorityCameraClient) {
     // Get the camera list
     loadCameraList();
 
-    // Request exclusive access to the EVS display
-    sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
-    ASSERT_NE(pDisplay, nullptr);
-
     // Test each reported camera
     for (auto&& cam: cameraInfo) {
+        // Request exclusive access to the EVS display
+        sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
+        ASSERT_NE(pDisplay, nullptr);
+
         // Read a target resolution from the metadata
         Stream targetCfg =
             getFirstStreamConfiguration(reinterpret_cast<camera_metadata_t*>(cam.metadata.data()));
@@ -1977,10 +1990,9 @@ TEST_P(EvsHidlTest, HighPriorityCameraClient) {
         pEnumerator->closeCamera(pCam1);
         activeCameras.clear();
 
+        // Explicitly release the display
+        pEnumerator->closeDisplay(pDisplay);
     }
-
-    // Explicitly release the display
-    pEnumerator->closeDisplay(pDisplay);
 }
 
 
@@ -1996,12 +2008,12 @@ TEST_P(EvsHidlTest, CameraUseStreamConfigToDisplay) {
     // Get the camera list
     loadCameraList();
 
-    // Request exclusive access to the EVS display
-    sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
-    ASSERT_NE(pDisplay, nullptr);
-
     // Test each reported camera
     for (auto&& cam: cameraInfo) {
+        // Request exclusive access to the EVS display
+        sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
+        ASSERT_NE(pDisplay, nullptr);
+
         // choose a configuration that has a frame rate faster than minReqFps.
         Stream targetCfg = {};
         const int32_t minReqFps = 15;
@@ -2077,10 +2089,10 @@ TEST_P(EvsHidlTest, CameraUseStreamConfigToDisplay) {
         // Explicitly release the camera
         pEnumerator->closeCamera(pCam);
         activeCameras.clear();
-    }
 
-    // Explicitly release the display
-    pEnumerator->closeDisplay(pDisplay);
+        // Explicitly release the display
+        pEnumerator->closeDisplay(pDisplay);
+    }
 }
 
 

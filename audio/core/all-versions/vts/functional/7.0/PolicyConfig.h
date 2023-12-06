@@ -25,15 +25,15 @@
 #include <utils/Errors.h>
 
 // clang-format off
-#include PATH(android/hardware/audio/FILE_VERSION/types.h)
-#include PATH(android/hardware/audio/common/FILE_VERSION/types.h)
+#include PATH(android/hardware/audio/CORE_TYPES_FILE_VERSION/types.h)
+#include PATH(android/hardware/audio/common/COMMON_TYPES_FILE_VERSION/types.h)
 // clang-format on
 
-#include <android_audio_policy_configuration_V7_0-enums.h>
-#include <android_audio_policy_configuration_V7_0.h>
+#include PATH(APM_XSD_ENUMS_H_FILENAME)
+#include PATH(APM_XSD_H_FILENAME)
 
-using namespace ::android::hardware::audio::common::CPP_VERSION;
-using namespace ::android::hardware::audio::CPP_VERSION;
+using namespace ::android::hardware::audio::common::COMMON_TYPES_CPP_VERSION;
+using namespace ::android::hardware::audio::CORE_TYPES_CPP_VERSION;
 namespace xsd {
 using namespace ::android::audio::policy::configuration::CPP_VERSION;
 using Module = Modules::Module;
@@ -61,6 +61,18 @@ class PolicyConfig {
     const std::set<std::string>& getModulesWithDevicesNames() const {
         return mModulesWithDevicesNames;
     }
+    std::optional<DeviceAddress> getDeviceAddressOfSinkDeviceAttachedToMixPort(
+            const std::string& moduleName, const std::string& mixPortName) const {
+        const auto attachedDevicePort = getAttachedSinkDeviceForMixPort(moduleName, mixPortName);
+        if (attachedDevicePort.empty()) return {};
+        return getDeviceAddressOfDevicePort(moduleName, attachedDevicePort);
+    }
+    std::optional<DeviceAddress> getDeviceAddressOfSourceDeviceAttachedToMixPort(
+            const std::string& moduleName, const std::string& mixPortName) const {
+        const auto attachedDevicePort = getAttachedSourceDeviceForMixPort(moduleName, mixPortName);
+        if (attachedDevicePort.empty()) return {};
+        return getDeviceAddressOfDevicePort(moduleName, attachedDevicePort);
+    }
     std::string getAttachedSinkDeviceForMixPort(const std::string& moduleName,
                                                 const std::string& mixPortName) const {
         return findAttachedDevice(getAttachedDevices(moduleName),
@@ -84,8 +96,6 @@ class PolicyConfig {
     const std::vector<std::string>& getAttachedDevices(const std::string& moduleName) const;
     std::optional<DeviceAddress> getDeviceAddressOfDevicePort(
             const std::string& moduleName, const std::string& devicePortName) const;
-    std::string getDevicePortTagNameFromType(const std::string& moduleName,
-                                             const AudioDevice& deviceType) const;
     std::set<std::string> getSinkDevicesForMixPort(const std::string& moduleName,
                                                    const std::string& mixPortName) const;
     std::set<std::string> getSourceDevicesForMixPort(const std::string& moduleName,

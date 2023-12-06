@@ -48,6 +48,11 @@ void TunerFilterHidlTest::configSingleFilterInDemuxTest(FilterConfig1_1 filterCo
     }
     ASSERT_TRUE(mFilterTests.getFilterMQDescriptor(filterId, filterConf.config1_0.getMqDesc));
     ASSERT_TRUE(mFilterTests.startFilter(filterId));
+    ASSERT_TRUE(mFrontendTests.tuneFrontend(frontendConf, true /*testWithDemux*/));
+    if (filterConf.monitorEventTypes > 0) {
+        ASSERT_TRUE(mFilterTests.testMonitorEvent(filterId, filterConf.monitorEventTypes));
+    }
+    ASSERT_TRUE(mFrontendTests.stopTuneFrontend(true /*testWithDemux*/));
     ASSERT_TRUE(mFilterTests.stopFilter(filterId));
     ASSERT_TRUE(mFilterTests.closeFilter(filterId));
     ASSERT_TRUE(mDemuxTests.closeDemux());
@@ -147,7 +152,7 @@ void TunerRecordHidlTest::recordSingleFilterTest(FilterConfig1_1 filterConf,
             mFrontendTests.setSoftwareFrontendDvrConfig(dvrMap[record.dvrSoftwareFeId]);
         }
         ASSERT_TRUE(mDemuxTests.setDemuxFrontendDataSource(feId));
-        mFrontendTests.setDvrTests(mDvrTests);
+        mFrontendTests.setDvrTests(&mDvrTests);
     } else {
         dvrSourceConfig = dvrMap[record.dvrSourceId];
         ASSERT_TRUE(mDvrTests.openDvrInDemux(dvrSourceConfig.type, dvrSourceConfig.bufferSize));

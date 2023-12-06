@@ -26,18 +26,23 @@ package {
 cc_defaults {
     name: "keymint_vts_defaults",
     defaults: [
+        "keymint_use_latest_hal_aidl_ndk_static",
         "use_libaidlvintf_gtest_helper_static",
         "VtsHalTargetTestDefaults",
     ],
     shared_libs: [
+        "libbinder",
         "libbinder_ndk",
         "libcrypto",
+        "packagemanager_aidl-cpp",
     ],
     static_libs: [
-        "android.hardware.security.keymint-V1-ndk_platform",
-        "android.hardware.security.secureclock-V1-ndk_platform",
+        "android.hardware.security.secureclock-V1-ndk",
+        "libavb_user",
+        "libavb",
         "libcppbor_external",
         "libcppcose_rkp",
+        "libfs_mgr",
         "libjsoncpp",
         "libkeymint",
         "libkeymint_remote_prov_support",
@@ -50,10 +55,15 @@ cc_test {
     defaults: [
         "keymint_vts_defaults",
     ],
+    tidy_timeout_srcs: [
+        "KeyMintTest.cpp",
+    ],
     srcs: [
         "AttestKeyTest.cpp",
+        "BootloaderStateTest.cpp",
         "DeviceUniqueAttestationTest.cpp",
         "KeyMintTest.cpp",
+        "SecureElementProvisioningTest.cpp",
     ],
     static_libs: [
         "libkeymint_vts_test_utils",
@@ -69,11 +79,17 @@ cc_test_library {
     defaults: [
         "keymint_vts_defaults",
     ],
+    tidy_timeout_srcs: [
+        "KeyMintAidlTestBase.cpp",
+    ],
     srcs: [
         "KeyMintAidlTestBase.cpp",
     ],
     export_include_dirs: [
         ".",
+    ],
+    export_static_lib_headers: [
+        "libkeymint_support",
     ],
     static_libs: [
         "libgmock_ndk",

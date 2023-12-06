@@ -22,7 +22,9 @@
 #include <hidl/GtestPrinter.h>
 #include <hidl/ServiceManagement.h>
 
+#include <keymasterV4_0/attestation_record.h>
 #include <keymasterV4_0/authorization_set.h>
+#include <keymasterV4_0/openssl_utils.h>
 
 namespace android {
 namespace hardware {
@@ -166,6 +168,8 @@ class KeymasterHidlTest : public ::testing::TestWithParam<std::string> {
 
     string MacMessage(const string& message, Digest digest, size_t mac_length);
 
+    void CheckAesIncrementalEncryptOperation(BlockMode block_mode, int message_size);
+
     void CheckHmacTestVector(const string& key, const string& message, Digest digest,
                              const string& expected_mac);
 
@@ -238,6 +242,11 @@ class KeymasterHidlTest : public ::testing::TestWithParam<std::string> {
     INSTANTIATE_TEST_SUITE_P(PerInstance, name,                                    \
                              testing::ValuesIn(KeymasterHidlTest::build_params()), \
                              android::hardware::PrintInstanceNameToString)
+
+X509* parse_cert_blob(const hidl_vec<uint8_t>& blob);
+// Extract attestation record from cert. Returned object is still part of cert; don't free it
+// separately.
+ASN1_OCTET_STRING* get_attestation_record(X509* certificate);
 
 }  // namespace test
 }  // namespace V4_0

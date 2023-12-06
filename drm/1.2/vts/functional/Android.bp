@@ -24,10 +24,26 @@ package {
 }
 
 cc_library_static {
+    name: "libvtsclearkey",
+    srcs: [
+        "drm_hal_clearkey_module.cpp",
+    ],
+    static_libs: [
+        "libgtest",
+    ],
+    header_libs: ["drm_hal_vendor_module_headers"],
+    export_header_lib_headers: ["drm_hal_vendor_module_headers"],
+    export_include_dirs: ["."],
+}
+
+cc_library_static {
     name: "android.hardware.drm@1.2-vts",
     defaults: ["VtsHalTargetTestDefaults"],
     local_include_dirs: [
         "include",
+    ],
+    tidy_timeout_srcs: [
+        "drm_hal_test.cpp",
     ],
     srcs: [
         "drm_hal_clearkey_module.cpp",
@@ -84,13 +100,13 @@ cc_test {
             data: [":libvtswidevine-arm-prebuilts"],
         },
         arm64: {
-            data: [":libvtswidevine-arm64-prebuilts"],
+            data: [":libvtswidevine-arm64-prebuilts",":libvtswidevine-arm-prebuilts"],
         },
         x86: {
             data: [":libvtswidevine-x86-prebuilts"],
         },
         x86_64: {
-            data: [":libvtswidevine-x86_64-prebuilts"],
+            data: [":libvtswidevine-x86_64-prebuilts",":libvtswidevine-x86-prebuilts"],
         },
     },
     test_suites: [
