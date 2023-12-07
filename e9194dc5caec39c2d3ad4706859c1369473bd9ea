@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79adf8ca_95e0f831",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2023-12-07T23:55:28Z",
+      "side": 1,
+      "message": "This adds stub code to the default HAL, as well as a VTS test. There is a CL in the topic to bump CF up to v3 and also fill out getBatteryHealthData.\n\nI didn\u0027t plumb this through to BatteryMonitor, which would be the normal thing to do in the default HAL. That requires framework integration, flagging etc, and it wouldn\u0027t work anyway since the sysfs nodes aren\u0027t there yet. I want to make sure we get the core HAL changes in by 12/15, so I\u0027ll do that other work as soon as this lands.",
+      "revId": "e9194dc5caec39c2d3ad4706859c1369473bd9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
