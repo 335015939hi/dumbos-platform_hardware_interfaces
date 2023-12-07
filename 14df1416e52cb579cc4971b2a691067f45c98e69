@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51b5662a_11f15f48",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-07T22:04:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfd7415_2a8560f3",
+      "range": {
+        "startLine": 57,
+        "startChar": 35,
+        "endLine": 57,
+        "endChar": 37
+      },
+      "revId": "14df1416e52cb579cc4971b2a691067f45c98e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bff171ae_36749e02",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-07T17:44:01Z",
       "side": 1,
       "message": "Cs Data\n\nvendorSpecificCsRangingResultsData",
+      "range": {
+        "startLine": 92,
+        "startChar": 51,
+        "endLine": 92,
+        "endChar": 52
+      },
+      "revId": "14df1416e52cb579cc4971b2a691067f45c98e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fffd1e8_6a81fd3f",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-07T22:04:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bff171ae_36749e02",
       "range": {
         "startLine": 92,
         "startChar": 51,
