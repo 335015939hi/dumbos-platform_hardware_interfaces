@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c252c82_b676f275",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-07T13:21:59Z",
+      "side": 1,
+      "message": "Config flags are there based on direction like set by AOSP and Set by Vendor both \nOR \nIt can only be set by Vendor module for system to implement?",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "567861e1_ba201f82",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 36
@@ -31,6 +48,23 @@
       "writtenOn": "2023-12-07T12:23:06Z",
       "side": 1,
       "message": "typo",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72832bd0_cb15bde5",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-07T13:21:59Z",
+      "side": 1,
+      "message": "If any capability is a mix of standard and non-standard both in that case will it be passed planely as vendorCodecSpecificCapabilities only (in that case codecSpecificCapabilities can also be null)?",
       "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -82,6 +116,57 @@
       "writtenOn": "2023-12-07T09:32:53Z",
       "side": 1,
       "message": "Should this also be made nullable if it can be empty?",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "227fdc9f_1657d2f5",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-07T13:21:59Z",
+      "side": 1,
+      "message": "The mandatory requirement set by the BT stack will be the Audio Location.\n\nBased on above statement BT Stack will make Audio Location LTV requirement based on Sink/Source PACS of LC3 codec only as vendor one AOSP might not be able to decode.\n\nBut here we are making a silent assumption that, for a given device the supported Audio channel count will be fixed and same for all codec\u0027s Sink OR Souce PAC records be it an LC3 OR Vendor codec.\n\nWhich I feel on surface is a fair assumption that device topology must be constant wrt. audio channel count and location independent of codec but wanted to confirm this.",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cbcbb8d_03348e0b",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-07T13:21:59Z",
+      "side": 1,
+      "message": "What will happen if there is List size mismatch in Requirement (ASE requested by stack) and Setting(ASE Config returned by Vendor module). For example, \n\n1. For AudioContext type GAME/LIVE vendor will have both configs available unidirectional and bidirectional. Will stack always treat GAME/LIVE as bidirectional? In that case, if it request for config for both source and sink ASE but vendor happens to choose config only one direction (either source OR sink) then what will be behavior?\n\n2. For stack treating GAME/LIVE as unidirectional, but Vendor choosing a bi-directional config then it will create more mess.\n\n3. One more special case which is a feature planned for next releases is regarding seamless transition between MEDIA and GAME (being a bidirectional config) where we don\u0027t want to recreate new CIG/CISes for MEDIA \u003c-\u003e GAME switch. In that case even at start of MEDIA use case we need to establish bi-directional CISes so that once it switches to GAME cases CISes can be used. For that scenario also if for Media we have request for only Sink ASE then in Vendor we end up with choosing a bidirectional config which will be a problem.\n\nIn summary how to cater problem of list size mismatch in config request and config settings response due to misinterpretation of AudioContext by AOSP Stack and Vendor (whether to be treated as unidirectional OR bidirectional) and it\u0027s handling.\n\n4. Do we need to introduce a new Configuration Flag as SEAMLESS set by Vendor for catering such request (3)?\n\n5. Does AOSP has a plan for optionally support SEAMLESS Media \u003c-\u003e Game transition for better end user experience?",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5a5b82a_96875138",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-07T13:21:59Z",
+      "side": 1,
+      "message": "1. Should List based on ASEs be there for Requirement and Configuration both for QoS as well as it\u0027s there for LeAudioAseConfiguration.\n\n2. Also, same thing is applicable in case of broadcast gerrit as well (I will as broadcast PoC as well in QIPL as I am not aware about Broadcast)?",
       "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
