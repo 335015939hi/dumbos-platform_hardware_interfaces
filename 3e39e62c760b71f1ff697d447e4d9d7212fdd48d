@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99f2ed38_e331495e",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-07T13:44:59Z",
+      "side": 1,
+      "message": "Is there a reason to not use `TWO_M` by default? Or will the final value be set at later, where the verification against the AseQosDirectionRequirement is done?",
+      "range": {
+        "startLine": 399,
+        "startChar": 18,
+        "endLine": 399,
+        "endChar": 28
+      },
+      "revId": "3e39e62c760b71f1ff697d447e4d9d7212fdd48d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4c88c63_9ba7e071",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-07T13:44:59Z",
+      "side": 1,
+      "message": "I believe this maps like so: `path.isoDataPathConfiguration.isTransparent \u003d !is_codec_in_controller`",
+      "range": {
+        "startLine": 441,
+        "startChar": 9,
+        "endLine": 441,
+        "endChar": 38
+      },
+      "revId": "3e39e62c760b71f1ff697d447e4d9d7212fdd48d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
