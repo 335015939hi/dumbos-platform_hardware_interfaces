@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5790660_458768a7",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1883619
+      },
+      "writtenOn": "2023-12-07T11:20:09Z",
+      "side": 1,
+      "message": "@mnaganov@google.com, why don\u0027t I see update of the profiles in the routable mix port which has dynamic profiles only with some valid profiles.\n\nLets us consider a scenario of hifi mixport(dynamic profiles) and USB headset deviceport(dynamic profiles).",
+      "revId": "84bcc049e695ea1fb60170f10a3a5753453cd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
