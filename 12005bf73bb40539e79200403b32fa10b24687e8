@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94f63bca_58570455",
+        "filename": "bluetooth/ranging/aidl/default/BluetoothChannelSoundingSession.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-07T01:07:29Z",
+      "side": 1,
+      "message": "result*",
+      "range": {
+        "startLine": 46,
+        "startChar": 16,
+        "endLine": 46,
+        "endChar": 30
+      },
+      "revId": "12005bf73bb40539e79200403b32fa10b24687e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97628945_25640f9e",
+        "filename": "bluetooth/ranging/aidl/default/service.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-07T01:07:29Z",
+      "side": 1,
+      "message": "nit: Failed",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 17
+      },
+      "revId": "12005bf73bb40539e79200403b32fa10b24687e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "141e51a6_307c9c71",
+        "filename": "bluetooth/ranging/aidl/default/service.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1704691
+      },
+      "writtenOn": "2023-12-07T01:07:29Z",
+      "side": 1,
+      "message": "Is this the only failure mode? I couldn\u0027t find documentation for a list of exceptions for binder_exception_t and https://developer.android.com/ndk/reference/group/ndk-binder#binder_exception_t isn\u0027t helpful",
+      "revId": "12005bf73bb40539e79200403b32fa10b24687e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
