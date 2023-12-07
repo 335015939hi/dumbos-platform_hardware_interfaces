@@ -16,6 +16,24 @@
       "message": "@mnaganov@google.com, why don\u0027t I see update of the profiles in the routable mix port which has dynamic profiles only with some valid profiles.\n\nLets us consider a scenario of hifi mixport(dynamic profiles) and USB headset deviceport(dynamic profiles).",
       "revId": "84bcc049e695ea1fb60170f10a3a5753453cd61f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dff310d_7e514483",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-07T23:48:47Z",
+      "side": 1,
+      "message": "Hi Ajender, please consider that this is an example. This implementation is only required to work on Cuttlefish AVD. CF does not have ADSP, thus it does not have this case. Please also see the comment on the line `644`.\n\nIf you would like to have in AOSP more generic code, suitable for real hardware-based HALs, please help contributing it.",
+      "parentUuid": "e5790660_458768a7",
+      "revId": "84bcc049e695ea1fb60170f10a3a5753453cd61f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
