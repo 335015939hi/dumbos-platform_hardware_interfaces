@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "050af045_30278cf8",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-07T09:32:53Z",
+      "side": 1,
+      "message": "Should this also be made nullable?",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7afea53a_e7913561",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-07T09:32:53Z",
+      "side": 1,
+      "message": "Should this also be made nullable if it can be empty?",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f9e3a5_5dcb1a18",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-07T09:32:53Z",
+      "side": 1,
+      "message": "Should this also be made nullable if it can be empty?",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
