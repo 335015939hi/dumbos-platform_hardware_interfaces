@@ -17,6 +17,9 @@ use std::io::{self, Read, Write};
 use std::os::fd::AsRawFd;
 use std::os::unix::fs::OpenOptionsExt;
 
+use pdl_runtime::Packet;
+use uwb_uci_packets::{PicaCloseHalCmdBuilder, UciControlPacket, UciControlPacketHal};
+
 enum State {
     Closed,
     Opened {
@@ -47,7 +50,14 @@ impl UwbChip {
 impl State {
     /// Terminate the reader task.
     async fn close(&mut self) -> Result<()> {
-        if let State::Opened { ref mut token, ref callbacks, ref mut death_recipient, ref mut handle, .. } = *self {
+        if let State::Opened {
+            ref mut token,
+            ref callbacks,
+            ref mut death_recipient,
+            ref mut handle,
+            ..
+        } = *self
+        {
             log::info!("waiting for task cancellation");
             callbacks.as_binder().unlink_to_death(death_recipient)?;
             token.cancel();
@@ -212,7 +222,15 @@ impl IUwbChipAsyncServer for UwbChip {
 
         let mut state = self.state.lock().await;
 
-        if matches!(*state, State::Opened { .. }) {
+        if let State::Opened { ref mut serial, .. } = *state {
+            let packet: UciControlPacket = PicaCloseHalCmdBuilder {}.build().into();
+            let packet_vec: Vec<UciControlPacketHal> = packet.into();
+            for hal_packet in packet_vec.into_iter() {
+                serial
+                    .write(&hal_packet.to_vec())
+                    .map(|written| written as i32)
+                    .map_err(|_| binder::StatusCode::UNKNOWN_ERROR)?;
+            }
             state.close().await
         } else {
             Err(binder::ExceptionCode::ILLEGAL_STATE.into())
