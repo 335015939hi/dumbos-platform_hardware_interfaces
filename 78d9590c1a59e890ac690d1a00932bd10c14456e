@@ -63,6 +63,24 @@
       "message": "Could you add a test description like:\n\nTest: Open and close the device 100 times quickly, check for failures.\n\nOr whatever you did to test it.",
       "revId": "78d9590c1a59e890ac690d1a00932bd10c14456e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8637fff_7ad0b436",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2063545
+      },
+      "writtenOn": "2023-12-07T02:09:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c62b0ad_0314a6c7",
+      "revId": "78d9590c1a59e890ac690d1a00932bd10c14456e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
