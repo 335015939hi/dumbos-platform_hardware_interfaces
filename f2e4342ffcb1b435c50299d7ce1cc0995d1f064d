@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03129d3b_6311a419",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2023-12-07T05:32:21Z",
+      "side": 1,
+      "message": "For the HFP_HARDWARE_OFFLOAD_DATAPATH, should it be handle to as other case? The capabiltiies should be hfpConfig. However, the interface doesn\u0027t contain the capabilities. Do we still need it?",
+      "range": {
+        "startLine": 272,
+        "startChar": 24,
+        "endLine": 272,
+        "endChar": 53
+      },
+      "revId": "f2e4342ffcb1b435c50299d7ce1cc0995d1f064d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d8a9aee_8d0e348b",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 789,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2023-12-07T05:32:21Z",
+      "side": 1,
+      "message": "nit: OpenSession is good enough",
+      "range": {
+        "startLine": 789,
+        "startChar": 7,
+        "endLine": 789,
+        "endChar": 21
+      },
+      "revId": "f2e4342ffcb1b435c50299d7ce1cc0995d1f064d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e64490ab_472311d2",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2023-12-07T05:32:21Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 828,
+        "startChar": 66,
+        "endLine": 828,
+        "endChar": 67
+      },
+      "revId": "f2e4342ffcb1b435c50299d7ce1cc0995d1f064d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e0605d4_9a4125d5",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 856,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2023-12-07T05:32:21Z",
+      "side": 1,
+      "message": "nit: OpenSession is good enough",
+      "range": {
+        "startLine": 856,
+        "startChar": 7,
+        "endLine": 856,
+        "endChar": 21
+      },
+      "revId": "f2e4342ffcb1b435c50299d7ce1cc0995d1f064d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c518dbc_943f7b74",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 892,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2023-12-07T05:32:21Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 892,
+        "startChar": 68,
+        "endLine": 892,
+        "endChar": 69
+      },
+      "revId": "f2e4342ffcb1b435c50299d7ce1cc0995d1f064d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00b20820_f68b8978",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1161,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2023-12-07T05:32:21Z",
+      "side": 1,
+      "message": "Do we need the capabiltiies of offload case?",
+      "range": {
+        "startLine": 1161,
+        "startChar": 0,
+        "endLine": 1161,
+        "endChar": 78
+      },
+      "revId": "f2e4342ffcb1b435c50299d7ce1cc0995d1f064d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "608c7480_4f0988ae",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2023-12-07T05:32:21Z",
+      "side": 1,
+      "message": "Do we need the capabiltiies of offload case?",
+      "range": {
+        "startLine": 1174,
+        "startChar": 0,
+        "endLine": 1174,
+        "endChar": 80
+      },
+      "revId": "f2e4342ffcb1b435c50299d7ce1cc0995d1f064d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54d82e12_b7106e4e",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2023-12-07T05:32:21Z",
+      "side": 1,
+      "message": "nit: OpenSession is good enough",
+      "range": {
+        "startLine": 1176,
+        "startChar": 7,
+        "endLine": 1176,
+        "endChar": 21
+      },
+      "revId": "f2e4342ffcb1b435c50299d7ce1cc0995d1f064d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
