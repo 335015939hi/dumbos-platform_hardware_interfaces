@@ -16,6 +16,23 @@
       "message": "jiyong@ : adding you on the off-chance you\u0027re still around and able to restore the AIDL-API-Review +1 that got lost when I had to fix a merge conflict (in 11..12)...",
       "revId": "8898d2ec57d52b2c731bc953c2332c4e8b3176bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7fcc67_bb44cc94",
+        "filename": "security/secretkeeper/aidl/aidl_api/android.hardware.security.secretkeeper/current/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2023-12-07T04:04:24Z",
+      "side": 1,
+      "message": "FYI: adding a new method in front of existing ones is normally disallowed because it breaks the ABI of this binder interface. This CL is possible only because the interface is not frozen.",
+      "revId": "8898d2ec57d52b2c731bc953c2332c4e8b3176bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
