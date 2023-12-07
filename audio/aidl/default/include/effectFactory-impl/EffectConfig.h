@@ -64,11 +64,11 @@ class EffectConfig {
     const ProcessingLibrariesMap& getProcessingMap() const;
 
   private:
-    static constexpr const char* kEffectLibPath[] =
+    static constexpr const char* kEffectLibSoundfxPath =
 #ifdef __LP64__
-            {"/odm/lib64/soundfx", "/vendor/lib64/soundfx", "/system/lib64/soundfx"};
+            {"/lib64/soundfx/"};
 #else
-            {"/odm/lib/soundfx", "/vendor/lib/soundfx", "/system/lib/soundfx"};
+            {"/lib/soundfx/"};
 #endif
 
     int mSkippedElements;
