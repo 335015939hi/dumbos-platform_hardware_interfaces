@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66a3b096_5a3c903b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-12-07T00:36:10Z",
+      "side": 1,
+      "message": "nit: I prefer the description of what the patch does, not what symptom it fixes.\n\nSomething like:\n\nOpen the available HCI device\n\nor\n\nAllow non-zero HCI interface numbers",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "78d9590c1a59e890ac690d1a00932bd10c14456e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c62b0ad_0314a6c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2023-12-07T00:36:10Z",
+      "side": 1,
+      "message": "Could you add a test description like:\n\nTest: Open and close the device 100 times quickly, check for failures.\n\nOr whatever you did to test it.",
+      "revId": "78d9590c1a59e890ac690d1a00932bd10c14456e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
