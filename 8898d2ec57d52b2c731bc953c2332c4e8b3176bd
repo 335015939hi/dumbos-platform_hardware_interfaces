@@ -33,6 +33,24 @@
       "message": "FYI: adding a new method in front of existing ones is normally disallowed because it breaks the ABI of this binder interface. This CL is possible only because the interface is not frozen.",
       "revId": "8898d2ec57d52b2c731bc953c2332c4e8b3176bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc0e67d2_b972d55f",
+        "filename": "security/secretkeeper/aidl/aidl_api/android.hardware.security.secretkeeper/current/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-07T06:58:05Z",
+      "side": 1,
+      "message": "Ack, thanks for the reminder (we\u0027re still assembling the pieces of this one, and it seemed logical to have methods in the order they\u0027ll need to be called).",
+      "parentUuid": "fa7fcc67_bb44cc94",
+      "revId": "8898d2ec57d52b2c731bc953c2332c4e8b3176bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
