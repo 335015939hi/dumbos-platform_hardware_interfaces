@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f459f55_7d32abfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2023-12-07T05:59:54Z",
+      "side": 1,
+      "message": "Hi Alice, I removed some capability checking logic for offloading path VTS, thanks!",
+      "revId": "7239943cb5fcac4440a45a7bc5ce75c189d6df76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
