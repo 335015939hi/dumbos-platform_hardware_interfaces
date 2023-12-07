@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18731ea7_26f175dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-07T18:11:56Z",
+      "side": 1,
+      "message": "all looks good. Please add VTS/client code to this topic or file bug to make sure that lands by 12/15",
+      "revId": "92e886ecb7f2bea19b0764135d23065be3b6dca5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
