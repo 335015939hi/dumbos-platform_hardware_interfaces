@@ -71,6 +71,13 @@ class EffectConfig {
             {"/odm/lib/soundfx", "/vendor/lib/soundfx", "/system/lib/soundfx"};
 #endif
 
+    static constexpr const char* kEffectLibSoundfxPath =
+#ifdef __LP64__
+            {"/lib64/soundfx/"};
+#else
+            {"/lib/soundfx/"};
+#endif
+
     int mSkippedElements;
     /* Parsed Libraries result */
     std::unordered_map<std::string, std::string> mLibraryMap;
