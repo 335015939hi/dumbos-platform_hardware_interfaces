@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06fd40fa_999079ab",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-12-08T10:13:20Z",
+      "side": 1,
+      "message": "Is this documented somewhere? I couldn\u0027t find anything on moma to explain how to interpret vendor API level values or how 202404 maps to Q2 of 2024, or why the T, U and V macros worked before.\n\nIf this is the intended direction for AOSP, can we have a macro e.g. `__ANDROID_VENDOR_24Q2__` rather than magic numbers and comments?",
+      "range": {
+        "startLine": 981,
+        "startChar": 13,
+        "endLine": 981,
+        "endChar": 42
+      },
+      "revId": "486e860ae8dcf85935c463ff397edd2d10eb00fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
