@@ -70,6 +70,30 @@
       },
       "revId": "3f136b29144d5fba02749848dd723ed8c9ad065e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f020f659_07134b1e",
+        "filename": "security/secretkeeper/default/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-08T15:14:37Z",
+      "side": 1,
+      "message": "(Somewhat) resolved in the discussion in the other patch.",
+      "parentUuid": "34a3dbb8_3547aa49",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "3f136b29144d5fba02749848dd723ed8c9ad065e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
