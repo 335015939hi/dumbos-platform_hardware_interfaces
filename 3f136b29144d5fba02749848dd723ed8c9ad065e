@@ -46,6 +46,30 @@
       },
       "revId": "3f136b29144d5fba02749848dd723ed8c9ad065e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34a3dbb8_3547aa49",
+        "filename": "security/secretkeeper/default/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-08T14:26:42Z",
+      "side": 1,
+      "message": "See my comments on aosp/2864266. libsecretkeeper_core_nostd has a number of std dependencies.",
+      "parentUuid": "a798a783_911b4816",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "3f136b29144d5fba02749848dd723ed8c9ad065e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
