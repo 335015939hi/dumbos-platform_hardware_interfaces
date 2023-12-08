@@ -16,6 +16,9 @@ use std::fs::{File, OpenOptions};
 use std::io::{self, Read, Write};
 use std::os::unix::fs::OpenOptionsExt;
 
+use pdl_runtime::Packet;
+use uwb_uci_packets::{DeviceResetCmdBuilder, ResetConfig, UciControlPacket, UciControlPacketHal};
+
 enum State {
     Closed,
     Opened {
@@ -46,17 +49,37 @@ impl UwbChip {
 impl State {
     /// Terminate the reader task.
     async fn close(&mut self) -> Result<()> {
-        if let State::Opened { ref mut token, ref callbacks, ref mut death_recipient, ref mut handle, .. } = *self {
+        if let State::Opened {
+            ref mut token,
+            ref callbacks,
+            ref mut death_recipient,
+            ref mut handle,
+            ref mut serial,
+        } = *self
+        {
             log::info!("waiting for task cancellation");
             callbacks.as_binder().unlink_to_death(death_recipient)?;
             token.cancel();
             handle.await.unwrap();
+            consume_device_reset_rsp_and_ntf(
+                &mut serial
+                    .try_clone()
+                    .map_err(|_| binder::StatusCode::UNKNOWN_ERROR)?,
+            );
             log::info!("task successfully cancelled");
             callbacks.onHalEvent(UwbEvent::CLOSE_CPLT, UwbStatus::OK)?;
             *self = State::Closed;
         }
         Ok(())
     }
+}
+
+fn consume_device_reset_rsp_and_ntf(reader: &mut File) {
+    // Poll the DeviceResetRsp and DeviceStatusNtf before hal is closed.
+    const DEVICE_RESET_RSP_LENGTH: usize = 5;
+    const DEVICE_STATUS_NTF_LENGTH: usize = 5;
+    let mut buffer = vec![0; DEVICE_RESET_RSP_LENGTH + DEVICE_STATUS_NTF_LENGTH];
+    read_exact(reader, &mut buffer).unwrap();
 }
 
 pub fn makeraw(file: File) -> io::Result<File> {
@@ -209,7 +232,19 @@ impl IUwbChipAsyncServer for UwbChip {
 
         let mut state = self.state.lock().await;
 
-        if matches!(*state, State::Opened { .. }) {
+        if let State::Opened { ref mut serial, .. } = *state {
+            let packet: UciControlPacket = DeviceResetCmdBuilder {
+                reset_config: ResetConfig::UwbsReset,
+            }
+            .build()
+            .into();
+            let packet_vec: Vec<UciControlPacketHal> = packet.into();
+            for hal_packet in packet_vec.into_iter() {
+                serial
+                    .write(&hal_packet.to_vec())
+                    .map(|written| written as i32)
+                    .map_err(|_| binder::StatusCode::UNKNOWN_ERROR)?;
+            }
             state.close().await
         } else {
             Err(binder::ExceptionCode::ILLEGAL_STATE.into())
