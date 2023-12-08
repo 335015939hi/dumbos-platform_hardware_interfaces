@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f21ee02_c6891e06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2023-12-08T05:22:18Z",
+      "side": 1,
+      "message": "Moved https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/25304143 from internal to aosp",
+      "revId": "709a8a90709f9cfd2e0bbe30466bf9ae1a6d5718",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
