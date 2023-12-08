@@ -46,6 +46,30 @@
       },
       "revId": "486e860ae8dcf85935c463ff397edd2d10eb00fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65208ffe_eced3f77",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 981,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-12-08T12:03:26Z",
+      "side": 1,
+      "message": "Thanks for the context. Could I ask you to leave a TODO with a reference to the bug for introducing the version macro? That way we can keep track of what we\u0027re waiting for to clean this up.",
+      "parentUuid": "b7d9693a_5a24249a",
+      "range": {
+        "startLine": 981,
+        "startChar": 13,
+        "endLine": 981,
+        "endChar": 42
+      },
+      "revId": "486e860ae8dcf85935c463ff397edd2d10eb00fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
