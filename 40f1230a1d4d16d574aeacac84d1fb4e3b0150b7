@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf0f7761_5a1b29a9",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-12-08T05:36:17Z",
+      "side": 0,
+      "message": "Do we want to ignore kEffectLibPath when the HAL is loaded from APEX? I thought we still want to support the original lib paths.",
+      "range": {
+        "startLine": 92,
+        "startChar": 34,
+        "endLine": 92,
+        "endChar": 48
+      },
+      "revId": "40f1230a1d4d16d574aeacac84d1fb4e3b0150b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
