@@ -94,6 +94,30 @@
       },
       "revId": "3f136b29144d5fba02749848dd723ed8c9ad065e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "247a3883_6c64a696",
+        "filename": "security/secretkeeper/default/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-08T15:17:54Z",
+      "side": 1,
+      "message": "Mmm, I think we\u0027ll need to reorg some more. But if this works for now that\u0027s ok.",
+      "parentUuid": "f020f659_07134b1e",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "3f136b29144d5fba02749848dd723ed8c9ad065e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
