@@ -22,6 +22,30 @@
       },
       "revId": "3f136b29144d5fba02749848dd723ed8c9ad065e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a798a783_911b4816",
+        "filename": "security/secretkeeper/default/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-08T14:23:29Z",
+      "side": 1,
+      "message": "libsecretkeeper_core \u0026 libsecretkeeper_comm do not not have a version with std",
+      "parentUuid": "67a04794_c3159017",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "3f136b29144d5fba02749848dd723ed8c9ad065e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
