@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "274c64af_19cadafd",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-08T15:09:10Z",
+      "side": 1,
+      "message": "It is also set by the stack in LeAudioConfigurationRequirement:\n```\n        /**\n         * Additional flags, used to request configurations with special\n         * features\n         */\n        @nullable ConfigurationFlags flags;\n```\ntherefor it can be set by the BT stack.",
+      "parentUuid": "0c252c82_b676f275",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "567861e1_ba201f82",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 36
@@ -70,6 +88,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "828aa7ee_83444042",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-08T15:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af90dee7_a63c5bdd",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2662e31a_d33cc84c",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-08T15:09:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "567861e1_ba201f82",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72832bd0_cb15bde5",
@@ -83,6 +137,24 @@
       "writtenOn": "2023-12-07T13:21:59Z",
       "side": 1,
       "message": "If any capability is a mix of standard and non-standard both in that case will it be passed planely as vendorCodecSpecificCapabilities only (in that case codecSpecificCapabilities can also be null)?",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b90d96b1_28aab8f2",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-08T15:09:10Z",
+      "side": 1,
+      "message": "`CodecSpecificCapabilitiesLtv` will be used only when the BT stack knows how to interpret capabilities for the given codec and this codec uses the BT SIG specified LTV format. Currently only LC3 is supported and is known to use the LTV format. For any other codec, `vendorCodecSpecificCapabilities` will be used. If the codec is not known to the BT stack, there is no way to tell what the data format is used and even for the unknown codecs which is in fact using the LTV format, we will still pass the capabilities as `vendorCodecSpecificCapabilities`.",
+      "parentUuid": "72832bd0_cb15bde5",
       "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -104,6 +176,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd2ff8d3_e2f54dca",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-08T15:09:10Z",
+      "side": 1,
+      "message": "It certainly can.",
+      "parentUuid": "050af045_30278cf8",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7afea53a_e7913561",
@@ -117,6 +207,24 @@
       "writtenOn": "2023-12-07T09:32:53Z",
       "side": 1,
       "message": "Should this also be made nullable if it can be empty?",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f23624e_f45087aa",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-08T15:09:10Z",
+      "side": 1,
+      "message": "Yeap, empty configuration is still a valid one. We can make it nullable I think.",
+      "parentUuid": "7afea53a_e7913561",
       "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -140,6 +248,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cedf1e16_fc02a8c1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-08T15:09:10Z",
+      "side": 1,
+      "message": "Yeap I think we could make it @nullable since empty config is still a valid one. \n\n@smoreland@google.com Is it ok to make the only field within the DataPathConfiguration parcelable nullable, or we should rather make this whole member object nullable in the parent parcelable (LeAudioAseConfigurationSetting)?",
+      "parentUuid": "f5f9e3a5_5dcb1a18",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "227fdc9f_1657d2f5",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 36
@@ -151,6 +277,24 @@
       "writtenOn": "2023-12-07T13:21:59Z",
       "side": 1,
       "message": "The mandatory requirement set by the BT stack will be the Audio Location.\n\nBased on above statement BT Stack will make Audio Location LTV requirement based on Sink/Source PACS of LC3 codec only as vendor one AOSP might not be able to decode.\n\nBut here we are making a silent assumption that, for a given device the supported Audio channel count will be fixed and same for all codec\u0027s Sink OR Souce PAC records be it an LC3 OR Vendor codec.\n\nWhich I feel on surface is a fair assumption that device topology must be constant wrt. audio channel count and location independent of codec but wanted to confirm this.",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58a83876_6d66627a",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-08T15:09:10Z",
+      "side": 1,
+      "message": "The location in PACS are not part of the Codec Specific Capabilities, but are a separate and clearly defined characteristics which are mandatory for the given direction if PAC characteristic for that direction is available, and these locations apply to all PAC records for that direction. Therefore I believe this should work with vendor codecs as well.",
+      "parentUuid": "227fdc9f_1657d2f5",
       "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
