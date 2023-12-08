@@ -22,6 +22,30 @@
       },
       "revId": "40f1230a1d4d16d574aeacac84d1fb4e3b0150b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4264847_0e965542",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2023-12-08T22:33:22Z",
+      "side": 0,
+      "message": "I thought we went back and forth on this. I kept it originally. I can add it back as a fallback",
+      "parentUuid": "bf0f7761_5a1b29a9",
+      "range": {
+        "startLine": 92,
+        "startChar": 34,
+        "endLine": 92,
+        "endChar": 48
+      },
+      "revId": "40f1230a1d4d16d574aeacac84d1fb4e3b0150b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
