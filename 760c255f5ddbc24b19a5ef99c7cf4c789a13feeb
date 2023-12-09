@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef1fe406_9c79f986",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/ConfigurationFlags.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-09T15:54:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "274c64af_19cadafd",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "567861e1_ba201f82",
@@ -155,6 +173,24 @@
       "side": 1,
       "message": "`CodecSpecificCapabilitiesLtv` will be used only when the BT stack knows how to interpret capabilities for the given codec and this codec uses the BT SIG specified LTV format. Currently only LC3 is supported and is known to use the LTV format. For any other codec, `vendorCodecSpecificCapabilities` will be used. If the codec is not known to the BT stack, there is no way to tell what the data format is used and even for the unknown codecs which is in fact using the LTV format, we will still pass the capabilities as `vendorCodecSpecificCapabilities`.",
       "parentUuid": "72832bd0_cb15bde5",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acefedfa_72d0f4ce",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-09T15:54:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b90d96b1_28aab8f2",
       "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -295,6 +331,24 @@
       "side": 1,
       "message": "The location in PACS are not part of the Codec Specific Capabilities, but are a separate and clearly defined characteristics which are mandatory for the given direction if PAC characteristic for that direction is available, and these locations apply to all PAC records for that direction. Therefore I believe this should work with vendor codecs as well.",
       "parentUuid": "227fdc9f_1657d2f5",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "851a616b_19f46c4e",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-09T15:54:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "58a83876_6d66627a",
       "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
