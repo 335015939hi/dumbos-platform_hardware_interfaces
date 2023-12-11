@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebe4ed36_0ba10848",
+        "filename": "bluetooth/audio/aidl/default/A2dpBits.h",
+        "patchSetId": 34
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2023-12-11T16:00:58Z",
+      "side": 1,
+      "message": "Do we want to at least set `data_` to `nullptr` here?  That way if someone calls `set()` on the instance, we consistently crash, instead of sometimes writing into a random memory address?",
+      "revId": "4e34d05b7b4978f25d5c11edcc83b58cb2a7562a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
