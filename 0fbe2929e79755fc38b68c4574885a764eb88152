@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78cd3d94_376513e6",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-11T22:20:44Z",
+      "side": 1,
+      "message": "This looks as if the client must be able to predict the event of physical device disconnection before it actually happens. But this isn\u0027t what we really mean, right? Do we actually mean that `disconnectExternalDevice` will be called soon?",
+      "range": {
+        "startLine": 919,
+        "startChar": 52,
+        "endLine": 920,
+        "endChar": 24
+      },
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1138a27_8bb626bf",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-11T22:20:44Z",
+      "side": 1,
+      "message": "We need to explain the relationship between `disconnectExternalDevice` and this method. Also, we need to augment the description of `connectExternalDevice` with the information about this method.",
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07027c0c_a5c75559",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-11T22:20:44Z",
+      "side": 1,
+      "message": "Please add `@param portId` description.",
+      "range": {
+        "startLine": 923,
+        "startChar": 0,
+        "endLine": 923,
+        "endChar": 6
+      },
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29281c5e_76d0a48d",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-11T22:20:44Z",
+      "side": 1,
+      "message": "What is `flamme`?",
+      "range": {
+        "startLine": 1564,
+        "startChar": 31,
+        "endLine": 1564,
+        "endChar": 37
+      },
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c8238b7_4da9c08a",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-11T22:20:44Z",
+      "side": 1,
+      "message": "We don\u0027t actually use this check in added tests. I also have doubts about its usefulness. Typically `ASSERT` is used for checks that must succeed, otherwise it makes no sense to continue the test. I think, if the functionality is not supported, the test should normally be skipped, not continue working. Let\u0027s postpone introduction of such an assert until we actually understand how we are going to use it.",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e465d0f4_d1fb2a2c",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-11T22:20:44Z",
+      "side": 1,
+      "message": "Maybe, call this `EXPECT_IS_OK_OR_UNKNOWN_TRANSACTION` (and same for `EXPECT_STATUS`)? And rename helper method accordingly.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 48
+      },
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
