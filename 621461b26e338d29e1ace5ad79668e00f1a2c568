@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8498e87b_dd03903c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2023-12-11T06:20:37Z",
+      "side": 1,
+      "message": "Hi Arthur,\n\nThis change is to clean up a bit around sensors HAL APEX (used by cuttlefish). This shouldn\u0027t have any behavioral changes.\n\nThanks.",
+      "revId": "621461b26e338d29e1ace5ad79668e00f1a2c568",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
