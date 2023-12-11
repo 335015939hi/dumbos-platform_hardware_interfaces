@@ -45,6 +45,7 @@ namespace implementation {
 
 #define WAIT_TIMEOUT 3000000000
 #define SDT_PID 0x11
+#define PMT_TABLE_ID 2
 #define IS_32BIT (sizeof(long) == 4 ? true : false)
 
 Filter::Filter() {}
@@ -777,9 +778,11 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table) 
         }
         delete mSDT;
     }
-    if (mLastVersion != -1 && mLastVersion == table.version()) {
-        ALOGD("[Filter] same version");
-        return;
+    if(table.tableId() == PMT_TABLE_ID) {
+        if (mLastVersion != -1 && mLastVersion == table.version()) {
+            ALOGD("[Filter] same version pid %d ", mTpid);
+            return;
+        }
     }
 
     if (!writeDataToFilterMQ(data)) {
