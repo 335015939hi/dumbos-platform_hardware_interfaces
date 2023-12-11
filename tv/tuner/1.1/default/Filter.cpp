@@ -45,6 +45,7 @@ namespace implementation {
 
 #define WAIT_TIMEOUT 3000000000
 #define SDT_PID 0x11
+#define PMT_TABLE_ID 2
 #define IS_32BIT (sizeof(long) == 4 ? true : false)
 
 Filter::Filter() {}
@@ -758,17 +759,11 @@ void Filter::handleSection(ts::SectionDemux& demux, const ts::Section& section) 
 }
 
 void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table) {
+    std::lock_guard<std::mutex> lock(mFilterEventLock);
     if (mFilterStarted == false)  {
         return;
     }
 
-    ts::SectionPtr secPtr = table.sectionAt(0);
-    const uint8_t* sec_payload = secPtr->content();
-    std::vector<uint8_t> data(sec_payload, sec_payload + secPtr->size() );
-    std::lock_guard<std::mutex> lock(mFilterEventLock);
-    if (data.size() == 0) {
-        return;
-    }
     if (table.sourcePID() == SDT_PID) {
         ts::SDT* mSDT = new ts::SDT(*mDuckContext, table);
         if (!mSDT->isActual()) {
@@ -777,44 +772,57 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table) 
         }
         delete mSDT;
     }
-    if (mLastVersion != -1 && mLastVersion == table.version()) {
-        ALOGD("[Filter] same version");
-        return;
-    }
 
-    if (!writeDataToFilterMQ(data)) {
-        ALOGD("[Filter] FAiled to write FMQ");
-        return;
-    }
+    for(int i = 0; i < table.sectionCount(); i++) {
+        ts::SectionPtr secPtr = table.sectionAt(i);
+        const uint8_t* sec_payload = secPtr->content();
+        std::vector<uint8_t> data(sec_payload, sec_payload + secPtr->size() );
 
-    int size = mFilterEvent.events.size();
-    mFilterEvent.events.resize(size + 1);
-    DemuxFilterSectionEvent secEvent;
-    secEvent = {
-            // temp dump meta data
-            .tableId = table.tableId(),
-            .version = table.version(),
-            .sectionNum = static_cast<uint16_t>(table.sectionCount()),
-            .dataLength = static_cast<uint16_t>(data.size()),
-    };
+        if (data.size() == 0) {
+            return;
+        }
 
-    mLastVersion = table.version();
-    mFilterEvent.events[size].section(secEvent);
+        if(table.tableId() == PMT_TABLE_ID || secPtr->isShortSection()) {  // PMT and TOT //
+            if (mLastVersion != -1 && mLastVersion == table.version()) {
+                ALOGD("[Filter] same version pid %d ", mTpid);
+                return;
+            }
+        }
 
-    // After successfully write, send a callback and wait for the read to be done
-    if (mCallback_1_1 != nullptr) {
-        mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
-        mFilterEventExt.events.resize(0);
-    } else if (mCallback != nullptr) {
-        mCallback->onFilterEvent(mFilterEvent);
-    }
+        if (!writeDataToFilterMQ(data)) {
+            ALOGD("[Filter] Failed to write FMQ size = %d ",data.size());
+            return;
+        }
 
-    mFilterEvent.events.resize(0);
+        int size = mFilterEvent.events.size();
+        mFilterEvent.events.resize(size + 1);
+        DemuxFilterSectionEvent secEvent;
+        secEvent = {
+                // temp dump meta data
+                .tableId = table.tableId(),
+                .version = table.version(),
+                .sectionNum = static_cast<uint16_t>(secPtr->sectionNumber()),
+                .dataLength = static_cast<uint16_t>(data.size()),
+        };
 
-    if (mCallback != nullptr) {
+        mLastVersion = table.version();
+        mFilterEvent.events[size].section(secEvent);
+
+        // After successfully write, send a callback and wait for the read to be done
+        if (mCallback_1_1 != nullptr) {
+            mCallback_1_1->onFilterEvent_1_1(mFilterEvent, mFilterEventExt);
+            mFilterEventExt.events.resize(0);
+        } else if (mCallback != nullptr) {
+            mCallback->onFilterEvent(mFilterEvent);
+        }
+
+        mFilterEvent.events.resize(0);
+
+        if (mCallback != nullptr) {
             mCallback->onFilterStatus(DemuxFilterStatus::DATA_READY);
-    } else if (mCallback_1_1 != nullptr) {
+        } else if (mCallback_1_1 != nullptr) {
             mCallback_1_1->onFilterStatus(DemuxFilterStatus::DATA_READY);
+        }
     }
 }
 
