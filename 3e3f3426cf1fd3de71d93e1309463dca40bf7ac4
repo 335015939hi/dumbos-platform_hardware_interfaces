@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b69bf8e_48dc17aa",
+        "filename": "health/aidl/android/hardware/health/BatteryHealthData.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2023-12-11T19:04:46Z",
+      "side": 1,
+      "message": "Either. I added some text to clarify this.",
+      "parentUuid": "5d9f34bf_0aa942a3",
+      "range": {
+        "startLine": 43,
+        "startChar": 7,
+        "endLine": 43,
+        "endChar": 23
+      },
+      "revId": "3e3f3426cf1fd3de71d93e1309463dca40bf7ac4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "648b3be6_2284cc67",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-08T23:52:42Z",
       "side": 1,
       "message": "nit: I would suggest actually setting \u003d0, \u003d1 etc. below to explicitly fix their values (even though it is already the default)",
+      "range": {
+        "startLine": 21,
+        "startChar": 29,
+        "endLine": 21,
+        "endChar": 36
+      },
+      "revId": "3e3f3426cf1fd3de71d93e1309463dca40bf7ac4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ea9d438_6a2dbff9",
+        "filename": "health/aidl/android/hardware/health/BatteryPartStatus.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2023-12-11T19:04:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "648b3be6_2284cc67",
       "range": {
         "startLine": 21,
         "startChar": 29,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "631fb2f3_a2b44963",
+        "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2023-12-11T19:04:46Z",
+      "side": 1,
+      "message": "Not in bionic apparently, which just does the simple thing: \nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:bionic/libc/include/ctype.h;l\u003d127;drc\u003dd64e2a2939b1dbb09b8f5e66bf2e0ddc685b27d8;bpv\u003d1;bpt\u003d1",
+      "parentUuid": "3ed65409_804000f8",
+      "range": {
+        "startLine": 95,
+        "startChar": 13,
+        "endLine": 95,
+        "endChar": 20
+      },
+      "revId": "3e3f3426cf1fd3de71d93e1309463dca40bf7ac4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08846415_52438638",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-12-08T23:52:42Z",
       "side": 1,
       "message": "nit: I think this could be deleted. Default values will be injected for missing fields, and it looks like your IsValidSerialNumber and IsValidEnum\u003cBatteryPartStatus\u003e already covers the default case.\n\nBut it is fine to keep this though (perhaps with a comment that these fields are introduced in V3)",
+      "range": {
+        "startLine": 302,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 5
+      },
+      "revId": "3e3f3426cf1fd3de71d93e1309463dca40bf7ac4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d17ee21f_4a040e82",
+        "filename": "health/aidl/vts/functional/VtsHalHealthTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2023-12-11T19:04:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08846415_52438638",
       "range": {
         "startLine": 302,
         "startChar": 0,
