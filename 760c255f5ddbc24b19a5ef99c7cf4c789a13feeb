@@ -372,6 +372,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "867e1f5e_3ff3310f",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-12-11T10:29:41Z",
+      "side": 1,
+      "message": "For the moment, Vendor Lib shall follow AOSP requirements.\n\nAOSP stack may in the future support seamless MEDIA \u003c-\u003e GAME transition. When that happens, AOSP stack will ask for such configuration e.g. Media context for two directions with flags LOW_LATENCY, ALLOW_ASYMMETRIC_CONFIGURATIONS",
+      "parentUuid": "0cbcbb8d_03348e0b",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5a5b82a_96875138",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 36
