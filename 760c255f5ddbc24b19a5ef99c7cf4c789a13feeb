@@ -385,6 +385,24 @@
       "message": "1. Should List based on ASEs be there for Requirement and Configuration both for QoS as well as it\u0027s there for LeAudioAseConfiguration.\n\n2. Also, same thing is applicable in case of broadcast gerrit as well (I will as broadcast PoC as well in QIPL as I am not aware about Broadcast)?",
       "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebdd61e0_2f079cd1",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-12-11T10:14:34Z",
+      "side": 1,
+      "message": "This is used for the call `getLeAudioAseQosConfiguration` which is use per single ASEs in ase of AOSP is not able to apply configuration taken using `getLeAudioAseConfiguration`",
+      "parentUuid": "a5a5b82a_96875138",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
