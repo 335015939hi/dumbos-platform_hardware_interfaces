@@ -912,4 +912,18 @@ interface IModule {
      * @throw EX_UNSUPPORTED_OPERATION If the module does not support aaudio MMAP.
      */
     int getAAudioHardwareBurstMinUsec();
+
+    /**
+     * Notify the HAL module to prepare for disconnecting an external device.
+     *
+     * This method is used to inform the HAL module that an external device will be
+     * disconnected soon. The HAL module can rely on this method to abort active data
+     * operations early. The 'portId' must be of a connected device Port instance
+     * previously instantiated using 'connectExternalDevice' method.
+     *
+     * @throws EX_ILLEGAL_ARGUMENT In the following cases:
+     *                             - If the port can not be found by the ID.
+     *                             - If this is not a connected device port.
+     */
+    void prepareToDisconnectExternalDevice(int portId);
 }
