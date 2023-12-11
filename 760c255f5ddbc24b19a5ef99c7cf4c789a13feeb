@@ -439,6 +439,24 @@
       "parentUuid": "ebdd61e0_2f079cd1",
       "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8aebf5e_008cb84d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2023-12-11T10:31:49Z",
+      "side": 1,
+      "message": "Yes, correct.",
+      "parentUuid": "a8cafdfb_785e2468",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
