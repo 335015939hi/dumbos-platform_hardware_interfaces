@@ -16,6 +16,24 @@
       "message": "Naive post-submit drive-by.\n\nDo we want to pass `serialno_prop` by const reference, instead of by copy?  We\u0027re using the `const` keyword here, but not `\u0026`.  I see that\u0027s the same as the already existing `instance_name` argument, but maybe we to fix that too?",
       "revId": "18a9fa99a8088b1c2a33b474586b22e3b2eabb43",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f575ed45_d1ae63fb",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2023-12-11T17:27:18Z",
+      "side": 1,
+      "message": "For sure. In fact, I think `std::string_view` would probably be even better.\n\nHowever, this change came from an external partner per my request. I didn\u0027t  nit pick on this point since the code is following existing style, is functionally correct, and is not performance-critical.",
+      "parentUuid": "5833f127_db88c7a0",
+      "revId": "18a9fa99a8088b1c2a33b474586b22e3b2eabb43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
