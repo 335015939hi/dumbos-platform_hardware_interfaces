@@ -390,6 +390,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca3e1ed3_e33e8a07",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1312909
+      },
+      "writtenOn": "2023-12-11T13:28:03Z",
+      "side": 1,
+      "message": "Here you say Seamless will be enforced by AOSP stack based on \"Media context for two directions with flags LOW_LATENCY, ALLOW_ASYMMETRIC_CONFIGURATIONS\" but based on what criteria AOSP will choose to set these flag. Will it be some feature OR property based OR Vendor Module should update to AOSP stack regarding this? \n\nAlso, possible to comment on how to cater problem of list size mismatch in config request and config settings response due to misinterpretation of AudioContext by AOSP Stack and Vendor (whether to be treated as unidirectional OR bidirectional for some grey use cases like Game/Live) and it\u0027s handling?",
+      "parentUuid": "867e1f5e_3ff3310f",
+      "revId": "760c255f5ddbc24b19a5ef99c7cf4c789a13feeb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5a5b82a_96875138",
         "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/IBluetoothAudioProvider.aidl",
         "patchSetId": 36
