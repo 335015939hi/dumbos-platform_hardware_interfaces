@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68b8dcd6_67920ebb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-12-12T16:29:22Z",
+      "side": 1,
+      "message": "I\u0027m fine with this, or we could limit it to specific directories like: https://source.corp.google.com/search?q\u003df:OWNERS%20per-file.*%2F%5C*.*google\u0026sq\u003drepo:googleplex-android%2Fplatform%2Fsuperproject%2Fmain%20b:main%20-f:prebuilts\n\n```\nper-file aidl/android/hardware/radio/network/* \u003d jayachandranc@google.com\n```\n(or what ever directory you want OWNERS for)",
+      "revId": "779268e142cfb9fb1b05fb1fe147a2eda70a4edf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
