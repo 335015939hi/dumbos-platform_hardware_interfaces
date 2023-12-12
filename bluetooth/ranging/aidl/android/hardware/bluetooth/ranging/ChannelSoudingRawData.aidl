@@ -31,6 +31,11 @@ parcelable ChannelSoudingRawData {
     /**
      * Indicate if the procedure aborted.
      */
+	/**
+     * Frequency Compensation indicates fractional frequency
+     * offset (FFO) value of initiator.
+     */
+    int frequencyCompensation;
     boolean aborted;
     /**
      * Common data for both initator and reflector sided.

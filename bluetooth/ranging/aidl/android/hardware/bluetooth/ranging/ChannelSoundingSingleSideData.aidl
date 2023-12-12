@@ -41,6 +41,10 @@ parcelable ChannelSoundingSingleSideData {
      * Packet NADM of mode-1 or mode-3 step data for attack detection.
      */
     @nullable Nadm[] packetNadm;
+	/**
+     * Measured Frequency Offset from mode 0, frequency offset relative to the remote device, in 0.01 ppm
+     */
+	@nullable int[] measuredFreqOffset;
     /**
      * Packet_PCT1 or packet_PCT2 of mode-1 or mode-3, if sounding sequence is used and sounding
      * phase-based ranging is supported.
