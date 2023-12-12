@@ -16,6 +16,24 @@
       "message": "Are these still needed?",
       "revId": "4bb32fc9b45ed331675f4c787d9b8970f58944ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4c6e7c8_952293e3",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T12:02:18Z",
+      "side": 1,
+      "message": "Not for this patch, required for `pub struct SecretkeeperChannel(Arc\u003cMutex\u003cLocalTa\u003e\u003e);` in this file.\nrustfmt changed the order of these.",
+      "parentUuid": "c8014b88_6335dd85",
+      "revId": "4bb32fc9b45ed331675f4c787d9b8970f58944ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
