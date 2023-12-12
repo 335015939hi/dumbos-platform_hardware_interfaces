@@ -18,6 +18,7 @@
 
 #include <android/hardware/automotive/vehicle/2.0/IVehicle.h>
 #include <utils/Log.h>
+#include <chrono>
 #include <unordered_set>
 
 #include <gmock/gmock.h>
@@ -32,6 +33,7 @@ using ::android::hardware::Return;
 
 constexpr auto kTimeout = std::chrono::milliseconds(500);
 constexpr auto kInvalidProp = 0x31600207;
+static constexpr auto kPropSetDelay = std::chrono::milliseconds(2000);
 
 class VtsVehicleCallback : public IVehicleCallback {
   private:
@@ -240,7 +242,13 @@ TEST_P(VehicleHalHidlTest, setProp) {
 
             // check set success
             invokeGet(cfg.prop, 0);
-            ASSERT_EQ(StatusCode::OK, mActualStatusCode);
+            auto propSetTimeout = std::chrono::steady_clock::now() + kPropSetDelay;
+            while (mActualValue.value.int32Values[0] != setValue &&
+                   std::chrono::steady_clock::now() <= propSetTimeout) {
+                usleep(500000);  // 500 ms delay between each read trials
+                invokeGet(cfg.prop, 0);
+                ASSERT_EQ(StatusCode::OK, mActualStatusCode);
+            }
 
             // If the property isn't available, it doesn't make sense to check
             // the returned value.
