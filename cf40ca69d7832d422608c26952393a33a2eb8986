@@ -22,6 +22,30 @@
       },
       "revId": "cf40ca69d7832d422608c26952393a33a2eb8986",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e7be41c_b1c9b31b",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T12:02:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "deafc972_37a60f5b",
+      "range": {
+        "startLine": 42,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 25
+      },
+      "revId": "cf40ca69d7832d422608c26952393a33a2eb8986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

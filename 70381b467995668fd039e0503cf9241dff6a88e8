@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74ae158e_0aab438b",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T12:02:56Z",
+      "side": 1,
+      "message": "Yes, these are random bytes. Added a comment",
+      "parentUuid": "3773a3d4_bcc798e2",
+      "revId": "70381b467995668fd039e0503cf9241dff6a88e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4811a04a_992653f2",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-12-05T10:30:29Z",
       "side": 1,
       "message": "super-nit: seems inconsistent to use `hex::decode` for one piece of test data but not for others",
+      "revId": "70381b467995668fd039e0503cf9241dff6a88e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e80278ec_d31b0e46",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T12:02:56Z",
+      "side": 1,
+      "message": "I\u0027ve changed hexstring to array of bytes.",
+      "parentUuid": "4811a04a_992653f2",
       "revId": "70381b467995668fd039e0503cf9241dff6a88e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
