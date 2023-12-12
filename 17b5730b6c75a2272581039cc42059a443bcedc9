@@ -88,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b528f4a6_13d7a2ee",
+        "filename": "security/secretkeeper/default/src/lib.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T00:53:46Z",
+      "side": 1,
+      "message": "This is no-more applicable.",
+      "parentUuid": "f82e187b_e6b3847f",
+      "revId": "17b5730b6c75a2272581039cc42059a443bcedc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "959933db_b55ec773",

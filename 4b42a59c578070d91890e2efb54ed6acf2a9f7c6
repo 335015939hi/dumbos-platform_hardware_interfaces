@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f34248f_9cf35e4d",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T00:53:46Z",
+      "side": 1,
+      "message": "Its not required anymore",
+      "parentUuid": "14103b20_fb76fe86",
+      "revId": "4b42a59c578070d91890e2efb54ed6acf2a9f7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61dfd39c_2ad44da3",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-12-05T06:19:23Z",
       "side": 1,
       "message": "error -\u003e info? (x2)",
+      "revId": "4b42a59c578070d91890e2efb54ed6acf2a9f7c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aa6c392_e03c46ab",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T00:53:46Z",
+      "side": 1,
+      "message": "Ive removed the logging from this method.",
+      "parentUuid": "61dfd39c_2ad44da3",
       "revId": "4b42a59c578070d91890e2efb54ed6acf2a9f7c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
