@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8daeed60_7bbe5086",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-12T15:29:05Z",
+      "side": 1,
+      "message": "ChannelSoudingRawData contains whole data for a CS procedure.\nThis should be int[] for multi CS subevents",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 30
+      },
+      "revId": "57c6818edd0092244b84559de88c646746902062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "567cff5d_7c050117",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
         "patchSetId": 4
