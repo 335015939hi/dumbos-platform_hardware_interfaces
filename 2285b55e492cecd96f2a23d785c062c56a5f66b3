@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e58416e1_7dc0012b",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-12T00:33:42Z",
+      "side": 1,
+      "message": "`\u0027disconnectExternalDevice\u0027`",
+      "range": {
+        "startLine": 925,
+        "startChar": 57,
+        "endLine": 925,
+        "endChar": 87
+      },
+      "revId": "2285b55e492cecd96f2a23d785c062c56a5f66b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
