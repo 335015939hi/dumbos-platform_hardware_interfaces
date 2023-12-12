@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2930505_5c6c21b2",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-12T12:34:53Z",
+      "side": 0,
+      "message": "This back-reference to the AIDL looks useful?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 70
+      },
+      "revId": "e608eb8d341b02308b3ffa398511dac49eec9bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

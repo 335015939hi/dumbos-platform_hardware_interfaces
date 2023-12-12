@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1597cf8e_cfa1d77e",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-12T12:34:53Z",
+      "side": 1,
+      "message": "Uber-nit: Lose the blank line so it\u0027s obvious this comment is refering to PRP?\n\n\nAlso I\u0027d be slightly tempted to move ProtectedResponsePacket up to just below here.",
+      "revId": "7d901269d9bf6c3ba516620358d33edab2679026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2c5c9ab_977f8ed0",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 12
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-12T12:34:53Z",
+      "side": 1,
+      "message": "Undefined?",
+      "range": {
+        "startLine": 8,
+        "startChar": 54,
+        "endLine": 8,
+        "endChar": 69
+      },
+      "revId": "7d901269d9bf6c3ba516620358d33edab2679026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
