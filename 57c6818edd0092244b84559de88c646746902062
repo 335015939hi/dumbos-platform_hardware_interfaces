@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "567cff5d_7c050117",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-12T15:24:33Z",
+      "side": 1,
+      "message": "This list contains stepTonePct from each channel (in a CS procedure). Not for single step only.\nYou should modify StepTonePct.aidl instead",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "57c6818edd0092244b84559de88c646746902062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
