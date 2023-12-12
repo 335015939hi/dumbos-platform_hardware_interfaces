@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4686543f_3f85cec9",
+        "filename": "weaver/vts/VtsHalWeaverTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-12-12T16:31:48Z",
+      "side": 1,
+      "message": "The test currently doesn\u0027t wait for the throttle to clear. Will that interfere with other tests if they run in an unfortunate order?",
+      "range": {
+        "startLine": 411,
+        "startChar": 39,
+        "endLine": 411,
+        "endChar": 65
+      },
+      "revId": "7b9d6d5c394b4dc02eb76d7625cf6a3cede6b08d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e1640cd_3a34e017",
+        "filename": "weaver/vts/VtsHalWeaverTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-12-12T16:31:48Z",
+      "side": 1,
+      "message": "I don\u0027t think the HAL actually specifies the timeout of the backoff function. That sounds like a bug in the HAL but it should be specified if it\u0027s going to be tested by VTS.",
+      "range": {
+        "startLine": 413,
+        "startChar": 44,
+        "endLine": 413,
+        "endChar": 49
+      },
+      "revId": "7b9d6d5c394b4dc02eb76d7625cf6a3cede6b08d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "441ab8e7_70db921a",
+        "filename": "weaver/vts/VtsHalWeaverTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-12-12T16:31:48Z",
+      "side": 1,
+      "message": "IIUC, this is the case when it\u0027s throttling and the requests are being rejected. Should the test also keep track of how much time has passed to check that the throttle actually ends at about the right time?",
+      "revId": "7b9d6d5c394b4dc02eb76d7625cf6a3cede6b08d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
