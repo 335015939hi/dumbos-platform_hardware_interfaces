@@ -26,7 +26,8 @@ import android.hardware.bluetooth.ranging.StepTonePct;
 @VintfStability
 parcelable ChannelSoundingSingleSideData {
     /**
-     * PCT (complex value) measured from mode-2 or mode-3 steps in a CS procedure (in time order).
+     * PCT (complex value) measured from mode-2 or mode-3 steps in a CS procedure
+     * (in ascending order of antenna position).
      */
     @nullable List<StepTonePct> stepTonePcts;
     /**
@@ -41,6 +42,10 @@ parcelable ChannelSoundingSingleSideData {
      * Packet NADM of mode-1 or mode-3 step data for attack detection.
      */
     @nullable Nadm[] packetNadm;
+    /**
+     * Measured Frequency Offset from mode 0, freq offset relative to the remote device, in 0.01ppm
+     */
+    @nullable int[] measuredFreqOffset;
     /**
      * Packet_PCT1 or packet_PCT2 of mode-1 or mode-3, if sounding sequence is used and sounding
      * phase-based ranging is supported.
