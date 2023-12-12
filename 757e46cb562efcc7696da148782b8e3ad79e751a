@@ -136,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03b60ea8_09fe59fe",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T00:56:55Z",
+      "side": 1,
+      "message": "\u003e Done. Thanks",
+      "parentUuid": "f00f5c4f_1454d9e4",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 137
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "885b856d_d0f5b664",
@@ -173,6 +197,30 @@
       "side": 1,
       "message": "`Default` cannot be derived if `AuthCapableStorage` (previously `SecretkeeperStore`) doesn\u0027t have default. The latter is deliberate, we do not want to initialize it with an In-Memory store by default.",
       "parentUuid": "885b856d_d0f5b664",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 32
+      },
+      "revId": "757e46cb562efcc7696da148782b8e3ad79e751a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "609cb7a0_899a9c1d",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T00:56:55Z",
+      "side": 1,
+      "message": "\u003e `Default` cannot be derived if `AuthCapableStorage` (previously `SecretkeeperStore`) doesn\u0027t have default. The latter is deliberate, we do not want to initialize it with an In-Memory store by default.",
+      "parentUuid": "b79c11c3_2b50f875",
       "range": {
         "startLine": 42,
         "startChar": 0,

@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90f00fe4_99ab86e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T00:56:55Z",
+      "side": 1,
+      "message": "The patch is obsolete \u0026 most of Sk store/get is now in ta module of secretkeeper_core. Please review aosp/2868535",
+      "revId": "b1fd22797256e086732f9f7b1459398d73bc8738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f78aa14_9bd05780",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-12-05T15:07:14Z",
       "side": 1,
       "message": "This Arc I understand",
+      "range": {
+        "startLine": 46,
+        "startChar": 11,
+        "endLine": 46,
+        "endChar": 14
+      },
+      "revId": "b1fd22797256e086732f9f7b1459398d73bc8738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c792b01_7d11a758",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T00:56:55Z",
+      "side": 1,
+      "message": "Ive moved it to ta.rs on /system/secretkeeper (which assumes the code will run in single thread, simplifying this). PTAL",
+      "parentUuid": "5f78aa14_9bd05780",
       "range": {
         "startLine": 46,
         "startChar": 11,
@@ -47,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b226056_f67ce7e6",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T00:56:55Z",
+      "side": 1,
+      "message": "This is the only bug for Authgraph KE \u0026 Sk integration.",
+      "parentUuid": "55d0d2ed_fc7bb3a9",
+      "range": {
+        "startLine": 127,
+        "startChar": 22,
+        "endLine": 127,
+        "endChar": 31
+      },
+      "revId": "b1fd22797256e086732f9f7b1459398d73bc8738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bc01ed3_5f373195",
@@ -60,6 +125,30 @@
       "writtenOn": "2023-12-05T15:07:14Z",
       "side": 1,
       "message": "But this one I\u0027m less sure about.\nCan we push both Arc and Mutex up into NSSK? It\u0027s the thing that needs to cope with multiple threads because of Binder.",
+      "range": {
+        "startLine": 159,
+        "startChar": 25,
+        "endLine": 159,
+        "endChar": 28
+      },
+      "revId": "b1fd22797256e086732f9f7b1459398d73bc8738",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9e81bcc_f82976d3",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T00:56:55Z",
+      "side": 1,
+      "message": "I simplified it to take HashMap\u003cVec\u003cu8\u003e, Vec\u003cu8\u003e\u003e \u0026 so the  method params take \u0026mut (see the parent patch)",
+      "parentUuid": "3bc01ed3_5f373195",
       "range": {
         "startLine": 159,
         "startChar": 25,
