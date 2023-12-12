@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af8edfc5_26d8d994",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 15
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T15:58:54Z",
+      "side": 1,
+      "message": "Is it? That was not the original intention. StoreRequestPacket for be a cbor array of size 4, thats what the request/response trait\u0027s provided methods implement. Or are you intending on changing that behaviour",
+      "range": {
+        "startLine": 23,
+        "startChar": 50,
+        "endLine": 23,
+        "endChar": 71
+      },
+      "revId": "0dc49c606ebaefd03c0772860dce1e43e59b3bee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
