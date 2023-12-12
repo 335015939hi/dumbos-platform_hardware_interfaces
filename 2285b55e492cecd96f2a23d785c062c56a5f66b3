@@ -22,6 +22,30 @@
       },
       "revId": "2285b55e492cecd96f2a23d785c062c56a5f66b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93e0926c_dee6a4e5",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 925,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-12-12T00:36:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e58416e1_7dc0012b",
+      "range": {
+        "startLine": 925,
+        "startChar": 57,
+        "endLine": 925,
+        "endChar": 87
+      },
+      "revId": "2285b55e492cecd96f2a23d785c062c56a5f66b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
