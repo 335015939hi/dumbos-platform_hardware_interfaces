@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e2c450c_78619de1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-12T17:38:56Z",
+      "side": 1,
+      "message": "smoreland@: just a small delta for AIDL-API-Review, to surface (unencrypted) errors via service-specific Binder errors.  Thanks!",
+      "revId": "bef8d3ae8948a626035a4a3b698032fea68297eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
