@@ -22,6 +22,30 @@
       },
       "revId": "0dc49c606ebaefd03c0772860dce1e43e59b3bee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43153555_88a46950",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 15
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-12T16:05:41Z",
+      "side": 1,
+      "message": "No, I wasn\u0027t intending on changing the schema, I just misunderstood what `[thing1, (thing2, thing3)]` would encode as.\n\nUpdated the comments.",
+      "parentUuid": "af8edfc5_26d8d994",
+      "range": {
+        "startLine": 23,
+        "startChar": 50,
+        "endLine": 23,
+        "endChar": 71
+      },
+      "revId": "0dc49c606ebaefd03c0772860dce1e43e59b3bee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
