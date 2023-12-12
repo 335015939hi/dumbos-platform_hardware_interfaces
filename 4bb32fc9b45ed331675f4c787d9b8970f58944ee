@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8014b88_6335dd85",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-12T11:47:32Z",
+      "side": 1,
+      "message": "Are these still needed?",
+      "revId": "4bb32fc9b45ed331675f4c787d9b8970f58944ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
