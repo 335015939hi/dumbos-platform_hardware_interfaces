@@ -23,6 +23,10 @@ import android.hardware.bluetooth.ranging.ComplexNumber;
  */
 @VintfStability
 parcelable StepTonePct {
+    /**
+     * PCT measured from mode-2 or mode-3 steps
+     * (in ascending order of antenna position).
+     */
     List<ComplexNumber> tonePcts;
     const int TONE_QUALITY_GOOD = 0;
     const int TONE_QUALITY_MEDIUM = 1;
