@@ -16,6 +16,29 @@
       "message": "smoreland@: just a small delta for AIDL-API-Review, to surface (unencrypted) errors via service-specific Binder errors.  Thanks!",
       "revId": "bef8d3ae8948a626035a4a3b698032fea68297eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67d212d7_2bb849b3",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ErrorCode.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-12T21:04:01Z",
+      "side": 1,
+      "message": "nit: we usually use \u0027const int ERROR_...\u0027 on the main interface with this",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 8
+      },
+      "revId": "bef8d3ae8948a626035a4a3b698032fea68297eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
