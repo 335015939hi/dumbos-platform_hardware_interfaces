@@ -29,6 +29,11 @@ parcelable ChannelSoudingRawData {
      */
     int procedureCounter;
     /**
+     * Frequency Compensation indicates fractional frequency
+     * offset (FFO) value of initiator.
+     */
+    int frequencyCompensation;
+    /**
      * Indicate if the procedure aborted.
      */
     boolean aborted;
