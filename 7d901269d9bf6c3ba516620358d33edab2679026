@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d05293a4_c4af65fd",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-12T15:26:49Z",
+      "side": 1,
+      "message": "Done for the first, but I left the structure as is -- I liked having everything request-related, then everything response-related.",
+      "parentUuid": "1597cf8e_cfa1d77e",
+      "revId": "7d901269d9bf6c3ba516620358d33edab2679026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2c5c9ab_977f8ed0",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-12-12T12:34:53Z",
       "side": 1,
       "message": "Undefined?",
+      "range": {
+        "startLine": 8,
+        "startChar": 54,
+        "endLine": 8,
+        "endChar": 69
+      },
+      "revId": "7d901269d9bf6c3ba516620358d33edab2679026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eca3a245_07d8fa59",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 12
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-12T15:26:49Z",
+      "side": 1,
+      "message": "Added a comment; the key isn\u0027t actually used in the schema, it\u0027s only mentioned in a comment.",
+      "parentUuid": "e2c5c9ab_977f8ed0",
       "range": {
         "startLine": 8,
         "startChar": 54,
