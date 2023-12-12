@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb9f0498_3bb1d93b",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-12-12T00:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78cd3d94_376513e6",
+      "range": {
+        "startLine": 919,
+        "startChar": 52,
+        "endLine": 920,
+        "endChar": 24
+      },
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1138a27_8bb626bf",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "970c45d7_0aa8a8ac",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-12-12T00:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1138a27_8bb626bf",
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07027c0c_a5c75559",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-12-11T22:20:44Z",
       "side": 1,
       "message": "Please add `@param portId` description.",
+      "range": {
+        "startLine": 923,
+        "startChar": 0,
+        "endLine": 923,
+        "endChar": 6
+      },
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56f8307e_e52265ac",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-12-12T00:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07027c0c_a5c75559",
       "range": {
         "startLine": 923,
         "startChar": 0,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61832571_0e36b9c9",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1564,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-12-12T00:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29281c5e_76d0a48d",
+      "range": {
+        "startLine": 1564,
+        "startChar": 31,
+        "endLine": 1564,
+        "endChar": 37
+      },
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c8238b7_4da9c08a",
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6afe19e_ba9db211",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-12-12T00:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c8238b7_4da9c08a",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e465d0f4_d1fb2a2c",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-12-11T22:20:44Z",
       "side": 1,
       "message": "Maybe, call this `EXPECT_IS_OK_OR_UNKNOWN_TRANSACTION` (and same for `EXPECT_STATUS`)? And rename helper method accordingly.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 48
+      },
+      "revId": "0fbe2929e79755fc38b68c4574885a764eb88152",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed28cd0_4b1ba580",
+        "filename": "audio/aidl/vts/TestUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-12-12T00:05:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e465d0f4_d1fb2a2c",
       "range": {
         "startLine": 119,
         "startChar": 0,
