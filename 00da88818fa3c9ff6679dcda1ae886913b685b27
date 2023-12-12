@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fb08c04_004c343c",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T13:21:35Z",
+      "side": 1,
+      "message": "Locally hacked to `log::info(policy.to_vec())` \u0026 `log::info(dice_chain)`, I dont have it uploaded.\n\nThis will be removed we start using a different dice chain with secrets",
+      "parentUuid": "0e2a7020_a758cf7b",
+      "range": {
+        "startLine": 41,
+        "startChar": 67,
+        "endLine": 41,
+        "endChar": 88
+      },
+      "revId": "00da88818fa3c9ff6679dcda1ae886913b685b27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2dab3b6_b6b1015a",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62f12ead_83dc6632",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 7
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T13:21:35Z",
+      "side": 1,
+      "message": "Good idea. Done.",
+      "parentUuid": "b2dab3b6_b6b1015a",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 43
+      },
+      "revId": "00da88818fa3c9ff6679dcda1ae886913b685b27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e12cdb8b_f9070391",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-12-12T12:42:07Z",
       "side": 1,
       "message": "This slightly confused me; it sounds like a TODO.\n\n\"We\u0027re expecting an error\", or similar? Or drop.",
+      "range": {
+        "startLine": 260,
+        "startChar": 7,
+        "endLine": 260,
+        "endChar": 23
+      },
+      "revId": "00da88818fa3c9ff6679dcda1ae886913b685b27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8325f0e2_5b85aaaf",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 7
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-12T13:21:35Z",
+      "side": 1,
+      "message": "I reframed it. Thanks",
+      "parentUuid": "e12cdb8b_f9070391",
       "range": {
         "startLine": 260,
         "startChar": 7,
