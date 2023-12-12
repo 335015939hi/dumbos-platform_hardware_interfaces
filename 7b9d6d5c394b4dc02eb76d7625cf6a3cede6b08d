@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f5b36b3_551cabf5",
+        "filename": "weaver/vts/VtsHalWeaverTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-12-12T17:15:46Z",
+      "side": 1,
+      "message": "I noticied that this VTS test is getting timed out if I introduce a wait.",
+      "parentUuid": "4686543f_3f85cec9",
+      "range": {
+        "startLine": 411,
+        "startChar": 39,
+        "endLine": 411,
+        "endChar": 65
+      },
+      "revId": "7b9d6d5c394b4dc02eb76d7625cf6a3cede6b08d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e1640cd_3a34e017",
         "filename": "weaver/vts/VtsHalWeaverTargetTest.cpp",
         "patchSetId": 2
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3969ee41_18cba045",
+        "filename": "weaver/vts/VtsHalWeaverTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-12-12T17:15:46Z",
+      "side": 1,
+      "message": "You mean the HAL documentation of WeaverReadResponse.timeout should specify the \"timeout in seconds as a function of the failure counter \u0027x\u0027\", then only it makes sense to add this time out check.\n\nPlease correct me If I am misunderstood.",
+      "parentUuid": "0e1640cd_3a34e017",
+      "range": {
+        "startLine": 413,
+        "startChar": 44,
+        "endLine": 413,
+        "endChar": 49
+      },
+      "revId": "7b9d6d5c394b4dc02eb76d7625cf6a3cede6b08d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "441ab8e7_70db921a",
         "filename": "weaver/vts/VtsHalWeaverTargetTest.cpp",
         "patchSetId": 2
@@ -60,6 +108,24 @@
       "writtenOn": "2023-12-12T16:31:48Z",
       "side": 1,
       "message": "IIUC, this is the case when it\u0027s throttling and the requests are being rejected. Should the test also keep track of how much time has passed to check that the throttle actually ends at about the right time?",
+      "revId": "7b9d6d5c394b4dc02eb76d7625cf6a3cede6b08d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19bbd32d_ab4c5157",
+        "filename": "weaver/vts/VtsHalWeaverTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2023-12-12T17:15:46Z",
+      "side": 1,
+      "message": "As I mentioned in the first comment, If I introduce a wait in the TC, the VTS test is getting timed out. I will check if there is a way to increase the timeout of the VTS test.",
+      "parentUuid": "441ab8e7_70db921a",
       "revId": "7b9d6d5c394b4dc02eb76d7625cf6a3cede6b08d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
