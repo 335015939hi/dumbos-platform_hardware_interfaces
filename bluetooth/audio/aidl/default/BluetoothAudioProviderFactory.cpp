@@ -22,9 +22,12 @@
 #include <android-base/logging.h>
 
 #include "A2dpOffloadAudioProvider.h"
+#include "A2dpOffloadCodecFactory.h"
 #include "A2dpSoftwareAudioProvider.h"
 #include "BluetoothAudioProvider.h"
 #include "HearingAidAudioProvider.h"
+#include "HfpOffloadAudioProvider.h"
+#include "HfpSoftwareAudioProvider.h"
 #include "LeAudioOffloadAudioProvider.h"
 #include "LeAudioSoftwareAudioProvider.h"
 
@@ -77,6 +80,15 @@ ndk::ScopedAStatus BluetoothAudioProviderFactory::openProvider(
       break;
     case SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH:
       provider = ndk::SharedRefBase::make<A2dpOffloadDecodingAudioProvider>();
+      break;
+    case SessionType::HFP_SOFTWARE_ENCODING_DATAPATH:
+      provider = ndk::SharedRefBase::make<HfpSoftwareOutputAudioProvider>();
+      break;
+    case SessionType::HFP_SOFTWARE_DECODING_DATAPATH:
+      provider = ndk::SharedRefBase::make<HfpSoftwareInputAudioProvider>();
+      break;
+    case SessionType::HFP_HARDWARE_OFFLOAD_DATAPATH:
+      provider = ndk::SharedRefBase::make<HfpOffloadAudioProvider>();
       break;
     default:
       provider = nullptr;
@@ -139,7 +151,14 @@ ndk::ScopedAStatus BluetoothAudioProviderFactory::getProviderInfo(
     SessionType session_type, std::optional<ProviderInfo>* _aidl_return) {
   *_aidl_return = std::nullopt;
 
-  (void)session_type;
+  if (session_type == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+      session_type == SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+    auto& provider_info = _aidl_return->emplace();
+
+    provider_info.name = A2dpOffloadCodecFactory::GetInstance()->name;
+    for (auto codec : A2dpOffloadCodecFactory::GetInstance()->codecs)
+      provider_info.codecInfos.push_back(codec->info);
+  }
 
   return ndk::ScopedAStatus::ok();
 }

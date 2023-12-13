@@ -147,6 +147,14 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>android.hardware.bluetooth.ranging</name>
+        <version>1</version>
+        <interface>
+            <name>IBluetoothChannelSounding</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>android.hardware.bluetooth.finder</name>
         <version>1</version>
         <interface>
@@ -257,7 +265,7 @@
     </hal>
     <hal format="aidl" optional="true">
         <name>android.hardware.health</name>
-        <version>1-2</version>
+        <version>3</version>
         <interface>
             <name>IHealth</name>
             <instance>default</instance>
@@ -587,6 +595,14 @@
         <interface>
             <name>IThreadChip</name>
             <regex-instance>chip[0-9]+</regex-instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.threadnetwork</name>
+        <version>1</version>
+        <interface>
+            <name>IThreadChip</name>
+            <instance>chip0</instance>
         </interface>
     </hal>
     <hal format="aidl" optional="true">
