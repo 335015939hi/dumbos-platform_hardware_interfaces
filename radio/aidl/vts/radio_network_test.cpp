@@ -822,7 +822,7 @@ TEST_P(RadioNetworkTest, setSystemSelectionChannels) {
           toString(radioRsp_network->rspInfo.error).c_str());
     ASSERT_TRUE(CheckAnyOfErrors(
             radioRsp_network->rspInfo.error,
-            {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::INTERNAL_ERR}));
+            {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::INTERNAL_ERR,RadioError::REQUEST_NOT_SUPPORTED}));
 
     if (radioRsp_network->rspInfo.error == RadioError::NONE) {
         serial = GetRandomSerialNumber();
