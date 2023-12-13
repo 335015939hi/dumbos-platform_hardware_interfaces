@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54551d88_8d5c01d4",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T13:13:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24123d11_49e8f04c",
+      "range": {
+        "startLine": 85,
+        "startChar": 37,
+        "endLine": 85,
+        "endChar": 49
+      },
+      "revId": "6ef8dfbb76528775bc639d6be95a28fc053e3a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b11b4ee8_4698228b",
@@ -72,6 +96,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4a18449b_da4b027a",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T13:13:25Z",
+      "side": 1,
+      "message": "That\u0027s what I\u0027m assuming -- it seems the simplest (and easiest to use) API semantics.",
+      "parentUuid": "b11b4ee8_4698228b",
+      "range": {
+        "startLine": 122,
+        "startChar": 13,
+        "endLine": 122,
+        "endChar": 19
+      },
+      "revId": "6ef8dfbb76528775bc639d6be95a28fc053e3a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "114d06c0_659e8b33",
         "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
         "patchSetId": 4
@@ -83,6 +131,30 @@
       "writtenOn": "2023-12-13T12:55:46Z",
       "side": 1,
       "message": "At some point we\u0027ll want a test where this is Some.",
+      "range": {
+        "startLine": 167,
+        "startChar": 60,
+        "endLine": 167,
+        "endChar": 89
+      },
+      "revId": "6ef8dfbb76528775bc639d6be95a28fc053e3a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6f9f6f2_4fafdc3f",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T13:13:25Z",
+      "side": 1,
+      "message": "Indeed -- these VTS tests are noticeably lacking a test that exercises the raison d\u0027etre of Secretkeeper (to allow access to a client with an upgraded DICE chain) ...",
+      "parentUuid": "114d06c0_659e8b33",
       "range": {
         "startLine": 167,
         "startChar": 60,
