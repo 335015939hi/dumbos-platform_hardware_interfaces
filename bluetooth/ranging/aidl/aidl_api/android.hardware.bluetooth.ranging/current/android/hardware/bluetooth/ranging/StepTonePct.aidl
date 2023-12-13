@@ -36,6 +36,7 @@ package android.hardware.bluetooth.ranging;
 parcelable StepTonePct {
   List<android.hardware.bluetooth.ranging.ComplexNumber> tonePcts;
   byte[] toneQualityIndicator;
+  byte toneExtentionAntennaIndex;
   const int TONE_QUALITY_GOOD = 0;
   const int TONE_QUALITY_MEDIUM = 1;
   const int TONE_QUALITY_LOW = 2;

@@ -23,6 +23,10 @@ import android.hardware.bluetooth.ranging.ComplexNumber;
  */
 @VintfStability
 parcelable StepTonePct {
+    /**
+     * PCT measured from mode-2 or mode-3 steps
+     * (in ascending order of antenna position).
+     */
     List<ComplexNumber> tonePcts;
     const int TONE_QUALITY_GOOD = 0;
     const int TONE_QUALITY_MEDIUM = 1;
@@ -52,4 +56,14 @@ parcelable StepTonePct {
      * See: https://bluetooth.com/specifications/specs/channel-sounding-cr-pr/
      */
     byte[] toneQualityIndicator;
+    /**
+     * Tone Extention Antenna Index indicates the Antenna position used in tone extention slot
+     *
+     * 0x00 = A0
+     * 0x01 = A1
+     * 0x02 = A2
+     * 0x03 = A3
+     * 0xFF = Tone extention not used
+     */
+    byte toneExtentionAntennaIndex;
 }
