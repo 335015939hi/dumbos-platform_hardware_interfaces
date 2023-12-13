@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79730e3b_cfb02155",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretId.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T11:32:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f33579c9_98ed2233",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "a96075dae36cd27644e41827eca4ed561568f727",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17801fab_17c2bd5e",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d595181_11765f29",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T11:32:31Z",
+      "side": 1,
+      "message": "Removed the `pub` as it wasn\u0027t needed anyway.\n\nThere\u0027s a follow-up CL coming that puts helpers into `SkClient` so `Deref` isn\u0027t really needed.",
+      "parentUuid": "17801fab_17c2bd5e",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "a96075dae36cd27644e41827eca4ed561568f727",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c6daacf_9c25b797",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-12-13T11:00:42Z",
       "side": 1,
       "message": "It would also be good to test that if we create 2 secrets, then delete 1, the other one is still there.",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 370,
+        "endChar": 54
+      },
+      "revId": "a96075dae36cd27644e41827eca4ed561568f727",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50e616b8_b1fce898",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 5
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T11:32:31Z",
+      "side": 1,
+      "message": "Done in next CL.",
+      "parentUuid": "9c6daacf_9c25b797",
       "range": {
         "startLine": 356,
         "startChar": 0,
