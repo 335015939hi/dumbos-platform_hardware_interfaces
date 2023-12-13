@@ -22,6 +22,52 @@
       },
       "revId": "a96075dae36cd27644e41827eca4ed561568f727",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17801fab_17c2bd5e",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-13T11:00:42Z",
+      "side": 1,
+      "message": "Not urgent: Maybe SkClient should Deref to \u0026dyn ISecretkeeper, rather than having this pub?",
+      "range": {
+        "startLine": 88,
+        "startChar": 4,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "a96075dae36cd27644e41827eca4ed561568f727",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c6daacf_9c25b797",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 5
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-13T11:00:42Z",
+      "side": 1,
+      "message": "It would also be good to test that if we create 2 secrets, then delete 1, the other one is still there.",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 370,
+        "endChar": 54
+      },
+      "revId": "a96075dae36cd27644e41827eca4ed561568f727",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
