@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7adff8bc_89d18671",
+        "filename": "weaver/vts/VtsHalWeaverTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2023-12-13T08:53:01Z",
+      "side": 1,
+      "message": "Right. Otherwise the 30 seconds used here has just come from a specific implementation of the HAL, but VTS tests the interface for all implementations sof the HAL.",
+      "parentUuid": "3969ee41_18cba045",
+      "range": {
+        "startLine": 413,
+        "startChar": 44,
+        "endLine": 413,
+        "endChar": 49
+      },
+      "revId": "7b9d6d5c394b4dc02eb76d7625cf6a3cede6b08d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "441ab8e7_70db921a",
         "filename": "weaver/vts/VtsHalWeaverTargetTest.cpp",
         "patchSetId": 2
