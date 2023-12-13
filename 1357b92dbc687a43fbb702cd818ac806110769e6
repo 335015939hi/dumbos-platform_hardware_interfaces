@@ -16,6 +16,23 @@
       "message": "PTAL - tidied TODOs and lost the +2",
       "revId": "1357b92dbc687a43fbb702cd818ac806110769e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca0c9e29_0aaad1fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T14:04:29Z",
+      "side": 1,
+      "message": "Note that Gerrit has gotten confused and treated an unrelated pair (remove ErrorCode.aidl, add SecretId.aidl) as a rename...",
+      "revId": "1357b92dbc687a43fbb702cd818ac806110769e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
