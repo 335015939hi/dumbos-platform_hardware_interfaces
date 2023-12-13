@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54335c14_2a1502e7",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1885151
+      },
+      "writtenOn": "2023-12-13T21:58:17Z",
+      "side": 1,
+      "message": "Can we assert it is indeed the `DEVICE_RESET_RSP` that we are receiving here ?",
+      "revId": "ce4a81dca9c9337d20efd2e3c0d205549617da7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
