@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75780a01_b2fd698c",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1322510
+      },
+      "writtenOn": "2023-12-13T08:51:33Z",
+      "side": 1,
+      "message": "Please fix the typo",
+      "range": {
+        "startLine": 66,
+        "startChar": 19,
+        "endLine": 66,
+        "endChar": 28
+      },
+      "revId": "9921d0dd2eee4a15b1d686c84eb5f7c19a4de6b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
