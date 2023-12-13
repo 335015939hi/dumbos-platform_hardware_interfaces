@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d06c68e6_9f77f8e0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-13T12:55:46Z",
+      "side": 1,
+      "message": "Oh yes, that does seem like a good idea 😊",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 57
+      },
+      "revId": "6ef8dfbb76528775bc639d6be95a28fc053e3a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24123d11_49e8f04c",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-13T12:55:46Z",
+      "side": 1,
+      "message": "It\u0027s already a String?",
+      "range": {
+        "startLine": 85,
+        "startChar": 37,
+        "endLine": 85,
+        "endChar": 49
+      },
+      "revId": "6ef8dfbb76528775bc639d6be95a28fc053e3a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b11b4ee8_4698228b",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-13T12:55:46Z",
+      "side": 1,
+      "message": "I presume deleting something that doesn\u0027t exist is considered harmless, rather than an error?",
+      "range": {
+        "startLine": 122,
+        "startChar": 13,
+        "endLine": 122,
+        "endChar": 19
+      },
+      "revId": "6ef8dfbb76528775bc639d6be95a28fc053e3a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "114d06c0_659e8b33",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-13T12:55:46Z",
+      "side": 1,
+      "message": "At some point we\u0027ll want a test where this is Some.",
+      "range": {
+        "startLine": 167,
+        "startChar": 60,
+        "endLine": 167,
+        "endChar": 89
+      },
+      "revId": "6ef8dfbb76528775bc639d6be95a28fc053e3a34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
