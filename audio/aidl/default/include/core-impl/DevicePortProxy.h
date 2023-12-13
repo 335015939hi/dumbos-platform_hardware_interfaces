@@ -73,12 +73,7 @@ class BluetoothAudioPort {
      * Bluetooth stack
      */
     virtual bool loadAudioConfig(
-            ::aidl::android::hardware::bluetooth::audio::PcmConfiguration*) const = 0;
-
-    /**
-     * WAR to support Mono mode / 16 bits per sample
-     */
-    virtual void forcePcmStereoToMono(bool) = 0;
+            ::aidl::android::hardware::bluetooth::audio::PcmConfiguration*) = 0;
 
     /**
      * When the Audio framework / HAL wants to change the stream state, it invokes
@@ -162,10 +157,8 @@ class BluetoothAudioPortAidl : public BluetoothAudioPort {
 
     void unregisterPort() override;
 
-    bool loadAudioConfig(::aidl::android::hardware::bluetooth::audio::PcmConfiguration* audio_cfg)
-            const override;
-
-    void forcePcmStereoToMono(bool force) override { mIsStereoToMono = force; }
+    bool loadAudioConfig(
+            ::aidl::android::hardware::bluetooth::audio::PcmConfiguration* audio_cfg) override;
 
     bool standby() override;
     bool start() override;
@@ -228,6 +221,9 @@ class BluetoothAudioPortAidl : public BluetoothAudioPort {
 
 class BluetoothAudioPortAidlOut : public BluetoothAudioPortAidl {
   public:
+    bool loadAudioConfig(
+            ::aidl::android::hardware::bluetooth::audio::PcmConfiguration* audio_cfg) override;
+
     // The audio data path to the Bluetooth stack (Software encoding)
     size_t writeData(const void* buffer, size_t bytes) const override;
 };
