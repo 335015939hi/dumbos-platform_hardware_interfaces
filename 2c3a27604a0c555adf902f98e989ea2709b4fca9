@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "348efd96_4d82af26",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-12-13T00:56:40Z",
+      "side": 1,
+      "message": "Yes, because `supportedChannelLayout` is a get only parameter",
+      "parentUuid": "ce3118b8_957d443e",
+      "range": {
+        "startLine": 71,
+        "startChar": 56,
+        "endLine": 72,
+        "endChar": 52
+      },
+      "revId": "2c3a27604a0c555adf902f98e989ea2709b4fca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e1b57cb_053f6d66",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6e2de22_5965e9e6",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-12-13T00:56:40Z",
+      "side": 1,
+      "message": "I got error like \"It needs to meet SLO in postsubmit on all configured targets\" when tried to add it as presubmit in the patch-set 2.\nLooks like I will need to add as post submit and soak it for a while before include it in presubmit.",
+      "parentUuid": "1e1b57cb_053f6d66",
+      "range": {
+        "startLine": 174,
+        "startChar": 11,
+        "endLine": 174,
+        "endChar": 38
+      },
+      "revId": "2c3a27604a0c555adf902f98e989ea2709b4fca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9337c7f8_e5db0a19",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-12-13T00:29:18Z",
       "side": 1,
       "message": "How this include is used?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 23
+      },
+      "revId": "2c3a27604a0c555adf902f98e989ea2709b4fca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b230ad4_2cc00e38",
+        "filename": "audio/aidl/vts/VtsHalSpatializerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-12-13T00:56:40Z",
+      "side": 1,
+      "message": "`getAidlHalInstanceNames` was used in EffectFactoryHelper.h\nWill fix this along with other test files in followup CL",
+      "parentUuid": "9337c7f8_e5db0a19",
       "range": {
         "startLine": 19,
         "startChar": 0,
