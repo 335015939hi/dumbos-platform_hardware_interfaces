@@ -39,6 +39,30 @@
       },
       "revId": "bef8d3ae8948a626035a4a3b698032fea68297eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21bd2f3c_17fa9eef",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ErrorCode.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T05:25:39Z",
+      "side": 1,
+      "message": "Ack -- I\u0027ll fix in the next change to save round trips.",
+      "parentUuid": "67d212d7_2bb849b3",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 8
+      },
+      "revId": "bef8d3ae8948a626035a4a3b698032fea68297eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
