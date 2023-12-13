@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20f1fd56_f9d43888",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2023-12-13T16:43:14Z",
+      "side": 1,
+      "message": "I\u0027m thinking that if there is metadata but there is no prefferedAudioContext tag in there, we could return true just as there was no metadata at all. This can be changed later.",
+      "range": {
+        "startLine": 158,
+        "startChar": 2,
+        "endLine": 167,
+        "endChar": 3
+      },
+      "revId": "867af60a77f11905bad6515c414d2ffdae455f26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
