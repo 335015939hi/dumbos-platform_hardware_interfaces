@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "892cc57b_de6e784c",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-12-13T11:22:31Z",
+      "side": 1,
+      "message": "better as:\n    if (!instanceSpp) {\n        LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \" invalid input parameter!\";\n        return EX_ILLEGAL_ARGUMENT;\n   }\n   *instanceSpp \u003d ndk::SharedRefBase::make\u003cSpatializerSw\u003e();\n   LOG(DEBUG) \u003c\u003c __func__ \u003c\u003c \" instance \" \u003c\u003c instanceSpp-\u003eget() \u003c\u003c \" created\";\n   return EX_NONE;",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "e28172f00476acc54b588b09df98bb46a39f2d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cbcfb1b_de8c79b6",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-12-13T11:22:31Z",
+      "side": 1,
+      "message": "the spatializer is supposed to downmix from n channels to 2. \nwe need to take the input and output channel count into consideration here",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 23
+      },
+      "revId": "e28172f00476acc54b588b09df98bb46a39f2d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
