@@ -235,6 +235,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a66ad29a_202ae1ae",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T13:14:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2f267a7_5f4139e0",
+      "range": {
+        "startLine": 60,
+        "startChar": 35,
+        "endLine": 60,
+        "endChar": 42
+      },
+      "revId": "2312d1833d5cc67268491ea60545ed94d8c35691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a7569f5_c6a4c2ea",
@@ -248,6 +272,24 @@
       "writtenOn": "2023-12-05T07:39:43Z",
       "side": 1,
       "message": "Are the log lines left over from an experiment? They seem a bit odd.",
+      "revId": "2312d1833d5cc67268491ea60545ed94d8c35691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d80ef71_5e9f75e3",
+        "filename": "security/secretkeeper/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T13:14:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a7569f5_c6a4c2ea",
       "revId": "2312d1833d5cc67268491ea60545ed94d8c35691",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
