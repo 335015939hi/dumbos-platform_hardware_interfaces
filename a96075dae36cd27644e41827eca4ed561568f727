@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f33579c9_98ed2233",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretId.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-13T10:51:48Z",
+      "side": 1,
+      "message": "Exta line",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 6
+      },
+      "revId": "a96075dae36cd27644e41827eca4ed561568f727",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
