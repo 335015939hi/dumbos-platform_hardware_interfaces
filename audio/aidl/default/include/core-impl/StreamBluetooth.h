@@ -31,8 +31,16 @@ namespace aidl::android::hardware::audio::core {
 
 class StreamBluetooth : public StreamCommonImpl {
   public:
-    StreamBluetooth(StreamContext* context, const Metadata& metadata,
-                    ModuleBluetooth::BtProfileHandles&& btHandles);
+    static bool checkConfigParams(
+            const ::aidl::android::hardware::bluetooth::audio::PcmConfiguration& pcmConfig,
+            const ::aidl::android::media::audio::common::AudioConfigBase& config);
+
+    StreamBluetooth(
+            StreamContext* context, const Metadata& metadata,
+            ModuleBluetooth::BtProfileHandles&& btHandles,
+            const std::shared_ptr<::android::bluetooth::audio::aidl::BluetoothAudioPortAidl>&
+                    btDeviceProxy,
+            const ::aidl::android::hardware::bluetooth::audio::PcmConfiguration& pcmConfig);
     // Methods of 'DriverInterface'.
     ::android::status_t init() override;
     ::android::status_t drain(StreamDescriptor::DrainMode) override;
@@ -47,30 +55,19 @@ class StreamBluetooth : public StreamCommonImpl {
     // Overridden methods of 'StreamCommonImpl', called on a Binder thread.
     ndk::ScopedAStatus updateMetadataCommon(const Metadata& metadata) override;
     ndk::ScopedAStatus prepareToClose() override;
-    const ConnectedDevices& getConnectedDevices() const override;
-    ndk::ScopedAStatus setConnectedDevices(const ConnectedDevices& devices) override;
     ndk::ScopedAStatus bluetoothParametersUpdated() override;
 
   private:
-    // Audio Pcm Config
-    const uint32_t mSampleRate;
-    const ::aidl::android::media::audio::common::AudioChannelLayout mChannelLayout;
-    const ::aidl::android::media::audio::common::AudioFormatDescription mFormat;
     const size_t mFrameSizeBytes;
     const bool mIsInput;
     const std::weak_ptr<IBluetoothA2dp> mBluetoothA2dp;
     const std::weak_ptr<IBluetoothLe> mBluetoothLe;
-    size_t mPreferredDataIntervalUs;
-    size_t mPreferredFrameCount;
-
+    const size_t mPreferredDataIntervalUs;
+    const size_t mPreferredFrameCount;
     mutable std::mutex mLock;
-    bool mIsInitialized GUARDED_BY(mLock);
-    bool mIsReadyToClose GUARDED_BY(mLock);
-    std::vector<std::shared_ptr<::android::bluetooth::audio::aidl::BluetoothAudioPortAidl>>
-            mBtDeviceProxies GUARDED_BY(mLock);
-
-    ::android::status_t initialize() REQUIRES(mLock);
-    bool checkConfigParams(::aidl::android::hardware::bluetooth::audio::PcmConfiguration& config);
+    // The lock is also used to serialize calls to the proxy.
+    std::shared_ptr<::android::bluetooth::audio::aidl::BluetoothAudioPortAidl> mBtDeviceProxy
+            GUARDED_BY(mLock);  // proxy may be null if the stream is not connected to a device
 };
 
 class StreamInBluetooth final : public StreamIn, public StreamBluetooth {
@@ -80,7 +77,10 @@ class StreamInBluetooth final : public StreamIn, public StreamBluetooth {
             StreamContext&& context,
             const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
             const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones,
-            ModuleBluetooth::BtProfileHandles&& btHandles);
+            ModuleBluetooth::BtProfileHandles&& btHandles,
+            const std::shared_ptr<::android::bluetooth::audio::aidl::BluetoothAudioPortAidl>&
+                    btDeviceProxy,
+            const ::aidl::android::hardware::bluetooth::audio::PcmConfiguration& pcmConfig);
 
   private:
     void onClose(StreamDescriptor::State) override { defaultOnClose(); }
@@ -97,7 +97,10 @@ class StreamOutBluetooth final : public StreamOut, public StreamBluetooth {
             const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
             const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
                     offloadInfo,
-            ModuleBluetooth::BtProfileHandles&& btHandles);
+            ModuleBluetooth::BtProfileHandles&& btHandles,
+            const std::shared_ptr<::android::bluetooth::audio::aidl::BluetoothAudioPortAidl>&
+                    btDeviceProxy,
+            const ::aidl::android::hardware::bluetooth::audio::PcmConfiguration& pcmConfig);
 
   private:
     void onClose(StreamDescriptor::State) override { defaultOnClose(); }
