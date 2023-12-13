@@ -481,10 +481,11 @@ uint16_t Filter::getTpid() {
 
 void Filter::updateFilterOutput(vector<uint8_t> data) {
     std::lock_guard<std::mutex> lock(mFilterOutputLock);
-
     if (mFilterStarted == true) {
         if (mIsMediaFilter) {
             avDeque.push_front(data);
+        } else if (mIsRecordFilter) {
+            mRecordFilterOutput.insert(mRecordFilterOutput.end(), data.begin(), data.end());
         } else {
             mFilterOutput.insert(mFilterOutput.end(), data.begin(), data.end());
         }
@@ -709,22 +710,23 @@ Result Filter::createMediaFilterEventWithIon(vector<uint8_t> output) {
 }
 
 Result Filter::startRecordFilterHandler() {
-    if (mFilterOutput.empty()) {
-        ALOGD("[Filter] %s Empty Data" , __FUNCTION__);
+    std::lock_guard<std::mutex> lock(mRecordFilterOutputLock);
+    if (mRecordFilterOutput.empty()) {
         return Result::SUCCESS;
     }
 
-    if (mDvr == nullptr || !mDvr->writeRecordFMQ(mFilterOutput)) {
+    if (mDvr == nullptr || !mDvr->writeRecordFMQ(mRecordFilterOutput)) {
         ALOGD("[Filter] dvr fails to write into record FMQ.");
         return Result::UNKNOWN_ERROR;
     }
 
     V1_0::DemuxFilterTsRecordEvent recordEvent;
     recordEvent = {
-            .byteNumber = mFilterOutput.size(),
+            .byteNumber = mRecordFilterOutput.size(),
     };
 
     int size = mFilterEvent.events.size();
+
     mFilterEvent.events.resize(size + 1);
     mFilterEvent.events[size].tsRecord(recordEvent);
 
@@ -739,10 +741,8 @@ Result Filter::startRecordFilterHandler() {
     } else if (mCallback != nullptr) {
         mCallback->onFilterEvent(mFilterEvent);
     }
-
     mFilterEvent.events.resize(0);
-
-    mFilterOutput.clear();
+    mRecordFilterOutput.clear();
     return Result::SUCCESS;
 }
 

@@ -257,13 +257,23 @@ void Demux::startBroadcastTsFilter(vector<uint8_t> data) {
 }
 
 void Demux::sendFrontendInputToRecord(vector<uint8_t> data) {
+    if (mRecordFilterIds.size() == 0) {
+        ALOGD("no record filter id");
+        return;
+    }
+    uint8_t b[188];
+    for (int i = 0 ; i < 188; i++) {
+       b[i] = data[i];
+    }
+    ts::TSPacket *pkt = new ts::TSPacket();
+    pkt->copyFrom(reinterpret_cast<void*> (b));
     set<uint64_t>::iterator it;
-    if (DEBUG_DEMUX) {
-        ALOGW("[Demux] update record filter output");
-    }
     for (it = mRecordFilterIds.begin(); it != mRecordFilterIds.end(); it++) {
-        mFilters[*it]->updateRecordOutput(data);
+        if (pkt->getPID() == mFilters[*it]->getTpid()) {
+            mFilters[*it]->updateRecordOutput(data);
+        }
     }
+    delete pkt;
 }
 
 void Demux::sendFrontendInputToRecord(vector<uint8_t> data, uint16_t pid, uint64_t pts) {
@@ -289,13 +299,16 @@ bool Demux::startBroadcastFilterDispatcher() {
 }
 
 bool Demux::startRecordFilterDispatcher() {
+    if (mRecordFilterIds.size() == 0) {
+        ALOGD("no record filter id");
+        return false;
+    }
     set<uint64_t>::iterator it;
     for (it = mRecordFilterIds.begin(); it != mRecordFilterIds.end(); it++) {
         if (mFilters[*it]->startRecordFilterHandler() != Result::SUCCESS) {
             return false;
         }
     }
-
     return true;
 }
 
