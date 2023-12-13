@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d17cddd3_9c0bb5b4",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1767925
+      },
+      "writtenOn": "2023-12-13T08:27:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "884c41da_a7e1e67c",
+      "range": {
+        "startLine": 28,
+        "startChar": 8,
+        "endLine": 28,
+        "endChar": 47
+      },
+      "revId": "8cdbeffbcffda6509c9762a2bf38162030f4c28e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc638b67_90f9aeba",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-13T08:19:54Z",
       "side": 1,
       "message": "should these be A1 ~ A4?",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 65,
+        "endChar": 16
+      },
+      "revId": "8cdbeffbcffda6509c9762a2bf38162030f4c28e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e987059_dd8ff3f6",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1767925
+      },
+      "writtenOn": "2023-12-13T08:27:11Z",
+      "side": 1,
+      "message": "Done.it can be either A0 to A3 or A1 to A4. implementation specific. updated as A1 to A4 as per spec",
+      "parentUuid": "cc638b67_90f9aeba",
       "range": {
         "startLine": 62,
         "startChar": 5,
