@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfaa2b67_1359ac2b",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretId.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-13T10:21:19Z",
+      "side": 1,
+      "message": "Note that Gerrit is confused here: this is not a rename, it\u0027s a delete of ErrorCode.aidl combined with an unrelated creation of SecretId.aidl.",
+      "revId": "14f6e0cd6e1551e84d7d92382366ccc4bb7b3bec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
