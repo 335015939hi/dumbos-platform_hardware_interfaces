@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce3118b8_957d443e",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-13T00:29:18Z",
+      "side": 1,
+      "message": "Is this intended to be an empty range?",
+      "range": {
+        "startLine": 71,
+        "startChar": 56,
+        "endLine": 72,
+        "endChar": 52
+      },
+      "revId": "2c3a27604a0c555adf902f98e989ea2709b4fca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e1b57cb_053f6d66",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-13T00:29:18Z",
+      "side": 1,
+      "message": "Should we add this test to TEST_MAPPING?",
+      "range": {
+        "startLine": 174,
+        "startChar": 11,
+        "endLine": 174,
+        "endChar": 38
+      },
+      "revId": "2c3a27604a0c555adf902f98e989ea2709b4fca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9337c7f8_e5db0a19",
+        "filename": "audio/aidl/vts/VtsHalSpatializerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-13T00:29:18Z",
+      "side": 1,
+      "message": "How this include is used?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 23
+      },
+      "revId": "2c3a27604a0c555adf902f98e989ea2709b4fca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
