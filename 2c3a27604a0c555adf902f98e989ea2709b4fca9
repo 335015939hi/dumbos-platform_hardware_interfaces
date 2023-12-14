@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d61cd08_777486c8",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-14T17:16:24Z",
+      "side": 1,
+      "message": "Yes, I think there are some rules restricting adding to presubmit directly.",
+      "parentUuid": "a6e2de22_5965e9e6",
+      "range": {
+        "startLine": 174,
+        "startChar": 11,
+        "endLine": 174,
+        "endChar": 38
+      },
+      "revId": "2c3a27604a0c555adf902f98e989ea2709b4fca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9337c7f8_e5db0a19",

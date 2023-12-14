@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29b7e35e_821996f1",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-14T17:16:24Z",
+      "side": 1,
+      "message": "There is `getPcmSampleInBytes` if that helps: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/common/include/Utils.h;l\u003d60;drc\u003d76f06f2c6a5c472099818f1293171e7b49c88d1d",
+      "parentUuid": "3e5e5a0c_cbe84bfc",
+      "range": {
+        "startLine": 204,
+        "startChar": 28,
+        "endLine": 204,
+        "endChar": 41
+      },
+      "revId": "11c18efe4506f47f374b7f7971b955a00ac4ced7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b4361284_62bb6976",
         "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
         "patchSetId": 8
