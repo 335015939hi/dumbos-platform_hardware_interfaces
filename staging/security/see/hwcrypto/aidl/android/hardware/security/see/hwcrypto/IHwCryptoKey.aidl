@@ -151,4 +151,28 @@ interface IHwCryptoKey {
      *      <code>HalErrorCode</code> otherwise.
      */
     DerivedKey deriveKey(in DerivedKeyParameters parameters);
+
+    /*
+     * getKeyslotData() - Gets the keyslot key material referenced by slotId.
+     *
+     * @slotId:
+     *      string identifier for the requested keyslot
+     *
+     * This interface is used to access device specific keys with known types and uses. Because the
+     * returned key is opaque, it can only be used through the different HwCrypto interfaces.
+     * Because the keys live in a global namespace the identity of the caller needs to be
+     * checked to verify that it has permission to accesses the requested key. The current supported
+     * keys are:
+     *
+     * com.android.see.hecrypto.device_bound_key:
+     *      This is a key unique to the device. It can only be used to call
+     *      `deriveDicePolicyBoundKey`
+     * com.android.see.hecrypto.device_family_batch_key:
+     *      This is a shared by a set of devices. It can only be used to call
+     *      `deriveDicePolicyBoundKey`
+     *
+     * Return:
+     *      Ok(IOpaqueKey) on success, error code otherwise
+     */
+    IOpaqueKey getKeyslotData(String slotId);
 }
