@@ -53,4 +53,17 @@ interface IOpaqueKey {
      *      by KeyMint.
      */
     byte[] getPublicKey();
+
+    /*
+     * calculateSharedKey() - uses a KEM (key encapsulation method) to calculate a shared secret. It
+     *                        then derive a key out of it using the provided context.
+     *
+     * @encapsulated_shared_secret:
+     *      KEM-style encapsulated shared secret.
+     *
+     * Return:
+     *      Ok(IOpaqueKey) on success, specific error code on error.
+     */
+    IOpaqueKey calculateSharedKey(in byte[] encapsulated_shared_secret,
+            in byte[] derivation_context, in KeyPolicy policy);
 }

@@ -35,6 +35,7 @@ package android.hardware.security.see.hwcrypto;
 interface IHwCryptoDeviceKeyAccess {
   android.hardware.security.see.hwcrypto.IHwCryptoOperations getHwCryptoOperations();
   android.hardware.security.see.hwcrypto.DerivedKeyResult hwkeyDeriveVersioned(in android.hardware.security.see.hwcrypto.IHwCryptoDeviceKeyAccess.DerivedKeyParameters parameters);
+  android.hardware.security.see.hwcrypto.IOpaqueKey getKeyslotData(String slotId);
   parcelable ClearKeyPolicy {
     int keySize;
   }
