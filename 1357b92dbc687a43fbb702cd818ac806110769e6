@@ -33,6 +33,29 @@
       "message": "Note that Gerrit has gotten confused and treated an unrelated pair (remove ErrorCode.aidl, add SecretId.aidl) as a rename...",
       "revId": "1357b92dbc687a43fbb702cd818ac806110769e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bab04a3_9e3438ba",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-14T17:47:39Z",
+      "side": 1,
+      "message": "why is this needed btw? this type of API has been pretty problematic for fuzzers, but typically I\u0027d expect clients to open sessions and not be able to affect each other. If they can mess with each other, it could cause some issues?",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 21
+      },
+      "revId": "1357b92dbc687a43fbb702cd818ac806110769e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
