@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "883e98fe_777258f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2023-12-14T17:55:57Z",
+      "side": 1,
+      "message": "Addressed the comment. PTAL, Thanks!",
+      "revId": "6a3e7403b92df9096c593e0b96d8821502dd24d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5b4a7bd_e16352f5",
@@ -31,6 +48,30 @@
       "writtenOn": "2023-12-14T17:47:22Z",
       "side": 1,
       "message": "does this have specific units? Can we add a comment if it is like `0.01ppm` like the other. Or add a suffix to the variable name if it\u0027s simpler?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "6a3e7403b92df9096c593e0b96d8821502dd24d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae57fc22_eecc1a35",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoudingRawData.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2023-12-14T17:55:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5b4a7bd_e16352f5",
       "range": {
         "startLine": 32,
         "startChar": 0,
