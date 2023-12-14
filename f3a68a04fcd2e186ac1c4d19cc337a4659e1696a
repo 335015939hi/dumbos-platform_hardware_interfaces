@@ -84,6 +84,23 @@
       "message": "this needs approval from USB team/USB owners",
       "revId": "f3a68a04fcd2e186ac1c4d19cc337a4659e1696a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "332c24ac_e83744e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1209463
+      },
+      "writtenOn": "2023-12-14T23:07:01Z",
+      "side": 1,
+      "message": "Hi, Please resolve CL comments. Thanks",
+      "revId": "f3a68a04fcd2e186ac1c4d19cc337a4659e1696a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
