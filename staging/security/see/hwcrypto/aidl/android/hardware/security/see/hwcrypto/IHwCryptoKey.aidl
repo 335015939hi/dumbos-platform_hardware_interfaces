@@ -37,6 +37,19 @@ interface IHwCryptoKey {
         DEVICE_BOUND_KEY,
         BATCH_KEY,
     }
+
+    /*
+     * Identifier for the requested key slot. The currently supported identifiers are:
+     *
+     * SHARED_HMAC_KEY:
+     *      This is the shared HMAC key that will now be computed by HwCryptoKey after participating
+     *      in the ISharedSecret protocol that can be shared with KeyMint and authenticators. See
+     *      ISharedSecret.aidl for more information.
+     */
+    enum KeySlot {
+        SHARED_HMAC_KEY,
+    }
+
     union DiceBoundDerivationKey {
         /*
          * Opaque to be used to derive the DICE bound key.
@@ -249,4 +262,21 @@ interface IHwCryptoKey {
      *      success, service specific error based on <code>HalErrorCode</code> otherwise.
      */
     IOpaqueKey keyTokenImport(in OpaqueKeyToken requestedKey, in byte[] sealingDicePolicy);
+
+    /*
+     * getKeyslotData() - Gets the keyslot key material referenced by slotId.
+     *
+     * @slotId:
+     *      Identifier for the requested keyslot
+     *
+     * This interface is used to access device specific keys with known types and uses. Because the
+     * returned key is opaque, it can only be used through the different HwCrypto interfaces.
+     * Because the keys live in a global namespace the identity of the caller needs to be
+     * checked to verify that it has permission to accesses the requested key.
+     *
+     * Return:
+     *      Ok(IOpaqueKey) on success, UNAUTHORIZED if the caller cannot access the requested key,
+     *      another specific error code otherwise.
+     */
+    IOpaqueKey getKeyslotData(KeySlot slotId);
 }
