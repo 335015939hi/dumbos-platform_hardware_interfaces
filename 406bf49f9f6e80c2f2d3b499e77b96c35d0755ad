@@ -33,6 +33,29 @@
       "message": "Any idea what could be the failure ?\n\nTreeHugger finished with: 91 passed, 1 failed, 1 ignored, 20 skipped.\nStatus: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2873574/3?tab\u003dchecks\u0026checksPatchset\u003d3 -\u003e No access to this link\n\nUse Treehugger Presubmit Explainer to see why branches and targets get selected or ignored.",
       "revId": "406bf49f9f6e80c2f2d3b499e77b96c35d0755ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bce4b1e2_afaa4f23",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-12-14T17:23:20Z",
+      "side": 1,
+      "message": "What about an enum for this, or constants like `const byte ANTENNA_INDEX_1`",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 66,
+        "endChar": 37
+      },
+      "revId": "406bf49f9f6e80c2f2d3b499e77b96c35d0755ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
