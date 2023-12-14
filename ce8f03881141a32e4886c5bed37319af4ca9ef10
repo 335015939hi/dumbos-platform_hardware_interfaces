@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6565938c_47994b5e",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-12-14T17:57:57Z",
+      "side": 1,
+      "message": "better to use `byte` here since the target variable is a `byte`",
+      "range": {
+        "startLine": 60,
+        "startChar": 10,
+        "endLine": 60,
+        "endChar": 13
+      },
+      "revId": "ce8f03881141a32e4886c5bed37319af4ca9ef10",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
