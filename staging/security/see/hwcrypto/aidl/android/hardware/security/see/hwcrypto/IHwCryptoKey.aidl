@@ -249,4 +249,25 @@ interface IHwCryptoKey {
      *      success, service specific error based on <code>HalErrorCode</code> otherwise.
      */
     IOpaqueKey keyTokenImport(in OpaqueKeyToken requestedKey, in byte[] sealingDicePolicy);
+
+    /*
+     * getKeyslotData() - Gets the keyslot key material referenced by slotId.
+     *
+     * @slotId:
+     *      string identifier for the requested keyslot
+     *
+     * This interface is used to access device specific keys with known types and uses. Because the
+     * returned key is opaque, it can only be used through the different HwCrypto interfaces.
+     * Because the keys live in a global namespace the identity of the caller needs to be
+     * checked to verify that it has permission to accesses the requested key. The current supported
+     * keys are:
+     *
+     * com.android.see.hwcrypto.hmac_key:
+     *      This is a key equivalent to the one derived by KeyMint from the Key Agreement Key that
+     *      can be shared with VMs.
+     *
+     * Return:
+     *      Ok(IOpaqueKey) on success, error code otherwise
+     */
+    IOpaqueKey getKeyslotData(String slotId);
 }
