@@ -36,4 +36,5 @@ interface IOpaqueKey {
   byte[] exportWrappedKey(in android.hardware.security.see.hwcrypto.IOpaqueKey wrappingKey);
   android.hardware.security.see.hwcrypto.KeyPolicy getKeyPolicy();
   byte[] getPublicKey();
+  android.hardware.security.see.hwcrypto.IOpaqueKey calculateSharedKey(in byte[] encapsulated_shared_secret, in byte[] derivation_context, in android.hardware.security.see.hwcrypto.KeyPolicy policy);
 }
