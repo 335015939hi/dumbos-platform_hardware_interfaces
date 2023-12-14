@@ -38,4 +38,5 @@ interface IOpaqueKey {
   byte[] getPublicKey();
   android.hardware.security.see.hwcrypto.types.OpaqueKeyToken getShareableToken(in byte[] sealingDicePolicy);
   void setProtectionId(in android.hardware.security.see.hwcrypto.types.ProtectionId protectionId, in android.hardware.security.see.hwcrypto.types.OperationType[] allowedOperations);
+  android.hardware.security.see.hwcrypto.IOpaqueKey calculateSharedKey(in byte[] encapsulated_shared_secret, in byte[] derivation_context, in android.hardware.security.see.hwcrypto.KeyPolicy policy);
 }
