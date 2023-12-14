@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abced65c_e3517d5a",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 7
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2023-12-14T00:15:25Z",
+      "side": 1,
+      "message": "Please comment to mention that the device needs to be reset to stop all running activities and prevent the host from getting notifications from a \u0027powered down\u0027 UWBS.",
+      "revId": "4703ca0c3fe23981f1cd8b8af163d3b895288260",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
