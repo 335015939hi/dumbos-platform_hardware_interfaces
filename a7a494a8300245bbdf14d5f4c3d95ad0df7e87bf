@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07659d38_bfaafa8c",
+        "filename": "bluetooth/audio/flags/btaudiohal.aconfig",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2023-12-14T17:09:32Z",
+      "side": 1,
+      "message": "nit: the flag already under btaudio.aconfig, you probably could remove the prefix , btaudiohal",
+      "range": {
+        "startLine": 4,
+        "startChar": 11,
+        "endLine": 4,
+        "endChar": 29
+      },
+      "revId": "a7a494a8300245bbdf14d5f4c3d95ad0df7e87bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
