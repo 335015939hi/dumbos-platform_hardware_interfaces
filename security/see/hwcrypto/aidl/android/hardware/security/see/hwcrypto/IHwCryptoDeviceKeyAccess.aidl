@@ -29,6 +29,23 @@ import android.hardware.security.see.hwcrypto.types.NullableKdfVersion;
  */
 interface IHwCryptoDeviceKeyAccess {
     /*
+     * get_keyslot_data() - Gets the keyslot key material referenced by slot_id.
+     *
+     * @slot_id:
+     *      string identifier for the requested keyslot
+     *
+     * This interface is used to access device specific keys defined on the HwCrypto spec (TBD). The
+     * type of the returned key is also part of the spec. Because the returned key is opaque, it can
+     * only be used through the different HwCrypto interfaces. Because the keys live in a global
+     * namespace the identity of the caller needs to be checked to verify that it has permission to
+     * accesses the requested key. Examples of keys accessed by this interface are KeyMint's Key
+     * Agreement Key (KAK).
+     *
+     * Return:
+     *      Ok(IOpaqueKey) on success, error code otherwise
+     */
+    IOpaqueKey get_keyslot_data(String slot_id);
+    /*
      * hwkey_derive_versioned() - Derive a versioned, device-specific or batch key from
      *                            provided context.
      *
