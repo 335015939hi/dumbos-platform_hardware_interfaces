@@ -16,6 +16,23 @@
       "message": "@Chienyuan  can we please submit for PV if all ok, seems we donot have permission to submit to PV",
       "revId": "406bf49f9f6e80c2f2d3b499e77b96c35d0755ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24b34b89_c1f87e9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1023115
+      },
+      "writtenOn": "2023-12-14T02:44:46Z",
+      "side": 1,
+      "message": "Any idea what could be the failure ?\n\nTreeHugger finished with: 91 passed, 1 failed, 1 ignored, 20 skipped.\nStatus: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2873574/3?tab\u003dchecks\u0026checksPatchset\u003d3 -\u003e No access to this link\n\nUse Treehugger Presubmit Explainer to see why branches and targets get selected or ignored.",
+      "revId": "406bf49f9f6e80c2f2d3b499e77b96c35d0755ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
