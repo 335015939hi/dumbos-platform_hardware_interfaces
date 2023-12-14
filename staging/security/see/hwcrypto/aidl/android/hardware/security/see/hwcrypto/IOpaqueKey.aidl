@@ -71,6 +71,19 @@ interface IOpaqueKey {
     byte[] calculateSharedSecret(in byte[] publicKey);
 
     /*
+     * calculateSharedKey() - uses a KEM (key encapsulation method) to calculate a shared secret. It
+     *                        then derive a key out of it using the provided context.
+     *
+     * @encapsulated_shared_secret:
+     *      KEM-style encapsulated shared secret.
+     *
+     * Return:
+     *      Ok(IOpaqueKey) on success, specific error code on error.
+     */
+    IOpaqueKey calculateSharedKey(in byte[] encapsulated_shared_secret,
+            in byte[] derivation_context, in KeyPolicy policy);
+
+    /*
      * getPublicKey() - Returns the public key portion of this OpaqueKey. This operation is only
      *                  valid for asymmetric keys
      *

@@ -37,5 +37,6 @@ interface IOpaqueKey {
   void setKeyValidity(long validityPeriodSeconds);
   android.hardware.security.see.hwcrypto.KeyPolicy getKeyPolicy();
   byte[] calculateSharedSecret(in byte[] publicKey);
+  android.hardware.security.see.hwcrypto.IOpaqueKey calculateSharedKey(in byte[] encapsulated_shared_secret, in byte[] derivation_context, in android.hardware.security.see.hwcrypto.KeyPolicy policy);
   byte[] getPublicKey();
 }
