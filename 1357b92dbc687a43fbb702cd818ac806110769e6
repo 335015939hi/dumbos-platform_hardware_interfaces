@@ -56,6 +56,30 @@
       },
       "revId": "1357b92dbc687a43fbb702cd818ac806110769e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de7b2674_e01da57f",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-14T17:53:10Z",
+      "side": 1,
+      "message": "Clients won\u0027t get any access to this. (They don\u0027t actually get direct access to anything in the HAL, but this API will only be used by virtualization service and not exposed to VMs.)\n\nThe reason we want it is that some storage will be managed by the TA, and some by virtualization service. After a factory reset we want to be able to tell the TA that it should wipe all its storage, since all the VMs are by definition gone.\n\nVMs definitely don\u0027t get to mess with other VM\u0027s data.",
+      "parentUuid": "7bab04a3_9e3438ba",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 21
+      },
+      "revId": "1357b92dbc687a43fbb702cd818ac806110769e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
