@@ -26,4 +26,6 @@ enum KeyUse {
     SIGN = 4,
     DERIVE = 8,
     WRAP = 16,
+    EXCHANGE = 32,
+    EXCHANGE_DERIVE = EXCHANGE | DERIVE,
 }
