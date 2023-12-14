@@ -104,6 +104,30 @@
       },
       "revId": "1357b92dbc687a43fbb702cd818ac806110769e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3dfe81e_1b15a54d",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-14T17:57:14Z",
+      "side": 1,
+      "message": "I think this has implications on reusability of the API. virtualization service could also keep tokens on behalf of each client to delete all the keys. If you can get away without an API like this, please consider it for interface reusability",
+      "parentUuid": "37c82ff9_78303844",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 21
+      },
+      "revId": "1357b92dbc687a43fbb702cd818ac806110769e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
