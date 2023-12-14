@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a5cbe1f_793c9c4f",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-12-14T14:52:03Z",
+      "side": 1,
+      "message": "I am surprised that the samples are not indicating the number of frames in the API definition. It is more common",
+      "range": {
+        "startLine": 204,
+        "startChar": 18,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "11c18efe4506f47f374b7f7971b955a00ac4ced7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e5e5a0c_cbe84bfc",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-12-14T14:52:03Z",
+      "side": 1,
+      "message": "there is no abstraction like getInputSampleSize() or getInputBitsPerSample()?",
+      "range": {
+        "startLine": 204,
+        "startChar": 28,
+        "endLine": 204,
+        "endChar": 41
+      },
+      "revId": "11c18efe4506f47f374b7f7971b955a00ac4ced7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4361284_62bb6976",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2023-12-14T14:52:03Z",
+      "side": 1,
+      "message": "better use outputChannelCount here in case we change the support output channel count in the future: we will have less code to change then.",
+      "range": {
+        "startLine": 210,
+        "startChar": 15,
+        "endLine": 210,
+        "endChar": 16
+      },
+      "revId": "11c18efe4506f47f374b7f7971b955a00ac4ced7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
