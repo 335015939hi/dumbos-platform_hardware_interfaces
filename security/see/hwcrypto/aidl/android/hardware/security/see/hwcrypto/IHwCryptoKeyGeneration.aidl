@@ -89,6 +89,32 @@ interface IHwCryptoKeyGeneration {
             in @nullable NullableInt key_size);
 
     /*
+     * secure_key_import() - Securely imports a key using ECDH. This function will generate a shared
+     *                       secret using ECDH, derive a shared key using HKDF and then unwrap
+     *                       <code>wrapped_key_blob</code> using this key as a AES KWP key.
+     *
+     * @server_public_key:
+     *      Handle to the server public key to be used on the ECDH operation.
+     * @client_key:
+     *      Private client key to be used on the ECDH operation.
+     * @policy:
+     *      Optional policy for the created key in case the server do not include this information
+     *      on the wrapped key blob.
+     * @wrapped_key_blob:
+     *      Wrapped key (and optionally a key policy) provided by the server
+     * @key_derivation_context:
+     *      Context to be used on the HKDF operation
+     * @key_derivation_salt:
+     *      Salt to be used on the HKDF operation
+     *
+     * Return:
+     *      Ok(IOpaqueKey) on success, error code otherwise.
+     */
+    IOpaqueKey secure_key_import(in IOpaqueKey server_public_key, in IOpaqueKey client_key,
+            in @nullable KeyPolicy policy, in byte[] wrapped_key_blob,
+            in byte[] key_derivation_context, in byte[] key_derivation_salt);
+
+    /*
      * internal_key_import() - Imports a key from a different service instance.
      *
      * @requested_key:
