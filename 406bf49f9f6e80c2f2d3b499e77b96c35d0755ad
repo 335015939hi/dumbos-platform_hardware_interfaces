@@ -35,6 +35,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c411a28_52c42355",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2023-12-14T17:56:03Z",
+      "side": 1,
+      "message": "Addressed the comment. PTAL, Thanks!",
+      "revId": "406bf49f9f6e80c2f2d3b499e77b96c35d0755ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bce4b1e2_afaa4f23",
@@ -48,6 +65,30 @@
       "writtenOn": "2023-12-14T17:23:20Z",
       "side": 1,
       "message": "What about an enum for this, or constants like `const byte ANTENNA_INDEX_1`",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 66,
+        "endChar": 37
+      },
+      "revId": "406bf49f9f6e80c2f2d3b499e77b96c35d0755ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "694ecf35_1a0e1e6f",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/StepTonePct.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2023-12-14T17:56:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bce4b1e2_afaa4f23",
       "range": {
         "startLine": 62,
         "startChar": 5,
