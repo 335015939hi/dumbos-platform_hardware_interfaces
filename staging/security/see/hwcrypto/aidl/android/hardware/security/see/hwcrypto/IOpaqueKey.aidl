@@ -22,6 +22,21 @@ import android.hardware.security.see.hwcrypto.types.ProtectionId;
 
 interface IOpaqueKey {
     /*
+     * exportWrappedKey() - Exports this key as a wrapped (encrypted) blob.
+     *
+     * @wrapping_key:
+     *     wrapping key. It needs to be an opaque key and its policy needs to indicate that it can
+     *     be used for key wrapping.
+     *
+     * Return:
+     *      Wrapped key blob as a byte array on success. Format of the blob is opaque to the service
+     *      but has to match the command accepted by
+     *      <code>IHwCryptoKeyGeneration::importWrappedKey</code>, service specific error based on
+     *      <code>HalErrorCode</code> otherwise.
+     */
+    byte[] exportWrappedKey(in IOpaqueKey wrappingKey);
+
+    /*
      * getKeyPolicy() - Returns the key policy.
      *
      * Return:
@@ -69,4 +84,17 @@ interface IOpaqueKey {
      *      service specific error based on <code>HalErrorCode</code> on failure.
      */
     void setProtectionId(in ProtectionId protectionId, in OperationType[] allowedOperations);
+
+    /*
+     * calculateSharedKey() - uses a KEM (key encapsulation method) to calculate a shared secret. It
+     *                        then derive a key out of it using the provided context.
+     *
+     * @encapsulated_shared_secret:
+     *      KEM-style encapsulated shared secret.
+     *
+     * Return:
+     *      Ok(IOpaqueKey) on success, specific error code on error.
+     */
+    IOpaqueKey calculateSharedKey(in byte[] encapsulated_shared_secret,
+            in byte[] derivation_context, in KeyPolicy policy);
 }
