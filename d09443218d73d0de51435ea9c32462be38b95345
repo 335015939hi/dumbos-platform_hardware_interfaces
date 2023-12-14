@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7aa041e_e6ec2dd0",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyDomain.aidl",
+        "patchSetId": 46
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-14T21:21:26Z",
+      "side": 1,
+      "message": "VM domains are now represented by a byte array which can be used with DICE policies.",
+      "parentUuid": "93c559c3_f8b5baa4",
+      "revId": "d09443218d73d0de51435ea9c32462be38b95345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2864d67_d47967b9",
@@ -49,6 +67,24 @@
       "writtenOn": "2023-09-16T23:23:11Z",
       "side": 1,
       "message": "nit typo `used`\u003d",
+      "revId": "d09443218d73d0de51435ea9c32462be38b95345",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3c3bfd0_82094cba",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
+        "patchSetId": 46
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-14T21:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2864d67_d47967b9",
       "revId": "d09443218d73d0de51435ea9c32462be38b95345",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

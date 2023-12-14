@@ -16,6 +16,24 @@
       "message": "Nit: this has the same signature as the other method, so could you merge them into a `set_impersonation_domains` with an extra `impersonation_mode` parameter?",
       "revId": "6167a9c91e3e7ad58e7d8d47204957ea479dc78d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8db13c97_99e3a488",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyProperties.aidl",
+        "patchSetId": 48
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-14T21:21:26Z",
+      "side": 1,
+      "message": "Functionality now provided by set_protection_id; which merges both functions functionality into one.",
+      "parentUuid": "26ea3dca_91e2b042",
+      "revId": "6167a9c91e3e7ad58e7d8d47204957ea479dc78d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

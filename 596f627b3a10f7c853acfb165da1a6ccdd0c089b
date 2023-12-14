@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "577a9576_5099e01a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-14T21:21:26Z",
+      "side": 1,
+      "message": "Closing this as the function is now on a different CL [2874479](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2874479) and the dosctring added more details.",
+      "parentUuid": "23770733_3a1f3248",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ccced20_81a5189b",
@@ -138,6 +156,24 @@
       "side": 1,
       "message": "Sure, I\u0027ve moved `rollback_version_source` to `ComponentVersion`.",
       "parentUuid": "369c45e6_e8dc925e",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baeeae85_f9e2d47a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-14T21:21:26Z",
+      "side": 1,
+      "message": "Now rollback is handled at the connection point and the version derivation has been replaced with a opaque DICE policy object. Changes are now on [CL 2714707](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2714707)",
+      "parentUuid": "e7f18b86_27dc4abb",
       "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -618,6 +654,24 @@
       "side": 1,
       "message": "The idea is that the service implementer can use those bytes to outsource storing keys to the client side. I am not sure how important that is, but is a pattern I\u0027ve seen on KM and on an additional crypto related spec I\u0027ve been reviewing. Making the key an AIDL object would mean to change it from a `parcelable` to an `interface` and keep any needed information just on the server side?",
       "parentUuid": "69a8d2e7_e9c857e5",
+      "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02d4e369_86502a43",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/OpaqueKeyMaterial.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-14T21:21:26Z",
+      "side": 1,
+      "message": "Closing this because key is now an AIDL/Binder object.",
+      "parentUuid": "ffa5b4a4_da0ff1bf",
       "revId": "596f627b3a10f7c853acfb165da1a6ccdd0c089b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

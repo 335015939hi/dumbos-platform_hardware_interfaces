@@ -282,6 +282,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "614be842_57f653b7",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyEcOperations.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-14T21:21:26Z",
+      "side": 1,
+      "message": "Public keys can now be imported through `IHwCryptoKeyGeneration::import_clear_key`",
+      "parentUuid": "f7f9a773_0084cb4e",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78c676e7_d1846a57",
@@ -453,6 +471,24 @@
       "side": 1,
       "message": "I am not sure if I follow. This type just represents whatever the handle to the DMA buffer is (I am not sure how it will look like, that is why I created a dummy type for it).\nThe flow I was thinking to use was that client and (some) service negotiate the DMA areas to be used, which created this type (DmaBufferArea). Then when the client wants to do a DMA crypto operation, it calls a begin_dma_operation and passes these handles to it.\nWhich data do you think I can just leave on the created buffers?",
       "parentUuid": "8008b5f7_f28b8b76",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d029da8_a09af4c1",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/DmaBufferArea.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-14T21:21:26Z",
+      "side": 1,
+      "message": "Closing as new interface do not use this parcelable anymore.",
+      "parentUuid": "9dfa3487_a2e73a61",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
