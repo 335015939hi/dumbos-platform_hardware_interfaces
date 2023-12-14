@@ -37,4 +37,5 @@ interface IHwCryptoKeyGeneration {
   android.hardware.security.see.hwcrypto.IOpaqueKey importWrappedKey(in byte[] keyToBeImported, in android.hardware.security.see.hwcrypto.IOpaqueKey wrappingKey);
   android.hardware.security.see.hwcrypto.IOpaqueKey generateKey(in android.hardware.security.see.hwcrypto.KeyPolicy policy);
   android.hardware.security.see.hwcrypto.IOpaqueKey deriveKey(in android.hardware.security.see.hwcrypto.IOpaqueKey derivationKey, in android.hardware.security.see.hwcrypto.KeyPolicy policy, in byte[] context);
+  android.hardware.security.see.hwcrypto.IOpaqueKey secureKeyImport(in android.hardware.security.see.hwcrypto.IOpaqueKey serverPublicKey, in android.hardware.security.see.hwcrypto.IOpaqueKey clientKey, in @nullable android.hardware.security.see.hwcrypto.KeyPolicy policy, in byte[] wrappedKeyBlob, in byte[] keyDerivationContext, in byte[] keyDerivationSalt);
 }
