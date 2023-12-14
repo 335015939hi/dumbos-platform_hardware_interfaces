@@ -71,6 +71,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a88ed5e_dd929e91",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-12-14T18:01:13Z",
+      "side": 1,
+      "message": "Right, I think this can also be changed to:\n`int iFrames \u003d samples / inputChannelCount;`\n\nBecause we only consuming `float` audio samples in effects, and there is verification at open time to validate data format `PcmType::FLOAT_32_BIT`:\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/EffectImpl.cpp;l\u003d46",
+      "parentUuid": "9a5cbe1f_793c9c4f",
+      "range": {
+        "startLine": 204,
+        "startChar": 18,
+        "endLine": 204,
+        "endChar": 25
+      },
+      "revId": "11c18efe4506f47f374b7f7971b955a00ac4ced7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b0dfd1d_a048b035",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-12-14T18:01:13Z",
+      "side": 1,
+      "message": "Addressing this together with next comment.",
+      "parentUuid": "3e5e5a0c_cbe84bfc",
+      "range": {
+        "startLine": 204,
+        "startChar": 28,
+        "endLine": 204,
+        "endChar": 41
+      },
+      "revId": "11c18efe4506f47f374b7f7971b955a00ac4ced7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4361284_62bb6976",
@@ -84,6 +132,30 @@
       "writtenOn": "2023-12-14T14:52:03Z",
       "side": 1,
       "message": "better use outputChannelCount here in case we change the support output channel count in the future: we will have less code to change then.",
+      "range": {
+        "startLine": 210,
+        "startChar": 15,
+        "endLine": 210,
+        "endChar": 16
+      },
+      "revId": "11c18efe4506f47f374b7f7971b955a00ac4ced7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7010c063_9f098f10",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2023-12-14T18:01:13Z",
+      "side": 1,
+      "message": "agreed, hardcode removed",
+      "parentUuid": "b4361284_62bb6976",
       "range": {
         "startLine": 210,
         "startChar": 15,
