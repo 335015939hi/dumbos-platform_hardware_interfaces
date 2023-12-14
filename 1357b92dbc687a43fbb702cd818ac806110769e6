@@ -128,6 +128,30 @@
       },
       "revId": "1357b92dbc687a43fbb702cd818ac806110769e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd6f05bd_1d308142",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-14T18:00:02Z",
+      "side": 1,
+      "message": "\u003e virtualization service could also keep tokens on behalf of each client to delete all the keys. \n\nIt would have to keep them somewhere that isn\u0027t deleted on factory reset, which isn\u0027t trivial.\n\nBut it\u0027s a fair point.",
+      "parentUuid": "f3dfe81e_1b15a54d",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 21
+      },
+      "revId": "1357b92dbc687a43fbb702cd818ac806110769e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
