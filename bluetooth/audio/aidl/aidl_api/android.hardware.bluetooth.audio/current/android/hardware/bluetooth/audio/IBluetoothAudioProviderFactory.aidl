@@ -41,6 +41,5 @@ interface IBluetoothAudioProviderFactory {
   parcelable ProviderInfo {
     String name;
     android.hardware.bluetooth.audio.CodecInfo[] codecInfos;
-    boolean supportsMultidirectionalCapabilities;
   }
 }
