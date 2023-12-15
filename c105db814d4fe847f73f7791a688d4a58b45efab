@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c643fe6c_285452cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-15T10:11:51Z",
+      "side": 1,
+      "message": "I\u0027m not at all convinced by this approach. I don\u0027t think the crypto layer needs to be involved in this.\nCan\u0027t we just include the sequence number in the request/response messages?",
+      "revId": "c105db814d4fe847f73f7791a688d4a58b45efab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
