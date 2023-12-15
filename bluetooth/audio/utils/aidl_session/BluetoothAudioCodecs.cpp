@@ -32,7 +32,6 @@
 #include <aidl/android/hardware/bluetooth/audio/SbcChannelMode.h>
 #include <android-base/logging.h>
 
-#include "BluetoothLeAudioAseConfigurationSettingProvider.h"
 #include "BluetoothLeAudioCodecsProvider.h"
 
 namespace aidl {
@@ -437,12 +436,6 @@ std::vector<CodecInfo> BluetoothAudioCodecs::GetLeAudioOffloadCodecInfo(
   if (codec_info_map_iter == kDefaultOffloadLeAudioCodecInfoMap.end())
     return std::vector<CodecInfo>();
   return codec_info_map_iter->second;
-}
-
-std::vector<LeAudioAseConfigurationSetting>
-BluetoothAudioCodecs::GetLeAudioAseConfigurationSettings() {
-  return AudioSetConfigurationProviderJson::
-      GetLeAudioAseConfigurationSettings();
 }
 
 }  // namespace audio
