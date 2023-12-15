@@ -21,7 +21,6 @@
 #include "BluetoothAudioProvider.h"
 #include "aidl/android/hardware/bluetooth/audio/LeAudioAseConfiguration.h"
 #include "aidl/android/hardware/bluetooth/audio/MetadataLtv.h"
-#include "aidl/android/hardware/bluetooth/audio/SessionType.h"
 
 namespace aidl {
 namespace android {
@@ -39,8 +38,6 @@ using AseQosDirectionRequirement = IBluetoothAudioProvider::
     LeAudioAseQosConfigurationRequirement::AseQosDirectionRequirement;
 using LeAudioAseQosConfiguration =
     IBluetoothAudioProvider::LeAudioAseQosConfiguration;
-using LeAudioBroadcastConfigurationSetting =
-    IBluetoothAudioProvider::LeAudioBroadcastConfigurationSetting;
 
 class LeAudioOffloadAudioProvider : public BluetoothAudioProvider {
  public:
@@ -71,14 +68,12 @@ class LeAudioOffloadAudioProvider : public BluetoothAudioProvider {
           in_qosRequirement,
       IBluetoothAudioProvider::LeAudioAseQosConfigurationPair* _aidl_return)
       override;
-  ndk::ScopedAStatus onSourceAseMetadataChanged(
-      IBluetoothAudioProvider::AseState in_state, int32_t in_cigId,
-      int32_t in_cisId,
+  ndk::ScopedAStatus onSinkAseMetadataChanged(
+      IBluetoothAudioProvider::AseState in_state,
       const std::optional<std::vector<std::optional<MetadataLtv>>>& in_metadata)
       override;
-  ndk::ScopedAStatus onSinkAseMetadataChanged(
-      IBluetoothAudioProvider::AseState in_state, int32_t in_cigId,
-      int32_t in_cisId,
+  ndk::ScopedAStatus onSourceAseMetadataChanged(
+      IBluetoothAudioProvider::AseState in_state,
       const std::optional<std::vector<std::optional<MetadataLtv>>>& in_metadata)
       override;
   ndk::ScopedAStatus getLeAudioBroadcastConfiguration(
@@ -87,12 +82,12 @@ class LeAudioOffloadAudioProvider : public BluetoothAudioProvider {
           in_remoteSinkAudioCapabilities,
       const IBluetoothAudioProvider::LeAudioBroadcastConfigurationRequirement&
           in_requirement,
-      LeAudioBroadcastConfigurationSetting* _aidl_return) override;
+      IBluetoothAudioProvider::LeAudioBroadcastConfigurationSetting*
+          _aidl_return) override;
 
  private:
   ndk::ScopedAStatus onSessionReady(DataMQDesc* _aidl_return) override;
   std::map<CodecId, uint32_t> codec_priority_map_;
-  std::vector<LeAudioBroadcastConfigurationSetting> broadcast_settings;
 
   // Private matching function definitions
   bool isMatchedValidCodec(CodecId cfg_codec, CodecId req_codec);
@@ -124,9 +119,6 @@ class LeAudioOffloadAudioProvider : public BluetoothAudioProvider {
       std::vector<CodecSpecificCapabilitiesLtv> codec_capabilities);
   bool isMatchedAseConfiguration(LeAudioAseConfiguration setting_cfg,
                                  LeAudioAseConfiguration requirement_cfg);
-  bool isMatchedBISConfiguration(
-      LeAudioBisConfiguration bis_cfg,
-      const IBluetoothAudioProvider::LeAudioDeviceCapabilities& capabilities);
   void filterCapabilitiesAseDirectionConfiguration(
       std::vector<std::optional<AseDirectionConfiguration>>&
           direction_configurations,
@@ -152,11 +144,6 @@ class LeAudioOffloadAudioProvider : public BluetoothAudioProvider {
           requirement);
   bool isMatchedQosRequirement(LeAudioAseQosConfiguration setting_qos,
                                AseQosDirectionRequirement requirement_qos);
-  std::optional<LeAudioBroadcastConfigurationSetting>
-  getCapabilitiesMatchedBroadcastConfigurationSettings(
-      LeAudioBroadcastConfigurationSetting& setting,
-      const IBluetoothAudioProvider::LeAudioDeviceCapabilities& capabilities);
-  void getBroadcastSettings();
 };
 
 class LeAudioOffloadOutputAudioProvider : public LeAudioOffloadAudioProvider {
