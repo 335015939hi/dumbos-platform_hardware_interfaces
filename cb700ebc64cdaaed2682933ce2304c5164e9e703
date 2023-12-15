@@ -33,6 +33,23 @@
       "message": "Thanks for fixing this!",
       "revId": "cb700ebc64cdaaed2682933ce2304c5164e9e703",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77f2e100_aa9498ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-12-15T01:04:27Z",
+      "side": 1,
+      "message": "Adding Eric as another review since two googler reviewers are required",
+      "revId": "cb700ebc64cdaaed2682933ce2304c5164e9e703",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
