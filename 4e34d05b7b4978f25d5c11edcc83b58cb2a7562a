@@ -16,6 +16,24 @@
       "message": "Do we want to at least set `data_` to `nullptr` here?  That way if someone calls `set()` on the instance, we consistently crash, instead of sometimes writing into a random memory address?",
       "revId": "4e34d05b7b4978f25d5c11edcc83b58cb2a7562a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ecbed55_577dc0ca",
+        "filename": "bluetooth/audio/aidl/default/A2dpBits.h",
+        "patchSetId": 34
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2023-12-15T19:39:08Z",
+      "side": 1,
+      "message": "Fixed (https://r.android.com/2877314), thanks!",
+      "parentUuid": "ebe4ed36_0ba10848",
+      "revId": "4e34d05b7b4978f25d5c11edcc83b58cb2a7562a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
