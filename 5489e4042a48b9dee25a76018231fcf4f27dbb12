@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "908f1af3_aa306090",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2023-12-15T20:07:49Z",
+      "side": 1,
+      "message": "Making sure I understand correctly, setting this on a key would ensure that content decrypted using the key is only output to certain buffers (with platform-dependent enforcement)? Is `set_protection_id` allowed to be called more than once for the lifetime of a key?",
+      "parentUuid": "de57713e_0b1b7f50",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3c60ae0_5dcc48fa",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
         "patchSetId": 58
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "It could be, depending on the requirements. If it is opaque; how are you planning to use this shared secret? Do you want to use the shared secret directly to create a key?",
       "parentUuid": "e3c60ae0_5dcc48fa",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7797105a_7615c1b3",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2023-12-15T20:07:49Z",
+      "side": 1,
+      "message": "For the opaque key use case, I would like to directly create an HMAC key with ECDH + HKDF. Ideally, if the underlying hardware supports it, this new key would be output directly to the hardware key table. If `calculate_shared_secret` returns the raw ECDH result, I suppose there would need to be a policy that determines if it can be invoked to prevent the opaque key from being re-derived in the clear.",
+      "parentUuid": "9783a73e_487f6f22",
       "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
