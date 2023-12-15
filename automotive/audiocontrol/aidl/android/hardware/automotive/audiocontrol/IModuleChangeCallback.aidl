@@ -33,7 +33,8 @@ oneway interface IModuleChangeCallback {
      *    car audio framework support.
      * 2. For automotive 'bus' devices, the expected settings are
      *     AudioDevice {
-     *        AudioDeviceDescription {type: IN/OUT_DEVICE, connection: CONNECTION_BUS}
+     *        AudioDeviceDescription {type: IN/OUT_DEVICE, connection: empty}
+     *              from Android V   {type: IN/OUT_BUS, connection: empty}
      *        AudioDeviceAddress {id: string}}
      *
      * Notes for AudioGain:
