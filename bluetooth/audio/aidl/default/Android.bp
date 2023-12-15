@@ -31,6 +31,10 @@ cc_library_shared {
     ],
     export_include_dirs: ["."],
     header_libs: ["libhardware_headers"],
+    static_libs: [
+        "hardware_bluetooth_audio_flags_c_lib",
+        "server_configurable_flags",
+    ],
     shared_libs: [
         "libbase",
         "libbinder_ndk",

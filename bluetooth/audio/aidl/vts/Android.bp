@@ -21,6 +21,8 @@ cc_test {
     static_libs: [
         "android.hardware.common-V2-ndk",
         "android.hardware.common.fmq-V1-ndk",
+        "hardware_bluetooth_audio_vts_flags_c_lib",
+        "server_configurable_flags",
     ],
     shared_libs: [
         "libbase",

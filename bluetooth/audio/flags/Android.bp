@@ -1,0 +1,45 @@
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+aconfig_declarations {
+    name: "hardware_bluetooth_audio_aconfig_flags",
+    package: "com.android.bluetooth.flags",
+    srcs: [
+        "leaudio.aconfig",
+    ],
+}
+
+cc_aconfig_library {
+    name: "hardware_bluetooth_audio_flags_c_lib",
+    vendor: true,
+    aconfig_declarations: "hardware_bluetooth_audio_aconfig_flags",
+    export_include_dirs: ["exported_include"],
+    visibility: [
+        "//hardware/interfaces/bluetooth/audio:__subpackages__",
+    ],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.btservices",
+    ],
+    min_sdk_version: "Tiramisu",
+}
+
+cc_aconfig_library {
+    name: "hardware_bluetooth_audio_vts_flags_c_lib",
+    aconfig_declarations: "hardware_bluetooth_audio_aconfig_flags",
+    export_include_dirs: ["exported_include"],
+    visibility: [
+        "//hardware/interfaces/bluetooth/audio:__subpackages__",
+    ],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.btservices",
+    ],
+    min_sdk_version: "Tiramisu",
+}

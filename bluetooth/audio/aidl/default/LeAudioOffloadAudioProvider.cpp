@@ -21,6 +21,7 @@
 #include <BluetoothAudioCodecs.h>
 #include <BluetoothAudioSessionReport.h>
 #include <android-base/logging.h>
+#include <android_bluetooth_flags.h>
 
 namespace aidl {
 namespace android {
@@ -150,6 +151,10 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::onSessionReady(
 }
 ndk::ScopedAStatus LeAudioOffloadAudioProvider::setCodecPriority(
     const CodecId& in_codecId, int32_t in_priority) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+  }
+
   codec_priority_map_[in_codecId] = in_priority;
   return ndk::ScopedAStatus::ok();
 };
@@ -479,6 +484,10 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::getLeAudioAseConfiguration(
         in_requirements,
     std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>*
         _aidl_return) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+  }
+
   // Get all configuration settings
   std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
       ase_configuration_settings =
@@ -546,6 +555,10 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::getLeAudioAseQosConfiguration(
     const IBluetoothAudioProvider::LeAudioAseQosConfigurationRequirement&
         in_qosRequirement,
     IBluetoothAudioProvider::LeAudioAseQosConfigurationPair* _aidl_return) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+  }
+
   IBluetoothAudioProvider::LeAudioAseQosConfigurationPair result;
   // Get all configuration settings
   std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
@@ -623,6 +636,10 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::onSinkAseMetadataChanged(
     IBluetoothAudioProvider::AseState in_state, int32_t /*in_cigId*/,
     int32_t /*in_cisId*/,
     const std::optional<std::vector<std::optional<MetadataLtv>>>& in_metadata) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+  }
+
   (void)in_state;
   (void)in_metadata;
   return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -632,6 +649,10 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::onSourceAseMetadataChanged(
     IBluetoothAudioProvider::AseState in_state, int32_t /*in_cigId*/,
     int32_t /*in_cisId*/,
     const std::optional<std::vector<std::optional<MetadataLtv>>>& in_metadata) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+  }
+
   (void)in_state;
   (void)in_metadata;
   return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
@@ -726,6 +747,10 @@ LeAudioOffloadAudioProvider::getLeAudioBroadcastConfiguration(
     const IBluetoothAudioProvider::LeAudioBroadcastConfigurationRequirement&
         in_requirement,
     LeAudioBroadcastConfigurationSetting* _aidl_return) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+  }
+
   getBroadcastSettings();
   _aidl_return = nullptr;
 

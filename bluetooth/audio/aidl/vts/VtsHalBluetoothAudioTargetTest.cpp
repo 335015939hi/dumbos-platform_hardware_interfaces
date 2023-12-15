@@ -21,6 +21,7 @@
 #include <android/binder_auto_utils.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
+#include <android_bluetooth_flags.h>
 #include <binder/IServiceManager.h>
 #include <binder/ProcessState.h>
 #include <cutils/properties.h>
@@ -2419,6 +2420,10 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
 TEST_P(
     BluetoothAudioProviderLeAudioOutputHardwareAidl,
     StartAndEndLeAudioOutputSessionWithPossibleUnicastConfigFromProviderInfo) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    GTEST_SKIP() << "leaudio_multicodec_aidl_support flag is not enabled";
+  }
+
   if (!IsOffloadOutputProviderInfoSupported()) {
     return;
   }
@@ -2444,6 +2449,10 @@ TEST_P(
 
 TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
        GetEmptyAseConfigurationEmptyCapability) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    GTEST_SKIP() << "leaudio_multicodec_aidl_support flag is not enabled";
+  }
+
   std::vector<std::optional<LeAudioDeviceCapabilities>> empty_capability;
   std::vector<LeAudioConfigurationRequirement> empty_requirement;
   std::vector<LeAudioAseConfigurationSetting> configurations;
@@ -2465,6 +2474,10 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
 
 TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
        GetEmptyAseConfigurationMismatchedRequirement) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    GTEST_SKIP() << "leaudio_multicodec_aidl_support flag is not enabled";
+  }
+
   std::vector<std::optional<LeAudioDeviceCapabilities>> capabilities = {
       GetDefaultRemoteCapability()};
 
@@ -2489,6 +2502,10 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
 }
 
 TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl, GetQoSConfiguration) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    GTEST_SKIP() << "leaudio_multicodec_aidl_support flag is not enabled";
+  }
+
   IBluetoothAudioProvider::LeAudioAseQosConfigurationRequirement requirement;
   std::vector<IBluetoothAudioProvider::LeAudioAseQosConfiguration>
       QoSConfigurations;
@@ -2707,6 +2724,10 @@ TEST_P(BluetoothAudioProviderLeAudioInputHardwareAidl,
 TEST_P(
     BluetoothAudioProviderLeAudioInputHardwareAidl,
     StartAndEndLeAudioInputSessionWithPossibleUnicastConfigFromProviderInfo) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    GTEST_SKIP() << "leaudio_multicodec_aidl_support flag is not enabled";
+  }
+
   if (!IsOffloadOutputProviderInfoSupported()) {
     return;
   }
@@ -3012,6 +3033,10 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
 TEST_P(
     BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
     StartAndEndLeAudioBroadcastSessionWithPossibleUnicastConfigFromProviderInfo) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    GTEST_SKIP() << "leaudio_multicodec_aidl_support flag is not enabled";
+  }
+
   if (!IsBroadcastOffloadProviderInfoSupported()) {
     return;
   }
@@ -3043,6 +3068,10 @@ TEST_P(
 
 TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
        GetEmptyBroadcastConfigurationEmptyCapability) {
+  if (!IS_FLAG_ENABLED(leaudio_multicodec_aidl_support)) {
+    GTEST_SKIP() << "leaudio_multicodec_aidl_support flag is not enabled";
+  }
+
   std::vector<std::optional<LeAudioDeviceCapabilities>> empty_capability;
   IBluetoothAudioProvider::LeAudioBroadcastConfigurationRequirement
       empty_requirement;
