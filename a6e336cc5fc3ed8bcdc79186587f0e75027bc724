@@ -16,6 +16,24 @@
       "message": "It\u0027s already configured for presubmits with the same config in `cts/hostsidetests/appcompat/strictjavapackages/TEST_MAPPING`, so doesn\u0027t need to be added to postsubmits first.",
       "revId": "a6e336cc5fc3ed8bcdc79186587f0e75027bc724",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a104a493_5c55e49b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2023-12-16T00:42:16Z",
+      "side": 1,
+      "message": "Bug for the lint problem: b/310721907 -\u003e b/315965080.",
+      "parentUuid": "a09ff87e_5c96f254",
+      "revId": "a6e336cc5fc3ed8bcdc79186587f0e75027bc724",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
