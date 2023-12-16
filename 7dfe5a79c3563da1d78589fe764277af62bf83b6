@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43628c11_ee6685c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-12-16T09:30:44Z",
+      "side": 1,
+      "message": "frameworks/native/libs/nativewindow/include/android/native_window_aidl.h:100:16: error: \u0027ANativeWindow_readFromParcel\u0027 is only available on Android 34 or newer [-Werror,-Wunguarded-availability]\n        return ANativeWindow_readFromParcel(parcel, \u0026mWindow);\n               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nrequired android API is 34 (c2 aidl is currently 31? for s/w codec mainline shipping)",
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
