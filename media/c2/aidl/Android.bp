@@ -14,7 +14,10 @@ aidl_interface {
     min_sdk_version: "30",
     vendor_available: true,
     double_loadable: true,
-    srcs: ["android/hardware/media/c2/*.aidl"],
+    srcs: [
+        ":framework_native_aidl_gui",
+        "android/hardware/media/c2/*.aidl"
+    ],
     headers: [
         "HardwareBuffer_aidl",
     ],
