@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a9b747f_aa7b0f1d",
+        "filename": "media/c2/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-12-16T08:56:56Z",
+      "side": 1,
+      "message": "Does not work for android.view.Surface",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "48bd90cf061116740f3ee5dab5816d6d30cac78e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3271879_f9464933",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IInputSurface.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-12-16T08:56:56Z",
+      "side": 1,
+      "message": "This is ANativeWindow actually?\nNeeds to get through Android.bp",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 28
+      },
+      "revId": "48bd90cf061116740f3ee5dab5816d6d30cac78e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e8de2b_6c91baf0",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IInputSurface.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-12-16T08:56:56Z",
+      "side": 1,
+      "message": "This is producer for AImangeReader?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 11
+      },
+      "revId": "48bd90cf061116740f3ee5dab5816d6d30cac78e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
