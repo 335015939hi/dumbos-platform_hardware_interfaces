@@ -88,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b44a74ad_dce9ab40",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IInputSurface.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-12-16T09:12:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3271879_f9464933",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 28
+      },
+      "revId": "48bd90cf061116740f3ee5dab5816d6d30cac78e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6e8de2b_6c91baf0",
