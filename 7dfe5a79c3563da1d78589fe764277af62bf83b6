@@ -16,6 +16,24 @@
       "message": "frameworks/native/libs/nativewindow/include/android/native_window_aidl.h:100:16: error: \u0027ANativeWindow_readFromParcel\u0027 is only available on Android 34 or newer [-Werror,-Wunguarded-availability]\n        return ANativeWindow_readFromParcel(parcel, \u0026mWindow);\n               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nrequired android API is 34 (c2 aidl is currently 31? for s/w codec mainline shipping)",
       "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c39249_5fd48a1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2023-12-16T09:52:32Z",
+      "side": 1,
+      "message": "ERROR: frameworks/native/aidl/gui/android/view/Surface.aidl:20.62-70: android.view.Surface is not structured, but this is a structured interface in rust\nERROR: frameworks/native/aidl/gui/android/view/Surface.aidl:20.62-70: android.view.Surface does not have VINTF level stability (marked @VintfStability), but this interface requires it in rust",
+      "parentUuid": "43628c11_ee6685c1",
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
