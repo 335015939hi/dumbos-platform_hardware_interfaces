@@ -22,6 +22,30 @@
       },
       "revId": "5e480a73d0a861447667bdca86fee36f56699859",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56cc2a88_717ccf06",
+        "filename": "bluetooth/lmp_event/aidl/default/lmp_event-default.rc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 2007880
+      },
+      "writtenOn": "2023-12-18T17:53:57Z",
+      "side": 1,
+      "message": "This server will be part of BT HAL server, which is vendor specific as AIDL interface APIs need to be converted to vendor specific BT SoC HCI commands.",
+      "parentUuid": "23554672_4002432e",
+      "range": {
+        "startLine": 1,
+        "startChar": 62,
+        "endLine": 1,
+        "endChar": 99
+      },
+      "revId": "5e480a73d0a861447667bdca86fee36f56699859",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
