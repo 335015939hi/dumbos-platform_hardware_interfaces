@@ -22,6 +22,30 @@
       },
       "revId": "b108e8cd87dcfa4e5972870991d028de00ab8343",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "110a5df1_c99ef24e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-19T06:30:33Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s the problem -- the outside halves of the channels get dropped when `LocalTa` is dropped, and that makes the corresponding inside halves (running in the separate thread) report an error on [`send`](https://doc.rust-lang.org/std/sync/mpsc/struct.Sender.html#method.send) / [`recv`](https://doc.rust-lang.org/std/sync/mpsc/struct.Receiver.html#method.recv).  So when the latter happens, we\u0027ll now just terminate the separate thread, and can restart with a new `LocalTa` and inner thread for the next test.",
+      "parentUuid": "b5cbd711_14489bf9",
+      "range": {
+        "startLine": 9,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "b108e8cd87dcfa4e5972870991d028de00ab8343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
