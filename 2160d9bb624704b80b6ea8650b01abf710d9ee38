@@ -187,6 +187,30 @@
       },
       "revId": "2160d9bb624704b80b6ea8650b01abf710d9ee38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e82a1a57_2dc20f37",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-19T14:53:47Z",
+      "side": 1,
+      "message": "Ahh, I misunderstood entirely.",
+      "parentUuid": "7b637772_5d4a74fd",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 9
+      },
+      "revId": "2160d9bb624704b80b6ea8650b01abf710d9ee38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

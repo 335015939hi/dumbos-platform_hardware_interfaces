@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9148bdc_893c3851",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-19T14:53:47Z",
+      "side": 1,
+      "message": "If both are present (which they shouldn\u0027t be), should we prefer default?",
+      "range": {
+        "startLine": 38,
+        "startChar": 50,
+        "endLine": 38,
+        "endChar": 75
+      },
+      "revId": "bda0cd165d72056c5f426a9030b21ea7ec1e6990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
