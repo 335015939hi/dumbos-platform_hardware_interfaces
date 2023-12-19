@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6bddfe2_58826d18",
+        "filename": "security/secretkeeper/aidl/vts/rustfmt.toml",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-19T13:22:01Z",
+      "side": 1,
+      "message": "Nit: There was an effort a while ago to make these all symlinks to the one true file at build/soong/scripts/rustfmt.toml.\n\n(Alternatively, you could link to, or copy, packages/modules/Virtualization/rustfmt.toml, which is slightly special.)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 22
+      },
+      "revId": "2160d9bb624704b80b6ea8650b01abf710d9ee38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "896d0d6a_bffa0976",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-19T13:22:01Z",
+      "side": 1,
+      "message": "Can we delete this now, or is there more to come?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 84
+      },
+      "revId": "2160d9bb624704b80b6ea8650b01abf710d9ee38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a0a100a_b3b8c613",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-19T13:22:01Z",
+      "side": 1,
+      "message": "We should maybe log somewhere if available is empty, but not sure we need to list the missing instances.",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 9
+      },
+      "revId": "2160d9bb624704b80b6ea8650b01abf710d9ee38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c0bd4c9_0fae16dc",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-19T13:22:01Z",
+      "side": 1,
+      "message": "What if there are available instances that aren\u0027t in SECRETKEEPER_INSTANCES? Shouldn\u0027t we test those?",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 9
+      },
+      "revId": "2160d9bb624704b80b6ea8650b01abf710d9ee38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
