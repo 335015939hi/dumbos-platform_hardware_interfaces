@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5cbd711_14489bf9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2023-12-19T04:25:00Z",
+      "side": 1,
+      "message": "When the LocalTa gets dropped, aren\u0027t the channels dropped as well?\nIsn\u0027t a new LocalTA created for each invocation of `fuzz_target!`?\n\nThis CL looks perfectly fine to me, but I am not sure if I understood the reason for the bug and how breaking out of the loop upon error solves it. I\u0027d appreciate any clarification just for my understanding. Thanks!",
+      "range": {
+        "startLine": 9,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 68
+      },
+      "revId": "b108e8cd87dcfa4e5972870991d028de00ab8343",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
