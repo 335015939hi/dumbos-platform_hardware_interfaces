@@ -1,0 +1,671 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a65210_27f6e640",
+        "filename": "security/see/hwcrypto/aidl/Android.bp",
+        "patchSetId": 62
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "since this is not stability: vintf, can you move to hardware/interfaces/staging for now?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 20
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b119b7f4_99a91807",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "could you put these comments on individual elements?",
+      "range": {
+        "startLine": 50,
+        "startChar": 3,
+        "endLine": 53,
+        "endChar": 29
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5fe893a_834cf214",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "setMemoryBuffer, same elsewhere",
+      "range": {
+        "startLine": 64,
+        "startChar": 26,
+        "endLine": 64,
+        "endChar": 41
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ede4d26_40175299",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperationErrorAdditionalInfo.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "why a structure for just this, and for similar things?",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dfea846_2d702abf",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperationErrorAdditionalInfo.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "failingCommand",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21be07f6_54d88b8b",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/ICryptoOperationContext.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "remembers",
+      "range": {
+        "startLine": 26,
+        "startChar": 72,
+        "endLine": 26,
+        "endChar": 80
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "950d305a_84115690",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/ICryptoOperationContext.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "How could it be used to execute more commands? As a token? If so, please mention it\u0027s a \u0027token\u0027 in the command - is usual term",
+      "range": {
+        "startLine": 21,
+        "startChar": 38,
+        "endLine": 28,
+        "endChar": 85
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98346e7d_1fbde395",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "getKeyGeneration (same elsewhere)",
+      "range": {
+        "startLine": 35,
+        "startChar": 27,
+        "endLine": 35,
+        "endChar": 45
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02531a03_58dbaf1d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "format? (same elsewhere, for any byte[])",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 30
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cefa0968_ed9b327a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 29
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eead1ca2_4babee18",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoRng.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "this is needed in a HAL API?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 54
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceb93147_852a7bde",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoRng.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "This API is equivalent to get_secure_rand_bytes(8), so delete it?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 34
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a69b1f9_77a136dc",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoRng.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "same, why is this needed in a HAL API?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 50
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc65ea67_f832e7ec",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "nit: validityPeriodSeconds (units in names is good)",
+      "range": {
+        "startLine": 57,
+        "startChar": 31,
+        "endLine": 57,
+        "endChar": 46
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "075d635c_e5ea632d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/MemoryBufferParameter.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "nit: would this make sense as a union?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ff04448_035fea56",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/OperationParameters.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "symmetricAuthCrypto, etc..",
+      "range": {
+        "startLine": 47,
+        "startChar": 37,
+        "endLine": 47,
+        "endChar": 56
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff9a7b22_eac8db19",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/PatternParameters.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "what is the size of blocks in bytes? or what is this?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce2568db_4aaac440",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesCipherMode.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "this is self-contradictory, I\u0027d say use \"bool _monostate\" to reduce types, but otherwise people usually use \u0027parcelable Void{}\u0027",
+      "range": {
+        "startLine": 22,
+        "startChar": 28,
+        "endLine": 22,
+        "endChar": 43
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "537ddc5e_06cf9012",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesCipherMode.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "ecbNoPadding, same elsewhere",
+      "range": {
+        "startLine": 22,
+        "startChar": 14,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d97bdfa_d9dc50eb",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesGcmMode.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "same",
+      "range": {
+        "startLine": 21,
+        "startChar": 25,
+        "endLine": 21,
+        "endChar": 33
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0f854de_bad6b96c",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesGcmModeParameters.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "will this always be 12 bytes?",
+      "range": {
+        "startLine": 19,
+        "startChar": 9,
+        "endLine": 19,
+        "endChar": 11
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b138719_4c49344e",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesKeyMaterial.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "nit: byte[]? how useful is the type?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c41d018_eea4afc2",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/EcKey.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "p224 etc",
+      "range": {
+        "startLine": 23,
+        "startChar": 12,
+        "endLine": 23,
+        "endChar": 16
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b2da526_8cb1451d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/EmptyEnum.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "but it\u0027s not empty?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 23
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f81542a_397e35dd",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/HalErrorCode.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "specify how used? if with ServiceSpecificException consider also \u0027const final int ...\u0027 in interface definitions.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68e260ae_07859ff0",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "\" \u003d ENCRYPT | DECRYPT\"",
+      "range": {
+        "startLine": 24,
+        "startChar": 22,
+        "endLine": 24,
+        "endChar": 45
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08f67af4_585b22dd",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/NistKey.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "do we need all these types with a single byte[] for key material? seems like a lot of types",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 1
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d46e22f_8ade9b78",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/ProtectionId.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "? no alternative?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1fc50d8_a9712556",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/RsaKey.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:10:54Z",
+      "side": 1,
+      "message": "just byte[]? the type of Rsa can be computed from the length, no?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 19
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
