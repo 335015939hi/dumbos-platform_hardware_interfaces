@@ -75,9 +75,16 @@ fn get_connection() -> Option<(binder::Strong<dyn ISecretkeeper>, String)> {
     // Initialize logging (which is OK to call multiple times).
     logger::init(logger::Config::default().with_min_level(log::Level::Debug));
 
+    // Determine which instances are available.
+    let available = binder::get_declared_instances(SECRETKEEPER_SERVICE).unwrap_or_default();
+
     // TODO: replace this with a parameterized set of tests that run for each available instance of
     // ISecretkeeper (rather than having a fixed set of instance names to look for).
     for instance in &SECRETKEEPER_INSTANCES {
+        if available.iter().find(|s| s == instance).is_none() {
+            info!("skipping undeclared instance /{instance}");
+            continue;
+        }
         let name = format!("{SECRETKEEPER_SERVICE}/{instance}");
         match binder::get_interface(&name) {
             Ok(sk) => {
