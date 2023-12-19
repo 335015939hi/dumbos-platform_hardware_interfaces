@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a41e2564_76502d0d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DerivedKeyResult.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:12:20Z",
+      "side": 1,
+      "message": "comments on items",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 25
+      },
+      "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd7f9099_79001191",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DerivedKeyResult.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:12:20Z",
+      "side": 1,
+      "message": "camelCase, same everywhere",
+      "range": {
+        "startLine": 31,
+        "startChar": 24,
+        "endLine": 31,
+        "endChar": 36
+      },
+      "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "819a619d_2be88bf8",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DerivedKeyResult.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:12:20Z",
+      "side": 1,
+      "message": "versioned how?",
+      "range": {
+        "startLine": 32,
+        "startChar": 21,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d984c2eb_a2227743",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DicePolicy.cddl",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:12:20Z",
+      "side": 1,
+      "message": "empty file?",
+      "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41229bb4_8f6d2c14",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/HwCryptoKeyMaterial.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:12:20Z",
+      "side": 1,
+      "message": "explicit (camelCase)",
+      "range": {
+        "startLine": 22,
+        "startChar": 24,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e243f892_1a130c7b",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KdfVersion.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-19T01:12:20Z",
+      "side": 1,
+      "message": "why do we need this? and a nullable version of it when there\u0027s only one option?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 0
+      },
+      "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
