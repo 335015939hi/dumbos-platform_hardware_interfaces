@@ -221,7 +221,6 @@ class BluetoothAudioProviderFactoryAidl
     temp_provider_info_ = std::nullopt;
     auto aidl_reval =
         provider_factory_->getProviderInfo(session_type, &temp_provider_info_);
-    ASSERT_TRUE(aidl_reval.isOk());
   }
 
   void GetProviderCapabilitiesHelper(const SessionType& session_type) {
@@ -623,8 +622,6 @@ class BluetoothAudioProviderFactoryAidl
       SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
       SessionType::A2DP_SOFTWARE_DECODING_DATAPATH,
       SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH,
-      SessionType::HFP_SOFTWARE_ENCODING_DATAPATH,
-      SessionType::HFP_SOFTWARE_DECODING_DATAPATH,
   };
 };
 
@@ -1505,7 +1502,6 @@ class BluetoothAudioProviderHfpSoftwareEncodingAidl
     BluetoothAudioProviderFactoryAidl::SetUp();
     GetProviderCapabilitiesHelper(SessionType::HFP_SOFTWARE_ENCODING_DATAPATH);
     OpenProviderHelper(SessionType::HFP_SOFTWARE_ENCODING_DATAPATH);
-    ASSERT_NE(audio_provider_, nullptr);
   }
 
   virtual void TearDown() override {
@@ -1549,6 +1545,10 @@ TEST_P(BluetoothAudioProviderHfpSoftwareEncodingAidl,
  */
 TEST_P(BluetoothAudioProviderHfpSoftwareEncodingAidl,
        StartAndEndHfpEncodingSoftwareSessionWithPossiblePcmConfig) {
+  // No test run when can't open provider
+  // This ensure the test will run correctly when testing
+  // Newer VTS with older HAL version
+  if (audio_provider_ == nullptr) return;
   for (auto sample_rate : hfp_sample_rates_) {
     for (auto bits_per_sample : hfp_bits_per_samples_) {
       for (auto channel_mode : hfp_channel_modes_) {
@@ -1572,7 +1572,6 @@ class BluetoothAudioProviderHfpSoftwareDecodingAidl
     BluetoothAudioProviderFactoryAidl::SetUp();
     GetProviderCapabilitiesHelper(SessionType::HFP_SOFTWARE_DECODING_DATAPATH);
     OpenProviderHelper(SessionType::HFP_SOFTWARE_DECODING_DATAPATH);
-    ASSERT_NE(audio_provider_, nullptr);
   }
 
   virtual void TearDown() override {
@@ -1613,6 +1612,10 @@ TEST_P(BluetoothAudioProviderHfpSoftwareDecodingAidl,
  */
 TEST_P(BluetoothAudioProviderHfpSoftwareDecodingAidl,
        StartAndEndHfpDecodingSoftwareSessionWithPossiblePcmConfig) {
+  // No test run when can't open provider
+  // This ensure the test will run correctly when testing
+  // Newer VTS with older HAL version
+  if (audio_provider_ == nullptr) return;
   for (auto sample_rate : hfp_sample_rates_) {
     for (auto bits_per_sample : hfp_bits_per_samples_) {
       for (auto channel_mode : hfp_channel_modes_) {
@@ -1929,6 +1932,10 @@ TEST_P(BluetoothAudioProviderHfpHardwareAidl, OpenHfpHardwareProvider) {}
  */
 TEST_P(BluetoothAudioProviderHfpHardwareAidl,
        StartAndEndHfpHardwareSessionWithPossiblePcmConfig) {
+  // No test run when can't open provider
+  // This ensure the test will run correctly when testing
+  // Newer VTS with older HAL version
+  if (audio_provider_ == nullptr) return;
   // Try to open with a sample configuration
   EXPECT_TRUE(OpenSession(CodecId::Core::CVSD, 6, false, true));
   EXPECT_TRUE(audio_provider_->endSession().isOk());
