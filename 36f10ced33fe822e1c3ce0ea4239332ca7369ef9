@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdccd691_d3dca9e4",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2023-12-20T17:08:36Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 11
+      },
+      "revId": "36f10ced33fe822e1c3ce0ea4239332ca7369ef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4051aaa_109a2aaf",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2023-12-20T17:08:36Z",
+      "side": 1,
+      "message": "this is manual selection API right, it should work on all the technologies isn\u0027t it? why do you think will work only on LTE ?",
+      "range": {
+        "startLine": 1184,
+        "startChar": 6,
+        "endLine": 1187,
+        "endChar": 9
+      },
+      "revId": "36f10ced33fe822e1c3ce0ea4239332ca7369ef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
