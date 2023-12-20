@@ -1177,8 +1177,8 @@ TEST_P(RadioNetworkTest, setNetworkSelectionModeManual) {
         ASSERT_TRUE(CheckAnyOfErrors(
                 radioRsp_network->rspInfo.error,
                 {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::INVALID_ARGUMENTS,
-                 RadioError::INVALID_STATE, RadioError::NO_MEMORY, RadioError::INTERNAL_ERR,
-                 RadioError::SYSTEM_ERR, RadioError::CANCELLED}));
+                RadioError::INVALID_STATE, RadioError::NO_MEMORY, RadioError::INTERNAL_ERR,
+                RadioError::SYSTEM_ERR, RadioError::CANCELLED, RadioError::MODEM_ERR}));
     }
 }
 
