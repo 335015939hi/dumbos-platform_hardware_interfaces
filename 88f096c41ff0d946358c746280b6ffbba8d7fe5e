@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2758f481_660dfd92",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-20T13:12:26Z",
+      "side": 1,
+      "message": "Donno where it is coming from tbh. rustfmt doing stuff.",
+      "parentUuid": "1b474096_729aef1a",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 309,
+        "endChar": 6
+      },
+      "revId": "88f096c41ff0d946358c746280b6ffbba8d7fe5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "481d7542_ea7be910",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee41a238_fe51ca4f",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-20T13:12:26Z",
+      "side": 1,
+      "message": "There is VTS to test the response sequence numbers are correct. A wrong response sequence number being rejected is the client responsibility \u0026 I\u0027m not sure it should be a VTS.\n\nBut we do need more unit testing for the client library. I\u0027ll get more test coverage as I write more Microdroid code.",
+      "parentUuid": "481d7542_ea7be910",
+      "range": {
+        "startLine": 510,
+        "startChar": 0,
+        "endLine": 512,
+        "endChar": 15
+      },
+      "revId": "88f096c41ff0d946358c746280b6ffbba8d7fe5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89bec9df_c0c93981",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-12-20T11:28:35Z",
       "side": 1,
       "message": "Maybe\n```\nlet [seq_0, seq_1, seq_2] \u003d array:from_fn(|_| seq_a.get_then_increment().unwrap();\n```",
+      "range": {
+        "startLine": 521,
+        "startChar": 0,
+        "endLine": 525,
+        "endChar": 6
+      },
+      "revId": "88f096c41ff0d946358c746280b6ffbba8d7fe5e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4da0afe7_e1cc4813",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-20T13:12:26Z",
+      "side": 1,
+      "message": "Yeah this is a cleaner way. Done. Thanks",
+      "parentUuid": "89bec9df_c0c93981",
       "range": {
         "startLine": 521,
         "startChar": 0,
