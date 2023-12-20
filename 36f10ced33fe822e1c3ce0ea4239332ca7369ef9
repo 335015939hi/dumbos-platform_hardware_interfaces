@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62247a1d_3cf48adc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2023-12-20T17:09:46Z",
+      "side": 1,
+      "message": "pls create a bug with details \n\nNeed to understand why manual selection would fail for Non LTE.. ideally it should work for all 3GPP technologies isn\u0027t it?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 4
+      },
+      "revId": "36f10ced33fe822e1c3ce0ea4239332ca7369ef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cdccd691_d3dca9e4",
         "filename": "radio/aidl/vts/radio_network_test.cpp",
         "patchSetId": 2
