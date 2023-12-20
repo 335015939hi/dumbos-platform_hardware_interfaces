@@ -1174,11 +1174,15 @@ TEST_P(RadioNetworkTest, setNetworkSelectionModeManual) {
                  RadioError::INVALID_STATE, RadioError::RADIO_NOT_AVAILABLE, RadioError::NO_MEMORY,
                  RadioError::INTERNAL_ERR, RadioError::SYSTEM_ERR, RadioError::CANCELLED}));
     } else if (cardStatus.cardState == CardStatus::STATE_PRESENT) {
-        ASSERT_TRUE(CheckAnyOfErrors(
-                radioRsp_network->rspInfo.error,
-                {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::INVALID_ARGUMENTS,
-                 RadioError::INVALID_STATE, RadioError::NO_MEMORY, RadioError::INTERNAL_ERR,
-                 RadioError::SYSTEM_ERR, RadioError::CANCELLED}));
+       if(isLteConnected()){
+           ASSERT_TRUE(CheckAnyOfErrors(
+                   radioRsp_network->rspInfo.error,
+                   {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::INVALID_ARGUMENTS,
+                    RadioError::INVALID_STATE, RadioError::NO_MEMORY, RadioError::INTERNAL_ERR,
+                    RadioError::SYSTEM_ERR, RadioError::CANCELLED}));
+        }else {
+           ASSERT_TRUE(CheckAnyOfErrors(radioRsp_network->rspInfo.error,{RadioError::MODEM_ERR}));
+        }
     }
 }
 
