@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-package android.hardware.security.secretkeeper;
+package android.hardware.bluetooth.lmp_event;
 
 /**
- * Secretkeeper unencrypted error code, returned via AIDL as service specific errors in
- * EX_SERVICE_SPECIFIC.
- * @hide
+ * LMP event id to be monitored
+ * CONNECT_IND indicator for initiating connection
+ * LL_PHY_UPDATE_IND indicator for PHY update
  */
 @VintfStability
-@Backing(type="int")
-enum ErrorCode {
-    OK = 0,
-    UNKNOWN_KEY_ID = 1,
-    INTERNAL_ERROR = 2,
-    REQUEST_MALFORMED = 3,
-
-    // TODO(b/291224769): Create a more exhaustive set of error code values.
+@Backing(type="byte")
+enum LmpEventId {
+    CONNECT_IND = 0x00,
+    LL_PHY_UPDATE_IND = 0x01,
 }
