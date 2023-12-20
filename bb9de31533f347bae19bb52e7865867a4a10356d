@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03463cf1_dc0fd117",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-20T14:35:24Z",
+      "side": 1,
+      "message": "Explained below at the definition.",
+      "parentUuid": "2822999b_62414283",
+      "range": {
+        "startLine": 21,
+        "startChar": 64,
+        "endLine": 21,
+        "endChar": 95
+      },
+      "revId": "bb9de31533f347bae19bb52e7865867a4a10356d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fa17e40_46d6eec4",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-20T11:21:53Z",
       "side": 1,
       "message": "implementations",
+      "range": {
+        "startLine": 64,
+        "startChar": 29,
+        "endLine": 64,
+        "endChar": 44
+      },
+      "revId": "bb9de31533f347bae19bb52e7865867a4a10356d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02aa4186_621ac10f",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-20T14:35:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fa17e40_46d6eec4",
       "range": {
         "startLine": 64,
         "startChar": 29,
@@ -84,6 +132,30 @@
       "side": 1,
       "message": "It might be clearer to say that the sequence number used as AAD for encrypting the response is set to the same value as the request sequence number from the request that triggered the response.",
       "parentUuid": "c14c0b8a_4dd9e51b",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 12
+      },
+      "revId": "bb9de31533f347bae19bb52e7865867a4a10356d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aebe251_d03c58f2",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2023-12-20T14:35:24Z",
+      "side": 1,
+      "message": "Doesn\u0027t really have to be same.\n\nThe SecretManagement Messages are request/response style. And the `ResponseSeqNum` will end up being same as the corresponding `RequestSeqNum`. But the concept of SeqNum doesnt have to assume that. Reference implementation does maintain 2 separate `SeqNum` for incoming \u0026 outgoing messages.",
+      "parentUuid": "e73b7185_c7784051",
       "range": {
         "startLine": 112,
         "startChar": 2,
