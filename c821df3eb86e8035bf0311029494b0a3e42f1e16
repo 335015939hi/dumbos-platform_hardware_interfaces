@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4441a7e0_a3b7c893",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 63
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2023-12-20T20:36:16Z",
+      "side": 1,
+      "message": "```suggestion\n     *                     client receiving the key will be limited in which buffers can be used\n```",
+      "revId": "c821df3eb86e8035bf0311029494b0a3e42f1e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

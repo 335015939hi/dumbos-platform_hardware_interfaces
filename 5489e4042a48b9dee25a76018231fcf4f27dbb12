@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cd0cc77_e3218844",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2023-12-20T20:36:16Z",
+      "side": 1,
+      "message": "Yes, the new description makes more sense to me. I see now that only the key creator can configure the protection.",
+      "parentUuid": "ece3ed0a_0eca383c",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3c60ae0_5dcc48fa",
@@ -139,6 +157,24 @@
       "side": 1,
       "message": "Do you think that [this function](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2874480/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl#90) can cover the use case you are thinking of?",
       "parentUuid": "7797105a_7615c1b3",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab28a82d_efcdb2ff",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2023-12-20T20:36:16Z",
+      "side": 1,
+      "message": "What I am ideally looking for is very similar to this function without the final AES-KWP unwrap. If you fully controlled the protocol, it would be possible to use `secure_key_import`, but it seems kludgy to generate, wrap, and transmit another key when just a key exchange would do.",
+      "parentUuid": "7180b742_106b73f0",
       "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
