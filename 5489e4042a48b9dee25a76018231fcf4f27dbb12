@@ -181,6 +181,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b8a9433_02d0216d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-20T22:13:06Z",
+      "side": 1,
+      "message": "OK, I added [this function](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2874480/6/staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl#102) (let me know if this is what you had in mind). That CL is a work in progress to cover all use cases that require securely importing a key into the system, I\u0027ll add you as a reviewer.",
+      "parentUuid": "ab28a82d_efcdb2ff",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "adda930e_f371009c",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyFlags.aidl",
         "patchSetId": 58
