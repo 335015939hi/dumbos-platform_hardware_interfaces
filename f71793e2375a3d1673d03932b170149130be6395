@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c71027b_4fff1cdf",
+        "filename": "tv/tuner/aidl/vts/functional/FrontendTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1947190
+      },
+      "writtenOn": "2023-12-20T16:07:07Z",
+      "side": 1,
+      "message": "Rephrase: Which test case you fail on this assertion? Your frontend.tune() should send a LOCK event",
+      "parentUuid": "e5b0e4db_36d0c517",
+      "revId": "f71793e2375a3d1673d03932b170149130be6395",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61d4fbf9_84759508",
         "filename": "tv/tuner/aidl/vts/functional/FrontendTests.cpp",
         "patchSetId": 1
