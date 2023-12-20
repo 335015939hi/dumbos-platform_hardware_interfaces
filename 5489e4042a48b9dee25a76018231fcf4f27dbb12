@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ece3ed0a_0eca383c",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-20T05:09:44Z",
+      "side": 1,
+      "message": "Yes, the limitation is correct. Just noticed that the description on this function is outdated and confusing, please let me know if the new one is more clear. The key creator (which needs to have the necessary permissions to access the decryption buffer in question) should be able to call this function more than once.",
+      "parentUuid": "908f1af3_aa306090",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3c60ae0_5dcc48fa",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
         "patchSetId": 58
@@ -103,6 +121,24 @@
       "side": 1,
       "message": "For the opaque key use case, I would like to directly create an HMAC key with ECDH + HKDF. Ideally, if the underlying hardware supports it, this new key would be output directly to the hardware key table. If `calculate_shared_secret` returns the raw ECDH result, I suppose there would need to be a policy that determines if it can be invoked to prevent the opaque key from being re-derived in the clear.",
       "parentUuid": "9783a73e_487f6f22",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7180b742_106b73f0",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-20T05:09:44Z",
+      "side": 1,
+      "message": "Do you think that [this function](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2874480/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl#90) can cover the use case you are thinking of?",
+      "parentUuid": "7797105a_7615c1b3",
       "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
