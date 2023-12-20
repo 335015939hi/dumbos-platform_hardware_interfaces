@@ -168,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "218eaa8a_ea73d71d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DerivedKeyResult.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2023-12-20T20:27:00Z",
+      "side": 1,
+      "message": "Added the information to the comment. This one is opaque from this service perspective but will be a Dice policy that follows the CDDL file structure with the caveat that it could be encrypted.",
+      "parentUuid": "0b25f15d_157b0fcf",
+      "range": {
+        "startLine": 32,
+        "startChar": 21,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d984c2eb_a2227743",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DicePolicy.cddl",
         "patchSetId": 21
