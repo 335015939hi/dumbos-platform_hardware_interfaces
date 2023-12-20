@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61f5bc23_2c29c8a2",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-20T16:48:12Z",
+      "side": 1,
+      "message": "Changed to something a bit like that.",
+      "parentUuid": "3f091ed0_5fe9dfb8",
+      "range": {
+        "startLine": 44,
+        "startChar": 41,
+        "endLine": 45,
+        "endChar": 18
+      },
+      "revId": "81181a3cdedd5725e490f4e3b5f486f8272f4263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8232d5f6_d3c0fde3",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-20T16:32:31Z",
       "side": 1,
       "message": "Should be just replace the version to `1` like dice_policy spec\n```\ndicePolicy \u003d [\n    1, ; version, hopefully will never change\n    + nodeConstraintList\n]\n```",
+      "range": {
+        "startLine": 99,
+        "startChar": 2,
+        "endLine": 99,
+        "endChar": 34
+      },
+      "revId": "81181a3cdedd5725e490f4e3b5f486f8272f4263",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c02201d8_4ec8ac9e",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2023-12-20T16:48:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8232d5f6_d3c0fde3",
       "range": {
         "startLine": 99,
         "startChar": 2,
