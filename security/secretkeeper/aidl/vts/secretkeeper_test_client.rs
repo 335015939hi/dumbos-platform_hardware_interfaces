@@ -16,14 +16,14 @@
 
 #![cfg(test)]
 
+use rdroidtest::ptest;
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::ISecretkeeper;
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::SecretId::SecretId;
 use authgraph_vts_test as ag_vts;
 use authgraph_boringssl as boring;
 use authgraph_core::key;
-use binder::StatusCode;
 use coset::{CborSerializable, CoseEncrypt0};
-use log::{info, warn};
+use log::warn;
 use secretkeeper_core::cipher;
 use secretkeeper_comm::data_types::error::SecretkeeperError;
 use secretkeeper_comm::data_types::request::Request;
@@ -35,7 +35,6 @@ use secretkeeper_comm::data_types::response::Response;
 use secretkeeper_comm::data_types::packet::{ResponsePacket, ResponseType};
 
 const SECRETKEEPER_SERVICE: &str = "android.hardware.security.secretkeeper.ISecretkeeper";
-const SECRETKEEPER_INSTANCES: [&'static str; 2] = ["default", "nonsecure"];
 const CURRENT_VERSION: u64 = 1;
 
 // TODO(b/291238565): This will change once libdice_policy switches to Explicit-key DiceCertChain
@@ -71,49 +70,18 @@ const SECRET_EXAMPLE: Secret = Secret([
     0x06, 0xAC, 0x36, 0x8B, 0x3C, 0x95, 0x50, 0x16, 0x67, 0x71, 0x65, 0x26, 0xEB, 0xD0, 0xC3, 0x98,
 ]);
 
-fn get_connection() -> Option<(binder::Strong<dyn ISecretkeeper>, String)> {
-    // Initialize logging (which is OK to call multiple times).
-    logger::init(logger::Config::default().with_min_level(log::Level::Debug));
-
+fn get_instances() -> Vec<(String, String)> {
     // Determine which instances are available.
-    let available = binder::get_declared_instances(SECRETKEEPER_SERVICE).unwrap_or_default();
-
-    // TODO: replace this with a parameterized set of tests that run for each available instance of
-    // ISecretkeeper (rather than having a fixed set of instance names to look for).
-    for instance in &SECRETKEEPER_INSTANCES {
-        if available.iter().find(|s| s == instance).is_none() {
-            // Skip undeclared instances.
-            continue;
-        }
-        let name = format!("{SECRETKEEPER_SERVICE}/{instance}");
-        match binder::get_interface(&name) {
-            Ok(sk) => {
-                info!("Running test against /{instance}");
-                return Some((sk, name));
-            }
-            Err(StatusCode::NAME_NOT_FOUND) => {
-                info!("No /{instance} instance of ISecretkeeper present");
-            }
-            Err(e) => {
-                panic!("unexpected error while fetching connection to Secretkeeper {:?}", e);
-            }
-        }
-    }
-    info!("no Secretkeeper instances in {SECRETKEEPER_INSTANCES:?} are declared and present");
-    None
+    binder::get_declared_instances(SECRETKEEPER_SERVICE)
+        .unwrap_or_default()
+        .into_iter()
+        .map(|v| (v.clone(), v))
+        .collect()
 }
 
-/// Macro to perform test setup. Invokes `return` if no Secretkeeper instance available.
-macro_rules! setup_client {
-    {} => {
-        match SkClient::new() {
-            Some(sk) => sk,
-            None => {
-                warn!("Secretkeeper HAL is unavailable, skipping test");
-                return;
-            }
-        }
-    }
+fn get_connection(instance: &str) -> binder::Strong<dyn ISecretkeeper> {
+    let name = format!("{SECRETKEEPER_SERVICE}/{instance}");
+    binder::get_interface(&name).unwrap()
 }
 
 /// Secretkeeper client information.
@@ -132,10 +100,10 @@ impl Drop for SkClient {
 }
 
 impl SkClient {
-    fn new() -> Option<Self> {
-        let (sk, name) = get_connection()?;
+    fn new(instance: &str) -> Self {
+        let sk = get_connection(instance);
         let (aes_keys, session_id) = authgraph_key_exchange(sk.clone());
-        Some(Self { sk, name, aes_keys, session_id })
+        Self { sk, name: instance.to_string(), aes_keys, session_id }
     }
 
     /// Wrapper around `ISecretkeeper::processSecretManagementRequest` that handles
@@ -208,47 +176,29 @@ fn authgraph_key_exchange(sk: binder::Strong<dyn ISecretkeeper>) -> ([key::AesKe
     ag_vts::sink::test_mainline(&mut source, sink)
 }
 
-/// Test that the AuthGraph instance returned by SecretKeeper correctly performs
-/// mainline key exchange against a local source implementation.
-#[test]
-fn authgraph_mainline() {
-    let (sk, _) = match get_connection() {
-        Some(sk) => sk,
-        None => {
-            warn!("Secretkeeper HAL is unavailable, skipping test");
-            return;
-        }
-    };
+// Test that the AuthGraph instance returned by SecretKeeper correctly performs
+// mainline key exchange against a local source implementation.
+ptest!(authgraph_mainline, get_instances());
+fn authgraph_mainline(instance: &String) {
+    let sk = get_connection(instance);
     let (_aes_keys, _session_id) = authgraph_key_exchange(sk);
 }
 
-/// Test that the AuthGraph instance returned by SecretKeeper correctly rejects
-/// a corrupted session ID signature.
-#[test]
-fn authgraph_corrupt_sig() {
-    let (sk, _) = match get_connection() {
-        Some(sk) => sk,
-        None => {
-            warn!("Secretkeeper HAL is unavailable, skipping test");
-            return;
-        }
-    };
+// Test that the AuthGraph instance returned by SecretKeeper correctly rejects
+// a corrupted session ID signature.
+ptest!(authgraph_corrupt_sig, get_instances());
+fn authgraph_corrupt_sig(instance: &String) {
+    let sk = get_connection(instance);
     let sink = sk.getAuthGraphKe().expect("failed to get AuthGraph");
     let mut source = ag_vts::test_ag_participant().expect("failed to create a local source");
     ag_vts::sink::test_corrupt_sig(&mut source, sink);
 }
 
-/// Test that the AuthGraph instance returned by SecretKeeper correctly detects
-/// when corrupted keys are returned to it.
-#[test]
-fn authgraph_corrupt_keys() {
-    let (sk, _) = match get_connection() {
-        Some(sk) => sk,
-        None => {
-            warn!("Secretkeeper HAL is unavailable, skipping test");
-            return;
-        }
-    };
+// Test that the AuthGraph instance returned by SecretKeeper correctly detects
+// when corrupted keys are returned to it.
+ptest!(authgraph_corrupt_keys, get_instances());
+fn authgraph_corrupt_keys(instance: &String) {
+    let sk = get_connection(instance);
     let sink = sk.getAuthGraphKe().expect("failed to get AuthGraph");
     let mut source = ag_vts::test_ag_participant().expect("failed to create a local source");
     ag_vts::sink::test_corrupt_keys(&mut source, sink);
@@ -257,9 +207,9 @@ fn authgraph_corrupt_keys() {
 // TODO(b/2797757): Add tests that match different HAL defined objects (like request/response)
 // with expected bytes.
 
-#[test]
-fn secret_management_get_version() {
-    let sk_client = setup_client!();
+ptest!(secret_management_get_version, get_instances());
+fn secret_management_get_version(instance: &String) {
+    let sk_client = SkClient::new(instance);
 
     let request = GetVersionRequest {};
     let request_packet = request.serialize_to_packet();
@@ -274,9 +224,9 @@ fn secret_management_get_version() {
     assert_eq!(get_version_response.version, CURRENT_VERSION);
 }
 
-#[test]
-fn secret_management_malformed_request() {
-    let sk_client = setup_client!();
+ptest!(secret_management_malformed_request, get_instances());
+fn secret_management_malformed_request(instance: &String) {
+    let sk_client = SkClient::new(instance);
 
     let request = GetVersionRequest {};
     let request_packet = request.serialize_to_packet();
@@ -293,9 +243,9 @@ fn secret_management_malformed_request() {
     assert_eq!(err, SecretkeeperError::RequestMalformed);
 }
 
-#[test]
-fn secret_management_store_get_secret_found() {
-    let sk_client = setup_client!();
+ptest!(secret_management_store_get_secret_found, get_instances());
+fn secret_management_store_get_secret_found(instance: &String) {
+    let sk_client = SkClient::new(instance);
 
     sk_client.store(&ID_EXAMPLE, &SECRET_EXAMPLE);
 
@@ -303,9 +253,9 @@ fn secret_management_store_get_secret_found() {
     assert_eq!(sk_client.get(&ID_EXAMPLE), Some(SECRET_EXAMPLE));
 }
 
-#[test]
-fn secret_management_store_get_secret_not_found() {
-    let sk_client = setup_client!();
+ptest!(secret_management_store_get_secret_not_found, get_instances());
+fn secret_management_store_get_secret_not_found(instance: &String) {
+    let sk_client = SkClient::new(instance);
 
     // Store a secret (corresponding to an id).
     sk_client.store(&ID_EXAMPLE, &SECRET_EXAMPLE);
@@ -314,9 +264,9 @@ fn secret_management_store_get_secret_not_found() {
     assert_eq!(sk_client.get(&ID_NOT_STORED), None);
 }
 
-#[test]
-fn secretkeeper_store_delete_ids() {
-    let sk_client = setup_client!();
+ptest!(secretkeeper_store_delete_ids, get_instances());
+fn secretkeeper_store_delete_ids(instance: &String) {
+    let sk_client = SkClient::new(instance);
 
     sk_client.store(&ID_EXAMPLE, &SECRET_EXAMPLE);
     sk_client.store(&ID_EXAMPLE_2, &SECRET_EXAMPLE);
@@ -331,9 +281,9 @@ fn secretkeeper_store_delete_ids() {
     assert_eq!(sk_client.get(&ID_EXAMPLE_2), None);
 }
 
-#[test]
-fn secretkeeper_store_delete_multiple_ids() {
-    let sk_client = setup_client!();
+ptest!(secretkeeper_store_delete_multiple_ids, get_instances());
+fn secretkeeper_store_delete_multiple_ids(instance: &String) {
+    let sk_client = SkClient::new(instance);
 
     sk_client.store(&ID_EXAMPLE, &SECRET_EXAMPLE);
     sk_client.store(&ID_EXAMPLE_2, &SECRET_EXAMPLE);
@@ -343,9 +293,9 @@ fn secretkeeper_store_delete_multiple_ids() {
     assert_eq!(sk_client.get(&ID_EXAMPLE_2), None);
 }
 
-#[test]
-fn secretkeeper_store_delete_duplicate_ids() {
-    let sk_client = setup_client!();
+ptest!(secretkeeper_store_delete_duplicate_ids, get_instances());
+fn secretkeeper_store_delete_duplicate_ids(instance: &String) {
+    let sk_client = SkClient::new(instance);
 
     sk_client.store(&ID_EXAMPLE, &SECRET_EXAMPLE);
     sk_client.store(&ID_EXAMPLE_2, &SECRET_EXAMPLE);
@@ -356,9 +306,9 @@ fn secretkeeper_store_delete_duplicate_ids() {
     assert_eq!(sk_client.get(&ID_EXAMPLE_2), Some(SECRET_EXAMPLE));
 }
 
-#[test]
-fn secretkeeper_store_delete_nonexistent() {
-    let sk_client = setup_client!();
+ptest!(secretkeeper_store_delete_nonexistent, get_instances());
+fn secretkeeper_store_delete_nonexistent(instance: &String) {
+    let sk_client = SkClient::new(instance);
 
     sk_client.store(&ID_EXAMPLE, &SECRET_EXAMPLE);
     sk_client.store(&ID_EXAMPLE_2, &SECRET_EXAMPLE);
@@ -369,9 +319,9 @@ fn secretkeeper_store_delete_nonexistent() {
     assert_eq!(sk_client.get(&ID_NOT_STORED), None);
 }
 
-#[test]
-fn secretkeeper_store_delete_all() {
-    let sk_client = setup_client!();
+ptest!(secretkeeper_store_delete_all, get_instances());
+fn secretkeeper_store_delete_all(instance: &String) {
+    let sk_client = SkClient::new(instance);
 
     if sk_client.name != "nonsecure" {
         // Don't run deleteAll() on a secure device, as it might affect
@@ -397,3 +347,5 @@ fn secretkeeper_store_delete_all() {
     // (Try to) Get the secret that was never stored
     assert_eq!(sk_client.get(&ID_NOT_STORED), None);
 }
+
+rdroidtest::test_main!();
