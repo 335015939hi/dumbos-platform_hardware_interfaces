@@ -68,6 +68,30 @@
       },
       "revId": "bb9de31533f347bae19bb52e7865867a4a10356d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e73b7185_c7784051",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/SecretManagement.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2023-12-20T14:16:18Z",
+      "side": 1,
+      "message": "It might be clearer to say that the sequence number used as AAD for encrypting the response is set to the same value as the request sequence number from the request that triggered the response.",
+      "parentUuid": "c14c0b8a_4dd9e51b",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 12
+      },
+      "revId": "bb9de31533f347bae19bb52e7865867a4a10356d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
