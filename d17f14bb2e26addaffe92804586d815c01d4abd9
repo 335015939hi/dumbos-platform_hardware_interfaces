@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b66fdb3_1f9fa8dd",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-12-21T23:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edbc3a80_7a96e44b",
+      "range": {
+        "startLine": 923,
+        "startChar": 60,
+        "endLine": 923,
+        "endChar": 68
+      },
+      "revId": "d17f14bb2e26addaffe92804586d815c01d4abd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c9a1498_65c53dfb",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae8ad85b_5be48eb1",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-12-21T23:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c9a1498_65c53dfb",
+      "range": {
+        "startLine": 931,
+        "startChar": 7,
+        "endLine": 931,
+        "endChar": 71
+      },
+      "revId": "d17f14bb2e26addaffe92804586d815c01d4abd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f86bc91_ab4b35d2",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-12-21T23:13:36Z",
       "side": 1,
       "message": "I think, this may stir the confusion. We should say \"of the port corresponding to the disconnected device.\"",
+      "range": {
+        "startLine": 933,
+        "startChar": 46,
+        "endLine": 933,
+        "endChar": 73
+      },
+      "revId": "d17f14bb2e26addaffe92804586d815c01d4abd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3012fdaa_5f3cc900",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1102563
+      },
+      "writtenOn": "2023-12-21T23:22:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f86bc91_ab4b35d2",
       "range": {
         "startLine": 933,
         "startChar": 46,
