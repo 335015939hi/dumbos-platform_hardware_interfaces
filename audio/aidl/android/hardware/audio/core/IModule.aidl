@@ -920,13 +920,15 @@ interface IModule {
     int getAAudioHardwareBurstMinUsec();
 
     /**
-     * Notify the HAL module to prepare for disconnecting an external device.
+     * Notify the HAL module to prepare for disconnecting a physical external device.
      *
      * This method is used to inform the HAL module that 'disconnectExternalDevice' will be
      * called soon. The HAL module can rely on this method to abort active data operations
      * early. The 'portId' must be of a connected device Port instance previously instantiated
      * using 'connectExternalDevice' method. 'disconnectExternalDevice' method will be called
      * soon after this method with the same 'portId'.
+     *
+     * This method is called after the physical device is disconnected.
      *
      * @param portId The ID of the audio port that is about to disconnect
      * @throws EX_ILLEGAL_ARGUMENT In the following cases:
