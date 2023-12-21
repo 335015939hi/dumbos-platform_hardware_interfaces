@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a54e2a9f_571b970a",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2023-12-21T07:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdccd691_d3dca9e4",
+      "range": {
+        "startLine": 1178,
+        "startChar": 0,
+        "endLine": 1178,
+        "endChar": 11
+      },
+      "revId": "36f10ced33fe822e1c3ce0ea4239332ca7369ef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4051aaa_109a2aaf",
@@ -60,6 +84,30 @@
       "writtenOn": "2023-12-20T17:08:36Z",
       "side": 1,
       "message": "this is manual selection API right, it should work on all the technologies isn\u0027t it? why do you think will work only on LTE ?",
+      "range": {
+        "startLine": 1184,
+        "startChar": 6,
+        "endLine": 1187,
+        "endChar": 9
+      },
+      "revId": "36f10ced33fe822e1c3ce0ea4239332ca7369ef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f7265f_25c3896e",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2023-12-21T07:51:05Z",
+      "side": 1,
+      "message": "This API is set to AccessiNetwork:: EUTRAN, but the GSI default setting is 3G. In this case, the modem will return  MODEM_ ERR when device not in LTE service",
+      "parentUuid": "a4051aaa_109a2aaf",
       "range": {
         "startLine": 1184,
         "startChar": 6,
