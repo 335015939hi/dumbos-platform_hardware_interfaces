@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edbc3a80_7a96e44b",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-21T23:13:36Z",
+      "side": 1,
+      "message": "It can be a virtual device, too so this clarification is not correct. I think, the confusion was about the fact whether this method is called prior to the actual disconnection event or after it, see comments below.",
+      "range": {
+        "startLine": 923,
+        "startChar": 60,
+        "endLine": 923,
+        "endChar": 68
+      },
+      "revId": "d17f14bb2e26addaffe92804586d815c01d4abd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c9a1498_65c53dfb",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-21T23:13:36Z",
+      "side": 1,
+      "message": "I would wrap this as \"Note: This method is called after the external device is disconnected. The system does not try to predict the disconnection event.\"",
+      "range": {
+        "startLine": 931,
+        "startChar": 7,
+        "endLine": 931,
+        "endChar": 71
+      },
+      "revId": "d17f14bb2e26addaffe92804586d815c01d4abd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f86bc91_ab4b35d2",
+        "filename": "audio/aidl/android/hardware/audio/core/IModule.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 933,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-21T23:13:36Z",
+      "side": 1,
+      "message": "I think, this may stir the confusion. We should say \"of the port corresponding to the disconnected device.\"",
+      "range": {
+        "startLine": 933,
+        "startChar": 46,
+        "endLine": 933,
+        "endChar": 73
+      },
+      "revId": "d17f14bb2e26addaffe92804586d815c01d4abd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
