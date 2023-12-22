@@ -80,6 +80,30 @@
       },
       "revId": "ce9767a966c9c921e7507985d32ae60e8c6007e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02d5ea04_8289e7e2",
+        "filename": "audio/aidl/default/r_submix/ModuleRemoteSubmix.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-12-22T02:21:12Z",
+      "side": 1,
+      "message": "In the above, the sentence \"This is why we are checking here if the format type is PCM and if not failing.\" should read \"This is why we are checking here the format type and failing if it\u0027s not PCM\".",
+      "parentUuid": "c525b37d_7c4f96f1",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "ce9767a966c9c921e7507985d32ae60e8c6007e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
