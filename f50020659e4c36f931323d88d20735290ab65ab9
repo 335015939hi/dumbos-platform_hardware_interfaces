@@ -16,6 +16,24 @@
       "message": "I feel like this should be part of the test runner, so that the tests are skipped if there\u0027s no AIDL interface.  I don\u0027t think the tests should pass.  I\u0027m not sure how to do that the correct way, though.",
       "revId": "f50020659e4c36f931323d88d20735290ab65ab9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbfcce83_880f483a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2023-12-22T00:43:02Z",
+      "side": 1,
+      "message": "Is it possible to check HAL version in the test 😜 to skip older HAL @quocbaodo@google.com",
+      "parentUuid": "88b1c7ba_0f9a992b",
+      "revId": "f50020659e4c36f931323d88d20735290ab65ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
