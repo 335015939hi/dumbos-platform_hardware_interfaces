@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "421951eb_936d208b",
+        "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1763691
+      },
+      "writtenOn": "2023-12-22T07:21:13Z",
+      "side": 1,
+      "message": "Nit: I think we should avoid put a non-trivial destructible object in static storage.\n\nhttps://google.github.io/styleguide/cppguide.html#Static_and_Global_Variables",
+      "range": {
+        "startLine": 31,
+        "startChar": 72,
+        "endLine": 31,
+        "endChar": 85
+      },
+      "revId": "546dc82782b11343ea97125ae5b8f496772141ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
