@@ -104,6 +104,30 @@
       },
       "revId": "ce9767a966c9c921e7507985d32ae60e8c6007e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d2c6b7e_bdc19d1f",
+        "filename": "audio/aidl/default/r_submix/ModuleRemoteSubmix.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-22T04:53:15Z",
+      "side": 1,
+      "message": "\u003e This results in AudioPolicy requests to AudioFlinger to open inputs/outputs in the raw compressed format first\n\nThat is what seems contradictory to me. Since the direct profiles are declared as \u0027PCM\u0027, not as encoded formats, why would APM open them for encoded formats? I know, it can, but that looks like an issue with the APM. It seems to be largely ignoring the declared capabilities of mix ports specifically for remote submix. For example, the canonical remote submix config file only lists 48 kHz sampling rate, however APM can effectively open it an any other rate, which looks like a wrong behavior to me. But if we consider an \"ideal\" APM behavior, I don\u0027t see why would it attempt to try opening ports using the format that they do not declare.",
+      "parentUuid": "02d5ea04_8289e7e2",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "ce9767a966c9c921e7507985d32ae60e8c6007e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
