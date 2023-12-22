@@ -33,6 +33,29 @@
       "message": "\"Topic e-ac3-joc remote submix removed\" so that merge of this CL isn\u0027t blocked unnecessarily by other CLs.",
       "revId": "ce9767a966c9c921e7507985d32ae60e8c6007e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0538c03b_00610b41",
+        "filename": "audio/aidl/default/r_submix/ModuleRemoteSubmix.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-22T00:09:07Z",
+      "side": 1,
+      "message": "Dean, I realized this does not look right to me. You are declaring direct ports for PCM. But here you are checking that the format is non-PCM.\n\n```\n//  * \"r_submix output direct\", DIRECT|IEC958_NONAUDIO, 1 max open, 1 max active\n//    - profile PCM 16-bit; STEREO; 8000, 11025, 16000, 32000, 44100, 48000, 192000\n//  * \"r_submix input direct\", DIRECT, 1 max open, 1 max active\n//    - profile PCM 16-bit; STEREO; 8000, 11025, 16000, 32000, 44100, 48000, 192000\n```\n\nIn fact, what I\u0027m seeing while running `atest audiorouting_tests` is that the system first opens a remote submix output for \"8 kHz, DIRECT|IEC\", and this succeeds. And then, the framework also opens the same remote submix output for \"192 kHz\" without flags. This seems like a wrong behavior to me.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "ce9767a966c9c921e7507985d32ae60e8c6007e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
