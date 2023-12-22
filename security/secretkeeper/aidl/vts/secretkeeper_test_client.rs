@@ -16,7 +16,7 @@
 
 #![cfg(test)]
 
-use rdroidtest::ptest;
+use rdroidtest_macro::rdroidtest;
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::ISecretkeeper;
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::SecretId::SecretId;
 use authgraph_vts_test as ag_vts;
@@ -200,7 +200,7 @@ fn authgraph_key_exchange(sk: binder::Strong<dyn ISecretkeeper>) -> ([key::AesKe
 
 // Test that the AuthGraph instance returned by SecretKeeper correctly performs
 // mainline key exchange against a local source implementation.
-ptest!(authgraph_mainline, get_instances());
+#[rdroidtest(get_instances())]
 fn authgraph_mainline(instance: String) {
     let sk = get_connection(&instance);
     let (_aes_keys, _session_id) = authgraph_key_exchange(sk);
@@ -208,7 +208,7 @@ fn authgraph_mainline(instance: String) {
 
 // Test that the AuthGraph instance returned by SecretKeeper correctly rejects
 // a corrupted session ID signature.
-ptest!(authgraph_corrupt_sig, get_instances());
+#[rdroidtest(get_instances())]
 fn authgraph_corrupt_sig(instance: String) {
     let sk = get_connection(&instance);
     let sink = sk.getAuthGraphKe().expect("failed to get AuthGraph");
@@ -218,7 +218,7 @@ fn authgraph_corrupt_sig(instance: String) {
 
 // Test that the AuthGraph instance returned by SecretKeeper correctly detects
 // when corrupted keys are returned to it.
-ptest!(authgraph_corrupt_keys, get_instances());
+#[rdroidtest(get_instances())]
 fn authgraph_corrupt_keys(instance: String) {
     let sk = get_connection(&instance);
     let sink = sk.getAuthGraphKe().expect("failed to get AuthGraph");
@@ -229,7 +229,7 @@ fn authgraph_corrupt_keys(instance: String) {
 // TODO(b/2797757): Add tests that match different HAL defined objects (like request/response)
 // with expected bytes.
 
-ptest!(secret_management_get_version, get_instances());
+#[rdroidtest(get_instances())]
 fn secret_management_get_version(instance: String) {
     let mut sk_client = SkClient::new(&instance);
 
@@ -246,7 +246,7 @@ fn secret_management_get_version(instance: String) {
     assert_eq!(get_version_response.version, CURRENT_VERSION);
 }
 
-ptest!(secret_management_malformed_request, get_instances());
+#[rdroidtest(get_instances())]
 fn secret_management_malformed_request(instance: String) {
     let mut sk_client = SkClient::new(&instance);
 
@@ -265,7 +265,7 @@ fn secret_management_malformed_request(instance: String) {
     assert_eq!(err, SecretkeeperError::RequestMalformed);
 }
 
-ptest!(secret_management_store_get_secret_found, get_instances());
+#[rdroidtest(get_instances())]
 fn secret_management_store_get_secret_found(instance: String) {
     let mut sk_client = SkClient::new(&instance);
 
@@ -275,7 +275,7 @@ fn secret_management_store_get_secret_found(instance: String) {
     assert_eq!(sk_client.get(&ID_EXAMPLE), Some(SECRET_EXAMPLE));
 }
 
-ptest!(secret_management_store_get_secret_not_found, get_instances());
+#[rdroidtest(get_instances())]
 fn secret_management_store_get_secret_not_found(instance: String) {
     let mut sk_client = SkClient::new(&instance);
 
@@ -286,7 +286,7 @@ fn secret_management_store_get_secret_not_found(instance: String) {
     assert_eq!(sk_client.get(&ID_NOT_STORED), None);
 }
 
-ptest!(secretkeeper_store_delete_ids, get_instances());
+#[rdroidtest(get_instances())]
 fn secretkeeper_store_delete_ids(instance: String) {
     let mut sk_client = SkClient::new(&instance);
 
@@ -303,7 +303,7 @@ fn secretkeeper_store_delete_ids(instance: String) {
     assert_eq!(sk_client.get(&ID_EXAMPLE_2), None);
 }
 
-ptest!(secretkeeper_store_delete_multiple_ids, get_instances());
+#[rdroidtest(get_instances())]
 fn secretkeeper_store_delete_multiple_ids(instance: String) {
     let mut sk_client = SkClient::new(&instance);
 
@@ -314,7 +314,7 @@ fn secretkeeper_store_delete_multiple_ids(instance: String) {
     assert_eq!(sk_client.get(&ID_EXAMPLE), None);
     assert_eq!(sk_client.get(&ID_EXAMPLE_2), None);
 }
-ptest!(secretkeeper_store_delete_duplicate_ids, get_instances());
+#[rdroidtest(get_instances())]
 fn secretkeeper_store_delete_duplicate_ids(instance: String) {
     let mut sk_client = SkClient::new(&instance);
 
@@ -327,7 +327,7 @@ fn secretkeeper_store_delete_duplicate_ids(instance: String) {
     assert_eq!(sk_client.get(&ID_EXAMPLE_2), Some(SECRET_EXAMPLE));
 }
 
-ptest!(secretkeeper_store_delete_nonexistent, get_instances());
+#[rdroidtest(get_instances())]
 fn secretkeeper_store_delete_nonexistent(instance: String) {
     let mut sk_client = SkClient::new(&instance);
 
@@ -341,7 +341,7 @@ fn secretkeeper_store_delete_nonexistent(instance: String) {
 }
 
 // Don't run deleteAll() on a secure device, as it might affect real secrets.
-ptest!(secretkeeper_store_delete_all, get_instances(), ignore_if: |p| p != "nonsecure");
+#[rdroidtest(get_instances(), ignore_if: |p| (p != "nonsecure"))]
 fn secretkeeper_store_delete_all(instance: String) {
     let mut sk_client = SkClient::new(&instance);
 
@@ -366,7 +366,7 @@ fn secretkeeper_store_delete_all(instance: String) {
 // This test checks that Secretkeeper uses the expected [`RequestSeqNum`] as aad while
 // decrypting requests and the responses are encrypted with correct [`ResponseSeqNum`] for the
 // first few messages.
-ptest!(secret_management_replay_protection_seq_num, get_instances());
+#[rdroidtest(get_instances())]
 fn secret_management_replay_protection_seq_num(instance: String) {
     let sk_client = SkClient::new(&instance);
     // Construct encoded request packets for the test
@@ -400,7 +400,7 @@ fn secret_management_replay_protection_seq_num(instance: String) {
 
 // This test checks that Secretkeeper uses fresh [`RequestSeqNum`] & [`ResponseSeqNum`]
 // for new sessions.
-ptest!(secret_management_replay_protection_seq_num_per_session, get_instances());
+#[rdroidtest(get_instances())]
 fn secret_management_replay_protection_seq_num_per_session(instance: String) {
     let sk_client = SkClient::new(&instance);
 
@@ -429,7 +429,7 @@ fn secret_management_replay_protection_seq_num_per_session(instance: String) {
 
 // This test checks that Secretkeeper rejects requests with out of order [`RequestSeqNum`]
 // TODO(b/317416663): This test fails, when HAL is not present in the device. Refactor to fix this.
-ptest!(secret_management_replay_protection_out_of_seq_req_not_accepted, get_instances(), ignore_if: |_p| true);
+#[rdroidtest(get_instances(), ignore_if: |_p| true)]
 fn secret_management_replay_protection_out_of_seq_req_not_accepted(instance: String) {
     let sk_client = SkClient::new(&instance);
 
