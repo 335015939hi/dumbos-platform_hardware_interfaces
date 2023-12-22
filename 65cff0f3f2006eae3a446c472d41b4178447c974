@@ -16,6 +16,29 @@
       "message": "Myles, could you please help reviewing a trivial fix in `BluetoothAudioSession`.",
       "revId": "65cff0f3f2006eae3a446c472d41b4178447c974",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80db9019_ff4e89c0",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1763691
+      },
+      "writtenOn": "2023-12-22T07:38:25Z",
+      "side": 1,
+      "message": "Nit: I would suggest to make it as a reference if it is always not null.",
+      "range": {
+        "startLine": 279,
+        "startChar": 45,
+        "endLine": 279,
+        "endChar": 61
+      },
+      "revId": "65cff0f3f2006eae3a446c472d41b4178447c974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
