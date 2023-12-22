@@ -56,6 +56,30 @@
       },
       "revId": "ce9767a966c9c921e7507985d32ae60e8c6007e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c525b37d_7c4f96f1",
+        "filename": "audio/aidl/default/r_submix/ModuleRemoteSubmix.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2023-12-22T02:16:05Z",
+      "side": 1,
+      "message": "The design relies upon AudioFlinger IEC61937 encapsulation of compressed audio data, as well as the AudioMix registered with the raw compressed audio format.\n\nThis results in AudioPolicy requests to AudioFlinger to open inputs/outputs in the raw compressed format first; it is required that these raw compressed format (e.g. e-ac-3-joc) fail in the remote submix HAL. When this failure is returned to AudioFlinger, AF will attempt to reopen the stream on the HAL in PCM format, but will wrap the compressed audio data in IEC61937 frames. This is why we are checking here if the format type is PCM and if not failing.\n\nDoes that help explain the expectations?",
+      "parentUuid": "0538c03b_00610b41",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "ce9767a966c9c921e7507985d32ae60e8c6007e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
