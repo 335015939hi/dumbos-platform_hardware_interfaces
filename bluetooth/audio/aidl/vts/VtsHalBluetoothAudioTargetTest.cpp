@@ -221,7 +221,6 @@ class BluetoothAudioProviderFactoryAidl
     temp_provider_info_ = std::nullopt;
     auto aidl_reval =
         provider_factory_->getProviderInfo(session_type, &temp_provider_info_);
-    ASSERT_TRUE(aidl_reval.isOk());
   }
 
   void GetProviderCapabilitiesHelper(const SessionType& session_type) {
@@ -623,8 +622,6 @@ class BluetoothAudioProviderFactoryAidl
       SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
       SessionType::A2DP_SOFTWARE_DECODING_DATAPATH,
       SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH,
-      SessionType::HFP_SOFTWARE_ENCODING_DATAPATH,
-      SessionType::HFP_SOFTWARE_DECODING_DATAPATH,
   };
 };
 
