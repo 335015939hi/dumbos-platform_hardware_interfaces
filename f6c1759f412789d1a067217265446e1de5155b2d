@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3efa9e3e_e584894a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2023-12-25T07:27:15Z",
+      "side": 1,
+      "message": "Bug:317314512\nyes,this is manual selection API and it can work on all the technologies，but in this test case,the API is set AccessiNetwork:: EUTRAN to search LTE network,so the prerequisite is that the device is registered in the LTE network, otherwise the modem will return MODEM_ ERR when device not in LTE service ,I have already communicated with Qualcomm, it\u0027s chipset\u0027s design,Thanks",
+      "revId": "f6c1759f412789d1a067217265446e1de5155b2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
