@@ -34,6 +34,24 @@
       "parentUuid": "88b1c7ba_0f9a992b",
       "revId": "f50020659e4c36f931323d88d20735290ab65ab9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8f4ffa1_785b45f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2023-12-25T08:22:12Z",
+      "side": 1,
+      "message": "Hi Yuyang, Myles,\n\nI have made backward compatible by introducing HAL version checking. Local GSI test run shows tests passed without a problem.",
+      "parentUuid": "dbfcce83_880f483a",
+      "revId": "f50020659e4c36f931323d88d20735290ab65ab9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
