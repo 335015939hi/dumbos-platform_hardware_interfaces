@@ -63,4 +63,8 @@ parcelable P2pGroupStartedEventParams {
      * The value is undefined if isP2pClientEapolIpAddressInfoPresent is false.
      */
     P2pClientEapolIpAddressInfo p2pClientIpInfo;
+
+    /** the raw bytes of the information element */
+    @nullable
+    byte[] infoElements;
 }
