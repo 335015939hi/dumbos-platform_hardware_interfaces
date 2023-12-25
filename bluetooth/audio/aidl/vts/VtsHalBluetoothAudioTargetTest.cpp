@@ -18,6 +18,7 @@
 #include <aidl/android/hardware/bluetooth/audio/BnBluetoothAudioPort.h>
 #include <aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.h>
 #include <aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.h>
+#include <android-base/properties.h>
 #include <android/binder_auto_utils.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
@@ -120,6 +121,16 @@ static constexpr ChannelMode a2dp_channel_modes[] = {
     ChannelMode::UNKNOWN, ChannelMode::MONO, ChannelMode::STEREO};
 static std::vector<LatencyMode> latency_modes = {LatencyMode::FREE};
 
+enum class BluetoothAudioHalVersion : int32_t {
+  VERSION_UNAVAILABLE = 0,
+  VERSION_2_0,
+  VERSION_2_1,
+  VERSION_AIDL_V1,
+  VERSION_AIDL_V2,
+  VERSION_AIDL_V3,
+  VERSION_AIDL_V4,
+};
+
 // Some valid configs for HFP PCM configuration (software sessions)
 static constexpr int32_t hfp_sample_rates_[] = {8000, 16000, 32000};
 static constexpr int8_t hfp_bits_per_samples_[] = {16};
@@ -221,7 +232,6 @@ class BluetoothAudioProviderFactoryAidl
     temp_provider_info_ = std::nullopt;
     auto aidl_reval =
         provider_factory_->getProviderInfo(session_type, &temp_provider_info_);
-    ASSERT_TRUE(aidl_reval.isOk());
   }
 
   void GetProviderCapabilitiesHelper(const SessionType& session_type) {
@@ -623,9 +633,38 @@ class BluetoothAudioProviderFactoryAidl
       SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
       SessionType::A2DP_SOFTWARE_DECODING_DATAPATH,
       SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH,
+  };
+
+  static constexpr SessionType kAndroidVSessionType[] = {
       SessionType::HFP_SOFTWARE_ENCODING_DATAPATH,
       SessionType::HFP_SOFTWARE_DECODING_DATAPATH,
   };
+
+  BluetoothAudioHalVersion GetProviderFactoryInterfaceVersion() {
+    int32_t aidl_version = 0;
+    if (provider_factory_ == nullptr) {
+      return BluetoothAudioHalVersion::VERSION_UNAVAILABLE;
+    }
+
+    auto aidl_retval = provider_factory_->getInterfaceVersion(&aidl_version);
+    if (!aidl_retval.isOk()) {
+      return BluetoothAudioHalVersion::VERSION_UNAVAILABLE;
+    }
+    switch (aidl_version) {
+      case 1:
+        return BluetoothAudioHalVersion::VERSION_AIDL_V1;
+      case 2:
+        return BluetoothAudioHalVersion::VERSION_AIDL_V2;
+      case 3:
+        return BluetoothAudioHalVersion::VERSION_AIDL_V3;
+      case 4:
+        return BluetoothAudioHalVersion::VERSION_AIDL_V4;
+      default:
+        return BluetoothAudioHalVersion::VERSION_UNAVAILABLE;
+    }
+
+    return BluetoothAudioHalVersion::VERSION_UNAVAILABLE;
+  }
 };
 
 /**
@@ -646,6 +685,15 @@ TEST_P(BluetoothAudioProviderFactoryAidl,
     // returns non-empty list.
     EXPECT_TRUE(temp_provider_capabilities_.empty() ||
                 audio_provider_ != nullptr);
+  }
+  if (GetProviderFactoryInterfaceVersion() >=
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    for (auto session_type : kAndroidVSessionType) {
+      GetProviderCapabilitiesHelper(session_type);
+      OpenProviderHelper(session_type);
+      EXPECT_TRUE(temp_provider_capabilities_.empty() ||
+                  audio_provider_ != nullptr);
+    }
   }
 }
 
@@ -1465,8 +1513,8 @@ TEST_P(BluetoothAudioProviderA2dpEncodingSoftwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH can be started and stopped with
- * different PCM config
+ * SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH can be started and stopped
+ * with different PCM config
  */
 TEST_P(BluetoothAudioProviderA2dpEncodingSoftwareAidl,
        StartAndEndA2dpEncodingSoftwareSessionWithPossiblePcmConfig) {
@@ -1503,6 +1551,10 @@ class BluetoothAudioProviderHfpSoftwareEncodingAidl
  public:
   virtual void SetUp() override {
     BluetoothAudioProviderFactoryAidl::SetUp();
+    if (GetProviderFactoryInterfaceVersion() <
+        BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+      GTEST_SKIP();
+    }
     GetProviderCapabilitiesHelper(SessionType::HFP_SOFTWARE_ENCODING_DATAPATH);
     OpenProviderHelper(SessionType::HFP_SOFTWARE_ENCODING_DATAPATH);
     ASSERT_NE(audio_provider_, nullptr);
@@ -1570,6 +1622,10 @@ class BluetoothAudioProviderHfpSoftwareDecodingAidl
  public:
   virtual void SetUp() override {
     BluetoothAudioProviderFactoryAidl::SetUp();
+    if (GetProviderFactoryInterfaceVersion() <
+        BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+      GTEST_SKIP();
+    }
     GetProviderCapabilitiesHelper(SessionType::HFP_SOFTWARE_DECODING_DATAPATH);
     OpenProviderHelper(SessionType::HFP_SOFTWARE_DECODING_DATAPATH);
     ASSERT_NE(audio_provider_, nullptr);
@@ -1658,8 +1714,8 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped with
- * SBC hardware encoding config
+ * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped
+ * with SBC hardware encoding config
  */
 TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
        StartAndEndA2dpSbcEncodingHardwareSession) {
@@ -1688,8 +1744,8 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped with
- * AAC hardware encoding config
+ * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped
+ * with AAC hardware encoding config
  */
 TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
        StartAndEndA2dpAacEncodingHardwareSession) {
@@ -1718,8 +1774,8 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped with
- * LDAC hardware encoding config
+ * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped
+ * with LDAC hardware encoding config
  */
 TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
        StartAndEndA2dpLdacEncodingHardwareSession) {
@@ -1748,8 +1804,8 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped with
- * Opus hardware encoding config
+ * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped
+ * with Opus hardware encoding config
  */
 TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
        StartAndEndA2dpOpusEncodingHardwareSession) {
@@ -1778,8 +1834,8 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped with
- * AptX hardware encoding config
+ * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped
+ * with AptX hardware encoding config
  */
 TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
        StartAndEndA2dpAptxEncodingHardwareSession) {
@@ -1814,8 +1870,8 @@ TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped with
- * an invalid codec config
+ * SessionType::A2DP_HARDWARE_ENCODING_DATAPATH can be started and stopped
+ * with an invalid codec config
  */
 TEST_P(BluetoothAudioProviderA2dpEncodingHardwareAidl,
        StartAndEndA2dpEncodingHardwareSessionInvalidCodecConfig) {
@@ -1886,6 +1942,10 @@ class BluetoothAudioProviderHfpHardwareAidl
  public:
   virtual void SetUp() override {
     BluetoothAudioProviderFactoryAidl::SetUp();
+    if (GetProviderFactoryInterfaceVersion() <
+        BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+      GTEST_SKIP();
+    }
     OpenProviderHelper(SessionType::HFP_HARDWARE_OFFLOAD_DATAPATH);
     // Can open or empty capability
     ASSERT_TRUE(temp_provider_capabilities_.empty() ||
@@ -2419,6 +2479,10 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
 TEST_P(
     BluetoothAudioProviderLeAudioOutputHardwareAidl,
     StartAndEndLeAudioOutputSessionWithPossibleUnicastConfigFromProviderInfo) {
+  if (GetProviderFactoryInterfaceVersion() <
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    GTEST_SKIP();
+  }
   if (!IsOffloadOutputProviderInfoSupported()) {
     return;
   }
@@ -2444,6 +2508,10 @@ TEST_P(
 
 TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
        GetEmptyAseConfigurationEmptyCapability) {
+  if (GetProviderFactoryInterfaceVersion() <
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    GTEST_SKIP();
+  }
   std::vector<std::optional<LeAudioDeviceCapabilities>> empty_capability;
   std::vector<LeAudioConfigurationRequirement> empty_requirement;
   std::vector<LeAudioAseConfigurationSetting> configurations;
@@ -2465,6 +2533,10 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
 
 TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
        GetEmptyAseConfigurationMismatchedRequirement) {
+  if (GetProviderFactoryInterfaceVersion() <
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    GTEST_SKIP();
+  }
   std::vector<std::optional<LeAudioDeviceCapabilities>> capabilities = {
       GetDefaultRemoteCapability()};
 
@@ -2489,6 +2561,10 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
 }
 
 TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl, GetQoSConfiguration) {
+  if (GetProviderFactoryInterfaceVersion() <
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    GTEST_SKIP();
+  }
   IBluetoothAudioProvider::LeAudioAseQosConfigurationRequirement requirement;
   std::vector<IBluetoothAudioProvider::LeAudioAseQosConfiguration>
       QoSConfigurations;
@@ -2829,16 +2905,16 @@ class BluetoothAudioProviderLeAudioBroadcastSoftwareAidl
 
 /**
  * Test whether each provider of type
- * SessionType::LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH can be started and
- * stopped
+ * SessionType::LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH can be started
+ * and stopped
  */
 TEST_P(BluetoothAudioProviderLeAudioBroadcastSoftwareAidl,
        OpenLeAudioOutputSoftwareProvider) {}
 
 /**
  * Test whether each provider of type
- * SessionType::LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH can be started and
- * stopped with different PCM config
+ * SessionType::LE_AUDIO_BROADCAST_SOFTWARE_ENCODING_DATAPATH can be started
+ * and stopped with different PCM config
  */
 TEST_P(BluetoothAudioProviderLeAudioBroadcastSoftwareAidl,
        StartAndEndLeAudioOutputSessionWithPossiblePcmConfig) {
@@ -3012,6 +3088,10 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
 TEST_P(
     BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
     StartAndEndLeAudioBroadcastSessionWithPossibleUnicastConfigFromProviderInfo) {
+  if (GetProviderFactoryInterfaceVersion() <
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    GTEST_SKIP();
+  }
   if (!IsBroadcastOffloadProviderInfoSupported()) {
     return;
   }
@@ -3043,6 +3123,10 @@ TEST_P(
 
 TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
        GetEmptyBroadcastConfigurationEmptyCapability) {
+  if (GetProviderFactoryInterfaceVersion() <
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    GTEST_SKIP();
+  }
   std::vector<std::optional<LeAudioDeviceCapabilities>> empty_capability;
   IBluetoothAudioProvider::LeAudioBroadcastConfigurationRequirement
       empty_requirement;
@@ -3157,8 +3241,8 @@ TEST_P(BluetoothAudioProviderA2dpDecodingSoftwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_SOFTWARE_DECODING_DATAPATH can be started and stopped with
- * different PCM config
+ * SessionType::A2DP_SOFTWARE_DECODING_DATAPATH can be started and stopped
+ * with different PCM config
  */
 TEST_P(BluetoothAudioProviderA2dpDecodingSoftwareAidl,
        StartAndEndA2dpDecodingSoftwareSessionWithPossiblePcmConfig) {
@@ -3219,8 +3303,8 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped with
- * SBC hardware encoding config
+ * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped
+ * with SBC hardware encoding config
  */
 TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
        StartAndEndA2dpSbcDecodingHardwareSession) {
@@ -3249,8 +3333,8 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped with
- * AAC hardware encoding config
+ * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped
+ * with AAC hardware encoding config
  */
 TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
        StartAndEndA2dpAacDecodingHardwareSession) {
@@ -3279,8 +3363,8 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped with
- * LDAC hardware encoding config
+ * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped
+ * with LDAC hardware encoding config
  */
 TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
        StartAndEndA2dpLdacDecodingHardwareSession) {
@@ -3309,8 +3393,8 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped with
- * Opus hardware encoding config
+ * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped
+ * with Opus hardware encoding config
  */
 TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
        StartAndEndA2dpOpusDecodingHardwareSession) {
@@ -3339,8 +3423,8 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped with
- * AptX hardware encoding config
+ * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped
+ * with AptX hardware encoding config
  */
 TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
        StartAndEndA2dpAptxDecodingHardwareSession) {
@@ -3375,8 +3459,8 @@ TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
 
 /**
  * Test whether each provider of type
- * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped with
- * an invalid codec config
+ * SessionType::A2DP_HARDWARE_DECODING_DATAPATH can be started and stopped
+ * with an invalid codec config
  */
 TEST_P(BluetoothAudioProviderA2dpDecodingHardwareAidl,
        StartAndEndA2dpDecodingHardwareSessionInvalidCodecConfig) {
