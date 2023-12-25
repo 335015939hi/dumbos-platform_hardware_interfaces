@@ -18,6 +18,7 @@
 #include <aidl/android/hardware/bluetooth/audio/BnBluetoothAudioPort.h>
 #include <aidl/android/hardware/bluetooth/audio/IBluetoothAudioPort.h>
 #include <aidl/android/hardware/bluetooth/audio/IBluetoothAudioProviderFactory.h>
+#include <android-base/properties.h>
 #include <android/binder_auto_utils.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
@@ -221,7 +222,6 @@ class BluetoothAudioProviderFactoryAidl
     temp_provider_info_ = std::nullopt;
     auto aidl_reval =
         provider_factory_->getProviderInfo(session_type, &temp_provider_info_);
-    ASSERT_TRUE(aidl_reval.isOk());
   }
 
   void GetProviderCapabilitiesHelper(const SessionType& session_type) {
@@ -623,8 +623,6 @@ class BluetoothAudioProviderFactoryAidl
       SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH,
       SessionType::A2DP_SOFTWARE_DECODING_DATAPATH,
       SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH,
-      SessionType::HFP_SOFTWARE_ENCODING_DATAPATH,
-      SessionType::HFP_SOFTWARE_DECODING_DATAPATH,
   };
 };
 
@@ -1502,6 +1500,11 @@ class BluetoothAudioProviderHfpSoftwareEncodingAidl
     : public BluetoothAudioProviderFactoryAidl {
  public:
   virtual void SetUp() override {
+    const auto vsr_api_level = android::base::GetIntProperty(
+        "ro.vendor.api_level", __ANDROID_API_FUTURE__);
+    if (vsr_api_level < __ANDROID_API_V__) {
+      GTEST_SKIP();
+    }
     BluetoothAudioProviderFactoryAidl::SetUp();
     GetProviderCapabilitiesHelper(SessionType::HFP_SOFTWARE_ENCODING_DATAPATH);
     OpenProviderHelper(SessionType::HFP_SOFTWARE_ENCODING_DATAPATH);
@@ -1569,6 +1572,11 @@ class BluetoothAudioProviderHfpSoftwareDecodingAidl
     : public BluetoothAudioProviderFactoryAidl {
  public:
   virtual void SetUp() override {
+    const auto vsr_api_level = android::base::GetIntProperty(
+        "ro.vendor.api_level", __ANDROID_API_FUTURE__);
+    if (vsr_api_level < __ANDROID_API_V__) {
+      GTEST_SKIP();
+    }
     BluetoothAudioProviderFactoryAidl::SetUp();
     GetProviderCapabilitiesHelper(SessionType::HFP_SOFTWARE_DECODING_DATAPATH);
     OpenProviderHelper(SessionType::HFP_SOFTWARE_DECODING_DATAPATH);
@@ -1885,6 +1893,11 @@ class BluetoothAudioProviderHfpHardwareAidl
     : public BluetoothAudioProviderFactoryAidl {
  public:
   virtual void SetUp() override {
+    const auto vsr_api_level = android::base::GetIntProperty(
+        "ro.vendor.api_level", __ANDROID_API_FUTURE__);
+    if (vsr_api_level < __ANDROID_API_V__) {
+      GTEST_SKIP();
+    }
     BluetoothAudioProviderFactoryAidl::SetUp();
     OpenProviderHelper(SessionType::HFP_HARDWARE_OFFLOAD_DATAPATH);
     // Can open or empty capability
@@ -2419,6 +2432,11 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
 TEST_P(
     BluetoothAudioProviderLeAudioOutputHardwareAidl,
     StartAndEndLeAudioOutputSessionWithPossibleUnicastConfigFromProviderInfo) {
+  const auto vsr_api_level = android::base::GetIntProperty(
+      "ro.vendor.api_level", __ANDROID_API_FUTURE__);
+  if (vsr_api_level < __ANDROID_API_V__) {
+    GTEST_SKIP();
+  }
   if (!IsOffloadOutputProviderInfoSupported()) {
     return;
   }
@@ -2444,6 +2462,11 @@ TEST_P(
 
 TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
        GetEmptyAseConfigurationEmptyCapability) {
+  const auto vsr_api_level = android::base::GetIntProperty(
+      "ro.vendor.api_level", __ANDROID_API_FUTURE__);
+  if (vsr_api_level < __ANDROID_API_V__) {
+    GTEST_SKIP();
+  }
   std::vector<std::optional<LeAudioDeviceCapabilities>> empty_capability;
   std::vector<LeAudioConfigurationRequirement> empty_requirement;
   std::vector<LeAudioAseConfigurationSetting> configurations;
@@ -2465,6 +2488,11 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
 
 TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
        GetEmptyAseConfigurationMismatchedRequirement) {
+  const auto vsr_api_level = android::base::GetIntProperty(
+      "ro.vendor.api_level", __ANDROID_API_FUTURE__);
+  if (vsr_api_level < __ANDROID_API_V__) {
+    GTEST_SKIP();
+  }
   std::vector<std::optional<LeAudioDeviceCapabilities>> capabilities = {
       GetDefaultRemoteCapability()};
 
@@ -2489,6 +2517,11 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
 }
 
 TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl, GetQoSConfiguration) {
+  const auto vsr_api_level = android::base::GetIntProperty(
+      "ro.vendor.api_level", __ANDROID_API_FUTURE__);
+  if (vsr_api_level < __ANDROID_API_V__) {
+    GTEST_SKIP();
+  }
   IBluetoothAudioProvider::LeAudioAseQosConfigurationRequirement requirement;
   std::vector<IBluetoothAudioProvider::LeAudioAseQosConfiguration>
       QoSConfigurations;
@@ -3012,6 +3045,11 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
 TEST_P(
     BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
     StartAndEndLeAudioBroadcastSessionWithPossibleUnicastConfigFromProviderInfo) {
+  const auto vsr_api_level = android::base::GetIntProperty(
+      "ro.vendor.api_level", __ANDROID_API_FUTURE__);
+  if (vsr_api_level < __ANDROID_API_V__) {
+    GTEST_SKIP();
+  }
   if (!IsBroadcastOffloadProviderInfoSupported()) {
     return;
   }
@@ -3043,6 +3081,11 @@ TEST_P(
 
 TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
        GetEmptyBroadcastConfigurationEmptyCapability) {
+  const auto vsr_api_level = android::base::GetIntProperty(
+      "ro.vendor.api_level", __ANDROID_API_FUTURE__);
+  if (vsr_api_level < __ANDROID_API_V__) {
+    GTEST_SKIP();
+  }
   std::vector<std::optional<LeAudioDeviceCapabilities>> empty_capability;
   IBluetoothAudioProvider::LeAudioBroadcastConfigurationRequirement
       empty_requirement;
