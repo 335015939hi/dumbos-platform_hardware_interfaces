@@ -56,6 +56,30 @@
       },
       "revId": "65cff0f3f2006eae3a446c472d41b4178447c974",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0c7d956_e3e6f8e1",
+        "filename": "audio/aidl/default/bluetooth/DevicePortProxy.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-26T18:27:15Z",
+      "side": 1,
+      "message": "Changed. Same for `getPreferredDataIntervalInUs`.",
+      "parentUuid": "80db9019_ff4e89c0",
+      "range": {
+        "startLine": 279,
+        "startChar": 45,
+        "endLine": 279,
+        "endChar": 61
+      },
+      "revId": "65cff0f3f2006eae3a446c472d41b4178447c974",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
