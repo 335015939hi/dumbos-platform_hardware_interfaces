@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38190480_968795e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-26T21:34:28Z",
+      "side": 1,
+      "message": "Andy, I\u0027m going to revert this Dolby patch temporarily until I understand what is missing from the framework for it to work properly. I\u0027ve run Forrest tests with and without this patch, and with this code reverted I\u0027m seeing better chances to pass tests.",
+      "revId": "a95c3ead854144ce69a4a52cda15b4a9b5463703",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
