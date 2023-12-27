@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28c06251_37e17177",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-12-27T20:14:57Z",
+      "side": 1,
+      "message": "I think a bigger question here is that how do we make sure a future update to AIDL property file format will not break the parser script. It will only be noticed if someone manually run the script. Ideally we should automatically run the parser each time the interface is updated.",
+      "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14ece9a1_ae10772b",
         "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
         "patchSetId": 2
