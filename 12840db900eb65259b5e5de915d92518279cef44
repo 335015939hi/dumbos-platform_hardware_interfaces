@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fdfe467_8aa194e3",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-27T00:13:39Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be an error?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "12840db900eb65259b5e5de915d92518279cef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61c06b32_47afdfe3",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-27T00:13:39Z",
+      "side": 1,
+      "message": "what if ChannelMode is set to some other invalid value?",
+      "range": {
+        "startLine": 69,
+        "startChar": 16,
+        "endLine": 69,
+        "endChar": 27
+      },
+      "revId": "12840db900eb65259b5e5de915d92518279cef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9c0375c_4d879a2d",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-27T00:13:39Z",
+      "side": 1,
+      "message": "this can never overflow?",
+      "range": {
+        "startLine": 111,
+        "startChar": 35,
+        "endLine": 111,
+        "endChar": 56
+      },
+      "revId": "12840db900eb65259b5e5de915d92518279cef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cfd09f1_bf944ecf",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-27T00:13:39Z",
+      "side": 1,
+      "message": "this returned unsupported operation before if things were not initialized, it should be changed now?",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 40
+      },
+      "revId": "12840db900eb65259b5e5de915d92518279cef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
