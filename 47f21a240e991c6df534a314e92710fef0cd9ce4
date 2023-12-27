@@ -39,6 +39,30 @@
       },
       "revId": "47f21a240e991c6df534a314e92710fef0cd9ce4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8387b354_87efea08",
+        "filename": "audio/aidl/vts/VtsHalAECTargetTest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-27T23:31:20Z",
+      "side": 1,
+      "message": "Good point! I didn\u0027t know they enable includes when processing these XMLs, will do.",
+      "parentUuid": "4523d5e6_597aa7c0",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "47f21a240e991c6df534a314e92710fef0cd9ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
