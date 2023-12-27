@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0da981e_14c99704",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-27T00:35:40Z",
+      "side": 1,
+      "message": "Right, fixed.",
+      "parentUuid": "2fdfe467_8aa194e3",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "12840db900eb65259b5e5de915d92518279cef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61c06b32_47afdfe3",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-27T00:13:39Z",
       "side": 1,
       "message": "what if ChannelMode is set to some other invalid value?",
+      "range": {
+        "startLine": 69,
+        "startChar": 16,
+        "endLine": 69,
+        "endChar": 27
+      },
+      "revId": "12840db900eb65259b5e5de915d92518279cef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "355d4522_c06f238b",
+        "filename": "audio/aidl/default/bluetooth/ModuleBluetooth.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-27T00:35:40Z",
+      "side": 1,
+      "message": "Right, need to signal an error in this case.",
+      "parentUuid": "61c06b32_47afdfe3",
       "range": {
         "startLine": 69,
         "startChar": 16,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b759a2e_b2c8e9a8",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-27T00:35:40Z",
+      "side": 1,
+      "message": "That\u0027s highly unlikely. We call this method for writes from here: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/Stream.cpp;l\u003d598;drc\u003d810d41a774171d91ba8c5c950f019e8e76683282 (and similar code is for reads). The byte count is bounded by the FMQ.",
+      "parentUuid": "a9c0375c_4d879a2d",
+      "range": {
+        "startLine": 111,
+        "startChar": 35,
+        "endLine": 111,
+        "endChar": 56
+      },
+      "revId": "12840db900eb65259b5e5de915d92518279cef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cfd09f1_bf944ecf",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-12-27T00:13:39Z",
       "side": 1,
       "message": "this returned unsupported operation before if things were not initialized, it should be changed now?",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 40
+      },
+      "revId": "12840db900eb65259b5e5de915d92518279cef44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f0911c6_a84a3785",
+        "filename": "audio/aidl/default/bluetooth/StreamBluetooth.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-27T00:35:40Z",
+      "side": 1,
+      "message": "If there is no proxy, that means the stream is not really connected to the BT stack. This may happen during VTS tests when we enable simulation of external device connections. So I think it\u0027s valid to simulate a successful call here. The  code I\u0027m replacing actually didn\u0027t implement this aspect of the initialization correctly, that\u0027s why I\u0027m doing this overhaul.",
+      "parentUuid": "5cfd09f1_bf944ecf",
       "range": {
         "startLine": 197,
         "startChar": 0,
