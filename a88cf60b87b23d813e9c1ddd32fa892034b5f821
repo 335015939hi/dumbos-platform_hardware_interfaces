@@ -16,6 +16,24 @@
       "message": "owners +1 given approvals from David/Antoine and the time of year - better to merge this and try it now rather than risk some other undiscovered issue later. Mikhail - please file a follow-up bug w/ bluetooth team to address any other possible issues from this change. Thanks!",
       "revId": "a88cf60b87b23d813e9c1ddd32fa892034b5f821",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db2309e8_a218d04e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-27T01:41:13Z",
+      "side": 1,
+      "message": "Thanks Steven! Sure. And I\u0027ll wait for the PTS bot to verify the BT functionality prior to submitting.",
+      "parentUuid": "1ee6902b_c3951c3f",
+      "revId": "a88cf60b87b23d813e9c1ddd32fa892034b5f821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
