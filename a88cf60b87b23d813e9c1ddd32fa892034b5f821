@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ee6902b_c3951c3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2023-12-27T00:41:45Z",
+      "side": 1,
+      "message": "owners +1 given approvals from David/Antoine and the time of year - better to merge this and try it now rather than risk some other undiscovered issue later. Mikhail - please file a follow-up bug w/ bluetooth team to address any other possible issues from this change. Thanks!",
+      "revId": "a88cf60b87b23d813e9c1ddd32fa892034b5f821",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
