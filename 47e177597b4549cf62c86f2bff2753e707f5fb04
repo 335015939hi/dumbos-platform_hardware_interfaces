@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff79697_99307b29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-12-27T20:13:40Z",
+      "side": 1,
+      "message": "The typo is already fixed internally, i cherry-picked the fix back to AOSP at https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2890071, you can have your change based on that.",
+      "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14ece9a1_ae10772b",
+        "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-12-27T20:13:40Z",
+      "side": 1,
+      "message": "I think calculating the property value using regex is error-prone. It is correct now, but what if in the future we updated the enum to use other math operation other than plus?\n\nWhen making the AIDL interface, the build system automatically generate the cpp and java files for the interface, e.g. out/soong/.intermediates/hardware/interfaces/automotive/vehicle/aidl_property/android.hardware.automotive.vehicle.property-V3-java-source/gen/android/hardware/automotive/vehicle/\n\nCan you use a host java app to directly read the enum value out and write to json instead?",
+      "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "212e2cc0_87ef6857",
+        "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-12-27T20:13:40Z",
+      "side": 1,
+      "message": "If in the future we have a more complicated annotation, this would not work.\nHow does the emulator make use of these annotations? Does it only require certain annotations like change mode? If so, we should only try to parse those.\n\nActually, we have already parsed the required annotations at hardware/interfaces/automotive/vehicle/aidl/generated_lib/, can we use that?",
+      "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
