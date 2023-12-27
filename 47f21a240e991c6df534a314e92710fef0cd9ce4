@@ -16,6 +16,29 @@
       "message": "I think, this is the cause of the framework test failures during presubmit. Framework tests ended up trying to communicate with the HAL instance which was already dead, this was happening until the audioserver restarts properly.",
       "revId": "47f21a240e991c6df534a314e92710fef0cd9ce4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4523d5e6_597aa7c0",
+        "filename": "audio/aidl/vts/VtsHalAECTargetTest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2023-12-27T23:09:06Z",
+      "side": 1,
+      "message": "can everything except for this be put in\n\n    \u003cinclude name\u003d\"VtsEffectCommon\" /\u003e\n\nlike\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:test/vts/tools/vts-core-tradefed/res/config/vts-auto.xml;drc\u003d9c487b48cebdb2146a0d2f459cc06d4cd8b50888;l\u003d17",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 22
+      },
+      "revId": "47f21a240e991c6df534a314e92710fef0cd9ce4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
