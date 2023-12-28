@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2d8b7cf_c423d779",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2023-12-28T18:58:35Z",
+      "side": 1,
+      "message": "I am not that familiar with VTS test😂, I just saw `kSessionTypes` is only used here, so is it possible to use version check same as others to only check for hfp from V afterwards?\n```\nTEST_P(BluetoothAudioProviderFactoryAidl,\n       OpenProviderAndCheckCapabilitiesBySession) {\n  for (auto session_type : kSessionTypes) {\n    GetProviderCapabilitiesHelper(session_type);\n    OpenProviderHelper(session_type);\n    // We must be able to open a provider if its getProviderCapabilities()\n    // returns non-empty list.\n    EXPECT_TRUE(temp_provider_capabilities_.empty() ||\n                audio_provider_ !\u003d nullptr);\n  }\n}\n```",
+      "range": {
+        "startLine": 613,
+        "startChar": 31,
+        "endLine": 613,
+        "endChar": 44
+      },
+      "revId": "c56e032e4ea703ae9c31175850f28f79ea3b2e44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
