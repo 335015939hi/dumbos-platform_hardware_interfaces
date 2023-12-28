@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "270167bc_41922ecc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2023-12-28T00:00:13Z",
+      "side": 1,
+      "message": "Andy, could you please re-approve. I\u0027ve found a better way to reuse the same config file, the CL is now much simpler, but your previous approval got removed.",
+      "revId": "b80de7bcd7c5138d483e60c1fe5b3073a989c3af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
