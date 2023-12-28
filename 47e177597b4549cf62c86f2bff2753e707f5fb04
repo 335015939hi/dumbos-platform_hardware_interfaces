@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d39e4afe_13453dac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1907384
+      },
+      "writtenOn": "2023-12-28T17:00:02Z",
+      "side": 1,
+      "message": "I think it can be achieved with a genrule inside aidl_property folder, in a follow-up change.",
+      "parentUuid": "28c06251_37e17177",
+      "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14ece9a1_ae10772b",
         "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
         "patchSetId": 2
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0588cd1e_1b681bd0",
+        "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1907384
+      },
+      "writtenOn": "2023-12-28T17:00:02Z",
+      "side": 1,
+      "message": "Yes, I agree with these points.\nHowever all of these are related to this generator being a python script being run manually.\nThis was the way you suggested doing it and we agreed on in the past, this change just fixes some of the existing issues. \n\nNo, unfortunately, I can\u0027t use java file, since it doesn\u0027t have all of the needed information.\nHowever internally we use an extension of soong plugin for aidl to extract this data, which doesn\u0027t have any of the mentioned problems (it reuses existing code for parsing aidl files and is integrated into the build system).\nWe can go back to aidl plugin discussion if you would like to.",
+      "parentUuid": "14ece9a1_ae10772b",
+      "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "212e2cc0_87ef6857",
         "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
         "patchSetId": 2
@@ -65,6 +101,24 @@
       "writtenOn": "2023-12-27T20:13:40Z",
       "side": 1,
       "message": "If in the future we have a more complicated annotation, this would not work.\nHow does the emulator make use of these annotations? Does it only require certain annotations like change mode? If so, we should only try to parse those.\n\nActually, we have already parsed the required annotations at hardware/interfaces/automotive/vehicle/aidl/generated_lib/, can we use that?",
+      "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a861eaae_d11a503d",
+        "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1907384
+      },
+      "writtenOn": "2023-12-28T17:00:02Z",
+      "side": 1,
+      "message": "Emulator takes property human readable name,\ndata enum class name and names of the data enum int values.\nIt\u0027s not all available in generated_lib.",
+      "parentUuid": "212e2cc0_87ef6857",
       "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
