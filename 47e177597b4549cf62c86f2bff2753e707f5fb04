@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b89b43d4_97951e41",
+        "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1907384
+      },
+      "writtenOn": "2023-12-28T17:04:28Z",
+      "side": 1,
+      "message": "You can check the old change for the plugin here:\nhttps://android-review.googlesource.com/c/platform/system/tools/aidl/+/2094606",
+      "parentUuid": "0588cd1e_1b681bd0",
+      "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "212e2cc0_87ef6857",
         "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
         "patchSetId": 2
