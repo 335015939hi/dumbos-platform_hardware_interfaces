@@ -16,6 +16,24 @@
       "message": "the package name is always the same, why do we need this field?",
       "revId": "847b7aa83ba9ee1b3cc4237ac52400aaf7d1255f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f5df544_04962304",
+        "filename": "automotive/vehicle/aidl/emu_metadata/android.hardware.automotive.vehicle-types-meta.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1907384
+      },
+      "writtenOn": "2023-12-29T12:58:38Z",
+      "side": 1,
+      "message": "When this script is used with vendor extension AIDL for vehicle properties the might have different package names defined.",
+      "parentUuid": "23f565d2_7a552c6c",
+      "revId": "847b7aa83ba9ee1b3cc4237ac52400aaf7d1255f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
