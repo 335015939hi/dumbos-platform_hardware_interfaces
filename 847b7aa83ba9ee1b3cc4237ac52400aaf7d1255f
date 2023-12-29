@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23f565d2_7a552c6c",
+        "filename": "automotive/vehicle/aidl/emu_metadata/android.hardware.automotive.vehicle-types-meta.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-12-29T03:38:07Z",
+      "side": 1,
+      "message": "the package name is always the same, why do we need this field?",
+      "revId": "847b7aa83ba9ee1b3cc4237ac52400aaf7d1255f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
