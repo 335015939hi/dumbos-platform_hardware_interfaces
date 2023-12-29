@@ -106,6 +106,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28ab959e_4d0c3d1c",
+        "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-12-29T01:19:10Z",
+      "side": 1,
+      "message": "Ack. This is okay for now. I will create a bug for myself to write another script that parses the generated java file for the enum values, which should be more robust.",
+      "parentUuid": "b89b43d4_97951e41",
+      "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "212e2cc0_87ef6857",
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "Emulator takes property human readable name,\ndata enum class name and names of the data enum int values.\nIt\u0027s not all available in generated_lib.",
       "parentUuid": "212e2cc0_87ef6857",
+      "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a455314_91781266",
+        "filename": "automotive/vehicle/aidl/emu_metadata/generate_emulator_metadata.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2023-12-29T01:19:10Z",
+      "side": 1,
+      "message": "Internally we have updated generated_lib to contain enumForVehicleProperty.java which should cover this case. I will update the script on our side to use it.",
+      "parentUuid": "a861eaae_d11a503d",
       "revId": "47e177597b4549cf62c86f2bff2753e707f5fb04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
