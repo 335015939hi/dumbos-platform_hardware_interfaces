@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb295ab7_fc654465",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IConfigurable.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2024-01-02T21:51:51Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b2e932f2_77aa8842",
+      "revId": "b957f0b7814777e4d180591173a4714be5da8868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90f1fafd_e519d955",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-02T21:50:37Z",
       "side": 1,
       "message": "missing `.aidl` file?",
+      "revId": "b957f0b7814777e4d180591173a4714be5da8868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74b831ad_e8db3b85",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IConfigurable.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2024-01-02T21:51:51Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "90f1fafd_e519d955",
       "revId": "b957f0b7814777e4d180591173a4714be5da8868",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
