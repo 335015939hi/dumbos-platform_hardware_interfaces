@@ -651,6 +651,13 @@ void CameraAidlTest::verifyCameraCharacteristics(const CameraMetadata& chars) {
                       << " per API contract should never be set by Hal!";
     }
 
+    retcode = find_camera_metadata_ro_entry(metadata, ANDROID_SENSOR_READOUT_TIMESTAMP,
+                                            &entry);
+    if (0 == retcode || entry.count > 0) {
+        ADD_FAILURE() << "ANDROID_SENSOR_READOUT_TIMESTAMP "
+                      << "per API contract should never be set by Hal!";
+    }
+
     retcode = find_camera_metadata_ro_entry(metadata, ANDROID_HEIC_INFO_SUPPORTED, &entry);
     if (0 == retcode && entry.count > 0) {
         retcode = find_camera_metadata_ro_entry(
