@@ -197,6 +197,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f61ae0c_240241d8",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2024-01-02T22:14:41Z",
+      "side": 1,
+      "message": "Cool, the added function looks similar to what I had in mind. I\u0027ll direct any remaining questions to that CL.",
+      "parentUuid": "8b8a9433_02d0216d",
+      "revId": "5489e4042a48b9dee25a76018231fcf4f27dbb12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adda930e_f371009c",
