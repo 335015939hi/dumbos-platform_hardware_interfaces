@@ -50,11 +50,6 @@
     },
     {
       "name": "VtsHalNSTargetTest"
-    }
-  ],
-  "postsubmit": [
-    {
-      "name": "VtsHalSpatializerTargetTest"
     },
     {
       "name": "audiorecord_tests"
@@ -78,6 +73,11 @@
           "include-filter": "android.virtualdevice.cts.VirtualAudioTest"
         }
       ]
+    }
+  ],
+  "postsubmit": [
+    {
+      "name": "VtsHalSpatializerTargetTest"
     }
   ]
 }
