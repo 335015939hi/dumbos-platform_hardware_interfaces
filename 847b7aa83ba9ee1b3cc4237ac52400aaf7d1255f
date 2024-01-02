@@ -34,6 +34,29 @@
       "parentUuid": "23f565d2_7a552c6c",
       "revId": "847b7aa83ba9ee1b3cc4237ac52400aaf7d1255f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "182c2eab_1bca6dd9",
+        "filename": "automotive/vehicle/aidl/emu_metadata/android.hardware.automotive.vehicle-types-meta.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 4051,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2024-01-02T18:01:04Z",
+      "side": 1,
+      "message": "Typo: should be `LaneCenteringAssistCommand`.\nShan fixed the typo in the original file. Can you rebase to the latest and run the script again?",
+      "range": {
+        "startLine": 4051,
+        "startChar": 22,
+        "endLine": 4051,
+        "endChar": 49
+      },
+      "revId": "847b7aa83ba9ee1b3cc4237ac52400aaf7d1255f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
