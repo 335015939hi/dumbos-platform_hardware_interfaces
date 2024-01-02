@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3449ef85_d00faaa0",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2024-01-02T22:17:15Z",
+      "side": 1,
+      "message": "Is some sort of key policy needed to prevent using `calculateSharedSecret` to re-derive the shared key externally? It seems like this issue might also affect the wrapping keys calculated by `secureKeyImport`.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 85
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6fd083a_2cbdcec5",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2024-01-02T22:17:15Z",
+      "side": 1,
+      "message": "How is the encapsulated shared secret calculated? Do you think it would be simpler to pass the public key instead?",
+      "range": {
+        "startLine": 111,
+        "startChar": 34,
+        "endLine": 111,
+        "endChar": 70
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4019f38e_0db2a3d0",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2024-01-02T22:17:15Z",
+      "side": 1,
+      "message": "What do you think about adding the salt for key derivation as a parameter, similar to `secureKeyImport`?",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 63
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
