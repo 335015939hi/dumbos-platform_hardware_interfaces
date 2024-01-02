@@ -50,11 +50,6 @@
     },
     {
       "name": "VtsHalNSTargetTest"
-    }
-  ],
-  "postsubmit": [
-    {
-      "name": "VtsHalSpatializerTargetTest"
     },
     {
       "name": "audiorecord_tests"
@@ -70,6 +65,11 @@
     },
     {
       "name": "audiosystem_tests"
+    }
+  ],
+  "postsubmit": [
+    {
+      "name": "VtsHalSpatializerTargetTest"
     }
   ]
 }
