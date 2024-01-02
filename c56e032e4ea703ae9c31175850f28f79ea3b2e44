@@ -22,6 +22,30 @@
       },
       "revId": "c56e032e4ea703ae9c31175850f28f79ea3b2e44",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6623431_6cfa79c6",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-01-02T10:43:27Z",
+      "side": 1,
+      "message": "I created a list of `kAndroidVSessionType` and test them only from V afterward.",
+      "parentUuid": "c2d8b7cf_c423d779",
+      "range": {
+        "startLine": 613,
+        "startChar": 31,
+        "endLine": 613,
+        "endChar": 44
+      },
+      "revId": "c56e032e4ea703ae9c31175850f28f79ea3b2e44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
