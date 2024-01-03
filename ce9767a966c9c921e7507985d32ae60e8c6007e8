@@ -152,6 +152,30 @@
       },
       "revId": "ce9767a966c9c921e7507985d32ae60e8c6007e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "080fc0d7_7f4e5867",
+        "filename": "audio/aidl/default/r_submix/ModuleRemoteSubmix.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-03T00:35:11Z",
+      "side": 1,
+      "message": "So, all these theoretical considerations are fine, but they are not helping. While I was landing the topic to switch Cuttlefish to AIDL, I have temporarily reverted this CL because it was seemingly causing issues with `audiorouting_tests` and `audiosystem_tests`. And now I\u0027m re-applying it, having added these tests to presubmit for the HAL code, and these tests are failing again in the presubmit: https://r.android.com/c/platform/hardware/interfaces/+/2893424/1?tab\u003dchecks. This proves that something is wrong with the assumption that this change is \"OK\". What I\u0027m seeing is that the framework first opens the presubmit output with \"direct\" flags for PCM format, and then opens it again, this time without \"direct\" flags, and without previously closing the \"direct\" stream. If you have time, PTAL because I have a backlog of issues that I need to take a look at. Sorry for the trouble.",
+      "parentUuid": "7f9b53fb_c6053a8d",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "ce9767a966c9c921e7507985d32ae60e8c6007e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
