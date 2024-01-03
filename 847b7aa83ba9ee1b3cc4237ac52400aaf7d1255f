@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eec6020_79c6202a",
+        "filename": "automotive/vehicle/aidl/emu_metadata/android.hardware.automotive.vehicle-types-meta.json",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-03T21:55:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f5df544_04962304",
+      "revId": "847b7aa83ba9ee1b3cc4237ac52400aaf7d1255f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "182c2eab_1bca6dd9",
