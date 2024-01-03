@@ -33,6 +33,7 @@
 
 package android.hardware.security.see.hwcrypto;
 interface IHwCryptoDeviceKeyAccess {
+  android.hardware.security.see.hwcrypto.IHwCryptoOperations getHwCryptoOperations();
   android.hardware.security.see.hwcrypto.DerivedKeyResult hwkeyDeriveVersioned(in android.hardware.security.see.hwcrypto.IHwCryptoDeviceKeyAccess.DerivedKeyParameters parameters);
   parcelable DerivedKeyParameters {
     boolean batchKey = false;
