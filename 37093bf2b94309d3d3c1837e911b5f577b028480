@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5d2d7f7_0b5ad9c9",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2024-01-03T22:06:16Z",
+      "side": 1,
+      "message": "I was meaning something different, so I\u0027ll try to explain it more clearly. My thought is that the client could break the opaque nature of the key derived by `calculateSharedKey` (assuming ECDH-based KEM) using `calculateSharedSecret`, which returns arbitrary ECDH calculations to the client, then applying the same derivation parameters to retrieve the derived key in the clear. You could presumably use a similar process to break `secureKeyImport`. Should there be a way to restrict use of `calculateSharedSecret` for some keys to prevent the client from re-deriving opaque keys?",
+      "parentUuid": "595838bd_8021c2e0",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 85
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6fd083a_2cbdcec5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
         "patchSetId": 7
