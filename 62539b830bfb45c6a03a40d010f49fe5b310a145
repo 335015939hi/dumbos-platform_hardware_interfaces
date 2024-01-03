@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36cc30ca_f0e703e7",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-03T21:31:43Z",
+      "side": 1,
+      "message": "you might check that methods still return unsupported or similar",
+      "range": {
+        "startLine": 1520,
+        "startChar": 1,
+        "endLine": 1521,
+        "endChar": 6
+      },
+      "revId": "62539b830bfb45c6a03a40d010f49fe5b310a145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "783c428f_67b9b1bf",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1524,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-03T21:31:43Z",
+      "side": 1,
+      "message": "should any of these tests be based on getInterfaceVersion instead of ro.vendor.api_level? If a vendor image chooses to upgrade the interface version, they should still get tested even though they use an old ro.vendor.api_level",
+      "range": {
+        "startLine": 1524,
+        "startChar": 4,
+        "endLine": 1524,
+        "endChar": 33
+      },
+      "revId": "62539b830bfb45c6a03a40d010f49fe5b310a145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
