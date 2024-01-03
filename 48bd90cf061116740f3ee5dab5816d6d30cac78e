@@ -133,6 +133,30 @@
       },
       "revId": "48bd90cf061116740f3ee5dab5816d6d30cac78e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22b307a4_fcdd7b22",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IInputSurface.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-03T21:33:52Z",
+      "side": 1,
+      "message": "It\u0027s a wrapper around ANativeWindow: https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:frameworks/native/libs/nativewindow/include/android/native_window.h",
+      "parentUuid": "c6e8de2b_6c91baf0",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 11
+      },
+      "revId": "48bd90cf061116740f3ee5dab5816d6d30cac78e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
