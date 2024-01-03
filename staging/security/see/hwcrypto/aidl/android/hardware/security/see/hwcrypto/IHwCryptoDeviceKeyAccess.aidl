@@ -16,6 +16,7 @@
 package android.hardware.security.see.hwcrypto;
 
 import android.hardware.security.see.hwcrypto.DerivedKeyResult;
+import android.hardware.security.see.hwcrypto.IHwCryptoKey;
 import android.hardware.security.see.hwcrypto.IOpaqueKey;
 import android.hardware.security.see.hwcrypto.KeyPolicy;
 import android.hardware.security.see.hwcrypto.types.NullableInt;
@@ -77,6 +78,15 @@ interface IHwCryptoDeviceKeyAccess {
          */
         boolean deriveOpaqueKey;
     }
+
+    /*
+     * getHwCryptoOperations() - Returns an interface used to work with the generated device keys
+     *
+     * Return:
+     *      IHwCryptoDeviceKeyAccess on success
+     */
+    IHwCryptoKey getHwCryptoOperations();
+
     /*
      * hwkeyDeriveVersioned() - Derive a versioned, device-specific or batch key from
      *                          provided context.
