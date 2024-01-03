@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "595838bd_8021c2e0",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-03T19:11:42Z",
+      "side": 1,
+      "message": "What do you mean by re-derive the shared key externally? The shared key is always opaque, so the key material is not visible to the service clients. It could be persisted as a wrapped key, but that can be controlled by the policy (if the key can be wrapped); but depending on your level of trust on the device, that might require that the other party also sends a policy (which `secureKeyImport` can support). Is this what you mean?",
+      "parentUuid": "229c47b8_457c1188",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 85
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6fd083a_2cbdcec5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
         "patchSetId": 7
@@ -73,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "474ed44c_c95581cb",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-03T19:11:42Z",
+      "side": 1,
+      "message": "If we are just using something DH related yes (and on a DH implementation this would be that) but we are also getting ready to have some post-quantum algorithm. Using a KEM let us generalize the concept to a point on which we are not using a DH based algorithm anymore.",
+      "parentUuid": "c6fd083a_2cbdcec5",
+      "range": {
+        "startLine": 111,
+        "startChar": 34,
+        "endLine": 111,
+        "endChar": 70
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4019f38e_0db2a3d0",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
         "patchSetId": 7
@@ -84,6 +132,30 @@
       "writtenOn": "2024-01-02T22:17:15Z",
       "side": 1,
       "message": "What do you think about adding the salt for key derivation as a parameter, similar to `secureKeyImport`?",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 63
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89ee6542_96ea2b79",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-03T19:11:42Z",
+      "side": 1,
+      "message": "Sure, let me think a little bit about how to add it as parameter in this case.",
+      "parentUuid": "4019f38e_0db2a3d0",
       "range": {
         "startLine": 111,
         "startChar": 0,
