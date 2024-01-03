@@ -22,6 +22,30 @@
       },
       "revId": "878afae8f8fd00ec36fd9a7abfbfc4a61338fcce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "021ad58d_031cb601",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-03T21:39:50Z",
+      "side": 1,
+      "message": "For this one, 32 bits are enough. With microseconds, 2^32-1 can represent up to 35 minutes. This value is used to store the duration of one data transfer, which is usually no longer than several seconds.\n\nThe \"offset\" is how much the actual playback deviates from the projected time. The discrepancy certainly should be less than a minute, so using a 32-bit counter for microseconds is fine.",
+      "parentUuid": "6a4f0a98_b067ebc0",
+      "range": {
+        "startLine": 139,
+        "startChar": 10,
+        "endLine": 139,
+        "endChar": 14
+      },
+      "revId": "878afae8f8fd00ec36fd9a7abfbfc4a61338fcce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
