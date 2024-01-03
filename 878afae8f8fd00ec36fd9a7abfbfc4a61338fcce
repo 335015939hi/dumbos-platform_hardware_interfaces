@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a4f0a98_b067ebc0",
+        "filename": "audio/aidl/default/r_submix/StreamRemoteSubmix.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-01-03T21:31:43Z",
+      "side": 1,
+      "message": "do we also want to make this 64 bit? same for line#143",
+      "range": {
+        "startLine": 139,
+        "startChar": 10,
+        "endLine": 139,
+        "endChar": 14
+      },
+      "revId": "878afae8f8fd00ec36fd9a7abfbfc4a61338fcce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
