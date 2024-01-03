@@ -37,6 +37,7 @@ interface IHwCryptoKey {
   android.hardware.security.see.hwcrypto.IHwCryptoKey.DiceBoundKeyResult deriveDicePolicyBoundKey(in android.hardware.security.see.hwcrypto.IHwCryptoKey.DiceBoundDerivationKey derivationKey, in byte[] dicePolicyForKeyVersion);
   android.hardware.security.see.hwcrypto.IHwCryptoKey.DerivedKey deriveKey(in android.hardware.security.see.hwcrypto.IHwCryptoKey.DerivedKeyParameters parameters);
   android.hardware.security.see.hwcrypto.IOpaqueKey importClearKey(in android.hardware.security.see.hwcrypto.types.ExplicitKeyMaterial keyMaterial, in android.hardware.security.see.hwcrypto.KeyPolicy newKeyPolicy);
+  android.hardware.security.see.hwcrypto.IHwCryptoOperations getHwCryptoOperations();
   union DiceBoundDerivationKey {
     android.hardware.security.see.hwcrypto.IOpaqueKey opaqueKey;
     String keyId;
