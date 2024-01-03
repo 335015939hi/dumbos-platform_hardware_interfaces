@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e70879a8_538c009f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1358281
+      },
+      "writtenOn": "2024-01-03T22:15:08Z",
+      "side": 1,
+      "message": "Cherrypick from main branch (original CL: ag/25056089)",
+      "revId": "a0b7c87c6763a09c3bbe8a48e9bbb1624f93b30f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
