@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7973c875_a962e31b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-03T23:36:19Z",
+      "side": 1,
+      "message": "Rather than add this now, do you want to add the automation to create this change to the finalization script?",
+      "revId": "1a58aeb6074273f2a4544cdbd783e3a0c4a765a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
