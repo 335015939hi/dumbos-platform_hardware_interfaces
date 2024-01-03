@@ -22,6 +22,30 @@
       },
       "revId": "172942228b5310780855f2debb8a965d9788e7ef",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "229fa1ad_969b09a5",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IConfigurable.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-03T07:17:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e82d1860_d3988e66",
+      "range": {
+        "startLine": 181,
+        "startChar": 36,
+        "endLine": 181,
+        "endChar": 43
+      },
+      "revId": "172942228b5310780855f2debb8a965d9788e7ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
