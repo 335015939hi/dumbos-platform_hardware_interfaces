@@ -37,6 +37,14 @@ interface IHwCryptoKey {
     IHwCryptoKeyGeneration getKeyGeneration();
 
     /*
+     * getDeviceKeyGeneration() - Returns an interface with used to access device specific keys
+     *
+     * Return:
+     *      IHwCryptoDeviceKeyAccess on success
+     */
+    IHwCryptoDeviceKeyAccess getDeviceKeyGeneration();
+
+    /*
      * processCommandList() - Executes a list of cryptographic commands in order
      *
      * @operations:
