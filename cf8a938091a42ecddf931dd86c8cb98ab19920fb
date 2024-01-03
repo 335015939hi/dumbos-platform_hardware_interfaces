@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac6845fe_4f24f2a6",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-03T18:41:33Z",
+      "side": 1,
+      "message": "Why not make it one string literal?",
+      "range": {
+        "startLine": 465,
+        "startChar": 55,
+        "endLine": 465,
+        "endChar": 76
+      },
+      "revId": "cf8a938091a42ecddf931dd86c8cb98ab19920fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
