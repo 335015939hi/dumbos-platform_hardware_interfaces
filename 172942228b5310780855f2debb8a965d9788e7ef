@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e82d1860_d3988e66",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IConfigurable.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1021605
+      },
+      "writtenOn": "2024-01-03T00:15:00Z",
+      "side": 1,
+      "message": "nit: technically they can be either skipped or invalidated. (Invalidated params will be skipped during unflattening to make these identical.) In the future we will want these to be invalidated to make it easier for the framework code.",
+      "range": {
+        "startLine": 181,
+        "startChar": 36,
+        "endLine": 181,
+        "endChar": 43
+      },
+      "revId": "172942228b5310780855f2debb8a965d9788e7ef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
