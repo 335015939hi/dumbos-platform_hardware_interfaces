@@ -51,6 +51,47 @@
       "message": "rerunning presubmits as the build failure should be fixed with aosp/2880408",
       "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "171f5377_05b9009c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-03T21:40:08Z",
+      "side": 1,
+      "message": "disable the rust backend. I added a comment for how to do that.",
+      "parentUuid": "b5c39249_5fd48a1a",
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e8a920f_c2dad0aa",
+        "filename": "media/c2/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-03T21:40:08Z",
+      "side": 1,
+      "message": "`enabled: false,` and remove the other stuff in this `rust: {` section.",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
