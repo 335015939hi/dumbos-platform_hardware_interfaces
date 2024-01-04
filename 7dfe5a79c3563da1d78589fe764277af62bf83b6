@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbcfddf1_ab13c58e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-04T09:22:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "171f5377_05b9009c",
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e8a920f_c2dad0aa",
@@ -84,6 +102,30 @@
       "writtenOn": "2024-01-03T21:40:08Z",
       "side": 1,
       "message": "`enabled: false,` and remove the other stuff in this `rust: {` section.",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "775c8f0d_fa42ecb5",
+        "filename": "media/c2/aidl/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-04T09:22:54Z",
+      "side": 1,
+      "message": "Seems to be handled.",
+      "parentUuid": "0e8a920f_c2dad0aa",
       "range": {
         "startLine": 49,
         "startChar": 12,
