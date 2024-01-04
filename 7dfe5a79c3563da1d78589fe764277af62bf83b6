@@ -207,6 +207,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ecb4f14_52848012",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IInputSurface.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-04T17:06:59Z",
+      "side": 1,
+      "message": "I think it\u0027s `aidl::android::hardware::NativeWindow`: https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:frameworks/native/libs/nativewindow/include/android/native_window_aidl.h;drc\u003d65e0943e34dbf576989aed1b97a9f4870afe6aa5;l\u003d182\n\nSeems like that one could have been called `Surface` instead, but either way the historical quirks make it odd.",
+      "parentUuid": "8e4b2291_6b895fa8",
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "195f2639_11859b48",
