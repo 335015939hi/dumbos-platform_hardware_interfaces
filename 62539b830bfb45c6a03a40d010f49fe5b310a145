@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2fbd04fa_f21a0dc4",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-04T21:58:28Z",
+      "side": 1,
+      "message": "e.g.\n\n```\nif (GetProviderFactoryInterfaceVersion \u003e\u003d V4) {\n\n    check test-\u003edoFoo works\n} else {\n    check test-\u003edoFoo return error\n}\n```",
+      "parentUuid": "2e0fe972_47530862",
+      "range": {
+        "startLine": 1520,
+        "startChar": 1,
+        "endLine": 1521,
+        "endChar": 6
+      },
+      "revId": "62539b830bfb45c6a03a40d010f49fe5b310a145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "783c428f_67b9b1bf",
         "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
         "patchSetId": 7
