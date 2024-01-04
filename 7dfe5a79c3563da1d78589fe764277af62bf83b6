@@ -189,6 +189,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e4b2291_6b895fa8",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IInputSurface.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2024-01-04T15:49:53Z",
+      "side": 1,
+      "message": "Also I\u0027m not finding an `android.hardware.NativeWindow` - can you point me in the direction of what you\u0027re referring to? There shouldn\u0027t be any such a thing and if there is it needs to get a deprecated notice on it.",
+      "parentUuid": "5ce803ef_4c1aa2a1",
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "195f2639_11859b48",
