@@ -92,6 +92,63 @@
       },
       "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62cdd14f_f4c402e8",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IInputSurface.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2024-01-04T00:04:24Z",
+      "side": 1,
+      "message": "why use `Surface` rather than `android.hardware.NativeWindow`? I see that `Surface` is an alias to `NativeWindow`.",
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "195f2639_11859b48",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IInputSurfaceConnection.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2024-01-04T00:04:24Z",
+      "side": 1,
+      "message": "nit: IInputSink?",
+      "range": {
+        "startLine": 20,
+        "startChar": 25,
+        "endLine": 20,
+        "endChar": 35
+      },
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4466d54a_e05084f9",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IInputSurfaceConnection.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2024-01-04T00:04:24Z",
+      "side": 1,
+      "message": "If I remember correction we wanted to have `signalEndOfStream` as an additional method here.",
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
