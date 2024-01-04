@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76da06af_abf8ab57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-04T18:39:51Z",
+      "side": 1,
+      "message": "LGTM. This will have merge conflicts with aosp/2896100",
+      "revId": "bdd71c12946fb044ccf407bad7c313e3d4347d7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
