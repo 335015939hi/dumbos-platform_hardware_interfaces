@@ -56,6 +56,24 @@
       "message": "I can\u0027t really review this without more of a clue as to what\u0027s changing and why...",
       "revId": "c10da074dd03dff5e983af1937d4d2cc6a80d13e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e07f6ee9_d8dca6fe",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-04T12:48:33Z",
+      "side": 1,
+      "message": "Ack. Most of the code is in other patches of the topic. I\u0027ll get those along along with this reviewed early next week.",
+      "parentUuid": "9fd65f4e_4ed9405b",
+      "revId": "c10da074dd03dff5e983af1937d4d2cc6a80d13e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
