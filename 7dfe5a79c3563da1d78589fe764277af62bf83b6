@@ -171,6 +171,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ce803ef_4c1aa2a1",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IInputSurface.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2024-01-04T15:48:44Z",
+      "side": 1,
+      "message": "android.view.Surface is the correct type, it\u0027s just that AIDL ended up using the SDK name for the type instead of the NDK name and because of historical quirks those names are nothing alike.",
+      "parentUuid": "b6204dd6_5bfa524c",
+      "revId": "7dfe5a79c3563da1d78589fe764277af62bf83b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "195f2639_11859b48",
