@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98d44807_bc826cfe",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-01-04T07:10:24Z",
+      "side": 1,
+      "message": "@smoreland@google.com Can you help me with an example on this one? I\u0027m not sure I understand you correctly, but with newer version, inside each function we already check for `aidl_retval.isOk()` if called.",
+      "parentUuid": "36cc30ca_f0e703e7",
+      "range": {
+        "startLine": 1520,
+        "startChar": 1,
+        "endLine": 1521,
+        "endChar": 6
+      },
+      "revId": "62539b830bfb45c6a03a40d010f49fe5b310a145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "783c428f_67b9b1bf",
         "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
         "patchSetId": 7
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-03T21:31:43Z",
       "side": 1,
       "message": "should any of these tests be based on getInterfaceVersion instead of ro.vendor.api_level? If a vendor image chooses to upgrade the interface version, they should still get tested even though they use an old ro.vendor.api_level",
+      "range": {
+        "startLine": 1524,
+        "startChar": 4,
+        "endLine": 1524,
+        "endChar": 33
+      },
+      "revId": "62539b830bfb45c6a03a40d010f49fe5b310a145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d178d2a_8d8e6500",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1524,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-01-04T07:10:24Z",
+      "side": 1,
+      "message": "Thanks for pointing out this use case! I changed the code to use provider factory\u0027s `getInterfaceVersion` instead, and I have a GSI VTS run to make sure thing still works as expected.",
+      "parentUuid": "783c428f_67b9b1bf",
       "range": {
         "startLine": 1524,
         "startChar": 4,
