@@ -34,6 +34,24 @@
       "parentUuid": "7973c875_a962e31b",
       "revId": "1a58aeb6074273f2a4544cdbd783e3a0c4a765a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcdabbf8_5210450a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-04T01:14:15Z",
+      "side": 1,
+      "message": "It should be done as parts of nightly finalization testing. That may need a new phase, to represent this, but we don\u0027t want to have to do any manual work or CLs related to preparing for the next year. 😄 If it\u0027s automated, it can be continuously tested",
+      "parentUuid": "79b5fa41_518a09a1",
+      "revId": "1a58aeb6074273f2a4544cdbd783e3a0c4a765a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
