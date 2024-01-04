@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd84ee00_9a89d4e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T12:41:45Z",
+      "side": 1,
+      "message": "nit: grammar",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "c10da074dd03dff5e983af1937d4d2cc6a80d13e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29d45f6e_50a5357d",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T12:41:45Z",
+      "side": 1,
+      "message": "pre-existing: needs a comment indicating what schema this CBOR data complies with",
+      "revId": "c10da074dd03dff5e983af1937d4d2cc6a80d13e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd65f4e_4ed9405b",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T12:41:45Z",
+      "side": 1,
+      "message": "I can\u0027t really review this without more of a clue as to what\u0027s changing and why...",
+      "revId": "c10da074dd03dff5e983af1937d4d2cc6a80d13e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
