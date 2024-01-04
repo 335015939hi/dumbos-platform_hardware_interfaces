@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2264f26c_3c269238",
+        "filename": "security/secretkeeper/aidl/vts/dice_sample.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T08:27:12Z",
+      "side": 1,
+      "message": "\"chains\"",
+      "range": {
+        "startLine": 17,
+        "startChar": 46,
+        "endLine": 17,
+        "endChar": 51
+      },
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a712592e_7c152d4f",
+        "filename": "security/secretkeeper/aidl/vts/dice_sample.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T08:27:12Z",
+      "side": 1,
+      "message": "super-nit: \"DICE\"",
+      "range": {
+        "startLine": 32,
+        "startChar": 40,
+        "endLine": 32,
+        "endChar": 44
+      },
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73090ad3_ffc4bcb2",
+        "filename": "security/secretkeeper/aidl/vts/dice_sample.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T08:27:12Z",
+      "side": 1,
+      "message": "nit, pre-existing: could do with a doc comment describing the format of `public_key` (which is just the raw 32 bytes here?)",
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3313acb7_c23ca57f",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T08:27:12Z",
+      "side": 1,
+      "message": "super-nit: if you\u0027re adding a doc comment, might as well use /// and put back-ticks around identifiers (and below).",
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bb7593b_3c133e73",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T08:27:12Z",
+      "side": 1,
+      "message": "All of the callers of this variant seem to use the default `dice_artifacts` -- is it actually needed?",
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd145741_25e3de1d",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T08:27:12Z",
+      "side": 1,
+      "message": "nit: a doc comment would be helpful here",
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f354420_1f2989e2",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T08:27:12Z",
+      "side": 1,
+      "message": "Are there any constants in a library somewhere that could be re-used here?",
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02b2f23d_e60d3c82",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T08:27:12Z",
+      "side": 1,
+      "message": "nit, pre-existing: could do with either a doc comment describing the contents of the returned tuple, or return a `struct` with named fields.",
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
