@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f582f0e9_a2877bc6",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T12:28:44Z",
+      "side": 1,
+      "message": "(Not for this CL) Do we need to start thinking about what detritus might get left behind after running the VTS tests?  (E.g. we could add some RAII behaviour to `SkClient` that calls `delete(id)` for any secret IDs that have been seen during the test)",
+      "revId": "68a17791a170c49c866156d6221d8fab2b0a97ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

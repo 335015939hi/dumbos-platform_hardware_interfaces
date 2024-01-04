@@ -200,6 +200,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "306ee9f4_f64e8b15",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T12:28:44Z",
+      "side": 1,
+      "message": "Fine if there are more tests coming that use this, it just looked like the current places that use `setup_client!` with 1 argument always fed in the default.",
+      "parentUuid": "0d3077d4_be71684f",
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd145741_25e3de1d",
@@ -301,6 +319,24 @@
       "side": 1,
       "message": "Added a comment. This really is a helper method used by the replay protection tests that outputs 3 SecretManagement requests. The callers don\u0027t really differentiate between these requests.",
       "parentUuid": "02b2f23d_e60d3c82",
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "366343a6_a8cbfe91",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-04T12:28:44Z",
+      "side": 1,
+      "message": "Ah, so the fact that these are (get_version, store, get) isn\u0027t relevant anywhere?   Then maybe say that (the added comment doesn\u0027t really add anything that the method name and type signature don\u0027t [already tell you](https://effective-rust.com/documentation.html#what-not-to-document)).",
+      "parentUuid": "a33ebcfa_b1f4e942",
       "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
