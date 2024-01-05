@@ -153,6 +153,30 @@
       },
       "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da587958_b4fe4e35",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-05T23:57:11Z",
+      "side": 1,
+      "message": "If we tie this step to finalization instead of submitting this early, that means we don\u0027t have an option to freeze any interfaces before finalization.\n\nI think it makes sense in testing (if we are building `next` after we freeze everything in testing), but I thought we might want the flexibility. \n\nSubmitting this early also has a side effect of letting partners use these interfaces on `next`.",
+      "parentUuid": "81b4624c_5d161203",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 42
+      },
+      "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
