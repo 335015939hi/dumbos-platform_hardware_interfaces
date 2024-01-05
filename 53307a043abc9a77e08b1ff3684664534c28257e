@@ -81,6 +81,30 @@
       },
       "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b4dc9f3_5f6a02e3",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-05T23:06:03Z",
+      "side": 1,
+      "message": "That\u0027s why it should be a part of the finalization script. You can add it before the frozen step, so both can happen at the same time. I don\u0027t think you should have to create a CL like this manually.\n\nBtw, freezing all the interfaces, the build still succeeds without this... maybe it\u0027s because I\u0027m only checking trunk_staging",
+      "parentUuid": "7934fe68_7ead1fc4",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 42
+      },
+      "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
