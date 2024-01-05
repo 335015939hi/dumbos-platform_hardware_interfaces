@@ -105,6 +105,30 @@
       },
       "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fa234c7_98ad199a",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-05T23:08:44Z",
+      "side": 1,
+      "message": "Yeah, with trunk_staging this is all a no-op. We should be building `next` after the finalization step.\n\nI think we will likely be freezing interfaces at different times, right? Not all at once like we used to, because it\u0027s no longer a real no-op since they will start being used on `next` at that point.\n\nSo we would want to do this before we start API Freeze, not necessarily at finalization time.",
+      "parentUuid": "5b4dc9f3_5f6a02e3",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 42
+      },
+      "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
