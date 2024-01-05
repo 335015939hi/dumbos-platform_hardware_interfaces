@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06da40e8_3dfdc042",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffect.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-05T17:13:56Z",
+      "side": 1,
+      "message": "method",
+      "range": {
+        "startLine": 183,
+        "startChar": 12,
+        "endLine": 183,
+        "endChar": 21
+      },
+      "revId": "416063d1377c341657e57e1b6f0a65a14da091e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46476003_f3733934",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffect.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-05T17:13:56Z",
+      "side": 1,
+      "message": "method",
+      "range": {
+        "startLine": 188,
+        "startChar": 85,
+        "endLine": 188,
+        "endChar": 94
+      },
+      "revId": "416063d1377c341657e57e1b6f0a65a14da091e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97aea3e2_6991a1a1",
+        "filename": "audio/aidl/android/hardware/audio/effect/state.gv",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-05T17:13:56Z",
+      "side": 1,
+      "message": "Is the second line break actually needed?\n\nAlso, all other methods do not have parentheses after them.",
+      "range": {
+        "startLine": 37,
+        "startChar": 96,
+        "endLine": 37,
+        "endChar": 98
+      },
+      "revId": "416063d1377c341657e57e1b6f0a65a14da091e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1593a35d_59c4ff8d",
+        "filename": "audio/aidl/android/hardware/audio/effect/state.gv",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-05T17:13:56Z",
+      "side": 1,
+      "message": "`g` has been deleted accidentally",
+      "range": {
+        "startLine": 37,
+        "startChar": 82,
+        "endLine": 37,
+        "endChar": 84
+      },
+      "revId": "416063d1377c341657e57e1b6f0a65a14da091e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
