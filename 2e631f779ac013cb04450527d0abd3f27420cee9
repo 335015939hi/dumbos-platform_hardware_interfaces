@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be1806e5_8df29a03",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffectCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-01-05T02:39:40Z",
+      "side": 1,
+      "message": "Thanks for the suggestion, I think `reopen` is a better idea, and demo it in change: aosp/2897678.\n\nWill need to update the HAL implementation to pass build.",
+      "parentUuid": "3331f97a_f7aa7642",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "2e631f779ac013cb04450527d0abd3f27420cee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eba635f2_ae4a3942",
