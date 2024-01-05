@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3331f97a_f7aa7642",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffectCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-05T01:13:07Z",
+      "side": 1,
+      "message": "Have you already conceived an implementation for this? I\u0027m wondering if this will complicate the client code significantly, as these callbacks will be called on a separate thread, and it will need to signal the processing thread and pass FMQ descriptors to it.\n\nI\u0027m wondering if it will be easier if the HAL just signals that message queues need to be invalidated—that BTW can be achieved by closing them on the HAL side, no extra callback is needed. Since only input and output FMQs will be closed, while the status queue remains, the client can understand what\u0027s going on. And in order to get new queues, there should be a new method on IEffect, like `reopen`. The benefit of this approach is that the code flow on the client side remains the same. When the client discovers that the queues were invalidated, it just reopens them, and continues to work, all this on the same processing thread.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 34
+      },
+      "revId": "2e631f779ac013cb04450527d0abd3f27420cee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eba635f2_ae4a3942",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffectCallback.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-05T01:13:07Z",
+      "side": 1,
+      "message": "Would it make sense to always provide a pair of new queues? That should make the switch to them faste and more predictable since there will be just one Binder transaction instead of two.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 85
+      },
+      "revId": "2e631f779ac013cb04450527d0abd3f27420cee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
