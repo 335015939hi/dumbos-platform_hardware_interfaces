@@ -107,6 +107,7 @@ my_system_matrix_deps := \
     framework_compatibility_matrix.7.xml \
     framework_compatibility_matrix.8.xml \
     framework_compatibility_matrix.device.xml \
+    framework_compatibility_matrix.kernel_configs.xml \
 
 # Only allow the use of the unreleased compatibility matrix when we can use unfrozen
 # interfaces (in the `next` release configuration).

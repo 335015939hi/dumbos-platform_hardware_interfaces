@@ -22,14 +22,31 @@ package {
 }
 
 vintf_compatibility_matrix {
+    name: "framework_compatibility_matrix.kernel_configs.xml",
+    stem: "compatibility_matrix.kernel_configs.xml",
+    kernel_configs: [
+        "kernel_config_q_4.14",
+        "kernel_config_q_4.19",
+        "kernel_config_r_4.14",
+        "kernel_config_r_4.19",
+        "kernel_config_r_5.4",
+        "kernel_config_s_4.19",
+        "kernel_config_s_5.4",
+        "kernel_config_s_5.10",
+        "kernel_config_t_5.10",
+        "kernel_config_t_5.15",
+        "kernel_config_u_5.15",
+        "kernel_config_u_6.1",
+        "kernel_config_v_6.1",
+        "kernel_config_v_6.6",
+    ],
+}
+
+vintf_compatibility_matrix {
     name: "framework_compatibility_matrix.4.xml",
     stem: "compatibility_matrix.4.xml",
     srcs: [
         "compatibility_matrix.4.xml",
-    ],
-    kernel_configs: [
-        "kernel_config_q_4.14",
-        "kernel_config_q_4.19",
     ],
 }
 
@@ -39,11 +56,6 @@ vintf_compatibility_matrix {
     srcs: [
         "compatibility_matrix.5.xml",
     ],
-    kernel_configs: [
-        "kernel_config_r_4.14",
-        "kernel_config_r_4.19",
-        "kernel_config_r_5.4",
-    ],
 }
 
 vintf_compatibility_matrix {
@@ -51,11 +63,6 @@ vintf_compatibility_matrix {
     stem: "compatibility_matrix.6.xml",
     srcs: [
         "compatibility_matrix.6.xml",
-    ],
-    kernel_configs: [
-        "kernel_config_s_4.19",
-        "kernel_config_s_5.4",
-        "kernel_config_s_5.10",
     ],
 }
 
@@ -65,10 +72,6 @@ vintf_compatibility_matrix {
     srcs: [
         "compatibility_matrix.7.xml",
     ],
-    kernel_configs: [
-        "kernel_config_t_5.10",
-        "kernel_config_t_5.15",
-    ],
 }
 
 vintf_compatibility_matrix {
@@ -77,10 +80,6 @@ vintf_compatibility_matrix {
     srcs: [
         "compatibility_matrix.8.xml",
     ],
-    kernel_configs: [
-        "kernel_config_u_5.15",
-        "kernel_config_u_6.1",
-    ],
 }
 
 vintf_compatibility_matrix {
@@ -88,9 +87,5 @@ vintf_compatibility_matrix {
     stem: "compatibility_matrix.9.xml",
     srcs: [
         "compatibility_matrix.9.xml",
-    ],
-    kernel_configs: [
-        "kernel_config_v_6.1",
-        "kernel_config_v_6.6",
     ],
 }
