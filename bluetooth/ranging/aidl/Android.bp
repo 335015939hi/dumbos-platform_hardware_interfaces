@@ -26,6 +26,9 @@ aidl_interface {
     vendor_available: true,
     host_supported: true,
     srcs: ["android/hardware/bluetooth/ranging/*.aidl"],
+    headers: [
+        "PersistableBundle_aidl",
+    ],
     stability: "vintf",
     backend: {
         ndk: {
