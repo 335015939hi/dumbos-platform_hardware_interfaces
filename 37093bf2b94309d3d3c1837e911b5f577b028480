@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7942d012_08e329a9",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-05T22:48:12Z",
+      "side": 1,
+      "message": "I see. Yes, I am planning to have the functions that specifically derive keys to require its policy KeyUse and KeyPermissions to be restrictive so the keys cannot be used for other operations (keyUse::KEY_EXCHANGE and keyPermissions::KEY_MANAGEMENT_KEY are the 2 attributes that I am thinking on using for this). Additionally, the other generic functions (`calculateSharedSecret`) should not accept using keys whose use include KEY_EXCHANGE.",
+      "parentUuid": "a5d2d7f7_0b5ad9c9",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 85
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6fd083a_2cbdcec5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
         "patchSetId": 7
