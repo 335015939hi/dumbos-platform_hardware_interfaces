@@ -27,6 +27,7 @@ import android.hardware.audio.effect.DynamicsProcessing;
 import android.hardware.audio.effect.EnvironmentalReverb;
 import android.hardware.audio.effect.Equalizer;
 import android.hardware.audio.effect.HapticGenerator;
+import android.hardware.audio.effect.IEffectCallback;
 import android.hardware.audio.effect.LoudnessEnhancer;
 import android.hardware.audio.effect.NoiseSuppression;
 import android.hardware.audio.effect.PresetReverb;
@@ -134,6 +135,11 @@ union Parameter {
          * Output config.
          */
         AudioConfig output;
+        /**
+         * Callback for the effect instance to notify the audio framework about important changes
+         * like data FMQ change.
+         */
+        @nullable IEffectCallback effectCallback;
     }
     Common common;
 
