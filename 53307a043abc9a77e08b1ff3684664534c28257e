@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e870b3ca_3164b65f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-05T23:01:40Z",
+      "side": 1,
+      "message": "\u003e I think you might want to run this on git_main \n\nGood point! I think it should actually just go internal-only because of this and the rest of the finalization work being done there.\n\n\u003e Also - is there a need for this now?\n\nNot on AOSP, but we will need this before we start freezing interfaces. I figured we can/should do this as soon as the q1 branch stopped taking snaps from main since main is effectively q2 at that point.",
+      "parentUuid": "e0b22a5e_085d631e",
+      "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b7fcf52_65d0a138",
         "filename": "compatibility_matrices/Android.mk",
         "patchSetId": 4
@@ -31,6 +49,30 @@
       "writtenOn": "2024-01-05T22:55:55Z",
       "side": 1,
       "message": "like we can\u0027t start installing this by default until we freeze interfaces?",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 42
+      },
+      "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7934fe68_7ead1fc4",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-05T23:01:40Z",
+      "side": 1,
+      "message": "Other way around I believe.\nWe can\u0027t freeze an interface without installing this first because it\u0027s going to start being used on `next` once it\u0027s frozen.",
+      "parentUuid": "1b7fcf52_65d0a138",
       "range": {
         "startLine": 109,
         "startChar": 0,
