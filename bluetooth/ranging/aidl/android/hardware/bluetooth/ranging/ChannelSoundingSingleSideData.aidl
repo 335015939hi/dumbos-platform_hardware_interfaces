@@ -28,7 +28,7 @@ parcelable ChannelSoundingSingleSideData {
     /**
      * PCT (complex value) measured from mode-2 or mode-3 steps in a CS procedure (in time order).
      */
-    @nullable List<StepTonePct> stepTonePcts;
+    @nullable StepTonePct[] stepTonePcts;
     /**
      * Packet Quality from mode-1 or mode-3 steps in a CS procedures (in time order).
      */
@@ -49,8 +49,8 @@ parcelable ChannelSoundingSingleSideData {
      * Packet_PCT1 or packet_PCT2 of mode-1 or mode-3, if sounding sequence is used and sounding
      * phase-based ranging is supported.
      */
-    @nullable List<ComplexNumber> packetPct1;
-    @nullable List<ComplexNumber> packetPct2;
+    @nullable ComplexNumber[] packetPct1;
+    @nullable ComplexNumber[] packetPct2;
     /**
      * Reference power level (-127 to 20) of the signal in the procedure, in dBm.
      */

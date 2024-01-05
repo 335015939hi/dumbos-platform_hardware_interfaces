@@ -16,6 +16,9 @@
 
 package android.hardware.bluetooth.ranging;
 
+/**
+ * enum of Normalized Attack Detector Metric
+ */
 @VintfStability
 @Backing(type="byte")
 enum Nadm {
