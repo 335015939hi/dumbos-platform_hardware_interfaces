@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69b0f1aa_db873017",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/AddressType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-05T19:08:56Z",
+      "side": 1,
+      "message": "nit: space",
+      "range": {
+        "startLine": 23,
+        "startChar": 69,
+        "endLine": 23,
+        "endChar": 71
+      },
+      "revId": "6e3336c6302a152686eace072486254f98a94de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7916b83_a4a333a8",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-05T19:08:56Z",
+      "side": 1,
+      "message": "is there a specific part of the spec defining this and what those levels mean? It would be helpful to point to that section if so.",
+      "revId": "6e3336c6302a152686eace072486254f98a94de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d5b216d_5ae456aa",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-05T19:08:56Z",
+      "side": 1,
+      "message": "nit: remove the `enum of` part",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 11
+      },
+      "revId": "6e3336c6302a152686eace072486254f98a94de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
