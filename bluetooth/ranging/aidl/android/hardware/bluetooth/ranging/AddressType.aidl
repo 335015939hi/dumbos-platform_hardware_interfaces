@@ -20,5 +20,6 @@ package android.hardware.bluetooth.ranging;
 @Backing(type="int")
 enum AddressType {
     PUBLIC = 0x00,
+    /* Still may be fixed on the device and is not randomized on boot */
     RANDOM = 0x01,
 }
