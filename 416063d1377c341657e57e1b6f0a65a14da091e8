@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff54cf21_868a91d4",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffect.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-01-05T21:48:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06da40e8_3dfdc042",
+      "range": {
+        "startLine": 183,
+        "startChar": 12,
+        "endLine": 183,
+        "endChar": 21
+      },
+      "revId": "416063d1377c341657e57e1b6f0a65a14da091e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46476003_f3733934",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-05T17:13:56Z",
       "side": 1,
       "message": "method",
+      "range": {
+        "startLine": 188,
+        "startChar": 85,
+        "endLine": 188,
+        "endChar": 94
+      },
+      "revId": "416063d1377c341657e57e1b6f0a65a14da091e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1a07f18_53b50061",
+        "filename": "audio/aidl/android/hardware/audio/effect/IEffect.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-01-05T21:48:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46476003_f3733934",
       "range": {
         "startLine": 188,
         "startChar": 85,
@@ -88,6 +136,54 @@
         "startChar": 82,
         "endLine": 37,
         "endChar": 84
+      },
+      "revId": "416063d1377c341657e57e1b6f0a65a14da091e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7753b5c8_eb3842b4",
+        "filename": "audio/aidl/android/hardware/audio/effect/state.gv",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-01-05T21:48:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1593a35d_59c4ff8d",
+      "range": {
+        "startLine": 37,
+        "startChar": 82,
+        "endLine": 37,
+        "endChar": 84
+      },
+      "revId": "416063d1377c341657e57e1b6f0a65a14da091e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11a1220b_adbc229b",
+        "filename": "audio/aidl/android/hardware/audio/effect/state.gv",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-01-05T21:48:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97aea3e2_6991a1a1",
+      "range": {
+        "startLine": 37,
+        "startChar": 96,
+        "endLine": 37,
+        "endChar": 98
       },
       "revId": "416063d1377c341657e57e1b6f0a65a14da091e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
