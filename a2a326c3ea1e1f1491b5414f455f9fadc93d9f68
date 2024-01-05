@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "35c6a79d_766d90b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-05T18:49:14Z",
+      "side": 1,
+      "message": "If we automatically copy the generated json to output, we do not even need to check in the generated json. Do you think we still need that in source?",
+      "parentUuid": "ef6d2389_55ee8ae5",
+      "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a817cc51_a37bfeef",
         "filename": "automotive/vehicle/tools/generate_emu_metadata/src/com/android/car/tool/EmuMetadataGenerator.java",
         "patchSetId": 5
@@ -67,6 +85,30 @@
       "writtenOn": "2024-01-05T16:40:55Z",
       "side": 1,
       "message": "Do we need to treat changemode and access specially here? \nThis is available from properties configs.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 65
+      },
+      "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "716f0af5_3aeffc95",
+        "filename": "automotive/vehicle/tools/generate_emu_metadata/src/com/android/car/tool/EmuMetadataGenerator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-05T18:49:14Z",
+      "side": 1,
+      "message": "This line checking access is because we might have multiple lines of access field. Actually the emulator is not using changemode or access, do we even need to add these fields?",
+      "parentUuid": "a817cc51_a37bfeef",
       "range": {
         "startLine": 331,
         "startChar": 0,
