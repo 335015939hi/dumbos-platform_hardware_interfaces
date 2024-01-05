@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2b5439a_6a018d84",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/AddressType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-01-05T22:43:57Z",
+      "side": 1,
+      "message": "```suggestion\n    /* Still may be fixed on the device and is not randomized on boot */\n```",
+      "revId": "6e3336c6302a152686eace072486254f98a94de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7916b83_a4a333a8",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
         "patchSetId": 1
@@ -60,6 +77,47 @@
         "endLine": 20,
         "endChar": 11
       },
+      "revId": "6e3336c6302a152686eace072486254f98a94de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d53270f_090d4d59",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-01-05T22:43:57Z",
+      "side": 1,
+      "message": "```suggestion\n * Normalized Attack Detector Metric\n```",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 11
+      },
+      "revId": "6e3336c6302a152686eace072486254f98a94de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19831d2b_da4839cc",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-01-05T22:43:57Z",
+      "side": 1,
+      "message": "I looked it up, and there\u0027s this much more information:\n\n```\nValues below “Attack unlikely” indicate the absence of an attacker.\nValues above “Attack is possible” indicate the presence of an attacker.\nIf a device is unable to determine a NADM value, then it shall report\na NADM value of 𝑈𝑛𝑘𝑛𝑜𝑤𝑛 (0xFF).\n```\n\nThere\u0027s a lot of room for the implementer to decide how to set those thresholds.\n\nWould you like that added?",
+      "parentUuid": "e7916b83_a4a333a8",
       "revId": "6e3336c6302a152686eace072486254f98a94de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
