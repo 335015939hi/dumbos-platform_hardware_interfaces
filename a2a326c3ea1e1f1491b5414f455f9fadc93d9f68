@@ -34,6 +34,47 @@
       "parentUuid": "7572e822_2fccc999",
       "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef6d2389_55ee8ae5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1907384
+      },
+      "writtenOn": "2024-01-05T16:40:55Z",
+      "side": 1,
+      "message": "If it\u0027s regenerated every time AIDL changes, do we need to commit JSON result to source tree?\nI was thinking of adding PRODUCT_COPY_FILES to emulator\u0027s product makefile for take this json from gen folder and placing into out root.",
+      "parentUuid": "3e9486c2_a8433888",
+      "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a817cc51_a37bfeef",
+        "filename": "automotive/vehicle/tools/generate_emu_metadata/src/com/android/car/tool/EmuMetadataGenerator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1907384
+      },
+      "writtenOn": "2024-01-05T16:40:55Z",
+      "side": 1,
+      "message": "Do we need to treat changemode and access specially here? \nThis is available from properties configs.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 65
+      },
+      "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
