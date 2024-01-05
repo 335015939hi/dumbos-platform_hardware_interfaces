@@ -129,6 +129,30 @@
       },
       "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81b4624c_5d161203",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-05T23:46:35Z",
+      "side": 1,
+      "message": "Freezing interfaces is automated as of last year. We don\u0027t want to make it into a whole big thing.\n\nWe may need a flag to block an interface from being frozen (or manually remove interfaces), but we don\u0027t want to have to do any work here. One auto-generated topic to move the release up. If we\u0027re doing more effort than that, we should fix it :)",
+      "parentUuid": "2fa234c7_98ad199a",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 42
+      },
+      "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
