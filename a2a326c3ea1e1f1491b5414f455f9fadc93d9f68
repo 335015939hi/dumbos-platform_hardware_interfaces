@@ -16,6 +16,24 @@
       "message": "If I understand correct, any change made in AIDL will now automatically generate a changed meta.json?",
       "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e9486c2_a8433888",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-05T02:37:15Z",
+      "side": 1,
+      "message": "Not automatically generate since build system cannot replace source, but the build will fail and an error message will ask the user to copy a generated file to the source file directory.",
+      "parentUuid": "7572e822_2fccc999",
+      "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
