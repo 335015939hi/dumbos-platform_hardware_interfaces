@@ -70,6 +70,7 @@ union Parameter {
     int ioHandle;
     android.media.audio.common.AudioConfig input;
     android.media.audio.common.AudioConfig output;
+    @nullable android.hardware.audio.effect.IEffectCallback effectCallback;
   }
   @VintfStability
   parcelable VolumeStereo {
