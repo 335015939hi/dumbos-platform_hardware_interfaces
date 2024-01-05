@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd000cc_73a31ee9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-05T19:22:12Z",
+      "side": 1,
+      "message": "On a second thought. it will be better for readability and for developers to copy and use if we keep that in source. I am okay for adding a product copy rule for emulator targets. will write a separate cl.",
+      "parentUuid": "35c6a79d_766d90b0",
+      "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a817cc51_a37bfeef",
