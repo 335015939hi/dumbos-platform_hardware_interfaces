@@ -54,7 +54,16 @@ interface IEffect {
     }
 
     /**
-     * Return data structure of IEffect.open() interface.
+     * Return data structure of the IEffect.open() and IEffect.reopen() interface.
+     *
+     * Contains Fast Message Queues (FMQs) for effect processing status and input/output data.
+     * The status FMQ remains valid and unchanged after opening, while input/output data FMQs can be
+     * modified with changes in input/output AudioConfig. If reallocation of data FMQ is necessary,
+     * the effect instance must release the existing data FMQs to signal the need to the audio
+     * framework.
+     * When the audio framework encounters a valid status FMQ and invalid input/output data FMQs,
+     * it must invoke the IEffect.reopen() interface to request the effect instance to reallocate
+     * the FMQ and return to the audio framework.
      */
     @VintfStability
     parcelable OpenEffectReturn {
@@ -165,4 +174,24 @@ interface IEffect {
      * @throws EX_ILLEGAL_ARGUMENT if the effect instance receive unsupported parameter tag.
      */
     Parameter getParameter(in Parameter.Id paramId);
+
+    /**
+     * Reopen the effect instance, keeping all previous parameters unchanged, and reallocate only
+     * the Fast Message Queues (FMQs) allocated during the open time as needed.
+     *
+     * When the audio framework encounters a valid status FMQ and invalid data FMQ(s), it calls
+     * this interface to reopen the effect and request the latest data FMQ.
+     * Upon receiving this call, if the effect instance's data FMQ(s) is invalid, it must reallocate
+     * the necessary data FMQ(s) and return them to the audio framework. All previous parameters and
+     * states keep unchanged.
+     * Once the audio framework successfully completes the call, it must validate the returned FMQs
+     * FMQs, deprecate all old FMQs, and exclusively use the FMQs returned from this interface.
+     *
+     * @return The reallocated data FMQ and the original status FMQ.
+     *
+     * @throws EX_ILLEGAL_STATE if the effect instance is not in a proper state  to reallocate FMQ.
+     * This may occur if the effect instance has already been closed or if there is no need to
+     * update any data FMQ.
+     */
+    OpenEffectReturn reopen();
 }
