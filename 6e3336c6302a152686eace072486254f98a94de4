@@ -120,6 +120,24 @@
       "parentUuid": "e7916b83_a4a333a8",
       "revId": "6e3336c6302a152686eace072486254f98a94de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4937cf61_ab86634c",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Nadm.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-05T22:47:39Z",
+      "side": 1,
+      "message": "That seems good to add. The `unable to determine` bit is helpful at least. Referencing that part section the spec is fine, especially if we think it will be updated in the future.",
+      "parentUuid": "19831d2b_da4839cc",
+      "revId": "6e3336c6302a152686eace072486254f98a94de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
