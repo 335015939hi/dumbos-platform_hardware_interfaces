@@ -36,6 +36,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b4a1dde_50171c57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-06T00:10:54Z",
+      "side": 1,
+      "message": "a",
+      "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b7fcf52_65d0a138",
@@ -169,6 +186,30 @@
       "side": 1,
       "message": "If we tie this step to finalization instead of submitting this early, that means we don\u0027t have an option to freeze any interfaces before finalization.\n\nI think it makes sense in testing (if we are building `next` after we freeze everything in testing), but I thought we might want the flexibility. \n\nSubmitting this early also has a side effect of letting partners use these interfaces on `next`.",
       "parentUuid": "81b4624c_5d161203",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 42
+      },
+      "revId": "53307a043abc9a77e08b1ff3684664534c28257e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b95ca37d_da7e6fa0",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-06T00:10:54Z",
+      "side": 1,
+      "message": "We can make this one of the first steps and make it an optional finalization step (e.g. if we need it we can do something like b/318883690). So if we have a way to read what is the latest compat matrix version then it can say:\n\n\n\"if the current compat matrix \u003e\u003d FINAL_COMPATIBILITY_MATRIX_LEVEL: continue\"\n\nor similar - that way we have the option to freeze the compat matrix manually, but we still automatically test freezing the compat matrix\n\n\nNote automation is important so that we automatically test that we can freeze it and things still build/boot/work after frozen, even when we\u0027re not ready to freeze it. We don\u0027t want late surprises.",
+      "parentUuid": "da587958_b4fe4e35",
       "range": {
         "startLine": 109,
         "startChar": 0,
