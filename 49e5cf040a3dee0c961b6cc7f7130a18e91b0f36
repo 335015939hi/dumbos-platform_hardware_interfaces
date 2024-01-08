@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dbb54f4_58d5c1e7",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-01-08T16:52:24Z",
+      "side": 1,
+      "message": "maybe we should consider output MQ availbility before processing to avoid losing data, I will followup on this",
+      "range": {
+        "startLine": 148,
+        "startChar": 9,
+        "endLine": 148,
+        "endChar": 23
+      },
+      "revId": "49e5cf040a3dee0c961b6cc7f7130a18e91b0f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
