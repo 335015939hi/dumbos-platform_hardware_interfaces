@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a0a52f_3c2f22de",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-08T16:27:53Z",
+      "side": 1,
+      "message": "It looks like the cpp backend is enabled and currently used by Android Auto 😞 If we have to keep the cpp backend enabled, then we can\u0027t use `PersistableBundle`.\n\nPresubmit build errors:\n```\nERROR: frameworks/native/aidl/binder/android/os/PersistableBundle.aidl:20.62-80: android.os.PersistableBundle does not have VINTF level stability (marked @VintfStability), but this interface requires it in cpp\n```\n\nAndroid Auto use: https://source.corp.google.com/search?q\u003df:android.bp%20android.hardware.bluetooth-V1-cpp\u0026sq\u003drepo:googleplex-android%2Fplatform%2Fsuperproject%2Fmain%20b:main%20-f:prebuilts\n\nSo we need to go back to using a byte array unless we can migrate the android auto use to the ndk backend.",
+      "range": {
+        "startLine": 65,
+        "startChar": 14,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "133cc15d3b787f4cd90a5327fb32eff65cd74450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
