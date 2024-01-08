@@ -46,6 +46,30 @@
       },
       "revId": "49e5cf040a3dee0c961b6cc7f7130a18e91b0f36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46cccc69_6027fb93",
+        "filename": "audio/aidl/default/EffectThread.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-08T18:51:53Z",
+      "side": 1,
+      "message": "Capping also seems like a better idea to me.",
+      "parentUuid": "2084e40f_317a69f6",
+      "range": {
+        "startLine": 148,
+        "startChar": 9,
+        "endLine": 148,
+        "endChar": 23
+      },
+      "revId": "49e5cf040a3dee0c961b6cc7f7130a18e91b0f36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
