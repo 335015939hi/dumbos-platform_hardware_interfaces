@@ -104,6 +104,24 @@
       "parentUuid": "1f866e4c_85cd2cdd",
       "revId": "3029bca3b3a2bfad6c8f1a1a3522027fd7da98bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d09767a_dfee314d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-01-08T18:58:30Z",
+      "side": 1,
+      "message": "I expanded the commit message to explain why there is no change in behavior.",
+      "parentUuid": "af63d290_c43092ad",
+      "revId": "3029bca3b3a2bfad6c8f1a1a3522027fd7da98bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
