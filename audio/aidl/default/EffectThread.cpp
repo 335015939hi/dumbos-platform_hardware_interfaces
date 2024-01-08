@@ -149,7 +149,11 @@ void EffectThread::process_l() {
     if (processSamples) {
         inputMQ->read(buffer, processSamples);
         IEffect::Status status = effectProcessImpl(buffer, buffer, processSamples);
-        outputMQ->write(buffer, status.fmqProduced);
+        if (!outputMQ->write(buffer, status.fmqProduced)) {
+            LOG(ERROR) << mName << __func__ << " : write failed to output FMQ for samples "
+                       << status.fmqProduced << " FMQ capacity to write "
+                       << outputMQ->availableToWrite();
+        }
         statusMQ->writeBlocking(&status, 1);
         LOG(VERBOSE) << mName << __func__ << ": done processing, effect consumed "
                      << status.fmqConsumed << " produced " << status.fmqProduced;
