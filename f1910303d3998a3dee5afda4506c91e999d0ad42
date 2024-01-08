@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c6a5145_b71831ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-08T12:23:20Z",
+      "side": 1,
+      "message": "This patch changes the hardcoded policy to correspond to the new \u0026 explicit key dice chain, hardcoded in https://android-review.git.corp.google.com/c/platform/system/secretkeeper/+/2879691/7/core/src/ta.rs\nPlease review",
+      "revId": "f1910303d3998a3dee5afda4506c91e999d0ad42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

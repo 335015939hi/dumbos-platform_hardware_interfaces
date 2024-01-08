@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca7ff0a5_3ee39ebb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-08T12:23:20Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "fd84ee00_9a89d4e1",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "c10da074dd03dff5e983af1937d4d2cc6a80d13e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29d45f6e_50a5357d",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-01-04T12:41:45Z",
       "side": 1,
       "message": "pre-existing: needs a comment indicating what schema this CBOR data complies with",
+      "revId": "c10da074dd03dff5e983af1937d4d2cc6a80d13e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "900e9054_e2a92cf9",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-08T12:23:20Z",
+      "side": 1,
+      "message": "This was a temporary DICE_POLICY, removed in subsequent patch. Lets leave the documentation as is.",
+      "parentUuid": "29d45f6e_50a5357d",
       "revId": "c10da074dd03dff5e983af1937d4d2cc6a80d13e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -72,6 +114,24 @@
       "side": 1,
       "message": "Ack. Most of the code is in other patches of the topic. I\u0027ll get those along along with this reviewed early next week.",
       "parentUuid": "9fd65f4e_4ed9405b",
+      "revId": "c10da074dd03dff5e983af1937d4d2cc6a80d13e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "525a7f90_525fb0a1",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-08T12:23:20Z",
+      "side": 1,
+      "message": "This dice_policy is corresponding to the updated dice chain in https://android-review.git.corp.google.com/c/platform/system/secretkeeper/+/2879691/7/core/src/ta.rs",
+      "parentUuid": "e07f6ee9_d8dca6fe",
       "revId": "c10da074dd03dff5e983af1937d4d2cc6a80d13e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
