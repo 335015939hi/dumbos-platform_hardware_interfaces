@@ -159,6 +159,30 @@
       },
       "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a670a8c2_e676c83d",
+        "filename": "automotive/vehicle/tools/generate_emu_metadata/src/com/android/car/tool/EmuMetadataGenerator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1907384
+      },
+      "writtenOn": "2024-01-08T22:54:10Z",
+      "side": 1,
+      "message": "Emulator gets that information from property configs.",
+      "parentUuid": "d3e58c48_6f462ecf",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 65
+      },
+      "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
