@@ -339,6 +339,24 @@
       "parentUuid": "a33ebcfa_b1f4e942",
       "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c4143b_39dd9053",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-08T12:43:42Z",
+      "side": 1,
+      "message": "Updated a bit. Always tricky to document a helper method because it requires documenting caller\u0027s behaviour.",
+      "parentUuid": "366343a6_a8cbfe91",
+      "revId": "ecd350a13f079f3b6bb2c0d57ce5d6f3a8831539",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
