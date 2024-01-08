@@ -22,6 +22,30 @@
       },
       "revId": "133cc15d3b787f4cd90a5327fb32eff65cd74450",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99cc84c1_7150cf58",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-01-08T18:23:11Z",
+      "side": 1,
+      "message": "Migration example: http://ag/25543787. Remote bluetooth wss done by @samdaria@google.com.",
+      "parentUuid": "c8a0a52f_3c2f22de",
+      "range": {
+        "startLine": 65,
+        "startChar": 14,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "133cc15d3b787f4cd90a5327fb32eff65cd74450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
