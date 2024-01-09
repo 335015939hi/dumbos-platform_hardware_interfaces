@@ -70,6 +70,30 @@
       },
       "revId": "40f1230a1d4d16d574aeacac84d1fb4e3b0150b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0457d4f5_9869971b",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2024-01-09T22:59:05Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "f4264847_0e965542",
+      "range": {
+        "startLine": 92,
+        "startChar": 34,
+        "endLine": 92,
+        "endChar": 48
+      },
+      "revId": "40f1230a1d4d16d574aeacac84d1fb4e3b0150b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
