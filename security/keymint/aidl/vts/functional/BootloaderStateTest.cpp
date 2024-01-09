@@ -94,6 +94,9 @@ inline bool avb_slot_data_loaded(AvbSlotVerifyResult result) {
 // Check that the Android vbmeta digest property matches the calculated value.
 // This test does not involve KeyMint!
 TEST(VbmetaDigest, CalculatedMatchesProperty) {
+    if (is_gsi_image()) {
+        GTEST_SKIP() << "Don't check vbmeta digest consistency on a GSI device";
+    }
     // Get the vbmeta digest from the Android property.
     auto vbmeta_digest = GetVbmetaDigestProperty();
     if (!vbmeta_digest.has_value()) {
@@ -205,6 +208,9 @@ TEST_P(BootloaderStateTest, VbStateIsUnverified) {
 
 // Check that attested vbmeta digest is correct.
 TEST_P(BootloaderStateTest, VbmetaDigest) {
+    if (is_gsi_image()) {
+        GTEST_SKIP() << "Don't check vbmeta digest consistency on a GSI device";
+    }
     AvbSlotVerifyData* avbSlotData;
     auto suffix = fs_mgr_get_slot_suffix();
     const char* partitions[] = {nullptr};
