@@ -282,6 +282,9 @@ IEffect::Status DynamicsProcessingSw::effectProcessImpl(float* in, float* out, i
 }
 
 RetCode DynamicsProcessingSwContext::setCommon(const Parameter::Common& common) {
+    if (auto ret = handleCommonDataMqUpdate(common); ret != RetCode::SUCCESS) {
+        return ret;
+    }
     mCommon = common;
     mChannelCount = ::aidl::android::hardware::audio::common::getChannelCount(
             common.input.base.channelMask);
