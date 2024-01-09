@@ -16,6 +16,23 @@
       "message": "This change fixes a build error that happens after upgrading libc++.\n\nThe old std::accumulate in external/libcxx is just this:\n\n```\ntemplate \u003cclass _InputIterator, class _Tp, class _BinaryOperation\u003e\ninline _LIBCPP_INLINE_VISIBILITY\n_Tp\naccumulate(_InputIterator __first, _InputIterator __last, _Tp __init, _BinaryOperation __binary_op)\n{\n    for (; __first !\u003d __last; ++__first)\n        __init \u003d __binary_op(__init, *__first);\n    return __init;\n}\n```\n\nThe toString/toEnumString lambdas\u0027 implicit return type is std::string, not std::string\u0026, so IIUC, each accumulation step modifies the `__init`/`ls` object, then copies the string for the lambda return. The copy is then moved into `__init`.\n\nThe new std::accumulate in clang-r498229b is:\n\n```\ntemplate \u003cclass _InputIterator, class _Tp, class _BinaryOperation\u003e\n_LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_SINCE_CXX20\n_Tp\naccumulate(_InputIterator __first, _InputIterator __last, _Tp __init, _BinaryOperation __binary_op)\n{\n    for (; __first !\u003d __last; ++__first)\n#if _LIBCPP_STD_VER \u003e\u003d 20\n        __init \u003d __binary_op(_VSTD::move(__init), *__first);\n#else\n        __init \u003d __binary_op(__init, *__first);\n#endif\n    return __init;\n}\n```\n\nFor C++20 and up, the lambda is passed an rvalue-reference (i.e. `std::move(acc)`), and the code doesn\u0027t compile because it expects an lvalue-reference. This C++20 change is only implemented with a newer version of libc++.\n\nI suppose we could avoid the copies (more efficient!) by:\n - changing `ls`\u0027s type to `std::string\u0026\u0026`\n - modifying `ls` in-place\n - then returning `std::move(ls)`.\n\nHowever, that code then wouldn\u0027t compile with the old libc++. I don\u0027t think it\u0027s worth it, so this CL is good.\n\nFor reference, the build error being fixed:\n```\nIn file included from hardware/interfaces/automotive/audiocontrol/aidl/default/AudioControl.cpp:34:\nIn file included from prebuilts/clang/host/linux-x86/clang-r498229b/include/c++/v1/numeric:152:\nprebuilts/clang/host/linux-x86/clang-r498229b/include/c++/v1/__numeric/accumulate.h:43:18: error: no matching function for call to object of type \u0027(lambda at hardware/interfaces/automotive/audiocontrol/aidl/default/AudioControl.cpp:254:28)\u0027\n        __init \u003d __binary_op(_VSTD::move(__init), *__first);\n                 ^~~~~~~~~~~\nhardware/interfaces/automotive/audiocontrol/aidl/default/AudioControl.cpp:253:17: note: in instantiation of function template specialization \u0027std::accumulate\u003cstd::__wrap_iter\u003cconst aidl::android::hardware::automotive::audiocontrol::Reasons *\u003e, std::string, (lambda at hardware/interfaces/automotive/audiocontrol/aidl/default/AudioControl.cpp:254:28)\u003e\u0027 requested here\n    return std::accumulate(std::begin(in_values), std::end(in_values), std::string{},\n                ^\nhardware/interfaces/automotive/audiocontrol/aidl/default/AudioControl.cpp:269:59: note: in instantiation of function template specialization \u0027aidl::android::hardware::automotive::audiocontrol::toEnumString\u003caidl::android::hardware::automotive::audiocontrol::Reasons\u003e\u0027 requested here\n    LOG(INFO) \u003c\u003c \"Audio Device Gains changed: resons:\" \u003c\u003c toEnumString(in_reasons).c_str()\n                                                          ^\nhardware/interfaces/automotive/audiocontrol/aidl/default/AudioControl.cpp:254:28: note: candidate function not viable: expects an lvalue for 1st argument\n                           [](std::string\u0026 ls, const aidl_enum_type\u0026 rs) {\n                           ^\nhardware/interfaces/automotive/audiocontrol/aidl/default/AudioControl.cpp:254:28: note: conversion candidate of type \u0027string (*)(std::string \u0026, const aidl::android::hardware::automotive::audiocontrol::Reasons \u0026)\u0027 (aka \u0027std::string (*)(basic_string\u003cchar\u003e \u0026, const aidl::android::hardware::automotive::audiocontrol::Reasons \u0026)\u0027)\n```",
       "revId": "5370670c4ace3d2de85ae71c39a82470e4110319",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "833fc829_768567fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-01-09T21:01:28Z",
+      "side": 1,
+      "message": "(This change still needs approval from a code owner, though.)",
+      "revId": "5370670c4ace3d2de85ae71c39a82470e4110319",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
