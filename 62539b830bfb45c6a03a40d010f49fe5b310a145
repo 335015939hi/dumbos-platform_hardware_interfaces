@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2635884e_fb63e0b5",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-01-09T02:04:14Z",
+      "side": 1,
+      "message": "I would prefer a full test skip with `GTEST_SKIP`, rather than changing the whole logic of the inner test functions or adding a \"failure flow\" for every test. This way we only maintain the expected flow when testing.\n\nWill need @yuyangh@google.com and @mylesgw@google.com opinion on this one.",
+      "parentUuid": "2fbd04fa_f21a0dc4",
+      "range": {
+        "startLine": 1520,
+        "startChar": 1,
+        "endLine": 1521,
+        "endChar": 6
+      },
+      "revId": "62539b830bfb45c6a03a40d010f49fe5b310a145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "783c428f_67b9b1bf",
         "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
         "patchSetId": 7
