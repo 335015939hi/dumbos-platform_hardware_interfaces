@@ -183,6 +183,30 @@
       },
       "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4efc6e3a_2dc06c82",
+        "filename": "automotive/vehicle/tools/generate_emu_metadata/src/com/android/car/tool/EmuMetadataGenerator.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-09T01:19:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a670a8c2_e676c83d",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 65
+      },
+      "revId": "a2a326c3ea1e1f1491b5414f455f9fadc93d9f68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
