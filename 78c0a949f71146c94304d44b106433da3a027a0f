@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6254912a_c9ccfd43",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 1886547
+      },
+      "writtenOn": "2024-01-10T05:39:03Z",
+      "side": 1,
+      "message": "This comment clearly says , due to non existant mcc mnc , lte cannot be camped.\n\"https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2884867/5/radio/aidl/vts/radio_network_test.cpp#1165\"\n\nSo in that case why do we need to guard it with condition, when we know at this test case, device will not be in LTE service always? \n\nCannot we just enhance the CheckAnyOfErrors with additional error , RadioError::MODEM_ERR?",
+      "range": {
+        "startLine": 1177,
+        "startChar": 7,
+        "endLine": 1177,
+        "endChar": 27
+      },
+      "revId": "78c0a949f71146c94304d44b106433da3a027a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
