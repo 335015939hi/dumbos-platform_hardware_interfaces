@@ -22,6 +22,30 @@
       },
       "revId": "78c0a949f71146c94304d44b106433da3a027a0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd6c3554_409b4131",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1177,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2024-01-10T06:48:08Z",
+      "side": 1,
+      "message": "Thank you for your suggestion,your suggestion is reasonable, I have removed this conditional judgment and just enhance the CheckAnyOfErrors with additional error , RadioError::MODEM_ERR",
+      "parentUuid": "6254912a_c9ccfd43",
+      "range": {
+        "startLine": 1177,
+        "startChar": 7,
+        "endLine": 1177,
+        "endChar": 27
+      },
+      "revId": "78c0a949f71146c94304d44b106433da3a027a0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
