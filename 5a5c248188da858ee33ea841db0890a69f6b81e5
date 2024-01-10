@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "08542cac_e1fa6be2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-10T16:56:34Z",
+      "side": 1,
+      "message": "Oh, and sorry for the merge conflict...",
+      "revId": "5a5c248188da858ee33ea841db0890a69f6b81e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "080a8036_03b84eba",
         "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
         "patchSetId": 1
