@@ -140,6 +140,30 @@
       },
       "revId": "36f10ced33fe822e1c3ce0ea4239332ca7369ef9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0847c10_30d5b9df",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2024-01-10T06:55:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "69f7265f_25c3896e",
+      "range": {
+        "startLine": 1184,
+        "startChar": 6,
+        "endLine": 1187,
+        "endChar": 9
+      },
+      "revId": "36f10ced33fe822e1c3ce0ea4239332ca7369ef9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
