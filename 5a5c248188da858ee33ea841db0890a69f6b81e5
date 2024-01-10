@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "080a8036_03b84eba",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-10T16:53:32Z",
+      "side": 1,
+      "message": "super-nit: variant names stutter",
+      "revId": "5a5c248188da858ee33ea841db0890a69f6b81e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b2ad029_2bcb26f1",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-10T16:53:32Z",
+      "side": 1,
+      "message": "Why not just `assert!(matches!(e, ....), \"Unexpected error {e:?}\");` ?\n\nAlso, given how it\u0027s used, why not make it:\n```rust\nfn assert_not_found(result: Result\u003cSecret, Error\u003e) {\n    assert!(matches!(result, Err(Error::SecretkeeperError(SecretkeeperError::EntryNotFound)), \"Unexpected error {result:?}\")\n}\n```\n\nand then all the callers will just be:\n\n```rust\n    assert_not_found(sk_client.get(\u0026ID_NOT_STORED));\n```",
+      "range": {
+        "startLine": 291,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 5
+      },
+      "revId": "5a5c248188da858ee33ea841db0890a69f6b81e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11fe5656_895f117c",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-10T16:53:32Z",
+      "side": 1,
+      "message": "might be worth a sentence to explain *why* this is a Binder error (IIUC it\u0027s because an incorrect sequence number gives an encryption failure, which then can\u0027t be reported inside an encrypted response).",
+      "revId": "5a5c248188da858ee33ea841db0890a69f6b81e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
