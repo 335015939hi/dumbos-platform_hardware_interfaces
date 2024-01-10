@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "814c6f65_f4b5060a",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2024-01-10T20:12:33Z",
+      "side": 1,
+      "message": "Cool, it sounds like the opaque and generic operations would be mutually exclusive.",
+      "parentUuid": "7942d012_08e329a9",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 85
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6fd083a_2cbdcec5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
         "patchSetId": 7
@@ -157,6 +181,30 @@
       "side": 1,
       "message": "If we are just using something DH related yes (and on a DH implementation this would be that) but we are also getting ready to have some post-quantum algorithm. Using a KEM let us generalize the concept to a point on which we are not using a DH based algorithm anymore.",
       "parentUuid": "c6fd083a_2cbdcec5",
+      "range": {
+        "startLine": 111,
+        "startChar": 34,
+        "endLine": 111,
+        "endChar": 70
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13be5da7_0e9e39ec",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2024-01-10T20:12:33Z",
+      "side": 1,
+      "message": "Okay, I see what you mean. Are you planning to use a KEM with `secureKeyImport` as well?",
+      "parentUuid": "474ed44c_c95581cb",
       "range": {
         "startLine": 111,
         "startChar": 34,
