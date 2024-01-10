@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7c56029_fa50e15c",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1521,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-10T19:35:22Z",
+      "side": 1,
+      "message": "I mean, more testing coverage is good? I still approved this change.",
+      "parentUuid": "2635884e_fb63e0b5",
+      "range": {
+        "startLine": 1520,
+        "startChar": 1,
+        "endLine": 1521,
+        "endChar": 6
+      },
+      "revId": "62539b830bfb45c6a03a40d010f49fe5b310a145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "783c428f_67b9b1bf",
         "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
         "patchSetId": 7
