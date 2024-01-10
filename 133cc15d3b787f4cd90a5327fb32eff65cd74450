@@ -46,6 +46,30 @@
       },
       "revId": "133cc15d3b787f4cd90a5327fb32eff65cd74450",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d13784b7_ca60ec1e",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingSingleSideData.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-10T01:44:06Z",
+      "side": 1,
+      "message": "More info in b/318763088, but I think this actually makes sense as a `byte[]` if the Bluetooth stack gets the data directly from the chip, per the spec, and sends it untouched to the vendor HAL.\n\nSo we can drop the `PersistableBundle` here and use `byte[]` instead and keep the cpp backend enabled.",
+      "parentUuid": "99cc84c1_7150cf58",
+      "range": {
+        "startLine": 65,
+        "startChar": 14,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "133cc15d3b787f4cd90a5327fb32eff65cd74450",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
