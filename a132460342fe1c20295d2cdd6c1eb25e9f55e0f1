@@ -16,6 +16,98 @@
       "message": "ERROR: hardware/interfaces/media/bufferpool/aidl/aidl_api/android.hardware.media.bufferpool2/current/android/hardware/media/bufferpool2/IConnection.aidl:38.63-69: Transaction ID changed: android.hardware.media.bufferpool2.IConnection.fetch(android.hardware.media.bufferpool2.IConnection.FetchInfo[]) is changed from 0 to 1.\nERROR: hardware/interfaces/media/bufferpool/aidl/aidl_api/android.hardware.media.bufferpool2/current/android/hardware/media/bufferpool2/IConnection.aidl:40.7-12: Transaction ID changed: android.hardware.media.bufferpool2.IConnection.sync() is changed from 1 to 3.\n###############################################################################\n# ERROR: Backward incompatible change detected on AIDL API                    #\n###############################################################################\nAbove AIDL file(s) has changed in a backward-incompatible way, e.g. removing\na method from an interface or a field from a parcelable. If a device is shipped\nwith this change by ignoring this message, it has a high risk of breaking later\nwhen a module using the interface is updated, e.g., Maineline modules.\n19:22:33 ninja failed with: exit status 1",
       "revId": "a132460342fe1c20295d2cdd6c1eb25e9f55e0f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64719af5_b1ea5117",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/HwbBuffer.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-11T19:26:29Z",
+      "side": 1,
+      "message": "Can we document who decides on this ID? Does it have to be unique, can be it negative, ext.",
+      "range": {
+        "startLine": 26,
+        "startChar": 4,
+        "endLine": 26,
+        "endChar": 11
+      },
+      "revId": "a132460342fe1c20295d2cdd6c1eb25e9f55e0f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d50ef73_f794b83e",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-11T19:26:29Z",
+      "side": 1,
+      "message": "`defined` from the Lint.",
+      "range": {
+        "startLine": 78,
+        "startChar": 15,
+        "endLine": 78,
+        "endChar": 23
+      },
+      "revId": "a132460342fe1c20295d2cdd6c1eb25e9f55e0f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8e1ad09_dd3447ec",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-11T19:26:29Z",
+      "side": 1,
+      "message": "`must`?",
+      "range": {
+        "startLine": 86,
+        "startChar": 29,
+        "endLine": 86,
+        "endChar": 35
+      },
+      "revId": "a132460342fe1c20295d2cdd6c1eb25e9f55e0f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "643a99b4_a30838fa",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-11T19:26:29Z",
+      "side": 1,
+      "message": "`must`?",
+      "range": {
+        "startLine": 106,
+        "startChar": 29,
+        "endLine": 106,
+        "endChar": 35
+      },
+      "revId": "a132460342fe1c20295d2cdd6c1eb25e9f55e0f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
