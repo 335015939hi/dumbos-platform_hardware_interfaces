@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1176c0e_0c5b8f02",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-11T09:19:07Z",
+      "side": 1,
+      "message": "Oh, it\u0027s just that using a variant is going to involve typing \"Error\" at least twice, maybe even five times: `Error::SecretkeeperError(error::SecretkeeperError::SerializationError)`\n\nThere\u0027s a [Clippy lint](https://rust-lang.github.io/rust-clippy/rust-1.75.0/index.html#/enum_variant_names) for this, but I guess it\u0027s not enabled.\n\nNot necessarily worth changing, but worth bearing in mind for the future -- `Error::Secretkeeper(error::SecretkeeperError::Serialization)` is shorter and just as clear.",
+      "parentUuid": "2228e111_b01cfbb0",
+      "revId": "5a5c248188da858ee33ea841db0890a69f6b81e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b2ad029_2bcb26f1",
