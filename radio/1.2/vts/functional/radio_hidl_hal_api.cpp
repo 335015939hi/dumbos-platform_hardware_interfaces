@@ -807,11 +807,17 @@ TEST_P(RadioHidlTest_v1_2, getDataRegistrationState) {
             cellIdentities.cellIdentityTdscdma[0];
         hidl_mcc = cit.base.mcc;
         hidl_mnc = cit.base.mnc;
-    } else {
+    } else if (cellInfoType == CellInfoType::CDMA) {
         // CellIndentityCdma has no mcc and mnc.
         EXPECT_EQ(CellInfoType::CDMA, cellInfoType);
         EXPECT_EQ(1, cellIdentities.cellIdentityCdma.size());
         checkMccMnc = false;
+    } else {
+        // On devices camped over NR networks this branch will
+        // always be taken since the device isn't on any of the
+        // supported types found in CellInfoType.
+        // As of Radio 1.4 the type is found using a Discriminator.
+        GTEST_SKIP();
     }
 
     // Check only one CellIdentity is size 1, and others must be 0.
