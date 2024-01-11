@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f358a5dd_cdbfd49a",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1182,
+      "author": {
+        "id": 1886547
+      },
+      "writtenOn": "2024-01-11T13:11:53Z",
+      "side": 1,
+      "message": "typo : -\u003e ::",
+      "range": {
+        "startLine": 1182,
+        "startChar": 27,
+        "endLine": 1182,
+        "endChar": 28
+      },
+      "revId": "d90375edb5070843432e0ed67d8e6bf6b502583a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eb6e37b_1a3af830",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1182,
+      "author": {
+        "id": 1886547
+      },
+      "writtenOn": "2024-01-11T13:11:53Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 1182,
+        "startChar": 61,
+        "endLine": 1182,
+        "endChar": 62
+      },
+      "revId": "d90375edb5070843432e0ed67d8e6bf6b502583a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
