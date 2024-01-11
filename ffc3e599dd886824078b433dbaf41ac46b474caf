@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e234060a_cbdf4d9a",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-11T22:31:04Z",
+      "side": 1,
+      "message": "add something like `@deprecated as of V2, use fetch2 instead`.",
+      "range": {
+        "startLine": 57,
+        "startChar": 5,
+        "endLine": 57,
+        "endChar": 8
+      },
+      "revId": "ffc3e599dd886824078b433dbaf41ac46b474caf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
