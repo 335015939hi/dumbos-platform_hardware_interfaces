@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2018f42d_2ced2a67",
+        "filename": "media/bufferpool/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-11T21:29:01Z",
+      "side": 1,
+      "message": "Do I need libnativewinow library for ndk?",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 28
+      },
+      "revId": "0b7f231df5eb30c3cac9af03b6ad5614468044e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
