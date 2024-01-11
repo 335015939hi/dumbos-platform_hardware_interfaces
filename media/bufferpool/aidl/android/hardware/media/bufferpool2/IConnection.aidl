@@ -17,6 +17,7 @@
 package android.hardware.media.bufferpool2;
 
 import android.hardware.media.bufferpool2.Buffer;
+import android.hardware.media.bufferpool2.Buffer2;
 import android.hardware.media.bufferpool2.ResultStatus;
 
 /**
@@ -78,4 +79,37 @@ interface IConnection {
      * This method can ensure pending bufferpool messages being processed timely.
      */
     void sync();
+
+    union FetchResult2 {
+        /**
+         * The fetched buffer on successful fetch.
+         */
+        Buffer2 buffer;
+        /**
+         * The reason of the request failure. Possible values are below.
+         *
+         * ResultStatus::NOT_FOUND        - A buffer was not found due to invalidation.
+         * ResultStatus::CRITICAL_ERROR   - Other errors.
+         */
+        int failure;
+    }
+
+    /**
+     * Retrieves buffers using an array of FetchInfo. (using Buffer version 2)
+     * Each element of FetchInfo array contains a bufferId and a transactionId
+     * for each buffer to fetch. The method must be called from receiving side of buffers
+     * during transferring only when the specified buffer is neither cached nor used.
+     *
+     * The method could have partial failures, in the case other successfully fetched buffers
+     * will be in returned result along with the failures. The order of the returned result
+     * will be the same with the fetchInfos.
+     *
+     * @param fetchInfos information of buffers to fetch
+     * @return Requested buffers.
+     *         If there are failures, reasons of failures are also included.
+     * @throws ServiceSpecificException with one of the following values:
+     *     ResultStatus::NO_MEMORY        - Memory allocation failure occurred.
+     *     ResultStatus::CRITICAL_ERROR   - Other errors.
+     */
+    FetchResult2[] fetch2(in FetchInfo[] fetchInfos);
 }
