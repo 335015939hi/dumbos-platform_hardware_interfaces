@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21fa46cd_0c705eb2",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1886547
+      },
+      "writtenOn": "2024-01-11T06:31:52Z",
+      "side": 1,
+      "message": "1.SIM present check do we really need ?\n\n2.Test needs to be alligned with HAL definition: With possible return values as per reference:\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/radio/aidl/android/hardware/radio/network/IRadioNetworkResponse.aidl;l\u003d438?q\u003diradionetworkresponse.aidl%20repo:platform%2Fsuperproject%2Fmain\n\nBelow possible return values are missing. So how about adding below return values?\ni.e. RadioError:OPERATION_NOT_ALLOWED, RadioError:NO_RESOURCES \u0026  RadioError:ILLEGAL_SIM_OR_ME",
+      "range": {
+        "startLine": 1176,
+        "startChar": 14,
+        "endLine": 1176,
+        "endChar": 65
+      },
+      "revId": "60bfcede04861216bdfd2c72330d50266ba63534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
