@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,23 +33,7 @@
 
 package android.hardware.media.bufferpool2;
 @VintfStability
-interface IConnection {
-  /**
-   * @deprecated as of V2, use fetch2 instead.
-   */
-  android.hardware.media.bufferpool2.IConnection.FetchResult[] fetch(in android.hardware.media.bufferpool2.IConnection.FetchInfo[] fetchInfos);
-  void sync();
-  android.hardware.media.bufferpool2.IConnection.FetchResult2[] fetch2(in android.hardware.media.bufferpool2.IConnection.FetchInfo[] fetchInfos);
-  parcelable FetchInfo {
-    long transactionId;
-    int bufferId;
-  }
-  union FetchResult {
-    android.hardware.media.bufferpool2.Buffer buffer;
-    int failure;
-  }
-  union FetchResult2 {
-    android.hardware.media.bufferpool2.Buffer2 buffer;
-    int failure;
-  }
+parcelable Buffer2 {
+  int id;
+  android.hardware.media.bufferpool2.BufferRepresentation buffer;
 }
