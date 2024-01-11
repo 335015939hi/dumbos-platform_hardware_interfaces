@@ -22,6 +22,30 @@
       },
       "revId": "0b7f231df5eb30c3cac9af03b6ad5614468044e0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a83a4bf_c3301c1a",
+        "filename": "media/bufferpool/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-11T21:50:59Z",
+      "side": 1,
+      "message": "Yes, it is needed. added to the ndk",
+      "parentUuid": "2018f42d_2ced2a67",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 28
+      },
+      "revId": "0b7f231df5eb30c3cac9af03b6ad5614468044e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
