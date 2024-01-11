@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f0d62d4_cc6765e6",
+        "filename": "broadcastradio/1.1/vts/functional/VtsHalBroadcastradioV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1955742
+      },
+      "writtenOn": "2024-01-11T06:11:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d238b59_fb047f5a",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 25
+      },
+      "revId": "5e07adc8ac6b18c4c293160f8f8a6e79cb4ed3ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd048663_430a6383",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-07-07T16:56:16Z",
       "side": 1,
       "message": "with GTEST_SKIP, these lines are not needed.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 15
+      },
+      "revId": "5e07adc8ac6b18c4c293160f8f8a6e79cb4ed3ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8085178a_99089b91",
+        "filename": "broadcastradio/1.1/vts/functional/VtsHalBroadcastradioV1_1TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1955742
+      },
+      "writtenOn": "2024-01-11T06:11:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd048663_430a6383",
       "range": {
         "startLine": 137,
         "startChar": 0,
