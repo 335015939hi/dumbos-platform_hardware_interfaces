@@ -16,6 +16,23 @@
       "message": "LGTM",
       "revId": "bf7475831634fbc991b1aea48da3b7689da44303",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90b6d721_d8a09828",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2024-01-11T08:34:54Z",
+      "side": 1,
+      "message": "LGTM, but can you merge this in to AOSP main first and then backport it to android14-tests-dev with merged-in? You don\u0027t need to abandon this CL, just cherry-pick it to main, review/merge the cherry-pick, and then add Merged-In to the commit message of this one.",
+      "revId": "bf7475831634fbc991b1aea48da3b7689da44303",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
