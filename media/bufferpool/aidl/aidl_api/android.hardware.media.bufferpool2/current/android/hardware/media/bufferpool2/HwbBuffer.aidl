@@ -33,23 +33,7 @@
 
 package android.hardware.media.bufferpool2;
 @VintfStability
-interface IConnection {
-  int getSupportedBufferType();
-  android.hardware.media.bufferpool2.IConnection.FetchResult[] fetch(in android.hardware.media.bufferpool2.IConnection.FetchInfo[] fetchInfos);
-  android.hardware.media.bufferpool2.IConnection.FetchHardwareBufferResult[] fetchHardwareBuffer(in android.hardware.media.bufferpool2.IConnection.FetchInfo[] fetchInfos);
-  void sync();
-  const int BUFFERTYPE_NATIVEHANDLE = 0;
-  const int BUFFERTYPE_HARDWAREBUFFER = 1;
-  parcelable FetchInfo {
-    long transactionId;
-    int bufferId;
-  }
-  union FetchResult {
-    android.hardware.media.bufferpool2.Buffer buffer;
-    int failure;
-  }
-  union FetchHardwareBufferResult {
-    android.hardware.media.bufferpool2.HwbBuffer buffer;
-    int failure;
-  }
+parcelable HwbBuffer {
+  int id;
+  android.hardware.HardwareBuffer buffer;
 }

@@ -17,6 +17,7 @@
 package android.hardware.media.bufferpool2;
 
 import android.hardware.media.bufferpool2.Buffer;
+import android.hardware.media.bufferpool2.HwbBuffer;
 import android.hardware.media.bufferpool2.ResultStatus;
 
 /**
@@ -26,6 +27,9 @@ import android.hardware.media.bufferpool2.ResultStatus;
  */
 @VintfStability
 interface IConnection {
+
+    const int BUFFERTYPE_NATIVEHANDLE = 0;
+    const int BUFFERTYPE_HARDWAREBUFFER = 1;
 
     parcelable FetchInfo {
         /**
@@ -52,8 +56,34 @@ interface IConnection {
         int failure;
     }
 
+    union FetchHardwareBufferResult {
+        /**
+         * The fetched AHardwareBuffer based buffer on successful fetch.
+         */
+         HwbBuffer buffer;
+        /**
+         * The reason of the request failure. Possible values are below.
+         *
+         * ResultStatus::NOT_FOUND        - A buffer was not found due to invalidation.
+         * ResultStatus::CRITICAL_ERROR   - Other errors.
+         */
+         int failure;
+    }
+
+    /**
+     * Return the supported buffer type for the connection.
+     * A connection will support only one type of buffer. Use proper fetch interfaces according
+     * to the supported type of buffer.
+     *
+     * @return definded const int for buffer type
+     *     BUFFERTYPE_NATIVEHANDLE      - native_handle_t based buffer
+     *     BUFFERTYPE_HARDWAREBUFFER    - AHardwareBuffer based buffer
+     */
+    int getSupportedBufferType();
+
     /**
      * Retrieves buffers using an array of FetchInfo.
+     * Supported buffer type should be BUFFERTYPE_NATIVEHANDLE.
      * Each element of FetchInfo array contains a bufferId and a transactionId
      * for each buffer to fetch. The method must be called from receiving side of buffers
      * during transferring only when the specified buffer is neither cached nor used.
@@ -70,6 +100,26 @@ interface IConnection {
      *     ResultStatus::CRITICAL_ERROR   - Other errors.
      */
     FetchResult[] fetch(in FetchInfo[] fetchInfos);
+
+    /**
+     * Retrieves buffers using an array of FetchInfo.
+     * Supported buffer type should be BUFFERTYPE_HARDWAREBUFFER.
+     * Each element of FetchInfo array contains a bufferId and a transactionId
+     * for each buffer to fetch. The method must be called from receiving side of buffers
+     * during transferring only when the specified buffer is neither cached nor used.
+     *
+     * The method could have partial failures, in the case other successfully fetched buffers
+     * will be in returned result along with the failures. The order of the returned result
+     * will be the same with the fetchInfos.
+     *
+     * @param fetchInfos information of buffers to fetch
+     * @return Requested buffers.
+     *         If there are failures, reasons of failures are also included.
+     * @throws ServiceSpecificException with one of the following values:
+     *     ResultStatus::NO_MEMORY        - Memory allocation failure occurred.
+     *     ResultStatus::CRITICAL_ERROR   - Other errors.
+     */
+    FetchHardwareBufferResult[] fetchHardwareBuffer(in FetchInfo[] fetchInfos);
 
     /**
      * Enforce processing of unprocessed bufferpool messages.

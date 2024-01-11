@@ -26,6 +26,9 @@ aidl_interface {
     vendor_available: true,
     double_loadable: true,
     srcs: ["android/hardware/media/bufferpool2/*.aidl"],
+    headers: [
+        "HardwareBuffer_aidl",
+    ],
     imports: [
         "android.hardware.common-V2",
         "android.hardware.common.fmq-V1",
@@ -59,6 +62,6 @@ aidl_interface {
             ],
         },
     ],
-    frozen: true,
+    frozen: false,
 
 }
