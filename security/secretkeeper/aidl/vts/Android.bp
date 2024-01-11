@@ -30,17 +30,42 @@ rust_test {
     ],
     test_config: "AndroidTest.xml",
     rustlibs: [
-        "libsecretkeeper_client",
-        "libsecretkeeper_comm_nostd",
-        "libsecretkeeper_core_nostd",
         "android.hardware.security.secretkeeper-V1-rust",
         "libauthgraph_boringssl",
         "libauthgraph_core",
-        "libcoset",
         "libauthgraph_vts_test",
         "libbinder_rs",
         "libcoset",
+        "libcoset",
         "liblog_rust",
+        "libsecretkeeper_client",
+        "libsecretkeeper_comm_nostd",
+        "libsecretkeeper_core_nostd",
     ],
     require_root: true,
+}
+
+rust_binary {
+    name: "secretkeeper_cli",
+    srcs: ["secretkeeper_cli.rs"],
+    lints: "android",
+    // TODO: including libauthgraph_boringssl or libsecretkeeper_client in the
+    // dependencies gives a binary that crashes on startup:
+    //
+    // secretkeeper_cl[10973]: segfault at 0 ip 0000000000000000 sp 00007ffcd4677a68 error 14 in secretkeeper_cli[200000+15000] likely on CPU 1 (core 0, socket 1)
+    //                         Code    : Unable to access opcode bytes at 0xffffffffffffffd6.
+    rustlibs: [
+        "android.hardware.security.secretkeeper-V1-rust",
+        "libanyhow",
+        "libauthgraph_boringssl",
+        "libauthgraph_core",
+        "libbinder_rs",
+        "libclap",
+        "libcoset",
+        "libhex",
+        "liblog_rust",
+        "libsecretkeeper_client",
+        "libsecretkeeper_comm_nostd",
+    ],
+    static_executable: true,
 }
