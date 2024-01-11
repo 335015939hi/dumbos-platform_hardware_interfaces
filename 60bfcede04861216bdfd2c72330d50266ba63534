@@ -22,6 +22,30 @@
       },
       "revId": "60bfcede04861216bdfd2c72330d50266ba63534",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81ee94da_7270fca5",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2024-01-11T11:13:27Z",
+      "side": 1,
+      "message": "1、About question 1 ：\n   I think SIM present check need to be preserved , although the SIM present status will be checked in the RadioNetworkTest:: SetUp() function, it is best to check again here as I am not sure if there are any other potential timing issues\n2、About question 2：\n  2.1: From the actual results, when the SIM card does not exist, the device will report the error \"ILLEGAL-SIM-OR-ME\". Therefore, when the SIM card exists, this error \"ILLEGAL-SIM-OR-ME\" does not need to be added, and when the SIM card does not exist, it need to be added.   \n  2.2: When SIM is present, although there have been no reported errors such as \"NO-RESOURCES\", \"Operation-NOT-ALLOWED\" in actual tests, it is also possible to report these errors, so I also believe that adding them is reasonable",
+      "parentUuid": "21fa46cd_0c705eb2",
+      "range": {
+        "startLine": 1176,
+        "startChar": 14,
+        "endLine": 1176,
+        "endChar": 65
+      },
+      "revId": "60bfcede04861216bdfd2c72330d50266ba63534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
