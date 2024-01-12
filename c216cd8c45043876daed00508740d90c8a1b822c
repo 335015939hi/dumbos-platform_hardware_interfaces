@@ -74,6 +74,30 @@
       },
       "revId": "c216cd8c45043876daed00508740d90c8a1b822c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64ee78f5_9033f73e",
+        "filename": "broadcastradio/1.1/vts/functional/VtsHalBroadcastradioV1_1TargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2024-01-12T18:52:04Z",
+      "side": 1,
+      "message": "Fixed this in aosp/2907438",
+      "parentUuid": "ecc75942_0f5eae78",
+      "range": {
+        "startLine": 135,
+        "startChar": 25,
+        "endLine": 135,
+        "endChar": 38
+      },
+      "revId": "c216cd8c45043876daed00508740d90c8a1b822c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
