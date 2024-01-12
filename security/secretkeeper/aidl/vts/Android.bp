@@ -18,6 +18,24 @@ package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
+// TODO: including "libopenssl" in the dependencies of a rust_binary (with
+// static_executable: true) gives a binary that crashes on startup:
+//
+// ```
+// W temp_link_check: type=1701 audit(0.0:266): auid=4294967295 uid=0 gid=0 ses=4294967295 subj=u:r:su:s0 exe="/data/local/tmp/temp_link_check" sig=11 res=1
+// I temp_link_check[11941]: segfault at 0 ip 0000000000000000 sp 00007ffd9e4a1b78 error 14 in temp_link_check[200000+5000] likely on CPU 0 (core 0, socket 0)
+// I Code    : Unable to access opcode bytes at 0xffffffffffffffd
+// ```
+rust_binary {
+    name: "temp_link_check",
+    srcs: ["temp.rs"],
+    rustlibs: [
+        "libopenssl",
+    ],
+    static_executable: true,
+    host_supported: true,
+}
+
 rust_test {
     name: "VtsSecretkeeperTargetTest",
     srcs: ["secretkeeper_test_client.rs"],
