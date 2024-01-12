@@ -16,6 +16,24 @@
       "message": "You also need a libvintf change",
       "revId": "0e8347e131070e7e975859a6a85f8223fc95e57e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8005fee_453b5e5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-12T18:07:53Z",
+      "side": 1,
+      "message": "Got it! Looks like I needed to sync. Figured it was ready since it built fine locally.",
+      "parentUuid": "08be6f38_ff23a673",
+      "revId": "0e8347e131070e7e975859a6a85f8223fc95e57e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
