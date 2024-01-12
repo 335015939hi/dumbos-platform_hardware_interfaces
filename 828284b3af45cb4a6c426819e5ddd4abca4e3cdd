@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c3c7673_8a8e1bac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-12T17:59:57Z",
+      "side": 1,
+      "message": "The presubmit build failures show `C2FuzzerVorbisDec` failing (probably all of those fuzzers since they are configured similarly).\n`ld.lld: error: undefined symbol: _ZNK7android6Parcel4readERNS0_26FlattenableHelperInterfaceE`\n\nMaybe the need `libbinder` as a `shared_lib` since everything else is included statically? https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:frameworks/native/libs/binder/Parcel.cpp;drc\u003de2dd2c31599f57a78845787adee045db2b0a0056;l\u003d2505",
+      "revId": "828284b3af45cb4a6c426819e5ddd4abca4e3cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
