@@ -131,6 +131,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fa5190f_ec6c5e23",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/BufferRepresentation.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-12T20:42:41Z",
+      "side": 1,
+      "message": "We are not using this only for GraphicBuffer. \nAudio codec buffer and input buffers should be supported.",
+      "parentUuid": "be60fc5b_99f97bb4",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 60
+      },
+      "revId": "828284b3af45cb4a6c426819e5ddd4abca4e3cdd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a9d1333_60379ede",
