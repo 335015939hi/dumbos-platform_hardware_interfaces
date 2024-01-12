@@ -195,8 +195,9 @@ static ChannelMode GetChannelModeEnum(int channel_mode) {
  */
 
 const A2dpOffloadCodecAac* A2dpOffloadCodecAac::GetInstance() {
-  static A2dpOffloadCodecAac instance;
-  return &instance;
+  // b/315652150: Prevent object destruction
+  static auto instance = new A2dpOffloadCodecAac();
+  return instance;
 }
 
 A2dpOffloadCodecAac::A2dpOffloadCodecAac()

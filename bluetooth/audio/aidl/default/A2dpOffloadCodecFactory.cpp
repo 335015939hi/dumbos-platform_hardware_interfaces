@@ -38,8 +38,9 @@ enum : bool {
  */
 
 const A2dpOffloadCodecFactory* A2dpOffloadCodecFactory::GetInstance() {
-  static A2dpOffloadCodecFactory instance;
-  return &instance;
+  // b/315652150: Prevent object destruction
+  static auto instance = new A2dpOffloadCodecFactory();
+  return instance;
 }
 
 A2dpOffloadCodecFactory::A2dpOffloadCodecFactory()

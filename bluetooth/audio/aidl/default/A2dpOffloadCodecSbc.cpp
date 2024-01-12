@@ -258,8 +258,9 @@ static uint8_t GetBitpool(const A2dpBits& configuration, int bitrate) {
  */
 
 const A2dpOffloadCodecSbc* A2dpOffloadCodecSbc::GetInstance() {
-  static A2dpOffloadCodecSbc instance;
-  return &instance;
+  // b/315652150: Prevent object destruction
+  static auto instance = new A2dpOffloadCodecSbc();
+  return instance;
 }
 
 A2dpOffloadCodecSbc::A2dpOffloadCodecSbc()
