@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "731b1aca_6c738ea0",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/Buffer2.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-12T21:52:13Z",
+      "side": 1,
+      "message": "WDYT about adding \u0027@nullable\u0027 to Buffer (this is a safe change, the compiler will allow it), and then you can add \u0027@nullable\u0027 Surface? This would require less changes in the interface, so no need to add a Bufer2 type.\n\nOr - since Buffer1 already has NativeHandle, only add Surface here?",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "2cba5a755f3e6591fe6764d111a1fc207affcba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96e97070_2fc07377",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-12T21:52:13Z",
+      "side": 1,
+      "message": "but yeah, Buffer2 leaks into additional APIs, so you could avoid all this version creep (HIDL did it, but AIDL doesn\u0027t need version creep)",
+      "range": {
+        "startLine": 84,
+        "startChar": 7,
+        "endLine": 117,
+        "endChar": 45
+      },
+      "revId": "2cba5a755f3e6591fe6764d111a1fc207affcba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
