@@ -33,6 +33,24 @@
       "message": "Just to confirm - is there a corresponding change needed in the AuthGraph code?  \n\n(I\u0027m guessing not -- it looks like you\u0027re answering [this TODO](https://cs.android.com/android/platform/superproject/main/+/main:system/authgraph/core/src/key.rs;l\u003d553) in a way that matches what the authgraph code already implements).",
       "revId": "fc0dbfee704e95ae87f9020caa11ae3e0d841a51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d15e6fb1_8165530b",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ExplicitKeyDiceCertChain.cddl",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-12T10:46:15Z",
+      "side": 1,
+      "message": "No, I believe there is no code change required. It was already written to support the new spec. Leaving that TODO there for Hasini to confirm it later.",
+      "parentUuid": "146f8430_1b6b9e0a",
+      "revId": "fc0dbfee704e95ae87f9020caa11ae3e0d841a51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
