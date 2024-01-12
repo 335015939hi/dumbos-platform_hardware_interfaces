@@ -32,6 +32,9 @@ struct Connection : public BnConnection {
     // Methods from ::aidl::android::hardware::media::bufferpool2::IConnection.
     ::ndk::ScopedAStatus sync() override;
 
+    // Methods from ::aidl::android::hardware::media::bufferpool2::IConnection.
+    ::ndk::ScopedAStatus fetch2(const std::vector<::aidl::android::hardware::media::bufferpool2::IConnection::FetchInfo>& in_fetchInfos, std::vector<::aidl::android::hardware::media::bufferpool2::IConnection::FetchResult2>* _aidl_return) override;
+
     /**
      * Invalidates all buffers which are active and/or are ready to be recycled.
      */
