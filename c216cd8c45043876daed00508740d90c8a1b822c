@@ -53,6 +53,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d41f411_7ccb4266",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2024-01-12T20:32:21Z",
+      "side": 1,
+      "message": "AOSP master is not active for code changes. Let\u0027s land this CL in AOSP main.",
+      "revId": "c216cd8c45043876daed00508740d90c8a1b822c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecc75942_0f5eae78",
