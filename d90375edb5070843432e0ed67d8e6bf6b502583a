@@ -45,6 +45,54 @@
       },
       "revId": "d90375edb5070843432e0ed67d8e6bf6b502583a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a76a93f_9f8db747",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1182,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2024-01-12T01:33:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1eb6e37b_1a3af830",
+      "range": {
+        "startLine": 1182,
+        "startChar": 61,
+        "endLine": 1182,
+        "endChar": 62
+      },
+      "revId": "d90375edb5070843432e0ed67d8e6bf6b502583a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcc2bdd9_e0a4bac1",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 1182,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2024-01-12T01:33:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f358a5dd_cdbfd49a",
+      "range": {
+        "startLine": 1182,
+        "startChar": 27,
+        "endLine": 1182,
+        "endChar": 28
+      },
+      "revId": "d90375edb5070843432e0ed67d8e6bf6b502583a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
