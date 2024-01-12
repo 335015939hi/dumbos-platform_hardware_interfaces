@@ -51,6 +51,29 @@
       "parentUuid": "92ecc4cd_0d9b3c90",
       "revId": "c216cd8c45043876daed00508740d90c8a1b822c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecc75942_0f5eae78",
+        "filename": "broadcastradio/1.1/vts/functional/VtsHalBroadcastradioV1_1TargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-12T18:44:12Z",
+      "side": 1,
+      "message": "nit: I don\u0027t think this substring is necessary. I think the test infra says that it\u0027s skipped with `GTEST_SKIP()`",
+      "range": {
+        "startLine": 135,
+        "startChar": 25,
+        "endLine": 135,
+        "endChar": 38
+      },
+      "revId": "c216cd8c45043876daed00508740d90c8a1b822c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
