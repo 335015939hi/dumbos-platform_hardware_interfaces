@@ -46,6 +46,30 @@
       },
       "revId": "60bfcede04861216bdfd2c72330d50266ba63534",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "297a0e2b_ac0ea359",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1886547
+      },
+      "writtenOn": "2024-01-12T01:43:22Z",
+      "side": 1,
+      "message": "Just trying to understand , why do we need to check card status conditions at first place here?\n\n1.Cannot these 2 condition at below test be removed ie removing both the conditions instead of only sim present condition and just keep  ASSERT_TRUE(CheckAnyOfErrors( ) with all the expected return values ?\nRef : https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2884866/7/radio/aidl/vts/radio_network_test.cpp#1170\n\n2.Because as per the precondition for test case : This is the place sim status is updated and already SIM present condition is being checked . So why sim absent condition to be checked at the Test case ?\nRef:\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/radio/aidl/vts/radio_network_test.cpp;l\u003d64?q\u003dRadioNetworkTest::%20SetUp()\u0026ss\u003dandroid\n\nConclusion:\nPlease check if we can add all the acceptable values defined in the HAL at this test without checking SIM status?",
+      "parentUuid": "81ee94da_7270fca5",
+      "range": {
+        "startLine": 1176,
+        "startChar": 14,
+        "endLine": 1176,
+        "endChar": 65
+      },
+      "revId": "60bfcede04861216bdfd2c72330d50266ba63534",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
