@@ -33,6 +33,24 @@
       "message": "Pls review the changes",
       "revId": "c216cd8c45043876daed00508740d90c8a1b822c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daae01dd_677579c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2024-01-12T18:41:18Z",
+      "side": 1,
+      "message": "It will be cherry-picked and landed in main soon since master is read-only now.",
+      "parentUuid": "92ecc4cd_0d9b3c90",
+      "revId": "c216cd8c45043876daed00508740d90c8a1b822c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
