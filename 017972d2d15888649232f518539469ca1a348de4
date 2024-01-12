@@ -68,6 +68,24 @@
       "parentUuid": "dbb87719_5c1e9135",
       "revId": "017972d2d15888649232f518539469ca1a348de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14f281d7_1311507b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-12T23:48:36Z",
+      "side": 1,
+      "message": "did you run vts_treble_vintf_vendor_test on your device using this change or try to use this and build? It should fail if this is used.\n\nI really question if this change is needed in tests. Clone/Copy should not be needed -only be nice to have. If we want this in the old release, it\u0027s kind of complicated because we should really update some of the requirements docs for this, and we\u0027ve never retroactively added a HAL before. Are you sure we need this?\n\nIf it is needed, the easiest way to add this, without breaking other things or adding more work would be to add the RustDerive into V1 (which is okay) without retroactively introducing a new HAL version.",
+      "parentUuid": "2454461b_54c1866f",
+      "revId": "017972d2d15888649232f518539469ca1a348de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
