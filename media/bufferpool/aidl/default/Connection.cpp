@@ -27,6 +27,7 @@ using aidl::android::hardware::media::bufferpool2::ResultStatus;
 using Buffer = aidl::android::hardware::media::bufferpool2::Buffer;
 using FetchInfo = aidl::android::hardware::media::bufferpool2::IConnection::FetchInfo;
 using FetchResult = aidl::android::hardware::media::bufferpool2::IConnection::FetchResult;
+using FetchResult2 = aidl::android::hardware::media::bufferpool2::IConnection::FetchResult2;
 
 ::ndk::ScopedAStatus Connection::fetch(const std::vector<FetchInfo>& in_fetchInfos,
                            std::vector<FetchResult>* _aidl_return) {
@@ -53,6 +54,15 @@ using FetchResult = aidl::android::hardware::media::bufferpool2::IConnection::Fe
         mAccessor->cleanUp(false);
     }
     return ::ndk::ScopedAStatus::ok();
+}
+
+// V2 interface
+::ndk::ScopedAStatus Connection::fetch2(const std::vector<FetchInfo>& in_fetchInfos,
+                           std::vector<FetchResult2>* _aidl_return) {
+    (void)in_fetchInfos;
+    (void)_aidl_return;
+    // TODO: support bufferpool2 V2 interface.
+    return ::ndk::ScopedAStatus::fromServiceSpecificError(ResultStatus::NOT_FOUND);
 }
 
 
