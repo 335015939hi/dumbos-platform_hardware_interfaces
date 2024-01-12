@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "524c2d05_80ddd287",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/Buffer2.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-12T22:20:49Z",
+      "side": 1,
+      "message": "If BufferRepresenation is union, the internal buffer representation is evident. And hard to make mistakes in the codes.\n\nBut if both are nullable, I am a little bit concerened to make some mistakes to handling this data types. (And also the codes will not be self evident as using uion.)",
+      "parentUuid": "731b1aca_6c738ea0",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "2cba5a755f3e6591fe6764d111a1fc207affcba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96e97070_2fc07377",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-12T21:52:13Z",
       "side": 1,
       "message": "but yeah, Buffer2 leaks into additional APIs, so you could avoid all this version creep (HIDL did it, but AIDL doesn\u0027t need version creep)",
+      "range": {
+        "startLine": 84,
+        "startChar": 7,
+        "endLine": 117,
+        "endChar": 45
+      },
+      "revId": "2cba5a755f3e6591fe6764d111a1fc207affcba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe26862a_3b38901a",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-12T22:20:49Z",
+      "side": 1,
+      "message": "This is kind of intentional. Do you think this is a bad practice?",
+      "parentUuid": "96e97070_2fc07377",
       "range": {
         "startLine": 84,
         "startChar": 7,
