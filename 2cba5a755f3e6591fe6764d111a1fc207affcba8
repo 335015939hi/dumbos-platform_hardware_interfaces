@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4421913f_9016ba98",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/Buffer2.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-13T00:02:45Z",
+      "side": 1,
+      "message": "Now I understand, thanks",
+      "parentUuid": "4a3c9dee_701c6ad6",
+      "range": {
+        "startLine": 32,
+        "startChar": 11,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "2cba5a755f3e6591fe6764d111a1fc207affcba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96e97070_2fc07377",
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "This is kind of intentional. Do you think this is a bad practice?",
       "parentUuid": "96e97070_2fc07377",
+      "range": {
+        "startLine": 84,
+        "startChar": 7,
+        "endLine": 117,
+        "endChar": 45
+      },
+      "revId": "2cba5a755f3e6591fe6764d111a1fc207affcba8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2de3172_f20eb856",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IConnection.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-13T00:02:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe26862a_3b38901a",
       "range": {
         "startLine": 84,
         "startChar": 7,
