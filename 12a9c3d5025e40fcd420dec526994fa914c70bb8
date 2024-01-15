@@ -141,6 +141,30 @@
       },
       "revId": "12a9c3d5025e40fcd420dec526994fa914c70bb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "817735ce_eb049fff",
+        "filename": "security/secretkeeper/aidl/vts/lib.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-15T16:54:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35568871_dc11abe5",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 35
+      },
+      "revId": "12a9c3d5025e40fcd420dec526994fa914c70bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
