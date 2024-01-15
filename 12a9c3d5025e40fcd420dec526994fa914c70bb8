@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e902870_9155554e",
+        "filename": "security/secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-15T16:57:43Z",
+      "side": 1,
+      "message": "I\u0027m wondering if /system/secretkeeper or /system/secretkeeper/client might more suited for this binary? (Since this doesn\u0027t map to any VTS, or do we intend on adding such VTS?)",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 0
+      },
+      "revId": "12a9c3d5025e40fcd420dec526994fa914c70bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e471c146_cbee56eb",
         "filename": "security/secretkeeper/aidl/vts/lib.rs",
         "patchSetId": 6
