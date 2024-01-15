@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e757e475_4dd4599c",
+        "filename": "security/secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-15T17:50:30Z",
+      "side": 1,
+      "message": "Ack, makes sense",
+      "parentUuid": "7a8367ee_4e56a5d9",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 0
+      },
+      "revId": "12a9c3d5025e40fcd420dec526994fa914c70bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e471c146_cbee56eb",
