@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a8367ee_4e56a5d9",
+        "filename": "security/secretkeeper/aidl/vts/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-15T17:38:21Z",
+      "side": 1,
+      "message": "At the moment the CLI shares a DICE chain with the VTS test binary, so I\u0027d be a bit nervous about separating them.",
+      "parentUuid": "4e902870_9155554e",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 0
+      },
+      "revId": "12a9c3d5025e40fcd420dec526994fa914c70bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e471c146_cbee56eb",
         "filename": "security/secretkeeper/aidl/vts/lib.rs",
         "patchSetId": 6
