@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f005449_d7012b07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2024-01-15T09:01:18Z",
+      "side": 1,
+      "message": "This patch fails android.media.audio.cts.LoopbackPassthroughTest#testEac3JocLoopback:\n\n01-15 14:08:38.775  4224  4230 V APM_AudioPolicyManager: startInput portId 21\n01-15 14:08:38.775  4224  4230 V APM_AudioPolicyManager: startInput input:62, session:19713)\n...\n01-15 14:08:38.775  4224  4235 V AudioFlinger::PatchPanel: createAudioPatch_l() num_sources 1 num_sinks 1 handle 0\n01-15 14:08:38.775  4224  4476 D DeviceHalAidl: 0xed3409a0 DeviceHalAidl::createAudioPatch\n...\n01-15 14:08:38.775  4229  4229 E AHAL_ModuleRemoteSubmix: checkAudioPatchEndpointsMatch: mismatch port configuration, source\u003dAudioPortConfig{id: 19, portId: 13, sampleRate: Int{value: 192000}, channelMask: AudioChannelLayout{layoutMask: 3}, format: AudioFormatDescription{type: PCM, pcm: INT_16_BIT, encoding: }, gain: (null), flags: AudioIoFlags{input: 0}, ext: AudioPortExt{device: AudioPortDeviceExt{device: AudioDevice{type: AudioDeviceDescription{type: IN_SUBMIX, connection: virtual}, address: AudioDeviceAddress{id: 742731372:ap:2mixp:0}}, flags: 0, encodedFormats: [], encapsulationModes: 0, encapsulationMetadataTypes: 0}}}, sink\u003dAudioPortConfig{id: 21, portId: 6, sampleRate: Int{value: 48000}, channelMask: AudioChannelLayout{layoutMask: 3}, format: AudioFormatDescription{type: PCM, pcm: INT_16_BIT, encoding: }, gain: (null), flags: AudioIoFlags{input: 128}, ext: AudioPortExt{mix: AudioPortMixExt{handle: 62, usecase: AudioPortMixExtUseCase{unspecified: false}, maxOpenStreamCount: 1, maxActiveStreamCount: 1, recommendedMuteDurationMs: 0}}}\n\n\nThe 192kHz input stream is successfully opened on the remote submix AIDL HAL, but startInput fails in its call to setInputDevice and the inner request to create a patch fails because APM AudioInputDescriptor is 48kHz for this input (the sink in the patch), but the device (the source) is configured at 192kHz. There is a mismatch between the the profile selected and stored in the input descriptor vs. what we expect.",
+      "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
