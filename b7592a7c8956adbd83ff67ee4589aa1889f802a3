@@ -16,6 +16,24 @@
       "message": "This patch maybe conflicting with some of my patches - aosp/2907879\n\nI can stop its auto-submit. Would you merge this soon?",
       "revId": "b7592a7c8956adbd83ff67ee4589aa1889f802a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "936cca3e_32d9ca7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-15T17:52:06Z",
+      "side": 1,
+      "message": "No problem, I\u0027ll wait till tomorrow and merge up after yours has gone in.",
+      "parentUuid": "797cd95e_0b5d9605",
+      "revId": "b7592a7c8956adbd83ff67ee4589aa1889f802a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
