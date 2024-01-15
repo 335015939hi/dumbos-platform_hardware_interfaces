@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c118fa_4a1b0c80",
+        "filename": "security/secretkeeper/aidl/vts/lib.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-01-15T16:32:48Z",
+      "side": 1,
+      "message": "I was confused because you\u0027re adding a mod here, but not adding dice_sample.rs.\nBut I see it already exists.",
+      "parentUuid": "85309590_aebb8a63",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "12a9c3d5025e40fcd420dec526994fa914c70bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16027ebc_221b92ba",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "I\u0027m just moving an existing value and uppercasing its name.  What should it be called?",
       "parentUuid": "16027ebc_221b92ba",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 35
+      },
+      "revId": "12a9c3d5025e40fcd420dec526994fa914c70bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35568871_dc11abe5",
+        "filename": "security/secretkeeper/aidl/vts/lib.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-01-15T16:32:48Z",
+      "side": 1,
+      "message": "MODE. And the comment should say mode. (I think I said the same thing to Shikha on a different review recently.)\n\n(I think there\u0027s been confusion possibly caused by https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:packages/modules/Virtualization/pvmfw/src/bcc.rs;drc\u003dc5e5fa3dc179276981acd26ea27e1b599bcb69ea;l\u003d176, where KEY_ is used to indicate this is the map key for the mode value.)\n\nSee https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:packages/modules/Virtualization/service_vm/requests/src/dice.rs;drc\u003dced549b4e85ea547395ec19b771da1ad2d404f42;l\u003d42 for yet another but more correct copy of this.",
+      "parentUuid": "d047b2f5_4adb0fda",
       "range": {
         "startLine": 33,
         "startChar": 0,
