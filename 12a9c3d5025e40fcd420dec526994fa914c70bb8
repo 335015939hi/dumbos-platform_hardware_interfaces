@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e471c146_cbee56eb",
+        "filename": "security/secretkeeper/aidl/vts/lib.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-01-15T16:18:28Z",
+      "side": 1,
+      "message": "?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "12a9c3d5025e40fcd420dec526994fa914c70bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16027ebc_221b92ba",
+        "filename": "security/secretkeeper/aidl/vts/lib.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-01-15T16:18:28Z",
+      "side": 1,
+      "message": "It\u0027s actually just mode; it\u0027s not a key mode.\n\nWe could reasonably put KEY_ on the front of all of these, but we shouldn\u0027t do it for just mode.\n\n(Or, should these be in some specific DICE module/enum/thingy?)",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 35
+      },
+      "revId": "12a9c3d5025e40fcd420dec526994fa914c70bb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
