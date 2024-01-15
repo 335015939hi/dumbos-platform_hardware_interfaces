@@ -26,7 +26,7 @@ use authgraph_vts_test as ag_vts;
 use authgraph_boringssl as boring;
 use authgraph_core::key;
 use coset::{CborSerializable, CoseEncrypt0};
-use dice_policy::{ConstraintSpec, ConstraintType, DicePolicy};
+use dice_policy::{ConstraintSpec, ConstraintRequirementType, ConstraintType, DicePolicy};
 use secretkeeper_client::dice::OwnedDiceArtifactsWithExplicitKey;
 use secretkeeper_client::SkSession;
 use secretkeeper_core::cipher;
@@ -258,13 +258,17 @@ fn sealing_policy(dice: &[u8]) -> Vec<u8> {
         ConstraintSpec::new(
             ConstraintType::ExactMatch,
             vec![authority_hash],
-            /* Optional */ false,
+            ConstraintRequirementType::Required,
         ),
-        ConstraintSpec::new(ConstraintType::ExactMatch, vec![key_mode], false),
+        ConstraintSpec::new(
+            ConstraintType::ExactMatch,
+            vec![key_mode],
+            ConstraintRequirementType::Required,
+        ),
         ConstraintSpec::new(
             ConstraintType::GreaterOrEqual,
             vec![config_desc, security_version],
-            true,
+            ConstraintRequirementType::Optional,
         ),
     ];
 
