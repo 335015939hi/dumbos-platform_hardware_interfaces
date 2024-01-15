@@ -34,6 +34,24 @@
       "parentUuid": "5f005449_d7012b07",
       "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fc729bd_78660877",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2024-01-15T12:03:09Z",
+      "side": 1,
+      "message": "See https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2893424/comments/5f005449_d7012b07 for the patch used to test the above.",
+      "parentUuid": "24848fea_0bca259b",
+      "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
