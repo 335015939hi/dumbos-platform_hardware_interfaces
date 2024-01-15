@@ -16,6 +16,24 @@
       "message": "This patch fails android.media.audio.cts.LoopbackPassthroughTest#testEac3JocLoopback:\n\n01-15 14:08:38.775  4224  4230 V APM_AudioPolicyManager: startInput portId 21\n01-15 14:08:38.775  4224  4230 V APM_AudioPolicyManager: startInput input:62, session:19713)\n...\n01-15 14:08:38.775  4224  4235 V AudioFlinger::PatchPanel: createAudioPatch_l() num_sources 1 num_sinks 1 handle 0\n01-15 14:08:38.775  4224  4476 D DeviceHalAidl: 0xed3409a0 DeviceHalAidl::createAudioPatch\n...\n01-15 14:08:38.775  4229  4229 E AHAL_ModuleRemoteSubmix: checkAudioPatchEndpointsMatch: mismatch port configuration, source\u003dAudioPortConfig{id: 19, portId: 13, sampleRate: Int{value: 192000}, channelMask: AudioChannelLayout{layoutMask: 3}, format: AudioFormatDescription{type: PCM, pcm: INT_16_BIT, encoding: }, gain: (null), flags: AudioIoFlags{input: 0}, ext: AudioPortExt{device: AudioPortDeviceExt{device: AudioDevice{type: AudioDeviceDescription{type: IN_SUBMIX, connection: virtual}, address: AudioDeviceAddress{id: 742731372:ap:2mixp:0}}, flags: 0, encodedFormats: [], encapsulationModes: 0, encapsulationMetadataTypes: 0}}}, sink\u003dAudioPortConfig{id: 21, portId: 6, sampleRate: Int{value: 48000}, channelMask: AudioChannelLayout{layoutMask: 3}, format: AudioFormatDescription{type: PCM, pcm: INT_16_BIT, encoding: }, gain: (null), flags: AudioIoFlags{input: 128}, ext: AudioPortExt{mix: AudioPortMixExt{handle: 62, usecase: AudioPortMixExtUseCase{unspecified: false}, maxOpenStreamCount: 1, maxActiveStreamCount: 1, recommendedMuteDurationMs: 0}}}\n\n\nThe 192kHz input stream is successfully opened on the remote submix AIDL HAL, but startInput fails in its call to setInputDevice and the inner request to create a patch fails because APM AudioInputDescriptor is 48kHz for this input (the sink in the patch), but the device (the source) is configured at 192kHz. There is a mismatch between the the profile selected and stored in the input descriptor vs. what we expect.",
       "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24848fea_0bca259b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2024-01-15T11:56:44Z",
+      "side": 1,
+      "message": "By updating AudioFlinger datapath AudioHwDevice openInputStream/openOutputStream and SpdifStreamIn/SpdifStreamOut open to return the actual config opened on the HAL rather than the wrapped config, then this passes the AIDL audio HAL checks on patches created by APM between the sinks and sources, BUT this then causes a failure in AudioPolicyManager getOutputForDevices in the AudioTrack constructor:\n\n01-15 22:44:06.052 25189 25195 W APM_AudioPolicyManager: getOutputForDevices() could not find output for stream 3, sampling rate 48000, format 0xa000001, channels 0x3, flags 0x1\n01-15 22:44:06.052 25189 25195 V APM::Devices: DeviceVector::refreshTypes() mDeviceTypes 0x2\n01-15 22:44:06.052 25189 25195 E AudioFlinger: createTrack() getOutputForAttr() return error -38 or invalid output handle\n01-15 22:44:06.052 25410 25437 E AudioTrack: createTrack_l(0): AudioFlinger could not create track, status: -38 output 0\n01-15 22:44:06.053 25410 25437 E AudioTrack-JNI: Error -38 initializing AudioTrack\n01-15 22:44:06.053 25410 25437 D AudioTrack: gather(): no metrics gathered, track status\u003d-38\n01-15 22:44:06.053 25410 25437 E android.media.AudioTrack: Error code -20 when initializing AudioTrack.\n\nThis is not surprising, because the profile of the IOStream as seen by APM is now 192kHz/16-bit PCM / 2-ch, rather than what was done before with the Spdif wrapper returning the application (e-ac3-joc) config.\n\nSo, the current APM + AF implementation, AFAICS, is incompatible with the newer stringent AIDL audio HAL implementation checks for patch config compatibility.\n\nHow do you think this should be resolved? Update APM to be aware of the Spdif wrapper so that its patch requests use the HAL/PCM format, rather than the raw config, and getOutputForDevices should continue to use the raw config?",
+      "parentUuid": "5f005449_d7012b07",
+      "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
