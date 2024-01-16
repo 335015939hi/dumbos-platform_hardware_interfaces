@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e712512_b61dd216",
+        "filename": "staging/security/see/hwcrypto/aidl/Android.bp",
+        "patchSetId": 64
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "We can also probably disable `cpp` if we wanted to. It\u0027s not commonly used since `ndk` is also used with C++ and can used everywhere.",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 21,
+        "endChar": 10
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98767e09_c7d8f9af",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "nit: Could be 2024 now if you wanted to 😊",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f0e0c2f_0065dba3",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "```suggestion\n     * Sets a memory buffer to operate on. References to positions of this memory buffer can be used\n```",
+      "range": {
+        "startLine": 30,
+        "startChar": 57,
+        "endLine": 30,
+        "endChar": 65
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e28a397_8320f6fb",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "```suggestion\n     * some blocks in the clear. Currently it shall only be supported for cbcs mode as defined on\n```",
+      "range": {
+        "startLine": 45,
+        "startChar": 70,
+        "endLine": 45,
+        "endChar": 75
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "485aa111_8a2fce21",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "`This field` or `This type`? Same comment for the other instances in this file.",
+      "range": {
+        "startLine": 56,
+        "startChar": 43,
+        "endLine": 56,
+        "endChar": 52
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9f447cf_d6753371",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperationErrorAdditionalInfo.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "unused",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 70
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47cd54e1_5ca82a4e",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperationErrorAdditionalInfo.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "`failingCommandIndex`? Can we add a comment saying what specifically this indexes into? Is it `CryptoOperationSet::operations`?",
+      "range": {
+        "startLine": 29,
+        "startChar": 9,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12a6f685_f0acf0fd",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/ICryptoOperationContext.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "Should this be something like `this token is used to map to a memory buffer`? The interface itself doesn\u0027t seem to do much.",
+      "range": {
+        "startLine": 25,
+        "startChar": 69,
+        "endLine": 25,
+        "endChar": 99
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b754efee_212675d5",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "Can we specify what this error code is? Same comment for all of these methods.\n\nIs it a `ServiceSpecificException`? https://source.android.com/docs/core/architecture/aidl/aidl-backends#error_handling",
+      "range": {
+        "startLine": 34,
+        "startChar": 39,
+        "endLine": 34,
+        "endChar": 60
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e616396_7fd17bde",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "```suggestion\n     *      Ok(IOpaqueKey) on success, error code otherwise.\n```",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c804099b_c7dc4a4d",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "It looks like some of these files have the `Ok(.*)` wrapper around all the return types and some don\u0027t (see IOpaqueKey.aidl).\n\nCan we drop the `Ok(.*)` from everything since these AIDL files typically follow a Java-like style?",
+      "range": {
+        "startLine": 85,
+        "startChar": 12,
+        "endLine": 85,
+        "endChar": 15
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e0e27d6_67dc0c36",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "Are all of these function names referencing something somewhere? It\u0027s kind of odd seeing a different name at the top of all these comments.",
+      "range": {
+        "startLine": 62,
+        "startChar": 7,
+        "endLine": 62,
+        "endChar": 21
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf365786_7dde82c6",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/MemoryBufferParameter.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "Add the units to the field name. Like `sizeBytes` if that\u0027s what it is.",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 12
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8af84f4a_092519af",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesCipherMode.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "Do we really need this `types` subpackage? There are already types defined in the `android.hardware.security.see.hwcrypto` package. What\u0027s the difference/value?",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 52
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ae95a5_07514b0e",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyNonVmDomain.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "Is there any additional documentation to add to define these different domains?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 13
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6af3e77_b09a3270",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/MemoryBufferReference.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "units - `sizeBytes`?",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 12
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a39c6813_94ca2dcc",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/SymmetricOperation.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "Format? I think there should be an upload hook that will catch/fix this when uploading the CL (without `--no-verify`).  https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/PREUPLOAD.cfg;drc\u003d4b97bd3b64898344c8109caa74ff31da5b9386c7;l\u003d7\n\nIf there is no error, then I guess is ok.",
+      "range": {
+        "startLine": 21,
+        "startChar": 24,
+        "endLine": 21,
+        "endChar": 44
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

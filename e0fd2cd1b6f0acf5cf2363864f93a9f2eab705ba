@@ -215,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6a9a95c_c61e1d82",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperationErrorAdditionalInfo.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "\u003e Do you think this can cause an issue?\n\nIt\u0027s another type and another step upacking the value. It might be worth the symmetry and ease of use in this case.",
+      "parentUuid": "3beb2000_a925e143",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dfea846_2d702abf",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperationErrorAdditionalInfo.aidl",
         "patchSetId": 62
@@ -450,6 +474,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef28f57c_631b023a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "\u003e Is this an issue when specifying an AIDL interface?\n\nIf it\u0027s opaque to AOSP code, then it\u0027s not a problem. We always ask this and it\u0027s nice to explicitly say it\u0027s opaque in comments, because it is a problem if we(AOSP code) expects specific values/format from a byte array since it can be anything at all.\n\n\u003e whatever is generated when we export a key can be parsed when we import a key\n\nI\u0027m not familiar with the details of the parsing here, but just to make sure - the blobs that are opaque and don\u0027t have explicit format can be anything at all?",
+      "parentUuid": "007f8167_60019dfe",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 30
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e7b218_711b6b0b",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "`to wrap the original key`?",
+      "range": {
+        "startLine": 44,
+        "startChar": 21,
+        "endLine": 44,
+        "endChar": 44
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cefa0968_ed9b327a",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
         "patchSetId": 62
@@ -485,6 +556,30 @@
       "side": 1,
       "message": "This specific case do not have a format. We take whatever is passed to the function and directly feed it to an (H)KDF context input. I modified the comment a little bit to indicate this, but please let me know if the comment is not clear enough.",
       "parentUuid": "cefa0968_ed9b327a",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 29
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93f58d59_3e287dd4",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d001d3e4_fbe056d7",
       "range": {
         "startLine": 75,
         "startChar": 0,
@@ -720,6 +815,30 @@
       "side": 1,
       "message": "Which structure where you thinking for the union? Something like: ```union MemoryBufferParameter {\n    SizedParcelFileDescriptor input;\n    SizedParcelFileDescriptor output;\n}``` \nwhere `SizedParcelFileDescriptor` contains both the size and the file descriptor?",
       "parentUuid": "075d635c_e5ea632d",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d8d1c37_1a6b3113",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/MemoryBufferParameter.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-16T18:59:21Z",
+      "side": 1,
+      "message": "Could be like that, or like:\n```\nparcelable MemoryBufferParameter {\n  union MemoryBuffer {\n     ParcelFileDescriptor input;\n     ParcelFileDescriptor output;\n  };\n  MemoryBuffer buffer_handle;\n  int sizeBytes;\n}\n```\nHaving the `DataType` as a discriminator kind of feels like it should be a union.",
+      "parentUuid": "3b2b5fad_10226ba3",
       "range": {
         "startLine": 35,
         "startChar": 0,
