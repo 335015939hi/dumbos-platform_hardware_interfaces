@@ -1,0 +1,163 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aef612ac_529aa0d4",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/CreationMode.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-16T21:51:21Z",
+      "side": 1,
+      "message": "I think this should go first and also be the default open mode. That more closely matches the existing trusty storage interface and posix flags (NO_CREATE is not a flag there, but the value 0 has the same effect).",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9662ff9_f1eaa95c",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileAvailability.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-16T21:51:21Z",
+      "side": 1,
+      "message": "This is only available before Android if the bootloader implements a storage proxy",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11edd365_89ca75c3",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-16T21:51:21Z",
+      "side": 1,
+      "message": "\"full fs resets\"? Even in this mode we don\u0027t allow individual files to be reset without detection. This may not make any difference for a client that only stores one file, but for clients that store multiple files might rely on this.",
+      "range": {
+        "startLine": 29,
+        "startChar": 54,
+        "endLine": 29,
+        "endChar": 60
+      },
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "208f0bb2_623384f4",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-16T21:51:21Z",
+      "side": 1,
+      "message": "I\u0027m not convinced this belongs here. It could potentially be combined with all the other cases above. Also the flag we need is to allow writes while the ab update is in progress. I\u0027m not sure we need any conditionals on the a/b update rollback itself.",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47f508bc_0857c700",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileProperties.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-16T21:51:21Z",
+      "side": 1,
+      "message": "Do we need to have defaults here? These options will select the slowest fs with the least amount of space. It might be better to force the caller to make a choice.",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a52eb0b_f783cde4",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-16T21:51:21Z",
+      "side": 1,
+      "message": "This description is incomplete. The `new_size` can also be greater than the current size, and in that case the size of the file is extended, with 0 data. (same as with posix ftruncate)",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c55d1ff_2dfd669d",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/OpenOptions.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-16T21:51:21Z",
+      "side": 1,
+      "message": "See comment on CreationMode enum. I don\u0027t think CREATE should be the default open mode.",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "128c656d_9fa7df2c",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/RenameOptions.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-16T21:51:21Z",
+      "side": 1,
+      "message": "This is incomplete compared to our current interface. We have both STORAGE_FILE_MOVE_CREATE and STORAGE_FILE_MOVE_CREATE_EXCLUSIVE flags which allow all your CreationMode options.",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f7ef88d_3af24e2b",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/result/NextFilenameResult.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-16T21:51:21Z",
+      "side": 1,
+      "message": "I think you should document all your unions. This one is a little strange to me though. Posix readdir returns NULL at the end, not a separate type. On the other hand, the existing interface to the storage server allows multiple files to be returned in a single call, and also keeps the state in the client so there are benefits in having a helper library on top of the ipc interface that provides the more posix like interface instead of requiring a round trip to the server for each file.",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
