@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d21ac93_37ca6fbb",
+        "filename": "threadnetwork/aidl/vts/VtsHalThreadNetworkTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2024-01-16T08:43:35Z",
+      "side": 1,
+      "message": "https://cs.android.com/android/platform/superproject/main/+/main:external/openthread/src/android/thread_network_hal/hal_interface.cpp;l\u003d151;drc\u003dd9b830ce29ee2d2534f48a698696966af52a540c;bpv\u003d1;bpt\u003d1\n\nneeds to be updated to reflect the exception as well.",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 99,
+        "endChar": 5
+      },
+      "revId": "558eb0b696ba31f64ea341560cff9c9ac7700a86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
