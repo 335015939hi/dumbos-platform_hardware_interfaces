@@ -70,6 +70,24 @@
       "parentUuid": "5fc729bd_78660877",
       "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d02ecca2_769b72bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-16T17:53:24Z",
+      "side": 1,
+      "message": "Thanks for the analysis, Dean! I\u0027ll try to wrap my head around this problem.\n\nRegarding `checkAudioPatchEndpointsMatch`: this method is implemented as a no-op in `Module` because it\u0027s generic code, and each actual module implementation needs to apply its own check (we actually might want to make this method abstract to enforce this). For modules like remote submix and software-based USB this method absolutely must check that the configuration between the device port and the mix port are the same. This is because these modules do not offer any means for format conversions. Only modules that employ hardware- or software-based format conversion can provide a more relaxed check assuming that they can actually convert between these formats.\n\nSince we are dealing with formats encapsulation, maybe we need to implement a corresponding check. In AIDL, it is possible to specify both the type of the wrapping PCM container together with the encapsulated type: https://cs.android.com/android/platform/superproject/main/+/main:system/hardware/interfaces/media/aidl/android/media/audio/common/AudioFormatDescription.aidl. The caveat is that since the framework still uses legacy C types, this will be lost in conversion. The `DeviceHalAidl` class is the one point where can fill the AIDL data correctly.",
+      "parentUuid": "bf8c5dd6_c0d6d6a6",
+      "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
