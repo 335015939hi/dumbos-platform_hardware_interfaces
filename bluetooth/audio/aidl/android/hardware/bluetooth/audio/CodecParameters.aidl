@@ -45,7 +45,11 @@ parcelable CodecParameters {
      *       between minBitrate to maxBitrate according to link quality.
      *   The 0 value for both means "undefined" or "don't care".
      *
-     * - Low-latency configuration privileged
+     * - Low-latency configuration. The interpretation is vendor specific.
+     *   When returned to the client, the assessment of the low latency configuration is left
+     *   to the vendor's discretion. When set by the client, it indicates that we are entering
+     *   a low-latency context (e.g. gaming), and such a configuration should be privileged.
+     *
      * - Lossless effort indication. The 'False' value can be used as "don't care"
      */
     int minBitrate;
