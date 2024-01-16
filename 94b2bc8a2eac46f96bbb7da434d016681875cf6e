@@ -52,6 +52,24 @@
       "parentUuid": "24848fea_0bca259b",
       "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf8c5dd6_c0d6d6a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2024-01-16T07:27:20Z",
+      "side": 1,
+      "message": "I noticed that hardware/interfaces/audio/aidl/default/Module.cpp Module::checkAudioPatchEndpointsMatch is an empty implementation:\n\nndk::ScopedAStatus Module::checkAudioPatchEndpointsMatch(\n        const std::vector\u003cAudioPortConfig*\u003e\u0026 sources __unused,\n        const std::vector\u003cAudioPortConfig*\u003e\u0026 sinks __unused) {\n    LOG(VERBOSE) \u003c\u003c __func__ \u003c\u003c \": do nothing and return ok\";\n    return ndk::ScopedAStatus::ok();\n}\n\nIf I do likewise in ModuleRemoteSubmix::checkAudioPatchEndpointsMatch, this gets closer to the implementation working.\n\nIs this an acceptable fix?",
+      "parentUuid": "5fc729bd_78660877",
+      "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
