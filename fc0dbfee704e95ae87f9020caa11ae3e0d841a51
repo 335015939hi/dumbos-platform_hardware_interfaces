@@ -51,6 +51,24 @@
       "parentUuid": "146f8430_1b6b9e0a",
       "revId": "fc0dbfee704e95ae87f9020caa11ae3e0d841a51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c222ee76_4dc496cd",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/ExplicitKeyDiceCertChain.cddl",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-01-16T22:02:37Z",
+      "side": 1,
+      "message": "That is correct. I removed that TODO in my latest CL. Thanks for uploading this!",
+      "parentUuid": "d15e6fb1_8165530b",
+      "revId": "fc0dbfee704e95ae87f9020caa11ae3e0d841a51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
