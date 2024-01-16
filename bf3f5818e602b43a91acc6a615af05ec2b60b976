@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fac871a7_53339e56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-16T23:04:43Z",
+      "side": 1,
+      "message": "Looks good, have some suggestions on the implementation. Thanks!",
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da8f6381_1f0fa730",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-16T23:04:43Z",
+      "side": 1,
+      "message": "I think, a more efficient way to do this is to use `string::append`: `std::string candidatePath(\"/apex/\").append(apexName).append(...`.",
+      "range": {
+        "startLine": 101,
+        "startChar": 37,
+        "endLine": 101,
+        "endChar": 89
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45464ccd_7c5fe669",
+        "filename": "audio/aidl/default/EffectMain.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-16T23:04:43Z",
+      "side": 1,
+      "message": "Same note about use of `append`.",
+      "range": {
+        "startLine": 37,
+        "startChar": 24,
+        "endLine": 37,
+        "endChar": 37
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b35b2e68_3d3e42ca",
+        "filename": "audio/aidl/default/EffectMain.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-16T23:04:43Z",
+      "side": 1,
+      "message": "Typo: unable",
+      "range": {
+        "startLine": 46,
+        "startChar": 33,
+        "endLine": 46,
+        "endChar": 38
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3150462_f5f8102a",
+        "filename": "audio/aidl/default/EffectMain.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-16T23:04:43Z",
+      "side": 1,
+      "message": "Why these are errors here but \"debug\" for libraries? Vendors can use this code for their implementations, too, and they are not required to use APEX. I think, these messages should be at \"debug\" level, too.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 76
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa34c84d_6ca9a399",
+        "filename": "audio/aidl/default/include/effectFactory-impl/EffectConfig.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-16T23:04:43Z",
+      "side": 1,
+      "message": "Should we name this `kEffectLibApexPath`?",
+      "range": {
+        "startLine": 74,
+        "startChar": 33,
+        "endLine": 74,
+        "endChar": 54
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa377d75_ada2742f",
+        "filename": "audio/aidl/default/include/effectFactory-impl/EffectConfig.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-16T23:04:43Z",
+      "side": 1,
+      "message": "I think, to reduce cognitive load, we can restructure library paths in the following way:\n\n```\n#ifdef __LP64__\n#define SOUND_FX_PATH \"/lib64/soundfx/\"\n#else\n#define SOUND_FX_PATH \"/lib/soundfx/\"\n#endif\n\n    static constexpr const char* kEffectLibPath[] \u003d\n      { \"/odm\" SOUND_FX_PATH, \"/vendor\" SOUND_FX_PATH, \"/system\" SOUND_FX_PATH };\n    static constexpr const char* kEffectLibApexPath \u003d SOUND_FX_PATH;\n```",
+      "range": {
+        "startLine": 76,
+        "startChar": 13,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
