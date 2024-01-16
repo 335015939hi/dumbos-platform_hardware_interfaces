@@ -34,6 +34,23 @@
       "parentUuid": "0e8f44f6_0a69f740",
       "revId": "b0d52ce9546a9d42da12bf24a6deecb1b5fa4c79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "049f235b_f3baf69a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-01-16T18:56:57Z",
+      "side": 1,
+      "message": "TH error because system/libvintf change is not in main. Retrying",
+      "revId": "b0d52ce9546a9d42da12bf24a6deecb1b5fa4c79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
