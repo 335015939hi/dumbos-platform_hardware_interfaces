@@ -73,6 +73,14 @@ information.  This mechanism is used to provision certificates for KeyMint's sig
 not restricted to that purpose; it can also be used in other scenarios where keys need to be
 provisioned (for example, for [Widevine](https://developers.google.com/widevine/drm/overview)).
 
+## AuthGraph
+
+TODO
+
+## Secretkeeper
+
+TODO
+
 ## Keymaster
 
 The Keymaster HAL (**`IKeymasterDevice`** in `hardware/interfaces/keymaster/`) is the historical
