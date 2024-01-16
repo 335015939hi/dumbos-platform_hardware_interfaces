@@ -30,7 +30,6 @@ import android.hardware.security.secretkeeper.SecretId;
  * implementation of ISecretkeeper should live in a secure environment, such as:
  * - A trusted execution environment such as ARM TrustZone.
  * - A completely separate, purpose-built and certified secure CPU.
- *
  */
 interface ISecretkeeper {
     const int ERROR_UNKNOWN_KEY_ID = 1;
