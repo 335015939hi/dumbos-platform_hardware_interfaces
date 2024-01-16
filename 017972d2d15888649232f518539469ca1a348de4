@@ -86,6 +86,24 @@
       "parentUuid": "2454461b_54c1866f",
       "revId": "017972d2d15888649232f518539469ca1a348de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7baf6255_8431ad88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448418
+      },
+      "writtenOn": "2024-01-16T05:17:06Z",
+      "side": 1,
+      "message": "Yes, android_hardware_light_ILights_default_V2_20 in vts_treble_vintf_vendor_test would pass on the android14-tests-dev with this change.",
+      "parentUuid": "14f281d7_1311507b",
+      "revId": "017972d2d15888649232f518539469ca1a348de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
