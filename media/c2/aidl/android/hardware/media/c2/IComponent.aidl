@@ -23,6 +23,7 @@ import android.hardware.media.c2.IGraphicBufferAllocator;
 import android.hardware.media.c2.IInputSink;
 import android.hardware.media.c2.IInputSurface;
 import android.hardware.media.c2.IInputSurfaceConnection;
+import android.hardware.media.c2.IPooledGraphicBufferAllocator;
 import android.hardware.media.c2.WorkBundle;
 import android.os.ParcelFileDescriptor;
 
@@ -57,19 +58,20 @@ interface IComponent {
      * C2Fence which can be used for waiting until to allocate is not blocked.
      */
     parcelable C2AidlGbAllocator {
-        IGraphicBufferAllocator igba;
         ParcelFileDescriptor waitableFd;
+        @nullable IGraphicBufferAllocator igba;
+        @nullable IPooledGraphicBufferAllocator pooledIgba;
     }
 
     /**
      * Allocator for C2BlockPool.
      *
      * C2BlockPool will use a C2Allocator which is specified by an id.
-     * or C2AIDL allocator interface directly.
+     * Based on allocator id, allocator is specified.
      */
-    union BlockPoolAllocator {
+    parcelable BlockPoolAllocator {
         int allocatorId;
-        C2AidlGbAllocator allocator;
+        @nullable C2AidlGbAllocator allocator;
     }
 
     /**
