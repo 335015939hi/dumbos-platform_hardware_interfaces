@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6941ca4d_52f24f27",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-17T17:46:32Z",
+      "side": 1,
+      "message": "Right, sorry for misguidance. In order to make it one like you would need to construct a string from the result of calling appends: `std::string candidatePath(std::string(\"/apex/\").append(apexName).append(...));` But that looks more verbose.",
+      "parentUuid": "b261fcdc_1631e7e2",
+      "range": {
+        "startLine": 101,
+        "startChar": 37,
+        "endLine": 101,
+        "endChar": 89
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45464ccd_7c5fe669",
