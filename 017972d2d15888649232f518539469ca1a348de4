@@ -140,6 +140,24 @@
       "parentUuid": "afdd4d3f_76d94d76",
       "revId": "017972d2d15888649232f518539469ca1a348de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9f84089_4864cb08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1769470
+      },
+      "writtenOn": "2024-01-17T02:16:37Z",
+      "side": 1,
+      "message": "I think CJ added you on the bug b/318788047 FYI..",
+      "parentUuid": "e62ee0e9_7d016205",
+      "revId": "017972d2d15888649232f518539469ca1a348de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
