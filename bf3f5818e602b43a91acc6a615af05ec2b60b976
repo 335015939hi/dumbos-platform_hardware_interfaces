@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b261fcdc_1631e7e2",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2024-01-17T07:05:42Z",
+      "side": 1,
+      "message": "This will be split into two lines. One line to declare; another one to form the completed string. append at the line of declaration won\u0027t work.",
+      "parentUuid": "da8f6381_1f0fa730",
+      "range": {
+        "startLine": 101,
+        "startChar": 37,
+        "endLine": 101,
+        "endChar": 89
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45464ccd_7c5fe669",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-01-16T23:04:43Z",
       "side": 1,
       "message": "Same note about use of `append`.",
+      "range": {
+        "startLine": 37,
+        "startChar": 24,
+        "endLine": 37,
+        "endChar": 37
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97aaf2c6_ec995546",
+        "filename": "audio/aidl/default/EffectMain.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2024-01-17T07:05:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45464ccd_7c5fe669",
       "range": {
         "startLine": 37,
         "startChar": 24,
@@ -110,6 +158,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41f00fd9_58a2f7fe",
+        "filename": "audio/aidl/default/EffectMain.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2024-01-17T07:05:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b35b2e68_3d3e42ca",
+      "range": {
+        "startLine": 46,
+        "startChar": 33,
+        "endLine": 46,
+        "endChar": 38
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97b26c86_4b184f65",
+        "filename": "audio/aidl/default/EffectMain.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2024-01-17T07:05:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3150462_f5f8102a",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 76
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa34c84d_6ca9a399",
@@ -123,6 +219,30 @@
       "writtenOn": "2024-01-16T23:04:43Z",
       "side": 1,
       "message": "Should we name this `kEffectLibApexPath`?",
+      "range": {
+        "startLine": 74,
+        "startChar": 33,
+        "endLine": 74,
+        "endChar": 54
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2473680_d182236a",
+        "filename": "audio/aidl/default/include/effectFactory-impl/EffectConfig.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2024-01-17T07:05:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa34c84d_6ca9a399",
       "range": {
         "startLine": 74,
         "startChar": 33,
@@ -170,6 +290,30 @@
       "side": 1,
       "message": "Also, since it\u0027s a header file, please `#undef SOUND_FX_PATH` afterwards.",
       "parentUuid": "aa377d75_ada2742f",
+      "range": {
+        "startLine": 76,
+        "startChar": 13,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74ab39ff_b3914f81",
+        "filename": "audio/aidl/default/include/effectFactory-impl/EffectConfig.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1895890
+      },
+      "writtenOn": "2024-01-17T07:05:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63afc42c_137fa7a1",
       "range": {
         "startLine": 76,
         "startChar": 13,
