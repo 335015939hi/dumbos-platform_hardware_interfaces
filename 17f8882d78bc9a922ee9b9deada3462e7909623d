@@ -16,6 +16,23 @@
       "message": "We need to verify this on Android 13 as well.",
       "revId": "17f8882d78bc9a922ee9b9deada3462e7909623d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a4cfba9_d3615e5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2024-01-17T21:59:35Z",
+      "side": 1,
+      "message": "Adding samip for dr-no approval.",
+      "revId": "17f8882d78bc9a922ee9b9deada3462e7909623d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
