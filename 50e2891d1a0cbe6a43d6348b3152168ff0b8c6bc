@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa384f86_b50980f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1583555
+      },
+      "writtenOn": "2024-01-17T16:36:07Z",
+      "side": 1,
+      "message": "Hi Tyler,\n\nCan you review this change?\n\nWe\u0027ve marked it with DO NOT MERGE as the tests changed in newer versions and the fix can\u0027t be automerged, but we\u0027ll upload a separate patch if you confirm the approach is ok.\n\nThanks,\nBruno",
+      "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
