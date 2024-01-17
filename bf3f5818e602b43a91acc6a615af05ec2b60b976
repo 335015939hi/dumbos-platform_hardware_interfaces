@@ -154,6 +154,30 @@
       },
       "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63afc42c_137fa7a1",
+        "filename": "audio/aidl/default/include/effectFactory-impl/EffectConfig.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-17T00:35:36Z",
+      "side": 1,
+      "message": "Also, since it\u0027s a header file, please `#undef SOUND_FX_PATH` afterwards.",
+      "parentUuid": "aa377d75_ada2742f",
+      "range": {
+        "startLine": 76,
+        "startChar": 13,
+        "endLine": 76,
+        "endChar": 30
+      },
+      "revId": "bf3f5818e602b43a91acc6a615af05ec2b60b976",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
