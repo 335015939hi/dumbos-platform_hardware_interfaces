@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba56d35f_e040b615",
+        "filename": "staging/security/see/hwcrypto/aidl/Android.bp",
+        "patchSetId": 64
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e712512_b61dd216",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 21,
+        "endChar": 10
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98767e09_c7d8f9af",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-16T18:59:21Z",
       "side": 1,
       "message": "nit: Could be 2024 now if you wanted to 😊",
+      "range": {
+        "startLine": 2,
+        "startChar": 3,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7140ec8f_b2a2c717",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done, updated date on all files on this CL.",
+      "parentUuid": "98767e09_c7d8f9af",
       "range": {
         "startLine": 2,
         "startChar": 3,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef13e92f_d8d07880",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f0e0c2f_0065dba3",
+      "range": {
+        "startLine": 30,
+        "startChar": 57,
+        "endLine": 30,
+        "endChar": 65
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e28a397_8320f6fb",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-01-16T18:59:21Z",
       "side": 1,
       "message": "```suggestion\n     * some blocks in the clear. Currently it shall only be supported for cbcs mode as defined on\n```",
+      "range": {
+        "startLine": 45,
+        "startChar": 70,
+        "endLine": 45,
+        "endChar": 75
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "958b9efb_f2fef88b",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e28a397_8320f6fb",
       "range": {
         "startLine": 45,
         "startChar": 70,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3006f86a_05a990ea",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done, changed them to `This type`",
+      "parentUuid": "485aa111_8a2fce21",
+      "range": {
+        "startLine": 56,
+        "startChar": 43,
+        "endLine": 56,
+        "endChar": 52
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9f447cf_d6753371",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e32aa15f_85b1ef94",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperationErrorAdditionalInfo.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9f447cf_d6753371",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 70
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47cd54e1_5ca82a4e",
@@ -152,6 +296,30 @@
       "writtenOn": "2024-01-16T18:59:21Z",
       "side": 1,
       "message": "`failingCommandIndex`? Can we add a comment saying what specifically this indexes into? Is it `CryptoOperationSet::operations`?",
+      "range": {
+        "startLine": 29,
+        "startChar": 9,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a1ddf20_51e97405",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperationErrorAdditionalInfo.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done. Yes, it is `CryptoOperationSet::operations`",
+      "parentUuid": "47cd54e1_5ca82a4e",
       "range": {
         "startLine": 29,
         "startChar": 9,
@@ -187,6 +355,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d97a860_f57104b2",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/ICryptoOperationContext.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Not exactly, the interface itself can only be used as a token for `CryptoOperationSet::context` to execute the same operation during different AIDL calls. For this purpose, the concrete implementation of this interface keeps some state internally.\nI updated the comment a little bit, please let me know if it is better.",
+      "parentUuid": "12a6f685_f0acf0fd",
+      "range": {
+        "startLine": 25,
+        "startChar": 69,
+        "endLine": 25,
+        "endChar": 99
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b754efee_212675d5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
         "patchSetId": 64
@@ -198,6 +390,30 @@
       "writtenOn": "2024-01-16T18:59:21Z",
       "side": 1,
       "message": "Can we specify what this error code is? Same comment for all of these methods.\n\nIs it a `ServiceSpecificException`? https://source.android.com/docs/core/architecture/aidl/aidl-backends#error_handling",
+      "range": {
+        "startLine": 34,
+        "startChar": 39,
+        "endLine": 34,
+        "endChar": 60
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22f8c05d_ec813fd3",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Yes, added this on the comment.",
+      "parentUuid": "b754efee_212675d5",
       "range": {
         "startLine": 34,
         "startChar": 39,
@@ -231,6 +447,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec698493_0b275f00",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e616396_7fd17bde",
+      "range": {
+        "startLine": 48,
+        "startChar": 37,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c804099b_c7dc4a4d",
@@ -244,6 +484,30 @@
       "writtenOn": "2024-01-16T18:59:21Z",
       "side": 1,
       "message": "It looks like some of these files have the `Ok(.*)` wrapper around all the return types and some don\u0027t (see IOpaqueKey.aidl).\n\nCan we drop the `Ok(.*)` from everything since these AIDL files typically follow a Java-like style?",
+      "range": {
+        "startLine": 85,
+        "startChar": 12,
+        "endLine": 85,
+        "endChar": 15
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8abb5789_bd38fe6c",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c804099b_c7dc4a4d",
       "range": {
         "startLine": 85,
         "startChar": 12,
@@ -277,6 +541,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d24cef1_3550f708",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Fixed, originally the AIDL file had the wrong casing, I forgot to also fix some of the comments.",
+      "parentUuid": "4e0e27d6_67dc0c36",
+      "range": {
+        "startLine": 62,
+        "startChar": 7,
+        "endLine": 62,
+        "endChar": 21
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf365786_7dde82c6",
@@ -290,6 +578,30 @@
       "writtenOn": "2024-01-16T18:59:21Z",
       "side": 1,
       "message": "Add the units to the field name. Like `sizeBytes` if that\u0027s what it is.",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 12
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4358949f_b0bb240f",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/MemoryBufferParameter.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf365786_7dde82c6",
       "range": {
         "startLine": 37,
         "startChar": 8,
@@ -325,6 +637,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74da7bcb_818f626b",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesCipherMode.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "The reason of the 2 folders is that, because this interface has a lot of types/AIDL files, I want customers that will have to implement this on their side and users of the API to look closely to the files on the root. Files on the types sub-package are not as important, so I am OK if they do not look at them as much.\nIs it OK to keep the 2 levels or do you prefer that I collapse them into 1? Another option would be that I do merge the 2 levels once I am ready to move this interface from the staging folder to something more permanent.",
+      "parentUuid": "8af84f4a_092519af",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 52
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19ae95a5_07514b0e",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyNonVmDomain.aidl",
         "patchSetId": 64
@@ -336,6 +672,30 @@
       "writtenOn": "2024-01-16T18:59:21Z",
       "side": 1,
       "message": "Is there any additional documentation to add to define these different domains?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 13
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "266fba48_dca45859",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyNonVmDomain.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Added comments defining the domains.",
+      "parentUuid": "19ae95a5_07514b0e",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -369,6 +729,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c99ecf2c_d3b37304",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/MemoryBufferReference.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6af3e77_b09a3270",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 12
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a39c6813_94ca2dcc",
@@ -382,6 +766,30 @@
       "writtenOn": "2024-01-16T18:59:21Z",
       "side": 1,
       "message": "Format? I think there should be an upload hook that will catch/fix this when uploading the CL (without `--no-verify`).  https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/PREUPLOAD.cfg;drc\u003d4b97bd3b64898344c8109caa74ff31da5b9386c7;l\u003d7\n\nIf there is no error, then I guess is ok.",
+      "range": {
+        "startLine": 21,
+        "startChar": 24,
+        "endLine": 21,
+        "endChar": 44
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49eb2177_4d64f995",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/SymmetricOperation.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "I am not skipping any check. I also run `/usr/local/google/home/oarbildo/aosp-main-with-phones/system/tools/aidl/aidl-format.sh -w staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/SymmetricOperation.aidl` on this file and it didn\u0027t changed it.",
+      "parentUuid": "a39c6813_94ca2dcc",
       "range": {
         "startLine": 21,
         "startChar": 24,

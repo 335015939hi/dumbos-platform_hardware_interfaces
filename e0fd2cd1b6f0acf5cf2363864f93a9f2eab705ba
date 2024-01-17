@@ -237,6 +237,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de2b97b0_a97c74ea",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperationErrorAdditionalInfo.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Thanks, marking this as fixed.",
+      "parentUuid": "f6a9a95c_c61e1d82",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 45
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dfea846_2d702abf",
@@ -498,6 +522,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57a208cd_42e5d75d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "\u003eI\u0027m not familiar with the details of the parsing here, but just to make sure - the blobs that are opaque and don\u0027t have explicit format can be anything at all?`\n\nIn this case they can, because this interface might not be implemented by AOSP code (it could even be implemented using a HW block), that is why the only real requirement from our side is that the same format used for exporting wrapped keys is used when importing back the keys.",
+      "parentUuid": "ef28f57c_631b023a",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 30
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "17e7b218_711b6b0b",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
         "patchSetId": 62
@@ -509,6 +557,30 @@
       "writtenOn": "2024-01-16T18:59:21Z",
       "side": 1,
       "message": "`to wrap the original key`?",
+      "range": {
+        "startLine": 44,
+        "startChar": 21,
+        "endLine": 44,
+        "endChar": 44
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6cd7540_9786e42d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17e7b218_711b6b0b",
       "range": {
         "startLine": 44,
         "startChar": 21,
@@ -839,6 +911,30 @@
       "side": 1,
       "message": "Could be like that, or like:\n```\nparcelable MemoryBufferParameter {\n  union MemoryBuffer {\n     ParcelFileDescriptor input;\n     ParcelFileDescriptor output;\n  };\n  MemoryBuffer buffer_handle;\n  int sizeBytes;\n}\n```\nHaving the `DataType` as a discriminator kind of feels like it should be a union.",
       "parentUuid": "3b2b5fad_10226ba3",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 25
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d667043c_9a78541f",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/MemoryBufferParameter.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-17T02:21:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d8d1c37_1a6b3113",
       "range": {
         "startLine": 35,
         "startChar": 0,
