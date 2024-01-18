@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f421be84_5a241277",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IComponent.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-18T19:21:08Z",
+      "side": 1,
+      "message": "Oh that\u0027s right! Adding @nullable is fine to the existing field, but moving to a union would not be ok. This is good.",
+      "parentUuid": "e1c63a8b_9ff41929",
+      "range": {
+        "startLine": 88,
+        "startChar": 5,
+        "endLine": 89,
+        "endChar": 54
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9250819a_f2cd16e1",
