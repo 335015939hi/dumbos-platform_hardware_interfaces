@@ -22,6 +22,30 @@
       },
       "revId": "93f1bf2bd357b709317ed08784727f405c7e71da",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ea0ecac_d5b5de82",
+        "filename": "nfc/1.0/vts/functional/VtsHalNfcV1_0TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2024-01-18T17:30:48Z",
+      "side": 1,
+      "message": "Fixed in aosp/2917346",
+      "parentUuid": "ccc4201c_0b779147",
+      "range": {
+        "startLine": 357,
+        "startChar": 3,
+        "endLine": 363,
+        "endChar": 0
+      },
+      "revId": "93f1bf2bd357b709317ed08784727f405c7e71da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
