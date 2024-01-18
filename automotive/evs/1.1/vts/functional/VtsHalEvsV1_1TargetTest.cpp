@@ -2010,9 +2010,18 @@ TEST_P(EvsHidlTest, CameraUseStreamConfigToDisplay) {
 
     // Test each reported camera
     for (auto&& cam: cameraInfo) {
+<<<<<<< HEAD   (17f888 Per NCI spec there is no need to wait for credits)
         // Request exclusive access to the EVS display
         sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
         ASSERT_NE(pDisplay, nullptr);
+=======
+        bool isLogicalCam = false;
+        getPhysicalCameraIds(cam.v1.cameraId, isLogicalCam);
+        if (isLogicalCam) {
+            LOG(INFO) << "Skip a logical device " << cam.v1.cameraId;
+            continue;
+        }
+>>>>>>> BRANCH (6d9717 [RESTRICT AUTOMERGE] Modify CameraUseStreamConfigToDisplay)
 
         // choose a configuration that has a frame rate faster than minReqFps.
         Stream targetCfg = {};
