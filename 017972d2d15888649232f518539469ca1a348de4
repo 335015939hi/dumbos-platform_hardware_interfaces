@@ -158,6 +158,24 @@
       "parentUuid": "e62ee0e9_7d016205",
       "revId": "017972d2d15888649232f518539469ca1a348de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d332d86_40773606",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448418
+      },
+      "writtenOn": "2024-01-18T02:19:47Z",
+      "side": 1,
+      "message": "android_hardware_light_ILights_default_V2_20 did pass using the vts tool from android14-tests-dev with this change.",
+      "parentUuid": "c9f84089_4864cb08",
+      "revId": "017972d2d15888649232f518539469ca1a348de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
