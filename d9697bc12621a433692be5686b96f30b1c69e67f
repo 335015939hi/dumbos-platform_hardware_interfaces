@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f8c0674_3ce9c9b1",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IComponent.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-18T17:57:49Z",
+      "side": 1,
+      "message": "do we expect cases where we would have both allocators here? Or does a union make more sense?",
+      "range": {
+        "startLine": 88,
+        "startChar": 5,
+        "endLine": 89,
+        "endChar": 54
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9250819a_f2cd16e1",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IPooledGraphicBufferAllocator.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-18T17:57:49Z",
+      "side": 1,
+      "message": "`widthPixels` and `hightPixels`",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 19
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc994c3a_7d38803e",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IPooledGraphicBufferAllocator.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-18T17:57:49Z",
+      "side": 1,
+      "message": "Add comment saying this is AHardwareBuffer_Format.\n\n@smoreland@google.com do you think it\u0027s worth adding these things to the Stable AIDL definition of these NDK types? The enums and constants (like AHardwareBuffer_UsageFlags) are stable enough to keep defined in AIDL also, but they would just be extra definitions that might need to be added to.",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ae0bcf7_093e1baf",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IPooledGraphicBufferAllocator.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-18T17:57:49Z",
+      "side": 1,
+      "message": "Specify that this is a bitmap of AHardwareBuffer_UsageFlags in the comments above the field.",
+      "range": {
+        "startLine": 50,
+        "startChar": 13,
+        "endLine": 50,
+        "endChar": 18
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "572cc16b_48d76306",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IPooledGraphicBufferAllocator.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-18T17:57:49Z",
+      "side": 1,
+      "message": "Does the client ALWAYS need to call deallocate for every buffer they get allocated from an allocate call?\nIf so, it\u0027s worth adding that in a comment.",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 33
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
