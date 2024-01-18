@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "37467be3_aba3bedc",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileAvailability.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-01-18T19:25:47Z",
+      "side": 1,
+      "message": "I thought this was something we listed in go/trusted-hal-storage as something we wanted to support?\n\n```\n* Availability:\n  * Is the file system available from the bootloader?\n```",
+      "parentUuid": "cb56b2a1_2316985c",
+      "revId": "e5dffa8b0487e13cf8e007a10f5ef1cff6e12f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a53d3fb1_7f33a097",
         "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/RenameOptions.aidl",
         "patchSetId": 24
