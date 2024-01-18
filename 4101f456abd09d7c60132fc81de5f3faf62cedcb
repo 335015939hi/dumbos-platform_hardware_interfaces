@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54448abe_566adf81",
+        "filename": "media/bufferpool/aidl/android/hardware/media/bufferpool2/IClientManager.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2024-01-18T23:09:35Z",
+      "side": 1,
+      "message": "How does this sound?\n\n```suggestion\n    Registration registerPassiveSender(in IAccessor bufferPool);\n```",
+      "range": {
+        "startLine": 72,
+        "startChar": 17,
+        "endLine": 72,
+        "endChar": 41
+      },
+      "revId": "4101f456abd09d7c60132fc81de5f3faf62cedcb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
