@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1c63a8b_9ff41929",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IComponent.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-18T19:15:18Z",
+      "side": 1,
+      "message": "This practice was suggested by smoreland@ before handling other interface updates in order to retain compatibility if other types are added.(Though this is union style structure.) Here both can be null also.",
+      "parentUuid": "5f8c0674_3ce9c9b1",
+      "range": {
+        "startLine": 88,
+        "startChar": 5,
+        "endLine": 89,
+        "endChar": 54
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9250819a_f2cd16e1",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-18T17:57:49Z",
       "side": 1,
       "message": "`widthPixels` and `hightPixels`",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 19
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2142da8_93a20f4d",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IPooledGraphicBufferAllocator.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-18T19:15:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9250819a_f2cd16e1",
       "range": {
         "startLine": 47,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96ba43ee_3ddb307f",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IPooledGraphicBufferAllocator.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-18T19:15:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc994c3a_7d38803e",
+      "range": {
+        "startLine": 49,
+        "startChar": 12,
+        "endLine": 49,
+        "endChar": 18
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ae0bcf7_093e1baf",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d48b997e_b68250d5",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IPooledGraphicBufferAllocator.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-18T19:15:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ae0bcf7_093e1baf",
+      "range": {
+        "startLine": 50,
+        "startChar": 13,
+        "endLine": 50,
+        "endChar": 18
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "572cc16b_48d76306",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-01-18T17:57:49Z",
       "side": 1,
       "message": "Does the client ALWAYS need to call deallocate for every buffer they get allocated from an allocate call?\nIf so, it\u0027s worth adding that in a comment.",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 33
+      },
+      "revId": "d9697bc12621a433692be5686b96f30b1c69e67f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60e3f103_3bc2a7bb",
+        "filename": "media/c2/aidl/android/hardware/media/c2/IPooledGraphicBufferAllocator.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-01-18T19:15:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "572cc16b_48d76306",
       "range": {
         "startLine": 54,
         "startChar": 5,
