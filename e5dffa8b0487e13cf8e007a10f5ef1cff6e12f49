@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb56b2a1_2316985c",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileAvailability.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-18T01:08:44Z",
+      "side": 1,
+      "message": "Is that true. It is only available before android if the bootloader implements a storage proxy, but trusty does keep track of that so that it can reject this option. We should consider removing this unless we have a use-case for it.",
+      "revId": "e5dffa8b0487e13cf8e007a10f5ef1cff6e12f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a53d3fb1_7f33a097",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/RenameOptions.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-18T01:08:44Z",
+      "side": 1,
+      "message": "For rename NO_CREATE means destroy the existing file. CREATE_EXCLUSIVE seems like a safer default here (although the posix rename probably matches CREATE better and NO_CREATE does not seem to be supported there at all outside of RENAME_EXCHANGE which we don\u0027t support here)",
+      "revId": "e5dffa8b0487e13cf8e007a10f5ef1cff6e12f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -155,6 +155,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ed0400b7_826c9be6",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-18T01:08:44Z",
+      "side": 1,
+      "message": "I think it can be similar to ReadIntegrity. It does not need to affect how the file is stored only if you are allowed to write to the file while the filesystem is temporarily in the A/B update state.",
+      "parentUuid": "b925063f_206c3bc2",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "47f508bc_0857c700",
         "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileProperties.aidl",
         "patchSetId": 23
@@ -219,6 +237,24 @@
       "side": 1,
       "message": "Done, but we currently only support shrinking files:\nhttps://android.googlesource.com/trusty/app/storage/+/16717ea84f1c386c3127a4023245e3d30117970b/client_tipc.c#916",
       "parentUuid": "9a52eb0b_f783cde4",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf196822_3eadbb1d",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-18T01:08:44Z",
+      "side": 1,
+      "message": "That comment is wrong. The code in that block used to return an error, but that was changed a long time ago.",
+      "parentUuid": "9a91b122_0bf7a6b4",
       "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
