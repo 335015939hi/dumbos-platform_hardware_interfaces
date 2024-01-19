@@ -70,6 +70,30 @@
       },
       "revId": "187cf1d6c5b306d98db4eea6d199d464c1c66d8a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2d55f33_956baff3",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_cli.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-19T13:49:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de01e2e3_e67c5ed8",
+      "range": {
+        "startLine": 150,
+        "startChar": 8,
+        "endLine": 150,
+        "endChar": 28
+      },
+      "revId": "187cf1d6c5b306d98db4eea6d199d464c1c66d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
