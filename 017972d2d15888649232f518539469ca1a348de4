@@ -230,6 +230,23 @@
       "parentUuid": "28746737_a3f6f806",
       "revId": "017972d2d15888649232f518539469ca1a348de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "778c9b8b_0ad0e343",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-19T22:23:37Z",
+      "side": 1,
+      "message": "Thanks, after reviewing the bug, it\u0027s not the case I was concerned about. V2 already exists here. Thanks",
+      "revId": "017972d2d15888649232f518539469ca1a348de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
