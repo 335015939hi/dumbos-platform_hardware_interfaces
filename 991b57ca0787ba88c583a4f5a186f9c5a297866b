@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50d3dfff_4de6e855",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2024-01-19T00:34:22Z",
+      "side": 1,
+      "message": "Yes it is obsolete now. In the current design which David Z explained the Direct access framework code directly talks to OMAPI .",
+      "parentUuid": "3f219e2f_c3b542ab",
+      "revId": "991b57ca0787ba88c583a4f5a186f9c5a297866b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f6ae415_32c7d6b3",
