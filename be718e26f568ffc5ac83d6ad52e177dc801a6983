@@ -16,6 +16,23 @@
       "message": "Update the Changeset @ https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2884866\n\nThank You",
       "revId": "be718e26f568ffc5ac83d6ad52e177dc801a6983",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30eac985_0782dc8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-19T19:18:02Z",
+      "side": 1,
+      "message": "Hi - for what it\u0027s worth, I\u0027m not on the telephony team, but from a coding perspective, I don\u0027t think this is a good change. It\u0027s better to have different errors for absence or present. It\u0027s better to have known behaviors and explicit behaviors.\n\nAlso - the number of accepted errors here is really problematic. There really should be one error, and if there are more, then it means the implementations are really divergent.",
+      "revId": "be718e26f568ffc5ac83d6ad52e177dc801a6983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
