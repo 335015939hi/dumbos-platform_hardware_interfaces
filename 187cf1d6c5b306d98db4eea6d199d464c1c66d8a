@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58cf6183_a49c5790",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_cli.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-01-19T11:28:15Z",
+      "side": 1,
+      "message": "I didn\u0027t notice this on the other CL; I\u0027m not convinced \"on\" is the right verb here.\n\nFrom, for, matching?",
+      "range": {
+        "startLine": 150,
+        "startChar": 8,
+        "endLine": 150,
+        "endChar": 28
+      },
+      "revId": "187cf1d6c5b306d98db4eea6d199d464c1c66d8a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
