@@ -50,6 +50,24 @@
       "message": "Needs Qualcomm-Review",
       "revId": "cef01a32a1bafd450adcbc733920f31e52b209dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "783afb1e_78348dfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-20T00:32:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79004094_09625dde",
+      "revId": "cef01a32a1bafd450adcbc733920f31e52b209dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
