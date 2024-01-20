@@ -247,6 +247,24 @@
       "message": "Thanks, after reviewing the bug, it\u0027s not the case I was concerned about. V2 already exists here. Thanks",
       "revId": "017972d2d15888649232f518539469ca1a348de4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbcc2017_6cb3d097",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1448418
+      },
+      "writtenOn": "2024-01-20T11:12:38Z",
+      "side": 1,
+      "message": "Thanks for confirmation.",
+      "parentUuid": "6089f053_bb7e74ae",
+      "revId": "017972d2d15888649232f518539469ca1a348de4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
