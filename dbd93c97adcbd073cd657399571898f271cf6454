@@ -70,6 +70,30 @@
       },
       "revId": "dbd93c97adcbd073cd657399571898f271cf6454",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a84226b9_913f6365",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecParameters.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-22T23:30:27Z",
+      "side": 1,
+      "message": "+1 I agree it would be nicer to have the comments with the fields that they document as it\u0027s the typical format for other AIDL files. But it\u0027s a change that can be made any time, so feel free to do it in a follow-up if you want to.\n\nWe want to get the `List` changes in before API freeze.",
+      "parentUuid": "833e13b5_f101c9d3",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 23
+      },
+      "revId": "dbd93c97adcbd073cd657399571898f271cf6454",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
