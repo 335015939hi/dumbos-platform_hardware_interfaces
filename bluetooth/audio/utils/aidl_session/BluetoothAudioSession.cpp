@@ -615,7 +615,9 @@ std::vector<LatencyMode> BluetoothAudioSession::GetSupportedLatencyModes() {
   if (com::android::btaudio::hal::flags::dsa_lea()) {
     std::vector<LatencyMode> supported_latency_modes;
     if (session_type_ ==
-        SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {
+            SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+        session_type_ ==
+            SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
       for (LatencyMode mode : latency_modes_) {
         if (mode == LatencyMode::LOW_LATENCY) {
           // LOW_LATENCY is not supported for LE_HARDWARE_OFFLOAD_ENC sessions
