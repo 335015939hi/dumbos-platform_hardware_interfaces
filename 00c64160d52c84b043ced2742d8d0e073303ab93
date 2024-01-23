@@ -171,6 +171,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62a5c9f2_96305128",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-01-23T17:10:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed0400b7_826c9be6",
+      "revId": "00c64160d52c84b043ced2742d8d0e073303ab93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47f508bc_0857c700",
