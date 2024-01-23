@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42f074a2_5ada1552",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/DeleteOptions.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-23T20:57:53Z",
+      "side": 1,
+      "message": "I think we should extend the comment here. This means the caller is also pre-acknowledging that the operation will be rolled back if the A/B update fails and that rollback will not need any additional acknowledgement in readIntegrity.",
+      "revId": "a8b35975c77b2c309b2d13652eb52fe953943b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f025a13_178eb4a7",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/OpenOptions.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-01-23T20:57:53Z",
+      "side": 1,
+      "message": "We don\u0027t support this today, but adding an option to open a file in read-only or write-only mode might be useful to make a posix wrapper simpler. In posix you must specify O_RDONLY, O_WRONLY, or O_RDWR in a mode_t argument",
+      "revId": "a8b35975c77b2c309b2d13652eb52fe953943b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
