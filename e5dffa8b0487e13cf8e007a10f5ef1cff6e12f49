@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c5f7c0_c859fe0c",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileAvailability.aidl",
+        "patchSetId": 24
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-01-23T23:04:51Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "37467be3_aba3bedc",
+      "revId": "e5dffa8b0487e13cf8e007a10f5ef1cff6e12f49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a53d3fb1_7f33a097",
