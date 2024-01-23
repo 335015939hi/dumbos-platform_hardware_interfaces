@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "806ffc06_5fbfd955",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8811,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-01-23T15:36:48Z",
+      "side": 1,
+      "message": "Ubernit:  I believe C++20 is now enabled, so you can write:\n\nASSERT_FALSE(keymints_.contains(info.securityLevel))\n\nusing contains instead of count is a little more readable, IMO.",
+      "range": {
+        "startLine": 8811,
+        "startChar": 12,
+        "endLine": 8811,
+        "endChar": 61
+      },
+      "revId": "6c9bdb839f86874ccff3b8d16c9275e02087b4fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
