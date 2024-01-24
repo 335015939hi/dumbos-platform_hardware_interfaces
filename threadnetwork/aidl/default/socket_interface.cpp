@@ -34,6 +34,7 @@
 
 #include "socket_interface.hpp"
 
+#include <errno.h>
 #include <openthread/error.h>
 #include <openthread/logging.h>
 #include <stdarg.h>
@@ -54,6 +55,7 @@
 
 #include "lib/platform/exit_code.h"
 #include "lib/spinel/spinel_interface.hpp"
+#include "openthread/openthread-system.h"
 
 namespace aidl {
 namespace android {
@@ -69,6 +71,89 @@ SocketInterface::SocketInterface(const ot::Url::Url& aRadioUrl)
     memset(&mInterfaceMetrics, 0, sizeof(mInterfaceMetrics));
     mInterfaceMetrics.mRcpInterfaceType = kSpinelInterfaceTypeSocket;
     CheckIfSocketIsOpen(aRadioUrl);
+}
+
+otError SocketInterface::Init(ReceiveFrameCallback aCallback, void* aCallbackContext,
+                              RxFrameBuffer& aFrameBuffer) {
+    otError error = OT_ERROR_NONE;
+    struct stat st;
+
+    VerifyOrExit(mSockFd == -1, error = OT_ERROR_ALREADY);
+
+    VerifyOrDie(stat(mRadioUrl.GetPath(), &st) == 0, OT_EXIT_ERROR_ERRNO);
+
+    if (S_ISSOCK(st.st_mode)) {
+        mSockFd = OpenFile(mRadioUrl);
+        VerifyOrExit(mSockFd != -1, error = OT_ERROR_FAILED);
+    } else {
+        otLogCritPlat("Radio file '%s' not supported", mRadioUrl.GetPath());
+        ExitNow(error = OT_ERROR_FAILED);
+    }
+
+    mReceiveFrameCallback = aCallback;
+    mReceiveFrameContext = aCallbackContext;
+    mReceiveFrameBuffer = &aFrameBuffer;
+
+exit:
+    return error;
+}
+
+SocketInterface::~SocketInterface(void) {
+    Deinit();
+}
+
+void SocketInterface::Deinit(void) {
+    CloseFile();
+
+    mReceiveFrameCallback = nullptr;
+    mReceiveFrameContext = nullptr;
+    mReceiveFrameBuffer = nullptr;
+}
+
+void SocketInterface::UpdateFdSet(void* aMainloopContext) {
+    otSysMainloopContext* context = reinterpret_cast<otSysMainloopContext*>(aMainloopContext);
+
+    assert(context != nullptr);
+
+    FD_SET(mSockFd, &context->mReadFdSet);
+
+    if (context->mMaxFd < mSockFd) {
+        context->mMaxFd = mSockFd;
+    }
+}
+
+int SocketInterface::OpenFile(const ot::Url::Url& aRadioUrl) {
+    int fd = socket(AF_UNIX, SOCK_SEQPACKET, 0);
+    if (fd == -1) {
+        perror("open socket failed");
+        ExitNow();
+    }
+
+    sockaddr_un server_address;
+    server_address.sun_family = AF_UNIX;
+    strcpy(server_address.sun_path, aRadioUrl.GetPath());
+
+    if (connect(fd, reinterpret_cast<struct sockaddr*>(&server_address), sizeof(server_address)) ==
+        -1) {
+        perror("connect failed");
+        close(fd);
+        fd = -1;
+    }
+
+exit:
+    return fd;
+}
+
+void SocketInterface::CloseFile(void) {
+    VerifyOrExit(mSockFd != -1);
+
+    VerifyOrExit(0 == close(mSockFd), perror("close RCP"));
+    VerifyOrExit(wait(nullptr) != -1 || errno == ECHILD, perror("wait RCP"));
+
+    mSockFd = -1;
+
+exit:
+    return;
 }
 
 void SocketInterface::CheckIfSocketIsOpen(const ot::Url::Url& aRadioUrl) {
