@@ -33,6 +33,63 @@
       "message": "Any inputs on this change set is helpful, as we are nearing the release form our side on week 04.",
       "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe29a48f_b0c2fe58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-24T01:27:10Z",
+      "side": 1,
+      "message": "Thanks for proposing the fix!",
+      "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53f90914_7cc63d41",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-24T01:27:10Z",
+      "side": 1,
+      "message": "I suggest we increasing this to 10s to be more robust.",
+      "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "780f1d4c_b6ac5634",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-24T01:27:10Z",
+      "side": 1,
+      "message": "I suggest rewrite this to:\n\n```\n// Retry getting the value until we pass the timeout. getValue might not return\n// the expected value immediately since setValue is async.\nauto propSetTimeoutMillis \u003d uptimeMillis() + kPropSetDelayMillis;\nwhile (true) {\n    invokeGet(cfg.prop, 0);\n    if (mActualStatusCode \u003d\u003d StatusCode::OK \u0026\u0026\n            mActualValuoe.status \u003d\u003d VehiclePropertyStatus::AVAILABLE \u0026\u0026\n            mActualValue.value.int32Values[0] \u003d\u003d setValue) {\n        break;\n    }\n    if (uptimeMillis() \u003e\u003d propSetTimeoutMillis) {\n        // Reach timeout, the following assert should fail.\n        break;\n    }\n    // Sleep for 100ms between each invokeGet retry.\n    std::this_thread::sleep_for(100);\n}\n\nASSERT_EQ(StatusCode::OK, mActualStatusCode);\n// If the property isn\u0027t available, it doesn\u0027t make sense to check\n// the returned value.\nif (mActualValue.status \u003d\u003d VehiclePropertyStatus::AVAILABLE) {\n    ASSERT_EQ(setValue, mActualValue.value.int32Values[0])\n            \u003c\u003c \"Failed to set value for property: \" \u003c\u003c cfg.prop;\n}\n```",
+      "range": {
+        "startLine": 245,
+        "startChar": 12,
+        "endLine": 251,
+        "endChar": 13
+      },
+      "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
