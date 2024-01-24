@@ -122,6 +122,41 @@ otError SocketInterface::SendFrame(const uint8_t* aFrame, uint16_t aLength) {
     return error;
 }
 
+otError SocketInterface::WaitForFrame(uint64_t aTimeoutUs) {
+    otError error = OT_ERROR_NONE;
+    struct timeval timeout;
+    timeout.tv_sec = static_cast<time_t>(aTimeoutUs / US_PER_S);
+    timeout.tv_usec = static_cast<suseconds_t>(aTimeoutUs % US_PER_S);
+
+    fd_set read_fds;
+    fd_set error_fds;
+    int rval;
+
+    FD_ZERO(&read_fds);
+    FD_ZERO(&error_fds);
+    FD_SET(mSockFd, &read_fds);
+    FD_SET(mSockFd, &error_fds);
+
+    rval = select(mSockFd + 1, &read_fds, nullptr, &error_fds, &timeout);
+
+    if (rval > 0) {
+        if (FD_ISSET(mSockFd, &read_fds)) {
+            Read();
+        } else if (FD_ISSET(mSockFd, &error_fds)) {
+            DieNowWithMessage("NCP error", OT_EXIT_FAILURE);
+        } else {
+            DieNow(OT_EXIT_FAILURE);
+        }
+    } else if (rval == 0) {
+        ExitNow(error = OT_ERROR_RESPONSE_TIMEOUT);
+    } else if (errno != EINTR) {
+        DieNowWithMessage("wait response", OT_EXIT_FAILURE);
+    }
+
+exit:
+    return error;
+}
+
 void SocketInterface::UpdateFdSet(void* aMainloopContext) {
     otSysMainloopContext* context = reinterpret_cast<otSysMainloopContext*>(aMainloopContext);
 
@@ -131,6 +166,17 @@ void SocketInterface::UpdateFdSet(void* aMainloopContext) {
 
     if (context->mMaxFd < mSockFd) {
         context->mMaxFd = mSockFd;
+    }
+}
+
+void SocketInterface::Process(const void* aMainloopContext) {
+    const otSysMainloopContext* context =
+            reinterpret_cast<const otSysMainloopContext*>(aMainloopContext);
+
+    assert(context != nullptr);
+
+    if (FD_ISSET(mSockFd, &context->mReadFdSet)) {
+        Read();
     }
 }
 
@@ -159,6 +205,22 @@ exit:
     return error;
 }
 
+void SocketInterface::Read(void) {
+    uint8_t buffer[kMaxFrameSize];
+    ssize_t rval;
+
+    rval = read(mSockFd, buffer, sizeof(buffer));
+
+    if (rval > 0) {
+        ProcessReceivedData(buffer, static_cast<uint16_t>(rval));
+    } else if ((rval < 0) && (errno != EAGAIN) && (errno != EINTR)) {
+        DieNow(OT_EXIT_ERROR_ERRNO);
+    } else if (rval == 0) {
+        otLogCritPlat("Socket connection is closed by remote.");
+        exit(OT_EXIT_FAILURE);
+    }
+}
+
 void SocketInterface::Write(const uint8_t* aFrame, uint16_t aLength) {
     otError error = OT_ERROR_NONE;
 
@@ -167,6 +229,37 @@ void SocketInterface::Write(const uint8_t* aFrame, uint16_t aLength) {
         VerifyOrDie((errno == EAGAIN) || (errno == EWOULDBLOCK) || (errno == EINTR),
                     OT_EXIT_ERROR_ERRNO);
     }
+}
+
+void SocketInterface::ProcessReceivedData(const uint8_t* aBuffer, uint16_t aLength) {
+    otError error = OT_ERROR_PARSE;
+    while (aLength--) {
+        uint8_t byte = *aBuffer++;
+        if (mReceiveFrameBuffer->CanWrite(sizeof(uint8_t))) {
+            IgnoreError(mReceiveFrameBuffer->WriteByte(byte));
+        } else {
+            HandleSocketFrame(this, OT_ERROR_NO_BUFS);
+        }
+    }
+    HandleSocketFrame(this, OT_ERROR_NONE);
+}
+
+void SocketInterface::HandleSocketFrame(void* aContext, otError aError) {
+    static_cast<SocketInterface*>(aContext)->HandleSocketFrame(aError);
+}
+
+void SocketInterface::HandleSocketFrame(otError aError) {
+    VerifyOrExit((mReceiveFrameCallback != nullptr) && (mReceiveFrameBuffer != nullptr));
+
+    if (aError == OT_ERROR_NONE) {
+        mReceiveFrameCallback(mReceiveFrameContext);
+    } else {
+        mReceiveFrameBuffer->DiscardFrame();
+        otLogWarnPlat("Error decoding hdlc frame: %s", otThreadErrorToString(aError));
+    }
+
+exit:
+    return;
 }
 
 int SocketInterface::OpenFile(const ot::Url::Url& aRadioUrl) {
