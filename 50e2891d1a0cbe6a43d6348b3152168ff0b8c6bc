@@ -71,6 +71,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "231502a8_0aee8859",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004038
+      },
+      "writtenOn": "2024-01-24T11:37:01Z",
+      "side": 1,
+      "message": "Sorry, do you mean _without_ the quotes?\n\nBriefly looking into the commit history of the cts git, I could find numerous usages of [DO NOT MERGE], but I cannot find a single instance of \"[DO NOT MERGE]\".",
+      "parentUuid": "d436ed94_5300fec2",
+      "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "53f90914_7cc63d41",
         "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
         "patchSetId": 2
