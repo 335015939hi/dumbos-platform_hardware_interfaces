@@ -34,6 +34,25 @@
 
 #include "socket_interface.hpp"
 
+#include <openthread/error.h>
+#include <openthread/logging.h>
+#include <stdarg.h>
+#include <stdlib.h>
+#include <sys/inotify.h>
+#include <sys/ioctl.h>
+#include <sys/resource.h>
+#include <sys/socket.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <sys/un.h>
+#include <sys/wait.h>
+#include <syslog.h>
+#include <termios.h>
+#include <unistd.h>
+
+#include <string>
+
+#include "lib/platform/exit_code.h"
 #include "lib/spinel/spinel_interface.hpp"
 
 namespace aidl {
@@ -49,6 +68,74 @@ SocketInterface::SocketInterface(const ot::Url::Url& aRadioUrl)
       mRadioUrl(aRadioUrl) {
     memset(&mInterfaceMetrics, 0, sizeof(mInterfaceMetrics));
     mInterfaceMetrics.mRcpInterfaceType = kSpinelInterfaceTypeVendor;
+    CheckIfSocketIsOpen(aRadioUrl);
+}
+
+void SocketInterface::CheckIfSocketIsOpen(const ot::Url::Url& aRadioUrl) {
+    int inotify_fd = inotify_init();
+    if (inotify_fd == -1) {
+        perror("inotify_init fail");
+        exit(OT_EXIT_FAILURE);
+    }
+
+    std::string socket_path(aRadioUrl.GetPath());
+    auto last_slash_idx = socket_path.find_last_of('/');
+    if (last_slash_idx == std::string::npos) {
+        perror("Invalid socket path");
+        exit(OT_EXIT_FAILURE);
+    }
+
+    auto folder_path = socket_path.substr(0, last_slash_idx);
+
+    int wd = inotify_add_watch(inotify_fd, folder_path.c_str(), IN_CREATE);
+    if (wd == -1) {
+        perror("inotify_add_watch fail");
+        exit(OT_EXIT_FAILURE);
+    }
+
+    struct stat st;
+    if (stat(aRadioUrl.GetPath(), &st) == 0) {
+        otLogInfoPlat("Socket file: %s is created", aRadioUrl.GetPath());
+        return;
+    }
+
+    while (true) {
+        fd_set fds;
+        FD_ZERO(&fds);
+        FD_SET(inotify_fd, &fds);
+        struct timeval timeout = {kMaxSelectTime / 1000, (kMaxSelectTime % 1000) * 1000};
+
+        otLogInfoPlat("Waiting for socket file %s be created...", aRadioUrl.GetPath());
+
+        int rval = select(inotify_fd + 1, &fds, nullptr, nullptr, &timeout);
+        if (rval < 0) {
+            perror("Select for socket notify fd fail.");
+            exit(OT_EXIT_FAILURE);
+        }
+
+        if (rval == 0 && stat(aRadioUrl.GetPath(), &st) == 0) {
+            break;
+        }
+
+        if (FD_ISSET(inotify_fd, &fds)) {
+            char buffer[4096];
+            ssize_t bytes_read = read(inotify_fd, buffer, sizeof(buffer));
+            if (bytes_read == -1) {
+                perror("Read for socket notify fd fail.");
+                exit(OT_EXIT_FAILURE);
+            }
+
+            struct inotify_event* event = reinterpret_cast<struct inotify_event*>(buffer);
+            if (event->mask & IN_CREATE) {
+                if (stat(aRadioUrl.GetPath(), &st) == 0) {
+                    break;
+                }
+            }
+        }
+    }
+
+    close(inotify_fd);
+    otLogInfoPlat("Socket file: %s is created", aRadioUrl.GetPath());
 }
 
 }  // namespace threadnetwork
