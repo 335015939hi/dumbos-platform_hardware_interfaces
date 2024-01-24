@@ -56,6 +56,7 @@
 #include "lib/platform/exit_code.h"
 #include "lib/spinel/spinel_interface.hpp"
 #include "openthread/openthread-system.h"
+#include "platform-posix.h"
 
 namespace aidl {
 namespace android {
@@ -110,6 +111,17 @@ void SocketInterface::Deinit(void) {
     mReceiveFrameBuffer = nullptr;
 }
 
+otError SocketInterface::SendFrame(const uint8_t* aFrame, uint16_t aLength) {
+    otError error = OT_ERROR_NONE;
+    Write(aFrame, aLength);
+
+    if (IsSpinelResetCommand(aFrame, aLength)) {
+        error = ResetConnection();
+    }
+
+    return error;
+}
+
 void SocketInterface::UpdateFdSet(void* aMainloopContext) {
     otSysMainloopContext* context = reinterpret_cast<otSysMainloopContext*>(aMainloopContext);
 
@@ -119,6 +131,41 @@ void SocketInterface::UpdateFdSet(void* aMainloopContext) {
 
     if (context->mMaxFd < mSockFd) {
         context->mMaxFd = mSockFd;
+    }
+}
+
+otError SocketInterface::ResetConnection(void) {
+    otError error = OT_ERROR_NONE;
+    uint64_t end;
+
+    if (mRadioUrl.HasParam("socket-reset")) {
+        usleep(static_cast<useconds_t>(kRemoveRcpDelay) * US_PER_MS);
+        CloseFile();
+
+        end = otPlatTimeGet() + kResetTimeout * US_PER_MS;
+        do {
+            mSockFd = OpenFile(mRadioUrl);
+            if (mSockFd != -1) {
+                ExitNow();
+            }
+            usleep(static_cast<useconds_t>(kOpenFileDelay) * US_PER_MS);
+        } while (end > otPlatTimeGet());
+
+        otLogCritPlat("Failed to reopen Socket connection after resetting the RCP device.");
+        error = OT_ERROR_FAILED;
+    }
+
+exit:
+    return error;
+}
+
+void SocketInterface::Write(const uint8_t* aFrame, uint16_t aLength) {
+    otError error = OT_ERROR_NONE;
+
+    ssize_t rval = write(mSockFd, aFrame, aLength);
+    if (rval <= 0) {
+        VerifyOrDie((errno == EAGAIN) || (errno == EWOULDBLOCK) || (errno == EINTR),
+                    OT_EXIT_ERROR_ERRNO);
     }
 }
 

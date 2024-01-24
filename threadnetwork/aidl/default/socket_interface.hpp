@@ -84,6 +84,20 @@ class SocketInterface : public ot::Spinel::SpinelInterface {
      */
     void Deinit(void);
 
+    /*
+     * Sends a Spinel frame to Radio Co-processor (RCP) over the
+     * socket.
+     *
+     * @param[in] aFrame     A pointer to buffer containing the Spinel frame to
+     * send.
+     * @param[in] aLength    The length (number of bytes) in the frame.
+     *
+     * @retval OT_ERROR_NONE     Successfully sent the Spinel frame.
+     * @retval OT_ERROR_FAILED   Failed to send a frame.
+     *
+     */
+    otError SendFrame(const uint8_t* aFrame, uint16_t aLength);
+
     /**
      * Updates the file descriptor sets with file descriptors used by the radio
      * driver.
@@ -135,6 +149,21 @@ class SocketInterface : public ot::Spinel::SpinelInterface {
 
   private:
     /**
+     * Is called when RCP is reset to recreate the connection with it.
+     *
+     */
+    otError ResetConnection(void);
+
+    /**
+     * Writes a given frame to the socket.
+     *
+     * @param[in] aFrame  A pointer to buffer containing the frame to write.
+     * @param[in] aLength The length (number of bytes) in the frame.
+     *
+     */
+    void Write(const uint8_t* aFrame, uint16_t aLength);
+
+    /**
      * Opens file specified by aRadioUrl.
      *
      * @param[in] aRadioUrl  A reference to object containing path to file and
@@ -154,8 +183,15 @@ class SocketInterface : public ot::Spinel::SpinelInterface {
     void CheckIfSocketIsOpen(const ot::Url::Url& aRadioUrl);
 
     enum {
-        kMaxSelectTime = 2000,  ///< Maximum wait time in Milliseconds for socket
-                                ///< to become writable (see `SendFrame`).
+        kMaxSelectTime = 2000,   ///< Maximum wait time in Milliseconds for socket
+                                 ///< to become writable (see `SendFrame`).
+        kResetTimeout = 5000,    ///< Maximum wait time in Milliseconds for file to
+                                 ///< become ready (see `ResetConnection`).
+        kOpenFileDelay = 50,     ///< Delay between open file calls, in Milliseconds
+                                 ///< (see `ResetConnection`).
+        kRemoveRcpDelay = 2000,  ///< Delay for removing RCP device from host OS
+                                 ///< after hard reset (see `ResetConnection`).
+
     };
 
     ReceiveFrameCallback mReceiveFrameCallback;
