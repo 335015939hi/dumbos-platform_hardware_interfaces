@@ -52,6 +52,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d436ed94_5300fec2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-24T01:37:46Z",
+      "side": 1,
+      "message": "Sorry i forgot to mention that we typically use \"[DO NOT MERGE]\" in the commit message with the quotes.",
+      "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53f90914_7cc63d41",
