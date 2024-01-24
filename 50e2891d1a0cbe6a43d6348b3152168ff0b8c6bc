@@ -203,6 +203,30 @@
       },
       "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d26e2720_f243ea97",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-24T20:54:19Z",
+      "side": 1,
+      "message": "This is the case for timeout. If the condition is still false by the timeout, then we will break as well which will cause these checks to fail.",
+      "parentUuid": "742e5e27_9f75be53",
+      "range": {
+        "startLine": 245,
+        "startChar": 12,
+        "endLine": 251,
+        "endChar": 13
+      },
+      "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
