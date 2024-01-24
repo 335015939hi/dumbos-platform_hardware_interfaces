@@ -22,6 +22,30 @@
       },
       "revId": "6c9bdb839f86874ccff3b8d16c9275e02087b4fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e88a5cdd_0a87f0f6",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 8811,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-01-24T11:53:47Z",
+      "side": 1,
+      "message": "As per separate discussion, I\u0027m skipping this due to a worry that this might make the change harder to back-port to older branches (just in case we choose to do that).",
+      "parentUuid": "806ffc06_5fbfd955",
+      "range": {
+        "startLine": 8811,
+        "startChar": 12,
+        "endLine": 8811,
+        "endChar": 61
+      },
+      "revId": "6c9bdb839f86874ccff3b8d16c9275e02087b4fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
