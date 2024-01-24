@@ -83,6 +83,13 @@ class SocketInterface : public ot::Spinel::SpinelInterface {
     }
 
   private:
+    void CheckIfSocketIsOpen(const ot::Url::Url& aRadioUrl);
+
+    enum {
+        kMaxSelectTime = 2000,  ///< Maximum wait time in Milliseconds for socket
+                                ///< to become writable (see `SendFrame`).
+    };
+
     ReceiveFrameCallback mReceiveFrameCallback;
     void* mReceiveFrameContext;
     RxFrameBuffer* mReceiveFrameBuffer;
