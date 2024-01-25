@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccd1d1f0_40442bfe",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T02:21:50Z",
+      "side": 1,
+      "message": "The copyright should use AOSP copyright, rather than OpenThread copyright.\n\nSame as the remaining files.",
+      "revId": "c620ee9f24dc5f3fd193751429691fe923d8d725",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
