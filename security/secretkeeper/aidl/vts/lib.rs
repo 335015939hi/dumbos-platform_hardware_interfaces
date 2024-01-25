@@ -32,3 +32,9 @@ pub const COMPONENT_VERSION: i64 = -70003;
 pub const SECURITY_VERSION: i64 = -70005;
 /// Map key for mode.
 pub const MODE: i64 = -4670551;
+/// Map key for SubcomponentDescriptor.
+pub const SUBCOMPONENT_DESCRIPTORS: i64 = -71002;
+/// Map key for Security Version in a subcomponent.
+pub const SUBCOMPONENT_SECURITY_VERSION: i64 = 2;
+/// Map key for Authority Hash in a subcomponent.
+pub const SUBCOMPONENT_AUTHORITY_HASH: i64 = 4;
