@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b1ba7c5_12e31fc7",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-01-25T20:06:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c37f3d63_246dc507",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ade73fa1_d8161091",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-01-25T02:04:54Z",
       "side": 1,
       "message": "nit:\n\n```suggestion\n     *     properties originally requested for the file being deleted\n```",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24561b05_281ecb8c",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-01-25T20:06:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade73fa1_d8161091",
       "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -69,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92634d63_a2fcb08a",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-01-25T20:06:52Z",
+      "side": 1,
+      "message": "We currently support this with TIPC depending on the args passed to `storage_file_move`. Callers can either pass a file name to move a file that _isn\u0027t_ already open, or a handle (_and_ its file name, until aosp/2924290) to move one that is.",
+      "parentUuid": "fa416afa_7237a37e",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "386c76b3_7d6539ec",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-01-25T02:04:54Z",
       "side": 1,
       "message": "Second file? Grammar seems off here.",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "359284dc_5fc514fd",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-01-25T20:06:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "386c76b3_7d6539ec",
       "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -103,6 +175,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4b8a8d8_ea83b9d5",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-01-25T20:06:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8d579d7_9c6e4dfb",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "076eb872_ce08bd7e",
@@ -120,6 +210,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cd44adf_92f9ffbd",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ReadIntegrity.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-01-25T20:06:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "076eb872_ce08bd7e",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58efa939_fb14afce",
@@ -133,6 +241,30 @@
       "writtenOn": "2024-01-25T02:04:54Z",
       "side": 1,
       "message": "Can we actually implement this?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 46
+      },
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51e61a95_67cec684",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/RenameOptions.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-01-25T20:06:52Z",
+      "side": 1,
+      "message": "Why not? Can\u0027t we pass `STORAGE_MSG_FLAG_TRANSACT_CHECKPOINT` when committing these changes?\n\n@arve@android.com",
+      "parentUuid": "58efa939_fb14afce",
       "range": {
         "startLine": 31,
         "startChar": 0,
