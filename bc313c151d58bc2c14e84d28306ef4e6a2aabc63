@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52035222_1b2966e4",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-01-25T17:14:43Z",
+      "side": 1,
+      "message": "What happens in the following sequence? What happens if an error occurs when committing a change outside the atomic segment, does the atomic segment still commit? Can commits apply partially?\n\n1. `startAtomicSegment()`\n2. Make changes\n3. `endAtomicSegment()`\n4. Make other changes\n5. `startAtomicSegment()`\n6. Make more atomic changes\n7. `endAtomicSegment()`\n8. `commitChanges()`",
+      "revId": "bc313c151d58bc2c14e84d28306ef4e6a2aabc63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
