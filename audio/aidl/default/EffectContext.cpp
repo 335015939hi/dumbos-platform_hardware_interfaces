@@ -82,6 +82,10 @@ float* EffectContext::getWorkBuffer() {
     return static_cast<float*>(mWorkBuffer.data());
 }
 
+size_t EffectContext::getWorkBufferSize() const {
+    return mWorkBuffer.size();
+}
+
 std::shared_ptr<EffectContext::StatusMQ> EffectContext::getStatusFmq() const {
     return mStatusMQ;
 }
@@ -206,6 +210,8 @@ RetCode EffectContext::updateIOFrameSize(const Parameter::Common& common) {
     mInputFrameSize = iFrameSize;
     mOutputFrameSize = oFrameSize;
     if (needUpdateMq) {
+        mWorkBuffer.resize(std::max(common.input.frameCount * mInputFrameSize / sizeof(float),
+                                    common.output.frameCount * mOutputFrameSize / sizeof(float)));
         return notifyDataMqUpdate();
     }
     return RetCode::SUCCESS;
