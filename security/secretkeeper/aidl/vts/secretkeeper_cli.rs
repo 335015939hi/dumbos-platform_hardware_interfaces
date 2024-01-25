@@ -24,11 +24,11 @@ use authgraph_boringssl::BoringSha256;
 use authgraph_core::traits::Sha256;
 use clap::{Args, Parser, Subcommand};
 use coset::CborSerializable;
+use dice_policy::DicePolicy;
 use dice_policy_builder::{
     policy_for_dice_chain, CertIndex, ConstraintSpec, ConstraintType, MissingAction,
     WILDCARD_FULL_ARRAY,
 };
-
 use secretkeeper_client::{dice::OwnedDiceArtifactsWithExplicitKey, SkSession};
 use secretkeeper_comm::data_types::{
     error::SecretkeeperError,
@@ -39,8 +39,10 @@ use secretkeeper_comm::data_types::{
     {Id, Secret},
 };
 use secretkeeper_test::{
-    dice_sample::make_explicit_owned_dice, AUTHORITY_HASH, CONFIG_DESC, MODE, SECURITY_VERSION,
-    SUBCOMPONENT_AUTHORITY_HASH, SUBCOMPONENT_DESCRIPTORS, SUBCOMPONENT_SECURITY_VERSION,
+    diags::{Diagnostic, Indent},
+    dice_sample::make_explicit_owned_dice,
+    AUTHORITY_HASH, CONFIG_DESC, MODE, SECURITY_VERSION, SUBCOMPONENT_AUTHORITY_HASH,
+    SUBCOMPONENT_DESCRIPTORS, SUBCOMPONENT_SECURITY_VERSION,
 };
 use std::io::Write;
 
@@ -63,8 +65,13 @@ struct Cli {
 
     /// Show hex versions of secrets and their IDs.
     #[clap(default_value_t = false)]
-    #[arg(long, short = 'v')]
+    #[arg(long, short = 'x')]
     hex: bool,
+
+    /// Display DICE information.
+    #[clap(default_value_t = false)]
+    #[arg(long, short = 'd')]
+    dice: bool,
 }
 
 #[derive(Subcommand, Debug)]
@@ -104,6 +111,7 @@ struct DeleteArgs {
 #[derive(Args, Debug)]
 struct DeleteAllArgs {
     /// Confirm deletion of all secrets.
+    #[arg(long, short)]
     yes: bool,
 }
 
@@ -134,7 +142,7 @@ impl SkClient {
     /// 1. `ExactMatch` on `AUTHORITY_HASH` (non-optional).
     /// 2. `ExactMatch` on `MODE` (non-optional).
     /// 3. `GreaterOrEqual` on `SECURITY_VERSION` (optional).
-    fn sealing_policy(&self) -> Result<Vec<u8>> {
+    fn sealing_policy(&self) -> Result<DicePolicy> {
         let dice =
             self.dice_artifacts.explicit_key_dice_chain().context("extract explicit DICE chain")?;
 
@@ -182,16 +190,14 @@ impl SkClient {
             ),
         ];
         policy_for_dice_chain(dice, &constraint_spec)
-            .unwrap()
-            .to_vec()
-            .context("serialize DICE policy")
+            .map_err(|e| anyhow!("failed to build DICE policy: {e}"))
     }
 
-    fn store(&mut self, id: &Id, secret: &Secret) -> Result<()> {
+    fn store(&mut self, id: &Id, secret: &Secret, sealing_policy: DicePolicy) -> Result<()> {
         let store_request = StoreSecretRequest {
             id: id.clone(),
             secret: secret.clone(),
-            sealing_policy: self.sealing_policy().context("build sealing policy")?,
+            sealing_policy: sealing_policy.to_vec().context("serialize DICE policy")?,
         };
         let store_request =
             store_request.serialize_to_packet().to_vec().context("serialize StoreSecretRequest")?;
@@ -336,6 +342,12 @@ fn main() -> Result<()> {
         }
     };
     let dice = make_explicit_owned_dice(cli.dice_version);
+    if cli.dice {
+        println!("Client DICE chain:",);
+        for line in dice.artifacts().diagnostic_indented(Indent(1), Indent(1)) {
+            println!("{}", line);
+        }
+    }
     let mut sk_client = SkClient::new(&instance, dice);
 
     match cli.command {
@@ -355,7 +367,14 @@ fn main() -> Result<()> {
             let (id, display_id) = string_to_id(&args.id, cli.hex);
             let (secret, display_secret) = value_to_secret(&args.value, cli.hex)?;
             println!("STORE key {display_id}: {display_secret}");
-            sk_client.store(&id, &secret).context("STORE")?;
+            let sealing_policy = sk_client.sealing_policy().context("build sealing policy")?;
+            if cli.dice {
+                println!("DICE sealing policy:");
+                for line in sealing_policy.diagnostic_indented(Indent(1), Indent(1)) {
+                    println!("{}", line);
+                }
+            }
+            sk_client.store(&id, &secret, sealing_policy).context("STORE")?;
         }
         Command::Delete(args) => {
             let (id, display_id) = string_to_id(&args.id, cli.hex);
