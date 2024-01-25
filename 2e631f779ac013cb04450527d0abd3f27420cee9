@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70301307_1ce84bfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T22:47:47Z",
+      "side": 1,
+      "message": "We are freezing Android V APIs next week. Is it OK that this will miss Android V?",
+      "revId": "2e631f779ac013cb04450527d0abd3f27420cee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3331f97a_f7aa7642",
         "filename": "audio/aidl/android/hardware/audio/effect/IEffectCallback.aidl",
         "patchSetId": 2
