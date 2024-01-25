@@ -327,7 +327,8 @@ void EffectImpl::process() {
             return;
         }
 
-        auto processSamples = inputMQ->availableToRead();
+        auto processSamples = std::min({inputMQ->availableToRead(), outputMQ->availableToWrite(),
+                                        mImplContext->getWorkBufferSize()});
         if (processSamples) {
             inputMQ->read(buffer, processSamples);
             IEffect::Status status = effectProcessImpl(buffer, buffer, processSamples);
