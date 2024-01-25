@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ce54d35_5bac92b6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 27
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-01-25T18:10:23Z",
+      "side": 1,
+      "message": "Looks like HWCryptoKey is defined in the parent CL. Should this commit message be updated?",
+      "revId": "959036a8d24331d2fb7bcd0ebdafd416ab827fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2090ea7e_5abe85c9",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
         "patchSetId": 27
