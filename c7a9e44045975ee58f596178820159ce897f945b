@@ -379,6 +379,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "810e50c5_1103cce9",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/ICryptoOperationContext.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T18:18:22Z",
+      "side": 1,
+      "message": "\u003e the concrete implementation of this interface keeps some state internally.\n\n\"this interface stores a reference\" is really an implementation detail, and not anything specific to the interface. So I think the wording is still odd to have in an AIDL file.\nThe binder is used as a token(because it\u0027s unique I\u0027m guessing) to map the mem buffer and different calls. It could be a map or could be stored on the implemented object itself.",
+      "parentUuid": "9d97a860_f57104b2",
+      "range": {
+        "startLine": 25,
+        "startChar": 69,
+        "endLine": 25,
+        "endChar": 99
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b754efee_212675d5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
         "patchSetId": 64
@@ -414,6 +438,30 @@
       "side": 1,
       "message": "Yes, added this on the comment.",
       "parentUuid": "b754efee_212675d5",
+      "range": {
+        "startLine": 34,
+        "startChar": 39,
+        "endLine": 34,
+        "endChar": 60
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9cbd392_53a48702",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T18:18:22Z",
+      "side": 1,
+      "message": "Thanks, looks good.",
+      "parentUuid": "22f8c05d_ec813fd3",
       "range": {
         "startLine": 34,
         "startChar": 39,
@@ -649,6 +697,30 @@
       "side": 1,
       "message": "The reason of the 2 folders is that, because this interface has a lot of types/AIDL files, I want customers that will have to implement this on their side and users of the API to look closely to the files on the root. Files on the types sub-package are not as important, so I am OK if they do not look at them as much.\nIs it OK to keep the 2 levels or do you prefer that I collapse them into 1? Another option would be that I do merge the 2 levels once I am ready to move this interface from the staging folder to something more permanent.",
       "parentUuid": "8af84f4a_092519af",
+      "range": {
+        "startLine": 16,
+        "startChar": 8,
+        "endLine": 16,
+        "endChar": 52
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5518230a_b692b8b9",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesCipherMode.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T18:18:22Z",
+      "side": 1,
+      "message": "I think that\u0027s fine. That distinction is not obvious to me without your explanation. Maybe it would help folks using the interface if they really don\u0027t have to look at the types subpackage.\nI don\u0027t have a strong opinion on it - if it\u0027s intentional, you think it will help, and you think people adding to this interface in the future will know to keep this pattern, then it seems good.",
+      "parentUuid": "74da7bcb_818f626b",
       "range": {
         "startLine": 16,
         "startChar": 8,

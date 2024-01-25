@@ -544,6 +544,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "191d8637_38cb5c59",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T18:18:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "57a208cd_42e5d75d",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 30
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17e7b218_711b6b0b",
@@ -1039,6 +1063,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8794e284_9c31e0f7",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/PatternParameters.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T18:18:22Z",
+      "side": 1,
+      "message": "LGTM",
+      "parentUuid": "4c95aed3_7f8b1da5",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 20
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce2568db_4aaac440",
@@ -1274,6 +1322,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcca8ccb_58a9447f",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesKeyMaterial.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T18:18:22Z",
+      "side": 1,
+      "message": "I like having the explicit sizes for the types of keys.",
+      "parentUuid": "87f4fa56_0d5906e0",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 1
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c41d018_eea4afc2",
@@ -1417,6 +1489,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d32537f8_ec2c8190",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/HalErrorCode.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T18:18:22Z",
+      "side": 1,
+      "message": "https://source.corp.google.com/search?q\u003df:aidl$%20const%5C%20int.*error\u0026sq\u003drepo:googleplex-android%2Fplatform%2Fsuperproject%2Fmain%20b:main%20-f:prebuilts\n\nWithout the `final` in the aidl files.\n\nThe problem with the enumerators in the ndk/cpp backend is that they are `enum class` and the ServiceSpecificExceptions take int so they always need to be static_cast whenever the enumerators are used. The `const int` can be used directly and makes it a little nicer to use.\n\nCould even do something like this if it needs to be shared. Or add the defines to an existing interface or parcelable that everything already shares.\n```\nparcelable HalErrorCode {\n  const int NONE \u003d 0;\n  const int SOMETHING \u003d -1;\n  ...\n```\n\nKeeping the enums if fine too, but a little tedious with the casting requirements.",
+      "parentUuid": "da925755_cc70560f",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68e260ae_07859ff0",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
         "patchSetId": 62
@@ -1509,6 +1605,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47cad082_fb72894e",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/NistKey.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T18:18:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3f1bd8bc_cde225b6",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 1
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d46e22f_8ade9b78",
@@ -1546,6 +1666,30 @@
       "side": 1,
       "message": "Yes, for now the only protected buffer type we have defined is the one used by WV. Added a comment to the top explaining the naming convention used for this enum.",
       "parentUuid": "1d46e22f_8ade9b78",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 0
+      },
+      "revId": "e0fd2cd1b6f0acf5cf2363864f93a9f2eab705ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d81a33b8_813a3815",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/ProtectionId.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T18:18:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "97bd9176_2a8f4372",
       "range": {
         "startLine": 17,
         "startChar": 0,
