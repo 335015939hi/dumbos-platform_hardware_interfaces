@@ -82,6 +82,7 @@ interface IModule {
     int portConfigId;
     android.hardware.audio.common.SinkMetadata sinkMetadata;
     long bufferSizeFrames;
+    @nullable android.hardware.audio.core.IStreamInEventCallback eventCallback;
   }
   @VintfStability
   parcelable OpenInputStreamReturn {

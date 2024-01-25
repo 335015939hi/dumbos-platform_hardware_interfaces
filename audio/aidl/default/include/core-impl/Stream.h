@@ -32,6 +32,7 @@
 #include <aidl/android/hardware/audio/core/BnStreamIn.h>
 #include <aidl/android/hardware/audio/core/BnStreamOut.h>
 #include <aidl/android/hardware/audio/core/IStreamCallback.h>
+#include <aidl/android/hardware/audio/core/IStreamInEventCallback.h>
 #include <aidl/android/hardware/audio/core/IStreamOutEventCallback.h>
 #include <aidl/android/hardware/audio/core/StreamDescriptor.h>
 #include <aidl/android/media/audio/common/AudioDevice.h>
@@ -87,6 +88,7 @@ class StreamContext {
                   int32_t nominalLatencyMs, int32_t mixPortHandle, std::unique_ptr<DataMQ> dataMQ,
                   std::shared_ptr<IStreamCallback> asyncCallback,
                   std::shared_ptr<IStreamOutEventCallback> outEventCallback,
+                  std::shared_ptr<IStreamInEventCallback> inEventCallback,
                   std::weak_ptr<sounddose::StreamDataProcessorInterface> streamDataProcessor,
                   DebugParameters debugParameters)
         : mCommandMQ(std::move(commandMQ)),
@@ -101,6 +103,7 @@ class StreamContext {
           mDataMQ(std::move(dataMQ)),
           mAsyncCallback(asyncCallback),
           mOutEventCallback(outEventCallback),
+          mInEventCallback(inEventCallback),
           mStreamDataProcessor(streamDataProcessor),
           mDebugParameters(debugParameters) {}
 
@@ -122,6 +125,9 @@ class StreamContext {
     int getInternalCommandCookie() const { return mInternalCommandCookie; }
     int32_t getMixPortHandle() const { return mMixPortHandle; }
     int32_t getNominalLatencyMs() const { return mNominalLatencyMs; }
+    std::shared_ptr<IStreamInEventCallback> getInEventCallback() const {
+        return mInEventCallback;
+    }
     std::shared_ptr<IStreamOutEventCallback> getOutEventCallback() const {
         return mOutEventCallback;
     }
@@ -154,6 +160,7 @@ class StreamContext {
     std::unique_ptr<DataMQ> mDataMQ;
     std::shared_ptr<IStreamCallback> mAsyncCallback;
     std::shared_ptr<IStreamOutEventCallback> mOutEventCallback;  // Only used by output streams
+    std::shared_ptr<IStreamInEventCallback> mInEventCallback;  // Only used by input streams
     std::weak_ptr<sounddose::StreamDataProcessorInterface> mStreamDataProcessor;
     DebugParameters mDebugParameters;
     long mFrameCount = 0;
@@ -266,13 +273,16 @@ class StreamInWorkerLogic : public StreamWorkerCommonLogic {
   public:
     static const std::string kThreadName;
     StreamInWorkerLogic(StreamContext* context, DriverInterface* driver)
-        : StreamWorkerCommonLogic(context, driver) {}
+        : StreamWorkerCommonLogic(context, driver),
+          mEventCallback(context->getInEventCallback()) {}
 
   protected:
     Status cycle() override;
 
   private:
     bool read(size_t clientSize, StreamDescriptor::Reply* reply);
+
+    std::shared_ptr<IStreamInEventCallback> mEventCallback;
 };
 using StreamInWorker = StreamWorkerImpl<StreamInWorkerLogic>;
 
@@ -290,6 +300,7 @@ class StreamOutWorkerLogic : public StreamWorkerCommonLogic {
     bool write(size_t clientSize, StreamDescriptor::Reply* reply);
 
     std::shared_ptr<IStreamOutEventCallback> mEventCallback;
+
 };
 using StreamOutWorker = StreamWorkerImpl<StreamOutWorkerLogic>;
 

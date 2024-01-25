@@ -25,6 +25,7 @@ import android.hardware.audio.core.IBluetoothA2dp;
 import android.hardware.audio.core.IBluetoothLe;
 import android.hardware.audio.core.IStreamCallback;
 import android.hardware.audio.core.IStreamIn;
+import android.hardware.audio.core.IStreamInEventCallback;
 import android.hardware.audio.core.IStreamOut;
 import android.hardware.audio.core.IStreamOutEventCallback;
 import android.hardware.audio.core.ITelephony;
@@ -384,6 +385,8 @@ interface IModule {
         SinkMetadata sinkMetadata;
         /** Requested audio I/O buffer minimum size, in frames. */
         long bufferSizeFrames;
+        /** Optional callback to notify client about stream events. */
+        @nullable IStreamInEventCallback eventCallback;
     }
     @VintfStability
     parcelable OpenInputStreamReturn {
