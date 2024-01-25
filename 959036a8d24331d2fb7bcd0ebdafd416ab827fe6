@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fe02bfa_878a80a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 27
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-25T20:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ce54d35_5bac92b6",
+      "revId": "959036a8d24331d2fb7bcd0ebdafd416ab827fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2090ea7e_5abe85c9",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-01-25T17:54:02Z",
       "side": 1,
       "message": "What error code for what kind of error and how is it returned?",
+      "range": {
+        "startLine": 70,
+        "startChar": 45,
+        "endLine": 70,
+        "endChar": 66
+      },
+      "revId": "959036a8d24331d2fb7bcd0ebdafd416ab827fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c40ed443_947bd137",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-25T20:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2090ea7e_5abe85c9",
       "range": {
         "startLine": 70,
         "startChar": 45,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3e04aba_50264cb4",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-25T20:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4aad5fb_5dea22e7",
+      "range": {
+        "startLine": 73,
+        "startChar": 11,
+        "endLine": 75,
+        "endChar": 69
+      },
+      "revId": "959036a8d24331d2fb7bcd0ebdafd416ab827fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d57f9360_9b63d961",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-01-25T17:54:02Z",
       "side": 1,
       "message": "remove?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 71
+      },
+      "revId": "959036a8d24331d2fb7bcd0ebdafd416ab827fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c53f833_cbd8139c",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-25T20:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d57f9360_9b63d961",
       "range": {
         "startLine": 21,
         "startChar": 0,
