@@ -251,6 +251,30 @@
       },
       "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c916716_39d56662",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-01-25T18:36:50Z",
+      "side": 1,
+      "message": "Yes, technically we could assert there (with the same caveat that we have to check for status available). However, I want to keep the test be structured in the way that operation and verification are separate.",
+      "parentUuid": "1bddb7d7_2b97e986",
+      "range": {
+        "startLine": 245,
+        "startChar": 12,
+        "endLine": 251,
+        "endChar": 13
+      },
+      "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
