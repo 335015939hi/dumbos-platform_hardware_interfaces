@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e2b7393_a7620d89",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-25T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "682353c2_80151048",
+      "range": {
+        "startLine": 81,
+        "startChar": 9,
+        "endLine": 81,
+        "endChar": 23
+      },
+      "revId": "a3eb2885ab06ad94795f2bc0d60357dc1a0c73c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13687e3a_08ff283b",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-24T17:48:29Z",
       "side": 1,
       "message": "Considering the name, it should just return a boolean. Then the test can choose a corresponding error code.",
+      "range": {
+        "startLine": 94,
+        "startChar": 23,
+        "endLine": 94,
+        "endChar": 38
+      },
+      "revId": "a3eb2885ab06ad94795f2bc0d60357dc1a0c73c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d13790a2_db94f2f1",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-25T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13687e3a_08ff283b",
       "range": {
         "startLine": 94,
         "startChar": 23,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e58e0d24_e9cbb07b",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-25T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47a15947_d4026586",
+      "range": {
+        "startLine": 174,
+        "startChar": 8,
+        "endLine": 174,
+        "endChar": 22
+      },
+      "revId": "a3eb2885ab06ad94795f2bc0d60357dc1a0c73c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a98a719_f2665d3d",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30df5bef_826eacc6",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-25T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a98a719_f2665d3d",
+      "range": {
+        "startLine": 209,
+        "startChar": 21,
+        "endLine": 209,
+        "endChar": 32
+      },
+      "revId": "a3eb2885ab06ad94795f2bc0d60357dc1a0c73c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3b93351_6f33f22f",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-01-24T17:48:29Z",
       "side": 1,
       "message": "Static fields should be put before instance fields.",
+      "range": {
+        "startLine": 236,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 0
+      },
+      "revId": "a3eb2885ab06ad94795f2bc0d60357dc1a0c73c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdb4e211_0062f2d0",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-25T10:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3b93351_6f33f22f",
       "range": {
         "startLine": 236,
         "startChar": 0,
