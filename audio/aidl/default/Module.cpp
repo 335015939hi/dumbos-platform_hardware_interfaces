@@ -171,7 +171,9 @@ void Module::cleanUpPatch(int32_t patchId) {
 ndk::ScopedAStatus Module::createStreamContext(
         int32_t in_portConfigId, int64_t in_bufferSizeFrames,
         std::shared_ptr<IStreamCallback> asyncCallback,
-        std::shared_ptr<IStreamOutEventCallback> outEventCallback, StreamContext* out_context) {
+        std::shared_ptr<IStreamOutEventCallback> outEventCallback,
+        std::shared_ptr<IStreamInEventCallback> inEventCallback,
+        StreamContext* out_context) {
     if (in_bufferSizeFrames <= 0) {
         LOG(ERROR) << __func__ << ": non-positive buffer size " << in_bufferSizeFrames;
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
@@ -219,7 +221,7 @@ ndk::ScopedAStatus Module::createStreamContext(
                 portConfigIt->sampleRate.value().value, flags, nominalLatencyMs,
                 portConfigIt->ext.get<AudioPortExt::mix>().handle,
                 std::make_unique<StreamContext::DataMQ>(frameSize * in_bufferSizeFrames),
-                asyncCallback, outEventCallback,
+                asyncCallback, outEventCallback, inEventCallback,
                 std::weak_ptr<sounddose::StreamDataProcessorInterface>{}, params);
         if (temp.isValid()) {
             *out_context = std::move(temp);
@@ -841,7 +843,7 @@ ndk::ScopedAStatus Module::openInputStream(const OpenInputStreamArguments& in_ar
     }
     StreamContext context;
     RETURN_STATUS_IF_ERROR(createStreamContext(in_args.portConfigId, in_args.bufferSizeFrames,
-                                               nullptr, nullptr, &context));
+                                               nullptr, nullptr, in_args.eventCallback, &context));
     context.fillDescriptor(&_aidl_return->desc);
     std::shared_ptr<StreamIn> stream;
     RETURN_STATUS_IF_ERROR(createInputStream(std::move(context), in_args.sinkMetadata,
@@ -887,7 +889,7 @@ ndk::ScopedAStatus Module::openOutputStream(const OpenOutputStreamArguments& in_
     StreamContext context;
     RETURN_STATUS_IF_ERROR(createStreamContext(in_args.portConfigId, in_args.bufferSizeFrames,
                                                isNonBlocking ? in_args.callback : nullptr,
-                                               in_args.eventCallback, &context));
+                                               in_args.eventCallback, nullptr, &context));
     context.fillDescriptor(&_aidl_return->desc);
     std::shared_ptr<StreamOut> stream;
     RETURN_STATUS_IF_ERROR(createOutputStream(std::move(context), in_args.sourceMetadata,
