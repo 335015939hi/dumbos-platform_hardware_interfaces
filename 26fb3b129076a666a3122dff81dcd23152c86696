@@ -1,0 +1,146 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2b7a11e_2f9041e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-01-25T02:04:54Z",
+      "side": 1,
+      "message": "Just a few additional comments, nothing critical.",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c37f3d63_246dc507",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-01-25T02:04:54Z",
+      "side": 1,
+      "message": "Same as before, what do you mean by second file? And the grammar seems off.",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ade73fa1_d8161091",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-01-25T02:04:54Z",
+      "side": 1,
+      "message": "nit:\n\n```suggestion\n     *     properties originally requested for the file being deleted\n```",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa416afa_7237a37e",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-01-25T02:04:54Z",
+      "side": 1,
+      "message": "Do we really want two different rename interfaces?",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "386c76b3_7d6539ec",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-01-25T02:04:54Z",
+      "side": 1,
+      "message": "Second file? Grammar seems off here.",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8d579d7_9c6e4dfb",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-01-25T02:04:54Z",
+      "side": 1,
+      "message": "nit:\n\n```suggestion\n     *     allow opening despite possible tampering for the directory\n```",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "076eb872_ce08bd7e",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ReadIntegrity.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-01-25T02:04:54Z",
+      "side": 1,
+      "message": "nit:\n```suggestion\n     * Return an error on reads if any REE alteration of the written data\n```",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58efa939_fb14afce",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/RenameOptions.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-01-25T02:04:54Z",
+      "side": 1,
+      "message": "Can we actually implement this?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 46
+      },
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
