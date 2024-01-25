@@ -227,6 +227,30 @@
       },
       "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bddb7d7_2b97e986",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1748137
+      },
+      "writtenOn": "2024-01-25T12:03:54Z",
+      "side": 1,
+      "message": "When we land in timeout block, it already dissatisfied the OK condition, that is what confused me.\nHowever I understand your intent and will commit the changes you suggested.",
+      "parentUuid": "d26e2720_f243ea97",
+      "range": {
+        "startLine": 245,
+        "startChar": 12,
+        "endLine": 251,
+        "endChar": 13
+      },
+      "revId": "50e2891d1a0cbe6a43d6348b3152168ff0b8c6bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
