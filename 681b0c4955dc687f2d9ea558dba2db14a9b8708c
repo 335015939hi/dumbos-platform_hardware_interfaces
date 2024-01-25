@@ -190,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "368f8941_f468913c",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DerivedKeyResult.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T21:35:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "218eaa8a_ea73d71d",
+      "range": {
+        "startLine": 32,
+        "startChar": 21,
+        "endLine": 32,
+        "endChar": 31
+      },
+      "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d984c2eb_a2227743",
@@ -221,6 +245,24 @@
       "side": 1,
       "message": "I was waiting for the definition to be finalized on the AuthGraph side. I am reusing their definition now (copy-paste of the file for now because the file is used only as a reference).",
       "parentUuid": "d984c2eb_a2227743",
+      "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb285e9_cd76fded",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DicePolicy.cddl",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T21:35:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d337aa0e_2dfefe5b",
       "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -309,6 +351,30 @@
       "side": 1,
       "message": "I have it there to match a currently in use [Trusty interface](https://android.googlesource.com/trusty/lib/+/refs/heads/master/lib/hwkey/include/lib/hwkey/hwkey.h#89). I made it a nullable because I\u0027d prefer to just pass a `None` to use the best available option (which for now is the only option on the enum). Would you prefer to leave this parameter out of the AIDL signature for now?",
       "parentUuid": "e243f892_1a130c7b",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 0
+      },
+      "revId": "681b0c4955dc687f2d9ea558dba2db14a9b8708c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "798aa5f9_545302e8",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KdfVersion.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T21:35:41Z",
+      "side": 1,
+      "message": "IIUC, having that option defined in the enum and then also being able to pass `None` to mean the same thing is redundant.\n\nAlso, now that the paremeters are in a parcelable, we could just remove that field entirely until we actually have other options. Then we can add it back without the redundant enumerator if we keep @nullable, or keep that enumerator as the default.",
+      "parentUuid": "ea2c8d60_e48b4a74",
       "range": {
         "startLine": 17,
         "startChar": 0,
