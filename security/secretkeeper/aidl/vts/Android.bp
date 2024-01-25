@@ -23,9 +23,12 @@ rust_library {
     crate_name: "secretkeeper_test",
     srcs: ["lib.rs"],
     rustlibs: [
+        "libchrono",
         "libciborium",
         "libcoset",
         "libdiced_open_dice",
+        "libdice_policy",
+        "libhex",
         "liblog_rust",
         "libsecretkeeper_client",
     ],
