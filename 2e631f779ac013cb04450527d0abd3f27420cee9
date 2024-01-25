@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be49af00_5b1e7856",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-01-25T22:55:12Z",
+      "side": 1,
+      "message": "we actually went with another approach: \"https://android-review.git.corp.google.com/q/topic:%22effect_reopen%22\"\n\nSo this cl is not needed anymore",
+      "parentUuid": "70301307_1ce84bfa",
+      "revId": "2e631f779ac013cb04450527d0abd3f27420cee9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3331f97a_f7aa7642",
