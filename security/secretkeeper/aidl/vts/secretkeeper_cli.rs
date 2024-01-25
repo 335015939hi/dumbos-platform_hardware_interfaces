@@ -35,7 +35,8 @@ use secretkeeper_comm::data_types::{
     {Id, Secret},
 };
 use secretkeeper_test::{
-    dice_sample::make_explicit_owned_dice, AUTHORITY_HASH, CONFIG_DESC, MODE, SECURITY_VERSION,
+    diags::Diagnostic, dice_sample::make_explicit_owned_dice, AUTHORITY_HASH, CONFIG_DESC, MODE,
+    SECURITY_VERSION,
 };
 use std::io::Write;
 
@@ -58,8 +59,13 @@ struct Cli {
 
     /// Show hex versions of secrets and their IDs.
     #[clap(default_value_t = false)]
-    #[arg(long, short = 'v')]
+    #[arg(long, short = 'x')]
     hex: bool,
+
+    /// Display DICE information.
+    #[clap(default_value_t = false)]
+    #[arg(long, short = 'd')]
+    dice: bool,
 }
 
 #[derive(Subcommand, Debug)]
@@ -301,6 +307,9 @@ fn main() -> Result<()> {
         }
     };
     let dice = make_explicit_owned_dice(cli.dice_version);
+    if cli.dice {
+        println!("Client DICE chain:\n{}", dice.artifacts().diagnostic());
+    }
     let mut sk_client = SkClient::new(&instance, dice);
 
     match cli.command {
