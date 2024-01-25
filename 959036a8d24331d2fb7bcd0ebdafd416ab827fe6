@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2090ea7e_5abe85c9",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T17:54:02Z",
+      "side": 1,
+      "message": "What error code for what kind of error and how is it returned?",
+      "range": {
+        "startLine": 70,
+        "startChar": 45,
+        "endLine": 70,
+        "endChar": 66
+      },
+      "revId": "959036a8d24331d2fb7bcd0ebdafd416ab827fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4aad5fb_5dea22e7",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T17:54:02Z",
+      "side": 1,
+      "message": "Use a parcelable for these arguments. Adding all of these into a parcelable (can be defined here in this file) will allow us to extend these arguements in the future without needing to define a new method.",
+      "range": {
+        "startLine": 73,
+        "startChar": 11,
+        "endLine": 75,
+        "endChar": 69
+      },
+      "revId": "959036a8d24331d2fb7bcd0ebdafd416ab827fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d57f9360_9b63d961",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 27
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-01-25T17:54:02Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 71
+      },
+      "revId": "959036a8d24331d2fb7bcd0ebdafd416ab827fe6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
