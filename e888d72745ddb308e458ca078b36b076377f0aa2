@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac981573_3d50462f",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T03:59:22Z",
+      "side": 1,
+      "message": "The `perror` won\u0027t send the log to the syslog. Better to use `otLogCritPlat(\"open(): errno\u003d%s\", strerror(errno));`.\n\n```suggestion\n        otLogCritPlat(\"open(): errno\u003d%s\", strerror(errno));\n```",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a68686cc_38399a32",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T03:59:22Z",
+      "side": 1,
+      "message": "VerifyOrDie(fd !\u003d -1, OT_EXIT_ERROR_ERRNO);",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35dc043a_90d80c1e",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T03:59:22Z",
+      "side": 1,
+      "message": "Should we check if the length of the path is larger than `sizeof(server_address.sun_path)`? And we should replace `strcpy` with `strncpy`.",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72c58612_ff89d9b9",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T03:59:22Z",
+      "side": 1,
+      "message": "The `perror` won\u0027t send the log to the syslog. Better to use `otLogCritPlat(\"connect(): errno\u003d%s\", strerror(errno))`;.\n```suggestion\n        otLogCritPlat(\"connect(): errno\u003d%s\", strerror(errno));\n```",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "521c320a_55093fb3",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T03:59:22Z",
+      "side": 1,
+      "message": "The `perror` won\u0027t send the log to the syslog. Better to use `otLogCritPlat(\"close(): errno\u003d%s\", strerror(errno))`.\n\n```suggestion\n   VerifyOrExit(0 \u003d\u003d close(mSockFd), otLogCritPlat(\"close(): errno\u003d%s\", strerror(errno));\n```",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43a518c1_6c0cffc7",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T03:59:22Z",
+      "side": 1,
+      "message": "The `perror` won\u0027t send the log to the syslog. Better to use `otLogCritPlat(\"wait(): errno\u003d%s\", strerror(errno))`.\n\n```suggestion\n    VerifyOrExit(wait(nullptr) !\u003d -1 || errno \u003d\u003d ECHILD, otLogCritPlat(\"wait(): errno\u003d%s\", strerror(errno)\n```",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acbf9814_865b40fd",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T03:59:22Z",
+      "side": 1,
+      "message": "I think it should be set to a default value 1000000. Because the Spinel frame will be finally sent to the RCP via UART interface.",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a404537_29063bd4",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T03:59:22Z",
+      "side": 1,
+      "message": "Should we add returning `-1` indicates failed to open the file.",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
