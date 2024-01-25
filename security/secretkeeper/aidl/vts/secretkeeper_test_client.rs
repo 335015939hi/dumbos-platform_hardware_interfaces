@@ -20,7 +20,7 @@ use authgraph_vts_test as ag_vts;
 use authgraph_boringssl as boring;
 use authgraph_core::key;
 use coset::{CborSerializable, CoseEncrypt0};
-use dice_policy_builder::{ConstraintSpec, ConstraintType, MissingAction, policy_for_dice_chain};
+use dice_policy_builder::{ArrayIndex, ConstraintSpec, ConstraintType, MissingAction, WILDCARD_FULL_ARRAY, policy_for_dice_chain};
 use rdroidtest::{ignore_if, rdroidtest};
 use secretkeeper_client::dice::OwnedDiceArtifactsWithExplicitKey;
 use secretkeeper_client::SkSession;
@@ -40,6 +40,9 @@ use secretkeeper_test::{
 
 const SECRETKEEPER_SERVICE: &str = "android.hardware.security.secretkeeper.ISecretkeeper";
 const CURRENT_VERSION: u64 = 1;
+const SUBCOMPONENT_DESCRIPTORS: i64 = -71002;
+const SUBCOMPONENT_SECURITY_VERSION: i64 = 2;
+const SUBCOMPONENT_AUTHORITY_HASH: i64 = 4;
 
 // Random bytes (of ID_SIZE/SECRET_SIZE) generated for tests.
 const ID_EXAMPLE: Id = Id([
@@ -247,18 +250,55 @@ fn assert_entry_not_found(res: Result<Secret, Error>) {
 /// 1. ExactMatch on AUTHORITY_HASH (non-optional).
 /// 2. ExactMatch on MODE (non-optional).
 /// 3. GreaterOrEqual on SECURITY_VERSION (optional).
+/// 4. The second last DiceChainEntry contain SubcomponentDescriptor, for each of those:
+///     a) GreaterOrEqual on SECURITY_VERSION (Required)
+//      b) ExactMatch on AUTHORITY_HASH (Required).
 fn sealing_policy(dice: &[u8]) -> Vec<u8> {
-    let constraint_spec = [
-        ConstraintSpec::new(ConstraintType::ExactMatch, vec![AUTHORITY_HASH], MissingAction::Fail),
-        ConstraintSpec::new(ConstraintType::ExactMatch, vec![MODE], MissingAction::Fail),
+    let constraint_spec = vec![
+        ConstraintSpec::new(
+            ConstraintType::ExactMatch,
+            vec![AUTHORITY_HASH],
+            MissingAction::Fail,
+            ArrayIndex::All,
+        ),
+        ConstraintSpec::new(
+            ConstraintType::ExactMatch,
+            vec![MODE],
+            MissingAction::Fail,
+            ArrayIndex::All,
+        ),
         ConstraintSpec::new(
             ConstraintType::GreaterOrEqual,
             vec![CONFIG_DESC, SECURITY_VERSION],
             MissingAction::Ignore,
+            ArrayIndex::All,
+        ),
+        // Constraints on sub components in the second last DiceChainEntry
+        ConstraintSpec::new(
+            ConstraintType::GreaterOrEqual,
+            vec![
+                CONFIG_DESC,
+                SUBCOMPONENT_DESCRIPTORS,
+                WILDCARD_FULL_ARRAY,
+                SUBCOMPONENT_SECURITY_VERSION,
+            ],
+            MissingAction::Fail,
+            ArrayIndex::FromEnd(1),
+        ),
+        ConstraintSpec::new(
+            ConstraintType::ExactMatch,
+            vec![
+                CONFIG_DESC,
+                SUBCOMPONENT_DESCRIPTORS,
+                WILDCARD_FULL_ARRAY,
+                SUBCOMPONENT_AUTHORITY_HASH,
+            ],
+            MissingAction::Fail,
+            ArrayIndex::FromEnd(1),
         ),
     ];
 
-    policy_for_dice_chain(dice, &constraint_spec).unwrap().to_vec().unwrap()
+    policy_for_dice_chain(dice, constraint_spec).unwrap().to_vec().unwrap()
 }
 
 /// Perform AuthGraph key exchange, returning the session keys and session ID.
