@@ -403,6 +403,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd9514aa_e3a22f4d",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/ICryptoOperationContext.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-25T20:39:00Z",
+      "side": 1,
+      "message": "Changed the wording now to remove implementation specific details, please let me know if this works.",
+      "parentUuid": "810e50c5_1103cce9",
+      "range": {
+        "startLine": 25,
+        "startChar": 69,
+        "endLine": 25,
+        "endChar": 99
+      },
+      "revId": "c7a9e44045975ee58f596178820159ce897f945b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b754efee_212675d5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
         "patchSetId": 64
