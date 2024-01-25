@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0dd4387_bff856e2",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T04:08:16Z",
+      "side": 1,
+      "message": "Why we need to reset the connection?",
+      "revId": "73be2d4a26560a2ce12304d50eecdebb56ff539a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6adae422_40b2a046",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T04:08:16Z",
+      "side": 1,
+      "message": "Should we process the error `EAGAIN`, `EWOULDBLOCK` and `EINTR`?",
+      "revId": "73be2d4a26560a2ce12304d50eecdebb56ff539a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0582d5a8_b661f88e",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T04:08:16Z",
+      "side": 1,
+      "message": "We can add the unit of the time to improve the readability.\n\nkMaxSelectTimeMs\nkResetTimeoutMs\nkOpenFileDelayMs\nkRemoveRcpDelayMs",
+      "revId": "73be2d4a26560a2ce12304d50eecdebb56ff539a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
