@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2692dd1f_0bbd718d",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T08:10:02Z",
+      "side": 1,
+      "message": "Why `NCP error` here?",
+      "revId": "c8cf4cf2aa35cca244fcad4b953f283998e118cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47d2a099_f5a991e0",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T08:10:02Z",
+      "side": 1,
+      "message": "Should we re-read data when the errno is `EAGAIN` or `EINTR`?",
+      "revId": "c8cf4cf2aa35cca244fcad4b953f283998e118cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "800fde9e_0b88adc8",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T08:10:02Z",
+      "side": 1,
+      "message": "Add an empty line between variable definition and the code.",
+      "revId": "c8cf4cf2aa35cca244fcad4b953f283998e118cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "764972b3_b3699bc3",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-25T08:10:02Z",
+      "side": 1,
+      "message": "Should we return here?",
+      "revId": "c8cf4cf2aa35cca244fcad4b953f283998e118cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
