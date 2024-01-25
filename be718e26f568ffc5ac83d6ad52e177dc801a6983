@@ -33,6 +33,24 @@
       "message": "Hi - for what it\u0027s worth, I\u0027m not on the telephony team, but from a coding perspective, I don\u0027t think this is a good change. It\u0027s better to have different errors for absence or present. It\u0027s better to have known behaviors and explicit behaviors.\n\nAlso - the number of accepted errors here is really problematic. There really should be one error, and if there are more, then it means the implementations are really divergent.",
       "revId": "be718e26f568ffc5ac83d6ad52e177dc801a6983",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21587133_717422ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1886547
+      },
+      "writtenOn": "2024-01-25T02:50:54Z",
+      "side": 1,
+      "message": "1.For this test case, absence check is redudant.\nBecause of the below line @ setup , which already as sims status at Present. So SIM Absent check is redundant, hence it was suggested to remove the condition. \n\nRef: This code already takes care of checking sim status, and it wont reach the test case if it fails here at setup itself(For Ex: If SIM is absent)\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/radio/aidl/vts/radio_network_test.cpp;l\u003d65?q\u003dRadioNetworkTest::%20SetUp()\u0026ss\u003dandroid\n\nAlso there is no documentation about possible errors at absence or present, so it was suggested to keep in line with Ref :  \nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/radio/aidl/android/hardware/radio/network/IRadioNetworkResponse.aidl;l\u003d438?q\u003diradionetworkresponse.aidl%20repo:platform%2Fsuperproject%2Fmain\n\n2.Regarding Other concern of \"number of accepted errors here is really problematic. There really should be one error, and if there are more, then it means the implementations are really divergent.\"\nThis is same across responses defined at HAL and it is not specfic to test case . \n\nWould request @sarahchin@google.com and @jackyu to comment on this request\n\nRegarding Number of errors being problematic, the changes are inline with HAL definition. \nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/radio/aidl/android/hardware/radio/network/IRadioNetworkResponse.aidl;l\u003d438?q\u003diradionetworkresponse.aidl%20repo:platform%2Fsuperproject%2Fmain",
+      "parentUuid": "30eac985_0782dc8b",
+      "revId": "be718e26f568ffc5ac83d6ad52e177dc801a6983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
