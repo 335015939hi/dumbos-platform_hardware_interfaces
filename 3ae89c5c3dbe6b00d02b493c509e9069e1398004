@@ -22,6 +22,30 @@
       },
       "revId": "3ae89c5c3dbe6b00d02b493c509e9069e1398004",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cf9e39a_adaef8bf",
+        "filename": "audio/aidl/default/EffectImpl.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-01-26T16:47:34Z",
+      "side": 1,
+      "message": "In this case, I think the HAL should be able to consume the minimal size of these three `std::min({inputMQ-\u003eavailableToRead(), outputMQ-\u003eavailableToWrite(), mImplContext-\u003egetWorkBufferSize()})`, and continue the processing in next cycle.\n\nWill add a VTS test case for this.",
+      "parentUuid": "5a8365aa_9aeca2b3",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 76
+      },
+      "revId": "3ae89c5c3dbe6b00d02b493c509e9069e1398004",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
