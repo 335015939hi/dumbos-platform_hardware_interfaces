@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b080ce_68987a85",
+        "filename": "automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-01-26T23:25:04Z",
+      "side": 1,
+      "message": "Don\u0027t we still need to check the status HalPropValue even if the result is ok?",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 5
+      },
+      "revId": "d307a0fec0562572e75e4fd7eaf1ba2e5f428e0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
