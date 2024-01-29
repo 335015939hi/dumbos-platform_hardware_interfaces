@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a64374f9_d8e63a01",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done, added necessary header file for following change.",
+      "parentUuid": "3035a229_0caee51d",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cad856b5_2afb4190",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-25T03:29:35Z",
       "side": 1,
       "message": "This function will waiting for creating the socket file. It can\u0027t be called in the constructor. It should be called in the function `Init()`.",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7fc844e_c604c2c1",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cad856b5_2afb4190",
       "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5959ae1_0fd51310",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d49ea152_c25353d4",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2af62fc_1c4c44e6",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-01-25T03:29:35Z",
       "side": 1,
       "message": "nit: inotify_fd -\u003e inotifyFd",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b14ef08b_61a4d190",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2af62fc_1c4c44e6",
       "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -86,6 +158,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5c90716_65d145c5",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63895249_e673d44b",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7317086f_2a292a69",
@@ -99,6 +189,24 @@
       "writtenOn": "2024-01-25T03:29:35Z",
       "side": 1,
       "message": "socket_path -\u003e socketPath",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e15a6fb4_4e279eb9",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7317086f_2a292a69",
       "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -120,6 +228,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26172413_a43dcbee",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bde70aca_c3ebd424",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8033261_134ced1e",
@@ -133,6 +259,24 @@
       "writtenOn": "2024-01-25T03:29:35Z",
       "side": 1,
       "message": "VerifyOrDie(last_slash_idx !\u003d std::string::npos, OT_EXIT_ERROR_ERRNO);",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e2e12cf_6c964ef9",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8033261_134ced1e",
       "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -154,6 +298,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49c219e7_9a168a64",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc7e6bcd_51b394d7",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5f60abe_8c41fc54",
@@ -167,6 +329,24 @@
       "writtenOn": "2024-01-25T03:29:35Z",
       "side": 1,
       "message": "VerifyOrDie(wd !\u003d -1, OT_EXIT_ERROR_ERRNO);",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a00f6a0_93cc9219",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5f60abe_8c41fc54",
       "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -188,6 +368,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c5dc192_94f45bc1",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e75d8f1_e0fab214",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc20b484_b46a1a94",
@@ -201,6 +399,24 @@
       "writtenOn": "2024-01-25T03:29:35Z",
       "side": 1,
       "message": "VerifyOrDie(rval \u003e\u003d 0, OT_EXIT_ERROR_ERRNO);",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cda3007d_b5d9f191",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc20b484_b46a1a94",
       "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -222,6 +438,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d46440c5_2bc5fd5f",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4322392_cd3afe60",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b9bac90_4c90382c",
@@ -239,6 +473,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b593d7f_fb734aaa",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b9bac90_4c90382c",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "705f67a6_4144410d",
@@ -252,6 +504,24 @@
       "writtenOn": "2024-01-25T03:29:35Z",
       "side": 1,
       "message": "VerifyOrDie(bytes_read \u003e\u003d 0, OT_EXIT_ERROR_ERRNO);",
+      "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a1f6f75_8d2154f9",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "705f67a6_4144410d",
       "revId": "f3210987f2447506974f322cfb003045aa6dcf0e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
