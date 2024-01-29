@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce282a0f_c5e44e62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-01-29T22:12:06Z",
+      "side": 1,
+      "message": "There is a fix, going through presubmit: aosp/2933574",
+      "revId": "ea92bcf34f9f5d5ee0268347f8a9965fb15436bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
