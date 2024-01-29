@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b686b47_1ea51564",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-01-29T17:46:15Z",
+      "side": 1,
+      "message": "`get_update` was indeed untested path. Thanks!",
+      "revId": "5498cfa85a3b3e42d1aabbe349d1a022dd56916b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
