@@ -1,0 +1,24 @@
+<!-- HFP Offload Codec Capability Schema -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="hfpOffloadSetting">
+    <xs:complexType>
+      <xs:element ref="configuration" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="configuration">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="codec" type="codecType"/>
+      <xs:attribute name="inputDataPath" type="xs:unsignedByte"/>
+      <xs:attribute name="outputDataPath" type="xs:unsignedByte"/>
+      <xs:attribute name="useControllerCodec" type="xs:boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="codecType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LC3"/>
+      <xs:enumeration value="CVSD"/>
+      <xs:enumeration value="MSBC"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

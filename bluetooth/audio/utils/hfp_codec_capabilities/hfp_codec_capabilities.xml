@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!---
+  This is an example to configure HFP hardware offload supported capability settings
+  In the follow list, there would be only one list in this file. Add element into each list as needed.
+
+  configuration:
+    For each configuration , there are 5 attributes
+      - name
+      - codec
+      - inputDataPath (0x00 - HCI, or 0x01-0xFE for VS)
+      - outputDataPath (0x00 - HCI, or 0x01-0xFE for VS)
+      - useControllerCodec
+-->
+<hfpOffloadSetting>
+  <configuration name="LC3_controller" codec="LC3" inputDataPath="0" outputDataPath="0" useControllerCodec="true"/>
+  <configuration name="CVSD_controller" codec="CVSD" inputDataPath="0" outputDataPath="0" useControllerCodec="true"/>
+  <configuration name="MSBC_controller" codec="MSBC" inputDataPath="0" outputDataPath="0" useControllerCodec="true"/>
+</hfpOffloadSetting>
