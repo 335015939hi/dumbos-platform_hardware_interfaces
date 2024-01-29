@@ -16,6 +16,24 @@
       "message": "The copyright should use AOSP copyright, rather than OpenThread copyright.\n\nSame as the remaining files.",
       "revId": "c620ee9f24dc5f3fd193751429691fe923d8d725",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51e1aca8_ad7fed57",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccd1d1f0_40442bfe",
+      "revId": "c620ee9f24dc5f3fd193751429691fe923d8d725",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
