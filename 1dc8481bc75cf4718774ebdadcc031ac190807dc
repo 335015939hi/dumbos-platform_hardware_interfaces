@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf7c139d_0570cdcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2024-01-29T16:55:32Z",
+      "side": 1,
+      "message": "This CL itself looks good to TV team. But I think we need to revert this change on main after it\u0027s automerged into main. @zhanglongxia@google.com Am I right?",
+      "revId": "1dc8481bc75cf4718774ebdadcc031ac190807dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
