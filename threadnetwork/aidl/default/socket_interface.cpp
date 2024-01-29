@@ -34,7 +34,7 @@
 
 #include "common/code_utils.hpp"
 #include "lib/platform/exit_code.h"
-#include "openthread/openthread-system.h"
+#include "platform-posix.h"
 
 namespace aidl {
 namespace android {
@@ -90,6 +90,12 @@ void SocketInterface::Deinit(void) {
     mReceiveFrameBuffer = nullptr;
 }
 
+otError SocketInterface::SendFrame(const uint8_t* aFrame, uint16_t aLength) {
+    Write(aFrame, aLength);
+
+    return OT_ERROR_NONE;
+}
+
 void SocketInterface::UpdateFdSet(void* aMainloopContext) {
     otSysMainloopContext* context = reinterpret_cast<otSysMainloopContext*>(aMainloopContext);
 
@@ -100,6 +106,14 @@ void SocketInterface::UpdateFdSet(void* aMainloopContext) {
     if (context->mMaxFd < mSockFd) {
         context->mMaxFd = mSockFd;
     }
+}
+
+void SocketInterface::Write(const uint8_t* aFrame, uint16_t aLength) {
+    otError error = OT_ERROR_NONE;
+
+    ssize_t rval = TEMP_FAILURE_RETRY(write(mSockFd, aFrame, aLength));
+    VerifyOrDie(rval >= 0, OT_EXIT_ERROR_ERRNO);
+    VerifyOrDie(rval > 0, OT_EXIT_FAILURE);
 }
 
 int SocketInterface::OpenFile(const ot::Url::Url& aRadioUrl) {
