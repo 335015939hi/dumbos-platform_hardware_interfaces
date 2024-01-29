@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0953d7b4_f5e0a2fe",
+        "filename": "audio/aidl/vts/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-29T10:03:08Z",
+      "side": 1,
+      "message": "libpffft has unused variable, num https://cs.android.com/android/platform/superproject/main/+/main:external/pffft/pffft.hpp;drc\u003dee17cb0c97146a888c8d925999413f20934676fb;l\u003d981\nTest generates unused variable error.",
+      "parentUuid": "1d28bf26_21334cbe",
+      "range": {
+        "startLine": 94,
+        "startChar": 10,
+        "endLine": 94,
+        "endChar": 36
+      },
+      "revId": "dc43af31c479bfb7904662f7070546fee082acc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcbfe820_005abe08",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-01-25T22:40:01Z",
       "side": 1,
       "message": "nit: can this move to line#21?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 23
+      },
+      "revId": "dc43af31c479bfb7904662f7070546fee082acc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "169b8923_6c9d1dbe",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-29T10:03:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcbfe820_005abe08",
       "range": {
         "startLine": 19,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f8cc882_6f0180e4",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-29T10:03:08Z",
+      "side": 1,
+      "message": "Using ```setAndVerifyParameters```",
+      "parentUuid": "1eab7c58_60124716",
+      "range": {
+        "startLine": 99,
+        "startChar": 9,
+        "endLine": 99,
+        "endChar": 22
+      },
+      "revId": "dc43af31c479bfb7904662f7070546fee082acc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce80679a_647a1cca",
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd3a96e0_e9e913f5",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-29T10:03:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce80679a_647a1cca",
+      "range": {
+        "startLine": 259,
+        "startChar": 25,
+        "endLine": 259,
+        "endChar": 46
+      },
+      "revId": "dc43af31c479bfb7904662f7070546fee082acc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "696d9eac_edbcec36",
@@ -123,6 +219,30 @@
       "writtenOn": "2024-01-25T22:40:01Z",
       "side": 1,
       "message": "why not `validateParameters` here? Or perhaps we should have a method `setAndVerifyParametersWhenSuccess`?",
+      "range": {
+        "startLine": 275,
+        "startChar": 32,
+        "endLine": 275,
+        "endChar": 63
+      },
+      "revId": "dc43af31c479bfb7904662f7070546fee082acc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "188f8a9a_b1e050d0",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-29T10:03:08Z",
+      "side": 1,
+      "message": "Modified set ```setParameters``` method to ```setAndVerifyParameters``` which calls ```getParameter``` only when the strength is valid.",
+      "parentUuid": "696d9eac_edbcec36",
       "range": {
         "startLine": 275,
         "startChar": 32,
