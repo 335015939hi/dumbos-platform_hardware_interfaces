@@ -140,6 +140,15 @@ class SocketInterface : public ot::Spinel::SpinelInterface {
      */
     void CloseFile(void);
 
+    bool IsSocketFileExisted(const char* aPath);
+
+    void WaitForSocketFileCreated(const char* aPath);
+
+    enum {
+        kMaxSelectTimeMs = 2000,  ///< Maximum wait time in Milliseconds for file
+                                  ///< descriptor to become available.
+    };
+
     ReceiveFrameCallback mReceiveFrameCallback;
     void* mReceiveFrameContext;
     RxFrameBuffer* mReceiveFrameBuffer;
