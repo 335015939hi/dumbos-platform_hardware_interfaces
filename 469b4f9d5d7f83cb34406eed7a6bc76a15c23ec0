@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0732fca_0ae65386",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-01-29T21:53:38Z",
+      "side": 1,
+      "message": "you might consider filing bugs only if the major version is removed. If the minor version is removed, it can be more work than it\u0027s worth",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 72
+      },
+      "revId": "469b4f9d5d7f83cb34406eed7a6bc76a15c23ec0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
