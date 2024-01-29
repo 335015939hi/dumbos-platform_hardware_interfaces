@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cfd8ef6_c3542d32",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac981573_3d50462f",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a68686cc_38399a32",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-25T03:59:22Z",
       "side": 1,
       "message": "VerifyOrDie(fd !\u003d -1, OT_EXIT_ERROR_ERRNO);",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08239fbc_aaeed86f",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:12Z",
+      "side": 1,
+      "message": "I use VerifyOrExit to make sure we could go back to init(), which will return error eventually.",
+      "parentUuid": "a68686cc_38399a32",
       "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13cf362d_0bc37923",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35dc043a_90d80c1e",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72c58612_ff89d9b9",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-01-25T03:59:22Z",
       "side": 1,
       "message": "The `perror` won\u0027t send the log to the syslog. Better to use `otLogCritPlat(\"connect(): errno\u003d%s\", strerror(errno))`;.\n```suggestion\n        otLogCritPlat(\"connect(): errno\u003d%s\", strerror(errno));\n```",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5543bcd8_20ec70a6",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72c58612_ff89d9b9",
       "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -86,6 +158,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc2ebdfc_3b876d06",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "521c320a_55093fb3",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43a518c1_6c0cffc7",
@@ -99,6 +189,24 @@
       "writtenOn": "2024-01-25T03:59:22Z",
       "side": 1,
       "message": "The `perror` won\u0027t send the log to the syslog. Better to use `otLogCritPlat(\"wait(): errno\u003d%s\", strerror(errno))`.\n\n```suggestion\n    VerifyOrExit(wait(nullptr) !\u003d -1 || errno \u003d\u003d ECHILD, otLogCritPlat(\"wait(): errno\u003d%s\", strerror(errno)\n```",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34b431d8_abda67d1",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43a518c1_6c0cffc7",
       "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -120,6 +228,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfb5e682_cbb2b077",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acbf9814_865b40fd",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a404537_29063bd4",
@@ -133,6 +259,24 @@
       "writtenOn": "2024-01-25T03:59:22Z",
       "side": 1,
       "message": "Should we add returning `-1` indicates failed to open the file.",
+      "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ae0a16_0dd0164b",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-29T09:57:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a404537_29063bd4",
       "revId": "e888d72745ddb308e458ca078b36b076377f0aa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
