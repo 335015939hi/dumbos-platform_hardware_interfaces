@@ -299,13 +299,7 @@ ndk::ScopedAStatus ModuleBluetooth::createProxy(const AudioPort& audioPort, int3
                         : std::shared_ptr<BluetoothAudioPortAidl>(
                                   std::make_shared<BluetoothAudioPortAidlOut>());
     const auto& devicePort = audioPort.ext.get<AudioPortExt::device>();
-    const auto device = devicePort.device.type;
-    bool registrationSuccess = false;
-    for (int i = 0; i < kCreateProxyRetries && !registrationSuccess; ++i) {
-        registrationSuccess = proxy.ptr->registerPort(device);
-        usleep(kCreateProxyRetrySleepMs * 1000);
-    }
-    if (!registrationSuccess) {
+    if (const auto device = devicePort.device.type; !proxy.ptr->registerPort(device)) {
         LOG(ERROR) << __func__ << ": failed to register BT port for " << device.toString();
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
