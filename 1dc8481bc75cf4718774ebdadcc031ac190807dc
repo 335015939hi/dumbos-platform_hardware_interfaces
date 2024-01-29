@@ -16,6 +16,24 @@
       "message": "This CL itself looks good to TV team. But I think we need to revert this change on main after it\u0027s automerged into main. @zhanglongxia@google.com Am I right?",
       "revId": "1dc8481bc75cf4718774ebdadcc031ac190807dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d2aef41_b0c1206f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2035634
+      },
+      "writtenOn": "2024-01-29T21:00:20Z",
+      "side": 1,
+      "message": "We will make sure the change is reverted properly. However, this one won\u0027t flow to main because we have already moved this file to another folder. It will cause an automerge instead which we will resolve it.",
+      "parentUuid": "cf7c139d_0570cdcf",
+      "revId": "1dc8481bc75cf4718774ebdadcc031ac190807dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
