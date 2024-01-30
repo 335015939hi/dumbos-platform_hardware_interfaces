@@ -34,6 +34,24 @@
       "parentUuid": "cf7c139d_0570cdcf",
       "revId": "1dc8481bc75cf4718774ebdadcc031ac190807dc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2211b47c_fa517ff1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-30T02:10:03Z",
+      "side": 1,
+      "message": "Yes，Sharp and me will handle the automerge issue.",
+      "parentUuid": "5d2aef41_b0c1206f",
+      "revId": "1dc8481bc75cf4718774ebdadcc031ac190807dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
