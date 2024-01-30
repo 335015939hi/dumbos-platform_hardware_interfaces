@@ -251,6 +251,30 @@
       },
       "revId": "dc43af31c479bfb7904662f7070546fee082acc9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbc469c1_ac782f5f",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-30T14:40:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "188f8a9a_b1e050d0",
+      "range": {
+        "startLine": 275,
+        "startChar": 32,
+        "endLine": 275,
+        "endChar": 63
+      },
+      "revId": "dc43af31c479bfb7904662f7070546fee082acc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
