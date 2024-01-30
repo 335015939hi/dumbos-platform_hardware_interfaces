@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53d80cfe_6adc8f30",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-30T12:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65d7dc1a_338e2de5",
+      "range": {
+        "startLine": 96,
+        "startChar": 15,
+        "endLine": 96,
+        "endChar": 16
+      },
+      "revId": "7c861cbba3b0c2bbbb31d44aa3fb8ba0a4d94f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1b5bb24_c1dfe34a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-29T22:03:36Z",
       "side": 1,
       "message": "`kDurationSec`\n\nand why is it a `float`? If we need to specify fractions of a second, we can use milliseconds as units.",
+      "range": {
+        "startLine": 117,
+        "startChar": 27,
+        "endLine": 117,
+        "endChar": 36
+      },
+      "revId": "7c861cbba3b0c2bbbb31d44aa3fb8ba0a4d94f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd30a60b_12e065e7",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-30T12:04:37Z",
+      "side": 1,
+      "message": "Changed it to int. And using milliseconds unit.",
+      "parentUuid": "c1b5bb24_c1dfe34a",
       "range": {
         "startLine": 117,
         "startChar": 27,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67469ead_56708769",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-30T12:04:37Z",
+      "side": 1,
+      "message": "```kBinWidth``` is float.",
+      "parentUuid": "21030d0b_382855cb",
+      "range": {
+        "startLine": 183,
+        "startChar": 33,
+        "endLine": 183,
+        "endChar": 44
+      },
+      "revId": "7c861cbba3b0c2bbbb31d44aa3fb8ba0a4d94f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af2bd042_0177d7a6",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-01-29T22:03:36Z",
       "side": 1,
       "message": "nit: superfluous parentheses",
+      "range": {
+        "startLine": 226,
+        "startChar": 15,
+        "endLine": 226,
+        "endChar": 16
+      },
+      "revId": "7c861cbba3b0c2bbbb31d44aa3fb8ba0a4d94f63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80166639_ac121209",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-01-30T12:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af2bd042_0177d7a6",
       "range": {
         "startLine": 226,
         "startChar": 15,
