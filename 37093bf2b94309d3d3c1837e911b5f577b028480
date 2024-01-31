@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6e6c352_84f22970",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-31T20:43:35Z",
+      "side": 1,
+      "message": "more like the opaque key policy can be used to restrict which operations it can be used on.",
+      "parentUuid": "814c6f65_f4b5060a",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 85
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6fd083a_2cbdcec5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
         "patchSetId": 7
@@ -205,6 +229,30 @@
       "side": 1,
       "message": "Okay, I see what you mean. Are you planning to use a KEM with `secureKeyImport` as well?",
       "parentUuid": "474ed44c_c95581cb",
+      "range": {
+        "startLine": 111,
+        "startChar": 34,
+        "endLine": 111,
+        "endChar": 70
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abf56a5e_462b54c2",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-01-31T20:43:35Z",
+      "side": 1,
+      "message": "Sorry for the delay on the response. Originally that was the plan, although after some internal discussion on the team we are trying to figure out if `secureKeyImport` as it is written is needed, or if it would be better to use a combination of `CalculateSharedKey`,with a new method that just symmetrically wraps the keys with this shared key.",
+      "parentUuid": "13be5da7_0e9e39ec",
       "range": {
         "startLine": 111,
         "startChar": 34,
