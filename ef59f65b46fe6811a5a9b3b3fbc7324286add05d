@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b9b4e5d_88dc4a19",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-31T08:45:50Z",
+      "side": 1,
+      "message": "nit: readFds, errorFds.",
+      "revId": "ef59f65b46fe6811a5a9b3b3fbc7324286add05d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
