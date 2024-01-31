@@ -45,8 +45,11 @@ using ::aidl::android::hardware::automotive::vehicle::SubscribeOptions;
 using ::aidl::android::hardware::automotive::vehicle::VehicleArea;
 using ::aidl::android::hardware::automotive::vehicle::VehicleProperty;
 using ::aidl::android::hardware::automotive::vehicle::VehiclePropertyAccess;
+<<<<<<< HEAD   (c2cba5 Tag vts module VtsHalSecureElementTargetTest with secure ele)
 using ::aidl::android::hardware::automotive::vehicle::VehiclePropertyChangeMode;
 using ::aidl::android::hardware::automotive::vehicle::VehiclePropertyGroup;
+=======
+>>>>>>> BRANCH (62fe88 Add retry in setProp test.)
 using ::aidl::android::hardware::automotive::vehicle::VehiclePropertyStatus;
 using ::aidl::android::hardware::automotive::vehicle::VehiclePropertyType;
 using ::android::getAidlHalInstanceNames;
@@ -63,6 +66,7 @@ using ::android::frameworks::automotive::vhal::VhalClientResult;
 using ::android::hardware::getAllHalInstanceNames;
 using ::android::hardware::Sanitize;
 using ::android::hardware::automotive::vehicle::toInt;
+using ::android::hardware::automotive::vehicle::VhalResult;
 
 constexpr int32_t kInvalidProp = 0x31600207;
 // The timeout for retrying getting prop value after setting prop value.
@@ -121,12 +125,21 @@ class VtsVehicleCallback final : public ISubscriptionCallback {
 };
 
 class VtsHalAutomotiveVehicleTargetTest : public testing::TestWithParam<ServiceDescriptor> {
+<<<<<<< HEAD   (c2cba5 Tag vts module VtsHalSecureElementTargetTest with secure ele)
   protected:
     bool checkIsSupported(int32_t propertyId);
     VehiclePropertyStatus getStatus(const IHalPropValue& halPropValue);
     bool isUnavailable(const VhalClientResult<std::unique_ptr<IHalPropValue>>& result);
     bool isResultOkayWithValue(const VhalClientResult<std::unique_ptr<IHalPropValue>>& result,
                                int32_t value);
+=======
+protected:
+  bool checkIsSupported(int32_t propertyId);
+  VehiclePropertyStatus getStatus(const IHalPropValue& halPropValue);
+  bool isUnavailable(const VhalResult<std::unique_ptr<IHalPropValue>>& result);
+  bool isResultOkayWithValue(const VhalResult<std::unique_ptr<IHalPropValue>>& result,
+                             int32_t value);
+>>>>>>> BRANCH (62fe88 Add retry in setProp test.)
 
   public:
     void verifyProperty(VehicleProperty propId, VehiclePropertyAccess access,
@@ -255,6 +268,7 @@ VehiclePropertyStatus VtsHalAutomotiveVehicleTargetTest::getStatus(
 }
 
 bool VtsHalAutomotiveVehicleTargetTest::isResultOkayWithValue(
+<<<<<<< HEAD   (c2cba5 Tag vts module VtsHalSecureElementTargetTest with secure ele)
         const VhalClientResult<std::unique_ptr<IHalPropValue>>& result, int32_t value) {
     return result.ok() && result.value() != nullptr &&
            getStatus(*(result.value())) == VehiclePropertyStatus::AVAILABLE &&
@@ -266,6 +280,19 @@ bool VtsHalAutomotiveVehicleTargetTest::isUnavailable(
         const VhalClientResult<std::unique_ptr<IHalPropValue>>& result) {
     if (!result.ok()) {
         return result.error().code() == ErrorCode::NOT_AVAILABLE_FROM_VHAL;
+=======
+        const VhalResult<std::unique_ptr<IHalPropValue>>& result, int32_t value) {
+    return result.ok() && result.value() != nullptr &&
+           getStatus(*(result.value())) == VehiclePropertyStatus::AVAILABLE &&
+           result.value()->getInt32Values().size() == 1 &&
+           result.value()->getInt32Values()[0] == value;
+}
+
+bool VtsHalAutomotiveVehicleTargetTest::isUnavailable(
+        const VhalResult<std::unique_ptr<IHalPropValue>>& result) {
+    if (!result.ok()) {
+        return result.error().code() == StatusCode::NOT_AVAILABLE;
+>>>>>>> BRANCH (62fe88 Add retry in setProp test.)
     }
     if (result.value() != nullptr &&
         getStatus(*(result.value())) == VehiclePropertyStatus::UNAVAILABLE) {
@@ -328,7 +355,11 @@ TEST_P(VtsHalAutomotiveVehicleTargetTest, setProp) {
             auto setValueResult = mVhalClient->setValueSync(*propToSet);
 
             if (!setValueResult.ok() &&
+<<<<<<< HEAD   (c2cba5 Tag vts module VtsHalSecureElementTargetTest with secure ele)
                 setValueResult.error().code() == ErrorCode::NOT_AVAILABLE_FROM_VHAL) {
+=======
+                setValueResult.error().code() == StatusCode::NOT_AVAILABLE) {
+>>>>>>> BRANCH (62fe88 Add retry in setProp test.)
                 ALOGW("setProperty for %" PRId32
                       " returns NOT_AVAILABLE, "
                       "skip verifying getProperty returns the same value",
