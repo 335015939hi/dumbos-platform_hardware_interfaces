@@ -16,6 +16,52 @@
       "message": "Currently in rough draft for XML structure review and HFP flow testing, will upload a split changes with proper test later.",
       "revId": "aaef1a1deb0c2b494e03cdab71cb04c3496b1c19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13fb0f29_5f1dcf51",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothHfpCodecsProvider.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2024-01-31T22:13:41Z",
+      "side": 1,
+      "message": "nit: as LE Audio, A2DP, both them use namespace as those\n```\nnamespace aidl {\nnamespace android {\nnamespace hardware {\nnamespace bluetooth {\nnamespace audio {\n```\nso maybe namespace hfp is not necessary\n\n\n```suggestion\n```",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 15
+      },
+      "revId": "aaef1a1deb0c2b494e03cdab71cb04c3496b1c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15ae73b2_d934219a",
+        "filename": "bluetooth/audio/utils/hfp_codec_capabilities/hfp_codec_capabilities.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2024-01-31T22:13:41Z",
+      "side": 1,
+      "message": "android default hardware offload input\u0026output data path is `ESCO_DATA_PATH_PCM 1 `, see [link](https://source.corp.google.com/h/android/platform/superproject/main/+/main:packages/modules/Bluetooth/system/device/include/esco_parameters.h;l\u003d67;drc\u003dd389ecde6430d2efdb92fdda6129612d852f444b?q\u003dESCO_DATA_PATH_PCM\u0026sq\u003drepo:android%2Fplatform%2Fsuperproject%2Fmain%20b:main), so use 1 would be better. same for below",
+      "range": {
+        "startLine": 15,
+        "startChar": 66,
+        "endLine": 15,
+        "endChar": 67
+      },
+      "revId": "aaef1a1deb0c2b494e03cdab71cb04c3496b1c19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
