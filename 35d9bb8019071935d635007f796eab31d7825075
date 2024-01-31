@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c89caf_5e8079af",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-31T04:20:52Z",
+      "side": 1,
+      "message": "nit\n```suggestion\n        otLogWarnPlat(\"Process socket frame failed: %s\", otThreadErrorToString(aError));\n```",
+      "revId": "35d9bb8019071935d635007f796eab31d7825075",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
