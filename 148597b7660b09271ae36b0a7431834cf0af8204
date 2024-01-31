@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45414c0e_f7bf06f0",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-31T08:43:27Z",
+      "side": 1,
+      "message": "Remove useless `error`.",
+      "revId": "148597b7660b09271ae36b0a7431834cf0af8204",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
