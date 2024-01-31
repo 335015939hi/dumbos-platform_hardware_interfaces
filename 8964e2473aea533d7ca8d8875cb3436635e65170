@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b2d9408_8513a7b6",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-31T04:01:14Z",
+      "side": 1,
+      "message": "We can use the existing function:\n```\nVerifyOrDie(IsSocketFileExisted(mRadioUrl.GetPath()), OT_EXIT_FAILURE);\n```",
+      "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccb0d339_ddbc4c89",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-31T04:01:14Z",
+      "side": 1,
+      "message": "OpenThread prefers only one `return` in the function. It can be changed like this:\n\n```\nVerifyOrExit(!IsSocketFileExisted(aPath));\n```\n\nOr we can check if the socket file exist before calling `WaitForSocketFileCreated()`.",
+      "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d5fb2a6_4a16c84e",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-31T04:01:14Z",
+      "side": 1,
+      "message": "We can use MS_PER_S to replace 1000.\n\n```suggestion\n        struct timeval timeout \u003d {kMaxSelectTimeMs / MS_PER_S,\n                                  (kMaxSelectTimeMs % MS_PER_S) * US_PER_MS};\n```",
+      "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3608d5ec_9b0f9283",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-31T04:01:14Z",
+      "side": 1,
+      "message": "We may need to move this log to the beginning of the loop. Otherwise, it may be printed out for multiple times.",
+      "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bf7dc26_7b1dedb0",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-01-31T04:01:14Z",
+      "side": 1,
+      "message": "We may also need to check if the file is a socket file:\n\n```\nreturn (stat(aPath, \u0026st) \u003d\u003d 0)? (S_ISSOCK(st.st_mode)? true: false): false;\n```",
+      "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
