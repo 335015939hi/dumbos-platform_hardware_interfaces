@@ -16,6 +16,24 @@
       "message": "nit: serverAddress",
       "revId": "af07b9651710d22340aaf740dad96821059a81d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ef86e17_2e4bfc99",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-31T08:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce93a086_c6cb9725",
+      "revId": "af07b9651710d22340aaf740dad96821059a81d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
