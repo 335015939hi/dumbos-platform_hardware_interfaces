@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee08c2aa_2cffe5ac",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-31T08:32:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b2d9408_8513a7b6",
+      "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccb0d339_ddbc4c89",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-31T04:01:14Z",
       "side": 1,
       "message": "OpenThread prefers only one `return` in the function. It can be changed like this:\n\n```\nVerifyOrExit(!IsSocketFileExisted(aPath));\n```\n\nOr we can check if the socket file exist before calling `WaitForSocketFileCreated()`.",
+      "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65c6fa55_cc8719c9",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-31T08:32:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccb0d339_ddbc4c89",
       "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22663793_3b75e2b9",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-31T08:32:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d5fb2a6_4a16c84e",
+      "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3608d5ec_9b0f9283",
@@ -69,6 +123,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4bb5da5_9c85cc2b",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-31T08:32:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3608d5ec_9b0f9283",
+      "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bf7dc26_7b1dedb0",
@@ -82,6 +154,24 @@
       "writtenOn": "2024-01-31T04:01:14Z",
       "side": 1,
       "message": "We may also need to check if the file is a socket file:\n\n```\nreturn (stat(aPath, \u0026st) \u003d\u003d 0)? (S_ISSOCK(st.st_mode)? true: false): false;\n```",
+      "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "776a7259_60ee2551",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-01-31T08:32:25Z",
+      "side": 1,
+      "message": "changed to \n```\nreturn stat(aPath, \u0026st) \u003d\u003d 0 \u0026\u0026 S_ISSOCK(st.st_mode);\n```",
+      "parentUuid": "0bf7dc26_7b1dedb0",
       "revId": "8964e2473aea533d7ca8d8875cb3436635e65170",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
