@@ -21,9 +21,9 @@
 #include <android/binder_ibinder.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
-#include <utils/Log.h>
 
 #include "hdlc_interface.hpp"
+#include "log.hpp"
 #include "socket_interface.hpp"
 #include "spi_interface.hpp"
 
@@ -47,7 +47,7 @@ ThreadChip::ThreadChip(char* url) : mUrl(), mRxFrameBuffer(), mCallback(nullptr)
     } else if (SocketInterface::IsInterfaceNameMatch(interfaceName)) {
         mSpinelInterface = std::make_shared<SocketInterface>(mUrl);
     } else {
-        ALOGE("The interface \"%s\" is not supported", interfaceName);
+        logCrit("The interface \"%s\" is not supported", interfaceName);
         exit(EXIT_FAILURE);
     }
 
@@ -63,7 +63,7 @@ void ThreadChip::onBinderDiedJump(void* context) {
 }
 
 void ThreadChip::onBinderDied(void) {
-    ALOGW("Thread Network HAL client is dead");
+    logWarn("Thread Network HAL client is dead");
 }
 
 void ThreadChip::onBinderUnlinkedJump(void* context) {
@@ -71,7 +71,7 @@ void ThreadChip::onBinderUnlinkedJump(void* context) {
 }
 
 void ThreadChip::onBinderUnlinked(void) {
-    ALOGW("ThreadChip binder is unlinked");
+    logWarn("ThreadChip binder is unlinked");
     deinitChip();
 }
 
@@ -93,9 +93,9 @@ ndk::ScopedAStatus ThreadChip::open(const std::shared_ptr<IThreadChipCallback>& 
 
     if (status.isOk()) {
         AIBinder_linkToDeath(in_callback->asBinder().get(), mDeathRecipient.get(), this);
-        ALOGI("Open IThreadChip successfully");
+        logInfo("Open IThreadChip successfully");
     } else {
-        ALOGW("Failed to open IThreadChip: %s", status.getDescription().c_str());
+        logError("Failed to open IThreadChip: %s", status.getDescription().c_str());
     }
 
     return status;
@@ -128,9 +128,9 @@ ndk::ScopedAStatus ThreadChip::close() {
             AIBinder_unlinkToDeath(callback->asBinder().get(), mDeathRecipient.get(), this);
         }
 
-        ALOGI("Close IThreadChip successfully");
+        logInfo("Close IThreadChip successfully");
     } else {
-        ALOGW("Failed to close IThreadChip: %s", status.getDescription().c_str());
+        logError("Failed to close IThreadChip: %s", status.getDescription().c_str());
     }
 
     return status;
@@ -168,7 +168,7 @@ ndk::ScopedAStatus ThreadChip::sendSpinelFrame(const std::vector<uint8_t>& in_fr
     }
 
     if (!status.isOk()) {
-        ALOGW("Send spinel frame failed, error: %s", status.getDescription().c_str());
+        logWarn("Send spinel frame failed, error: %s", status.getDescription().c_str());
     }
 
     return status;
@@ -179,7 +179,7 @@ ndk::ScopedAStatus ThreadChip::hardwareReset() {
         return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
     }
 
-    ALOGI("reset()");
+    logInfo("reset()");
     return ndk::ScopedAStatus::ok();
 }
 
