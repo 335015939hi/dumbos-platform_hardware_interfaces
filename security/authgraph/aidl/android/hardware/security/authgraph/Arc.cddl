@@ -48,6 +48,7 @@ ArcProtectedHeaders = {
                                    ; COSE_Key that encodes a public key, include the serialized
                                    ; COSE_Key in the protected headers of an Arc. In this case, the
                                    ; the payload can be empty (i.e. nil).
+    ? -70014 : UID                 ; A unique identifier
 }
 
 ; Permissions indicate what an arc can be used with.
@@ -56,13 +57,20 @@ Permission = &(
                                  ; source adds its own identity to the permissions of an arc.
     -4770553 : IdentityEncoded,  ; "sink_id" - in the operations performed by a sink, the sink
                                  ; adds its own identity to the permissions of an arc.
-    -4770555 : [ +IdentityEncoded ]  ; "minting_allowed" - defines the set of TA identities
-                                     ; to whom the payload key is allowed to be minted.
+    -4770555 : MintingAllowed    ; defines how the payload key is allowed to be minted. If absent,
+                                 ; minting is not allowed. If present and if either field is empty,
+                                 ; minting is allowed to any ID/UID respectively.
     -4770556 : bool                  ; "deleted_on_biometric_change" - A Boolean value that
                                      ; indicates whether an auth key issued from a biometric TA is
                                      ; invalidated on new biometric enrollment or removal of all
                                      ; biometrics.
 )
+
+; Map describing the rules that allows minting
+MintingAllowed = {
+    IDs  = [ +IdentityEncoded ],
+    UIDs = [ +UID ],
+}
 
 ; Limitations indicate what restrictions are applied on the usage of an arc.
 Limitation = &(
@@ -87,7 +95,8 @@ Direction = &(
 PayloadType = &(
     SecretKey: 1,
     Arc: 2,
-    AllZeroes: 3,             ; a payload of 32-bytes of all zeroes.
+    Empty: 3,             ; empty payload
+    Timestamp: 4,         ; time expressed in milliseconds since some arbitrary point in time
     ; Any other payload types should also be defined here
 )
 
@@ -95,6 +104,7 @@ PayloadType = &(
 ; per-boot key of the AuthGraph participant. If the encrypting key is not the per-boot key, the key
 ; type is defined as the <name of the key>_w_<name of the encrypting key>.
 KeyType = &(
+    CredKey: 0,
     SourceKey: 1,
     SharedKey: 2,
     AuthKey: 3,
@@ -105,7 +115,8 @@ KeyType = &(
     SecondaryExchangePubKey: 8,  ; a special case where the KeyType is included as a COSE key header
     KeyWrappingKeyGen: 9,
     KeyWrappingKeyUse: 10,
-    KeyWrappingKeyUse_w_AuthKey: 11,
+    KeyWrappingKey_w_AuthKey: 11,
+    SourceKey_w_CredKey: 12,
     ; Any other key types should also be defined here
 )
 
@@ -124,6 +135,7 @@ Payload = &(
     SecretKey,
     Arc,
     Empty,     ; empty payload
+    long,      ; time expressed in milliseconds since some arbitrary point in time
     ; Any other payload formats should also be defined here
 )
 
@@ -154,6 +166,8 @@ ArcEncStruct = [              ; COSE_Enc_structure [RFC9052 s5.3]
     protected : bstr .cbor ArcProtectedHeaders,
     external_aad : bstr .size 0,
 ]
+
+UID = bstr .size 32          ; Unique identifier
 
 ; INCLUDE generateCertificateRequestV2.cddl for: PubKeyEd25519, PubKeyECDSA256, PubKeyECDSA384
 ; from hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/
