@@ -47,7 +47,10 @@ enum class RetCode {
     ERROR_ALIGNMENT_ERROR,   /* Memory alignment error */
     ERROR_BLOCK_SIZE_EXCEED, /* Maximum block size exceeded */
     ERROR_EFFECT_LIB_ERROR,  /* Effect implementation library error */
-    ERROR_EVENT_FLAG_ERROR   /* Error with effect event flags */
+    ERROR_EVENT_FLAG_ERROR,  /* Error with effect event flags */
+
+    WARNING_LOW_HAL_VERSION = 0x100 /* Current HAL implementation version is low and can not support
+                                       a certain feature/paramter */
 };
 
 static const int INVALID_AUDIO_SESSION_ID = -1;
@@ -70,6 +73,8 @@ inline std::ostream& operator<<(std::ostream& out, const RetCode& code) {
             return out << "ERROR_EFFECT_LIB_ERROR";
         case RetCode::ERROR_EVENT_FLAG_ERROR:
             return out << "ERROR_EVENT_FLAG_ERROR";
+        case RetCode::WARNING_LOW_HAL_VERSION:
+            return out << "WARNING_LOW_HAL_VERSION";
     }
 
     return out << "EnumError: " << code;
