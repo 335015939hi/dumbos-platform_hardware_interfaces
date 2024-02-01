@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1792910_3f1f574d",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-01T21:34:49Z",
+      "side": 1,
+      "message": "It seems backwards to have two functions for this here and a single function in the helper library that sits on top of this.",
+      "parentUuid": "92634d63_a2fcb08a",
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "386c76b3_7d6539ec",
         "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
         "patchSetId": 29
@@ -265,6 +283,30 @@
       "side": 1,
       "message": "Why not? Can\u0027t we pass `STORAGE_MSG_FLAG_TRANSACT_CHECKPOINT` when committing these changes?\n\n@arve@android.com",
       "parentUuid": "58efa939_fb14afce",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 46
+      },
+      "revId": "26fb3b129076a666a3122dff81dcd23152c86696",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f13cd540_0cc6af53",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/RenameOptions.aidl",
+        "patchSetId": 29
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-01T21:34:49Z",
+      "side": 1,
+      "message": "I don\u0027t think it is that simple, but we should be able to leverage the existing checkpoint support to support this feature as well. It means we may need to support two checkpoints at the same time though. Another way to implement it would be to defer the commitment until we get the a/b update complete signal. I think that would require larger changes, but might work better with td, where most of the data rolls back behind our back anyway.",
+      "parentUuid": "51e61a95_67cec684",
       "range": {
         "startLine": 31,
         "startChar": 0,

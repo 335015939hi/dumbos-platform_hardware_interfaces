@@ -68,6 +68,30 @@
       },
       "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da2b0f30_bf5e18de",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IDir.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-01T21:34:49Z",
+      "side": 1,
+      "message": "The existing interface, added in aosp/400306, has a limit, but it was only used during development and does not work anymore.",
+      "parentUuid": "cc318b8c_42c0e3e0",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 58
+      },
+      "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
