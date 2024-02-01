@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,20 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.authgraph;
-/* @hide */
-@Backing(type="int") @VintfStability
-enum Error {
-  OK = 0,
-  INVALID_PEER_NONCE = (-1) /* -1 */,
-  INVALID_PEER_KE_KEY = (-2) /* -2 */,
-  INVALID_IDENTITY = (-3) /* -3 */,
-  INVALID_CERT_CHAIN = (-4) /* -4 */,
-  INVALID_SIGNATURE = (-5) /* -5 */,
-  INVALID_KE_KEY = (-6) /* -6 */,
-  INVALID_PUB_KEY_IN_KEY = (-7) /* -7 */,
-  INVALID_PRIV_KEY_ARC_IN_KEY = (-8) /* -8 */,
-  INVALID_SHARED_KEY_ARCS = (-9) /* -9 */,
-  MEMORY_ALLOCATION_FAILED = (-10) /* -10 */,
-  INCOMPATIBLE_PROTOCOL_VERSION = (-11) /* -11 */,
-  ENFORCEMENTS_FAILED = (-12) /* -12 */,
+@VintfStability
+interface IAuthGraphKeyManagement {
+  android.hardware.security.authgraph.AuthKeyPackage[] createOrUnlockAuthKeys(in android.hardware.security.authgraph.Arc sourceKey, in android.hardware.security.authgraph.AuthKeyPackage[] authKeyPackages);
+  android.hardware.security.authgraph.AuthKeyPairPackage setupAuthKeyPair(in android.hardware.security.authgraph.Arc sharedKey, in android.hardware.security.authgraph.Arc authKey);
+  android.hardware.security.authgraph.KeyWrappingKeyPackage createKeyWrappingKey(in android.hardware.security.authgraph.Arc keyWrappingKeyInput, in @nullable android.hardware.security.authgraph.Arc sharedKey);
+  android.hardware.security.authgraph.KeyWrappingKeyPackage recoverKeyWrappingKey(in android.hardware.security.authgraph.KeyWrappingKeyHandle keyWrappingKeyHandle, in android.hardware.security.authgraph.Arc authKey);
+  android.hardware.security.authgraph.Arc unwrapAuthKey(in android.hardware.security.authgraph.Arc sharedKey, in android.hardware.security.authgraph.Arc authKey);
 }
