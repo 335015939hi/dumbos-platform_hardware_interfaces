@@ -1,6 +1,5 @@
-
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,13 +14,23 @@
  * limitations under the License.
  */
 
-#include <openthread/instance.h>
-#include <openthread/logging.h>
-#include <openthread/platform/alarm-milli.h>
-
 #include "log.hpp"
 
-void otLogCritPlat(const char* format, ...) {
+#include <stdarg.h>
+
+static android_LogPriority sLogLevel = ANDROID_LOG_INFO;
+
+void setLogLevel(android_LogPriority loglevel) {
+    sLogLevel = loglevel;
+}
+
+void platformLog(android_LogPriority logLevel, const char* format, va_list args) {
+    if (logLevel >= sLogLevel) {
+        __android_log_vprint(logLevel, LOG_TAG, format, args);
+    }
+}
+
+void logCrit(const char* format, ...) {
     va_list args;
 
     va_start(args, format);
@@ -29,7 +38,15 @@ void otLogCritPlat(const char* format, ...) {
     va_end(args);
 }
 
-void otLogWarnPlat(const char* format, ...) {
+void logError(const char* format, ...) {
+    va_list args;
+
+    va_start(args, format);
+    platformLog(ANDROID_LOG_ERROR, format, args);
+    va_end(args);
+}
+
+void logWarn(const char* format, ...) {
     va_list args;
 
     va_start(args, format);
@@ -37,15 +54,7 @@ void otLogWarnPlat(const char* format, ...) {
     va_end(args);
 }
 
-void otLogNotePlat(const char* format, ...) {
-    va_list args;
-
-    va_start(args, format);
-    platformLog(ANDROID_LOG_WARN, format, args);
-    va_end(args);
-}
-
-void otLogInfoPlat(const char* format, ...) {
+void logInfo(const char* format, ...) {
     va_list args;
 
     va_start(args, format);
@@ -53,29 +62,10 @@ void otLogInfoPlat(const char* format, ...) {
     va_end(args);
 }
 
-void otLogDebgPlat(const char* format, ...) {
+void logDebg(const char* format, ...) {
     va_list args;
 
     va_start(args, format);
     platformLog(ANDROID_LOG_DEBUG, format, args);
     va_end(args);
-}
-
-void otDumpDebgPlat(const char* aText, const void* aData, uint16_t aDataLength) {
-    constexpr uint16_t kBufSize = 512;
-    char buf[kBufSize];
-
-    if ((aText != nullptr) && (aData != nullptr)) {
-        const uint8_t* data = reinterpret_cast<const uint8_t*>(aData);
-
-        for (uint16_t i = 0; (i < aDataLength) && (i < (kBufSize - 1) / 3); i++) {
-            snprintf(buf + (i * 3), (kBufSize - 1) - (i * 3), "%02x ", data[i]);
-        }
-
-        logDebg("%s: %s", aText, buf);
-    }
-}
-
-OT_TOOL_WEAK void otPlatAlarmMilliFired(otInstance* aInstance) {
-    OT_UNUSED_VARIABLE(aInstance);
 }

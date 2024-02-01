@@ -18,7 +18,8 @@
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
-#include <utils/Log.h>
+
+#include "log.hpp"
 
 namespace aidl {
 namespace android {
@@ -65,7 +66,7 @@ void Service::startLoop(void) {
         if (rval >= 0) {
             ot::Posix::Mainloop::Manager::Get().Process(context);
         } else if (errno != EINTR) {
-            ALOGE("select() failed: %s", strerror(errno));
+            logCrit("select() failed: %s", strerror(errno));
             break;
         }
     }
