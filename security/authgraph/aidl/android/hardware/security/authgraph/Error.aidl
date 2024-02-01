@@ -48,4 +48,8 @@ enum Error {
     MEMORY_ALLOCATION_FAILED = -10,
     /* The protocol version negotiated with the sink is incompatible */
     INCOMPATIBLE_PROTOCOL_VERSION = -11,
+    /* One or more of the `CHECK`s performed in the IAuthGraphKeyManagement API failed */
+    ENFORCEMENTS_FAILED = -12,
+    /* Verification of the key agreement performed in the IAuthGraphKeyManagement API failed */
+    KEY_CONFIRMATION_FAILED = -13,
 }
