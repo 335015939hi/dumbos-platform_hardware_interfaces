@@ -165,7 +165,8 @@ RetCode EffectContext::setCommon(const Parameter::Common& common) {
         return RetCode::ERROR_ILLEGAL_PARAMETER;
     }
 
-    if (auto ret = updateIOFrameSize(common); ret != RetCode::SUCCESS) {
+    if (auto ret = updateIOFrameSize(common);
+        ret != RetCode::SUCCESS && ret != RetCode::WARNING_LOW_HAL_VERSION) {
         return ret;
     }
 
@@ -191,6 +192,12 @@ EventFlag* EffectContext::getStatusEventFlag() {
 }
 
 RetCode EffectContext::updateIOFrameSize(const Parameter::Common& common) {
+    // IEffect.reopen introduced in android.hardware.audio.effect-V2
+    if (IEffect::version < 2) {
+        LOG(WARNING) << __func__ << " skipped for HAL version " << IEffect::version;
+        return RetCode::WARNING_LOW_HAL_VERSION;
+    }
+
     const auto iFrameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(
             common.input.base.format, common.input.base.channelMask);
     const auto oFrameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(

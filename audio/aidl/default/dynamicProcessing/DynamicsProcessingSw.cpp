@@ -278,7 +278,8 @@ IEffect::Status DynamicsProcessingSw::effectProcessImpl(float* in, float* out, i
 }
 
 RetCode DynamicsProcessingSwContext::setCommon(const Parameter::Common& common) {
-    if (auto ret = updateIOFrameSize(common); ret != RetCode::SUCCESS) {
+    if (auto ret = updateIOFrameSize(common);
+        ret != RetCode::SUCCESS && ret != RetCode::WARNING_LOW_HAL_VERSION) {
         return ret;
     }
     mCommon = common;
