@@ -35,5 +35,5 @@ package android.hardware.security.authgraph;
 @RustDerive(Clone=true, Eq=true, PartialEq=true) @VintfStability
 parcelable Key {
   @nullable android.hardware.security.authgraph.PubKey pubKey;
-  @nullable android.hardware.security.authgraph.Arc arcFromPBK;
+  @nullable android.hardware.security.authgraph.Arc secretKey;
 }
