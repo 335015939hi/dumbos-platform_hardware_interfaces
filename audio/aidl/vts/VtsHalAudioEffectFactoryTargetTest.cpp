@@ -296,6 +296,22 @@ TEST_P(EffectFactoryTest, QueryProcess) {
             [&](const auto& proc) { return processingSet.find(proc) != processingSet.end(); }));
 }
 
+// Make sure all effect instances have same HAL version number as IFactory.
+TEST_P(EffectFactoryTest, VersionNumberForAllEffectsEqualsToIFactory) {
+    std::vector<Descriptor> descs;
+    EXPECT_IS_OK(mEffectFactory->queryEffects(std::nullopt, std::nullopt, std::nullopt, &descs));
+    EXPECT_NE(descs.size(), 0UL);
+
+    std::vector<std::shared_ptr<IEffect>> effects = createWithDescs(descs);
+    for (const auto& effect : effects) {
+        int version = 0;
+        EXPECT_NE(nullptr, effect);
+        EXPECT_TRUE(effect->getInterfaceVersion(&version).isOk());
+        EXPECT_EQ(IFactory::version, version);
+    }
+    ASSERT_NO_FATAL_FAILURE(destroyEffects(effects));
+}
+
 INSTANTIATE_TEST_SUITE_P(EffectFactoryTest, EffectFactoryTest,
                          testing::ValuesIn(android::getAidlHalInstanceNames(IFactory::descriptor)),
                          android::PrintInstanceNameToString);
