@@ -265,6 +265,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b7252a5_30cb6b7d",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 2016000
+      },
+      "writtenOn": "2024-02-01T21:54:15Z",
+      "side": 1,
+      "message": "Thanks for letting me know. My two cents for my intended use case is that it would be simpler and perhaps more flexible to have `calculateSharedKey` with a new key unwrap method instead.",
+      "parentUuid": "abf56a5e_462b54c2",
+      "range": {
+        "startLine": 111,
+        "startChar": 34,
+        "endLine": 111,
+        "endChar": 70
+      },
+      "revId": "37093bf2b94309d3d3c1837e911b5f577b028480",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4019f38e_0db2a3d0",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
         "patchSetId": 7
