@@ -47,6 +47,7 @@ class Bump(object):
         self.current_level = cmdline_args.current
         self.current_module_name = f"framework_compatibility_matrix.{self.current_level}.xml"
         self.current_xml = self.interfaces_dir / f"compatibility_matrices/compatibility_matrix.{self.current_level}.xml"
+        self.device_module_name = "framework_compatibility_matrix.device.xml"
 
         self.next_level = cmdline_args.next
         self.next_module_name = f"framework_compatibility_matrix.{self.next_level}.xml"
@@ -82,6 +83,7 @@ class Bump(object):
 
     def copy_matrix(self):
         shutil.copyfile(self.current_xml, self.next_xml)
+        check_call("sed -i'' -E 's/{}/{}/g' {}".format(self.current_level, self.next_level, self.next_xml), shell=True)
 
     def edit_android_bp(self):
         android_bp = self.interfaces_dir / "compatibility_matrices/Android.bp"
@@ -129,14 +131,14 @@ class Bump(object):
                 return
             f.seek(0)
             lines = f.readlines()
-        current_module_line_number = None
+        device_module_line_number = None
         for line_number, line in enumerate(lines):
+            if self.device_module_name in line:
+                device_module_line_number = line_number
             if self.current_module_name in line:
-                current_module_line_number = line_number
-                break
-        assert current_module_line_number is not None
-        lines.insert(current_module_line_number + 1,
-                     f"    {self.next_module_name} \\\n")
+                lines[line_number] = f"    {self.next_module_name} \\\n"
+        assert device_module_line_number is not None
+        lines.insert(device_module_line_number, f"    {self.current_module_name} \\\n")
         with open(android_mk, "w") as f:
             f.write("".join(lines))
 
