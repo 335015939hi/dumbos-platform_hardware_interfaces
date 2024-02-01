@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "38160afb_e05535bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-02-01T13:17:49Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "8ded10f2_16910323",
+      "range": {
+        "startLine": 7,
+        "startChar": 30,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "dd23668207b03ca902213d1cf520aa8b421c1d67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cc1578c0_a0eacb77",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -54,6 +78,24 @@
       "writtenOn": "2024-02-01T12:43:48Z",
       "side": 1,
       "message": "Why not use the constants from lib.rs (and add [more](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2927825/7/security/secretkeeper/aidl/vts/lib.rs) where needed) for map keys?",
+      "revId": "dd23668207b03ca902213d1cf520aa8b421c1d67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cbe71cb_0fa18b86",
+        "filename": "security/secretkeeper/aidl/vts/dice_sample.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-02-01T13:17:49Z",
+      "side": 1,
+      "message": "Done. Thanks!",
+      "parentUuid": "8f1f48f8_a7ad73bc",
       "revId": "dd23668207b03ca902213d1cf520aa8b421c1d67",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
