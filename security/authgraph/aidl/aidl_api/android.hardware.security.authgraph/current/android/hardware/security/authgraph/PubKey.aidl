@@ -35,5 +35,5 @@ package android.hardware.security.authgraph;
 @RustDerive(Clone=true, Eq=true, PartialEq=true) @VintfStability
 union PubKey {
   android.hardware.security.authgraph.PlainPubKey plainKey;
-  android.hardware.security.authgraph.SignedPubKey signedKey;
+  android.hardware.security.authgraph.Arc authenticatedKey;
 }
