@@ -32,10 +32,12 @@ parcelable Key {
     @nullable PubKey pubKey;
 
     /**
-     * Arc from the per-boot key to the payload key. The payload key is either the symmetric key
-     * or the private key of an asymmetric key, based on the type of the key being created.
+     * Arc encrypting the payload key. The payload key is either the symmetric key or the private
+     * key of an asymmetric key, based on the type of the key being created.
+     * The encrypting key can be either the per-boot key or some other key such as auth key,
+     * shared key, etc.
      * This is marked as optional because there are instances where only the public key is returned,
      * e.g. `init` method in the key exchange protocol.
      */
-    @nullable Arc arcFromPBK;
+    @nullable Arc secretKey;
 }
