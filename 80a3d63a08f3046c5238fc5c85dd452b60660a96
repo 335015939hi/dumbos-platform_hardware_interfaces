@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb3d0b0b_1ca1127d",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileIntegrity.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-01T22:45:23Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "248ec49e_271a8775",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 20,
+        "endChar": 69
+      },
+      "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14566dc2_1c558acb",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-31T00:17:47Z",
       "side": 1,
       "message": "nit: 2024 on all of these new files",
+      "range": {
+        "startLine": 2,
+        "startChar": 13,
+        "endLine": 2,
+        "endChar": 17
+      },
+      "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ac42491_0dc2a309",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/FileMode.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-01T22:45:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14566dc2_1c558acb",
       "range": {
         "startLine": 2,
         "startChar": 13,
@@ -83,6 +131,30 @@
       "writtenOn": "2024-02-01T21:34:49Z",
       "side": 1,
       "message": "The existing interface, added in aosp/400306, has a limit, but it was only used during development and does not work anymore.",
+      "parentUuid": "cc318b8c_42c0e3e0",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 58
+      },
+      "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eb5b4cd_e9cd190b",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IDir.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-01T22:45:23Z",
+      "side": 1,
+      "message": "The current implementation uses a max batch size of 5. Added an arg so that clients can specify a smaller batch size.",
       "parentUuid": "cc318b8c_42c0e3e0",
       "range": {
         "startLine": 21,
