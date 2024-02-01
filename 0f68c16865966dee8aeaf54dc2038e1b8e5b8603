@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed0d2a88_1a5f1495",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 67
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-01T22:23:53Z",
+      "side": 1,
+      "message": "Can this CL be split up. I think it would be easier to read this if the different modes and related types were in separate CLs.",
+      "revId": "0f68c16865966dee8aeaf54dc2038e1b8e5b8603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5093b7e_f7641eab",
+        "filename": "staging/security/see/hwcrypto/aidl/aidl_api/android.hardware.security.see/current/android/hardware/security/see/hwcrypto/types/AesKey.aidl",
+        "patchSetId": 67
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-01T22:23:53Z",
+      "side": 1,
+      "message": "How are these files generated? Can we have a separate CL that only adds the auto-generated files.",
+      "revId": "0f68c16865966dee8aeaf54dc2038e1b8e5b8603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a4a759d_66a9b876",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 67
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-01T22:23:53Z",
+      "side": 1,
+      "message": "why is this called IHwCryptoKey? It does not appear to be a key",
+      "revId": "0f68c16865966dee8aeaf54dc2038e1b8e5b8603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56de8de2_53260d70",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesKey.aidl",
+        "patchSetId": 67
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-01T22:23:53Z",
+      "side": 1,
+      "message": "why is aes128 0 initialized and aes192/aes256 not?",
+      "revId": "0f68c16865966dee8aeaf54dc2038e1b8e5b8603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
