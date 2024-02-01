@@ -38,6 +38,16 @@ ArcProtectedHeaders = {
     ? -70009 : bool,               ; "authentication_completed" - this is used during authenticated
                                    ; key exchange to indicate whether signature verification is done
     ? -70010 : bstr .size 32       ; "session_id" computed during the key exchange protocol
+    ? -70011 : KeyType             ; Required if PayloadType = SecretKey AND the arc is used with
+                                   ; the IAuthGraphKeyManagement API. This header is used in the
+                                   ; enforcements for protecting auth-bound keys
+    ? -70012 : ArcType             ; Required if PayloadType = Arc AND and the arc is used with
+                                   ; the IAuthGraphKeyManagement API. This is used in the
+                                   ; enforcements for protecting auth-bound keys
+    ? -70013 : PlainPubKeyEncoded  ; In order to authenticate any custom headers added to a
+                                   ; COSE_Key that encodes a public key, include the serialized
+                                   ; COSE_Key in the protected headers of an Arc. In this case, the
+                                   ; the payload can be empty (i.e. nil).
 }
 
 ; Permissions indicate what an arc can be used with.
@@ -57,12 +67,17 @@ Permission = &(
 ; Limitations indicate what restrictions are applied on the usage of an arc.
 Limitation = &(
     -4770554 : bstr,      ; "challenge" - is added to an arc that encrypts an auth key from a
-                          ; channel key, in order to ensure the freshness of the authentication.
+                          ; shared key, in order to ensure the freshness of the authentication.
                           ; A challenge is issued by a sink (e.g. Keymint TA, Biometric TAs).
 )
 
 ; INCLUDE Identity.cddl for: Identity
 IdentityEncoded = bstr .cbor Identity
+
+; INCLUDE PlainPubKey.cddl for PlainPubKey
+; Encoded in accordance with Core Deterministic Encoding Requirements [RFC 8949 s4.2.1]
+PlainPubKeyEncoded = bstr .cbor PlainPubKey
+
 
 Direction = &(
     In:  1,
@@ -72,12 +87,43 @@ Direction = &(
 PayloadType = &(
     SecretKey: 1,
     Arc: 2,
+    AllZeroes: 3,             ; a payload of 32-bytes of all zeroes.
     ; Any other payload types should also be defined here
+)
+
+; Key type is defined as the name of the key encrypted in an arc, when the encrypting key is the
+; per-boot key of the AuthGraph participant. If the encrypting key is not the per-boot key, the key
+; type is defined as the <name of the key>_w_<name of the encrypting key>.
+KeyType = &(
+    SourceKey: 1,
+    SharedKey: 2,
+    AuthKey: 3,
+    AuthKey_w_SourceKey: 4,
+    AuthKey_w_SharedKey: 5,
+    PrimaryExchangePubKey: 6,    ; a special case where the KeyType is included as a COSE key header
+    PrimaryExchangePrivKey_w_AuthKey: 7,
+    SecondaryExchangePubKey: 8,  ; a special case where the KeyType is included as a COSE key header
+    KeyWrappingKeyGen: 9,
+    KeyWrappingKeyUse: 10,
+    KeyWrappingKeyUse_w_AuthKey: 11,
+    ; Any other key types should also be defined here
+)
+
+; When the payload type of an Arc is "Arc", the encrypting key of the outer arc is usually the long
+; term encryption key of the AuthGraph participant. The arc type is defined based on how the inner
+; arc is constructed: i.e. <name of the payload key of the inner arc>_w_<name of the encrypting key
+; of the inner arc>
+ArcType = &(
+    SourceKey_w_AfKey: 1,   ; AfKey stands for the cryptographic key derived from the user's
+                            ; authentication factor.
+    AuthBoundKey_w_KeyWrappingKey: 2,
+    ; Any other arc types should also be defined here
 )
 
 Payload = &(
     SecretKey,
     Arc,
+    Empty,     ; empty payload
     ; Any other payload formats should also be defined here
 )
 

@@ -120,7 +120,7 @@ TEST_P(AuthGraphSessionTest, Mainline) {
     SessionInitiationInfo source_init_info;
     ASSERT_EQ(OK, GetReturnError(source->create(&source_init_info)));
     ASSERT_TRUE(source_init_info.key.pubKey.has_value());
-    ASSERT_TRUE(source_init_info.key.arcFromPBK.has_value());
+    ASSERT_TRUE(source_init_info.key.secretKey.has_value());
 
     // Step 2: pass the source's ECDH public key and other session info to the sink.
     KeInitResult init_result;
@@ -175,11 +175,11 @@ TEST_P(AuthGraphSessionTest, ParallelSink) {
     SessionInitiationInfo source_init1_info;
     ASSERT_EQ(OK, GetReturnError(source->create(&source_init1_info)));
     ASSERT_TRUE(source_init1_info.key.pubKey.has_value());
-    ASSERT_TRUE(source_init1_info.key.arcFromPBK.has_value());
+    ASSERT_TRUE(source_init1_info.key.secretKey.has_value());
     SessionInitiationInfo source_init2_info;
     ASSERT_EQ(OK, GetReturnError(source->create(&source_init2_info)));
     ASSERT_TRUE(source_init2_info.key.pubKey.has_value());
-    ASSERT_TRUE(source_init2_info.key.arcFromPBK.has_value());
+    ASSERT_TRUE(source_init2_info.key.secretKey.has_value());
 
     // Step 2: pass the source's ECDH public keys and other session info to the sinks.
     KeInitResult init1_result;
@@ -257,11 +257,11 @@ TEST_P(AuthGraphSessionTest, ParallelSource) {
     SessionInitiationInfo source1_init_info;
     ASSERT_EQ(OK, GetReturnError(source1->create(&source1_init_info)));
     ASSERT_TRUE(source1_init_info.key.pubKey.has_value());
-    ASSERT_TRUE(source1_init_info.key.arcFromPBK.has_value());
+    ASSERT_TRUE(source1_init_info.key.secretKey.has_value());
     SessionInitiationInfo source2_init_info;
     ASSERT_EQ(OK, GetReturnError(source1->create(&source2_init_info)));
     ASSERT_TRUE(source2_init_info.key.pubKey.has_value());
-    ASSERT_TRUE(source2_init_info.key.arcFromPBK.has_value());
+    ASSERT_TRUE(source2_init_info.key.secretKey.has_value());
 
     // Step 2: pass each source's ECDH public key and other session info to the sink.
     KeInitResult init1_result;
@@ -344,7 +344,7 @@ TEST_P(AuthGraphSessionTest, FreshNonces) {
     ASSERT_EQ(source_init_info1.identity, source_init_info2.identity);
     ASSERT_NE(source_init_info1.nonce, source_init_info2.nonce);
     ASSERT_NE(source_init_info1.key.pubKey, source_init_info2.key.pubKey);
-    ASSERT_NE(source_init_info1.key.arcFromPBK, source_init_info2.key.arcFromPBK);
+    ASSERT_NE(source_init_info1.key.secretKey, source_init_info2.key.secretKey);
 
     KeInitResult init_result1;
     ASSERT_EQ(OK, GetReturnError(sink->init(source_init_info1.key.pubKey.value(),
