@@ -105,7 +105,7 @@ KeyType = &(
     SecondaryExchangePubKey: 8,  ; a special case where the KeyType is included as a COSE key header
     KeyWrappingKeyGen: 9,
     KeyWrappingKeyUse: 10,
-    KeyWrappingKeyUse_w_AuthKey: 11,
+    KeyWrappingKey_w_AuthKey: 11,
     ; Any other key types should also be defined here
 )
 
