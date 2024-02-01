@@ -49,7 +49,7 @@ fn build_plain_pub_key(pub_key: &Option<Vec<u8>>) -> PubKey {
 fn extract_plain_pub_key(pub_key: &Option<PubKey>) -> &PlainPubKey {
     match pub_key {
         Some(PubKey::PlainKey(pub_key)) => pub_key,
-        Some(PubKey::SignedKey(_)) => panic!("expect unsigned public key"),
+        Some(PubKey::AuthenticatedKey(_)) => panic!("expect unsigned public key"),
         None => panic!("expect pubKey to be populated"),
     }
 }

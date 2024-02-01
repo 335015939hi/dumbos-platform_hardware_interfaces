@@ -16,8 +16,8 @@
 
 package android.hardware.security.authgraph;
 
+import android.hardware.security.authgraph.Arc;
 import android.hardware.security.authgraph.PlainPubKey;
-import android.hardware.security.authgraph.SignedPubKey;
 
 /**
  * The enum type representing the public key of an asymmetric key pair.
@@ -31,7 +31,8 @@ union PubKey {
     PlainPubKey plainKey;
 
     /**
-     * Public key signed with the long term signing key of the party.
+     * The public key encoded as a COSE_Key is serialized and included in the protected headers of
+     * an Arc, in order to authenticate any custom headers added to the COSE_Key.
      */
-    SignedPubKey signedKey;
+    Arc authenticatedKey;
 }

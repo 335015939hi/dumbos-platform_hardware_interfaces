@@ -39,7 +39,7 @@ pub fn test_mainline(
         .create()
         .expect("failed to create() with remote impl");
     assert!(source_init_info.key.pubKey.is_some());
-    assert!(source_init_info.key.arcFromPBK.is_some());
+    assert!(source_init_info.key.secretKey.is_some());
     let source_pub_key = extract_plain_pub_key(&source_init_info.key.pubKey);
 
     // Step 2: pass the source's ECDH public key and other session info to the (local) sink.
@@ -134,7 +134,7 @@ pub fn test_corrupt_sig(
         .create()
         .expect("failed to create() with remote impl");
     assert!(source_init_info.key.pubKey.is_some());
-    assert!(source_init_info.key.arcFromPBK.is_some());
+    assert!(source_init_info.key.secretKey.is_some());
     let source_pub_key = extract_plain_pub_key(&source_init_info.key.pubKey);
 
     // Step 2: pass the source's ECDH public key and other session info to the (local) sink.
@@ -191,7 +191,7 @@ pub fn test_corrupt_key(
         .create()
         .expect("failed to create() with remote impl");
     assert!(source_init_info.key.pubKey.is_some());
-    assert!(source_init_info.key.arcFromPBK.is_some());
+    assert!(source_init_info.key.secretKey.is_some());
     let source_pub_key = extract_plain_pub_key(&source_init_info.key.pubKey);
 
     // Step 2: pass the source's ECDH public key and other session info to the (local) sink.
@@ -227,7 +227,7 @@ pub fn test_corrupt_key(
 
     // Deliberately corrupt the source's encrypted key.
     let mut corrupt_key = source_init_info.key.clone();
-    match &mut corrupt_key.arcFromPBK {
+    match &mut corrupt_key.secretKey {
         Some(a) => {
             let len = a.arc.len();
             a.arc[len - 1] ^= 0x01;
