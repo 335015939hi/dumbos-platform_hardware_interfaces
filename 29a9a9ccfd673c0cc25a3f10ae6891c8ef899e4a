@@ -16,6 +16,69 @@
       "message": "Hi Tomas, do you mind giving an owner\u0027s review? thanks",
       "revId": "29a9a9ccfd673c0cc25a3f10ae6891c8ef899e4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ed4f632_139243fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-02-01T17:15:43Z",
+      "side": 1,
+      "message": "Two nits, optional to fix.",
+      "revId": "29a9a9ccfd673c0cc25a3f10ae6891c8ef899e4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72028ffc_4ce8871a",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-02-01T17:15:43Z",
+      "side": 1,
+      "message": "```suggestion\n            auto propSetTimeoutMillis \u003d ::android::uptimeMillis() +\n                std::chrono::duration_cast\u003cstd::chrono::milliseconds\u003e(kPropSetDelayMillis.count());\n```\n\nTo avoid breaking it when someone will change line 39 to\n```\nstatic constexpr auto kPropSetDelayMillis \u003d 10s;\n```",
+      "range": {
+        "startLine": 250,
+        "startChar": 68,
+        "endLine": 250,
+        "endChar": 95
+      },
+      "revId": "29a9a9ccfd673c0cc25a3f10ae6891c8ef899e4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7bf6549_0885a8d7",
+        "filename": "automotive/vehicle/2.0/vts/functional/VtsHalAutomotiveVehicleV2_0TargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-02-01T17:15:43Z",
+      "side": 1,
+      "message": "```suggestion\n                std::this_thread::sleep_for(100ms);\n```\n\nWith `using namespace std::chrono_literals;`. Here and everywhere.",
+      "range": {
+        "startLine": 263,
+        "startChar": 44,
+        "endLine": 263,
+        "endChar": 74
+      },
+      "revId": "29a9a9ccfd673c0cc25a3f10ae6891c8ef899e4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
