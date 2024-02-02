@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5ece488_8f67932c",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DerivedKeyResult.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-02T20:39:26Z",
+      "side": 1,
+      "message": "What policy is used if the policy was old but compatible? Shouldn\u0027t a client be able to derive an old key (so it can upgrade old data, for example). This seems to imply that the new policy is what will always be used.",
+      "range": {
+        "startLine": 36,
+        "startChar": 32,
+        "endLine": 37,
+        "endChar": 63
+      },
+      "revId": "509abe253a46aef87f76b185a235bba22ab0b24e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1488946_bd40fff1",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-02T20:39:26Z",
+      "side": 1,
+      "message": "Can this have a default? If so it should be false.",
+      "revId": "509abe253a46aef87f76b185a235bba22ab0b24e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adfc5b12_ac9cdf68",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-02T20:39:26Z",
+      "side": 1,
+      "message": "```suggestion\n         * dice chain. In the case it is encrypted, it should also be salted to avoid reusing\n         * the same encrypted blob.\n```",
+      "range": {
+        "startLine": 46,
+        "startChar": 76,
+        "endLine": 47,
+        "endChar": 42
+      },
+      "revId": "509abe253a46aef87f76b185a235bba22ab0b24e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "276d9f22_859b9867",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-02T20:39:26Z",
+      "side": 1,
+      "message": "What function? Maybe refer to DerivedKeyResult.dicePolicyForKeyVersion explicitly here.",
+      "range": {
+        "startLine": 48,
+        "startChar": 10,
+        "endLine": 51,
+        "endChar": 82
+      },
+      "revId": "509abe253a46aef87f76b185a235bba22ab0b24e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
