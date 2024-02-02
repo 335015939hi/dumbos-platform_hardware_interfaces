@@ -156,6 +156,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "590bac50_fc0bfb55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-02-02T19:03:38Z",
+      "side": 1,
+      "message": "Note I already submitted the fix at later Android version at https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2927410 and https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2934133\n\nI will address Tomasz\u0027s comment at the android14-tests-dev branch.",
+      "revId": "29a9a9ccfd673c0cc25a3f10ae6891c8ef899e4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72028ffc_4ce8871a",
