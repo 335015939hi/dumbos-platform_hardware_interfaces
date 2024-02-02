@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a94e98d8_bf16fd98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 68
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-02T20:32:24Z",
+      "side": 1,
+      "message": "General comment - can some of the smaller parcelables used in only one interface be inlined in the interface file? This is a lot of files.",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a7be3524_86f4dd33",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
         "patchSetId": 68
