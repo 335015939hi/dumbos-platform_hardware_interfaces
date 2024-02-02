@@ -355,3 +355,9 @@ aidl_interface_defaults {
         latest_android_hardware_audio_effect,
     ],
 }
+
+test_module_config {
+  name: "CtsVirtualDevicesTestCases_VirtualAudioTest",
+  base: "CtsVirtualDevicesTestCases",
+  include-filters: ["android.virtualdevice.cts.VirtualAudioTest"]
+}

@@ -1,12 +1,12 @@
 {
-  "presubmit" : [
+  "presubmit": [
     {
-      "name" : "VtsHalBluetoothTargetTest"
+      "name": "VtsHalBluetoothTargetTest"
     }
   ],
-  "hwasan-presubmit" : [
+  "hwasan-presubmit": [
     {
-      "name" : "VtsHalBluetoothTargetTest"
+      "name": "VtsHalBluetoothTargetTest"
     }
   ]
 }

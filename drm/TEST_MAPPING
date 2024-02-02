@@ -1,6 +1,5 @@
 {
   "imports": [
-    // gts and cts filters
     {
       "path": "frameworks/av/drm/libmediadrm"
     }
