@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c094c291_eea7e92e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-02-02T17:19:08Z",
+      "side": 1,
+      "message": "Hi David,\n\nThese are some changes to the existing aidls that are nice to get into the current version, if possible, before the API freeze (AFAIU, the AIDL is still unfrozen). These have minimal to no impact on the key exchange protocol, but are useful for the key management protocol.\nWhenever you get a chance, can you please take a look? After your review, I will reach out to the API council to see if they are okay to let these changes in before the freeze. Otherwise, I will add them to V2.\n\nThank you!",
+      "revId": "426f73ecddcdfb480729dcbd8301234be1398d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
