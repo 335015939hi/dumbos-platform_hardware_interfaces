@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059e49f1_b2b74976",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectFactoryTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-02-02T01:10:09Z",
+      "side": 1,
+      "message": "Why it\u0027s not `mEffectFactory-\u003egetInterfaceVersion`? `IFactory::version` only depends on the version of the interface library which the VTS binary links against.",
+      "range": {
+        "startLine": 310,
+        "startChar": 18,
+        "endLine": 310,
+        "endChar": 35
+      },
+      "revId": "b7f2320b993d91e0c27d0e4a4bbb708221c72ba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
