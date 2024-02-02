@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5e563ba_b61c5a60",
+        "filename": "threadnetwork/aidl/default/log.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2024-02-02T03:04:00Z",
+      "side": 1,
+      "message": "do we have to implement log level control by ourselves? It looks like a common need, so I suppose there would be some common solution.",
+      "revId": "18a9b16480be2bd0a5654936532d7e55882d6c32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
