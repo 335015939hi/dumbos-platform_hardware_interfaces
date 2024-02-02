@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f55bef1_4acaa6fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 65
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-02T20:30:31Z",
+      "side": 1,
+      "message": "It\u0027s not obvious what AIDL object is the root of the connection and  how to use this interface. A commit message isn\u0027t the place for high-level documentation but a line or two about the basic structure could be useful for future developers.",
+      "revId": "63230514dc05697f87fe5efc5c41b781e990f5af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

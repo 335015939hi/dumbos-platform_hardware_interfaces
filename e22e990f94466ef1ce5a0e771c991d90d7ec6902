@@ -89,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9290f9b7_186434f9",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-02T20:30:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4a3dd14a_3c8a5809",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "943df324_5b3f4567",
@@ -559,6 +577,24 @@
       "side": 1,
       "message": "Do you think it would help to have them fix length per case? These keys will be RFC 5915 encoded, which defines how they are serialized and some fields seems to be kind of optional.",
       "parentUuid": "554744d7_41e17540",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e48289_5cbf30c7",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/base_types/EcKeyMaterial.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-02T20:30:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f599db5c_5660f8d2",
       "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
