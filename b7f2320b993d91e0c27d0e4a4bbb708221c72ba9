@@ -22,6 +22,30 @@
       },
       "revId": "b7f2320b993d91e0c27d0e4a4bbb708221c72ba9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb9a4859_6183925c",
+        "filename": "audio/aidl/vts/VtsHalAudioEffectFactoryTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-02-02T01:49:23Z",
+      "side": 1,
+      "message": "Good point, done.",
+      "parentUuid": "059e49f1_b2b74976",
+      "range": {
+        "startLine": 310,
+        "startChar": 18,
+        "endLine": 310,
+        "endChar": 35
+      },
+      "revId": "b7f2320b993d91e0c27d0e4a4bbb708221c72ba9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
