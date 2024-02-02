@@ -18,6 +18,8 @@
 
 #include <aidl/android/hardware/bluetooth/audio/BnBluetoothAudioProviderFactory.h>
 
+#include "A2dpOffloadCodecFactory.h"
+
 namespace aidl {
 namespace android {
 namespace hardware {
@@ -25,6 +27,8 @@ namespace bluetooth {
 namespace audio {
 
 class BluetoothAudioProviderFactory : public BnBluetoothAudioProviderFactory {
+  const A2dpOffloadCodecFactory a2dp_offload_codec_factory_;
+
  public:
   BluetoothAudioProviderFactory();
 
@@ -35,6 +39,10 @@ class BluetoothAudioProviderFactory : public BnBluetoothAudioProviderFactory {
   ndk::ScopedAStatus getProviderCapabilities(
       const SessionType session_type,
       std::vector<AudioCapabilities>* _aidl_return) override;
+
+  ndk::ScopedAStatus getProviderInfo(
+      SessionType in_sessionType,
+      std::optional<ProviderInfo>* _aidl_return) override;
 };
 
 }  // namespace audio

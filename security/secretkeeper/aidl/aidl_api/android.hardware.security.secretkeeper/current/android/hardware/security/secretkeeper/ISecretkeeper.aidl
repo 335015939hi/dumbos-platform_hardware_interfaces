@@ -34,5 +34,11 @@
 package android.hardware.security.secretkeeper;
 @VintfStability
 interface ISecretkeeper {
+  android.hardware.security.authgraph.IAuthGraphKeyExchange getAuthGraphKe();
   byte[] processSecretManagementRequest(in byte[] request);
+  void deleteIds(in android.hardware.security.secretkeeper.SecretId[] ids);
+  void deleteAll();
+  const int ERROR_UNKNOWN_KEY_ID = 1;
+  const int ERROR_INTERNAL_ERROR = 2;
+  const int ERROR_REQUEST_MALFORMED = 3;
 }

@@ -16,8 +16,8 @@
 
 #pragma once
 
-#include <chrono>
 #include <mutex>
+#include <string>
 
 #include <android-base/thread_annotations.h>
 #include <audio_utils/clock.h>
@@ -26,6 +26,7 @@
 #include <media/nbaio/MonoPipeReader.h>
 
 #include <aidl/android/media/audio/common/AudioChannelLayout.h>
+#include <aidl/android/media/audio/common/AudioDeviceAddress.h>
 #include <aidl/android/media/audio/common/AudioFormatDescription.h>
 
 using aidl::android::media::audio::common::AudioChannelLayout;
@@ -61,7 +62,14 @@ struct AudioConfig {
 
 class SubmixRoute {
   public:
-    AudioConfig mPipeConfig;
+    static std::shared_ptr<SubmixRoute> findOrCreateRoute(
+            const ::aidl::android::media::audio::common::AudioDeviceAddress& deviceAddress,
+            const AudioConfig& pipeConfig);
+    static std::shared_ptr<SubmixRoute> findRoute(
+            const ::aidl::android::media::audio::common::AudioDeviceAddress& deviceAddress);
+    static void removeRoute(
+            const ::aidl::android::media::audio::common::AudioDeviceAddress& deviceAddress);
+    static std::string dumpRoutes();
 
     bool isStreamInOpen() {
         std::lock_guard guard(mLock);
@@ -83,14 +91,6 @@ class SubmixRoute {
         std::lock_guard guard(mLock);
         return mReadCounterFrames;
     }
-    int getReadErrorCount() {
-        std::lock_guard guard(mLock);
-        return mReadErrorCount;
-    }
-    std::chrono::time_point<std::chrono::steady_clock> getRecordStartTime() {
-        std::lock_guard guard(mLock);
-        return mRecordStartTime;
-    }
     sp<MonoPipe> getSink() {
         std::lock_guard guard(mLock);
         return mSink;
@@ -98,6 +98,10 @@ class SubmixRoute {
     sp<MonoPipeReader> getSource() {
         std::lock_guard guard(mLock);
         return mSource;
+    }
+    AudioConfig getPipeConfig() {
+        std::lock_guard guard(mLock);
+        return mPipeConfig;
     }
 
     bool isStreamConfigValid(bool isInput, const AudioConfig& streamConfig);
@@ -107,17 +111,35 @@ class SubmixRoute {
     bool hasAtleastOneStreamOpen();
     int notifyReadError();
     void openStream(bool isInput);
-    void releasePipe();
+    AudioConfig releasePipe();
     ::android::status_t resetPipe();
     bool shouldBlockWrite();
     void standby(bool isInput);
     long updateReadCounterFrames(size_t frameCount);
 
+    std::string dump();
+
   private:
+    using RoutesMap = std::map<::aidl::android::media::audio::common::AudioDeviceAddress,
+                               std::shared_ptr<r_submix::SubmixRoute>>;
+    class RoutesMonitor {
+      public:
+        RoutesMonitor(std::mutex& mutex, RoutesMap& routes) : mLock(mutex), mRoutes(routes) {}
+        RoutesMonitor(std::mutex& mutex, RoutesMap& routes, bool /*tryLock*/)
+            : mLock(mutex, std::try_to_lock), mRoutes(routes) {}
+        RoutesMap* operator->() { return &mRoutes; }
+
+      private:
+        std::unique_lock<std::mutex> mLock;
+        RoutesMap& mRoutes;
+    };
+
+    static RoutesMonitor getRoutes(bool tryLock = false);
+
     bool isStreamConfigCompatible(const AudioConfig& streamConfig);
 
     std::mutex mLock;
-
+    AudioConfig mPipeConfig GUARDED_BY(mLock);
     bool mStreamInOpen GUARDED_BY(mLock) = false;
     int mInputRefCount GUARDED_BY(mLock) = 0;
     bool mStreamInStandby GUARDED_BY(mLock) = true;
@@ -126,9 +148,6 @@ class SubmixRoute {
     bool mStreamOutStandby GUARDED_BY(mLock) = true;
     // how many frames have been requested to be read since standby
     long mReadCounterFrames GUARDED_BY(mLock) = 0;
-    int mReadErrorCount GUARDED_BY(mLock) = 0;
-    // wall clock when recording starts
-    std::chrono::time_point<std::chrono::steady_clock> mRecordStartTime GUARDED_BY(mLock);
 
     // Pipe variables: they handle the ring buffer that "pipes" audio:
     //  - from the submix virtual audio output == what needs to be played

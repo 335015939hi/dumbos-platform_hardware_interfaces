@@ -73,7 +73,7 @@ const Descriptor VisualizerSw::kDescriptor = {
                           .proxy = std::nullopt},
                    .flags = {.type = Flags::Type::INSERT,
                              .insert = Flags::Insert::FIRST,
-                             .volume = Flags::Volume::CTRL},
+                             .volume = Flags::Volume::NONE},
                    .name = VisualizerSw::kEffectName,
                    .implementor = "The Android Open Source Project"},
         .capability = VisualizerSw::kCapability};
@@ -187,10 +187,6 @@ std::shared_ptr<EffectContext> VisualizerSw::createContext(const Parameter::Comm
         mContext = std::make_shared<VisualizerSwContext>(1 /* statusFmqDepth */, common);
     }
 
-    return mContext;
-}
-
-std::shared_ptr<EffectContext> VisualizerSw::getContext() {
     return mContext;
 }
 

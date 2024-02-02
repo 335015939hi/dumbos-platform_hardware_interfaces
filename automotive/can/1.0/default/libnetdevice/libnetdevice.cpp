@@ -27,6 +27,8 @@
 #include <linux/rtnetlink.h>
 #include <net/if.h>
 
+#include <algorithm>
+#include <iterator>
 #include <sstream>
 
 namespace android::netdevice {
@@ -102,7 +104,7 @@ std::optional<bool> isUp(std::string ifname) {
 
 static bool hasIpv4(std::string ifname) {
     auto ifr = ifreqs::fromName(ifname);
-    switch (const auto status = ifreqs::trySend(SIOCGIFADDR, ifr)) {
+    switch (ifreqs::trySend(SIOCGIFADDR, ifr)) {
         case 0:
             return true;
         case EADDRNOTAVAIL:

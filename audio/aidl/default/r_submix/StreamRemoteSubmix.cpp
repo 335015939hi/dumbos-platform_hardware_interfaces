@@ -16,6 +16,9 @@
 
 #define LOG_TAG "AHAL_StreamRemoteSubmix"
 #include <android-base/logging.h>
+#include <audio_utils/clock.h>
+#include <error/Result.h>
+#include <error/expected_utils.h>
 
 #include "core-impl/StreamRemoteSubmix.h"
 
@@ -40,50 +43,27 @@ StreamRemoteSubmix::StreamRemoteSubmix(StreamContext* context, const Metadata& m
     mStreamConfig.sampleRate = context->getSampleRate();
 }
 
-std::mutex StreamRemoteSubmix::sSubmixRoutesLock;
-std::map<AudioDeviceAddress, std::shared_ptr<SubmixRoute>> StreamRemoteSubmix::sSubmixRoutes;
-
 ::android::status_t StreamRemoteSubmix::init() {
-    {
-        std::lock_guard guard(sSubmixRoutesLock);
-        auto routeItr = sSubmixRoutes.find(mDeviceAddress);
-        if (routeItr != sSubmixRoutes.end()) {
-            mCurrentRoute = routeItr->second;
-        }
-    }
-    // If route is not available for this port, add it.
+    mCurrentRoute = SubmixRoute::findOrCreateRoute(mDeviceAddress, mStreamConfig);
     if (mCurrentRoute == nullptr) {
-        // Initialize the pipe.
-        mCurrentRoute = std::make_shared<SubmixRoute>();
-        if (::android::OK != mCurrentRoute->createPipe(mStreamConfig)) {
-            LOG(ERROR) << __func__ << ": create pipe failed";
+        return ::android::NO_INIT;
+    }
+    if (!mCurrentRoute->isStreamConfigValid(mIsInput, mStreamConfig)) {
+        LOG(ERROR) << __func__ << ": invalid stream config";
+        return ::android::NO_INIT;
+    }
+    sp<MonoPipe> sink = mCurrentRoute->getSink();
+    if (sink == nullptr) {
+        LOG(ERROR) << __func__ << ": nullptr sink when opening stream";
+        return ::android::NO_INIT;
+    }
+    if ((!mIsInput || mCurrentRoute->isStreamInOpen()) && sink->isShutdown()) {
+        LOG(DEBUG) << __func__ << ": Shut down sink when opening stream";
+        if (::android::OK != mCurrentRoute->resetPipe()) {
+            LOG(ERROR) << __func__ << ": reset pipe failed";
             return ::android::NO_INIT;
-        }
-        {
-            std::lock_guard guard(sSubmixRoutesLock);
-            sSubmixRoutes.emplace(mDeviceAddress, mCurrentRoute);
-        }
-    } else {
-        if (!mCurrentRoute->isStreamConfigValid(mIsInput, mStreamConfig)) {
-            LOG(ERROR) << __func__ << ": invalid stream config";
-            return ::android::NO_INIT;
-        }
-        sp<MonoPipe> sink = mCurrentRoute->getSink();
-        if (sink == nullptr) {
-            LOG(ERROR) << __func__ << ": nullptr sink when opening stream";
-            return ::android::NO_INIT;
-        }
-        // If the sink has been shutdown or pipe recreation is forced, delete the pipe and
-        // recreate it.
-        if (sink->isShutdown()) {
-            LOG(DEBUG) << __func__ << ": Non-nullptr shut down sink when opening stream";
-            if (::android::OK != mCurrentRoute->resetPipe()) {
-                LOG(ERROR) << __func__ << ": reset pipe failed";
-                return ::android::NO_INIT;
-            }
         }
     }
-
     mCurrentRoute->openStream(mIsInput);
     return ::android::OK;
 }
@@ -110,19 +90,14 @@ std::map<AudioDeviceAddress, std::shared_ptr<SubmixRoute>> StreamRemoteSubmix::s
 
 ::android::status_t StreamRemoteSubmix::start() {
     mCurrentRoute->exitStandby(mIsInput);
+    mStartTimeNs = ::android::uptimeNanos();
+    mFramesSinceStart = 0;
     return ::android::OK;
 }
 
 ndk::ScopedAStatus StreamRemoteSubmix::prepareToClose() {
     if (!mIsInput) {
-        std::shared_ptr<SubmixRoute> route = nullptr;
-        {
-            std::lock_guard guard(sSubmixRoutesLock);
-            auto routeItr = sSubmixRoutes.find(mDeviceAddress);
-            if (routeItr != sSubmixRoutes.end()) {
-                route = routeItr->second;
-            }
-        }
+        std::shared_ptr<SubmixRoute> route = SubmixRoute::findRoute(mDeviceAddress);
         if (route != nullptr) {
             sp<MonoPipe> sink = route->getSink();
             if (sink == nullptr) {
@@ -149,9 +124,7 @@ void StreamRemoteSubmix::shutdown() {
     if (!mCurrentRoute->hasAtleastOneStreamOpen()) {
         mCurrentRoute->releasePipe();
         LOG(DEBUG) << __func__ << ": pipe destroyed";
-
-        std::lock_guard guard(sSubmixRoutesLock);
-        sSubmixRoutes.erase(mDeviceAddress);
+        SubmixRoute::removeRoute(mDeviceAddress);
     }
     mCurrentRoute.reset();
 }
@@ -161,8 +134,21 @@ void StreamRemoteSubmix::shutdown() {
     *latencyMs = getDelayInUsForFrameCount(getStreamPipeSizeInFrames()) / 1000;
     LOG(VERBOSE) << __func__ << ": Latency " << *latencyMs << "ms";
     mCurrentRoute->exitStandby(mIsInput);
-    return (mIsInput ? inRead(buffer, frameCount, actualFrameCount)
-                     : outWrite(buffer, frameCount, actualFrameCount));
+    RETURN_STATUS_IF_ERROR(mIsInput ? inRead(buffer, frameCount, actualFrameCount)
+                                    : outWrite(buffer, frameCount, actualFrameCount));
+    const long bufferDurationUs =
+            (*actualFrameCount) * MICROS_PER_SECOND / mContext.getSampleRate();
+    const auto totalDurationUs = (::android::uptimeNanos() - mStartTimeNs) / NANOS_PER_MICROSECOND;
+    mFramesSinceStart += *actualFrameCount;
+    const long totalOffsetUs =
+            mFramesSinceStart * MICROS_PER_SECOND / mContext.getSampleRate() - totalDurationUs;
+    LOG(VERBOSE) << __func__ << ": totalOffsetUs " << totalOffsetUs;
+    if (totalOffsetUs > 0) {
+        const long sleepTimeUs = std::min(totalOffsetUs, bufferDurationUs);
+        LOG(VERBOSE) << __func__ << ": sleeping for " << sleepTimeUs << " us";
+        usleep(sleepTimeUs);
+    }
+    return ::android::OK;
 }
 
 ::android::status_t StreamRemoteSubmix::refinePosition(StreamDescriptor::Position* position) {
@@ -189,7 +175,7 @@ long StreamRemoteSubmix::getDelayInUsForFrameCount(size_t frameCount) {
 
 // Calculate the maximum size of the pipe buffer in frames for the specified stream.
 size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
-    auto pipeConfig = mCurrentRoute->mPipeConfig;
+    auto pipeConfig = mCurrentRoute->getPipeConfig();
     const size_t maxFrameSize = std::max(mStreamConfig.frameSize, pipeConfig.frameSize);
     return (pipeConfig.frameCount * pipeConfig.frameSize) / maxFrameSize;
 }
@@ -200,12 +186,7 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
     if (sink != nullptr) {
         if (sink->isShutdown()) {
             sink.clear();
-            const auto delayUs = getDelayInUsForFrameCount(frameCount);
-            LOG(DEBUG) << __func__ << ": pipe shutdown, ignoring the write, sleeping for "
-                       << delayUs << " us";
-            // the pipe has already been shutdown, this buffer will be lost but we must
-            // simulate timing so we don't drain the output faster than realtime
-            usleep(delayUs);
+            LOG(DEBUG) << __func__ << ": pipe shutdown, ignoring the write";
             *actualFrameCount = frameCount;
             return ::android::OK;
         }
@@ -213,6 +194,9 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
         LOG(FATAL) << __func__ << ": without a pipe!";
         return ::android::UNKNOWN_ERROR;
     }
+
+    LOG(VERBOSE) << __func__ << ": " << mDeviceAddress.toString() << ", " << frameCount
+                 << " frames";
 
     const bool shouldBlockWrite = mCurrentRoute->shouldBlockWrite();
     size_t availableToWrite = sink->availableToWrite();
@@ -236,6 +220,8 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
     availableToWrite = sink->availableToWrite();
 
     if (!shouldBlockWrite && frameCount > availableToWrite) {
+        LOG(WARNING) << __func__ << ": writing " << availableToWrite << " vs. requested "
+                     << frameCount;
         // Truncate the request to avoid blocking.
         frameCount = availableToWrite;
     }
@@ -258,92 +244,65 @@ size_t StreamRemoteSubmix::getStreamPipeSizeInFrames() {
         *actualFrameCount = 0;
         return ::android::UNKNOWN_ERROR;
     }
-    LOG(VERBOSE) << __func__ << ": wrote " << writtenFrames << "frames";
+    if (writtenFrames > 0 && frameCount > (size_t)writtenFrames) {
+        LOG(WARNING) << __func__ << ": wrote " << writtenFrames << " vs. requested " << frameCount;
+    }
     *actualFrameCount = writtenFrames;
     return ::android::OK;
 }
 
 ::android::status_t StreamRemoteSubmix::inRead(void* buffer, size_t frameCount,
                                                size_t* actualFrameCount) {
+    // in any case, it is emulated that data for the entire buffer was available
+    memset(buffer, 0, mStreamConfig.frameSize * frameCount);
+    *actualFrameCount = frameCount;
+
     // about to read from audio source
     sp<MonoPipeReader> source = mCurrentRoute->getSource();
     if (source == nullptr) {
-        int readErrorCount = mCurrentRoute->notifyReadError();
-        if (readErrorCount < kMaxReadErrorLogs) {
+        if (++mReadErrorCount < kMaxReadErrorLogs) {
             LOG(ERROR) << __func__
                        << ": no audio pipe yet we're trying to read! (not all errors will be "
                           "logged)";
-        } else {
-            LOG(ERROR) << __func__ << ": Read errors " << readErrorCount;
         }
-        const auto delayUs = getDelayInUsForFrameCount(frameCount);
-        LOG(DEBUG) << __func__ << ": no source, ignoring the read, sleeping for " << delayUs
-                   << " us";
-        usleep(delayUs);
-        memset(buffer, 0, mStreamConfig.frameSize * frameCount);
-        *actualFrameCount = frameCount;
         return ::android::OK;
     }
+    mReadErrorCount = 0;
 
+    LOG(VERBOSE) << __func__ << ": " << mDeviceAddress.toString() << ", " << frameCount
+                 << " frames";
     // read the data from the pipe
-    int attempts = 0;
-    const long delayUs = kReadAttemptSleepUs;
     char* buff = (char*)buffer;
-    size_t remainingFrames = frameCount;
-    int availableToRead = source->availableToRead();
-
-    while ((remainingFrames > 0) && (availableToRead > 0) && (attempts < kMaxReadFailureAttempts)) {
-        LOG(VERBOSE) << __func__ << ": frames available to read " << availableToRead;
-
+    size_t actuallyRead = 0;
+    long remainingFrames = frameCount;
+    const int64_t deadlineTimeNs = ::android::uptimeNanos() +
+                                   getDelayInUsForFrameCount(frameCount) * NANOS_PER_MICROSECOND;
+    while (remainingFrames > 0) {
         ssize_t framesRead = source->read(buff, remainingFrames);
-
         LOG(VERBOSE) << __func__ << ": frames read " << framesRead;
-
         if (framesRead > 0) {
             remainingFrames -= framesRead;
             buff += framesRead * mStreamConfig.frameSize;
-            availableToRead -= framesRead;
-            LOG(VERBOSE) << __func__ << ": (attempts = " << attempts << ") got " << framesRead
+            LOG(VERBOSE) << __func__ << ": got " << framesRead
                          << " frames, remaining =" << remainingFrames;
-        } else {
-            attempts++;
-            LOG(WARNING) << __func__ << ": read returned " << framesRead
-                         << " , read failure attempts = " << attempts << ", sleeping for "
-                         << delayUs << " us";
-            usleep(delayUs);
+            actuallyRead += framesRead;
+        }
+        if (::android::uptimeNanos() >= deadlineTimeNs) break;
+        if (framesRead <= 0) {
+            LOG(VERBOSE) << __func__ << ": read returned " << framesRead
+                         << ", read failure, sleeping for " << kReadAttemptSleepUs << " us";
+            usleep(kReadAttemptSleepUs);
         }
     }
-    // done using the source
-    source.clear();
-
-    if (remainingFrames > 0) {
-        const size_t remainingBytes = remainingFrames * mStreamConfig.frameSize;
-        LOG(VERBOSE) << __func__ << ": clearing remaining_frames = " << remainingFrames;
-        memset(((char*)buffer) + (mStreamConfig.frameSize * frameCount) - remainingBytes, 0,
-               remainingBytes);
+    if (actuallyRead < frameCount) {
+        if (++mReadFailureCount < kMaxReadFailureAttempts) {
+            LOG(WARNING) << __func__ << ": read " << actuallyRead << " vs. requested " << frameCount
+                         << " (not all errors will be logged)";
+        }
+    } else {
+        mReadFailureCount = 0;
     }
-
-    long readCounterFrames = mCurrentRoute->updateReadCounterFrames(frameCount);
-    *actualFrameCount = frameCount;
-
-    // compute how much we need to sleep after reading the data by comparing the wall clock with
-    //   the projected time at which we should return.
-    // wall clock after reading from the pipe
-    auto recordDurationUs = std::chrono::duration_cast<std::chrono::microseconds>(
-            std::chrono::steady_clock::now() - mCurrentRoute->getRecordStartTime());
-
-    // readCounterFrames contains the number of frames that have been read since the beginning of
-    // recording (including this call): it's converted to usec and compared to how long we've been
-    // recording for, which gives us how long we must wait to sync the projected recording time, and
-    // the observed recording time.
-    const long projectedVsObservedOffsetUs =
-            getDelayInUsForFrameCount(readCounterFrames) - recordDurationUs.count();
-
-    LOG(VERBOSE) << __func__ << ": record duration " << recordDurationUs.count()
-                 << " us, will wait: " << projectedVsObservedOffsetUs << " us";
-    if (projectedVsObservedOffsetUs > 0) {
-        usleep(projectedVsObservedOffsetUs);
-    }
+    mCurrentRoute->updateReadCounterFrames(*actualFrameCount);
     return ::android::OK;
 }
 

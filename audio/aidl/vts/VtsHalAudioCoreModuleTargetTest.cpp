@@ -573,6 +573,8 @@ class WithDevicePortConnectedState {
     WithDevicePortConnectedState& operator=(const WithDevicePortConnectedState&) = delete;
     ~WithDevicePortConnectedState() {
         if (mModule != nullptr) {
+            EXPECT_IS_OK_OR_UNKNOWN_TRANSACTION(mModule->prepareToDisconnectExternalDevice(getId()))
+                    << "when preparing to disconnect device port ID " << getId();
             EXPECT_IS_OK(mModule->disconnectExternalDevice(getId()))
                     << "when disconnecting device port ID " << getId();
         }
@@ -1753,6 +1755,9 @@ TEST_P(AudioCoreModule, TryConnectMissingDevice) {
         ScopedAStatus status = module->connectExternalDevice(portWithData, &connectedPort);
         EXPECT_STATUS(EX_ILLEGAL_STATE, status) << "static port " << portWithData.toString();
         if (status.isOk()) {
+            EXPECT_IS_OK_OR_UNKNOWN_TRANSACTION(
+                    module->prepareToDisconnectExternalDevice(connectedPort.id))
+                    << "when preparing to disconnect device port ID " << connectedPort.id;
             EXPECT_IS_OK(module->disconnectExternalDevice(connectedPort.id))
                     << "when disconnecting device port ID " << connectedPort.id;
         }
@@ -1782,6 +1787,9 @@ TEST_P(AudioCoreModule, ConnectDisconnectExternalDeviceInvalidPorts) {
         invalidPort.id = portId;
         EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->connectExternalDevice(invalidPort, &ignored))
                 << "port ID " << portId << ", when setting CONNECTED state";
+        EXPECT_STATUS_OR_UNKNOWN_TRANSACTION(EX_ILLEGAL_ARGUMENT,
+                                             module->prepareToDisconnectExternalDevice(portId))
+                << "port ID " << portId << ", when preparing to disconnect";
         EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->disconnectExternalDevice(portId))
                 << "port ID " << portId << ", when setting DISCONNECTED state";
     }
@@ -1792,6 +1800,9 @@ TEST_P(AudioCoreModule, ConnectDisconnectExternalDeviceInvalidPorts) {
         if (port.ext.getTag() != AudioPortExt::Tag::device) {
             EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->connectExternalDevice(port, &ignored))
                     << "non-device port ID " << port.id << " when setting CONNECTED state";
+            EXPECT_STATUS_OR_UNKNOWN_TRANSACTION(EX_ILLEGAL_ARGUMENT,
+                                                 module->prepareToDisconnectExternalDevice(port.id))
+                    << "non-device port ID " << port.id << " when preparing to disconnect";
             EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->disconnectExternalDevice(port.id))
                     << "non-device port ID " << port.id << " when setting DISCONNECTED state";
         } else {
@@ -1800,6 +1811,10 @@ TEST_P(AudioCoreModule, ConnectDisconnectExternalDeviceInvalidPorts) {
                 EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->connectExternalDevice(port, &ignored))
                         << "for a permanently attached device port ID " << port.id
                         << " when setting CONNECTED state";
+                EXPECT_STATUS_OR_UNKNOWN_TRANSACTION(
+                        EX_ILLEGAL_ARGUMENT, module->prepareToDisconnectExternalDevice(port.id))
+                        << "for a permanently attached device port ID " << port.id
+                        << " when preparing to disconnect";
                 EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->disconnectExternalDevice(port.id))
                         << "for a permanently attached device port ID " << port.id
                         << " when setting DISCONNECTED state";
@@ -1817,6 +1832,9 @@ TEST_P(AudioCoreModule, ConnectDisconnectExternalDeviceTwice) {
         GTEST_SKIP() << "No external devices in the module.";
     }
     for (const auto& port : ports) {
+        EXPECT_STATUS_OR_UNKNOWN_TRANSACTION(EX_ILLEGAL_ARGUMENT,
+                                             module->prepareToDisconnectExternalDevice(port.id))
+                << "when preparing to disconnect already disconnected device port ID " << port.id;
         EXPECT_STATUS(EX_ILLEGAL_ARGUMENT, module->disconnectExternalDevice(port.id))
                 << "when disconnecting already disconnected device port ID " << port.id;
         AudioPort portWithData = GenerateUniqueDeviceAddress(port);
@@ -1851,6 +1869,10 @@ TEST_P(AudioCoreModule, DisconnectExternalDeviceNonResetPortConfig) {
             // Our test assumes that 'getAudioPort' returns at least one profile, and it
             // is not a dynamic profile.
             ASSERT_NO_FATAL_FAILURE(config.SetUp(module.get()));
+            EXPECT_IS_OK_OR_UNKNOWN_TRANSACTION(
+                    module->prepareToDisconnectExternalDevice(portConnected.getId()))
+                    << "when preparing to disconnect device port ID " << port.id
+                    << " with active configuration " << config.getId();
             EXPECT_STATUS(EX_ILLEGAL_STATE, module->disconnectExternalDevice(portConnected.getId()))
                     << "when trying to disconnect device port ID " << port.id
                     << " with active configuration " << config.getId();
@@ -4561,8 +4583,7 @@ GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AudioModulePatch);
 static std::vector<std::string> getRemoteSubmixModuleInstance() {
     auto instances = android::getAidlHalInstanceNames(IModule::descriptor);
     for (auto instance : instances) {
-        if (instance.find("r_submix") != std::string::npos)
-            return (std::vector<std::string>{instance});
+        if (instance.ends_with("/r_submix")) return (std::vector<std::string>{instance});
     }
     return {};
 }
@@ -4650,6 +4671,9 @@ class AudioModuleRemoteSubmix : public AudioCoreModule {
         // Turn off "debug" which enables connections simulation. Since devices of the remote
         // submix module are virtual, there is no need for simulation.
         ASSERT_NO_FATAL_FAILURE(SetUpImpl(GetParam(), false /*setUpDebug*/));
+        if (int32_t version; module->getInterfaceVersion(&version).isOk() && version < 2) {
+            GTEST_SKIP() << "V1 uses a deprecated remote submix device type encoding";
+        }
         ASSERT_NO_FATAL_FAILURE(SetUpModuleConfig());
     }
 };

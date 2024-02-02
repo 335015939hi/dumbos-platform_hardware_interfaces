@@ -18,20 +18,96 @@ package {
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
+rust_library {
+    name: "libsecretkeeper_nonsecure",
+    crate_name: "secretkeeper_nonsecure",
+    srcs: [
+        "src/lib.rs",
+    ],
+    vendor_available: true,
+    defaults: [
+        "authgraph_use_latest_hal_aidl_rust",
+    ],
+    rustlibs: [
+        "android.hardware.security.secretkeeper-V1-rust",
+        "libauthgraph_boringssl",
+        "libauthgraph_core",
+        "libauthgraph_hal",
+        "libbinder_rs",
+        "libcoset",
+        "liblog_rust",
+        "libsecretkeeper_core_nostd",
+        "libsecretkeeper_comm_nostd",
+    ],
+}
+
 rust_binary {
     name: "android.hardware.security.secretkeeper-service.nonsecure",
     relative_install_path: "hw",
     vendor: true,
-    init_rc: ["secretkeeper.rc"],
-    vintf_fragments: ["secretkeeper.xml"],
+    installable: false, // install APEX
+    prefer_rlib: true,
+    defaults: [
+        "authgraph_use_latest_hal_aidl_rust",
+    ],
     rustlibs: [
         "android.hardware.security.secretkeeper-V1-rust",
         "libandroid_logger",
         "libbinder_rs",
         "liblog_rust",
-        "libsecretkeeper_comm_nostd",
+        "libsecretkeeper_hal",
+        "libsecretkeeper_nonsecure",
     ],
     srcs: [
         "src/main.rs",
+    ],
+}
+
+rust_fuzz {
+    name: "android.hardware.security.secretkeeper-service.nonsecure_fuzzer",
+    rustlibs: [
+        "libsecretkeeper_hal",
+        "libsecretkeeper_nonsecure",
+        "libbinder_random_parcel_rs",
+        "libbinder_rs",
+    ],
+    srcs: ["src/fuzzer.rs"],
+    fuzz_config: {
+        cc: [
+            "alanstokes@google.com",
+            "drysdale@google.com",
+            "shikhapanwar@google.com",
+        ],
+    },
+}
+
+prebuilt_etc {
+    name: "secretkeeper.rc",
+    src: "secretkeeper.rc",
+    installable: false,
+}
+
+prebuilt_etc {
+    name: "secretkeeper.xml",
+    src: "secretkeeper.xml",
+    sub_dir: "vintf",
+    installable: false,
+}
+
+apex {
+    name: "com.android.hardware.security.secretkeeper",
+    manifest: "apex_manifest.json",
+    file_contexts: "apex_file_contexts",
+    key: "com.android.hardware.key",
+    certificate: ":com.android.hardware.certificate",
+    vendor: true,
+    updatable: false,
+
+    binaries: [
+        "android.hardware.security.secretkeeper-service.nonsecure",
+    ],
+    prebuilts: [
+        "secretkeeper.rc",
+        "secretkeeper.xml",
     ],
 }

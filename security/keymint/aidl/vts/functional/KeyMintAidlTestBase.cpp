@@ -64,6 +64,13 @@ namespace test {
 
 namespace {
 
+// Possible values for the feature version.  Assumes that future KeyMint versions
+// will continue with the 100 * AIDL_version numbering scheme.
+//
+// Must be kept in numerically increasing order.
+const int32_t kFeatureVersions[] = {10,  11,  20,  30,  40,  41,  100, 200,
+                                    300, 400, 500, 600, 700, 800, 900};
+
 // Invalid value for a patchlevel (which is of form YYYYMMDD).
 const uint32_t kInvalidPatchlevel = 99998877;
 
@@ -1792,6 +1799,12 @@ void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_
     std::string empty_boot_key(32, '\0');
     std::string verified_boot_key_str((const char*)verified_boot_key.data(),
                                       verified_boot_key.size());
+    if (get_vsr_api_level() >= __ANDROID_API_V__) {
+        // The attestation should contain the SHA-256 hash of the verified boot
+        // key.  However, this was not checked for earlier versions of the KeyMint
+        // HAL so only be strict for VSR-V and above.
+        EXPECT_LE(verified_boot_key.size(), 32);
+    }
     EXPECT_NE(property_get("ro.boot.verifiedbootstate", property_value, ""), 0);
     if (!strcmp(property_value, "green")) {
         EXPECT_EQ(verified_boot_state, VerifiedBoot::VERIFIED);
@@ -2270,6 +2283,43 @@ bool check_feature(const std::string& name) {
         return false;
     }
     return hasFeature;
+}
+
+// Return the numeric value associated with a feature.
+std::optional<int32_t> keymint_feature_value(bool strongbox) {
+    std::string name = strongbox ? FEATURE_STRONGBOX_KEYSTORE : FEATURE_HARDWARE_KEYSTORE;
+    ::android::String16 name16(name.c_str());
+    ::android::sp<::android::IServiceManager> sm(::android::defaultServiceManager());
+    ::android::sp<::android::IBinder> binder(
+            sm->waitForService(::android::String16("package_native")));
+    if (binder == nullptr) {
+        GTEST_LOG_(ERROR) << "waitForService package_native failed";
+        return std::nullopt;
+    }
+    ::android::sp<::android::content::pm::IPackageManagerNative> packageMgr =
+            ::android::interface_cast<::android::content::pm::IPackageManagerNative>(binder);
+    if (packageMgr == nullptr) {
+        GTEST_LOG_(ERROR) << "Cannot find package manager";
+        return std::nullopt;
+    }
+
+    // Package manager has no mechanism to retrieve the version of a feature,
+    // only to indicate whether a certain version or above is present.
+    std::optional<int32_t> result = std::nullopt;
+    for (auto version : kFeatureVersions) {
+        bool hasFeature = false;
+        auto status = packageMgr->hasSystemFeature(name16, version, &hasFeature);
+        if (!status.isOk()) {
+            GTEST_LOG_(ERROR) << "hasSystemFeature('" << name << "', " << version
+                              << ") failed: " << status;
+            return result;
+        } else if (hasFeature) {
+            result = version;
+        } else {
+            break;
+        }
+    }
+    return result;
 }
 
 }  // namespace test

@@ -45,16 +45,24 @@ interface IComponent {
   void reset();
   void start();
   void stop();
+  android.hardware.media.c2.IInputSurfaceConnection connectToInputSurface(in android.hardware.media.c2.IInputSurface inputSurface);
+  android.hardware.media.c2.IInputSink asInputSink();
   parcelable BlockPool {
     long blockPoolId;
     android.hardware.media.c2.IConfigurable configurable;
   }
-  parcelable C2AidlGbAllocator {
-    android.hardware.media.c2.IGraphicBufferAllocator igba;
+  parcelable GbAllocator {
     ParcelFileDescriptor waitableFd;
+    android.hardware.media.c2.IGraphicBufferAllocator igba;
   }
-  union BlockPoolAllocator {
+  parcelable PooledGbAllocator {
+    ParcelFileDescriptor waitableFd;
+    long receiverId;
+    android.hardware.media.c2.IPooledGraphicBufferAllocator ipgba;
+  }
+  parcelable BlockPoolAllocator {
     int allocatorId;
-    android.hardware.media.c2.IComponent.C2AidlGbAllocator allocator;
+    @nullable android.hardware.media.c2.IComponent.GbAllocator gbAllocator;
+    @nullable android.hardware.media.c2.IComponent.PooledGbAllocator pooledGbAllocator;
   }
 }
