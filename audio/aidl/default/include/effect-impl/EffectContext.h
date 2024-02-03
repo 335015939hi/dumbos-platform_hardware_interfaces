@@ -44,6 +44,7 @@ class EffectContext {
         }
     }
 
+    void setVersion(int version) { mVersion = version; }
     std::shared_ptr<StatusMQ> getStatusFmq() const;
     std::shared_ptr<DataMQ> getInputDataFmq() const;
     std::shared_ptr<DataMQ> getOutputDataFmq() const;
@@ -82,6 +83,7 @@ class EffectContext {
     virtual ::android::hardware::EventFlag* getStatusEventFlag();
 
   protected:
+    int mVersion;
     size_t mInputFrameSize;
     size_t mOutputFrameSize;
     size_t mInputChannelCount;
