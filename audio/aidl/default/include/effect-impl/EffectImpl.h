@@ -35,7 +35,11 @@ namespace aidl::android::hardware::audio::effect {
 
 class EffectImpl : public BnEffect, public EffectThread {
   public:
-    EffectImpl() = default;
+    EffectImpl()
+        : mVersion([&]() {
+              int version = 0;
+              return getInterfaceVersion(&version).isOk() ? version : 0;
+          }()){};
     virtual ~EffectImpl() = default;
 
     virtual ndk::ScopedAStatus open(const Parameter::Common& common,
@@ -89,6 +93,7 @@ class EffectImpl : public BnEffect, public EffectThread {
     void process() override;
 
   protected:
+    const int mVersion;
     State mState GUARDED_BY(mImplMutex) = State::INIT;
 
     IEffect::Status status(binder_status_t status, size_t consumed, size_t produced);
