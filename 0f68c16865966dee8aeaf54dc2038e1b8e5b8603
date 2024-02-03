@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52248caf_f44f9f66",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/ICryptoOperationContext.aidl",
+        "patchSetId": 67
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "This comment has been modified a bit because the original one I had mentioned details that could be considered implementation dependent. I modified it a little bit, please let me know if it is more clear now.",
+      "parentUuid": "a41fae64_8f8a20a6",
+      "revId": "0f68c16865966dee8aeaf54dc2038e1b8e5b8603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a4a759d_66a9b876",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
         "patchSetId": 67

@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78929b0d_3e9e9872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 68
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a94e98d8_bf16fd98",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7be3524_86f4dd33",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-02-02T20:30:31Z",
       "side": 1,
       "message": "client, not service?",
+      "range": {
+        "startLine": 43,
+        "startChar": 53,
+        "endLine": 43,
+        "endChar": 60
+      },
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c948e027_c5bc9e04",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Modified the docstring a little, let me know if it is more clear now. The intention of the comment is to state that the API does not mandate the specific format of the wrapped key, just that the format used when exporting a key has to match the format used when reimporting the key..",
+      "parentUuid": "a7be3524_86f4dd33",
       "range": {
         "startLine": 43,
         "startChar": 53,
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bca19c4_3eeef884",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9e407c8_a9a1be2b",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8335ed95_1c0ebf6c",
@@ -77,6 +137,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5f0e131_2af771c5",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Changed the wording, let me know if it is better now.",
+      "parentUuid": "8335ed95_1c0ebf6c",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d5c3ff8_2fafdf12",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
         "patchSetId": 68
@@ -88,6 +166,24 @@
       "writtenOn": "2024-02-02T20:30:31Z",
       "side": 1,
       "message": "I don\u0027t understand the difference between this and `importWrappedKey()` (from this documentation). At least mention what API call generates the `requested_key` handle.",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb092c99_b18b6e36",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d5c3ff8_2fafdf12",
       "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -115,6 +211,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8875c07_3c11e615",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Fixed, it was copied-pasted from a different docstring.",
+      "parentUuid": "8f1cf03d_9f25c8ae",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 55
+      },
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "661a33b1_a1756b9d",
@@ -128,6 +248,24 @@
       "writtenOn": "2024-02-02T20:30:31Z",
       "side": 1,
       "message": "Why is this not part of the key policy?",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78abe9bd_97b893d5",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Because key policies are fixed on creation, but key validity can be set after the key has been created. Added this explanation to the docstring.",
+      "parentUuid": "661a33b1_a1756b9d",
       "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -149,6 +287,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e9a4ca_566e9655",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c882a3a_f8c44d7a",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd3813b5_afb2433e",
@@ -162,6 +318,24 @@
       "writtenOn": "2024-02-02T20:30:31Z",
       "side": 1,
       "message": "```suggestion\n     *      ID of the given use case to provide protection for. The method of protecting the buffer will\n```",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57aeddd9_499fdd5f",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd3813b5_afb2433e",
       "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -206,6 +380,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddac4e0d_a569a86f",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/PatternParameters.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Removed, thanks.",
+      "parentUuid": "40d20deb_d9333ec7",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 44
+      },
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "680ab1e5_abd8aef7",
@@ -219,6 +417,24 @@
       "writtenOn": "2024-02-02T20:30:31Z",
       "side": 1,
       "message": "nit:\n\n```suggestion\n * Enum describing all supported key types. Key types are strongly bound to the algorithm to\n```",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55b7d8a1_4e1c5251",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "680ab1e5_abd8aef7",
       "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -240,6 +456,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b406140c_81384b4f",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c31b255_237ca4f2",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e33ffbba_ea7fb12c",
@@ -253,6 +487,24 @@
       "writtenOn": "2024-02-02T20:30:31Z",
       "side": 1,
       "message": "Would be helpful to mention what this protection ID does here?",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a86b52ea_c1f171da",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/ProtectionId.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-03T01:10:22Z",
+      "side": 1,
+      "message": "Added a small comment on the protection ID enum value.",
+      "parentUuid": "e33ffbba_ea7fb12c",
       "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
