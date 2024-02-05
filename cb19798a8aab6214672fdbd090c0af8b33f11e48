@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "003483e8_ac744a6f",
+        "filename": "audio/aidl/default/EffectContext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-02-05T21:35:43Z",
+      "side": 1,
+      "message": "BTW, I see we pass a new `common` to this method and check it against `mCommon`. When do we update `mCommon`?",
+      "range": {
+        "startLine": 223,
+        "startChar": 36,
+        "endLine": 224,
+        "endChar": 95
+      },
+      "revId": "cb19798a8aab6214672fdbd090c0af8b33f11e48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a40a81ee_3454503d",
+        "filename": "audio/aidl/default/include/effect-impl/EffectImpl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-02-05T21:35:43Z",
+      "side": 1,
+      "message": "Since the generated code caches the version (https://cs.android.com/android/platform/superproject/main/+/main:system/tools/aidl/tests/golden_output/aidl-test-versioned-interface-V3-ndk-source/gen/android/aidl/versioned/tests/IFooInterface.cpp;l\u003d352;drc\u003ddaef8049c2b924f55c6536105f8f9eb6e9ebf6f2), maybe we can postpone doing a remote call and just call `getInterfaceVersion` whenever needed. I don\u0027t think it\u0027s a good idea to send a bunch of remote calls when simply instantiating effect clients.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "cb19798a8aab6214672fdbd090c0af8b33f11e48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
