@@ -1924,6 +1924,7 @@ void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey) 
     *signingKey = std::move(pubKey);
 }
 
+<<<<<<< HEAD   (62fe88 Add retry in setProp test.)
 // Check the error code from an attempt to perform device ID attestation with an invalid value.
 void device_id_attestation_check_acceptable_error(Tag tag, const ErrorCode& result) {
     if (result == ErrorCode::CANNOT_ATTEST_IDS) {
@@ -1942,6 +1943,8 @@ void device_id_attestation_check_acceptable_error(Tag tag, const ErrorCode& resu
     }
 }
 
+=======
+>>>>>>> BRANCH (3756b0 Merge "Add check_feature helper" into android12-tests-dev am)
 // Check whether the given named feature is available.
 bool check_feature(const std::string& name) {
     ::android::sp<::android::IServiceManager> sm(::android::defaultServiceManager());

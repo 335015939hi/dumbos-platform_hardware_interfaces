@@ -387,7 +387,10 @@ vector<uint8_t> make_name_from_str(const string& name);
 void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
                         vector<uint8_t>* payload_value);
 void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey);
+<<<<<<< HEAD   (62fe88 Add retry in setProp test.)
 void device_id_attestation_check_acceptable_error(Tag tag, const ErrorCode& result);
+=======
+>>>>>>> BRANCH (3756b0 Merge "Add check_feature helper" into android12-tests-dev am)
 bool check_feature(const std::string& name);
 
 AuthorizationSet HwEnforcedAuthorizations(const vector<KeyCharacteristics>& key_characteristics);
