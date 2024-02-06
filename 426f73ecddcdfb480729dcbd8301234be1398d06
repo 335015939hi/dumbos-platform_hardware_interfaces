@@ -244,6 +244,24 @@
       "message": "I\u0027ve not looked at this part of the CL because I suspect we\u0027re too late for v1 changes (and so this will need to be done differently as part of a v2) -- let me know if that turns out not to be the case.",
       "revId": "426f73ecddcdfb480729dcbd8301234be1398d06",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b86f757_b72f21a8",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Key.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-02-06T21:51:37Z",
+      "side": 1,
+      "message": "That is fine. I have sent an email to Steven and Davin to confirm if there is any possiblity of making any changes before the API freeze and cc\u0027ed you too.",
+      "parentUuid": "a5a2c52c_5faf36fb",
+      "revId": "426f73ecddcdfb480729dcbd8301234be1398d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
