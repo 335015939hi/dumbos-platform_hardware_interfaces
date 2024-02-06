@@ -34,6 +34,24 @@
       "parentUuid": "b5e563ba_b61c5a60",
       "revId": "18a9b16480be2bd0a5654936532d7e55882d6c32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dee3f2eb_f06d5e96",
+        "filename": "threadnetwork/aidl/default/log.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-02-06T02:37:24Z",
+      "side": 1,
+      "message": "We can add the following settings to the `init.rc` to change the log level of Thread HAL service. So there is no need to implement a log level control mechanism by ourself.\n\n```\nsetprop log.tag.android.hardware.threadnetwork-service WARN\n```",
+      "parentUuid": "5e503ecc_fee4dfbf",
+      "revId": "18a9b16480be2bd0a5654936532d7e55882d6c32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
