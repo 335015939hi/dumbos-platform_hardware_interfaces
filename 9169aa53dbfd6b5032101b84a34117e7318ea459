@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86419639_588d924e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-02-06T23:53:01Z",
+      "side": 1,
+      "message": "are you also testing this with ABTD? or is this not integrated into the finalization scripts yet?",
+      "revId": "9169aa53dbfd6b5032101b84a34117e7318ea459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
