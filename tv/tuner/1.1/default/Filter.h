@@ -26,6 +26,10 @@
 #include <sys/stat.h>
 #include <set>
 #include <deque>
+#include <vector>
+#include <utility>
+#include <memory>
+#include <map>
 #include "Demux.h"
 #include "Dvr.h"
 #include "Frontend.h"

@@ -22,9 +22,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <vector>
-#include <utility>
-#include <memory>
 #include <algorithm>
 
 #include "FileTuner/TsPlayPump/tsEnumUtils.h"
@@ -773,7 +770,7 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table) 
         delete mSDT;
     }
 
-    for(int i = 0; i < table.sectionCount(); i++) {
+    for (int i = 0; i < table.sectionCount(); i++) {
         ts::SectionPtr secPtr = table.sectionAt(i);
         const uint8_t* sec_payload = secPtr->content();
         std::vector<uint8_t> data(sec_payload, sec_payload + secPtr->size() );
@@ -782,7 +779,7 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table) 
             return;
         }
 
-        if(table.tableId() == PMT_TABLE_ID || secPtr->isShortSection()) {  // PMT and TOT //
+        if (table.tableId() == PMT_TABLE_ID || secPtr->isShortSection()) {  // PMT and TOT //
             if (mLastVersion != -1 && mLastVersion == table.version()) {
                 ALOGD("[Filter] same version pid %d ", mTpid);
                 return;
@@ -790,7 +787,7 @@ void Filter::handleTable(ts::SectionDemux& demux, const ts::BinaryTable& table) 
         }
 
         if (!writeDataToFilterMQ(data)) {
-            ALOGD("[Filter] Failed to write FMQ size = %d ",data.size());
+            ALOGD("[Filter] Failed to write FMQ size = %d ", data.size());
             return;
         }
 
@@ -941,7 +938,7 @@ Result Filter::createIndependentMediaEvents(vector<uint8_t> output) {
             .avDataId = dataId,
     };
     if (mPts) {
-        if(IS_32BIT)
+        if (IS_32BIT)
             mediaEvent.pts = mPts / 90;
         else
             mediaEvent.pts = mPts;
@@ -1003,7 +1000,7 @@ Result Filter::createShareMemMediaEvents(vector<uint8_t> output) {
     };
     mSharedAvMemOffset += output.size();
     if (mPts) {
-        if(IS_32BIT)
+        if (IS_32BIT)
             mediaEvent.pts = mPts / 90;
         else
             mediaEvent.pts = mPts;

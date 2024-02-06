@@ -20,6 +20,8 @@
 #include <fmq/MessageQueue.h>
 #include <math.h>
 #include <set>
+#include <map>
+#include <vector>
 #include "Dvr.h"
 #include "Filter.h"
 #include "Frontend.h"
