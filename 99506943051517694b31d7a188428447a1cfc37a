@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e10c9563_e50f01f4",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1809582
+      },
+      "writtenOn": "2024-02-06T22:48:36Z",
+      "side": 1,
+      "message": "If you want the C++ code to use UTF-8, you can use an attribute: `in @utf8InCpp String filePath`.",
+      "revId": "99506943051517694b31d7a188428447a1cfc37a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
