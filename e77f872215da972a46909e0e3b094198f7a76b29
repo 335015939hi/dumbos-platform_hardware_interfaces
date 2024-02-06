@@ -16,6 +16,24 @@
       "message": "Can you bring this change to aosp/2915745?",
       "revId": "e77f872215da972a46909e0e3b094198f7a76b29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04510468_361d3659",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2024-02-06T08:30:39Z",
+      "side": 1,
+      "message": "Could we merge this and have the GSI tests fixed already, without waiting for aosp/2915745? These are two independent issues, and if aosp/2915745 is applied on top of this one, the tests on GSI are still passing, so there\u0027s no need to change it if this one is merged.",
+      "parentUuid": "0203f059_72a26428",
+      "revId": "e77f872215da972a46909e0e3b094198f7a76b29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
