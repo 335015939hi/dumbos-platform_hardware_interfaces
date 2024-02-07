@@ -31,12 +31,13 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.security.see.hwcrypto;
-union OperationParameters {
-  android.hardware.security.see.hwcrypto.types.SymmetricAuthOperationParameters symmetricAuthCrypto;
-  android.hardware.security.see.hwcrypto.types.SymmetricOperationParameters symmetricCrypto;
-  android.hardware.security.see.hwcrypto.types.HmacOperationParameters hmac;
-  android.hardware.security.see.hwcrypto.types.EcSignParameters ecSign;
-  android.hardware.security.see.hwcrypto.types.RsaOperationParameters rsaDecrypt;
-  android.hardware.security.see.hwcrypto.types.RsaOperationParameters rsaSign;
+package android.hardware.security.see.hwcrypto.types;
+union RsaPaddingMode {
+  android.hardware.security.see.hwcrypto.types.Digest pssPadding = android.hardware.security.see.hwcrypto.types.Digest.SHA256;
+  android.hardware.security.see.hwcrypto.types.Digest pkcs1v1_5Padding;
+  android.hardware.security.see.hwcrypto.types.RsaPaddingMode.OaepPadding oaepPadding;
+  parcelable OaepPadding {
+    android.hardware.security.see.hwcrypto.types.Digest msgDigest = android.hardware.security.see.hwcrypto.types.Digest.SHA256;
+    android.hardware.security.see.hwcrypto.types.Digest mgfDigest = android.hardware.security.see.hwcrypto.types.Digest.SHA256;
+  }
 }
