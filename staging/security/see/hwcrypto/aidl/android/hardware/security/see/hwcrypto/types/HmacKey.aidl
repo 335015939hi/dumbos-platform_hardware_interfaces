@@ -15,17 +15,12 @@
  */
 package android.hardware.security.see.hwcrypto.types;
 
-import android.hardware.security.see.hwcrypto.types.AesKey;
-import android.hardware.security.see.hwcrypto.types.EcKey;
-import android.hardware.security.see.hwcrypto.types.HmacKey;
-import android.hardware.security.see.hwcrypto.types.RsaKey;
-
 /*
- * Type encapsulating a clear key.
+ * Key used for HMAC operations
  */
-union ExplicitKeyMaterial {
-    AesKey aes;
-    HmacKey hmac;
-    RsaKey rsa;
-    EcKey ec;
+parcelable HmacKey {
+    /*
+     * Raw HMAC key, can have any length.
+     */
+    byte[] keyMaterial;
 }
