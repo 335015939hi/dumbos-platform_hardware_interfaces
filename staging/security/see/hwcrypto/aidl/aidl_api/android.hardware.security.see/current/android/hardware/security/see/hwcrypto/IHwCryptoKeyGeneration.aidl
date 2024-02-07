@@ -32,7 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.see.hwcrypto;
-interface IHwCryptoOperations {
-  android.hardware.security.see.hwcrypto.IHwCryptoKeyGeneration getKeyGeneration();
-  android.hardware.security.see.hwcrypto.CryptoOperationResult[] processCommandList(inout android.hardware.security.see.hwcrypto.CryptoOperationSet[] operations, out android.hardware.security.see.hwcrypto.CryptoOperationErrorAdditionalInfo additionalErrorInfo);
+interface IHwCryptoKeyGeneration {
+  android.hardware.security.see.hwcrypto.IOpaqueKey importClearKey(in android.hardware.security.see.hwcrypto.types.ExplicitKeyMaterial keyMaterial, in android.hardware.security.see.hwcrypto.KeyPolicy newKeyPolicy);
+  android.hardware.security.see.hwcrypto.IOpaqueKey importWrappedKey(in byte[] keyToBeImported, in android.hardware.security.see.hwcrypto.IOpaqueKey wrappingKey);
+  android.hardware.security.see.hwcrypto.IOpaqueKey generateKey(in android.hardware.security.see.hwcrypto.KeyPolicy policy);
+  android.hardware.security.see.hwcrypto.IOpaqueKey deriveKey(in android.hardware.security.see.hwcrypto.IOpaqueKey derivationKey, in android.hardware.security.see.hwcrypto.KeyPolicy policy, in byte[] context);
 }
