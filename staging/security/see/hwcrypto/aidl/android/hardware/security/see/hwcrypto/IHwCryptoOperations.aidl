@@ -18,6 +18,7 @@ package android.hardware.security.see.hwcrypto;
 import android.hardware.security.see.hwcrypto.CryptoOperationErrorAdditionalInfo;
 import android.hardware.security.see.hwcrypto.CryptoOperationResult;
 import android.hardware.security.see.hwcrypto.CryptoOperationSet;
+import android.hardware.security.see.hwcrypto.IHwCryptoKeyGeneration;
 
 /*
  * Interface used that provides cryptographic services, including the generation and use of
@@ -25,6 +26,15 @@ import android.hardware.security.see.hwcrypto.CryptoOperationSet;
  * which allow callers to execute a large set of operations on a single call.
  */
 interface IHwCryptoOperations {
+    /*
+     * getKeyGeneration() - Returns an interface with key generation functions
+     *
+     * Return:
+     *      IHwCryptoKeyGeneration on success, service specific error based on
+     *      <code>HalErrorCode</code> otherwise.
+     */
+    IHwCryptoKeyGeneration getKeyGeneration();
+
     /*
      * processCommandList() - Executes a list of cryptographic commands in order
      *
