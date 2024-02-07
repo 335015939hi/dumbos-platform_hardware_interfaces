@@ -51,6 +51,29 @@
       "parentUuid": "30eac985_0782dc8b",
       "revId": "be718e26f568ffc5ac83d6ad52e177dc801a6983",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ddd783c_4fe7c81f",
+        "filename": "radio/aidl/vts/radio_network_test.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 1175,
+      "author": {
+        "id": 1886547
+      },
+      "writtenOn": "2024-02-07T03:04:39Z",
+      "side": 1,
+      "message": "Hi , \nCan we just keep only the errors received at SIM present condition here instead of all errors defined @  https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/radio/aidl/android/hardware/radio/network/IRadioNetworkResponse.aidl;l\u003d438?q\u003diradionetworkresponse.aidl%20repo:platform%2Fsuperproject%2Fmain as earlier suggested.\n\nFor Ex: ILLEGAL_SIM_OR_ME as per one of the comments was mentioned can be received only @ SIM Absent condition only and SIM Absent condtion is not applicable here ?\n\nAs per your response @ comment: \nRef : https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2884867/7..12/radio/aidl/vts/radio_network_test.cpp#b1176\n\nSo please remove SIM Absent specific errors from this changeset for the test case.",
+      "range": {
+        "startLine": 1170,
+        "startChar": 0,
+        "endLine": 1175,
+        "endChar": 99
+      },
+      "revId": "be718e26f568ffc5ac83d6ad52e177dc801a6983",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
