@@ -31,8 +31,21 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.security.see.hwcrypto;
-interface IHwCryptoOperations {
-  android.hardware.security.see.hwcrypto.IHwCryptoKeyGeneration getKeyGeneration();
-  android.hardware.security.see.hwcrypto.CryptoOperationResult[] processCommandList(inout android.hardware.security.see.hwcrypto.CryptoOperationSet[] operations, out android.hardware.security.see.hwcrypto.CryptoOperationErrorAdditionalInfo additionalErrorInfo);
+package android.hardware.security.see.hwcrypto.types;
+union EcKey {
+  android.hardware.security.see.hwcrypto.types.EcKey.NistKey p224;
+  android.hardware.security.see.hwcrypto.types.EcKey.NistKey p256;
+  android.hardware.security.see.hwcrypto.types.EcKey.NistKey p384;
+  android.hardware.security.see.hwcrypto.types.EcKey.NistKey p521;
+  android.hardware.security.see.hwcrypto.types.EcKey.Ed25519Key ed25519;
+  android.hardware.security.see.hwcrypto.types.EcKey.X25519Key x25519;
+  parcelable NistKey {
+    byte[] keyMaterial;
+  }
+  parcelable Ed25519Key {
+    byte[32] keyMaterial;
+  }
+  parcelable X25519Key {
+    byte[32] keyMaterial;
+  }
 }
