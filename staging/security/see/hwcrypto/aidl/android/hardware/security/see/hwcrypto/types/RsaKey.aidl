@@ -15,17 +15,12 @@
  */
 package android.hardware.security.see.hwcrypto.types;
 
-import android.hardware.security.see.hwcrypto.types.AesKey;
-import android.hardware.security.see.hwcrypto.types.EcKey;
-import android.hardware.security.see.hwcrypto.types.HmacKey;
-import android.hardware.security.see.hwcrypto.types.RsaKey;
-
 /*
- * Type encapsulating a clear key.
+ * RSA Key material.
  */
-union ExplicitKeyMaterial {
-    AesKey aes;
-    HmacKey hmac;
-    RsaKey rsa;
-    EcKey ec;
+parcelable RsaKey {
+    /*
+     * ASN.1 DER encoded PKCS#1 RSAPrivateKey structure, as defined on RFC 3447.
+     */
+    byte[] keyMaterial;
 }
