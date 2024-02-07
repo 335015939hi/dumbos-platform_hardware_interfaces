@@ -16,6 +16,7 @@
 package android.hardware.security.see.hwcrypto.types;
 
 import android.hardware.security.see.hwcrypto.types.AesCipherMode;
+import android.hardware.security.see.hwcrypto.types.TDesCipherMode;
 
 /*
  * Data needed to perform non-authenticated symmetric cryptographic operations.
@@ -25,4 +26,9 @@ union SymmetricCryptoParameters {
      * AES (Advanced Encryption Standard) parameters.
      */
     AesCipherMode aes;
+
+    /*
+     * Triple DES (Data Encryption Standard) parameters.
+     */
+    TDesCipherMode tDes;
 }
