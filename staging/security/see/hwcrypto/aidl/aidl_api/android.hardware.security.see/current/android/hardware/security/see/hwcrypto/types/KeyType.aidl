@@ -31,8 +31,42 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.security.see.hwcrypto;
-interface IHwCryptoOperations {
-  android.hardware.security.see.hwcrypto.IHwCryptoKeyGeneration getKeyGeneration();
-  android.hardware.security.see.hwcrypto.CryptoOperationResult[] processCommandList(inout android.hardware.security.see.hwcrypto.CryptoOperationSet[] operations, out android.hardware.security.see.hwcrypto.CryptoOperationErrorAdditionalInfo additionalErrorInfo);
+package android.hardware.security.see.hwcrypto.types;
+enum KeyType {
+  AES_128_ECB,
+  AES_128_CBC,
+  AES_128_CTR,
+  AES_128_GCM,
+  AES_128_XTS,
+  AES_128_CMAC,
+  AES_128_KEY_WRAP,
+  AES_192_ECB,
+  AES_192_CBC,
+  AES_192_CTR,
+  AES_192_GCM,
+  AES_192_XTS,
+  AES_192_CMAC,
+  AES_192_KEY_WRAP,
+  AES_256_ECB,
+  AES_256_CBC,
+  AES_256_CTR,
+  AES_256_GCM,
+  AES_256_XTS,
+  AES_256_CMAC,
+  AES_256_KEY_WRAP,
+  TDES_ECB,
+  TDES_CBC,
+  HMAC_SHA224,
+  HMAC_SHA256,
+  HMAC_SHA384,
+  HMAC_SHA512,
+  RSA2048,
+  RSA3072,
+  RSA4096,
+  ECC_NIST_P224,
+  ECC_NIST_P256,
+  ECC_NIST_P384,
+  ECC_NIST_P521,
+  ECC_ED25519,
+  ECC_X25519,
 }
