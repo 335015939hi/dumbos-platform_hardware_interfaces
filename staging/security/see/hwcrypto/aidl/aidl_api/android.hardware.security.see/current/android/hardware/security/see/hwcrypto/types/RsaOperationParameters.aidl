@@ -31,11 +31,7 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.security.see.hwcrypto;
-union OperationParameters {
-  android.hardware.security.see.hwcrypto.types.SymmetricAuthOperationParameters symmetricAuthCrypto;
-  android.hardware.security.see.hwcrypto.types.SymmetricOperationParameters symmetricCrypto;
-  android.hardware.security.see.hwcrypto.types.HmacOperationParameters hmac;
-  android.hardware.security.see.hwcrypto.types.EcSignParameters ecSign;
-  android.hardware.security.see.hwcrypto.types.RsaOperationParameters rsaSign;
+package android.hardware.security.see.hwcrypto.types;
+parcelable RsaOperationParameters {
+  android.hardware.security.see.hwcrypto.IOpaqueKey key;
 }
