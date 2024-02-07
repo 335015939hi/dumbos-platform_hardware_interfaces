@@ -31,8 +31,11 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.security.see.hwcrypto;
-union OperationParameters {
-  android.hardware.security.see.hwcrypto.types.SymmetricAuthOperationParameters symmetricAuthCrypto;
-  android.hardware.security.see.hwcrypto.types.SymmetricOperationParameters symmetricCrypto;
+package android.hardware.security.see.hwcrypto.types;
+union AesCipherMode {
+  @nullable android.hardware.security.see.hwcrypto.types.Void ecbNoPadding;
+  @nullable android.hardware.security.see.hwcrypto.types.Void ecbPkcs7Padding;
+  android.hardware.security.see.hwcrypto.types.CipherModeParameters cbcNoPadding;
+  android.hardware.security.see.hwcrypto.types.CipherModeParameters cbcPkcs7Padding;
+  android.hardware.security.see.hwcrypto.types.CipherModeParameters ctr;
 }
