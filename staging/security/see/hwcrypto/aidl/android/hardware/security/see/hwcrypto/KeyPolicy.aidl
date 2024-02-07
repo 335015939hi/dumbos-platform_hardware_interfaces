@@ -17,6 +17,7 @@ package android.hardware.security.see.hwcrypto;
 
 import android.hardware.security.see.hwcrypto.types.KeyLifetime;
 import android.hardware.security.see.hwcrypto.types.KeyPermissions;
+import android.hardware.security.see.hwcrypto.types.KeyType;
 import android.hardware.security.see.hwcrypto.types.KeyUse;
 
 /*
@@ -44,4 +45,9 @@ parcelable KeyPolicy {
      * Key can be used to wrap or derive other keys.
      */
     boolean keyManagementKey;
+
+    /*
+     * Enum that specifies the key type.
+     */
+    KeyType keyType = KeyType.AES_256_GCM;
 }
