@@ -32,7 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.see.hwcrypto.types;
-union SymmetricCryptoParameters {
-  android.hardware.security.see.hwcrypto.types.AesCipherMode aes;
-  android.hardware.security.see.hwcrypto.types.TDesCipherMode tDes;
+union TDesCipherMode {
+  @nullable android.hardware.security.see.hwcrypto.types.Void ecbNoPadding;
+  android.hardware.security.see.hwcrypto.types.CipherModeParameters ecbPkcs7Padding;
+  @nullable android.hardware.security.see.hwcrypto.types.Void cbcNoPadding;
+  android.hardware.security.see.hwcrypto.types.CipherModeParameters cbcPkcs7Padding;
 }
