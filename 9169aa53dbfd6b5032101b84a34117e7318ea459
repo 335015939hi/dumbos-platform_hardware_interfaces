@@ -16,6 +16,24 @@
       "message": "are you also testing this with ABTD? or is this not integrated into the finalization scripts yet?",
       "revId": "9169aa53dbfd6b5032101b84a34117e7318ea459",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c26a44_e84da9f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-02-07T00:15:13Z",
+      "side": 1,
+      "message": "Yeah, ag/26116922 integrates it and I\u0027ve running each patchset there through ABTD.",
+      "parentUuid": "86419639_588d924e",
+      "revId": "9169aa53dbfd6b5032101b84a34117e7318ea459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
