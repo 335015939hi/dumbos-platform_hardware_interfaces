@@ -31,10 +31,10 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.security.see.hwcrypto.types;
-union ExplicitKeyMaterial {
-  android.hardware.security.see.hwcrypto.types.AesKey aes;
-  android.hardware.security.see.hwcrypto.types.HmacKey hmac;
-  android.hardware.security.see.hwcrypto.types.RsaKey rsa;
-  android.hardware.security.see.hwcrypto.types.EcKey ec;
+package android.hardware.security.see.hwcrypto;
+interface IHwCryptoKeyGeneration {
+  android.hardware.security.see.hwcrypto.IOpaqueKey importClearKey(in android.hardware.security.see.hwcrypto.types.ExplicitKeyMaterial keyMaterial, in android.hardware.security.see.hwcrypto.KeyPolicy newKeyPolicy);
+  android.hardware.security.see.hwcrypto.IOpaqueKey importWrappedKey(in byte[] keyToBeImported, in android.hardware.security.see.hwcrypto.IOpaqueKey wrappingKey);
+  android.hardware.security.see.hwcrypto.IOpaqueKey generateKey(in android.hardware.security.see.hwcrypto.KeyPolicy policy);
+  android.hardware.security.see.hwcrypto.IOpaqueKey deriveKey(in android.hardware.security.see.hwcrypto.IOpaqueKey derivationKey, in android.hardware.security.see.hwcrypto.KeyPolicy policy, in byte[] context);
 }
