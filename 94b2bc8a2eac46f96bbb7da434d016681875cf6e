@@ -141,6 +141,24 @@
       "parentUuid": "ca2693d1_99813cd5",
       "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed3763c4_04966c5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-02-09T18:47:04Z",
+      "side": 1,
+      "message": "\u003e and if the inner HAL patch was created during stream creation, then this patchIt will be found and no new patch will actually be created, which seems contradictory from the original patchId \u003d 0 framework request.\n\nThe framework still works in the terms of the HIDL/C APIs. The problem with these APIs is that they are not consistent with regard to patches management. When the framework creates a stream using HIDL `IDevice::open{Input|Output}Stream`, it implicitly creates a patch between a mix port and a device port. I say \"implicitly\" because it does not result in creating a patch handle. In AIDL, we create all patches explicitly, including these needed for streams to work. After the stream has been opened, the framework may need to switch the device port. For that, it issues a `IDevice::createAudioPatch` request with a zero handle. But for AIDL layer, the patch already exists since it has created it when opening the stream. This is why the AIDL adaptation layer has to \"convert\" the implicit patch into an explicit one, with a handle known to the framework.\n\nAnd I agree that it\u0027s a strange behavior of the framework that it attempts to open streams with configurations that are not in the profiles for this port.\n\nIn general, I would say that the transition to the AIDL model is uncovering inconsistencies in the framework behavior which were previously absorbed by HAL implementations.",
+      "parentUuid": "24f0908e_5c6b6db0",
+      "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
