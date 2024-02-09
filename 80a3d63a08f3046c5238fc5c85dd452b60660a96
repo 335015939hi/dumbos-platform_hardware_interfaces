@@ -164,6 +164,30 @@
       },
       "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8374f8ba_4a430514",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IDir.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-09T02:13:06Z",
+      "side": 1,
+      "message": "Why? The C version returns as many entries as it can fit in a single message. I would think we want to preserve that default behavior for efficiency.",
+      "parentUuid": "6eb5b4cd_e9cd190b",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 58
+      },
+      "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
