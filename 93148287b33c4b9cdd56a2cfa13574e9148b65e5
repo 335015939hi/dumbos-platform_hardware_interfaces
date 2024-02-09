@@ -47,6 +47,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06fe4270_05578da8",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-02-09T00:29:06Z",
+      "side": 1,
+      "message": "Yes, nice catch! It\u0027s `s/202404/202504/` which won\u0027t be an issue for a while! But, it\u0027s still better to fix it.",
+      "parentUuid": "92c78675_2b189024",
+      "range": {
+        "startLine": 88,
+        "startChar": 47,
+        "endLine": 88,
+        "endChar": 60
+      },
+      "revId": "93148287b33c4b9cdd56a2cfa13574e9148b65e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e51951d8_fac6ec24",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-02-09T00:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47520280_dfcfc515",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 79
+      },
+      "revId": "93148287b33c4b9cdd56a2cfa13574e9148b65e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2c4059e_e2586359",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-02-08T23:40:06Z",
       "side": 1,
       "message": "rather than doing this by index, you could enumerate the file and add the line when you see it. Here, it\u0027s too complicated for list comprehensions to help.\n\n```\nwith open(android_mk) as f:\n    ...\n    lines \u003d []\n    for line in f:\n        # or could be moved after `lines.append` below for the other order\n        if self.device_module_name in line:\n            lines.append( ... self.current_module_name ... )\n\n        if ...:\n            lines.append(...)\n        else:\n            lines.append(line)\n```",
+      "range": {
+        "startLine": 139,
+        "startChar": 43,
+        "endLine": 139,
+        "endChar": 48
+      },
+      "revId": "93148287b33c4b9cdd56a2cfa13574e9148b65e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03e252e0_8925baef",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-02-09T00:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2c4059e_e2586359",
       "range": {
         "startLine": 139,
         "startChar": 43,
