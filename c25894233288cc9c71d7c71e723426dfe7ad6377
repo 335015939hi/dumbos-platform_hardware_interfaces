@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43ab6bb4_af545675",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProviderFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-02-09T18:47:54Z",
+      "side": 1,
+      "message": "Why is #if 0 better than deleting the code?",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 5
+      },
+      "revId": "c25894233288cc9c71d7c71e723426dfe7ad6377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
