@@ -70,6 +70,30 @@
       },
       "revId": "c25894233288cc9c71d7c71e723426dfe7ad6377",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd139896_76988be9",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProviderFactory.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1888950
+      },
+      "writtenOn": "2024-02-09T19:23:46Z",
+      "side": 1,
+      "message": "Let\u0027s hold off on this until we get alignment on where the reference implementation should live. This was meant to be reference implementation but is being considered default.",
+      "parentUuid": "b2aaa7d3_18948a50",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 5
+      },
+      "revId": "c25894233288cc9c71d7c71e723426dfe7ad6377",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
