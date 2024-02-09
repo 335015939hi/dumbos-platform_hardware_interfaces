@@ -151,6 +151,7 @@ ndk::ScopedAStatus BluetoothAudioProviderFactory::getProviderCapabilities(
   return ndk::ScopedAStatus::ok();
 }
 
+#if 0
 ndk::ScopedAStatus BluetoothAudioProviderFactory::getProviderInfo(
     SessionType session_type, std::optional<ProviderInfo>* _aidl_return) {
   *_aidl_return = std::nullopt;
@@ -185,6 +186,7 @@ ndk::ScopedAStatus BluetoothAudioProviderFactory::getProviderInfo(
 
   return ndk::ScopedAStatus::ok();
 }
+#endif
 
 }  // namespace audio
 }  // namespace bluetooth
