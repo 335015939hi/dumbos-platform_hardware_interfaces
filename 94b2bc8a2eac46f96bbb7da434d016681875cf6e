@@ -159,6 +159,23 @@
       "parentUuid": "24f0908e_5c6b6db0",
       "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80a77ade_a529fedf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2024-02-12T19:46:07Z",
+      "side": 1,
+      "message": "See https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2959146 for an alternative approach which doesn\u0027t introduce new mix port definitions, but simply adds 192kHz sample rate support.",
+      "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
