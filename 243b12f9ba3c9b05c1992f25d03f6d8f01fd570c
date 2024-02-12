@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d1d81a9_d8ec903b",
+        "filename": "wifi/aidl/vts/functional/wifi_sta_iface_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1735919
+      },
+      "writtenOn": "2024-02-12T18:08:40Z",
+      "side": 1,
+      "message": "Let\u0027s clarify what full_networking_under_2w really means instead of GTVS policy here?",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 40
+      },
+      "revId": "243b12f9ba3c9b05c1992f25d03f6d8f01fd570c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8844f55_d32717e4",
+        "filename": "wifi/aidl/vts/functional/wifi_sta_iface_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1735919
+      },
+      "writtenOn": "2024-02-12T18:08:40Z",
+      "side": 1,
+      "message": "Please remove this link as this link won\u0027t work for everyone.",
+      "range": {
+        "startLine": 151,
+        "startChar": 7,
+        "endLine": 151,
+        "endChar": 71
+      },
+      "revId": "243b12f9ba3c9b05c1992f25d03f6d8f01fd570c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
