@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1618bc94_3dcfe191",
+        "filename": "graphics/common/aidl/aidl_api/android.hardware.graphics.common/1/.hash",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-02-12T22:37:35Z",
+      "side": 0,
+      "message": "add a new hash (two lines). We need to keep the old ones around so old vendor images can still pass VTS",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 40
+      },
+      "revId": "e2f62e73f498e4eb3d6b2786674112c52a125423",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
