@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc8bf163_9b8bf103",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProvider.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-02-12T18:58:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e429a36_ccef200c",
+      "revId": "471eb8ac9f51eb3c9ca96c42c5936c6a2369a978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef05acb3_2c68b06d",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-12T18:11:58Z",
       "side": 1,
       "message": "nit: Write in affirmative? (When getProviderInfo is implemeted, codec extensibility is enabled)",
+      "revId": "471eb8ac9f51eb3c9ca96c42c5936c6a2369a978",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cff9bdc7_db484186",
+        "filename": "bluetooth/audio/aidl/default/BluetoothAudioProviderFactory.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-02-12T18:58:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef05acb3_2c68b06d",
       "revId": "471eb8ac9f51eb3c9ca96c42c5936c6a2369a978",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
