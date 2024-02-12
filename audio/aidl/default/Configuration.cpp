@@ -337,7 +337,7 @@ std::unique_ptr<Configuration> getRSubmixConfiguration() {
         Configuration c;
         const std::vector<AudioProfile> remoteSubmixPcmAudioProfiles{
                 createProfile(PcmType::INT_16_BIT, {AudioChannelLayout::LAYOUT_STEREO},
-                              {8000, 11025, 16000, 32000, 44100, 48000})};
+                              {8000, 11025, 16000, 32000, 44100, 48000, 192000})};
 
         // Device ports
 
