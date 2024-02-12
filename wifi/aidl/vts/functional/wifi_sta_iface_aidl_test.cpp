@@ -74,6 +74,10 @@ class WifiStaIfaceAidlTest : public testing::TestWithParam<std::string> {
         return testing::deviceSupportsFeature("com.google.android.tv.mdns_offload");
     }
 
+    bool isDeviceSupportFullNetworkingUnder2w() {
+        return testing::deviceSupportsFeature("com.google.android.tv.full_networking_under_2w");
+    }
+
     // Detected panel TV device by using ro.oem.key1 property.
     // https://docs.partner.android.com/tv/build/platform/props-vars/ro-oem-key1
     bool isPanelTvDevice() {
@@ -139,6 +143,15 @@ TEST_P(WifiStaIfaceAidlTest, CheckApfIsSupported) {
     // chipset does not have sufficient RAM to do so.
     if (isPanelTvDevice() && isMdnsOffloadPresentInNIC()) {
         GTEST_SKIP() << "Panel TV supports mDNS offload. It is not required to support APF";
+    }
+    // Support for Android Packet Filtering (APF) is STRONGLY RECOMMENDED if TV Devices can fully
+    // process network packets on CPU at all times, even in standby, while meeting the <= 2W
+    // standby power demand requirement.
+    //
+    // https://docs.partner.android.com/tv/requirements/gtvs/android-14
+    if (isDeviceSupportFullNetworkingUnder2w()) {
+        GTEST_SKIP() << "TV Device meets the <= 2W standby power demand requirement. It is not "
+                        "required to support APF.";
     }
     int vendor_api_level = property_get_int32("ro.vendor.api_level", 0);
     // Before VSR 14, APF support is optional.
