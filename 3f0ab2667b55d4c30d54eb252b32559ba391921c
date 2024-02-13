@@ -197,6 +197,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0b32899b_9a6ff2d9",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-02-13T21:57:48Z",
+      "side": 1,
+      "message": "\u003e Committing a transaction needs to be an atomic operation.\n\nShould this be explicitly stated in the comments, even for multiple files in the same filesystem? It would be great if this is something we could test in VTS to verify.",
+      "parentUuid": "d5517213_485c192b",
+      "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd9392b2_0dde4365",
         "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
         "patchSetId": 33
