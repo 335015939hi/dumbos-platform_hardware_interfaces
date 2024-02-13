@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbb253ff_971eee50",
+        "filename": "wifi/aidl/vts/functional/wifi_sta_iface_aidl_test.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2024-02-13T06:22:11Z",
+      "side": 1,
+      "message": "ro.oem.key1 is also used on non-TV devices. On my pixel 8 it contains the hardware SKU (GE9DP). It\u0027s also used for other things such as play auto-install targeting, and it\u0027s not impossible for an OEM to pick a SKU starting with \"ATV\". Is there some other way that we can find out whether this is a TV? For example, could we use deviceSupportsFeature(\"android.hardware.type.television\")? Or FEATURE_LEANBACK or FEATURE_LEANBACK_ONLY?",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 45
+      },
+      "revId": "a9e14556a314ea40f724e749b9f9e24ed4f1cf3c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
