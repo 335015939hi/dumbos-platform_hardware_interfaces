@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "74b31336_26bdc999",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/CreationMode.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-13T00:09:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5ca5a60_fc5db080",
+      "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebd06c3d_0614d256",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-09T02:13:06Z",
       "side": 1,
       "message": "what happens if the caller requests a larger size than the server allows to read in one call. Does it return an error or a partial result. If it returns a partial result, how do you distinguish that from reaching the end of the file?",
+      "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26c03c8e_e57c5250",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-13T00:09:02Z",
+      "side": 1,
+      "message": "It returns an error, like `storage_file_read` does.",
+      "parentUuid": "ebd06c3d_0614d256",
       "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c41f49_df4e3b71",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-13T00:09:02Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "94c1443d_2fbf48c2",
+      "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "559fe9b3_a47ba42f",
@@ -69,6 +123,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2bcfb95_ce4a6a6c",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-13T00:09:02Z",
+      "side": 1,
+      "message": "The AIDL handler has a storage session for each filesystem, and calling  `CommitChanges` will commit the transaction for each of these sessions. If any of the commits error, `CommitChanges` will return that error, but the successful commits will all be applied.",
+      "parentUuid": "559fe9b3_a47ba42f",
+      "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd9392b2_0dde4365",
@@ -82,6 +154,24 @@
       "writtenOn": "2024-02-09T02:13:06Z",
       "side": 1,
       "message": "if...? Should we just drop this instead? If we don\u0027t expect anyone to provide this interface with partial transaction support then we don\u0027t need these extra error paths.",
+      "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "947a034e_1e2465a5",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-13T00:09:02Z",
+      "side": 1,
+      "message": "Fixed. Moved to aosp/2812933.",
+      "parentUuid": "dd9392b2_0dde4365",
       "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

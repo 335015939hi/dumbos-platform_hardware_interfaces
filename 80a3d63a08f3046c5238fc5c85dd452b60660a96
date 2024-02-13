@@ -188,6 +188,30 @@
       },
       "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f006336a_d5c5080f",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IDir.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-13T00:09:02Z",
+      "side": 1,
+      "message": "The C version is manually packing the message struct so it knows exactly how many bytes are left; I don\u0027t think there\u0027s a way for binder clients to have that fine-grained control. I picked 5 because that ensures that the AIDL handler doesn\u0027t allocate more bytes than the C version.",
+      "parentUuid": "8374f8ba_4a430514",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 58
+      },
+      "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
