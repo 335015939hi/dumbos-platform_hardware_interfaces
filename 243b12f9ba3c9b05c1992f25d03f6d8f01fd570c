@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10176d11_c34699fa",
+        "filename": "wifi/aidl/vts/functional/wifi_sta_iface_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1758351
+      },
+      "writtenOn": "2024-02-13T02:18:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d1d81a9_d8ec903b",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 40
+      },
+      "revId": "243b12f9ba3c9b05c1992f25d03f6d8f01fd570c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8844f55_d32717e4",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-12T18:08:40Z",
       "side": 1,
       "message": "Please remove this link as this link won\u0027t work for everyone.",
+      "range": {
+        "startLine": 151,
+        "startChar": 7,
+        "endLine": 151,
+        "endChar": 71
+      },
+      "revId": "243b12f9ba3c9b05c1992f25d03f6d8f01fd570c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d51f2cd_46b5e171",
+        "filename": "wifi/aidl/vts/functional/wifi_sta_iface_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1758351
+      },
+      "writtenOn": "2024-02-13T02:18:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8844f55_d32717e4",
       "range": {
         "startLine": 151,
         "startChar": 7,
