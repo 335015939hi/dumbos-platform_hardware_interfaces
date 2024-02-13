@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b47f5645_34c852b9",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-13T21:07:51Z",
+      "side": 1,
+      "message": "This should be listed in the error codes you say this function can return below.",
+      "parentUuid": "26c03c8e_e57c5250",
+      "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94c1443d_2fbf48c2",
         "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
         "patchSetId": 33
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "The AIDL handler has a storage session for each filesystem, and calling  `CommitChanges` will commit the transaction for each of these sessions. If any of the commits error, `CommitChanges` will return that error, but the successful commits will all be applied.",
       "parentUuid": "559fe9b3_a47ba42f",
+      "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5517213_485c192b",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-13T21:07:51Z",
+      "side": 1,
+      "message": "I don\u0027t think that is acceptable. Committing a transaction needs to be an atomic operation. Also returning an error, which to the client means that nothing was committed, after committing some of the data could lead to unexpected errors.\n\nI think it would be more reasonable to return an error as soon as you try to combine actions on multiple filesytems into the same session.\n\nThe other option is to add support atomically committing transactions to multiple filesystems at once. This is possible, but not trivial to implement.",
+      "parentUuid": "c2bcfb95_ce4a6a6c",
       "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
