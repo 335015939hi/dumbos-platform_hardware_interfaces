@@ -147,6 +147,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8f9ef37_91f8efc1",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Arc.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-02-13T21:14:49Z",
+      "side": 1,
+      "message": "Yes this is fine, assuming the usual assumptions about AES-GCM security ie the key is properly protected and there\u0027s no nonce misuse.",
+      "parentUuid": "716df43f_f48235b5",
+      "revId": "426f73ecddcdfb480729dcbd8301234be1398d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "093835f4_6bdc30b0",
@@ -219,6 +237,30 @@
       "side": 1,
       "message": "Yes, I was not sure if that is correct. But I came up with that CDDL based on the description here: https://datatracker.ietf.org/doc/html/rfc8610#section-3.2 on \"Occurrences\". What I wanted to express is that this is a byte string containing 32 bytes of all zeros. Is there a proper way to express that? Thanks!",
       "parentUuid": "24469c46_c49e1dff",
+      "range": {
+        "startLine": 124,
+        "startChar": 3,
+        "endLine": 124,
+        "endChar": 24
+      },
+      "revId": "426f73ecddcdfb480729dcbd8301234be1398d06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63e838c7_377d8859",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Arc.cddl",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-02-13T21:14:49Z",
+      "side": 1,
+      "message": "We\u0027ve discussed it and we think that \"nil\" is the appropriate thing here.",
+      "parentUuid": "bd9a3aaf_967d017c",
       "range": {
         "startLine": 124,
         "startChar": 3,
