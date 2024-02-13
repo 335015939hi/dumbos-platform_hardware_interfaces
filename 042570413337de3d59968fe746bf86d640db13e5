@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbd2d83f_325abe0a",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2024-02-13T15:13:09Z",
+      "side": 1,
+      "message": "Should make the same change to the IAllocator VTS tests here: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp;drc\u003dcf8d8bc76944e11e43add867358f9ac38316997b;l\u003d147",
+      "revId": "042570413337de3d59968fe746bf86d640db13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
