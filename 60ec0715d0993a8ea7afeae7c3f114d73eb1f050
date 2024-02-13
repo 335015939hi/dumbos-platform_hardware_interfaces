@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f99e25be_82dbb712",
+        "filename": "wifi/aidl/vts/functional/wifi_sta_iface_aidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2024-02-13T02:36:10Z",
+      "side": 1,
+      "message": "s/is/does/",
+      "range": {
+        "startLine": 77,
+        "startChar": 9,
+        "endLine": 77,
+        "endChar": 11
+      },
+      "revId": "60ec0715d0993a8ea7afeae7c3f114d73eb1f050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc8d8d43_0c73a408",
+        "filename": "wifi/aidl/vts/functional/wifi_sta_iface_aidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000835
+      },
+      "writtenOn": "2024-02-13T02:36:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we check that this is, in fact, a TV device?",
+      "range": {
+        "startLine": 154,
+        "startChar": 25,
+        "endLine": 154,
+        "endChar": 34
+      },
+      "revId": "60ec0715d0993a8ea7afeae7c3f114d73eb1f050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
