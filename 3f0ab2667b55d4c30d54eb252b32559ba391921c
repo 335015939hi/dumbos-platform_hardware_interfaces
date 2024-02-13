@@ -89,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5698df01_033b4397",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-13T21:47:50Z",
+      "side": 1,
+      "message": "It\u0027s not a service-specific error code; it returns `EX_ILLEGAL_ARGUMENT`. Mentioned in the `@size` description.",
+      "parentUuid": "b47f5645_34c852b9",
+      "revId": "3f0ab2667b55d4c30d54eb252b32559ba391921c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94c1443d_2fbf48c2",

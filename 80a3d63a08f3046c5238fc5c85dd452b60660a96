@@ -236,6 +236,30 @@
       },
       "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb6f9034_62a84e77",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IDir.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-13T21:47:50Z",
+      "side": 1,
+      "message": "5 is the number of max-length filenames the C-version can fit in one message. If they\u0027re short, definitely many more will fit.\n\nMarking this resolved because it seem like this only concerns the impl, not the interface itself. Feel free to open it again if that\u0027s not the case.",
+      "parentUuid": "eab90b03_6c3f4741",
+      "range": {
+        "startLine": 21,
+        "startChar": 6,
+        "endLine": 21,
+        "endChar": 58
+      },
+      "revId": "80a3d63a08f3046c5238fc5c85dd452b60660a96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
