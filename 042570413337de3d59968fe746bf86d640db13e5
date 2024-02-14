@@ -16,6 +16,24 @@
       "message": "Should make the same change to the IAllocator VTS tests here: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/graphics/allocator/aidl/vts/VtsHalGraphicsAllocatorAidl_TargetTest.cpp;drc\u003dcf8d8bc76944e11e43add867358f9ac38316997b;l\u003d147",
       "revId": "042570413337de3d59968fe746bf86d640db13e5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a35fb080_2577d5b7",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-02-14T00:45:45Z",
+      "side": 1,
+      "message": "Thanks John!",
+      "parentUuid": "dbd2d83f_325abe0a",
+      "revId": "042570413337de3d59968fe746bf86d640db13e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
