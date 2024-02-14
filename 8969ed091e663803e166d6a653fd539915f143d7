@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1413cd7_5b629001",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/EvictReason.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T21:30:35Z",
+      "side": 1,
+      "message": "Can you put a blank line above every comment block where the previous line has a different identifier than the comment describes. I think it would make this file a little more readable and the files with alternating single line comments and identifiers a lot more readable.",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5860cc89_14ff9702",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyDomain.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T21:30:35Z",
+      "side": 1,
+      "message": "why are these IDs powers of 2? Are you using them anywhere to create a bitmask",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1a1d807_c0b4a9f4",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyLifetime.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T21:30:35Z",
+      "side": 1,
+      "message": "why are these IDs powers of 2? Are you using them anywhere to create a bitmask? Also if you are using this as a bitmask, why is the first ID 2 instead of 1. If you are not using it as a bitmask, why are you specifying a value at all? aosp/2585668 does not and I think we should be consistent.",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3de72d9_875827c5",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T21:30:35Z",
+      "side": 1,
+      "message": "same question as the previous two enums",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "177000ed_22681281",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T21:30:35Z",
+      "side": 1,
+      "message": "should these values not be added by the following patches instead.",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18da9322_c9d55f05",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T21:30:35Z",
+      "side": 1,
+      "message": "are other combinations allowed? You are passing this as an enum type which seems to imply that only the only allowed combination (with more than one bit set) is this one.",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3963f712_5fa0f76e",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T21:30:35Z",
+      "side": 1,
+      "message": "128 is not a combination of the other bits you define.",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
