@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ff6ed5_f006ede6",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/RsaPaddingMode.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T23:09:47Z",
+      "side": 1,
+      "message": "add blank line",
+      "revId": "12809b0911435f2ee4b32d91efd60ebdfd65708a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e2326ec_678e6cf8",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/RsaPaddingMode.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T23:09:47Z",
+      "side": 1,
+      "message": "add blank line",
+      "revId": "12809b0911435f2ee4b32d91efd60ebdfd65708a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
