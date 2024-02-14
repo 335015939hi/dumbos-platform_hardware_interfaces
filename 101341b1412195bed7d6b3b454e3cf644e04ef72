@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04f1cc9c_6043ef10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-02-14T03:38:54Z",
+      "side": 1,
+      "message": "Myles, thanks for vote. Btw, this is still blocked by BT tests relying on /vendor/lib libraries.",
+      "revId": "101341b1412195bed7d6b3b454e3cf644e04ef72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
