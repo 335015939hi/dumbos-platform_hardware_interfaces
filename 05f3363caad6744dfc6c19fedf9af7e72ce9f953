@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c5e344a_fe44f738",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesGcmMode.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T21:47:23Z",
+      "side": 1,
+      "message": "Does anything else use bytes as the unit of measurement for this? The spec you mention above lists 128, 120, 112, 104, or 96 plus 64 and 32 (bits) as allowed tag sizes.",
+      "revId": "05f3363caad6744dfc6c19fedf9af7e72ce9f953",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
