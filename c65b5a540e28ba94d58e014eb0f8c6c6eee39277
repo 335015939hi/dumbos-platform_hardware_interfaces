@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9456fb41_16886e25",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-14T17:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7240a608_702ae676",
+      "revId": "c65b5a540e28ba94d58e014eb0f8c6c6eee39277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5695c00_58dfa2e3",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "443f37b8_0e75c43e",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IStorageSession.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-14T17:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5695c00_58dfa2e3",
+      "revId": "c65b5a540e28ba94d58e014eb0f8c6c6eee39277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a221a759_1fba6450",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-02-14T02:12:29Z",
       "side": 1,
       "message": "... session can then be reused to make new changes?",
+      "revId": "c65b5a540e28ba94d58e014eb0f8c6c6eee39277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb0a1c4_a8eef302",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IStorageSession.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-02-14T17:39:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a221a759_1fba6450",
       "revId": "c65b5a540e28ba94d58e014eb0f8c6c6eee39277",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
