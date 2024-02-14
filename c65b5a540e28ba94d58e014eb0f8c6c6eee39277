@@ -16,6 +16,40 @@
       "message": "nit:\n\n```suggestion\n     *     the minimum filesystem properties requested for the session.\n```",
       "revId": "c65b5a540e28ba94d58e014eb0f8c6c6eee39277",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5695c00_58dfa2e3",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IStorageSession.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T02:12:29Z",
+      "side": 1,
+      "message": "add blank line",
+      "revId": "c65b5a540e28ba94d58e014eb0f8c6c6eee39277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a221a759_1fba6450",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IStorageSession.aidl",
+        "patchSetId": 36
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-14T02:12:29Z",
+      "side": 1,
+      "message": "... session can then be reused to make new changes?",
+      "revId": "c65b5a540e28ba94d58e014eb0f8c6c6eee39277",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
