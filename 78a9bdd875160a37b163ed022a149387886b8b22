@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bf3cf23_c8549674",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3237585
+      },
+      "writtenOn": "2024-02-15T09:05:59Z",
+      "side": 1,
+      "message": "Hello,\nI typed a lot of boilerplate code while implementing a vehicle Hal in Rust because of the missing `Clone`",
+      "revId": "78a9bdd875160a37b163ed022a149387886b8b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
