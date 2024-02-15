@@ -16,6 +16,9 @@
 package android.hardware.security.see.hwcrypto;
 
 import android.hardware.security.see.hwcrypto.KeyPolicy;
+import android.hardware.security.see.hwcrypto.types.OpaqueKeyMaterial;
+import android.hardware.security.see.hwcrypto.types.OperationType;
+import android.hardware.security.see.hwcrypto.types.ProtectionId;
 
 interface IOpaqueKey {
     /*
@@ -65,4 +68,47 @@ interface IOpaqueKey {
      */
     IOpaqueKey calculateSharedKey(in byte[] encapsulated_shared_secret,
             in byte[] derivation_context, in KeyPolicy policy);
+
+    /*
+     * setKeyValidity() - Sets the period of time this key should be valid. This parameter is not
+     *                    part of the policy because Key policies are fixed on creation and this
+     *                    parameter can be modified after the key has been created.
+     *
+     * @validity_period:
+     *      how long should the key be valid in seconds.
+     *
+     * Return:
+     *      Nothing on success, service specific error based on <code>HalErrorCode</code> otherwise.
+     */
+    void setKeyValidity(long validityPeriodSeconds);
+
+    /*
+     * getShareableToken() - Returns a token that can shared with another HWCrypto client.
+     *
+     * Return:
+     *      <code>OpaqueKeyMaterial</code> token on success, service specific error based on
+     *      <code>HalErrorCode</code> otherwise.
+     */
+    OpaqueKeyMaterial getShareableToken();
+
+    /*
+     * setProtectionId() - Sets the protectionID associated with the buffers where the operation
+     *                     will be performed. A protection ID serves as a limitation on the key so
+     *                     it can only operate on buffers with a matching protection ID.
+     *                     The client calling this functions needs to have the necessary permissions
+     *                     to read and/or write to this buffer. Setting this parameter means that
+     *                     if the key is shared with a different client, the client receiving the
+     *                     key will be limited in which buffers can be used to read/write data for
+     *                     this operation.
+     *
+     * @protectionId:
+     *      ID of the given use case to provide protection for. The method of protecting the buffer
+     *      will be platform dependent.
+     * @allowedOperations:
+     *      array of allowed operations. Allowed operations are either READ or WRITE.
+     *
+     * Return:
+     *      service specific error based on <code>HalErrorCode</code> on failure.
+     */
+    void setProtectionId(in ProtectionId protectionId, in OperationType[] allowedOperations);
 }
