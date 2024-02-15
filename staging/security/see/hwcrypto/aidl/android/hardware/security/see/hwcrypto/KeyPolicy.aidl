@@ -15,6 +15,7 @@
  */
 package android.hardware.security.see.hwcrypto;
 
+import android.hardware.security.see.hwcrypto.types.KeyDomain;
 import android.hardware.security.see.hwcrypto.types.KeyLifetime;
 import android.hardware.security.see.hwcrypto.types.KeyPermissions;
 import android.hardware.security.see.hwcrypto.types.KeyType;
@@ -50,4 +51,15 @@ parcelable KeyPolicy {
      * Enum that specifies the key type.
      */
     KeyType keyType = KeyType.AES_256_GCM;
+
+    /*
+     * Domain that owns this key. It is used for decisions like if caller is allowed to wrap a
+     * key.
+     */
+    KeyDomain owner;
+
+    /*
+     * Additional domains that are authorized to use this key.
+     */
+    KeyDomain[] authorizedDomains;
 }
