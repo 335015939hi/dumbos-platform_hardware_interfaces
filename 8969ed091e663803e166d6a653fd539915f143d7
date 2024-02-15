@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5787684_f53acd54",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/EvictReason.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-15T22:00:15Z",
+      "side": 1,
+      "message": "Done, although this particular enum is moving out of phase 1.",
+      "parentUuid": "f1413cd7_5b629001",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5860cc89_14ff9702",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-14T21:30:35Z",
       "side": 1,
       "message": "why are these IDs powers of 2? Are you using them anywhere to create a bitmask",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcee33e9_bb5bce8d",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyDomain.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-15T22:00:15Z",
+      "side": 1,
+      "message": "I am moving all the domain impersonation functionality to another CL, out of phase 1. I am using it as a bitmap when working with allowed domains (because you can have more than 1 allowed domain on a key), so I can combine all the allowed domains into a single variable and then do a single bit comparison to know if a given domain is allowed..",
+      "parentUuid": "5860cc89_14ff9702",
       "revId": "8969ed091e663803e166d6a653fd539915f143d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6797866e_86bbba54",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyLifetime.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-15T22:00:15Z",
+      "side": 1,
+      "message": "Yes, the way I am using this is that KeyPermissions are combined into a single variable and then I can easily check if a given key can be wrapped by another. That is the reason that this enum started at 2 (so the values of the num would match with the other one). I have reworked the elements on the nums so both of them start at 1 now.",
+      "parentUuid": "e1a1d807_c0b4a9f4",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3de72d9_875827c5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
         "patchSetId": 1
@@ -71,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e07abfe4_fc351f50",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-15T22:00:15Z",
+      "side": 1,
+      "message": "I put the explanation for this enum on the comment for `KeyLifetime` (because they are related).",
+      "parentUuid": "f3de72d9_875827c5",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "177000ed_22681281",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
         "patchSetId": 1
@@ -82,6 +154,24 @@
       "writtenOn": "2024-02-14T21:30:35Z",
       "side": 1,
       "message": "should these values not be added by the following patches instead.",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1be72195_16a4d96f",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-15T22:00:15Z",
+      "side": 1,
+      "message": "These values are needed for the policy, which is why I had it on this CL. They are not really. used when we operate using a key, just when we create one, so I am moving it to the key creation CL.",
+      "parentUuid": "177000ed_22681281",
       "revId": "8969ed091e663803e166d6a653fd539915f143d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -105,6 +195,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b0e8249_4fe63ee1",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-15T22:00:15Z",
+      "side": 1,
+      "message": "Yeah, there are other combinations allowed (updated to put the combinations I think are missing). I\u0027ll check with Paul to see if more combination makes sense. The reason to not just allow mixing any of the enum togethers is that some of them should not be used together.",
+      "parentUuid": "18da9322_c9d55f05",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3963f712_5fa0f76e",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
         "patchSetId": 1
@@ -116,6 +224,24 @@
       "writtenOn": "2024-02-14T21:30:35Z",
       "side": 1,
       "message": "128 is not a combination of the other bits you define.",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb9bf23f_78450c79",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-15T22:00:15Z",
+      "side": 1,
+      "message": "Thanks, fixed!",
+      "parentUuid": "3963f712_5fa0f76e",
       "revId": "8969ed091e663803e166d6a653fd539915f143d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
