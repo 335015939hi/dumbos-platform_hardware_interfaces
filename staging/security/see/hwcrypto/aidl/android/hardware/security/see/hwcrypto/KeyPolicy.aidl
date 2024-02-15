@@ -16,6 +16,7 @@
 package android.hardware.security.see.hwcrypto;
 
 import android.hardware.security.see.hwcrypto.types.AlgorithmPadding;
+import android.hardware.security.see.hwcrypto.types.EvictReason;
 import android.hardware.security.see.hwcrypto.types.KeyDomain;
 import android.hardware.security.see.hwcrypto.types.KeyLifetime;
 import android.hardware.security.see.hwcrypto.types.KeyPermissions;
@@ -68,4 +69,10 @@ parcelable KeyPolicy {
      * Additional domains that are authorized to use this key.
      */
     KeyDomain[] authorizedDomains;
+
+    /*
+     * Policy to invalidate the key. See the docstring on <code>EvictReason</code> for more
+     * details.
+     */
+    EvictReason[] evictPolicy;
 }
