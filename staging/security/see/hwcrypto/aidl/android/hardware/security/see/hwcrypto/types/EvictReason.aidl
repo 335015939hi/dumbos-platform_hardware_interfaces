@@ -16,29 +16,21 @@
 package android.hardware.security.see.hwcrypto.types;
 
 /*
- * Additional characteristics and permissions of the key.
+ * Enum that defines on which case the key should be invalidated. Notice that hardware support might
+ * be needed to provide these guarantees.
  */
-enum KeyPermissions {
+@Backing(type="byte")
+enum EvictReason {
     /*
-     * Key can be wrapped by an ephemeral key.
+     * Keys should be invalidated if the security state of the Security anchor (e.g. GSA) changes.
      */
-    ALLOW_EPHEMERAL_KEY_WRAPPING,
-
+    SECURITY_ANCHOR_STATE_CHANGE = 1,
     /*
-     * Key can be wrapped by a hardware key. Notice that ephemeral keys cannot be wrapped by
-     * hardware keys.
+     * Keys should be invalidated if the security state of the secure enclave (e.g. TZ) changes.
      */
-    ALLOW_HARDWARE_KEY_WRAPPING,
-
+    SECURE_ENCLAVE_STATE_CHANGE = 2,
     /*
-     * Key can be wrapped by a portable key. Notice that neither ephemeral keys nor hardware keys
-     * can be wrapped by portable keys.
+     * Keys should be invalidated if the security state of the non-secure world changes.
      */
-    ALLOW_PORTABLE_KEY_WRAPPING,
-
-    /*
-     * Key should be bind to the boot state of the platform. This allow that keys are only usable
-     * on an specific boot stage.
-     */
-    BOOTSTATE_BINDING,
+    NON_SECURE_WORLD_STATE_CHANGE = 4,
 }
