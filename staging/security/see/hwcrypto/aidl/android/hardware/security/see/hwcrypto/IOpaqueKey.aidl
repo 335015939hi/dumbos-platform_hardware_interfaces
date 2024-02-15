@@ -100,4 +100,17 @@ interface IOpaqueKey {
      */
     IOpaqueKey calculateSharedKey(in byte[] encapsulated_shared_secret,
             in byte[] derivation_context, in KeyPolicy policy);
+
+    /*
+     * setKeyValidity() - Sets the period of time this key should be valid. This parameter is not
+     *                    part of the policy because Key policies are fixed on creation and this
+     *                    parameter can be modified after the key has been created.
+     *
+     * @validity_period:
+     *      how long should the key be valid in seconds.
+     *
+     * Return:
+     *      Nothing on success, service specific error based on <code>HalErrorCode</code> otherwise.
+     */
+    void setKeyValidity(long validityPeriodSeconds);
 }

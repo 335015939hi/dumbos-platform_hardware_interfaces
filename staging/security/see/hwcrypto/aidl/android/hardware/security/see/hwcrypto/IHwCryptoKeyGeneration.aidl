@@ -18,6 +18,7 @@ package android.hardware.security.see.hwcrypto;
 import android.hardware.security.see.hwcrypto.IOpaqueKey;
 import android.hardware.security.see.hwcrypto.KeyPolicy;
 import android.hardware.security.see.hwcrypto.types.ExplicitKeyMaterial;
+import android.hardware.security.see.hwcrypto.types.OpaqueKeyMaterial;
 
 interface IHwCryptoKeyGeneration {
     /*
@@ -26,7 +27,10 @@ interface IHwCryptoKeyGeneration {
      * @keyMaterial:
      *     key to be imported.
      * @newKeyPolicy:
-     *      Policy of the new key. Defines how the newly created key can be used.
+     *      Policy of the new key. Defines how the newly created key can be used. Because any
+     *      clear key imported into the system is considered to have a
+     *      <code>KeyLifetime::PORTABLE</code> lifetime, a call to this function will return an
+     *      error if <code>newKeyPolicy.newKeyPolicy</code> is not set to portable.
      *
      * Return:
      *      IOpaqueKey on success, service specific error based on <code>HalErrorCode</code>
@@ -111,4 +115,19 @@ interface IHwCryptoKeyGeneration {
     IOpaqueKey secureKeyImport(in IOpaqueKey serverPublicKey, in IOpaqueKey clientKey,
             in @nullable KeyPolicy policy, in byte[] wrappedKeyBlob,
             in byte[] keyDerivationContext, in byte[] keyDerivationSalt);
+
+    /*
+     * internal_key_import() - Imports a key from a different client service instance. Because
+     *                         IOpaqueKey are binder objects that cannot be directly shared between
+     *                         clients, this method provide an efficient way to send a key to
+     *                         another client. Keys to be imported are represented by a handle
+     *                         created using <code>IOpaqueKey::getShareableToken</code>.
+     *
+     * @requested_key:
+     *      Handle to the key to be imported to the caller service.
+     * Return:
+     *      A IOpaqueKey that can be directly be used on the local HWCrypto service on
+     *      success, service specific error based on <code>HalErrorCode</code> otherwise.
+     */
+    IOpaqueKey internalKeyImport(in OpaqueKeyMaterial requestedKey);
 }
