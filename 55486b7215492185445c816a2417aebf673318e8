@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "75a69053_a50a90c8",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-16T23:37:39Z",
+      "side": 1,
+      "message": "It is the way we have now to get the interface, but I don\u0027t want to emphasize that, because ideally we would be able to use something like a service manager to get both services separately. I expanded on the docstring, please let me know if it looks OK.",
+      "parentUuid": "3dc9bc40_5e515032",
+      "revId": "55486b7215492185445c816a2417aebf673318e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "558ef2a2_82f28450",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
         "patchSetId": 16
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-16T21:34:06Z",
       "side": 1,
       "message": "Return value type seems wrong?",
+      "revId": "55486b7215492185445c816a2417aebf673318e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31f86fcd_3182b885",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-16T23:37:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "558ef2a2_82f28450",
       "revId": "55486b7215492185445c816a2417aebf673318e8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
