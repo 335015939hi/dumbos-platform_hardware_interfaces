@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67256dcb_339acdc0",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyLifetime.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-16T22:35:49Z",
+      "side": 1,
+      "message": "That is correct, on the interface itself they are not bitmasks; they are arrays. Having the values on the enums help to later create enums used internally. Would you prefer to hide this fact on the interface (so remove the enum values)?",
+      "parentUuid": "4fdba0c6_00edd1bd",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3de72d9_875827c5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
         "patchSetId": 1
