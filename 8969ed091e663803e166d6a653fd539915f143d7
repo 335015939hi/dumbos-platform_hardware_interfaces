@@ -144,6 +144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17d6ee0e_38e7212c",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyLifetime.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-16T23:36:36Z",
+      "side": 1,
+      "message": "Can you point me to the code where you do that? You can\u0027t trust anything you receive from the client anyway, so it is not immediately obvious what you are saving by using the enum values directly to create a bitmask. Removing the values seem simpler here assuming there is not a convention to specify them in aidl interfaces.",
+      "parentUuid": "67256dcb_339acdc0",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3de72d9_875827c5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
         "patchSetId": 1
