@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f999954_175697e3",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 40
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-16T21:29:44Z",
+      "side": 1,
+      "message": "```suggestion\n         * used, this function will return the most recent policy as part of the result. If the\n         * policy is current, NULL will be returned as the policy.\n```",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 89
+      },
+      "revId": "47c23c7b775356e62ba3d2949f32c118f0f2ab5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
