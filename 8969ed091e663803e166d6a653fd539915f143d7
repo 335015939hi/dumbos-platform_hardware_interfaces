@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4fdba0c6_00edd1bd",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyLifetime.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-16T20:18:45Z",
+      "side": 1,
+      "message": "Is that used in the interface though? I think I saw vectors of enums used, not any field claiming to accept a bitmask",
+      "parentUuid": "6797866e_86bbba54",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3de72d9_875827c5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
         "patchSetId": 1
