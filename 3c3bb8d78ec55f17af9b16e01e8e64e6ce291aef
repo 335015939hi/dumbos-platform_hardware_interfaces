@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa1f029e_4057a428",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-02-16T10:27:13Z",
+      "side": 1,
+      "message": "nit: maybe \"keymint: document deprecation of UNLOCKED_DEVICE_REQUIRED enforcement\" or somesuch?",
+      "revId": "3c3bb8d78ec55f17af9b16e01e8e64e6ce291aef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bd26d77_81874da4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-02-16T10:27:13Z",
+      "side": 1,
+      "message": "Thanks, just some wording tweak suggestions -- I think would be good to make it crystal clear that the `deviceLocked` method has never been used, so this change is documenting reality since S, not changing anything.",
+      "revId": "3c3bb8d78ec55f17af9b16e01e8e64e6ce291aef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "864321c2_05df8dd1",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-02-16T10:27:13Z",
+      "side": 1,
+      "message": "Maybe add something like \"by returning ErrorCode::UNIMPLEMENTED\" ?",
+      "range": {
+        "startLine": 797,
+        "startChar": 64,
+        "endLine": 797,
+        "endChar": 69
+      },
+      "revId": "3c3bb8d78ec55f17af9b16e01e8e64e6ce291aef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5697fa53_dcff149e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-02-16T10:27:13Z",
+      "side": 1,
+      "message": "Maybe \"is deprecated (and has never been used)\" just to make it clear that there\u0027s nothing for implementors to worry about w.r.t. older versions.",
+      "range": {
+        "startLine": 797,
+        "startChar": 22,
+        "endLine": 797,
+        "endChar": 32
+      },
+      "revId": "3c3bb8d78ec55f17af9b16e01e8e64e6ce291aef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae94a6c_1b350c15",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 801,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-02-16T10:27:13Z",
+      "side": 1,
+      "message": "again, maybe something like \"does not call (and has never called)\" ?",
+      "range": {
+        "startLine": 801,
+        "startChar": 69,
+        "endLine": 801,
+        "endChar": 94
+      },
+      "revId": "3c3bb8d78ec55f17af9b16e01e8e64e6ce291aef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35db6390_78564ca7",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 804,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-02-16T10:27:13Z",
+      "side": 1,
+      "message": "nit: maybe \"existed with the design for KeyMint\u0027s enforcement...\"",
+      "range": {
+        "startLine": 804,
+        "startChar": 7,
+        "endLine": 804,
+        "endChar": 12
+      },
+      "revId": "3c3bb8d78ec55f17af9b16e01e8e64e6ce291aef",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
