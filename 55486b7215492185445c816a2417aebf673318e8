@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dc9bc40_5e515032",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-16T21:34:06Z",
+      "side": 1,
+      "message": "Is this now the way to get a handle to the hwcrypto service? Might be worth clarifying this. What happens if I call `getHwCryptoOperations()` first then derive a version key? Is the versioned key derivation the only \"generated device keys\" that we support?",
+      "revId": "55486b7215492185445c816a2417aebf673318e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "558ef2a2_82f28450",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-16T21:34:06Z",
+      "side": 1,
+      "message": "Return value type seems wrong?",
+      "revId": "55486b7215492185445c816a2417aebf673318e8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
