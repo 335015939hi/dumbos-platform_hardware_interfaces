@@ -162,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9e91ae38_af426f2c",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyLifetime.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-17T00:28:42Z",
+      "side": 1,
+      "message": "This code checks that the enum values match on compilation time: https://android-review.git.corp.google.com/c/trusty/app/sample/+/2932971/11/hwcryptohal/server/opaque_key.rs#65\nThen this code creates the single value out of the vector enums:\nhttps://android-review.git.corp.google.com/c/trusty/app/sample/+/2932971/11/hwcryptohal/server/opaque_key.rs#133\nBut I was misremembering, this particular pair of enums are not used to check using a bitmask (I am walking the vector instead in this case), the bitmask property is only used to compress/decompress the vector to serialize the key when creating a wrapped key (which is something I can do even if this enum do not have the bitmask pattern). I\u0027ll remove the bitmask pattern on this enum and on `KeyLifetime` and resolve this issue when the change is done.",
+      "parentUuid": "17d6ee0e_38e7212c",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3de72d9_875827c5",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
         "patchSetId": 1
