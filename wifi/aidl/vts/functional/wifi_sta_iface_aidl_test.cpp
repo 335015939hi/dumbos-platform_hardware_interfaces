@@ -171,15 +171,25 @@ TEST_P(WifiStaIfaceAidlTest, CheckApfIsSupported) {
         }
         StaApfPacketFilterCapabilities apf_caps = {};
         EXPECT_TRUE(wifi_sta_iface_->getApfPacketFilterCapabilities(&apf_caps).isOk());
-    } else {
-        EXPECT_TRUE(isFeatureSupported(IWifiStaIface::FeatureSetMask::APF));
-        StaApfPacketFilterCapabilities apf_caps = {};
-        EXPECT_TRUE(wifi_sta_iface_->getApfPacketFilterCapabilities(&apf_caps).isOk());
-        // The APF version must be 4 and the usable memory must be at least
-        // 1024 bytes.
-        EXPECT_EQ(apf_caps.version, 4);
-        EXPECT_GE(apf_caps.maxLength, 1024);
+        return;
     }
+    EXPECT_TRUE(isFeatureSupported(IWifiStaIface::FeatureSetMask::APF));
+    StaApfPacketFilterCapabilities apf_caps = {};
+    EXPECT_TRUE(wifi_sta_iface_->getApfPacketFilterCapabilities(&apf_caps).isOk());
+    int apf_version = apf_caps.version;
+    int max_len = apf_caps.maxLength;
+    // VSR-14: The APF version must be 4 or higher and the usable memory must be at least
+    // 1024 bytes.
+    if (vendor_api_level == __ANDROID_API_U__) {
+        EXPECT_TRUE(apf_version == 4 || apf_version == 6)
+                << "apf_version must be 4 or higher, apf_version=" << apf_version;
+        EXPECT_GE(max_len, 1024);
+        return;
+    }
+    // VSR-15: The APF version must be 6 or higher and the usable memory must be at least
+    // 2048 bytes.
+    EXPECT_EQ(apf_version, 6);
+    EXPECT_GE(max_len, 2048);
 }
 
 /*
