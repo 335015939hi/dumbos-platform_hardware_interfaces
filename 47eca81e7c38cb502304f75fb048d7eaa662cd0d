@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8daa16a7_0a91a48c",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/MemoryBufferParameter.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-20T23:42:52Z",
+      "side": 1,
+      "message": "add blank line",
+      "revId": "47eca81e7c38cb502304f75fb048d7eaa662cd0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2415d14e_fdcdc121",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/MemoryBufferReference.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-20T23:42:52Z",
+      "side": 1,
+      "message": "add blank line",
+      "revId": "47eca81e7c38cb502304f75fb048d7eaa662cd0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "958ed0cf_a19c0d5a",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/OperationData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-20T23:42:52Z",
+      "side": 1,
+      "message": "add blank line",
+      "revId": "47eca81e7c38cb502304f75fb048d7eaa662cd0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
