@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42469596_fc0fcd21",
+        "filename": "wifi/aidl/vts/functional/wifi_sta_iface_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-02-20T18:37:56Z",
+      "side": 1,
+      "message": "should this be a check for either 4 or 6?\nallowing 5 or 7 or 20240101 seems undesirable...",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 39
+      },
+      "revId": "a468876732a9868b9fe93b8b5e62c34486fbf91d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
