@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "078acfd0_07b7e433",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 76
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-20T23:53:33Z",
+      "side": 1,
+      "message": "What happens if @newKeyPolicy.keyLifetime !\u003d PORTABLE?",
+      "revId": "f609f0932e5b84e9ba958bb2651b7cef0877822d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb75c4d7_4713f5a8",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/EcKey.aidl",
+        "patchSetId": 76
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-20T23:53:33Z",
+      "side": 1,
+      "message": "add blank line?",
+      "revId": "f609f0932e5b84e9ba958bb2651b7cef0877822d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
