@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c30bc7b2_8f8ec1da",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyDomain.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-20T16:54:07Z",
+      "side": 1,
+      "message": "Closing this comment because this code is no longer part of this CL.",
+      "parentUuid": "dcee33e9_bb5bce8d",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1a1d807_c0b4a9f4",
@@ -178,6 +196,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "206fd314_f0fa7dd1",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyLifetime.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-20T16:54:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e91ae38_af426f2c",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3de72d9_875827c5",
@@ -209,6 +245,24 @@
       "side": 1,
       "message": "I put the explanation for this enum on the comment for `KeyLifetime` (because they are related).",
       "parentUuid": "f3de72d9_875827c5",
+      "revId": "8969ed091e663803e166d6a653fd539915f143d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b46d9842_06fbda48",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyPermissions.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-20T16:54:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e07abfe4_fc351f50",
       "revId": "8969ed091e663803e166d6a653fd539915f143d7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
