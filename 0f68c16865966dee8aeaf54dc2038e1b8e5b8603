@@ -106,6 +106,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43cc0c1b_e78039b9",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/ICryptoOperationContext.aidl",
+        "patchSetId": 67
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-21T19:14:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "52248caf_f44f9f66",
+      "revId": "0f68c16865966dee8aeaf54dc2038e1b8e5b8603",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a4a759d_66a9b876",

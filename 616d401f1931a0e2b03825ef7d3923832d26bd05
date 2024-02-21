@@ -549,6 +549,24 @@
       "parentUuid": "e33ffbba_ea7fb12c",
       "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "447b8e49_09abe118",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/ProtectionId.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-21T19:14:49Z",
+      "side": 1,
+      "message": "I\u0027ve lost where protection ID went, which change is it in now?",
+      "parentUuid": "a86b52ea_c1f171da",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
