@@ -8,8 +8,8 @@ package {
     default_applicable_licenses: ["hardware_interfaces_license"],
 }
 
-apex {
-    name: "com.android.hardware.audio",
+apex_defaults {
+    name: "com.android.hardware.audio.defaults",
     manifest: "manifest.json",
     file_contexts: "file_contexts",
     key: "com.android.hardware.key",
@@ -46,6 +46,25 @@ apex {
     prebuilts: [
         "android.hardware.audio.service-aidl.example.rc",
         "android.hardware.audio.service-aidl.xml",
+    ],
+}
+
+apex {
+    name: "com.android.hardware.audio",
+    defaults: [
+        "com.android.hardware.audio.defaults",
+    ],
+    prebuilts: [
         "audio_effects_config.xml",
+    ],
+}
+
+apex {
+    name: "com.android.hardware.audio.preprocess_disabled",
+    defaults: [
+        "com.android.hardware.audio.defaults",
+    ],
+    prebuilts: [
+        "audio_effects_config_preprocess_disabled.xml",
     ],
 }
