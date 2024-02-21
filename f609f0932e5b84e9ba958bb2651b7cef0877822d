@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92f9bbb1_baea92d8",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 76
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-21T00:32:04Z",
+      "side": 1,
+      "message": "I think that is fine as long as you document it here.",
+      "parentUuid": "83a19607_cffce356",
+      "revId": "f609f0932e5b84e9ba958bb2651b7cef0877822d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb75c4d7_4713f5a8",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/EcKey.aidl",
         "patchSetId": 76
