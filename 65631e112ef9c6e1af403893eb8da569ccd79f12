@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e023bd14_b020db5e",
+        "filename": "bluetooth/audio/utils/hfp_codec_capabilities/hfp_codec_capabilities.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1322530
+      },
+      "writtenOn": "2024-02-21T07:33:11Z",
+      "side": 1,
+      "message": "should be T2?",
+      "range": {
+        "startLine": 38,
+        "startChar": 23,
+        "endLine": 38,
+        "endChar": 40
+      },
+      "revId": "65631e112ef9c6e1af403893eb8da569ccd79f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
