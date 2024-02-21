@@ -16,6 +16,24 @@
       "message": "IMHO this needs to wait until APFv6 is finalized.",
       "revId": "8dc4dcf936bb1571f11a421805a5e2610ececb16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72aa5a5d_7ca1acc8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1758351
+      },
+      "writtenOn": "2024-02-21T01:19:01Z",
+      "side": 1,
+      "message": "Ideally, we should wait until v6 finalize.\n\nBut in the meantime, I got tracking by cts team at b/303356901.\n\nBecause the test here only check about the apf version, we can use the vts as way to ask OEMs to take a look at VSR-15.\n\nWe can update the test case again later after v6 finalize",
+      "parentUuid": "c2d9237c_72f128c8",
+      "revId": "8dc4dcf936bb1571f11a421805a5e2610ececb16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
