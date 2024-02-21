@@ -16,6 +16,40 @@
       "message": "Hello,\nI typed a lot of boilerplate code while implementing a vehicle Hal in Rust because of the missing `Clone`",
       "revId": "78a9bdd875160a37b163ed022a149387886b8b22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66f69e01_e865235b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-02-21T21:23:03Z",
+      "side": 1,
+      "message": "I asked our AIDL experts. It is okay to add annotation without affecting API version, so this CL is okay.",
+      "revId": "78a9bdd875160a37b163ed022a149387886b8b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c29fa4d_4d12ea9f",
+        "filename": "automotive/vehicle/aidl/aidl_api/android.hardware.automotive.vehicle/2/.hash",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-02-21T21:23:03Z",
+      "side": 1,
+      "message": "There should be only one hash in this file. could you remove this .hash file and generate again?",
+      "revId": "78a9bdd875160a37b163ed022a149387886b8b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
