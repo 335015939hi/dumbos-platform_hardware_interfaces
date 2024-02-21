@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83a19607_cffce356",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 76
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-21T00:27:40Z",
+      "side": 1,
+      "message": "The 2 options would be to either error out or override the selection. My choice for implementation currently is to error out. Do you see any issues with this if I just mention this on the docstring?",
+      "parentUuid": "078acfd0_07b7e433",
+      "revId": "f609f0932e5b84e9ba958bb2651b7cef0877822d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb75c4d7_4713f5a8",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/EcKey.aidl",
         "patchSetId": 76
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-20T23:53:33Z",
       "side": 1,
       "message": "add blank line?",
+      "revId": "f609f0932e5b84e9ba958bb2651b7cef0877822d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56359b37_4732d8b3",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/EcKey.aidl",
+        "patchSetId": 76
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-02-21T00:27:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb75c4d7_4713f5a8",
       "revId": "f609f0932e5b84e9ba958bb2651b7cef0877822d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
