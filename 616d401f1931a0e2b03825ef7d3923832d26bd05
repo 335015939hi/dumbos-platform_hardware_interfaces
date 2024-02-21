@@ -585,6 +585,24 @@
       "parentUuid": "447b8e49_09abe118",
       "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c437c9fd_f650b15b",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/ProtectionId.aidl",
+        "patchSetId": 68
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-02-21T19:23:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "52397311_a7c081dc",
+      "revId": "616d401f1931a0e2b03825ef7d3923832d26bd05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
