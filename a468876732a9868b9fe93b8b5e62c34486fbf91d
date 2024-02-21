@@ -22,6 +22,30 @@
       },
       "revId": "a468876732a9868b9fe93b8b5e62c34486fbf91d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5e95e74_ba33a580",
+        "filename": "wifi/aidl/vts/functional/wifi_sta_iface_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1758351
+      },
+      "writtenOn": "2024-02-21T01:20:59Z",
+      "side": 1,
+      "message": "It is indeed undesirable... however, right now, P9(EVT1.1) devices will fail the vts because of they use unfinalized APFv6 which is expected.\n\nSo I think we should get the patch in to fix the VTS in short term, I will upload another patch after APFv6 finalize to check whether the version is either 4 or 6.",
+      "parentUuid": "42469596_fc0fcd21",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 180,
+        "endChar": 39
+      },
+      "revId": "a468876732a9868b9fe93b8b5e62c34486fbf91d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
