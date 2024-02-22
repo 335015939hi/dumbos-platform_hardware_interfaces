@@ -50,6 +50,24 @@
       "message": "There should be only one hash in this file. could you remove this .hash file and generate again?",
       "revId": "78a9bdd875160a37b163ed022a149387886b8b22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97c3e379_eaf5daaf",
+        "filename": "automotive/vehicle/aidl/aidl_api/android.hardware.automotive.vehicle/2/.hash",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 3237585
+      },
+      "writtenOn": "2024-02-22T06:31:46Z",
+      "side": 1,
+      "message": "Hello. Thanks for having a look.\n\nSure! I didn\u0027t notice that the hashes are appended. I will regenerate and update the patchset.",
+      "parentUuid": "4c29fa4d_4d12ea9f",
+      "revId": "78a9bdd875160a37b163ed022a149387886b8b22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
