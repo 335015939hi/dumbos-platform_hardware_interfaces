@@ -22,6 +22,30 @@
       },
       "revId": "65631e112ef9c6e1af403893eb8da569ccd79f12",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f27664f_0d2443a9",
+        "filename": "bluetooth/audio/utils/hfp_codec_capabilities/hfp_codec_capabilities.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-02-22T05:51:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e023bd14_b020db5e",
+      "range": {
+        "startLine": 38,
+        "startChar": 23,
+        "endLine": 38,
+        "endChar": 40
+      },
+      "revId": "65631e112ef9c6e1af403893eb8da569ccd79f12",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
