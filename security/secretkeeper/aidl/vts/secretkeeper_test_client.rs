@@ -105,7 +105,7 @@ impl SkClient {
         let sk = get_connection(instance);
         Self {
             sk: sk.clone(),
-            session: SkSession::new(sk, &dice_artifacts).unwrap(),
+            session: SkSession::new(sk, &dice_artifacts, None).unwrap(),
             dice_artifacts,
         }
     }
