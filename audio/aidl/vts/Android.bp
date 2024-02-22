@@ -26,7 +26,6 @@ cc_defaults {
         "android.hardware.common.fmq-V1-ndk",
         "libaudioaidlcommon",
         "libaidlcommonsupport",
-        "libpffft",
     ],
     header_libs: [
         "libaudioaidl_headers",
@@ -37,7 +36,6 @@ cc_defaults {
         "-Wextra",
         "-Werror",
         "-Wthread-safety",
-        "-Wno-error=unused-parameter",
     ],
     test_config_template: "VtsHalAudioTargetTestTemplate.xml",
     test_suites: [
