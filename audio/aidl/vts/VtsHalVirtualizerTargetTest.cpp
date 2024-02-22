@@ -21,6 +21,7 @@
 
 using namespace android;
 
+using aidl::android::hardware::audio::common::getChannelCount;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::getEffectTypeUuidVirtualizer;
 using aidl::android::hardware::audio::effect::IEffect;
@@ -28,6 +29,82 @@ using aidl::android::hardware::audio::effect::IFactory;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::Virtualizer;
 using android::hardware::audio::common::testing::detail::TestExecutionTracer;
+
+class VirtualizerHelper : public EffectHelper {
+  public:
+    void SetUpVirtualizer() {
+        ASSERT_NE(nullptr, mFactory);
+        ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
+        initFrameCount();
+        Parameter::Specific specific = getDefaultParamSpecific();
+        Parameter::Common common = EffectHelper::createParamCommon(
+                0 /* session */, 1 /* ioHandle */, kSamplingFrequency /* iSampleRate */,
+                kSamplingFrequency /* oSampleRate */, mInputFrameCount /* iFrameCount */,
+                mInputFrameCount /* oFrameCount */);
+        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, specific, &mOpenEffectReturn, EX_NONE));
+        ASSERT_NE(nullptr, mEffect);
+    }
+
+    void TearDownVirtualizer() {
+        ASSERT_NO_FATAL_FAILURE(close(mEffect));
+        ASSERT_NO_FATAL_FAILURE(destroy(mFactory, mEffect));
+        mOpenEffectReturn = IEffect::OpenEffectReturn{};
+    }
+
+    Parameter::Specific getDefaultParamSpecific() {
+        Virtualizer vr = Virtualizer::make<Virtualizer::strengthPm>(0);
+        Parameter::Specific specific =
+                Parameter::Specific::make<Parameter::Specific::virtualizer>(vr);
+        return specific;
+    }
+
+    Parameter createVirtualizerParam(int param) {
+        return Parameter::make<Parameter::specific>(
+                Parameter::Specific::make<Parameter::Specific::virtualizer>(
+                        Virtualizer::make<Virtualizer::strengthPm>(param)));
+    }
+
+    void initFrameCount() {
+        mInputFrameCount = kBufferSize / kChannelCount;
+        mOutputFrameCount = kBufferSize / kChannelCount;
+    }
+
+    bool isStrengthValid(int level) {
+        auto vir = Virtualizer::make<Virtualizer::strengthPm>(level);
+        return isParameterValid<Virtualizer, Range::virtualizer>(vir, mDescriptor);
+    }
+
+    void setAndVerifyParameters(int param, binder_exception_t expected) {
+        auto expectedParam = createVirtualizerParam(param);
+        EXPECT_STATUS(expected, mEffect->setParameter(expectedParam)) << expectedParam.toString();
+
+        if (expected == EX_NONE) {
+            Virtualizer::Id vrlId =
+                    Virtualizer::Id::make<Virtualizer::Id::commonTag>(Virtualizer::strengthPm);
+
+            auto id = Parameter::Id::make<Parameter::Id::virtualizerTag>(vrlId);
+            // get parameter
+            Parameter getParam;
+            // if set success, then get should match
+            EXPECT_STATUS(expected, mEffect->getParameter(id, &getParam));
+            EXPECT_EQ(expectedParam, getParam) << "\nexpectedParam:" << expectedParam.toString()
+                                               << "\ngetParam:" << getParam.toString();
+        }
+    }
+
+    static constexpr int kSamplingFrequency = 44100;
+    static constexpr int kDefaultChannelLayout = AudioChannelLayout::LAYOUT_STEREO;
+    static constexpr int kDurationMilliSec = 2000;
+    static constexpr int kBufferSize = kSamplingFrequency * kDurationMilliSec / 1000;
+    int kChannelCount = getChannelCount(
+            AudioChannelLayout::make<AudioChannelLayout::layoutMask>(kDefaultChannelLayout));
+    long mInputFrameCount;
+    long mOutputFrameCount;
+    std::shared_ptr<IFactory> mFactory;
+    std::shared_ptr<IEffect> mEffect;
+    IEffect::OpenEffectReturn mOpenEffectReturn;
+    Descriptor mDescriptor;
+};
 
 /**
  * Here we focus on specific parameter checking, general IEffect interfaces testing performed in
@@ -44,89 +121,80 @@ using VirtualizerParamTestParam = std::tuple<std::pair<std::shared_ptr<IFactory>
  */
 
 class VirtualizerParamTest : public ::testing::TestWithParam<VirtualizerParamTestParam>,
-                             public EffectHelper {
+                             public VirtualizerHelper {
   public:
     VirtualizerParamTest() : mParamStrength(std::get<PARAM_STRENGTH>(GetParam())) {
         std::tie(mFactory, mDescriptor) = std::get<PARAM_INSTANCE_NAME>(GetParam());
     }
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpVirtualizer()); }
+    void TearDown() override { TearDownVirtualizer(); }
 
-    void SetUp() override {
-        ASSERT_NE(nullptr, mFactory);
-        ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
-
-        Parameter::Specific specific = getDefaultParamSpecific();
-        Parameter::Common common = EffectHelper::createParamCommon(
-                0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
-                kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */);
-        IEffect::OpenEffectReturn ret;
-        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, specific, &ret, EX_NONE));
-        ASSERT_NE(nullptr, mEffect);
-    }
-
-    void TearDown() override {
-        ASSERT_NO_FATAL_FAILURE(close(mEffect));
-        ASSERT_NO_FATAL_FAILURE(destroy(mFactory, mEffect));
-    }
-
-    Parameter::Specific getDefaultParamSpecific() {
-        Virtualizer vr = Virtualizer::make<Virtualizer::strengthPm>(0);
-        Parameter::Specific specific =
-                Parameter::Specific::make<Parameter::Specific::virtualizer>(vr);
-        return specific;
-    }
-
-    static const long kInputFrameCount = 0x100, kOutputFrameCount = 0x100;
-    std::shared_ptr<IFactory> mFactory;
-    std::shared_ptr<IEffect> mEffect;
-    Descriptor mDescriptor;
     int mParamStrength = 0;
-
-    void SetAndGetVirtualizerParameters() {
-        for (auto& it : mTags) {
-            auto& tag = it.first;
-            auto& vr = it.second;
-
-            // validate parameter
-            Descriptor desc;
-            ASSERT_STATUS(EX_NONE, mEffect->getDescriptor(&desc));
-            const bool valid = isParameterValid<Virtualizer, Range::virtualizer>(it.second, desc);
-            const binder_exception_t expected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
-
-            // set parameter
-            Parameter expectParam;
-            Parameter::Specific specific;
-            specific.set<Parameter::Specific::virtualizer>(vr);
-            expectParam.set<Parameter::specific>(specific);
-            EXPECT_STATUS(expected, mEffect->setParameter(expectParam)) << expectParam.toString();
-
-            // only get if parameter in range and set success
-            if (expected == EX_NONE) {
-                Parameter getParam;
-                Parameter::Id id;
-                Virtualizer::Id vrId;
-                vrId.set<Virtualizer::Id::commonTag>(tag);
-                id.set<Parameter::Id::virtualizerTag>(vrId);
-                // if set success, then get should match
-                EXPECT_STATUS(expected, mEffect->getParameter(id, &getParam));
-                EXPECT_EQ(expectParam, getParam);
-            }
-        }
-    }
-
-    void addStrengthParam(int strength) {
-        Virtualizer vr;
-        vr.set<Virtualizer::strengthPm>(strength);
-        mTags.push_back({Virtualizer::strengthPm, vr});
-    }
-
-  private:
-    std::vector<std::pair<Virtualizer::Tag, Virtualizer>> mTags;
-    void CleanUp() { mTags.clear(); }
 };
 
 TEST_P(VirtualizerParamTest, SetAndGetStrength) {
-    EXPECT_NO_FATAL_FAILURE(addStrengthParam(mParamStrength));
-    SetAndGetVirtualizerParameters();
+    ASSERT_NO_FATAL_FAILURE(setAndVerifyParameters(
+            mParamStrength, isStrengthValid(mParamStrength) ? EX_NONE : EX_ILLEGAL_ARGUMENT));
+}
+
+using VirtualizerDataTestParam = std::pair<std::shared_ptr<IFactory>, Descriptor>;
+class VirtualizerDataTest : public ::testing::TestWithParam<VirtualizerDataTestParam>,
+                            public VirtualizerHelper {
+  public:
+    VirtualizerDataTest() { std::tie(mFactory, mDescriptor) = GetParam(); }
+
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpVirtualizer()); }
+    void TearDown() override { TearDownVirtualizer(); }
+
+    void generateInput(std::vector<float>& buffer) {
+        int frequency = 100;
+        for (size_t i = 0; i < buffer.size(); i++) {
+            buffer[i] = sin(2 * M_PI * frequency * i / kSamplingFrequency);
+        }
+    }
+
+    float getPhaseDiffForStereo(const std::vector<float>& buffer) {
+        std::vector<float> left(kBufferSize / kChannelCount);
+        std::vector<float> right(kBufferSize / kChannelCount);
+        // Duration in Millisecond for the effect to become apparent
+        int kTransitionDuration = 100;
+        size_t offset = kSamplingFrequency * kTransitionDuration / 1000;
+        float angle1;
+        float angle2;
+
+        for (size_t i = 0, j = 0; i < buffer.size(); i += 2, j++) {
+            left[j] = buffer[i];
+            right[j] = buffer[i + 1];
+        }
+
+        angle1 = asin(left[offset]);
+        angle2 = asin(right[offset]);
+        float diff = angle1 - angle2;
+        return abs(diff * 180 / M_PI);
+    }
+};
+
+TEST_P(VirtualizerDataTest, IncreasingStrength) {
+    std::vector<float> input(kBufferSize);
+    std::vector<float> output(kBufferSize);
+    std::vector<int> strengths = {500, 750, 1000};
+    // Generated sine input as 0 phase value
+    float basePhase = 0;
+
+    generateInput(input);
+
+    for (int strength : strengths) {
+        // Skipping the further steps for unnsupported Strength values
+        if (!isStrengthValid(strength)) {
+            continue;
+        }
+        setAndVerifyParameters(strength, EX_NONE);
+        ASSERT_NO_FATAL_FAILURE(
+                processAndWriteToOutput(input, output, mEffect, &mOpenEffectReturn));
+        float diff = getPhaseDiffForStereo(output);
+        ASSERT_GT(diff, basePhase);
+        basePhase = diff;
+    }
 }
 
 std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor>> kDescPair;
@@ -148,6 +216,21 @@ INSTANTIATE_TEST_SUITE_P(
         });
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(VirtualizerParamTest);
+
+INSTANTIATE_TEST_SUITE_P(VirtualizerTest, VirtualizerDataTest,
+                         testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                 IFactory::descriptor, getEffectTypeUuidVirtualizer())),
+                         [](const testing::TestParamInfo<VirtualizerDataTest::ParamType>& info) {
+                             auto descriptor = info.param;
+
+                             std::string name = getPrefix(descriptor.second);
+                             std::replace_if(
+                                     name.begin(), name.end(),
+                                     [](const char c) { return !std::isalnum(c); }, '_');
+                             return name;
+                         });
+
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(VirtualizerDataTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
