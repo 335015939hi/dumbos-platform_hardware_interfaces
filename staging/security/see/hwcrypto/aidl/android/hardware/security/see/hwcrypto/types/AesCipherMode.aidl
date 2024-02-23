@@ -38,4 +38,11 @@ union AesCipherMode {
      * Counter mode. Type contains the nonce for the operation.
      */
     CipherModeParameters ctr;
+
+    /*
+     * Electronic Code Block mode, its use is not recommended other than for compatibility purposes
+     * with existing code. Either No padding will be added so input size needs to be a multiple of
+     * an AES block size (16 bytes) or it will be padded using PKCS#7.
+     */
+    @nullable Void ecb;
 }
