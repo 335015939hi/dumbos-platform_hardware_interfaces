@@ -22,6 +22,30 @@
       },
       "revId": "0d286b386777e17c4401f2c0205271cbc1c5e8bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f40ce2b_862ca202",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-02-23T11:41:08Z",
+      "side": 1,
+      "message": "I would prefer that the returned type is similar for `with_identity()` \u0026 `with_expected_sk_identity()` for api simplicity (understandably at the cost of this churn).\n\nAnother option was writing a builder (instead of another constructor). Can keep that in mind if we need further modify this. (I don\u0027t foresee that at the moment)",
+      "parentUuid": "c54ec380_382c5aec",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 5
+      },
+      "revId": "0d286b386777e17c4401f2c0205271cbc1c5e8bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
