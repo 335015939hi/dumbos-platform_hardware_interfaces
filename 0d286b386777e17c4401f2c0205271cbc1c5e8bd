@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "267fee38_8686f26b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-02-23T18:40:38Z",
+      "side": 1,
+      "message": "LGTM. However, as mentioned in aosp/2971888, the validation logic should ideally be called during the key exchange protocol itself.",
+      "revId": "0d286b386777e17c4401f2c0205271cbc1c5e8bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c54ec380_382c5aec",
