@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aacc0b8_51b4b06d",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-02-27T18:49:29Z",
+      "side": 1,
+      "message": "I think, the check implemented with this approach is not very meaningful. `asin` expects a value in the domain [-1, 1]. If the effect modifies the amplitude of the input sinusoid, the output from `asin` will not be correct. Also, `asin` can only return the value in the range [-pi/2, pi/2], thus \"folding\" input phases on that interval. As a result, the calculated difference might not be correct. Basically, the test only indicates whether there is any phase shift at all. For that, we could just compare `left[j] \u003d\u003d right[j]`, or compare whether input is the same as output directly. Thus, since the test just happen to detect presence of any alteration to the input signal, it can be radically simplified.",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 37
+      },
+      "revId": "d13a8ac495c060e666ed8215868299ab13ef0b34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f090a002_e76ef877",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-02-27T18:49:29Z",
+      "side": 1,
+      "message": "VirtualizerProcessTest",
+      "range": {
+        "startLine": 220,
+        "startChar": 42,
+        "endLine": 220,
+        "endChar": 61
+      },
+      "revId": "d13a8ac495c060e666ed8215868299ab13ef0b34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
