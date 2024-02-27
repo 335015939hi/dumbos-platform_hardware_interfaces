@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46bd128_31a9cefe",
+        "filename": "bluetooth/audio/utils/hfp_codec_capabilities/hfp_codec_capabilities.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2024-02-27T19:44:58Z",
+      "side": 1,
+      "message": "I am not familiar with this part, so just curious, why it is 8000 not 16000?",
+      "range": {
+        "startLine": 27,
+        "startChar": 54,
+        "endLine": 27,
+        "endChar": 58
+      },
+      "revId": "2fa1ab4bd578026d2a913183e6bd6fa781c37206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
