@@ -65,8 +65,6 @@ namespace aidl::android::hardware::audio::effect {
 const std::string SpatializerSw::kEffectName = "SpatializerSw";
 
 const std::vector<Range::SpatializerRange> SpatializerSw::kRanges = {
-        MAKE_RANGE(Spatializer, supportedChannelLayout, std::vector<AudioChannelLayout>{},
-                   std::vector<AudioChannelLayout>{}),
         MAKE_RANGE(Spatializer, spatializationLevel, Spatialization::Level::NONE,
                    Spatialization::Level::BED_PLUS_OBJECTS),
         MAKE_RANGE(Spatializer, spatializationMode, Spatialization::Mode::BINAURAL,
@@ -108,6 +106,8 @@ ndk::ScopedAStatus SpatializerSw::setParameterSpecific(const Parameter::Specific
 
 ndk::ScopedAStatus SpatializerSw::getParameterSpecific(const Parameter::Id& id,
                                                        Parameter::Specific* specific) {
+    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+
     auto tag = id.getTag();
     RETURN_IF(Parameter::Id::spatializerTag != tag, EX_ILLEGAL_ARGUMENT, "wrongIdTag");
     auto spatializerId = id.get<Parameter::Id::spatializerTag>();
@@ -173,11 +173,19 @@ std::optional<Spatializer> SpatializerSwContext::getParam(TAG tag) {
     if (mParamsMap.find(tag) != mParamsMap.end()) {
         return mParamsMap.at(tag);
     }
+    if (tag == Spatializer::supportedChannelLayout) {
+        return Spatializer::make<Spatializer::supportedChannelLayout>(
+                {AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                        AudioChannelLayout::LAYOUT_5POINT1)});
+    }
     return std::nullopt;
 }
 
 template <typename TAG>
 ndk::ScopedAStatus SpatializerSwContext::setParam(TAG tag, Spatializer spatializer) {
+    RETURN_IF(tag == Spatializer::supportedChannelLayout, EX_ILLEGAL_ARGUMENT,
+              "supportedChannelLayoutGetOnly");
+
     mParamsMap[tag] = spatializer;
     return ndk::ScopedAStatus::ok();
 }
