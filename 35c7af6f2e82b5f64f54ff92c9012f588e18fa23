@@ -67,6 +67,23 @@
       "message": "Can I get some attention here?",
       "revId": "35c7af6f2e82b5f64f54ff92c9012f588e18fa23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "154850e5_3b8ed81d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1506910
+      },
+      "writtenOn": "2024-02-28T21:40:54Z",
+      "side": 1,
+      "message": "Is this why on my Galaxy S22 Ultra I have terrible LDAC, as basically every action triggers artefacts, as audio software decoding is real time sensetive?\n\nBTW, is 24 bit LDAC enabled by default and of course new Android is needed for 24 bit input, right.",
+      "revId": "35c7af6f2e82b5f64f54ff92c9012f588e18fa23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
