@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "307c081a_f4e14c13",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-02-28T17:37:17Z",
+      "side": 1,
+      "message": "Double-checking: when we create the input signal, do we want signals in each channel to be identical to each other, or not? Because this way of generating the input will produce sinusoids that are slightly shifted relatively to each other.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 9
+      },
+      "revId": "9b6c7640754adfe8b1212e979e21fadfc7f3a912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3250776_dee856f7",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-02-28T17:37:17Z",
+      "side": 1,
+      "message": "I\u0027m still concerned about the case when the processing alters the amplitude of signals. In this case, the resulting cross-correlation will change even when there is no phase shift. I think, we need to normalize both signals before calculating the CC. Basically, for each signal, find the abs(max) of sample values, and divide them by it.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 9
+      },
+      "revId": "9b6c7640754adfe8b1212e979e21fadfc7f3a912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2240b35d_439a805b",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-02-28T17:37:17Z",
+      "side": 1,
+      "message": "It\u0027s not a \"difference\" anymore. Should it be `crossCorrelation`?",
+      "range": {
+        "startLine": 196,
+        "startChar": 14,
+        "endLine": 196,
+        "endChar": 18
+      },
+      "revId": "9b6c7640754adfe8b1212e979e21fadfc7f3a912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a546b0e9_8b285f78",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-02-28T17:37:17Z",
+      "side": 1,
+      "message": "We should also detect the case when the effect just outputs zeroes in both channels for any input (which is bad).",
+      "range": {
+        "startLine": 199,
+        "startChar": 8,
+        "endLine": 199,
+        "endChar": 46
+      },
+      "revId": "9b6c7640754adfe8b1212e979e21fadfc7f3a912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
