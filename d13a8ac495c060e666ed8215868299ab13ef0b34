@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "94649550_cfc02767",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-02-28T11:34:11Z",
+      "side": 1,
+      "message": "Modified the test to compute Cross-Correlation. \nIt validates that higher strength values have low Cross-Correlation.",
+      "parentUuid": "3aacc0b8_51b4b06d",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 37
+      },
+      "revId": "d13a8ac495c060e666ed8215868299ab13ef0b34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f090a002_e76ef877",
         "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-27T18:49:29Z",
       "side": 1,
       "message": "VirtualizerProcessTest",
+      "range": {
+        "startLine": 220,
+        "startChar": 42,
+        "endLine": 220,
+        "endChar": 61
+      },
+      "revId": "d13a8ac495c060e666ed8215868299ab13ef0b34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76fd8ae7_186cc458",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-02-28T11:34:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f090a002_e76ef877",
       "range": {
         "startLine": 220,
         "startChar": 42,
