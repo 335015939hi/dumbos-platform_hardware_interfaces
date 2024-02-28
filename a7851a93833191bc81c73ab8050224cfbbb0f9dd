@@ -16,6 +16,24 @@
       "message": "How reliable is pre-submit verified when modifying these tests ?",
       "revId": "a7851a93833191bc81c73ab8050224cfbbb0f9dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4acdbd13_ba8faf6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-02-28T23:29:44Z",
+      "side": 1,
+      "message": "It should definitely run on Cuttlefish, but I don\u0027t know which other targets will run.",
+      "parentUuid": "d3e8f4c6_364f2fb3",
+      "revId": "a7851a93833191bc81c73ab8050224cfbbb0f9dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
