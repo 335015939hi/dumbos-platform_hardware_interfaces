@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6389923_3aa35f2c",
+        "filename": "media/bufferpool/aidl/default/BufferStatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2024-02-29T19:15:07Z",
+      "side": 1,
+      "message": "may be equivalent to:\n\n```suggestion\nbool isMessageLater(uint32_t curMsgId, uint32_t prevMsgId) {\n    return c2_cntr32_t(curMsgId) \u003e c2_cntr32_t(prevMsgId);\n}\n```",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 1
+      },
+      "revId": "a60689cd5024ad9d1976ebadc18360f03de7e0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
