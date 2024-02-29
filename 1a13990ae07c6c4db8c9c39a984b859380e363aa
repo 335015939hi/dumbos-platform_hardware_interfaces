@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54c0a5a2_963eadc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-02-29T05:22:14Z",
+      "side": 1,
+      "message": "I ran VTS in abtd, and it passes.  It would probably be good to run it on a physical device, as well.\n\nhttps://android-build.googleplex.com/builds/abtd/run/L81900030002250982?referrer\u003demail",
+      "revId": "1a13990ae07c6c4db8c9c39a984b859380e363aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
