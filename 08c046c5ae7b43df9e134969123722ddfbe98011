@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b68ace5e_54610300",
+        "filename": "security/keymint/aidl/default/ta/clock.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-02-29T14:15:50Z",
+      "side": 1,
+      "message": "`CLOCK_BOOTTIME` seemed like the best option as it includes suspend time, but more importantly this has to match what Gatekeeper uses here: https://cs.android.com/android/platform/superproject/main/+/main:device/google/cuttlefish/host/commands/secure_env/tpm_gatekeeper.cpp?q\u003dGetMillisecondsSinceBoot",
+      "parentUuid": "3b3dc53b_b0e7af78",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 47
+      },
+      "revId": "08c046c5ae7b43df9e134969123722ddfbe98011",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1933f783_c8a91c73",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-29T13:43:55Z",
       "side": 1,
       "message": "Why add this un-referenced lifetime specifier? It doesn\u0027t seem to be required by the trait definition.",
+      "range": {
+        "startLine": 55,
+        "startChar": 20,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "08c046c5ae7b43df9e134969123722ddfbe98011",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17da8d10_e5795fba",
+        "filename": "security/keymint/aidl/default/ta/rpc.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-02-29T14:15:50Z",
+      "side": 1,
+      "message": "Good spot, must have been left over from a (much) earlier version of the code.  Removed.",
+      "parentUuid": "1933f783_c8a91c73",
       "range": {
         "startLine": 55,
         "startChar": 20,
