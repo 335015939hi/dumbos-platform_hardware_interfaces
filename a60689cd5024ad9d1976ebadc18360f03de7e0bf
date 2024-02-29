@@ -22,6 +22,30 @@
       },
       "revId": "a60689cd5024ad9d1976ebadc18360f03de7e0bf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7301baa1_9e52cf9a",
+        "filename": "media/bufferpool/aidl/default/BufferStatus.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-02-29T19:23:06Z",
+      "side": 1,
+      "message": "bufferpool library tries not to depend on c2 on purpose. (discussed /w lajos@)\nc2 header dependency might be not feasible here.",
+      "parentUuid": "a6389923_3aa35f2c",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 1
+      },
+      "revId": "a60689cd5024ad9d1976ebadc18360f03de7e0bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
