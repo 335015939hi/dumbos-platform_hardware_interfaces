@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b3dc53b_b0e7af78",
+        "filename": "security/keymint/aidl/default/ta/clock.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-02-29T13:43:55Z",
+      "side": 1,
+      "message": "Is there any alternative? CLOCK_MONOTONIC isn\u0027t quite right because it doesn\u0027t count suspend time. CLOCK_REALTIME is definitely wrong.",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 47
+      },
+      "revId": "08c046c5ae7b43df9e134969123722ddfbe98011",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1933f783_c8a91c73",
+        "filename": "security/keymint/aidl/default/ta/rpc.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-02-29T13:43:55Z",
+      "side": 1,
+      "message": "Why add this un-referenced lifetime specifier? It doesn\u0027t seem to be required by the trait definition.",
+      "range": {
+        "startLine": 55,
+        "startChar": 20,
+        "endLine": 55,
+        "endChar": 24
+      },
+      "revId": "08c046c5ae7b43df9e134969123722ddfbe98011",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
