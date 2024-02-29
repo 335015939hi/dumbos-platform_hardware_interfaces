@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42845ed1_12b31dd5",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DicePolicy.cddl",
+        "patchSetId": 47
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-29T00:33:31Z",
+      "side": 1,
+      "message": "Who uses this file?",
+      "revId": "ce1243a927bdb59ee4a99a27b269b1fa00428c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d06ba69b_f51336fb",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 47
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-29T00:33:31Z",
+      "side": 1,
+      "message": "why is this inline and DerivedKeyResult in a separate file?",
+      "revId": "ce1243a927bdb59ee4a99a27b269b1fa00428c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b57a3db7_7b81282f",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 47
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-02-29T00:33:31Z",
+      "side": 1,
+      "message": "Can you elaborate on why you return a policy in this case that does not match the keyMaterial that you return in the same struct? Is it just to avoid having another type so you can return input-policy-is-current, input-policy-is-old, no-input-policy-here-is-the-current-policy?",
+      "range": {
+        "startLine": 55,
+        "startChar": 78,
+        "endLine": 56,
+        "endChar": 87
+      },
+      "revId": "ce1243a927bdb59ee4a99a27b269b1fa00428c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
