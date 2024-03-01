@@ -179,6 +179,10 @@ bool VendorInterface::Initialize(
 void VendorInterface::Shutdown() {
   LOG_ALWAYS_FATAL_IF(!g_vendor_interface, "%s: No Vendor interface!",
                       __func__);
+  if (!g_vendor_interface) {
+    ALOGE("%s: g_vendor_interface was null, No Vendor interface!", __func__);
+    return;
+  }
   g_vendor_interface->Close();
   delete g_vendor_interface;
   g_vendor_interface = nullptr;
