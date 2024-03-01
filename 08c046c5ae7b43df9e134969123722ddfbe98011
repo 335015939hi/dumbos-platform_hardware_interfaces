@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3b0698a_6cdca763",
+        "filename": "security/keymint/aidl/default/ta/clock.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-03-01T07:49:55Z",
+      "side": 1,
+      "message": "On second thoughts, I\u0027ve moved this code back to the Cuttlefish-specific location and replaced it with an implementation based on the standard library.",
+      "parentUuid": "b68ace5e_54610300",
+      "range": {
+        "startLine": 27,
+        "startChar": 11,
+        "endLine": 27,
+        "endChar": 47
+      },
+      "revId": "08c046c5ae7b43df9e134969123722ddfbe98011",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1933f783_c8a91c73",
