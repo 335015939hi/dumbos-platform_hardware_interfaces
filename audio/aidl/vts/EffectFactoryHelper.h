@@ -74,6 +74,11 @@ class EffectFactoryHelper {
         return result;
     }
 
+    static int getHalVersion(const std::shared_ptr<IFactory>& factory) {
+        int version = 0;
+        return (factory && factory->getInterfaceVersion(&version).isOk()) ? version : 0;
+    }
+
   private:
     std::shared_ptr<IFactory> mEffectFactory;
     std::string mServiceName;
