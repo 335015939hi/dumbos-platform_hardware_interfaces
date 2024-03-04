@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab59faf3_8df18fdf",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-04T18:55:36Z",
+      "side": 1,
+      "message": "\u003e After normalizing the signals, we\u0027re unable to validate decrease in the cross-correlation values with increase in strength values.\n\nI suppose, that\u0027s because the effect simulates placement of the left and right virtual speakers at different distances. The actual phase shift and thus cross-correlation depends on the test signal frequency and the distance that the effect uses. Since we don\u0027t know the distance, we can\u0027t really predict what will happen regarding to the phase shift. I suppose, the cross-correlation value was decreasing because increasing of the distance also changes the amplitude.\n\n\u003e Can we use the approach of difference between the indices of zero crossing? The difference should increase for higher strength values.\n\nI think, it\u0027s the same as running a normalized cross-correlation with different values of the lag (see https://ccrma.stanford.edu/~jos/st/Cross_Correlation.html, currently the only lag value used is `0`) and then finding the lag value with the maximum CC—that will tell us what is the delay between the signals. Note that for this approach to work reliably we need to use a broadband random signal (noise) because for cyclic signals the length of the cycle limits the maximum delay that can be discovered.\n\n---\n\nThe overall question is it worth it to focus on this test, as the Virtualizer effect is effectively superseded with the Spatializer which implements the same idea, but with a much better realism. It should be enough to have a much simpler test for the Virtualizer that a) the output is not always `0` when the input is not `0`, and b) that with non-zero strength, the output is not the same as input.",
+      "parentUuid": "026992f8_ec83fe46",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 9
+      },
+      "revId": "9b6c7640754adfe8b1212e979e21fadfc7f3a912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2240b35d_439a805b",
         "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
         "patchSetId": 3
