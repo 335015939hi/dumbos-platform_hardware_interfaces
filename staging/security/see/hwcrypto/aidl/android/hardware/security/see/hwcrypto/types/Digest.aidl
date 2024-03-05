@@ -15,13 +15,22 @@
  */
 package android.hardware.security.see.hwcrypto.types;
 
-import android.hardware.security.see.hwcrypto.IOpaqueKey;
-import android.hardware.security.see.hwcrypto.types.RsaOperationMode;
-
 /*
- * Parameters required to perform an RSA operation.
+ * Enum that describes the type of cryptographic digest to be used by an operation like signing.
  */
-parcelable RsaOperationParameters {
-    IOpaqueKey key;
-    @nullable RsaOperationMode operationMode;
+enum Digest {
+    /*
+     * No Digest to be used.
+     */
+    NONE,
+
+    /*
+     * SHA2 message digest with length of 256 bits.
+     */
+    SHA256,
+
+    /*
+     * SHA2 message digest with length of 512 bits.
+     */
+    SHA512,
 }
