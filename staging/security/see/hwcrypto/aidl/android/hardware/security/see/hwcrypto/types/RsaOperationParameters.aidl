@@ -16,10 +16,12 @@
 package android.hardware.security.see.hwcrypto.types;
 
 import android.hardware.security.see.hwcrypto.IOpaqueKey;
+import android.hardware.security.see.hwcrypto.types.RsaOperationMode;
 
 /*
  * Parameters required to perform an RSA operation.
  */
 parcelable RsaOperationParameters {
     IOpaqueKey key;
+    @nullable RsaOperationMode operationMode;
 }
