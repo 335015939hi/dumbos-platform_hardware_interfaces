@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1ea5437_096a96c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-05T23:57:38Z",
+      "side": 1,
+      "message": "This is a backward-compatible change, which aligns HIDL 6.0 schema with 7.0. Please see the bug for the details.",
+      "revId": "50bf1116fc6a8c51e601ccbba0ac84a3fa036d7a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
