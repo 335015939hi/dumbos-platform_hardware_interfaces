@@ -49,4 +49,9 @@ union OperationParameters {
      * Parameters for RSA sign operations.
      */
     RsaOperationParameters rsaSign;
+
+    /*
+     * Parameters for RSA decrypt operations.
+     */
+    RsaOperationParameters rsaDecrypt;
 }
