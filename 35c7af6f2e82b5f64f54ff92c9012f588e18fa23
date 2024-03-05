@@ -84,6 +84,23 @@
       "message": "Is this why on my Galaxy S22 Ultra I have terrible LDAC, as basically every action triggers artefacts, as audio software decoding is real time sensetive?\n\nBTW, is 24 bit LDAC enabled by default and of course new Android is needed for 24 bit input, right.",
       "revId": "35c7af6f2e82b5f64f54ff92c9012f588e18fa23",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7aa07ee6_6a957eea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1506910
+      },
+      "writtenOn": "2024-03-05T00:17:45Z",
+      "side": 1,
+      "message": "BTW, what is 32 bit LDAC? Is 32 bit integer or float? I hope integer. I am also confused why it always selects 32 bit/96 kHz and not depending on what apps request. Like Tidal will request after MQA first stage unfold 88.2 or 96.",
+      "revId": "35c7af6f2e82b5f64f54ff92c9012f588e18fa23",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
