@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22c686e6_13dba935",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-05T18:13:58Z",
+      "side": 1,
+      "message": "We have a library with an optimized version of this function, please see here: https://cs.android.com/android/platform/superproject/main/+/main:system/media/audio_utils/include/audio_utils/power.h;l\u003d63;drc\u003d6386d8fa0d25d78b9239baa221f64cca84e8f36c (the format to use is `AUDIO_FORMAT_PCM_FLOAT`).",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 5
+      },
+      "revId": "5b62a72c25f2a4ce73fc69af38dfc4b557636194",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd0cadaf_082a620c",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-05T18:13:58Z",
+      "side": 1,
+      "message": "What is the purpose of this?",
+      "range": {
+        "startLine": 173,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 97
+      },
+      "revId": "5b62a72c25f2a4ce73fc69af38dfc4b557636194",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47a73edf_79789d61",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-05T18:13:58Z",
+      "side": 1,
+      "message": "Isn\u0027t input always the same?",
+      "range": {
+        "startLine": 184,
+        "startChar": 8,
+        "endLine": 184,
+        "endChar": 45
+      },
+      "revId": "5b62a72c25f2a4ce73fc69af38dfc4b557636194",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "699207ba_b2bf9a80",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-05T18:13:58Z",
+      "side": 1,
+      "message": "I think we should verify that with zero input there is a zero output. So we might want to generate two different inputs.",
+      "range": {
+        "startLine": 187,
+        "startChar": 8,
+        "endLine": 187,
+        "endChar": 29
+      },
+      "revId": "5b62a72c25f2a4ce73fc69af38dfc4b557636194",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "930a4bd3_e4f55da5",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-05T18:13:58Z",
+      "side": 1,
+      "message": "I think \"compressed\" may be misguiding since there exist actual \"compressor\" effects (dynamic range compression).",
+      "range": {
+        "startLine": 192,
+        "startChar": 39,
+        "endLine": 192,
+        "endChar": 49
+      },
+      "revId": "5b62a72c25f2a4ce73fc69af38dfc4b557636194",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

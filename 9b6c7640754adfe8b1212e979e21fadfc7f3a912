@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9d6d9fe_df05af52",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-05T18:13:58Z",
+      "side": 1,
+      "message": "That seems good. We should also check that zero input energy produces zero output energy, please see my comments.",
+      "parentUuid": "9327c11c_7952fbf8",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 9
+      },
+      "revId": "9b6c7640754adfe8b1212e979e21fadfc7f3a912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2240b35d_439a805b",
