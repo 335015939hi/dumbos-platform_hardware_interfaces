@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a01b9a4b_cd285705",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-05T12:12:56Z",
+      "side": 1,
+      "message": "Not splitting the input based on channels",
+      "parentUuid": "307c081a_f4e14c13",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 9
+      },
+      "revId": "9b6c7640754adfe8b1212e979e21fadfc7f3a912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3250776_dee856f7",
@@ -97,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9327c11c_7952fbf8",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-05T12:12:56Z",
+      "side": 1,
+      "message": "Using Root Mean Square Energy to validate that,\n a) When input energy is not zero, output energy is also not zero.\n b) For non-zero strength, the input energy is not the same as output energy.",
+      "parentUuid": "ab59faf3_8df18fdf",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 168,
+        "endChar": 9
+      },
+      "revId": "9b6c7640754adfe8b1212e979e21fadfc7f3a912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2240b35d_439a805b",
         "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
         "patchSetId": 3
@@ -108,6 +156,30 @@
       "writtenOn": "2024-02-28T17:37:17Z",
       "side": 1,
       "message": "It\u0027s not a \"difference\" anymore. Should it be `crossCorrelation`?",
+      "range": {
+        "startLine": 196,
+        "startChar": 14,
+        "endLine": 196,
+        "endChar": 18
+      },
+      "revId": "9b6c7640754adfe8b1212e979e21fadfc7f3a912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "518ad069_3a9e750c",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-05T12:12:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2240b35d_439a805b",
       "range": {
         "startLine": 196,
         "startChar": 14,
@@ -131,6 +203,30 @@
       "writtenOn": "2024-02-28T17:37:17Z",
       "side": 1,
       "message": "We should also detect the case when the effect just outputs zeroes in both channels for any input (which is bad).",
+      "range": {
+        "startLine": 199,
+        "startChar": 8,
+        "endLine": 199,
+        "endChar": 46
+      },
+      "revId": "9b6c7640754adfe8b1212e979e21fadfc7f3a912",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46c7b414_e343783d",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-05T12:12:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a546b0e9_8b285f78",
       "range": {
         "startLine": 199,
         "startChar": 8,
