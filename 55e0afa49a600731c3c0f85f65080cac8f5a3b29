@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35d0d7be_9ce350c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-06T18:12:07Z",
+      "side": 1,
+      "message": "Please approve CP from internal. On this CL, the automatic cherry-picker did some weird thing, I had to upload manually.",
+      "revId": "55e0afa49a600731c3c0f85f65080cac8f5a3b29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
