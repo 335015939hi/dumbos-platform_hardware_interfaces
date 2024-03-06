@@ -2117,6 +2117,15 @@ void KeyMintAidlTestBase::assert_mgf_digests_present_or_not_in_key_characteristi
     }
 }
 
+void KeyMintAidlTestBase::assert_not_pre_production_device() const {
+    std::string prop_value = ::android::base::GetProperty("ro.revision", /* default= */ "");
+    std::transform(prop_value.begin(), prop_value.end(), prop_value.begin(),
+                   [](unsigned char c) { return std::tolower(c); });
+    bool is_pre_production_device =
+            (prop_value.rfind("proto", 0) == 0) || (prop_value.rfind("evt", 0) == 0);
+    ASSERT_FALSE(is_pre_production_device);
+}
+
 namespace {
 
 void check_cose_key(const vector<uint8_t>& data, bool testMode) {

@@ -2142,6 +2142,14 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
         if (SecLevel() == SecurityLevel::STRONGBOX) {
             if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
         }
+        if (result == ErrorCode::CANNOT_ATTEST_IDS) {
+            SCOPED_TRACE(testing::Message()
+                         << "This error is expected on early"
+                         << " pre-production devices, such as proto and EVT1 devices."
+                         << " Please do not file a bug unless you're certain that this"
+                         << " device should pass.");
+            assert_not_pre_production_device();
+        }
         if (result == ErrorCode::CANNOT_ATTEST_IDS && !isDeviceIdAttestationRequired()) {
             // ID attestation was optional till api level 32, from api level 33 it is mandatory.
             continue;
