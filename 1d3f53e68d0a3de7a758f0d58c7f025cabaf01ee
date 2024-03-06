@@ -16,6 +16,24 @@
       "message": "Does this need to be nullable? Not all symmetric operations require GCM parameters.",
       "revId": "1d3f53e68d0a3de7a758f0d58c7f025cabaf01ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d79713b8_d74c354a",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/SymmetricAuthOperationParameters.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-06T23:24:06Z",
+      "side": 1,
+      "message": "No, this type is only used for AES-GCM. The original idea for the separation is the interface of the operation itself was different enough (only one accepting additional authenticated data). It could be discussed if the separation still make sense now that we are using command lists.",
+      "parentUuid": "ea50bada_c9f2c001",
+      "revId": "1d3f53e68d0a3de7a758f0d58c7f025cabaf01ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
