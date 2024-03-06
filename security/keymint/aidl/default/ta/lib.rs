@@ -42,6 +42,8 @@ pub mod soft;
 /// clock.
 pub fn boringssl_crypto_impls() -> crypto::Implementation {
     let rng = BoringRng;
+    // In a real implementation, the epoch value for the monotonic clock needs to be the same as
+    // used by Gatekeeper and other authenticators.
     let clock = clock::StdClock::new();
     let rsa = BoringRsa::default();
     let ec = BoringEc::default();
