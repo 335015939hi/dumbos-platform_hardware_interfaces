@@ -851,6 +851,14 @@ TEST_P(AttestKeyTest, EcdsaAttestationID) {
         vector<Certificate> attested_key_cert_chain;
         auto result = GenerateKey(builder, attest_key, &attested_key_blob,
                                   &attested_key_characteristics, &attested_key_cert_chain);
+        if (result == ErrorCode::CANNOT_ATTEST_IDS) {
+            SCOPED_TRACE(testing::Message()
+                         << "This error is expected on early"
+                         << " pre-production devices, such as proto and EVT1 devices."
+                         << " Please do not file a bug unless you're certain that this"
+                         << " device should pass.");
+            assert_not_pre_production_device();
+        }
         if (result == ErrorCode::CANNOT_ATTEST_IDS && !isDeviceIdAttestationRequired()) {
             continue;
         }

@@ -383,6 +383,8 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
             std::vector<android::hardware::security::keymint::Digest>& expected_mgf_digests,
             bool is_mgf_digest_expected) const;
 
+    void assert_not_pre_production_device() const;
+
   protected:
     std::shared_ptr<IKeyMintDevice> keymint_;
     uint32_t os_version_;
