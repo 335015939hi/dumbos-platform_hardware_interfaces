@@ -22,6 +22,30 @@
       },
       "revId": "2fa1ab4bd578026d2a913183e6bd6fa781c37206",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c61ff6c_4fb64f35",
+        "filename": "bluetooth/audio/utils/hfp_codec_capabilities/hfp_codec_capabilities.xml",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-03-06T05:53:53Z",
+      "side": 1,
+      "message": "I made a direct bandwidth translation from the old code, currently all transport bandwidth are set to `8000` (`TXRX_64KBITS_RATE`)\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Bluetooth/system/device/src/esco_parameters.cc?q\u003desco_parameters.cc%20%20",
+      "parentUuid": "a46bd128_31a9cefe",
+      "range": {
+        "startLine": 27,
+        "startChar": 54,
+        "endLine": 27,
+        "endChar": 58
+      },
+      "revId": "2fa1ab4bd578026d2a913183e6bd6fa781c37206",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
