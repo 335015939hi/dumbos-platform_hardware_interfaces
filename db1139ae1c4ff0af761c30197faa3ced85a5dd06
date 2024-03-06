@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36bfe528_cb73c528",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-06T18:37:31Z",
+      "side": 1,
+      "message": "Almost done, thanks for your efforts!",
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfe3d853_b7869930",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-06T18:37:31Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 168,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 9
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3f4f6d2_d0a7dc98",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-06T18:37:31Z",
+      "side": 1,
+      "message": "const",
+      "range": {
+        "startLine": 180,
+        "startChar": 8,
+        "endLine": 180,
+        "endChar": 13
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e621a10d_39855596",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-06T18:37:31Z",
+      "side": 1,
+      "message": "Repeating my comment that since the input signal always has energy, we will never end up in the `else` branch. In order to test a zero-energy input we can add another boolean parameter to the test which instructs it either to use a zero or a non-zero signal.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 29
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "763c2441_cd7f1fa4",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-06T18:37:31Z",
+      "side": 1,
+      "message": "Since we are comparing floats, they may end up being not the same withing the `kAbsError`, and that should not be accepted as a success. I don\u0027t see a dedicated `EXPECT` for that, I would suggest `EXPECT_GT(abs(outputRmse - inputRmse), kAbsError)`.",
+      "range": {
+        "startLine": 185,
+        "startChar": 16,
+        "endLine": 185,
+        "endChar": 49
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff617dcd_7d794c18",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-06T18:37:31Z",
+      "side": 1,
+      "message": "Please change these 3 `ASSERT`s to `EXPECT` because a failure to match is just a verification failure, the test can continue to run.\n```suggestion\n            EXPECT_NE(outputRmse, 0);\n            if (strength !\u003d 0) {\n                EXPECT_NE(inputRmse, outputRmse);\n            }\n        } else {\n            EXPECT_NEAR(inputRmse, outputRmse, kAbsError);\n```",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 58
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
