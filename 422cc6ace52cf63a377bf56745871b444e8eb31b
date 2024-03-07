@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bf38c84_075f77d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-07T21:02:20Z",
+      "side": 1,
+      "message": "Thanks for this thorough work, Jaideep! A couple of comments.",
+      "revId": "422cc6ace52cf63a377bf56745871b444e8eb31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "959eede3_41386c6b",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-07T21:02:20Z",
+      "side": 1,
+      "message": "Note that in `setModuleDebug` there is a colon between the function name and the module type: `LOG(DEBUG) \u003c\u003c __func__ \u003c\u003c \": \" \u003c\u003c mType \u003c\u003c \":\"`. I think, it\u0027s OK to use your style. However, for consistency, please update `setModuleDebug`, too.",
+      "range": {
+        "startLine": 176,
+        "startChar": 19,
+        "endLine": 176,
+        "endChar": 51
+      },
+      "revId": "422cc6ace52cf63a377bf56745871b444e8eb31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74c135a5_d2dc4619",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-07T21:02:20Z",
+      "side": 1,
+      "message": "Since an error is returned when not every parameter is known, we need to print a clarifying error message, that\u0027s why `ERROR` should be used here. Does it cause any issues to you?",
+      "range": {
+        "startLine": 1396,
+        "startChar": 16,
+        "endLine": 1396,
+        "endChar": 23
+      },
+      "revId": "422cc6ace52cf63a377bf56745871b444e8eb31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "319877cf_9cab29fe",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-07T21:02:20Z",
+      "side": 1,
+      "message": "Same question about `ERROR -\u003e VERBOSE` change.",
+      "range": {
+        "startLine": 1436,
+        "startChar": 0,
+        "endLine": 1437,
+        "endChar": 33
+      },
+      "revId": "422cc6ace52cf63a377bf56745871b444e8eb31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
