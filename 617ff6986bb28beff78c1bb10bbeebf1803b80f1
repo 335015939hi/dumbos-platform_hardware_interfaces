@@ -16,6 +16,24 @@
       "message": "Hi, google friends, what the status for the patch? Thanks!",
       "revId": "617ff6986bb28beff78c1bb10bbeebf1803b80f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb5aa93e_9fb2a163",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-03-07T13:38:27Z",
+      "side": 1,
+      "message": "Hello,\n\nI\u0027m not an expert in this area, but I think there is a fix for this issue which does things slightly differently, but hopefully still fixes the crash for the issue you\u0027re seeing.\n\nThat fix was made in Google\u0027s internal Gerrit, but I believe was just (within the last 24 hours) merged to the public Gerrit.  https://android.googlesource.com/platform/hardware/interfaces/+/65382f6a50f6e78aacd57d3f17e2e63adf2bd2a5 is the change that I think should hopefully help.\n\nLet us know if that takes care of this issue, and if not, please rebase this CL on top of that.  Thanks!",
+      "parentUuid": "73eeb6ff_62340e4b",
+      "revId": "617ff6986bb28beff78c1bb10bbeebf1803b80f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
