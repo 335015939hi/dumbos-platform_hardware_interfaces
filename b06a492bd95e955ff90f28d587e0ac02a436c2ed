@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81be3c04_53e03ff2",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-03-07T00:58:03Z",
+      "side": 1,
+      "message": "question: why not `out_suggested-\u003eext \u003d in_requested.ext`?",
+      "range": {
+        "startLine": 1172,
+        "startChar": 16,
+        "endLine": 1172,
+        "endChar": 39
+      },
+      "revId": "b06a492bd95e955ff90f28d587e0ac02a436c2ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
