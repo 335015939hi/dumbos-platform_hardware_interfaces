@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9e7768a_22bc966f",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-07T14:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3d05d33_70eb0aca",
+      "range": {
+        "startLine": 63,
+        "startChar": 14,
+        "endLine": 63,
+        "endChar": 36
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fac4541_7af00151",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-06T18:47:48Z",
       "side": 1,
       "message": "maybe `setAndVerifyStrength`?",
+      "range": {
+        "startLine": 79,
+        "startChar": 9,
+        "endLine": 79,
+        "endChar": 31
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13218026_96eefd17",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-07T14:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fac4541_7af00151",
       "range": {
         "startLine": 79,
         "startChar": 9,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c597ffc_b4cdd248",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-07T14:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfe3d853_b7869930",
+      "range": {
+        "startLine": 168,
+        "startChar": 4,
+        "endLine": 168,
+        "endChar": 9
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3f4f6d2_d0a7dc98",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-03-06T18:37:31Z",
       "side": 1,
       "message": "const",
+      "range": {
+        "startLine": 180,
+        "startChar": 8,
+        "endLine": 180,
+        "endChar": 13
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2c1d804_683cae56",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-07T14:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3f4f6d2_d0a7dc98",
       "range": {
         "startLine": 180,
         "startChar": 8,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d372dc91_1e50c95f",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-07T14:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e621a10d_39855596",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 29
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "763c2441_cd7f1fa4",
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "227709fa_8b9c519c",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-07T14:41:53Z",
+      "side": 1,
+      "message": "Difference is less than ```kAbsError```, using less than comparison.",
+      "parentUuid": "763c2441_cd7f1fa4",
+      "range": {
+        "startLine": 185,
+        "startChar": 16,
+        "endLine": 185,
+        "endChar": 49
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff617dcd_7d794c18",
@@ -169,6 +313,30 @@
       "writtenOn": "2024-03-06T18:37:31Z",
       "side": 1,
       "message": "Please change these 3 `ASSERT`s to `EXPECT` because a failure to match is just a verification failure, the test can continue to run.\n```suggestion\n            EXPECT_NE(outputRmse, 0);\n            if (strength !\u003d 0) {\n                EXPECT_NE(inputRmse, outputRmse);\n            }\n        } else {\n            EXPECT_NEAR(inputRmse, outputRmse, kAbsError);\n```",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 58
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da85f787_c2350c08",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-07T14:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff617dcd_7d794c18",
       "range": {
         "startLine": 183,
         "startChar": 0,
