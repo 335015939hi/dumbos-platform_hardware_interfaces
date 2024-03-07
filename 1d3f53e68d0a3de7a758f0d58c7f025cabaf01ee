@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c85dc44_c4ef8351",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesGcmMode.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-03-07T22:28:04Z",
+      "side": 1,
+      "message": "This isn\u0027t really possible. First, the output of the GHASH operation depends on the hash key, which the caller doesn\u0027t have access to. Second, when a nonce that is either longer or shorter than 12 bytes is used, the GHASH output also sets the starting value for the counter.\n\nI think the fix to this is is to delete the text after the semicolon, and just state that only 12-byte nonces are supported.",
+      "revId": "1d3f53e68d0a3de7a758f0d58c7f025cabaf01ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea50bada_c9f2c001",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/SymmetricAuthOperationParameters.aidl",
         "patchSetId": 9
