@@ -51,6 +51,24 @@
       "parentUuid": "ea50bada_c9f2c001",
       "revId": "1d3f53e68d0a3de7a758f0d58c7f025cabaf01ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e829e48d_4367e900",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/SymmetricAuthOperationParameters.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-03-07T22:38:27Z",
+      "side": 1,
+      "message": "It just seems odd to me that we have a generically named parameters type with only one use. It\u0027s not a blocker, but this isn\u0027t clear.",
+      "parentUuid": "d79713b8_d74c354a",
+      "revId": "1d3f53e68d0a3de7a758f0d58c7f025cabaf01ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
