@@ -39,6 +39,30 @@
       },
       "revId": "d9cad8aed5e15295d0cd01c8facf41be065da567",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91486c46_1bf35702",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2828,
+      "author": {
+        "id": 1130869
+      },
+      "writtenOn": "2024-03-07T05:40:15Z",
+      "side": 1,
+      "message": "Hi, Avichal, the patch need refine? I can\u0027t get the point from your comment.",
+      "parentUuid": "be08e4e1_590b7871",
+      "range": {
+        "startLine": 2820,
+        "startChar": 0,
+        "endLine": 2828,
+        "endChar": 86
+      },
+      "revId": "d9cad8aed5e15295d0cd01c8facf41be065da567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
