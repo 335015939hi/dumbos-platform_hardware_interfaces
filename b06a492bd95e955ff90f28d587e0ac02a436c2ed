@@ -22,6 +22,30 @@
       },
       "revId": "b06a492bd95e955ff90f28d587e0ac02a436c2ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d7822f5_b630c730",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-07T01:04:47Z",
+      "side": 1,
+      "message": "Please see http://b/302736184#comment2. Some fields in `ext` originate from the client, some from the HAL.",
+      "parentUuid": "81be3c04_53e03ff2",
+      "range": {
+        "startLine": 1172,
+        "startChar": 16,
+        "endLine": 1172,
+        "endChar": 39
+      },
+      "revId": "b06a492bd95e955ff90f28d587e0ac02a436c2ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
