@@ -67,6 +67,24 @@
       "message": "We need to keep the old hash value in the `.hash` file and add this new value on a new line. The order doesn\u0027t matter, so you can add `a741c2814ba6e9852e106bc26e820d741f66ebb8` before or after the new hash.",
       "revId": "2c3ce2881cf1db9707634a27c27ccc39ccbdee33",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78a4ff52_70b8d617",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-03-07T16:58:21Z",
+      "side": 1,
+      "message": "This is so VTS will still allow devices that implemented the HAL before this change to pass.",
+      "parentUuid": "bac24126_5972813e",
+      "revId": "2c3ce2881cf1db9707634a27c27ccc39ccbdee33",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
