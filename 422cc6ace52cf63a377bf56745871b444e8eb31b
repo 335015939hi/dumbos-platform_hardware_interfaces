@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99d68b6e_57f410b7",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2024-03-08T05:04:33Z",
+      "side": 1,
+      "message": "Thanks for pointing this,\nI feel having a colon is better separator than \"spaces\".\nModified the change to use \n\nLOG(ERROR) \u003c\u003c __func__ \u003c\u003c \": \" \u003c\u003c mType \u003c\u003c \":",
+      "parentUuid": "959eede3_41386c6b",
+      "range": {
+        "startLine": 176,
+        "startChar": 19,
+        "endLine": 176,
+        "endChar": 51
+      },
+      "revId": "422cc6ace52cf63a377bf56745871b444e8eb31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74c135a5_d2dc4619",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25772c30_818b3736",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2024-03-08T05:04:33Z",
+      "side": 1,
+      "message": "Each Module might not support all parameters, but that does not mean an error.\n\nAs the framework code calls get/set VendorParameters on all modules, for all non standard parameters there will be always error prints from usb/submix/bluetooth modules, which will lead to log spamming.\n\nFor instance we have some parameter which we support in our Primary Module, but those are called on remaining modules as well, leading to below situation.\n\n\tLine 5456: 02-29 11:28:22.057 29163 29163 D AHAL_Module: getVendorParameters: id count: 1\n\tLine 5457: 02-29 11:28:22.057 29163 29163 E AHAL_Module: getVendorParameters: unrecognized parameter \"isCRSsupported\"\n\tLine 5461: 02-29 11:28:22.057 29163 29339 D AHAL_Module: getVendorParameters: id count: 1\n\tLine 5462: 02-29 11:28:22.057 29163 29339 E AHAL_Module: getVendorParameters: unrecognized parameter \"isCRSsupported\"\n\tLine 5471: 02-29 11:28:22.057 29163 29339 D AHAL_Module: getVendorParameters: id count: 1\n\tLine 5473: 02-29 11:28:22.057 29163 29339 E AHAL_Module: getVendorParameters: unrecognized parameter \"vr_audio_mode_on\"\n\tLine 5481: 02-29 11:28:22.057 29163 29339 D AHAL_Module: getVendorParameters: id count: 1\n\tLine 5482: 02-29 11:28:22.057 29163 29339 E AHAL_Module: getVendorParameters: unrecognized parameter \"vr_audio_mode_on\"\n\tLine 6165: 02-29 11:28:22.618 29163 29339 D AHAL_Module: getVendorParameters: id count: 3\n\t\n\t\nThis kind of error message gives wrong impression on AHAL side like something is wrong.",
+      "parentUuid": "74c135a5_d2dc4619",
+      "range": {
+        "startLine": 1396,
+        "startChar": 16,
+        "endLine": 1396,
+        "endChar": 23
+      },
+      "revId": "422cc6ace52cf63a377bf56745871b444e8eb31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "319877cf_9cab29fe",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-03-07T21:02:20Z",
       "side": 1,
       "message": "Same question about `ERROR -\u003e VERBOSE` change.",
+      "range": {
+        "startLine": 1436,
+        "startChar": 0,
+        "endLine": 1437,
+        "endChar": 33
+      },
+      "revId": "422cc6ace52cf63a377bf56745871b444e8eb31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c0386da_98a2f589",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2024-03-08T05:04:33Z",
+      "side": 1,
+      "message": "commented above regarding the rationale of not having an ERROR message.\n\nIf you think we should get rid of log message then we can do that as well.",
+      "parentUuid": "319877cf_9cab29fe",
       "range": {
         "startLine": 1436,
         "startChar": 0,
