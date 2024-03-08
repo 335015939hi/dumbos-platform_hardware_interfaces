@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ce072d_9bd79eb9",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-08T20:19:26Z",
+      "side": 1,
+      "message": "Looks like this check is failing:\n\n```\nhardware/interfaces/audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp:196: Failure\nExpected: (abs(outputRmse - inputRmse)) \u003e (kAbsError), actual: 0 vs 1e-05\n```\n\nThat means, input and output have the same energy.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 66
+      },
+      "revId": "2dd4203ee6af3c1b9a78d962d0d56eed9c3751f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
