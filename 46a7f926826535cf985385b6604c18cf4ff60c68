@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4195b1ee_56ce2f3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2024-03-08T13:55:48Z",
+      "side": 1,
+      "message": "nit: `Bug: 325906414` for context",
+      "revId": "46a7f926826535cf985385b6604c18cf4ff60c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2ba135b1_7fe58228",
         "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
         "patchSetId": 2
@@ -14,6 +31,30 @@
       "writtenOn": "2024-03-08T13:00:45Z",
       "side": 1,
       "message": "nit: Maybe just \"ordered\"? According to RFC 8949, \"canonical\" is mostly associated with the ordering in RFC 7049\n\n\u003e Although [RFC7049] used the term \"Canonical CBOR\" for its form of requirements on deterministic encoding, this document avoids this term because \"canonicalization\" is often associated with specific uses of deterministic encoding only",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "46a7f926826535cf985385b6604c18cf4ff60c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a243640_c52aebf0",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2024-03-08T13:55:48Z",
+      "side": 1,
+      "message": "If the fields don\u0027t all need to be deterministically encoded and it\u0027s just the order that\u0027s important then \"ordered\" should be used. Otherwise, RFC 8949 uses the catchy term \"length-first core deterministic encoding requirements\" to describe this specific flavour of canonical form. https://datatracker.ietf.org/doc/html/rfc8949#section-4.2.3-1",
+      "parentUuid": "2ba135b1_7fe58228",
       "range": {
         "startLine": 31,
         "startChar": 7,
