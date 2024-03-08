@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "901c305a_c0c44c22",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesGcmMode.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-08T18:11:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c85dc44_c4ef8351",
+      "revId": "1d3f53e68d0a3de7a758f0d58c7f025cabaf01ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea50bada_c9f2c001",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "It just seems odd to me that we have a generically named parameters type with only one use. It\u0027s not a blocker, but this isn\u0027t clear.",
       "parentUuid": "d79713b8_d74c354a",
+      "revId": "1d3f53e68d0a3de7a758f0d58c7f025cabaf01ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4ace7a4_d13694f4",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/SymmetricAuthOperationParameters.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-08T18:11:51Z",
+      "side": 1,
+      "message": "The generic naming was in case we end up needing to support a different type of authenticated other than AES GCM (I don\u0027t think that is likely but didn\u0027t want to have to change field names in that case). I expanded the docstring at the top to specify that we are only supporting AES-GCM at the moment.",
+      "parentUuid": "e829e48d_4367e900",
       "revId": "1d3f53e68d0a3de7a758f0d58c7f025cabaf01ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
