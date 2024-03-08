@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ba135b1_7fe58228",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-03-08T13:00:45Z",
+      "side": 1,
+      "message": "nit: Maybe just \"ordered\"? According to RFC 8949, \"canonical\" is mostly associated with the ordering in RFC 7049\n\n\u003e Although [RFC7049] used the term \"Canonical CBOR\" for its form of requirements on deterministic encoding, this document avoids this term because \"canonicalization\" is often associated with specific uses of deterministic encoding only",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "46a7f926826535cf985385b6604c18cf4ff60c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b6a6e69_2eb070b9",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-03-08T13:00:45Z",
+      "side": 1,
+      "message": "ditto.",
+      "range": {
+        "startLine": 32,
+        "startChar": 57,
+        "endLine": 32,
+        "endChar": 66
+      },
+      "revId": "46a7f926826535cf985385b6604c18cf4ff60c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
