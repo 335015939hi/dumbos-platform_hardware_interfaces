@@ -105,6 +105,24 @@
       "parentUuid": "e829e48d_4367e900",
       "revId": "1d3f53e68d0a3de7a758f0d58c7f025cabaf01ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b476fa9a_6a85466e",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/SymmetricAuthOperationParameters.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1809421
+      },
+      "writtenOn": "2024-03-08T18:13:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f4ace7a4_d13694f4",
+      "revId": "1d3f53e68d0a3de7a758f0d58c7f025cabaf01ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
