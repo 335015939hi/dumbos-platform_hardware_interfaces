@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1639936e_4f1ef377",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-08T09:33:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9276eaa_1674b6a1",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 9
+      },
+      "revId": "f2acb238c32bcd6a95cbd2e962500b5d88825c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "171c8267_2f2e577d",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-07T18:23:19Z",
       "side": 1,
       "message": "I would prefer to use `EXPECT_NEAR` because it will print both values when the expectation does not hold.\n\n```suggestion\n            EXPECT_NEAR(outputRmse, inputRmse, kAbsError);\n```\n\nI was suggesting to use the absolute value of the difference for the case when we need to ensure that the values are different, with a delta \u003e\u003d kAbsError, line `197`.",
+      "range": {
+        "startLine": 200,
+        "startChar": 12,
+        "endLine": 200,
+        "endChar": 49
+      },
+      "revId": "f2acb238c32bcd6a95cbd2e962500b5d88825c09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38a7c05b_303d18c7",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-08T09:33:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "171c8267_2f2e577d",
       "range": {
         "startLine": 200,
         "startChar": 12,

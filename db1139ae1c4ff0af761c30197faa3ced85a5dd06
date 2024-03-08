@@ -324,6 +324,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2f0298c_55177e9a",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-08T09:33:42Z",
+      "side": 1,
+      "message": "I had added the check for ```else``` part.\nMade the suggested changes.",
+      "parentUuid": "abb532a5_8419e3d4",
+      "range": {
+        "startLine": 185,
+        "startChar": 16,
+        "endLine": 185,
+        "endChar": 49
+      },
+      "revId": "db1139ae1c4ff0af761c30197faa3ced85a5dd06",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff617dcd_7d794c18",
