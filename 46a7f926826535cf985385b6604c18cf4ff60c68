@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a5e22ce_9f48c672",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-03-08T14:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4195b1ee_56ce2f3e",
+      "revId": "46a7f926826535cf985385b6604c18cf4ff60c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ba135b1_7fe58228",
@@ -65,6 +83,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a466e659_c7a97a27",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-03-08T14:11:08Z",
+      "side": 1,
+      "message": "Technically, we just require order. And we really don\u0027t even need that anymore, but it\u0027s in the tests \"just in case\".",
+      "parentUuid": "5a243640_c52aebf0",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "46a7f926826535cf985385b6604c18cf4ff60c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b6a6e69_2eb070b9",
@@ -78,6 +120,30 @@
       "writtenOn": "2024-03-08T13:00:45Z",
       "side": 1,
       "message": "ditto.",
+      "range": {
+        "startLine": 32,
+        "startChar": 57,
+        "endLine": 32,
+        "endChar": 66
+      },
+      "revId": "46a7f926826535cf985385b6604c18cf4ff60c68",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2076276_114168dd",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/DeviceInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-03-08T14:11:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b6a6e69_2eb070b9",
       "range": {
         "startLine": 32,
         "startChar": 57,
