@@ -28,8 +28,9 @@ package android.hardware.security.keymint;
 parcelable DeviceInfo {
     /**
      * DeviceInfo is a CBOR Map structure described by the following CDDL. DeviceInfo must be
-     * canonicalized according to the specification in RFC 7049. The ordering presented here is
-     * non-canonical to group similar entries semantically.
+     * canonicalized according to the Length-First Map Key Ordering specified in RFC 8949,
+     * Section 4.2.3. The ordering presented here is non-canonical to group similar entries
+     * semantically.
      *
      * The DeviceInfo has changed across versions 1, 2, and 3 of the HAL. All versions of the
      * DeviceInfo CDDL are described in the DeviceInfoV*.cddl files. Please refer to the CDDL
