@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9abf5fd7_a87ade31",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1396,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-08T18:23:04Z",
+      "side": 1,
+      "message": "Ah, indeed. Thanks for the explanation!",
+      "parentUuid": "25772c30_818b3736",
+      "range": {
+        "startLine": 1396,
+        "startChar": 16,
+        "endLine": 1396,
+        "endChar": 23
+      },
+      "revId": "422cc6ace52cf63a377bf56745871b444e8eb31b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "319877cf_9cab29fe",
