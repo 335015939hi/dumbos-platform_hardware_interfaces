@@ -46,6 +46,30 @@
       },
       "revId": "2dd4203ee6af3c1b9a78d962d0d56eed9c3751f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa0b7821_ed4900db",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-03-09T17:48:32Z",
+      "side": 1,
+      "message": "With default implementations removed, the tests are now passing.",
+      "parentUuid": "0e412467_7e3cbb47",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 66
+      },
+      "revId": "2dd4203ee6af3c1b9a78d962d0d56eed9c3751f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
