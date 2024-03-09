@@ -22,6 +22,30 @@
       },
       "revId": "2dd4203ee6af3c1b9a78d962d0d56eed9c3751f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e412467_7e3cbb47",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-03-09T03:06:16Z",
+      "side": 1,
+      "message": "This failure is for ```Implementor_The_Android_Open_Source_Project_name_VirtualizerSw``` non-zero input.\nIt is default implementation which copies input to output.",
+      "parentUuid": "08ce072d_9bd79eb9",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 66
+      },
+      "revId": "2dd4203ee6af3c1b9a78d962d0d56eed9c3751f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
