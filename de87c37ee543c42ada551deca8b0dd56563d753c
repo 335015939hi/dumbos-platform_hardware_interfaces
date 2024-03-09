@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c841611_0d12b5f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-03-09T00:10:32Z",
+      "side": 1,
+      "message": "I\u0027d rather not change this file at all.  It\u0027s very old at this point.  The AIDL interface is newer and supported, can that one be used instead?",
+      "revId": "de87c37ee543c42ada551deca8b0dd56563d753c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62167ed6_7a6e8cb2",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-03-09T00:10:32Z",
+      "side": 1,
+      "message": "already called ?\n\nIn that case, should we crash to clean up state?  Something is very wrong if we have two clients calling initialize.  We should at least call the callback to say it wasn\u0027t successful.",
+      "revId": "de87c37ee543c42ada551deca8b0dd56563d753c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14acaef4_8d0275bf",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-03-09T00:10:32Z",
+      "side": 1,
+      "message": "I feel like this can be an ASSERT or be removed.  Are there cases where data is being sent before Initialize finishes?\n```suggestion\n  ASSERT(bt_enabled \u003d\u003d 1);\n  VendorInterface::get()-\u003eSend(type, data.data(), data.size());\n}\n\n```",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 3
+      },
+      "revId": "de87c37ee543c42ada551deca8b0dd56563d753c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
