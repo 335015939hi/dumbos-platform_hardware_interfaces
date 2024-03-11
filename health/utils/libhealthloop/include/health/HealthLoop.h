@@ -77,7 +77,7 @@ class HealthLoop {
     // Helper for implementing ScheduleBatteryUpdate(). An implementation of
     // ScheduleBatteryUpdate should get charger_online from BatteryMonitor::update(),
     // then reset wake alarm interval by calling AdjustWakealarmPeriods.
-    void AdjustWakealarmPeriods(bool charger_online);
+    void AdjustWakealarmPeriods(bool charger_online, int battery_level);
 
   private:
     struct EventHandler {

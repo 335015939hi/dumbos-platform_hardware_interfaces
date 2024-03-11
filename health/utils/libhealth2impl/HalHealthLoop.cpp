@@ -78,7 +78,7 @@ int HalHealthLoop::PrepareToWait() {
 
 void HalHealthLoop::OnHealthInfoChanged(const HealthInfo& health_info) {
     set_charger_online(health_info);
-    AdjustWakealarmPeriods(charger_online());
+    AdjustWakealarmPeriods(charger_online(), health_info.legacy.legacy.batteryLevel);
 }
 
 void HalHealthLoop::set_charger_online(const HealthInfo& health_info) {

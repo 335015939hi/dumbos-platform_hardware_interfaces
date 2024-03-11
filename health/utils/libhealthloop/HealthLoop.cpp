@@ -44,6 +44,9 @@ namespace android {
 namespace hardware {
 namespace health {
 
+constexpr int kAdaptivePeriodicChoresMinBatt = 5;
+constexpr int kAdaptivePeriodicChoresRate = 8;
+
 HealthLoop::HealthLoop() {
     InitHealthdConfig(&healthd_config_);
     awake_poll_interval_ = -1;
@@ -96,12 +99,16 @@ void HealthLoop::WakeAlarmSetInterval(int interval) {
         KLOG_ERROR(LOG_TAG, "wakealarm_set_interval: timerfd_settime failed\n");
 }
 
-void HealthLoop::AdjustWakealarmPeriods(bool charger_online) {
+void HealthLoop::AdjustWakealarmPeriods(bool charger_online, int battery_level) {
     // Fast wake interval when on charger (watch for overheat);
     // slow wake interval when on battery (watch for drained battery).
 
     int new_wake_interval = charger_online ? healthd_config_.periodic_chores_interval_fast
                                            : healthd_config_.periodic_chores_interval_slow;
+
+    if (!charger_online && battery_level > kAdaptivePeriodicChoresMinBatt) {
+        new_wake_interval *= std::min((battery_level / 10) * kAdaptivePeriodicChoresRate, 1);
+    }
 
     if (new_wake_interval != wakealarm_wake_interval_) WakeAlarmSetInterval(new_wake_interval);
 
