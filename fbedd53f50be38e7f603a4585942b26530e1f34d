@@ -16,6 +16,24 @@
       "message": "Hello,\nLooks like the Presubmit verification failed. I\u0027m unable to see the logs and can\u0027t login. Can someone give me a hint where to continue?\nThanks!\nFelix",
       "revId": "fbedd53f50be38e7f603a4585942b26530e1f34d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a978ae8_79f20f21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-03-11T16:15:24Z",
+      "side": 1,
+      "message": "Failures on all of the internal branches:\n```\nFAILED: out/soong/.intermediates/hardware/interfaces/automotive/vehicle/aidl/android.hardware.automotive.vehicle-api/has_development\nrm -f out/soong/.intermediates/hardware/interfaces/automotive/vehicle/aidl/android.hardware.automotive.vehicle-api/has_development \u0026\u0026 out/host/linux-x86/bin/aidl --checkapi\u003dequal --stability vintf hardware/interfaces/automotive/vehicle/aidl/aidl_api/android.hardware.automotive.vehicle/3 out/soong/.intermediates/hardware/interfaces/automotive/vehicle/aidl/android.hardware.automotive.vehicle-api/dump 2\u003e /dev/null || ( echo \"Interface android.hardware.automotive.vehicle can not be marked \\`frozen: true\\` because there are changes between the current version and the last frozen version.\" \u0026\u0026 exit -1) \u0026\u0026 echo 0 \u003e out/soong/.intermediates/hardware/interfaces/automotive/vehicle/aidl/android.hardware.automotive.vehicle-api/has_development # hash of input list: 7e1bb5cbed62bdf974854f54560c4cdb0e950f4aff1c6da0b4d0a953483a85f2\nInterface android.hardware.automotive.vehicle can not be marked `frozen: true` because there are changes between the current version and the last frozen version.\n```\n\nV3 of this interface is frozen internally. So if we want this change we need to either (1) make sure this interface on AOSP to in sync with the interface internally (cherry-pick all of the changes to the interface + the api freeze, or wait until the next AOSP release) or (2) submit this internally as a change to V3 (or even more tricky work to get it into V2 AND V3).",
+      "parentUuid": "b5eb5973_1595b418",
+      "revId": "fbedd53f50be38e7f603a4585942b26530e1f34d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
