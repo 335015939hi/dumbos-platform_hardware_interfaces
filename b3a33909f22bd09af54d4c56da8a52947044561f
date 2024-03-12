@@ -16,6 +16,24 @@
       "message": "Hi, google friends, what the status for the patch? Thanks!",
       "revId": "b3a33909f22bd09af54d4c56da8a52947044561f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34894bbb_c490604b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2024-03-12T01:15:42Z",
+      "side": 1,
+      "message": "Apologies, just coming to this. There have been a recent set of changes to ExternalCameraHAL which should fix a lot of the issues that these CLs were fixing.",
+      "parentUuid": "ca1d09f5_a60790c6",
+      "revId": "b3a33909f22bd09af54d4c56da8a52947044561f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
