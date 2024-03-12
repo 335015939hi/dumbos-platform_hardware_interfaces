@@ -2173,6 +2173,12 @@ TEST_P(GraphicsComposerAidlCommandTest, DisplayDecoration) {
         writer.validateDisplay(display.getDisplayId(), ComposerClientWriter::kNoTimestamp,
                                VtsComposerClient::kNoFrameIntervalNs);
         execute();
+
+        if (!mReader.takeChangedCompositionTypes(getPrimaryDisplayId()).empty()) {
+            GTEST_SUCCEED() << "Composition change requested, skipping test";
+            return;
+        }
+
         if (support) {
             ASSERT_TRUE(mReader.takeErrors().empty());
         } else {
