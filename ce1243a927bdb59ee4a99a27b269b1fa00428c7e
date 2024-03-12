@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "00250669_f44230a0",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DicePolicy.cddl",
+        "patchSetId": 47
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-12T16:17:23Z",
+      "side": 1,
+      "message": "It is not used at this point, only included to describe the format of the DICE policy.",
+      "parentUuid": "42845ed1_12b31dd5",
+      "revId": "ce1243a927bdb59ee4a99a27b269b1fa00428c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d06ba69b_f51336fb",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
         "patchSetId": 47
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26d91b61_0dce1109",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 47
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-12T16:17:23Z",
+      "side": 1,
+      "message": "These are inline here because they are the parameters of the function to be called, just grouped together in a struct. I can move the result one to this file if you think that would make things easier to read.",
+      "parentUuid": "d06ba69b_f51336fb",
+      "revId": "ce1243a927bdb59ee4a99a27b269b1fa00428c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b57a3db7_7b81282f",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
         "patchSetId": 47
@@ -48,6 +84,30 @@
       "writtenOn": "2024-02-29T00:33:31Z",
       "side": 1,
       "message": "Can you elaborate on why you return a policy in this case that does not match the keyMaterial that you return in the same struct? Is it just to avoid having another type so you can return input-policy-is-current, input-policy-is-old, no-input-policy-here-is-the-current-policy?",
+      "range": {
+        "startLine": 55,
+        "startChar": 78,
+        "endLine": 56,
+        "endChar": 87
+      },
+      "revId": "ce1243a927bdb59ee4a99a27b269b1fa00428c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9369fbbc_2962d95c",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 47
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-12T16:17:23Z",
+      "side": 1,
+      "message": "Yes, that is the reason for this. Would you prefer a different approach?",
+      "parentUuid": "b57a3db7_7b81282f",
       "range": {
         "startLine": 55,
         "startChar": 78,
