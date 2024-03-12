@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11bc0233_11367616",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156643
+      },
+      "writtenOn": "2024-03-12T15:27:56Z",
+      "side": 1,
+      "message": "This is too specific. It will fail stricter delay schedules, which are permitted under current CDD/VSR.\n\nAlso, if it insists on measuring 10 failures it will take hours or days to run. It should stop running after some reasonable amount of time (and unblock the timeout for any following tests by writing or reading with the correct key).",
+      "revId": "2b4f96d9506bbeaec119e113adb0cb921a3be45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
