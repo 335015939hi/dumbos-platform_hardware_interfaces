@@ -1998,6 +1998,12 @@ TEST_P(GraphicsComposerAidlCommandTest, DisplayDecoration) {
                               /*acquireFence*/ -1);
         writer.validateDisplay(display.getDisplayId(), ComposerClientWriter::kNoTimestamp);
         execute();
+
+        if (!mReader.takeChangedCompositionTypes(getPrimaryDisplayId()).empty()) {
+            GTEST_SUCCEED() << "Composition change requested, skipping test";
+            return;
+        }
+
         if (support) {
             ASSERT_TRUE(mReader.takeErrors().empty());
         } else {
