@@ -34,6 +34,24 @@
       "parentUuid": "b5eb5973_1595b418",
       "revId": "fbedd53f50be38e7f603a4585942b26530e1f34d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54ed1abd_5fd04bc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3237585
+      },
+      "writtenOn": "2024-03-12T09:03:06Z",
+      "side": 1,
+      "message": "Thanks. As far as I understand there\u0027s nothing I can do and someone with access the the internal branches can take action. Furthermore you googlers have to decide how to proceed.",
+      "parentUuid": "8a978ae8_79f20f21",
+      "revId": "fbedd53f50be38e7f603a4585942b26530e1f34d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
