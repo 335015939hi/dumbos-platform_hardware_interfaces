@@ -39,6 +39,8 @@ using ndk::SpAIBinder;
 
 namespace {
 constexpr static int kCallbackTimeoutMs = 250;
+// This timeout should be same as that of AOSP stack (HAL_OPEN_TIMEOUT_MS)
+constexpr static int kOpenCallbackTimeoutMs = 20000;
 }  // namespace
 
 class UwbClientCallback : public BnUwbClientCallback {
@@ -137,7 +139,7 @@ TEST_P(UwbAidl, ChipOpen) {
                     open_cb_promise.set_value();
                 }
             });
-    std::chrono::milliseconds timeout{kCallbackTimeoutMs};
+    std::chrono::milliseconds timeout{kOpenCallbackTimeoutMs};
     const auto iuwb_chip = getAnyChip();
     EXPECT_TRUE(iuwb_chip->open(callback).isOk());
     EXPECT_EQ(open_cb_future.wait_for(timeout), std::future_status::ready);
