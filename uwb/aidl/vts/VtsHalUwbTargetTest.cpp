@@ -38,7 +38,7 @@ using ndk::ScopedAStatus;
 using ndk::SpAIBinder;
 
 namespace {
-constexpr static int kCallbackTimeoutMs = 250;
+constexpr static int kCallbackTimeoutMs = 20000;
 }  // namespace
 
 class UwbClientCallback : public BnUwbClientCallback {
