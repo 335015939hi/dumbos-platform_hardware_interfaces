@@ -180,6 +180,9 @@ impl IUwbChipAsyncServer for UwbChip {
             let mut reader = AsyncFd::new(reader).unwrap();
 
             loop {
+                const MESSAGE_TYPE_MASK: u8 = 0b11100000;
+                const DATA_MESSAGE_TYPE: u8 = 0b000;
+                const COMMON_HEADER_SIZE: usize = 1;
                 const UWB_HEADER_SIZE: usize = 4;
                 let mut buffer = vec![0; UWB_HEADER_SIZE];
 
@@ -224,7 +227,17 @@ impl IUwbChipAsyncServer for UwbChip {
                 // Read the remaining header bytes, if truncated.
                 read_exact(reader.get_mut(), &mut buffer[read_len..]).unwrap();
 
-                let length = buffer[3] as usize + UWB_HEADER_SIZE;
+                let common_header = &buffer[0..COMMON_HEADER_SIZE];
+                let mt = common_header[0] & MESSAGE_TYPE_MASK;
+                let payload_length = if mt == DATA_MESSAGE_TYPE {
+                    let payload_length_fields: [u8; 2] =
+                        buffer[2..=3].try_into().expect("Incorrect payload length");
+                    u16::from_le_bytes(payload_length_fields) as usize
+                } else {
+                    buffer[3] as usize
+                };
+
+                let length = payload_length + UWB_HEADER_SIZE;
                 buffer.resize(length, 0);
 
                 // Read the payload bytes.
