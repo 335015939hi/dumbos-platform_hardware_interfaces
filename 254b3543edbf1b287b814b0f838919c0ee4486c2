@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b0a9568_f02ffe4a",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1885151
+      },
+      "writtenOn": "2024-03-13T18:34:35Z",
+      "side": 1,
+      "message": "You mean a bit shift to align with LSB, such as `(common_header \u0026 MESSAGE_TYPE_MASK) \u003e\u003e 5` ?",
+      "parentUuid": "a11c66dc_3bbaaa50",
+      "revId": "254b3543edbf1b287b814b0f838919c0ee4486c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c7734f5_e03f293b",
         "filename": "uwb/aidl/default/src/uwb_chip.rs",
         "patchSetId": 2
