@@ -22,6 +22,30 @@
       },
       "revId": "2e7c1f4c8d54baaef9930eebb652eb9ba1172805",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ddc3926_29c0beb5",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1885151
+      },
+      "writtenOn": "2024-03-13T18:18:11Z",
+      "side": 1,
+      "message": "Certainly, I intended to clarify that it\u0027s the common_header by explicitly stating so, but the variable name already makes that clear. I\u0027ll keep the current variable name as it is but remove the array.",
+      "parentUuid": "e1580832_59d67572",
+      "range": {
+        "startLine": 230,
+        "startChar": 16,
+        "endLine": 231,
+        "endChar": 62
+      },
+      "revId": "2e7c1f4c8d54baaef9930eebb652eb9ba1172805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
