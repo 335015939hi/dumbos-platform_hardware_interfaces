@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1580832_59d67572",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-03-13T18:08:25Z",
+      "side": 1,
+      "message": "You can just access `buffer[0]`",
+      "range": {
+        "startLine": 230,
+        "startChar": 16,
+        "endLine": 231,
+        "endChar": 62
+      },
+      "revId": "2e7c1f4c8d54baaef9930eebb652eb9ba1172805",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
