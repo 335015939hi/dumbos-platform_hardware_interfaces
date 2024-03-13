@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a11c66dc_3bbaaa50",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1955705
+      },
+      "writtenOn": "2024-03-13T18:30:41Z",
+      "side": 1,
+      "message": "nit: Might want to bit-shift also for clarity, although in this case it shouldn\u0027t matter that much as DATA_MESSAGE_TYPE \u003d 0x0.",
+      "revId": "254b3543edbf1b287b814b0f838919c0ee4486c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c7734f5_e03f293b",
         "filename": "uwb/aidl/default/src/uwb_chip.rs",
         "patchSetId": 2
