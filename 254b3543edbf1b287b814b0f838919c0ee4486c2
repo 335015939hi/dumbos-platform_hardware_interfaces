@@ -22,6 +22,30 @@
       },
       "revId": "254b3543edbf1b287b814b0f838919c0ee4486c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaca43a1_d499e7f7",
+        "filename": "uwb/aidl/default/src/uwb_chip.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1885151
+      },
+      "writtenOn": "2024-03-13T18:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c7734f5_e03f293b",
+      "range": {
+        "startLine": 233,
+        "startChar": 49,
+        "endLine": 233,
+        "endChar": 83
+      },
+      "revId": "254b3543edbf1b287b814b0f838919c0ee4486c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
