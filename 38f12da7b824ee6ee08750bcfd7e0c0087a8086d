@@ -16,6 +16,24 @@
       "message": "Thanks!",
       "revId": "38f12da7b824ee6ee08750bcfd7e0c0087a8086d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10d807e_0dcbe85a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-03-14T17:55:13Z",
+      "side": 1,
+      "message": "FYI, internally, we merge it to V2, V3 and current (V4)",
+      "parentUuid": "986844ea_60849489",
+      "revId": "38f12da7b824ee6ee08750bcfd7e0c0087a8086d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
