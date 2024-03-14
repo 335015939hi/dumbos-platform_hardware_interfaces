@@ -33,6 +33,42 @@
       "message": "nit: Please add a comment here mentioning this timeout should be same as AOSP stack (and that some OEMs do all their UWBS init in this API).",
       "revId": "d68dac9ac842b86170f46aee97598f1a38cc30ba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75ade25b_f3e49426",
+        "filename": "uwb/aidl/vts/VtsHalUwbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1334608
+      },
+      "writtenOn": "2024-03-14T22:57:48Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b4888c47_b0ea46d8",
+      "revId": "d68dac9ac842b86170f46aee97598f1a38cc30ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "267ee3d5_26513671",
+        "filename": "uwb/aidl/vts/VtsHalUwbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1334608
+      },
+      "writtenOn": "2024-03-14T22:57:48Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "be426572_ced1f0c5",
+      "revId": "d68dac9ac842b86170f46aee97598f1a38cc30ba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
