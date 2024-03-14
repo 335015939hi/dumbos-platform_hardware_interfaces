@@ -424,6 +424,12 @@ class CertificateRequestTest : public CertificateRequestTestBase {
         CertificateRequestTestBase::SetUp();
         ASSERT_FALSE(HasFatalFailure());
 
+        int vsr_api_level = get_vsr_api_level();
+        if (vsr_api_level < 33) {
+            GTEST_SKIP() << "Applies only to VSR API level 33 or newer, this device is: "
+            << vsr_api_level;
+        }
+
         if (rpcHardwareInfo.versionNumber >= VERSION_WITH_CERTIFICATE_REQUEST_V2) {
             GTEST_SKIP() << "This test case only applies to RKP v1 and v2. "
                          << "RKP version discovered: " << rpcHardwareInfo.versionNumber;
@@ -701,6 +707,12 @@ class CertificateRequestV2Test : public CertificateRequestTestBase {
     void SetUp() override {
         CertificateRequestTestBase::SetUp();
         ASSERT_FALSE(HasFatalFailure());
+
+        int vsr_api_level = get_vsr_api_level();
+        if (vsr_api_level < 33) {
+            GTEST_SKIP() << "Applies only to VSR API level 33 or newer, this device is: "
+            << vsr_api_level;
+        }
 
         if (rpcHardwareInfo.versionNumber < VERSION_WITH_CERTIFICATE_REQUEST_V2) {
             GTEST_SKIP() << "This test case only applies to RKP v3 and above. "
