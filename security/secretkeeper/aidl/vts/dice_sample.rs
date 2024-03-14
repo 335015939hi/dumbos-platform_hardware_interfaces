@@ -28,10 +28,11 @@ use core::ffi::CStr;
 use coset::{
     iana, Algorithm, AsCborValue, CborSerializable, CoseKey, KeyOperation, KeyType, Label,
 };
+pub use diced_open_dice::CDI_SIZE;
 use diced_open_dice::{
     derive_cdi_private_key_seed, keypair_from_seed, retry_bcc_format_config_descriptor,
     retry_bcc_main_flow, retry_dice_main_flow, Config, DiceArtifacts, DiceConfigValues, DiceError,
-    DiceMode, InputValues, OwnedDiceArtifacts, CDI_SIZE, HASH_SIZE, HIDDEN_SIZE,
+    DiceMode, InputValues, OwnedDiceArtifacts, HASH_SIZE, HIDDEN_SIZE,
 };
 use log::error;
 use secretkeeper_client::dice::OwnedDiceArtifactsWithExplicitKey;
@@ -110,12 +111,20 @@ fn ed25519_public_key_to_cbor_value(public_key: &[u8]) -> Value {
 /// The `security_version` is included in the Android certificate as well as each subcomponent
 /// of AVB certificate.
 pub fn make_explicit_owned_dice(security_version: u64) -> OwnedDiceArtifactsWithExplicitKey {
-    let dice = make_sample_bcc_and_cdis(security_version);
+    make_explicit_owned_dice_for_uds(security_version, UDS)
+}
+
+/// Makes a DICE chain (BCC) from the sample input for the given UDS.
+pub fn make_explicit_owned_dice_for_uds(
+    security_version: u64,
+    uds: &[u8; CDI_SIZE],
+) -> OwnedDiceArtifactsWithExplicitKey {
+    let dice = make_sample_bcc_and_cdis(security_version, uds);
     OwnedDiceArtifactsWithExplicitKey::from_owned_artifacts(dice).unwrap()
 }
 
-fn make_sample_bcc_and_cdis(security_version: u64) -> OwnedDiceArtifacts {
-    let private_key_seed = derive_cdi_private_key_seed(UDS).unwrap();
+fn make_sample_bcc_and_cdis(security_version: u64, uds: &[u8; CDI_SIZE]) -> OwnedDiceArtifacts {
+    let private_key_seed = derive_cdi_private_key_seed(uds).unwrap();
 
     // Gets the root public key in DICE chain (BCC).
     let (public_key, _) = keypair_from_seed(private_key_seed.as_array()).unwrap();
@@ -136,7 +145,7 @@ fn make_sample_bcc_and_cdis(security_version: u64) -> OwnedDiceArtifacts {
         DiceMode::kDiceModeNormal,
         HIDDEN_ABL,
     );
-    let (cdi_values, cert) = retry_dice_main_flow(UDS, UDS, &input_values).unwrap();
+    let (cdi_values, cert) = retry_dice_main_flow(uds, uds, &input_values).unwrap();
     let bcc_value =
         Value::Array(vec![ed25519_public_key_value, de::from_reader(&cert[..]).unwrap()]);
     let mut bcc: Vec<u8> = vec![];
