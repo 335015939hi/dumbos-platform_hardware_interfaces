@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e4a0e7b_b81e7d89",
+        "filename": "security/secretkeeper/aidl/vts/dice_sample.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-03-14T14:23:28Z",
+      "side": 1,
+      "message": "Nit: Any use of `uds` being a parameter?",
+      "range": {
+        "startLine": 120,
+        "startChar": 4,
+        "endLine": 120,
+        "endChar": 25
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f6af053_0a66fe2e",
+        "filename": "security/secretkeeper/aidl/vts/dice_sample.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-03-14T14:23:28Z",
+      "side": 1,
+      "message": "I had to lookup with `bigun` means, that maybe a problem with my vocab though. Can you please add a comment to describe this parameter",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 15
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47eef9ac_efed501b",
+        "filename": "security/secretkeeper/aidl/vts/dice_sample.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-03-14T14:23:28Z",
+      "side": 1,
+      "message": "Oh wow! Compos use large number of extra packages",
+      "range": {
+        "startLine": 236,
+        "startChar": 20,
+        "endLine": 236,
+        "endChar": 57
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c6998b3_5508cf4e",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-03-14T14:23:28Z",
+      "side": 1,
+      "message": "Are you trying to say that secret is accessible across different sessions (i.e secret database are not tied to session)? Can you clarify in comment? Maybe also rename to secret_accessible_across_session",
+      "range": {
+        "startLine": 462,
+        "startChar": 3,
+        "endLine": 462,
+        "endChar": 49
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dee6957_c4ff5071",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-03-14T14:23:28Z",
+      "side": 1,
+      "message": "Super NIT: Extra space",
+      "range": {
+        "startLine": 463,
+        "startChar": 39,
+        "endLine": 463,
+        "endChar": 41
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4cd5a1a_e460327c",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-03-14T14:23:28Z",
+      "side": 1,
+      "message": "The reason for DICE policy error is because `policy_for_dice_chain()` method in libdice_policy_builder (which is a client side test) constructs a DICE policy that includes the EXACT_MATCH on the first entry.\n\nThe DICE policy set could very well have been to allow access to a DICE chain with a different UDS \u0026 Secretkeeper would release secret.\n\nSo really, this is testing is testing client library not the HAL behaviour. (It maybe be valuable to keep it if there is no other place to easily test this bevaviour, but I think #policy_structure_check at [1] tests this already).\n\n[1] https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/secretkeeper/dice_policy/tests/test.rs;l\u003d238-245",
+      "range": {
+        "startLine": 475,
+        "startChar": 3,
+        "endLine": 475,
+        "endChar": 53
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63accb67_f5b6469f",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-03-14T14:23:28Z",
+      "side": 1,
+      "message": "Suggestion: Can we do these in parallel (`thread::spawn`)? I guess the original intention of the test is check for unbounded internal state \u0026 that would not be tested with parallel sessions. Can you copy paste something \u0026 call it stress test\n\nAnother question: Is there a breaking point(i.e, does this just work with SESSION_COUNT \u003d 32000)",
+      "range": {
+        "startLine": 577,
+        "startChar": 4,
+        "endLine": 577,
+        "endChar": 31
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9d09939_9ab1d5c3",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-03-14T14:23:28Z",
+      "side": 1,
+      "message": "This will only stress test the AutGrapExchange protocol. While we are here, can we also do:\n```\nsk_client.store(\u0026ID_EXAMPLE, \u0026SECRET_EXAMPLE).unwrap();\nassert_eq!(sk_client.get(\u0026ID_EXAMPLE).unwrap(), SECRET_EXAMPLE);\n```",
+      "range": {
+        "startLine": 579,
+        "startChar": 24,
+        "endLine": 579,
+        "endChar": 47
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
