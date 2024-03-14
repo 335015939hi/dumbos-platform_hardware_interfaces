@@ -287,7 +287,7 @@ impl IUwbChipAsyncServer for UwbChip {
         if let State::Opened { ref mut serial, .. } = &mut *self.state.lock().await {
             log::debug!(" --> {:?}", data);
             let result = serial
-                .write(data)
+                .write_all(data)
                 .map(|written| written as i32)
                 .map_err(|_| binder::StatusCode::UNKNOWN_ERROR.into());
             log::debug!(" status: {:?}", result);
