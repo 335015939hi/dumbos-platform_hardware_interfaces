@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ee6ae89_3c882732",
+        "filename": "security/secretkeeper/aidl/vts/dice_sample.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-03-14T15:25:54Z",
+      "side": 1,
+      "message": "Yes, see `secretkeeper_not_get_secret_across_diffid_sessions`",
+      "parentUuid": "0e4a0e7b_b81e7d89",
+      "range": {
+        "startLine": 120,
+        "startChar": 4,
+        "endLine": 120,
+        "endChar": 25
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f6af053_0a66fe2e",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-14T14:23:28Z",
       "side": 1,
       "message": "I had to lookup with `bigun` means, that maybe a problem with my vocab though. Can you please add a comment to describe this parameter",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 15
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee4c6302_33f73b6e",
+        "filename": "security/secretkeeper/aidl/vts/dice_sample.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-03-14T15:25:54Z",
+      "side": 1,
+      "message": "Moved to an `enum`.",
+      "parentUuid": "9f6af053_0a66fe2e",
       "range": {
         "startLine": 135,
         "startChar": 4,
@@ -93,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5715dfee_f7d9072d",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-03-14T15:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c6998b3_5508cf4e",
+      "range": {
+        "startLine": 462,
+        "startChar": 3,
+        "endLine": 462,
+        "endChar": 49
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0dee6957_c4ff5071",
@@ -106,6 +178,30 @@
       "writtenOn": "2024-03-14T14:23:28Z",
       "side": 1,
       "message": "Super NIT: Extra space",
+      "range": {
+        "startLine": 463,
+        "startChar": 39,
+        "endLine": 463,
+        "endChar": 41
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0845bca6_b9c1d70e",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-03-14T15:25:54Z",
+      "side": 1,
+      "message": "My personal preference is mostly to use two spaces after a full stop in monospaced fonts.",
+      "parentUuid": "0dee6957_c4ff5071",
       "range": {
         "startLine": 463,
         "startChar": 39,
@@ -139,6 +235,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebd599e2_6b9937cd",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-03-14T15:25:54Z",
+      "side": 1,
+      "message": "True, it is reliant on the particular DICE policy set in the test client.  But it tests the primary purpose of Secretkeeper (namely: keeping secrets secret), and it\u0027s somewhat different than the policy tests below, so I think it\u0027s worth having.",
+      "parentUuid": "b4cd5a1a_e460327c",
+      "range": {
+        "startLine": 475,
+        "startChar": 3,
+        "endLine": 475,
+        "endChar": 53
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63accb67_f5b6469f",
@@ -162,6 +282,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "994c9a4d_75c6bdcf",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-03-14T15:25:54Z",
+      "side": 1,
+      "message": "Done as a separate test.",
+      "parentUuid": "63accb67_f5b6469f",
+      "range": {
+        "startLine": 577,
+        "startChar": 4,
+        "endLine": 577,
+        "endChar": 31
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9d09939_9ab1d5c3",
@@ -175,6 +319,30 @@
       "writtenOn": "2024-03-14T14:23:28Z",
       "side": 1,
       "message": "This will only stress test the AutGrapExchange protocol. While we are here, can we also do:\n```\nsk_client.store(\u0026ID_EXAMPLE, \u0026SECRET_EXAMPLE).unwrap();\nassert_eq!(sk_client.get(\u0026ID_EXAMPLE).unwrap(), SECRET_EXAMPLE);\n```",
+      "range": {
+        "startLine": 579,
+        "startChar": 24,
+        "endLine": 579,
+        "endChar": 47
+      },
+      "revId": "50b69fc3da0b580dda2d4cbfcc3175f35c5d6571",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76f351c8_97782d62",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-03-14T15:25:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9d09939_9ab1d5c3",
       "range": {
         "startLine": 579,
         "startChar": 24,
