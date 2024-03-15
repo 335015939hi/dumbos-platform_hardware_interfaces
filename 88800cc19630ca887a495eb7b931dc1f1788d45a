@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0343865a_64b596ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-03-15T21:21:02Z",
+      "side": 1,
+      "message": "These tests won\u0027t run if the HAL isn\u0027t present. Just remove the HAL from the device",
+      "revId": "88800cc19630ca887a495eb7b931dc1f1788d45a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
