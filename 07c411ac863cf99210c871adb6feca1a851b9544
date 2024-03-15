@@ -16,6 +16,24 @@
       "message": "Why did HWC change composition types? There are two cases to consider:\n\n1. `support` is true, meaning HWC should support this layer. There is only one layer, so why does HWC need to change its composition type?\n2.  `support` is false, meaning we expect there to be an error from `validateDisplay`. If it returns an error, we don\u0027t return the changed composition types. (See the code below.)\n\nSo what\u0027s happening on your device? Is `support` true or false? I would guess false, since you\u0027ve changed the composition type. But you didn\u0027t report in your bug that you failed the check for errors. So how did you get an error but *also* change the composition type?\n\n```\nError AidlComposer::validateDisplay(Display display, nsecs_t expectedPresentTime,\n                                    int32_t frameIntervalNs, uint32_t* outNumTypes,\n                                    uint32_t* outNumRequests) {\n    const auto displayId \u003d translate\u003cint64_t\u003e(display);\n    ATRACE_FORMAT(\"HwcValidateDisplay %\" PRId64, displayId);\n\n    Error error \u003d Error::NONE;\n    mMutex.lock_shared();\n    auto writer \u003d getWriter(display);\n    auto reader \u003d getReader(display);\n    if (writer \u0026\u0026 reader) {\n        writer-\u003eget().validateDisplay(displayId, ClockMonotonicTimestamp{expectedPresentTime},\n                                      frameIntervalNs);\n        error \u003d execute(display);\n    } else {\n        error \u003d Error::BAD_DISPLAY;\n    }\n\n    if (error !\u003d Error::NONE) {\n        mMutex.unlock_shared();\n        return error;           // \u003c--- return here with error, so changed composition types are not propagated to the caller\n    }\n\n    reader-\u003eget().hasChanges(displayId, outNumTypes, outNumRequests); // \u003c--- only propagate changed composition types if there was no error\n\n    mMutex.unlock_shared();\n    return Error::NONE;\n}\n```\n\n@alecmouri@google.com and @adyabr@google.com, what do you think? This looks like incorrect behavior from the HWC, but maybe I\u0027m missing something? You reviewed the CLs that created/modfied this test:\n\nag/16632385 (I0a62a0ce3f8fd3a2d6088f94ce1ad0840d9c6faa) added the test. I originally considered the error optional, but [Ady suggested](https://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/16632385/comment/bb7d3359_d45e3ead/) that it should be required. At that time, I also added a check enforcing a changed composition type when `support` was false, though it apparently didn\u0027t pass cuttlefish, which was our device that didn\u0027t have support.\n\nag/17002929 (I885767c4f1c42edfb11359b36852a863cbc8b0ed) fixed the error code, and more interestingly, ag/17014131 (I3e07e40b0c12a2cf6eaa685435647aab93172bb0) removed the enforcement of a changed composition type.",
       "revId": "07c411ac863cf99210c871adb6feca1a851b9544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c237fb9c_9b71c0e8",
+        "filename": "graphics/composer/aidl/vts/VtsHalGraphicsComposer3_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2177,
+      "author": {
+        "id": 1012974
+      },
+      "writtenOn": "2024-03-15T15:13:00Z",
+      "side": 1,
+      "message": "Ah, sorry - I was a little confused - `AidlComposer::validateDisplay` isn\u0027t used by the VTS tests, so I think I understand the failure better.\n\nRegardless, if the HWC has an error, it shouldn\u0027t *also* change the composition type. So this is still a bug in the HWC implementation, not in the test.",
+      "parentUuid": "92c4042e_343c00b8",
+      "revId": "07c411ac863cf99210c871adb6feca1a851b9544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
