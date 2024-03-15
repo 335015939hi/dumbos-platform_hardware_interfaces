@@ -16,6 +16,23 @@
       "message": "I hope you don\u0027t mind me asking...\nHas this change already cherry-picked to the Android14 branch? Thanks!",
       "revId": "a2b4a18ab79267687b9c13d369d8c53e5c4713d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f65b0c_27e438d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3341777
+      },
+      "writtenOn": "2024-03-15T03:04:32Z",
+      "side": 1,
+      "message": "1429921: Merge mainline-release 6664920 to master - DO NOT MERGE | https://android-review.googlesource.com/c/platform/hardware/interfaces/+/1429921",
+      "revId": "a2b4a18ab79267687b9c13d369d8c53e5c4713d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
