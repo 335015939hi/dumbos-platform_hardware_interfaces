@@ -97,10 +97,16 @@ class PowerAidl : public testing::TestWithParam<std::string> {
         power = IPower::fromBinder(ndk::SpAIBinder(binder));
         auto status = power->getInterfaceVersion(&mServiceVersion);
         ASSERT_TRUE(status.isOk());
+        if (mServiceVersion >= 2) {
+            status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &mSession);
+            mSessionSupport = status.isOk();
+        }
     }
 
     std::shared_ptr<IPower> power;
     int32_t mServiceVersion;
+    std::shared_ptr<IPowerHintSession> mSession;
+    bool mSessionSupport = false;
 };
 
 class HintSessionAidl : public PowerAidl {
@@ -110,12 +116,11 @@ class HintSessionAidl : public PowerAidl {
         if (mServiceVersion < 2) {
             GTEST_SKIP() << "DEVICE not launching with Power V2 and beyond.";
         }
-
-        auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &mSession);
-        ASSERT_TRUE(status.isOk());
+        if (!mSessionSupport) {
+            GTEST_SKIP() << "DEVICE not support Hint Session.";
+        }
         ASSERT_NE(nullptr, mSession);
     }
-    std::shared_ptr<IPowerHintSession> mSession;
 };
 
 TEST_P(PowerAidl, setMode) {
@@ -169,6 +174,9 @@ TEST_P(PowerAidl, isBoostSupported) {
 }
 
 TEST_P(PowerAidl, getHintSessionPreferredRate) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
     if (mServiceVersion < 2) {
         GTEST_SKIP() << "DEVICE not launching with Power V2 and beyond.";
     }
@@ -180,6 +188,9 @@ TEST_P(PowerAidl, getHintSessionPreferredRate) {
 }
 
 TEST_P(HintSessionAidl, createAndCloseHintSession) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
     ASSERT_TRUE(mSession->pause().isOk());
     ASSERT_TRUE(mSession->resume().isOk());
     // Test normal destroy operation
@@ -188,6 +199,9 @@ TEST_P(HintSessionAidl, createAndCloseHintSession) {
 }
 
 TEST_P(HintSessionAidl, createHintSessionFailed) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
     std::shared_ptr<IPowerHintSession> session;
     auto status = power->createHintSession(getpid(), getuid(), kEmptyTids, 16666666L, &session);
 
@@ -197,11 +211,17 @@ TEST_P(HintSessionAidl, createHintSessionFailed) {
 }
 
 TEST_P(HintSessionAidl, updateAndReportDurations) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
     ASSERT_TRUE(mSession->updateTargetWorkDuration(16666667LL).isOk());
     ASSERT_TRUE(mSession->reportActualWorkDuration(kDurations).isOk());
 }
 
 TEST_P(HintSessionAidl, sendSessionHint) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
     if (mServiceVersion < 4) {
         GTEST_SKIP() << "DEVICE not launching with Power V4 and beyond.";
     }
@@ -215,6 +235,9 @@ TEST_P(HintSessionAidl, sendSessionHint) {
 }
 
 TEST_P(HintSessionAidl, setThreads) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
     if (mServiceVersion < 4) {
         GTEST_SKIP() << "DEVICE not launching with Power V4 and beyond.";
     }
