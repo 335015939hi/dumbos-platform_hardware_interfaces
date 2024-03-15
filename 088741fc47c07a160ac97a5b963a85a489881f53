@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5473447_17f923da",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-15T20:52:24Z",
+      "side": 1,
+      "message": "It is relative to the time of the call (for example, a call `setKeyValidity(10)` will make the key expire in 10 seconds). The call can only be done by the key creator and currently there is no limit on the number of times it can be invoked (the second call would set the validity to the desired period from the moment of the call). Do you see any advantages in making this a one-time call function?",
+      "parentUuid": "3cade84d_c513f9c4",
+      "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c980a17_bc3b8b68",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
         "patchSetId": 12
@@ -31,6 +49,24 @@
       "writtenOn": "2024-03-15T04:21:45Z",
       "side": 1,
       "message": "How come this has a method here, but not eg signing?",
+      "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eca0fc83_30b2eb36",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-15T20:52:24Z",
+      "side": 1,
+      "message": "Main reasons where that this function won\u0027t take a large input and it is going to be done in one shot in all cases, while signing could potentially require access to memory buffers that could even be disjointed. Also, I was expecting creating a shared secret to be followed to something like use an HKDF to generate a key; which are not currently done using a command list but with direct calls.",
+      "parentUuid": "0c980a17_bc3b8b68",
       "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "830954d4_531b728d",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-15T20:52:24Z",
+      "side": 1,
+      "message": "Yes, it is for DH. There are 2 functions that can potentially use this type of keys: \n* [calculateSharedSecret](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2954695/12/staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl#71) (which is part of this phase reviews), on this one I wanted to feed the output of the DH algorithm to a extract phase of an HKDF with a fixed salt, and give that back.\n* The another one that is part of the next phase review that will be used with an external party/server. It will be part of the `IOpaqueKey` AIDL and currently have the following signature: ```IOpaqueKey calculateSharedKey(in byte[] encapsulated_shared_secret, in byte[] derivation_context, in KeyPolicy policy);``` I wanted to give it more of a KEM form but not sure if I am there yet.",
+      "parentUuid": "7ea88369_1820273e",
+      "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6df9960_9189294a",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
         "patchSetId": 12
@@ -65,6 +119,24 @@
       "writtenOn": "2024-03-15T04:21:45Z",
       "side": 1,
       "message": "Why does HWCrypto need to handle VERIFY operations? For those you only need the public key.",
+      "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17f37dae_c43aa7c3",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-15T20:52:24Z",
+      "side": 1,
+      "message": "You are right, removed the verify operations.",
+      "parentUuid": "a6df9960_9189294a",
       "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -82,6 +154,24 @@
       "writtenOn": "2024-03-15T04:21:45Z",
       "side": 1,
       "message": "What do these mean? If this refers to a KEM, I\u0027d expect the operations to be called \"keygen\" \"encap\" and \"decap\" - of which \"encap\" only needs the public key so doesn\u0027t need to be in HWCrypto. For DH, the main operations are something like \"keygen\" and \"derive\".",
+      "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76e3c168_dde03fcb",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-15T20:52:24Z",
+      "side": 1,
+      "message": "They might be too DH focused, Exchange would be the one used to generate a shared secret/key. Will discuss with you a better way to also include KEMs.",
+      "parentUuid": "ec1f4c11_9ea1187e",
       "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
