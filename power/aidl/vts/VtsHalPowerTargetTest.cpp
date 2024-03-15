@@ -115,13 +115,87 @@ class PowerAidl : public testing::TestWithParam<std::string> {
         AIBinder* binder = AServiceManager_waitForService(GetParam().c_str());
         ASSERT_NE(binder, nullptr);
         power = IPower::fromBinder(ndk::SpAIBinder(binder));
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
 
         mApiLevel = GetUintProperty<uint64_t>("ro.vendor.api_level", 0);
         ASSERT_NE(mApiLevel, 0);
+=======
+        auto status = power->getInterfaceVersion(&mServiceVersion);
+        ASSERT_TRUE(status.isOk());
+        if (mServiceVersion >= 2) {
+            status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &mSession);
+            mSessionSupport = status.isOk();
+        }
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
     }
 
     std::shared_ptr<IPower> power;
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
     uint64_t mApiLevel;
+=======
+    int32_t mServiceVersion;
+    std::shared_ptr<IPowerHintSession> mSession;
+    bool mSessionSupport = false;
+};
+
+class HintSessionAidl : public PowerAidl {
+  public:
+    virtual void SetUp() override {
+        PowerAidl::SetUp();
+        if (mServiceVersion < 2) {
+            GTEST_SKIP() << "DEVICE not launching with Power V2 and beyond.";
+        }
+        if (!mSessionSupport) {
+            GTEST_SKIP() << "DEVICE not support Hint Session.";
+        }
+        ASSERT_NE(nullptr, mSession);
+    }
+};
+
+class FMQAidl : public PowerAidl {
+  public:
+    virtual void SetUp() override {
+        PowerAidl::SetUp();
+        if (mServiceVersion < 5) {
+            GTEST_SKIP() << "DEVICE not launching with Power V5 and beyond.";
+        }
+
+        auto status =
+                power->createHintSessionWithConfig(getpid(), getuid(), kSelfTids, 16666666L,
+                                                   SessionTag::OTHER, &mSessionConfig, &mSession);
+        ASSERT_TRUE(status.isOk());
+        ASSERT_NE(nullptr, mSession);
+
+        status = power->getSessionChannel(getpid(), getuid(), &mChannelConfig);
+        ASSERT_TRUE(status.isOk());
+        mChannel = std::make_shared<SessionMessageQueue>(mChannelConfig.channelDescriptor, true);
+        ASSERT_TRUE(mChannel->isValid());
+
+        if (mChannelConfig.eventFlagDescriptor.has_value()) {
+            mFlagChannel =
+                    std::make_shared<FlagMessageQueue>(*mChannelConfig.eventFlagDescriptor, true);
+            ASSERT_EQ(EventFlag::createEventFlag(mFlagChannel->getEventFlagWord(), &mEventFlag),
+                      ::android::OK);
+        } else {
+            ASSERT_EQ(EventFlag::createEventFlag(mChannel->getEventFlagWord(), &mEventFlag),
+                      ::android::OK);
+        }
+
+        ASSERT_NE(mEventFlag, nullptr);
+    }
+    virtual void TearDown() {
+        mSession->close();
+        ASSERT_TRUE(power->closeSessionChannel(getpid(), getuid()).isOk());
+    }
+
+  protected:
+    std::shared_ptr<IPowerHintSession> mSession;
+    std::shared_ptr<SessionMessageQueue> mChannel;
+    std::shared_ptr<FlagMessageQueue> mFlagChannel;
+    SessionConfig mSessionConfig;
+    ChannelConfig mChannelConfig;
+    ::android::hardware::EventFlag* mEventFlag;
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
 };
 
 TEST_P(PowerAidl, setMode) {
@@ -175,6 +249,16 @@ TEST_P(PowerAidl, isBoostSupported) {
 }
 
 TEST_P(PowerAidl, getHintSessionPreferredRate) {
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
+=======
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+    if (mServiceVersion < 2) {
+        GTEST_SKIP() << "DEVICE not launching with Power V2 and beyond.";
+    }
+
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
     int64_t rate = -1;
     auto status = power->getHintSessionPreferredRate(&rate);
     if (mApiLevel < kCompatibilityMatrix7ApiLevel && !status.isOk()) {
@@ -186,7 +270,17 @@ TEST_P(PowerAidl, getHintSessionPreferredRate) {
     ASSERT_GE(rate, 1000000);
 }
 
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
 TEST_P(PowerAidl, createAndCloseHintSession) {
+=======
+TEST_P(PowerAidl, createHintSessionWithConfig) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+    if (mServiceVersion < 5) {
+        GTEST_SKIP() << "DEVICE not launching with Power V5 and beyond.";
+    }
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
     std::shared_ptr<IPowerHintSession> session;
     auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &session);
     if (mApiLevel < kCompatibilityMatrix7ApiLevel && !status.isOk()) {
@@ -195,14 +289,40 @@ TEST_P(PowerAidl, createAndCloseHintSession) {
     }
     ASSERT_TRUE(status.isOk());
     ASSERT_NE(nullptr, session);
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
     ASSERT_TRUE(session->pause().isOk());
     ASSERT_TRUE(session->resume().isOk());
+=======
+}
+
+// FIXED_PERFORMANCE mode is required for all devices which ship on Android 11
+// or later
+TEST_P(PowerAidl, hasFixedPerformance) {
+    bool supported;
+    ASSERT_TRUE(power->isModeSupported(Mode::FIXED_PERFORMANCE, &supported).isOk());
+    ASSERT_TRUE(supported);
+}
+
+TEST_P(HintSessionAidl, createAndCloseHintSession) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+    ASSERT_TRUE(mSession->pause().isOk());
+    ASSERT_TRUE(mSession->resume().isOk());
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
     // Test normal destroy operation
     ASSERT_TRUE(session->close().isOk());
     session.reset();
 }
 
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
 TEST_P(PowerAidl, createHintSessionFailed) {
+=======
+TEST_P(HintSessionAidl, createHintSessionFailed) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
     std::shared_ptr<IPowerHintSession> session;
     auto status = power->createHintSession(getpid(), getuid(), kEmptyTids, 16666666L, &session);
 
@@ -217,6 +337,7 @@ TEST_P(PowerAidl, createHintSessionFailed) {
     ASSERT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode());
 }
 
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
 TEST_P(PowerAidl, updateAndReportDurations) {
     std::shared_ptr<IPowerHintSession> session;
     auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &session);
@@ -229,14 +350,31 @@ TEST_P(PowerAidl, updateAndReportDurations) {
 
     ASSERT_TRUE(session->updateTargetWorkDuration(16666667LL).isOk());
     ASSERT_TRUE(session->reportActualWorkDuration(kDurations).isOk());
+=======
+TEST_P(HintSessionAidl, updateAndReportDurations) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+    ASSERT_TRUE(mSession->updateTargetWorkDuration(16666667LL).isOk());
+    ASSERT_TRUE(mSession->reportActualWorkDuration(kDurations).isOk());
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
 }
 
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
 TEST_P(PowerAidl, sendSessionHint) {
     std::shared_ptr<IPowerHintSession> session;
     auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &session);
     if (!status.isOk()) {
         EXPECT_TRUE(isUnknownOrUnsupported(status));
         return;
+=======
+TEST_P(HintSessionAidl, sendSessionHint) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+    if (mServiceVersion < 4) {
+        GTEST_SKIP() << "DEVICE not launching with Power V4 and beyond.";
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
     }
     for (const auto& sessionHint : kSessionHints) {
         ASSERT_TRUE(session->sendHint(sessionHint).isOk());
@@ -246,12 +384,21 @@ TEST_P(PowerAidl, sendSessionHint) {
     }
 }
 
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
 TEST_P(PowerAidl, setThreads) {
     std::shared_ptr<IPowerHintSession> session;
     auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &session);
     if (mApiLevel < kCompatibilityMatrix7ApiLevel && !status.isOk()) {
         EXPECT_TRUE(isUnknownOrUnsupported(status));
         GTEST_SKIP() << "DEVICE not launching with Android 13 and beyond.";
+=======
+TEST_P(HintSessionAidl, setThreads) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+    if (mServiceVersion < 4) {
+        GTEST_SKIP() << "DEVICE not launching with Power V4 and beyond.";
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
     }
     ASSERT_TRUE(status.isOk());
 
@@ -266,16 +413,100 @@ TEST_P(PowerAidl, setThreads) {
     ASSERT_TRUE(status.isOk());
 }
 
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
 // FIXED_PERFORMANCE mode is required for all devices which ship on Android 11
 // or later
 TEST_P(PowerAidl, hasFixedPerformance) {
     if (mApiLevel < kCompatibilityMatrix5ApiLevel) {
         GTEST_SKIP() << "FIXED_PERFORMANCE mode is only required for all devices launching Android "
                         "11 or later.";
+=======
+TEST_P(HintSessionAidl, setSessionMode) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
     }
+    if (mServiceVersion < 5) {
+        GTEST_SKIP() << "DEVICE not launching with Power V5 and beyond.";
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
+    }
+<<<<<<< HEAD   (e75907 Fixing isDeviceIdAttestationRequired to require both cases i)
     bool supported;
     ASSERT_TRUE(power->isModeSupported(Mode::FIXED_PERFORMANCE, &supported).isOk());
     ASSERT_TRUE(supported);
+=======
+
+    for (const auto& sessionMode : kSessionModes) {
+        ASSERT_TRUE(mSession->setMode(sessionMode, true).isOk());
+        ASSERT_TRUE(mSession->setMode(sessionMode, false).isOk());
+    }
+    for (const auto& sessionMode : kInvalidSessionModes) {
+        ASSERT_TRUE(mSession->setMode(sessionMode, true).isOk());
+        ASSERT_TRUE(mSession->setMode(sessionMode, false).isOk());
+    }
+}
+
+TEST_P(HintSessionAidl, getSessionConfig) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+    if (mServiceVersion < 5) {
+        GTEST_SKIP() << "DEVICE not launching with Power V5 and beyond.";
+    }
+    SessionConfig config;
+    ASSERT_TRUE(mSession->getSessionConfig(&config).isOk());
+}
+
+TEST_P(FMQAidl, getAndCloseSessionChannel) {}
+
+TEST_P(FMQAidl, writeItems) {
+    std::vector<ChannelMessage> messages{
+            {.sessionID = static_cast<int32_t>(mSessionConfig.id),
+             .timeStampNanos = 1000,
+             .data = ChannelMessageContents::make<MessageTag::workDuration, WorkDurationFixedV1>(
+                     {.durationNanos = 1000,
+                      .workPeriodStartTimestampNanos = 10,
+                      .cpuDurationNanos = 900,
+                      .gpuDurationNanos = 100})},
+            {.sessionID = static_cast<int32_t>(mSessionConfig.id),
+             .timeStampNanos = 1000,
+             .data = ChannelMessageContents::make<MessageTag::mode, ModeSetter>(
+                     {.modeInt = SessionMode::POWER_EFFICIENCY, .enabled = true})},
+            {.sessionID = static_cast<int32_t>(mSessionConfig.id),
+             .timeStampNanos = 1000,
+             .data = ChannelMessageContents::make<MessageTag::hint, SessionHint>(
+                     SessionHint::CPU_LOAD_UP)},
+            {.sessionID = static_cast<int32_t>(mSessionConfig.id),
+             .timeStampNanos = 1000,
+             .data = ChannelMessageContents::make<MessageTag::targetDuration, int64_t>(
+                     10000000 /* 10ms */)},
+    };
+    for (auto& message : messages) {
+        ASSERT_TRUE(mChannel->writeBlocking(&message, 1, mChannelConfig.readFlagBitmask,
+                                            mChannelConfig.writeFlagBitmask, 100000000,
+                                            mEventFlag));
+    }
+    // Make sure this still works after everything else is done to check crash
+    ASSERT_TRUE(mSession->setThreads(kSelfTids).isOk());
+}
+
+TEST_P(FMQAidl, writeExcess) {
+    std::vector<ChannelMessage> messages;
+    size_t channelSize = mChannel->getQuantumCount();
+    for (size_t i = 0; i < channelSize; ++i) {
+        messages.push_back({.sessionID = static_cast<int32_t>(mSessionConfig.id),
+                            .timeStampNanos = 1000,
+                            .data = ChannelMessageContents::make<MessageTag::hint, SessionHint>(
+                                    SessionHint::CPU_LOAD_UP)});
+    }
+    ASSERT_TRUE(mChannel->writeBlocking(messages.data(), messages.size(),
+                                        mChannelConfig.readFlagBitmask,
+                                        mChannelConfig.writeFlagBitmask, 100000000, mEventFlag));
+    ASSERT_TRUE(mChannel->writeBlocking(messages.data(), messages.size(),
+                                        mChannelConfig.readFlagBitmask,
+                                        mChannelConfig.writeFlagBitmask, 1000000000, mEventFlag));
+    // Make sure this still works after everything else is done to check crash
+    ASSERT_TRUE(mSession->setThreads(kSelfTids).isOk());
+>>>>>>> CHANGE (d53f5f VTSHalPowerTarget: check if HintSession supported)
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(PowerAidl);
