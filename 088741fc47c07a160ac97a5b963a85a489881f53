@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "853f94e6_91df640d",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-18T21:53:32Z",
+      "side": 1,
+      "message": "Moving `setKeyValidity` to the CL where we add domains to refine on which AIDL it will be defined. This is due to the observation that we might want to use the type system to show that this function can only be called by the creator of the key.",
+      "parentUuid": "d5473447_17f923da",
+      "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c980a17_bc3b8b68",
@@ -71,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bad875d4_7708819b",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-18T21:53:32Z",
+      "side": 1,
+      "message": "After our discussion, I am removing this function out of the interface. We will use instead `calculateSharedSecret` for any related use case (defined on a future CL).",
+      "parentUuid": "eca0fc83_30b2eb36",
+      "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ea88369_1820273e",
@@ -102,6 +138,24 @@
       "side": 1,
       "message": "Yes, it is for DH. There are 2 functions that can potentially use this type of keys: \n* [calculateSharedSecret](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2954695/12/staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl#71) (which is part of this phase reviews), on this one I wanted to feed the output of the DH algorithm to a extract phase of an HKDF with a fixed salt, and give that back.\n* The another one that is part of the next phase review that will be used with an external party/server. It will be part of the `IOpaqueKey` AIDL and currently have the following signature: ```IOpaqueKey calculateSharedKey(in byte[] encapsulated_shared_secret, in byte[] derivation_context, in KeyPolicy policy);``` I wanted to give it more of a KEM form but not sure if I am there yet.",
       "parentUuid": "7ea88369_1820273e",
+      "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d6a85cd_3c4b1f96",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-18T21:53:32Z",
+      "side": 1,
+      "message": "Moving the `XXXXXX_SHARED_SECRED` key type definitions to the same CL as `calculateSharedKey`. Will check if we can use HPKE for all use cases, if so we will be able to only use KEM-like definitions for all operations.",
+      "parentUuid": "830954d4_531b728d",
       "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -172,6 +226,24 @@
       "side": 1,
       "message": "They might be too DH focused, Exchange would be the one used to generate a shared secret/key. Will discuss with you a better way to also include KEMs.",
       "parentUuid": "ec1f4c11_9ea1187e",
+      "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc15bede_58aa0db3",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyUse.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-18T21:53:32Z",
+      "side": 1,
+      "message": "Same as with `KeyTypes`, moving this definitions to the CL where we define `calculateSharedKey`. If we can use HPKE, we can then only define KEM-like uses.",
+      "parentUuid": "76e3c168_dde03fcb",
       "revId": "088741fc47c07a160ac97a5b963a85a489881f53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
