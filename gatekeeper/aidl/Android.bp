@@ -12,6 +12,7 @@ aidl_interface {
     vendor_available: true,
     imports: [
         "android.hardware.security.keymint-V3",
+        "android.hardware.security.secureclock-V1",
     ],
     srcs: ["android/hardware/gatekeeper/*.aidl"],
     stability: "vintf",
@@ -23,7 +24,7 @@ aidl_interface {
             apps_enabled: false,
         },
         cpp: {
-            enabled: false,
+            enabled: true,
         },
         rust: {
             enabled: true,
@@ -32,7 +33,10 @@ aidl_interface {
     versions_with_info: [
         {
             version: "1",
-            imports: ["android.hardware.security.keymint-V3"],
+            imports: [
+                "android.hardware.security.keymint-V3",
+                "android.hardware.security.secureclock-V1",
+            ],
         },
     ],
     frozen: true,
