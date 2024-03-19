@@ -2935,6 +2935,9 @@ class GraphicsComposerAidlBatchedCommandTest : public GraphicsComposerAidlComman
         if (getInterfaceVersion() <= 2) {
             GTEST_SKIP() << "Device interface version is expected to be >= 3";
         }
+        if (!hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+            GTEST_SKIP() << "Device does not support LAYER_LIFECYCLE_BATCH_COMMAND";
+        }
     }
     void TearDown() override {
         const auto errors = mReader.takeErrors();
