@@ -16,6 +16,24 @@
       "message": "friendly ping",
       "revId": "b376521094e8cc84b016a41831cd4f7ba7531cfb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f1358bb_1836281b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1388190
+      },
+      "writtenOn": "2024-03-20T22:29:54Z",
+      "side": 1,
+      "message": "We merged aosp/3006622. It supposed to fix all the issues this CL is trying to fix.",
+      "parentUuid": "02427def_3efc7dc7",
+      "revId": "b376521094e8cc84b016a41831cd4f7ba7531cfb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
