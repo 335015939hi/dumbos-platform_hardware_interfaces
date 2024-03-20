@@ -33,6 +33,24 @@
       "message": "Should we include secp256k1? Ecosystem partners [Qualcomm](https://csrc.nist.gov/CSRC/media/projects/cryptographic-module-validation-program/documents/security-policies/140sp4293.pdf) and [Samsung](https://developer.samsung.com/blockchain/keystore/understanding-keystore/what-makes-keystore-unique.html) have HW support.",
       "revId": "3a12921acc8263bbe6eb2aad8b4221cd8b60d1ad",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90173ccf_60969149",
+        "filename": "staging/security/see/hwcrypto/aidl/aidl_api/android.hardware.security.see/current/android/hardware/security/see/hwcrypto/types/EcKey.aidl",
+        "patchSetId": 78
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-03-20T02:20:40Z",
+      "side": 1,
+      "message": "I\u0027ve asked about this, and been told that in order to support secp256k1, we would need to have support in BoringSSL, and BoringSSL will not add support for this curve.",
+      "parentUuid": "799c24ea_f1e67e9c",
+      "revId": "3a12921acc8263bbe6eb2aad8b4221cd8b60d1ad",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
