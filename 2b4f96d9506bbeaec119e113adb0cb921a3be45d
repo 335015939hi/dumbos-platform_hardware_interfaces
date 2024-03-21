@@ -16,6 +16,24 @@
       "message": "This is too specific. It will fail stricter delay schedules, which are permitted under current CDD/VSR.\n\nAlso, if it insists on measuring 10 failures it will take hours or days to run. It should stop running after some reasonable amount of time (and unblock the timeout for any following tests by writing or reading with the correct key).",
       "revId": "2b4f96d9506bbeaec119e113adb0cb921a3be45d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6157d702_b0da62bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2024-03-21T21:03:34Z",
+      "side": 1,
+      "message": "I\u0027m not very familiar with this but...\n\nIs the concern of such a long test theoretical?  It\u0027d think it\u0027s not what happens in real life since the users will complain.  In this case, having some tests would be better than nothing.\n\nOr is the concern the \"30000\" timeout is too specific and may not work on all devices?  Would it work if the test checks the lower bound instead (EXPECT_GE instead of EXPECT_EQ)?",
+      "parentUuid": "11bc0233_11367616",
+      "revId": "2b4f96d9506bbeaec119e113adb0cb921a3be45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
