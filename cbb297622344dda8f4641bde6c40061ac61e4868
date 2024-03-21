@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3215dd3e_e1d06db6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-21T23:52:40Z",
+      "side": 1,
+      "message": "Andy, I know this fix is a bit speculative, but I don\u0027t have a full understanding at this moment. Initially I added rounding to powers of 2 to bring the remote submix buffer size to 1024 as it was on HIDL. The test which was failing uses 8 kHz SR and 688 frame count which w/o this fix gets rounded up to 1024. For 8 kHz that\u0027s a big difference. I\u0027m still not sure why the test was failing because according to AF dumps and Perfetto, reads do work in both cases, however the change of timing from ~80ms to ~120ms makes this test to fail—this is something about behavior of MediaCodec which is used when recording audio from camera.",
+      "revId": "cbb297622344dda8f4641bde6c40061ac61e4868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
