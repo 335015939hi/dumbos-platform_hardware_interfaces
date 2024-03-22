@@ -3,6 +3,29 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ceeae267_beb68a7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2024-03-22T01:48:06Z",
+      "side": 1,
+      "message": "no need to fix, but this comment would be nice inline with the code.  otherwise the logic is a bit confusing...",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "cbb297622344dda8f4641bde6c40061ac61e4868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3215dd3e_e1d06db6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
