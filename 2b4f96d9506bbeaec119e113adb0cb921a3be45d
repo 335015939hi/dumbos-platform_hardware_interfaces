@@ -34,6 +34,24 @@
       "parentUuid": "11bc0233_11367616",
       "revId": "2b4f96d9506bbeaec119e113adb0cb921a3be45d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18504bed_bfd4374d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2024-03-22T22:18:54Z",
+      "side": 1,
+      "message": "There are two parts.\n\n1) The HAL spec previously didn\u0027t specify the throttling function. This CL introduces a specification of the throttling (one that isn\u0027t particularly popular, but that\u0027s another topic again). The existing implementations written against the previous specification, in previous VSRs, that didn\u0027t specify this function should still pass the test. E.g. an existing implementation that throttled for an hour after each attempt was a valid, but will now start failing VTS.\n\n2) The test duration is reasonably constrained assuming the throttling function specified in this CL is used. If an OEM used a more aggressive function, e.g. following the precedent from ios, then the test would take hours. You\u0027re also unable to clear the throttle for other tests, until the throttle has naturally expired.",
+      "parentUuid": "6157d702_b0da62bd",
+      "revId": "2b4f96d9506bbeaec119e113adb0cb921a3be45d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
