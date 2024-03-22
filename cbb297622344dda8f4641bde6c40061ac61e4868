@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "181d72fa_cec04f8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-22T03:36:37Z",
+      "side": 1,
+      "message": "I often use git commit descriptions and associated bugs as an additional source for understanding code 😊",
+      "parentUuid": "ceeae267_beb68a7a",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "cbb297622344dda8f4641bde6c40061ac61e4868",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3215dd3e_e1d06db6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
