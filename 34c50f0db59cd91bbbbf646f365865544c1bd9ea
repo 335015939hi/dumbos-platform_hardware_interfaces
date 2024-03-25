@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0697ec9_d81e7515",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 2025045
+      },
+      "writtenOn": "2024-03-25T19:33:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ab540ed5_e3f2d19e",
+      "range": {
+        "startLine": 1070,
+        "startChar": 2,
+        "endLine": 1070,
+        "endChar": 13
+      },
+      "revId": "34c50f0db59cd91bbbbf646f365865544c1bd9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25e210db_bcfc7af0",
@@ -84,6 +108,30 @@
       "writtenOn": "2024-03-25T18:29:40Z",
       "side": 1,
       "message": "LmpVersion",
+      "range": {
+        "startLine": 1073,
+        "startChar": 39,
+        "endLine": 1073,
+        "endChar": 49
+      },
+      "revId": "34c50f0db59cd91bbbbf646f365865544c1bd9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56da0b2c_e0745ea9",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 2025045
+      },
+      "writtenOn": "2024-03-25T19:33:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "25e210db_bcfc7af0",
       "range": {
         "startLine": 1073,
         "startChar": 39,
