@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f98b35de_a9cde41a",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 2025045
+      },
+      "writtenOn": "2024-03-25T19:00:34Z",
+      "side": 1,
+      "message": "Makes sense. Discussed this with @edleung",
+      "parentUuid": "22357946_a706893f",
+      "range": {
+        "startLine": 1060,
+        "startChar": 7,
+        "endLine": 1060,
+        "endChar": 13
+      },
+      "revId": "34c50f0db59cd91bbbbf646f365865544c1bd9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab540ed5_e3f2d19e",
