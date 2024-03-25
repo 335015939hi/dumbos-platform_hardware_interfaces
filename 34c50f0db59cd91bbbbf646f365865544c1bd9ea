@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22357946_a706893f",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-03-25T18:29:40Z",
+      "side": 1,
+      "message": "Should we have anything like IsPhone (based on IsTv) for this, or are we requiring 4.2 for all form factors?",
+      "range": {
+        "startLine": 1060,
+        "startChar": 7,
+        "endLine": 1060,
+        "endChar": 13
+      },
+      "revId": "34c50f0db59cd91bbbbf646f365865544c1bd9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab540ed5_e3f2d19e",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1070,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-03-25T18:29:40Z",
+      "side": 1,
+      "message": "ASSERT_GT(\n\nWhen it fails, it will print out both values.",
+      "range": {
+        "startLine": 1070,
+        "startChar": 2,
+        "endLine": 1070,
+        "endChar": 13
+      },
+      "revId": "34c50f0db59cd91bbbbf646f365865544c1bd9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25e210db_bcfc7af0",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2024-03-25T18:29:40Z",
+      "side": 1,
+      "message": "LmpVersion",
+      "range": {
+        "startLine": 1073,
+        "startChar": 39,
+        "endLine": 1073,
+        "endChar": 49
+      },
+      "revId": "34c50f0db59cd91bbbbf646f365865544c1bd9ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
