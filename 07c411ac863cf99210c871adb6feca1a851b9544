@@ -52,6 +52,24 @@
       "parentUuid": "c237fb9c_9b71c0e8",
       "revId": "07c411ac863cf99210c871adb6feca1a851b9544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a792244_eb534b6e",
+        "filename": "graphics/composer/aidl/vts/VtsHalGraphicsComposer3_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2177,
+      "author": {
+        "id": 1012974
+      },
+      "writtenOn": "2024-03-26T18:55:10Z",
+      "side": 1,
+      "message": "Nothing needs to be done on our side. Yes, please abandon the CL. As stated here and in https://b.corp.google.com/issues/329119344#comment12 (hmm, I think you use a different URL to get there, but I\u0027m not sure what it is 😞), you need to update your HWC. When it has an error, it shouldn\u0027t also change the composition type.",
+      "parentUuid": "4dc09aff_71bf25e2",
+      "revId": "07c411ac863cf99210c871adb6feca1a851b9544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
