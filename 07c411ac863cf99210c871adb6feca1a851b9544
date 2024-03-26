@@ -34,6 +34,24 @@
       "parentUuid": "92c4042e_343c00b8",
       "revId": "07c411ac863cf99210c871adb6feca1a851b9544",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc09aff_71bf25e2",
+        "filename": "graphics/composer/aidl/vts/VtsHalGraphicsComposer3_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2177,
+      "author": {
+        "id": 3131919
+      },
+      "writtenOn": "2024-03-26T16:31:34Z",
+      "side": 1,
+      "message": "With the code, the test case is passing. Could you explain what are the next steps to fix the issue on your side? Do you want me to abandon this CL?",
+      "parentUuid": "c237fb9c_9b71c0e8",
+      "revId": "07c411ac863cf99210c871adb6feca1a851b9544",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
