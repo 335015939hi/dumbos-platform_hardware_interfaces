@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95ab69b0_6596dab9",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-03-27T19:36:05Z",
+      "side": 1,
+      "message": "would you be able to insert a so-called markdown codeblock\nsuch as:\n \n```sequence-diagram\n\nblob\n````",
+      "revId": "7508eaadd79e93b9090f109e5bdab3158e5675bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
