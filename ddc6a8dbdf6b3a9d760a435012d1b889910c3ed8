@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd616695_89fb88e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-03-27T06:23:35Z",
+      "side": 1,
+      "message": "Ah, thank you -- coming back to figure out what was wrong here was on my list, but I\u0027d not gotten to it yet.\n\n(I had to rename the Rust nonsecure/default HAL in a hurry because the shift to Rust apparently triggered a Wear problem)",
+      "revId": "ddc6a8dbdf6b3a9d760a435012d1b889910c3ed8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
