@@ -115,5 +115,58 @@ rust_library {
         "libkmr_wire",
     ],
     srcs: ["ta/lib.rs"],
+}
 
+apex {
+    name: "com.android.keymint.rust_nonsecure",
+    manifest: "manifest.json",
+    file_contexts: "file_contexts",
+    key: "com.google.cf.apex.key",
+    certificate: ":com.google.cf.apex.certificate",
+    soc_specific: true,
+    updatable: false,
+    binaries: [
+        "android.hardware.security.keymint-service.nonsecure",
+    ],
+    prebuilts: [
+        "keymint_aidl_nonsecure_init_rc",
+        "keymint_aidl_nonsecure_keymint_vintf",
+        "keymint_aidl_nonsecure_sharedsecret_vintf",
+        "keymint_aidl_nonsecure_secureclock_vintf",
+        "keymint_aidl_nonsecure_permissions",
+    ],
+}
+
+prebuilt_etc {
+    name: "keymint_aidl_nonsecure_init_rc",
+    vendor: true,
+    src: "android.hardware.security.keymint-service.nonsecure.rc",
+}
+
+prebuilt_etc {
+    name: "keymint_aidl_nonsecure_keymint_vintf",
+    sub_dir: "vintf",
+    vendor: true,
+    src: "android.hardware.security.keymint-service.xml",
+}
+
+prebuilt_etc {
+    name: "keymint_aidl_nonsecure_sharedsecret_vintf",
+    sub_dir: "vintf",
+    vendor: true,
+    src: "android.hardware.security.sharedsecret-service.xml",
+}
+
+prebuilt_etc {
+    name: "keymint_aidl_nonsecure_secureclock_vintf",
+    sub_dir: "vintf",
+    vendor: true,
+    src: "android.hardware.security.secureclock-service.xml",
+}
+
+prebuilt_etc {
+    name: "keymint_aidl_nonsecure_permissions",
+    sub_dir: "permissions",
+    vendor: true,
+    src: "android.hardware.hardware_keystore.xml",
 }
