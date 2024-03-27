@@ -583,22 +583,32 @@ bool convertLegacyGscanCapabilitiesToHidl(const legacy_hal::wifi_gscan_capabilit
 }
 
 legacy_hal::wifi_band convertHidlWifiBandToLegacy(V1_0::WifiBand band) {
-    switch (band) {
-        case V1_0::WifiBand::BAND_UNSPECIFIED:
+    V1_5::WifiBand band_1_5 = V1_5::WifiBand(band);
+    switch (band_1_5) {
+        case V1_5::WifiBand::BAND_UNSPECIFIED:
             return legacy_hal::WIFI_BAND_UNSPECIFIED;
-        case V1_0::WifiBand::BAND_24GHZ:
+        case V1_5::WifiBand::BAND_24GHZ:
+        case V1_5::WifiBand::BAND_6GHZ:
+        case V1_5::WifiBand::BAND_60GHZ:
             return legacy_hal::WIFI_BAND_BG;
-        case V1_0::WifiBand::BAND_5GHZ:
+        case V1_5::WifiBand::BAND_5GHZ:
+        case V1_5::WifiBand::BAND_5GHZ_6GHZ:
             return legacy_hal::WIFI_BAND_A;
-        case V1_0::WifiBand::BAND_5GHZ_DFS:
+        case V1_5::WifiBand::BAND_5GHZ_DFS:
             return legacy_hal::WIFI_BAND_A_DFS;
-        case V1_0::WifiBand::BAND_5GHZ_WITH_DFS:
+        case V1_5::WifiBand::BAND_5GHZ_WITH_DFS:
             return legacy_hal::WIFI_BAND_A_WITH_DFS;
-        case V1_0::WifiBand::BAND_24GHZ_5GHZ:
+        case V1_5::WifiBand::BAND_24GHZ_5GHZ:
+        case V1_5::WifiBand::BAND_24GHZ_5GHZ_6GHZ:
+        case V1_5::WifiBand::BAND_24GHZ_5GHZ_6GHZ_60GHZ:
             return legacy_hal::WIFI_BAND_ABG;
-        case V1_0::WifiBand::BAND_24GHZ_5GHZ_WITH_DFS:
+        case V1_5::WifiBand::BAND_24GHZ_5GHZ_WITH_DFS:
+        case V1_5::WifiBand::BAND_24GHZ_5GHZ_WITH_DFS_6GHZ:
+        case V1_5::WifiBand::BAND_24GHZ_5GHZ_WITH_DFS_6GHZ_60GHZ:
             return legacy_hal::WIFI_BAND_ABG_WITH_DFS;
-    };
+        default:
+            return legacy_hal::WIFI_BAND_BG;
+    }
     CHECK(false);
 }
 
