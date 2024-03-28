@@ -33,6 +33,10 @@
 
 package android.hardware.security.see.hwcrypto;
 parcelable DerivedKeyResult {
-  android.hardware.security.see.hwcrypto.HwCryptoKeyMaterial keyMaterial;
+  android.hardware.security.see.hwcrypto.DerivedKeyResult.HwCryptoKeyMaterial keyMaterial;
   @nullable byte[] dicePolicyForKeyVersion;
+  union HwCryptoKeyMaterial {
+    byte[] explicitKey = {};
+    android.hardware.security.see.hwcrypto.IOpaqueKey opaque;
+  }
 }

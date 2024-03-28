@@ -16,16 +16,10 @@
 package android.hardware.security.see.hwcrypto.types;
 
 import android.hardware.security.see.hwcrypto.types.AesKey;
-import android.hardware.security.see.hwcrypto.types.EcKey;
-import android.hardware.security.see.hwcrypto.types.HmacKey;
-import android.hardware.security.see.hwcrypto.types.RsaKey;
 
 /*
  * Type encapsulating a clear key.
  */
 union ExplicitKeyMaterial {
     AesKey aes;
-    HmacKey hmac;
-    RsaKey rsa;
-    EcKey ec;
 }
