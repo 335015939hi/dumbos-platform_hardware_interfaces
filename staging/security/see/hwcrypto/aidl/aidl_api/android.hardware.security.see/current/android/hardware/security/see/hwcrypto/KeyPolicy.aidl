@@ -34,8 +34,5 @@
 package android.hardware.security.see.hwcrypto;
 parcelable KeyPolicy {
   android.hardware.security.see.hwcrypto.types.KeyUse usage;
-  android.hardware.security.see.hwcrypto.types.KeyLifetime keyLifetime = android.hardware.security.see.hwcrypto.types.KeyLifetime.EPHEMERAL;
-  android.hardware.security.see.hwcrypto.types.KeyPermissions[] keyPermissions;
-  boolean keyManagementKey;
-  android.hardware.security.see.hwcrypto.types.KeyType keyType = android.hardware.security.see.hwcrypto.types.KeyType.AES_256_GCM;
+  android.hardware.security.see.hwcrypto.types.KeyType keyType = android.hardware.security.see.hwcrypto.types.KeyType.AES_256_CBC_PKCS7_PADDING;
 }

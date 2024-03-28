@@ -37,7 +37,4 @@ enum KeyUse {
   ENCRYPT = 1,
   DECRYPT = 2,
   ENCRYPT_DECRYPT = (ENCRYPT | DECRYPT) /* 3 */,
-  SIGN = 4,
-  DERIVE = 8,
-  WRAP = 16,
 }
