@@ -15,8 +15,6 @@
  */
 package android.hardware.security.see.hwcrypto;
 
-import android.hardware.security.see.hwcrypto.types.KeyLifetime;
-import android.hardware.security.see.hwcrypto.types.KeyPermissions;
 import android.hardware.security.see.hwcrypto.types.KeyType;
 import android.hardware.security.see.hwcrypto.types.KeyUse;
 
@@ -30,24 +28,7 @@ parcelable KeyPolicy {
     KeyUse usage;
 
     /*
-     * Enum that describes the key lifetime characteristics. See the docstring on
-     * <code>KeyLifetime</code> for more details.
-     */
-    KeyLifetime keyLifetime = KeyLifetime.EPHEMERAL;
-
-    /*
-     * Additional permissions of the key (e.g. key types allowed to wrap the key, boot binding,
-     * etc.). See the docstring on <code>KeyPermissions</code> for more details.
-     */
-    KeyPermissions[] keyPermissions;
-
-    /*
-     * Key can be used to wrap or derive other keys.
-     */
-    boolean keyManagementKey;
-
-    /*
      * Enum that specifies the key type.
      */
-    KeyType keyType = KeyType.AES_256_GCM;
+    KeyType keyType = KeyType.AES_256_CBC_PKCS7_PADDING;
 }
