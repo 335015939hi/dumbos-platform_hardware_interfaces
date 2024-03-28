@@ -210,6 +210,30 @@
       },
       "revId": "4de1da696246256e16a4b60f2c47fe9916aec9aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3522626_d120c40f",
+        "filename": "security/keymint/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-03-28T23:07:53Z",
+      "side": 1,
+      "message": "Thanks for fixing this!",
+      "parentUuid": "f0abb7f5_50984368",
+      "range": {
+        "startLine": 168,
+        "startChar": 11,
+        "endLine": 168,
+        "endChar": 45
+      },
+      "revId": "4de1da696246256e16a4b60f2c47fe9916aec9aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
