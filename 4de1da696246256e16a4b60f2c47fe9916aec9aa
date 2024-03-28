@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b01cb02d_4d0d846c",
+        "filename": "security/keymint/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-03-28T02:28:34Z",
+      "side": 1,
+      "message": "Add suffix (.rc) or add `filename_from_src: true`",
+      "range": {
+        "startLine": 141,
+        "startChar": 11,
+        "endLine": 141,
+        "endChar": 41
+      },
+      "revId": "4de1da696246256e16a4b60f2c47fe9916aec9aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a6d9302_85ca6f10",
+        "filename": "security/keymint/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-03-28T02:28:34Z",
+      "side": 1,
+      "message": "Add suffix(.xml) or `filename_from_src: true`",
+      "range": {
+        "startLine": 147,
+        "startChar": 11,
+        "endLine": 147,
+        "endChar": 47
+      },
+      "revId": "4de1da696246256e16a4b60f2c47fe9916aec9aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "145dedc3_19ba9ddc",
+        "filename": "security/keymint/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-03-28T02:28:34Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 154,
+        "startChar": 11,
+        "endLine": 154,
+        "endChar": 52
+      },
+      "revId": "4de1da696246256e16a4b60f2c47fe9916aec9aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17dd6155_9eade6a4",
+        "filename": "security/keymint/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-03-28T02:28:34Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 161,
+        "startChar": 11,
+        "endLine": 161,
+        "endChar": 51
+      },
+      "revId": "4de1da696246256e16a4b60f2c47fe9916aec9aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0abb7f5_50984368",
+        "filename": "security/keymint/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-03-28T02:28:34Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 168,
+        "startChar": 11,
+        "endLine": 168,
+        "endChar": 45
+      },
+      "revId": "4de1da696246256e16a4b60f2c47fe9916aec9aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
