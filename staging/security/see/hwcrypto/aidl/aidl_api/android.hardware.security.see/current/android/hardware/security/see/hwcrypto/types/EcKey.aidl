@@ -32,24 +32,20 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.see.hwcrypto.types;
-enum KeyType {
-  AES_128_CBC_NO_PADDING,
-  AES_128_CBC_PKCS7_PADDING,
-  AES_128_CTR,
-  AES_128_GCM,
-  AES_128_CMAC,
-  AES_256_CBC_NO_PADDING,
-  AES_256_CBC_PKCS7_PADDING,
-  AES_256_CTR,
-  AES_256_GCM,
-  AES_256_CMAC,
-  HMAC_SHA256,
-  HMAC_SHA512,
-  RSA2048_PSS_SHA256,
-  RSA2048_PKCS1_5_SHA256,
-  ECC_NIST_P256_SIGN_NO_PADDING,
-  ECC_NIST_P256_SIGN_SHA256,
-  ECC_NIST_P521_SIGN_NO_PADDING,
-  ECC_NIST_P521_SIGN_SHA512,
-  ECC_ED25519_SIGN,
+union EcKey {
+  android.hardware.security.see.hwcrypto.types.EcKey.NistKey p224;
+  android.hardware.security.see.hwcrypto.types.EcKey.NistKey p256;
+  android.hardware.security.see.hwcrypto.types.EcKey.NistKey p384;
+  android.hardware.security.see.hwcrypto.types.EcKey.NistKey p521;
+  android.hardware.security.see.hwcrypto.types.EcKey.Ed25519Key ed25519;
+  android.hardware.security.see.hwcrypto.types.EcKey.X25519Key x25519;
+  parcelable NistKey {
+    byte[] keyMaterial;
+  }
+  parcelable Ed25519Key {
+    byte[32] keyMaterial;
+  }
+  parcelable X25519Key {
+    byte[32] keyMaterial;
+  }
 }
