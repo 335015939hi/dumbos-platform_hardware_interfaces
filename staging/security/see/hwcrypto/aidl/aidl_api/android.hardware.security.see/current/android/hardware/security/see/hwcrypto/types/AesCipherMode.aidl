@@ -33,6 +33,9 @@
 
 package android.hardware.security.see.hwcrypto.types;
 union AesCipherMode {
-  android.hardware.security.see.hwcrypto.types.CipherModeParameters cbc;
-  android.hardware.security.see.hwcrypto.types.CipherModeParameters ctr;
+  android.hardware.security.see.hwcrypto.types.AesCipherMode.CipherModeParameters cbc;
+  android.hardware.security.see.hwcrypto.types.AesCipherMode.CipherModeParameters ctr;
+  parcelable CipherModeParameters {
+    byte[] nonce;
+  }
 }
