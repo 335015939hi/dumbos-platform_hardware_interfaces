@@ -19,7 +19,6 @@ import android.hardware.security.see.hwcrypto.DerivedKeyResult;
 import android.hardware.security.see.hwcrypto.IHwCryptoOperations;
 import android.hardware.security.see.hwcrypto.IOpaqueKey;
 import android.hardware.security.see.hwcrypto.KeyPolicy;
-import android.hardware.security.see.hwcrypto.types.NullableInt;
 
 /*
  * Higher level interface to access device-specific keys. It shares definitions with the HwCrypto

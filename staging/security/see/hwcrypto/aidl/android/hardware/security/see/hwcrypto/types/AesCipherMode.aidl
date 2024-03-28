@@ -15,13 +15,19 @@
  */
 package android.hardware.security.see.hwcrypto.types;
 
-import android.hardware.security.see.hwcrypto.types.CipherModeParameters;
 import android.hardware.security.see.hwcrypto.types.Void;
 
 /*
  * Type used for the parameters needed to run a non-authenticated AES operation.
  */
 union AesCipherMode {
+    /*
+     * Type encapsulating nonce used on non-authenticated AES symmetric encryption.
+     */
+    parcelable CipherModeParameters {
+        byte[] nonce;
+    }
+
     /*
      * Cipher Block Chaining mode. Padding will either be none or PKCS#7 depending on the key policy
      * padding parameter. It contains the nonce for the operation.

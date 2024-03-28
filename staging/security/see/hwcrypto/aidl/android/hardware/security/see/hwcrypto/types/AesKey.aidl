@@ -25,11 +25,6 @@ union AesKey {
     byte[16] aes128 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
     /*
-     * Raw AES 192 bit key material.
-     */
-    byte[24] aes192;
-
-    /*
      * Raw AES 256 bit key material.
      */
     byte[32] aes256;

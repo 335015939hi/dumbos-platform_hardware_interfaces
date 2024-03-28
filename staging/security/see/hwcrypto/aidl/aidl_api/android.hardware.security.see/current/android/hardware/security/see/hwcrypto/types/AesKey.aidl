@@ -34,6 +34,5 @@
 package android.hardware.security.see.hwcrypto.types;
 union AesKey {
   byte[16] aes128 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-  byte[24] aes192;
   byte[32] aes256;
 }
