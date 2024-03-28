@@ -31,6 +31,16 @@ interface IOpaqueKey {
     KeyPolicy getKeyPolicy();
 
     /*
+     * getPublicKey() - Returns the public key portion of this OpaqueKey. This operation is only
+     *                  valid for asymmetric keys
+     *
+     * Return:
+     *      public key as a byte array on success, service specific error based on
+     *      <code>HalErrorCode</code> otherwise. Format used for the returned public key is COSE.
+     */
+    byte[] getPublicKey();
+
+    /*
      * getShareableToken() - Returns a token that can shared with another HWCrypto client.
      *
      * Return:
