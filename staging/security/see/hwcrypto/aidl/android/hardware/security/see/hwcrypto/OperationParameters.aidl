@@ -15,10 +15,6 @@
  */
 package android.hardware.security.see.hwcrypto;
 
-import android.hardware.security.see.hwcrypto.types.EcSignParameters;
-import android.hardware.security.see.hwcrypto.types.HmacOperationParameters;
-import android.hardware.security.see.hwcrypto.types.RsaOperationParameters;
-import android.hardware.security.see.hwcrypto.types.SymmetricAuthOperationParameters;
 import android.hardware.security.see.hwcrypto.types.SymmetricOperationParameters;
 
 /*
@@ -26,27 +22,7 @@ import android.hardware.security.see.hwcrypto.types.SymmetricOperationParameters
  */
 union OperationParameters {
     /*
-     * Parameters for authenticated symmetric cryptography (AES GCM).
-     */
-    SymmetricAuthOperationParameters symmetricAuthCrypto;
-
-    /*
      * Parameters for non-authenticated symmetric cryptography (AES/TDES).
      */
     SymmetricOperationParameters symmetricCrypto;
-
-    /*
-     * Parameters for hash based message authenticated code operations.
-     */
-    HmacOperationParameters hmac;
-
-    /*
-     * Parameters for elliptic curve cryptography operations.
-     */
-    EcSignParameters ecSign;
-
-    /*
-     * Parameters for RSA sign operations.
-     */
-    RsaOperationParameters rsaSign;
 }
