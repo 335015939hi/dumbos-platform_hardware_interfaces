@@ -15,13 +15,25 @@
  */
 package android.hardware.security.see.hwcrypto;
 
-import android.hardware.security.see.hwcrypto.HwCryptoKeyMaterial;
+import android.hardware.security.see.hwcrypto.IOpaqueKey;
 
 /*
  * parcelable containing the result of calling
  * <code>IHwCryptoDeviceKeyAccess::hwkeyDeriveVersioned</code>.
  */
 parcelable DerivedKeyResult {
+    union HwCryptoKeyMaterial {
+        /*
+         * Derived key in clear format.
+         */
+        byte[] explicitKey = {};
+
+        /*
+         * Key token to be used only through the HWCrypto service.
+         */
+        IOpaqueKey opaque;
+    }
+
     /*
      * Union containing either an opaque or a clear key.
      */
