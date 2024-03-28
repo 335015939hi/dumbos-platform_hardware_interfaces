@@ -33,7 +33,5 @@
 
 package android.hardware.security.see.hwcrypto;
 interface IOpaqueKey {
-  byte[] exportWrappedKey(in android.hardware.security.see.hwcrypto.IOpaqueKey wrappingKey);
   android.hardware.security.see.hwcrypto.KeyPolicy getKeyPolicy();
-  byte[] getPublicKey();
 }
