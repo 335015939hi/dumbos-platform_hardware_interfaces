@@ -16,6 +16,24 @@
       "message": "instead of excluding it for bt_sco. can we simply limit to USB and HDMI.\nas for devices like headset/headphone/line, we don\u0027t actually open the codec. (mostly same codec as spk is used)",
       "revId": "69d60aa02ccb1fd744750eaa929264b7b433956e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e16fd15_22d4b5fb",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-29T16:48:48Z",
+      "side": 1,
+      "message": "Hi Jaideep,\n\nI prefer to use \"blacklisting\" approach rather than \"whitelisting.\" From my experience, the HAL is able to reject attempts for connecting unplugged analog connections. Are you experiencing difficulties implementing this?",
+      "parentUuid": "82e872c8_90cb3663",
+      "revId": "69d60aa02ccb1fd744750eaa929264b7b433956e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
