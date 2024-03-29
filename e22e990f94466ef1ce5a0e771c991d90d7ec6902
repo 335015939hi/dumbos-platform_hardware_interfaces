@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cddb92a1_3833e965",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
+        "patchSetId": 31
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-03-29T01:23:46Z",
+      "side": 1,
+      "message": "Including the tag in the output is pretty standard.  If you separate it, clients will likely just end up having to append it.",
+      "parentUuid": "4a3dd14a_3c8a5809",
+      "revId": "e22e990f94466ef1ce5a0e771c991d90d7ec6902",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "943df324_5b3f4567",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IAeadOperation.aidl",
         "patchSetId": 31

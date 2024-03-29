@@ -451,6 +451,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07160dd7_9b47f9ef",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
+        "patchSetId": 32
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-03-29T01:23:46Z",
+      "side": 1,
+      "message": "Can any key be exported? Does the key have to be configured as exportable during generation?",
+      "range": {
+        "startLine": 140,
+        "startChar": 11,
+        "endLine": 140,
+        "endChar": 29
+      },
+      "revId": "d55d603c6352ebb30264f52edca1db891f6f88d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f13f7709_1682b6fe",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyGeneration.aidl",
         "patchSetId": 32

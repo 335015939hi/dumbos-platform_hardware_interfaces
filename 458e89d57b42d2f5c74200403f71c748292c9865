@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0971d899_b16e4267",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyProperties.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-03-29T01:23:46Z",
+      "side": 1,
+      "message": "When does validity start? If \"now\", per what clock?",
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6caf738_205b4f2c",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyRsaOperations.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-03-29T01:23:46Z",
+      "side": 1,
+      "message": "I suggest COSE.",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 80
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12697611_5254a01a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoRng.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-03-29T01:23:46Z",
+      "side": 1,
+      "message": "Note that this ended up being a NOP in most KeyMint implementations.  I think it\u0027s still a good idea, but partners disagree.",
+      "range": {
+        "startLine": 30,
+        "startChar": 17,
+        "endLine": 30,
+        "endChar": 28
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7067d023_56c0433b",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesKeyMaterial.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-03-29T01:23:46Z",
+      "side": 1,
+      "message": "I recommend not supporting AES-192. No one uses it.",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fbb0a0e_10e4a750",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/Digest.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-03-29T01:23:46Z",
+      "side": 1,
+      "message": "We should think about killing these. Especially MD5.",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 9
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b01edca_20d2a109",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyFlags.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-03-29T01:23:46Z",
+      "side": 1,
+      "message": "How is rollback resistance implemented?",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed8bab4e_70abc007",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-03-29T01:23:46Z",
+      "side": 1,
+      "message": "KeyMint supports arbitrary RSA key sizes.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed06c669_255c51cb",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/NistKey.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-03-29T01:23:46Z",
+      "side": 1,
+      "message": "Format?",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 24
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
