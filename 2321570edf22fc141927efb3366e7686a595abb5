@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bdc82fc7_780ab105",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-29T20:11:53Z",
+      "side": 1,
+      "message": "Please do not parse XMLs by hand. We need to define an XSD and use a generated parser instead.",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 70
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d3443b16_63f9694a",
         "filename": "audio/aidl/default/XsdcConversion.cpp",
         "patchSetId": 2
