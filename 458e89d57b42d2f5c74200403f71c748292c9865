@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6f11356_3d7adf16",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyProperties.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-29T18:47:11Z",
+      "side": 1,
+      "message": "Yes, it starts at the time of the call and the clock is the one used by the secure service. This specific function has been moved to a future CL (not under review yet), but do you see an issue with that approach?",
+      "parentUuid": "0971d899_b16e4267",
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6caf738_205b4f2c",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyRsaOperations.aidl",
         "patchSetId": 45
@@ -31,6 +49,30 @@
       "writtenOn": "2024-03-29T01:23:46Z",
       "side": 1,
       "message": "I suggest COSE.",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 80
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44cc04e8_82eb70cb",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKeyRsaOperations.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-29T18:47:11Z",
+      "side": 1,
+      "message": "Thanks Shawn. Changed the docstring on the CL that currently contains this definition to specify that the returned format is COSE.",
+      "parentUuid": "a6caf738_205b4f2c",
       "range": {
         "startLine": 61,
         "startChar": 4,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1875842_ac088052",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoRng.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-29T18:47:11Z",
+      "side": 1,
+      "message": "Thanks Shawn, I will keep that in mind (this AIDL has also moved to a different CL not under review yet).",
+      "parentUuid": "12697611_5254a01a",
+      "range": {
+        "startLine": 30,
+        "startChar": 17,
+        "endLine": 30,
+        "endChar": 28
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7067d023_56c0433b",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-03-29T01:23:46Z",
       "side": 1,
       "message": "I recommend not supporting AES-192. No one uses it.",
+      "range": {
+        "startLine": 21,
+        "startChar": 4,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf9467b7_520ae21f",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesKeyMaterial.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-29T18:47:11Z",
+      "side": 1,
+      "message": "Thanks. I removed from the keyTypes but forgot to remove it from [here](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2429176/88/staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/AesKey.aidl). Fixed now.",
+      "parentUuid": "7067d023_56c0433b",
       "range": {
         "startLine": 21,
         "startChar": 4,
@@ -112,6 +202,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a0590b4_c9581a74",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/Digest.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-29T18:47:11Z",
+      "side": 1,
+      "message": "Thanks Shawn, the latest version of the AIDL does not include them (in fact we do not have a separate Digest parameter, now the digest is [chosen with the key type](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2954695/14/staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl)).",
+      "parentUuid": "3fbb0a0e_10e4a750",
+      "range": {
+        "startLine": 20,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 9
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b01edca_20d2a109",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyFlags.aidl",
         "patchSetId": 45
@@ -123,6 +237,30 @@
       "writtenOn": "2024-03-29T01:23:46Z",
       "side": 1,
       "message": "How is rollback resistance implemented?",
+      "range": {
+        "startLine": 19,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91faf1b8_e30ea247",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyFlags.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-29T18:47:11Z",
+      "side": 1,
+      "message": "There are no HWCrypto-based rollback resistant keys anymore (that file was removed on a future patchset in this CL).",
+      "parentUuid": "2b01edca_20d2a109",
       "range": {
         "startLine": 19,
         "startChar": 4,
@@ -158,6 +296,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfe68b17_7fb2c59c",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-29T18:47:11Z",
+      "side": 1,
+      "message": "While originally we were aiming to support as much as KeyMint does at the cryptographic API level, that goal changed and now we are restricting the algorithms offered to [these ones](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2954695/14/staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/KeyType.aidl). For KeyMint use, currently we are planning to offer a platform bound derived key in the clear(like the one used for `KEK`) that can be rotated, and let KeyMint keep using its current implementation. Do you see an issue with that approach?",
+      "parentUuid": "ed8bab4e_70abc007",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed06c669_255c51cb",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/NistKey.aidl",
         "patchSetId": 45
@@ -169,6 +331,30 @@
       "writtenOn": "2024-03-29T01:23:46Z",
       "side": 1,
       "message": "Format?",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 24
+      },
+      "revId": "458e89d57b42d2f5c74200403f71c748292c9865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61d88c6b_c7e55bdb",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/NistKey.aidl",
+        "patchSetId": 45
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-03-29T18:47:11Z",
+      "side": 1,
+      "message": "The latest version of this file now indicates the format used on the [docstring](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2429176/89/staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/EcKey.aidl). Do you see any issues with this format?",
+      "parentUuid": "ed06c669_255c51cb",
       "range": {
         "startLine": 19,
         "startChar": 3,
