@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a180b52_608fdf44",
+        "filename": "security/keymint/aidl/default/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-03-29T18:30:57Z",
+      "side": 1,
+      "message": "I think these can all be squished into a single rule using `srcs`:\n```suggestion\nprebuilt_etc {\n    name: \"keymint_aidl_nonsecure_keymint_vintf\",\n    sub_dir: \"vintf\",\n    filename_from_src: true,\n    vendor: true,\n    srcs: [\n        \"android.hardware.security.keymint-service.xml\",\n        \"android.hardware.security.sharedsecret-service.xml\",\n        \"android.hardware.security.secureclock-service.xml\",\n    ],\n}\n```",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 176,
+        "endChar": 1
+      },
+      "revId": "ec54086fd266ca124e9c03d3191ac9ed046b3650",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
