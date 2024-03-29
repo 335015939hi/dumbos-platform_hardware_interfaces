@@ -54,6 +54,7 @@ cc_library {
         "AidlConversionXsdc.cpp",
         "AudioPolicyConfigXmlConverter.cpp",
         "Bluetooth.cpp",
+        "CapEngineConfigXmlConverter.cpp",
         "Config.cpp",
         "Configuration.cpp",
         "EngineConfigXmlConverter.cpp",
