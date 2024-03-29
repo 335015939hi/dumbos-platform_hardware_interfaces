@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e872c8_90cb3663",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 1527754
+      },
+      "writtenOn": "2024-03-29T04:34:58Z",
+      "side": 1,
+      "message": "instead of excluding it for bt_sco. can we simply limit to USB and HDMI.\nas for devices like headset/headphone/line, we don\u0027t actually open the codec. (mostly same codec as spk is used)",
+      "revId": "69d60aa02ccb1fd744750eaa929264b7b433956e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
