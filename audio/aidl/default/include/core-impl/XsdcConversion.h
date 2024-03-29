@@ -26,4 +26,20 @@ ConversionResult<::aidl::android::media::audio::common::AudioHalVolumeCurve::Cur
 convertCurvePointToAidl(const std::string& xsdcCurvePoint);
 ConversionResult<std::unique_ptr<Module::Configuration>> convertModuleConfigToAidl(
         const ::android::audio::policy::configuration::Modules::Module& moduleConfig);
+ConversionResult<::aidl::android::media::audio::common::AudioUsage>
+        convertAudioUsageToAidl(const ::android::audio::policy::engine::configuration::UsageEnumType& xsdcUsage);
+ConversionResult<::aidl::android::media::audio::common::AudioContentType>
+        convertAudioContentTypeToAidl(
+                const ::android::audio::policy::engine::configuration::ContentType&
+                xsdcContentType);
+ConversionResult<::aidl::android::media::audio::common::AudioSource>
+        convertAudioSourceToAidl(
+                const ::android::audio::policy::engine::configuration::SourceEnumType&
+                xsdcSourceType);
+ConversionResult<::aidl::android::media::audio::common::AudioStreamType>
+        convertAudioStreamTypeToAidl(
+                const ::android::audio::policy::engine::configuration::Stream& xsdStreamType);
+ConversionResult<int32_t> convertAudioFlagsToAidl(
+        const std::vector<::android::audio::policy::engine::configuration::FlagType>&
+                xsdcFlagTypeVec);
 }  // namespace aidl::android::hardware::audio::core::internal
