@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ba9bcef_930c9419",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-29T19:57:55Z",
+      "side": 1,
+      "message": "Please use `307310023` for CAP migration to AIDL.",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3443b16_63f9694a",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-29T19:57:55Z",
+      "side": 1,
+      "message": "This is a \"primitive\" type, needs to be explicitly initialized.",
+      "range": {
+        "startLine": 62,
+        "startChar": 31,
+        "endLine": 62,
+        "endChar": 41
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab89c688_cab1203a",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-29T19:57:55Z",
+      "side": 1,
+      "message": "That looks wrong because `audio_flags_mask_t` specifies mask values, not shifts: https://cs.android.com/android/platform/superproject/main/+/main:system/media/audio/include/system/audio.h;l\u003d99;drc\u003d2a18ae92ec1fb79d3d5a4f14bd1e07850ad0ca9c",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 70
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfd6ebfc_1cd4d81e",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-29T19:57:55Z",
+      "side": 1,
+      "message": "Please print values in error messages.",
+      "range": {
+        "startLine": 84,
+        "startChar": 90,
+        "endLine": 84,
+        "endChar": 91
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "facc1b77_794c9ea2",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-29T19:57:55Z",
+      "side": 1,
+      "message": "AidlAndroid ?",
+      "range": {
+        "startLine": 542,
+        "startChar": 50,
+        "endLine": 542,
+        "endChar": 61
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af0f3c00_31aba0d8",
+        "filename": "audio/aidl/default/android.hardware.audio.service-aidl.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-03-29T19:57:55Z",
+      "side": 1,
+      "message": "Note: since BT does present of Cuttlefish, this module must be enabled. Are you having issues with it?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 6
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
