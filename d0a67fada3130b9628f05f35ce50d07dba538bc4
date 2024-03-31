@@ -33,6 +33,23 @@
       "message": "-2K",
       "revId": "d0a67fada3130b9628f05f35ce50d07dba538bc4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a98553b5_0a742e0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3374771
+      },
+      "writtenOn": "2024-03-31T17:50:46Z",
+      "side": 1,
+      "message": "Daniel Henrique Alves Coelho",
+      "revId": "d0a67fada3130b9628f05f35ce50d07dba538bc4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
