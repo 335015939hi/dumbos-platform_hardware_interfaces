@@ -22,6 +22,30 @@
       },
       "revId": "09b834936eb796d57a170fedcb5625af0ab7d4b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d032082b_ed7350b0",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/CipherModeParameters.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-04-02T23:18:57Z",
+      "side": 1,
+      "message": "Now that we are not supporting 3DES anymore it can be fixed to 16. Fixed also the comment to remove the 3DES reference.",
+      "parentUuid": "bde5d2ef_98120061",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "09b834936eb796d57a170fedcb5625af0ab7d4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
