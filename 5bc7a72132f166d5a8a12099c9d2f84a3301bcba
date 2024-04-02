@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7026d9d_8cae0330",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/CryptoOperation.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-04-02T16:01:07Z",
+      "side": 1,
+      "message": "Sorry if we already talked about this!\n\nIs this always going to be used as a block of bytes? \nLike we aren\u0027t trying to pass different data types back and forth across this memory buffer, only using it as a large byte array for crypto operations, so we don\u0027t need to care about the layout of different types in the different processes?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 42
+      },
+      "revId": "5bc7a72132f166d5a8a12099c9d2f84a3301bcba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
