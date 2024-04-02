@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b66865c_fa8182fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 57
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-04-02T20:25:21Z",
+      "side": 1,
+      "message": "Had a meeting with Orlando where we discussed this change in detail, I had three proposals:\n\n- I really don\u0027t like putting all this stuff with encrypted DICE policies directly into HWCrypto, which as far as possible should stay simple and modular. In the long term we will need some sort of solution by which parties that we don\u0027t trust with the DICE chain must be able to derive keys based on it, but I don\u0027t know if we need that solution right away or whether we can add it later after more thought, so I\u0027m proposing that for now we remove all that and simply have derive take a plaintext DICE policy every time.\n\n- I think we should separate the operations of \"derive a key from a DICE policy\" and \"diversify that key for various purposes such as cleartext keys, keys with specific HWCrypto policies etc\"; the second operation here is independently useful and will come up a lot. My proposal is that we have a kind of opaque key called something like a \"universal key\" (or \"Barani key\" since this was his idea), which is only used to generate other keys. Then the process of key generation is two steps: use the DICE policy to generate the universal key, then use that key together with the specific DerivedKeyPolicy to generate whatever is needed next\n\n- The \"batch_key\" parameter is kind of a code smell. Instead, hwkeyDeriveVersioned should explicitly take an opaqueKey parameter that will be used for the derivation. Then we can have methods that return the per-device key, or the batch key, and those can be passed in to hwkeyDeriveVersioned, which takes any universal key. This lays the groundwork for adding public-key-encryption based derivation.",
+      "revId": "f63248472c6fbed8fdad60551937db05a3a42d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eefad2fb_3de13b72",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DicePolicy.cddl",
+        "patchSetId": 57
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-04-02T20:25:21Z",
+      "side": 1,
+      "message": "https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:hardware/interfaces/security/authgraph/aidl/android/hardware/security/authgraph/DicePolicy.cddl\n\nThis is a duplicate of the above - how should the duplication be resolved?",
+      "revId": "f63248472c6fbed8fdad60551937db05a3a42d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
