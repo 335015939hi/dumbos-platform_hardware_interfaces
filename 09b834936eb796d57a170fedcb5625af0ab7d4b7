@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bde5d2ef_98120061",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/CipherModeParameters.aidl",
+        "patchSetId": 17
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-04-02T22:35:35Z",
+      "side": 1,
+      "message": "Can this be any size? If we expect a specific size, we can use a sized array here (`byte[16] nonce;`). If we expect a specific range, we should document it here and add it to a VTS test to verify/enforce.",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 17
+      },
+      "revId": "09b834936eb796d57a170fedcb5625af0ab7d4b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
