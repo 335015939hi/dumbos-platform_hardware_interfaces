@@ -34,6 +34,24 @@
       "parentUuid": "82e872c8_90cb3663",
       "revId": "69d60aa02ccb1fd744750eaa929264b7b433956e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "138424e8_420cf134",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 1630064
+      },
+      "writtenOn": "2024-04-02T03:33:16Z",
+      "side": 1,
+      "message": "Hi Mikhail,\n\nI haven\u0027t found a way to check state of analog connections in HAL.\nIt will add extra depedency on HAL to always check the state of various devices and for these devices there is no single standard way to check their state.\n\nI had discussed with Banajit and Eric in 1 of the weekly, where requested to limit it to USB/HDMI, where actually dynamic profiles are needed and these USB/HDMI are actually opened.\n\nIn this case, I was thinking that \"whitelist\" might be better option than \"blacklisting\", as there are N type of devices.\n\nJust like SCO, A2dp and ble family needs to be skipped.\n\nBecause of above reasons, I am requesting to limit to USB and HDMI types.",
+      "parentUuid": "5e16fd15_22d4b5fb",
+      "revId": "69d60aa02ccb1fd744750eaa929264b7b433956e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
