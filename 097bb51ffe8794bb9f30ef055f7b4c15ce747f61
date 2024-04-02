@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b80f269_6564d4ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2024-04-02T18:11:53Z",
+      "side": 1,
+      "message": "Cherry-picked in order to update AOSP-first header files.",
+      "revId": "097bb51ffe8794bb9f30ef055f7b4c15ce747f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
