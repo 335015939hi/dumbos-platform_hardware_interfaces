@@ -22,6 +22,30 @@
       },
       "revId": "a201e5457d8451117e5f13bcd1204d6a4c10c045",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc5ca72d_bbecc8ee",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 60
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-04-03T23:03:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fcb1152_323a269e",
+      "range": {
+        "startLine": 62,
+        "startChar": 12,
+        "endLine": 62,
+        "endChar": 19
+      },
+      "revId": "a201e5457d8451117e5f13bcd1204d6a4c10c045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
