@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14337a5b_6aa3c7b0",
+        "filename": "common/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-04-03T00:25:03Z",
+      "side": 1,
+      "message": "wait - everything that was double_loadable and vendor_available before, it shouldn\u0027t necessarily be allowed for sphals? Can you confirm?\n\nI think it\u0027s a lot of code to allow to load in sphal, which shares the same SELinux context as system code.\n\nIf the double_loadable is for APEX, where we would not mix vendor and system code in a coredomain program, then it is more acceptable.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 26
+      },
+      "revId": "6e0687c48fd7e81ff268573138b23d03484e5883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
