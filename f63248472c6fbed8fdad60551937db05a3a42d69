@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f971199_44024e97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 57
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-04-03T22:01:42Z",
+      "side": 1,
+      "message": "* The base function to derive a key from a DICE policy is now defined on [aosp/3026285](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3026285/1)\n* The refinement of that function to also take a key as an input is now defined under [aosp/3026286](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3026286/1)\n* The function added on this CL only derives a key based on another key.\n* Batch key now use a combination of the key retrieved from a keyslot (using CL [aosp/2874479](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2874479/45))",
+      "parentUuid": "90285cf4_ffeae61b",
+      "revId": "f63248472c6fbed8fdad60551937db05a3a42d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eefad2fb_3de13b72",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DicePolicy.cddl",
         "patchSetId": 57
@@ -49,6 +67,24 @@
       "writtenOn": "2024-04-02T20:25:21Z",
       "side": 1,
       "message": "https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:hardware/interfaces/security/authgraph/aidl/android/hardware/security/authgraph/DicePolicy.cddl\n\nThis is a duplicate of the above - how should the duplication be resolved?",
+      "revId": "f63248472c6fbed8fdad60551937db05a3a42d69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2765385_acfccd7c",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/DicePolicy.cddl",
+        "patchSetId": 57
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-04-03T22:01:42Z",
+      "side": 1,
+      "message": "Currently the file is only used as a reference for the format of the input, so updated the corresponding comment to point to the authgraph file directly.",
+      "parentUuid": "eefad2fb_3de13b72",
       "revId": "f63248472c6fbed8fdad60551937db05a3a42d69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
