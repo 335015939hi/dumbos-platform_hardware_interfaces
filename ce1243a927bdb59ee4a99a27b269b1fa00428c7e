@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97c04661_31a3319c",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 47
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-04-03T00:33:33Z",
+      "side": 1,
+      "message": "I think it is easier to read if it is consistent. Either both here, or both in separate files.",
+      "parentUuid": "26d91b61_0dce1109",
+      "revId": "ce1243a927bdb59ee4a99a27b269b1fa00428c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b57a3db7_7b81282f",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
         "patchSetId": 47
@@ -108,6 +126,30 @@
       "side": 1,
       "message": "Yes, that is the reason for this. Would you prefer a different approach?",
       "parentUuid": "b57a3db7_7b81282f",
+      "range": {
+        "startLine": 55,
+        "startChar": 78,
+        "endLine": 56,
+        "endChar": 87
+      },
+      "revId": "ce1243a927bdb59ee4a99a27b269b1fa00428c7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55160bbf_e7e4d827",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoDeviceKeyAccess.aidl",
+        "patchSetId": 47
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-04-03T00:33:33Z",
+      "side": 1,
+      "message": "If we don\u0027t have a use case for the policy we return in when an old policy is passed in, then I think a more specific return type than nullable would be clearer.\n\nInstead of returning NULL and non-NULL policy to indicate if the policy passed in was current or not, I would prefer explicit return values for that. If you have an example where the returned policy data itself has a useful purpose I can reconsider this, but the returned policy does not match the key returned in this case, which I think can cause needless confusion.",
+      "parentUuid": "9369fbbc_2962d95c",
       "range": {
         "startLine": 55,
         "startChar": 78,
