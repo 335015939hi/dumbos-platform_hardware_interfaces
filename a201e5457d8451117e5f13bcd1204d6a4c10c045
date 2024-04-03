@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fcb1152_323a269e",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 60
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-04-03T22:43:38Z",
+      "side": 1,
+      "message": "keySizeBytes",
+      "range": {
+        "startLine": 62,
+        "startChar": 12,
+        "endLine": 62,
+        "endChar": 19
+      },
+      "revId": "a201e5457d8451117e5f13bcd1204d6a4c10c045",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
