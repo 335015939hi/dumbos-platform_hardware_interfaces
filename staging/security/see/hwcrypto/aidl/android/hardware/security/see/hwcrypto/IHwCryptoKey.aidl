@@ -112,16 +112,22 @@ interface IHwCryptoKey {
      *                              policy. It will return this current policy back to the caller
      *                              along with the generated key.
      *
+     * @derivationKey:
+     *     Key to be used to derive the new key using HKDF.
+     *
      * Return:
      *      Ok(DiceCurrentBoundKeyResult) on success, service specific error based on
      *      <code>HalErrorCode</code> otherwise.
      */
-    DiceCurrentBoundKeyResult deriveCurrentDicePolicyBoundKey();
+    DiceCurrentBoundKeyResult deriveCurrentDicePolicyBoundKey(IOpaqueKey derivationKey);
 
     /*
      * deriveDicePolicyBoundKey() - Derive a versioned key by checking the provided DICE policy
      *                              against the caller and then using it as a context for deriving
      *                              the returned key.
+     *
+     * @derivationKey:
+     *     Key to be used to derive the new key using HKDF.
      *
      * @dicePolicyForKeyVersion:
      *     Policy used to derive keys tied to specific versions. Using this parameter
@@ -137,7 +143,8 @@ interface IHwCryptoKey {
      *      Ok(DiceBoundKeyResult) on success, service specific error based on
      *      <code>HalErrorCode</code> otherwise.
      */
-    DiceBoundKeyResult deriveDicePolicyBoundKey(in byte[] dicePolicyForKeyVersion);
+    DiceBoundKeyResult deriveDicePolicyBoundKey(
+            IOpaqueKey derivationKey, in byte[] dicePolicyForKeyVersion);
 
     /*
      * deriveKey() - Derive a new key based on the given key, policy and context.
