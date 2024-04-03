@@ -63,6 +63,30 @@
       },
       "revId": "d9cad8aed5e15295d0cd01c8facf41be065da567",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6a54d34_f5375902",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2828,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2024-04-03T17:46:18Z",
+      "side": 1,
+      "message": "I merged a some changes around buffer handling a few days ago that we had internally. That should fix the issues here.",
+      "parentUuid": "91486c46_1bf35702",
+      "range": {
+        "startLine": 2820,
+        "startChar": 0,
+        "endLine": 2828,
+        "endChar": 86
+      },
+      "revId": "d9cad8aed5e15295d0cd01c8facf41be065da567",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
