@@ -46,6 +46,30 @@
       },
       "revId": "6e0687c48fd7e81ff268573138b23d03484e5883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "189b3060_fc223b44",
+        "filename": "common/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2024-04-04T08:24:18Z",
+      "side": 1,
+      "message": "As Jiyong mentioned, this is only for build system. Current build system allows LLNDK to link only with LLNDK / VNDK-SP / double_loadable libraries. Once VNDK-SP property is removed, those libraries should be marked as double_loadable or they will failed from build when linked from LLNDK libraries (both direct or indirect).",
+      "parentUuid": "437b99fa_a493e862",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 26
+      },
+      "revId": "6e0687c48fd7e81ff268573138b23d03484e5883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
