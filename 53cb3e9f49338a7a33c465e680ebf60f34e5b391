@@ -16,6 +16,24 @@
       "message": "Still working on sepolicy issues with running this on Cuttlefish.",
       "revId": "53cb3e9f49338a7a33c465e680ebf60f34e5b391",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd99cef3_d43073bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-04-04T11:39:50Z",
+      "side": 1,
+      "message": "Fixed by aosp/3027263.",
+      "parentUuid": "5eca660d_7c22792e",
+      "revId": "53cb3e9f49338a7a33c465e680ebf60f34e5b391",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
