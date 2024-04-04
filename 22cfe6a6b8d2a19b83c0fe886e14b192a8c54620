@@ -16,6 +16,24 @@
       "message": "@jooyung@google.com, @quxiangfang@google.com why do we install these by default in base_vendor.mk instead of allowing devices to choose which ones to install like we do with most other HALs?",
       "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3958bb05_bc37f7d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-04-04T15:46:59Z",
+      "side": 1,
+      "message": "unresolving this comment*",
+      "parentUuid": "53c1eefb_bb44266c",
+      "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
