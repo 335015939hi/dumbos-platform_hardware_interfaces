@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7ba0882_7a53b6cc",
+        "filename": "gatekeeper/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-04T14:15:46Z",
+      "side": 1,
+      "message": "I _think_ the ndk rather than the cpp backend is more appropriate for this?\n\nhttps://groups.google.com/a/google.com/g/android-idl-discuss/c/WEPvyGYX5ak/m/5t6K1C5hAwAJ",
+      "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
