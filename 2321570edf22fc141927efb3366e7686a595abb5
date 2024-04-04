@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce514c96_a53ebe44",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-04T14:22:06Z",
+      "side": 1,
+      "message": "only for HAL side or for all related CLS?",
+      "parentUuid": "7ba9bcef_930c9419",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 14
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdc82fc7_780ab105",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-29T20:11:53Z",
       "side": 1,
       "message": "Please do not parse XMLs by hand. We need to define an XSD and use a generated parser instead.",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 70
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fb3f51e_224f2099",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-04T14:22:06Z",
+      "side": 1,
+      "message": "Done, but need a fix in the cpp code generator to support PFW xsd.\nI removed unsupported feature but need anyway a fix in xsd. Will propose for upstream also.",
+      "parentUuid": "bdc82fc7_780ab105",
       "range": {
         "startLine": 345,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5890a12_cb25070b",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-04T14:22:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3443b16_63f9694a",
+      "range": {
+        "startLine": 62,
+        "startChar": 31,
+        "endLine": 62,
+        "endChar": 41
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab89c688_cab1203a",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-03-29T19:57:55Z",
       "side": 1,
       "message": "That looks wrong because `audio_flags_mask_t` specifies mask values, not shifts: https://cs.android.com/android/platform/superproject/main/+/main:system/media/audio/include/system/audio.h;l\u003d99;drc\u003d2a18ae92ec1fb79d3d5a4f14bd1e07850ad0ca9c",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 70
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13e15a10_4b5cbb6c",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-04T14:22:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab89c688_cab1203a",
       "range": {
         "startLine": 68,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27d0aa56_fb906b90",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-04T14:22:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfd6ebfc_1cd4d81e",
+      "range": {
+        "startLine": 84,
+        "startChar": 90,
+        "endLine": 84,
+        "endChar": 91
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "facc1b77_794c9ea2",
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "448b745e_93e0c75f",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-04T14:22:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "facc1b77_794c9ea2",
+      "range": {
+        "startLine": 542,
+        "startChar": 50,
+        "endLine": 542,
+        "endChar": 61
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af0f3c00_31aba0d8",
@@ -152,6 +296,30 @@
       "writtenOn": "2024-03-29T19:57:55Z",
       "side": 1,
       "message": "Note: since BT does present of Cuttlefish, this module must be enabled. Are you having issues with it?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 6
+      },
+      "revId": "2321570edf22fc141927efb3366e7686a595abb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "923f873f_a484d048",
+        "filename": "audio/aidl/default/android.hardware.audio.service-aidl.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-04T14:22:06Z",
+      "side": 1,
+      "message": "yes, I did have but I guess it may come from my CF setup. However, this change shall not have been pushed!",
+      "parentUuid": "af0f3c00_31aba0d8",
       "range": {
         "startLine": 12,
         "startChar": 0,
