@@ -16,6 +16,24 @@
       "message": "I _think_ the ndk rather than the cpp backend is more appropriate for this?\n\nhttps://groups.google.com/a/google.com/g/android-idl-discuss/c/WEPvyGYX5ak/m/5t6K1C5hAwAJ",
       "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "654f91b1_591ba913",
+        "filename": "gatekeeper/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1809582
+      },
+      "writtenOn": "2024-04-05T03:23:22Z",
+      "side": 1,
+      "message": "I think this is because we need cpp for the Binder connection to TrustZone (only libbinder.vendor works in that direction).",
+      "parentUuid": "a7ba0882_7a53b6cc",
+      "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
