@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d6342e5_a05f924b",
+        "filename": "security/keymint/aidl/default/ta/lib.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-05T23:43:05Z",
+      "side": 1,
+      "message": "How hard would it be to make this easily flippable?\n\ne.g. with a flag or something?",
+      "revId": "fe5f33a61e8e6fa6d59d56d1882dba401d389fee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
