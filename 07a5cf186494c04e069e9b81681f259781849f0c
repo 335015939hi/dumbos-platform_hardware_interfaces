@@ -34,6 +34,24 @@
       "parentUuid": "a7ba0882_7a53b6cc",
       "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7bae0f3_cef05ae6",
+        "filename": "gatekeeper/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-05T06:34:55Z",
+      "side": 1,
+      "message": "Ah, so the gatekeeperd \u003c-\u003e HAL service hop is `-ndk` but the HAL service \u003c-\u003e TA hop is `-cpp`?\n\nHow is the latter going to cope with the `-cpp` targets not being stable?  If a new dessert release changes the `-cpp` generated code, then the HAL service will use the new code but the TA will still be expecting the old code?",
+      "parentUuid": "654f91b1_591ba913",
+      "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
