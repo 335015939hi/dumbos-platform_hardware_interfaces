@@ -20,6 +20,10 @@
 #include <fstream>
 #include <unordered_set>
 #include <vector>
+#include "aidl/android/hardware/security/keymint/AttestationKey.h"
+#include "aidl/android/hardware/security/keymint/ErrorCode.h"
+#include "keymint_support/authorization_set.h"
+#include "keymint_support/keymint_tags.h"
 
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
@@ -245,6 +249,13 @@ bool KeyMintAidlTestBase::isSecondImeiIdAttestationRequired() {
     return AidlVersion() >= 3 && property_get_int32("ro.vendor.api_level", 0) > __ANDROID_API_T__;
 }
 
+bool KeyMintAidlTestBase::isRkpOnly() {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        return property_get_bool("remote_provisioning.strongbox.rkp_only", false);
+    }
+    return property_get_bool("remote_provisioning.tee.rkp_only", false);
+}
+
 bool KeyMintAidlTestBase::Curve25519Supported() {
     // Strongbox never supports curve 25519.
     if (SecLevel() == SecurityLevel::STRONGBOX) {
@@ -295,6 +306,38 @@ void KeyMintAidlTestBase::SetUp() {
     }
 }
 
+ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc) {
+    return GenerateKey(key_desc, &key_blob_, &key_characteristics_);
+}
+
+ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
+                                           vector<uint8_t>* key_blob,
+                                           vector<KeyCharacteristics>* key_characteristics) {
+    std::optional<AttestationKey> attest_key = std::nullopt;
+    vector<Certificate> attest_cert_chain;
+    if (isRkpOnly() && key_desc.Contains(TAG_ATTESTATION_CHALLENGE)) {
+        skipAttestKeyTest();
+        AuthorizationSet attest_key_desc =
+                AuthorizationSetBuilder().EcdsaKey(EcCurve::P_256).AttestKey().SetDefaultValidity();
+        attest_key.emplace();
+        vector<KeyCharacteristics> attest_key_characteristics;
+        auto error = GenerateAttestKey(attest_key_desc, std::nullopt, &attest_key.value().keyBlob,
+                                       &attest_key_characteristics, &attest_cert_chain);
+        EXPECT_EQ(error, ErrorCode::OK);
+        EXPECT_EQ(attest_cert_chain.size(), 1);
+        attest_key.value().issuerSubjectName = make_name_from_str("Android Keystore Key");
+    }
+
+    ErrorCode error =
+            GenerateKey(key_desc, attest_key, key_blob, key_characteristics, &cert_chain_);
+
+    if (error == ErrorCode::OK && attest_cert_chain.size() > 0) {
+        cert_chain_.push_back(attest_cert_chain[0]);
+    }
+
+    return error;
+}
+
 ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
                                            const optional<AttestationKey>& attest_key,
                                            vector<uint8_t>* key_blob,
@@ -333,11 +376,6 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     }
 
     return GetReturnErrorCode(result);
-}
-
-ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
-                                           const optional<AttestationKey>& attest_key) {
-    return GenerateKey(key_desc, attest_key, &key_blob_, &key_characteristics_, &cert_chain_);
 }
 
 ErrorCode KeyMintAidlTestBase::GenerateKeyWithSelfSignedAttestKey(
@@ -1319,6 +1357,74 @@ bool KeyMintAidlTestBase::IsRkpSupportRequired() const {
     // to ship without RKP support. In T we hardened the requirements around
     // support for RKP, so relax the test to match.
     return get_vsr_api_level() >= __ANDROID_API_T__;
+}
+
+std::tuple<KeyData /* aesKey */, KeyData /* hmacKey */, KeyData /* rsaKey */,
+           KeyData /* ecdsaKey */>
+KeyMintAidlTestBase::CreateTestKeys(const AuthorizationSetBuilder baseBuilder,
+                                    ErrorCode expectedReturn,
+                                    std::function<void(AuthorizationSetBuilder*)> tagModifier) {
+    /* AES */
+    KeyData aesKeyData;
+    AuthorizationSetBuilder aesBuilder = AuthorizationSetBuilder(baseBuilder)
+                                                 .AesEncryptionKey(128)
+                                                 .BlockMode(BlockMode::ECB)
+                                                 .Padding(PaddingMode::NONE)
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED);
+    tagModifier(&aesBuilder);
+    ErrorCode errorCode = GenerateKey(aesBuilder, &aesKeyData.blob, &aesKeyData.characteristics);
+    EXPECT_EQ(expectedReturn, errorCode);
+
+    /* HMAC */
+    KeyData hmacKeyData;
+    AuthorizationSetBuilder hmacBuilder = AuthorizationSetBuilder(baseBuilder)
+                                                  .HmacKey(128)
+                                                  .Digest(Digest::SHA_2_256)
+                                                  .Authorization(TAG_MIN_MAC_LENGTH, 128)
+                                                  .Authorization(TAG_NO_AUTH_REQUIRED);
+    tagModifier(&hmacBuilder);
+    errorCode = GenerateKey(hmacBuilder, &hmacKeyData.blob, &hmacKeyData.characteristics);
+    EXPECT_EQ(expectedReturn, errorCode);
+
+    /* RSA */
+    KeyData rsaKeyData;
+    AuthorizationSetBuilder rsaBuilder = AuthorizationSetBuilder(baseBuilder)
+                                                 .RsaSigningKey(2048, 65537)
+                                                 .Digest(Digest::NONE)
+                                                 .Padding(PaddingMode::NONE)
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .SetDefaultValidity();
+    tagModifier(&rsaBuilder);
+    errorCode = GenerateKey(rsaBuilder, &rsaKeyData.blob, &rsaKeyData.characteristics);
+    if (isRkpOnly() && errorCode == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+        errorCode = GenerateKeyWithSelfSignedAttestKey(
+                AuthorizationSetBuilder()
+                        .EcdsaKey(EcCurve::P_256)
+                        .AttestKey()
+                        .SetDefaultValidity(), /* attest key params */
+                rsaBuilder, &rsaKeyData.blob, &rsaKeyData.characteristics);
+    }
+    EXPECT_EQ(expectedReturn, errorCode);
+
+    /* ECDSA */
+    KeyData ecdsaKeyData;
+    AuthorizationSetBuilder ecdsaBuilder = AuthorizationSetBuilder(baseBuilder)
+                                                   .EcdsaSigningKey(EcCurve::P_256)
+                                                   .Digest(Digest::SHA_2_256)
+                                                   .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                   .SetDefaultValidity();
+    tagModifier(&ecdsaBuilder);
+    errorCode = GenerateKey(ecdsaBuilder, &ecdsaKeyData.blob, &ecdsaKeyData.characteristics);
+    if (isRkpOnly() && errorCode == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+        errorCode = GenerateKeyWithSelfSignedAttestKey(
+                AuthorizationSetBuilder()
+                        .EcdsaKey(EcCurve::P_256)
+                        .AttestKey()
+                        .SetDefaultValidity(), /* attest key params */
+                ecdsaBuilder, &ecdsaKeyData.blob, &ecdsaKeyData.characteristics);
+    }
+    EXPECT_EQ(expectedReturn, errorCode);
+    return {aesKeyData, hmacKeyData, rsaKeyData, ecdsaKeyData};
 }
 
 vector<uint32_t> KeyMintAidlTestBase::ValidKeySizes(Algorithm algorithm) {
