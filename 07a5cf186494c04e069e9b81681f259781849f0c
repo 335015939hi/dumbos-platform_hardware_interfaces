@@ -52,6 +52,24 @@
       "parentUuid": "654f91b1_591ba913",
       "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99b767dc_f3080571",
+        "filename": "gatekeeper/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1809582
+      },
+      "writtenOn": "2024-04-05T21:16:16Z",
+      "side": 1,
+      "message": "We\u0027re linking these into vendor code and marked them `vendor_available` on line 12.\nWhat this means is we get separate vendor copies of both the interface library and libbinder itself, named something like `android.hardware.gatekeeper-V1-cpp.vendor` and `libbinder.vendor`, respectively. Both of those live on the vendor partition and get updated together with the code that uses them, so updates shouldn\u0027t break them.",
+      "parentUuid": "c7bae0f3_cef05ae6",
+      "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
