@@ -273,7 +273,7 @@ TEST_P(AttestKeyTest, RsaAttestKeyMultiPurposeFail) {
 /*
  * AttestKeyTest.RsaAttestedAttestKeys
  *
- * This test creates an RSA attestation key signed by factory keys, and varifies it can be
+ * This test creates an RSA attestation key signed by factory keys, and verifies it can be
  * used to sign other RSA and EC keys.
  */
 TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
@@ -305,9 +305,8 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
                                             .SetDefaultValidity(),
                                     {} /* attestation signing key */, &attest_key.keyBlob,
                                     &attest_key_characteristics, &attest_key_cert_chain);
-    // Strongbox may not support factory provisioned attestation key.
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
+    if (isRkpOnly() && result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+        GTEST_SKIP() << "RKP-only devices do not have a factory key";
     }
     ASSERT_EQ(ErrorCode::OK, result);
     KeyBlobDeleter attest_deleter(keymint_, attest_key.keyBlob);
@@ -411,9 +410,8 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
                                                 .SetDefaultValidity(),
                                         attest_key_opt, &key_blob_list[i],
                                         &attested_key_characteristics, &cert_chain_list[i]);
-        // Strongbox may not support factory provisioned attestation key.
-        if (SecLevel() == SecurityLevel::STRONGBOX) {
-            if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
+        if (isRkpOnly() && result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+            GTEST_SKIP() << "RKP-only devices do not have a factory key";
         }
         ASSERT_EQ(ErrorCode::OK, result);
         deleters.push_back(KeyBlobDeleter(keymint_, key_blob_list[i]));
@@ -486,9 +484,8 @@ TEST_P(AttestKeyTest, EcAttestKeyChaining) {
                                                 .SetDefaultValidity(),
                                         attest_key_opt, &key_blob_list[i],
                                         &attested_key_characteristics, &cert_chain_list[i]);
-        // Strongbox may not support factory provisioned attestation key.
-        if (SecLevel() == SecurityLevel::STRONGBOX) {
-            if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
+        if (isRkpOnly() && result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+            GTEST_SKIP() << "RKP-only devices do not have a factory key";
         }
         ASSERT_EQ(ErrorCode::OK, result);
         deleters.push_back(KeyBlobDeleter(keymint_, key_blob_list[i]));
@@ -602,9 +599,8 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
                                        attest_key_opt, &key_blob_list[i],
                                        &attested_key_characteristics, &cert_chain_list[i]);
         }
-        // Strongbox may not support factory provisioned attestation key.
-        if (SecLevel() == SecurityLevel::STRONGBOX) {
-            if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
+        if (isRkpOnly() && result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+            GTEST_SKIP() << "RKP-only devices do not have a factory key";
         }
         ASSERT_EQ(ErrorCode::OK, result);
         deleters.push_back(KeyBlobDeleter(keymint_, key_blob_list[i]));

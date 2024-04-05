@@ -104,20 +104,19 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t boot_patch_level();
     bool isDeviceIdAttestationRequired();
     bool isSecondImeiIdAttestationRequired();
+    bool isRkpOnly();
 
     bool Curve25519Supported();
 
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
-                          vector<KeyCharacteristics>* key_characteristics) {
-        return GenerateKey(key_desc, std::nullopt /* attest_key */, key_blob, key_characteristics,
-                           &cert_chain_);
-    }
+                          vector<KeyCharacteristics>* key_characteristics);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc,
                           const optional<AttestationKey>& attest_key, vector<uint8_t>* key_blob,
                           vector<KeyCharacteristics>* key_characteristics,
                           vector<Certificate>* cert_chain);
-    ErrorCode GenerateKey(const AuthorizationSet& key_desc,
-                          const optional<AttestationKey>& attest_key = std::nullopt);
 
     // Generate key for implementations which do not support factory attestation.
     ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
@@ -265,63 +264,14 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
             TagType tagToTest, ErrorCode expectedReturn,
             std::function<void(AuthorizationSetBuilder*)> tagModifier =
                     [](AuthorizationSetBuilder*) {}) {
-        /* AES */
-        KeyData aesKeyData;
-        AuthorizationSetBuilder aesBuilder = AuthorizationSetBuilder()
-                                                     .AesEncryptionKey(128)
-                                                     .Authorization(tagToTest)
-                                                     .BlockMode(BlockMode::ECB)
-                                                     .Padding(PaddingMode::NONE)
-                                                     .Authorization(TAG_NO_AUTH_REQUIRED);
-        tagModifier(&aesBuilder);
-        ErrorCode errorCode =
-                GenerateKey(aesBuilder, &aesKeyData.blob, &aesKeyData.characteristics);
-        EXPECT_EQ(expectedReturn, errorCode);
-
-        /* HMAC */
-        KeyData hmacKeyData;
-        AuthorizationSetBuilder hmacBuilder = AuthorizationSetBuilder()
-                                                      .HmacKey(128)
-                                                      .Authorization(tagToTest)
-                                                      .Digest(Digest::SHA_2_256)
-                                                      .Authorization(TAG_MIN_MAC_LENGTH, 128)
-                                                      .Authorization(TAG_NO_AUTH_REQUIRED);
-        tagModifier(&hmacBuilder);
-        errorCode = GenerateKey(hmacBuilder, &hmacKeyData.blob, &hmacKeyData.characteristics);
-        EXPECT_EQ(expectedReturn, errorCode);
-
-        /* RSA */
-        KeyData rsaKeyData;
-        AuthorizationSetBuilder rsaBuilder = AuthorizationSetBuilder()
-                                                     .RsaSigningKey(2048, 65537)
-                                                     .Authorization(tagToTest)
-                                                     .Digest(Digest::NONE)
-                                                     .Padding(PaddingMode::NONE)
-                                                     .Authorization(TAG_NO_AUTH_REQUIRED)
-                                                     .SetDefaultValidity();
-        tagModifier(&rsaBuilder);
-        errorCode = GenerateKey(rsaBuilder, &rsaKeyData.blob, &rsaKeyData.characteristics);
-        if (!(SecLevel() == SecurityLevel::STRONGBOX &&
-              ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED == errorCode)) {
-            EXPECT_EQ(expectedReturn, errorCode);
-        }
-
-        /* ECDSA */
-        KeyData ecdsaKeyData;
-        AuthorizationSetBuilder ecdsaBuilder = AuthorizationSetBuilder()
-                                                       .EcdsaSigningKey(EcCurve::P_256)
-                                                       .Authorization(tagToTest)
-                                                       .Digest(Digest::SHA_2_256)
-                                                       .Authorization(TAG_NO_AUTH_REQUIRED)
-                                                       .SetDefaultValidity();
-        tagModifier(&ecdsaBuilder);
-        errorCode = GenerateKey(ecdsaBuilder, &ecdsaKeyData.blob, &ecdsaKeyData.characteristics);
-        if (!(SecLevel() == SecurityLevel::STRONGBOX &&
-              ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED == errorCode)) {
-            EXPECT_EQ(expectedReturn, errorCode);
-        }
-        return {aesKeyData, hmacKeyData, rsaKeyData, ecdsaKeyData};
+        AuthorizationSetBuilder builder = AuthorizationSetBuilder().Authorization(tagToTest);
+        return CreateTestKeys(builder, expectedReturn, tagModifier);
     }
+
+    std::tuple<KeyData /* aesKey */, KeyData /* hmacKey */, KeyData /* rsaKey */,
+               KeyData /* ecdsaKey */>
+    CreateTestKeys(const AuthorizationSetBuilder baseBuilder, ErrorCode expectedReturn,
+                   std::function<void(AuthorizationSetBuilder*)> tagModifier);
     bool IsSecure() const { return securityLevel_ != SecurityLevel::SOFTWARE; }
     SecurityLevel SecLevel() const { return securityLevel_; }
     bool IsRkpSupportRequired() const;
