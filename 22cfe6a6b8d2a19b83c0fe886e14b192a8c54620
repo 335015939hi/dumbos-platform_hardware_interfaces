@@ -34,6 +34,24 @@
       "parentUuid": "53c1eefb_bb44266c",
       "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5106543_f6a93d91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-04-05T01:46:15Z",
+      "side": 1,
+      "message": "I had the same question when working with aosp/2752546, which replaced android.hardware.cas-service.example with a vendor apex.\n\nWe probably need to clean up base_vendor.mk.",
+      "parentUuid": "3958bb05_bc37f7d7",
+      "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
