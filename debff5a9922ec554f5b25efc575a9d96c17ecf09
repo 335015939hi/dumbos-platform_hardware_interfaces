@@ -185,6 +185,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72794591_6517e25e",
+        "filename": "audio/aidl/vts/VtsHalPresetReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-04-05T23:21:47Z",
+      "side": 1,
+      "message": "tested this CL with aosp/2988610 on an actual device.",
+      "parentUuid": "cd689a43_8f65f505",
+      "range": {
+        "startLine": 215,
+        "startChar": 12,
+        "endLine": 215,
+        "endChar": 45
+      },
+      "revId": "debff5a9922ec554f5b25efc575a9d96c17ecf09",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe711fa4_83770757",
