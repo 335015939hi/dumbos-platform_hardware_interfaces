@@ -89,37 +89,24 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t boot_patch_level();
     bool isDeviceIdAttestationRequired();
     bool isSecondImeiIdAttestationRequired();
+    bool isRkpOnly();
 
     bool Curve25519Supported();
 
+<<<<<<< HEAD   (29f4e37e878944870ef6b5236d38539b04fb0a8f Since the device's display is always on in IVI (FEATURE_AUTO)
     ErrorCode GetReturnErrorCode(const Status& result);
+||||||| BASE   (863f96ecdd628638da61a302f13615e61eec6d60 Refine infeasible frontend status check am: 9b13077c4c)
+=======
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc);
+>>>>>>> CHANGE (c5c52ce1d3446980e2a760d1fcc89e0c12ff083c Allow RKP-only devices to pass keymint VTS)
 
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
-                          vector<KeyCharacteristics>* key_characteristics) {
-        return GenerateKey(key_desc, std::nullopt /* attest_key */, key_blob, key_characteristics,
-                           &cert_chain_);
-    }
+                          vector<KeyCharacteristics>* key_characteristics);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc,
                           const optional<AttestationKey>& attest_key, vector<uint8_t>* key_blob,
                           vector<KeyCharacteristics>* key_characteristics,
                           vector<Certificate>* cert_chain);
-    ErrorCode GenerateKey(const AuthorizationSet& key_desc,
-                          const optional<AttestationKey>& attest_key = std::nullopt);
-
-    // Generate key for implementations which do not support factory attestation.
-    ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
-                                                 const AuthorizationSet& key_desc,
-                                                 vector<uint8_t>* key_blob,
-                                                 vector<KeyCharacteristics>* key_characteristics,
-                                                 vector<Certificate>* cert_chain);
-
-    ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
-                                                 const AuthorizationSet& key_desc,
-                                                 vector<uint8_t>* key_blob,
-                                                 vector<KeyCharacteristics>* key_characteristics) {
-        return GenerateKeyWithSelfSignedAttestKey(attest_key_desc, key_desc, key_blob,
-                                                  key_characteristics, &cert_chain_);
-    }
 
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material, vector<uint8_t>* key_blob,
@@ -360,7 +347,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     bool is_strongbox_enabled(void) const;
     bool is_chipset_allowed_km4_strongbox(void) const;
     bool shouldSkipAttestKeyTest(void) const;
-    void skipAttestKeyTest(void) const;
+    void skipAttestKeyTestIfNeeded() const;
 
   protected:
     std::shared_ptr<IKeyMintDevice> keymint_;
