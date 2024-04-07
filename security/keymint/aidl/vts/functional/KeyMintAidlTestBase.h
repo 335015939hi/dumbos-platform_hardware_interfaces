@@ -89,37 +89,23 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t boot_patch_level();
     bool isDeviceIdAttestationRequired();
     bool isSecondImeiIdAttestationRequired();
+    bool isRkpOnly();
 
     bool Curve25519Supported();
 
+<<<<<<< HEAD   (b082ae Merge "Camera: Add links to mandatory stream combination tab)
     ErrorCode GetReturnErrorCode(const Status& result);
+=======
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc);
+>>>>>>> CHANGE (c5c52c Allow RKP-only devices to pass keymint VTS)
 
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
-                          vector<KeyCharacteristics>* key_characteristics) {
-        return GenerateKey(key_desc, std::nullopt /* attest_key */, key_blob, key_characteristics,
-                           &cert_chain_);
-    }
+                          vector<KeyCharacteristics>* key_characteristics);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc,
                           const optional<AttestationKey>& attest_key, vector<uint8_t>* key_blob,
                           vector<KeyCharacteristics>* key_characteristics,
                           vector<Certificate>* cert_chain);
-    ErrorCode GenerateKey(const AuthorizationSet& key_desc,
-                          const optional<AttestationKey>& attest_key = std::nullopt);
-
-    // Generate key for implementations which do not support factory attestation.
-    ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
-                                                 const AuthorizationSet& key_desc,
-                                                 vector<uint8_t>* key_blob,
-                                                 vector<KeyCharacteristics>* key_characteristics,
-                                                 vector<Certificate>* cert_chain);
-
-    ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
-                                                 const AuthorizationSet& key_desc,
-                                                 vector<uint8_t>* key_blob,
-                                                 vector<KeyCharacteristics>* key_characteristics) {
-        return GenerateKeyWithSelfSignedAttestKey(attest_key_desc, key_desc, key_blob,
-                                                  key_characteristics, &cert_chain_);
-    }
 
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material, vector<uint8_t>* key_blob,
@@ -359,7 +345,12 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     bool is_attest_key_feature_disabled(void) const;
     bool is_strongbox_enabled(void) const;
     bool is_chipset_allowed_km4_strongbox(void) const;
+<<<<<<< HEAD   (b082ae Merge "Camera: Add links to mandatory stream combination tab)
     void skipAttestKeyTest(void) const;
+=======
+    bool shouldSkipAttestKeyTest(void) const;
+    void skipAttestKeyTestIfNeeded() const;
+>>>>>>> CHANGE (c5c52c Allow RKP-only devices to pass keymint VTS)
 
   protected:
     std::shared_ptr<IKeyMintDevice> keymint_;

@@ -20,6 +20,7 @@
 #include <cutils/log.h>
 #include <cutils/properties.h>
 
+#include <keymint_support/authorization_set.h>
 #include <keymint_support/key_param_output.h>
 #include <keymint_support/openssl_utils.h>
 
@@ -94,7 +95,7 @@ string get_imei(int slot) {
 class AttestKeyTest : public KeyMintAidlTestBase {
   public:
     void SetUp() override {
-        skipAttestKeyTest();
+        skipAttestKeyTestIfNeeded();
         KeyMintAidlTestBase::SetUp();
     }
 };
@@ -271,7 +272,7 @@ TEST_P(AttestKeyTest, RsaAttestKeyMultiPurposeFail) {
 /*
  * AttestKeyTest.RsaAttestedAttestKeys
  *
- * This test creates an RSA attestation key signed by factory keys, and varifies it can be
+ * This test creates an RSA attestation key signed by factory keys, and verifies it can be
  * used to sign other RSA and EC keys.
  */
 TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
@@ -303,9 +304,8 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
                                             .SetDefaultValidity(),
                                     {} /* attestation signing key */, &attest_key.keyBlob,
                                     &attest_key_characteristics, &attest_key_cert_chain);
-    // Strongbox may not support factory provisioned attestation key.
-    if (SecLevel() == SecurityLevel::STRONGBOX) {
-        if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
+    if (isRkpOnly() && result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+        GTEST_SKIP() << "RKP-only devices do not have a factory key";
     }
     ASSERT_EQ(ErrorCode::OK, result);
 
@@ -396,29 +396,40 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
             attest_key_opt = attest_key;
         }
 
-        auto result = GenerateAttestKey(AuthorizationSetBuilder()
-                                                .RsaKey(2048, 65537)
-                                                .AttestKey()
-                                                .AttestationChallenge("foo")
-                                                .AttestationApplicationId("bar")
-                                                .Authorization(TAG_NO_AUTH_REQUIRED)
-                                                .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
-                                                .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
-                                                .SetDefaultValidity(),
-                                        attest_key_opt, &key_blob_list[i],
-                                        &attested_key_characteristics, &cert_chain_list[i]);
-        // Strongbox may not support factory provisioned attestation key.
-        if (SecLevel() == SecurityLevel::STRONGBOX) {
-            if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
+        AuthorizationSetBuilder auth_set_builder =
+                AuthorizationSetBuilder()
+                        .RsaKey(2048, 65537)
+                        .AttestKey()
+                        .AttestationApplicationId("bar")
+                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                        .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                        .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                        .SetDefaultValidity();
+        // In RKP-only systems, the first key cannot be attested due to lack of batch key
+        if (!isRkpOnly() || i > 0) {
+            auth_set_builder.AttestationChallenge("foo");
         }
+        auto result = GenerateAttestKey(auth_set_builder, attest_key_opt, &key_blob_list[i],
+                                        &attested_key_characteristics, &cert_chain_list[i]);
         ASSERT_EQ(ErrorCode::OK, result);
 
+<<<<<<< HEAD   (b082ae Merge "Camera: Add links to mandatory stream combination tab)
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
         ASSERT_GT(cert_chain_list[i].size(), 0);
         EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
                                               SecLevel(),
                                               cert_chain_list[i][0].encodedCertificate));
+=======
+        if (!isRkpOnly() || i > 0) {
+            AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
+            AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
+            ASSERT_GT(cert_chain_list[i].size(), 0);
+            ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced,
+                                                  hw_enforced, SecLevel(),
+                                                  cert_chain_list[i][0].encodedCertificate));
+        }
+>>>>>>> CHANGE (c5c52c Allow RKP-only devices to pass keymint VTS)
 
         if (i > 0) {
             /*
@@ -434,7 +445,7 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
         }
 
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_list[i]));
-        EXPECT_GT(cert_chain_list[i].size(), i + 1);
+        EXPECT_GT(cert_chain_list[i].size(), i + (isRkpOnly() ? 0 : 1));
         verify_subject_and_serial(cert_chain_list[i][0], serial_int, subject, false);
     }
 
@@ -473,35 +484,42 @@ TEST_P(AttestKeyTest, EcAttestKeyChaining) {
             attest_key_opt = attest_key;
         }
 
-        auto result = GenerateAttestKey(AuthorizationSetBuilder()
-                                                .EcdsaKey(EcCurve::P_256)
-                                                .AttestKey()
-                                                .AttestationChallenge("foo")
-                                                .AttestationApplicationId("bar")
-                                                .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
-                                                .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
-                                                .Authorization(TAG_NO_AUTH_REQUIRED)
-                                                .SetDefaultValidity(),
-                                        attest_key_opt, &key_blob_list[i],
-                                        &attested_key_characteristics, &cert_chain_list[i]);
-        // Strongbox may not support factory provisioned attestation key.
-        if (SecLevel() == SecurityLevel::STRONGBOX) {
-            if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
+        AuthorizationSetBuilder auth_set_builder =
+                AuthorizationSetBuilder()
+                        .EcdsaKey(EcCurve::P_256)
+                        .AttestKey()
+                        .AttestationApplicationId("bar")
+                        .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                        .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                        .SetDefaultValidity();
+        // In RKP-only systems, the first key cannot be attested due to lack of batch key
+        if (!isRkpOnly() || i > 0) {
+            auth_set_builder.AttestationChallenge("foo");
         }
+        auto result = GenerateAttestKey(auth_set_builder, attest_key_opt, &key_blob_list[i],
+                                        &attested_key_characteristics, &cert_chain_list[i]);
         ASSERT_EQ(ErrorCode::OK, result);
 
+<<<<<<< HEAD   (b082ae Merge "Camera: Add links to mandatory stream combination tab)
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
         ASSERT_GT(cert_chain_list[i].size(), 0);
         EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
                                               SecLevel(),
                                               cert_chain_list[i][0].encodedCertificate));
+=======
+        if (!isRkpOnly() || i > 0) {
+            AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
+            AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
+            ASSERT_GT(cert_chain_list[i].size(), 0);
+            ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced,
+                                                  hw_enforced, SecLevel(),
+                                                  cert_chain_list[i][0].encodedCertificate));
+        }
+>>>>>>> CHANGE (c5c52c Allow RKP-only devices to pass keymint VTS)
 
         if (i > 0) {
-            /*
-             * The first key is attestated with factory chain, but all the rest of the keys are
-             * not supposed to be returned in attestation certificate chains.
-             */
             EXPECT_FALSE(ChainSignaturesAreValid(cert_chain_list[i]));
 
             // Appending the attest_key chain to the attested_key_chain should yield a valid chain.
@@ -511,7 +529,7 @@ TEST_P(AttestKeyTest, EcAttestKeyChaining) {
         }
 
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_list[i]));
-        EXPECT_GT(cert_chain_list[i].size(), i + 1);
+        EXPECT_GT(cert_chain_list[i].size(), i + (isRkpOnly() ? 0 : 1));
         verify_subject_and_serial(cert_chain_list[i][0], serial_int, subject, false);
     }
 
@@ -576,44 +594,44 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
             attest_key.keyBlob = key_blob_list[i - 1];
             attest_key_opt = attest_key;
         }
-        ErrorCode result;
+        AuthorizationSetBuilder auth_set_builder =
+                AuthorizationSetBuilder()
+                        .AttestKey()
+                        .AttestationApplicationId("bar")
+                        .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                        .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                        .SetDefaultValidity();
+        // In RKP-only systems, the first key cannot be attested due to lack of batch key
+        if (!isRkpOnly() || i > 0) {
+            auth_set_builder.AttestationChallenge("foo");
+        }
         if ((i & 0x1) == 1) {
-            result = GenerateAttestKey(AuthorizationSetBuilder()
-                                               .EcdsaKey(EcCurve::P_256)
-                                               .AttestKey()
-                                               .AttestationChallenge("foo")
-                                               .AttestationApplicationId("bar")
-                                               .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
-                                               .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
-                                               .Authorization(TAG_NO_AUTH_REQUIRED)
-                                               .SetDefaultValidity(),
-                                       attest_key_opt, &key_blob_list[i],
-                                       &attested_key_characteristics, &cert_chain_list[i]);
+            auth_set_builder.EcdsaKey(EcCurve::P_256);
         } else {
-            result = GenerateAttestKey(AuthorizationSetBuilder()
-                                               .RsaKey(2048, 65537)
-                                               .AttestKey()
-                                               .AttestationChallenge("foo")
-                                               .AttestationApplicationId("bar")
-                                               .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
-                                               .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
-                                               .Authorization(TAG_NO_AUTH_REQUIRED)
-                                               .SetDefaultValidity(),
-                                       attest_key_opt, &key_blob_list[i],
-                                       &attested_key_characteristics, &cert_chain_list[i]);
+            auth_set_builder.RsaKey(2048, 65537);
         }
-        // Strongbox may not support factory provisioned attestation key.
-        if (SecLevel() == SecurityLevel::STRONGBOX) {
-            if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) return;
-        }
+        ErrorCode result = GenerateAttestKey(auth_set_builder, attest_key_opt, &key_blob_list[i],
+                                             &attested_key_characteristics, &cert_chain_list[i]);
         ASSERT_EQ(ErrorCode::OK, result);
 
+<<<<<<< HEAD   (b082ae Merge "Camera: Add links to mandatory stream combination tab)
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
         ASSERT_GT(cert_chain_list[i].size(), 0);
         EXPECT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced, hw_enforced,
                                               SecLevel(),
                                               cert_chain_list[i][0].encodedCertificate));
+=======
+        if (!isRkpOnly() || i > 0) {
+            AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
+            AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
+            ASSERT_GT(cert_chain_list[i].size(), 0);
+            ASSERT_TRUE(verify_attestation_record(AidlVersion(), "foo", "bar", sw_enforced,
+                                                  hw_enforced, SecLevel(),
+                                                  cert_chain_list[i][0].encodedCertificate));
+        }
+>>>>>>> CHANGE (c5c52c Allow RKP-only devices to pass keymint VTS)
 
         if (i > 0) {
             /*
@@ -629,7 +647,7 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
         }
 
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_list[i]));
-        EXPECT_GT(cert_chain_list[i].size(), i + 1);
+        EXPECT_GT(cert_chain_list[i].size(), i + (isRkpOnly() ? 0 : 1));
         verify_subject_and_serial(cert_chain_list[i][0], serial_int, subject, false);
     }
 

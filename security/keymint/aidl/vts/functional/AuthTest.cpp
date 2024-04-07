@@ -347,6 +347,118 @@ TEST_P(AuthTest, TimeoutAuthentication) {
     }
 }
 
+<<<<<<< HEAD   (b082ae Merge "Camera: Add links to mandatory stream combination tab)
+=======
+// Test use of a key that requires user-authentication within recent history, but where
+// the `TimestampToken` provided to the device is unrelated to the in-progress operation.
+TEST_P(AuthTest, TimeoutAuthenticationIncorrectTimestampToken) {
+    if (!GatekeeperAvailable()) {
+        GTEST_SKIP() << "No Gatekeeper available";
+    }
+    if (!timestamp_token_required_) {
+        GTEST_SKIP() << "Test only applies to devices with no secure clock";
+    }
+    if (clock_ == nullptr) {
+        GTEST_SKIP() << "Device requires timestamps and no ISecureClock available";
+    }
+
+    // Create an AES key that requires authentication within the last 3 seconds.
+    const uint32_t timeout_secs = 3;
+    auto builder = AuthorizationSetBuilder()
+                           .AesEncryptionKey(256)
+                           .BlockMode(BlockMode::ECB)
+                           .Padding(PaddingMode::PKCS7)
+                           .Authorization(TAG_USER_SECURE_ID, sid_)
+                           .Authorization(TAG_USER_AUTH_TYPE, HardwareAuthenticatorType::PASSWORD)
+                           .Authorization(TAG_AUTH_TIMEOUT, timeout_secs);
+    vector<uint8_t> keyblob;
+    vector<KeyCharacteristics> key_characteristics;
+    vector<Certificate> cert_chain;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(builder, std::nullopt, &keyblob, &key_characteristics, &cert_chain));
+
+    // Verify to get a HAT, arbitrary challenge.
+    const uint64_t challenge = 42;
+    const std::optional<HardwareAuthToken> hat = doVerify(challenge, handle_, password_);
+    ASSERT_TRUE(hat.has_value());
+    EXPECT_EQ(hat->userId, sid_);
+
+    // KeyMint implementation has no clock, so only detects timeout via timestamp token provided
+    // on update()/finish().  However, for this test we ensure that that the timestamp token has a
+    // *different* challenge value.
+    const string message = "Hello World!";
+    auto params = AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::PKCS7);
+    AuthorizationSet out_params;
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, keyblob, params, &out_params, hat));
+
+    secureclock::TimeStampToken time_token;
+    EXPECT_EQ(ErrorCode::OK,
+              GetReturnErrorCode(clock_->generateTimeStamp(challenge_ + 1, &time_token)));
+    string output;
+    EXPECT_EQ(ErrorCode::KEY_USER_NOT_AUTHENTICATED,
+              Finish(message, {} /* signature */, &output, hat, time_token));
+}
+
+// Test use of a key with multiple USER_SECURE_ID values.  For variety, use an EC signing key
+// generated with attestation.
+TEST_P(AuthTest, TimeoutAuthenticationMultiSid) {
+    if (!GatekeeperAvailable()) {
+        GTEST_SKIP() << "No Gatekeeper available";
+    }
+    if (timestamp_token_required_ && clock_ == nullptr) {
+        GTEST_SKIP() << "Device requires timestamps and no ISecureClock available";
+    }
+
+    // Enroll a password for a second user.
+    alt_uid_ = 20001;
+    const string alt_password = "correcthorsebatterystaple2";
+    std::optional<GatekeeperEnrollResponse> rsp = doEnroll(alt_uid_, alt_password);
+    ASSERT_TRUE(rsp.has_value());
+    alt_sid_ = rsp->secureUserId;
+    const std::vector<uint8_t> alt_handle = rsp->data;
+
+    // Create an attested EC key that requires authentication within the last 3 seconds from either
+    // secure ID. Also allow any authenticator type.
+    const uint32_t timeout_secs = 3;
+    auto builder = AuthorizationSetBuilder()
+                           .EcdsaSigningKey(EcCurve::P_256)
+                           .Digest(Digest::NONE)
+                           .Digest(Digest::SHA_2_256)
+                           .SetDefaultValidity()
+                           .AttestationChallenge("challenge")
+                           .AttestationApplicationId("app_id")
+                           .Authorization(TAG_USER_SECURE_ID, alt_sid_)
+                           .Authorization(TAG_USER_SECURE_ID, sid_)
+                           .Authorization(TAG_USER_AUTH_TYPE, HardwareAuthenticatorType::ANY)
+                           .Authorization(TAG_AUTH_TIMEOUT, timeout_secs);
+    vector<uint8_t> keyblob;
+    vector<KeyCharacteristics> key_characteristics;
+    auto result = GenerateKey(builder, &keyblob, &key_characteristics);
+    ASSERT_EQ(ErrorCode::OK, result);
+
+    // Verify first user to get a HAT that should work.
+    const uint64_t challenge = 42;
+    const std::optional<HardwareAuthToken> hat = doVerify(uid_, challenge, handle_, password_);
+    ASSERT_TRUE(hat.has_value());
+    EXPECT_EQ(hat->userId, sid_);
+
+    const string message = "Hello World!";
+    auto params = AuthorizationSetBuilder().Digest(Digest::SHA_2_256);
+    AuthorizationSet out_params;
+    const string signature = SignMessage(keyblob, message, params, &out_params, hat.value());
+
+    // Verify second user to get a HAT that should work.
+    const uint64_t alt_challenge = 43;
+    const std::optional<HardwareAuthToken> alt_hat =
+            doVerify(alt_uid_, alt_challenge, alt_handle, alt_password);
+    ASSERT_TRUE(alt_hat.has_value());
+    EXPECT_EQ(alt_hat->userId, alt_sid_);
+
+    const string alt_signature =
+            SignMessage(keyblob, message, params, &out_params, alt_hat.value());
+}
+
+>>>>>>> CHANGE (c5c52c Allow RKP-only devices to pass keymint VTS)
 // Test use of a key that requires an auth token for each action on the operation, with
 // a per-operation challenge value included.
 TEST_P(AuthTest, AuthPerOperation) {
