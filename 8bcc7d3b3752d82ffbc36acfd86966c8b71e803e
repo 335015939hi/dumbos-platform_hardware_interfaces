@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "301db4a0_c9e7b851",
+        "filename": "security/keymint/aidl/vts/functional/DeviceUniqueAttestationTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-07T22:34:12Z",
+      "side": 1,
+      "message": "Auto-formatter seemed pretty insistent on this `¯\\_(ツ)_/¯`",
+      "range": {
+        "startLine": 77,
+        "startChar": 12,
+        "endLine": 77,
+        "endChar": 23
+      },
+      "revId": "8bcc7d3b3752d82ffbc36acfd86966c8b71e803e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

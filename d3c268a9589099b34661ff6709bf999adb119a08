@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bccc448a_75d747d2",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-07T22:34:12Z",
+      "side": 1,
+      "message": "Do these \"AttestedAttestKeys\" tests provide any value?\n\nI am not sure why these even exist.",
+      "range": {
+        "startLine": 279,
+        "startChar": 22,
+        "endLine": 279,
+        "endChar": 43
+      },
+      "revId": "d3c268a9589099b34661ff6709bf999adb119a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
