@@ -104,20 +104,19 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t boot_patch_level();
     bool isDeviceIdAttestationRequired();
     bool isSecondImeiIdAttestationRequired();
+    bool isRkpOnly();
 
     bool Curve25519Supported();
 
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
-                          vector<KeyCharacteristics>* key_characteristics) {
-        return GenerateKey(key_desc, std::nullopt /* attest_key */, key_blob, key_characteristics,
-                           &cert_chain_);
-    }
+                          vector<KeyCharacteristics>* key_characteristics);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc,
                           const optional<AttestationKey>& attest_key, vector<uint8_t>* key_blob,
                           vector<KeyCharacteristics>* key_characteristics,
                           vector<Certificate>* cert_chain);
-    ErrorCode GenerateKey(const AuthorizationSet& key_desc,
-                          const optional<AttestationKey>& attest_key = std::nullopt);
 
     // Generate key for implementations which do not support factory attestation.
     ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
