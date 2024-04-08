@@ -94,6 +94,30 @@
       },
       "revId": "d3c268a9589099b34661ff6709bf999adb119a08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fe7fa49_dfe645e6",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-08T17:04:16Z",
+      "side": 1,
+      "message": "Yeah, that\u0027s my read on it, too.\n\nI\u0027ll do another pass over this later and probably submit a patch to remove the extraneous tests.",
+      "parentUuid": "35771990_c3d15eb2",
+      "range": {
+        "startLine": 279,
+        "startChar": 22,
+        "endLine": 279,
+        "endChar": 43
+      },
+      "revId": "d3c268a9589099b34661ff6709bf999adb119a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
