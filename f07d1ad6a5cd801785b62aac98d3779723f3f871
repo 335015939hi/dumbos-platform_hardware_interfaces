@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9464a41_66870fab",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-08T06:56:08Z",
+      "side": 1,
+      "message": "nit: \"won\u0027t have an attestation cert\" \u003d\u003e \"can\u0027t be attested (because there\u0027s no batch key to attest to it)\" \n\n(and below)",
+      "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eee84257_8fb2963d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-08T06:56:08Z",
+      "side": 1,
+      "message": "Could do with a comment somewhere explaining the _why_",
+      "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2053e61a_d7689211",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-08T06:56:08Z",
+      "side": 1,
+      "message": "pre-existing: the name of this function confused me, it\u0027s more of a `maybeSkipAttestKeyTest()`.",
+      "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

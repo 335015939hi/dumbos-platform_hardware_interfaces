@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6215a5f_99c5c668",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-08T06:56:08Z",
+      "side": 0,
+      "message": "Commonizing all the special cases is great!\n\nHowever, it would be good to check that the scenario that triggered these special cases (which I think is an RKP-only JavaCard StrongBox instance?) still works with the improved code.\n\nsubrahmanyaman@: are you able to help with that?",
+      "revId": "863f96ecdd628638da61a302f13615e61eec6d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fcf11c3_557a24c9",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-08T06:56:08Z",
+      "side": 0,
+      "message": "Just to check: is `GenerateKeyWithSelfSignedAttestKey` still used after these changes?",
+      "revId": "863f96ecdd628638da61a302f13615e61eec6d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

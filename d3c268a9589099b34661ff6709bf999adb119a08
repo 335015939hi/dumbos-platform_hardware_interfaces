@@ -22,6 +22,30 @@
       },
       "revId": "d3c268a9589099b34661ff6709bf999adb119a08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da89ab81_cd5f382e",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-08T06:56:08Z",
+      "side": 1,
+      "message": "I _think_ your question boils down to: why does `ATTEST_KEY` functionality exist, as an independent/separate feature from RKP?  \n\nI don\u0027t know the original reason/answer for that question, though (but I could make some guesses).",
+      "parentUuid": "bccc448a_75d747d2",
+      "range": {
+        "startLine": 279,
+        "startChar": 22,
+        "endLine": 279,
+        "endChar": 43
+      },
+      "revId": "d3c268a9589099b34661ff6709bf999adb119a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
