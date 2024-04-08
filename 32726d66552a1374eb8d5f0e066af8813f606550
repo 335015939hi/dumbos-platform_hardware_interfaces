@@ -16,6 +16,75 @@
       "message": "Weren\u0027t we going to change this to take an opaqueKey?",
       "revId": "32726d66552a1374eb8d5f0e066af8813f606550",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a154df24_7cedcce7",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-04-08T19:39:45Z",
+      "side": 1,
+      "message": "nit: sent",
+      "range": {
+        "startLine": 33,
+        "startChar": 60,
+        "endLine": 33,
+        "endChar": 64
+      },
+      "revId": "32726d66552a1374eb8d5f0e066af8813f606550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "076147d9_37c891c0",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-04-08T19:39:45Z",
+      "side": 1,
+      "message": "nit: does",
+      "range": {
+        "startLine": 36,
+        "startChar": 68,
+        "endLine": 36,
+        "endChar": 70
+      },
+      "revId": "32726d66552a1374eb8d5f0e066af8813f606550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3979338_05375d22",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-04-08T19:39:45Z",
+      "side": 1,
+      "message": "nit: caller\u0027s",
+      "range": {
+        "startLine": 58,
+        "startChar": 79,
+        "endLine": 58,
+        "endChar": 85
+      },
+      "revId": "32726d66552a1374eb8d5f0e066af8813f606550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
