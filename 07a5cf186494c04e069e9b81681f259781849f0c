@@ -88,6 +88,24 @@
       "parentUuid": "99b767dc_f3080571",
       "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03c0d927_c5efd835",
+        "filename": "gatekeeper/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1809582
+      },
+      "writtenOn": "2024-04-08T22:33:57Z",
+      "side": 1,
+      "message": "There shouldn\u0027t be, since both the interfaces and the wire format are frozen (Trusty is pinned to version 0 of the wire format). TZ and vendor should be fine to update independently.",
+      "parentUuid": "1166ad80_eae33b0b",
+      "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
