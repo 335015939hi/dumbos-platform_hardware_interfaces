@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5733abb3_21c81035",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-08T19:48:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9464a41_66870fab",
+      "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eee84257_8fb2963d",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-08T06:56:08Z",
       "side": 1,
       "message": "Could do with a comment somewhere explaining the _why_",
+      "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a5ba161_21bf1413",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-08T19:48:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eee84257_8fb2963d",
       "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -52,6 +88,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f934399_bd24cf1c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-08T19:48:08Z",
+      "side": 1,
+      "message": "How about this?\n\n`skipAttestKeyTestIfNeeded`",
+      "parentUuid": "2053e61a_d7689211",
+      "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e94ba06b_d4440586",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-04-08T10:35:58Z",
       "side": 1,
       "message": "One more thought: should we have a negative test that expects `ATTESTATION_KEYS_NOT_PROVISIONED` for an attempt to attest when `rkp_only` is set?\n\n(Note that Cuttlefish will currently fail this test, due to aosp/2275770)",
+      "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdaed74f_215ead68",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-08T19:48:08Z",
+      "side": 1,
+      "message": "Maybe?\n\nI\u0027m not sure it practically matters since all the checks for using explicit `ATTEST_KEY` tags happens up in keystore.\n\nSo Android _shouldn\u0027t_ rely on a factory key for a HAL that doesn\u0027t support it.\n\nI am not opposed to such a test, but I\u0027m not sure it\u0027s worth the bytes 😊\nIf you want to include such a test, can you bundle it with your \"batch optional\" topic? (Or submit after your topic makes it in)",
+      "parentUuid": "e94ba06b_d4440586",
       "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
