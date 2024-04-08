@@ -16,6 +16,24 @@
       "message": "How hard would it be to make this easily flippable?\n\ne.g. with a flag or something?",
       "revId": "fe5f33a61e8e6fa6d59d56d1882dba401d389fee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a4c109c_f84aa54f",
+        "filename": "security/keymint/aidl/default/ta/lib.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-08T06:14:48Z",
+      "side": 1,
+      "message": "That should be straightforward, but for what purpose / aim?  \n\n(Depending on the answer, the Cuttlefish `main.rs` (aosp/3000458) might be a better place for such a toggle.)",
+      "parentUuid": "8d6342e5_a05f924b",
+      "revId": "fe5f33a61e8e6fa6d59d56d1882dba401d389fee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
