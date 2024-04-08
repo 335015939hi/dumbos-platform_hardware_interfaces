@@ -70,6 +70,30 @@
       },
       "revId": "d3c268a9589099b34661ff6709bf999adb119a08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35771990_c3d15eb2",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-08T17:02:52Z",
+      "side": 1,
+      "message": "Maybe that\u0027s a historical artefact from the \"too general purpose\" point -- I suspect that `RsaAttestedAttestKeys` was created first as a basic test of the functionality, and then `RsaAttestKeyChaining` was added as an extra test to confirm that the arbitrary layering works.",
+      "parentUuid": "1f710103_465c3767",
+      "range": {
+        "startLine": 279,
+        "startChar": 22,
+        "endLine": 279,
+        "endChar": 43
+      },
+      "revId": "d3c268a9589099b34661ff6709bf999adb119a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
