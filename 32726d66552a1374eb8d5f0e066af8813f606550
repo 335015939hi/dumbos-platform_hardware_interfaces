@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e63c12bc_cb79bbad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-04-08T17:47:18Z",
+      "side": 1,
+      "message": "Weren\u0027t we going to change this to take an opaqueKey?",
+      "revId": "32726d66552a1374eb8d5f0e066af8813f606550",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
