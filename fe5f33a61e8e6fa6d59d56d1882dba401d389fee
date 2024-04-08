@@ -34,6 +34,24 @@
       "parentUuid": "8d6342e5_a05f924b",
       "revId": "fe5f33a61e8e6fa6d59d56d1882dba401d389fee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2efa1ca3_d35cc269",
+        "filename": "security/keymint/aidl/default/ta/lib.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-08T15:10:05Z",
+      "side": 1,
+      "message": "I was thinking we should have a way to easily test both batch/non-batch setups.\n\nHowever, it\u0027s probably simplest to just stick with whichever mode we think will be the default. I suspect \"no batch key\" will be the new norm, but we could make this decision based on actual data (I _think_ we have metrics for this).",
+      "parentUuid": "6a4c109c_f84aa54f",
+      "revId": "fe5f33a61e8e6fa6d59d56d1882dba401d389fee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
