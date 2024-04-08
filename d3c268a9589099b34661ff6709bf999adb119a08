@@ -46,6 +46,30 @@
       },
       "revId": "d3c268a9589099b34661ff6709bf999adb119a08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f710103_465c3767",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-08T16:06:47Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure `ATTEST_KEY` is only really needed for RKP, and this was just how we decided to implement it at the KeyMint layer. It definitely has the whiff of \"too general purpose\", given that we can layer these keys indefinitely, but it is what it is.\n\nMy real question is \"Why does `RsaAttestedAttestKeys` exist when we also have `RsaAttestKeyChaining`?\" AFAICT, the latter test covers everything we need (and more!).",
+      "parentUuid": "da89ab81_cd5f382e",
+      "range": {
+        "startLine": 279,
+        "startChar": 22,
+        "endLine": 279,
+        "endChar": 43
+      },
+      "revId": "d3c268a9589099b34661ff6709bf999adb119a08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
