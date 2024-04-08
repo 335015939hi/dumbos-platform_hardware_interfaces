@@ -50,6 +50,23 @@
       "message": "pre-existing: the name of this function confused me, it\u0027s more of a `maybeSkipAttestKeyTest()`.",
       "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e94ba06b_d4440586",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-08T10:35:58Z",
+      "side": 1,
+      "message": "One more thought: should we have a negative test that expects `ATTESTATION_KEYS_NOT_PROVISIONED` for an attempt to attest when `rkp_only` is set?\n\n(Note that Cuttlefish will currently fail this test, due to aosp/2275770)",
+      "revId": "f07d1ad6a5cd801785b62aac98d3779723f3f871",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
