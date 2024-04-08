@@ -52,6 +52,24 @@
       "parentUuid": "6a4c109c_f84aa54f",
       "revId": "fe5f33a61e8e6fa6d59d56d1882dba401d389fee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3158b954_1ab93efa",
+        "filename": "security/keymint/aidl/default/ta/lib.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-08T15:57:26Z",
+      "side": 1,
+      "message": "I completely forgot we made CF RKP only quite some time ago... oops.\n\nI think the flag simply never took effect below the level of keystore.",
+      "parentUuid": "2efa1ca3_d35cc269",
+      "revId": "fe5f33a61e8e6fa6d59d56d1882dba401d389fee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
