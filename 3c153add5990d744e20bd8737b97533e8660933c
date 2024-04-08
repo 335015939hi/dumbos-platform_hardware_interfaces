@@ -39,6 +39,30 @@
       },
       "revId": "3c153add5990d744e20bd8737b97533e8660933c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aebef9fa_f13c5d40",
+        "filename": "threadnetwork/aidl/default/utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-04-08T09:56:53Z",
+      "side": 1,
+      "message": "No. Because the macro `VerifyOrDie()` will call the function `otLogCritPlat()`.",
+      "parentUuid": "0d2c7763_eb7b4bfc",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 0
+      },
+      "revId": "3c153add5990d744e20bd8737b97533e8660933c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
