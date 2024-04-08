@@ -70,6 +70,24 @@
       "parentUuid": "c7bae0f3_cef05ae6",
       "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1166ad80_eae33b0b",
+        "filename": "gatekeeper/aidl/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-08T12:37:05Z",
+      "side": 1,
+      "message": "Right, but is there still going to be a synchronization problem around updating the Android code and the secure world code at the same time?  If (say) Android W changes the `-cpp` formats, then the HAL service will get that change as soon as it\u0027s in Android, but the secure world will only get the corresponding change once prebuilts are updated.\n\nIf the change is back-compatible, as was indicated in the separate chat discussion, then this might not be a problem.",
+      "parentUuid": "99b767dc_f3080571",
+      "revId": "07a5cf186494c04e069e9b81681f259781849f0c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
