@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "459b190b_df9b086c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-09T22:27:20Z",
+      "side": 1,
+      "message": "I don\u0027t think we want to cherry pick this to android 14.\n\nAndroid 14 requires a factory key. Only Android 15+ allows it to be optional",
+      "revId": "32052bfb9f7ff1e8999d560d0b8e2b200192d630",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
