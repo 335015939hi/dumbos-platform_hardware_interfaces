@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7596edb2_0bc51f89",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1149,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-09T06:43:10Z",
+      "side": 0,
+      "message": "Yeah, it Should Just Work™, so I don\u0027t think we should block submitting this CL on that test.",
+      "parentUuid": "8ec32be2_dac7a597",
+      "revId": "863f96ecdd628638da61a302f13615e61eec6d60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6fcf11c3_557a24c9",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 3
