@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36c93f1b_cdc06b50",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-04-09T16:42:40Z",
+      "side": 1,
+      "message": "Is this saying this string can only be these two values (`com.android.see.hecrypto.device_bound_key`/`com.android.see.hecrypto.device_family_batch_key`)?\n\nIf so, can this be an enum instead?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "86764955cdc7da9be17acdff08a73ad0a63cec3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
