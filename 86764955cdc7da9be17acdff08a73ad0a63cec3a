@@ -22,6 +22,30 @@
       },
       "revId": "86764955cdc7da9be17acdff08a73ad0a63cec3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a4867f3_b3021496",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-04-09T16:52:05Z",
+      "side": 1,
+      "message": "Right now we only have 2 values defined, but there could be more. It also ties to a name-based function we will have that can be used to retrieve keys by name (and maps to a current non-AIDL interface that takes a string as a parameter). I\u0027d prefer it to keep being a string on the new interface.",
+      "parentUuid": "36c93f1b_cdc06b50",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "86764955cdc7da9be17acdff08a73ad0a63cec3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
