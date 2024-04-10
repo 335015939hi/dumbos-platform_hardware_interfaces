@@ -1,0 +1,409 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059ec312_a15ec74b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Does `VtsAidlSharedSecretTargetTest` pass?  And do the auth tests in `VtsAidlKeyMintTargetTest` ?",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93cd669b_496bc7c1",
+        "filename": "gatekeeper/aidl/software/GateKeeper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Update log tag for new service?",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e67b18f9_d2764223",
+        "filename": "gatekeeper/aidl/software/GateKeeper.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "nit: I think some of the `ERROR_` values are unused.",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96e4af8e_5be2d111",
+        "filename": "gatekeeper/aidl/software/GateKeeper.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "nit: can some of these `using` statements be dropped (or moved to the .cpp file) ?",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f386aff_b620e700",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "I wonder if it would make sense to initialize the `nonce_` in a constructor (and ideally make the field `const`)?",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 5
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2234586_a5b22bda",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Will the second arm mean that the ISharedSecret VTS tests can\u0027t be run?",
+      "range": {
+        "startLine": 54,
+        "startChar": 25,
+        "endLine": 54,
+        "endChar": 46
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "387beb36_2ad1866d",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "nit: it would be nice to have a comment here pointing out that the value of this key-agreement-key is set to all zeroes so it matches:\n- the `kFakeKeyAgreementKey` value in   `system/keymaster/km_openssl/soft_keymaster_enforcement.cpp`\n- the value in `hardware/interfaces/security/keymint/aidl/default/ta/soft.rs`",
+      "range": {
+        "startLine": 58,
+        "startChar": 1,
+        "endLine": 63,
+        "endChar": 58
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40a319ba_4241125e",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Is there a constant in the AIDL-\u003eC++ generated code that could be used here (`ISharedSecret.KEY_AGREEMENT_LABEL`)?\n\n(Note that the existing C++/Rust implementations can\u0027t use the AIDL constant because they\u0027re built for the secure world and don\u0027t depend on binder/AIDL, but here you could.)",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d78faf_c8b20b73",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "there might be a shorter way of doing this, cf. https://cs.android.com/android/platform/superproject/main/+/main:system/keymaster/km_openssl/soft_keymaster_enforcement.cpp;l\u003d179",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 87
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cd67ced_7a46f313",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Should this check `.seed` too?",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05abf81c_7992cfea",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Is the `cdkf_input` logging needed?  (I\u0027m a bit worried that some vendor might copy-pasta this into their real implementation an inadvertently leak the KAK.)",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 64
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0026b479_abf2c0e4",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "as above, could an AIDL-generated constant be used here?",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "624cc08a_3c55be57",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "`verification_input` looks unused?",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 52
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b37267de_d525e781",
+        "filename": "gatekeeper/aidl/software/SharedSecret.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "nit: already `using ::ndk::ScopedAStatus`",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 11
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8baa4b8f_abe24ff3",
+        "filename": "gatekeeper/aidl/software/SharedSecret.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Would it be safer to return a copy of the key here, rather than a reference?  (For example, in `SoftGatekeeper::GetAuthTokenKey` this method is called twice - what happens if a shared secret negotiation is going on at the time?)",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7477843a_b94bc698",
+        "filename": "gatekeeper/aidl/software/SharedSecret.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Do these fields need to be mutex-protected?  (In practice it shouldn\u0027t matter, but it would be a good example to set just in case vendors copy/paste.)",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdd99d79_7387470f",
+        "filename": "gatekeeper/aidl/software/SoftGateKeeper.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "(I\u0027ve not looked at the contents of this file in detail as it\u0027s so close to the original.)",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "998d33f5_265bb73f",
+        "filename": "gatekeeper/aidl/software/android.hardware.gatekeeper-service.nonsecure.rc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Does this need to be `early_hal` rather than just `hal`?",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2f41f4e_578876cc",
+        "filename": "gatekeeper/aidl/software/android.hardware.security.sharedsecret-gatekeeper.xml",
+        "patchSetId": 6
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Ugly but effective I guess.  Could we just allow for an ISharedSecret/gatekeeper instance in the compatibility matrix?  \n\n(keystore2 _should_ find an arbitrarily named instance and include it in the negotiation.)",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceec21b7_b2cc3814",
+        "filename": "gatekeeper/aidl/software/service.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "Update log tag for new service?",
+      "range": {
+        "startLine": 16,
+        "startChar": 44,
+        "endLine": 16,
+        "endChar": 57
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e68e9531_e6d0d54f",
+        "filename": "gatekeeper/aidl/software/service.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-10T14:23:47Z",
+      "side": 1,
+      "message": "nit: could do with a comment explaining the re-use of the /strongbox name.",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
