@@ -52,6 +52,24 @@
       "parentUuid": "5e16fd15_22d4b5fb",
       "revId": "69d60aa02ccb1fd744750eaa929264b7b433956e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4f794ed_e4f5f728",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1757,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-04-10T20:11:50Z",
+      "side": 1,
+      "message": "OK. After some consideration, I think we can leave only HDMI, IP and USB and do not check for other types. For example, SPDIF is also typically not detectable, unless a 3.5 mm TRS-like connector is used. So let\u0027s proceed with a whitelist, I\u0027m creating a patch for that.",
+      "parentUuid": "138424e8_420cf134",
+      "revId": "69d60aa02ccb1fd744750eaa929264b7b433956e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
