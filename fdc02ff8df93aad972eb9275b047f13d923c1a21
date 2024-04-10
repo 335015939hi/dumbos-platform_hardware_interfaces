@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b673f8c_65be0250",
+        "filename": "audio/aidl/vts/VtsHalPresetReverbTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-04-10T17:27:06Z",
+      "side": 1,
+      "message": "Since we use `ASSERT_NO_FATAL_FAILURE` in `TearDownPresetReverb`, we want to wrap the call to it into `ASSERT_NO_FATAL_FAILURE` as well. \n```suggestion\n        ASSERT_NO_FATAL_FAILURE(TearDownPresetReverb());\n```",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 145,
+        "endChar": 28
+      },
+      "revId": "fdc02ff8df93aad972eb9275b047f13d923c1a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
