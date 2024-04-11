@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d093fef_2ece749d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-11T05:56:34Z",
+      "side": 1,
+      "message": "If `AuthTest#TimeoutAuthentication` is failing, I\u0027d imagine that\u0027s because Gatekeeper and KeyMint aren\u0027t using the same clock epoch.\n\nThe non-secure [KeyMint clock](https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/security/keymint/aidl/default/ta/clock.rs) looks to have an unhelpful epoch. (I went back and forth in aosp/2856649 as to which clock to use; looks like I ended up with the wrong choice)\n\nHopefully shifting that to match the [Gatekeeper clock](https://cs.android.com/android/platform/superproject/main/+/main:device/google/cuttlefish/host/commands/secure_env/soft_gatekeeper.h;l\u003d97;drc\u003d3d19fbcc09b1b44928639b06cd0b88f735cd988d;bpv\u003d1;bpt\u003d1) will fix things.\n\nThe [history](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/2856649/6..8/security/keymint/aidl/default/ta/clock.rs) from aosp/2856649 should give the code we need, BTW.",
+      "parentUuid": "5c44470c_61142ffb",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93cd669b_496bc7c1",
@@ -348,6 +366,30 @@
       "side": 1,
       "message": "I don\u0027t believe the `soft_keymaster_enforcement.cpp` version of this logic is memory-safe. It passes a [`constexpr const char*` value](https://cs.android.com/android/platform/superproject/main/+/main:system/keymaster/km_openssl/soft_keymaster_enforcement.cpp;l\u003d41;drc\u003d3d19fbcc09b1b44928639b06cd0b88f735cd988d) into a [`TKeymasterBlob`](https://cs.android.com/android/platform/superproject/main/+/main:system/keymaster/include/keymaster/android_keymaster_utils.h;l\u003d122;drc\u003d3d19fbcc09b1b44928639b06cd0b88f735cd988d) instance, which [tries to `delete[]` its data](https://cs.android.com/android/platform/superproject/main/+/main:system/keymaster/include/keymaster/android_keymaster_utils.h;l\u003d190;drc\u003d3d19fbcc09b1b44928639b06cd0b88f735cd988d) in its destructor.\n\nLet me know if you want me to change the `soft_keymaster_enforcement.cpp` implementation as well.",
       "parentUuid": "51d78faf_c8b20b73",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 87
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e32ab00_4df140d5",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-11T05:56:34Z",
+      "side": 1,
+      "message": "My C++ is rusty, but I think the `TKeymasterBlob` constructor [makes a copy of the data](https://cs.android.com/android/platform/superproject/main/+/main:system/keymaster/include/keymaster/android_keymaster_utils.h;l\u003d124;drc\u003d3d19fbcc09b1b44928639b06cd0b88f735cd988d) with `dup_buffer` and so is safe?  Or am I reading it wrong?",
+      "parentUuid": "8d6750db_15a4a234",
       "range": {
         "startLine": 65,
         "startChar": 0,
@@ -729,6 +771,24 @@
       "side": 1,
       "message": "Because `keystore2` launches so early, only `early_hal` services are ready in time to participate in shared secret negotation.",
       "parentUuid": "998d33f5_265bb73f",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00a85dca_4a2db58d",
+        "filename": "gatekeeper/aidl/software/android.hardware.gatekeeper-service.nonsecure.rc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-11T05:56:34Z",
+      "side": 1,
+      "message": "Ah of course, this needs to be early because it joins in with ISharedSecret negotiation.",
+      "parentUuid": "0b58dc5f_5c0df5de",
       "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
