@@ -29,6 +29,7 @@
 #include <aidl/android/hardware/confirmationui/IConfirmationUI.h>
 #include <aidl/android/hardware/confirmationui/TestModeCommands.h>
 #include <aidl/android/hardware/confirmationui/UIOption.h>
+#include <android-base/logging.h>
 #include <android-base/thread_annotations.h>
 #include <android/hardware/confirmationui/support/confirmationui_utils.h>
 #include <cutils/log.h>
@@ -186,12 +187,39 @@ int getReturnCode(const ::ndk::ScopedAStatus& result) {
     return result.getStatus();
 }
 
+/*
+ * Run a shell command and collect the output of it. If any error, set an empty string as the
+ * output.
+ */
+string exec_command(string command) {
+    char buffer[128];
+    string result = "";
+
+    FILE* pipe = popen(command.c_str(), "r");
+    if (!pipe) {
+        LOG(ERROR) << "popen failed.";
+        return result;
+    }
+
+    // read till end of process:
+    while (!feof(pipe)) {
+        if (fgets(buffer, 128, pipe) != NULL) {
+            result += buffer;
+        }
+    }
+
+    pclose(pipe);
+    return result;
+}
+
 }  // namespace
 
 class ConfirmationUIAidlTest : public ::testing::TestWithParam<std::string> {
   public:
     void TearDown() override { confirmator_->abort(); }
     void SetUp() override {
+        // Wake up the device in-case screen of off. b/332827323
+        exec_command("input keyevent KEYCODE_WAKEUP");
         std::string name = GetParam();
         ASSERT_TRUE(AServiceManager_isDeclared(name.c_str())) << name;
         ndk::SpAIBinder binder(AServiceManager_waitForService(name.c_str()));
