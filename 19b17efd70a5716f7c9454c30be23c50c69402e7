@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c44470c_61142ffb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-04-11T00:37:07Z",
+      "side": 1,
+      "message": "`VtsAidlSharedSecretTargetTest` is now good.\n\n```\n[26/286] PerInstance/AuthTest#TimeoutAuthentication/0_android_hardware_security_keymint_IKeyMintDevice_default: FAILED (4.075s)\n\nSTACKTRACE:\nhardware/interfaces/security/keymint/aidl/vts/functional/AuthTest.cpp:359: Failure\nValue of: timestamp_token_required_\n  Actual: false\nExpected: true\n[27/286] PerInstance/AuthTest#TimeoutAuthenticationIncorrectTimestampToken/0_android_hardware_security_keymint_IKeyMintDevice_default: IGNORED (50ms)\n[28/286] PerInstance/AuthTest#TimeoutAuthenticationMultiSid/0_android_hardware_security_keymint_IKeyMintDevice_default: PASSED (118ms)\n[29/286] PerInstance/AuthTest#AuthPerOperation/0_android_hardware_security_keymint_IKeyMintDevice_default: PASSED (59ms)\n[30/286] PerInstance/AuthTest#AuthPerOperationMultiSid/0_android_hardware_security_keymint_IKeyMintDevice_default: PASSED (116ms)\n[31/286] PerInstance/AuthTest#AuthPerOperationWrongAuthType/0_android_hardware_security_keymint_IKeyMintDevice_default: PASSED (59ms)\n```",
+      "parentUuid": "3cc5cdf3_13c936c2",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93cd669b_496bc7c1",
@@ -422,6 +440,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43489b27_8d88d624",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-04-11T00:37:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac1ddcf7_04ba46a1",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 64
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0026b479_abf2c0e4",
@@ -582,6 +624,24 @@
       "side": 1,
       "message": "I think it\u0027s impossible for multiple requests to be handled concurrently because of `ABinderProcess_setThreadPoolMaxThreadCount(0);` in `service.cpp` but updated this to return a copy anyway.",
       "parentUuid": "8baa4b8f_abe24ff3",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c78a31d7_0f6dfd85",
+        "filename": "gatekeeper/aidl/software/SharedSecret.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-04-11T00:37:07Z",
+      "side": 1,
+      "message": "The copy\u0027s lifetime doesn\u0027t satisfy the (indefinite?) lifetime requirements of `GateKeeper::GetAuthTokenKey`, so I\u0027ve changed `SoftGateKeeper::GetAuthTokenKey` to load this value once and store it afterwards.",
+      "parentUuid": "76fcffea_83ba90a1",
       "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
