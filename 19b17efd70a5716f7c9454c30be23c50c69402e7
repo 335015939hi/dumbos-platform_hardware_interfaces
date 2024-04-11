@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f8ed255_17321d24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-04-11T19:24:04Z",
+      "side": 1,
+      "message": "Dropping in the changes from the history of aosp/2856649 fixed the broken test, now `VtsAidlKeyMintTargetTest` is at `Passed: 266, Failed: 0, Ignored: 20, Assumption Failed: 0`",
+      "parentUuid": "b477572a_34337e13",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93cd669b_496bc7c1",
