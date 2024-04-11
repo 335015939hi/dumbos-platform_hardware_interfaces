@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b477572a_34337e13",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-04-11T10:33:28Z",
+      "side": 1,
+      "message": "Thanks for the detailed investigation!\n\nUnresolving for when I get back to this later",
+      "parentUuid": "2d093fef_2ece749d",
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "93cd669b_496bc7c1",
         "filename": "gatekeeper/aidl/software/GateKeeper.cpp",
         "patchSetId": 6
@@ -390,6 +408,30 @@
       "side": 1,
       "message": "My C++ is rusty, but I think the `TKeymasterBlob` constructor [makes a copy of the data](https://cs.android.com/android/platform/superproject/main/+/main:system/keymaster/include/keymaster/android_keymaster_utils.h;l\u003d124;drc\u003d3d19fbcc09b1b44928639b06cd0b88f735cd988d) with `dup_buffer` and so is safe?  Or am I reading it wrong?",
       "parentUuid": "8d6750db_15a4a234",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 87
+      },
+      "revId": "19b17efd70a5716f7c9454c30be23c50c69402e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "162774b1_84e179d0",
+        "filename": "gatekeeper/aidl/software/SharedSecret.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-04-11T10:33:28Z",
+      "side": 1,
+      "message": "Ah you are correct, my mistake.",
+      "parentUuid": "3e32ab00_4df140d5",
       "range": {
         "startLine": 65,
         "startChar": 0,
