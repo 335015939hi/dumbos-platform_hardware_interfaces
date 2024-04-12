@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ec87e62_86b441a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-04-12T16:28:25Z",
+      "side": 1,
+      "message": "Bypass lint because this change just uses XSD to generate a parser. The \"API\" is only used internally by the implementation.",
+      "revId": "1237fff5b50e69c2e0dd7614ea1c45f2eb6d20ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
