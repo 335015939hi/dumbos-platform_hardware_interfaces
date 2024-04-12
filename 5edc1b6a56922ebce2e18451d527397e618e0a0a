@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49220d60_73e34257",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Hope so, interesting to use the code generated from XSD, even if I had some hard time to debug and fix it.\nAs QComm announced us they will migrate soon on AIDL, wanted to achieve it ASAP!",
+      "parentUuid": "1eaefcf2_a599f04f",
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "444198e8_84851256",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-04-08T23:37:39Z",
       "side": 1,
       "message": "Please keep sorted",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 1
+      },
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66efaca9_91a1bd4d",
+        "filename": "audio/aidl/default/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "444198e8_84851256",
       "range": {
         "startLine": 89,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9d5807_24c14ea4",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d73e4e9_00310144",
+      "range": {
+        "startLine": 45,
+        "startChar": 20,
+        "endLine": 45,
+        "endChar": 23
+      },
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ef081a8_65df2d08",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-04-08T23:37:39Z",
       "side": 1,
       "message": "Perhaps, use the same pattern as the line 50?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 13
+      },
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ae02227_bcbe249c",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ef081a8_65df2d08",
       "range": {
         "startLine": 59,
         "startChar": 0,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc739cdc_5f89b514",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d97e4085_89f5e0cf",
+      "range": {
+        "startLine": 77,
+        "startChar": 20,
+        "endLine": 77,
+        "endChar": 23
+      },
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4228b341_91ea58a4",
@@ -123,6 +237,30 @@
       "writtenOn": "2024-04-08T23:37:39Z",
       "side": 1,
       "message": "`return xsdcConfigurableElement.getPath();`",
+      "range": {
+        "startLine": 91,
+        "startChar": 4,
+        "endLine": 91,
+        "endChar": 35
+      },
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efeadabc_553d086b",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4228b341_91ea58a4",
       "range": {
         "startLine": 91,
         "startChar": 4,
@@ -156,6 +294,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e4dce5b_a769ada7",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Added an unexpected error returned instead as it shall not happen",
+      "parentUuid": "28c2e033_02c5163b",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 9
+      },
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80e8a117_5e718da8",
@@ -169,6 +331,30 @@
       "writtenOn": "2024-04-08T23:37:39Z",
       "side": 1,
       "message": "I would suggest using a wrapper function which emits `optional` values directly to avoid having re-converting code below.",
+      "range": {
+        "startLine": 210,
+        "startChar": 24,
+        "endLine": 211,
+        "endChar": 64
+      },
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35f9ee7b_dc519cdb",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80e8a117_5e718da8",
       "range": {
         "startLine": 210,
         "startChar": 24,
@@ -202,6 +388,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4192ddc_bad4d56d",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2beb3f34_3756b546",
+      "range": {
+        "startLine": 133,
+        "startChar": 43,
+        "endLine": 133,
+        "endChar": 47
+      },
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5172f472_8740cc41",
@@ -225,6 +435,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43b727e5_28bf84e9",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5172f472_8740cc41",
+      "range": {
+        "startLine": 559,
+        "startChar": 89,
+        "endLine": 559,
+        "endChar": 93
+      },
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c97f1dcb_f1758f2d",
@@ -238,6 +472,30 @@
       "writtenOn": "2024-04-08T23:37:39Z",
       "side": 1,
       "message": "These lines are too long. Did you have a chance to run presubmit hooks?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 37
+      },
+      "revId": "5edc1b6a56922ebce2e18451d527397e618e0a0a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27e674ae_54bd4c20",
+        "filename": "audio/aidl/default/include/core-impl/CapEngineConfigXmlConverter.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-04-12T08:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c97f1dcb_f1758f2d",
       "range": {
         "startLine": 58,
         "startChar": 0,
