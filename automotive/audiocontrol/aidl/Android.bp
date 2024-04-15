@@ -50,7 +50,6 @@ aidl_interface {
                 "android.media.audio.common.types-V2",
             ],
         },
-
     ],
     frozen: false,
 
