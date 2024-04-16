@@ -180,7 +180,9 @@ ConversionResult<AudioHalProductStrategy> EngineConfigXmlConverter::convertProdu
     aidlProductStrategy.id =
             VALUE_OR_FATAL(convertProductStrategyIdToAidl(xsdcProductStrategy.getId()));
     aidlProductStrategy.name = xsdcProductStrategy.getName();
-
+    if (xsdcProductStrategy.hasZoneId()) {
+        aidlProductStrategy.zoneId = xsdcProductStrategy.getZoneId();
+    }
     if (xsdcProductStrategy.hasAttributesGroup()) {
         aidlProductStrategy.attributesGroups = VALUE_OR_FATAL(
                 (convertCollectionToAidl<eng_xsd::AttributesGroup, AudioHalAttributesGroup>(
