@@ -223,8 +223,10 @@ void HdmiCecMock::threadLoop() {
 
     // Open the input pipe
     while (mCecThreadRun && mInputFile < 0) {
-        usleep(1000 * 1000);
         mInputFile = open(CEC_MSG_IN_FIFO, O_RDONLY | O_CLOEXEC);
+        if (mInputFile < 0) {
+            usleep(1000 * 1000);
+        }
     }
     ALOGD("[halimp_aidl] file open ok, fd = %d.", mInputFile);
 
