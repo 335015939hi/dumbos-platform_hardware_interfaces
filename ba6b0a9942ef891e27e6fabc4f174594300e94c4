@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0728b200_b369cb60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130869
+      },
+      "writtenOn": "2024-04-16T07:48:24Z",
+      "side": 1,
+      "message": "Hi, google friends, what\u0027s the status? Thanks!\nIt impacts android-vts-14.0_r3, unless use \nVTS built from code.",
+      "revId": "ba6b0a9942ef891e27e6fabc4f174594300e94c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
