@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fe26e61_1f54fcf3",
+        "filename": "confirmationui/aidl/vts/functional/VtsHalConfirmationUITargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2024-04-16T13:15:22Z",
+      "side": 1,
+      "message": "You should be able to simply use the `system` function, see https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/module/service.mediatranscoding/tests/MediaTranscodingServiceTestHelper.h;l\u003d92-100?q\u003dshellhelper%20mediatrans",
+      "range": {
+        "startLine": 222,
+        "startChar": 8,
+        "endLine": 222,
+        "endChar": 20
+      },
+      "revId": "0cd35139766ad025e4ca99bb6baa84c573210f4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
