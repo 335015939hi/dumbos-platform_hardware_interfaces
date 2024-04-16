@@ -106,6 +106,7 @@
                     </xs:sequence>
                     <xs:attribute name="name" type="xs:string" use="required"/>
                     <xs:attribute name="id" type="xs:int" use="required"/>
+                    <xs:attribute name="zoneId" type="xs:int" use="optional"/>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
