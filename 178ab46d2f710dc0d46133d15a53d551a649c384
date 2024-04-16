@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "150cbda5_1a3ee96a",
+        "filename": "automotive/can/1.0/default/tests/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-04-16T16:48:30Z",
+      "side": 1,
+      "message": "Please remove Kevin, he no longer works at Google.\n```suggestion\n```",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 33
+      },
+      "revId": "178ab46d2f710dc0d46133d15a53d551a649c384",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
