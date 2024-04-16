@@ -22,6 +22,30 @@
       },
       "revId": "0cd35139766ad025e4ca99bb6baa84c573210f4b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4de9dbe1_bf4046fd",
+        "filename": "confirmationui/aidl/vts/functional/VtsHalConfirmationUITargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2024-04-16T17:09:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fe26e61_1f54fcf3",
+      "range": {
+        "startLine": 222,
+        "startChar": 8,
+        "endLine": 222,
+        "endChar": 20
+      },
+      "revId": "0cd35139766ad025e4ca99bb6baa84c573210f4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
