@@ -26,9 +26,11 @@
 #include <aidl/android/media/audio/common/AudioProductStrategyType.h>
 #include <android-base/logging.h>
 
+#include "core-impl/CapEngineConfigXmlConverter.h"
 #include "core-impl/EngineConfigXmlConverter.h"
 #include "core-impl/XsdcConversion.h"
 
+using aidl::android::hardware::audio::core::internal::CapEngineConfigXmlConverter;
 using aidl::android::hardware::audio::core::internal::convertAudioUsageToAidl;
 using aidl::android::media::audio::common::AudioAttributes;
 using aidl::android::media::audio::common::AudioContentType;
@@ -44,12 +46,17 @@ using aidl::android::media::audio::common::AudioProductStrategyType;
 using aidl::android::media::audio::common::AudioSource;
 using aidl::android::media::audio::common::AudioStreamType;
 using aidl::android::media::audio::common::AudioUsage;
+
 using ::android::BAD_VALUE;
 using ::android::base::unexpected;
 
 namespace eng_xsd = android::audio::policy::engine::configuration;
 
 namespace aidl::android::hardware::audio::core::internal {
+
+/** Default path of audio policy cap engine configuration file. */
+static constexpr char kCapEngineConfigFileName[] =
+        "/parameter-framework/Settings/Policy/PolicyConfigurableDomains.xml";
 
 void EngineConfigXmlConverter::initProductStrategyMap() {
 #define STRATEGY_ENTRY(name) {"STRATEGY_" #name, static_cast<int>(AudioProductStrategyType::name)}
@@ -73,6 +80,13 @@ ConversionResult<int> EngineConfigXmlConverter::convertProductStrategyNameToAidl
         mNextVendorStrategy++;
     }
     return it->second;
+}
+
+ConversionResult<int> EngineConfigXmlConverter::convertProductStrategyIdToAidl(int xsdcId) {
+    if (xsdcId < AudioHalProductStrategy::VENDOR_STRATEGY_ID_START) {
+        return unexpected(BAD_VALUE);
+    }
+    return xsdcId;
 }
 
 bool isDefaultAudioAttributes(const AudioAttributes& attributes) {
@@ -164,7 +178,8 @@ ConversionResult<AudioHalProductStrategy> EngineConfigXmlConverter::convertProdu
     AudioHalProductStrategy aidlProductStrategy;
 
     aidlProductStrategy.id =
-            VALUE_OR_FATAL(convertProductStrategyNameToAidl(xsdcProductStrategy.getName()));
+            VALUE_OR_FATAL(convertProductStrategyIdToAidl(xsdcProductStrategy.getId()));
+    aidlProductStrategy.name = xsdcProductStrategy.getName();
 
     if (xsdcProductStrategy.hasAttributesGroup()) {
         aidlProductStrategy.attributesGroups = VALUE_OR_FATAL(
@@ -258,6 +273,13 @@ void EngineConfigXmlConverter::init() {
                         getXsdcConfig()->getCriterion_types(),
                         &eng_xsd::CriterionTypesType::getCriterion_type,
                         &convertCapCriterionTypeToAidl)));
+
+        internal::CapEngineConfigXmlConverter capEngConfigConverter{
+                ::android::audio_find_readable_configuration_file(kCapEngineConfigFileName)};
+        if (capEngConfigConverter.getStatus() == ::android::OK) {
+            capSpecificConfig.domains = std::move(capEngConfigConverter.getAidlCapEngineConfig());
+        }
+        mAidlEngineConfig.capSpecificConfig = capSpecificConfig;
     }
 }
 }  // namespace aidl::android::hardware::audio::core::internal
