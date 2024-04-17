@@ -32,6 +32,7 @@
 #include <aidl/android/media/audio/common/AudioPolicyForcedConfig.h>
 #include <aidl/android/media/audio/common/PcmType.h>
 #include <android/binder_auto_utils.h>
+#include <utils/FastStrcmp.h>
 
 namespace ndk {
 
@@ -83,6 +84,11 @@ constexpr std::array<::aidl::android::media::audio::common::AudioPolicyForcedCon
                         ENCODED_SURROUND_MANUAL,
                 ::aidl::android::media::audio::common::AudioPolicyForcedConfig::BT_BLE,
 };
+
+constexpr bool iequals(const std::string& str1, const std::string& str2) {
+    return str1.length() == str2.length() &&
+           !fasticmp<strncmp>(str1.c_str(), str2.c_str(), str1.length());
+}
 
 constexpr size_t getPcmSampleSizeInBytes(::aidl::android::media::audio::common::PcmType pcm) {
     using ::aidl::android::media::audio::common::PcmType;
