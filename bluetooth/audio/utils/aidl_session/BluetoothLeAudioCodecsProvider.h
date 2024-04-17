@@ -84,13 +84,14 @@ class BluetoothLeAudioCodecsProvider {
   template <class T>
   static inline UnicastCapability ComposeUnicastCapability(
       const CodecType& codec_type, const AudioLocation& audio_location,
-      const uint8_t& device_cnt, const uint8_t& channel_count,
-      const T& capability);
+      const int& audio_location_int, const uint8_t& device_cnt,
+      const uint8_t& channel_count, const T& capability);
 
   template <class T>
   static inline BroadcastCapability ComposeBroadcastCapability(
       const CodecType& codec_type, const AudioLocation& audio_location,
-      const uint8_t& channel_count, const std::vector<T>& capability);
+      const int& audio_location_int, const uint8_t& channel_count,
+      const std::vector<T>& capability);
 
   static inline Lc3Capabilities ComposeLc3Capability(
       const setting::CodecConfiguration& codec_configuration);
