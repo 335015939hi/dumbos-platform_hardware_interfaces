@@ -46,6 +46,7 @@ union CodecSpecificConfigurationLtv {
     }
 
     parcelable AudioChannelAllocation {
+        // @deprecated use MONO instead.
         const int NOT_ALLOWED = 0x00000000;
         const int FRONT_LEFT = 0x00000001;
         const int FRONT_RIGHT = 0x00000002;
@@ -75,6 +76,7 @@ union CodecSpecificConfigurationLtv {
         const int FRONT_RIGHT_WIDE = 0x02000000;
         const int LEFT_SURROUND = 0x04000000;
         const int RIGHT_SURROUND = 0x08000000;
+        const int MONO = 0x00000000;
 
         // Bit mask of Audio Locations
         int bitmask;
