@@ -384,22 +384,32 @@ UnicastCapability BluetoothLeAudioCodecsProvider::GetUnicastCapability(
     return {.codecType = CodecType::UNKNOWN};
   }
 
+  // Populate audio location
+  AudioLocation audio_location = AudioLocation::UNKNOWN;
+  if (strategy_configuration_iter->second.hasAudioLocation()) {
+    audio_location = GetAudioLocation(
+        strategy_configuration_iter->second.getAudioLocation());
+  }
+
+  // Populate audio location int
+  int audio_location_int = -1;
+  if (strategy_configuration_iter->second.hasAudioLocationInt()) {
+    audio_location_int =
+        strategy_configuration_iter->second.getAudioLocationInt();
+  }
+
   CodecType codec_type =
       GetCodecType(codec_configuration_iter->second.getCodec());
   if (codec_type == CodecType::LC3) {
     return ComposeUnicastCapability(
-        codec_type,
-        GetAudioLocation(
-            strategy_configuration_iter->second.getAudioLocation()),
+        codec_type, audio_location, audio_location_int,
         strategy_configuration_iter->second.getConnectedDevice(),
         strategy_configuration_iter->second.getChannelCount(),
         ComposeLc3Capability(codec_configuration_iter->second));
   } else if (codec_type == CodecType::APTX_ADAPTIVE_LE ||
              codec_type == CodecType::APTX_ADAPTIVE_LEX) {
     return ComposeUnicastCapability(
-        codec_type,
-        GetAudioLocation(
-            strategy_configuration_iter->second.getAudioLocation()),
+        codec_type, audio_location, audio_location_int,
         strategy_configuration_iter->second.getConnectedDevice(),
         strategy_configuration_iter->second.getChannelCount(),
         ComposeAptxAdaptiveLeCapability(codec_configuration_iter->second));
@@ -435,11 +445,23 @@ BroadcastCapability BluetoothLeAudioCodecsProvider::GetBroadcastCapability(
   std::vector<std::optional<Lc3Capabilities>> bcastLc3Cap(
       1, std::optional(ComposeLc3Capability(codec_configuration_iter->second)));
 
+  // Populate audio location
+  AudioLocation audio_location = AudioLocation::UNKNOWN;
+  if (strategy_configuration_iter->second.hasAudioLocation()) {
+    audio_location = GetAudioLocation(
+        strategy_configuration_iter->second.getAudioLocation());
+  }
+
+  // Populate audio location int
+  int audio_location_int = -1;
+  if (strategy_configuration_iter->second.hasAudioLocationInt()) {
+    audio_location_int =
+        strategy_configuration_iter->second.getAudioLocationInt();
+  }
+
   if (codec_type == CodecType::LC3) {
     return ComposeBroadcastCapability(
-        codec_type,
-        GetAudioLocation(
-            strategy_configuration_iter->second.getAudioLocation()),
+        codec_type, audio_location, audio_location_int,
         strategy_configuration_iter->second.getChannelCount(), bcastLc3Cap);
   }
   return {.codecType = CodecType::UNKNOWN};
@@ -448,18 +470,20 @@ BroadcastCapability BluetoothLeAudioCodecsProvider::GetBroadcastCapability(
 template <class T>
 BroadcastCapability BluetoothLeAudioCodecsProvider::ComposeBroadcastCapability(
     const CodecType& codec_type, const AudioLocation& audio_location,
-    const uint8_t& channel_count, const std::vector<T>& capability) {
+    const int& audio_location_int, const uint8_t& channel_count,
+    const std::vector<T>& capability) {
   return {.codecType = codec_type,
           .supportedChannel = audio_location,
           .channelCountPerStream = channel_count,
-          .leAudioCodecCapabilities = std::optional(capability)};
+          .leAudioCodecCapabilities = std::optional(capability),
+          .audioLocation = audio_location_int};
 }
 
 template <class T>
 UnicastCapability BluetoothLeAudioCodecsProvider::ComposeUnicastCapability(
     const CodecType& codec_type, const AudioLocation& audio_location,
-    const uint8_t& device_cnt, const uint8_t& channel_count,
-    const T& capability) {
+    const int& audio_location_int, const uint8_t& device_cnt,
+    const uint8_t& channel_count, const T& capability) {
   return {
       .codecType = codec_type,
       .supportedChannel = audio_location,
@@ -467,6 +491,7 @@ UnicastCapability BluetoothLeAudioCodecsProvider::ComposeUnicastCapability(
       .channelCountPerDevice = channel_count,
       .leAudioCodecCapabilities =
           UnicastCapability::LeAudioCodecCapabilities(capability),
+      .audioLocation = audio_location_int,
   };
 }
 
@@ -519,38 +544,86 @@ bool BluetoothLeAudioCodecsProvider::IsValidCodecConfiguration(
          codec_configuration.hasOctetsPerCodecFrame();
 }
 
+bool IsValidStereoAudioLocation(
+    const setting::StrategyConfiguration& strategy_configuration) {
+  if ((strategy_configuration.getConnectedDevice() == 2 &&
+       strategy_configuration.getChannelCount() == 1) ||
+      (strategy_configuration.getConnectedDevice() == 1 &&
+       strategy_configuration.getChannelCount() == 2)) {
+    // Stereo
+    // 1. two connected device, one for L one for R
+    // 2. one connected device for both L and R
+    return true;
+  } else if (strategy_configuration.getConnectedDevice() == 0 &&
+             strategy_configuration.getChannelCount() == 2) {
+    // Broadcast
+    return true;
+  }
+  return false;
+}
+
+bool IsValidMonoAudioLocation(
+    const setting::StrategyConfiguration& strategy_configuration) {
+  if (strategy_configuration.getConnectedDevice() == 1 &&
+      strategy_configuration.getChannelCount() == 1) {
+    return true;
+  }
+  return false;
+}
+
+bool IsValidAudioLocation(
+    const setting::StrategyConfiguration& strategy_configuration) {
+  if (strategy_configuration.getAudioLocation() ==
+      setting::AudioLocation::STEREO)
+    return IsValidStereoAudioLocation(strategy_configuration);
+  else if (strategy_configuration.getAudioLocation() ==
+           setting::AudioLocation::MONO)
+    return IsValidMonoAudioLocation(strategy_configuration);
+  return false;
+}
+
+bool IsValidAudioLocationInt(
+    const setting::StrategyConfiguration& strategy_configuration) {
+  // First, ensure that there's only 2 bitmask enabled
+  int audio_location_int = strategy_configuration.getAudioLocationInt();
+  int count = 0;
+  for (int bit = 0; bit < 32; ++bit)
+    if (audio_location_int & (1 << bit)) ++count;
+  if (count > 2) {
+    LOG(WARNING) << "Cannot parse more than 2 audio location, input is "
+                 << audio_location_int;
+    return false;
+  }
+
+  if (count == 2)
+    return IsValidStereoAudioLocation(strategy_configuration);
+  else
+    return IsValidMonoAudioLocation(strategy_configuration);
+}
+
 bool BluetoothLeAudioCodecsProvider::IsValidStrategyConfiguration(
     const setting::StrategyConfiguration& strategy_configuration) {
   if (!strategy_configuration.hasName() ||
-      !strategy_configuration.hasAudioLocation() ||
       !strategy_configuration.hasConnectedDevice() ||
       !strategy_configuration.hasChannelCount()) {
     return false;
   }
-  if (strategy_configuration.getAudioLocation() ==
-      setting::AudioLocation::STEREO) {
-    if ((strategy_configuration.getConnectedDevice() == 2 &&
-         strategy_configuration.getChannelCount() == 1) ||
-        (strategy_configuration.getConnectedDevice() == 1 &&
-         strategy_configuration.getChannelCount() == 2)) {
-      // Stereo
-      // 1. two connected device, one for L one for R
-      // 2. one connected device for both L and R
-      return true;
-    } else if (strategy_configuration.getConnectedDevice() == 0 &&
-               strategy_configuration.getChannelCount() == 2) {
-      // Broadcast
-      return true;
-    }
-  } else if (strategy_configuration.getAudioLocation() ==
-             setting::AudioLocation::MONO) {
-    if (strategy_configuration.getConnectedDevice() == 1 &&
-        strategy_configuration.getChannelCount() == 1) {
-      // Mono
-      return true;
-    }
-  }
-  return false;
+
+  // Both audio location field cannot be empty
+  if (!strategy_configuration.hasAudioLocation() &&
+      !strategy_configuration.hasAudioLocationInt())
+    return false;
+
+  // Any audio location field that presents must be valid
+  if (strategy_configuration.hasAudioLocation() &&
+      !IsValidAudioLocation(strategy_configuration))
+    return false;
+
+  if (strategy_configuration.hasAudioLocationInt() &&
+      !IsValidAudioLocationInt(strategy_configuration))
+    return false;
+
+  return true;
 }
 
 }  // namespace audio
