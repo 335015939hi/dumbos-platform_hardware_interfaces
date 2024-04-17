@@ -22,6 +22,30 @@
       },
       "revId": "178ab46d2f710dc0d46133d15a53d551a649c384",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86902f7f_4a409ba8",
+        "filename": "automotive/can/1.0/default/tests/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1616561
+      },
+      "writtenOn": "2024-04-17T10:06:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "150cbda5_1a3ee96a",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 33
+      },
+      "revId": "178ab46d2f710dc0d46133d15a53d551a649c384",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
