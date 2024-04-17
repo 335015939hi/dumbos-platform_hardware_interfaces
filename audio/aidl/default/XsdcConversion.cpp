@@ -10,11 +10,13 @@
 #include <aidl/android/media/audio/common/AudioPortConfig.h>
 #include <media/AidlConversionCppNdk.h>
 #include <media/TypeConverter.h>
+#include <media/convert.h>
 
 #include "core-impl/XmlConverter.h"
 #include "core-impl/XsdcConversion.h"
 
 using aidl::android::media::audio::common::AudioChannelLayout;
+using aidl::android::media::audio::common::AudioContentType;
 using aidl::android::media::audio::common::AudioDevice;
 using aidl::android::media::audio::common::AudioDeviceAddress;
 using aidl::android::media::audio::common::AudioDeviceDescription;
@@ -32,8 +34,12 @@ using aidl::android::media::audio::common::AudioPortDeviceExt;
 using aidl::android::media::audio::common::AudioPortExt;
 using aidl::android::media::audio::common::AudioPortMixExt;
 using aidl::android::media::audio::common::AudioProfile;
+using aidl::android::media::audio::common::AudioSource;
+using aidl::android::media::audio::common::AudioStreamType;
+using aidl::android::media::audio::common::AudioUsage;
 using ::android::BAD_VALUE;
 using ::android::base::unexpected;
+using ::android::utilities::convertTo;
 
 namespace ap_xsd = android::audio::policy::configuration;
 namespace eng_xsd = android::audio::policy::engine::configuration;
@@ -50,6 +56,100 @@ inline ConversionResult<std::string> assertNonEmpty(const std::string& s) {
 }
 
 #define NON_EMPTY_STRING_OR_FATAL(s) VALUE_OR_FATAL(assertNonEmpty(s))
+
+ConversionResult<int32_t> convertAudioFlagsToAidl(
+        const std::vector<eng_xsd::FlagType>& xsdcFlagTypeVec) {
+    int legacyFlagMask = 0;
+    for (const eng_xsd::FlagType& xsdcFlagType : xsdcFlagTypeVec) {
+        if (xsdcFlagType != eng_xsd::FlagType::AUDIO_FLAG_NONE) {
+            audio_flags_mask_t legacyFlag = AUDIO_FLAG_NONE;
+            if (!::android::AudioFlagConverter::fromString(eng_xsd::toString(xsdcFlagType),
+                                                           legacyFlag)) {
+                LOG(ERROR) << __func__ << " Review Audio Policy config, "
+                           << eng_xsd::toString(xsdcFlagType) << " is not a valid flag.";
+                return unexpected(BAD_VALUE);
+            }
+            legacyFlagMask |= static_cast<int>(legacyFlag);
+        }
+    }
+    ConversionResult<int32_t> result = legacy2aidl_audio_flags_mask_t_int32_t_mask(
+            static_cast<audio_flags_mask_t>(legacyFlagMask));
+    if (!result.ok()) {
+        LOG(ERROR) << __func__ << " Review Audio Policy config, " << legacyFlagMask
+                   << " has invalid flag(s).";
+        return unexpected(BAD_VALUE);
+    }
+    return result;
+}
+
+ConversionResult<AudioStreamType> convertAudioStreamTypeToAidl(const eng_xsd::Stream& xsdcStream) {
+    audio_stream_type_t legacyStreamType;
+    if (!::android::StreamTypeConverter::fromString(eng_xsd::toString(xsdcStream),
+                                                    legacyStreamType)) {
+        LOG(ERROR) << __func__ << " Review Audio Policy config, " << eng_xsd::toString(xsdcStream)
+                   << " is not a valid audio stream type.";
+        return unexpected(BAD_VALUE);
+    }
+    ConversionResult<AudioStreamType> result =
+            legacy2aidl_audio_stream_type_t_AudioStreamType(legacyStreamType);
+    if (!result.ok()) {
+        LOG(ERROR) << __func__ << " Review Audio Policy config, " << legacyStreamType
+                   << " is not a valid audio stream type.";
+        return unexpected(BAD_VALUE);
+    }
+    return result;
+}
+
+ConversionResult<AudioSource> convertAudioSourceToAidl(
+        const eng_xsd::SourceEnumType& xsdcSourceType) {
+    audio_source_t legacySourceType;
+    if (!::android::SourceTypeConverter::fromString(eng_xsd::toString(xsdcSourceType),
+                                                    legacySourceType)) {
+        LOG(ERROR) << __func__ << " Review Audio Policy config, "
+                   << eng_xsd::toString(xsdcSourceType) << " is not a valid audio source.";
+        return unexpected(BAD_VALUE);
+    }
+    ConversionResult<AudioSource> result = legacy2aidl_audio_source_t_AudioSource(legacySourceType);
+    if (!result.ok()) {
+        LOG(ERROR) << __func__ << " Review Audio Policy config, " << legacySourceType
+                   << " is not a valid audio source.";
+        return unexpected(BAD_VALUE);
+    }
+    return result;
+}
+
+ConversionResult<AudioContentType> convertAudioContentTypeToAidl(
+        const eng_xsd::ContentType& xsdcContentType) {
+    audio_content_type_t legacyContentType;
+    if (!::android::AudioContentTypeConverter::fromString(eng_xsd::toString(xsdcContentType),
+                                                          legacyContentType)) {
+        LOG(ERROR) << __func__ << " Review Audio Policy config, "
+                   << eng_xsd::toString(xsdcContentType) << " is not a valid audio content type.";
+        return unexpected(BAD_VALUE);
+    }
+    ConversionResult<AudioContentType> result =
+            legacy2aidl_audio_content_type_t_AudioContentType(legacyContentType);
+    if (!result.ok()) {
+        LOG(ERROR) << __func__ << " Review Audio Policy config, " << legacyContentType
+                   << " is not a valid audio content type.";
+        return unexpected(BAD_VALUE);
+    }
+    return result;
+}
+
+ConversionResult<AudioUsage> convertAudioUsageToAidl(const eng_xsd::UsageEnumType& xsdcUsage) {
+    audio_usage_t legacyUsage;
+    if (!::android::UsageTypeConverter::fromString(eng_xsd::toString(xsdcUsage), legacyUsage)) {
+        LOG(ERROR) << __func__ << " Review Audio Policy config, not a valid audio usage.";
+        return unexpected(BAD_VALUE);
+    }
+    ConversionResult<AudioUsage> result = legacy2aidl_audio_usage_t_AudioUsage(legacyUsage);
+    if (!result.ok()) {
+        LOG(ERROR) << __func__ << " Review Audio Policy config, not a valid audio usage.";
+        return unexpected(BAD_VALUE);
+    }
+    return result;
+}
 
 ConversionResult<AudioFormatDescription> convertAudioFormatToAidl(const std::string& xsdcFormat) {
     audio_format_t legacyFormat = ::android::formatFromString(xsdcFormat, AUDIO_FORMAT_DEFAULT);
@@ -415,7 +515,8 @@ ConversionResult<AudioHalCapCriterion> convertCapCriterionToAidl(
     AudioHalCapCriterion aidlCapCriterion;
     aidlCapCriterion.name = xsdcCriterion.getName();
     aidlCapCriterion.criterionTypeName = xsdcCriterion.getType();
-    aidlCapCriterion.defaultLiteralValue = xsdcCriterion.get_default();
+    aidlCapCriterion.defaultLiteralValue =
+            xsdcCriterion.has_default() ? xsdcCriterion.get_default() : "";
     return aidlCapCriterion;
 }
 
@@ -424,15 +525,49 @@ ConversionResult<std::string> convertCriterionTypeValueToAidl(
     return xsdcCriterionTypeValue.getLiteral();
 }
 
+ConversionResult<long> convertCriterionTypeNumericalValueToAidl(
+        const eng_xsd::ValueType& xsdcCriterionTypeValue) {
+    return xsdcCriterionTypeValue.getNumerical();
+}
+
 ConversionResult<AudioHalCapCriterionType> convertCapCriterionTypeToAidl(
         const eng_xsd::CriterionTypeType& xsdcCriterionType) {
     AudioHalCapCriterionType aidlCapCriterionType;
     aidlCapCriterionType.name = xsdcCriterionType.getName();
-    aidlCapCriterionType.isInclusive = !(static_cast<bool>(xsdcCriterionType.getType()));
+    aidlCapCriterionType.isInclusive =
+            (xsdcCriterionType.getType() == eng_xsd::PfwCriterionTypeEnum::inclusive);
     aidlCapCriterionType.values = VALUE_OR_RETURN(
             (convertWrappedCollectionToAidl<eng_xsd::ValuesType, eng_xsd::ValueType, std::string>(
                     xsdcCriterionType.getValues(), &eng_xsd::ValuesType::getValue,
                     &convertCriterionTypeValueToAidl)));
+    aidlCapCriterionType.numericalValue = VALUE_OR_RETURN(
+            (convertWrappedCollectionToAidl<eng_xsd::ValuesType, eng_xsd::ValueType, long>(
+                    xsdcCriterionType.getValues(), &eng_xsd::ValuesType::getValue,
+                    &convertCriterionTypeNumericalValueToAidl)));
+
+    std::vector<int> resultAidlAndroidMappedValueVec;
+    bool validate = true;
+    if (!xsdcCriterionType.getValues().empty()) {
+        for (eng_xsd::ValuesType xsdcValues : xsdcCriterionType.getValues()) {
+            resultAidlAndroidMappedValueVec.reserve(xsdcValues.getValue().size());
+            for (const eng_xsd::ValueType& xsdcValue : xsdcValues.getValue()) {
+                if (xsdcValue.hasAndroid_type()) {
+                    uint32_t integerValue;
+                    if (!convertTo(xsdcValue.getAndroid_type(), integerValue)) {
+                        LOG(ERROR) << __func__ << " failed to convert android type "
+                                   << xsdcValue.getAndroid_type();
+                        return unexpected(BAD_VALUE);
+                    }
+                    resultAidlAndroidMappedValueVec.push_back(integerValue);
+                } else {
+                    validate = false;
+                }
+            }
+        }
+    }
+    aidlCapCriterionType.androidMappedValue =
+            validate ?
+            std::optional<std::vector<int>>(resultAidlAndroidMappedValueVec) : std::nullopt;
     return aidlCapCriterionType;
 }
 
