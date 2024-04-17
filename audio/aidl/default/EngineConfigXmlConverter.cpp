@@ -29,6 +29,7 @@
 #include "core-impl/EngineConfigXmlConverter.h"
 #include "core-impl/XsdcConversion.h"
 
+using aidl::android::hardware::audio::core::internal::convertAudioUsageToAidl;
 using aidl::android::media::audio::common::AudioAttributes;
 using aidl::android::media::audio::common::AudioContentType;
 using aidl::android::media::audio::common::AudioFlag;
@@ -95,29 +96,26 @@ ConversionResult<AudioAttributes> EngineConfigXmlConverter::convertAudioAttribut
     }
     AudioAttributes aidlAudioAttributes;
     if (xsdcAudioAttributes.hasContentType()) {
-        aidlAudioAttributes.contentType = static_cast<AudioContentType>(
-                xsdcAudioAttributes.getFirstContentType()->getValue());
+        aidlAudioAttributes.contentType = VALUE_OR_FATAL(convertAudioContentTypeToAidl(
+                xsdcAudioAttributes.getFirstContentType()->getValue()));
     }
     if (xsdcAudioAttributes.hasUsage()) {
-        aidlAudioAttributes.usage =
-                static_cast<AudioUsage>(xsdcAudioAttributes.getFirstUsage()->getValue());
+        aidlAudioAttributes.usage = VALUE_OR_FATAL(convertAudioUsageToAidl(
+                xsdcAudioAttributes.getFirstUsage()->getValue()));
     }
     if (xsdcAudioAttributes.hasSource()) {
-        aidlAudioAttributes.source =
-                static_cast<AudioSource>(xsdcAudioAttributes.getFirstSource()->getValue());
+        aidlAudioAttributes.source = VALUE_OR_FATAL(convertAudioSourceToAidl(
+                xsdcAudioAttributes.getFirstSource()->getValue()));
     }
     if (xsdcAudioAttributes.hasFlags()) {
         std::vector<eng_xsd::FlagType> xsdcFlagTypeVec =
                 xsdcAudioAttributes.getFirstFlags()->getValue();
-        for (const eng_xsd::FlagType& xsdcFlagType : xsdcFlagTypeVec) {
-            if (xsdcFlagType != eng_xsd::FlagType::AUDIO_FLAG_NONE) {
-                aidlAudioAttributes.flags |= 1 << (static_cast<int>(xsdcFlagType) - 1);
-            }
-        }
+        aidlAudioAttributes.flags = VALUE_OR_FATAL(convertAudioFlagsToAidl(xsdcFlagTypeVec));
     }
     if (xsdcAudioAttributes.hasBundle()) {
         const eng_xsd::BundleType* xsdcBundle = xsdcAudioAttributes.getFirstBundle();
-        aidlAudioAttributes.tags[0] = xsdcBundle->getKey() + "=" + xsdcBundle->getValue();
+        aidlAudioAttributes.tags.reserve(1);
+        aidlAudioAttributes.tags.push_back(xsdcBundle->getKey() + "_" + xsdcBundle->getValue());
     }
     if (isDefaultAudioAttributes(aidlAudioAttributes)) {
         mDefaultProductStrategyId = std::optional<int>{-1};
@@ -131,8 +129,9 @@ ConversionResult<AudioHalAttributesGroup> EngineConfigXmlConverter::convertAttri
     static const int kStreamTypeEnumOffset =
             static_cast<int>(eng_xsd::Stream::AUDIO_STREAM_VOICE_CALL) -
             static_cast<int>(AudioStreamType::VOICE_CALL);
-    aidlAttributesGroup.streamType = static_cast<AudioStreamType>(
-            static_cast<int>(xsdcAttributesGroup.getStreamType()) - kStreamTypeEnumOffset);
+    aidlAttributesGroup.streamType = xsdcAttributesGroup.hasStreamType() ?
+            VALUE_OR_FATAL(convertAudioStreamTypeToAidl(xsdcAttributesGroup.getStreamType())) :
+            AudioStreamType::SYS_RESERVED_DEFAULT;
     aidlAttributesGroup.volumeGroupName = xsdcAttributesGroup.getVolumeGroup();
     if (xsdcAttributesGroup.hasAttributes_optional()) {
         aidlAttributesGroup.attributes =
