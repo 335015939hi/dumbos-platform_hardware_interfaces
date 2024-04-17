@@ -94,6 +94,11 @@ cc_test {
         "aidl_session/BluetoothLeAudioCodecsProvider.cpp",
         "aidl_session/BluetoothLeAudioCodecsProviderTest.cpp",
     ],
+    defaults: [
+        "latest_android_hardware_audio_common_ndk_static",
+        "latest_android_hardware_bluetooth_audio_ndk_static",
+        "latest_android_media_audio_common_types_ndk_static",
+    ],
     header_libs: [
         "libxsdc-utils",
     ],
