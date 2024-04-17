@@ -46,7 +46,7 @@ union CodecSpecificConfigurationLtv {
     }
 
     parcelable AudioChannelAllocation {
-        const int NOT_ALLOWED = 0x00000000;
+        const int MONO = 0x00000000;
         const int FRONT_LEFT = 0x00000001;
         const int FRONT_RIGHT = 0x00000002;
         const int FRONT_CENTER = 0x00000004;

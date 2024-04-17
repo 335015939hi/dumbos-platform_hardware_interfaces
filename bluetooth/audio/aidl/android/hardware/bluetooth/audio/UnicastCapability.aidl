@@ -16,10 +16,10 @@
 
 package android.hardware.bluetooth.audio;
 
+import android.hardware.bluetooth.audio.AptxAdaptiveLeCapabilities;
 import android.hardware.bluetooth.audio.AudioLocation;
 import android.hardware.bluetooth.audio.CodecType;
 import android.hardware.bluetooth.audio.Lc3Capabilities;
-import android.hardware.bluetooth.audio.AptxAdaptiveLeCapabilities;
 
 /**
  * Used to specify the le audio unicast codec capabilities for hardware offload.
@@ -37,10 +37,13 @@ parcelable UnicastCapability {
         AptxAdaptiveLeCapabilities aptxAdaptiveLeCapabilities;
     }
     CodecType codecType;
+    // @deprecated use audioLocation if present.
     AudioLocation supportedChannel;
     // The number of connected device
     int deviceCount;
     // Supported channel count for each device
     int channelCountPerDevice;
     LeAudioCodecCapabilities leAudioCodecCapabilities;
+    // The new audio location type, replacing supportedChannel
+    int audioLocation;
 }

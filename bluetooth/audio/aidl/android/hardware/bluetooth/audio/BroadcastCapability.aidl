@@ -35,8 +35,11 @@ parcelable BroadcastCapability {
         @nullable VendorCapabilities[] vendorCapabillities;
     }
     CodecType codecType;
+    // @deprecated use audioLocation if present.
     AudioLocation supportedChannel;
     // Supported channel count for each stream
     int channelCountPerStream;
     LeAudioCodecCapabilities leAudioCodecCapabilities;
+    // The new audio location type, replacing supportedChannel
+    int audioLocation;
 }
