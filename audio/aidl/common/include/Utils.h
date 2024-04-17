@@ -80,6 +80,14 @@ constexpr std::array< ::aidl::android::media::audio::common::AudioPolicyForcedCo
     ::aidl::android::media::audio::common::AudioPolicyForcedConfig::BT_BLE,
 };
 
+constexpr bool iequals(const std::string& str1, const std::string& str2) {
+    std::string str1Cpy(str1);
+    std::string str2Cpy(str2);
+    std::transform(str1.begin(), str1.end(), str1Cpy.begin(), ::tolower);
+    std::transform(str2.begin(), str2.end(), str2Cpy.begin(), ::tolower);
+    return str1Cpy == str2Cpy;
+}
+
 constexpr size_t getPcmSampleSizeInBytes(::aidl::android::media::audio::common::PcmType pcm) {
     using ::aidl::android::media::audio::common::PcmType;
     switch (pcm) {
