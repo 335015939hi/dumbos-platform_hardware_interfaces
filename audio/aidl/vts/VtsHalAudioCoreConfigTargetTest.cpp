@@ -42,8 +42,12 @@ using aidl::android::media::audio::common::AudioFlag;
 using aidl::android::media::audio::common::AudioFormatDescription;
 using aidl::android::media::audio::common::AudioFormatType;
 using aidl::android::media::audio::common::AudioHalAttributesGroup;
+using aidl::android::media::audio::common::AudioHalCapConfiguration;
 using aidl::android::media::audio::common::AudioHalCapCriterion;
 using aidl::android::media::audio::common::AudioHalCapCriterionType;
+using aidl::android::media::audio::common::AudioHalCapDomain;
+using aidl::android::media::audio::common::AudioHalCapRule;
+using aidl::android::media::audio::common::AudioHalCapSetting;
 using aidl::android::media::audio::common::AudioHalEngineConfig;
 using aidl::android::media::audio::common::AudioHalProductStrategy;
 using aidl::android::media::audio::common::AudioHalVolumeCurve;
@@ -261,17 +265,153 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
     void ValidateAudioHalCapCriterion(const AudioHalCapCriterion& criterion,
                                       const AudioHalCapCriterionType& criterionType) {
         if (criterionType.isInclusive) {
-            EXPECT_TRUE(criterion.defaultLiteralValue.empty());
+            EXPECT_TRUE(criterion.defaultLiteralValue.empty())
+                    << " DefaultLiteralValue is not empty for inclusive criterion: "
+                    << criterion.defaultLiteralValue.c_str();
         }
     }
 
     /**
-     * Verify values only contain alphanumeric characters.
+     * Verify values only contain ascii characters.
+     * Verify each literal values has an associated numerical value
+     * Verify if the android mapped values are provided that each numerical value has an android
+     * mapped value
      */
     void ValidateAudioHalCapCriterionType(const AudioHalCapCriterionType& criterionType) {
-        auto isNotAlnum = [](const char& c) { return !isalnum(c); };
+        auto isNotAscii = [](const char& c) { return !isascii(c); };
         for (const std::string& value : criterionType.values) {
-            EXPECT_EQ(find_if(value.begin(), value.end(), isNotAlnum), value.end());
+            EXPECT_EQ(find_if(value.begin(), value.end(), isNotAscii), value.end())
+                    << " criterion type has invalid value: " << value.c_str();
+        }
+        EXPECT_EQ(criterionType.values.size(), criterionType.numericalValue.value().size());
+        if (criterionType.androidMappedValue.has_value()) {
+            EXPECT_EQ(criterionType.androidMappedValue.value().size(),
+                      criterionType.numericalValue.value().size());
+        }
+    }
+
+    /**
+     * Verify each setting has unique configuration name within a domain
+     */
+    void ValidateAudioHalCapConfigurations(
+            const std::vector<AudioHalCapConfiguration>& configurations) {
+        std::unordered_set<std::string> configurationNames;
+        for (const AudioHalCapConfiguration& configuration : configurations) {
+            EXPECT_TRUE(configurationNames.insert(configuration.name).second);
+        }
+    }
+
+    /**
+     * Verify rule involves supported criterion.
+     * Verify rule involves supported operand keyword according to inclusive attribute of associated
+     * criterion type
+     * Verify rule involves a value supported by associated criterion type.
+     */
+    void ValidateAudioHalConfigurationRule(
+            const AudioHalCapRule& rule, const std::vector<AudioHalCapCriterion>& criteria,
+            const std::vector<AudioHalCapCriterionType>& criterionTypes) {
+
+        const auto& compoundRule = rule.compoundRule;
+        if (!rule.nestedRules.has_value() &&
+                (!rule.criterionRules.has_value() || rule.criterionRules.value().empty())) {
+            EXPECT_EQ(compoundRule, AudioHalCapRule::CompoundRule::ALL);
+        }
+        EXPECT_TRUE(compoundRule == AudioHalCapRule::CompoundRule::ANY
+                    || compoundRule == AudioHalCapRule::CompoundRule::ALL);
+        if (rule.nestedRules.has_value()) {
+            for (const auto &nestedRule : rule.nestedRules.value()) {
+                EXPECT_TRUE(nestedRule.has_value());
+                ValidateAudioHalConfigurationRule(nestedRule.value(), criteria, criterionTypes);
+            }
+        }
+        if (rule.criterionRules.has_value()) {
+            for (const auto &criterionRuleOptional : rule.criterionRules.value()) {
+                EXPECT_TRUE(criterionRuleOptional.has_value());
+                const auto& criterionRule = criterionRuleOptional.value();
+                std::string selectionCriterion = criterionRule.criterionName;
+                auto matchesWhen = criterionRule.matchingRule;
+                std::string valueLiteral = criterionRule.criterionTypeValue;
+
+                auto criteriaIt = find_if(criteria.begin(), criteria.end(),
+                                          [&](const auto& criterion) {
+                                              return criterion.name == selectionCriterion;
+                                          });
+                EXPECT_NE(criteriaIt, criteria.end())
+                        << " Invalid rule criterion " << selectionCriterion.c_str();
+                AudioHalCapCriterion matchingCriterion = *criteriaIt;
+
+                auto criterionTypesIt = find_if(criterionTypes.begin(), criterionTypes.end(),
+                        [&](const auto& criterionType) {
+                                return criterionType.name == matchingCriterion.criterionTypeName;
+                });
+                EXPECT_NE(criterionTypesIt, criterionTypes.end())
+                        << " Invalid rule criterion type "
+                        << matchingCriterion.criterionTypeName.c_str();
+                AudioHalCapCriterionType matchingCriterionType = *criterionTypesIt;
+
+                if (matchingCriterionType.isInclusive) {
+                    EXPECT_TRUE(matchesWhen == AudioHalCapRule::MatchingRule::EXCLUDES
+                                || matchesWhen == AudioHalCapRule::MatchingRule::INCLUDES);
+                } else {
+                    EXPECT_TRUE(matchesWhen ==  AudioHalCapRule::MatchingRule::IS
+                                || matchesWhen ==  AudioHalCapRule::MatchingRule::ISNOT);
+                }
+                EXPECT_NE(find_if(matchingCriterionType.values.begin(),
+                                  matchingCriterionType.values.end(),
+                                  [&](auto& value) { return value == valueLiteral; }),
+                          matchingCriterionType.values.end())
+                        << " Invalid rule value " << valueLiteral.c_str();
+            }
+        }
+    }
+
+    /**
+     * Verify each configuration has an associated setting.
+     * Verify each configuration has unique name within a domain
+     * Verify no duplicate parameter path within a domain.
+     * Verify each setting has a unique associated configuration name.
+     * Verify that each settings has a associated value for all parameter within a domain.
+     * Verify each configuration has a setting associated..
+     */
+    void ValidateAudioHalCapDomain(const AudioHalCapDomain& domain,
+                                   const std::vector<AudioHalCapCriterion>& criteria,
+                                   const std::vector<AudioHalCapCriterionType>& criterionTypes) {
+        EXPECT_EQ(domain.configurations.size(), domain.capSettings.size());
+        std::unordered_set<std::string> configurationNames;
+        for (const AudioHalCapConfiguration& configuration : domain.configurations) {
+            EXPECT_TRUE(configurationNames.insert(configuration.name).second);
+            ValidateAudioHalConfigurationRule(configuration.rule, criteria, criterionTypes);
+        }
+        std::unordered_set<std::string> domainParameterPaths;
+        for (const auto& settingParameter : domain.capSettings[0].parameterSettings) {
+            EXPECT_TRUE(domainParameterPaths.insert(settingParameter.path).second);
+        }
+        std::unordered_set<std::string> settingConfigurationNames;
+        for (const AudioHalCapSetting& setting : domain.capSettings) {
+            std::unordered_set<std::string> settingParameterPaths;
+            EXPECT_TRUE(settingConfigurationNames.insert(setting.configurationName).second);
+            for (const auto& settingParameter : setting.parameterSettings) {
+                EXPECT_TRUE(settingParameterPaths.insert(settingParameter.path).second);
+            }
+            EXPECT_EQ(domainParameterPaths.size(), settingParameterPaths.size());
+        }
+        EXPECT_EQ(configurationNames.size(), settingConfigurationNames.size());
+    }
+
+    /**
+     * Verify each domain has a unique name.
+     * Verify that a parameter does appear in more than one domain.
+     */
+    void ValidateAudioHalCapDomains(const std::vector<std::optional<AudioHalCapDomain>>& domains,
+                                    const std::vector<AudioHalCapCriterion>& criteria,
+                                    const std::vector<AudioHalCapCriterionType>& criterionTypes) {
+        std::unordered_map<std::string, AudioHalCapDomain> domainMap;
+        std::unordered_set<std::string> parameterPaths;
+        for (const auto& domain : domains) {
+            EXPECT_TRUE(domain.has_value());
+            EXPECT_NO_FATAL_FAILURE(
+                    ValidateAudioHalCapDomain(domain.value(), criteria, criterionTypes));
+            EXPECT_TRUE(domainMap.insert({domain.value().name, domain.value()}).second);
         }
     }
 
@@ -281,6 +421,7 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
      * Verify each criterion maps to a criterionType.
      * Verify each criterionType is used in a criterion.
      * Validate contained types.
+     * Verify domains.
      */
     void ValidateCapSpecificConfig(const AudioHalEngineConfig::CapSpecificConfig& capCfg) {
         EXPECT_FALSE(capCfg.criteria.empty());
@@ -298,6 +439,8 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
                     criterion, criterionTypeMap.at(criterion.criterionTypeName)));
         }
         EXPECT_EQ(criterionTypeMap.size(), criterionNameSet.size());
+
+        ValidateAudioHalCapDomains(capCfg.domains.value(), capCfg.criteria, capCfg.criterionTypes);
     }
 
     /**
