@@ -1,0 +1,8 @@
+///////////////////////////////////////
+// media_profiles_V1_0.dtd
+
+prebuilt_etc {
+    name: "media_profiles_V1_0.dtd",
+    src: "media_profiles.dtd",
+    filename: "media_profiles_V1_0.dtd",
+}
