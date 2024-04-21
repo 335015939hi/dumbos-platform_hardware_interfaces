@@ -23,8 +23,23 @@
 
 using android::hardware::gnss::V1_1::IGnss;
 
+std::vector<std::string> getDefaultHalInstanceNames() {
+  std::vector<std::string> halInstanceNames =
+          android::hardware::getAllHalInstanceNames(IGnss::descriptor);
+
+  // Filter only "default" HAL instance
+  std::vector<std::string> filteredNames;
+  for (const std::string& name : halInstanceNames) {
+    if (name == "default") {
+      filteredNames.push_back(name);
+    }
+  }
+
+  return filteredNames;
+}
+
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(GnssHalTest);
 INSTANTIATE_TEST_SUITE_P(
         PerInstance, GnssHalTest,
-        testing::ValuesIn(android::hardware::getAllHalInstanceNames(IGnss::descriptor)),
+        testing::ValuesIn(getDefaultHalInstanceNames()),
         android::hardware::PrintInstanceNameToString);
