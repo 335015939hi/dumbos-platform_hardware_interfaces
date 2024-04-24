@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1866788f_e0a43dcb",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-04-24T20:53:08Z",
+      "side": 1,
+      "message": "As far as the Authgraph API is concerned, long term encryption key is only required by the sink.",
+      "range": {
+        "startLine": 45,
+        "startChar": 21,
+        "endLine": 45,
+        "endChar": 45
+      },
+      "revId": "aa969e8c62bd6f7f3805f952b594fb46b350ee30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
