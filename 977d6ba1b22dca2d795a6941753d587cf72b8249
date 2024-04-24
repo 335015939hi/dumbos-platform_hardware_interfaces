@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "250e5d42_611afc7e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3608,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-24T19:10:04Z",
+      "side": 1,
+      "message": "For completeness, should we loop from 64, 72, ... 512 key sizes as well?\n\nAt a minimum, we should at least spot check a few likely sizes: 64, 128, 192, 256, 512\n\nIf runtime is a concern, we could test fewer message lengths to balance things out.",
+      "range": {
+        "startLine": 3608,
+        "startChar": 55,
+        "endLine": 3608,
+        "endChar": 58
+      },
+      "revId": "977d6ba1b22dca2d795a6941753d587cf72b8249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
