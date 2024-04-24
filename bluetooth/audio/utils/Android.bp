@@ -52,6 +52,7 @@ cc_library_shared {
     ],
     defaults: [
         "latest_android_hardware_bluetooth_audio_ndk_shared",
+        "libaconfig_storage_read_api_cc.defaults",
     ],
     shared_libs: [
         "android.hardware.bluetooth.audio@2.0",
@@ -64,7 +65,6 @@ cc_library_shared {
         "libhidlbase",
         "libxml2",
         "libflatbuffers-cpp",
-        "server_configurable_flags",
     ],
     static_libs: [
         "btaudiohal_flags_c_lib",
