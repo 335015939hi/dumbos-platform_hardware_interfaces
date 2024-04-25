@@ -22,6 +22,30 @@
       },
       "revId": "977d6ba1b22dca2d795a6941753d587cf72b8249",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f53d22_07e56f8c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3608,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-25T09:02:11Z",
+      "side": 1,
+      "message": "Done.  Test runs in about 6s on TEE, 12s on StrongBox.",
+      "parentUuid": "250e5d42_611afc7e",
+      "range": {
+        "startLine": 3608,
+        "startChar": 55,
+        "endLine": 3608,
+        "endChar": 58
+      },
+      "revId": "977d6ba1b22dca2d795a6941753d587cf72b8249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
