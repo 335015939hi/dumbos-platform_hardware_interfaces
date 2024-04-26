@@ -50,6 +50,23 @@
       "message": "using ::aidl::android::hardware::bluetooth::finder::Eid;\nusing ::aidl::android::hardware::bluetooth::finder::IBluetoothFinder;\nusing ::ndk::ScopedAStatus;\n\nclass BluetoothFinderTest : public ::testing::TestWithParam\u003cstd::string\u003e {\n public:\n  virtual void SetUp() override {\n    ALOGI(\"SetUp Finder Test\");\n    bluetooth_finder \u003d IBluetoothFinder::fromBinder(\n        ndk::SpAIBinder(AServiceManager_waitForService(GetParam().c_str())));\n    ASSERT_NE(bluetooth_finder, nullptr);\n  }\n\n  virtual void TearDown() override {\n    ALOGI(\"TearDown Finder Test\");\n    bluetooth_finder \u003d nullptr;\n    ASSERT_EQ(bluetooth_finder, nullptr);\n  }\n\n  ScopedAStatus sendEids(uint8_t num);\n  ScopedAStatus setPoweredOffFinderMode(bool enable);\n  ScopedAStatus getPoweredOffFinderMode(bool* status);\n\n private:\n  std::shared_ptr\u003cIBluetoothFinder\u003e bluetooth_finder;\n};\n\nScopedAStatus BluetoothFinderTest::sendEids(uint8_t numKeys) {\n  std::vector\u003cEid\u003e keys(numKeys);\n  for (uint_t i \u003d 0; i \u003c numKeys; i++) {\n    std::array\u003cuint8_t, 20\u003e key;\n    key.fill(i + 1);\n    keys[i].bytes \u003d key;\n  }\n  return bluetooth_finder-\u003esendEids(keys);\n}\n\nScopedAStatus BluetoothFinderTest::setPoweredOffFinderMode(bool enable) {\n  return bluetooth_finder-\u003esetPoweredOffFinderMode(enable);\n}\n\nScopedAStatus BluetoothFinderTest::getPoweredOffFinderMode(bool* status) {\n  return bluetooth_finder-\u003egetPoweredOffFinderMode(status);\n}\n\nTEST_P(BluetoothFinderTest, PropertyIsSet) {\n  ASSERT_EQ(\n      android::base::GetProperty(\"ro.bluetooth.finder.supported\", \"false\"),\n      \"true\");\n}\n\nTEST_P(BluetoothFinderTest, SendEidsSingle) {\n  ScopedAStatus status \u003d sendEids(1);\n  ASSERT_TRUE(status.isOk());\n}\n\nTEST_P(BluetoothFinderTest, Send255Eids) {\n  ScopedAStatus status \u003d sendEids(255);\n  ASSERT_TRUE(status.isOk());\n}",
       "revId": "41a33e5b1c868373b3536ff69251d518ad58327e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97b04af0_5ec71af9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3409162
+      },
+      "writtenOn": "2024-04-26T05:13:56Z",
+      "side": 1,
+      "message": "Erro: 307897345\nTeste: atest VtsHalBluetoothFinderTargetTest\nID de alteração: I1821d1cc255a5e156497b993d694fdd9d38c4a96",
+      "revId": "41a33e5b1c868373b3536ff69251d518ad58327e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
