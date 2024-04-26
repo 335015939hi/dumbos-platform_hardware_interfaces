@@ -16,6 +16,23 @@
       "message": "bluetooth/finder/aidl/vts/VtsHalBluetoothFinderTargetTest.cpp",
       "revId": "41a33e5b1c868373b3536ff69251d518ad58327e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e62ce0db_8a445650",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3409162
+      },
+      "writtenOn": "2024-04-26T05:12:58Z",
+      "side": 1,
+      "message": "t\ndistributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\n#include \u003caidl/Gtest.h\u003e\n#include \u003caidl/Vintf.h\u003e\n#include \u003caidl/android/hardware/bluetooth/finder/IBluetoothFinder.h\u003e\n#include \u003candroid-base/logging.h\u003e\n#include \u003candroid-base/properties.h\u003e\n#include \u003candroid/binder_manager.h\u003e\n#include \u003candroid/binder_process.h\u003e\n#include \u003cbinder/IServiceManager.h\u003e\n#include \u003cutils/Log.h\u003e\n\n#include \u003carray\u003e\n#include \u003cvector\u003e\n\nusing ::aidl::android::hardware::bluetooth::finder::Eid;\nusing ::aidl::android::hardware::bluetooth::finder::IBluetoothFinder;\nusing ::ndk::ScopedAStatus;\n\nclass BluetoothFinderTest : public ::testing::TestWithParam\u003cstd::string\u003e {\n public:\n  virtual void SetUp() override {\n    ALOGI(\"SetUp Finder Test\");\n    bluetooth_finder \u003d IBluetoothFinder::fromBinder(\n        ndk::SpAIBinder(AServiceManager_waitForService(GetParam().c_str())));\n    ASSERT_NE(bluetooth_finder, nullptr);\n  }\n\n  virtual void TearDown() override {\n    ALOGI(\"TearDown Finder Test\");\n    bluetooth_finder \u003d nullptr;\n    ASSERT_EQ(bluetooth_finder, nullptr);\n  }\n\n  ScopedAStatus sendEids(uint8_t num);\n  ScopedAStatus setPoweredOffFinderMode(bool enable);\n  ScopedAStatus getPoweredOffFinderMode(bool* status);\n\n private:\n  std::shared_ptr\u003cIBluetoothFinder\u003e bluetooth_finder;\n};\n\nScopedAStatus BluetoothFinderTest::sendEids(uint8_t numKeys) {\n  std::vector\u003cEid\u003e keys(numKeys);\n  for (uint_t i \u003d 0; i \u003c numKeys; i++) {\n    std::array\u003cuint8_t, 20\u003e key;\n    key.fill(i + 1);\n    keys[i].bytes \u003d key;\n  }\n  return bluetooth_finder-\u003esendEids(keys);",
+      "revId": "41a33e5b1c868373b3536ff69251d518ad58327e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
