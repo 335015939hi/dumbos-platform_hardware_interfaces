@@ -31,6 +31,7 @@ rust_defaults {
     rustlibs: [
         "android.hardware.automotive.vehicle-V3-rust",
         "android.hardware.automotive.vehicle.property-V4-rust",
+<<<<<<< HEAD   (b04e2f Snap for 12406339 from e1d7073f4d10715e2e2be81fe0d999a16db3b)
     ],
 }
 
