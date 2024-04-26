@@ -33,6 +33,16 @@ cc_test {
     ],
     header_libs: [
         "IVehicleGeneratedHeaders-V4",
+<<<<<<< HEAD   (b04e2f Snap for 12406339 from e1d7073f4d10715e2e2be81fe0d999a16db3b)
+||||||| BASE
+    ],
+    shared_libs: [
+        "libjsoncpp",
+=======
+    ],
+    shared_libs: [
+        "libjsoncpp",
+>>>>>>> CHANGE (6f2d05 Increase VHAL property to V4.)
     ],
     data: [
         ":VehicleHalDefaultProperties_JSON",
@@ -57,6 +67,16 @@ cc_test {
     ],
     header_libs: [
         "IVehicleGeneratedHeaders-V4",
+<<<<<<< HEAD   (b04e2f Snap for 12406339 from e1d7073f4d10715e2e2be81fe0d999a16db3b)
+||||||| BASE
+    ],
+    shared_libs: [
+        "libjsoncpp",
+=======
+    ],
+    shared_libs: [
+        "libjsoncpp",
+>>>>>>> CHANGE (6f2d05 Increase VHAL property to V4.)
     ],
     data: [
         ":VehicleHalDefaultProperties_JSON",
