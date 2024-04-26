@@ -46,6 +46,30 @@
       },
       "revId": "977d6ba1b22dca2d795a6941753d587cf72b8249",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db904ebb_3920f62a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3608,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-04-26T14:51:38Z",
+      "side": 1,
+      "message": "12s seems fine to me!\n\nI think it\u0027s better to have coverage, else someone could ship a pretty big oopsie.",
+      "parentUuid": "a0f53d22_07e56f8c",
+      "range": {
+        "startLine": 3608,
+        "startChar": 55,
+        "endLine": 3608,
+        "endChar": 58
+      },
+      "revId": "977d6ba1b22dca2d795a6941753d587cf72b8249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
