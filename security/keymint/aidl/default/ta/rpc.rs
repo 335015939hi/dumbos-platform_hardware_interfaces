@@ -16,12 +16,10 @@
 //! Emulated implementation of device traits for `IRemotelyProvisionedComponent`.
 
 use core::cell::RefCell;
-use kmr_common::crypto::{ec, ec::CoseKeyPurpose, Ec, KeyMaterial};
-use kmr_common::{crypto, explicit, rpc_err, vec_try, Error};
+use kmr_common::crypto::{ec, ec::CoseKeyPurpose, Ec, KeyMaterial, OpaqueOr};
+use kmr_common::{crypto, rpc_err, vec_try, Error};
 use kmr_crypto_boring::{ec::BoringEc, hmac::BoringHmac, rng::BoringRng};
-use kmr_ta::device::{
-    CsrSigningAlgorithm, DiceInfo, PubDiceArtifacts, RetrieveRpcArtifacts, RpcV2Req,
-};
+use kmr_ta::device::{CsrSigningAlgorithm, DiceInfo, PubDiceArtifacts, RetrieveRpcArtifacts};
 use kmr_wire::coset::{iana, CoseSign1Builder, HeaderBuilder};
 use kmr_wire::keymint::{Digest, EcCurve};
 use kmr_wire::{cbor::value::Value, coset::AsCborValue, rpc, CborError};
@@ -39,7 +37,7 @@ pub struct Artifacts<T: DeriveBytes> {
     // Invariant once populated: `self.dice_info.signing_algorithm` == `self.sign_algo`
     dice_info: RefCell<Option<DiceInfo>>,
     // Invariant once populated: `self.bcc_signing_key` is a variant that matches `self.sign_algo`
-    bcc_signing_key: RefCell<Option<ec::Key>>,
+    bcc_signing_key: RefCell<Option<OpaqueOr<ec::Key>>>,
 }
 
 impl<T: DeriveBytes> RetrieveRpcArtifacts for Artifacts<T> {
@@ -52,37 +50,36 @@ impl<T: DeriveBytes> RetrieveRpcArtifacts for Artifacts<T> {
         self.derive.derive_bytes(context, output_len)
     }
 
-    fn get_dice_info(&self, _test_mode: rpc::TestMode) -> Result<DiceInfo, Error> {
-        if self.dice_info.borrow().is_none() {
-            let (dice_info, priv_key) = self.generate_dice_artifacts(rpc::TestMode(false))?;
-            *self.dice_info.borrow_mut() = Some(dice_info);
-            *self.bcc_signing_key.borrow_mut() = Some(priv_key);
-        }
+    fn get_dice_info<'a>(&self, test_mode: rpc::TestMode) -> Result<DiceInfo, Error> {
+        if test_mode == rpc::TestMode(false) {
+            // In production mode, generate DICE information once and cache it.
+            if self.dice_info.borrow().is_none() {
+                let mut dice_info = self.generate_dice_info(rpc::TestMode(false))?;
+                // Store the signing key separately, as it will not be passed back to us for prod
+                // mode requests.
+                *self.bcc_signing_key.borrow_mut() = dice_info.cdi_priv_key.take();
+                *self.dice_info.borrow_mut() = Some(dice_info);
+            }
 
-        Ok(self
-            .dice_info
-            .borrow()
-            .as_ref()
-            .ok_or_else(|| rpc_err!(Failed, "DICE artifacts are not initialized."))?
-            .clone())
+            Ok(self
+                .dice_info
+                .borrow()
+                .as_ref()
+                .ok_or_else(|| rpc_err!(Failed, "DICE artifacts are not initialized."))?
+                .clone())
+        } else {
+            // In test mode, need to generate fresh DICE info per call.
+            self.generate_dice_info(rpc::TestMode(true))
+        }
     }
 
     fn sign_data(
         &self,
         ec: &dyn crypto::Ec,
         data: &[u8],
-        _rpc_v2: Option<RpcV2Req>,
+        cdi_priv_key: Option<&OpaqueOr<ec::Key>>,
     ) -> Result<Vec<u8>, Error> {
-        // DICE artifacts should have been initialized via `get_dice_info()` by the time this
-        // method is called.
-        let private_key = self
-            .bcc_signing_key
-            .borrow()
-            .as_ref()
-            .ok_or_else(|| rpc_err!(Failed, "DICE artifacts are not initialized."))?
-            .clone();
-
-        let mut op = ec.begin_sign(private_key.into(), self.signing_digest())?;
+        let mut op = ec.begin_sign(self.bcc_signing_key(cdi_priv_key)?, self.signing_digest())?;
         op.update(data)?;
         let sig = op.finish()?;
         crypto::ec::to_cose_signature(self.signing_curve(), sig)
@@ -127,42 +124,88 @@ impl<T: DeriveBytes> Artifacts<T> {
         }
     }
 
-    fn generate_dice_artifacts(
+    /// Retrieve the private key to use for this BCC.
+    fn bcc_signing_key(
         &self,
-        _test_mode: rpc::TestMode,
-    ) -> Result<(DiceInfo, ec::Key), Error> {
+        cdi_priv_key: Option<&OpaqueOr<ec::Key>>,
+    ) -> Result<OpaqueOr<ec::Key>, Error> {
+        match cdi_priv_key {
+            Some(key) => Ok(key.clone()),
+            None => self
+                .bcc_signing_key
+                .borrow()
+                .as_ref()
+                .ok_or_else(|| rpc_err!(Failed, "no prod signing key available!"))
+                .cloned(),
+        }
+    }
+
+    /// Generate DICE information.
+    fn generate_dice_info(&self, test_mode: rpc::TestMode) -> Result<DiceInfo, Error> {
         let ec = BoringEc::default();
 
-        let key_material = match self.sign_algo {
-            CsrSigningAlgorithm::EdDSA => {
-                let secret = self.derive_bytes_from_hbk(&BoringHmac, b"Device Key Seed", 32)?;
-                ec::import_raw_ed25519_key(&secret)
+        let (pub_cose_key, private_key) = if test_mode == rpc::TestMode(false) {
+            let key_material = match self.sign_algo {
+                CsrSigningAlgorithm::EdDSA => {
+                    let secret = self.derive_bytes_from_hbk(&BoringHmac, b"Device Key Seed", 32)?;
+                    ec::import_raw_ed25519_key(&secret)
+                }
+                // TODO: generate the *same* key after reboot, by use of the TPM.
+                CsrSigningAlgorithm::ES256 => {
+                    ec.generate_nist_key(&mut BoringRng, ec::NistCurve::P256, &[])
+                }
+                CsrSigningAlgorithm::ES384 => {
+                    ec.generate_nist_key(&mut BoringRng, ec::NistCurve::P384, &[])
+                }
+            }?;
+            match key_material {
+                KeyMaterial::Ec(curve, curve_type, key) => (
+                    key.public_cose_key(
+                        &ec,
+                        curve,
+                        curve_type,
+                        CoseKeyPurpose::Sign,
+                        None, /* no key ID */
+                        rpc::TestMode(false),
+                    )?,
+                    key,
+                ),
+                _ => {
+                    return Err(rpc_err!(
+                        Failed,
+                        "expected the Ec variant of KeyMaterial for the cdi leaf key."
+                    ))
+                }
             }
-            // TODO: generate the *same* key after reboot, by use of the TPM.
-            CsrSigningAlgorithm::ES256 => {
-                ec.generate_nist_key(&mut BoringRng, ec::NistCurve::P256, &[])
-            }
-            CsrSigningAlgorithm::ES384 => {
-                ec.generate_nist_key(&mut BoringRng, ec::NistCurve::P384, &[])
-            }
-        }?;
-        let (pub_cose_key, private_key) = match key_material {
-            KeyMaterial::Ec(curve, curve_type, key) => (
-                key.public_cose_key(
-                    &ec,
-                    curve,
-                    curve_type,
-                    CoseKeyPurpose::Sign,
-                    None, /* no key ID */
-                    rpc::TestMode(false),
-                )?,
-                key,
-            ),
-            _ => {
-                return Err(rpc_err!(
-                    Failed,
-                    "expected the Ec variant of KeyMaterial for the cdi leaf key."
-                ))
+        } else {
+            // Generate ephemeral DICE info in test mode.
+            let key_material = match self.sign_algo {
+                CsrSigningAlgorithm::EdDSA => ec.generate_ed25519_key(&mut BoringRng, &[]),
+                CsrSigningAlgorithm::ES256 => {
+                    ec.generate_nist_key(&mut BoringRng, ec::NistCurve::P256, &[])
+                }
+                CsrSigningAlgorithm::ES384 => {
+                    ec.generate_nist_key(&mut BoringRng, ec::NistCurve::P384, &[])
+                }
+            }?;
+            match key_material {
+                KeyMaterial::Ec(curve, curve_type, key) => (
+                    key.public_cose_key(
+                        &ec,
+                        curve,
+                        curve_type,
+                        CoseKeyPurpose::Sign,
+                        None, /* no key ID */
+                        rpc::TestMode(false),
+                    )?,
+                    key,
+                ),
+                _ => {
+                    return Err(rpc_err!(
+                        Failed,
+                        "expected the Ec variant of KeyMaterial for the cdi leaf key."
+                    ))
+                }
             }
         };
 
@@ -223,12 +266,10 @@ impl<T: DeriveBytes> Artifacts<T> {
             uds_certs: uds_certs_data,
         };
 
-        let dice_info = DiceInfo {
+        Ok(DiceInfo {
             pub_dice_artifacts,
             signing_algorithm: self.sign_algo,
-            rpc_v2_test_cdi_priv: None,
-        };
-
-        Ok((dice_info, explicit!(private_key)?))
+            cdi_priv_key: Some(private_key),
+        })
     }
 }
