@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d646fff_0cbba3f2",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3604,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-04-26T16:15:34Z",
+      "side": 1,
+      "message": "Nit: Any reason to name this as `ii` if `i` is not taken? Or was this a typo?",
+      "range": {
+        "startLine": 3604,
+        "startChar": 21,
+        "endLine": 3604,
+        "endChar": 23
+      },
+      "revId": "977d6ba1b22dca2d795a6941753d587cf72b8249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "250e5d42_611afc7e",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 2
