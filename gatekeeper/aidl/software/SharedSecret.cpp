@@ -32,10 +32,16 @@
 #include <keymaster/km_openssl/ckdf.h>
 #include <keymaster/km_openssl/hmac.h>
 
+#define SLEEP                                                                       \
+    LOG(ERROR) << "Going to sleep in " << __PRETTY_FUNCTION__ << " for 10 seconds"; \
+    sleep(10);                                                                      \
+    LOG(ERROR) << "Done sleeping in " << __PRETTY_FUNCTION__;
+
 namespace aidl::android::hardware::security::sharedsecret {
 
 ::ndk::ScopedAStatus SoftSharedSecret::getSharedSecretParameters(
         SharedSecretParameters* out_params) {
+    SLEEP;
     std::lock_guard lock(mutex_);
     if (seed_.empty()) {
         seed_.resize(32, 0);
@@ -53,6 +59,7 @@ namespace aidl::android::hardware::security::sharedsecret {
 
 ::ndk::ScopedAStatus SoftSharedSecret::computeSharedSecret(
         const std::vector<SharedSecretParameters>& params, std::vector<uint8_t>* sharing_check) {
+    SLEEP;
     std::lock_guard lock(mutex_);
     LOG(INFO) << "Computing shared secret";
     // Reimplemented based on SoftKeymasterEnforcement, which does not expose
