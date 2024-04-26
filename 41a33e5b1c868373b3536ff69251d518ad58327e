@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e1625f6_a6fdf2ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3409162
+      },
+      "writtenOn": "2024-04-26T05:12:19Z",
+      "side": 1,
+      "message": "bluetooth/finder/aidl/vts/VtsHalBluetoothFinderTargetTest.cpp",
+      "revId": "41a33e5b1c868373b3536ff69251d518ad58327e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
