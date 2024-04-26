@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96a10d36_3a6d59d4",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3604,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-26T16:29:10Z",
+      "side": 1,
+      "message": "old habit -- `ii` is easier to search for",
+      "parentUuid": "0d646fff_0cbba3f2",
+      "range": {
+        "startLine": 3604,
+        "startChar": 21,
+        "endLine": 3604,
+        "endChar": 23
+      },
+      "revId": "977d6ba1b22dca2d795a6941753d587cf72b8249",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "250e5d42_611afc7e",
