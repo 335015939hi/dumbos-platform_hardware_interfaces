@@ -39,6 +39,30 @@
       },
       "revId": "9f4987e24e0af74e26c24244196f723c27e25b9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3299c1d_cfe330dc",
+        "filename": "security/keymint/aidl/default/main.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-04-29T06:11:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27cc704a_52a4467b",
+      "range": {
+        "startLine": 20,
+        "startChar": 26,
+        "endLine": 20,
+        "endChar": 37
+      },
+      "revId": "9f4987e24e0af74e26c24244196f723c27e25b9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
