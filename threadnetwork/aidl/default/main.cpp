@@ -19,12 +19,16 @@
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 #include <utils/Log.h>
+#include <cutils/properties.h>
+#include <sys/stat.h>
 
 #include "service.hpp"
 #include "thread_chip.hpp"
 
 using aidl::android::hardware::threadnetwork::IThreadChip;
 using aidl::android::hardware::threadnetwork::ThreadChip;
+
+#define THREADNETWORK_COPROCESSOR_SIMULATION_PATH "/apex/com.android.hardware.threadnetwork/bin/ot-rcp"
 
 namespace {
 void addThreadChip(int id, const char* url) {
@@ -40,15 +44,38 @@ void addThreadChip(int id, const char* url) {
 
     status = AServiceManager_addService(threadChip->asBinder().get(), serviceName.c_str());
     CHECK_EQ(status, STATUS_OK);
+
+    ALOGI("ServiceName: %s added", serviceName.c_str());
+}
+
+void addSimulatedThreadChip() {
+    int node_id = property_get_int32("ro.boot.openthread_node_id", 0);
+
+    CHECK_GT(node_id,0);
+
+    ALOGI("[node_id=%d] Adding OpenThread radio simulation", node_id);
+    std::string url = std::string("spinel+hdlc+forkpty://" \
+            THREADNETWORK_COPROCESSOR_SIMULATION_PATH \
+            "?forkpty-arg=-Leth1&forkpty-arg=") + std::to_string(node_id);
+    addThreadChip(0, url.c_str());
 }
 }
 
 int main(int argc, char* argv[]) {
-    CHECK_GT(argc, 1);
     aidl::android::hardware::threadnetwork::Service service;
 
-    for (int id = 0; id < argc - 1; id++) {
-        addThreadChip(id, argv[id + 1]);
+    if (argc > 1) {
+        for (int id = 0; id < argc - 1; id++) {
+            addThreadChip(id, argv[id + 1]);
+        }
+    } else {
+        {
+            struct stat sb;
+
+            CHECK_EQ(stat(THREADNETWORK_COPROCESSOR_SIMULATION_PATH, &sb), 0);
+            CHECK(sb.st_mode & S_IXUSR);
+        }
+        addSimulatedThreadChip();
     }
 
     ALOGI("Thread Network HAL is running");
