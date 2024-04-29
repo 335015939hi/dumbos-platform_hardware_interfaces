@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be1a0312_d31e21f1",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2446,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2024-04-29T15:09:56Z",
+      "side": 1,
+      "message": "The thing is that the opaque vendor part of the capabilities might encode some information about the multiplexing capability of the remote device. Imagine a banded headphones (single device) with supported audio locations in PAC service set to `Left | Right`. The BT stack would set a single sink requirement with the audio allocation set to `Left | Right`, but the vendor config provider could\ncheck the multiplexing capability of the remote (by interpreting the vendor capabilities) and decide whether to provide a single ASE configuration with `Left|Right` allocation (multiplexing) or two Ase configurations, one with `Left` and the other with `Right` (no multiplexing). I think that all the required locations should be get their configurations, but not necessarily in a single ASE configuration.",
+      "parentUuid": "64308ec7_99c13676",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83163602_1dba3998",
         "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
         "patchSetId": 3
@@ -172,6 +190,24 @@
       "side": 1,
       "message": "actually we do want to make sure that.\nI think we should add more test cases to cover all the context types.\n\nNote that capabilities are non empty.\n\n@tyszkowski@google.com what do you think?",
       "parentUuid": "eb68ab89_9b2ae245",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb903ee2_641e4acc",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2940,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2024-04-29T15:09:56Z",
+      "side": 1,
+      "message": "On one hand, It seems, that we should have some minimal set of requirements that would guarantee a valid configuration. The context type could be one of them and the 10ms interval for 16kHz used here is mandated by the BAP specification for the Unicast Audio server. But on the other hand I can imagine that the vendor might want to use the HW offloader just for a certain set of parameters, and would like to force the Software session as a fallback mechanism for other cases. We don\u0027t set to much requirements here. 16kHz and 10ms interval on remote sink direction seem really basic to me.",
+      "parentUuid": "a5ebf2db_151789a1",
       "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
