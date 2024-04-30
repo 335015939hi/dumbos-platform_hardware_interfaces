@@ -11,6 +11,7 @@ The plugins feed the entire input data to the module. This ensures that the plug
 
 ## Table of contents
 + [keymint_attestation_fuzzer](#KeyMintAttestation)
++ [keymint_authSet_fuzzer](#KeyMintAuthSet)
 
 # <a name="KeyMintAttestation"></a> Fuzzer for KeyMintAttestation
 KeyMintAttestation supports the following parameters:
@@ -33,4 +34,27 @@ $ mm -j$(nproc) keymint_attestation_fuzzer
 ```
 $ adb sync data
 $ adb shell /data/fuzz/arm64/keymint_attestation_fuzzer
+```
+
+# <a name="KeyMintAuthSet"></a> Fuzzer for KeyMintAuthSet
+KeyMintAuthSet supports the following parameters:
+1. AuthorizationSet(parameter name: "authSet")
+2. Action(parameter name: "action")
+3. KeyParameters(parameter name: "numKeyParam")
+
+| Parameter| Valid Values| Configured Value|
+|------------- |--------------| -------------------- |
+|`authSet`| `AuthorizationSet` |Value obtained from FuzzedDataProvider|
+|`action`| `uint32_t` |Value obtained from FuzzedDataProvider|
+|`numKeyParam`| `size_t` |Value obtained from FuzzedDataProvider|
+
+#### Steps to run
+1. Build the fuzzer
+```
+$ mm -j$(nproc) keymint_authSet_fuzzer
+```
+2. Run on device
+```
+$ adb sync data
+$ adb shell /data/fuzz/arm64/keymint_authSet_fuzzer
 ```
