@@ -16,6 +16,383 @@
       "message": "LGTM for fuzzing, although 2 exec/s seems *very* slow. Do we have an idea of where the bottleneck is?",
       "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c521e9ee_d173bc0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "Thanks for this.  \n\nThe comments mostly arise from domain-specific knowledge, so I wonder if it might be more efficient for me to make changes on top of this CL rather than requesting deltas via code review - WDYT?\n\nHowever, there is one important fuzzing-specific question included: it seems like the fuzzer runs out of random inputs every time -- is there a way to deal with that?",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58764341_822e1e64",
+        "filename": "security/keymint/support/fuzzer/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "Is this current/relevant?  The things that the fuzzer can mutate along the way seem to be a much bigger set, and referring to them as \"parameters\" also seems odd.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 66
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6006c268_fd6239cc",
+        "filename": "security/keymint/support/fuzzer/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "I think this needs to be:\n```\nadb shell /data/fuzz/arm64/keymint_attestation_fuzzer/keymint_attestation_fuzzer\n```",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17d850c2_7739b5a8",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "This should be `KeyPurpose::ATTEST_KEY` for a key that\u0027s going to be used to attest to other keys.\n\nAlso, an `ATTEST_KEY` isn\u0027t allowed to have any other purpose, so we probably need to remove any other purposes that were already in `keyDesc`.",
+      "range": {
+        "startLine": 61,
+        "startChar": 43,
+        "endLine": 61,
+        "endChar": 59
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34af7c7f_b55ddd40",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "If a key generation emits an attestation record, then the record should be valid and parse -- so do we want to make this trigger a fuzzer failure?",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c5e5225_f345b667",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "Similarly here -- do we want to trigger a fuzzer failure if the embedded root-of-trust data doesn\u0027t parse?",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "319b7ac6_91a23661",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "Can this be moved to be a one-off initialization?  That might speed things up a bit (getting a binder reference from service manager once rather than on every loop) and we could also have a one-off error path that terminates the fuzzer (if there\u0027s no KeyMint implementation on the device, no point in fuzzing).",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 0
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa06af61_ddd38e5d",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "Only asymmetric keys can act as attestation keys, so maybe we want to subset the random auth set to just be {RSA, EC} here?\n\n(Given the other comment about needing to have just `ATTEST_KEY` purpose, maybe it would be easiest to have a variant `createAuthSetForAttestKey()` helper?)",
+      "range": {
+        "startLine": 153,
+        "startChar": 22,
+        "endLine": 153,
+        "endChar": 51
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daa5a81b_64b90e53",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "The `KeyCreationResult` looks unused (all of its contents have already been extracted) -- drop it from here and the return value of `generateKey` ?",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5a6b3e0_cd04c8f3",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "Probably only worth calling `verifyAttestationRecord` for the leaf cert, as that should be the only one that\u0027s got the attestation record.",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c41b9ae5_44caa757",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "This is only a valid key size for RSA, using it for anything else will fail keygen.  So maybe rename this to `kRsaKeySize` and add a `kSymmKeySize \u003d 256` to use most other places (except 3-DES).",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b60b5015_c8e681a2",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "On experimenting with the fuzzer, it seems like the `FuzzedDataProvider` runs out of random data on every iteration, meaning that the same default arms get run again and again.  \n\nReducing the max string size here seemed to help a little bit, but not enough to make the second keygen have any variance from iteration to iteration.",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c029fc9_7a67c2ac",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "ENCRYPTION",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 18
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04e8c4bb_ad5b8658",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "Any place that includes `TAG_INCLUDE_UNIQUE_ID` also needs to set `TAG_CREATION_DATETIME` like here.",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120ab074_669ef0c6",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "This arm will always fail as 256 isn\u0027t a valid `EcCurve` enum value -- let\u0027s just drop the `ECDSA_SIGNING_KEY` variant.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 55
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe9c5cc6_3e13d7e7",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "nit: `TAG_INCLUDE_UNIQUE_ID` just affects asymmetric key generation, so can be skipped from here onwards (which are all symmetric keys)",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd863b18_06e8ca43",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "Key size for 3-DES needs to be 168.",
+      "range": {
+        "startLine": 150,
+        "startChar": 44,
+        "endLine": 150,
+        "endChar": 52
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf318cf_d44e1601",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "Symmetric keys don\u0027t get attestations so can drop these two lines",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 99
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc95dd8d_bcb7922e",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T10:33:06Z",
+      "side": 1,
+      "message": "All of the cases from here on look like they\u0027re going to fail because there\u0027s no algorithm specified.  Maybe make all of them `.AesEncryptionKey(kKeySize)`?",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
