@@ -16,6 +16,40 @@
       "message": "LGTM for fuzzing.",
       "revId": "dc94959ccf024913cd40d8754cefb3845cd417e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0786f77_c9df6f01",
+        "filename": "security/keymint/support/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T11:06:02Z",
+      "side": 1,
+      "message": "Could this fuzzer have `host_supported: true` ?",
+      "revId": "dc94959ccf024913cd40d8754cefb3845cd417e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d80f915f_067fd49c",
+        "filename": "security/keymint/support/fuzzer/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-02T11:06:02Z",
+      "side": 1,
+      "message": "(Same comments as on parent CL)",
+      "revId": "dc94959ccf024913cd40d8754cefb3845cd417e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
