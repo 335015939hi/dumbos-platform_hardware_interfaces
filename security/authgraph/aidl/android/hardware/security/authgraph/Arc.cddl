@@ -95,6 +95,7 @@ PayloadType = &(
 ; per-boot key of the AuthGraph participant. If the encrypting key is not the per-boot key, the key
 ; type is defined as the <name of the key>_w_<name of the encrypting key>.
 KeyType = &(
+    CredentialKey: 0,
     SourceKey: 1,
     SharedKey: 2,
     AuthKey: 3,
