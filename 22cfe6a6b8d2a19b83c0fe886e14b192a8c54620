@@ -69,6 +69,24 @@
       "message": "So should this be shipped for now?",
       "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dead16b_0fa9c1a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-05-03T17:15:36Z",
+      "side": 1,
+      "message": "I think this would work. \n\nThe better fix would be removing the entry from base_vendor.mk to allow devices to choose, but that might be really disruptive because there may be a ton of devices that rely on it always being included.\n\nI think if we removed it from base_vendor.mk, it could lead to no build-time errors, but runtime errors that might be hard for people to debug.\n\n@hgchen@google.com, @quxiangfang@google.com what do you want to do about this?",
+      "parentUuid": "afe144d5_a51aa805",
+      "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
