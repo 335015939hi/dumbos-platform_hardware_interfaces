@@ -87,6 +87,42 @@
       "parentUuid": "afe144d5_a51aa805",
       "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cb7dd02_181c9c9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2024-05-03T17:37:43Z",
+      "side": 1,
+      "message": "I think there is history reason that the cas HAL was mandatory on all the devices even phone to pass CTS (or maybe even boot up?) @quxiangfang@google.com should know more history about this.",
+      "parentUuid": "8dead16b_0fa9c1a3",
+      "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24985340_6929980c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2024-05-03T17:37:43Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "c5106543_f6a93d91",
+      "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
