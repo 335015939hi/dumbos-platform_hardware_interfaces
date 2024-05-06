@@ -15,7 +15,7 @@
  */
 package android.hardware.security.see.storage;
 
-enum FileIntegrity {
+enum Integrity {
     /** REE may prevent operations, but cannot alter data once written. */
     TAMPER_PROOF_AT_REST,
 
@@ -24,10 +24,4 @@ enum FileIntegrity {
      * an error on read.
      */
     TAMPER_DETECT,
-
-    /**
-     * REE may alter written data. Changes other than full filesystem resets will be detected and
-     * reported.
-     */
-    TAMPER_DETECT_IGNORE_RESET,
 }
