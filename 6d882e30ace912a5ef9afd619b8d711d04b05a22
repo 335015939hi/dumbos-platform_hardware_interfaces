@@ -91,6 +91,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc0515e2_7a85c226",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2468,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-05-06T08:00:08Z",
+      "side": 1,
+      "message": "I think audio context should be compared via bitmask instead of require a perfect match, in case the config support more context than the requirement?\n\nI\u0027m thinking of something like this:\n`(req.audioContext.bitmask \u0026 conf.audioContext.bitmask) !\u003d req.audioContext.bitmask`",
+      "range": {
+        "startLine": 2468,
+        "startChar": 8,
+        "endLine": 2468,
+        "endChar": 50
+      },
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83163602_1dba3998",
         "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
         "patchSetId": 3
@@ -212,6 +235,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae6b89f4_9b59d4a7",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2940,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-05-06T08:00:08Z",
+      "side": 1,
+      "message": "Agree that we should check for basic requirement, resolving.",
+      "parentUuid": "eb903ee2_641e4acc",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "780aa8f6_10807695",
@@ -243,6 +284,24 @@
       "side": 1,
       "message": "Do I understand correctly, that you think we should remove check from 2967?\n\nIf yes, then I would just keep it. It is test code, and this is first simple check before verifying other parameters.",
       "parentUuid": "780aa8f6_10807695",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f31181d_03d9f58c",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2967,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-05-06T08:00:08Z",
+      "side": 1,
+      "message": "Agree that we should check for basic requirement, resolving.",
+      "parentUuid": "c1c73a81_d02b2d95",
       "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
