@@ -15,11 +15,19 @@
  */
 package android.hardware.security.see.storage;
 
-/** Determines how early during the boot process file is able to be accessed. */
-enum FileAvailability {
-    /** Available before userdata is mounted, but after android has booted. */
-    BEFORE_USERDATA,
+import android.hardware.security.see.storage.Availability;
+import android.hardware.security.see.storage.Integrity;
 
-    /** Available after userdata is mounted. */
-    AFTER_USERDATA,
+/**
+ * Specifies minimum security requirements for a Secure Storage filesystem.
+ */
+parcelable Filesystem {
+    Integrity integrity = Integrity.TAMPER_PROOF_AT_REST;
+    Availability availability = Availability.BEFORE_USERDATA;
+
+    /**
+     * Whether the file is reset on factory resets. Factory resets will not be reported as
+     * tampering.
+     */
+    boolean persistent;
 }

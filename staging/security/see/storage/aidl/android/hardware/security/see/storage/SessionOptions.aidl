@@ -15,13 +15,11 @@
  */
 package android.hardware.security.see.storage;
 
-import android.hardware.security.see.storage.FileAvailability;
-import android.hardware.security.see.storage.FileIntegrity;
+import android.hardware.security.see.storage.Filesystem;
 
-parcelable FileProperties {
-    FileIntegrity integrity = FileIntegrity.TAMPER_PROOF_AT_REST;
-    FileAvailability availability = FileAvailability.BEFORE_USERDATA;
-
-    /** Whether the file is reset when user data is wiped. */
-    boolean persistent;
+parcelable SessionOptions {
+    /**
+     * Properties of the filesystem to create a session for.
+     */
+    Filesystem filesystem;
 }
