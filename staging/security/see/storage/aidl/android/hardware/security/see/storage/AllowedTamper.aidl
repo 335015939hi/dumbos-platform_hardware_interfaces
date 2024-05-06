@@ -15,24 +15,28 @@
  */
 package android.hardware.security.see.storage;
 
-enum ReadIntegrity {
+enum AllowedTamper {
     /**
      * Return an error on reads if any REE alteration of the written data
      * has been detected.
+     *
+     * (_Factory_ resets specifically are not considered tampering and so are never reported.)
      */
     NO_TAMPER,
 
     /**
-     * Return an error on reads if any REE alteration other than a reset
-     * has been detected.
+     * Ignores REE tampering which has reset a file/filesystem to its initial state. Returns a
+     * tampering error for any other alterations.
      */
     IGNORE_RESET,
 
     /**
-     * Return an error if any REE alteration other than a rollback to a
-     * valid checkpoint has been detected. (What makes a checkpoint valid is
-     * implementation defined; an implementation might take a checkpoint on its
-     * first post-factory boot. A reset is a rollback to the initial state.)
+     * Ignores REE tampering which has rolled a file/filesystem back to a valid checkpoint. Returns
+     * a tampering error for any other alterations.
+     *
+     * What makes a checkpoint valid is implementation defined; an implementation might take a
+     * checkpoint on its first post-factory boot. This option is strictly more permissive than
+     * `IGNORE_RESET`. (In other words, the initial state is always a valid checkpoint.)
      */
     IGNORE_ROLLBACK,
 

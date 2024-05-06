@@ -15,14 +15,11 @@
  */
 package android.hardware.security.see.storage;
 
-/** Specifies types of REE tampering the filesystem may detect */
-enum Tamper {
-    /** REE has reset this file or the containing file system. */
-    RESET,
+/** Determines how early during the boot process file is able to be accessed. */
+enum Availability {
+    /** Available before userdata is mounted, but after android has booted. */
+    BEFORE_USERDATA,
 
-    /** REE has rolled back this file or the containing file system to a previous state. */
-    ROLLBACK,
-
-    /** REE has made some other modification to the file. */
-    OTHER,
+    /** Available after userdata is mounted. */
+    AFTER_USERDATA,
 }

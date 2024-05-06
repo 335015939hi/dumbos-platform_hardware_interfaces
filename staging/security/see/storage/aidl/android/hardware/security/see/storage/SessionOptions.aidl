@@ -15,23 +15,31 @@
  */
 package android.hardware.security.see.storage;
 
-import android.hardware.security.see.storage.ReadIntegrity;
+import android.hardware.security.see.storage.AllowedTamper;
+import android.hardware.security.see.storage.Filesystem;
 
-parcelable DeleteOptions {
+parcelable SessionOptions {
+    /**
+     * Properties of the filesystem to create a session for.
+     */
+    Filesystem filesystem;
+
     /**
      * Set to acknowledge possible files tampering.
      *
-     * If unacknowledged tampering is detected, the operation will fail with an ERR_FS_*
+     * If unacknowledged tampering is detected, operations will fail with an `ERR_FS_*`
      * service-specific code.
      */
-    ReadIntegrity readIntegrity = ReadIntegrity.NO_TAMPER;
+    AllowedTamper integrity = AllowedTamper.NO_TAMPER;
 
     /**
      * Allow writes to succeed while the filesystem is in the middle of an A/B update.
      *
-     * If the A/B update fails, the operation will be rolled back. This rollback will not
-     * cause subsequent operations fail with any ERR_FS_* code nor will need to be
-     * acknowledged by setting the `readIntegrity`.
+     * If the A/B update fails, writes which were made during the upodate will be rolled back. This
+     * rollback will _not_ be reported as tampering.
+     *
+     * With this value set to false (recommended), operations attempted during an A/B update will
+     * fail with the `ERR_AB_UPDATE_IN_PROGRESS` service-specific code.
      */
     boolean allowWritesDuringAbUpdate = false;
 }
