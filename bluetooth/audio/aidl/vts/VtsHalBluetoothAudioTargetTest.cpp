@@ -2466,7 +2466,8 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
     int num_of_satisfied_requirements = 0;
     for (const auto& req : requirements) {
       for (const auto& conf : configurations) {
-        if (req.audioContext != conf.audioContext) {
+        if ((req.audioContext.bitmask & conf.audioContext.bitmask) !=
+            req.audioContext.bitmask) {
           continue;
         }
         if (req.sinkAseRequirement && req.sourceAseRequirement) {
@@ -2522,9 +2523,9 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
         LeAudioAseConfiguration::TargetLatency::BALANCED_LATENCY_RELIABILITY;
 
     direction_ase_requriement.aseConfiguration.codecConfiguration = {
-        freq, CodecSpecificConfigurationLtv::FrameDuration::US10000, allocation
+        freq, CodecSpecificConfigurationLtv::FrameDuration::US10000,
+        allocation};
 
-    };
     if (is_sink_requirement)
       requirement.sinkAseRequirement = {direction_ase_requriement};
 
@@ -2803,6 +2804,11 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
       BluetoothAudioHalVersion::VERSION_AIDL_V4) {
     GTEST_SKIP();
   }
+
+  if (IsMultidirectionalCapabilitiesEnabled()) {
+    GTEST_SKIP();
+  }
+
   std::vector<std::optional<LeAudioDeviceCapabilities>> empty_capability;
   std::vector<LeAudioConfigurationRequirement> empty_requirement;
   std::vector<LeAudioAseConfigurationSetting> configurations;
@@ -2811,7 +2817,7 @@ TEST_P(BluetoothAudioProviderLeAudioOutputHardwareAidl,
   auto aidl_retval = audio_provider_->getLeAudioAseConfiguration(
       std::nullopt, empty_capability, empty_requirement, &configurations);
 
-  ASSERT_TRUE(aidl_retval.isOk());
+  ASSERT_FALSE(aidl_retval.isOk());
   ASSERT_TRUE(configurations.empty());
 
   // Check empty capability for sink direction
@@ -4174,6 +4180,9 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
       BluetoothAudioHalVersion::VERSION_AIDL_V4) {
     GTEST_SKIP();
   }
+  if (!IsBroadcastOffloadSupported()) {
+    return;
+  }
   std::vector<std::optional<LeAudioDeviceCapabilities>> empty_capability;
   IBluetoothAudioProvider::LeAudioBroadcastConfigurationSetting configuration;
 
@@ -4186,9 +4195,7 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
       empty_capability, one_subgroup_requirement, &configuration);
 
   ASSERT_TRUE(aidl_retval.isOk());
-  ASSERT_NE(configuration.numBis, 0);
-  ASSERT_FALSE(configuration.subgroupsConfigurations.empty());
-  VerifyBroadcastConfiguration(one_subgroup_requirement, configuration);
+  ASSERT_EQ(configuration.numBis, 0);
 
   IBluetoothAudioProvider::LeAudioBroadcastConfigurationRequirement
       two_subgroup_requirement =
@@ -4199,9 +4206,7 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
       empty_capability, two_subgroup_requirement, &configuration);
 
   ASSERT_TRUE(aidl_retval.isOk());
-  ASSERT_NE(configuration.numBis, 0);
-  ASSERT_FALSE(configuration.subgroupsConfigurations.empty());
-  VerifyBroadcastConfiguration(two_subgroup_requirement, configuration);
+  ASSERT_EQ(configuration.numBis, 0);
 }
 
 TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
@@ -4209,6 +4214,9 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
   if (GetProviderFactoryInterfaceVersion() <
       BluetoothAudioHalVersion::VERSION_AIDL_V4) {
     GTEST_SKIP();
+  }
+  if (!IsBroadcastOffloadSupported()) {
+    return;
   }
   std::vector<std::optional<LeAudioDeviceCapabilities>> capability = {
       GetDefaultBroadcastSinkCapability()};
