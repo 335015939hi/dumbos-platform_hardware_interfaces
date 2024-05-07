@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8d13e8ee_25cf94f5",
+        "filename": "security/keymint/support/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:31:09Z",
+      "side": 1,
+      "message": "libkeymint_support library uses `android.hardware.security.keymint-V3-ndk` which is an AIDL library and not host_supported. Since the fuzzer targets libkeymint_support, we may not be able to have `host_supported: true`.",
+      "parentUuid": "a0786f77_c9df6f01",
+      "revId": "dc94959ccf024913cd40d8754cefb3845cd417e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d80f915f_067fd49c",
         "filename": "security/keymint/support/fuzzer/README.md",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2024-05-02T11:06:02Z",
       "side": 1,
       "message": "(Same comments as on parent CL)",
+      "revId": "dc94959ccf024913cd40d8754cefb3845cd417e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77e73713_6fdd2e63",
+        "filename": "security/keymint/support/fuzzer/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:31:09Z",
+      "side": 1,
+      "message": "Updated accordingly.",
+      "parentUuid": "d80f915f_067fd49c",
       "revId": "dc94959ccf024913cd40d8754cefb3845cd417e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
