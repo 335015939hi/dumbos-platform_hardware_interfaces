@@ -51,6 +51,24 @@
       "message": "This imposes a requirement that Keystore will always do `ISharedSecret` negotiation before trying to connect to KeyMint.  That\u0027s true at the moment, but if it were ever to change in the future it could be pesky to debug.",
       "revId": "8154b2d7f58fb16da5b916761dc19b8d034553d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dc3695e_b23f7a9b",
+        "filename": "security/keymint/aidl/default/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-05-07T21:25:08Z",
+      "side": 1,
+      "message": "\u003e the HMAC key should only used for verifying auth tokens, which isn\u0027t relevant at boot time\n\nseems to me like it equally meets the bar of\n\n\u003e That\u0027s true at the moment, but if it were ever to change in the future it could be pesky to debug.\n\nBecause of the distinct API boundaries, there\u0027s an opportunity to impose this requirement now and categorically prevent some \"not ready yet\" errors by creating a strict initialization order.\n\nAPI clients like `vold` then don\u0027t wonder \"will this API method work at this time?\" and cover it with retry logic. They can wait for the API to come up and then call whatever methods they want. There\u0027s already `binder::wait_for_service`, but there\u0027s no `wait_for_can_verify_auth_tokens`.",
+      "parentUuid": "a8415348_94d6d22d",
+      "revId": "8154b2d7f58fb16da5b916761dc19b8d034553d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
