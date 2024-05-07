@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b573a4b_ea28c513",
+        "filename": "security/keymint/aidl/default/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-07T08:59:58Z",
+      "side": 1,
+      "message": "It seems like this CL has two parts to it:\na) move KeyMint initialization steps to happen before binder registration\nb) guess at whether shared secret negotiation has happened, and hold off on KeyMint Binder registration until it does\n\nPart a) seems entirely reasonable, part b) ... less so.  \n\nGiven that (AIUI) this is somewhat speculative, can we put in just a) and come back to b) (possibly with less hacky ideas) only if it doesn\u0027t help?",
+      "revId": "8154b2d7f58fb16da5b916761dc19b8d034553d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8415348_94d6d22d",
+        "filename": "security/keymint/aidl/default/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-07T08:59:58Z",
+      "side": 1,
+      "message": "This imposes a requirement that Keystore will always do `ISharedSecret` negotiation before trying to connect to KeyMint.  That\u0027s true at the moment, but if it were ever to change in the future it could be pesky to debug.",
+      "revId": "8154b2d7f58fb16da5b916761dc19b8d034553d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
