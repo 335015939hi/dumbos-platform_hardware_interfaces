@@ -94,14 +94,21 @@ fn inner_main() -> Result<(), HalServiceError> {
         error!("Failed to send attestation ID info: {:?}", e);
     }
 
-    let secret_service = kmr_hal::sharedsecret::Device::new_as_binder(channel.clone());
+    let secret_service = kmr_hal::sharedsecret::Device::new(channel.clone());
+    let secret_service_notifier = secret_service.negotiation_tracker();
     let service_name = format!("{}/{}", SECRET_SERVICE_NAME, SERVICE_INSTANCE);
-    binder::add_service(&service_name, secret_service.as_binder()).map_err(|e| {
+    binder::add_service(&service_name, secret_service.into_proxy().as_binder()).map_err(|e| {
         HalServiceError(format!(
             "Failed to register service {} because of {:?}.",
             service_name, e
         ))
     })?;
+
+    debug!("registered shared secret service");
+
+    secret_service_notifier.wait_for_negotiation();
+
+    debug!("shared secret negotiaton concluded, registering other services");
 
     let km_service = kmr_hal::keymint::Device::new_as_binder(channel.clone());
     let service_name = format!("{}/{}", KM_SERVICE_NAME, SERVICE_INSTANCE);
