@@ -37,6 +37,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc3ac028_f532eaa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Profiled the fuzzer code and observed that the `generateKey()` API (#160) after the attestation key is generated took `\u003e\u003d 900ms` to execute which lowers the exec/s and doesn\u0027t seem to be controllable from the fuzzer.",
+      "parentUuid": "8c726e13_dab86a75",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "971f5767_7b16ab33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Sure David, once the CL is merged, making changes directly on the CL could be a more efficient approach, especially for domain-specific adjustments.\nWhen it comes to the issue of the fuzzer exhausting its random inputs, libFuzzer possesses the ability to progressively learn and generate new inputs over time. However, this process may require sufficient time to adapt and evolve its approach.",
+      "parentUuid": "c521e9ee_d173bc0e",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58764341_822e1e64",
         "filename": "security/keymint/support/fuzzer/README.md",
         "patchSetId": 1
@@ -48,6 +84,30 @@
       "writtenOn": "2024-05-02T10:33:06Z",
       "side": 1,
       "message": "Is this current/relevant?  The things that the fuzzer can mutate along the way seem to be a much bigger set, and referring to them as \"parameters\" also seems odd.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 66
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daa061ad_75793a27",
+        "filename": "security/keymint/support/fuzzer/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "I have revised the file to ensure that the current parameters remain relevant. We refer to them as parameters because they are mostly passed during function invocation and assume varying values chosen by the FuzzedDataProvider on each run.",
+      "parentUuid": "58764341_822e1e64",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -75,6 +135,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d98dc90b_2fd66f0b",
+        "filename": "security/keymint/support/fuzzer/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6006c268_fd6239cc",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17d850c2_7739b5a8",
@@ -88,6 +166,30 @@
       "writtenOn": "2024-05-02T10:33:06Z",
       "side": 1,
       "message": "This should be `KeyPurpose::ATTEST_KEY` for a key that\u0027s going to be used to attest to other keys.\n\nAlso, an `ATTEST_KEY` isn\u0027t allowed to have any other purpose, so we probably need to remove any other purposes that were already in `keyDesc`.",
+      "range": {
+        "startLine": 61,
+        "startChar": 43,
+        "endLine": 61,
+        "endChar": 59
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7da300e_73896adf",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Changed `TAG_PURPOSE` accordingly. `keyDesc` does not have any `TAG_PURPOSE` set earlier.",
+      "parentUuid": "17d850c2_7739b5a8",
       "range": {
         "startLine": 61,
         "startChar": 43,
@@ -117,6 +219,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f04340bb_45f4e5c8",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "We usually don\u0027t include aborts that cause fuzzer failures because fuzzing keeps going indefinitely. So, it\u0027s best to add the right returns instead.",
+      "parentUuid": "34af7c7f_b55ddd40",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c5e5225_f345b667",
         "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
         "patchSetId": 1
@@ -134,6 +254,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97b8b26d_7a0ad4b9",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "We usually don\u0027t include aborts that cause fuzzer failures because fuzzing keeps going indefinitely. So, it\u0027s best to add the right returns instead.",
+      "parentUuid": "4c5e5225_f345b667",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "319b7ac6_91a23661",
         "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
         "patchSetId": 1
@@ -145,6 +283,30 @@
       "writtenOn": "2024-05-02T10:33:06Z",
       "side": 1,
       "message": "Can this be moved to be a one-off initialization?  That might speed things up a bit (getting a binder reference from service manager once rather than on every loop) and we could also have a one-off error path that terminates the fuzzer (if there\u0027s no KeyMint implementation on the device, no point in fuzzing).",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 0
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1a8c01d_c0a12016",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done. Moved to LLVMFuzzerInitialize().",
+      "parentUuid": "319b7ac6_91a23661",
       "range": {
         "startLine": 144,
         "startChar": 0,
@@ -178,6 +340,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc66fa78_1b203f08",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done. Added `createAuthSetForAttestKey()`.",
+      "parentUuid": "aa06af61_ddd38e5d",
+      "range": {
+        "startLine": 153,
+        "startChar": 22,
+        "endLine": 153,
+        "endChar": 51
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "daa5a81b_64b90e53",
@@ -191,6 +377,30 @@
       "writtenOn": "2024-05-02T10:33:06Z",
       "side": 1,
       "message": "The `KeyCreationResult` looks unused (all of its contents have already been extracted) -- drop it from here and the return value of `generateKey` ?",
+      "range": {
+        "startLine": 160,
+        "startChar": 1,
+        "endLine": 160,
+        "endChar": 29
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4855efaa_e88064db",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "daa5a81b_64b90e53",
       "range": {
         "startLine": 160,
         "startChar": 1,
@@ -218,6 +428,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "024d98dc_8e58fed7",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5a6b3e0_cd04c8f3",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c41b9ae5_44caa757",
@@ -235,6 +463,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58d80508_b39facdc",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c41b9ae5_44caa757",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b60b5015_c8e681a2",
@@ -248,6 +494,24 @@
       "writtenOn": "2024-05-02T10:33:06Z",
       "side": 1,
       "message": "On experimenting with the fuzzer, it seems like the `FuzzedDataProvider` runs out of random data on every iteration, meaning that the same default arms get run again and again.  \n\nReducing the max string size here seemed to help a little bit, but not enough to make the second keygen have any variance from iteration to iteration.",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89eba0a8_5dee4e6c",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "I\u0027ve adjusted `kStringSize` to 64. When the fuzzer exhausts its random byte pool, it defaults to initial values. However, during longer runs, libFuzzer decreases the initial byte count, leading to generation of new strings with fresh random bytes.",
+      "parentUuid": "b60b5015_c8e681a2",
       "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -275,6 +539,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1059da6a_294ebdc1",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c029fc9_7a67c2ac",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 18
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04e8c4bb_ad5b8658",
@@ -288,6 +576,24 @@
       "writtenOn": "2024-05-02T10:33:06Z",
       "side": 1,
       "message": "Any place that includes `TAG_INCLUDE_UNIQUE_ID` also needs to set `TAG_CREATION_DATETIME` like here.",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e717bd2e_16e58158",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04e8c4bb_ad5b8658",
       "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -315,6 +621,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24b3f20e_2e825108",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "120ab074_669ef0c6",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 55
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe9c5cc6_3e13d7e7",
@@ -332,6 +662,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95b6c3c3_8635edb9",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe9c5cc6_3e13d7e7",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd863b18_06e8ca43",
@@ -345,6 +693,30 @@
       "writtenOn": "2024-05-02T10:33:06Z",
       "side": 1,
       "message": "Key size for 3-DES needs to be 168.",
+      "range": {
+        "startLine": 150,
+        "startChar": 44,
+        "endLine": 150,
+        "endChar": 52
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c9cb209_97a2f61d",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd863b18_06e8ca43",
       "range": {
         "startLine": 150,
         "startChar": 44,
@@ -378,6 +750,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5637e2d2_a0533f59",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cf318cf_d44e1601",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 99
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc95dd8d_bcb7922e",
@@ -391,6 +787,24 @@
       "writtenOn": "2024-05-02T10:33:06Z",
       "side": 1,
       "message": "All of the cases from here on look like they\u0027re going to fail because there\u0027s no algorithm specified.  Maybe make all of them `.AesEncryptionKey(kKeySize)`?",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc62fb4_d612abfd",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-07T10:30:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc95dd8d_bcb7922e",
       "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
