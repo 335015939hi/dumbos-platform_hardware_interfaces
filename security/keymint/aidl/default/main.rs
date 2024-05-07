@@ -27,7 +27,7 @@ use kmr_hal::SerializedChannel;
 use kmr_hal_nonsecure::{attestation_id_info, get_boot_info};
 use log::{debug, error, info, warn};
 use std::ops::DerefMut;
-use std::sync::{mpsc, Arc, Mutex};
+use std::sync::{mpsc, Arc, Condvar, Mutex};
 
 /// Name of KeyMint binder device instance.
 static SERVICE_INSTANCE: &str = "default";
@@ -44,6 +44,64 @@ struct HalServiceError(String);
 impl From<String> for HalServiceError {
     fn from(s: String) -> Self {
         Self(s)
+    }
+}
+
+#[derive(Clone, Copy, Debug, Default)]
+struct MessageCount {
+    successes: usize,
+    failures: usize,
+}
+
+#[derive(Debug, Default)]
+struct WaitableCounter {
+    message_counter: Mutex<MessageCount>,
+    message_notifier: Condvar,
+}
+
+impl WaitableCounter {
+    fn wait_for_successes(&self, expected_successes: usize) {
+        let mut counter = self.message_counter.lock().unwrap();
+        while counter.successes < expected_successes {
+            error!("wanted {} successes, got {}", expected_successes, counter.successes);
+            counter = self.message_notifier.wait(counter).unwrap();
+        }
+
+    }
+}
+
+// TODO: schuffelen - Expose shared secret completion directly, rather than observing externally
+#[derive(Debug)]
+struct CountingSerializedChannel<T: SerializedChannel> {
+    inner: Arc<Mutex<T>>,
+    counter: Arc<WaitableCounter>,
+}
+
+
+impl<T: SerializedChannel> CountingSerializedChannel<T> {
+    fn new(inner: Arc<Mutex<T>>) -> CountingSerializedChannel<T> {
+        CountingSerializedChannel {
+            inner,
+            counter: Default::default(),
+        }
+    }
+}
+
+impl<T: SerializedChannel> SerializedChannel for CountingSerializedChannel<T> {
+    const MAX_SIZE: usize= T::MAX_SIZE;
+
+    fn execute(&mut self, serialized_req: &[u8]) -> binder::Result<Vec<u8>> {
+        error!("going to send message to inner channel");
+        let inner_response = self.inner.lock().unwrap().execute(serialized_req);
+        error!("got response from inner channel");
+        let mut counter = self.counter.message_counter.lock().unwrap();
+        match inner_response {
+            Ok(_) => counter.successes += 1,
+            Err(_) => counter.failures += 1,
+        };
+        self.counter.message_notifier.notify_all();
+        error!("returning response");
+        inner_response
     }
 }
 
@@ -74,6 +132,48 @@ fn inner_main() -> Result<(), HalServiceError> {
     // Create a TA in-process, which acts as a local channel for communication.
     let channel = Arc::new(Mutex::new(LocalTa::new()));
 
+    // Let the TA know information about the boot environment. In a real device this
+    // is communicated directly from the bootloader to the TA, but here we retrieve
+    // the information from system properties and send from the HAL service.
+    let boot_req = get_boot_info();
+    debug!("boot/HAL->TA: boot info is {:?}", boot_req);
+    kmr_hal::send_boot_info(channel.lock().unwrap().deref_mut(), boot_req)
+        .map_err(|e| HalServiceError(format!("Failed to send boot info: {:?}", e)))?;
+
+    // Let the TA know information about the userspace environment.
+    if let Err(e) = kmr_hal::send_hal_info(channel.lock().unwrap().deref_mut()) {
+        error!("Failed to send HAL info: {:?}", e);
+    }
+
+    // Let the TA know about attestation IDs. (In a real device these would be pre-provisioned into
+    // the TA.)
+    let attest_ids = attestation_id_info();
+    if let Err(e) = kmr_hal::send_attest_ids(channel.lock().unwrap().deref_mut(), attest_ids) {
+        error!("Failed to send attestation ID info: {:?}", e);
+    }
+
+    // TODO: schuffelen - Stop wrapping this in Arc<Mutex<...>>
+    // The interface of Device requires an Arc<Mutex<Channel>> argument, but it's an implementation
+    // detail of Channel that the methods are &mut self. This could also be satisfied by a Channel
+    // with &self methods that internally uses an Arc<Mutex<...>> when it needs to.
+    let secret_counter = Arc::new(Mutex::new(CountingSerializedChannel::new(channel.clone())));
+    let secret_message_counter = secret_counter.lock().unwrap().counter.clone();
+    let secret_service = kmr_hal::sharedsecret::Device::new_as_binder(secret_counter);
+    let service_name = format!("{}/{}", SECRET_SERVICE_NAME, SERVICE_INSTANCE);
+    binder::add_service(&service_name, secret_service.as_binder()).map_err(|e| {
+        HalServiceError(format!(
+            "Failed to register service {} because of {:?}.",
+            service_name, e
+        ))
+    })?;
+
+    debug!("registered shared secret service");
+
+    // HACK: Assume one get parameters and one compute shared secret call
+    secret_message_counter.wait_for_successes(2);
+
+    debug!("shared secret negotiaton concluded, registering other services");
+
     let km_service = kmr_hal::keymint::Device::new_as_binder(channel.clone());
     let service_name = format!("{}/{}", KM_SERVICE_NAME, SERVICE_INSTANCE);
     binder::add_service(&service_name, km_service.as_binder()).map_err(|e| {
@@ -100,37 +200,6 @@ fn inner_main() -> Result<(), HalServiceError> {
             service_name, e
         ))
     })?;
-
-    let secret_service = kmr_hal::sharedsecret::Device::new_as_binder(channel.clone());
-    let service_name = format!("{}/{}", SECRET_SERVICE_NAME, SERVICE_INSTANCE);
-    binder::add_service(&service_name, secret_service.as_binder()).map_err(|e| {
-        HalServiceError(format!(
-            "Failed to register service {} because of {:?}.",
-            service_name, e
-        ))
-    })?;
-
-    info!("Successfully registered KeyMint HAL services.");
-
-    // Let the TA know information about the boot environment. In a real device this
-    // is communicated directly from the bootloader to the TA, but here we retrieve
-    // the information from system properties and send from the HAL service.
-    let boot_req = get_boot_info();
-    debug!("boot/HAL->TA: boot info is {:?}", boot_req);
-    kmr_hal::send_boot_info(channel.lock().unwrap().deref_mut(), boot_req)
-        .map_err(|e| HalServiceError(format!("Failed to send boot info: {:?}", e)))?;
-
-    // Let the TA know information about the userspace environment.
-    if let Err(e) = kmr_hal::send_hal_info(channel.lock().unwrap().deref_mut()) {
-        error!("Failed to send HAL info: {:?}", e);
-    }
-
-    // Let the TA know about attestation IDs. (In a real device these would be pre-provisioned into
-    // the TA.)
-    let attest_ids = attestation_id_info();
-    if let Err(e) = kmr_hal::send_attest_ids(channel.lock().unwrap().deref_mut(), attest_ids) {
-        error!("Failed to send attestation ID info: {:?}", e);
-    }
 
     info!("Successfully registered KeyMint HAL services.");
     binder::ProcessState::join_thread_pool();
