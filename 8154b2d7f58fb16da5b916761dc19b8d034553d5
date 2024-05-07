@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d89ee6d1_83661396",
+        "filename": "security/keymint/aidl/default/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-05-07T23:56:10Z",
+      "side": 1,
+      "message": "I\u0027ve split this CL up. aosp/3077417 includes the uncontroversial in-process ordering guarantees, aosp/3077450 includes a less hacky reporting mechanism for the shared secret status, and this CL now only introduces the multi-process shared secret ordering.\n\ngo/atp-test-status/406956652 running with the original two CLs proposed, plus Cuttlefish cutting over to in-guest keymint shows no boot flakes in 100 attempts, but it would be possible to try additional runs using different subsets of changes.",
+      "parentUuid": "a5586d9d_ee33532c",
+      "revId": "8154b2d7f58fb16da5b916761dc19b8d034553d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a8415348_94d6d22d",
         "filename": "security/keymint/aidl/default/main.rs",
         "patchSetId": 1
