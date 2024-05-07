@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5586d9d_ee33532c",
+        "filename": "security/keymint/aidl/default/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-07T09:04:01Z",
+      "side": 1,
+      "message": "Oh, and looking at https://b.corp.google.com/issues/332977378#comment11, the `HARDWARE_NOT_YET_AVAILABLE(-85)` error code makes me hopeful that part a) might be all that\u0027s needed -- the HMAC key should only used for verifying auth tokens, which isn\u0027t relevant at boot time.",
+      "parentUuid": "8b573a4b_ea28c513",
+      "revId": "8154b2d7f58fb16da5b916761dc19b8d034553d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a8415348_94d6d22d",
         "filename": "security/keymint/aidl/default/main.rs",
         "patchSetId": 1
