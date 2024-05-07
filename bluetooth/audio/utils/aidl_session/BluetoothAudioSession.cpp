@@ -124,12 +124,15 @@ void BluetoothAudioSession::ReportAudioConfigChanged(
   if (session_type_ !=
           SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
       session_type_ !=
-          SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+          SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH &&
+      session_type_ !=
+          SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {
     return;
   }
 
   std::lock_guard<std::recursive_mutex> guard(mutex_);
-  if (audio_config.getTag() != AudioConfiguration::leAudioConfig) {
+  if (audio_config.getTag() != AudioConfiguration::leAudioConfig &&
+      audio_config.getTag() != AudioConfiguration::leAudioBroadcastConfig) {
     LOG(ERROR) << __func__ << " invalid audio config type for SessionType ="
                << toString(session_type_);
     return;
