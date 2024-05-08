@@ -970,7 +970,8 @@ class StreamReaderLogic : public StreamCommonLogic {
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
             return Status::ABORT;
         }
-        if (static_cast<size_t>(reply.fmqByteCount) != getDataMQ()->availableToRead()) {
+        if (static_cast<size_t>(reply.fmqByteCount) !=
+            getDataMQ()->availableToRead(true /*checkForPointerCorruption*/)) {
             LOG(ERROR) << __func__
                        << ": the byte count in the reply is not the same as the amount of "
                        << "data available in the MQ: " << reply.fmqByteCount
@@ -991,7 +992,9 @@ class StreamReaderLogic : public StreamCommonLogic {
             return Status::ABORT;
         }
         const bool acceptedReply = getDriver()->processValidReply(reply);
-        if (const size_t readCount = getDataMQ()->availableToRead(); readCount > 0) {
+        if (const size_t readCount =
+                    getDataMQ()->availableToRead(true /*checkForPointerCorruption*/);
+            readCount > 0) {
             if (readDataFromMQ(readCount)) {
                 goto checkAcceptedReply;
             }
@@ -1059,7 +1062,8 @@ class StreamWriterLogic : public StreamCommonLogic {
         }
         // It is OK for the implementation to leave data in the MQ when the stream is paused.
         if (reply.state != StreamDescriptor::State::PAUSED &&
-            getDataMQ()->availableToWrite() != getDataMQ()->getQuantumCount()) {
+            getDataMQ()->availableToWrite(true /*checkForPointerCorruption*/) !=
+                    getDataMQ()->getQuantumCount()) {
             LOG(ERROR) << __func__ << ": the HAL module did not consume all data from the data MQ: "
                        << "available to write " << getDataMQ()->availableToWrite()
                        << ", total size: " << getDataMQ()->getQuantumCount();
