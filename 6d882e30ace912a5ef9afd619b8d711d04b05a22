@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bab18375_e35570ab",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2446,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-05-08T13:59:29Z",
+      "side": 1,
+      "message": "Ok so the only case for this is banded headphones where BT stack has no idea about channel count. Then request will contain both Left/Right bits but response might be either 1 or 2 configurations, depends on channel count.",
+      "parentUuid": "be1a0312_d31e21f1",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc0515e2_7a85c226",
         "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
         "patchSetId": 3
@@ -102,6 +120,30 @@
       "writtenOn": "2024-05-06T08:00:08Z",
       "side": 1,
       "message": "I think audio context should be compared via bitmask instead of require a perfect match, in case the config support more context than the requirement?\n\nI\u0027m thinking of something like this:\n`(req.audioContext.bitmask \u0026 conf.audioContext.bitmask) !\u003d req.audioContext.bitmask`",
+      "range": {
+        "startLine": 2468,
+        "startChar": 8,
+        "endLine": 2468,
+        "endChar": 50
+      },
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01bbd8ed_b58a6ccf",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2468,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-05-08T13:59:29Z",
+      "side": 1,
+      "message": "Ok, so I will also make possible to set multiple contexts in the same requirement.",
+      "parentUuid": "bc0515e2_7a85c226",
       "range": {
         "startLine": 2468,
         "startChar": 8,
@@ -147,6 +189,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17a90106_4c0dd1af",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2804,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-05-08T13:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d526f2fb_2a5dce2f",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32a558a6_e2bf224c",
@@ -178,6 +238,24 @@
       "side": 1,
       "message": "I think, you are right. let me fix it.",
       "parentUuid": "32a558a6_e2bf224c",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01805766_142a5be1",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2813,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-05-08T13:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0896fe4b_8f8861f5",
       "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -341,6 +419,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "165eb72a_99b2a7e2",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3561,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-05-08T13:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f25de82_906cb789",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30568754_ff96bfbc",
@@ -354,6 +450,24 @@
       "writtenOn": "2024-03-18T03:05:02Z",
       "side": 1,
       "message": "If the input don\u0027t have any capability, how can we match with any configuration?",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2435afe2_845b5bc9",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4184,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-05-08T13:59:29Z",
+      "side": 1,
+      "message": "This should be some default for standard quality  requirement.",
+      "parentUuid": "30568754_ff96bfbc",
       "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -389,6 +503,24 @@
       "side": 1,
       "message": "OK",
       "parentUuid": "bffd9cbd_207bd54c",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43708aae_52ed93e3",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4207,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-05-08T13:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45465f2b_e6850e34",
       "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
