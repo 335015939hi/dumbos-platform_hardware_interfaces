@@ -315,7 +315,10 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
 bool StreamInWorkerLogic::read(size_t clientSize, StreamDescriptor::Reply* reply) {
     ATRACE_CALL();
     StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
-    const size_t byteCount = std::min({clientSize, dataMQ->availableToWrite(), mDataBufferSize});
+    bool fmqPointerCorruptionDetected = false;
+    const size_t byteCount = std::min(
+            {clientSize, dataMQ->availableToWrite(&fmqPointerCorruptionDetected), mDataBufferSize});
+    CHECK(!fmqPointerCorruptionDetected);
     const bool isConnected = mIsConnected;
     const size_t frameSize = mContext->getFrameSize();
     size_t actualFrameCount = 0;
@@ -587,7 +590,9 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
 bool StreamOutWorkerLogic::write(size_t clientSize, StreamDescriptor::Reply* reply) {
     ATRACE_CALL();
     StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
-    const size_t readByteCount = dataMQ->availableToRead();
+    bool fmqPointerCorruptionDetected = false;
+    const size_t readByteCount = dataMQ->availableToRead(&fmqPointerCorruptionDetected);
+    CHECK(!fmqPointerCorruptionDetected);
     const size_t frameSize = mContext->getFrameSize();
     bool fatal = false;
     int32_t latency = mContext->getNominalLatencyMs();

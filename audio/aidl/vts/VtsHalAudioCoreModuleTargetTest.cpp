@@ -970,12 +970,15 @@ class StreamReaderLogic : public StreamCommonLogic {
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
             return Status::ABORT;
         }
-        if (static_cast<size_t>(reply.fmqByteCount) != getDataMQ()->availableToRead()) {
+        bool fmqPointerCorruptionDetected = false;
+        if (static_cast<size_t>(reply.fmqByteCount) !=
+            getDataMQ()->availableToRead(&fmqPointerCorruptionDetected)) {
             LOG(ERROR) << __func__
                        << ": the byte count in the reply is not the same as the amount of "
                        << "data available in the MQ: " << reply.fmqByteCount
                        << " != " << getDataMQ()->availableToRead();
         }
+        CHECK(!fmqPointerCorruptionDetected);
         if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
             LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
             return Status::ABORT;
@@ -991,13 +994,15 @@ class StreamReaderLogic : public StreamCommonLogic {
             return Status::ABORT;
         }
         const bool acceptedReply = getDriver()->processValidReply(reply);
-        if (const size_t readCount = getDataMQ()->availableToRead(); readCount > 0) {
+        if (const size_t readCount = getDataMQ()->availableToRead(&fmqPointerCorruptionDetected);
+            readCount > 0) {
             if (readDataFromMQ(readCount)) {
                 goto checkAcceptedReply;
             }
             LOG(ERROR) << __func__ << ": reading of " << readCount << " data bytes from MQ failed";
             return Status::ABORT;
         }  // readCount == 0
+        CHECK(!fmqPointerCorruptionDetected);
     checkAcceptedReply:
         if (acceptedReply) {
             return Status::CONTINUE;
@@ -1058,13 +1063,16 @@ class StreamWriterLogic : public StreamCommonLogic {
             return Status::ABORT;
         }
         // It is OK for the implementation to leave data in the MQ when the stream is paused.
+        bool fmqPointerCorruptionDetected = false;
         if (reply.state != StreamDescriptor::State::PAUSED &&
-            getDataMQ()->availableToWrite() != getDataMQ()->getQuantumCount()) {
+            getDataMQ()->availableToWrite(&fmqPointerCorruptionDetected) !=
+                    getDataMQ()->getQuantumCount()) {
             LOG(ERROR) << __func__ << ": the HAL module did not consume all data from the data MQ: "
                        << "available to write " << getDataMQ()->availableToWrite()
                        << ", total size: " << getDataMQ()->getQuantumCount();
             return Status::ABORT;
         }
+        CHECK(!fmqPointerCorruptionDetected);
         if (reply.latencyMs < 0 && reply.latencyMs != StreamDescriptor::LATENCY_UNKNOWN) {
             LOG(ERROR) << __func__ << ": received invalid latency value: " << reply.latencyMs;
             return Status::ABORT;
