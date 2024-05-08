@@ -757,6 +757,7 @@ oneway interface IRadioNetworkResponse {
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
+     *   RadioError:REQUEST_NOT_SUPPORTED
      */
     void isCellularIdentifierTransparencyEnabledResponse(
             in RadioResponseInfo info, boolean isEnabled);
@@ -773,6 +774,7 @@ oneway interface IRadioNetworkResponse {
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
      *   RadioError:INVALID_STATE
+     *   RadioError:REQUEST_NOT_SUPPORTED
      */
     void setCellularIdentifierTransparencyEnabledResponse(in RadioResponseInfo info);
 
@@ -788,6 +790,7 @@ oneway interface IRadioNetworkResponse {
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
      *   RadioError:INVALID_STATE
+     *   RadioError:REQUEST_NOT_SUPPORTED
      */
     void setSecurityAlgorithmsUpdatedEnabledResponse(in RadioResponseInfo info);
 
@@ -803,6 +806,7 @@ oneway interface IRadioNetworkResponse {
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
+     *   RadioError:REQUEST_NOT_SUPPORTED
      */
     void isSecurityAlgorithmsUpdatedEnabledResponse(
             in RadioResponseInfo info, in boolean isEnabled);
