@@ -70,6 +70,30 @@
       ],
       "revId": "dafccd4adda65267d8c6fcc5bc3be5be6e0fcef6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e45ee6f_f60825d6",
+        "filename": "audio/aidl/default/include/effect-impl/EffectTypes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-05-09T22:36:27Z",
+      "side": 1,
+      "message": "Yes I think we should have a space after the line number, but I intentional keep line and the actual number together because to me it makes the log more compact.",
+      "parentUuid": "3be6b4b5_92abf92a",
+      "range": {
+        "startLine": 82,
+        "startChar": 45,
+        "endLine": 82,
+        "endChar": 58
+      },
+      "revId": "dafccd4adda65267d8c6fcc5bc3be5be6e0fcef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
