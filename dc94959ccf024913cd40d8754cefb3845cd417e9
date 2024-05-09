@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9cda3ee_57bf0604",
+        "filename": "security/keymint/support/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-09T08:50:39Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8d13e8ee_25cf94f5",
+      "revId": "dc94959ccf024913cd40d8754cefb3845cd417e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d80f915f_067fd49c",
