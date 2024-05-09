@@ -79,36 +79,36 @@ inline std::ostream& operator<<(std::ostream& out, const RetCode& code) {
     do {                                                                                       \
         const ::ndk::ScopedAStatus curr_status = (status);                                     \
         if (!curr_status.isOk()) {                                                             \
-            LOG(ERROR) << __func__ << ":" << __LINE__                                          \
+            LOG(ERROR) << __func__ << ": line " << __LINE__                                    \
                        << "return with status: " << curr_status.getDescription() << (message); \
             return ndk::ScopedAStatus::fromExceptionCodeWithMessage(                           \
                     curr_status.getExceptionCode(), (message));                                \
         }                                                                                      \
     } while (0)
 
-#define RETURN_IF(expr, exception, message)                                                  \
+#define RETURN_IF(expr, exception, message)                                                   \
+    do {                                                                                      \
+        if (expr) {                                                                           \
+            LOG(ERROR) << __func__ << ": line " << __LINE__ << " return with expr " << #expr; \
+            return ndk::ScopedAStatus::fromExceptionCodeWithMessage((exception), (message));  \
+        }                                                                                     \
+    } while (0)
+
+#define RETURN_OK_IF(expr)                                                                   \
     do {                                                                                     \
         if (expr) {                                                                          \
-            LOG(ERROR) << __func__ << ":" << __LINE__ << " return with expr " << #expr;      \
-            return ndk::ScopedAStatus::fromExceptionCodeWithMessage((exception), (message)); \
+            LOG(INFO) << __func__ << ": line " << __LINE__ << " return with expr " << #expr; \
+            return ndk::ScopedAStatus::ok();                                                 \
         }                                                                                    \
     } while (0)
 
-#define RETURN_OK_IF(expr)                                                             \
-    do {                                                                               \
-        if (expr) {                                                                    \
-            LOG(INFO) << __func__ << ":" << __LINE__ << " return with expr " << #expr; \
-            return ndk::ScopedAStatus::ok();                                           \
-        }                                                                              \
-    } while (0)
-
-#define RETURN_VALUE_IF(expr, ret, log)                                                  \
-    do {                                                                                 \
-        if (expr) {                                                                      \
-            LOG(ERROR) << __func__ << ":" << __LINE__ << " return with expr \"" << #expr \
-                       << "\":" << (log);                                                \
-            return ret;                                                                  \
-        }                                                                                \
+#define RETURN_VALUE_IF(expr, ret, log)                                                        \
+    do {                                                                                       \
+        if (expr) {                                                                            \
+            LOG(ERROR) << __func__ << ": line " << __LINE__ << " return with expr \"" << #expr \
+                       << "\":" << (log);                                                      \
+            return ret;                                                                        \
+        }                                                                                      \
     } while (0)
 
 #define RETURN_IF_BINDER_EXCEPTION(functor)                                 \
