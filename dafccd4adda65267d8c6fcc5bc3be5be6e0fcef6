@@ -1,0 +1,75 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3be6b4b5_92abf92a",
+        "filename": "audio/aidl/default/include/effect-impl/EffectTypes.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-09T22:31:17Z",
+      "side": 1,
+      "message": "Should there be spaces before and after `__LINE__` because it\u0027s an integer constant?",
+      "range": {
+        "startLine": 82,
+        "startChar": 45,
+        "endLine": 82,
+        "endChar": 58
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "85af5115_c3ad7e51",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/include/effect-impl/EffectTypes.h",
+              "range": {
+                "startLine": 82,
+                "startChar": 0,
+                "endLine": 83,
+                "endChar": 0
+              },
+              "replacement": "            LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \": line \" \u003c\u003c __LINE__                                    \\\n"
+            },
+            {
+              "path": "audio/aidl/default/include/effect-impl/EffectTypes.h",
+              "range": {
+                "startLine": 92,
+                "startChar": 0,
+                "endLine": 93,
+                "endChar": 0
+              },
+              "replacement": "            LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \": line \" \u003c\u003c __LINE__ \u003c\u003c \" return with expr \" \u003c\u003c #expr; \\\n"
+            },
+            {
+              "path": "audio/aidl/default/include/effect-impl/EffectTypes.h",
+              "range": {
+                "startLine": 100,
+                "startChar": 0,
+                "endLine": 101,
+                "endChar": 0
+              },
+              "replacement": "            LOG(INFO) \u003c\u003c __func__ \u003c\u003c \": line \" \u003c\u003c __LINE__ \u003c\u003c \" return with expr \" \u003c\u003c #expr; \\\n"
+            },
+            {
+              "path": "audio/aidl/default/include/effect-impl/EffectTypes.h",
+              "range": {
+                "startLine": 108,
+                "startChar": 0,
+                "endLine": 109,
+                "endChar": 0
+              },
+              "replacement": "            LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \": line \" \u003c\u003c __LINE__ \u003c\u003c \" return with expr \\\"\" \u003c\u003c #expr \\\n"
+            }
+          ]
+        }
+      ],
+      "revId": "dafccd4adda65267d8c6fcc5bc3be5be6e0fcef6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
