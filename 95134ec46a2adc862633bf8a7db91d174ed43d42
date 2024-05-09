@@ -34,6 +34,24 @@
       "parentUuid": "1de8f846_4ceb2adf",
       "revId": "95134ec46a2adc862633bf8a7db91d174ed43d42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "142fde2f_f289bcf4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-05-09T18:16:45Z",
+      "side": 1,
+      "message": "Hi Gautam,\nmain is the same as master. Thanks for the CP!",
+      "parentUuid": "02c83231_3f87e54c",
+      "revId": "95134ec46a2adc862633bf8a7db91d174ed43d42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
