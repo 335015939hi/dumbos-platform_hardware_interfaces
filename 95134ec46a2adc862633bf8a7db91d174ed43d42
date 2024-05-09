@@ -16,6 +16,24 @@
       "message": "please make the same change to the main/master branch as well",
       "revId": "95134ec46a2adc862633bf8a7db91d174ed43d42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02c83231_3f87e54c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1979580
+      },
+      "writtenOn": "2024-05-09T18:15:38Z",
+      "side": 1,
+      "message": "Cherrypicked to master branch @ https://android-review.googlesource.com/c/platform/hardware/interfaces/+/3081424\n\nCould you please let me know exact branch name for \"main\", if any other cherrypick is required other than \"master\"?",
+      "parentUuid": "1de8f846_4ceb2adf",
+      "revId": "95134ec46a2adc862633bf8a7db91d174ed43d42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
