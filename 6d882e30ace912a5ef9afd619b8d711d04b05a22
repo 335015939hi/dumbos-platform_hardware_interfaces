@@ -472,6 +472,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "755cebb9_c0bb888e",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 4184,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-05-09T06:26:56Z",
+      "side": 1,
+      "message": "Okay, I will modify the logic to support this flow.",
+      "parentUuid": "2435afe2_845b5bc9",
+      "revId": "6d882e30ace912a5ef9afd619b8d711d04b05a22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bffd9cbd_207bd54c",
