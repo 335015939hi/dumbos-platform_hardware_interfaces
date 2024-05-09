@@ -177,6 +177,24 @@
       "parentUuid": "a8415348_94d6d22d",
       "revId": "8154b2d7f58fb16da5b916761dc19b8d034553d5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3221847d_b0de7dd1",
+        "filename": "security/keymint/aidl/default/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-09T09:16:22Z",
+      "side": 1,
+      "message": "Use of auth tokens requires that a) HMAC key has been agreed and b) KeyMint is up; I still don\u0027t get why would we want to impose a system-wide ordering requirement on those two things?",
+      "parentUuid": "0dc3695e_b23f7a9b",
+      "revId": "8154b2d7f58fb16da5b916761dc19b8d034553d5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
