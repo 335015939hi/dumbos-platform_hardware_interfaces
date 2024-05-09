@@ -1,0 +1,75 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1a2bf77_061841f5",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-09T20:01:17Z",
+      "side": 1,
+      "message": "Usually, the `k` prefix is used for static constants. This should be `mDescriptor`.",
+      "range": {
+        "startLine": 407,
+        "startChar": 15,
+        "endLine": 407,
+        "endChar": 26
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e6b882ce_cfad0503",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 97,
+                "startChar": 0,
+                "endLine": 98,
+                "endChar": 0
+              },
+              "replacement": "        mDescriptor \u003d desc;\n"
+            },
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 225,
+                "startChar": 0,
+                "endLine": 226,
+                "endChar": 0
+              },
+              "replacement": "                                                              mDescriptor.capability)) {\n"
+            },
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 227,
+                "startChar": 0,
+                "endLine": 228,
+                "endChar": 0
+              },
+              "replacement": "                    mDescriptor.capability, Spatializer::supportedChannelLayout);\n"
+            },
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 407,
+                "startChar": 0,
+                "endLine": 408,
+                "endChar": 0
+              },
+              "replacement": "    Descriptor mDescriptor;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "498274f6f6c7ddae8ae8fae509cd4dc609fe2278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
