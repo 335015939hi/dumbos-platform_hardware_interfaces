@@ -118,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c47e65c6_a0b426db",
+        "filename": "security/keymint/support/fuzzer/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-09T09:06:19Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "daa061ad_75793a27",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 66
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6006c268_fd6239cc",
@@ -190,6 +214,30 @@
       "side": 1,
       "message": "Changed `TAG_PURPOSE` accordingly. `keyDesc` does not have any `TAG_PURPOSE` set earlier.",
       "parentUuid": "17d850c2_7739b5a8",
+      "range": {
+        "startLine": 61,
+        "startChar": 43,
+        "endLine": 61,
+        "endChar": 59
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79f40e7f_a2890616",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-09T09:06:19Z",
+      "side": 1,
+      "message": "Now that there\u0027s a separate params generator for attestation keys, can we just put `ATTEST_KEY` in all the arms there and drop `keyDescAttest` ?  (And then we can probably also from `generateAttestKey` as a separate method too.)",
+      "parentUuid": "a7da300e_73896adf",
       "range": {
         "startLine": 61,
         "startChar": 43,
@@ -512,6 +560,24 @@
       "side": 1,
       "message": "I\u0027ve adjusted `kStringSize` to 64. When the fuzzer exhausts its random byte pool, it defaults to initial values. However, during longer runs, libFuzzer decreases the initial byte count, leading to generation of new strings with fresh random bytes.",
       "parentUuid": "b60b5015_c8e681a2",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3b9064d_e676c8d3",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-09T09:06:19Z",
+      "side": 1,
+      "message": "Thanks for explaining -- I guess I didn\u0027t leave the fuzzer going long enough for it to move to longer random data.",
+      "parentUuid": "89eba0a8_5dee4e6c",
       "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

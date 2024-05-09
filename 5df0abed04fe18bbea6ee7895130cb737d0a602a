@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edf0b703_e21f0409",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-09T09:06:19Z",
+      "side": 1,
+      "message": "IIUC this is going to waste a bunch of fuzzer time with failed attempts to generate attestation keys.  Can we instead have a separate enum that just has `RSA_ATTEST_KEY` and `EC_ATTEST_KEY` arms, something like:\n\n```\n    uint32_t attestAuthSet \u003d dataProvider-\u003eConsumeEnum\u003cAttestAuthSet\u003e();\n    ....\n    switch (attestAuthSet) {\n        case RSA_ATTEST_KEY: {\n            PaddingMode padding \u003d dataProvider-\u003ePickValueInArray(kPaddingMode);        \n            return AuthorizationSetBuilder()\n                    .Authorization(TAG_NO_AUTH_REQUIRED)\n                    .RsaKey(kRsaKeySize, kPublicExponent)\n                    .Digest(digest)\n                    .Padding(padding)\n                    .AttestKey()\n                    .AttestationChallenge(challenge)\n                    .AttestationApplicationId(id)\n                    .SetDefaultValidity()\n                    .Authorization(TAG_CREATION_DATETIME, timestamp)\n                    .Authorization(TAG_INCLUDE_UNIQUE_ID);\n        } break;\n        case ECDSA_ATTEST_KEY: {\n            EcCurve ecCurve \u003d dataProvider-\u003ePickValueInArray(kCurve);\n            return AuthorizationSetBuilder()\n                    .Authorization(TAG_NO_AUTH_REQUIRED)\n                    .EcdsaKey(ecCurve)\n                    .AttestKey()\n                    .Digest(digest)\n                    .AttestationChallenge(challenge)\n                    .AttestationApplicationId(id)\n                    .SetDefaultValidity()\n                    .Authorization(TAG_CREATION_DATETIME, timestamp)\n                    .Authorization(TAG_INCLUDE_UNIQUE_ID);\n        } break;\n        default: { // unreachable\n            return AuthorizationSetBuilder();\n        } break;\n    }\n\n```",
+      "revId": "5df0abed04fe18bbea6ee7895130cb737d0a602a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2acd006_c8258681",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-09T09:06:19Z",
+      "side": 1,
+      "message": "nit: rename the case from `RSA_KEY` to `RSA_ATTEST_KEY` to be clearer.",
+      "revId": "5df0abed04fe18bbea6ee7895130cb737d0a602a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c6c3332_6a60e0aa",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-09T09:06:19Z",
+      "side": 1,
+      "message": "`TAG_INCLUDE_UNIQUE_ID` is only relevant if there\u0027s an attestation, so probably best to either drop it, or add `AttestationChallenge` / `AttestationApplicationId`",
+      "revId": "5df0abed04fe18bbea6ee7895130cb737d0a602a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
