@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d4bead1_a661efa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1979580
+      },
+      "writtenOn": "2024-05-09T17:58:52Z",
+      "side": 1,
+      "message": "Modified the patch to include some other EUTRAN bands(band 3 and 40) also(for Indian operators).",
+      "revId": "bdf55593c851d0ef6dbb18f824458a46127c41d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
