@@ -70,6 +70,30 @@
       ],
       "revId": "498274f6f6c7ddae8ae8fae509cd4dc609fe2278",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60099d0e_75b096b2",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-05-09T20:30:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1a2bf77_061841f5",
+      "range": {
+        "startLine": 407,
+        "startChar": 15,
+        "endLine": 407,
+        "endChar": 26
+      },
+      "revId": "498274f6f6c7ddae8ae8fae509cd4dc609fe2278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
