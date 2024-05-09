@@ -52,6 +52,24 @@
       "parentUuid": "02c83231_3f87e54c",
       "revId": "95134ec46a2adc862633bf8a7db91d174ed43d42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d57702_25a4ac0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1979580
+      },
+      "writtenOn": "2024-05-09T18:32:59Z",
+      "side": 1,
+      "message": "Thanks Sarah. Do I need to explicitly add someone for  DrNO review approval?",
+      "parentUuid": "142fde2f_f289bcf4",
+      "revId": "95134ec46a2adc862633bf8a7db91d174ed43d42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
