@@ -32,9 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.sim;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum CardPowerState {
-  POWER_DOWN = 0,
-  POWER_UP = 1,
-  POWER_UP_PASS_THROUGH = 2,
+  POWER_DOWN,
+  POWER_UP,
+  POWER_UP_PASS_THROUGH,
 }

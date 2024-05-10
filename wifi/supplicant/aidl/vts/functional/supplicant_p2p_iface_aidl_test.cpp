@@ -19,6 +19,7 @@
 #include <aidl/Vintf.h>
 #include <aidl/android/hardware/wifi/supplicant/BnSupplicant.h>
 #include <aidl/android/hardware/wifi/supplicant/BnSupplicantP2pIfaceCallback.h>
+#include <aidl/android/hardware/wifi/supplicant/SupplicantStatusCode.h>
 #include <android/binder_manager.h>
 #include <android/binder_status.h>
 #include <binder/IServiceManager.h>
@@ -34,10 +35,16 @@ using aidl::android::hardware::wifi::supplicant::IfaceType;
 using aidl::android::hardware::wifi::supplicant::ISupplicant;
 using aidl::android::hardware::wifi::supplicant::ISupplicantP2pIface;
 using aidl::android::hardware::wifi::supplicant::MiracastMode;
+using aidl::android::hardware::wifi::supplicant::P2pDeviceFoundEventParams;
 using aidl::android::hardware::wifi::supplicant::P2pFrameTypeMask;
 using aidl::android::hardware::wifi::supplicant::P2pGroupCapabilityMask;
+using aidl::android::hardware::wifi::supplicant::P2pGroupStartedEventParams;
+using aidl::android::hardware::wifi::supplicant::P2pPeerClientDisconnectedEventParams;
+using aidl::android::hardware::wifi::supplicant::P2pPeerClientJoinedEventParams;
 using aidl::android::hardware::wifi::supplicant::P2pProvDiscStatusCode;
+using aidl::android::hardware::wifi::supplicant::P2pProvisionDiscoveryCompletedEventParams;
 using aidl::android::hardware::wifi::supplicant::P2pStatusCode;
+using aidl::android::hardware::wifi::supplicant::SupplicantStatusCode;
 using aidl::android::hardware::wifi::supplicant::WpsConfigMethods;
 using aidl::android::hardware::wifi::supplicant::WpsDevPasswordId;
 using aidl::android::hardware::wifi::supplicant::WpsProvisionMethod;
@@ -173,6 +180,28 @@ class SupplicantP2pIfaceCallback : public BnSupplicantP2pIfaceCallback {
             const std::vector<uint8_t>& /* wfdDeviceInfo */,
             const std::vector<uint8_t>& /* wfdR2DeviceInfo */,
             const std::vector<uint8_t>& /* vendorElemBytes */) override {
+        return ndk::ScopedAStatus::ok();
+    }
+    ::ndk::ScopedAStatus onGroupStartedWithParams(
+            const P2pGroupStartedEventParams& /* groupStartedEventParams */) override {
+        return ndk::ScopedAStatus::ok();
+    }
+    ::ndk::ScopedAStatus onPeerClientJoined(
+            const P2pPeerClientJoinedEventParams& /* clientJoinedEventParams */) override {
+        return ndk::ScopedAStatus::ok();
+    }
+    ::ndk::ScopedAStatus onPeerClientDisconnected(
+            const P2pPeerClientDisconnectedEventParams& /* clientDisconnectedEventParams */)
+            override {
+        return ndk::ScopedAStatus::ok();
+    }
+    ::ndk::ScopedAStatus onProvisionDiscoveryCompletedEvent(
+            const P2pProvisionDiscoveryCompletedEventParams&
+            /* provisionDiscoveryCompletedEventParams */) override {
+        return ndk::ScopedAStatus::ok();
+    }
+    ::ndk::ScopedAStatus onDeviceFoundWithParams(
+            const P2pDeviceFoundEventParams& /* deviceFoundEventParams */) override {
         return ndk::ScopedAStatus::ok();
     }
 };
@@ -413,7 +442,12 @@ TEST_P(SupplicantP2pIfaceAidlTest, SetListenChannel) {
  */
 TEST_P(SupplicantP2pIfaceAidlTest, EnableMacRandomization) {
     // Enable twice
-    EXPECT_TRUE(p2p_iface_->setMacRandomization(true).isOk());
+    auto status = p2p_iface_->setMacRandomization(true);
+    if (!status.isOk() && status.getServiceSpecificError() ==
+                                  static_cast<int32_t>(SupplicantStatusCode::FAILURE_UNSUPPORTED)) {
+        GTEST_SKIP() << "Mac randomization is not supported.";
+    }
+    EXPECT_TRUE(status.isOk());
     EXPECT_TRUE(p2p_iface_->setMacRandomization(true).isOk());
 
     // Disable twice
@@ -524,16 +558,11 @@ TEST_P(SupplicantP2pIfaceAidlTest, Flush) {
  * Connect
  */
 TEST_P(SupplicantP2pIfaceAidlTest, Connect) {
-    /*
-     * Auto-join is not enabled before R. After enabling auto-join,
-     * this should always succeed.
-     */
     std::string pin;
     EXPECT_TRUE(p2p_iface_
-                    ->connect(kTestMacAddr, WpsProvisionMethod::PBC,
-                              kTestConnectPin, false, false,
-                              kTestConnectGoIntent, &pin)
-                    .isOk());
+                        ->connect(kTestMacAddr, WpsProvisionMethod::PBC, kTestConnectPin, true,
+                                  false, kTestConnectGoIntent, &pin)
+                        .isOk());
 }
 
 /*
@@ -542,10 +571,9 @@ TEST_P(SupplicantP2pIfaceAidlTest, Connect) {
 TEST_P(SupplicantP2pIfaceAidlTest, CancelConnect) {
     std::string pin;
     EXPECT_TRUE(p2p_iface_
-                    ->connect(kTestMacAddr, WpsProvisionMethod::PBC,
-                              kTestConnectPin, false, false,
-                              kTestConnectGoIntent, &pin)
-                    .isOk());
+                        ->connect(kTestMacAddr, WpsProvisionMethod::PBC, kTestConnectPin, true,
+                                  false, kTestConnectGoIntent, &pin)
+                        .isOk());
     EXPECT_TRUE(p2p_iface_->cancelConnect().isOk());
 }
 

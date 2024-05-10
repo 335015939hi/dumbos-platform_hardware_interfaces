@@ -28,32 +28,35 @@
 #include <android/binder_interface_utils.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
+#include <system/audio_effects/effect_uuid.h>
 
 #include <aidl/android/hardware/audio/effect/IFactory.h>
 
-#include "AudioHalBinderServiceUtil.h"
 #include "EffectFactoryHelper.h"
 #include "TestUtils.h"
+
+#include <system/audio_aidl_utils.h>
+
+using namespace android;
+using ::android::audio::utils::toString;
 
 using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectUuidNull;
+using aidl::android::hardware::audio::effect::getEffectUuidZero;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kEffectNullUuid;
-using aidl::android::hardware::audio::effect::kEffectZeroUuid;
 using aidl::android::hardware::audio::effect::Processing;
 using aidl::android::media::audio::common::AudioSource;
 using aidl::android::media::audio::common::AudioStreamType;
 using aidl::android::media::audio::common::AudioUuid;
+using android::hardware::audio::common::testing::detail::TestExecutionTracer;
 
 /// Effect factory testing.
 class EffectFactoryTest : public testing::TestWithParam<std::string> {
   public:
-    void SetUp() override {
-        mFactoryHelper = std::make_unique<EffectFactoryHelper>(GetParam());
-        connectAndGetFactory();
-    }
+    void SetUp() override { connectAndGetFactory(); }
 
     void TearDown() override {
         for (auto& effect : mEffects) {
@@ -62,13 +65,14 @@ class EffectFactoryTest : public testing::TestWithParam<std::string> {
         }
     }
 
-    std::unique_ptr<EffectFactoryHelper> mFactoryHelper;
+    const std::string kServiceName = GetParam();
     std::shared_ptr<IFactory> mEffectFactory;
     std::vector<std::shared_ptr<IEffect>> mEffects;
-    const Descriptor::Identity kNullId = {.uuid = kEffectNullUuid};
-    const Descriptor::Identity kZeroId = {.uuid = kEffectZeroUuid};
+    const Descriptor::Identity kNullId = {.uuid = getEffectUuidNull()};
+    const Descriptor::Identity kZeroId = {.uuid = getEffectUuidZero()};
     const Descriptor kNullDesc = {.common.id = kNullId};
     const Descriptor kZeroDesc = {.common.id = kZeroId};
+    AudioHalBinderServiceUtil mBinderUtil;
 
     template <typename Functor>
     void ForEachId(const std::vector<Descriptor::Identity> ids, Functor functor) {
@@ -92,7 +96,7 @@ class EffectFactoryTest : public testing::TestWithParam<std::string> {
             std::shared_ptr<IEffect> effect;
             EXPECT_STATUS(expectStatus, mEffectFactory->createEffect(uuid, &effect));
             if (expectStatus == EX_NONE) {
-                EXPECT_NE(effect, nullptr) << " null effect with uuid: " << uuid.toString();
+                EXPECT_NE(effect, nullptr) << " null effect with uuid: " << toString(uuid);
                 effects.push_back(std::move(effect));
             }
         }
@@ -111,8 +115,11 @@ class EffectFactoryTest : public testing::TestWithParam<std::string> {
         }
     }
     void connectAndGetFactory() {
-        ASSERT_NO_FATAL_FAILURE(mFactoryHelper->ConnectToFactoryService());
-        mEffectFactory = mFactoryHelper->GetFactory();
+        mEffectFactory = IFactory::fromBinder(mBinderUtil.connectToService(kServiceName));
+        ASSERT_NE(mEffectFactory, nullptr);
+    }
+    void restartAndGetFactory() {
+        mEffectFactory = IFactory::fromBinder(mBinderUtil.restartService());
         ASSERT_NE(mEffectFactory, nullptr);
     }
 };
@@ -122,23 +129,25 @@ TEST_P(EffectFactoryTest, SetupAndTearDown) {
 }
 
 TEST_P(EffectFactoryTest, CanBeRestarted) {
-    ASSERT_NO_FATAL_FAILURE(mFactoryHelper->RestartFactoryService());
+    ASSERT_NE(mEffectFactory, nullptr);
+    restartAndGetFactory();
 }
 
 /**
  * @brief Check at least support list of effect must be supported by aosp:
  * https://developer.android.com/reference/android/media/audiofx/AudioEffect
+ *
+ * For Android 13, they are: Equalizer, LoudnessEnhancer, Visualizer, and DynamicsProcessing.
+ * https://source.android.com/docs/compatibility/13/android-13-cdd#552_audio_effects
  */
-TEST_P(EffectFactoryTest, ExpectAllAospEffectTypes) {
+TEST_P(EffectFactoryTest, SupportMandatoryEffectTypes) {
     std::vector<Descriptor> descs;
-    std::set<AudioUuid> typeUuidSet(
-            {aidl::android::hardware::audio::effect::kBassBoostTypeUUID,
-             aidl::android::hardware::audio::effect::kEqualizerTypeUUID,
-             aidl::android::hardware::audio::effect::kEnvReverbTypeUUID,
-             aidl::android::hardware::audio::effect::kPresetReverbTypeUUID,
-             aidl::android::hardware::audio::effect::kDynamicsProcessingTypeUUID,
-             aidl::android::hardware::audio::effect::kHapticGeneratorTypeUUID,
-             aidl::android::hardware::audio::effect::kVirtualizerTypeUUID});
+    std::set<AudioUuid> typeUuidSet({
+            aidl::android::hardware::audio::effect::getEffectTypeUuidEqualizer(),
+            aidl::android::hardware::audio::effect::getEffectTypeUuidDynamicsProcessing(),
+            aidl::android::hardware::audio::effect::getEffectTypeUuidLoudnessEnhancer(),
+            aidl::android::hardware::audio::effect::getEffectTypeUuidVisualizer(),
+    });
 
     EXPECT_IS_OK(mEffectFactory->queryEffects(std::nullopt, std::nullopt, std::nullopt, &descs));
     EXPECT_TRUE(descs.size() >= typeUuidSet.size());
@@ -147,7 +156,7 @@ TEST_P(EffectFactoryTest, ExpectAllAospEffectTypes) {
     }
     std::string msg = " missing type UUID:\n";
     for (const auto& uuid : typeUuidSet) {
-        msg += (uuid.toString() + "\n");
+        msg += (toString(uuid) + "\n");
     }
     SCOPED_TRACE(msg);
     EXPECT_EQ(0UL, typeUuidSet.size());
@@ -155,19 +164,22 @@ TEST_P(EffectFactoryTest, ExpectAllAospEffectTypes) {
 
 TEST_P(EffectFactoryTest, QueryNullTypeUuid) {
     std::vector<Descriptor> descs;
-    EXPECT_IS_OK(mEffectFactory->queryEffects(kEffectNullUuid, std::nullopt, std::nullopt, &descs));
+    EXPECT_IS_OK(
+            mEffectFactory->queryEffects(getEffectUuidNull(), std::nullopt, std::nullopt, &descs));
     EXPECT_EQ(descs.size(), 0UL);
 }
 
 TEST_P(EffectFactoryTest, QueriedNullImplUuid) {
     std::vector<Descriptor> descs;
-    EXPECT_IS_OK(mEffectFactory->queryEffects(std::nullopt, kEffectNullUuid, std::nullopt, &descs));
+    EXPECT_IS_OK(
+            mEffectFactory->queryEffects(std::nullopt, getEffectUuidNull(), std::nullopt, &descs));
     EXPECT_EQ(descs.size(), 0UL);
 }
 
 TEST_P(EffectFactoryTest, QueriedNullProxyUuid) {
     std::vector<Descriptor> descs;
-    EXPECT_IS_OK(mEffectFactory->queryEffects(std::nullopt, std::nullopt, kEffectNullUuid, &descs));
+    EXPECT_IS_OK(
+            mEffectFactory->queryEffects(std::nullopt, std::nullopt, getEffectUuidNull(), &descs));
     EXPECT_EQ(descs.size(), 0UL);
 }
 
@@ -240,8 +252,7 @@ TEST_P(EffectFactoryTest, CreateDestroyWithRestart) {
     EXPECT_NE(descs.size(), 0UL);
     creatAndDestroyDescs(descs);
 
-    mFactoryHelper->RestartFactoryService();
-
+    restartAndGetFactory();
     connectAndGetFactory();
     creatAndDestroyDescs(descs);
 }
@@ -253,8 +264,7 @@ TEST_P(EffectFactoryTest, EffectInvalidAfterRestart) {
     EXPECT_NE(descs.size(), 0UL);
     std::vector<std::shared_ptr<IEffect>> effects = createWithDescs(descs);
 
-    ASSERT_NO_FATAL_FAILURE(mFactoryHelper->RestartFactoryService());
-
+    restartAndGetFactory();
     connectAndGetFactory();
     destroyEffects(effects, EX_ILLEGAL_ARGUMENT);
 }
@@ -263,6 +273,7 @@ TEST_P(EffectFactoryTest, EffectInvalidAfterRestart) {
 TEST_P(EffectFactoryTest, QueryProcess) {
     std::vector<Processing> processing;
     EXPECT_IS_OK(mEffectFactory->queryProcessing(std::nullopt, &processing));
+    std::set<Processing> processingSet(processing.begin(), processing.end());
 
     Processing::Type streamType =
             Processing::Type::make<Processing::Type::streamType>(AudioStreamType::SYSTEM);
@@ -275,7 +286,33 @@ TEST_P(EffectFactoryTest, QueryProcess) {
     EXPECT_IS_OK(mEffectFactory->queryProcessing(source, &processingFilteredBySource));
 
     EXPECT_TRUE(processing.size() >= processingFilteredByStream.size());
+    EXPECT_TRUE(std::all_of(
+            processingFilteredByStream.begin(), processingFilteredByStream.end(),
+            [&](const auto& proc) { return processingSet.find(proc) != processingSet.end(); }));
+
     EXPECT_TRUE(processing.size() >= processingFilteredBySource.size());
+    EXPECT_TRUE(std::all_of(
+            processingFilteredBySource.begin(), processingFilteredBySource.end(),
+            [&](const auto& proc) { return processingSet.find(proc) != processingSet.end(); }));
+}
+
+// Make sure all effect instances have same HAL version number as IFactory.
+TEST_P(EffectFactoryTest, VersionNumberForAllEffectsEqualsToIFactory) {
+    std::vector<Descriptor> descs;
+    EXPECT_IS_OK(mEffectFactory->queryEffects(std::nullopt, std::nullopt, std::nullopt, &descs));
+    EXPECT_NE(descs.size(), 0UL);
+
+    std::vector<std::shared_ptr<IEffect>> effects = createWithDescs(descs);
+    int factoryVersion = 0;
+    EXPECT_IS_OK(mEffectFactory->getInterfaceVersion(&factoryVersion));
+
+    for (const auto& effect : effects) {
+        int effectVersion = 0;
+        EXPECT_NE(nullptr, effect);
+        EXPECT_IS_OK(effect->getInterfaceVersion(&effectVersion));
+        EXPECT_EQ(factoryVersion, effectVersion);
+    }
+    ASSERT_NO_FATAL_FAILURE(destroyEffects(effects));
 }
 
 INSTANTIATE_TEST_SUITE_P(EffectFactoryTest, EffectFactoryTest,
@@ -285,6 +322,7 @@ GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EffectFactoryTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
+    ::testing::UnitTest::GetInstance()->listeners().Append(new TestExecutionTracer());
     ABinderProcess_setThreadPoolMaxThreadCount(1);
     ABinderProcess_startThreadPool();
     return RUN_ALL_TESTS();

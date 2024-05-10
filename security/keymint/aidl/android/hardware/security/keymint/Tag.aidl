@@ -482,11 +482,12 @@ enum Tag {
 
     /**
      * Tag::UNLOCKED_DEVICE_REQUIRED specifies that the key may only be used when the device is
-     * unlocked, as reported to KeyMint via authToken operation parameter and the
-     * IKeyMintDevice::deviceLocked() method
+     * unlocked.
      *
-     * Must be hardware-enforced (but is also keystore-enforced on a per-user basis: see the
-     * deviceLocked() documentation).
+     * This tag was originally intended to be hardware-enforced.  However, the support for hardware
+     * enforcement of this tag is now considered deprecated because it cannot work correctly, and
+     * even if implemented it does nothing because it was never enabled by Keystore.  Refer to the
+     * documentation for the deprecated method IKeyMintDevice::deviceLocked().
      */
     UNLOCKED_DEVICE_REQUIRED = TagType.BOOL | 509,
 
@@ -643,6 +644,8 @@ enum Tag {
      * Tag::ATTESTATION_CHALLENGE is used to deliver a "challenge" value to the attested key
      * generation/import methods, which must place the value in the KeyDescription SEQUENCE of the
      * attestation extension.
+     * The challenge value may be up to 128 bytes. If the caller provides a bigger challenge,
+     * INVALID_INPUT_LENGTH error should be returned.
      *
      * Must never appear in KeyCharacteristics.
      */
@@ -971,7 +974,9 @@ enum Tag {
      * Tag::CERTIFICATE_NOT_BEFORE the beginning of the validity of the certificate in UNIX epoch
      * time in milliseconds.  This value is used when generating attestation or self signed
      * certificates.  ErrorCode::MISSING_NOT_BEFORE must be returned if this tag is not provided if
-     * this tag is not provided to generateKey or importKey.
+     * this tag is not provided to generateKey or importKey.  For importWrappedKey, there is no way
+     * to specify the value of this tag for a wrapped asymmetric key, so a value of 0 is suggested
+     * for certificate generation.
      */
     CERTIFICATE_NOT_BEFORE = TagType.DATE | 1008,
 
@@ -979,7 +984,9 @@ enum Tag {
      * Tag::CERTIFICATE_NOT_AFTER the end of the validity of the certificate in UNIX epoch time in
      * milliseconds.  This value is used when generating attestation or self signed certificates.
      * ErrorCode::MISSING_NOT_AFTER must be returned if this tag is not provided to generateKey or
-     * importKey.
+     * importKey.  For importWrappedKey, there is no way to specify the value of this tag for a
+     * wrapped asymmetric key, so a value of 253402300799000 is suggested for certificate
+     * generation.
      */
     CERTIFICATE_NOT_AFTER = TagType.DATE | 1009,
 

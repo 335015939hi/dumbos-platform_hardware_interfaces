@@ -1,4 +1,5 @@
 package {
+    default_team: "trendy_team_camera_framework",
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // all of the 'license_kinds' from "hardware_interfaces_license"
@@ -14,9 +15,10 @@ aidl_interface {
         "android/hardware/camera/provider/*.aidl",
     ],
     imports: [
-        "android.hardware.camera.device-V1",
+        "android.hardware.camera.device-V3",
         "android.hardware.camera.common-V1",
     ],
+    frozen: false,
     stability: "vintf",
     backend: {
         java: {
@@ -34,6 +36,14 @@ aidl_interface {
                 "android.hardware.camera.common-V1",
             ],
         },
+        {
+            version: "2",
+            imports: [
+                "android.hardware.camera.device-V2",
+                "android.hardware.camera.common-V1",
+            ],
+        },
+
     ],
 
 }

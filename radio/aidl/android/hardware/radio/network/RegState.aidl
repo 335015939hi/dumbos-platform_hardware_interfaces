@@ -20,6 +20,7 @@ package android.hardware.radio.network;
  * Please note that registration state UNKNOWN is treated as "out of service" in Android telephony.
  * Registration state REG_DENIED must be returned if Location Update Reject (with cause 17 - Network
  * Failure) is received repeatedly from the network, to facilitate "managed roaming".
+ * @hide
  */
 @VintfStability
 @Backing(type="int")
@@ -65,4 +66,10 @@ enum RegState {
      * Same as UNKNOWN but indicates that emergency calls are enabled
      */
     UNKNOWN_EM = 14,
+    /**
+     * Emergency attached in EPS or in 5GS.
+     * Reference: 3GPP TS 24.301 9.9.3.11 EPS attach type.
+     * Reference: 3GPP TS 24.501 9.11.3.6 5GS registration result.
+     */
+    REG_EM = 20,
 }

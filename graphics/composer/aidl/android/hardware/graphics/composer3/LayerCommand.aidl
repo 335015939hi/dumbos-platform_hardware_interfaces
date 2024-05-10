@@ -23,6 +23,7 @@ import android.hardware.graphics.common.Rect;
 import android.hardware.graphics.composer3.Buffer;
 import android.hardware.graphics.composer3.Color;
 import android.hardware.graphics.composer3.LayerBrightness;
+import android.hardware.graphics.composer3.LayerLifecycleBatchCommandType;
 import android.hardware.graphics.composer3.ParcelableBlendMode;
 import android.hardware.graphics.composer3.ParcelableComposition;
 import android.hardware.graphics.composer3.ParcelableDataspace;
@@ -258,4 +259,24 @@ parcelable LayerCommand {
      * the screen.
      */
     @nullable Rect[] blockingRegion;
+
+    /**
+     * Specifies which buffer slots should be cleared of buffer references
+     * because these buffers will no longer be used and the memory should
+     * be freed.
+     */
+    @nullable int[] bufferSlotsToClear;
+
+    /**
+     * Specifies if this layer command is on type modify, create or destroy.
+     * This command is replacing the older IComposerClient.createLayer and destroyLayer
+     * and making it more efficient with reduced aidls to the HAL.
+     * The HAL will report the errors by setting CommandResultPayload::CommandError.
+     */
+    LayerLifecycleBatchCommandType layerLifecycleBatchCommandType;
+
+    /**
+     * Specifies the number of buffer slot to be reserved.
+     */
+    int newBufferSlotCount;
 }

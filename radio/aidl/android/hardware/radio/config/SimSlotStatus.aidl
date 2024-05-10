@@ -16,8 +16,10 @@
 
 package android.hardware.radio.config;
 
+import android.hardware.radio.config.MultipleEnabledProfilesMode;
 import android.hardware.radio.config.SimPortInfo;
 
+/** @hide */
 @VintfStability
 @JavaDerive(toString=true)
 parcelable SimSlotStatus {
@@ -52,4 +54,9 @@ parcelable SimSlotStatus {
      * active port in the slot mapping.
      */
     SimPortInfo[] portInfo;
+    /**
+     * Jointly supported Multiple Enabled Profiles(MEP) mode as per SGP.22 V3.0. Should always
+     * report proper MEP mode irrespective of whether the slot is active or inactive.
+     */
+    MultipleEnabledProfilesMode supportedMepMode = MultipleEnabledProfilesMode.NONE;
 }

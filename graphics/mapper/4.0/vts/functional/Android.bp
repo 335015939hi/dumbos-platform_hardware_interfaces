@@ -15,6 +15,7 @@
 //
 
 package {
+    default_team: "trendy_team_android_core_graphics_stack",
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // all of the 'license_kinds' from "hardware_interfaces_license"
@@ -33,7 +34,6 @@ cc_test {
     ],
     srcs: ["VtsHalGraphicsMapperV4_0TargetTest.cpp"],
     static_libs: [
-        "android.hardware.graphics.common-V4-ndk",
         "android.hardware.graphics.mapper@4.0-vts",
         "libaidlcommonsupport",
         "libgralloctypes",

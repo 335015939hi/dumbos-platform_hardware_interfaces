@@ -20,7 +20,6 @@
 #include <android-base/unique_fd.h>
 #include <android/hardware/graphics/composer3/ComposerClientReader.h>
 #include <android/hardware/graphics/composer3/ComposerClientWriter.h>
-#include <mapper-vts/2.1/MapperVts.h>
 #include <renderengine/RenderEngine.h>
 #include <ui/GraphicBuffer.h>
 #include <memory>
@@ -32,7 +31,6 @@ namespace aidl::android::hardware::graphics::composer3::vts {
 using ::android::renderengine::LayerSettings;
 using common::Dataspace;
 using common::PixelFormat;
-using IMapper2_1 = ::android::hardware::graphics::mapper::V2_1::IMapper;
 
 static const Color BLACK = {0.0f, 0.0f, 0.0f, 1.0f};
 static const Color RED = {1.0f, 0.0f, 0.0f, 1.0f};
@@ -44,14 +42,18 @@ static const Color TRANSLUCENT_RED = {1.0f, 0.0f, 0.0f, 0.3f};
 static const Color GREEN = {0.0f, 1.0f, 0.0f, 1.0f};
 static const Color BLUE = {0.0f, 0.0f, 1.0f, 1.0f};
 static const Color WHITE = {1.0f, 1.0f, 1.0f, 1.0f};
+static const Color LIGHT_RED = {0.5f, 0.0f, 0.0f, 1.0f};
+static const Color LIGHT_GREEN = {0.0f, 0.5f, 0.0f, 1.0f};
+static const Color LIGHT_BLUE = {0.0f, 0.0f, 0.5f, 1.0f};
 
 class TestRenderEngine;
 
 class TestLayer {
   public:
-    TestLayer(const std::shared_ptr<VtsComposerClient>& client, int64_t display)
+    TestLayer(const std::shared_ptr<VtsComposerClient>& client, int64_t display,
+              ComposerClientWriter& writer)
         : mDisplay(display) {
-        const auto& [status, layer] = client->createLayer(display, kBufferSlotCount);
+        const auto& [status, layer] = client->createLayer(display, kBufferSlotCount, &writer);
         EXPECT_TRUE(status.isOk());
         mLayer = layer;
     }
@@ -72,6 +74,8 @@ class TestLayer {
     void setSurfaceDamage(std::vector<Rect> surfaceDamage) {
         mSurfaceDamage = std::move(surfaceDamage);
     }
+
+    void setDataspace(Dataspace dataspace) { mDataspace = dataspace; }
 
     void setTransform(Transform transform) { mTransform = transform; }
     void setAlpha(float alpha) { mAlpha = alpha; }
@@ -100,12 +104,14 @@ class TestLayer {
     float mAlpha = 1.0;
     BlendMode mBlendMode = BlendMode::NONE;
     uint32_t mZOrder = 0;
+    Dataspace mDataspace = Dataspace::UNKNOWN;
 };
 
 class TestColorLayer : public TestLayer {
   public:
-    TestColorLayer(const std::shared_ptr<VtsComposerClient>& client, int64_t display)
-        : TestLayer{client, display} {}
+    TestColorLayer(const std::shared_ptr<VtsComposerClient>& client, int64_t display,
+                   ComposerClientWriter& writer)
+        : TestLayer{client, display, writer} {}
 
     void write(ComposerClientWriter& writer) override;
 
@@ -121,7 +127,7 @@ class TestBufferLayer : public TestLayer {
   public:
     TestBufferLayer(const std::shared_ptr<VtsComposerClient>& client,
                     TestRenderEngine& renderEngine, int64_t display, uint32_t width,
-                    uint32_t height, common::PixelFormat format,
+                    uint32_t height, common::PixelFormat format, ComposerClientWriter& writer,
                     Composition composition = Composition::DEVICE);
 
     void write(ComposerClientWriter& writer) override;
@@ -131,8 +137,6 @@ class TestBufferLayer : public TestLayer {
     void fillBuffer(std::vector<Color>& expectedColors);
 
     void setBuffer(std::vector<Color> colors);
-
-    void setDataspace(Dataspace dataspace, ComposerClientWriter& writer);
 
     void setToClientComposition(ComposerClientWriter& writer);
 
@@ -187,6 +191,9 @@ class ReadbackHelper {
     static void compareColorBuffers(const std::vector<Color>& expectedColors, void* bufferData,
                                     const uint32_t stride, const uint32_t width,
                                     const uint32_t height, PixelFormat pixelFormat);
+    static void compareColorBuffers(void* expectedBuffer, void* actualBuffer, const uint32_t stride,
+                                    const uint32_t width, const uint32_t height,
+                                    PixelFormat pixelFormat);
 };
 
 class ReadbackBuffer {
@@ -197,6 +204,8 @@ class ReadbackBuffer {
     void setReadbackBuffer();
 
     void checkReadbackBuffer(const std::vector<Color>& expectedColors);
+
+    ::android::sp<::android::GraphicBuffer> getBuffer();
 
   protected:
     uint32_t mWidth;

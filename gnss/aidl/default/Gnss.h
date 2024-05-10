@@ -84,13 +84,15 @@ class Gnss : public BnGnss {
                                     IMeasurementCorrectionsInterface>* iMeasurementCorrections)
             override;
 
+    void reportSvStatus() const;
+    void setGnssMeasurementEnabled(const bool enabled);
+    void setGnssMeasurementInterval(const long intervalMs);
     std::shared_ptr<GnssConfiguration> mGnssConfiguration;
     std::shared_ptr<GnssPowerIndication> mGnssPowerIndication;
     std::shared_ptr<GnssMeasurementInterface> mGnssMeasurementInterface;
 
   private:
     void reportLocation(const GnssLocation&) const;
-    void reportSvStatus() const;
     void reportSvStatus(const std::vector<IGnssCallback::GnssSvInfo>& svInfoList) const;
     std::vector<IGnssCallback::GnssSvInfo> filterBlocklistedSatellites(
             std::vector<IGnssCallback::GnssSvInfo> gnssSvInfoList) const;
@@ -101,10 +103,12 @@ class Gnss : public BnGnss {
     static std::shared_ptr<IGnssCallback> sGnssCallback;
 
     std::atomic<long> mMinIntervalMs;
+    std::atomic<long> mGnssMeasurementIntervalMs;
     std::atomic<bool> mIsActive;
     std::atomic<bool> mIsSvStatusActive;
     std::atomic<bool> mIsNmeaActive;
     std::atomic<bool> mFirstFixReceived;
+    std::atomic<bool> mGnssMeasurementEnabled;
     std::thread mThread;
     ::android::hardware::gnss::common::ThreadBlocker mThreadBlocker;
 

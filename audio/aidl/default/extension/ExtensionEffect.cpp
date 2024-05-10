@@ -19,27 +19,27 @@
 #include <memory>
 #include <unordered_set>
 
-#define LOG_TAG "AHAL_ExtensionEffect"
-#include <Utils.h>
 #include <aidl/android/hardware/audio/effect/DefaultExtension.h>
+#define LOG_TAG "AHAL_ExtensionEffect"
 #include <android-base/logging.h>
 #include <fmq/AidlMessageQueue.h>
+#include <system/audio_effects/effect_uuid.h>
 
 #include "ExtensionEffect.h"
 
 using aidl::android::hardware::audio::effect::DefaultExtension;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::ExtensionEffect;
+using aidl::android::hardware::audio::effect::getEffectImplUuidExtension;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidExtension;
 using aidl::android::hardware::audio::effect::IEffect;
-using aidl::android::hardware::audio::effect::kExtensionEffectImplUUID;
-using aidl::android::hardware::audio::effect::kExtensionEffectTypeUUID;
 using aidl::android::hardware::audio::effect::Range;
 using aidl::android::hardware::audio::effect::VendorExtension;
 using aidl::android::media::audio::common::AudioUuid;
 
 extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
                                            std::shared_ptr<IEffect>* instanceSpp) {
-    if (!in_impl_uuid || *in_impl_uuid != kExtensionEffectImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != getEffectImplUuidExtension()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -54,7 +54,7 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
 }
 
 extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
-    if (!in_impl_uuid || *in_impl_uuid != kExtensionEffectImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != getEffectImplUuidExtension()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -67,8 +67,8 @@ namespace aidl::android::hardware::audio::effect {
 const std::string ExtensionEffect::kEffectName = "ExtensionEffectExample";
 
 const Descriptor ExtensionEffect::kDescriptor = {
-        .common = {.id = {.type = kExtensionEffectTypeUUID,
-                          .uuid = kExtensionEffectImplUUID,
+        .common = {.id = {.type = getEffectTypeUuidExtension(),
+                          .uuid = getEffectImplUuidExtension(),
                           .proxy = std::nullopt},
                    .name = ExtensionEffect::kEffectName,
                    .implementor = "The Android Open Source Project"}};
@@ -88,7 +88,7 @@ ndk::ScopedAStatus ExtensionEffect::setParameterSpecific(const Parameter::Specif
     std::optional<DefaultExtension> defaultExt;
     RETURN_IF(STATUS_OK != vendorEffect.extension.getParcelable(&defaultExt), EX_ILLEGAL_ARGUMENT,
               "getParcelableFailed");
-    RETURN_IF(!defaultExt.has_value(), EX_ILLEGAL_ARGUMENT, "parcelableNulld");
+    RETURN_IF(!defaultExt.has_value(), EX_ILLEGAL_ARGUMENT, "parcelableNull");
     RETURN_IF(mContext->setParams(defaultExt->bytes) != RetCode::SUCCESS, EX_ILLEGAL_ARGUMENT,
               "paramNotSupported");
 
@@ -99,10 +99,15 @@ ndk::ScopedAStatus ExtensionEffect::getParameterSpecific(const Parameter::Id& id
                                                          Parameter::Specific* specific) {
     auto tag = id.getTag();
     RETURN_IF(Parameter::Id::vendorEffectTag != tag, EX_ILLEGAL_ARGUMENT, "wrongIdTag");
-    auto specificId = id.get<Parameter::Id::vendorEffectTag>();
+    auto extensionId = id.get<Parameter::Id::vendorEffectTag>();
+    std::optional<DefaultExtension> defaultIdExt;
+    RETURN_IF(STATUS_OK != extensionId.extension.getParcelable(&defaultIdExt), EX_ILLEGAL_ARGUMENT,
+              "getIdParcelableFailed");
+    RETURN_IF(!defaultIdExt.has_value(), EX_ILLEGAL_ARGUMENT, "parcelableIdNull");
+
     VendorExtension extension;
     DefaultExtension defaultExt;
-    defaultExt.bytes = mContext->getParams(specificId);
+    defaultExt.bytes = mContext->getParams(defaultIdExt->bytes);
     RETURN_IF(STATUS_OK != extension.extension.setParcelable(defaultExt), EX_ILLEGAL_ARGUMENT,
               "setParcelableFailed");
     specific->set<Parameter::Specific::vendorEffect>(extension);
@@ -115,10 +120,6 @@ std::shared_ptr<EffectContext> ExtensionEffect::createContext(const Parameter::C
     } else {
         mContext = std::make_shared<ExtensionEffectContext>(1 /* statusFmqDepth */, common);
     }
-    return mContext;
-}
-
-std::shared_ptr<EffectContext> ExtensionEffect::getContext() {
     return mContext;
 }
 

@@ -15,6 +15,7 @@
 //
 
 package {
+    default_team: "trendy_team_camera_framework",
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // all of the 'license_kinds' from "hardware_interfaces_license"
@@ -27,6 +28,7 @@ cc_test {
     name: "VtsAidlHalCameraProvider_TargetTest",
     defaults: [
         "VtsHalTargetTestDefaults",
+        "android.hardware.graphics.common-ndk_static",
         "use_libaidlvintf_gtest_helper_static",
     ],
     srcs: [
@@ -52,22 +54,33 @@ cc_test {
         "android.hardware.graphics.mapper@2.0",
         "android.hardware.graphics.mapper@3.0",
         "android.hardware.graphics.mapper@4.0",
+        "camera_platform_flags_c_lib",
     ],
 
     // Statically link to libs not guaranteed to be present on the device.
     static_libs: [
         "android.hardware.camera.common@1.0-helper",
         "android.hardware.camera.common-V1-ndk",
-        "android.hardware.camera.device-V1-ndk",
-        "android.hardware.camera.metadata-V1-ndk",
-        "android.hardware.camera.provider-V1-ndk",
-        "android.hardware.graphics.common-V4-ndk",
+        "android.hardware.camera.device-V3-ndk",
+        "android.hardware.camera.metadata-V2-ndk",
+        "android.hardware.camera.provider-V3-ndk",
         "android.hidl.allocator@1.0",
         "libgrallocusage",
         "libhidlmemory",
         "libgralloctypes",
         "libaidlcommonsupport",
+        "libgtest",
     ],
+
+    require_root: true,
+    test_options: {
+        test_runner_options: [
+            {
+                name: "native-test-timeout",
+                value: "1800000",
+            },
+        ],
+    },
     test_suites: [
         "general-tests",
         "vts",

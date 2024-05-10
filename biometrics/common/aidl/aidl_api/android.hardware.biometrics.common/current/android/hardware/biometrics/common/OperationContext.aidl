@@ -32,10 +32,18 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.biometrics.common;
+/* @hide */
 @VintfStability
 parcelable OperationContext {
   int id = 0;
   android.hardware.biometrics.common.OperationReason reason = android.hardware.biometrics.common.OperationReason.UNKNOWN;
+  /**
+   * @deprecated use displayState instead.
+   */
   boolean isAod = false;
   boolean isCrypto = false;
+  android.hardware.biometrics.common.WakeReason wakeReason = android.hardware.biometrics.common.WakeReason.UNKNOWN;
+  android.hardware.biometrics.common.DisplayState displayState = android.hardware.biometrics.common.DisplayState.UNKNOWN;
+  @nullable android.hardware.biometrics.common.AuthenticateReason authenticateReason;
+  android.hardware.biometrics.common.FoldState foldState = android.hardware.biometrics.common.FoldState.UNKNOWN;
 }

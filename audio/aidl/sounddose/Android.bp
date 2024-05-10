@@ -44,13 +44,23 @@ aidl_interface {
         },
     },
     versions_with_info: [
+        {
+            version: "1",
+            imports: ["android.hardware.audio.core.sounddose-V1"],
+        },
+        {
+            version: "2",
+            imports: ["android.hardware.audio.core.sounddose-V2"],
+        },
+
         // IMPORTANT: Update latest_android_hardware_audio_sounddose every time you
         // add the latest frozen version to versions_with_info
     ],
+    frozen: true,
 }
 
 // Note: This should always be one version ahead of the last frozen version
-latest_android_hardware_audio_sounddose = "android.hardware.audio.sounddose-V1"
+latest_android_hardware_audio_sounddose = "android.hardware.audio.sounddose-V2"
 
 // Modules that depend on android.hardware.audio.sounddose directly can include
 // the following cc_defaults to avoid explicitly managing dependency versions

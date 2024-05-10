@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <functional>
 #include <string>
 #include <vector>
 
@@ -23,9 +24,7 @@
 namespace android::vintf::details {
 
 // The predicate to VintfObject::checkMissingHalsInMatrices.
-bool ShouldCheckMissingHalsInFcm(const std::string& package) {
-    using std::placeholders::_1;
-
+bool ShouldCheckMissingHidlHalsInFcm(const std::string& packageAndVersion) {
     static std::vector<std::string> included_prefixes{
             // Other AOSP HALs (e.g. android.frameworks.*) are not added because only framework
             // matrix is checked.
@@ -50,28 +49,11 @@ bool ShouldCheckMissingHalsInFcm(const std::string& package) {
             "android.hardware.media.bufferpool@1.0",
             "android.hardware.media.bufferpool@2.0",
             "android.hardware.radio.config@1.2",
-            // AIDL
-            "android.hardware.audio.common",
-            "android.hardware.audio.core.sounddose",
-            "android.hardware.biometrics.common",
-            "android.hardware.camera.metadata",
-            "android.hardware.camera.device",
-            "android.hardware.camera.common",
-            "android.hardware.common",
-            "android.hardware.common.fmq",
-            "android.hardware.graphics.common",
-            "android.hardware.input.common",
-            "android.hardware.keymaster",
-            "android.hardware.media.bufferpool2",
-            "android.hardware.radio",
-            "android.hardware.uwb.fira_android",
 
             // Fastboot HAL is only used by recovery. Recovery is owned by OEM. Framework
             // does not depend on this HAL, hence it is not declared in any manifests or matrices.
             "android.hardware.fastboot@1.0",
             "android.hardware.fastboot@1.1",
-            // Fastboot AIDL
-            "android.hardware.fastboot",
 
             // Deprecated HALs.
             // HIDL
@@ -102,10 +84,30 @@ bool ShouldCheckMissingHalsInFcm(const std::string& package) {
             "android.hardware.thermal@1.0",
             "android.hardware.thermal@1.1",
             "android.hardware.wifi.offload@1.0",
+
+            // b/279809679 for HALS deprecated in Q
+            "android.hardware.audio.effect@5.0",
+            "android.hardware.audio@5.0",
+            "android.hardware.boot@1.0",
+            "android.hardware.configstore@1.1",
+            "android.hardware.drm@1.0",
+            "android.hardware.drm@1.1",
+            "android.hardware.drm@1.2",
+            "android.hardware.dumpstate@1.0",
+            "android.hardware.health@2.0",
+            "android.hardware.light@2.0",
+            "android.hardware.power@1.0",
+            "android.hardware.power@1.1",
+            "android.hardware.power@1.2",
+            "android.hardware.power@1.3",
+            "android.hardware.vibrator@1.0",
+            "android.hardware.vibrator@1.1",
+            "android.hardware.vibrator@1.2",
+            "android.hardware.vibrator@1.3",
     };
 
     auto package_has_prefix = [&](const std::string& prefix) {
-        return android::base::StartsWith(package, prefix);
+        return android::base::StartsWith(packageAndVersion, prefix);
     };
 
     // Only check packageAndVersions that are in the include list and not in the exclude list.
@@ -113,7 +115,71 @@ bool ShouldCheckMissingHalsInFcm(const std::string& package) {
         return false;
     }
 
-    if (std::find(excluded_exact.begin(), excluded_exact.end(), package) != excluded_exact.end()) {
+    if (std::find(excluded_exact.begin(), excluded_exact.end(), packageAndVersion) !=
+        excluded_exact.end()) {
+        return false;
+    }
+
+    return !std::any_of(excluded_prefixes.begin(), excluded_prefixes.end(), package_has_prefix);
+}
+
+// The predicate to VintfObject::checkMissingHalsInMatrices.
+bool ShouldCheckMissingAidlHalsInFcm(const std::string& packageAndVersion) {
+    static std::vector<std::string> included_prefixes{
+            // Other AOSP HALs (e.g. android.frameworks.*) are not added because only framework
+            // matrix is checked.
+            "android.hardware.",
+    };
+
+    static std::vector<std::string> excluded_prefixes{
+            // Packages without top level interfaces (including types-only packages) are exempted.
+            "android.hardware.audio.common@",
+            "android.hardware.biometrics.common@",
+            "android.hardware.camera.metadata@",
+            "android.hardware.camera.device@",
+            "android.hardware.camera.common@",
+            "android.hardware.common@",
+            "android.hardware.common.fmq@",
+            "android.hardware.gnss.measurement_corrections@",
+            "android.hardware.gnss.visibility_control@",
+            "android.hardware.graphics.common@",
+            "android.hardware.input.common@",
+            "android.hardware.keymaster@",
+            "android.hardware.media.bufferpool2@",
+            "android.hardware.radio@",
+            "android.hardware.uwb.fira_android@",
+            "android.hardware.wifi.common@",
+
+            // Test packages are exempted.
+            "android.hardware.tests.",
+
+            // Fastboot HAL is only used by recovery. Recovery is owned by OEM. Framework
+            // does not depend on this HAL, hence it is not declared in any manifests or matrices.
+            "android.hardware.fastboot@",
+    };
+
+    static std::vector<std::string> excluded_exact{
+            // Packages without top level interfaces (including types-only packages) are exempted.
+
+            // AIDL
+            "android.hardware.audio.core.sounddose@1",
+            "android.hardware.audio.core.sounddose@2",
+
+            // Deprecated HALs.
+            "android.hardware.bluetooth.audio@1",
+    };
+
+    auto package_has_prefix = [&](const std::string& prefix) {
+        return android::base::StartsWith(packageAndVersion, prefix);
+    };
+
+    // Only check packageAndVersions that are in the include list and not in the exclude list.
+    if (!std::any_of(included_prefixes.begin(), included_prefixes.end(), package_has_prefix)) {
+        return false;
+    }
+
+    if (std::find(excluded_exact.begin(), excluded_exact.end(), packageAndVersion) !=
+        excluded_exact.end()) {
         return false;
     }
 

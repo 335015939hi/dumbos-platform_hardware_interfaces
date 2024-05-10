@@ -17,25 +17,26 @@
 #include <algorithm>
 #include <cstddef>
 #include <memory>
-#define LOG_TAG "AHAL_AcousticEchoCancelerSw"
-#include <Utils.h>
 #include <unordered_set>
 
+#define LOG_TAG "AHAL_AcousticEchoCancelerSw"
 #include <android-base/logging.h>
 #include <fmq/AidlMessageQueue.h>
+#include <system/audio_effects/effect_uuid.h>
 
 #include "AcousticEchoCancelerSw.h"
 
 using aidl::android::hardware::audio::effect::AcousticEchoCancelerSw;
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectImplUuidAcousticEchoCancelerSw;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidAcousticEchoCanceler;
 using aidl::android::hardware::audio::effect::IEffect;
-using aidl::android::hardware::audio::effect::kAcousticEchoCancelerSwImplUUID;
 using aidl::android::hardware::audio::effect::Range;
 using aidl::android::media::audio::common::AudioUuid;
 
 extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
                                            std::shared_ptr<IEffect>* instanceSpp) {
-    if (!in_impl_uuid || *in_impl_uuid != kAcousticEchoCancelerSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != getEffectImplUuidAcousticEchoCancelerSw()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -50,7 +51,7 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
 }
 
 extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
-    if (!in_impl_uuid || *in_impl_uuid != kAcousticEchoCancelerSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != getEffectImplUuidAcousticEchoCancelerSw()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -70,12 +71,12 @@ const std::vector<Range::AcousticEchoCancelerRange> AcousticEchoCancelerSw::kRan
 const Capability AcousticEchoCancelerSw::kCapability = {.range = AcousticEchoCancelerSw::kRanges};
 
 const Descriptor AcousticEchoCancelerSw::kDescriptor = {
-        .common = {.id = {.type = kAcousticEchoCancelerTypeUUID,
-                          .uuid = kAcousticEchoCancelerSwImplUUID,
+        .common = {.id = {.type = getEffectTypeUuidAcousticEchoCanceler(),
+                          .uuid = getEffectImplUuidAcousticEchoCancelerSw(),
                           .proxy = std::nullopt},
-                   .flags = {.type = Flags::Type::INSERT,
+                   .flags = {.type = Flags::Type::PRE_PROC,
                              .insert = Flags::Insert::FIRST,
-                             .volume = Flags::Volume::CTRL},
+                             .volume = Flags::Volume::NONE},
                    .name = AcousticEchoCancelerSw::kEffectName,
                    .implementor = "The Android Open Source Project"},
         .capability = AcousticEchoCancelerSw::kCapability};
@@ -164,10 +165,6 @@ std::shared_ptr<EffectContext> AcousticEchoCancelerSw::createContext(
     } else {
         mContext = std::make_shared<AcousticEchoCancelerSwContext>(1 /* statusFmqDepth */, common);
     }
-    return mContext;
-}
-
-std::shared_ptr<EffectContext> AcousticEchoCancelerSw::getContext() {
     return mContext;
 }
 

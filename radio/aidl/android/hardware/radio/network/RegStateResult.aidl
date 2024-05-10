@@ -22,6 +22,7 @@ import android.hardware.radio.network.CellIdentity;
 import android.hardware.radio.network.RegState;
 import android.hardware.radio.network.RegistrationFailCause;
 
+/** @hide */
 @VintfStability
 @JavaDerive(toString=true)
 parcelable RegStateResult {
@@ -33,9 +34,9 @@ parcelable RegStateResult {
      */
     RegState regState;
     /**
-     * Indicates the radio technology (except LTE_CA, which is no longer a valid value), which
-     * must not be UNKNOWN if regState is REG_HOME, REG_ROAMING, NOT_REG_MT_NOT_SEARCHING_OP_EM,
-     * NOT_REG_MT_SEARCHING_OP_EM, REG_DENIED_EM, or UNKNOWN_EM.
+     * Indicates the radio technology, which must not be UNKNOWN if regState is REG_HOME,
+     * REG_ROAMING, NOT_REG_MT_NOT_SEARCHING_OP_EM, NOT_REG_MT_SEARCHING_OP_EM, REG_DENIED_EM,
+     * or UNKNOWN_EM.
      * When the device is on carrier aggregation, vendor RIL service must properly report multiple
      * PhysicalChannelConfig elements through IRadioNetwork::currentPhysicalChannelConfigs.
      */

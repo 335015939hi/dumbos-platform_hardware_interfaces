@@ -32,22 +32,36 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.modem;
+/* @hide */
 @VintfStability
 interface IRadioModemResponse {
   oneway void acknowledgeRequest(in int serial);
   oneway void enableModemResponse(in android.hardware.radio.RadioResponseInfo info);
   oneway void getBasebandVersionResponse(in android.hardware.radio.RadioResponseInfo info, in String version);
+  /**
+   * @deprecated use getImeiResponse(RadioResponseInfo responseInfo, ImeiInfo imeiInfo)
+   */
   oneway void getDeviceIdentityResponse(in android.hardware.radio.RadioResponseInfo info, in String imei, in String imeisv, in String esn, in String meid);
   oneway void getHardwareConfigResponse(in android.hardware.radio.RadioResponseInfo info, in android.hardware.radio.modem.HardwareConfig[] config);
   oneway void getModemActivityInfoResponse(in android.hardware.radio.RadioResponseInfo info, in android.hardware.radio.modem.ActivityStatsInfo activityInfo);
   oneway void getModemStackStatusResponse(in android.hardware.radio.RadioResponseInfo info, in boolean isEnabled);
   oneway void getRadioCapabilityResponse(in android.hardware.radio.RadioResponseInfo info, in android.hardware.radio.modem.RadioCapability rc);
+  /**
+   * @deprecated NV APIs are deprecated starting from Android U.
+   */
   oneway void nvReadItemResponse(in android.hardware.radio.RadioResponseInfo info, in String result);
   oneway void nvResetConfigResponse(in android.hardware.radio.RadioResponseInfo info);
+  /**
+   * @deprecated NV APIs are deprecated starting from Android U.
+   */
   oneway void nvWriteCdmaPrlResponse(in android.hardware.radio.RadioResponseInfo info);
+  /**
+   * @deprecated NV APIs are deprecated starting from Android U.
+   */
   oneway void nvWriteItemResponse(in android.hardware.radio.RadioResponseInfo info);
   oneway void requestShutdownResponse(in android.hardware.radio.RadioResponseInfo info);
   oneway void sendDeviceStateResponse(in android.hardware.radio.RadioResponseInfo info);
   oneway void setRadioCapabilityResponse(in android.hardware.radio.RadioResponseInfo info, in android.hardware.radio.modem.RadioCapability rc);
   oneway void setRadioPowerResponse(in android.hardware.radio.RadioResponseInfo info);
+  oneway void getImeiResponse(in android.hardware.radio.RadioResponseInfo responseInfo, in @nullable android.hardware.radio.modem.ImeiInfo imeiInfo);
 }

@@ -3,5 +3,10 @@
     {
       "name" : "VtsHalBluetoothTargetTest"
     }
+  ],
+  "hwasan-presubmit" : [
+    {
+      "name" : "VtsHalBluetoothTargetTest"
+    }
   ]
 }

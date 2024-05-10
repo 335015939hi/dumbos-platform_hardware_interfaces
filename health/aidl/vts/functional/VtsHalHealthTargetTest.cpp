@@ -84,6 +84,21 @@ Matcher<T> IsValidEnum() {
     return AnyOfArray(enum_range<T>().begin(), enum_range<T>().end());
 }
 
+MATCHER(IsValidSerialNumber, "") {
+    if (!arg) {
+        return true;
+    }
+    if (arg->size() < 6) {
+        return false;
+    }
+    for (const auto& c : *arg) {
+        if (!isalnum(c)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 class HealthAidl : public testing::TestWithParam<std::string> {
   public:
     void SetUp() override {
@@ -257,7 +272,7 @@ TEST_P(HealthAidl, setChargingPolicy) {
     BatteryChargingPolicy value;
 
     /* set ChargingPolicy*/
-    status = health->setChargingPolicy(static_cast<BatteryChargingPolicy>(2));  // LONG_LIFE
+    status = health->setChargingPolicy(BatteryChargingPolicy::LONG_LIFE);
     ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
     if (!status.isOk()) return;
 
@@ -265,10 +280,12 @@ TEST_P(HealthAidl, setChargingPolicy) {
     status = health->getChargingPolicy(&value);
     ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
     if (!status.isOk()) return;
-    ASSERT_THAT(static_cast<int>(value), Eq(2));
+    // the result of getChargingPolicy will be one of default(1), ADAPTIVE_AON(2)
+    // ADAPTIVE_AC(3) or LONG_LIFE(4). default(1) means NOT_SUPPORT
+    ASSERT_THAT(static_cast<int>(value), AnyOf(Eq(1), Eq(4)));
 }
 
-MATCHER(IsValidHealthData, "") {
+MATCHER_P(IsValidHealthData, version, "") {
     *result_listener << "value is " << arg.toString() << ".";
     if (!ExplainMatchResult(Ge(-1), arg.batteryManufacturingDateSeconds, result_listener)) {
         *result_listener << " for batteryManufacturingDateSeconds.";
@@ -282,11 +299,21 @@ MATCHER(IsValidHealthData, "") {
         *result_listener << " for batteryStateOfHealth.";
         return false;
     }
+    if (!ExplainMatchResult(IsValidSerialNumber(), arg.batterySerialNumber, result_listener)) {
+        *result_listener << " for batterySerialNumber.";
+        return false;
+    }
+    if (!ExplainMatchResult(IsValidEnum<BatteryPartStatus>(), arg.batteryPartStatus,
+                            result_listener)) {
+        *result_listener << " for batteryPartStatus.";
+        return false;
+    }
 
     return true;
 }
 
-/*
+/* @VsrTest = 3.2.015
+ *
  * Tests the values returned by getBatteryHealthData() from interface IHealth.
  */
 TEST_P(HealthAidl, getBatteryHealthData) {
@@ -301,7 +328,7 @@ TEST_P(HealthAidl, getBatteryHealthData) {
     status = health->getBatteryHealthData(&value);
     ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
     if (!status.isOk()) return;
-    ASSERT_THAT(value, IsValidHealthData());
+    ASSERT_THAT(value, IsValidHealthData(version));
 }
 
 MATCHER(IsValidStorageInfo, "") {

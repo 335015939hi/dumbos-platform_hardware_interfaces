@@ -28,12 +28,14 @@ namespace hardware {
 namespace tv {
 namespace tuner {
 
-Frontend::Frontend(FrontendType type, int32_t id, std::shared_ptr<Tuner> tuner) {
+Frontend::Frontend(FrontendType type, int32_t id) {
     mType = type;
     mId = id;
-    mTuner = tuner;
+    mTuner = nullptr;
     // Init callback to nullptr
     mCallback = nullptr;
+    mIptvPluginInterface = nullptr;
+    mIptvPluginStreamer = nullptr;
 
     switch (mType) {
         case FrontendType::ISDBS: {
@@ -164,20 +166,39 @@ Frontend::Frontend(FrontendType type, int32_t id, std::shared_ptr<Tuner> tuner) 
             };
             break;
         }
+        case FrontendType::IPTV: {
+            mFrontendCaps.set<FrontendCapabilities::Tag::iptvCaps>(FrontendIptvCapabilities());
+            mFrontendStatusCaps = {
+                    FrontendStatusType::IPTV_CONTENT_URL,
+                    FrontendStatusType::IPTV_PACKETS_LOST,
+                    FrontendStatusType::IPTV_PACKETS_RECEIVED,
+                    FrontendStatusType::IPTV_AVERAGE_JITTER_MS,
+                    FrontendStatusType::IPTV_WORST_JITTER_MS,
+            };
+            break;
+        }
         default: {
             break;
         }
     }
 }
 
-Frontend::~Frontend() {}
+Frontend::~Frontend() {
+    ALOGV("%s", __FUNCTION__);
+    mCallback = nullptr;
+    mIsLocked = false;
+    mTuner = nullptr;
+}
 
 ::ndk::ScopedAStatus Frontend::close() {
     ALOGV("%s", __FUNCTION__);
     // Reset callback
     mCallback = nullptr;
     mIsLocked = false;
-    mTuner->removeFrontend(mId);
+    if (mTuner != nullptr) {
+        mTuner->removeFrontend(mId);
+    }
+    mTuner = nullptr;
 
     return ::ndk::ScopedAStatus::ok();
 }
@@ -194,17 +215,82 @@ Frontend::~Frontend() {}
     return ::ndk::ScopedAStatus::ok();
 }
 
-::ndk::ScopedAStatus Frontend::tune(const FrontendSettings& /* in_settings */) {
-    ALOGV("%s", __FUNCTION__);
+void Frontend::readTuneByte(dtv_streamer* streamer, void* buf, size_t buf_size, int timeout_ms) {
+    ssize_t bytes_read = mIptvPluginInterface->read_stream(streamer, buf, buf_size, timeout_ms);
+    if (bytes_read <= 0) {
+        ALOGI("[   ERROR   ] Tune byte couldn't be read.");
+        return;
+    }
+    mCallback->onEvent(FrontendEventType::LOCKED);
+    mIsLocked = true;
+}
+
+::ndk::ScopedAStatus Frontend::tune(const FrontendSettings& in_settings) {
     if (mCallback == nullptr) {
-        ALOGW("[   WARN   ] Frontend callback is not set when tune");
+        ALOGW("[   WARN   ] Frontend callback is not set for tunin0g");
         return ::ndk::ScopedAStatus::fromServiceSpecificError(
                 static_cast<int32_t>(Result::INVALID_STATE));
     }
 
-    mTuner->frontendStartTune(mId);
-    mCallback->onEvent(FrontendEventType::LOCKED);
-    mIsLocked = true;
+    if (mType != FrontendType::IPTV) {
+        mTuner->frontendStartTune(mId);
+        mCallback->onEvent(FrontendEventType::LOCKED);
+        mIsLocked = true;
+    } else {
+        // This is a reference implementation for IPTV. It uses an additional socket buffer.
+        // Vendors can use hardware memory directly to make the implementation more performant.
+        ALOGI("[   INFO   ] Frontend type is set to IPTV, tag = %d id=%d", in_settings.getTag(),
+              mId);
+
+        // load udp plugin for reading TS data
+        const char* path = "/vendor/lib/iptv_udp_plugin.so";
+        DtvPlugin* plugin = new DtvPlugin(path);
+        if (!plugin) {
+            ALOGE("Failed to create DtvPlugin, plugin_path is invalid");
+            return ::ndk::ScopedAStatus::fromServiceSpecificError(
+                    static_cast<int32_t>(Result::INVALID_ARGUMENT));
+        }
+        bool plugin_loaded = plugin->load();
+        if (!plugin_loaded) {
+            ALOGE("Failed to load plugin");
+            return ::ndk::ScopedAStatus::fromServiceSpecificError(
+                    static_cast<int32_t>(Result::INVALID_ARGUMENT));
+        }
+        mIptvPluginInterface = plugin->interface();
+
+        // validate content_url format
+        std::string content_url = in_settings.get<FrontendSettings::Tag::iptv>()->contentUrl;
+        std::string transport_desc = "{ \"uri\": \"" + content_url + "\"}";
+        ALOGI("[   INFO   ] transport_desc: %s", transport_desc.c_str());
+        bool is_transport_desc_valid = plugin->validate(transport_desc.c_str());
+        if (!is_transport_desc_valid) {  // not of format protocol://ip:port
+            ALOGE("[   INFO   ] transport_desc is not valid");
+            return ::ndk::ScopedAStatus::fromServiceSpecificError(
+                    static_cast<int32_t>(Result::INVALID_ARGUMENT));
+        }
+        mIptvTransportDescription = transport_desc;
+
+        // create a streamer and open it for reading data
+        dtv_streamer* streamer = mIptvPluginInterface->create_streamer();
+        mIptvPluginStreamer = streamer;
+        int open_fd = mIptvPluginInterface->open_stream(streamer, transport_desc.c_str());
+        if (open_fd < 0) {
+            ALOGE("[   INFO   ] could not open stream");
+            return ::ndk::ScopedAStatus::fromServiceSpecificError(
+                    static_cast<int32_t>(Result::INVALID_ARGUMENT));
+        }
+        ALOGI("[   INFO   ] open_stream successful, open_fd=%d", open_fd);
+
+        size_t buf_size = 1;
+        int timeout_ms = 2000;
+        void* buf = malloc(sizeof(char) * buf_size);
+        if (buf == nullptr) ALOGI("malloc buf failed [TUNE]");
+        ALOGI("[   INFO   ] [Tune] Allocated buffer of size %zu", buf_size);
+        mIptvFrontendTuneThread =
+                std::thread(&Frontend::readTuneByte, this, streamer, buf, buf_size, timeout_ms);
+        if (mIptvFrontendTuneThread.joinable()) mIptvFrontendTuneThread.join();
+        free(buf);
+    }
 
     return ::ndk::ScopedAStatus::ok();
 }
@@ -231,6 +317,10 @@ Frontend::~Frontend() {}
     mScanThread = std::thread(&Frontend::scanThreadLoop, this);
 
     return ::ndk::ScopedAStatus::ok();
+}
+
+void Frontend::setTunerService(std::shared_ptr<Tuner> tuner) {
+    mTuner = tuner;
 }
 
 void Frontend::scanThreadLoop() {
@@ -863,6 +953,26 @@ void Frontend::scanThreadLoop() {
                 status.set<FrontendStatus::allPlpInfo>(infos);
                 break;
             }
+            case FrontendStatusType::IPTV_CONTENT_URL: {
+                status.set<FrontendStatus::iptvContentUrl>("");
+                break;
+            }
+            case FrontendStatusType::IPTV_PACKETS_LOST: {
+                status.set<FrontendStatus::iptvPacketsLost>(5);
+                break;
+            }
+            case FrontendStatusType::IPTV_PACKETS_RECEIVED: {
+                status.set<FrontendStatus::iptvPacketsReceived>(5);
+                break;
+            }
+            case FrontendStatusType::IPTV_WORST_JITTER_MS: {
+                status.set<FrontendStatus::iptvWorstJitterMs>(5);
+                break;
+            }
+            case FrontendStatusType::IPTV_AVERAGE_JITTER_MS: {
+                status.set<FrontendStatus::iptvAverageJitterMs>(5);
+                break;
+            }
             default: {
                 continue;
             }
@@ -954,6 +1064,18 @@ FrontendType Frontend::getFrontendType() {
 
 int32_t Frontend::getFrontendId() {
     return mId;
+}
+
+dtv_plugin* Frontend::getIptvPluginInterface() {
+    return mIptvPluginInterface;
+}
+
+string Frontend::getIptvTransportDescription() {
+    return mIptvTransportDescription;
+}
+
+dtv_streamer* Frontend::getIptvPluginStreamer() {
+    return mIptvPluginStreamer;
 }
 
 bool Frontend::supportsSatellite() {

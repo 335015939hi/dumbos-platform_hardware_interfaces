@@ -22,7 +22,6 @@
 #include <vector>
 
 #include "effect-impl/EffectImpl.h"
-#include "effect-impl/EffectUUID.h"
 
 namespace aidl::android::hardware::audio::effect {
 
@@ -37,7 +36,7 @@ class ExtensionEffectContext final : public EffectContext {
         mParams = params;
         return RetCode::SUCCESS;
     }
-    std::vector<uint8_t> getParams(int tag __unused) const { return mParams; }
+    std::vector<uint8_t> getParams(std::vector<uint8_t> id __unused) const { return mParams; }
 
   private:
     std::vector<uint8_t> mParams;
@@ -55,18 +54,20 @@ class ExtensionEffect final : public EffectImpl {
     }
 
     ndk::ScopedAStatus getDescriptor(Descriptor* _aidl_return) override;
-    ndk::ScopedAStatus setParameterSpecific(const Parameter::Specific& specific) override;
-    ndk::ScopedAStatus getParameterSpecific(const Parameter::Id& id,
-                                            Parameter::Specific* specific) override;
+    ndk::ScopedAStatus setParameterSpecific(const Parameter::Specific& specific)
+            REQUIRES(mImplMutex) override;
+    ndk::ScopedAStatus getParameterSpecific(const Parameter::Id& id, Parameter::Specific* specific)
+            REQUIRES(mImplMutex) override;
 
-    std::shared_ptr<EffectContext> createContext(const Parameter::Common& common) override;
-    std::shared_ptr<EffectContext> getContext() override;
-    RetCode releaseContext() override;
+    std::shared_ptr<EffectContext> createContext(const Parameter::Common& common)
+            REQUIRES(mImplMutex) override;
+    RetCode releaseContext() REQUIRES(mImplMutex) override;
 
     std::string getEffectName() override { return kEffectName; };
-    IEffect::Status effectProcessImpl(float* in, float* out, int samples) override;
+    IEffect::Status effectProcessImpl(float* in, float* out, int samples)
+            REQUIRES(mImplMutex) override;
 
   private:
-    std::shared_ptr<ExtensionEffectContext> mContext;
+    std::shared_ptr<ExtensionEffectContext> mContext GUARDED_BY(mImplMutex);
 };
 }  // namespace aidl::android::hardware::audio::effect

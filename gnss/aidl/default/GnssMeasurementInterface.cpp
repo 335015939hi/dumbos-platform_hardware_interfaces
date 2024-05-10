@@ -20,6 +20,7 @@
 #include <aidl/android/hardware/gnss/BnGnss.h>
 #include <log/log.h>
 #include "DeviceFileReader.h"
+#include "Gnss.h"
 #include "GnssRawMeasurementParser.h"
 #include "GnssReplayUtils.h"
 #include "Utils.h"
@@ -34,7 +35,9 @@ using DeviceFileReader = ::android::hardware::gnss::common::DeviceFileReader;
 std::shared_ptr<IGnssMeasurementCallback> GnssMeasurementInterface::sCallback = nullptr;
 
 GnssMeasurementInterface::GnssMeasurementInterface()
-    : mIntervalMs(1000), mLocationIntervalMs(1000), mFutures(std::vector<std::future<void>>()) {}
+    : mIntervalMs(1000), mLocationIntervalMs(1000) {
+    mThreads.reserve(2);
+}
 
 GnssMeasurementInterface::~GnssMeasurementInterface() {
     waitForStoppingThreads();
@@ -54,7 +57,7 @@ ndk::ScopedAStatus GnssMeasurementInterface::setCallback(
         ALOGW("GnssMeasurement callback already set. Resetting the callback...");
         stop();
     }
-    start(enableCorrVecOutputs);
+    start(enableCorrVecOutputs, enableFullTracking);
 
     return ndk::ScopedAStatus::ok();
 }
@@ -73,7 +76,8 @@ ndk::ScopedAStatus GnssMeasurementInterface::setCallbackWithOptions(
         stop();
     }
     mIntervalMs = std::max(options.intervalMs, 1000);
-    start(options.enableCorrVecOutputs);
+    mGnss->setGnssMeasurementInterval(mIntervalMs);
+    start(options.enableCorrVecOutputs, options.enableFullTracking);
 
     return ndk::ScopedAStatus::ok();
 }
@@ -91,19 +95,21 @@ ndk::ScopedAStatus GnssMeasurementInterface::close() {
     return ndk::ScopedAStatus::ok();
 }
 
-void GnssMeasurementInterface::start(const bool enableCorrVecOutputs) {
+void GnssMeasurementInterface::start(const bool enableCorrVecOutputs,
+                                     const bool enableFullTracking) {
     ALOGD("start");
 
     if (mIsActive) {
         ALOGD("restarting since measurement has started");
         stop();
     }
-    // Wait for stopping previous thread.
-    waitForStoppingThreads();
 
     mIsActive = true;
-    mThreadBlocker.reset();
-    mThread = std::thread([this, enableCorrVecOutputs]() {
+    mGnss->setGnssMeasurementEnabled(true);
+    mThreads.emplace_back(std::thread([this, enableCorrVecOutputs, enableFullTracking]() {
+        waitForStoppingThreads();
+        mThreadBlocker.reset();
+
         int intervalMs;
         do {
             if (!mIsActive) {
@@ -122,21 +128,33 @@ void GnssMeasurementInterface::start(const bool enableCorrVecOutputs) {
                     this->reportMeasurement(*measurement);
                 }
             } else {
-                auto measurement = Utils::getMockMeasurement(enableCorrVecOutputs);
+                auto measurement =
+                        Utils::getMockMeasurement(enableCorrVecOutputs, enableFullTracking);
                 this->reportMeasurement(measurement);
+                if (!mLocationEnabled || mLocationIntervalMs > mIntervalMs) {
+                    mGnss->reportSvStatus();
+                }
             }
             intervalMs =
                     (mLocationEnabled) ? std::min(mLocationIntervalMs, mIntervalMs) : mIntervalMs;
         } while (mIsActive && mThreadBlocker.wait_for(std::chrono::milliseconds(intervalMs)));
-    });
+    }));
 }
 
 void GnssMeasurementInterface::stop() {
     ALOGD("stop");
     mIsActive = false;
+    mGnss->setGnssMeasurementEnabled(false);
     mThreadBlocker.notify();
-    if (mThread.joinable()) {
-        mFutures.push_back(std::async(std::launch::async, [this] { mThread.join(); }));
+    for (auto iter = mThreads.begin(); iter != mThreads.end(); ++iter) {
+        if (iter->joinable()) {
+            mFutures.push_back(std::async(std::launch::async, [this, iter] {
+                iter->join();
+                mThreads.erase(iter);
+            }));
+        } else {
+            mThreads.erase(iter);
+        }
     }
 }
 
@@ -160,6 +178,10 @@ void GnssMeasurementInterface::setLocationInterval(const int intervalMs) {
 
 void GnssMeasurementInterface::setLocationEnabled(const bool enabled) {
     mLocationEnabled = enabled;
+}
+
+void GnssMeasurementInterface::setGnssInterface(const std::shared_ptr<Gnss>& gnss) {
+    mGnss = gnss;
 }
 
 void GnssMeasurementInterface::waitForStoppingThreads() {

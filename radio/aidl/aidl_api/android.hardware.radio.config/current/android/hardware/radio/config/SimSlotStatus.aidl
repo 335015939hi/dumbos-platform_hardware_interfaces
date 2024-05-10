@@ -32,10 +32,12 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.config;
+/* @hide */
 @JavaDerive(toString=true) @VintfStability
 parcelable SimSlotStatus {
   int cardState;
   String atr;
   String eid;
   android.hardware.radio.config.SimPortInfo[] portInfo;
+  android.hardware.radio.config.MultipleEnabledProfilesMode supportedMepMode = android.hardware.radio.config.MultipleEnabledProfilesMode.NONE;
 }

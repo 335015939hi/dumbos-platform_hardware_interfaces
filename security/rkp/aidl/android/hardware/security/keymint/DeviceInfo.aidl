@@ -17,39 +17,25 @@
 package android.hardware.security.keymint;
 
 /**
- * DeviceInfo contains information about the device that's fed in as AAD in the signature of the
- * device private key over the MAC key used for the bundle of public keys. These values are intended
- * to be checked by the server to verify that the certificate signing request crafted by
- * an IRemotelyProvisionedComponent HAL instance is coming from the expected device based
- * on values initially uploaded during device manufacture in the factory.
+ * DeviceInfo contains information about the device that's signed by the
+ * IRemotelyProvisionedComponent HAL. These values are intended to be checked by the server to
+ * verify that the certificate signing request crafted by an IRemotelyProvisionedComponent HAL
+ * instance is coming from the expected device based on values initially uploaded during device
+ * manufacture in the factory.
  * @hide
  */
 @VintfStability
 parcelable DeviceInfo {
     /**
      * DeviceInfo is a CBOR Map structure described by the following CDDL. DeviceInfo must be
-     * canonicalized according to the specification in RFC 7049. The ordering presented here is
-     * non-canonical to group similar entries semantically.
+     * ordered according to the Length-First Map Key Ordering specified in RFC 8949,
+     * Section 4.2.3. Please note that the ordering presented here groups similar entries
+     * semantically, and not in the correct order per RFC 8949, Section 4.2.3.
      *
-     *     DeviceInfo = {
-     *         "brand" : tstr,
-     *         "manufacturer" : tstr,
-     *         "product" : tstr,
-     *         "model" : tstr,
-     *         "device" : tstr,
-     *         "vb_state" : "green" / "yellow" / "orange",    ; Taken from the AVB values
-     *         "bootloader_state" : "locked" / "unlocked",    ; Taken from the AVB values
-     *         "vbmeta_digest": bstr,                         ; Taken from the AVB values
-     *         ? "os_version" : tstr,                         ; Same as
-     *                                                        ; android.os.Build.VERSION.release
-     *                                                        ; Not optional for TEE.
-     *         "system_patch_level" : uint,                   ; YYYYMMDD
-     *         "boot_patch_level" : uint,                     ; YYYYMMDD
-     *         "vendor_patch_level" : uint,                   ; YYYYMMDD
-     *         "security_level" : "tee" / "strongbox",
-     *         "fused": 1 / 0,  ; 1 if secure boot is enforced for the processor that the IRPC
-     *                          ; implementation is contained in. 0 otherwise.
-     *     }
+     * The DeviceInfo has changed across versions 1, 2, and 3 of the HAL. All versions of the
+     * DeviceInfo CDDL are described in the DeviceInfoV*.cddl files. Please refer to the CDDL
+     * structure version that corresponds to the HAL version you are working with.
+     *
      */
     byte[] deviceInfo;
 }

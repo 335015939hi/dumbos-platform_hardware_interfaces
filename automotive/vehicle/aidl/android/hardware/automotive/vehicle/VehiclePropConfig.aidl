@@ -22,12 +22,17 @@ import android.hardware.automotive.vehicle.VehiclePropertyChangeMode;
 
 @VintfStability
 @JavaDerive(equals=true, toString=true)
+@RustDerive(Clone=true)
 parcelable VehiclePropConfig {
     /** Property identifier */
     int prop;
 
     /**
      * Defines if the property is read or write or both.
+     *
+     * If populating VehicleAreaConfig.access fields for this property, this field should not be
+     * populated. If the OEM decides to populate this field, none of the VehicleAreaConfig.access
+     * fields should be populated.
      */
     VehiclePropertyAccess access = VehiclePropertyAccess.NONE;
 
@@ -37,7 +42,25 @@ parcelable VehiclePropConfig {
     VehiclePropertyChangeMode changeMode = VehiclePropertyChangeMode.STATIC;
 
     /**
-     * Contains per-area configuration.
+     * Contains per-areaId configuration.
+     *
+     * [Definition] area: An area represents a unique element of a VehicleArea. For instance, if the
+     *   VehicleArea is WINDOW, then an example area is FRONT_WINDSHIELD.
+     *
+     * [Definition] area ID: An area ID is a combination of one or more areas, and is created by
+     *   bitwise "OR"ing the areas together. Areas from different VehicleArea values may not be
+     *   mixed in a single area ID. For example, a VehicleAreaWindow area cannot be combined with a
+     *   VehicleAreaSeat area in an area ID.
+     *
+     * For VehicleArea#GLOBAL properties, they must map only to a single area ID of 0.
+     *
+     * Rules for mapping a non VehicleArea#GLOBAL property to area IDs:
+     *  - A property must be mapped to a set of area IDs that are impacted when the property value
+     *    changes.
+     *  - An area cannot be part of multiple area IDs, it must only be part of a single area ID.
+     *  - When the property value changes in one of the areas in an area ID, then it must
+     *    automatically change in all other areas in the area ID.
+     *  - The property value must be independently controllable in any two different area IDs.
      */
     VehicleAreaConfig[] areaConfigs;
 

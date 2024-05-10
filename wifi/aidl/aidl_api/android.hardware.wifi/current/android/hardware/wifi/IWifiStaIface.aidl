@@ -41,13 +41,12 @@ interface IWifiStaIface {
   void enableNdOffload(in boolean enable);
   android.hardware.wifi.StaApfPacketFilterCapabilities getApfPacketFilterCapabilities();
   android.hardware.wifi.StaBackgroundScanCapabilities getBackgroundScanCapabilities();
-  android.hardware.wifi.IWifiStaIface.StaIfaceCapabilityMask getCapabilities();
+  int getFeatureSet();
   android.hardware.wifi.WifiDebugRxPacketFateReport[] getDebugRxPacketFates();
   android.hardware.wifi.WifiDebugTxPacketFateReport[] getDebugTxPacketFates();
   byte[6] getFactoryMacAddress();
   android.hardware.wifi.StaLinkLayerStats getLinkLayerStats();
   android.hardware.wifi.StaRoamingCapabilities getRoamingCapabilities();
-  int[] getValidFrequenciesForBand(in android.hardware.wifi.WifiBand band);
   void installApfPacketFilter(in byte[] program);
   byte[] readApfPacketFilterData();
   void registerEventCallback(in android.hardware.wifi.IWifiStaIfaceEventCallback callback);
@@ -61,22 +60,32 @@ interface IWifiStaIface {
   void stopBackgroundScan(in int cmdId);
   void stopRssiMonitoring(in int cmdId);
   void stopSendingKeepAlivePackets(in int cmdId);
+  void setDtimMultiplier(in int multiplier);
+  android.hardware.wifi.CachedScanData getCachedScanData();
+  android.hardware.wifi.TwtCapabilities twtGetCapabilities();
+  void twtSessionSetup(in int cmdId, in android.hardware.wifi.TwtRequest twtRequest);
+  void twtSessionUpdate(in int cmdId, in int sessionId, in android.hardware.wifi.TwtRequest twtRequest);
+  void twtSessionSuspend(in int cmdId, in int sessionId);
+  void twtSessionResume(in int cmdId, in int sessionId);
+  void twtSessionTeardown(in int cmdId, in int sessionId);
+  void twtSessionGetStats(in int cmdId, in int sessionId);
   @Backing(type="int") @VintfStability
-  enum StaIfaceCapabilityMask {
-    APF = 1,
-    BACKGROUND_SCAN = 2,
-    LINK_LAYER_STATS = 4,
-    RSSI_MONITOR = 8,
-    CONTROL_ROAMING = 16,
-    PROBE_IE_ALLOWLIST = 32,
-    SCAN_RAND = 64,
-    STA_5G = 128,
-    HOTSPOT = 256,
-    PNO = 512,
-    TDLS = 1024,
-    TDLS_OFFCHANNEL = 2048,
-    ND_OFFLOAD = 4096,
-    KEEP_ALIVE = 8192,
-    DEBUG_PACKET_FATE = 16384,
+  enum FeatureSetMask {
+    APF = (1 << 0) /* 1 */,
+    BACKGROUND_SCAN = (1 << 1) /* 2 */,
+    LINK_LAYER_STATS = (1 << 2) /* 4 */,
+    RSSI_MONITOR = (1 << 3) /* 8 */,
+    CONTROL_ROAMING = (1 << 4) /* 16 */,
+    PROBE_IE_ALLOWLIST = (1 << 5) /* 32 */,
+    SCAN_RAND = (1 << 6) /* 64 */,
+    STA_5G = (1 << 7) /* 128 */,
+    HOTSPOT = (1 << 8) /* 256 */,
+    PNO = (1 << 9) /* 512 */,
+    TDLS = (1 << 10) /* 1024 */,
+    TDLS_OFFCHANNEL = (1 << 11) /* 2048 */,
+    ND_OFFLOAD = (1 << 12) /* 4096 */,
+    KEEP_ALIVE = (1 << 13) /* 8192 */,
+    ROAMING_MODE_CONTROL = (1 << 14) /* 16384 */,
+    CACHED_SCAN_DATA = (1 << 15) /* 32768 */,
   }
 }

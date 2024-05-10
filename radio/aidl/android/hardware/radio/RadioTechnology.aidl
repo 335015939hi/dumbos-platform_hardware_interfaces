@@ -16,6 +16,7 @@
 
 package android.hardware.radio;
 
+/** @hide */
 @VintfStability
 @Backing(type="int")
 @JavaDerive(toString=true)
@@ -45,6 +46,10 @@ enum RadioTechnology {
     GSM,
     TD_SCDMA,
     IWLAN,
+    /**
+     * @deprecated use LTE instead and indicate carrier aggregation through multiple
+     * physical channel configurations in IRadioNetwork::currentPhysicalChannelConfigs.
+     */
     LTE_CA,
     /**
      * 5G NR. This is only used in 5G Standalone mode.

@@ -20,12 +20,15 @@ import android.hardware.radio.data.QosBandwidth;
 
 /**
  * 5G Quality of Service parameters as per 3gpp spec 24.501 sec 9.11.4.12
+ * @hide
  */
 @VintfStability
 @JavaDerive(toString=true)
 parcelable NrQos {
     const byte FLOW_ID_RANGE_MIN = 1;
     const byte FLOW_ID_RANGE_MAX = 63;
+
+    const int AVERAGING_WINDOW_UNKNOWN = -1;
 
     /**
      * 5G QOS Identifier (5QI), see 3GPP TS 24.501 and 23.501. The allowed values are standard
@@ -37,8 +40,15 @@ parcelable NrQos {
     QosBandwidth uplink;
     /**
      * QOS flow identifier of the QOS flow description in the range
-     * (FLOW_ID_RANGE_MIN, FLOW_ID_RANGE_MAX)
+     * (FLOW_ID_RANGE_MIN, FLOW_ID_RANGE_MAX).
      */
     byte qfi;
+    /**
+     * @deprecated use averagingWindowMillis;
+     */
     char averagingWindowMs;
+    /**
+     * The duration over which flow rates are calculated.
+     */
+    int averagingWindowMillis = AVERAGING_WINDOW_UNKNOWN;
 }

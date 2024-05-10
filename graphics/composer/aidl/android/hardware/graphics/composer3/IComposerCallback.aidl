@@ -16,6 +16,8 @@
 
 package android.hardware.graphics.composer3;
 
+import android.hardware.graphics.common.DisplayHotplugEvent;
+import android.hardware.graphics.composer3.RefreshRateChangedDebugData;
 import android.hardware.graphics.composer3.VsyncPeriodChangeTimeline;
 
 @VintfStability
@@ -37,6 +39,7 @@ interface IComposerCallback {
      * @param display is the display that triggers the hotplug event.
      * @param connected indicates whether the display is connected or
      *        disconnected.
+     * @deprecated: Use instead onHotplugEvent
      */
     void onHotplug(long display, boolean connected);
 
@@ -96,4 +99,44 @@ interface IComposerCallback {
      * @param display is the display whose vsync cadence changed due to panel idle mode.
      */
     oneway void onVsyncIdle(long display);
+
+    /**
+     * Notifies the client the vsyncPeriod of the display changed.
+     * Whether or not to call this callback is managed by
+     * IComposerClient.setRefreshRateChangedCallbackDebugEnabled
+     *
+     * Immediate callback is required after the setRefreshRateChangedCallbackDebugEnabled
+     * called.
+     * When the panel refresh rate changes, as a result of a setActiveConfig or
+     * setActiveConfigWithConstraints, this callback should be called with the new panel
+     * refresh rate. In addition, when the panel refresh rate is changed by other means,
+     * such as idleness or DOZE power state, this callback should be called as well.
+     *
+     * This callback is used for debug purposes, and not for scheduling frames,
+     * therefore synchronization is not required.
+     *
+     * @see IComposerClient.setRefreshRateChangedCallbackDebugEnabled
+     *
+     * @param data is the data for the callback when refresh rate changed.
+     */
+    oneway void onRefreshRateChangedDebug(in RefreshRateChangedDebugData data);
+
+    /**
+     * Notifies the client that a DisplayHotplugEvent has occurred for the
+     * given display. Every active display (even a built-in physical display)
+     * must trigger at least one hotplug notification, even if it only occurs
+     * immediately after callback registration.
+     *
+     * Displays which have been connected are assumed to be in PowerMode.OFF,
+     * and the onVsync callback should not be called for a display until vsync
+     * has been enabled with setVsyncEnabled.
+     *
+     * The client may call back into the device while the callback is in
+     * progress. The device must serialize calls to this callback such that
+     * only one thread is calling it at a time.
+     *
+     * @param display is the display that triggers the hotplug event.
+     * @param event is the type of event that occurred.
+     */
+    void onHotplugEvent(long display, DisplayHotplugEvent event);
 }

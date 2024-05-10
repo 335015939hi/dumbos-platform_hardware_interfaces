@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-#include <Utils.h>
-#include <aidl/Vintf.h>
-#include <android/binder_enums.h>
 #include <unordered_set>
 
-#define LOG_TAG "VtsHalNSParamTest"
-
 #include <aidl/android/hardware/audio/effect/NoiseSuppression.h>
+#define LOG_TAG "VtsHalNSParamTest"
+#include <android-base/logging.h>
+#include <android/binder_enums.h>
+
 #include "EffectHelper.h"
 
 using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidNoiseSuppression;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kNoiseSuppressionTypeUUID;
 using aidl::android::hardware::audio::effect::NoiseSuppression;
 using aidl::android::hardware::audio::effect::Parameter;
+using android::hardware::audio::common::testing::detail::TestExecutionTracer;
 
 enum ParamName { PARAM_INSTANCE_NAME, PARAM_LEVEL, PARAM_TYPE };
 using NSParamTestParam = std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>,
@@ -48,7 +48,7 @@ class NSParamTest : public ::testing::TestWithParam<NSParamTestParam>, public Ef
         ASSERT_NE(nullptr, mFactory);
         ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
-        Parameter::Specific specific = getDefaultParamSpecific();
+        std::optional<Parameter::Specific> specific = getDefaultParamSpecific();
         Parameter::Common common = EffectHelper::createParamCommon(
                 0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
                 kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */);
@@ -62,9 +62,13 @@ class NSParamTest : public ::testing::TestWithParam<NSParamTestParam>, public Ef
         ASSERT_NO_FATAL_FAILURE(destroy(mFactory, mEffect));
     }
 
-    Parameter::Specific getDefaultParamSpecific() {
+    std::optional<Parameter::Specific> getDefaultParamSpecific() {
         NoiseSuppression ns =
                 NoiseSuppression::make<NoiseSuppression::level>(NoiseSuppression::Level::MEDIUM);
+        if (!isParameterValid<NoiseSuppression, Range::noiseSuppression>(ns, mDescriptor)) {
+            return std::nullopt;
+        }
+
         Parameter::Specific specific =
                 Parameter::Specific::make<Parameter::Specific::noiseSuppression>(ns);
         return specific;
@@ -85,7 +89,9 @@ class NSParamTest : public ::testing::TestWithParam<NSParamTestParam>, public Ef
             // validate parameter
             Descriptor desc;
             ASSERT_STATUS(EX_NONE, mEffect->getDescriptor(&desc));
-            const binder_exception_t expected = EX_NONE;
+            const bool valid =
+                    isParameterValid<NoiseSuppression, Range::noiseSuppression>(ns, desc);
+            const binder_exception_t expected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
 
             // set parameter
             Parameter expectParam;
@@ -146,7 +152,7 @@ TEST_P(NSParamTest, SetAndGetType) {
 INSTANTIATE_TEST_SUITE_P(
         NSParamTest, NSParamTest,
         ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
-                                   IFactory::descriptor, kNoiseSuppressionTypeUUID)),
+                                   IFactory::descriptor, getEffectTypeUuidNoiseSuppression())),
                            testing::ValuesIn(NSParamTest::getLevelValues()),
                            testing::ValuesIn(NSParamTest::getTypeValues())),
         [](const testing::TestParamInfo<NSParamTest::ParamType>& info) {
@@ -155,10 +161,7 @@ INSTANTIATE_TEST_SUITE_P(
                     std::get<PARAM_LEVEL>(info.param));
             std::string type = aidl::android::hardware::audio::effect::toString(
                     std::get<PARAM_TYPE>(info.param));
-            std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
-                               descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_level_" + level + "_type_" +
-                               type;
+            std::string name = getPrefix(descriptor) + "_level_" + level + "_type_" + type;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -168,6 +171,7 @@ GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(NSParamTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
+    ::testing::UnitTest::GetInstance()->listeners().Append(new TestExecutionTracer());
     ABinderProcess_setThreadPoolMaxThreadCount(1);
     ABinderProcess_startThreadPool();
     return RUN_ALL_TESTS();

@@ -32,6 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.data;
+/* @hide */
 @JavaDerive(toString=true) @VintfStability
 parcelable LinkAddress {
   String address;
@@ -39,5 +40,5 @@ parcelable LinkAddress {
   long deprecationTime;
   long expirationTime;
   const int ADDRESS_PROPERTY_NONE = 0;
-  const int ADDRESS_PROPERTY_DEPRECATED = 32;
+  const int ADDRESS_PROPERTY_DEPRECATED = 0x20;
 }

@@ -28,6 +28,7 @@ namespace vehicle {
 namespace propertyutils_impl {
 
 // These names are not part of the API since we only expose ints.
+using ::aidl::android::hardware::automotive::vehicle::EvStoppingMode;
 using ::aidl::android::hardware::automotive::vehicle::PortLocationType;
 using ::aidl::android::hardware::automotive::vehicle::VehicleArea;
 using ::aidl::android::hardware::automotive::vehicle::VehicleAreaDoor;
@@ -76,27 +77,17 @@ constexpr int SEAT_1_RIGHT = toInt(propertyutils_impl::VehicleAreaSeat::ROW_1_RI
 constexpr int SEAT_2_LEFT = toInt(propertyutils_impl::VehicleAreaSeat::ROW_2_LEFT);
 constexpr int SEAT_2_RIGHT = toInt(propertyutils_impl::VehicleAreaSeat::ROW_2_RIGHT);
 constexpr int SEAT_2_CENTER = toInt(propertyutils_impl::VehicleAreaSeat::ROW_2_CENTER);
-constexpr int VENDOR_EXTENSION_BOOLEAN_PROPERTY =
-        0x101 | toInt(propertyutils_impl::VehiclePropertyGroup::VENDOR) |
-        toInt(propertyutils_impl::VehiclePropertyType::BOOLEAN) |
-        toInt(propertyutils_impl::VehicleArea::DOOR);
-constexpr int VENDOR_EXTENSION_FLOAT_PROPERTY =
-        0x102 | toInt(propertyutils_impl::VehiclePropertyGroup::VENDOR) |
-        toInt(propertyutils_impl::VehiclePropertyType::FLOAT) |
-        toInt(propertyutils_impl::VehicleArea::SEAT);
-constexpr int VENDOR_EXTENSION_INT_PROPERTY =
-        0x103 | toInt(propertyutils_impl::VehiclePropertyGroup::VENDOR) |
-        toInt(propertyutils_impl::VehiclePropertyType::INT32) |
-        toInt(propertyutils_impl::VehicleArea::WINDOW);
-constexpr int VENDOR_EXTENSION_STRING_PROPERTY =
-        0x104 | toInt(propertyutils_impl::VehiclePropertyGroup::VENDOR) |
-        toInt(propertyutils_impl::VehiclePropertyType::STRING) |
-        toInt(propertyutils_impl::VehicleArea::GLOBAL);
 constexpr int FUEL_DOOR_REAR_LEFT = toInt(propertyutils_impl::PortLocationType::REAR_LEFT);
 constexpr int CHARGE_PORT_FRONT_LEFT = toInt(propertyutils_impl::PortLocationType::FRONT_LEFT);
 constexpr int CHARGE_PORT_REAR_LEFT = toInt(propertyutils_impl::PortLocationType::REAR_LEFT);
 constexpr int LIGHT_STATE_ON = toInt(propertyutils_impl::VehicleLightState::ON);
+constexpr int LIGHT_STATE_OFF = toInt(propertyutils_impl::VehicleLightState::OFF);
+constexpr int LIGHT_SWITCH_OFF = toInt(propertyutils_impl::VehicleLightSwitch::OFF);
+constexpr int LIGHT_SWITCH_ON = toInt(propertyutils_impl::VehicleLightSwitch::ON);
 constexpr int LIGHT_SWITCH_AUTO = toInt(propertyutils_impl::VehicleLightSwitch::AUTOMATIC);
+constexpr int EV_STOPPING_MODE_CREEP = toInt(propertyutils_impl::EvStoppingMode::CREEP);
+constexpr int EV_STOPPING_MODE_ROLL = toInt(propertyutils_impl::EvStoppingMode::ROLL);
+constexpr int EV_STOPPING_MODE_HOLD = toInt(propertyutils_impl::EvStoppingMode::HOLD);
 constexpr int WHEEL_FRONT_LEFT = toInt(propertyutils_impl::VehicleAreaWheel::LEFT_FRONT);
 constexpr int WHEEL_FRONT_RIGHT = toInt(propertyutils_impl::VehicleAreaWheel::RIGHT_FRONT);
 constexpr int WHEEL_REAR_LEFT = toInt(propertyutils_impl::VehicleAreaWheel::LEFT_REAR);
@@ -106,11 +97,6 @@ constexpr int ALL_WHEELS =
 constexpr int HVAC_LEFT = SEAT_1_LEFT | SEAT_2_LEFT | SEAT_2_CENTER;
 constexpr int HVAC_RIGHT = SEAT_1_RIGHT | SEAT_2_RIGHT;
 constexpr int HVAC_ALL = HVAC_LEFT | HVAC_RIGHT;
-
-const int32_t HVAC_POWER_PROPERTIES[] = {
-        toInt(propertyutils_impl::VehicleProperty::HVAC_FAN_SPEED),
-        toInt(propertyutils_impl::VehicleProperty::HVAC_FAN_DIRECTION),
-};
 
 }  // namespace vehicle
 }  // namespace automotive

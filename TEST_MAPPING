@@ -11,6 +11,14 @@
     },
     {
       "name": "VtsHalTvInputV1_0TargetTest"
+    },
+    {
+      "name": "CtsStrictJavaPackagesTestCases"
+    }
+  ],
+  "auto-presubmit": [
+    {
+      "name": "hal_implementation_test"
     }
   ]
 }

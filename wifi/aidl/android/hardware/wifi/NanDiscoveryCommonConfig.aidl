@@ -18,7 +18,6 @@ package android.hardware.wifi;
 
 import android.hardware.wifi.NanDataPathSecurityConfig;
 import android.hardware.wifi.NanMatchAlg;
-import android.hardware.wifi.NanRangingIndication;
 
 /**
  * Configurations of NAN discovery sessions. Common to publish and subscribe discovery.
@@ -74,8 +73,9 @@ parcelable NanDiscoveryCommonConfig {
     /**
      * Arbitrary information communicated in discovery packets - there is no semantic meaning to
      * these bytes. They are passed-through from publisher to subscriber as-is with no parsing. Max
-     * length: |NanCapabilities.maxExtendedServiceSpecificInfoLen|. Spec: Service Descriptor
-     * Extension Attribute (SDEA) / Service Info
+     * length: |NanCapabilities.maxExtendedServiceSpecificInfoLen|. This info is using Generic
+     * Service Protocol with setting Service Info type to 2 (Generic). NAN Spec: Service
+     * Descriptor Extension Attribute (SDEA) / Service Info
      */
     byte[] extendedServiceSpecificInfo;
     /**
@@ -143,10 +143,11 @@ parcelable NanDiscoveryCommonConfig {
      */
     int rangingIntervalMs;
     /**
-     * The type of ranging feedback to be provided by discovery session matches
-     * |IWifiNanIfaceEventCallback.eventMatch|. Only relevant if |rangingRequired| is true.
+     * Bitmap of |NanRangingIndication| values indicating the type of ranging feedback
+     * to be provided by discovery session matches in |IWifiNanIfaceEventCallback.eventMatch|.
+     * Only relevant if |rangingRequired| is true.
      */
-    NanRangingIndication configRangingIndications;
+    int configRangingIndications;
     /**
      * The ingress and egress distance in cm. If ranging is enabled (|rangingEnabled| is true) then
      * |configRangingIndications| is used to determine whether ingress and/or egress (or neither)
@@ -155,4 +156,10 @@ parcelable NanDiscoveryCommonConfig {
      */
     char distanceIngressCm;
     char distanceEgressCm;
+    /**
+     * Specifies whether suspension can be possible in this discovery session.
+     * The request would fail if |enableSessionSuspendability| is true but
+     * |NanCapabilities.supportsSuspension| is false.
+     */
+    boolean enableSessionSuspendability;
 }

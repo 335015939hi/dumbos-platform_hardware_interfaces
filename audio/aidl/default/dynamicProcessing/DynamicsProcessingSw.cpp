@@ -14,28 +14,29 @@
  * limitations under the License.
  */
 
-#include <cstddef>
-#define LOG_TAG "AHAL_DynamicsProcessingSw"
-#include <Utils.h>
 #include <algorithm>
+#include <cstddef>
 #include <set>
 #include <unordered_set>
 
+#define LOG_TAG "AHAL_DynamicsProcessingSw"
 #include <android-base/logging.h>
 #include <fmq/AidlMessageQueue.h>
+#include <system/audio_effects/effect_uuid.h>
 
 #include "DynamicsProcessingSw.h"
 
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::DynamicsProcessingSw;
+using aidl::android::hardware::audio::effect::getEffectImplUuidDynamicsProcessingSw;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidDynamicsProcessing;
 using aidl::android::hardware::audio::effect::IEffect;
-using aidl::android::hardware::audio::effect::kDynamicsProcessingSwImplUUID;
 using aidl::android::hardware::audio::effect::State;
 using aidl::android::media::audio::common::AudioUuid;
 
 extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
                                            std::shared_ptr<IEffect>* instanceSpp) {
-    if (!in_impl_uuid || *in_impl_uuid != kDynamicsProcessingSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != getEffectImplUuidDynamicsProcessingSw()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -50,7 +51,7 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
 }
 
 extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
-    if (!in_impl_uuid || *in_impl_uuid != kDynamicsProcessingSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != getEffectImplUuidDynamicsProcessingSw()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -89,10 +90,10 @@ const std::vector<Range::DynamicsProcessingRange> DynamicsProcessingSw::kRanges 
 const Capability DynamicsProcessingSw::kCapability = {.range = DynamicsProcessingSw::kRanges};
 
 const Descriptor DynamicsProcessingSw::kDescriptor = {
-        .common = {.id = {.type = kDynamicsProcessingTypeUUID,
-                          .uuid = kDynamicsProcessingSwImplUUID,
+        .common = {.id = {.type = getEffectTypeUuidDynamicsProcessing(),
+                          .uuid = getEffectImplUuidDynamicsProcessingSw(),
                           .proxy = std::nullopt},
-                   .flags = {.type = Flags::Type::INSERT,
+                   .flags = {.type = Flags::Type::POST_PROC,
                              .insert = Flags::Insert::FIRST,
                              .volume = Flags::Volume::CTRL},
                    .name = DynamicsProcessingSw::kEffectName,
@@ -170,7 +171,7 @@ ndk::ScopedAStatus DynamicsProcessingSw::setParameterSpecific(const Parameter::S
                       EX_ILLEGAL_ARGUMENT, "inputGainCfgFailed");
             return ndk::ScopedAStatus::ok();
         }
-        case DynamicsProcessing::vendorExtension: {
+        case DynamicsProcessing::vendor: {
             LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
             return ndk::ScopedAStatus::fromExceptionCodeWithMessage(
                     EX_ILLEGAL_ARGUMENT, "DynamicsProcessingTagNotSupported");
@@ -237,7 +238,7 @@ ndk::ScopedAStatus DynamicsProcessingSw::getParameterDynamicsProcessing(
             dpParam.set<DynamicsProcessing::inputGain>(mContext->getInputGainCfgs());
             break;
         }
-        case DynamicsProcessing::vendorExtension: {
+        case DynamicsProcessing::vendor: {
             LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
             return ndk::ScopedAStatus::fromExceptionCodeWithMessage(
                     EX_ILLEGAL_ARGUMENT, "DynamicsProcessingTagNotSupported");
@@ -259,10 +260,6 @@ std::shared_ptr<EffectContext> DynamicsProcessingSw::createContext(
     return mContext;
 }
 
-std::shared_ptr<EffectContext> DynamicsProcessingSw::getContext() {
-    return mContext;
-}
-
 RetCode DynamicsProcessingSw::releaseContext() {
     if (mContext) {
         mContext.reset();
@@ -281,9 +278,12 @@ IEffect::Status DynamicsProcessingSw::effectProcessImpl(float* in, float* out, i
 }
 
 RetCode DynamicsProcessingSwContext::setCommon(const Parameter::Common& common) {
+    if (auto ret = updateIOFrameSize(common); ret != RetCode::SUCCESS) {
+        return ret;
+    }
     mCommon = common;
-    mChannelCount =
-            ::android::hardware::audio::common::getChannelCount(common.input.base.channelMask);
+    mChannelCount = ::aidl::android::hardware::audio::common::getChannelCount(
+            common.input.base.channelMask);
     resizeChannels();
     resizeBands();
     LOG(INFO) << __func__ << mCommon.toString();

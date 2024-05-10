@@ -32,13 +32,19 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.data;
+/* @hide */
 @JavaDerive(toString=true) @VintfStability
 parcelable NrQos {
   int fiveQi;
   android.hardware.radio.data.QosBandwidth downlink;
   android.hardware.radio.data.QosBandwidth uplink;
   byte qfi;
+  /**
+   * @deprecated use averagingWindowMillis;
+   */
   char averagingWindowMs;
+  int averagingWindowMillis = AVERAGING_WINDOW_UNKNOWN /* -1 */;
   const byte FLOW_ID_RANGE_MIN = 1;
   const byte FLOW_ID_RANGE_MAX = 63;
+  const int AVERAGING_WINDOW_UNKNOWN = (-1) /* -1 */;
 }

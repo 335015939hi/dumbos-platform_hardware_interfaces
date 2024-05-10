@@ -32,8 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.messaging;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum SmsAcknowledgeFailCause {
-  MEMORY_CAPACITY_EXCEEDED = 211,
-  UNSPECIFIED_ERROR = 255,
+  MEMORY_CAPACITY_EXCEEDED = 0xD3,
+  UNSPECIFIED_ERROR = 0XFF,
 }

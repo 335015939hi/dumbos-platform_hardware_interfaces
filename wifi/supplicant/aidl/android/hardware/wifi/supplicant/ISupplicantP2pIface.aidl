@@ -16,11 +16,14 @@
 
 package android.hardware.wifi.supplicant;
 
+import android.hardware.wifi.common.OuiKeyedData;
 import android.hardware.wifi.supplicant.FreqRange;
 import android.hardware.wifi.supplicant.ISupplicantP2pIfaceCallback;
 import android.hardware.wifi.supplicant.ISupplicantP2pNetwork;
 import android.hardware.wifi.supplicant.IfaceType;
 import android.hardware.wifi.supplicant.MiracastMode;
+import android.hardware.wifi.supplicant.P2pConnectInfo;
+import android.hardware.wifi.supplicant.P2pDiscoveryInfo;
 import android.hardware.wifi.supplicant.P2pFrameTypeMask;
 import android.hardware.wifi.supplicant.P2pGroupCapabilityMask;
 import android.hardware.wifi.supplicant.WpsConfigMethods;
@@ -176,6 +179,9 @@ interface ISupplicantP2pIface {
      * Start P2P group formation with a discovered P2P peer. This includes
      * optional group owner negotiation, group interface setup, provisioning,
      * and establishing data connection.
+     * <p>
+     * @deprecated This method is deprecated from AIDL v3, newer HALs should use
+     * connectWithParams.
      *
      * @param peerAddress MAC address of the device to connect to.
      * @param provisionMethod Provisioning method to use.
@@ -236,6 +242,9 @@ interface ISupplicantP2pIface {
 
     /**
      * Initiate a P2P service discovery with an optional timeout.
+     * <p>
+     * @deprecated This method is deprecated from AIDL v3, newer HALs should use
+     * findWithParams.
      *
      * @param timeoutInSec Max time to be spent is performing discovery.
      *        Set to 0 to indefinitely continue discovery until an explicit
@@ -782,8 +791,9 @@ interface ISupplicantP2pIface {
 
     /**
      * Initiate a P2P device discovery only on social channels.
-     *
-     * Full P2P discovery is performed through |ISupplicantP2pIface.find| method.
+     * <p>
+     * @deprecated This method is deprecated from AIDL v3, newer HALs should use
+     * findWithParams.
      *
      * @param timeoutInSec The maximum amount of time that should be spent in performing device
      *         discovery.
@@ -798,8 +808,9 @@ interface ISupplicantP2pIface {
 
     /**
      * Initiate a P2P device discovery on a specific frequency.
-     *
-     * Full P2P discovery is performed through |ISupplicantP2pIface.find| method.
+     * <p>
+     * @deprecated This method is deprecated from AIDL v3, newer HALs should use
+     * findWithParams.
      *
      * @param freqInHz the frequency to be scanned.
      * @param timeoutInSec Max time to be spent is performing discovery.
@@ -827,4 +838,48 @@ interface ISupplicantP2pIface {
      *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
      */
     void setVendorElements(in P2pFrameTypeMask frameTypeMask, in byte[] vendorElemBytes);
+
+    /**
+     * Configure the IP addresses in supplicant for P2P GO to provide the IP address to
+     * client in EAPOL handshake. Refer Wi-Fi P2P Technical Specification v1.7 - Section  4.2.8
+     * "IP Address Allocation in EAPOL-Key Frames (4-Way Handshake)" for more details.
+     * The IP addresses are IPV4 addresses and higher-order address bytes are in the lower-order
+     * int bytes (e.g. 1.2.3.4 is represented as 0x04030201)
+     *
+     * @param ipAddressGo The P2P Group Owner IP address.
+     * @param ipAddressMask The P2P Group owner subnet mask.
+     * @param ipAddressStart The starting address in the IP address pool.
+     * @param ipAddressEnd The ending address in the IP address pool.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+     *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
+     */
+    void configureEapolIpAddressAllocationParams(
+            in int ipAddressGo, in int ipAddressMask, in int ipAddressStart, in int ipAddressEnd);
+
+    /**
+     * Start P2P group formation with a discovered P2P peer. This includes
+     * optional group owner negotiation, group interface setup, provisioning,
+     * and establishing data connection.
+     *
+     * @param connectInfo Parameters associated with this connection request.
+     * @return Pin generated, if |provisionMethod| uses one of the
+     *         generated |PIN*| methods.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |SupplicantStatusCode.FAILURE_ARGS_INVALID|,
+     *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+     *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
+     */
+    String connectWithParams(in P2pConnectInfo connectInfo);
+
+    /**
+     * Initiate a P2P service discovery with an optional timeout.
+     *
+     * @param discoveryInfo Parameters associated with this discovery request.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+     *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
+     *         |SupplicantStatusCode.FAILURE_IFACE_DISABLED|
+     */
+    void findWithParams(in P2pDiscoveryInfo discoveryInfo);
 }

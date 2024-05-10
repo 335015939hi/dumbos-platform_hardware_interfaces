@@ -129,12 +129,12 @@ void ComposerClient::setReadbackBuffer(Display display, const native_handle_t* b
 void ComposerClient::getReadbackBufferAttributes(Display display, PixelFormat* outPixelFormat,
                                                  Dataspace* outDataspace) {
     mClient->getReadbackBufferAttributes(
-        display,
-        [&](const auto& tmpError, const auto& tmpOutPixelFormat, const auto& tmpOutDataspace) {
-            ASSERT_EQ(Error::NONE, tmpError) << "failed to get readback buffer attributes";
-            *outPixelFormat = tmpOutPixelFormat;
-            *outDataspace = tmpOutDataspace;
-        });
+            display,
+            [&](const auto& tmpError, const auto& tmpOutPixelFormat, const auto& tmpOutDataspace) {
+                ASSERT_EQ(Error::NONE, tmpError) << "failed to get readback buffer attributes";
+                *outPixelFormat = tmpOutPixelFormat;
+                *outDataspace = tmpOutDataspace;
+            });
 }
 
 void ComposerClient::getReadbackBufferFence(Display display, int32_t* outFence) {
@@ -177,66 +177,6 @@ std::array<float, 16> ComposerClient::getDataspaceSaturationMatrix(Dataspace dat
         });
 
     return matrix;
-}
-
-Gralloc::Gralloc() {
-    [this] {
-        ALOGD("Attempting to initialize gralloc4");
-        ASSERT_NO_FATAL_FAILURE(mGralloc4 = std::make_shared<Gralloc4>(
-                                        /*aidlAllocatorServiceName*/ IAllocator::descriptor +
-                                                std::string("/default"),
-                                        /*hidlAllocatorServiceName*/ "default",
-                                        /*mapperServiceName*/ "default",
-                                        /*errOnFailure=*/false));
-        if (mGralloc4->getMapper() == nullptr || !mGralloc4->hasAllocator()) {
-            mGralloc4 = nullptr;
-            ALOGD("Failed to initialize gralloc4, initializing gralloc3");
-            ASSERT_NO_FATAL_FAILURE(mGralloc3 = std::make_shared<Gralloc3>("default", "default",
-                                                                           /*errOnFailure=*/false));
-            if (mGralloc3->getMapper() == nullptr || mGralloc3->getAllocator() == nullptr) {
-                mGralloc3 = nullptr;
-                ALOGD("Failed to initialize gralloc3, initializing gralloc2_1");
-                mGralloc2_1 = std::make_shared<Gralloc2_1>(/*errOnFailure*/ false);
-                if (!mGralloc2_1->getMapper()) {
-                    mGralloc2_1 = nullptr;
-                    ALOGD("Failed to initialize gralloc2_1, initializing gralloc2");
-                    ASSERT_NO_FATAL_FAILURE(mGralloc2 = std::make_shared<Gralloc2>());
-                }
-            }
-        }
-    }();
-}
-
-bool Gralloc::validateBufferSize(const native_handle_t* bufferHandle, uint32_t width,
-                                 uint32_t height, uint32_t layerCount, PixelFormat format,
-                                 uint64_t usage, uint32_t stride) {
-    if (mGralloc4) {
-        IMapper4::BufferDescriptorInfo info{};
-        info.width = width;
-        info.height = height;
-        info.layerCount = layerCount;
-        info.format = static_cast<android::hardware::graphics::common::V1_2::PixelFormat>(format);
-        info.usage = usage;
-        return mGralloc4->validateBufferSize(bufferHandle, info, stride);
-    } else if (mGralloc3) {
-        IMapper3::BufferDescriptorInfo info{};
-        info.width = width;
-        info.height = height;
-        info.layerCount = layerCount;
-        info.format = static_cast<android::hardware::graphics::common::V1_2::PixelFormat>(format);
-        info.usage = usage;
-        return mGralloc3->validateBufferSize(bufferHandle, info, stride);
-    } else if (mGralloc2_1) {
-        IMapper2_1::BufferDescriptorInfo info{};
-        info.width = width;
-        info.height = height;
-        info.layerCount = layerCount;
-        info.format = static_cast<android::hardware::graphics::common::V1_1::PixelFormat>(format);
-        info.usage = usage;
-        return mGralloc2_1->validateBufferSize(bufferHandle, info, stride);
-    } else {
-        return true;
-    }
 }
 
 }  // namespace vts

@@ -32,18 +32,31 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.modem;
+/* @hide */
 @VintfStability
 interface IRadioModem {
   oneway void enableModem(in int serial, in boolean on);
   oneway void getBasebandVersion(in int serial);
+  /**
+   * @deprecated use getImei(int serial)
+   */
   oneway void getDeviceIdentity(in int serial);
   oneway void getHardwareConfig(in int serial);
   oneway void getModemActivityInfo(in int serial);
   oneway void getModemStackStatus(in int serial);
   oneway void getRadioCapability(in int serial);
+  /**
+   * @deprecated NV APIs are deprecated starting from Android U.
+   */
   oneway void nvReadItem(in int serial, in android.hardware.radio.modem.NvItem itemId);
   oneway void nvResetConfig(in int serial, in android.hardware.radio.modem.ResetNvType resetType);
+  /**
+   * @deprecated NV APIs are deprecated starting from Android U.
+   */
   oneway void nvWriteCdmaPrl(in int serial, in byte[] prl);
+  /**
+   * @deprecated NV APIs are deprecated starting from Android U.
+   */
   oneway void nvWriteItem(in int serial, in android.hardware.radio.modem.NvWriteItem item);
   oneway void requestShutdown(in int serial);
   oneway void responseAcknowledgement();
@@ -51,4 +64,5 @@ interface IRadioModem {
   oneway void setRadioCapability(in int serial, in android.hardware.radio.modem.RadioCapability rc);
   oneway void setRadioPower(in int serial, in boolean powerOn, in boolean forEmergencyCall, in boolean preferredForEmergencyCall);
   oneway void setResponseFunctions(in android.hardware.radio.modem.IRadioModemResponse radioModemResponse, in android.hardware.radio.modem.IRadioModemIndication radioModemIndication);
+  oneway void getImei(in int serial);
 }

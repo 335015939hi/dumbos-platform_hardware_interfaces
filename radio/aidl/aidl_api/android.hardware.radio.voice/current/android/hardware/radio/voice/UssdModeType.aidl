@@ -32,12 +32,13 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.voice;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum UssdModeType {
-  NOTIFY = 0,
-  REQUEST = 1,
-  NW_RELEASE = 2,
-  LOCAL_CLIENT = 3,
-  NOT_SUPPORTED = 4,
-  NW_TIMEOUT = 5,
+  NOTIFY,
+  REQUEST,
+  NW_RELEASE,
+  LOCAL_CLIENT,
+  NOT_SUPPORTED,
+  NW_TIMEOUT,
 }

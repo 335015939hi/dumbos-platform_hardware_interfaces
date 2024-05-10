@@ -266,3 +266,87 @@ ndk::ScopedAStatus RadioNetworkResponse::supplyNetworkDepersonalizationResponse(
     parent_network.notify(info.serial);
     return ndk::ScopedAStatus::ok();
 }
+
+ndk::ScopedAStatus RadioNetworkResponse::setEmergencyModeResponse(
+        const RadioResponseInfo& info, const EmergencyRegResult& /*regState*/) {
+    rspInfo = info;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::triggerEmergencyNetworkScanResponse(
+        const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::exitEmergencyModeResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::cancelEmergencyNetworkScanResponse(
+        const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::setNullCipherAndIntegrityEnabledResponse(
+        const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::isNullCipherAndIntegrityEnabledResponse(
+        const RadioResponseInfo& info, bool /*isEnabled*/) {
+    rspInfo = info;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::isN1ModeEnabledResponse(
+        const RadioResponseInfo& info, bool /*isEnabled*/) {
+    rspInfo = info;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::setN1ModeEnabledResponse(const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::setCellularIdentifierTransparencyEnabledResponse(
+        const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::isCellularIdentifierTransparencyEnabledResponse(
+        const RadioResponseInfo& info, bool enabled) {
+    rspInfo = info;
+    this->isCellularIdentifierTransparencyEnabled = enabled;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::setSecurityAlgorithmsUpdatedEnabledResponse(
+        const RadioResponseInfo& info) {
+    rspInfo = info;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkResponse::isSecurityAlgorithmsUpdatedEnabledResponse(
+        const RadioResponseInfo& info, bool enabled) {
+    rspInfo = info;
+    this->isSecurityAlgorithmsUpdatedEnabled = enabled;
+    parent_network.notify(info.serial);
+    return ndk::ScopedAStatus::ok();
+}

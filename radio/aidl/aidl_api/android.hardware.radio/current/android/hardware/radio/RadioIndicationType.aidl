@@ -32,8 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum RadioIndicationType {
-  UNSOLICITED = 0,
-  UNSOLICITED_ACK_EXP = 1,
+  UNSOLICITED,
+  UNSOLICITED_ACK_EXP,
 }

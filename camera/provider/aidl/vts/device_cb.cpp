@@ -19,8 +19,8 @@
 #include <aidl/android/hardware/graphics/common/PixelFormat.h>
 #include <aidlcommonsupport/NativeHandle.h>
 #include <grallocusage/GrallocUsageConversion.h>
-#include <ui/Fence.h>
 #include <cinttypes>
+#include <nativebase/nativebase.h>
 
 using ::aidl::android::hardware::camera::device::BufferStatus;
 using ::aidl::android::hardware::camera::device::ErrorMsg;
@@ -144,8 +144,8 @@ ScopedAStatus DeviceCb::requestStreamBuffers(const std::vector<BufferRequest>& b
 
             CameraAidlTest::allocateGraphicBuffer(
                     w, h,
-                    android_convertGralloc1To0Usage(static_cast<uint64_t>(halStream.producerUsage),
-                                                    static_cast<uint64_t>(halStream.consumerUsage)),
+                    ANDROID_NATIVE_UNSIGNED_CAST(android_convertGralloc1To0Usage(static_cast<uint64_t>(halStream.producerUsage),
+                                                    static_cast<uint64_t>(halStream.consumerUsage))),
                     halStream.overrideFormat, &handle);
 
             StreamBuffer streamBuffer = StreamBuffer();
@@ -389,15 +389,16 @@ bool DeviceCb::processCaptureResultLocked(
         // Verify logical camera result metadata
         bool isLogicalCamera =
                 Status::OK == CameraAidlTest::isLogicalMultiCamera(staticMetadataBuffer);
+        camera_metadata_t* collectedMetadata =
+                const_cast<camera_metadata_t*>(request->collectedResult.getAndLock());
+        uint8_t* rawMetadata = reinterpret_cast<uint8_t*>(collectedMetadata);
+        std::vector metadata =
+                std::vector(rawMetadata, rawMetadata + get_camera_metadata_size(collectedMetadata));
         if (isLogicalCamera) {
-            camera_metadata_t* collectedMetadata =
-                    const_cast<camera_metadata_t*>(request->collectedResult.getAndLock());
-            uint8_t* rawMetadata = reinterpret_cast<uint8_t*>(collectedMetadata);
-            std::vector metadata = std::vector(
-                    rawMetadata, rawMetadata + get_camera_metadata_size(collectedMetadata));
             CameraAidlTest::verifyLogicalCameraResult(staticMetadataBuffer, metadata);
-            request->collectedResult.unlock(collectedMetadata);
         }
+        CameraAidlTest::verifyLensIntrinsicsResult(metadata);
+        request->collectedResult.unlock(collectedMetadata);
     }
 
     uint32_t numBuffersReturned = results.outputBuffers.size();
@@ -419,13 +420,6 @@ bool DeviceCb::processCaptureResultLocked(
     }
 
     for (const auto& buffer : results.outputBuffers) {
-        // wait for the fence timestamp and store it along with the buffer
-        // TODO: Check if we really need the dup here
-        android::sp<android::Fence> releaseFence = nullptr;
-        if (buffer.releaseFence.fds.size() == 1 && buffer.releaseFence.fds[0].get() >= 0) {
-            releaseFence = new android::Fence(dup(buffer.releaseFence.fds[0].get()));
-        }
-
         CameraAidlTest::InFlightRequest::StreamBufferAndTimestamp streamBufferAndTimestamp;
         auto outstandingBuffers = mUseHalBufManager ? mOutstandingBufferIds :
             request->mOutstandingBufferIds;
@@ -436,15 +430,9 @@ bool DeviceCb::processCaptureResultLocked(
                                            bufferId,
                                            outputBuffer,
                                            buffer.status,
-                                           ::android::makeFromAidl(buffer.acquireFence),
-                                           ::android::makeFromAidl(buffer.releaseFence)};
+                                           ::android::dupFromAidl(buffer.acquireFence),
+                                           ::android::dupFromAidl(buffer.releaseFence)};
         streamBufferAndTimestamp.timeStamp = systemTime();
-        if (releaseFence && releaseFence->isValid()) {
-            releaseFence->wait(/*ms*/ 300);
-            nsecs_t releaseTime = releaseFence->getSignalTime();
-            if (streamBufferAndTimestamp.timeStamp < releaseTime)
-                streamBufferAndTimestamp.timeStamp = releaseTime;
-        }
         request->resultOutputBuffers.push_back(streamBufferAndTimestamp);
     }
     // If shutter event is received notify the pending threads.

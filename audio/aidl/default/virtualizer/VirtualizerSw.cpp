@@ -14,20 +14,22 @@
  * limitations under the License.
  */
 
+#include <algorithm>
 #include <cstddef>
+#include <optional>
+
 #define LOG_TAG "AHAL_VirtualizerSw"
 #include <Utils.h>
-#include <algorithm>
-#include <unordered_set>
-
 #include <android-base/logging.h>
 #include <fmq/AidlMessageQueue.h>
+#include <system/audio_effects/effect_uuid.h>
 
 #include "VirtualizerSw.h"
 
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectImplUuidVirtualizerSw;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidVirtualizer;
 using aidl::android::hardware::audio::effect::IEffect;
-using aidl::android::hardware::audio::effect::kVirtualizerSwImplUUID;
 using aidl::android::hardware::audio::effect::State;
 using aidl::android::hardware::audio::effect::VirtualizerSw;
 using aidl::android::media::audio::common::AudioChannelLayout;
@@ -37,7 +39,7 @@ using aidl::android::media::audio::common::AudioUuid;
 
 extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
                                            std::shared_ptr<IEffect>* instanceSpp) {
-    if (!in_impl_uuid || *in_impl_uuid != kVirtualizerSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != getEffectImplUuidVirtualizerSw()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -52,7 +54,7 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
 }
 
 extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
-    if (!in_impl_uuid || *in_impl_uuid != kVirtualizerSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != getEffectImplUuidVirtualizerSw()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -74,9 +76,8 @@ const Capability VirtualizerSw::kCapability = {
         .range = Range::make<Range::virtualizer>(VirtualizerSw::kRanges)};
 
 const Descriptor VirtualizerSw::kDescriptor = {
-        .common = {.id = {.type = kVirtualizerTypeUUID,
-                          .uuid = kVirtualizerSwImplUUID,
-                          .proxy = kVirtualizerProxyUUID},
+        .common = {.id = {.type = getEffectTypeUuidVirtualizer(),
+                          .uuid = getEffectImplUuidVirtualizerSw()},
                    .flags = {.type = Flags::Type::INSERT,
                              .insert = Flags::Insert::FIRST,
                              .volume = Flags::Volume::CTRL},
@@ -170,7 +171,7 @@ ndk::ScopedAStatus VirtualizerSw::getParameterVirtualizer(const Virtualizer::Tag
 ndk::ScopedAStatus VirtualizerSw::getSpeakerAngles(const Virtualizer::SpeakerAnglesPayload payload,
                                                    Parameter::Specific* specific) {
     std::vector<Virtualizer::ChannelAngle> angles;
-    const auto chNum = ::android::hardware::audio::common::getChannelCount(payload.layout);
+    const auto chNum = ::aidl::android::hardware::audio::common::getChannelCount(payload.layout);
     if (chNum == 1) {
         angles = {{.channel = (int32_t)AudioChannelLayout::CHANNEL_FRONT_LEFT,
                    .azimuthDegree = 0,
@@ -199,10 +200,6 @@ std::shared_ptr<EffectContext> VirtualizerSw::createContext(const Parameter::Com
         mContext = std::make_shared<VirtualizerSwContext>(1 /* statusFmqDepth */, common);
     }
 
-    return mContext;
-}
-
-std::shared_ptr<EffectContext> VirtualizerSw::getContext() {
     return mContext;
 }
 

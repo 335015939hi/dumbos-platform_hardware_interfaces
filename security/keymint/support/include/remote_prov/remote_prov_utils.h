@@ -17,6 +17,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 #include <vector>
 #include "aidl/android/hardware/security/keymint/IRemotelyProvisionedComponent.h"
 
@@ -129,8 +130,8 @@ struct JsonOutput {
  *     "name": <string>
  *   }
  */
-JsonOutput jsonEncodeCsrWithBuild(const std::string instance_name,
-                                  const cppbor::Array& csr);
+JsonOutput jsonEncodeCsrWithBuild(const std::string& instance_name, const cppbor::Array& csr,
+                                  const std::string& serialno_prop);
 
 /**
  * Parses a DeviceInfo structure from the given CBOR data. The parsed data is then validated to
@@ -181,5 +182,8 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyFactoryCsr(
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
         IRemotelyProvisionedComponent* provisionable, const std::vector<uint8_t>& challenge);
+
+/** Checks whether the CSR has a proper DICE chain. */
+ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr);
 
 }  // namespace aidl::android::hardware::security::keymint::remote_prov

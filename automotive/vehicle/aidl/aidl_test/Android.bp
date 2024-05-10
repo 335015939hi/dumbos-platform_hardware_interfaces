@@ -15,12 +15,13 @@
  */
 
 package {
+    default_team: "trendy_team_aaos_framework",
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
 cc_test {
     name: "VehicleHalAidlHidlCompatibilityTest",
-    srcs: ["*.cpp"],
+    srcs: ["AidlHidlCompatibilityTest.cpp"],
     shared_libs: [
         "libbinder_ndk",
         "libhidlbase",
@@ -34,4 +35,27 @@ cc_test {
     defaults: ["VehicleHalDefaults"],
     test_suites: ["device-tests"],
     vendor: true,
+}
+
+cc_test {
+    name: "VehiclePropertyAnnotationCppTest",
+    srcs: ["VehiclePropertyAnnotationCppTest.cpp"],
+    header_libs: ["IVehicleGeneratedHeaders"],
+    defaults: ["VehicleHalInterfaceDefaults"],
+    test_suites: ["general-tests"],
+}
+
+android_test {
+    name: "VehiclePropertyAnnotationJavaTest",
+    srcs: [
+        "VehiclePropertyAnnotationJavaTest.java",
+        ":IVehicleGeneratedJavaFiles",
+    ],
+    static_libs: [
+        "android.hardware.automotive.vehicle-V3-java",
+        "android.hardware.automotive.vehicle.property-V3-java",
+        "androidx.test.runner",
+        "truth",
+    ],
+    test_suites: ["general-tests"],
 }

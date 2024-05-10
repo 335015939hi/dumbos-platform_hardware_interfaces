@@ -16,10 +16,7 @@
 
 #include "contexthub-impl/ContextHub.h"
 
-namespace aidl {
-namespace android {
-namespace hardware {
-namespace contexthub {
+namespace aidl::android::hardware::contexthub {
 
 using ::ndk::ScopedAStatus;
 
@@ -34,10 +31,11 @@ ScopedAStatus ContextHub::getContextHubs(std::vector<ContextHubInfo>* out_contex
     hub.chrePlatformId = UINT64_C(0x476f6f6754000000);
     hub.chreApiMajorVersion = 1;
     hub.chreApiMinorVersion = 6;
+    hub.supportsReliableMessages = false;
 
     out_contextHubInfos->push_back(hub);
 
-    return ndk::ScopedAStatus::ok();
+    return ScopedAStatus::ok();
 }
 
 // We don't expose any nanoapps for the default impl, therefore all nanoapp-related APIs fail.
@@ -63,24 +61,40 @@ ScopedAStatus ContextHub::enableNanoapp(int32_t /* in_contextHubId */, int64_t /
 }
 
 ScopedAStatus ContextHub::onSettingChanged(Setting /* in_setting */, bool /*in_enabled */) {
-    return ndk::ScopedAStatus::ok();
+    return ScopedAStatus::ok();
 }
 
 ScopedAStatus ContextHub::queryNanoapps(int32_t in_contextHubId) {
     if (in_contextHubId == kMockHubId && mCallback != nullptr) {
         std::vector<NanoappInfo> nanoapps;
         mCallback->handleNanoappInfo(nanoapps);
-        return ndk::ScopedAStatus::ok();
+        return ScopedAStatus::ok();
     } else {
         return ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
+}
+
+ScopedAStatus ContextHub::getPreloadedNanoappIds(int32_t /* in_contextHubId */,
+                                                 std::vector<int64_t>* out_preloadedNanoappIds) {
+    if (out_preloadedNanoappIds == nullptr) {
+        return ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+    }
+
+    for (uint64_t i = 0; i < 10; ++i) {
+        out_preloadedNanoappIds->push_back(i);
+    }
+    return ScopedAStatus::ok();
+}
+
+ScopedAStatus ContextHub::onNanSessionStateChanged(const NanSessionStateUpdate& /*in_update*/) {
+    return ScopedAStatus::ok();
 }
 
 ScopedAStatus ContextHub::registerCallback(int32_t in_contextHubId,
                                            const std::shared_ptr<IContextHubCallback>& in_cb) {
     if (in_contextHubId == kMockHubId) {
         mCallback = in_cb;
-        return ndk::ScopedAStatus::ok();
+        return ScopedAStatus::ok();
     } else {
         return ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
@@ -92,16 +106,20 @@ ScopedAStatus ContextHub::sendMessageToHub(int32_t in_contextHubId,
         // Return true here to indicate that the HAL has accepted the message.
         // Successful delivery of the message to a nanoapp should be handled at
         // a higher level protocol.
-        return ndk::ScopedAStatus::ok();
+        return ScopedAStatus::ok();
     } else {
         return ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
 }
 
+ScopedAStatus ContextHub::setTestMode(bool /* enable */) {
+    return ScopedAStatus::ok();
+}
+
 ScopedAStatus ContextHub::onHostEndpointConnected(const HostEndpointInfo& in_info) {
     mConnectedHostEndpoints.insert(in_info.hostEndpointId);
 
-    return ndk::ScopedAStatus::ok();
+    return ScopedAStatus::ok();
 }
 
 ScopedAStatus ContextHub::onHostEndpointDisconnected(char16_t in_hostEndpointId) {
@@ -109,10 +127,13 @@ ScopedAStatus ContextHub::onHostEndpointDisconnected(char16_t in_hostEndpointId)
         mConnectedHostEndpoints.erase(in_hostEndpointId);
     }
 
-    return ndk::ScopedAStatus::ok();
+    return ScopedAStatus::ok();
 }
 
-}  // namespace contexthub
-}  // namespace hardware
-}  // namespace android
-}  // namespace aidl
+ScopedAStatus ContextHub::sendMessageDeliveryStatusToHub(
+        int32_t /* in_contextHubId */,
+        const MessageDeliveryStatus& /* in_messageDeliveryStatus */) {
+    return ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+}  // namespace aidl::android::hardware::contexthub

@@ -127,6 +127,10 @@ interface ISupplicantStaNetwork {
   void setWepKey(in int keyIdx, in byte[] wepKey);
   void setWepTxKeyIdx(in int keyIdx);
   void setRoamingConsortiumSelection(in byte[] selectedRcoi);
+  void setMinimumTlsVersionEapPhase1Param(android.hardware.wifi.supplicant.TlsVersion tlsVersion);
+  void setStrictConservativePeerMode(in boolean enable);
+  void disableEht();
+  void setVendorData(in android.hardware.wifi.common.OuiKeyedData[] vendorData);
   const int SSID_MAX_LEN_IN_BYTES = 32;
   const int PSK_PASSPHRASE_MIN_LEN_IN_BYTES = 8;
   const int PSK_PASSPHRASE_MAX_LEN_IN_BYTES = 63;

@@ -32,6 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.sim;
+/* @hide */
 @JavaDerive(toString=true) @VintfStability
 parcelable SimApdu {
   int sessionId;
@@ -41,4 +42,5 @@ parcelable SimApdu {
   int p2;
   int p3;
   String data;
+  boolean isEs10 = false;
 }

@@ -81,8 +81,13 @@ using ::android::hardware::automotive::vehicle::V2_0::impl::OBD2_FREEZE_FRAME;
 using ::android::hardware::automotive::vehicle::V2_0::impl::OBD2_FREEZE_FRAME_CLEAR;
 using ::android::hardware::automotive::vehicle::V2_0::impl::OBD2_FREEZE_FRAME_INFO;
 using ::android::hardware::automotive::vehicle::V2_0::impl::OBD2_LIVE_FRAME;
+using ::android::hardware::automotive::vehicle::V2_0::impl::WHEEL_FRONT_LEFT;
+using ::android::hardware::automotive::vehicle::V2_0::impl::WHEEL_FRONT_RIGHT;
+using ::android::hardware::automotive::vehicle::V2_0::impl::WHEEL_REAR_LEFT;
+using ::android::hardware::automotive::vehicle::V2_0::impl::WHEEL_REAR_RIGHT;
 
 using ::testing::HasSubstr;
+using ::testing::UnorderedElementsAre;
 
 using VehiclePropValuePtr = recyclable_ptr<VehiclePropValue>;
 
@@ -124,6 +129,17 @@ class DefaultVhalImplTest : public ::testing::Test {
     android::ConcurrentQueue<VehiclePropValuePtr> mEventQueue;
     android::ConcurrentQueue<VehiclePropValuePtr> mHeartBeatQueue;
 
+    // Wait until receive enough events in receivedEvents.
+    void waitForEvents(std::vector<VehiclePropValuePtr>* receivedEvents, size_t count) {
+        while (receivedEvents->size() < count) {
+            mEventQueue.waitForItems();
+            auto newEvents = mEventQueue.flush();
+            for (size_t i = 0; i < newEvents.size(); i++) {
+                receivedEvents->push_back(std::move(newEvents[i]));
+            }
+        }
+    }
+
   private:
     void onHalEvent(VehiclePropValuePtr v) {
         if (v->prop != toInt(VehicleProperty::VHAL_HEARTBEAT)) {
@@ -141,7 +157,7 @@ class DefaultVhalImplTest : public ::testing::Test {
 TEST_F(DefaultVhalImplTest, testListProperties) {
     std::vector<VehiclePropConfig> configs = mHal->listProperties();
 
-    EXPECT_EQ((size_t)123, configs.size());
+    EXPECT_EQ((size_t)125, configs.size());
 }
 
 TEST_F(DefaultVhalImplTest, testGetDefaultPropertyFloat) {
@@ -314,26 +330,57 @@ TEST_F(DefaultVhalImplTest, testSubscribe) {
 
     ASSERT_EQ(StatusCode::OK, status);
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    std::vector<VehiclePropValuePtr> receivedEvents;
+    waitForEvents(&receivedEvents, 5);
 
-    // Modify the speed after 0.5 seconds.
+    // Modify the speed after 5 events arrive.
     VehiclePropValue value;
     value.prop = toInt(VehicleProperty::PERF_VEHICLE_SPEED);
     value.value.floatValues.resize(1);
     value.value.floatValues[0] = 1.0f;
     ASSERT_EQ(StatusCode::OK, mHal->set(value));
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
-
-    auto events = mEventQueue.flush();
-    ASSERT_LE((size_t)10, events.size());
+    waitForEvents(&receivedEvents, 10);
 
     // The first event should be the default value.
-    ASSERT_EQ((size_t)1, events[0]->value.floatValues.size());
-    EXPECT_EQ(0.0f, events[0]->value.floatValues[0]);
+    ASSERT_EQ((size_t)1, receivedEvents[0]->value.floatValues.size());
+    EXPECT_EQ(0.0f, receivedEvents[0]->value.floatValues[0]);
     // The last event should be the value after update.
-    ASSERT_EQ((size_t)1, events[events.size() - 1]->value.floatValues.size());
-    EXPECT_EQ(1.0f, events[events.size() - 1]->value.floatValues[0]);
+    const auto& lastEvent = receivedEvents[receivedEvents.size() - 1];
+    ASSERT_EQ((size_t)1, lastEvent->value.floatValues.size());
+    EXPECT_EQ(1.0f, lastEvent->value.floatValues[0]);
+}
+
+TEST_F(DefaultVhalImplTest, testSubscribeContinuous_withMultipleAreaIds) {
+    // Clear existing events.
+    mEventQueue.flush();
+    int propId = toInt(VehicleProperty::TIRE_PRESSURE);
+
+    auto status = mHal->subscribe(propId, 1);
+
+    ASSERT_EQ(StatusCode::OK, status);
+
+    std::vector<VehiclePropValuePtr> receivedEvents;
+    // Wait for 2 updates, each for 4 area IDs.
+    waitForEvents(&receivedEvents, 4 * 2);
+
+    std::vector<int> areasForUpdate1;
+    std::vector<int> areasForUpdate2;
+
+    for (size_t i = 0; i < receivedEvents.size(); i++) {
+        ASSERT_EQ(receivedEvents[i]->prop, propId);
+
+        if (i < 4) {
+            areasForUpdate1.push_back(receivedEvents[i]->areaId);
+        } else {
+            areasForUpdate2.push_back(receivedEvents[i]->areaId);
+        }
+    }
+
+    ASSERT_THAT(areasForUpdate1, UnorderedElementsAre(WHEEL_FRONT_LEFT, WHEEL_FRONT_RIGHT,
+                                                      WHEEL_REAR_LEFT, WHEEL_REAR_RIGHT));
+    ASSERT_THAT(areasForUpdate2, UnorderedElementsAre(WHEEL_FRONT_LEFT, WHEEL_FRONT_RIGHT,
+                                                      WHEEL_REAR_LEFT, WHEEL_REAR_RIGHT));
 }
 
 TEST_F(DefaultVhalImplTest, testSubscribeInvalidProp) {
@@ -402,7 +449,7 @@ TEST_F(DefaultVhalImplTest, testDump) {
     gotValue->timestamp = 0;
 
     std::string infoMake = toString(*gotValue);
-    EXPECT_THAT(std::string(buf), HasSubstr(infoMake));
+    EXPECT_THAT(std::string(buf, sizeof(buf)), HasSubstr(infoMake));
 }
 
 TEST_F(DefaultVhalImplTest, testSetPropInvalidAreaId) {
@@ -746,8 +793,9 @@ TEST_F(DefaultVhalImplTest, testDebugGenFakeDataLinear) {
     // Clear existing events.
     mEventQueue.flush();
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    // There should be no new events generated.
-    EXPECT_EQ((size_t)0, mEventQueue.flush().size());
+    // Technically there should be no new events generated, however, there might still be one event
+    // in the queue while we are stopping the generator.
+    EXPECT_LE(mEventQueue.flush().size(), 1u);
 }
 
 std::string getTestFilePath(const char* filename) {
@@ -1307,7 +1355,6 @@ TEST_F(DefaultVhalImplTest, testDebugSetInt) {
     ASSERT_EQ((size_t)1, events.size());
     ASSERT_EQ((size_t)1, events[0]->value.int32Values.size());
     EXPECT_EQ(2022, events[0]->value.int32Values[0]);
-    EXPECT_EQ(1000, events[0]->timestamp);
 
     VehiclePropValue value;
     StatusCode status;
@@ -1341,7 +1388,6 @@ TEST_F(DefaultVhalImplTest, testDebugSetBool) {
     ASSERT_EQ((size_t)1, events.size());
     EXPECT_EQ(0, events[0]->value.int32Values[0]);
     EXPECT_EQ(DOOR_1_LEFT, events[0]->areaId);
-    EXPECT_EQ(1000, events[0]->timestamp);
 
     VehiclePropValue value;
     StatusCode status;
@@ -1380,7 +1426,6 @@ TEST_F(DefaultVhalImplTest, testDebugSetFloat) {
     ASSERT_EQ((size_t)1, events.size());
     ASSERT_EQ((size_t)1, events[0]->value.floatValues.size());
     EXPECT_EQ(10.5, events[0]->value.floatValues[0]);
-    EXPECT_EQ(1000, events[0]->timestamp);
 
     VehiclePropValue value;
     StatusCode status;

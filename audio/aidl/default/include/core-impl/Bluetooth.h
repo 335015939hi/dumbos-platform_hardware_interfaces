@@ -18,8 +18,18 @@
 
 #include <aidl/android/hardware/audio/core/BnBluetooth.h>
 #include <aidl/android/hardware/audio/core/BnBluetoothA2dp.h>
+#include <aidl/android/hardware/audio/core/BnBluetoothLe.h>
 
 namespace aidl::android::hardware::audio::core {
+
+class ParamChangeHandler {
+  public:
+    ParamChangeHandler() = default;
+    void registerHandler(std::function<ndk::ScopedAStatus()> handler) { mHandler = handler; }
+
+  protected:
+    std::function<ndk::ScopedAStatus()> mHandler = nullptr;
+};
 
 class Bluetooth : public BnBluetooth {
   public:
@@ -33,12 +43,27 @@ class Bluetooth : public BnBluetooth {
     HfpConfig mHfpConfig;
 };
 
-class BluetoothA2dp : public BnBluetoothA2dp {
+class BluetoothA2dp : public BnBluetoothA2dp, public ParamChangeHandler {
   public:
     BluetoothA2dp() = default;
+    ndk::ScopedAStatus isEnabled(bool* _aidl_return) override;
 
   private:
+    ndk::ScopedAStatus setEnabled(bool in_enabled) override;
+    ndk::ScopedAStatus supportsOffloadReconfiguration(bool* _aidl_return) override;
+    ndk::ScopedAStatus reconfigureOffload(
+            const std::vector<::aidl::android::hardware::audio::core::VendorParameter>&
+                    in_parameters) override;
+
+    bool mEnabled = false;
+};
+
+class BluetoothLe : public BnBluetoothLe, public ParamChangeHandler {
+  public:
+    BluetoothLe() = default;
     ndk::ScopedAStatus isEnabled(bool* _aidl_return) override;
+
+  private:
     ndk::ScopedAStatus setEnabled(bool in_enabled) override;
     ndk::ScopedAStatus supportsOffloadReconfiguration(bool* _aidl_return) override;
     ndk::ScopedAStatus reconfigureOffload(

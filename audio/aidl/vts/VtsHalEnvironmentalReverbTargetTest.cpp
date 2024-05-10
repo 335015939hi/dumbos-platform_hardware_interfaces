@@ -15,20 +15,19 @@
  */
 
 #define LOG_TAG "VtsHalEnvironmentalReverbTest"
+#include <android-base/logging.h>
 
-#include <Utils.h>
-#include <aidl/Vintf.h>
-#include <unordered_set>
 #include "EffectHelper.h"
 
 using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::EnvironmentalReverb;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidEnvReverb;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kEnvReverbTypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
+using android::hardware::audio::common::testing::detail::TestExecutionTracer;
 
 /**
  * Here we focus on specific parameter checking, general IEffect interfaces testing performed in
@@ -201,7 +200,7 @@ INSTANTIATE_TEST_SUITE_P(
         EnvironmentalReverbTest, EnvironmentalReverbRoomLevelTest,
         ::testing::Combine(
                 testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
-                                          IFactory::descriptor, kEnvReverbTypeUUID)),
+                                          IFactory::descriptor, getEffectTypeUuidEnvReverb())),
                 testing::ValuesIn(EffectHelper::getTestValueSet<EnvironmentalReverb, int,
                                                                 Range::environmentalReverb,
                                                                 EnvironmentalReverb::roomLevelMb>(
@@ -210,9 +209,7 @@ INSTANTIATE_TEST_SUITE_P(
             auto descriptor = std::get<0>(info.param).second;
             std::string roomLevel = std::to_string(std::get<1>(info.param));
 
-            std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
-                               descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_roomLevel" + roomLevel;
+            std::string name = getPrefix(descriptor) + "_roomLevel" + roomLevel;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -240,20 +237,19 @@ TEST_P(EnvironmentalReverbRoomHfLevelTest, SetAndGetRoomHfLevel) {
 
 INSTANTIATE_TEST_SUITE_P(
         EnvironmentalReverbTest, EnvironmentalReverbRoomHfLevelTest,
-        ::testing::Combine(
-                testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor,
-                                                                               kEnvReverbTypeUUID)),
-                testing::ValuesIn(EffectHelper::getTestValueSet<EnvironmentalReverb, int,
-                                                                Range::environmentalReverb,
-                                                                EnvironmentalReverb::roomHfLevelMb>(
-                        kDescPair, EffectHelper::expandTestValueBasic<int>))),
+        ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                   IFactory::descriptor, getEffectTypeUuidEnvReverb())),
+                           testing::ValuesIn(EffectHelper::getTestValueSet<
+                                             EnvironmentalReverb, int, Range::environmentalReverb,
+                                             EnvironmentalReverb::roomHfLevelMb>(
+                                   kDescPair, EffectHelper::expandTestValueBasic<int>))),
         [](const testing::TestParamInfo<EnvironmentalReverbRoomHfLevelTest::ParamType>& info) {
             auto descriptor = std::get<0>(info.param).second;
             std::string roomHfLevel = std::to_string(std::get<1>(info.param));
 
             std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
                                descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_roomHfLevel" + roomHfLevel;
+                               toString(descriptor.common.id.uuid) + "_roomHfLevel" + roomHfLevel;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -281,20 +277,19 @@ TEST_P(EnvironmentalReverbDecayTimeTest, SetAndGetDecayTime) {
 
 INSTANTIATE_TEST_SUITE_P(
         EnvironmentalReverbTest, EnvironmentalReverbDecayTimeTest,
-        ::testing::Combine(
-                testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor,
-                                                                               kEnvReverbTypeUUID)),
-                testing::ValuesIn(EffectHelper::getTestValueSet<EnvironmentalReverb, int,
-                                                                Range::environmentalReverb,
-                                                                EnvironmentalReverb::decayTimeMs>(
-                        kDescPair, EffectHelper::expandTestValueBasic<int>))),
+        ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                   IFactory::descriptor, getEffectTypeUuidEnvReverb())),
+                           testing::ValuesIn(EffectHelper::getTestValueSet<
+                                             EnvironmentalReverb, int, Range::environmentalReverb,
+                                             EnvironmentalReverb::decayTimeMs>(
+                                   kDescPair, EffectHelper::expandTestValueBasic<int>))),
         [](const testing::TestParamInfo<EnvironmentalReverbDecayTimeTest::ParamType>& info) {
             auto descriptor = std::get<0>(info.param).second;
             std::string decayTime = std::to_string(std::get<1>(info.param));
 
             std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
                                descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_decayTime" + decayTime;
+                               toString(descriptor.common.id.uuid) + "_decayTime" + decayTime;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -323,7 +318,7 @@ TEST_P(EnvironmentalReverbDecayHfRatioTest, SetAndGetDecayHfRatio) {
 INSTANTIATE_TEST_SUITE_P(
         EnvironmentalReverbTest, EnvironmentalReverbDecayHfRatioTest,
         ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
-                                   IFactory::descriptor, kEnvReverbTypeUUID)),
+                                   IFactory::descriptor, getEffectTypeUuidEnvReverb())),
                            testing::ValuesIn(EffectHelper::getTestValueSet<
                                              EnvironmentalReverb, int, Range::environmentalReverb,
                                              EnvironmentalReverb::decayHfRatioPm>(
@@ -334,8 +329,7 @@ INSTANTIATE_TEST_SUITE_P(
 
             std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
                                descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_decayHfRatio" +
-                               decayHfRatio;
+                               toString(descriptor.common.id.uuid) + "_decayHfRatio" + decayHfRatio;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -363,20 +357,19 @@ TEST_P(EnvironmentalReverbLevelTest, SetAndGetLevel) {
 
 INSTANTIATE_TEST_SUITE_P(
         EnvironmentalReverbTest, EnvironmentalReverbLevelTest,
-        ::testing::Combine(
-                testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor,
-                                                                               kEnvReverbTypeUUID)),
-                testing::ValuesIn(EffectHelper::getTestValueSet<EnvironmentalReverb, int,
-                                                                Range::environmentalReverb,
-                                                                EnvironmentalReverb::levelMb>(
-                        kDescPair, EffectHelper::expandTestValueBasic<int>))),
+        ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                   IFactory::descriptor, getEffectTypeUuidEnvReverb())),
+                           testing::ValuesIn(EffectHelper::getTestValueSet<
+                                             EnvironmentalReverb, int, Range::environmentalReverb,
+                                             EnvironmentalReverb::levelMb>(
+                                   kDescPair, EffectHelper::expandTestValueBasic<int>))),
         [](const testing::TestParamInfo<EnvironmentalReverbDecayHfRatioTest::ParamType>& info) {
             auto descriptor = std::get<0>(info.param).second;
             std::string level = std::to_string(std::get<1>(info.param));
 
             std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
                                descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_level" + level;
+                               toString(descriptor.common.id.uuid) + "_level" + level;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -404,20 +397,19 @@ TEST_P(EnvironmentalReverbDelayTest, SetAndGetDelay) {
 
 INSTANTIATE_TEST_SUITE_P(
         EnvironmentalReverbTest, EnvironmentalReverbDelayTest,
-        ::testing::Combine(
-                testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor,
-                                                                               kEnvReverbTypeUUID)),
-                testing::ValuesIn(EffectHelper::getTestValueSet<EnvironmentalReverb, int,
-                                                                Range::environmentalReverb,
-                                                                EnvironmentalReverb::delayMs>(
-                        kDescPair, EffectHelper::expandTestValueBasic<int>))),
+        ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                   IFactory::descriptor, getEffectTypeUuidEnvReverb())),
+                           testing::ValuesIn(EffectHelper::getTestValueSet<
+                                             EnvironmentalReverb, int, Range::environmentalReverb,
+                                             EnvironmentalReverb::delayMs>(
+                                   kDescPair, EffectHelper::expandTestValueBasic<int>))),
         [](const testing::TestParamInfo<EnvironmentalReverbDelayTest::ParamType>& info) {
             auto descriptor = std::get<0>(info.param).second;
             std::string delay = std::to_string(std::get<1>(info.param));
 
             std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
                                descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_delay" + delay;
+                               toString(descriptor.common.id.uuid) + "_delay" + delay;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -445,20 +437,19 @@ TEST_P(EnvironmentalReverbDiffusionTest, SetAndGetDiffusion) {
 
 INSTANTIATE_TEST_SUITE_P(
         EnvironmentalReverbTest, EnvironmentalReverbDiffusionTest,
-        ::testing::Combine(
-                testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor,
-                                                                               kEnvReverbTypeUUID)),
-                testing::ValuesIn(EffectHelper::getTestValueSet<EnvironmentalReverb, int,
-                                                                Range::environmentalReverb,
-                                                                EnvironmentalReverb::diffusionPm>(
-                        kDescPair, EffectHelper::expandTestValueBasic<int>))),
+        ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                   IFactory::descriptor, getEffectTypeUuidEnvReverb())),
+                           testing::ValuesIn(EffectHelper::getTestValueSet<
+                                             EnvironmentalReverb, int, Range::environmentalReverb,
+                                             EnvironmentalReverb::diffusionPm>(
+                                   kDescPair, EffectHelper::expandTestValueBasic<int>))),
         [](const testing::TestParamInfo<EnvironmentalReverbDiffusionTest::ParamType>& info) {
             auto descriptor = std::get<0>(info.param).second;
             std::string diffusion = std::to_string(std::get<1>(info.param));
 
             std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
                                descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_diffusion" + diffusion;
+                               toString(descriptor.common.id.uuid) + "_diffusion" + diffusion;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -486,20 +477,19 @@ TEST_P(EnvironmentalReverbDensityTest, SetAndGetDensity) {
 
 INSTANTIATE_TEST_SUITE_P(
         EnvironmentalReverbTest, EnvironmentalReverbDensityTest,
-        ::testing::Combine(
-                testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(IFactory::descriptor,
-                                                                               kEnvReverbTypeUUID)),
-                testing::ValuesIn(EffectHelper::getTestValueSet<EnvironmentalReverb, int,
-                                                                Range::environmentalReverb,
-                                                                EnvironmentalReverb::densityPm>(
-                        kDescPair, EffectHelper::expandTestValueBasic<int>))),
+        ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                   IFactory::descriptor, getEffectTypeUuidEnvReverb())),
+                           testing::ValuesIn(EffectHelper::getTestValueSet<
+                                             EnvironmentalReverb, int, Range::environmentalReverb,
+                                             EnvironmentalReverb::densityPm>(
+                                   kDescPair, EffectHelper::expandTestValueBasic<int>))),
         [](const testing::TestParamInfo<EnvironmentalReverbDensityTest::ParamType>& info) {
             auto descriptor = std::get<0>(info.param).second;
             std::string density = std::to_string(std::get<1>(info.param));
 
             std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
                                descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_density" + density;
+                               toString(descriptor.common.id.uuid) + "_density" + density;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -528,7 +518,7 @@ TEST_P(EnvironmentalReverbBypassTest, SetAndGetBypass) {
 INSTANTIATE_TEST_SUITE_P(
         EnvironmentalReverbTest, EnvironmentalReverbBypassTest,
         ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
-                                   IFactory::descriptor, kEnvReverbTypeUUID)),
+                                   IFactory::descriptor, getEffectTypeUuidEnvReverb())),
                            testing::Bool()),
         [](const testing::TestParamInfo<EnvironmentalReverbBypassTest::ParamType>& info) {
             auto descriptor = std::get<0>(info.param).second;
@@ -536,7 +526,7 @@ INSTANTIATE_TEST_SUITE_P(
 
             std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
                                descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_bypass" + bypass;
+                               toString(descriptor.common.id.uuid) + "_bypass" + bypass;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -545,6 +535,7 @@ GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EnvironmentalReverbBypassTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
+    ::testing::UnitTest::GetInstance()->listeners().Append(new TestExecutionTracer());
     ABinderProcess_setThreadPoolMaxThreadCount(1);
     ABinderProcess_startThreadPool();
     return RUN_ALL_TESTS();

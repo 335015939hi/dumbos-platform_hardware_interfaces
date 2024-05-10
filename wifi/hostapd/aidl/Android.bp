@@ -13,6 +13,7 @@
 // limitations under the License.
 
 package {
+    default_team: "trendy_team_fwk_wifi_hal",
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // all of the 'license_kinds' from "hardware_interfaces_license"
@@ -27,6 +28,9 @@ aidl_interface {
     srcs: [
         "android/hardware/wifi/hostapd/*.aidl",
     ],
+    imports: [
+        "android.hardware.wifi.common-V1",
+    ],
     stability: "vintf",
     backend: {
         java: {
@@ -40,6 +44,12 @@ aidl_interface {
         ndk: {
             gen_trace: true,
         },
+        cpp: {
+            enabled: false,
+        },
+        rust: {
+            enabled: false,
+        },
     },
     versions_with_info: [
         {
@@ -47,5 +57,4 @@ aidl_interface {
             imports: [],
         },
     ],
-
 }

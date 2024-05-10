@@ -32,14 +32,15 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.voice;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum EmergencyServiceCategory {
   UNSPECIFIED = 0,
-  POLICE = 1,
-  AMBULANCE = 2,
-  FIRE_BRIGADE = 4,
-  MARINE_GUARD = 8,
-  MOUNTAIN_RESCUE = 16,
-  MIEC = 32,
-  AIEC = 64,
+  POLICE = (1 << 0) /* 1 */,
+  AMBULANCE = (1 << 1) /* 2 */,
+  FIRE_BRIGADE = (1 << 2) /* 4 */,
+  MARINE_GUARD = (1 << 3) /* 8 */,
+  MOUNTAIN_RESCUE = (1 << 4) /* 16 */,
+  MIEC = (1 << 5) /* 32 */,
+  AIEC = (1 << 6) /* 64 */,
 }

@@ -25,9 +25,9 @@ aidl_interface {
     name: "android.hardware.automotive.vehicle",
     vendor_available: true,
     srcs: [
-        "android/hardware/automotive/vehicle/**/*.aidl",
+        "android/hardware/automotive/vehicle/*.aidl",
     ],
-    frozen: true,
+    frozen: false,
     stability: "vintf",
     backend: {
         cpp: {
@@ -41,12 +41,20 @@ aidl_interface {
                 "com.android.car.framework",
             ],
         },
+        rust: {
+            enabled: true,
+        },
     },
     versions_with_info: [
         {
             version: "1",
             imports: [],
         },
+        {
+            version: "2",
+            imports: [],
+        },
+
     ],
 
 }

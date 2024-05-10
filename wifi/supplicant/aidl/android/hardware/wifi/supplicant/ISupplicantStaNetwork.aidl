@@ -16,6 +16,7 @@
 
 package android.hardware.wifi.supplicant;
 
+import android.hardware.wifi.common.OuiKeyedData;
 import android.hardware.wifi.supplicant.AuthAlgMask;
 import android.hardware.wifi.supplicant.DppConnectionKeys;
 import android.hardware.wifi.supplicant.EapMethod;
@@ -31,6 +32,7 @@ import android.hardware.wifi.supplicant.OcspType;
 import android.hardware.wifi.supplicant.PairwiseCipherMask;
 import android.hardware.wifi.supplicant.ProtoMask;
 import android.hardware.wifi.supplicant.SaeH2eMode;
+import android.hardware.wifi.supplicant.TlsVersion;
 
 /**
  * Interface exposed by the supplicant for each station mode network
@@ -1118,4 +1120,49 @@ interface ISupplicantStaNetwork {
      *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
      */
     void setRoamingConsortiumSelection(in byte[] selectedRcoi);
+
+    /**
+     * Set the minimum TLS version for EAP phase1 param.
+     *
+     * @param tlsVersion the TLS version
+     *
+     * @throws ServiceSpecificException with one of the following values:
+     *         |SupplicantStatusCode.FAILURE_ARGS_INVALID|,
+     *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+     *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
+     */
+    void setMinimumTlsVersionEapPhase1Param(TlsVersion tlsVersion);
+
+    /**
+     * Enable the strict conservative peer mode for EAP-SIM/AKA/AKA'
+     *
+     * @param enable true to enable, false to disable.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+     *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
+     */
+    void setStrictConservativePeerMode(in boolean enable);
+
+    /**
+     * Disables Extremely High Throughput (EHT) mode, aka Wi-Fi 7 support, for the network. When
+     * EHT is disabled, the device ceases to transmit EHT related Information Elements (IEs),
+     * including multi-link IEs and EHT capability, in subsequent messages such as (Re)Association
+     * requests to the Access Point (AP).
+     *
+     * @throws ServiceSpecificException with one of the following values:
+     *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+     *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
+     */
+    void disableEht();
+
+    /**
+     * Set additional vendor-provided configuration data.
+     *
+     * @param vendorData List of |OuiKeyedData| containing the vendor-provided
+     *         configuration data.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |SupplicantStatusCode.FAILURE_UNKNOWN|,
+     *         |SupplicantStatusCode.FAILURE_NETWORK_INVALID|
+     */
+    void setVendorData(in OuiKeyedData[] vendorData);
 }

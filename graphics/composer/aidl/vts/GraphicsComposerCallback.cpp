@@ -17,6 +17,7 @@
 #include "GraphicsComposerCallback.h"
 #include <log/log_main.h>
 #include <utils/Timers.h>
+#include <cinttypes>
 
 #pragma push_macro("LOG_TAG")
 #undef LOG_TAG
@@ -27,6 +28,11 @@ namespace aidl::android::hardware::graphics::composer3::vts {
 void GraphicsComposerCallback::setVsyncAllowed(bool allowed) {
     std::scoped_lock lock(mMutex);
     mVsyncAllowed = allowed;
+}
+
+void GraphicsComposerCallback::setRefreshRateChangedDebugDataEnabledCallbackAllowed(bool allowed) {
+    std::scoped_lock lock(mMutex);
+    mRefreshRateChangedDebugDataEnabledCallbackAllowed = allowed;
 }
 
 std::vector<int64_t> GraphicsComposerCallback::getDisplays() const {
@@ -79,6 +85,21 @@ GraphicsComposerCallback::takeLastVsyncPeriodChangeTimeline() {
     return ret;
 }
 
+std::vector<RefreshRateChangedDebugData>
+GraphicsComposerCallback::takeListOfRefreshRateChangedDebugData() {
+    std::scoped_lock lock(mMutex);
+
+    std::vector<RefreshRateChangedDebugData> ret;
+    ret.swap(mRefreshRateChangedDebugData);
+
+    return ret;
+}
+
+int32_t GraphicsComposerCallback::getInvalidRefreshRateDebugEnabledCallbackCount() const {
+    std::scoped_lock lock(mMutex);
+    return mInvalidRefreshRateDebugEnabledCallbackCount;
+}
+
 ::ndk::ScopedAStatus GraphicsComposerCallback::onHotplug(int64_t in_display, bool in_connected) {
     std::scoped_lock lock(mMutex);
 
@@ -124,6 +145,19 @@ GraphicsComposerCallback::takeLastVsyncPeriodChangeTimeline() {
     return ::ndk::ScopedAStatus::ok();
 }
 
+::ndk::ScopedAStatus GraphicsComposerCallback::onRefreshRateChangedDebug(
+        const RefreshRateChangedDebugData& data) {
+    std::scoped_lock lock(mMutex);
+
+    const auto it = std::find(mDisplays.begin(), mDisplays.end(), data.display);
+    if (mRefreshRateChangedDebugDataEnabledCallbackAllowed && it != mDisplays.end()) {
+        mRefreshRateChangedDebugData.push_back(data);
+    } else {
+        mInvalidRefreshRateDebugEnabledCallbackCount++;
+    }
+    return ::ndk::ScopedAStatus::ok();
+}
+
 ::ndk::ScopedAStatus GraphicsComposerCallback::onVsyncPeriodTimingChanged(
         int64_t in_display,
         const ::aidl::android::hardware::graphics::composer3::VsyncPeriodChangeTimeline&
@@ -158,6 +192,20 @@ GraphicsComposerCallback::takeLastVsyncPeriodChangeTimeline() {
         mVsyncIdleTime = systemTime();
     }
     return ::ndk::ScopedAStatus::ok();
+}
+
+::ndk::ScopedAStatus GraphicsComposerCallback::onHotplugEvent(int64_t in_display,
+                                                              common::DisplayHotplugEvent event) {
+    switch (event) {
+        case common::DisplayHotplugEvent::CONNECTED:
+            return onHotplug(in_display, true);
+        case common::DisplayHotplugEvent::DISCONNECTED:
+            return onHotplug(in_display, false);
+        default:
+            ALOGE("%s(): display:%" PRIu64 ", event:%d", __func__, in_display,
+                  static_cast<int32_t>(event));
+            return ::ndk::ScopedAStatus::ok();
+    }
 }
 
 }  // namespace aidl::android::hardware::graphics::composer3::vts

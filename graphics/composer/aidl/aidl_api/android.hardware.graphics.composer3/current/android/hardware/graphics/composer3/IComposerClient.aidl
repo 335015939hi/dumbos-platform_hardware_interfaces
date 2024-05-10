@@ -42,8 +42,14 @@ interface IComposerClient {
   int getActiveConfig(long display);
   android.hardware.graphics.composer3.ColorMode[] getColorModes(long display);
   float[] getDataspaceSaturationMatrix(android.hardware.graphics.common.Dataspace dataspace);
+  /**
+   * @deprecated use getDisplayConfigurations instead. Returns a display attribute value for a particular display configuration. For legacy support getDisplayAttribute should return valid values for any requested DisplayAttribute, and for all of the configs obtained either through getDisplayConfigs or getDisplayConfigurations.
+   */
   int getDisplayAttribute(long display, int config, android.hardware.graphics.composer3.DisplayAttribute attribute);
   android.hardware.graphics.composer3.DisplayCapability[] getDisplayCapabilities(long display);
+  /**
+   * @deprecated use getDisplayConfigurations instead. For legacy support getDisplayConfigs should return at least one valid config. All the configs returned from the getDisplayConfigs should also be returned from getDisplayConfigurations.
+   */
   int[] getDisplayConfigs(long display);
   android.hardware.graphics.composer3.DisplayConnectionType getDisplayConnectionType(long display);
   android.hardware.graphics.composer3.DisplayIdentification getDisplayIdentificationData(long display);
@@ -75,6 +81,12 @@ interface IComposerClient {
   void setReadbackBuffer(long display, in android.hardware.common.NativeHandle buffer, in @nullable ParcelFileDescriptor releaseFence);
   void setVsyncEnabled(long display, boolean enabled);
   void setIdleTimerEnabled(long display, int timeoutMs);
+  android.hardware.graphics.composer3.OverlayProperties getOverlaySupport();
+  android.hardware.graphics.common.HdrConversionCapability[] getHdrConversionCapabilities();
+  android.hardware.graphics.common.Hdr setHdrConversionStrategy(in android.hardware.graphics.common.HdrConversionStrategy conversionStrategy);
+  void setRefreshRateChangedCallbackDebugEnabled(long display, boolean enabled);
+  android.hardware.graphics.composer3.DisplayConfiguration[] getDisplayConfigurations(long display, int maxFrameIntervalNs);
+  oneway void notifyExpectedPresent(long display, in android.hardware.graphics.composer3.ClockMonotonicTimestamp expectedPresentTime, int frameIntervalNs);
   const int EX_BAD_CONFIG = 1;
   const int EX_BAD_DISPLAY = 2;
   const int EX_BAD_LAYER = 3;
@@ -85,5 +97,5 @@ interface IComposerClient {
   const int EX_UNSUPPORTED = 8;
   const int EX_SEAMLESS_NOT_ALLOWED = 9;
   const int EX_SEAMLESS_NOT_POSSIBLE = 10;
-  const int INVALID_CONFIGURATION = 2147483647;
+  const int INVALID_CONFIGURATION = 0x7fffffff;
 }

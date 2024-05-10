@@ -32,9 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.modem;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum ResetNvType {
-  RELOAD = 0,
-  ERASE = 1,
-  FACTORY_RESET = 2,
+  RELOAD,
+  ERASE,
+  FACTORY_RESET,
 }

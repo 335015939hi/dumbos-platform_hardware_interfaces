@@ -23,11 +23,26 @@ enum Dataspace {
     /**
      * Default-assumption data space, when not explicitly specified.
      *
-     * It is safest to assume the buffer is an image with sRGB primaries and
-     * encoding ranges, but the consumer and/or the producer of the data may
-     * simply be using defaults. No automatic gamma transform should be
-     * expected, except for a possible display gamma transform when drawn to a
-     * screen.
+     * IAllocator implementations must not assume a particular dataspace interpretation when
+     * allocating a buffer. That is, the dataspace stored on a buffer's metadata must
+     * explicitly be UNKNOWN at the time of allocation. All other vendor implementations (for
+     * example, IComposer) are suggested to assume that the buffer is an image that conforms
+     * to the recommendations outlined by STANDARD_UNSPECIFIED, TRANSFER_UNSPECIFIED, and
+     * RANGE_UNSPECIFIED in order to avoid obviously-broken behavior.
+     *
+     * This means:
+     * - RGB buffers may be assumed to follow sRGB (IEC 61966-2.1)
+     * - YCbCr buffers smaller than 720p may be assumed to follow BT. 601-7
+     * - YCbCr buffers at least 720p may be assumed to follow BT. 709-6
+     * - Y buffers are full range with an undefined transfer and primaries
+     * - All other buffer formats may be treated in an implementation-defined manner
+     *
+     * It is the framework's - and application's - responsibility to communicate
+     * an accurate dataspace for any buffers throughout the system to guarantee
+     * well-defined behavior. For the framework, this means translating UNKNOWN
+     * dataspaces to a chosen default, and setting gralloc metadata on the buffer
+     * accordingly. For the application, this means signaling a defined dataspace
+     * to any framework apis.
      */
     UNKNOWN = 0x0,
 
@@ -87,7 +102,7 @@ enum Dataspace {
      * Use the unadjusted KR = 0.2126, KB = 0.0722 luminance interpretation
      * for RGB conversion.
      */
-    STANDARD_BT709 = 1 << 16,  // 1 << STANDARD_SHIFT
+    STANDARD_BT709 = 1 << 16, // 1 << STANDARD_SHIFT
 
     /**
      * Primaries:       x       y
@@ -377,11 +392,19 @@ enum Dataspace {
     RANGE_LIMITED = 2 << 27, // 2 << RANGE_SHIFT = 0x10000000
 
     /**
-     * Extended range is used for scRGB. Intended for use with
-     * floating point pixel formats. [0.0 - 1.0] is the standard
-     * sRGB space. Values outside the range 0.0 - 1.0 can encode
-     * color outside the sRGB gamut.
-     * Used to blend / merge multiple dataspaces on a single display.
+     * Extended range can be used in combination with FP16 to communicate scRGB or with
+     * SurfaceControl's setExtendedRangeBrightness(SurfaceControl, float, float)
+     * to indicate an HDR range.
+     *
+     * When used with floating point pixel formats and #STANDARD_BT709 then [0.0 - 1.0] is the
+     * standard sRGB space and values outside the range [0.0 - 1.0] can encode
+     * color outside the sRGB gamut. [-0.5, 7.5] is the standard scRGB range.
+     * Used to blend/merge multiple dataspaces on a single display.
+     *
+     * As of Android U in combination with composer3's mixed SDR/HDR feature then this may
+     * be combined with SurfaceControl's setExtendedRangeBrightness(SurfaceControl, float, float)
+     * and other formats such as RGBA_8888 or RGBA_1010102 to communicate a variable HDR
+     * brightness range, which in turn will influence that layer's dimming ratio when composited
      */
     RANGE_EXTENDED = 3 << 27, // 3 << RANGE_SHIFT = 0x18000000
 
@@ -397,7 +420,6 @@ enum Dataspace {
      */
     SRGB_LINEAR = 1 << 16 | 1 << 22 | 1 << 27, // STANDARD_BT709 | TRANSFER_LINEAR | RANGE_FULL
 
-
     /**
      * scRGB linear encoding:
      *
@@ -411,7 +433,6 @@ enum Dataspace {
      * spaces and/or HDR content.
      */
     SCRGB_LINEAR = 1 << 16 | 1 << 22 | 3 << 27, // STANDARD_BT709 | TRANSFER_LINEAR | RANGE_EXTENDED
-
 
     /**
      * sRGB gamma encoding:
@@ -427,7 +448,6 @@ enum Dataspace {
      * Use full range and BT.709 standard.
      */
     SRGB = 1 << 16 | 2 << 22 | 1 << 27, // STANDARD_BT709 | TRANSFER_SRGB | RANGE_FULL
-
 
     /**
      * scRGB:
@@ -470,8 +490,8 @@ enum Dataspace {
      *
      * Use limited range, SMPTE 170M transfer and BT.601_625 standard.
      */
-    BT601_625 = 2 << 16 | 3 << 22 | 2 << 27, // STANDARD_BT601_625 | TRANSFER_SMPTE_170M | RANGE_LIMITED
-
+    BT601_625 =
+            2 << 16 | 3 << 22 | 2 << 27, // STANDARD_BT601_625 | TRANSFER_SMPTE_170M | RANGE_LIMITED
 
     /**
      * ITU-R Recommendation 601 (BT.601) - 525-line
@@ -480,7 +500,8 @@ enum Dataspace {
      *
      * Use limited range, SMPTE 170M transfer and BT.601_525 standard.
      */
-    BT601_525 = 4 << 16 | 3 << 22 | 2 << 27, // STANDARD_BT601_525 | TRANSFER_SMPTE_170M | RANGE_LIMITED
+    BT601_525 =
+            4 << 16 | 3 << 22 | 2 << 27, // STANDARD_BT601_525 | TRANSFER_SMPTE_170M | RANGE_LIMITED
 
     /**
      * ITU-R Recommendation 709 (BT.709)
@@ -491,7 +512,6 @@ enum Dataspace {
      */
     BT709 = 1 << 16 | 3 << 22 | 2 << 27, // STANDARD_BT709 | TRANSFER_SMPTE_170M | RANGE_LIMITED
 
-
     /**
      * SMPTE EG 432-1 and SMPTE RP 431-2.
      *
@@ -500,7 +520,6 @@ enum Dataspace {
      * Use full range, linear transfer and D65 DCI-P3 standard
      */
     DCI_P3_LINEAR = 10 << 16 | 1 << 22 | 1 << 27, // STANDARD_DCI_P3 | TRANSFER_LINEAR | RANGE_FULL
-
 
     /**
      * SMPTE EG 432-1 and SMPTE RP 431-2.
@@ -513,15 +532,14 @@ enum Dataspace {
      */
     DCI_P3 = 10 << 16 | 5 << 22 | 1 << 27, // STANDARD_DCI_P3 | TRANSFER_GAMMA2_6 | RANGE_FULL
 
-
     /**
      * Display P3
      *
      * Display P3 uses same primaries and white-point as DCI-P3
      * linear transfer function makes this the same as DCI_P3_LINEAR.
      */
-    DISPLAY_P3_LINEAR = 10 << 16 | 1 << 22 | 1 << 27, // STANDARD_DCI_P3 | TRANSFER_LINEAR | RANGE_FULL
-
+    DISPLAY_P3_LINEAR =
+            10 << 16 | 1 << 22 | 1 << 27, // STANDARD_DCI_P3 | TRANSFER_LINEAR | RANGE_FULL
 
     /**
      * Display P3
@@ -530,7 +548,6 @@ enum Dataspace {
      * but sRGB transfer function.
      */
     DISPLAY_P3 = 10 << 16 | 2 << 22 | 1 << 27, // STANDARD_DCI_P3 | TRANSFER_SRGB | RANGE_FULL
-
 
     /**
      * Adobe RGB
@@ -541,6 +558,12 @@ enum Dataspace {
      */
     ADOBE_RGB = 11 << 16 | 4 << 22 | 1 << 27, // STANDARD_ADOBE_RGB | TRANSFER_GAMMA2_2 | RANGE_FULL
 
+    /**
+     * Adobe RGB LINEAR
+     *
+     * Use full range, linear transfer and Adobe RGB primaries
+     */
+    ADOBE_RGB_LINEAR = 11 << 16 | 1 << 22 | 1 << 27, // STANDARD_ADOBE_RGB | TRANSFER_LINEAR | RANGE_FULL
 
     /**
      * ITU-R Recommendation 2020 (BT.2020)
@@ -550,7 +573,6 @@ enum Dataspace {
      * Use full range, linear transfer and BT2020 standard
      */
     BT2020_LINEAR = 6 << 16 | 1 << 22 | 1 << 27, // STANDARD_BT2020 | TRANSFER_LINEAR | RANGE_FULL
-
 
     /**
      * ITU-R Recommendation 2020 (BT.2020)
@@ -570,6 +592,14 @@ enum Dataspace {
      */
     BT2020_PQ = 6 << 16 | 7 << 22 | 1 << 27, // STANDARD_BT2020 | TRANSFER_ST2084 | RANGE_FULL
 
+    /**
+     * ITU-R Recommendation 2020 (BT.2020)
+     *
+     * Ultra High-definition television
+     *
+     * Use extended range, linear transfer and BT2020 standard
+     */
+    BT2020_LINEAR_EXTENDED = 6 << 16 | 1 << 22 | 3 << 27, // STANDARD_BT2020 | TRANSFER_LINEAR | RANGE_EXTENDED
 
     /**
      * Data spaces for non-color formats
@@ -611,7 +641,8 @@ enum Dataspace {
      *
      * Use limited range, SMPTE 170M transfer and BT2020 standard
      */
-    BT2020_ITU = 6 << 16 | 3 << 22 | 2 << 27, // STANDARD_BT2020 | TRANSFER_SMPTE_170M | RANGE_LIMITED
+    BT2020_ITU =
+            6 << 16 | 3 << 22 | 2 << 27, // STANDARD_BT2020 | TRANSFER_SMPTE_170M | RANGE_LIMITED
 
     /**
      * ITU-R Recommendation 2100 (BT.2100)
@@ -621,7 +652,8 @@ enum Dataspace {
      * Use limited/full range, PQ/HLG transfer, and BT2020 standard
      * limited range is the preferred / normative definition for BT.2100
      */
-    BT2020_ITU_PQ = 6 << 16 | 7 << 22 | 2 << 27, // STANDARD_BT2020 | TRANSFER_ST2084 | RANGE_LIMITED
+    BT2020_ITU_PQ =
+            6 << 16 | 7 << 22 | 2 << 27, // STANDARD_BT2020 | TRANSFER_ST2084 | RANGE_LIMITED
     BT2020_ITU_HLG = 6 << 16 | 8 << 22 | 2 << 27, // STANDARD_BT2020 | TRANSFER_HLG | RANGE_LIMITED
     BT2020_HLG = 6 << 16 | 8 << 22 | 1 << 27, // STANDARD_BT2020 | TRANSFER_HLG | RANGE_FULL
 
@@ -668,11 +700,27 @@ enum Dataspace {
     HEIF = 0x1004,
 
     /**
+     * Ultra HDR
+     *
+     * JPEG image with embedded 10-bit recovery map following the Ultra HDR specification.
+     *
+     * This value must always remain aligned with the public ImageFormat Jpeg/R definition and is
+     * valid with formats:
+     *    HAL_PIXEL_FORMAT_BLOB: JPEG image encoded by Ultra HDR encoder according to
+     *    the <a href="https://developer.android.com/guide/topics/media/hdr-image-format">
+     *    Ultra HDR Image format specification</a>.
+     * The image contains a standard SDR JPEG and a recovery map. Ultra HDR decoders can use the
+     * map to recover the 10-bit input image.
+     */
+    JPEG_R = 0x1005,
+
+    /**
      * ITU-R Recommendation 709 (BT.709)
      *
      * High-definition television
      *
      * Use full range, SMPTE 170M transfer and BT.709 standard.
      */
-    BT709_FULL_RANGE = 1 << 16 | 3 << 22 | 1 << 27, // STANDARD_BT709 | TRANSFER_SMPTE_170M | RANGE_FULL
+    BT709_FULL_RANGE =
+            1 << 16 | 3 << 22 | 1 << 27, // STANDARD_BT709 | TRANSFER_SMPTE_170M | RANGE_FULL
 }

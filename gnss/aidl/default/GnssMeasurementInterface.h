@@ -25,6 +25,7 @@
 #include "Utils.h"
 
 namespace aidl::android::hardware::gnss {
+class Gnss;
 
 struct GnssMeasurementInterface : public BnGnssMeasurementInterface {
   public:
@@ -39,9 +40,10 @@ struct GnssMeasurementInterface : public BnGnssMeasurementInterface {
             const Options& options) override;
     void setLocationInterval(const int intervalMs);
     void setLocationEnabled(const bool enabled);
+    void setGnssInterface(const std::shared_ptr<Gnss>& gnss);
 
   private:
-    void start(const bool enableCorrVecOutputs);
+    void start(const bool enableCorrVecOutputs, const bool enableFullTracking);
     void stop();
     void reportMeasurement(const GnssData&);
     void waitForStoppingThreads();
@@ -50,7 +52,7 @@ struct GnssMeasurementInterface : public BnGnssMeasurementInterface {
     std::atomic<long> mLocationIntervalMs;
     std::atomic<bool> mIsActive;
     std::atomic<bool> mLocationEnabled;
-    std::thread mThread;
+    std::vector<std::thread> mThreads;
     std::vector<std::future<void>> mFutures;
     ::android::hardware::gnss::common::ThreadBlocker mThreadBlocker;
 
@@ -59,6 +61,8 @@ struct GnssMeasurementInterface : public BnGnssMeasurementInterface {
 
     // Synchronization lock for sCallback
     mutable std::mutex mMutex;
+
+    std::shared_ptr<Gnss> mGnss;
 };
 
 }  // namespace aidl::android::hardware::gnss

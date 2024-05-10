@@ -1,4 +1,5 @@
 package {
+    default_team: "trendy_team_android_core_graphics_stack",
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // all of the 'license_kinds' from "hardware_interfaces_license"
@@ -10,15 +11,12 @@ package {
 aidl_interface {
     name: "android.hardware.graphics.allocator",
     vendor_available: true,
-    vndk: {
-        enabled: true,
-        support_system_process: true,
-    },
+    double_loadable: true,
     vndk_use_version: "2",
     srcs: ["android/hardware/graphics/allocator/*.aidl"],
     imports: [
         "android.hardware.common-V2",
-        "android.hardware.graphics.common-V4",
+        "android.hardware.graphics.common-V5",
     ],
     stability: "vintf",
     backend: {
@@ -33,18 +31,23 @@ aidl_interface {
                 "//apex_available:platform",
                 "com.android.media.swcodec",
             ],
-            vndk: {
-                enabled: true,
-            },
             min_sdk_version: "29",
         },
     },
-    frozen: false,
+    frozen: true,
     versions_with_info: [
         {
             version: "1",
             imports: ["android.hardware.common-V2"],
         },
+        {
+            version: "2",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.graphics.common-V5",
+            ],
+        },
+
     ],
 
 }

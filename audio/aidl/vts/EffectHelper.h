@@ -21,23 +21,30 @@
 #include <string>
 #include <type_traits>
 #include <unordered_map>
+#include <utility>
 #include <vector>
 
+#include <Utils.h>
 #include <aidl/android/hardware/audio/effect/IEffect.h>
 #include <aidl/android/hardware/audio/effect/IFactory.h>
 #include <aidl/android/media/audio/common/AudioChannelLayout.h>
 #include <android/binder_auto_utils.h>
 #include <fmq/AidlMessageQueue.h>
+#include <gtest/gtest.h>
+#include <system/audio_aidl_utils.h>
 #include <system/audio_effects/aidl_effects_utils.h>
+#include <system/audio_effects/effect_uuid.h>
 
-#include "AudioHalBinderServiceUtil.h"
 #include "EffectFactoryHelper.h"
 #include "TestUtils.h"
+#include "pffft.hpp"
 
 using namespace android;
 using aidl::android::hardware::audio::effect::CommandId;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::IEffect;
+using aidl::android::hardware::audio::effect::kEventFlagDataMqUpdate;
+using aidl::android::hardware::audio::effect::kEventFlagNotEmpty;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::Range;
 using aidl::android::hardware::audio::effect::State;
@@ -47,6 +54,8 @@ using aidl::android::media::audio::common::AudioFormatDescription;
 using aidl::android::media::audio::common::AudioFormatType;
 using aidl::android::media::audio::common::AudioUuid;
 using aidl::android::media::audio::common::PcmType;
+using ::android::audio::utils::toString;
+using ::android::hardware::EventFlag;
 
 const AudioFormatDescription kDefaultFormatDescription = {
         .type = AudioFormatType::PCM, .pcm = PcmType::FLOAT_32_BIT, .encoding = ""};
@@ -58,6 +67,14 @@ typedef ::android::AidlMessageQueue<float,
                                     ::aidl::android::hardware::common::fmq::SynchronizedReadWrite>
         DataMQ;
 
+static inline std::string getPrefix(Descriptor& descriptor) {
+    std::string prefix = "Implementor_" + descriptor.common.implementor + "_name_" +
+                         descriptor.common.name + "_UUID_" + toString(descriptor.common.id.uuid);
+    std::replace_if(
+            prefix.begin(), prefix.end(), [](const char c) { return !std::isalnum(c); }, '_');
+    return prefix;
+}
+
 class EffectHelper {
   public:
     static void create(std::shared_ptr<IFactory> factory, std::shared_ptr<IEffect>& effect,
@@ -66,7 +83,7 @@ class EffectHelper {
         auto& id = desc.common.id;
         ASSERT_STATUS(status, factory->createEffect(id.uuid, &effect));
         if (status == EX_NONE) {
-            ASSERT_NE(effect, nullptr) << id.uuid.toString();
+            ASSERT_NE(effect, nullptr) << toString(id.uuid);
         }
     }
 
@@ -134,7 +151,7 @@ class EffectHelper {
     static void allocateInputData(const Parameter::Common common, std::unique_ptr<DataMQ>& mq,
                                   std::vector<float>& buffer) {
         ASSERT_NE(mq, nullptr);
-        auto frameSize = android::hardware::audio::common::getFrameSizeInBytes(
+        auto frameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(
                 common.input.base.format, common.input.base.channelMask);
         const size_t floatsToWrite = mq->availableToWrite();
         ASSERT_NE(0UL, floatsToWrite);
@@ -142,12 +159,20 @@ class EffectHelper {
         buffer.resize(floatsToWrite);
         std::fill(buffer.begin(), buffer.end(), 0x5a);
     }
-    static void writeToFmq(std::unique_ptr<DataMQ>& mq, const std::vector<float>& buffer) {
-        const size_t available = mq->availableToWrite();
+    static void writeToFmq(std::unique_ptr<StatusMQ>& statusMq, std::unique_ptr<DataMQ>& dataMq,
+                           const std::vector<float>& buffer) {
+        const size_t available = dataMq->availableToWrite();
         ASSERT_NE(0Ul, available);
         auto bufferFloats = buffer.size();
         auto floatsToWrite = std::min(available, bufferFloats);
-        ASSERT_TRUE(mq->write(buffer.data(), floatsToWrite));
+        ASSERT_TRUE(dataMq->write(buffer.data(), floatsToWrite));
+
+        EventFlag* efGroup;
+        ASSERT_EQ(::android::OK,
+                  EventFlag::createEventFlag(statusMq->getEventFlagWord(), &efGroup));
+        ASSERT_NE(nullptr, efGroup);
+        efGroup->wake(kEventFlagNotEmpty);
+        ASSERT_EQ(::android::OK, EventFlag::deleteEventFlag(&efGroup));
     }
     static void readFromFmq(std::unique_ptr<StatusMQ>& statusMq, size_t statusNum,
                             std::unique_ptr<DataMQ>& dataMq, size_t expectFloats,
@@ -168,6 +193,16 @@ class EffectHelper {
         if (expectFloats != 0) {
             ASSERT_TRUE(dataMq->read(buffer.data(), expectFloats));
         }
+    }
+    static void expectDataMqUpdateEventFlag(std::unique_ptr<StatusMQ>& statusMq) {
+        EventFlag* efGroup;
+        ASSERT_EQ(::android::OK,
+                  EventFlag::createEventFlag(statusMq->getEventFlagWord(), &efGroup));
+        ASSERT_NE(nullptr, efGroup);
+        uint32_t efState = 0;
+        EXPECT_EQ(::android::OK, efGroup->wait(kEventFlagDataMqUpdate, &efState, 1'000'000 /*1ms*/,
+                                               true /* retry */));
+        EXPECT_TRUE(efState & kEventFlagDataMqUpdate);
     }
     static Parameter::Common createParamCommon(
             int session = 0, int ioHandle = -1, int iSampleRate = 48000, int oSampleRate = 48000,
@@ -225,15 +260,15 @@ class EffectHelper {
      */
     template <typename S, typename = std::enable_if_t<std::is_arithmetic_v<S>>>
     static std::set<S> expandTestValueBasic(std::set<S>& s) {
-        const auto min = *s.begin(), max = *s.rbegin();
         const auto minLimit = std::numeric_limits<S>::min(),
                    maxLimit = std::numeric_limits<S>::max();
         if (s.size()) {
-            s.insert(min + (max - min) / 2);
-            if (min != minLimit) {
+            const auto min = *s.begin(), max = *s.rbegin();
+            s.insert((min & max) + ((min ^ max) >> 1));
+            if (min > minLimit + 1) {
                 s.insert(min - 1);
             }
-            if (max != maxLimit) {
+            if (max < maxLimit - 1) {
                 s.insert(max + 1);
             }
         }
@@ -242,12 +277,11 @@ class EffectHelper {
         return s;
     }
 
-    template <typename T, typename S, Range::Tag R, typename T::Tag tag, typename Functor>
+    template <typename T, typename S, Range::Tag R, typename T::Tag tag>
     static std::set<S> getTestValueSet(
-            std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor>> kFactoryDescList,
-            Functor functor) {
+            std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor>> descList) {
         std::set<S> result;
-        for (const auto& [_, desc] : kFactoryDescList) {
+        for (const auto& [_, desc] : descList) {
             if (desc.capability.range.getTag() == R) {
                 const auto& ranges = desc.capability.range.get<R>();
                 for (const auto& range : ranges) {
@@ -260,6 +294,83 @@ class EffectHelper {
                 }
             }
         }
+        return result;
+    }
+
+    template <typename T, typename S, Range::Tag R, typename T::Tag tag, typename Functor>
+    static std::set<S> getTestValueSet(
+            std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor>> descList,
+            Functor functor) {
+        auto result = getTestValueSet<T, S, R, tag>(descList);
         return functor(result);
+    }
+
+    static void processAndWriteToOutput(std::vector<float>& inputBuffer,
+                                        std::vector<float>& outputBuffer,
+                                        const std::shared_ptr<IEffect>& mEffect,
+                                        IEffect::OpenEffectReturn* mOpenEffectReturn) {
+        // Initialize AidlMessagequeues
+        auto statusMQ = std::make_unique<EffectHelper::StatusMQ>(mOpenEffectReturn->statusMQ);
+        ASSERT_TRUE(statusMQ->isValid());
+        auto inputMQ = std::make_unique<EffectHelper::DataMQ>(mOpenEffectReturn->inputDataMQ);
+        ASSERT_TRUE(inputMQ->isValid());
+        auto outputMQ = std::make_unique<EffectHelper::DataMQ>(mOpenEffectReturn->outputDataMQ);
+        ASSERT_TRUE(outputMQ->isValid());
+
+        // Enabling the process
+        ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::START));
+        ASSERT_NO_FATAL_FAILURE(expectState(mEffect, State::PROCESSING));
+
+        // Write from buffer to message queues and calling process
+        EXPECT_NO_FATAL_FAILURE(EffectHelper::writeToFmq(statusMQ, inputMQ, inputBuffer));
+
+        // Read the updated message queues into buffer
+        EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(statusMQ, 1, outputMQ,
+                                                          outputBuffer.size(), outputBuffer));
+
+        // Disable the process
+        ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::RESET));
+        ASSERT_NO_FATAL_FAILURE(expectState(mEffect, State::IDLE));
+    }
+
+    // Find FFT bin indices for testFrequencies and get bin center frequencies
+    void roundToFreqCenteredToFftBin(std::vector<int>& testFrequencies,
+                                     std::vector<int>& binOffsets, const float kBinWidth) {
+        for (size_t i = 0; i < testFrequencies.size(); i++) {
+            binOffsets[i] = std::round(testFrequencies[i] / kBinWidth);
+            testFrequencies[i] = std::round(binOffsets[i] * kBinWidth);
+        }
+    }
+
+    // Generate multitone input between -1 to +1 using testFrequencies
+    void generateMultiTone(const std::vector<int>& testFrequencies, std::vector<float>& input,
+                           const int samplingFrequency) {
+        for (size_t i = 0; i < input.size(); i++) {
+            input[i] = 0;
+
+            for (size_t j = 0; j < testFrequencies.size(); j++) {
+                input[i] += sin(2 * M_PI * testFrequencies[j] * i / samplingFrequency);
+            }
+            input[i] /= testFrequencies.size();
+        }
+    }
+
+    // Use FFT transform to convert the buffer to frequency domain
+    // Compute its magnitude at binOffsets
+    std::vector<float> calculateMagnitude(const std::vector<float>& buffer,
+                                          const std::vector<int>& binOffsets, const int nPointFFT) {
+        std::vector<float> fftInput(nPointFFT);
+        PFFFT_Setup* inputHandle = pffft_new_setup(nPointFFT, PFFFT_REAL);
+        pffft_transform_ordered(inputHandle, buffer.data(), fftInput.data(), nullptr,
+                                PFFFT_FORWARD);
+        pffft_destroy_setup(inputHandle);
+        std::vector<float> bufferMag(binOffsets.size());
+        for (size_t i = 0; i < binOffsets.size(); i++) {
+            size_t k = binOffsets[i];
+            bufferMag[i] = sqrt((fftInput[k * 2] * fftInput[k * 2]) +
+                                (fftInput[k * 2 + 1] * fftInput[k * 2 + 1]));
+        }
+
+        return bufferMag;
     }
 };

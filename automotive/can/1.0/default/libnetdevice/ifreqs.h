@@ -18,6 +18,7 @@
 
 #include <net/if.h>
 
+#include <atomic>
 #include <string>
 
 namespace android::netdevice::ifreqs {
@@ -26,6 +27,15 @@ namespace android::netdevice::ifreqs {
  * \see useSocketDomain()
  */
 extern std::atomic_int socketDomain;
+
+/**
+ * Tries to send ioctl interface request.
+ *
+ * \param request Request type (such as SIOCGIFFLAGS)
+ * \param ifr Request data (both input and output)
+ * \return error code of the call (0 for success)
+ */
+int trySend(unsigned long request, struct ifreq& ifr);
 
 /**
  * Sends ioctl interface request.

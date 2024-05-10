@@ -16,32 +16,45 @@
 
 #pragma once
 
-#include "core-impl/Module.h"
+#include "core-impl/ModuleAlsa.h"
 
 namespace aidl::android::hardware::audio::core {
 
-class ModuleUsb : public Module {
+class ModuleUsb final : public ModuleAlsa {
   public:
-    explicit ModuleUsb(Module::Type type) : Module(type) {}
+    ModuleUsb(std::unique_ptr<Configuration>&& config) : ModuleAlsa(Type::USB, std::move(config)) {}
 
   private:
     // IModule interfaces
     ndk::ScopedAStatus getTelephony(std::shared_ptr<ITelephony>* _aidl_return) override;
     ndk::ScopedAStatus getBluetooth(std::shared_ptr<IBluetooth>* _aidl_return) override;
-    ndk::ScopedAStatus getMasterMute(bool* _aidl_return) override;
-    ndk::ScopedAStatus setMasterMute(bool in_mute) override;
-    ndk::ScopedAStatus getMasterVolume(float* _aidl_return) override;
-    ndk::ScopedAStatus setMasterVolume(float in_volume) override;
     ndk::ScopedAStatus getMicMute(bool* _aidl_return) override;
     ndk::ScopedAStatus setMicMute(bool in_mute) override;
 
     // Module interfaces
+    ndk::ScopedAStatus createInputStream(
+            StreamContext&& context,
+            const ::aidl::android::hardware::audio::common::SinkMetadata& sinkMetadata,
+            const std::vector<::aidl::android::media::audio::common::MicrophoneInfo>& microphones,
+            std::shared_ptr<StreamIn>* result) override;
+    ndk::ScopedAStatus createOutputStream(
+            StreamContext&& context,
+            const ::aidl::android::hardware::audio::common::SourceMetadata& sourceMetadata,
+            const std::optional<::aidl::android::media::audio::common::AudioOffloadInfo>&
+                    offloadInfo,
+            std::shared_ptr<StreamOut>* result) override;
     ndk::ScopedAStatus populateConnectedDevicePort(
-            ::aidl::android::media::audio::common::AudioPort* audioPort) override;
+            ::aidl::android::media::audio::common::AudioPort* audioPort,
+            int32_t nextPortId) override;
     ndk::ScopedAStatus checkAudioPatchEndpointsMatch(
             const std::vector<::aidl::android::media::audio::common::AudioPortConfig*>& sources,
             const std::vector<::aidl::android::media::audio::common::AudioPortConfig*>& sinks)
             override;
+    void onExternalDeviceConnectionChanged(
+            const ::aidl::android::media::audio::common::AudioPort& audioPort,
+            bool connected) override;
+    ndk::ScopedAStatus onMasterMuteChanged(bool mute) override;
+    ndk::ScopedAStatus onMasterVolumeChanged(float volume) override;
 };
 
 }  // namespace aidl::android::hardware::audio::core

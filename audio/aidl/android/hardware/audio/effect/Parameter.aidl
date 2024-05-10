@@ -16,6 +16,8 @@
 
 package android.hardware.audio.effect;
 
+import android.hardware.audio.common.SinkMetadata;
+import android.hardware.audio.common.SourceMetadata;
 import android.hardware.audio.effect.AcousticEchoCanceler;
 import android.hardware.audio.effect.AutomaticGainControlV1;
 import android.hardware.audio.effect.AutomaticGainControlV2;
@@ -28,6 +30,7 @@ import android.hardware.audio.effect.HapticGenerator;
 import android.hardware.audio.effect.LoudnessEnhancer;
 import android.hardware.audio.effect.NoiseSuppression;
 import android.hardware.audio.effect.PresetReverb;
+import android.hardware.audio.effect.Spatializer;
 import android.hardware.audio.effect.VendorExtension;
 import android.hardware.audio.effect.Virtualizer;
 import android.hardware.audio.effect.Visualizer;
@@ -66,10 +69,10 @@ union Parameter {
     @VintfStability
     union Id {
         /**
-         * Parameter tag defined for vendor effects. Use int here so there is flexibility for vendor
-         * to define different tag.
+         * Parameter tag defined for vendor effects. Use VendorExtension here so it's possible to
+         * pass customized information.
          */
-        int vendorEffectTag;
+        VendorExtension vendorEffectTag;
         /**
          * Parameter tag defined for nested parameters. Can be used to get any parameter defined in
          * nested Union structure.
@@ -103,6 +106,11 @@ union Parameter {
          * directly.
          */
         Parameter.Tag commonTag;
+
+        /**
+         * Parameter tag defined for Spatializer parameters.
+         */
+        Spatializer.Id spatializerTag;
     }
 
     /**
@@ -135,16 +143,24 @@ union Parameter {
      * Effect must implement setParameter(deviceDescription) if Flags.deviceIndication set to true.
      */
     AudioDeviceDescription[] deviceDescription;
+
     /**
      * Used by audio framework to set the audio mode to effect engine.
      * Effect must implement setParameter(mode) if Flags.audioModeIndication set to true.
      */
     AudioMode mode;
+
     /**
      * Used by audio framework to set the audio source to effect engine.
      * Effect must implement setParameter(source) if Flags.audioSourceIndication set to true.
      */
     AudioSource source;
+
+    /**
+     * Used by audio framework to indicate whether the playback thread the effect is attached to is
+     * offloaded or not.
+     */
+    boolean offload;
 
     /**
      * The volume gain for left and right channel, left and right equals to same value if it's mono.
@@ -181,6 +197,23 @@ union Parameter {
         Virtualizer virtualizer;
         Visualizer visualizer;
         Volume volume;
+        Spatializer spatializer;
     }
     Specific specific;
+
+    /**
+     * SinkMetadata defines the metadata of record AudioTracks which the effect instance associate
+     * with.
+     * The effect engine is required to set Flags.sinkMetadataIndication to true if it wants to
+     * receive sinkMetadata update from the audio framework.
+     */
+    SinkMetadata sinkMetadata;
+
+    /**
+     * SourceMetadata defines the metadata of playback AudioTracks which the effect instance
+     * associate with.
+     * The effect engine is required to set Flags.sourceMetadataIndication to true if it wants to
+     * receive sourceMetadata update from the audio framework.
+     */
+    SourceMetadata sourceMetadata;
 }

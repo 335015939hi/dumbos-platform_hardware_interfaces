@@ -20,7 +20,10 @@ import android.hardware.contexthub.ContextHubInfo;
 import android.hardware.contexthub.ContextHubMessage;
 import android.hardware.contexthub.HostEndpointInfo;
 import android.hardware.contexthub.IContextHubCallback;
+import android.hardware.contexthub.MessageDeliveryStatus;
+import android.hardware.contexthub.NanSessionStateUpdate;
 import android.hardware.contexthub.NanoappBinary;
+import android.hardware.contexthub.NanoappInfo;
 import android.hardware.contexthub.Setting;
 
 @VintfStability
@@ -145,7 +148,7 @@ interface IContextHub {
 
     /**
      * Register a callback for the HAL implementation to send asynchronous messages to the service
-     * from a Context hub. There can only be one callback registered for a single Context Hub ID.
+     * from a Context hub. Each HAL client can only have one callback for each Context Hub ID.
      *
      * A call to this function when a callback has already been registered must override the
      * previous registration.
@@ -193,6 +196,60 @@ interface IContextHub {
      *                       parameter should be ignored (no-op).
      */
     void onHostEndpointDisconnected(char hostEndpointId);
+
+    /**
+     * Provides the list of preloaded nanoapp IDs on the system. The output of this API must
+     * not change.
+     *
+     * @param contextHubId The identifier of the Context Hub.
+     *
+     * @return The list of preloaded nanoapp IDs.
+     */
+    long[] getPreloadedNanoappIds(in int contextHubId);
+
+    /**
+     * Invoked when the state of the NAN session requested through handleNanSessionRequest()
+     * changes. This function may be invoked without a corresponding handleNanSessionRequest to
+     * indicate if a NAN session was terminated without a request due to resource limitations.
+     *
+     * If the state becomes disabled without an explicit request from the HAL, the HAL MUST
+     * explicitly invoke handleNanSessionRequest() at a later point in time to attempt to
+     * re-enable NAN.
+     *
+     * @param update Information about the latest NAN session state.
+     */
+    void onNanSessionStateChanged(in NanSessionStateUpdate update);
+
+    /**
+     * Puts the context hub in and out of test mode. Test mode is a clean state
+     * where tests can be executed in the same environment. If enable is true,
+     * this will enable test mode by unloading all nanoapps. If enable is false,
+     * this will disable test mode and reverse the actions of enabling test mode
+     * by loading all preloaded nanoapps. This puts CHRE in a normal state.
+     *
+     * This should only be used for a test environment, either through a
+     * @TestApi or development tools. This should not be used in a production
+     * environment.
+     *
+     * @param enable If true, put the context hub in test mode. If false, disable
+     *               test mode.
+     */
+    void setTestMode(in boolean enable);
+
+    /**
+     * Sends a message delivery status to the Context Hub in response to receiving a
+     * ContextHubMessage with isReliable=true. Each reliable message should have a
+     * messageDeliveryStatus response. This method sends the message delivery status
+     * back to the Context Hub.
+     *
+     * @param contextHubId The identifier of the Context Hub.
+     * @param messageDeliveryStatus The status to be sent.
+     *
+     * @throws EX_UNSUPPORTED_OPERATION if ContextHubInfo.supportsReliableMessages is false for
+     * this hub.
+     */
+    void sendMessageDeliveryStatusToHub(
+            in int contextHubId, in MessageDeliveryStatus messageDeliveryStatus);
 
     /**
      * Error codes that are used as service specific errors with the AIDL return

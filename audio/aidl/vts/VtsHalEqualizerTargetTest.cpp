@@ -15,17 +15,13 @@
  */
 
 #include <algorithm>
-#include <limits>
-#include <map>
-#include <memory>
-#include <optional>
 #include <string>
 #include <vector>
 
-#define LOG_TAG "VtsHalEqualizerTest"
-
 #include <aidl/Gtest.h>
-#include <aidl/Vintf.h>
+#include <aidl/android/hardware/audio/effect/IEffect.h>
+#include <aidl/android/hardware/audio/effect/IFactory.h>
+#define LOG_TAG "VtsHalEqualizerTest"
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 #include <android/binder_interface_utils.h>
@@ -33,23 +29,18 @@
 #include <android/binder_process.h>
 #include <gtest/gtest.h>
 
-#include <Utils.h>
-#include <aidl/android/hardware/audio/effect/IEffect.h>
-#include <aidl/android/hardware/audio/effect/IFactory.h>
-
-#include "AudioHalBinderServiceUtil.h"
 #include "EffectHelper.h"
 #include "TestUtils.h"
-#include "effect-impl/EffectUUID.h"
 
 using namespace android;
 
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::Equalizer;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidEqualizer;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kEqualizerTypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
+using android::hardware::audio::common::testing::detail::TestExecutionTracer;
 
 /**
  * Here we focus on specific effect (equalizer) parameter checking, general IEffect interfaces
@@ -198,7 +189,7 @@ INSTANTIATE_TEST_SUITE_P(
         EqualizerTest, EqualizerTest,
         ::testing::Combine(
                 testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
-                                          IFactory::descriptor, kEqualizerTypeUUID)),
+                                          IFactory::descriptor, getEffectTypeUuidEqualizer())),
                 testing::ValuesIn(EffectHelper::getTestValueSet<Equalizer, int, Range::equalizer,
                                                                 Equalizer::preset>(
                         kDescPair, EffectHelper::expandTestValueBasic<int>)),
@@ -213,9 +204,7 @@ INSTANTIATE_TEST_SUITE_P(
             auto descriptor = std::get<PARAM_INSTANCE_NAME>(info.param).second;
             std::string bandLevel =
                     ::android::internal::ToString(std::get<PARAM_BAND_LEVEL>(info.param));
-            std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
-                               descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_preset_" +
+            std::string name = getPrefix(descriptor) + "_preset_" +
                                std::to_string(std::get<PARAM_PRESET>(info.param)) + "_bandLevel_" +
                                bandLevel;
             std::replace_if(
@@ -226,6 +215,7 @@ GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EqualizerTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
+    ::testing::UnitTest::GetInstance()->listeners().Append(new TestExecutionTracer());
     ABinderProcess_setThreadPoolMaxThreadCount(1);
     ABinderProcess_startThreadPool();
     return RUN_ALL_TESTS();

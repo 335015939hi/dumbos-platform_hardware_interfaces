@@ -41,6 +41,7 @@ interface IComponentStore {
   android.hardware.media.bufferpool2.IClientManager getPoolClientManager();
   android.hardware.media.c2.StructDescriptor[] getStructDescriptors(in int[] indices);
   android.hardware.media.c2.IComponentStore.ComponentTraits[] listComponents();
+  android.hardware.media.c2.IInputSurface createInputSurface();
   @VintfStability
   parcelable ComponentTraits {
     String name;
@@ -52,15 +53,15 @@ interface IComponentStore {
     @Backing(type="int") @VintfStability
     enum Kind {
       OTHER = 0,
-      DECODER = 1,
-      ENCODER = 2,
+      DECODER,
+      ENCODER,
     }
     @Backing(type="int") @VintfStability
     enum Domain {
       OTHER = 0,
-      VIDEO = 1,
-      AUDIO = 2,
-      IMAGE = 3,
+      VIDEO,
+      AUDIO,
+      IMAGE,
     }
   }
 }

@@ -19,7 +19,12 @@
 #include <random>
 
 #include <aidl/android/hardware/biometrics/face/BnSession.h>
+#include <aidl/android/hardware/biometrics/face/FaceEnrollOptions.h>
 #include <aidl/android/hardware/biometrics/face/ISessionCallback.h>
+
+#include "FakeFaceEngine.h"
+#include "thread/WorkerThread.h"
+#include "util/CancellationSignal.h"
 
 namespace aidl::android::hardware::biometrics::face {
 
@@ -30,7 +35,7 @@ using aidl::android::hardware::common::NativeHandle;
 
 class Session : public BnSession {
   public:
-    explicit Session(std::shared_ptr<ISessionCallback> cb);
+    explicit Session(std::unique_ptr<FakeFaceEngine> engine, std::shared_ptr<ISessionCallback> cb);
 
     ndk::ScopedAStatus generateChallenge() override;
 
@@ -84,9 +89,16 @@ class Session : public BnSession {
 
     ndk::ScopedAStatus onContextChanged(const common::OperationContext& context) override;
 
+    ndk::ScopedAStatus enrollWithOptions(
+            const FaceEnrollOptions& options,
+            std::shared_ptr<common::ICancellationSignal>* out) override;
+
   private:
-    std::shared_ptr<ISessionCallback> cb_;
+    std::unique_ptr<FakeFaceEngine> mEngine;
+    std::shared_ptr<ISessionCallback> mCb;
     std::mt19937 mRandom;
+    std::unique_ptr<WorkerThread> mThread;
+    std::shared_ptr<CancellationSignal> mCancellationSignal;
 };
 
 }  // namespace aidl::android::hardware::biometrics::face

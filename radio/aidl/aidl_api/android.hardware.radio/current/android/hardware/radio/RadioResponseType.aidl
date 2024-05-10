@@ -32,9 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum RadioResponseType {
-  SOLICITED = 0,
-  SOLICITED_ACK = 1,
-  SOLICITED_ACK_EXP = 2,
+  SOLICITED,
+  SOLICITED_ACK,
+  SOLICITED_ACK_EXP,
 }

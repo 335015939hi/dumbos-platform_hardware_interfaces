@@ -51,7 +51,7 @@ class HmacKeySharingTest : public KeymasterHidlTest {
     };
 
     using KeymasterVec = std::vector<sp<IKeymasterDevice>>;
-    using ByteString = std::basic_string<uint8_t>;
+    using ByteString = std::vector<uint8_t>;
     // using NonceVec = std::vector<HidlBuf>;
 
     GetParamsResult getHmacSharingParameters(IKeymasterDevice& keymaster) {
@@ -98,7 +98,7 @@ class HmacKeySharingTest : public KeymasterHidlTest {
     std::vector<ByteString> copyNonces(const hidl_vec<HmacSharingParameters>& paramsVec) {
         std::vector<ByteString> nonces;
         for (auto& param : paramsVec) {
-            nonces.emplace_back(param.nonce.data(), param.nonce.size());
+            nonces.emplace_back(param.nonce.data(), param.nonce.data() + param.nonce.size());
         }
         return nonces;
     }
@@ -137,7 +137,7 @@ TEST_P(HmacKeySharingTest, ComputeSharedHmac) {
     auto nonces = copyNonces(params);
     EXPECT_EQ(allKeymasters().size(), nonces.size());
     std::sort(nonces.begin(), nonces.end());
-    std::unique(nonces.begin(), nonces.end());
+    nonces.erase(std::unique(nonces.begin(), nonces.end()), nonces.end());
     EXPECT_EQ(allKeymasters().size(), nonces.size());
 
     auto responses = computeSharedHmac(allKeymasters(), params);

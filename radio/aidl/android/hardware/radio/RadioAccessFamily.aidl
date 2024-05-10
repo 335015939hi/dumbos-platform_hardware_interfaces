@@ -18,6 +18,7 @@ package android.hardware.radio;
 
 import android.hardware.radio.RadioTechnology;
 
+/** @hide */
 @VintfStability
 @Backing(type="int")
 @JavaDerive(toString=true)
@@ -41,6 +42,7 @@ enum RadioAccessFamily {
     GSM = 1 << RadioTechnology.GSM,
     TD_SCDMA = 1 << RadioTechnology.TD_SCDMA,
     IWLAN = 1 << RadioTechnology.IWLAN,
+    /** @deprecated use LTE instead. */
     LTE_CA = 1 << RadioTechnology.LTE_CA,
     /**
      * 5G NR. This is only use in 5G Standalone mode.

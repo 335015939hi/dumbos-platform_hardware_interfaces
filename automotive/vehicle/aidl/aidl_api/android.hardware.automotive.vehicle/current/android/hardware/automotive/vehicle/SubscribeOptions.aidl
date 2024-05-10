@@ -32,9 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.automotive.vehicle;
-@JavaDerive(equals=true, toString=true) @VintfStability
+@JavaDerive(equals=true, toString=true) @RustDerive(Clone=true) @VintfStability
 parcelable SubscribeOptions {
   int propId;
   int[] areaIds;
   float sampleRate;
+  float resolution = 0.0f;
+  boolean enableVariableUpdateRate;
 }

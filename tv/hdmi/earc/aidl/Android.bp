@@ -13,6 +13,7 @@
 // limitations under the License.
 
 package {
+    default_team: "trendy_team_tv_os",
     default_applicable_licenses: ["hardware_interfaces_license"],
 }
 
@@ -27,4 +28,12 @@ aidl_interface {
             sdk_version: "module_current",
         },
     },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["android.hardware.tv.hdmi.connection-V1"],
+        },
+    ],
+    frozen: true,
+
 }

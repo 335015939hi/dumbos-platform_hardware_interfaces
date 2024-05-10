@@ -16,6 +16,7 @@
 
 package android.hardware.wifi;
 
+import android.hardware.wifi.CachedScanData;
 import android.hardware.wifi.IWifiStaIfaceEventCallback;
 import android.hardware.wifi.StaApfPacketFilterCapabilities;
 import android.hardware.wifi.StaBackgroundScanCapabilities;
@@ -24,6 +25,8 @@ import android.hardware.wifi.StaLinkLayerStats;
 import android.hardware.wifi.StaRoamingCapabilities;
 import android.hardware.wifi.StaRoamingConfig;
 import android.hardware.wifi.StaRoamingState;
+import android.hardware.wifi.TwtCapabilities;
+import android.hardware.wifi.TwtRequest;
 import android.hardware.wifi.WifiBand;
 import android.hardware.wifi.WifiDebugRxPacketFateReport;
 import android.hardware.wifi.WifiDebugTxPacketFateReport;
@@ -38,7 +41,7 @@ interface IWifiStaIface {
      */
     @VintfStability
     @Backing(type="int")
-    enum StaIfaceCapabilityMask {
+    enum FeatureSetMask {
         /**
          * Support for APF APIs. APF (Android Packet Filter) is a
          * BPF-like packet filtering bytecode executed by the firmware.
@@ -100,9 +103,13 @@ interface IWifiStaIface {
          */
         KEEP_ALIVE = 1 << 13,
         /**
-         * Support for tracking connection packets' fate.
+         * Support for configuring roaming mode.
          */
-        DEBUG_PACKET_FATE = 1 << 14,
+        ROAMING_MODE_CONTROL = 1 << 14,
+        /**
+         * Support for cached scan data report.
+         */
+        CACHED_SCAN_DATA = 1 << 15,
     }
 
     /**
@@ -194,15 +201,15 @@ interface IWifiStaIface {
     StaBackgroundScanCapabilities getBackgroundScanCapabilities();
 
     /**
-     * Get the capabilities supported by this STA iface.
+     * Get the features supported by this STA iface.
      *
-     * @return Bitset of |StaIfaceCapabilityMask| values.
+     * @return Bitset of |FeatureSetMask| values.
      * @throws ServiceSpecificException with one of the following values:
      *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
      *         |WifiStatusCode.ERROR_NOT_AVAILABLE|,
      *         |WifiStatusCode.ERROR_UNKNOWN|
      */
-    StaIfaceCapabilityMask getCapabilities();
+    int getFeatureSet();
 
     /**
      * API to retrieve the fates of inbound packets.
@@ -290,22 +297,6 @@ interface IWifiStaIface {
      *         |WifiStatusCode.ERROR_UNKNOWN|
      */
     StaRoamingCapabilities getRoamingCapabilities();
-
-    /**
-     * Used to query the list of valid frequencies (depending on the country
-     * code set) for the provided band. These channels may be specified in the
-     * |BackgroundScanBucketParameters.frequenciesInMhz| for a background scan
-     * request.
-     *
-     * @param band Band for which the frequency list is being generated.
-     * @return Vector of valid frequencies for the provided band.
-     * @throws ServiceSpecificException with one of the following values:
-     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
-     *         |WifiStatusCode.ERROR_NOT_SUPPORTED|,
-     *         |WifiStatusCode.ERROR_NOT_AVAILABLE|,
-     *         |WifiStatusCode.ERROR_UNKNOWN|
-     */
-    int[] getValidFrequenciesForBand(in WifiBand band);
 
     /**
      * Installs an APF program on this iface, replacing an existing
@@ -552,4 +543,145 @@ interface IWifiStaIface {
      *         |WifiStatusCode.ERROR_UNKNOWN|
      */
     void stopSendingKeepAlivePackets(in int cmdId);
+
+    /**
+     * Set maximum acceptable DTIM multiplier to hardware driver.
+     * Any multiplier larger than this maximum value must not be accepted since it will cause
+     * packet loss higher than what the system can accept, which will cause unexpected behavior
+     * for apps, and may interrupt the network connection.
+     *
+     * When STA is in the power saving mode and system is suspended,
+     * the wake up interval will be set to:
+     *              1) multiplier * DTIM period if multiplier > 0.
+     *              2) the driver default value if multiplier <= 0.
+     * Some implementations may apply an additional cap to wake up interval in the case of 1).
+     *
+     * @param multiplier integer maximum DTIM multiplier value to set.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
+     *         |WifiStatusCode.ERROR_NOT_SUPPORTED|,
+     *         |WifiStatusCode.ERROR_UNKNOWN|
+     */
+    void setDtimMultiplier(in int multiplier);
+
+    /**
+     * Get the cached scan data.
+     *
+     * @return Instance of |CachedScanData|.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
+     *         |WifiStatusCode.ERROR_NOT_SUPPORTED|,
+     *         |WifiStatusCode.ERROR_NOT_AVAILABLE|,
+     *         |WifiStatusCode.ERROR_UNKNOWN|
+     */
+    CachedScanData getCachedScanData();
+
+    /**
+     * Get Target Wake Time (TWT) local device capabilities for the station interface.
+     *
+     * @return Instance of |TwtCapabilities|.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
+     *         |WifiStatusCode.ERROR_NOT_SUPPORTED|,
+     *         |WifiStatusCode.ERROR_NOT_AVAILABLE|,
+     *         |WifiStatusCode.ERROR_UNKNOWN|
+     */
+    TwtCapabilities twtGetCapabilities();
+
+    /**
+     * Setup a Target Wake Time (TWT) session.
+     *
+     * Supported only if |TwtCapabilities.isTwtRequesterSupported| is set. Results in asynchronous
+     * callback |IWifiStaIfaceEventCallback.onTwtSessionCreate| on success or
+     * |IWifiStaIfaceEventCallback.onTwtFailure| on failure.
+     *
+     * @param cmdId Command Id to use for this invocation. The value 0 is reserved.
+     * @param twtRequest TWT Request parameters.
+     *  @throws ServiceSpecificException with one of the following values:
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
+     *         |WifiStatusCode.ERROR_NOT_SUPPORTED|,
+     *         |WifiStatusCode.ERROR_UNKNOWN|
+     */
+    void twtSessionSetup(in int cmdId, in TwtRequest twtRequest);
+
+    /**
+     * Update a Target Wake Time (TWT) session.
+     *
+     * Supported only if the TWT session can be updated. See |TwtSession.isUpdatable|. Results in
+     * asynchronous callback |IWifiStaIfaceEventCallback.onTwtSessionUpdate| on success or
+     * |IWifiStaIfaceEventCallback.onTwtFailure| on failure.
+     *
+     * @param cmdId Command Id to use for this invocation. The value 0 is reserved.
+     * @param sessionId TWT session id.
+     * @param twtRequest TWT Request parameters.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
+     *         |WifiStatusCode.ERROR_NOT_SUPPORTED|,
+     *         |WifiStatusCode.ERROR_UNKNOWN|
+     */
+    void twtSessionUpdate(in int cmdId, in int sessionId, in TwtRequest twtRequest);
+
+    /**
+     * Suspend a Target Wake Time (TWT) session until a resume is called.
+     *
+     * Supported only if the TWT session supports suspend and resume. See
+     * |TwtSession.isSuspendable|. Results in asynchronous callback
+     * |IWifiStaIfaceEventCallback.onTwtSessionSuspend| on success or
+     * |IWifiStaIfaceEventCallback.onTwtFailure| on failure.
+     *
+     * @param cmdId Command Id to use for this invocation. The value 0 is reserved.
+     * @param sessionId TWT session id.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
+     *         |WifiStatusCode.ERROR_NOT_SUPPORTED|,
+     *         |WifiStatusCode.ERROR_UNKNOWN|
+     */
+    void twtSessionSuspend(in int cmdId, in int sessionId);
+
+    /**
+     * Resume a Target Wake Time (TWT) session which is suspended.
+     *
+     * Supported only if the TWT session supports suspend and resume. See
+     * |TwtSession.isSuspendable|. Results in asynchronous callback
+     * |IWifiStaIfaceEventCallback.onTwtSessionResume| on success or
+     * |IWifiStaIfaceEventCallback.onTwtFailure| on failure.
+     *
+     * @param cmdId Command Id to use for this invocation. The value 0 is reserved.
+     * @param sessionId TWT session id.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
+     *         |WifiStatusCode.ERROR_NOT_SUPPORTED|,
+     *         |WifiStatusCode.ERROR_UNKNOWN|
+     */
+    void twtSessionResume(in int cmdId, in int sessionId);
+
+    /**
+     * Teardown a Target Wake Time (TWT) session.
+     *
+     * Results in asynchronous callback |IWifiStaIfaceEventCallback.onTwtSessionTeardown| on
+     * success or |IWifiStaIfaceEventCallback.onTwtFailure| on failure.
+     *
+     * @param cmdId Command Id to use for this invocation. The value 0 is reserved.
+     * @param sessionId TWT session id.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
+     *         |WifiStatusCode.ERROR_NOT_SUPPORTED|,
+     *         |WifiStatusCode.ERROR_UNKNOWN|
+     */
+    void twtSessionTeardown(in int cmdId, in int sessionId);
+
+    /**
+     * Get stats for a Target Wake Time (TWT) session.
+     *
+     * Results in asynchronous callback |IWifiStaIfaceEventCallback.onTwtSessionStats| on success
+     * or |IWifiStaIfaceEventCallback.onTwtFailure| on failure.
+     *
+     * @param cmdId Command Id to use for this invocation. The value 0 is reserved.
+     * @param sessionId TWT session id.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |WifiStatusCode.ERROR_WIFI_IFACE_INVALID|,
+     *         |WifiStatusCode.ERROR_NOT_SUPPORTED|,
+     *         |WifiStatusCode.ERROR_UNKNOWN|
+     */
+    void twtSessionGetStats(in int cmdId, in int sessionId);
 }

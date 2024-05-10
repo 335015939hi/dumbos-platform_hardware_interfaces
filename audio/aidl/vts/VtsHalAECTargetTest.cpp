@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-#include <Utils.h>
-#include <aidl/Vintf.h>
 #include <algorithm>
 #include <string>
 #include <unordered_set>
 
 #define LOG_TAG "VtsHalAECParamTest"
+#include <android-base/logging.h>
 
 #include "EffectHelper.h"
 #include "effect-impl/EffectTypes.h"
@@ -29,11 +28,12 @@ using namespace android;
 
 using aidl::android::hardware::audio::effect::AcousticEchoCanceler;
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidAcousticEchoCanceler;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::IFactory;
-using aidl::android::hardware::audio::effect::kAcousticEchoCancelerTypeUUID;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::Range;
+using android::hardware::audio::common::testing::detail::TestExecutionTracer;
 
 enum ParamName { PARAM_INSTANCE_NAME, PARAM_ECHO_DELAY, PARAM_MOBILE_MODE };
 using AECParamTestParam = std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>,
@@ -51,7 +51,7 @@ class AECParamTest : public ::testing::TestWithParam<AECParamTestParam>, public 
         ASSERT_NE(nullptr, mFactory);
         ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
-        Parameter::Specific specific = getDefaultParamSpecific();
+        auto specific = getDefaultParamSpecific();
         Parameter::Common common = EffectHelper::createParamCommon(
                 0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
                 kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */);
@@ -65,8 +65,13 @@ class AECParamTest : public ::testing::TestWithParam<AECParamTestParam>, public 
         ASSERT_NO_FATAL_FAILURE(destroy(mFactory, mEffect));
     }
 
-    Parameter::Specific getDefaultParamSpecific() {
-        AcousticEchoCanceler aec = AcousticEchoCanceler::make<AcousticEchoCanceler::echoDelayUs>(0);
+    std::optional<Parameter::Specific> getDefaultParamSpecific() {
+        auto aec = AcousticEchoCanceler::make<AcousticEchoCanceler::echoDelayUs>(0);
+        if (!isParameterValid<AcousticEchoCanceler, Range::acousticEchoCanceler>(aec,
+                                                                                 mDescriptor)) {
+            return std::nullopt;
+        }
+
         Parameter::Specific specific =
                 Parameter::Specific::make<Parameter::Specific::acousticEchoCanceler>(aec);
         return specific;
@@ -148,7 +153,8 @@ INSTANTIATE_TEST_SUITE_P(
         AECParamTest, AECParamTest,
         ::testing::Combine(
                 testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
-                                          IFactory::descriptor, kAcousticEchoCancelerTypeUUID)),
+                                          IFactory::descriptor,
+                                          getEffectTypeUuidAcousticEchoCanceler())),
                 testing::ValuesIn(EffectHelper::getTestValueSet<AcousticEchoCanceler, int,
                                                                 Range::acousticEchoCanceler,
                                                                 AcousticEchoCanceler::echoDelayUs>(
@@ -161,10 +167,8 @@ INSTANTIATE_TEST_SUITE_P(
             auto descriptor = std::get<PARAM_INSTANCE_NAME>(info.param).second;
             std::string echoDelay = std::to_string(std::get<PARAM_ECHO_DELAY>(info.param));
             std::string mobileMode = std::get<PARAM_MOBILE_MODE>(info.param) ? "true" : "false";
-            std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
-                               descriptor.common.name + "_UUID_" +
-                               descriptor.common.id.uuid.toString() + "_EchoDelay_" + echoDelay +
-                               "_MobileMode_" + mobileMode;
+            std::string name =
+                    getPrefix(descriptor) + "_EchoDelay_" + echoDelay + "_MobileMode_" + mobileMode;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
@@ -174,6 +178,7 @@ GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(AECParamTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
+    ::testing::UnitTest::GetInstance()->listeners().Append(new TestExecutionTracer());
     ABinderProcess_setThreadPoolMaxThreadCount(1);
     ABinderProcess_startThreadPool();
     return RUN_ALL_TESTS();

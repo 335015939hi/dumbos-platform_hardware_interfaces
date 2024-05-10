@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <array>
 #include <initializer_list>
+#include <regex>
 #include <type_traits>
 
 #include <aidl/android/media/audio/common/AudioChannelLayout.h>
@@ -28,8 +29,23 @@
 #include <aidl/android/media/audio/common/AudioMode.h>
 #include <aidl/android/media/audio/common/AudioOutputFlags.h>
 #include <aidl/android/media/audio/common/PcmType.h>
+#include <android/binder_auto_utils.h>
 
-namespace android::hardware::audio::common {
+namespace ndk {
+
+// This enables use of 'error/expected_utils' for ScopedAStatus.
+
+inline bool errorIsOk(const ScopedAStatus& s) {
+    return s.isOk();
+}
+
+inline std::string errorToString(const ScopedAStatus& s) {
+    return s.getDescription();
+}
+
+}  // namespace ndk
+
+namespace aidl::android::hardware::audio::common {
 
 // Some values are reserved for use by the system code only.
 // HALs must not accept or emit values outside from the provided list.
@@ -98,39 +114,34 @@ constexpr size_t getFrameSizeInBytes(
     return 0;
 }
 
+constexpr bool isDefaultAudioFormat(
+        const ::aidl::android::media::audio::common::AudioFormatDescription& desc) {
+    return desc.type == ::aidl::android::media::audio::common::AudioFormatType::DEFAULT &&
+           desc.pcm == ::aidl::android::media::audio::common::PcmType::DEFAULT &&
+           desc.encoding.empty();
+}
+
 constexpr bool isTelephonyDeviceType(
         ::aidl::android::media::audio::common::AudioDeviceType device) {
     return device == ::aidl::android::media::audio::common::AudioDeviceType::IN_TELEPHONY_RX ||
            device == ::aidl::android::media::audio::common::AudioDeviceType::OUT_TELEPHONY_TX;
 }
 
-constexpr bool isUsbInputDeviceType(::aidl::android::media::audio::common::AudioDeviceType type) {
-    switch (type) {
-        case ::aidl::android::media::audio::common::AudioDeviceType::IN_DOCK:
-        case ::aidl::android::media::audio::common::AudioDeviceType::IN_ACCESSORY:
-        case ::aidl::android::media::audio::common::AudioDeviceType::IN_DEVICE:
-        case ::aidl::android::media::audio::common::AudioDeviceType::IN_HEADSET:
-            return true;
-        default:
-            return false;
-    }
-}
-
-constexpr bool isUsbOutputtDeviceType(::aidl::android::media::audio::common::AudioDeviceType type) {
-    switch (type) {
-        case ::aidl::android::media::audio::common::AudioDeviceType::OUT_DOCK:
-        case ::aidl::android::media::audio::common::AudioDeviceType::OUT_ACCESSORY:
-        case ::aidl::android::media::audio::common::AudioDeviceType::OUT_DEVICE:
-        case ::aidl::android::media::audio::common::AudioDeviceType::OUT_HEADSET:
-            return true;
-        default:
-            return false;
-    }
-}
-
 constexpr bool isValidAudioMode(::aidl::android::media::audio::common::AudioMode mode) {
     return std::find(kValidAudioModes.begin(), kValidAudioModes.end(), mode) !=
            kValidAudioModes.end();
+}
+
+static inline bool maybeVendorExtension(const std::string& s) {
+    // Only checks whether the string starts with the "vendor prefix".
+    static const std::string vendorPrefix = "VX_";
+    return s.size() > vendorPrefix.size() && s.substr(0, vendorPrefix.size()) == vendorPrefix;
+}
+
+static inline bool isVendorExtension(const std::string& s) {
+    // Must be the same as defined in {Playback|Record}TrackMetadata.aidl
+    static const std::regex vendorExtension("VX_[A-Z0-9]{3,}_[_A-Z0-9]+");
+    return std::regex_match(s.begin(), s.end(), vendorExtension);
 }
 
 // The helper functions defined below are only applicable to the case when an enum type
@@ -163,4 +174,18 @@ constexpr U makeBitPositionFlagMask(std::initializer_list<E> flags) {
     return result;
 }
 
-}  // namespace android::hardware::audio::common
+template <typename E, typename U = std::underlying_type_t<E>,
+          typename = std::enable_if_t<is_bit_position_enum<E>::value>>
+constexpr bool isAnyBitPositionFlagSet(U mask, std::initializer_list<E> flags) {
+    return (mask & makeBitPositionFlagMask<E>(flags)) != 0;
+}
+
+constexpr int32_t frameCountFromDurationUs(long durationUs, int32_t sampleRateHz) {
+    return (static_cast<long long>(durationUs) * sampleRateHz) / 1000000LL;
+}
+
+constexpr int32_t frameCountFromDurationMs(int32_t durationMs, int32_t sampleRateHz) {
+    return frameCountFromDurationUs(durationMs * 1000, sampleRateHz);
+}
+
+}  // namespace aidl::android::hardware::audio::common

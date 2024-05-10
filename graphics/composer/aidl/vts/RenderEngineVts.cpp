@@ -19,7 +19,6 @@
 
 namespace aidl::android::hardware::graphics::composer3::vts {
 
-using ::android::hardware::graphics::mapper::V2_1::IMapper;
 using ::android::renderengine::DisplaySettings;
 using ::android::renderengine::LayerSettings;
 using ::android::renderengine::RenderEngineCreationArgs;
@@ -66,14 +65,12 @@ void TestRenderEngine::drawLayers() {
     auto texture = std::make_shared<::android::renderengine::impl::ExternalTexture>(
             mGraphicBuffer, *mRenderEngine,
             ::android::renderengine::impl::ExternalTexture::Usage::WRITEABLE);
-    auto [status, readyFence] = mRenderEngine
-                                        ->drawLayers(mDisplaySettings, compositionLayers, texture,
-                                                     true, std::move(bufferFence))
-                                        .get();
-    int fd = readyFence.release();
-    if (fd != -1) {
-        ASSERT_EQ(0, sync_wait(fd, -1));
-        ASSERT_EQ(0, close(fd));
+    auto result = mRenderEngine
+                          ->drawLayers(mDisplaySettings, compositionLayers, texture,
+                                       std::move(bufferFence))
+                          .get();
+    if (result.ok()) {
+        result.value()->waitForever(LOG_TAG);
     }
 }
 
@@ -89,6 +86,34 @@ void TestRenderEngine::checkColorBuffer(const std::vector<Color>& expectedColors
     ReadbackHelper::compareColorBuffers(expectedColors, bufferData, stride,
                                         mGraphicBuffer->getWidth(), mGraphicBuffer->getHeight(),
                                         mFormat);
+    ASSERT_EQ(::android::OK, mGraphicBuffer->unlock());
+}
+
+void TestRenderEngine::checkColorBuffer(const ::android::sp<::android::GraphicBuffer>& buffer) {
+    ASSERT_EQ(mGraphicBuffer->getWidth(), buffer->getWidth());
+    ASSERT_EQ(mGraphicBuffer->getHeight(), buffer->getHeight());
+    void* renderedBufferData;
+    int32_t bytesPerPixel = -1;
+    int32_t bytesPerStride = -1;
+    ASSERT_EQ(0, mGraphicBuffer->lock(static_cast<uint32_t>(mGraphicBuffer->getUsage()),
+                                      &renderedBufferData, &bytesPerPixel, &bytesPerStride));
+    const uint32_t renderedStride = (bytesPerPixel > 0 && bytesPerStride > 0)
+                                            ? static_cast<uint32_t>(bytesPerStride / bytesPerPixel)
+                                            : mGraphicBuffer->getStride();
+
+    void* bufferData;
+    ASSERT_EQ(0, buffer->lock(static_cast<uint32_t>(buffer->getUsage()), &bufferData,
+                              &bytesPerPixel, &bytesPerStride));
+    const uint32_t bufferStride = (bytesPerPixel > 0 && bytesPerStride > 0)
+                                          ? static_cast<uint32_t>(bytesPerStride / bytesPerPixel)
+                                          : buffer->getStride();
+
+    ASSERT_EQ(renderedStride, bufferStride);
+
+    ReadbackHelper::compareColorBuffers(renderedBufferData, bufferData, bufferStride,
+                                        mGraphicBuffer->getWidth(), mGraphicBuffer->getHeight(),
+                                        mFormat);
+    ASSERT_EQ(::android::OK, buffer->unlock());
     ASSERT_EQ(::android::OK, mGraphicBuffer->unlock());
 }
 

@@ -16,6 +16,7 @@
 
 package android.hardware.radio;
 
+/** @hide */
 @VintfStability
 @Backing(type="int")
 @JavaDerive(toString=true)
@@ -41,6 +42,9 @@ enum RadioError {
      * Operation requires SIM PUK2 to be entered
      */
     SIM_PUK2 = 5,
+    /**
+     * Optional API
+     */
     REQUEST_NOT_SUPPORTED = 6,
     CANCELLED = 7,
     /**
@@ -177,7 +181,8 @@ enum RadioError {
      */
     NO_SMS_TO_ACK = 48,
     /**
-     * Received error from network
+     * Received error from network. This generic error code should be used only when the error
+     * cannot be mapped to other specific network error codes.
      */
     NETWORK_ERR = 49,
     /**

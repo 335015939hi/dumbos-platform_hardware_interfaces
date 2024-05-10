@@ -16,13 +16,15 @@
 
 #pragma once
 
-#include <aidl/android/hardware/audio/effect/BnEffect.h>
-#include <fmq/AidlMessageQueue.h>
 #include <cstdlib>
 #include <memory>
+#include <vector>
+
+#include <Utils.h>
+#include <aidl/android/hardware/audio/effect/BnEffect.h>
+#include <fmq/AidlMessageQueue.h>
 
 #include "effect-impl/EffectImpl.h"
-#include "effect-impl/EffectUUID.h"
 
 namespace aidl::android::hardware::audio::effect {
 
@@ -30,7 +32,7 @@ class DynamicsProcessingSwContext final : public EffectContext {
   public:
     DynamicsProcessingSwContext(int statusDepth, const Parameter::Common& common)
         : EffectContext(statusDepth, common),
-          mChannelCount(::android::hardware::audio::common::getChannelCount(
+          mChannelCount(::aidl::android::hardware::audio::common::getChannelCount(
                   common.input.base.channelMask)),
           mPreEqChCfgs(mChannelCount, {.channel = kInvalidChannelId}),
           mPostEqChCfgs(mChannelCount, {.channel = kInvalidChannelId}),
@@ -111,15 +113,17 @@ class DynamicsProcessingSw final : public EffectImpl {
     }
 
     ndk::ScopedAStatus getDescriptor(Descriptor* _aidl_return) override;
-    ndk::ScopedAStatus setParameterSpecific(const Parameter::Specific& specific) override;
-    ndk::ScopedAStatus getParameterSpecific(const Parameter::Id& id,
-                                            Parameter::Specific* specific) override;
+    ndk::ScopedAStatus setParameterSpecific(const Parameter::Specific& specific)
+            REQUIRES(mImplMutex) override;
+    ndk::ScopedAStatus getParameterSpecific(const Parameter::Id& id, Parameter::Specific* specific)
+            REQUIRES(mImplMutex) override;
 
-    std::shared_ptr<EffectContext> createContext(const Parameter::Common& common) override;
-    std::shared_ptr<EffectContext> getContext() override;
-    RetCode releaseContext() override;
+    std::shared_ptr<EffectContext> createContext(const Parameter::Common& common)
+            REQUIRES(mImplMutex) override;
+    RetCode releaseContext() REQUIRES(mImplMutex) override;
 
-    IEffect::Status effectProcessImpl(float* in, float* out, int samples) override;
+    IEffect::Status effectProcessImpl(float* in, float* out, int samples)
+            REQUIRES(mImplMutex) override;
     std::string getEffectName() override { return kEffectName; };
 
   private:
@@ -128,9 +132,10 @@ class DynamicsProcessingSw final : public EffectImpl {
     static const Range::DynamicsProcessingRange kPreEqBandRange;
     static const Range::DynamicsProcessingRange kPostEqBandRange;
     static const std::vector<Range::DynamicsProcessingRange> kRanges;
-    std::shared_ptr<DynamicsProcessingSwContext> mContext;
+    std::shared_ptr<DynamicsProcessingSwContext> mContext GUARDED_BY(mImplMutex);
     ndk::ScopedAStatus getParameterDynamicsProcessing(const DynamicsProcessing::Tag& tag,
-                                                      Parameter::Specific* specific);
+                                                      Parameter::Specific* specific)
+            REQUIRES(mImplMutex);
 
 };  // DynamicsProcessingSw
 

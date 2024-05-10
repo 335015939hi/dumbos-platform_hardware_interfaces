@@ -32,6 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.network;
+/* @hide */
 @JavaDerive(toString=true) @VintfStability
 parcelable SignalThresholdInfo {
   int signalMeasurement;
@@ -48,4 +49,5 @@ parcelable SignalThresholdInfo {
   const int SIGNAL_MEASUREMENT_TYPE_SSRSRP = 6;
   const int SIGNAL_MEASUREMENT_TYPE_SSRSRQ = 7;
   const int SIGNAL_MEASUREMENT_TYPE_SSSINR = 8;
+  const int SIGNAL_MEASUREMENT_TYPE_ECNO = 9;
 }

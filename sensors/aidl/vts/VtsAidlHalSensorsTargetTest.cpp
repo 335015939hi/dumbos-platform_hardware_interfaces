@@ -41,6 +41,7 @@ using aidl::android::hardware::sensors::ISensors;
 using aidl::android::hardware::sensors::SensorInfo;
 using aidl::android::hardware::sensors::SensorStatus;
 using aidl::android::hardware::sensors::SensorType;
+using aidl::android::hardware::sensors::AdditionalInfo;
 using android::ProcessState;
 using std::chrono::duration_cast;
 
@@ -98,6 +99,7 @@ static void assertTypeMatchStringType(SensorType type, const std::string& string
         CHECK_TYPE_STRING_FOR_SENSOR_TYPE(TILT_DETECTOR);
         CHECK_TYPE_STRING_FOR_SENSOR_TYPE(WAKE_GESTURE);
         CHECK_TYPE_STRING_FOR_SENSOR_TYPE(WRIST_TILT_GESTURE);
+        CHECK_TYPE_STRING_FOR_SENSOR_TYPE(HINGE_ANGLE);
         default:
             FAIL() << "Type " << static_cast<int>(type)
                    << " in android defined range is not checked, "
@@ -560,9 +562,14 @@ TEST_P(SensorsAidlTest, SensorListValid) {
             EXPECT_NO_FATAL_FAILURE(assertTypeMatchStringType(info.type, info.typeAsString));
         }
 
-        // Test if all sensor has name and vendor
+        // Test if all sensors have name and vendor
         EXPECT_FALSE(info.name.empty());
         EXPECT_FALSE(info.vendor.empty());
+
+        // Make sure that the sensor handle is not within the reserved range for runtime
+        // sensors.
+        EXPECT_FALSE(ISensors::RUNTIME_SENSORS_HANDLE_BASE <= info.sensorHandle &&
+                     info.sensorHandle <= ISensors::RUNTIME_SENSORS_HANDLE_END);
 
         // Make sure that sensors of the same type have a unique name.
         std::vector<std::string>& v = sensorTypeNameMap[static_cast<int32_t>(info.type)];
@@ -623,6 +630,15 @@ TEST_P(SensorsAidlTest, InjectSensorEventData) {
     Event additionalInfoEvent;
     additionalInfoEvent.sensorType = SensorType::ADDITIONAL_INFO;
     additionalInfoEvent.timestamp = android::elapsedRealtimeNano();
+    AdditionalInfo info;
+    info.type = AdditionalInfo::AdditionalInfoType::AINFO_BEGIN;
+    info.serial = 1;
+    AdditionalInfo::AdditionalInfoPayload::Int32Values infoData;
+    for (int32_t i = 0; i < 14; i++) {
+        infoData.values[i] = i;
+    }
+    info.payload.set<AdditionalInfo::AdditionalInfoPayload::Tag::dataInt32>(infoData);
+    additionalInfoEvent.payload.set<Event::EventPayload::Tag::additional>(info);
 
     Event injectedEvent;
     injectedEvent.timestamp = android::elapsedRealtimeNano();
@@ -915,9 +931,15 @@ TEST_P(SensorsAidlTest, NoStaleEvents) {
             continue;
         }
 
+        // Skip sensors with no events
+        const std::vector<Event> events = callback.getEvents(sensor.sensorHandle);
+        if (events.empty()) {
+            continue;
+        }
+
         // Ensure that the first event received is not stale by ensuring that its timestamp is
         // sufficiently different from the previous event
-        const Event newEvent = callback.getEvents(sensor.sensorHandle).front();
+        const Event newEvent = events.front();
         std::chrono::milliseconds delta =
                 duration_cast<std::chrono::milliseconds>(std::chrono::nanoseconds(
                         newEvent.timestamp - lastEventTimestampMap[sensor.sensorHandle]));

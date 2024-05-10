@@ -17,12 +17,17 @@
 package android.hardware.media.c2;
 
 import android.hardware.common.NativeHandle;
-import android.view.Surface;
 
 import android.hardware.media.c2.IComponentInterface;
 import android.hardware.media.c2.IConfigurable;
+import android.hardware.media.c2.IGraphicBufferAllocator;
+import android.hardware.media.c2.IInputSink;
+import android.hardware.media.c2.IInputSurface;
+import android.hardware.media.c2.IInputSurfaceConnection;
+import android.hardware.media.c2.IPooledGraphicBufferAllocator;
 import android.hardware.media.c2.WorkBundle;
-import android.hardware.media.c2.SurfaceSyncObj;
+import android.os.ParcelFileDescriptor;
+
 
 /**
  * Interface for an AIDL Codec2 component.
@@ -45,6 +50,46 @@ interface IComponent {
         long blockPoolId;
         IConfigurable configurable;
     }
+
+    /**
+     * C2AIDL allocator interface along with a waitable fd.
+     *
+     * The interface is used from a specific type of C2BlockPool to allocate
+     * graphic blocks. the waitable fd is used to create a specific type of
+     * C2Fence which can be used for waiting until to allocate is not blocked.
+     */
+    parcelable GbAllocator {
+        ParcelFileDescriptor waitableFd;
+        IGraphicBufferAllocator igba;
+    }
+
+    /**
+     * C2AIDL allocator interface based on media.bufferpool2 along with a waitable fd.
+     *
+     * The interface is used from a specific type of C2BlockPool to allocate
+     * graphic blocks. the waitable fd is used to create a specific type of
+     * C2Fence which can be used for waiting until to allocate is not blocked.
+     * receiverId is id of receiver IConnection of media.bufferpool2.
+     */
+    parcelable PooledGbAllocator {
+        ParcelFileDescriptor waitableFd;
+        long receiverId;
+        IPooledGraphicBufferAllocator ipgba;
+    }
+
+
+    /**
+     * Allocator for C2BlockPool.
+     *
+     * C2BlockPool will use a C2Allocator which is specified by an id.
+     * Based on allocator id, allocator is specified.
+     */
+    parcelable BlockPoolAllocator {
+        int allocatorId;
+        @nullable GbAllocator gbAllocator;
+        @nullable PooledGbAllocator pooledGbAllocator;
+    }
+
     /**
      * Configures a component for a tunneled playback mode.
      *
@@ -88,7 +133,8 @@ interface IComponent {
      * destroyBlockPool(), reset() or release(). reset() and release() must
      * destroy all `C2BlockPool` objects that have been created.
      *
-     * @param allocatorId Id of a `C2Allocator`.
+     * @param allocator AIDL allocator interface or C2Allocator specifier
+     *     for C2BlockPool
      * @param out configurable Configuration interface for the created pool. This
      *     must not be null.
      * @return Created block pool information. This could be used to config/query and
@@ -99,7 +145,7 @@ interface IComponent {
      *   - `Status::TIMED_OUT` - The operation cannot be finished in a timely manner.
      *   - `Status::CORRUPTED` - Some unknown error occurred.
      */
-    BlockPool createBlockPool(in int allocatorId);
+    BlockPool createBlockPool(in BlockPoolAllocator allocator);
 
     /**
      * Destroys a local block pool previously created by createBlockPool().
@@ -234,25 +280,6 @@ interface IComponent {
     void reset();
 
     /**
-     * Starts using a surface for output with a synchronization object
-     *
-     * This method must not block.
-     *
-     * @param blockPoolId Id of the `C2BlockPool` to be associated with the
-     *     output surface.
-     * @param surface Output surface.
-     * @param syncObject synchronization object for buffer allocation between
-     *     Framework and Component.
-     * @throws ServiceSpecificException with one of the following values:
-     *   - `Status::CANNOT_DO` - The component does not support an output surface.
-     *   - `Status::REFUSED`   - The output surface cannot be accessed.
-     *   - `Status::TIMED_OUT` - The operation cannot be finished in a timely manner.
-     *   - `Status::CORRUPTED` - Some unknown error occurred.
-     */
-    void setOutputSurface(in long blockPoolId, in Surface surface,
-        in SurfaceSyncObj syncObject);
-
-    /**
      * Starts the component.
      *
      * This method must be supported in stopped state as well as tripped state.
@@ -301,4 +328,32 @@ interface IComponent {
      *   - `Status::CORRUPTED` - Some unknown error occurred.
      */
     void stop();
+
+    /**
+     * Starts using an input surface.
+     *
+     * The component must be in running state.
+     *
+     * @param inputSurface Input surface to connect to.
+     * @return connection `IInputSurfaceConnection` object, which can be used to
+     *     query and configure properties of the connection. This cannot be
+     *     null.
+     * @throws ServiceSpecificException with one of the following values:
+     *   - `Status::CANNOT_DO` - The component does not support an input surface.
+     *   - `Status::BAD_STATE` - The component is not in running state.
+     *   - `Status::DUPLICATE` - The component is already connected to an input surface.
+     *   - `Status::REFUSED`   - The input surface is already in use.
+     *   - `Status::NO_MEMORY` - Not enough memory to start the component.
+     *   - `Status::TIMED_OUT` - The operation cannot be finished in a timely manner.
+     *   - `Status::CORRUPTED` - Some unknown error occurred.
+     */
+    IInputSurfaceConnection connectToInputSurface(in IInputSurface inputSurface);
+
+    /**
+     * Returns an @ref IInputSink instance that has the component as the
+     * underlying implementation.
+     *
+     * @return sink `IInputSink` instance.
+     */
+    IInputSink asInputSink();
 }

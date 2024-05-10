@@ -32,8 +32,9 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.sim;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum CdmaSubscriptionSource {
-  RUIM_SIM = 0,
-  NV = 1,
+  RUIM_SIM,
+  NV,
 }

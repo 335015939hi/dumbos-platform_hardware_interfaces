@@ -1,4 +1,5 @@
 package {
+    default_team: "trendy_team_android_media_audio_framework",
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // all of the 'license_kinds' from "hardware_interfaces_license"
@@ -11,6 +12,7 @@ cc_defaults {
     name: "VtsHalAudioTargetTestDefaults",
     defaults: [
         "latest_android_hardware_audio_common_ndk_static",
+        "latest_android_hardware_audio_effect_ndk_static",
         "latest_android_media_audio_common_types_ndk_static",
         "use_libaidlvintf_gtest_helper_static",
         "VtsHalTargetTestDefaults",
@@ -20,22 +22,41 @@ cc_defaults {
         "libfmq",
     ],
     static_libs: [
-        "android.hardware.audio.effect-V1-ndk",
         "android.hardware.common-V2-ndk",
         "android.hardware.common.fmq-V1-ndk",
         "libaudioaidlcommon",
         "libaidlcommonsupport",
+        "libpffft",
     ],
-    header_libs: ["libaudioaidl_headers"],
+    header_libs: [
+        "libaudioaidl_headers",
+        "libexpectedutils_headers",
+    ],
     cflags: [
         "-Wall",
         "-Wextra",
         "-Werror",
         "-Wthread-safety",
+        "-Wno-error=unused-parameter",
     ],
+    test_config_template: "VtsHalAudioTargetTestTemplate.xml",
     test_suites: [
         "general-tests",
         "vts",
+    ],
+    srcs: [
+        "TestUtils.cpp",
+    ],
+}
+
+cc_defaults {
+    name: "VtsHalAudioEffectTargetTestDefaults",
+    defaults: [
+        "latest_android_hardware_audio_effect_ndk_static",
+        "VtsHalAudioTargetTestDefaults",
+    ],
+    srcs: [
+        ":effectCommonFile",
     ],
 }
 
@@ -58,102 +79,124 @@ cc_test {
 
 cc_test {
     name: "VtsHalAudioEffectFactoryTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalAudioEffectFactoryTargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalAudioEffectTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalAudioEffectTargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalBassBoostTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalBassBoostTargetTest.cpp"],
+    cflags: [
+        "-Wno-error=unused-parameter",
+    ],
+    static_libs: [
+        "libpffft",
+    ],
 }
 
 cc_test {
     name: "VtsHalDownmixTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalDownmixTargetTest.cpp"],
+    shared_libs: [
+        "libaudioutils",
+    ],
 }
 
 cc_test {
     name: "VtsHalDynamicsProcessingTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
+    static_libs: ["libaudioaidlranges"],
     srcs: ["VtsHalDynamicsProcessingTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalEnvironmentalReverbTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalEnvironmentalReverbTargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalEqualizerTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalEqualizerTargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalHapticGeneratorTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalHapticGeneratorTargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalLoudnessEnhancerTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalLoudnessEnhancerTargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalPresetReverbTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalPresetReverbTargetTest.cpp"],
+    shared_libs: [
+        "libaudioutils",
+    ],
 }
 
 cc_test {
     name: "VtsHalVirtualizerTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalVirtualizerTargetTest.cpp"],
+    shared_libs: [
+        "libaudioutils",
+    ],
 }
 
 cc_test {
     name: "VtsHalVisualizerTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalVisualizerTargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalVolumeTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalVolumeTargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalAECTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalAECTargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalAGC1TargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalAGC1TargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalAGC2TargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalAGC2TargetTest.cpp"],
 }
 
 cc_test {
     name: "VtsHalNSTargetTest",
-    defaults: ["VtsHalAudioTargetTestDefaults"],
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalNSTargetTest.cpp"],
+}
+
+cc_test {
+    name: "VtsHalSpatializerTargetTest",
+    defaults: ["VtsHalAudioEffectTargetTestDefaults"],
+    srcs: ["VtsHalSpatializerTargetTest.cpp"],
 }

@@ -166,7 +166,8 @@ class GraphicsTestsBase {
         auto status = mAllocator->getIMapperLibrarySuffix(&mapperSuffix);
         ASSERT_TRUE(status.isOk()) << "Failed to get IMapper library suffix";
         std::string lib_name = "mapper." + mapperSuffix + ".so";
-        void* so = android_load_sphal_library(lib_name.c_str(), RTLD_LOCAL | RTLD_NOW);
+        void* so = AServiceManager_openDeclaredPassthroughHal("mapper", mapperSuffix.c_str(),
+                                                              RTLD_LOCAL | RTLD_NOW);
         ASSERT_NE(nullptr, so) << "Failed to load " << lib_name;
         mIMapperLoader = (AIMapper_loadIMapperFn)dlsym(so, "AIMapper_loadIMapper");
         ASSERT_NE(nullptr, mIMapperLoader) << "AIMapper_locaIMapper missing from " << lib_name;
@@ -1369,6 +1370,28 @@ TEST_P(GraphicsMapperStableCTests, GetUsage) {
     auto value = getStandardMetadata<StandardMetadataType::USAGE>(*bufferHandle);
     ASSERT_TRUE(value.has_value());
     EXPECT_EQ(buffer->info().usage, *value);
+}
+
+TEST_P(GraphicsMapperStableCTests, GetUsage64) {
+    BufferDescriptorInfo info{
+            .name = {"VTS_TEMP"},
+            .width = 64,
+            .height = 64,
+            .layerCount = 1,
+            .format = PixelFormat::RGBA_8888,
+            .usage = BufferUsage::FRONT_BUFFER | BufferUsage::GPU_RENDER_TARGET |
+                     BufferUsage::COMPOSER_OVERLAY | BufferUsage::GPU_TEXTURE,
+            .reservedSize = 0,
+    };
+    if (!isSupported(info)) {
+        GTEST_SKIP();
+    }
+    auto buffer = allocate(info);
+    auto bufferHandle = buffer->import();
+    auto value = getStandardMetadata<StandardMetadataType::USAGE>(*bufferHandle);
+    ASSERT_TRUE(value.has_value());
+    using T = std::underlying_type_t<BufferUsage>;
+    EXPECT_EQ(static_cast<T>(buffer->info().usage), static_cast<T>(*value));
 }
 
 TEST_P(GraphicsMapperStableCTests, GetAllocationSize) {

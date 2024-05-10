@@ -15,6 +15,7 @@
  */
 
 package {
+    default_team: "trendy_team_aaos_framework",
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
 
@@ -22,43 +23,49 @@ cc_defaults {
     name: "remote-access-hal-defaults",
     vendor: true,
     relative_install_path: "hw",
-    srcs: ["src/RemoteAccessImpl.cpp"],
+    srcs: [
+        "src/RemoteAccessImpl.cpp",
+    ],
     whole_static_libs: [
         "RemoteAccessService",
     ],
+    static_libs: [
+        "BindToDeviceSocketMutatorLib",
+    ],
     shared_libs: [
-        "libbase",
         "libbinder_ndk",
-        "liblog",
         "libutils",
-        "libgrpc++",
         "libprotobuf-cpp-full",
     ],
     defaults: [
         "vhalclient_defaults",
+        "BindToDeviceSocketMutatorDefaults",
     ],
     cflags: [
+        // This is already included in BindToDeviceSocketMutatorDefaults but
+        // might be overridden by vhalclient_defaults.
         "-Wno-unused-parameter",
     ],
 }
 
 cc_binary {
-    name: "android.hardware.automotive.remoteaccess@V1-default-service",
+    name: "android.hardware.automotive.remoteaccess@V2-default-service",
     defaults: ["remote-access-hal-defaults"],
     vintf_fragments: ["remoteaccess-default-service.xml"],
     init_rc: ["remoteaccess-default-service.rc"],
     cflags: [
-        "-DGRPC_SERVICE_ADDRESS=\"localhost:50051\"",
+        "-DGRPC_SERVICE_ADDRESS=\"10.0.2.2:50051\"",
     ],
 }
 
 cc_binary {
-    name: "android.hardware.automotive.remoteaccess@V1-tcu-test-service",
+    name: "android.hardware.automotive.remoteaccess@V2-tcu-test-service",
     defaults: ["remote-access-hal-defaults"],
     vintf_fragments: ["remoteaccess-default-service.xml"],
     init_rc: ["remoteaccess-tcu-test-service.rc"],
     cflags: [
         "-DGRPC_SERVICE_ADDRESS=\"10.10.10.1:50051\"",
+        "-DGRPC_SERVICE_IFNAME=\"eth1\"",
     ],
 }
 
@@ -71,7 +78,7 @@ cc_library {
         "src/RemoteAccessService.cpp",
     ],
     whole_static_libs: [
-        "android.hardware.automotive.remoteaccess-V1-ndk",
+        "android.hardware.automotive.remoteaccess-V2-ndk",
         "wakeup_client_protos",
         "libvhalclient",
     ],
@@ -93,7 +100,7 @@ cc_library {
 }
 
 cc_fuzz {
-    name: "android.hardware.automotive.remoteaccess@V1-default-service.aidl_fuzzer",
+    name: "android.hardware.automotive.remoteaccess@V2-default-service.aidl_fuzzer",
     srcs: ["fuzzer/fuzzer.cpp"],
     whole_static_libs: [
         "RemoteAccessService",

@@ -32,6 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.network;
+/* @hide */
 @VintfStability
 interface IRadioNetwork {
   oneway void getAllowedNetworkTypesBitmap(in int serial);
@@ -41,6 +42,9 @@ interface IRadioNetwork {
   oneway void getCdmaRoamingPreference(in int serial);
   oneway void getCellInfoList(in int serial);
   oneway void getDataRegistrationState(in int serial);
+  /**
+   * @deprecated Deprecated starting from Android U.
+   */
   oneway void getImsRegistrationState(in int serial);
   oneway void getNetworkSelectionMode(in int serial);
   oneway void getOperator(in int serial);
@@ -70,4 +74,16 @@ interface IRadioNetwork {
   oneway void supplyNetworkDepersonalization(in int serial, in String netPin);
   oneway void setUsageSetting(in int serial, in android.hardware.radio.network.UsageSetting usageSetting);
   oneway void getUsageSetting(in int serial);
+  oneway void setEmergencyMode(int serial, in android.hardware.radio.network.EmergencyMode emcModeType);
+  oneway void triggerEmergencyNetworkScan(int serial, in android.hardware.radio.network.EmergencyNetworkScanTrigger request);
+  oneway void cancelEmergencyNetworkScan(int serial, boolean resetScan);
+  oneway void exitEmergencyMode(in int serial);
+  oneway void setNullCipherAndIntegrityEnabled(in int serial, in boolean enabled);
+  oneway void isNullCipherAndIntegrityEnabled(in int serial);
+  oneway void isN1ModeEnabled(in int serial);
+  oneway void setN1ModeEnabled(in int serial, boolean enable);
+  oneway void isCellularIdentifierTransparencyEnabled(in int serial);
+  oneway void setCellularIdentifierTransparencyEnabled(in int serial, in boolean enabled);
+  oneway void setSecurityAlgorithmsUpdatedEnabled(in int serial, boolean enable);
+  oneway void isSecurityAlgorithmsUpdatedEnabled(in int serial);
 }

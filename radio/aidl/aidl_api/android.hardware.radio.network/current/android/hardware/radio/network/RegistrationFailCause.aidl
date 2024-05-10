@@ -32,6 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.network;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum RegistrationFailCause {
   NONE = 0,
@@ -56,7 +57,7 @@ enum RegistrationFailCause {
   CONGESTION = 22,
   GSM_AUTHENTICATION_UNACCEPTABLE = 23,
   NOT_AUTHORIZED_FOR_THIS_CSG = 25,
-  SMS_PROVIDED_BY_GPRS_IN_ROUTING_AREA = 26,
+  SMS_PROVIDED_BY_GPRS_IN_ROUTING_AREA,
   SERVICE_OPTION_NOT_SUPPORTED = 32,
   SERVICE_OPTION_NOT_SUBSCRIBED = 33,
   SERVICE_OPTION_TEMPORARILY_OUT_OF_ORDER = 34,

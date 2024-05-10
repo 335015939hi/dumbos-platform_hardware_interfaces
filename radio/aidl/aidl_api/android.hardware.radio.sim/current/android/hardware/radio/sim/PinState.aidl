@@ -32,12 +32,13 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio.sim;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum PinState {
-  UNKNOWN = 0,
-  ENABLED_NOT_VERIFIED = 1,
-  ENABLED_VERIFIED = 2,
-  DISABLED = 3,
-  ENABLED_BLOCKED = 4,
-  ENABLED_PERM_BLOCKED = 5,
+  UNKNOWN,
+  ENABLED_NOT_VERIFIED,
+  ENABLED_VERIFIED,
+  DISABLED,
+  ENABLED_BLOCKED,
+  ENABLED_PERM_BLOCKED,
 }

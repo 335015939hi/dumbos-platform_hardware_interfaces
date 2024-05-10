@@ -92,3 +92,19 @@ ndk::ScopedAStatus RadioNetworkIndication::voiceRadioTechChanged(RadioIndication
                                                                  RadioTechnology /*rat*/) {
     return ndk::ScopedAStatus::ok();
 }
+
+ndk::ScopedAStatus RadioNetworkIndication::emergencyNetworkScanResult(
+        RadioIndicationType /*type*/, const EmergencyRegResult& /*result*/) {
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkIndication::cellularIdentifierDisclosed(
+        RadioIndicationType /*type*/,
+        const CellularIdentifierDisclosure& /*disclosures*/) {
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus RadioNetworkIndication::securityAlgorithmsUpdated(
+        RadioIndicationType /*type*/, const SecurityAlgorithmUpdate& /*securityAlgorithmUpdate*/) {
+    return ndk::ScopedAStatus::ok();
+}

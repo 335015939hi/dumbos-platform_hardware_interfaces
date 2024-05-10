@@ -25,5 +25,16 @@ aidl_interface {
         cpp: {
             enabled: false,
         },
+        rust: {
+            enabled: true,
+        },
     },
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["android.hardware.security.keymint-V3"],
+        },
+    ],
+    frozen: true,
+
 }

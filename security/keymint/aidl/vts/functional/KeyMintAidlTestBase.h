@@ -54,6 +54,22 @@ using ::std::vector;
 
 constexpr uint64_t kOpHandleSentinel = 0xFFFFFFFFFFFFFFFF;
 
+const string FEATURE_KEYSTORE_APP_ATTEST_KEY = "android.hardware.keystore.app_attest_key";
+const string FEATURE_STRONGBOX_KEYSTORE = "android.hardware.strongbox_keystore";
+const string FEATURE_HARDWARE_KEYSTORE = "android.hardware.hardware_keystore";
+
+// RAII class to ensure that a keyblob is deleted regardless of how a test exits.
+class KeyBlobDeleter {
+  public:
+    KeyBlobDeleter(const shared_ptr<IKeyMintDevice>& keymint, const vector<uint8_t>& key_blob)
+        : keymint_(keymint), key_blob_(key_blob) {}
+    ~KeyBlobDeleter();
+
+  private:
+    shared_ptr<IKeyMintDevice> keymint_;
+    vector<uint8_t> key_blob_;
+};
+
 class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
   public:
     struct KeyData {
@@ -67,6 +83,8 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     // Directory to store/retrieve keyblobs, using subdirectories named for the
     // KeyMint instance in question (e.g. "./default/", "./strongbox/").
     static std::string keyblob_dir;
+    // To specify if users expect an upgrade on the keyBlobs.
+    static std::optional<bool> expect_upgrade;
 
     void SetUp() override;
     void TearDown() override {
@@ -78,7 +96,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
 
     void InitializeKeyMint(std::shared_ptr<IKeyMintDevice> keyMint);
     IKeyMintDevice& keyMint() { return *keymint_; }
-    int32_t AidlVersion();
+    int32_t AidlVersion() const;
     uint32_t os_version() { return os_version_; }
     uint32_t os_patch_level() { return os_patch_level_; }
     uint32_t vendor_patch_level() { return vendor_patch_level_; }
@@ -86,37 +104,19 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t boot_patch_level();
     bool isDeviceIdAttestationRequired();
     bool isSecondImeiIdAttestationRequired();
+    bool isRkpOnly();
 
     bool Curve25519Supported();
 
-    ErrorCode GetReturnErrorCode(const Status& result);
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc);
 
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
-                          vector<KeyCharacteristics>* key_characteristics) {
-        return GenerateKey(key_desc, std::nullopt /* attest_key */, key_blob, key_characteristics,
-                           &cert_chain_);
-    }
+                          vector<KeyCharacteristics>* key_characteristics);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc,
                           const optional<AttestationKey>& attest_key, vector<uint8_t>* key_blob,
                           vector<KeyCharacteristics>* key_characteristics,
                           vector<Certificate>* cert_chain);
-    ErrorCode GenerateKey(const AuthorizationSet& key_desc,
-                          const optional<AttestationKey>& attest_key = std::nullopt);
-
-    // Generate key for implementations which do not support factory attestation.
-    ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
-                                                 const AuthorizationSet& key_desc,
-                                                 vector<uint8_t>* key_blob,
-                                                 vector<KeyCharacteristics>* key_characteristics,
-                                                 vector<Certificate>* cert_chain);
-
-    ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
-                                                 const AuthorizationSet& key_desc,
-                                                 vector<uint8_t>* key_blob,
-                                                 vector<KeyCharacteristics>* key_characteristics) {
-        return GenerateKeyWithSelfSignedAttestKey(attest_key_desc, key_desc, key_blob,
-                                                  key_characteristics, &cert_chain_);
-    }
 
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material, vector<uint8_t>* key_blob,
@@ -154,7 +154,6 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
 
     ErrorCode DestroyAttestationIds();
 
-    void CheckedDeleteKey(vector<uint8_t>* key_blob, bool keep_key_blob = false);
     void CheckedDeleteKey();
 
     ErrorCode Begin(KeyPurpose purpose, const vector<uint8_t>& key_blob,
@@ -309,6 +308,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     }
     bool IsSecure() const { return securityLevel_ != SecurityLevel::SOFTWARE; }
     SecurityLevel SecLevel() const { return securityLevel_; }
+    bool IsRkpSupportRequired() const;
 
     vector<uint32_t> ValidKeySizes(Algorithm algorithm);
     vector<uint32_t> InvalidKeySizes(Algorithm algorithm);
@@ -346,6 +346,27 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     ErrorCode UseRsaKey(const vector<uint8_t>& rsaKeyBlob);
     ErrorCode UseEcdsaKey(const vector<uint8_t>& ecdsaKeyBlob);
 
+    ErrorCode GenerateAttestKey(const AuthorizationSet& key_desc,
+                                const optional<AttestationKey>& attest_key,
+                                vector<uint8_t>* key_blob,
+                                vector<KeyCharacteristics>* key_characteristics,
+                                vector<Certificate>* cert_chain);
+
+    bool is_attest_key_feature_disabled(void) const;
+    bool is_strongbox_enabled(void) const;
+    bool is_chipset_allowed_km4_strongbox(void) const;
+    bool shouldSkipAttestKeyTest(void) const;
+    void skipAttestKeyTestIfNeeded() const;
+
+    void assert_mgf_digests_present_or_not_in_key_characteristics(
+            const vector<KeyCharacteristics>& key_characteristics,
+            std::vector<android::hardware::security::keymint::Digest>& expected_mgf_digests,
+            bool is_mgf_digest_expected) const;
+
+    void assert_mgf_digests_present_or_not_in_key_characteristics(
+            std::vector<android::hardware::security::keymint::Digest>& expected_mgf_digests,
+            bool is_mgf_digest_expected) const;
+
   protected:
     std::shared_ptr<IKeyMintDevice> keymint_;
     uint32_t os_version_;
@@ -356,7 +377,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     SecurityLevel securityLevel_;
     string name_;
     string author_;
-    long challenge_;
+    int64_t challenge_;
 
   private:
     void CheckEncryptOneByteAtATime(BlockMode block_mode, const int block_size,
@@ -406,13 +427,16 @@ vector<uint8_t> make_name_from_str(const string& name);
 void check_maced_pubkey(const MacedPublicKey& macedPubKey, bool testMode,
                         vector<uint8_t>* payload_value);
 void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey);
-void device_id_attestation_vsr_check(const ErrorCode& result);
+void device_id_attestation_check_acceptable_error(Tag tag, const ErrorCode& result);
 bool check_feature(const std::string& name);
+std::optional<int32_t> keymint_feature_value(bool strongbox);
 
 AuthorizationSet HwEnforcedAuthorizations(const vector<KeyCharacteristics>& key_characteristics);
 AuthorizationSet SwEnforcedAuthorizations(const vector<KeyCharacteristics>& key_characteristics);
 ::testing::AssertionResult ChainSignaturesAreValid(const vector<Certificate>& chain,
                                                    bool strict_issuer_check = true);
+
+ErrorCode GetReturnErrorCode(const Status& result);
 
 #define INSTANTIATE_KEYMINT_AIDL_TEST(name)                                          \
     INSTANTIATE_TEST_SUITE_P(PerInstance, name,                                      \
@@ -420,6 +444,29 @@ AuthorizationSet SwEnforcedAuthorizations(const vector<KeyCharacteristics>& key_
                              ::android::PrintInstanceNameToString);                  \
     GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(name);
 
+// Use `ro.product.<property>_for_attestation` property for attestation if it is present else
+// fallback to use `ro.product.vendor.<property>` if it is present else fallback to
+// `ro.product.<property>`. Similar logic can be seen in Java method `getVendorDeviceIdProperty`
+// in frameworks/base/core/java/android/os/Build.java.
+template <Tag tag>
+void add_attestation_id(AuthorizationSetBuilder* attestation_id_tags,
+                        TypedTag<TagType::BYTES, tag> tag_type, const char* prop) {
+    ::android::String8 prop_name =
+            ::android::String8::format("ro.product.%s_for_attestation", prop);
+    std::string prop_value = ::android::base::GetProperty(prop_name.c_str(), /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(attestation_id_tags, tag_type, prop_name.c_str());
+    } else {
+        prop_name = ::android::String8::format("ro.product.vendor.%s", prop);
+        prop_value = ::android::base::GetProperty(prop_name.c_str(), /* default= */ "");
+        if (!prop_value.empty()) {
+            add_tag_from_prop(attestation_id_tags, tag_type, prop_name.c_str());
+        } else {
+            prop_name = ::android::String8::format("ro.product.%s", prop);
+            add_tag_from_prop(attestation_id_tags, tag_type, prop_name.c_str());
+        }
+    }
+}
 }  // namespace test
 
 }  // namespace aidl::android::hardware::security::keymint

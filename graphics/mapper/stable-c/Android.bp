@@ -15,6 +15,7 @@
  */
 
 package {
+    default_team: "trendy_team_android_core_graphics_stack",
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // all of the 'license_kinds' from "hardware_interfaces_license"
@@ -33,6 +34,33 @@ cc_library_headers {
     export_header_lib_headers: [
         "libarect_headers",
     ],
+    // TODO(b/214400477) Remove apex_available
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.media.swcodec",
+        "test_com.android.media.swcodec",
+    ],
+    min_sdk_version: "29",
+}
+
+cc_library_shared {
+    name: "libimapper_stablec_abicheck",
+    visibility: ["//visibility:private"],
+    defaults: [
+        "android.hardware.graphics.allocator-ndk_shared",
+        "android.hardware.graphics.common-ndk_shared",
+    ],
+    header_libs: [
+        "libimapper_stablec",
+    ],
+    srcs: [
+        "imapper5_abicheck.cpp",
+    ],
+    header_abi_checker: {
+        enabled: true,
+        symbol_file: "imapper.map.txt",
+        ref_dump_dirs: ["abi-dumps"],
+    },
 }
 
 cc_library_headers {
@@ -47,6 +75,13 @@ cc_library_headers {
         "libbase_headers",
         "libimapper_stablec",
     ],
+    // TODO(b/214400477) Remove apex_available
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.media.swcodec",
+        "test_com.android.media.swcodec",
+    ],
+    min_sdk_version: "29",
 }
 
 cc_test {

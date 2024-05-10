@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
-#include <cstddef>
-#define LOG_TAG "AHAL_PresetReverbSw"
-#include <Utils.h>
 #include <algorithm>
-#include <unordered_set>
+#include <cstddef>
 
+#define LOG_TAG "AHAL_PresetReverbSw"
 #include <android-base/logging.h>
 #include <android/binder_enums.h>
 #include <fmq/AidlMessageQueue.h>
+#include <system/audio_effects/effect_uuid.h>
 
 #include "PresetReverbSw.h"
 
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectImplUuidPresetReverbSw;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidPresetReverb;
 using aidl::android::hardware::audio::effect::IEffect;
-using aidl::android::hardware::audio::effect::kPresetReverbSwImplUUID;
 using aidl::android::hardware::audio::effect::PresetReverbSw;
 using aidl::android::hardware::audio::effect::State;
 using aidl::android::media::audio::common::AudioUuid;
 
 extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
                                            std::shared_ptr<IEffect>* instanceSpp) {
-    if (!in_impl_uuid || *in_impl_uuid != kPresetReverbSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != getEffectImplUuidPresetReverbSw()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -50,7 +50,7 @@ extern "C" binder_exception_t createEffect(const AudioUuid* in_impl_uuid,
 }
 
 extern "C" binder_exception_t queryEffect(const AudioUuid* in_impl_uuid, Descriptor* _aidl_return) {
-    if (!in_impl_uuid || *in_impl_uuid != kPresetReverbSwImplUUID) {
+    if (!in_impl_uuid || *in_impl_uuid != getEffectImplUuidPresetReverbSw()) {
         LOG(ERROR) << __func__ << "uuid not supported";
         return EX_ILLEGAL_ARGUMENT;
     }
@@ -74,8 +74,8 @@ const Capability PresetReverbSw::kCapability = {
         .range = Range::make<Range::presetReverb>(PresetReverbSw::kRanges)};
 
 const Descriptor PresetReverbSw::kDescriptor = {
-        .common = {.id = {.type = kPresetReverbTypeUUID,
-                          .uuid = kPresetReverbSwImplUUID,
+        .common = {.id = {.type = getEffectTypeUuidPresetReverb(),
+                          .uuid = getEffectImplUuidPresetReverbSw(),
                           .proxy = std::nullopt},
                    .flags = {.type = Flags::Type::INSERT,
                              .insert = Flags::Insert::FIRST,
@@ -158,10 +158,6 @@ std::shared_ptr<EffectContext> PresetReverbSw::createContext(const Parameter::Co
         mContext = std::make_shared<PresetReverbSwContext>(1 /* statusFmqDepth */, common);
     }
 
-    return mContext;
-}
-
-std::shared_ptr<EffectContext> PresetReverbSw::getContext() {
     return mContext;
 }
 

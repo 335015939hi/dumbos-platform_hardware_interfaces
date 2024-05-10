@@ -32,13 +32,14 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.radio;
+/* @hide */
 @Backing(type="int") @JavaDerive(toString=true) @VintfStability
 enum AccessNetwork {
-  UNKNOWN = 0,
-  GERAN = 1,
-  UTRAN = 2,
-  EUTRAN = 3,
-  CDMA2000 = 4,
-  IWLAN = 5,
-  NGRAN = 6,
+  UNKNOWN,
+  GERAN,
+  UTRAN,
+  EUTRAN,
+  CDMA2000,
+  IWLAN,
+  NGRAN,
 }
