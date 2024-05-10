@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc971b77_952accde",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-05-10T20:41:19Z",
+      "side": 1,
+      "message": "Maybe this doesn\u0027t need to be a service-specific code and we can just return unavailable during an A/B update.",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 44
+      },
+      "revId": "b679c4bbce83a879de52d1e94f56cc7af20d34f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c48744e_8c192978",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/SessionOptions.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-05-10T20:41:19Z",
+      "side": 1,
+      "message": "Just make `ISecureStorage::startSession` take 3 args?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "b679c4bbce83a879de52d1e94f56cc7af20d34f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
