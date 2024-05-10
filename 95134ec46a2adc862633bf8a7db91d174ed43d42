@@ -88,6 +88,24 @@
       "parentUuid": "20d57702_25a4ac0f",
       "revId": "95134ec46a2adc862633bf8a7db91d174ed43d42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26105c1b_727e9e81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1979580
+      },
+      "writtenOn": "2024-05-10T08:45:21Z",
+      "side": 1,
+      "message": "Thanks Sarah for the information. I have abandoned the \"master\" branch gerrit.",
+      "parentUuid": "ea63b44a_d3454413",
+      "revId": "95134ec46a2adc862633bf8a7db91d174ed43d42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
