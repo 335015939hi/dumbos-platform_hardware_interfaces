@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a96e0e8_c73dd857",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 2518,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2024-05-10T13:03:33Z",
+      "side": 1,
+      "message": "Isn\u0027t this verifier the only one we need? Shouldn\u0027t it also verify the other case? Looks good, I\u0027m just wondering.",
+      "range": {
+        "startLine": 2517,
+        "startChar": 6,
+        "endLine": 2518,
+        "endChar": 48
+      },
+      "revId": "5a43cb90d88dc60f25046afd2e60085dcd7b20b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
