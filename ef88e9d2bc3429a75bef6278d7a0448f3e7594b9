@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62f1e0ff_4f5ea82c",
+        "filename": "threadnetwork/aidl/default/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2024-05-11T00:56:55Z",
+      "side": 1,
+      "message": "This looks like a duplication of line 39. Maybe merge the two logs.",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 56
+      },
+      "revId": "ef88e9d2bc3429a75bef6278d7a0448f3e7594b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d0b9ad_24d633f7",
+        "filename": "threadnetwork/aidl/default/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1693933
+      },
+      "writtenOn": "2024-05-11T00:56:55Z",
+      "side": 1,
+      "message": "nit:\n```suggestion\n        struct stat sb;\n\n        CHECK_EQ(stat(THREADNETWORK_COPROCESSOR_SIMULATION_PATH, \u0026sb), 0);\n        CHECK(sb.st_mode \u0026 S_IXUSR);\n```",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 9
+      },
+      "revId": "ef88e9d2bc3429a75bef6278d7a0448f3e7594b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
