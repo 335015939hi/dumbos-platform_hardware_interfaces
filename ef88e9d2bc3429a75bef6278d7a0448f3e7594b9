@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea25053a_d81ee221",
+        "filename": "threadnetwork/aidl/default/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-05-13T09:31:35Z",
+      "side": 1,
+      "message": "If the code doesn\u0027t reach here, the `CHECK_NE` and `CHECK_EQ` will report errors. Then we will know where the error happens.",
+      "parentUuid": "d2067160_fa73e0e3",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 56
+      },
+      "revId": "ef88e9d2bc3429a75bef6278d7a0448f3e7594b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2dcb1ec1_b03e848a",
         "filename": "threadnetwork/aidl/default/main.cpp",
         "patchSetId": 2
@@ -162,6 +186,30 @@
       "side": 1,
       "message": "Trying to minimize the scope of `struct stat sb;`. Is this not recommended somewhere?",
       "parentUuid": "3e45cc8e_492f9183",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 9
+      },
+      "revId": "ef88e9d2bc3429a75bef6278d7a0448f3e7594b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aa77693_3e26d6c8",
+        "filename": "threadnetwork/aidl/default/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-05-13T09:31:35Z",
+      "side": 1,
+      "message": "There are only 4 lines of the code here. Is there a necessary to minimize the scope here?",
+      "parentUuid": "257af25e_788eeaf4",
       "range": {
         "startLine": 72,
         "startChar": 8,
