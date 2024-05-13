@@ -544,8 +544,13 @@ TEST_P(RadioHidlTest_v1_5, setSystemSelectionChannels_1_5) {
             .bands = band40,
             .channels = {128, 129}};
 
+<<<<<<< HEAD   (a95aa0 Merge "Mark cellular security transparency APIs optional" in)
     Return<void> res = radio_v1_5->setSystemSelectionChannels_1_5(
             serial, true, {specifier3, specifier17, specifier20, specifier40});
+=======
+    Return<void> res =
+            radio_v1_5->setSystemSelectionChannels_1_5(serial, true, {specifier3, specifier17, specifier20, specifier40});
+>>>>>>> BRANCH (beff33 Fix failures in VtsHalRadioV1_5TargetTest)
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_5->rspInfo.type);
