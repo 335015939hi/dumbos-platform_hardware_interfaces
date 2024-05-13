@@ -83,6 +83,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "218624c7_ed06631b",
+        "filename": "threadnetwork/aidl/default/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2024-05-13T09:08:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2dcb1ec1_b03e848a",
+      "revId": "ef88e9d2bc3429a75bef6278d7a0448f3e7594b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9d0b9ad_24d633f7",
