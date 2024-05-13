@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d691616c_a0e71ef5",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-13T18:22:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edf0b703_e21f0409",
+      "revId": "5df0abed04fe18bbea6ee7895130cb737d0a602a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2acd006_c8258681",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80d45267_5d5c32be",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-13T18:22:23Z",
+      "side": 1,
+      "message": "Renamed `RSA_KEY` to `RSA_ATTEST_KEY` in `createAuthSetForAttestKey()`",
+      "parentUuid": "e2acd006_c8258681",
+      "revId": "5df0abed04fe18bbea6ee7895130cb737d0a602a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c6c3332_6a60e0aa",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-05-09T09:06:19Z",
       "side": 1,
       "message": "`TAG_INCLUDE_UNIQUE_ID` is only relevant if there\u0027s an attestation, so probably best to either drop it, or add `AttestationChallenge` / `AttestationApplicationId`",
+      "revId": "5df0abed04fe18bbea6ee7895130cb737d0a602a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9844a96a_215239ca",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-13T18:22:23Z",
+      "side": 1,
+      "message": "Added `AttestationChallenge` \u0026 `AttestationApplicationId`.",
+      "parentUuid": "9c6c3332_6a60e0aa",
       "revId": "5df0abed04fe18bbea6ee7895130cb737d0a602a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

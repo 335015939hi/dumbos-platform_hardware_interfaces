@@ -248,6 +248,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3fc1734_b39e78cd",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-13T18:22:23Z",
+      "side": 1,
+      "message": "Got rid of `generateAttestKey()` and added `TAG_PURPOSE` in `createAuthSetForAttestKey()`",
+      "parentUuid": "79f40e7f_a2890616",
+      "range": {
+        "startLine": 61,
+        "startChar": 43,
+        "endLine": 61,
+        "endChar": 59
+      },
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34af7c7f_b55ddd40",
