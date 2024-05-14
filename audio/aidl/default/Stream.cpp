@@ -183,17 +183,19 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
     switch (command.getTag()) {
         case Tag::halReservedExit: {
             const int32_t cookie = command.get<Tag::halReservedExit>();
+            StreamInWorkerLogic::Status status = Status::CONTINUE;
             if (cookie == (mContext->getInternalCommandCookie() ^ getTid())) {
                 mDriver->shutdown();
                 setClosed();
+                status = Status::EXIT;
             } else {
                 LOG(WARNING) << __func__ << ": EXIT command has a bad cookie: " << cookie;
             }
             if (cookie != 0) {  // This is an internal command, no need to reply.
-                return Status::EXIT;
-            } else {
-                break;
+                return status;
             }
+            // `cookie == 0` can only occur in the context of a VTS test, need to reply.
+            break;
         }
         case Tag::getStatus:
             populateReply(&reply, mIsConnected);
@@ -315,7 +317,11 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
 bool StreamInWorkerLogic::read(size_t clientSize, StreamDescriptor::Reply* reply) {
     ATRACE_CALL();
     StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
-    const size_t byteCount = std::min({clientSize, dataMQ->availableToWrite(), mDataBufferSize});
+    StreamContext::DataMQ::Error fmqError = StreamContext::DataMQ::Error::NONE;
+    std::string fmqErrorMsg;
+    const size_t byteCount = std::min(
+            {clientSize, dataMQ->availableToWrite(&fmqError, &fmqErrorMsg), mDataBufferSize});
+    CHECK(fmqError == StreamContext::DataMQ::Error::NONE) << fmqErrorMsg;
     const bool isConnected = mIsConnected;
     const size_t frameSize = mContext->getFrameSize();
     size_t actualFrameCount = 0;
@@ -407,17 +413,19 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
     switch (command.getTag()) {
         case Tag::halReservedExit: {
             const int32_t cookie = command.get<Tag::halReservedExit>();
+            StreamOutWorkerLogic::Status status = Status::CONTINUE;
             if (cookie == (mContext->getInternalCommandCookie() ^ getTid())) {
                 mDriver->shutdown();
                 setClosed();
+                status = Status::EXIT;
             } else {
                 LOG(WARNING) << __func__ << ": EXIT command has a bad cookie: " << cookie;
             }
             if (cookie != 0) {  // This is an internal command, no need to reply.
-                return Status::EXIT;
-            } else {
-                break;
+                return status;
             }
+            // `cookie == 0` can only occur in the context of a VTS test, need to reply.
+            break;
         }
         case Tag::getStatus:
             populateReply(&reply, mIsConnected);
@@ -587,7 +595,10 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
 bool StreamOutWorkerLogic::write(size_t clientSize, StreamDescriptor::Reply* reply) {
     ATRACE_CALL();
     StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
-    const size_t readByteCount = dataMQ->availableToRead();
+    StreamContext::DataMQ::Error fmqError = StreamContext::DataMQ::Error::NONE;
+    std::string fmqErrorMsg;
+    const size_t readByteCount = dataMQ->availableToRead(&fmqError, &fmqErrorMsg);
+    CHECK(fmqError == StreamContext::DataMQ::Error::NONE) << fmqErrorMsg;
     const size_t frameSize = mContext->getFrameSize();
     bool fatal = false;
     int32_t latency = mContext->getNominalLatencyMs();
