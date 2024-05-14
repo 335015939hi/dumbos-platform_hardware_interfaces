@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5dcb416_c9b412ad",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-14T08:17:58Z",
+      "side": 1,
+      "message": "The case here is still specifically an RSA attestation key, not a general RSA key, so it would be good to rename to `RSA_ATTEST_KEY` here too.",
+      "parentUuid": "80d45267_5d5c32be",
+      "revId": "5df0abed04fe18bbea6ee7895130cb737d0a602a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c6c3332_6a60e0aa",
         "filename": "security/keymint/support/fuzzer/keymint_common.h",
         "patchSetId": 2

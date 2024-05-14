@@ -342,6 +342,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a76c216b_987ec5fd",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-14T08:17:58Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "97b8b26d_7a0ad4b9",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "319b7ac6_91a23661",
@@ -602,6 +620,24 @@
       "side": 1,
       "message": "Thanks for explaining -- I guess I didn\u0027t leave the fuzzer going long enough for it to move to longer random data.",
       "parentUuid": "89eba0a8_5dee4e6c",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06354a49_a7f8af34",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-14T08:17:58Z",
+      "side": 1,
+      "message": "However, given the slow speed of this fuzzer (and the absence of coverage-guidance) I do wonder how effective it\u0027s likely to be...",
+      "parentUuid": "a3b9064d_e676c8d3",
       "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45506ca1_af330cd2",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-14T08:17:58Z",
+      "side": 1,
+      "message": "Why not just `dataProvider-\u003eConsumeEnum\u003cAttestAuthSet\u003e()`?",
+      "revId": "007129a7fd16dad09d313a865afc50e5e0b28f0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
