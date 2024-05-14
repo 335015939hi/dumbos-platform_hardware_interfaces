@@ -16,6 +16,47 @@
       "message": "Hi Seth, PTAL.",
       "revId": "cf629ea7734bc674ea1460540fe5cfe3e30780ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb551ad0_d6e6753f",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-05-14T18:25:11Z",
+      "side": 1,
+      "message": "Should we check first API level? Or just API level?\n\nAsked differently: is this something that can be field upgraded? Or does the feature need to be shipped with the device from the factory?\n\nRKP, generally, requires checking first API level since it depends on the device pubkey being registered at the factory.",
+      "range": {
+        "startLine": 195,
+        "startChar": 70,
+        "endLine": 195,
+        "endChar": 79
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5344768e_f0f3c8fe",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+              "range": {
+                "startLine": 195,
+                "startChar": 0,
+                "endLine": 196,
+                "endChar": 0
+              },
+              "replacement": "            int apiLevel \u003d ::android::base::GetIntProperty(\"ro.vendor.first_api_level\", 0);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "cf629ea7734bc674ea1460540fe5cfe3e30780ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
