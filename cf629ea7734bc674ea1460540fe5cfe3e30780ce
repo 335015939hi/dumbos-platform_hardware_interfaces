@@ -57,6 +57,30 @@
       ],
       "revId": "cf629ea7734bc674ea1460540fe5cfe3e30780ce",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf0a73e8_9aba5558",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-05-15T09:10:34Z",
+      "side": 1,
+      "message": "We probably also need the first API level since VM attestation requires the RKP VM marker to be added to the first nodes of the DICE chain.",
+      "parentUuid": "bb551ad0_d6e6753f",
+      "range": {
+        "startLine": 195,
+        "startChar": 70,
+        "endLine": 195,
+        "endChar": 79
+      },
+      "revId": "cf629ea7734bc674ea1460540fe5cfe3e30780ce",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
