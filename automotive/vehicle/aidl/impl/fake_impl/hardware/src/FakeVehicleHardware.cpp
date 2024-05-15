@@ -329,7 +329,12 @@ bool FakeVehicleHardware::UseOverrideConfigDir() {
 
 std::unordered_map<int32_t, ConfigDeclaration> FakeVehicleHardware::loadConfigDeclarations() {
     std::unordered_map<int32_t, ConfigDeclaration> configsByPropId;
-    loadPropConfigsFromDir(mDefaultConfigDir, &configsByPropId);
+    bool defaultConfigLoaded = loadPropConfigsFromDir(mDefaultConfigDir, &configsByPropId);
+    if (!defaultConfigLoaded) {
+        // This cannot work without a valid default config.
+        ALOGE("Failed to load default config, exiting");
+        exit(1);
+    }
     if (UseOverrideConfigDir()) {
         loadPropConfigsFromDir(mOverrideConfigDir, &configsByPropId);
     }
@@ -2258,7 +2263,7 @@ void FakeVehicleHardware::onValuesChangeCallback(std::vector<VehiclePropValue> v
     (*mOnPropertyChangeCallback)(std::move(subscribedUpdatedValues));
 }
 
-void FakeVehicleHardware::loadPropConfigsFromDir(
+bool FakeVehicleHardware::loadPropConfigsFromDir(
         const std::string& dirPath,
         std::unordered_map<int32_t, ConfigDeclaration>* configsByPropId) {
     ALOGI("loading properties from %s", dirPath.c_str());
@@ -2281,7 +2286,11 @@ void FakeVehicleHardware::loadPropConfigsFromDir(
             }
         }
         closedir(dir);
+        return true;
     }
+
+    ALOGE("Failed to open config directory: %s", dirPath.c_str());
+    return false;
 }
 
 Result<float> FakeVehicleHardware::safelyParseFloat(int index, const std::string& s) {
