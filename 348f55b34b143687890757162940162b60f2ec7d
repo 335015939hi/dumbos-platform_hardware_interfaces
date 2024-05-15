@@ -40,6 +40,30 @@
       ],
       "revId": "348f55b34b143687890757162940162b60f2ec7d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44c8487d_78490449",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-05-15T15:27:56Z",
+      "side": 1,
+      "message": "great, thank you!",
+      "parentUuid": "cd52a5e0_fda4c830",
+      "range": {
+        "startLine": 195,
+        "startChar": 60,
+        "endLine": 195,
+        "endChar": 86
+      },
+      "revId": "348f55b34b143687890757162940162b60f2ec7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
