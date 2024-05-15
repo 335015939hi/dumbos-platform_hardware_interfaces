@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7391464_df5666cb",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-05-15T16:33:22Z",
+      "side": 0,
+      "message": "The diffusion and density parameter test were removed directly, do we have any replacement?",
+      "range": {
+        "startLine": 457,
+        "startChar": 46,
+        "endLine": 457,
+        "endChar": 78
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "72904a8a_5f87e568",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 142,
+                "startChar": 0,
+                "endLine": 143,
+                "endChar": 0
+              },
+              "replacement": "    static constexpr int kMinHfRatio \u003d 1000;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 232,
+                "startChar": 0,
+                "endLine": 233,
+                "endChar": 0
+              },
+              "replacement": "    std::vector\u003cint\u003e increasingHfRatio \u003d {1000, 1500, 2000, 5000, 6000, 10000};\n"
+            }
+          ]
+        }
+      ],
+      "revId": "27db8f3a135903b300a943006423a2100c953a11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
