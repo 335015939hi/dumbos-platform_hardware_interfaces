@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db7e5fe5_406aa25e",
+        "filename": "threadnetwork/aidl/default/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2024-05-15T03:51:24Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ea25053a_d81ee221",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 56
+      },
+      "revId": "ef88e9d2bc3429a75bef6278d7a0448f3e7594b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dcb1ec1_b03e848a",
@@ -210,6 +234,30 @@
       "side": 1,
       "message": "There are only 4 lines of the code here. Is there a necessary to minimize the scope here?",
       "parentUuid": "257af25e_788eeaf4",
+      "range": {
+        "startLine": 72,
+        "startChar": 8,
+        "endLine": 77,
+        "endChar": 9
+      },
+      "revId": "ef88e9d2bc3429a75bef6278d7a0448f3e7594b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c9c1a7c_15ea1b3f",
+        "filename": "threadnetwork/aidl/default/main.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2024-05-15T03:51:24Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6aa77693_3e26d6c8",
       "range": {
         "startLine": 72,
         "startChar": 8,
