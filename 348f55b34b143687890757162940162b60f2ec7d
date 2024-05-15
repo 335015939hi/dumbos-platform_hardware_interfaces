@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd52a5e0_fda4c830",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-05-15T15:09:25Z",
+      "side": 1,
+      "message": "ro.product.first_api_level isn\u0027t quite right, because that\u0027s the first system API level, not the first vendor API level.\n\nI totally forgot, but we have a helper for this: `get_vsr_api_level()`. That sifts through the various properties and returns the correct result for the first vendor software version that shipped on the device.",
+      "range": {
+        "startLine": 195,
+        "startChar": 60,
+        "endLine": 195,
+        "endChar": 86
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e51d63e6_716b6edf",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+              "range": {
+                "startLine": 195,
+                "startChar": 0,
+                "endLine": 199,
+                "endChar": 0
+              },
+              "replacement": "            if (!is_rkp_vm_supported()) {\n                GTEST_SKIP() \u003c\u003c \"The RKP VM is not supported on this device.\";\n"
+            }
+          ]
+        }
+      ],
+      "revId": "348f55b34b143687890757162940162b60f2ec7d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
