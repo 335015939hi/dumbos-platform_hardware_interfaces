@@ -15,6 +15,7 @@
  */
 package android.hardware.security.see.storage;
 
+import android.hardware.security.see.storage.AllowedTamper;
 import android.hardware.security.see.storage.Filesystem;
 
 parcelable SessionOptions {
@@ -22,4 +23,12 @@ parcelable SessionOptions {
      * Properties of the filesystem to create a session for.
      */
     Filesystem filesystem;
+
+    /**
+     * Set to acknowledge possible files tampering.
+     *
+     * If unacknowledged tampering is detected, operations will fail with an `ERR_FS_*`
+     * service-specific code.
+     */
+    AllowedTamper integrity = AllowedTamper.NO_TAMPER;
 }
