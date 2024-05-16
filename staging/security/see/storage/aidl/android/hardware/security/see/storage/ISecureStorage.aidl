@@ -29,7 +29,11 @@ interface ISecureStorage {
     const int ERR_ALREADY_EXISTS = 3;
     const int ERR_BAD_TRANSACTION = 4;
 
+    const int ERR_FS_RESET = 5;
+    const int ERR_FS_ROLLED_BACK = 6;
     const int ERR_FS_TAMPERED = 7;
+
+    const int ERR_AB_UPDATE_IN_PROGRESS = 8;
 
     /**
      * Starts a storage session for a filesystem.
