@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55368161_cdd29834",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8926,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-05-16T15:50:28Z",
+      "side": 0,
+      "message": "Maybe keep these as `LOG(DEBUG)` instead?",
+      "range": {
+        "startLine": 8920,
+        "startChar": 0,
+        "endLine": 8926,
+        "endChar": 0
+      },
+      "revId": "1b2011107438cb42a5982bb27223e65b7ec45ed3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
