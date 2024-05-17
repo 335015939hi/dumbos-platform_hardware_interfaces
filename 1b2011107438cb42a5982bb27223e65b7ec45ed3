@@ -22,6 +22,30 @@
       },
       "revId": "1b2011107438cb42a5982bb27223e65b7ec45ed3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf69d8d5_80e395cf",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 8926,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-17T05:24:39Z",
+      "side": 0,
+      "message": "This is a (dirty) cherry-pick so I\u0027d prefer to keep the change as close as possible to the original.",
+      "parentUuid": "55368161_cdd29834",
+      "range": {
+        "startLine": 8920,
+        "startChar": 0,
+        "endLine": 8926,
+        "endChar": 0
+      },
+      "revId": "1b2011107438cb42a5982bb27223e65b7ec45ed3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
