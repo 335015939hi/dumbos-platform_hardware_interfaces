@@ -90,15 +90,15 @@ interface IHwCryptoKey {
 
     union DerivedKeyPolicy {
         /*
-         * Policy for the newly derived opaque key. Defines how the key can be used and its type.
-         */
-        KeyPolicy opaqueKey;
-
-        /*
          * If used we will derive a clear key and pass it back as an array of bytes on
          * <code>HwCryptoKeyMaterial::explicitKey</code>.
          */
         ClearKeyPolicy clearKey;
+
+        /*
+         * Policy for the newly derived opaque key. Defines how the key can be used and its type.
+         */
+        byte[] opaqueKey;
     }
 
     parcelable DerivedKeyParameters {
