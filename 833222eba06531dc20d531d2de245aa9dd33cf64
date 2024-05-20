@@ -1,0 +1,65 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9d9ed25_26423642",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2024-05-20T22:14:24Z",
+      "side": 1,
+      "message": "Suggest to check the Tag along with the session type.",
+      "range": {
+        "startLine": 145,
+        "startChar": 53,
+        "endLine": 145,
+        "endChar": 75
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5ac7ab0f_6eb403e9",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+              "range": {
+                "startLine": 124,
+                "startChar": 0,
+                "endLine": 142,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+              "range": {
+                "startLine": 143,
+                "startChar": 0,
+                "endLine": 156,
+                "endChar": 0
+              },
+              "replacement": "  if (audio_config.getTag() !\u003d AudioConfiguration::leAudioConfig \u0026\u0026\n      audio_config.getTag() !\u003d AudioConfiguration::leAudioBroadcastConfig) {\n    LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \" invalid audio config type for SessionType \u003d\"\n               \u003c\u003c toString(session_type_);\n    return;\n"
+            },
+            {
+              "path": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+              "range": {
+                "startLine": 157,
+                "startChar": 0,
+                "endLine": 158,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "833222eba06531dc20d531d2de245aa9dd33cf64",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
