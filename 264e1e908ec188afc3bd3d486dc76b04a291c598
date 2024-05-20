@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4237f42a_321289d1",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1975310
+      },
+      "writtenOn": "2024-05-20T11:25:55Z",
+      "side": 1,
+      "message": "Should this be int? to keep it consistent with the earlier pair.",
+      "range": {
+        "startLine": 29,
+        "startChar": 34,
+        "endLine": 29,
+        "endChar": 93
+      },
+      "revId": "264e1e908ec188afc3bd3d486dc76b04a291c598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eb13324_3abe0fbc",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1975310
+      },
+      "writtenOn": "2024-05-20T11:25:55Z",
+      "side": 1,
+      "message": "Should be updated to reflect data tests",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 3
+      },
+      "revId": "264e1e908ec188afc3bd3d486dc76b04a291c598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa820882_1927ef0a",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1975310
+      },
+      "writtenOn": "2024-05-20T11:25:55Z",
+      "side": 1,
+      "message": "const \u0026",
+      "range": {
+        "startLine": 126,
+        "startChar": 36,
+        "endLine": 126,
+        "endChar": 87
+      },
+      "revId": "264e1e908ec188afc3bd3d486dc76b04a291c598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f421231_6748379a",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1975310
+      },
+      "writtenOn": "2024-05-20T11:25:55Z",
+      "side": 1,
+      "message": "Is this used?",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 2
+      },
+      "revId": "264e1e908ec188afc3bd3d486dc76b04a291c598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
