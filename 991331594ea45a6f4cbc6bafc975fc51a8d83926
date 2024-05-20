@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3174b870_1de0fa8b",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2294,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-05-20T19:43:58Z",
+      "side": 1,
+      "message": "needs updated",
+      "range": {
+        "startLine": 2266,
+        "startChar": 0,
+        "endLine": 2294,
+        "endChar": 1
+      },
+      "revId": "991331594ea45a6f4cbc6bafc975fc51a8d83926",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
