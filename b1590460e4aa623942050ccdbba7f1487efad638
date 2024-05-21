@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5149c12_32ddb504",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-21T14:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1947581_0f98385f",
+      "range": {
+        "startLine": 112,
+        "startChar": 9,
+        "endLine": 112,
+        "endChar": 31
+      },
+      "revId": "b1590460e4aa623942050ccdbba7f1487efad638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0650497_ecc5ee84",
@@ -82,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2058579d_0f1cf43c",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-21T14:08:28Z",
+      "side": 1,
+      "message": "```baseEnergy ``` is set to ```0``` as its being compared with Auxiliary output energy.",
+      "parentUuid": "a0650497_ecc5ee84",
+      "range": {
+        "startLine": 114,
+        "startChar": 27,
+        "endLine": 114,
+        "endChar": 28
+      },
+      "revId": "b1590460e4aa623942050ccdbba7f1487efad638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00013769_a245e48e",
@@ -95,6 +143,30 @@
       "writtenOn": "2024-05-15T16:26:28Z",
       "side": 1,
       "message": "I would recommend providing type aliases for test parameters (this applies to all such parameters in the tests below).",
+      "range": {
+        "startLine": 186,
+        "startChar": 38,
+        "endLine": 186,
+        "endChar": 86
+      },
+      "revId": "b1590460e4aa623942050ccdbba7f1487efad638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "613bc33e_948ff160",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-21T14:08:28Z",
+      "side": 1,
+      "message": "We\u0027ll create a separate CL for this change.",
+      "parentUuid": "00013769_a245e48e",
       "range": {
         "startLine": 186,
         "startChar": 38,
@@ -128,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11fc980_c228a5eb",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-21T14:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22d8f867_d0b9f1d4",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 1
+      },
+      "revId": "b1590460e4aa623942050ccdbba7f1487efad638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6ae46df_728501d9",
@@ -151,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f1646c_3f61b927",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-21T14:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6ae46df_728501d9",
+      "range": {
+        "startLine": 293,
+        "startChar": 4,
+        "endLine": 293,
+        "endChar": 25
+      },
+      "revId": "b1590460e4aa623942050ccdbba7f1487efad638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "972c1f04_2fa62888",
@@ -164,6 +284,30 @@
       "writtenOn": "2024-05-15T16:26:28Z",
       "side": 1,
       "message": "In my understanding, enabling bypass should leave the input signal as is. Can we test this?",
+      "range": {
+        "startLine": 403,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 0
+      },
+      "revId": "b1590460e4aa623942050ccdbba7f1487efad638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18a92138_59cad3ea",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-21T14:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "972c1f04_2fa62888",
       "range": {
         "startLine": 403,
         "startChar": 0,
