@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bba604d_d75025d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130869
+      },
+      "writtenOn": "2024-05-21T03:36:56Z",
+      "side": 1,
+      "message": "Seems it\u0027s not in android-vts-14.0_r4. Will android-vts-14.0_r5 include the patch?\nThanks!",
+      "revId": "f097c4d9bcaf140f921c4e2e0e79bb0e3e606916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
