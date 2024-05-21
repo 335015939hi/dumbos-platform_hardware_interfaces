@@ -1,0 +1,109 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d709a89a_cc829c00",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-21T16:01:47Z",
+      "side": 1,
+      "message": "typo: comparing",
+      "range": {
+        "startLine": 57,
+        "startChar": 30,
+        "endLine": 57,
+        "endChar": 39
+      },
+      "revId": "78a0dae5f0ffb9ee971fc103b1b3b054e2e5e2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1074a835_55d52286",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-21T16:01:47Z",
+      "side": 1,
+      "message": "nit: parentheses not needed",
+      "range": {
+        "startLine": 132,
+        "startChar": 15,
+        "endLine": 132,
+        "endChar": 16
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2b409949_6b1aaff8",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 132,
+                "startChar": 0,
+                "endLine": 134,
+                "endChar": 0
+              },
+              "replacement": "        return audio_utils_compute_energy_mono(output.data(), AUDIO_FORMAT_PCM_FLOAT,\n                                               output.size());\n"
+            }
+          ]
+        }
+      ],
+      "revId": "78a0dae5f0ffb9ee971fc103b1b3b054e2e5e2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a637db2_cb77ef42",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-21T16:01:47Z",
+      "side": 1,
+      "message": "I\u0027m comparing the code here and in the `EnvironmentalReverbHfRatioTest` and the tests below. It seems that the difference is only in the tag used. The tag can be made a test parameter. Please make a single parametrized test and instantiate it for each tag, as it was done for energy tests.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 1
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "492102b7_c3989e88",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 217,
+                "startChar": 0,
+                "endLine": 217,
+                "endChar": 0
+              },
+              "replacement": "// TODO(b/239851111): Refactor the test cases to reduce the code duplication\n"
+            }
+          ]
+        }
+      ],
+      "revId": "78a0dae5f0ffb9ee971fc103b1b3b054e2e5e2d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
