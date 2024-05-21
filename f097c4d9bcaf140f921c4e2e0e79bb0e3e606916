@@ -16,6 +16,23 @@
       "message": "Seems it\u0027s not in android-vts-14.0_r4. Will android-vts-14.0_r5 include the patch?\nThanks!",
       "revId": "f097c4d9bcaf140f921c4e2e0e79bb0e3e606916",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb7cf961_213af371",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130869
+      },
+      "writtenOn": "2024-05-21T04:03:42Z",
+      "side": 1,
+      "message": "Have picked to https://android-review.googlesource.com/c/platform/hardware/interfaces/+/3093448.\nHope it can be integrated in android-vts-14.0_r5.",
+      "revId": "f097c4d9bcaf140f921c4e2e0e79bb0e3e606916",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
