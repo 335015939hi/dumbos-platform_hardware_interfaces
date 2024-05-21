@@ -1,0 +1,75 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c342606_b3f883a1",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2024-05-21T07:56:52Z",
+      "side": 1,
+      "message": "You could combine session type and configuration type check together to improve the readability.\n\nif (com::android::btaudio::hal::flags::leaudio_report_broadcast_ac_to_hal()) {\n1. unicast session along with unicast configuraiton type\n2. broadcast session along wiht broadcast configuraiton type\n3. other, return\n}",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 5
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "fd362dfe_7c54be43",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+              "range": {
+                "startLine": 124,
+                "startChar": 0,
+                "endLine": 142,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+              "range": {
+                "startLine": 147,
+                "startChar": 0,
+                "endLine": 148,
+                "endChar": 0
+              },
+              "replacement": "              SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) \u0026\u0026\n"
+            },
+            {
+              "path": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+              "range": {
+                "startLine": 150,
+                "startChar": 0,
+                "endLine": 151,
+                "endChar": 0
+              },
+              "replacement": "              SessionType::\n                  LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH) \u0026\u0026\n"
+            },
+            {
+              "path": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+              "range": {
+                "startLine": 157,
+                "startChar": 0,
+                "endLine": 158,
+                "endChar": 0
+              },
+              "replacement": "    if (session_type_ !\u003d\n            SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH \u0026\u0026\n        session_type_ !\u003d\n            SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH \u0026\u0026\n        session_type_ !\u003d\n            SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {\n      return;\n    }\n    if (audio_config.getTag() !\u003d AudioConfiguration::leAudioConfig \u0026\u0026\n        audio_config.getTag() !\u003d AudioConfiguration::leAudioBroadcastConfig) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "318b9dbdcf6bac2df7c09c9ca3ffd4caffe6e1f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
