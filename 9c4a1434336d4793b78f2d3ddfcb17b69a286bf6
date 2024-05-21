@@ -22,6 +22,30 @@
       },
       "revId": "9c4a1434336d4793b78f2d3ddfcb17b69a286bf6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1826ed21_65a215b0",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-21T12:28:12Z",
+      "side": 1,
+      "message": "No, Removed it.",
+      "parentUuid": "1a06ca7a_e57587dc",
+      "range": {
+        "startLine": 159,
+        "startChar": 26,
+        "endLine": 159,
+        "endChar": 33
+      },
+      "revId": "9c4a1434336d4793b78f2d3ddfcb17b69a286bf6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
