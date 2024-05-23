@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9968c3d5_3782601c",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/include/FakeVehicleHardware.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-05-23T02:55:24Z",
+      "side": 1,
+      "message": "You have to define template method in header because the compiler needs to generate the concrete function for all types during compile time. (Unless you explicitly declare all possible types in cpp file).",
+      "parentUuid": "e2b85411_f2776900",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 68
+      },
+      "revId": "dab69907bfc8a8b550a697f03d2607403bf272aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b429013_0db53679",
