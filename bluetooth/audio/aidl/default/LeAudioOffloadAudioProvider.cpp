@@ -16,11 +16,11 @@
 
 #define LOG_TAG "BTAudioProviderLeAudioHW"
 
-#include "LeAudioOffloadAudioProvider.h"
-
 #include <BluetoothAudioCodecs.h>
 #include <BluetoothAudioSessionReport.h>
 #include <android-base/logging.h>
+
+#include "LeAudioOffloadAudioProvider.h"
 
 namespace aidl {
 namespace android {
@@ -317,8 +317,14 @@ bool LeAudioOffloadAudioProvider::isCapabilitiesMatchedCodecConfiguration(
   return true;
 }
 
-bool LeAudioOffloadAudioProvider::isMatchedAseConfiguration(
-    LeAudioAseConfiguration setting_cfg,
+bool isMonoConfig(
+    CodecSpecificConfigurationLtv::AudioChannelAllocation allocation) {
+  auto x = std::bitset<32>(allocation.bitmask);
+  return (x.count() <= 1);
+}
+
+bool LeAudioOffloadAudioProvider::filterMatchedAseConfiguration(
+    LeAudioAseConfiguration& setting_cfg,
     LeAudioAseConfiguration requirement_cfg) {
   // Check matching for codec configuration <=> requirement ASE codec
   // Also match if no CodecId requirement
@@ -326,13 +332,19 @@ bool LeAudioOffloadAudioProvider::isMatchedAseConfiguration(
     if (!setting_cfg.codecId.has_value()) return false;
     if (!isMatchedValidCodec(setting_cfg.codecId.value(),
                              requirement_cfg.codecId.value())) {
+      LOG(WARNING) << "Doesn't match valid codec, cfg = "
+                   << setting_cfg.codecId.value().toString()
+                   << ", req = " << requirement_cfg.codecId.value().toString();
       return false;
     }
   }
 
-  if (requirement_cfg.targetLatency ==
-          LeAudioAseConfiguration::TargetLatency::UNDEFINED ||
+  if (requirement_cfg.targetLatency !=
+          LeAudioAseConfiguration::TargetLatency::UNDEFINED &&
       setting_cfg.targetLatency != requirement_cfg.targetLatency) {
+    LOG(WARNING) << "Doesn't match target latency, cfg = "
+                 << int(setting_cfg.targetLatency)
+                 << ", req = " << int(requirement_cfg.targetLatency);
     return false;
   }
   // Ignore PHY requirement
@@ -346,12 +358,46 @@ bool LeAudioOffloadAudioProvider::isMatchedAseConfiguration(
   for (auto requirement_cfg : requirement_cfg.codecConfiguration) {
     // Directly compare CodecSpecificConfigurationLtv
     auto cfg = cfg_tag_map.find(requirement_cfg.getTag());
+    // Config not found for this requirement, cannot match
     if (cfg == cfg_tag_map.end()) {
+      LOG(WARNING) << "Config not found for the requirement "
+                   << requirement_cfg.toString();
       return false;
     }
 
-    if (cfg->second != requirement_cfg) {
-      return false;
+    // Special matching for audio channel allocation
+    if (requirement_cfg.getTag() ==
+        CodecSpecificConfigurationLtv::Tag::audioChannelAllocation) {
+      auto req_allocation = requirement_cfg.get<
+          CodecSpecificConfigurationLtv::Tag::audioChannelAllocation>();
+      if (isMonoConfig(req_allocation)) {
+        auto cfg_allocation = cfg->second.get<
+            CodecSpecificConfigurationLtv::Tag::audioChannelAllocation>();
+        if (!isMonoConfig(cfg_allocation)) {
+          LOG(WARNING)
+              << "Requirement is mono config, but the cfg is not, cfg = "
+              << cfg->second.toString()
+              << ", req = " << requirement_cfg.toString();
+          return false;
+        } else {
+          // Make cfg allocation the same as requirement
+          for (auto& cfg : setting_cfg.codecConfiguration)
+            if (cfg.getTag() ==
+                CodecSpecificConfigurationLtv::Tag::audioChannelAllocation) {
+              cfg.get<CodecSpecificConfigurationLtv::Tag::
+                          audioChannelAllocation>()
+                  .bitmask = req_allocation.bitmask;
+              break;
+            }
+        }
+      }
+    } else {
+      if (cfg->second != requirement_cfg) {
+        LOG(WARNING) << "Config doesn't match the requirement, cfg = "
+                     << cfg->second.toString()
+                     << ", req = " << requirement_cfg.toString();
+        return false;
+      }
     }
   }
   // Ignore vendor configuration and metadata requirement
@@ -411,7 +457,7 @@ void LeAudioOffloadAudioProvider::filterRequirementAseDirectionConfiguration(
     if (!requirement.has_value()) continue;
     for (auto direction_configuration : direction_configurations.value()) {
       if (!direction_configuration.has_value()) continue;
-      if (!isMatchedAseConfiguration(
+      if (!filterMatchedAseConfiguration(
               direction_configuration.value().aseConfiguration,
               requirement.value().aseConfiguration))
         continue;
@@ -497,6 +543,7 @@ LeAudioOffloadAudioProvider::getRequirementMatchedAseConfigurationSettings(
 
   // Further filter setting's context
   setting.audioContext.bitmask &= requirement.audioContext.bitmask;
+  LOG(INFO) << "Checking if the setting match: " << setting.toString();
 
   // Check requirement for the correct direction
   const std::optional<std::vector<std::optional<AseDirectionRequirement>>>*
@@ -515,7 +562,20 @@ LeAudioOffloadAudioProvider::getRequirementMatchedAseConfigurationSettings(
     filterRequirementAseDirectionConfiguration(
         setting.sinkAseConfiguration, requirement.sinkAseRequirement.value(),
         filtered_setting.sinkAseConfiguration);
-    if (!filtered_setting.sinkAseConfiguration.has_value()) return std::nullopt;
+    if (!filtered_setting.sinkAseConfiguration.has_value()) {
+      LOG(WARNING) << "Setting's sink doesn't match!";
+      return std::nullopt;
+    } else {
+      for (int i = 0; i < requirement.sinkAseRequirement.value().size(); ++i) {
+        LOG(INFO)
+            << "Found a match for the sink requirement = "
+            << requirement.sinkAseRequirement.value()[i].value().toString()
+            << ", setting = "
+            << filtered_setting.sinkAseConfiguration.value()[i]
+                   .value()
+                   .toString();
+      }
+    }
   }
 
   if (requirement.sourceAseRequirement.has_value()) {
@@ -523,8 +583,20 @@ LeAudioOffloadAudioProvider::getRequirementMatchedAseConfigurationSettings(
         setting.sourceAseConfiguration,
         requirement.sourceAseRequirement.value(),
         filtered_setting.sourceAseConfiguration);
-    if (!filtered_setting.sourceAseConfiguration.has_value())
+    if (!filtered_setting.sourceAseConfiguration.has_value()) {
+      LOG(WARNING) << "Setting's source doesn't match!";
       return std::nullopt;
+    } else {
+      for (int i = 0; i < requirement.sinkAseRequirement.value().size(); ++i) {
+        LOG(INFO)
+            << "Found a match for the sink requirement = "
+            << requirement.sinkAseRequirement.value()[i].value().toString()
+            << ", setting = "
+            << filtered_setting.sinkAseConfiguration.value()[i]
+                   .value()
+                   .toString();
+      }
+    }
   }
 
   return filtered_setting;
@@ -701,7 +773,7 @@ LeAudioOffloadAudioProvider::getDirectionQosConfiguration(
       // Try to match the ASE configuration
       // and QoS with requirement
       if (!cfg.value().qosConfiguration.has_value()) continue;
-      if (isMatchedAseConfiguration(
+      if (filterMatchedAseConfiguration(
               cfg.value().aseConfiguration,
               direction_qos_requirement.value().aseConfiguration) &&
           isMatchedQosRequirement(cfg.value().qosConfiguration.value(),

@@ -34,8 +34,6 @@
 
 #define LOG_TAG "BTAudioAseConfigAidl"
 
-#include "BluetoothLeAudioAseConfigurationSettingProvider.h"
-
 #include <aidl/android/hardware/bluetooth/audio/AudioConfiguration.h>
 #include <aidl/android/hardware/bluetooth/audio/AudioContext.h>
 #include <aidl/android/hardware/bluetooth/audio/BluetoothAudioStatus.h>
@@ -47,6 +45,7 @@
 #include <aidl/android/hardware/bluetooth/audio/Phy.h>
 #include <android-base/logging.h>
 
+#include "BluetoothLeAudioAseConfigurationSettingProvider.h"
 #include "flatbuffers/idl.h"
 #include "flatbuffers/util.h"
 
@@ -453,6 +452,8 @@ AudioSetConfigurationProviderJson::SetConfigurationFromFlatSubconfig(
       path.dataPathId = kIsoDataPathPlatformDefault;
       break;
   }
+  // Move codecId to iso data path
+  path.isoDataPathConfiguration.codecId = ase.codecId.value();
 
   direction_conf.aseConfiguration = ase;
   direction_conf.qosConfiguration = qos;
