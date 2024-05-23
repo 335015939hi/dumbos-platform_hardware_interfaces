@@ -334,6 +334,8 @@ inline std::string propIdToString(int32_t propId) {
             static_cast<aidl::android::hardware::automotive::vehicle::VehicleProperty>(propId));
 }
 
+android::base::Result<int32_t> stringToPropId(const std::string& propName);
+
 }  // namespace vehicle
 }  // namespace automotive
 }  // namespace hardware
