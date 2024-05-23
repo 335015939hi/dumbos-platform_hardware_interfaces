@@ -22,6 +22,30 @@
       },
       "revId": "d4915bb01386b8605f3a3649e6ee53ff533dba00",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4519743_138b213e",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1733,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-05-23T22:55:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ded6403_460dd57e",
+      "range": {
+        "startLine": 1733,
+        "startChar": 19,
+        "endLine": 1733,
+        "endChar": 30
+      },
+      "revId": "d4915bb01386b8605f3a3649e6ee53ff533dba00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
