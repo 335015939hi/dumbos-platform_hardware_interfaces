@@ -34,8 +34,6 @@
 
 #define LOG_TAG "BTAudioAseConfigAidl"
 
-#include "BluetoothLeAudioAseConfigurationSettingProvider.h"
-
 #include <aidl/android/hardware/bluetooth/audio/AudioConfiguration.h>
 #include <aidl/android/hardware/bluetooth/audio/AudioContext.h>
 #include <aidl/android/hardware/bluetooth/audio/BluetoothAudioStatus.h>
@@ -47,6 +45,7 @@
 #include <aidl/android/hardware/bluetooth/audio/Phy.h>
 #include <android-base/logging.h>
 
+#include "BluetoothLeAudioAseConfigurationSettingProvider.h"
 #include "flatbuffers/idl.h"
 #include "flatbuffers/util.h"
 
@@ -267,7 +266,7 @@ void AudioSetConfigurationProviderJson::
     ase_configuration_settings_.clear();
     configurations_.clear();
     auto loaded = LoadContent(kLeAudioSetConfigs, kLeAudioSetScenarios,
-                              CodecLocation::HOST);
+                              CodecLocation::ADSP);
     if (!loaded)
       LOG(ERROR) << ": Unable to load le audio set configuration files.";
   } else
@@ -371,7 +370,6 @@ void AudioSetConfigurationProviderJson::populateConfigurationData(
       CodecSpecificConfigurationLtv::CodecFrameBlocksPerSDU();
   frame_sdu_structure.value = codec_frames_blocks_per_sdu;
   ase.codecConfiguration.push_back(frame_sdu_structure);
-  // TODO: Channel count
 }
 
 void AudioSetConfigurationProviderJson::populateAseConfiguration(
@@ -415,8 +413,49 @@ void AudioSetConfigurationProviderJson::populateAseConfiguration(
 }
 
 void AudioSetConfigurationProviderJson::populateAseQosConfiguration(
-    LeAudioAseQosConfiguration& qos,
-    const le_audio::QosConfiguration* qos_cfg) {
+    LeAudioAseQosConfiguration& qos, const le_audio::QosConfiguration* qos_cfg,
+    LeAudioAseConfiguration& ase) {
+  std::optional<CodecSpecificConfigurationLtv::CodecFrameBlocksPerSDU> frameb =
+      std::nullopt;
+  std::optional<CodecSpecificConfigurationLtv::FrameDuration> framed =
+      std::nullopt;
+  std::optional<CodecSpecificConfigurationLtv::AudioChannelAllocation>
+      allocation = std::nullopt;
+  std::optional<CodecSpecificConfigurationLtv::OctetsPerCodecFrame> octet =
+      std::nullopt;
+
+  for (auto& x : ase.codecConfiguration) {
+    auto tag = x.getTag();
+    if (tag == CodecSpecificConfigurationLtv::codecFrameBlocksPerSDU) {
+      frameb = x.get<CodecSpecificConfigurationLtv::codecFrameBlocksPerSDU>();
+    } else if (tag == CodecSpecificConfigurationLtv::frameDuration) {
+      framed = x.get<CodecSpecificConfigurationLtv::frameDuration>();
+    } else if (tag == CodecSpecificConfigurationLtv::audioChannelAllocation) {
+      allocation =
+          x.get<CodecSpecificConfigurationLtv::audioChannelAllocation>();
+    } else if (tag == CodecSpecificConfigurationLtv::octetsPerCodecFrame) {
+      octet = x.get<CodecSpecificConfigurationLtv::octetsPerCodecFrame>();
+    }
+  }
+  // Populate maxSdu
+  if (allocation.has_value() && octet.has_value()) {
+    auto channel_count = std::bitset<64>(allocation.value().bitmask).count();
+    qos.maxSdu = channel_count * octet.value().value;
+    if (frameb.has_value()) {
+      qos.maxSdu *= frameb.value().value;
+    }
+  }
+  // Populate sduIntervalUs
+  if (frameb.has_value() && framed.has_value() && frameb.value().value == 1) {
+    switch (framed.value()) {
+      case CodecSpecificConfigurationLtv::FrameDuration::US7500:
+        qos.sduIntervalUs = 7500;
+        break;
+      case CodecSpecificConfigurationLtv::FrameDuration::US10000:
+        qos.sduIntervalUs = 10000;
+        break;
+    }
+  }
   qos.maxTransportLatencyMs = qos_cfg->max_transport_latency();
   qos.retransmissionNum = qos_cfg->retransmission_number();
 }
@@ -436,7 +475,7 @@ AudioSetConfigurationProviderJson::SetConfigurationFromFlatSubconfig(
   populateAseConfiguration(ase, flat_subconfig, qos_cfg);
 
   // Translate into LeAudioAseQosConfiguration
-  populateAseQosConfiguration(qos, qos_cfg);
+  populateAseQosConfiguration(qos, qos_cfg, ase);
 
   // Translate location to data path id
   switch (location) {
@@ -453,6 +492,8 @@ AudioSetConfigurationProviderJson::SetConfigurationFromFlatSubconfig(
       path.dataPathId = kIsoDataPathPlatformDefault;
       break;
   }
+  // Move codecId to iso data path
+  path.isoDataPathConfiguration.codecId = ase.codecId.value();
 
   direction_conf.aseConfiguration = ase;
   direction_conf.qosConfiguration = qos;
@@ -678,7 +719,8 @@ bool AudioSetConfigurationProviderJson::LoadScenariosFromFiles(
   media_context.bitmask =
       (AudioContext::ALERTS | AudioContext::INSTRUCTIONAL |
        AudioContext::NOTIFICATIONS | AudioContext::EMERGENCY_ALARM |
-       AudioContext::UNSPECIFIED | AudioContext::MEDIA);
+       AudioContext::UNSPECIFIED | AudioContext::MEDIA |
+       AudioContext::SOUND_EFFECTS);
 
   AudioContext conversational_context = AudioContext();
   conversational_context.bitmask =
