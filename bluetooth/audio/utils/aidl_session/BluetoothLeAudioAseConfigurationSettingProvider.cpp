@@ -34,8 +34,6 @@
 
 #define LOG_TAG "BTAudioAseConfigAidl"
 
-#include "BluetoothLeAudioAseConfigurationSettingProvider.h"
-
 #include <aidl/android/hardware/bluetooth/audio/AudioConfiguration.h>
 #include <aidl/android/hardware/bluetooth/audio/AudioContext.h>
 #include <aidl/android/hardware/bluetooth/audio/BluetoothAudioStatus.h>
@@ -47,6 +45,7 @@
 #include <aidl/android/hardware/bluetooth/audio/Phy.h>
 #include <android-base/logging.h>
 
+#include "BluetoothLeAudioAseConfigurationSettingProvider.h"
 #include "flatbuffers/idl.h"
 #include "flatbuffers/util.h"
 
@@ -415,8 +414,31 @@ void AudioSetConfigurationProviderJson::populateAseConfiguration(
 }
 
 void AudioSetConfigurationProviderJson::populateAseQosConfiguration(
-    LeAudioAseQosConfiguration& qos,
-    const le_audio::QosConfiguration* qos_cfg) {
+    LeAudioAseQosConfiguration& qos, const le_audio::QosConfiguration* qos_cfg,
+    LeAudioAseConfiguration& ase) {
+  std::optional<CodecSpecificConfigurationLtv::CodecFrameBlocksPerSDU> frameb =
+      std::nullopt;
+  std::optional<CodecSpecificConfigurationLtv::FrameDuration> framed =
+      std::nullopt;
+  for (auto& x : ase.codecConfiguration) {
+    if (x.getTag() == CodecSpecificConfigurationLtv::codecFrameBlocksPerSDU) {
+      frameb = x.get<CodecSpecificConfigurationLtv::codecFrameBlocksPerSDU>();
+    } else if (x.getTag() == CodecSpecificConfigurationLtv::frameDuration) {
+      framed = x.get<CodecSpecificConfigurationLtv::frameDuration>();
+    }
+  }
+  if (frameb.has_value() && framed.has_value()) {
+    if (frameb.value().value == 1) {
+      switch (framed.value()) {
+        case CodecSpecificConfigurationLtv::FrameDuration::US7500:
+          qos.sduIntervalUs = 7500;
+          break;
+        case CodecSpecificConfigurationLtv::FrameDuration::US10000:
+          qos.sduIntervalUs = 10000;
+          break;
+      }
+    }
+  }
   qos.maxTransportLatencyMs = qos_cfg->max_transport_latency();
   qos.retransmissionNum = qos_cfg->retransmission_number();
 }
@@ -436,7 +458,7 @@ AudioSetConfigurationProviderJson::SetConfigurationFromFlatSubconfig(
   populateAseConfiguration(ase, flat_subconfig, qos_cfg);
 
   // Translate into LeAudioAseQosConfiguration
-  populateAseQosConfiguration(qos, qos_cfg);
+  populateAseQosConfiguration(qos, qos_cfg, ase);
 
   // Translate location to data path id
   switch (location) {
@@ -453,6 +475,8 @@ AudioSetConfigurationProviderJson::SetConfigurationFromFlatSubconfig(
       path.dataPathId = kIsoDataPathPlatformDefault;
       break;
   }
+  // Move codecId to iso data path
+  path.isoDataPathConfiguration.codecId = ase.codecId.value();
 
   direction_conf.aseConfiguration = ase;
   direction_conf.qosConfiguration = qos;
@@ -678,7 +702,8 @@ bool AudioSetConfigurationProviderJson::LoadScenariosFromFiles(
   media_context.bitmask =
       (AudioContext::ALERTS | AudioContext::INSTRUCTIONAL |
        AudioContext::NOTIFICATIONS | AudioContext::EMERGENCY_ALARM |
-       AudioContext::UNSPECIFIED | AudioContext::MEDIA);
+       AudioContext::UNSPECIFIED | AudioContext::MEDIA |
+       AudioContext::SOUND_EFFECTS);
 
   AudioContext conversational_context = AudioContext();
   conversational_context.bitmask =
