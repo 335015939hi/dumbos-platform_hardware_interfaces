@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ded6403_460dd57e",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1733,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-05-23T21:49:58Z",
+      "side": 1,
+      "message": "nit: vecToStringOfHexValues",
+      "range": {
+        "startLine": 1733,
+        "startChar": 19,
+        "endLine": 1733,
+        "endChar": 30
+      },
+      "revId": "d4915bb01386b8605f3a3649e6ee53ff533dba00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
