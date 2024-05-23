@@ -87,6 +87,30 @@
       ],
       "revId": "dab69907bfc8a8b550a697f03d2607403bf272aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33f669ae_f4feec76",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/include/VehicleUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-05-23T22:55:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b429013_0db53679",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 75
+      },
+      "revId": "dab69907bfc8a8b550a697f03d2607403bf272aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
