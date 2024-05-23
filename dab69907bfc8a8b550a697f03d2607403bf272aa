@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2b85411_f2776900",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/include/FakeVehicleHardware.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1965084
+      },
+      "writtenOn": "2024-05-23T02:47:40Z",
+      "side": 1,
+      "message": "Any reason why we have static private class methods? This makes sense in Java but in C++ usually they define namespace functions in the cpp file. It makes the header file more cluttered.",
+      "range": {
+        "startLine": 306,
+        "startChar": 0,
+        "endLine": 317,
+        "endChar": 68
+      },
+      "revId": "dab69907bfc8a8b550a697f03d2607403bf272aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b429013_0db53679",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/include/VehicleUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1965084
+      },
+      "writtenOn": "2024-05-23T02:47:40Z",
+      "side": 1,
+      "message": "Add comment to say to use only for debug purposes only. Just so nobody uses it accidentally in non debug circumstance.",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 75
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "de9b40f8_bd34f537",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/utils/common/include/VehicleUtils.h",
+              "range": {
+                "startLine": 337,
+                "startChar": 0,
+                "endLine": 337,
+                "endChar": 0
+              },
+              "replacement": "// This is for debug purpose only.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "dab69907bfc8a8b550a697f03d2607403bf272aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
