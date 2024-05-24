@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c7a4d5_e16da6f9",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2024-05-24T12:32:55Z",
+      "side": 1,
+      "message": "Looking good, but I see two improvements we could do here.\n\n1) Frame blocks is not mandatory (by the BT spec) and when it is absent, it should be assumed to be 1, so if `frameb.has_value() \u003d\u003d false` we should act as it was actually set to 1.\n\n2) Another thing is that the `sduIntervalUs` calculation could be improved by multiplying the `frameDuration` (7500 or 10000) by `frameb`. Since if `frameb \u003e 1`, then there are multiple frames in a single SDU, then we can send the SDU `frameb` times less often because we are sending `frameb` number of (7500 or 10000 ms long) frames in one SDU. I hope that makes sense.",
+      "range": {
+        "startLine": 452,
+        "startChar": 28,
+        "endLine": 452,
+        "endChar": 32
+      },
+      "revId": "3077f88c05f118102ac91e6fe83a1270db4135fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
