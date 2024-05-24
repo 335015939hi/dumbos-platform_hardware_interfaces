@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3ece4cc_07bd9e86",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-24T20:47:14Z",
+      "side": 1,
+      "message": "It should be possible to use `ndk::enum_range\u003cEnvironmentalReverb::Tag\u003e()` directly here.",
+      "range": {
+        "startLine": 61,
+        "startChar": 40,
+        "endLine": 61,
+        "endChar": 44
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2aaefb16_39946fdb",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 58,
+                "startChar": 0,
+                "endLine": 62,
+                "endChar": 0
+              },
+              "replacement": "    for (EnvironmentalReverb::Tag tag : ndk::enum_range\u003cEnvironmentalReverb::Tag\u003e()) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9e4a5fc51e4a553621a9d2c94959661b18a1f4d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e901cc4_dcbe97c0",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-24T20:47:14Z",
+      "side": 1,
+      "message": "I think, logically the tag should go first, as in `EnvironmentalReverbMinimumParamTest`",
+      "range": {
+        "startLine": 286,
+        "startChar": 0,
+        "endLine": 287,
+        "endChar": 34
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "1a3aa3a1_bf024720",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 286,
+                "startChar": 0,
+                "endLine": 287,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 288,
+                "startChar": 0,
+                "endLine": 288,
+                "endChar": 0
+              },
+              "replacement": "    int mParamValue;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9e4a5fc51e4a553621a9d2c94959661b18a1f4d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
