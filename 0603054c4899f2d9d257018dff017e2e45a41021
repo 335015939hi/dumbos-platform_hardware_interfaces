@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6190571_a93b1401",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1778,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-05-24T20:41:58Z",
+      "side": 1,
+      "message": "why not pass the string directly in instead of options+index?",
+      "range": {
+        "startLine": 1777,
+        "startChar": 49,
+        "endLine": 1778,
+        "endChar": 61
+      },
+      "revId": "0603054c4899f2d9d257018dff017e2e45a41021",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cfdbdb5_784a0cf3",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-05-24T20:41:58Z",
+      "side": 1,
+      "message": "I\u0027ve been out of the C++ world for awhile, but do you need a lock here at all?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "0603054c4899f2d9d257018dff017e2e45a41021",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
