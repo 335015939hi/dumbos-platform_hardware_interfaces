@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "150fc7cf_e89624cd",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-24T23:19:21Z",
+      "side": 1,
+      "message": "It looks like we are missing initialization of `kDescPair` which was on the line `202` of the old code.",
+      "range": {
+        "startLine": 54,
+        "startChar": 62,
+        "endLine": 54,
+        "endChar": 71
+      },
+      "revId": "9e4a5fc51e4a553621a9d2c94959661b18a1f4d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3ece4cc_07bd9e86",
         "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
         "patchSetId": 3
@@ -34,6 +57,107 @@
                 "endChar": 0
               },
               "replacement": "    for (EnvironmentalReverb::Tag tag : ndk::enum_range\u003cEnvironmentalReverb::Tag\u003e()) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9e4a5fc51e4a553621a9d2c94959661b18a1f4d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ed2e29a_41534da6",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-24T23:19:21Z",
+      "side": 1,
+      "message": "I\u0027ve got an idea how this can be simplified. We use `switch` because the non-type template parameter can only be a compile-time constant. We also need to instantiate the template function for any value of the tag that we intend to use. However, we can use the fact that our enum values are continuous and instead of a switch we can use an array. We populate it with pointers to the instances of the `make` function:\n\n```\nusing Maker \u003d EnvironmentalReverb (*)(int);\nstatic constexpr std::array\u003cMaker, static_cast\u003cint\u003e(EnvironmentalRever::densityPm) + 1\u003e makers \u003d {\n    nullptr, /* vendor */\n    EnvironmentalReverb::make\u003cEnvironmentalReverb::decayTimeMs\u003e,\n    ...\n    EnvironmentalReverb::make\u003cEnvironmentalReverb::densityPm\u003e\n};\n\nstatic const int intTag \u003d static_cast\u003cint\u003e(tag);\nif (intTag \u003c\u003d static_cast\u003cint\u003e(EnvironmentalRever::densityPm) \u0026\u0026 makers[intTag]) {\n     mEnvParam \u003d makers[intTag](paramValue);\n} else {\n    GTEST_SKIP...\n}\n```\n\nThis way, we don\u0027t have to repeat the tag name two times, less error-prone.",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 226,
+        "endChar": 22
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0ae26d7c_117ed469",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 221,
+                "startChar": 0,
+                "endLine": 258,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 291,
+                "startChar": 0,
+                "endLine": 292,
+                "endChar": 0
+              },
+              "replacement": "    mEnvParam \u003d EnvironmentalReverb::make\u003cmTag\u003e(mParamValue);\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 327,
+                "startChar": 0,
+                "endLine": 328,
+                "endChar": 0
+              },
+              "replacement": "        mEnvParam \u003d EnvironmentalReverb::make\u003cmTag\u003e(val);\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 335,
+                "startChar": 0,
+                "endLine": 336,
+                "endChar": 0
+              },
+              "replacement": "        mEnvParam \u003d EnvironmentalReverb::make\u003cEnvironmentalReverb::bypass\u003e(bypass);\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 348,
+                "startChar": 0,
+                "endLine": 349,
+                "endChar": 0
+              },
+              "replacement": "        mEnvParam \u003d EnvironmentalReverb::make\u003cEnvironmentalReverb::bypass\u003e(bypass);\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 396,
+                "startChar": 0,
+                "endLine": 397,
+                "endChar": 0
+              },
+              "replacement": "        mEnvParam \u003d EnvironmentalReverb::make\u003cEnvironmentalReverb::roomLevelMb\u003e(kMinRoomLevel);\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 410,
+                "startChar": 0,
+                "endLine": 411,
+                "endChar": 0
+              },
+              "replacement": "    mEnvParam \u003d EnvironmentalReverb::make\u003cmTag\u003e(mValue);\n"
             }
           ]
         }
