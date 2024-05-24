@@ -71,6 +71,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8441aaf_440d2cc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-24T10:52:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "971f5767_7b16ab33",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7a03f22_e5e35a04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-24T10:52:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dc3ac028_f532eaa0",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58764341_822e1e64",
@@ -303,6 +339,24 @@
       "side": 1,
       "message": "We usually don\u0027t include aborts that cause fuzzer failures because fuzzing keeps going indefinitely. So, it\u0027s best to add the right returns instead.",
       "parentUuid": "34af7c7f_b55ddd40",
+      "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e36b18_ea69a289",
+        "filename": "security/keymint/support/fuzzer/keymint_attestation_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-24T10:52:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f04340bb_45f4e5c8",
       "revId": "45bc86ff0437fe65872f1c5433602816f70f85fd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

@@ -89,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1e563dd_479f2a4e",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-24T10:52:25Z",
+      "side": 1,
+      "message": "In `keymint_common.h`, we now have two enums, and the keyword `RSA_ATTEST_KEY` is already used in `enum AttestAuthSet`. Using the same name again in `enum AuthSet` results in a `redefinition of enumerator \u0027RSA_ATTEST_KEY\u0027` error.",
+      "parentUuid": "d5dcb416_c9b412ad",
+      "revId": "5df0abed04fe18bbea6ee7895130cb737d0a602a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c6c3332_6a60e0aa",

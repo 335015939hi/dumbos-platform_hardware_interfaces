@@ -16,6 +16,24 @@
       "message": "Why not just `dataProvider-\u003eConsumeEnum\u003cAttestAuthSet\u003e()`?",
       "revId": "007129a7fd16dad09d313a865afc50e5e0b28f0d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "071fe276_39fcf6b6",
+        "filename": "security/keymint/support/fuzzer/keymint_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-05-24T10:52:25Z",
+      "side": 1,
+      "message": "To execute `dataProvider-\u003eConsumeEnum\u003cAttestAuthSet\u003e()`, we must define a variable named `kMaxValue` within the enum. Since we have 2 enums now, setting `kMaxValue` for the subsequent enum in `keymint_common.h` would be perceived as redefinition.\n\nGiven the presence of only two options, we can opt for either of them based on the result of `dataProvider-\u003eConsumeBool()`.",
+      "parentUuid": "45506ca1_af330cd2",
+      "revId": "007129a7fd16dad09d313a865afc50e5e0b28f0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
