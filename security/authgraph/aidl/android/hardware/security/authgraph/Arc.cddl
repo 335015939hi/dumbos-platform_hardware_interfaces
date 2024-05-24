@@ -88,6 +88,7 @@ PayloadType = &(
     SecretKey: 1,
     Arc: 2,
     AllZeroes: 3,             ; a payload of 32-bytes of all zeroes.
+    Timestamp: 4,             ; time expressed in milliseconds since some arbitrary point in time
     ; Any other payload types should also be defined here
 )
 
