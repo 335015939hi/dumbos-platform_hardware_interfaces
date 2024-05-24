@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a8672fd_36c30817",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1778,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-05-24T22:30:10Z",
+      "side": 1,
+      "message": "Mainly because we have to pass the index to safelyParseInt so that we could print out the error message containing the index.",
+      "parentUuid": "b6190571_a93b1401",
+      "range": {
+        "startLine": 1777,
+        "startChar": 49,
+        "endLine": 1778,
+        "endChar": 61
+      },
+      "revId": "0603054c4899f2d9d257018dff017e2e45a41021",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cfdbdb5_784a0cf3",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-24T20:41:58Z",
       "side": 1,
       "message": "I\u0027ve been out of the C++ world for awhile, but do you need a lock here at all?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "0603054c4899f2d9d257018dff017e2e45a41021",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4bbaa13_b78acf03",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-05-24T22:30:10Z",
+      "side": 1,
+      "message": "Yes, this part is thread safe. Only one thread is supposed to init the class.",
+      "parentUuid": "1cfdbdb5_784a0cf3",
       "range": {
         "startLine": 42,
         "startChar": 0,
