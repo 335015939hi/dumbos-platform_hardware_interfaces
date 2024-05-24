@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "704ccdf2_fcd0bc71",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d70f4130_c9f5266a",
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da4107ee_79900028",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c391987_3cd5c24f",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da4107ee_79900028",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1309e55_8d927793",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-05-24T09:09:31Z",
       "side": 1,
       "message": "TagValuePair",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c5b07c9_fedaefca",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1309e55_8d927793",
       "range": {
         "startLine": 29,
         "startChar": 6,
@@ -105,6 +171,54 @@
         "startChar": 0,
         "endLine": 31,
         "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e19f99c2_a07768cf",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10a79b26_8e258aaf",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "727c6ae4_4d828b13",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef8f75e6_c9aa917a",
+      "range": {
+        "startLine": 31,
+        "startChar": 31,
+        "endLine": 31,
+        "endChar": 43
       },
       "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
@@ -179,6 +293,78 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dd62051_b8f5d68c",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1dae920c_235dd0bc",
+      "range": {
+        "startLine": 39,
+        "startChar": 29,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ede05f26_559ed7ae",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "029e43b9_aa4240fc",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d806051b_af0aa8c4",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06d5ecf3_bcb13405",
+      "range": {
+        "startLine": 39,
+        "startChar": 85,
+        "endLine": 39,
+        "endChar": 91
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2da9d18d_063f1da4",
@@ -192,6 +378,30 @@
       "writtenOn": "2024-05-24T09:09:31Z",
       "side": 1,
       "message": "Can be moved to buildParameters",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e19aaa5_d9551aa9",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2da9d18d_063f1da4",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -248,6 +458,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dedef207_d3d3b642",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6f82f44_672a8c1e",
+      "range": {
+        "startLine": 50,
+        "startChar": 19,
+        "endLine": 50,
+        "endChar": 59
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a62e784_1bb0891e",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bd9d2e3_f4e9bddd",
+      "range": {
+        "startLine": 50,
+        "startChar": 61,
+        "endLine": 50,
+        "endChar": 76
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c4bd609_4c193e3d",
@@ -271,6 +529,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22e1208f_1931ff8d",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c4bd609_4c193e3d",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 5
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e6f0e59_5cd82482",
@@ -284,6 +566,30 @@
       "writtenOn": "2024-05-24T09:09:31Z",
       "side": 1,
       "message": "Can be removed",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 0
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "555312f0_0cc3705b",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e6f0e59_5cd82482",
       "range": {
         "startLine": 125,
         "startChar": 0,
@@ -340,6 +646,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10a84b65_e4bcc2a1",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb1589ed_cd9de28e",
+      "range": {
+        "startLine": 197,
+        "startChar": 10,
+        "endLine": 197,
+        "endChar": 35
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2f27e40_092c63a6",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ca17bcc_bc41c961",
+      "range": {
+        "startLine": 197,
+        "startChar": 87,
+        "endLine": 197,
+        "endChar": 88
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a36096f_93d4f8fe",
@@ -353,6 +707,30 @@
       "writtenOn": "2024-05-24T09:09:31Z",
       "side": 1,
       "message": "TagValuePair",
+      "range": {
+        "startLine": 280,
+        "startChar": 49,
+        "endLine": 280,
+        "endChar": 91
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3caa65d8_e8f88755",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a36096f_93d4f8fe",
       "range": {
         "startLine": 280,
         "startChar": 49,
@@ -388,6 +766,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "948acbab_19b889cd",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "For Data Tests, need to initialize the Helper class with default values or use some optional parameter.",
+      "parentUuid": "656856dd_2b4bc770",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 0
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "455ef911_bea0a6ec",
         "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
         "patchSetId": 5
@@ -399,6 +801,30 @@
       "writtenOn": "2024-05-24T09:09:31Z",
       "side": 1,
       "message": "EnvironmentalReverbDataTest",
+      "range": {
+        "startLine": 315,
+        "startChar": 6,
+        "endLine": 315,
+        "endChar": 27
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d9c201d_6af4d8ce",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "455ef911_bea0a6ec",
       "range": {
         "startLine": 315,
         "startChar": 6,
@@ -422,6 +848,30 @@
       "writtenOn": "2024-05-24T09:09:31Z",
       "side": 1,
       "message": "I think we should create 2 seperate variable for simplicity of reading.\nSame for line 372",
+      "range": {
+        "startLine": 321,
+        "startChar": 8,
+        "endLine": 321,
+        "endChar": 18
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0eca169_4ae1276e",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccff161b_ae9729fc",
       "range": {
         "startLine": 321,
         "startChar": 8,
@@ -478,6 +928,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4249a97f_9ffe22a7",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94b4f7f2_5de3c5ec",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e60e9ec4_19689158",
@@ -491,6 +965,30 @@
       "writtenOn": "2024-05-24T09:09:31Z",
       "side": 1,
       "message": "EnvironmentalReverbMinimumParamTest",
+      "range": {
+        "startLine": 366,
+        "startChar": 6,
+        "endLine": 366,
+        "endChar": 27
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a59b6a31_4de2cf99",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e60e9ec4_19689158",
       "range": {
         "startLine": 366,
         "startChar": 6,
@@ -524,6 +1022,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6e31af3_336a5714",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b167f62c_5b878696",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 0
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41e48a3e_f0776614",
@@ -547,6 +1069,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1055c8dc_2b55d7d8",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41e48a3e_f0776614",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e882ed4b_6bec090e",
@@ -560,6 +1106,30 @@
       "writtenOn": "2024-05-24T09:09:31Z",
       "side": 1,
       "message": "In this test I believe we should other params as well.\nMaybe use IncreasingParam vector already created.\nOtherwise for minimum params, energy will be zero and test will pass without bypassing as well.",
+      "range": {
+        "startLine": 415,
+        "startChar": 6,
+        "endLine": 415,
+        "endChar": 39
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e170bf48_a4ee5f15",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-24T11:41:53Z",
+      "side": 1,
+      "message": "Moved this to data Test",
+      "parentUuid": "e882ed4b_6bec090e",
       "range": {
         "startLine": 415,
         "startChar": 6,
