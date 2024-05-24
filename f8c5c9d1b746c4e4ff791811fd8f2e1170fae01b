@@ -1,0 +1,573 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d70f4130_c9f5266a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Mention removal of reverb sw effect from config file",
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da4107ee_79900028",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "TagVectorPair",
+      "range": {
+        "startLine": 28,
+        "startChar": 6,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1309e55_8d927793",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "TagValuePair",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef8f75e6_c9aa917a",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "kParamsIncreasingVector",
+      "range": {
+        "startLine": 31,
+        "startChar": 31,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10a79b26_8e258aaf",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Should be static constexpr",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06d5ecf3_bcb13405",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "kMinRoomLevel\n\nSame for remaining 2 params as well",
+      "range": {
+        "startLine": 39,
+        "startChar": 85,
+        "endLine": 39,
+        "endChar": 91
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "029e43b9_aa4240fc",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Should be static constexpr",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dae920c_235dd0bc",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "kParamsMinimumValue",
+      "range": {
+        "startLine": 39,
+        "startChar": 29,
+        "endLine": 39,
+        "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2da9d18d_063f1da4",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Can be moved to buildParameters",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6f82f44_672a8c1e",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "TagValuePair",
+      "range": {
+        "startLine": 50,
+        "startChar": 19,
+        "endLine": 50,
+        "endChar": 59
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bd9d2e3_f4e9bddd",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "buildSetAndGetTestParams",
+      "range": {
+        "startLine": 50,
+        "startChar": 61,
+        "endLine": 50,
+        "endChar": 76
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c4bd609_4c193e3d",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Since we are testing limited tags, not sure if adding switch case is useful.\n\nFor now we can have such loop for each of these 5 tags.\n```\nauto testValueSetDelayParam \u003d EffectHelper::getTestValueSet\u003cEnvironmentalReverb, int, Range::environmentalReverb,EnvironmentalReverb::delayMs(kDescPair,EffectHelper::expandTestValueBasic\u003cint\u003e);\nfor (const auto\u0026 value : testValueSetDelayParam) {\n    valueTag.push_back(std::make_pair(EnvironmentalReverb::delayMs, value));\n}\n```",
+      "range": {
+        "startLine": 52,
+        "startChar": 4,
+        "endLine": 118,
+        "endChar": 5
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e6f0e59_5cd82482",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Can be removed",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 0
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb1589ed_cd9de28e",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "computeOutputEnergy",
+      "range": {
+        "startLine": 197,
+        "startChar": 10,
+        "endLine": 197,
+        "endChar": 35
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ca17bcc_bc41c961",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Shouldn\u0027t use pointer because we don\u0027t want to modify the output values.",
+      "range": {
+        "startLine": 197,
+        "startChar": 87,
+        "endLine": 197,
+        "endChar": 88
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a36096f_93d4f8fe",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "TagValuePair",
+      "range": {
+        "startLine": 280,
+        "startChar": 49,
+        "endLine": 280,
+        "endChar": 91
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "656856dd_2b4bc770",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Should be private members",
+      "range": {
+        "startLine": 288,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 0
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "455ef911_bea0a6ec",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "EnvironmentalReverbDataTest",
+      "range": {
+        "startLine": 315,
+        "startChar": 6,
+        "endLine": 315,
+        "endChar": 27
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccff161b_ae9729fc",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "I think we should create 2 seperate variable for simplicity of reading.\nSame for line 372",
+      "range": {
+        "startLine": 321,
+        "startChar": 8,
+        "endLine": 321,
+        "endChar": 18
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fa5c97e_38ed13c5",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Should be private\nSame for line 377",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 0
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94b4f7f2_5de3c5ec",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "auto tag \u003d std::get\u003c1\u003e(info.param).first;",
+      "range": {
+        "startLine": 359,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e60e9ec4_19689158",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "EnvironmentalReverbMinimumParamTest",
+      "range": {
+        "startLine": 366,
+        "startChar": 6,
+        "endLine": 366,
+        "endChar": 27
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b167f62c_5b878696",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Can we move this to setup?\n(Without check)",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 0
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41e48a3e_f0776614",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "Extract tag and value seperately",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 47
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e882ed4b_6bec090e",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-24T09:09:31Z",
+      "side": 1,
+      "message": "In this test I believe we should other params as well.\nMaybe use IncreasingParam vector already created.\nOtherwise for minimum params, energy will be zero and test will pass without bypassing as well.",
+      "range": {
+        "startLine": 415,
+        "startChar": 6,
+        "endLine": 415,
+        "endChar": 39
+      },
+      "revId": "f8c5c9d1b746c4e4ff791811fd8f2e1170fae01b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
