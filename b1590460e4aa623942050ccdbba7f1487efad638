@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0753ad05_650aaa64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-05-27T15:40:08Z",
+      "side": 1,
+      "message": "Yes, validated (the two CLs in current topic) on a Pixel phone with AIDL audio effect HAL.",
+      "parentUuid": "44940b85_7f57778c",
+      "revId": "b1590460e4aa623942050ccdbba7f1487efad638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1947581_0f98385f",
