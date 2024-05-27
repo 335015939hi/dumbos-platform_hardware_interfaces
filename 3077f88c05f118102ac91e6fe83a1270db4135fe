@@ -22,6 +22,30 @@
       },
       "revId": "3077f88c05f118102ac91e6fe83a1270db4135fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05eaa716_38fd3194",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-05-27T09:03:30Z",
+      "side": 1,
+      "message": "Updated logic for dealing with frameBlock, thanks!",
+      "parentUuid": "b6c7a4d5_e16da6f9",
+      "range": {
+        "startLine": 452,
+        "startChar": 28,
+        "endLine": 452,
+        "endChar": 32
+      },
+      "revId": "3077f88c05f118102ac91e6fe83a1270db4135fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
