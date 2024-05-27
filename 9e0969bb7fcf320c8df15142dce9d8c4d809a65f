@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ce6002c_cc24519e",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-27T11:39:21Z",
+      "side": 1,
+      "message": "kTestValueSetMaker\n\nShould this be const?",
+      "range": {
+        "startLine": 58,
+        "startChar": 77,
+        "endLine": 58,
+        "endChar": 82
+      },
+      "revId": "9e0969bb7fcf320c8df15142dce9d8c4d809a65f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02348992_b7165385",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1590836
+      },
+      "writtenOn": "2024-05-27T11:39:21Z",
+      "side": 1,
+      "message": "kEnvironmentalReverbParamMaker",
+      "range": {
+        "startLine": 203,
+        "startChar": 90,
+        "endLine": 203,
+        "endChar": 96
+      },
+      "revId": "9e0969bb7fcf320c8df15142dce9d8c4d809a65f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
