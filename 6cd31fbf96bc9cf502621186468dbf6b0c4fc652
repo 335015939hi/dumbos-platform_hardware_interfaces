@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08acc1d1_0877ff17",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-28T16:30:16Z",
+      "side": 1,
+      "message": "I\u0027m curios, did you try just using `EnvironmentalReverb::make\u003cEnvironmentalReverb::roomLevelMb\u003e` by itself, without wrapping into a lambda?",
+      "range": {
+        "startLine": 233,
+        "startChar": 31,
+        "endLine": 233,
+        "endChar": 90
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e6c7d75f_8f6466e0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 227,
+                "startChar": 0,
+                "endLine": 228,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 229,
+                "startChar": 0,
+                "endLine": 262,
+                "endChar": 0
+              },
+              "replacement": "    static constexpr std::array\u003cEnvironmentalReverb (*)(int),\n                                static_cast\u003cint\u003e(EnvironmentalReverb::bypass) + 1\u003e\n            kEnvironmentalReverbParamMaker \u003d {nullptr,\n                                              EnvironmentalReverb::make\u003c\n                                                      EnvironmentalReverb::roomLevelMb\u003e,\n                                              EnvironmentalReverb::make\u003c\n                                                      EnvironmentalReverb::roomHfLevelMb\u003e,\n                                              EnvironmentalReverb::make\u003c\n                                                      EnvironmentalReverb::decayTimeMs\u003e,\n                                              EnvironmentalReverb::make\u003c\n                                                      EnvironmentalReverb::decayHfRatioPm\u003e,\n                                              nullptr,\n                                              nullptr,\n                                              EnvironmentalReverb::make\u003c\n                                                      EnvironmentalReverb::levelMb\u003e,\n                                              EnvironmentalReverb::make\u003c\n                                                      EnvironmentalReverb::delayMs\u003e,\n                                              EnvironmentalReverb::make\u003c\n                                                      EnvironmentalReverb::diffusionPm\u003e,\n                                              EnvironmentalReverb::make\u003c\n                                                      EnvironmentalReverb::densityPm\u003e,\n                                              EnvironmentalReverb::make\u003c\n                                                      EnvironmentalReverb::bypass\u003e};\n"
+            }
+          ]
+        }
+      ],
+      "revId": "6cd31fbf96bc9cf502621186468dbf6b0c4fc652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
