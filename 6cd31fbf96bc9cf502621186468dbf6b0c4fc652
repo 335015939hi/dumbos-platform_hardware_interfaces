@@ -52,6 +52,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "925fa923_c2c3ecc3",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-29T11:58:46Z",
+      "side": 1,
+      "message": "Yes.\nBut got compile time error which stated that it couldn\u0027t match the address of overloaded function ```make```.",
+      "parentUuid": "08acc1d1_0877ff17",
+      "range": {
+        "startLine": 233,
+        "startChar": 31,
+        "endLine": 233,
+        "endChar": 90
+      },
+      "revId": "6cd31fbf96bc9cf502621186468dbf6b0c4fc652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0f21866_9b13a56b",
@@ -109,6 +133,30 @@
           ]
         }
       ],
+      "revId": "6cd31fbf96bc9cf502621186468dbf6b0c4fc652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01166f7a_78c5391c",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-05-29T11:58:46Z",
+      "side": 1,
+      "message": "Using enum",
+      "parentUuid": "b0f21866_9b13a56b",
+      "range": {
+        "startLine": 317,
+        "startChar": 39,
+        "endLine": 317,
+        "endChar": 40
+      },
       "revId": "6cd31fbf96bc9cf502621186468dbf6b0c4fc652",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
