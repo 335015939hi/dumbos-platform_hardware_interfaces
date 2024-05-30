@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2b4de41_cc8bb4d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-30T12:56:30Z",
+      "side": 1,
+      "message": "As it changes AIDL, it depends on I3929603471d9543febca76ef6e2959063393194f that unfreeze the aidl interface. \nNot an issue for us as we need W in all case to migrate to AIDL for configurable engine.",
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
