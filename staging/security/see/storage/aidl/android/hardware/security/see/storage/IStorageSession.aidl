@@ -44,6 +44,18 @@ interface IStorageSession {
     void commitChanges();
 
     /**
+     * If an A/B update is in progress, stages any pending changes made through this session to be
+     * committed when the A/B update completes successfully. If the update fails, the changes will
+     * be discarded.
+     *
+     * If no A/B update is in progess, behaves identically to `commitChanges`.
+     *
+     * May return service-specific errors:
+     *   - ERR_BAD_TRANSACTION
+     */
+    void stageChangesForCommitOnAbUpdateComplete();
+
+    /**
      * Abandons any pending changes made through this session.
      *
      * The session can then be reused to make new changes.
