@@ -30,6 +30,8 @@ namespace audio {
 
 constexpr uint8_t kLeAudioDirectionSink = 0x01;
 constexpr uint8_t kLeAudioDirectionSource = 0x02;
+constexpr uint8_t kIsoDataPathHci = 0x00;
+constexpr uint8_t kIsoDataPathPlatformDefault = 0x01;
 
 const std::map<CodecSpecificConfigurationLtv::SamplingFrequency, uint32_t>
     freq_to_support_bitmask_map = {
@@ -85,6 +87,7 @@ const std::map<CodecSpecificConfigurationLtv::FrameDuration, uint32_t>
 std::map<int32_t, CodecSpecificConfigurationLtv::SamplingFrequency>
     sampling_freq_map = {
         {16000, CodecSpecificConfigurationLtv::SamplingFrequency::HZ16000},
+        {24000, CodecSpecificConfigurationLtv::SamplingFrequency::HZ24000},
         {48000, CodecSpecificConfigurationLtv::SamplingFrequency::HZ48000},
         {96000, CodecSpecificConfigurationLtv::SamplingFrequency::HZ96000},
 };
@@ -941,17 +944,102 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::onSourceAseMetadataChanged(
   return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 };
 
-void LeAudioOffloadAudioProvider::getBroadcastSettings() {
-  if (!broadcast_settings.empty()) return;
+LeAudioBroadcastConfigurationSetting getDefaultBroadcastSetting(
+    int context_bitmask) {
+  LeAudioBroadcastConfigurationSetting setting;
+  setting.retransmitionNum = 4;
+  setting.maxTransportLatencyMs = 60;
+  setting.sduIntervalUs = 10000;
+  setting.maxSduOctets = 40;
 
-  LOG(INFO) << __func__ << ": Loading broadcast settings from provider info";
+  // Populate other settings base on context
+  // TODO: Populate with better design
+  if (context_bitmask & (AudioContext::LIVE_AUDIO | AudioContext::GAME)) {
+    setting.retransmitionNum = 2;
+    setting.maxTransportLatencyMs = 10;
+    setting.maxSduOctets = 120;
+  } else if (context_bitmask & (AudioContext::INSTRUCTIONAL)) {
+    setting.retransmitionNum = 2;
+    setting.maxTransportLatencyMs = 10;
+    setting.maxSduOctets = 40;
+  } else if (context_bitmask &
+             (AudioContext::SOUND_EFFECTS | AudioContext::UNSPECIFIED)) {
+    setting.retransmitionNum = 4;
+    setting.maxTransportLatencyMs = 60;
+    setting.maxSduOctets = 80;
+  } else if (context_bitmask &
+             (AudioContext::ALERTS | AudioContext::NOTIFICATIONS |
+              AudioContext::EMERGENCY_ALARM)) {
+    setting.retransmitionNum = 4;
+    setting.maxTransportLatencyMs = 60;
+    setting.maxSduOctets = 40;
+  } else if (context_bitmask & AudioContext::MEDIA) {
+    setting.retransmitionNum = 4;
+    setting.maxTransportLatencyMs = 60;
+    setting.maxSduOctets = 120;
+  }
+
+  return setting;
+}
+void modifySubBISConfigAllocation(
+    IBluetoothAudioProvider::LeAudioSubgroupBisConfiguration& sub_bis_cfg,
+    int allocation_bitmask) {
+  for (auto& codec_cfg : sub_bis_cfg.bisConfiguration.codecConfiguration) {
+    if (codec_cfg.getTag() ==
+        CodecSpecificConfigurationLtv::audioChannelAllocation) {
+      codec_cfg.get<CodecSpecificConfigurationLtv::audioChannelAllocation>()
+          .bitmask = allocation_bitmask;
+      break;
+    }
+  }
+}
+void modifySubgroupConfiguration(
+    IBluetoothAudioProvider::LeAudioBroadcastSubgroupConfiguration&
+        subgroup_cfg,
+    int context_bitmask) {
+  // STEREO configs
+  // Split into 2 sub BIS config, each has numBis = 1
+  if (context_bitmask & (AudioContext::LIVE_AUDIO | AudioContext::GAME |
+                         AudioContext::SOUND_EFFECTS |
+                         AudioContext::UNSPECIFIED | AudioContext::MEDIA)) {
+    if (subgroup_cfg.bisConfigurations.size() == 1)
+      subgroup_cfg.bisConfigurations.push_back(
+          subgroup_cfg.bisConfigurations[0]);
+
+    subgroup_cfg.bisConfigurations[0].numBis = 1;
+    modifySubBISConfigAllocation(
+        subgroup_cfg.bisConfigurations[0],
+        CodecSpecificConfigurationLtv::AudioChannelAllocation::FRONT_LEFT);
+
+    subgroup_cfg.bisConfigurations[1].numBis = 1;
+    modifySubBISConfigAllocation(
+        subgroup_cfg.bisConfigurations[1],
+        CodecSpecificConfigurationLtv::AudioChannelAllocation::FRONT_RIGHT);
+    return;
+  }
+
+  // MONO configs
+  for (auto& sub_bis_cfg : subgroup_cfg.bisConfigurations) {
+    sub_bis_cfg.numBis = 1;
+    modifySubBISConfigAllocation(
+        sub_bis_cfg,
+        CodecSpecificConfigurationLtv::AudioChannelAllocation::FRONT_CENTER);
+  }
+}
+
+void LeAudioOffloadAudioProvider::getBroadcastSettings() {
+  LOG(INFO) << __func__
+            << ": Loading basic broadcast settings from provider info";
 
   std::vector<CodecInfo> db_codec_info =
       BluetoothAudioCodecs::GetLeAudioOffloadCodecInfo(
           SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH);
+  for (auto x : db_codec_info) {
+    LOG(INFO) << __func__ << ": codec info = " << x.toString();
+  }
   broadcast_settings.clear();
 
-  // Default value for unmapped fields
+  // Default value population
   CodecSpecificConfigurationLtv::AudioChannelAllocation default_allocation;
   default_allocation.bitmask =
       CodecSpecificConfigurationLtv::AudioChannelAllocation::FRONT_CENTER;
@@ -963,6 +1051,10 @@ void LeAudioOffloadAudioProvider::getBroadcastSettings() {
       continue;
     auto& transport = codec_info.transport.get<CodecInfo::Transport::leAudio>();
     LeAudioBroadcastConfigurationSetting setting;
+    setting.retransmitionNum = 4;
+    setting.maxTransportLatencyMs = 60;
+    setting.sduIntervalUs = 10000;
+    setting.maxSduOctets = 40;
     // Default setting
     setting.numBis = 1;
     setting.phy = {Phy::TWO_M};
@@ -981,13 +1073,15 @@ void LeAudioOffloadAudioProvider::getBroadcastSettings() {
         default_frame,
     };
 
+    // Ignore bis_cfg.metadata
+
     // Add information to structure
     IBluetoothAudioProvider::LeAudioSubgroupBisConfiguration sub_bis_cfg;
-    sub_bis_cfg.numBis = 2;
+    sub_bis_cfg.numBis = 1;
     sub_bis_cfg.bisConfiguration = bis_cfg;
     IBluetoothAudioProvider::LeAudioBroadcastSubgroupConfiguration sub_cfg;
     // Populate the same sub config
-    sub_cfg.bisConfigurations = {sub_bis_cfg, sub_bis_cfg};
+    sub_cfg.bisConfigurations = {sub_bis_cfg};
     setting.subgroupsConfigurations = {sub_cfg};
 
     broadcast_settings.push_back(setting);
@@ -1031,34 +1125,85 @@ LeAudioOffloadAudioProvider::
   return filtered_setting;
 }
 
+std::vector<CodecSpecificConfigurationLtv> getCodecRequirementBasedOnContext(
+    int context_bitmask) {
+  // Default requirement: lc3_stereo_16_2
+  std::vector<CodecSpecificConfigurationLtv> requirement = {
+      CodecSpecificConfigurationLtv::SamplingFrequency::HZ16000,
+      CodecSpecificConfigurationLtv::FrameDuration::US10000,
+      CodecSpecificConfigurationLtv::OctetsPerCodecFrame{
+          .value = 40,
+      }};
+  if (context_bitmask & (AudioContext::LIVE_AUDIO | AudioContext::GAME)) {
+    // lc3_stereo_24_2_1
+    requirement = {CodecSpecificConfigurationLtv::SamplingFrequency::HZ24000,
+                   CodecSpecificConfigurationLtv::FrameDuration::US10000,
+                   CodecSpecificConfigurationLtv::OctetsPerCodecFrame{
+                       .value = 60,
+                   }};
+  } else if (context_bitmask & (AudioContext::INSTRUCTIONAL)) {
+    // lc3_mono_16_2
+    requirement = {CodecSpecificConfigurationLtv::SamplingFrequency::HZ16000,
+                   CodecSpecificConfigurationLtv::FrameDuration::US10000,
+                   CodecSpecificConfigurationLtv::OctetsPerCodecFrame{
+                       .value = 40,
+                   }};
+  } else if (context_bitmask &
+             (AudioContext::SOUND_EFFECTS | AudioContext::UNSPECIFIED)) {
+    // lc3_stereo_16_2
+    requirement = {CodecSpecificConfigurationLtv::SamplingFrequency::HZ16000,
+                   CodecSpecificConfigurationLtv::FrameDuration::US10000,
+                   CodecSpecificConfigurationLtv::OctetsPerCodecFrame{
+                       .value = 40,
+                   }};
+  } else if (context_bitmask &
+             (AudioContext::ALERTS | AudioContext::NOTIFICATIONS |
+              AudioContext::EMERGENCY_ALARM)) {
+    // Default requirement: lc3_stereo_16_2
+    requirement = {CodecSpecificConfigurationLtv::SamplingFrequency::HZ16000,
+                   CodecSpecificConfigurationLtv::FrameDuration::US10000,
+                   CodecSpecificConfigurationLtv::OctetsPerCodecFrame{
+                       .value = 40,
+                   }};
+  } else if (context_bitmask & AudioContext::MEDIA) {
+    // Default requirement: lc3_stereo_16_2
+    requirement = {CodecSpecificConfigurationLtv::SamplingFrequency::HZ24000,
+                   CodecSpecificConfigurationLtv::FrameDuration::US10000,
+                   CodecSpecificConfigurationLtv::OctetsPerCodecFrame{
+                       .value = 60,
+                   }};
+  }
+  return requirement;
+}
+
 bool LeAudioOffloadAudioProvider::isSubgroupConfigurationMatchedContext(
-    AudioContext setting_context,
+    AudioContext requirement_context,
     LeAudioBroadcastSubgroupConfiguration configuration) {
   // Find any valid context metadata in the bisConfigurations
   // assuming the bis configuration in the same bis subgroup
   // will have the same context metadata
   std::optional<AudioContext> config_context = std::nullopt;
 
-  for (auto& p : configuration.bisConfigurations)
-    if (p.bisConfiguration.metadata.has_value()) {
-      bool is_context_found = false;
-      for (auto& metadata : p.bisConfiguration.metadata.value()) {
-        if (!metadata.has_value()) continue;
-        if (metadata.value().getTag() ==
-            MetadataLtv::Tag::preferredAudioContexts) {
-          config_context = metadata.value()
-                               .get<MetadataLtv::Tag::preferredAudioContexts>()
-                               .values;
-          is_context_found = true;
-          break;
-        }
-      }
-      if (is_context_found) break;
-    }
+  auto codec_requirement =
+      getCodecRequirementBasedOnContext(requirement_context.bitmask);
+  std::map<CodecSpecificConfigurationLtv::Tag, CodecSpecificConfigurationLtv>
+      req_tag_map;
+  for (auto x : codec_requirement) req_tag_map[x.getTag()] = x;
 
-  // Not found context metadata in any of the bis configuration, assume matched
-  if (!config_context.has_value()) return true;
-  return (setting_context.bitmask & config_context.value().bitmask);
+  for (auto& bis_cfg : configuration.bisConfigurations) {
+    // Check every sub_bis_cfg to see which match
+    for (auto& x : bis_cfg.bisConfiguration.codecConfiguration) {
+      auto p = req_tag_map.find(x.getTag());
+      if (p == req_tag_map.end()) continue;
+      if (p->second != x) {
+        LOG(WARNING) << __func__ << ": does not match for context "
+                     << requirement_context.toString()
+                     << ", cfg = " << x.toString();
+        return false;
+      }
+    }
+  }
+  return true;
 }
 
 ndk::ScopedAStatus
@@ -1078,7 +1223,8 @@ LeAudioOffloadAudioProvider::getLeAudioBroadcastConfiguration(
   // We will allow empty capability input, match all settings with requirements.
   getBroadcastSettings();
   std::vector<LeAudioBroadcastConfigurationSetting> filtered_settings;
-  if (!in_remoteSinkAudioCapabilities.has_value()) {
+  if (!in_remoteSinkAudioCapabilities.has_value() ||
+      in_remoteSinkAudioCapabilities.value().empty()) {
     LOG(INFO) << __func__ << ": Empty capability, get all broadcast settings";
     filtered_settings = broadcast_settings;
   } else {
@@ -1109,45 +1255,65 @@ LeAudioOffloadAudioProvider::getLeAudioBroadcastConfiguration(
   // Gather these suitable subgroup config in an array.
   // If the setting can satisfy all requirement, we can return the setting
   // with the filtered array.
-  for (auto& setting : filtered_settings) {
-    LeAudioBroadcastConfigurationSetting matched_setting(setting);
-    matched_setting.subgroupsConfigurations.clear();
-    auto total_num_bis = 0;
 
-    bool matched_all_requirement = true;
+  auto context_bitmask =
+      in_requirement.subgroupConfigurationRequirements[0].audioContext.bitmask;
+  LeAudioBroadcastConfigurationSetting return_setting =
+      getDefaultBroadcastSetting(context_bitmask);
+  // Default setting
+  return_setting.numBis = 0;
+  return_setting.phy = {};
+  return_setting.subgroupsConfigurations = {};
 
-    for (auto& sub_req : in_requirement.subgroupConfigurationRequirements) {
-      bool is_matched = false;
-      for (auto& sub_cfg : setting.subgroupsConfigurations) {
-        // Match the context
+  LeAudioDataPathConfiguration path;
+  path.isoDataPathConfiguration.isTransparent = true;
+  path.dataPathId = kIsoDataPathPlatformDefault;
+
+  // Each subreq, find a setting that match
+  for (auto& sub_req : in_requirement.subgroupConfigurationRequirements) {
+    bool is_setting_matched = false;
+    for (auto setting : filtered_settings) {
+      bool is_matched = true;
+      // Check if every sub BIS config satisfy
+      for (auto& sub_group_config : setting.subgroupsConfigurations) {
         if (!isSubgroupConfigurationMatchedContext(sub_req.audioContext,
-                                                   sub_cfg))
-          continue;
-        // Matching number of BIS
-        if (sub_req.bisNumPerSubgroup != sub_cfg.bisConfigurations.size())
-          continue;
-        // Currently will ignore quality matching.
-        matched_setting.subgroupsConfigurations.push_back(sub_cfg);
-        total_num_bis += sub_cfg.bisConfigurations.size();
-        is_matched = true;
-        break;
+                                                   sub_group_config)) {
+          is_matched = false;
+          break;
+        }
+        path.isoDataPathConfiguration.codecId =
+            sub_group_config.bisConfigurations[0].bisConfiguration.codecId;
+        // Also modify the subgroup config to match the context
+        modifySubgroupConfiguration(sub_group_config, context_bitmask);
       }
-      // There is an unmatched requirement, this setting cannot be used
-      if (!is_matched) {
-        matched_all_requirement = false;
+
+      if (is_matched) {
+        is_setting_matched = true;
+        for (auto& sub_group_config : setting.subgroupsConfigurations)
+          return_setting.subgroupsConfigurations.push_back(sub_group_config);
         break;
       }
     }
 
-    if (!matched_all_requirement) continue;
-
-    matched_setting.numBis = total_num_bis;
-    // Return the filtered setting if all requirement satified
-    *_aidl_return = matched_setting;
-    return ndk::ScopedAStatus::ok();
+    if (!is_setting_matched) {
+      LOG(WARNING) << __func__
+                   << ": Cannot find a setting that match requirement "
+                   << sub_req.toString();
+      return ndk::ScopedAStatus::ok();
+    }
   }
 
-  LOG(WARNING) << __func__ << ": Cannot match any requirement";
+  // Populate all numBis
+  for (auto& sub_group_config : return_setting.subgroupsConfigurations) {
+    for (auto& sub_bis_config : sub_group_config.bisConfigurations)
+      return_setting.numBis += sub_bis_config.numBis;
+  }
+  // Populate data path config
+  return_setting.dataPathConfiguration = path;
+
+  LOG(INFO) << __func__
+            << ": Combined setting that match: " << return_setting.toString();
+  *_aidl_return = return_setting;
   return ndk::ScopedAStatus::ok();
 };
 
