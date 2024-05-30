@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0865c3a_29e63f35",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/ISecureStorage.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-05-30T21:21:43Z",
+      "side": 1,
+      "message": "I wanted to keep all the the tamper err codes together. Fixed.",
+      "parentUuid": "ad8c6263_0bbbb84f",
+      "revId": "6c4611466eabe6c8dcda663397dc2c949c2b376e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "166cbf4b_bcdc7fd0",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-05-30T20:36:41Z",
       "side": 1,
       "message": "Why do you need this wrapper in this CL?",
+      "revId": "6c4611466eabe6c8dcda663397dc2c949c2b376e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b4e5031_b760cffc",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/SessionOptions.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-05-30T21:21:43Z",
+      "side": 1,
+      "message": "We don\u0027t, but I thought it would be worth it to make it easier to add the repair settings in the future.",
+      "parentUuid": "166cbf4b_bcdc7fd0",
       "revId": "6c4611466eabe6c8dcda663397dc2c949c2b376e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
