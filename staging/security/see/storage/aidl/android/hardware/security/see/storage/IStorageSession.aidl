@@ -44,6 +44,19 @@ interface IStorageSession {
     void commitChanges();
 
     /**
+     * Commits any pending changes made through this session. If an A/B update is in progress, the
+     * commit will complete when the update finishes successfully. If the update fails, it will be
+     * discarded.
+     *
+     * The session will no longer have pending changes after this call returns. Files may then still
+     * be modified through this session to create another commit.
+     *
+     * May return service-specific errors:
+     *   - ERR_BAD_TRANSACTION
+     */
+    void commitChangesOnAbUpdateComplete();
+
+    /**
      * Abandons any pending changes made through this session.
      *
      * The session can then be reused to make new changes.
