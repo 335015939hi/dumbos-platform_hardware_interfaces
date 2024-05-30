@@ -15,8 +15,8 @@
  */
 package android.hardware.security.see.storage;
 
-import android.hardware.security.see.storage.Filesystem;
 import android.hardware.security.see.storage.IStorageSession;
+import android.hardware.security.see.storage.SessionOptions;
 
 /**
  * Interface for the Secure Storage HAL
@@ -30,7 +30,10 @@ interface ISecureStorage {
     const int ERR_ALREADY_EXISTS = 3;
     const int ERR_BAD_TRANSACTION = 4;
     const int ERR_AB_UPDATE_IN_PROGRESS = 5;
+
     const int ERR_FS_TAMPERED = 6;
+    const int ERR_FS_ROLLED_BACK = 7;
+    const int ERR_FS_RESET = 8;
 
     /**
      * Starts a storage session for a filesystem.
@@ -42,12 +45,13 @@ interface ISecureStorage {
      * cause this return code might be accessing the data partition during boot stages where it
      * isn't yet mounted or attempting to commit changes while an A/B update is in progress.
      *
-     * @filesystem:
-     *     The minimum filesystem properties requested.
+     * @options:
+     *     options controlling the session to create, including the minimum filesystem
+     *       properties requested.
      *
      * May return service-specific errors:
      *   - ERR_UNSUPPORTED_PROPERTIES if no filesystems exist which meet the minimum requested
      *       requirements
      */
-    IStorageSession startSession(in Filesystem filesystem);
+    IStorageSession startSession(in SessionOptions options);
 }
