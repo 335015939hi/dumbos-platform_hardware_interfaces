@@ -12,6 +12,7 @@ The plugins feed the entire input data to the module. This ensures that the plug
 ## Table of contents
 + [keymint_attestation_fuzzer](#KeyMintAttestation)
 + [keymint_authSet_fuzzer](#KeyMintAuthSet)
++ [keymint_remote_prov_fuzzer](#KeyMintRemoteProv)
 
 # <a name="KeyMintAttestation"></a> Fuzzer for KeyMintAttestation
 KeyMintAttestation supports the following parameters:
@@ -76,4 +77,27 @@ $ mm -j$(nproc) keymint_authSet_fuzzer
 ```
 $ adb sync data
 $ adb shell /data/fuzz/arm64/keymint_authSet_fuzzer/keymint_authSet_fuzzer
+```
+
+# <a name="KeyMintRemoteProv"></a> Fuzzer for KeyMintRemoteProv
+KeyMintRemoteProv supports the following parameters:
+1. ChallengeSize(parameter name: "challengeSize")
+2. Challenge(parameter name: "challenge")
+3. NumKeys(parameter name: "numKeys")
+
+| Parameter| Valid Values| Configured Value|
+|------------- |--------------| -------------------- |
+|`challengeSize`| `uint8_t` |Value obtained from FuzzedDataProvider|
+|`challenge`| `std::vector<uint8_t>` |Value obtained from FuzzedDataProvider|
+|`numKeys`| `uint8_t` |Value obtained from FuzzedDataProvider|
+
+#### Steps to run
+1. Build the fuzzer
+```
+$ mm -j$(nproc) keymint_remote_prov_fuzzer
+```
+2. Run on device
+```
+$ adb sync data
+$ adb shell /data/fuzz/arm64/keymint_remote_prov_fuzzer/keymint_remote_prov_fuzzer
 ```
