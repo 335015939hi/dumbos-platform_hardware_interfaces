@@ -239,15 +239,25 @@ filegroup {
 cc_binary {
     name: "android.hardware.audio.effect.service-aidl.example",
     relative_install_path: "hw",
-    defaults: ["aidlaudioeffectservice_defaults"],
+    defaults: [
+        "aidlaudioeffectservice_defaults",
+        "latest_android_media_audio_common_types_cpp_shared",
+    ],
     shared_libs: [
+        "libaudio_aidl_conversion_common_ndk",
         "libapexsupport",
         "libtinyxml2",
+    ],
+    header_libs: [
+        "libbinder_headers",
     ],
     srcs: [
         "EffectConfig.cpp",
         "EffectFactory.cpp",
         "EffectMain.cpp",
+    ],
+    cflags: [
+        "-DBACKEND_NDK",
     ],
     installable: false, //installed in apex com.android.hardware.audio
 }
