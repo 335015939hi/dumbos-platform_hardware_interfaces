@@ -16,6 +16,24 @@
       "message": "This isn\u0027t quite accurate, resets of non-persistent filesystems are expected. Resets of persistent filesystems are not. There\u0027s nothing special about \"factory\" here, I\u0027d just say full filesystem reset of non-persistent filesystem.",
       "revId": "046e22ba96cca823d561c1e9b14ca05953643fd3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e57c94aa_5cb3d35a",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/AllowedTamper.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-05-30T20:26:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec7a172d_e3dfc9c2",
+      "revId": "046e22ba96cca823d561c1e9b14ca05953643fd3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
