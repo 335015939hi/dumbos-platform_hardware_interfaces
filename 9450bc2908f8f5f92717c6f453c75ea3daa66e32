@@ -16,6 +16,174 @@
       "message": "As it changes AIDL, it depends on I3929603471d9543febca76ef6e2959063393194f that unfreeze the aidl interface. \nNot an issue for us as we need W in all case to migrate to AIDL for configurable engine.",
       "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5d089e8_66875c2c",
+        "filename": "audio/aidl/android/hardware/audio/effect/Processing.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-30T17:03:04Z",
+      "side": 1,
+      "message": "I think we need to name this just `device`. It would be a `devicePort` if it were of the `AudioPort` type.",
+      "range": {
+        "startLine": 34,
+        "startChar": 20,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e52e1b62_cb79801b",
+        "filename": "audio/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-30T17:03:04Z",
+      "side": 1,
+      "message": "Please don\u0027t use the interface libraries generated for the \"cpp\" backend in the HAL code. This backend is for the framework only.\n\nConversion functions from the `::aidl::android` do belong to the NDK backend (see here: https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/audioaidlconversion/include/media/AidlConversionCppNdk-impl.h;l\u003d84;drc\u003df094be27bbc129c389ca18621070ef979d8defd5). If there is a need to use the CPP backend here, something is wrong.",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 60
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49762652_7b342e17",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-30T17:03:04Z",
+      "side": 1,
+      "message": "If we only allow permanently attached devices, please validate here that the `connection` field is empty. See https://cs.android.com/android/platform/superproject/main/+/main:system/hardware/interfaces/media/aidl/android/media/audio/common/AudioDeviceDescription.aidl;l\u003d52;drc\u003d467b81d5979d7e6821ede2e0a3add9163052c683.",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 9
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "bee3d877_4e7fdd06",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/EffectConfig.cpp",
+              "range": {
+                "startLine": 268,
+                "startChar": 0,
+                "endLine": 268,
+                "endChar": 0
+              },
+              "replacement": "        if (ret.value().connection !\u003d AudioDeviceDescription::Connection::NONE) {\n            LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \"DeviceEffect: only permanently attached devices are allowed\";\n            return std::nullopt;\n        }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bb79cca_b4139c67",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-30T17:03:04Z",
+      "side": 1,
+      "message": "Why is address required? Some attached devices, like speaker, naturally never have an address.",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 48
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d3c410bc_c1d0892a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/EffectConfig.cpp",
+              "range": {
+                "startLine": 278,
+                "startChar": 0,
+                "endLine": 280,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d7a009c_6a5fc4ee",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-30T17:03:04Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Common Typos: Common typo found: \"proecessor\" -- should it be \"processor\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"proecessor\" -- should it be \"processor\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 147,
+        "startChar": 65,
+        "endLine": 147,
+        "endChar": 75
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c222b05_4d0e59a4",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-30T17:03:04Z",
+      "side": 1,
+      "message": "Please clarify whether this needs to be a permanently attached device. If this can apply to any device, we need to explain how this works w.r.t. device connection.",
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
