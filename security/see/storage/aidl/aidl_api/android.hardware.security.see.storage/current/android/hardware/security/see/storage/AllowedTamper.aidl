@@ -33,14 +33,8 @@
 
 package android.hardware.security.see.storage;
 @VintfStability
-interface ISecureStorage {
-  android.hardware.security.see.storage.IStorageSession startSession(in android.hardware.security.see.storage.SessionOptions options);
-  const int ERR_UNSUPPORTED_PROPERTIES = 1;
-  const int ERR_NOT_FOUND = 2;
-  const int ERR_ALREADY_EXISTS = 3;
-  const int ERR_BAD_TRANSACTION = 4;
-  const int ERR_AB_UPDATE_IN_PROGRESS = 5;
-  const int ERR_FS_TAMPERED = 6;
-  const int ERR_FS_ROLLED_BACK = 7;
-  const int ERR_FS_RESET = 8;
+enum AllowedTamper {
+  NONE,
+  IGNORE_RESET,
+  IGNORE_ROLLBACK,
 }
