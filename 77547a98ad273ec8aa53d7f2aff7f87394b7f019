@@ -22,6 +22,30 @@
       },
       "revId": "77547a98ad273ec8aa53d7f2aff7f87394b7f019",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9346b3c8_345a530d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2116,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-31T09:02:10Z",
+      "side": 1,
+      "message": "I\u0027m not aware of a straightforward way to get the value from C++ code. The Java code uses `TelephonyManager` which connects to `com.android.internal.telephony.ITelephone`, but I don\u0027t think we want to add a new Binder service dependency here.",
+      "parentUuid": "7c07d586_706957ed",
+      "range": {
+        "startLine": 2116,
+        "startChar": 4,
+        "endLine": 2116,
+        "endChar": 31
+      },
+      "revId": "77547a98ad273ec8aa53d7f2aff7f87394b7f019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
