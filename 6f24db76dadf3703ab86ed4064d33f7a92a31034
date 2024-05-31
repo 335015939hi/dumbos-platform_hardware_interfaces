@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19b9de23_d2c8fa9e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2050,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2024-05-31T10:42:37Z",
+      "side": 1,
+      "message": "Rajesh added code to do this in AttestKeyTest, have a look at hardware/interfaces/security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+      "range": {
+        "startLine": 2050,
+        "startChar": 7,
+        "endLine": 2050,
+        "endChar": 64
+      },
+      "revId": "6f24db76dadf3703ab86ed4064d33f7a92a31034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
