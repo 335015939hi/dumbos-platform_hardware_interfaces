@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c07d586_706957ed",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2116,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-05-31T07:48:19Z",
+      "side": 1,
+      "message": "Is it infeasible to add the IMEI(s) to this list?",
+      "range": {
+        "startLine": 2116,
+        "startChar": 4,
+        "endLine": 2116,
+        "endChar": 31
+      },
+      "revId": "77547a98ad273ec8aa53d7f2aff7f87394b7f019",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
