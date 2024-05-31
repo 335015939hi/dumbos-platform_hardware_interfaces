@@ -619,26 +619,23 @@ void SensorsHidlTest::runFlushTest(const std::vector<SensorInfoType>& sensors, b
             Result flushResult = flush(sensor.sensorHandle);
             EXPECT_EQ(flushResult, expectedResponse);
         }
-    }
 
-    // Wait up to one second for the flush events
-    callback.waitForFlushEvents(sensors, flushCalls, std::chrono::milliseconds(1000) /* timeout */);
+        // Wait up to one second for the flush events
+        callback.waitForFlushEvents({sensor}, flushCalls,
+                                    std::chrono::milliseconds(1000) /* timeout */);
 
-    // Deactivate all sensors after waiting for flush events so pending flush events are not
-    // abandoned by the HAL.
-    for (const SensorInfoType& sensor : sensors) {
+        // Deactivate every sensor after waiting for flush events so pending flush events are not
+        // abandoned by the HAL.
         activate(sensor.sensorHandle, false);
-    }
-    getEnvironment()->unregisterCallback();
 
-    // Check that the correct number of flushes are present for each sensor
-    for (const SensorInfoType& sensor : sensors) {
+        // Check that the correct number of flushes are present for each sensor
         SCOPED_TRACE(::testing::Message()
                      << " handle=0x" << std::hex << std::setw(8) << std::setfill('0')
                      << sensor.sensorHandle << std::dec << " type=" << static_cast<int>(sensor.type)
                      << " name=" << sensor.name);
         ASSERT_EQ(callback.getFlushCount(sensor.sensorHandle), expectedFlushCount);
     }
+    getEnvironment()->unregisterCallback();
 }
 
 TEST_P(SensorsHidlTest, FlushSensor) {
