@@ -316,6 +316,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84ba8b31_05c33d69",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-05-31T17:03:47Z",
+      "side": 1,
+      "message": "In my understanding, an empty address is a form of address which is used when there is no ambiguity for finding the device (a single device). This corresponds to cases of peer-to-peer connections (e.g. HDMI, assuming that there is only one HDMI port of this direction on the unit), or unique devices like the speaker or earpiece. So, I agree with the idea that strict matching by the device type and an empty address should find this exact device. But I\u0027m not supporting the idea of matching \"all devices of this type\" to an empty address, unless the matcher has a specific flag for that, like here: https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/services/audiopolicy/common/managerdefinitions/include/HwModule.h;l\u003d177;drc\u003d8055186913c8d7ac03a653590b0ffb877c2f2aca. This is because we want to avoid configurations where there exist two devices of the same type, one with an empty address, and another with a non-empty address—that creates an ambiguity and may be a source of hard to spot routing errors.",
+      "parentUuid": "c767b7bd_71faeee6",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 48
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d7a009c_6a5fc4ee",
         "filename": "audio/aidl/default/audio_effects_config.xml",
         "patchSetId": 1
