@@ -69,6 +69,24 @@
       "parentUuid": "166cbf4b_bcdc7fd0",
       "revId": "6c4611466eabe6c8dcda663397dc2c949c2b376e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c493c33_3da5e1f6",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/SessionOptions.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-05-31T00:26:30Z",
+      "side": 1,
+      "message": "I\u0027m not convinced those need to go here though. Can we remove this as well until it is needed.",
+      "parentUuid": "1b4e5031_b760cffc",
+      "revId": "6c4611466eabe6c8dcda663397dc2c949c2b376e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
