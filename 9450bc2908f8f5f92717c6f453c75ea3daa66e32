@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "439518bf_f5c9774a",
+        "filename": "audio/aidl/android/hardware/audio/effect/Processing.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-31T08:01:20Z",
+      "side": 1,
+      "message": "In fact, I used devicePort as it used to be referred as devicePort in xml before.\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/libeffects/data/audio_effects.xml;l\u003d119?q\u003daudio_effects.xml\n\nBut definitly, I prefer also device. I guess it is not mandatory to keep the same name as before!",
+      "parentUuid": "f5d089e8_66875c2c",
+      "range": {
+        "startLine": 34,
+        "startChar": 20,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e52e1b62_cb79801b",
         "filename": "audio/aidl/default/Android.bp",
         "patchSetId": 1
