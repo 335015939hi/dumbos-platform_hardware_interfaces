@@ -22,6 +22,30 @@
       },
       "revId": "6f24db76dadf3703ab86ed4064d33f7a92a31034",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f4d7c1_15877043",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 2050,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-05-31T11:09:24Z",
+      "side": 1,
+      "message": "Oh, nice -- moved it into the base file and re-used here.",
+      "parentUuid": "19b9de23_d2c8fa9e",
+      "range": {
+        "startLine": 2050,
+        "startChar": 7,
+        "endLine": 2050,
+        "endChar": 64
+      },
+      "revId": "6f24db76dadf3703ab86ed4064d33f7a92a31034",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
