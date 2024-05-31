@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc4fe1ca_63109b75",
+        "filename": "audio/aidl/android/hardware/audio/effect/Processing.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-31T08:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "439518bf_f5c9774a",
+      "range": {
+        "startLine": 34,
+        "startChar": 20,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e52e1b62_cb79801b",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "yes, I commited this by error, it is not required",
       "parentUuid": "e52e1b62_cb79801b",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 60
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36501314_183248f4",
+        "filename": "audio/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-31T08:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b39321cf_a447144e",
       "range": {
         "startLine": 244,
         "startChar": 0,
@@ -155,6 +203,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12fa1a06_c2be77f8",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-31T08:25:45Z",
+      "side": 1,
+      "message": "No limitation on permanently attached device. As device effect maanger is prompt on any audio patch operation, it will check if the port is involved, so connection type is not a limiter for this feature.",
+      "parentUuid": "49762652_7b342e17",
+      "range": {
+        "startLine": 267,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 9
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7bb79cca_b4139c67",
         "filename": "audio/aidl/default/EffectConfig.cpp",
         "patchSetId": 1
@@ -196,6 +268,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c767b7bd_71faeee6",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-31T08:25:45Z",
+      "side": 1,
+      "message": "Honestly, you have the point. We could have considered a device without address.\nI guess if address is empty, Device Effect check port will match if the address is also empty. It will not however be added to add device of the same type (as a strong match is expected on the address).\n\nSo, if address becomes optional, may check patch relax the strong rule on address to dispatch to all device of this type?",
+      "parentUuid": "7bb79cca_b4139c67",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 48
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d7a009c_6a5fc4ee",
         "filename": "audio/aidl/default/audio_effects_config.xml",
         "patchSetId": 1
@@ -207,6 +303,30 @@
       "writtenOn": "2024-05-30T17:03:04Z",
       "side": 1,
       "message": "Please fix this ERROR reported by Common Typos: Common typo found: \"proecessor\" -- should it be \"processor\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"proecessor\" -- should it be \"processor\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 147,
+        "startChar": 65,
+        "endLine": 147,
+        "endChar": 75
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55b93501_69d1aff5",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-31T08:25:45Z",
+      "side": 1,
+      "message": "This error has been in aosp for a while, I copied / pasted :-) It is high time to change it!",
+      "parentUuid": "4d7a009c_6a5fc4ee",
       "range": {
         "startLine": 147,
         "startChar": 65,
@@ -230,6 +350,24 @@
       "writtenOn": "2024-05-30T17:03:04Z",
       "side": 1,
       "message": "Please clarify whether this needs to be a permanently attached device. If this can apply to any device, we need to explain how this works w.r.t. device connection.",
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b60917a6_db501d4b",
+        "filename": "audio/aidl/default/audio_effects_config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-05-31T08:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c222b05_4d0e59a4",
       "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
