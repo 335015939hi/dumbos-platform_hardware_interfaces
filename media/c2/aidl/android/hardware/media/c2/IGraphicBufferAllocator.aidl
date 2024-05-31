@@ -36,6 +36,7 @@ interface IGraphicBufferAllocator {
     parcelable Allocation {
         HardwareBuffer buffer;
         @nullable ParcelFileDescriptor fence;
+        int slot;
     }
 
     /**
