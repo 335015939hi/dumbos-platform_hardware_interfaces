@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0176928_c4ce49eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1078064
+      },
+      "writtenOn": "2024-05-31T11:42:27Z",
+      "side": 1,
+      "message": "Thinking more about this, we should consider adding another constraint so that OEMs cannot circumvent the test just by having \"proto\" in their \"ro.revision\".\nFor VTS tests that may be less of an issue because they must be run on a device with root access.",
+      "revId": "26249279f770462ff047928243f072d259562dde",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
