@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "489bf45b_f361f109",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-06-03T23:50:51Z",
+      "side": 1,
+      "message": "Please share how long this test takes to execute on a reference device before and after this change.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "7598975e3c97499f3674038fe61b08ac044e669f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a029d22_2f52ed4f",
+        "filename": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-06-03T23:50:51Z",
+      "side": 1,
+      "message": "Without changing the arguments here I think this will always timeout since it\u0027s looking for flush events across all sensors.",
+      "range": {
+        "startLine": 624,
+        "startChar": 8,
+        "endLine": 624,
+        "endChar": 56
+      },
+      "revId": "7598975e3c97499f3674038fe61b08ac044e669f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
