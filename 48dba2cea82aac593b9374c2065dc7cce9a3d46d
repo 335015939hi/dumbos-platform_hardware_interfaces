@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffeedb1c_a94986c8",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2024-06-03T18:46:31Z",
+      "side": 1,
+      "message": "nit: just a question, what would be the case for `UNDEFINED` targetLatency?",
+      "range": {
+        "startLine": 344,
+        "startChar": 6,
+        "endLine": 345,
+        "endChar": 59
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e31c0d09_7ac10e76",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+              "range": {
+                "startLine": 344,
+                "startChar": 0,
+                "endLine": 344,
+                "endChar": 0
+              },
+              "replacement": "  // Ignore target latency requirement\n"
+            }
+          ]
+        }
+      ],
+      "revId": "48dba2cea82aac593b9374c2065dc7cce9a3d46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56bdc476_ac6c19be",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 840,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2024-06-03T18:46:31Z",
+      "side": 1,
+      "message": "nit: maybe `emplace_back` would be better?",
+      "range": {
+        "startLine": 840,
+        "startChar": 30,
+        "endLine": 840,
+        "endChar": 37
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "7befc1fb_a476ed4e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+              "range": {
+                "startLine": 840,
+                "startChar": 0,
+                "endLine": 841,
+                "endChar": 0
+              },
+              "replacement": "      direction_configuration.emplace_back(setting.sinkAseConfiguration.value());\n"
+            },
+            {
+              "path": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+              "range": {
+                "startLine": 843,
+                "startChar": 0,
+                "endLine": 844,
+                "endChar": 0
+              },
+              "replacement": "      direction_configuration.emplace_back(setting.sourceAseConfiguration.value());\n"
+            }
+          ]
+        }
+      ],
+      "revId": "48dba2cea82aac593b9374c2065dc7cce9a3d46d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
