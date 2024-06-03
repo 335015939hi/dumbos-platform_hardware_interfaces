@@ -362,6 +362,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24937fca_f5ec4a67",
+        "filename": "audio/aidl/default/EffectConfig.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-06-03T09:49:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32818e32_b7c002a1",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 48
+      },
+      "revId": "9450bc2908f8f5f92717c6f453c75ea3daa66e32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d7a009c_6a5fc4ee",
