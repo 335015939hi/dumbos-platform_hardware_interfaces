@@ -22,6 +22,30 @@
       },
       "revId": "eb5b983d015c11cbe396c23d7e2a54c66eea7c8d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdd393ca_c4b9d07f",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-06-03T03:08:12Z",
+      "side": 1,
+      "message": "I prefer to deprecate all the content after all these modules in the Android.mk to prevent any surprising by the way `my_system_matrix_deps` is being used by `my_framework_matrix_deps`.",
+      "parentUuid": "3bf3701f_2103a051",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 28
+      },
+      "revId": "eb5b983d015c11cbe396c23d7e2a54c66eea7c8d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
