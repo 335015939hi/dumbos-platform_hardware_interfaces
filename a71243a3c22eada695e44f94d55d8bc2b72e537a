@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc3d742e_1c70b812",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2024-06-04T01:37:42Z",
+      "side": 1,
+      "message": "nit: I am not sure whether the new bluetooth logging is available here, as it is not under `p/m/B`, if it is, then maybe we can use the `log::info` style logging :)",
+      "range": {
+        "startLine": 1031,
+        "startChar": 2,
+        "endLine": 1031,
+        "endChar": 23
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "120f2b11_635dce1e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+              "range": {
+                "startLine": 1031,
+                "startChar": 0,
+                "endLine": 1033,
+                "endChar": 0
+              },
+              "replacement": "  log::info(__func__)\n      \u003c\u003c \": Loading basic broadcast settings from provider info\";\n"
+            },
+            {
+              "path": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+              "range": {
+                "startLine": 1038,
+                "startChar": 0,
+                "endLine": 1039,
+                "endChar": 0
+              },
+              "replacement": "    log::info(__func__) \u003c\u003c \": codec info \u003d \" \u003c\u003c x.toString();\n"
+            },
+            {
+              "path": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+              "range": {
+                "startLine": 1090,
+                "startChar": 0,
+                "endLine": 1092,
+                "endChar": 0
+              },
+              "replacement": "  log::info(__func__)\n      \u003c\u003c \": Done loading broadcast settings from provider info\";\n"
+            },
+            {
+              "path": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+              "range": {
+                "startLine": 1228,
+                "startChar": 0,
+                "endLine": 1229,
+                "endChar": 0
+              },
+              "replacement": "    log::info(__func__) \u003c\u003c \": Empty capability, get all broadcast settings\";\n"
+            },
+            {
+              "path": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+              "range": {
+                "startLine": 1249,
+                "startChar": 0,
+                "endLine": 1250,
+                "endChar": 0
+              },
+              "replacement": "    log::info(__func__) \u003c\u003c \": Empty requirement\";\n"
+            },
+            {
+              "path": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+              "range": {
+                "startLine": 1315,
+                "startChar": 0,
+                "endLine": 1317,
+                "endChar": 0
+              },
+              "replacement": "  log::info(__func__) \u003c\u003c \": Combined setting that match: \"\n                      \u003c\u003c return_setting.toString();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
