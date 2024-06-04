@@ -90,6 +90,30 @@
       ],
       "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d01fa9f_6bad71a5",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-06-04T06:04:05Z",
+      "side": 1,
+      "message": "The `log` namespace is only available for `p/m/B` modules. Importing the whole module just for the log doesn\u0027t seems like a good option.\n\nMeanwhile `LOG...` functions are provided via `android-base/logging`.",
+      "parentUuid": "fc3d742e_1c70b812",
+      "range": {
+        "startLine": 1031,
+        "startChar": 2,
+        "endLine": 1031,
+        "endChar": 23
+      },
+      "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
