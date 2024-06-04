@@ -92,3 +92,33 @@ vintf_compatibility_matrix {
     ],
 
 }
+
+genrule {
+    name: "product_compatibility_matrix-gen",
+    srcs: [
+        "manifest.empty.xml",
+    ],
+    out: ["compatibility_matrix.xml"],
+    tools: [
+        "assemble_vintf",
+    ],
+    product_variables: {
+        product_compatibility_matrix: {
+            cmd: "matrix_files=('%s') ; " +
+                "matrix_string='' ; " +
+                "matrix_string2='' ; " +
+                "matrix_string2+='1:' ; " +
+                "matrix_string2+='2:' ; " +
+                "for matrix_file in $${matrix_files}; do " +
+                "  echo Bill===$${matrix_file} ; " +
+                "  matrix_string+=$$(echo $${matrix_file}:) ; " +
+                "done ; " +
+                "echo Bill3===$${matrix_string}; " +
+                "cp $(in) $(genDir)/; " +
+                "$(location assemble_vintf) " +
+                "-i $${matrix_string} " +
+                "-o $(out) " +
+                "-c $(genDir)/manifest.empty.xml",
+        },
+    },
+}
