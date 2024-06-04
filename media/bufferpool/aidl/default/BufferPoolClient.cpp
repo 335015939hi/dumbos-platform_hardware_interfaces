@@ -751,6 +751,9 @@ BufferPoolStatus BufferPoolClient::Impl::fetchBufferHandle(
     std::vector<FetchInfo> infos;
     std::vector<FetchResult> results;
     infos.emplace_back(FetchInfo{ToAidl(transactionId), ToAidl(bufferId)});
+    if (!connection) {
+        return ResultStatus::CRITICAL_ERROR;
+    }
     ndk::ScopedAStatus status = connection->fetch(infos, &results);
     if (!status.isOk()) {
         BufferPoolStatus svcSpecific = status.getServiceSpecificError();
