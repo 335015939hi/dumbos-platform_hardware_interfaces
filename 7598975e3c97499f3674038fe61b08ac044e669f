@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5324b029_ca5385b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1972920
+      },
+      "writtenOn": "2024-06-04T07:48:10Z",
+      "side": 1,
+      "message": "Using Tecno CL8 as a comparison machine before and after the modification.\nTest the module VtsHalSensorsV2_0TargetTest. \nThe average completion time before the modification was 10m46s, and the average completion time after the modification was 11m22s.\nThe total time increased by about 36s from parallel to serial. \nIs this increase in time acceptable?",
+      "parentUuid": "489bf45b_f361f109",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "7598975e3c97499f3674038fe61b08ac044e669f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5a029d22_2f52ed4f",
         "filename": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-03T23:50:51Z",
       "side": 1,
       "message": "Without changing the arguments here I think this will always timeout since it\u0027s looking for flush events across all sensors.",
+      "range": {
+        "startLine": 624,
+        "startChar": 8,
+        "endLine": 624,
+        "endChar": 56
+      },
+      "revId": "7598975e3c97499f3674038fe61b08ac044e669f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e46c07ec_236145c7",
+        "filename": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1972920
+      },
+      "writtenOn": "2024-06-04T07:48:10Z",
+      "side": 1,
+      "message": "Your opinion is correct. I just need to check the sensor currently tested. I have modified it.",
+      "parentUuid": "5a029d22_2f52ed4f",
       "range": {
         "startLine": 624,
         "startChar": 8,
