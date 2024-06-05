@@ -22,6 +22,30 @@
       },
       "revId": "99dd0b8db4845c6c523ac253c0765377c7ea0781",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "979cfb04_0e9f827f",
+        "filename": "bluetooth/finder/aidl/default/BluetoothFinder.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1320788
+      },
+      "writtenOn": "2024-06-05T08:21:36Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "304a56ab_246c0e16",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 54
+      },
+      "revId": "99dd0b8db4845c6c523ac253c0765377c7ea0781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
