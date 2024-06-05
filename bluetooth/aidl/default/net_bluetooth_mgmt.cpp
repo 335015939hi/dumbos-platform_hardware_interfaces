@@ -162,9 +162,9 @@ int NetBluetoothMgmt::waitHciDev(int hci_interface) {
           (struct mgmt_ev_read_index_list*)ev.data;
 
       for (int i = 0; i < data->num_controllers; i++) {
-        if (data->index[i] >= hci_interface) {
-          ALOGI("hci interface %d found", data->index[i]);
-          ret = data->index[i];
+        if (data->index[i] == hci_interface) {
+          ALOGI("hci interface %d found", hci_interface);
+          ret = 0;
           goto end;
         }
       }
@@ -253,9 +253,8 @@ int NetBluetoothMgmt::openHci(int hci_interface) {
   rfkill(1);
 
   // Wait for the HCI interface to complete initialization or to come online.
-  hci_interface = waitHciDev(hci_interface);
-  if (hci_interface < 0) {
-    ALOGE("hci interface not found");
+  if (waitHciDev(hci_interface)) {
+    ALOGE("hci interface %d not found", hci_interface);
     return -1;
   }
 
