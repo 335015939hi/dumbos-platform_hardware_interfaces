@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d566491_3b355b43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2024-06-05T05:08:53Z",
+      "side": 1,
+      "message": "Unit tests might not be sufficient to verify this change, could you also run some broadcast(audio sharing) sanity test with this change? both compatibility mode on -\u003e 24_2, compatibility mode off -\u003e 48_2.\n\nOnce sanity test is fine, please feel free to mark this as resolved.",
+      "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc3d742e_1c70b812",
         "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
         "patchSetId": 2
@@ -112,6 +129,23 @@
         "endLine": 1031,
         "endChar": 23
       },
+      "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f44ad1f9_17d1ade9",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2024-06-05T05:08:53Z",
+      "side": 1,
+      "message": "Any reason why we removed this line?\n  if (!broadcast_settings.empty()) return;",
       "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
