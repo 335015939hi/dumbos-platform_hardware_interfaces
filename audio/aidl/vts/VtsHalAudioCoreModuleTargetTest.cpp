@@ -637,7 +637,9 @@ class StreamContext {
           mCommandMQ(new CommandMQ(descriptor.command)),
           mReplyMQ(new ReplyMQ(descriptor.reply)),
           mBufferSizeFrames(descriptor.bufferSizeFrames),
-          mDataMQ(maybeCreateDataMQ(descriptor)) {}
+          mDataMQ(maybeCreateDataMQ(descriptor)),
+          mIsMmapped(isMmapped(descriptor)),
+          mSharedMemoryFd(maybeGetMmapFd(descriptor)) {}
     void checkIsValid() const {
         EXPECT_NE(0UL, mFrameSizeBytes);
         ASSERT_NE(nullptr, mCommandMQ);
@@ -658,6 +660,8 @@ class StreamContext {
     DataMQ* getDataMQ() const { return mDataMQ.get(); }
     size_t getFrameSizeBytes() const { return mFrameSizeBytes; }
     ReplyMQ* getReplyMQ() const { return mReplyMQ.get(); }
+    bool isMmapped() const { return mIsMmapped; }
+    int32_t getMmapFd() const { return mSharedMemoryFd; }
 
   private:
     static std::unique_ptr<DataMQ> maybeCreateDataMQ(const StreamDescriptor& descriptor) {
@@ -667,12 +671,25 @@ class StreamContext {
         }
         return nullptr;
     }
+    static bool isMmapped(const StreamDescriptor& descriptor) {
+        using Tag = StreamDescriptor::AudioBuffer::Tag;
+        return descriptor.audio.getTag() == Tag::mmap;
+    }
+    static int32_t maybeGetMmapFd(const StreamDescriptor& descriptor) {
+        using Tag = StreamDescriptor::AudioBuffer::Tag;
+        if (descriptor.audio.getTag() == Tag::mmap) {
+            return descriptor.audio.get<Tag::mmap>().sharedMemory.fd.get();
+        }
+        return 0;
+    }
 
     const size_t mFrameSizeBytes;
     std::unique_ptr<CommandMQ> mCommandMQ;
     std::unique_ptr<ReplyMQ> mReplyMQ;
     const size_t mBufferSizeFrames;
     std::unique_ptr<DataMQ> mDataMQ;
+    const bool mIsMmapped;
+    const int32_t mSharedMemoryFd;
 };
 
 struct StreamEventReceiver {
@@ -868,15 +885,38 @@ class StreamCommonLogic : public StreamLogic {
           mDataMQ(context.getDataMQ()),
           mData(context.getBufferSizeBytes()),
           mDriver(driver),
-          mEventReceiver(eventReceiver) {}
+          mEventReceiver(eventReceiver),
+          mIsMmapped(context.isMmapped()),
+          mSharedMemoryFd(context.getMmapFd()) {
+        if (isMmapped()) {
+            mSharedMemory = (uint8_t *)mmap(nullptr, mData.size(),
+                                            PROT_READ | PROT_WRITE,
+                                            MAP_SHARED,
+                                            mSharedMemoryFd,
+                                            0);
+            if (mSharedMemory == MAP_FAILED) {
+                LOG(ERROR) << __func__ << ": mmap() failed " << errno;
+            }
+        }
+    }
+    ~StreamCommonLogic() {
+        if (mSharedMemory != nullptr) {
+            munmap(mSharedMemory, mData.size());
+            mSharedMemory = nullptr;
+        }
+    }
     StreamContext::CommandMQ* getCommandMQ() const { return mCommandMQ; }
     StreamContext::ReplyMQ* getReplyMQ() const { return mReplyMQ; }
     StreamContext::DataMQ* getDataMQ() const { return mDataMQ; }
     StreamLogicDriver* getDriver() const { return mDriver; }
     StreamEventReceiver* getEventReceiver() const { return mEventReceiver; }
+    bool isMmapped() const { return mIsMmapped; }
 
     std::string init() override {
         LOG(DEBUG) << __func__;
+        if (mIsMmapped && mSharedMemory == nullptr) {
+            return "Mmap buffer is invalid";
+        }
         return "";
     }
     std::optional<StreamDescriptor::Command> maybeGetNextCommand(int* actualSize = nullptr) {
@@ -914,6 +954,23 @@ class StreamCommonLogic : public StreamLogic {
         LOG(ERROR) << __func__ << ": writing of " << mData.size() << " bytes to MQ failed";
         return false;
     }
+    bool readDataFromMmap(size_t readCount) {
+        if (mSharedMemory != nullptr) {
+            std::memcpy(mData.data(), mSharedMemory, readCount);
+            return true;
+        }
+        LOG(ERROR) << __func__ << ": reading of " << readCount << " bytes from mmap failed";
+        return false;
+    }
+    bool writeDataToMmap() {
+        if (mSharedMemory != nullptr) {
+            std::memcpy(mSharedMemory, mData.data(), mData.size());
+            return true;
+        }
+        LOG(ERROR) << __func__ << ": writing of " << mData.size() << " bytes to mmap failed";
+        return false;
+    }
+
 
   private:
     StreamContext::CommandMQ* mCommandMQ;
@@ -923,6 +980,9 @@ class StreamCommonLogic : public StreamLogic {
     StreamLogicDriver* const mDriver;
     StreamEventReceiver* const mEventReceiver;
     int mLastEventSeq = StreamEventReceiver::kEventSeqInit;
+    const bool mIsMmapped;
+    const int32_t mSharedMemoryFd;
+    uint8_t* mSharedMemory = nullptr;
 };
 
 class StreamReaderLogic : public StreamCommonLogic {
@@ -970,7 +1030,8 @@ class StreamReaderLogic : public StreamCommonLogic {
                        << ": received invalid byte count in the reply: " << reply.fmqByteCount;
             return Status::ABORT;
         }
-        if (static_cast<size_t>(reply.fmqByteCount) != getDataMQ()->availableToRead()) {
+        if (!isMmapped() &&
+            static_cast<size_t>(reply.fmqByteCount) != getDataMQ()->availableToRead()) {
             LOG(ERROR) << __func__
                        << ": the byte count in the reply is not the same as the amount of "
                        << "data available in the MQ: " << reply.fmqByteCount
@@ -991,8 +1052,10 @@ class StreamReaderLogic : public StreamCommonLogic {
             return Status::ABORT;
         }
         const bool acceptedReply = getDriver()->processValidReply(reply);
-        if (const size_t readCount = getDataMQ()->availableToRead(); readCount > 0) {
-            if (readDataFromMQ(readCount)) {
+        if (const size_t readCount =
+                !isMmapped() ? getDataMQ()->availableToRead() : reply.fmqByteCount;
+                readCount > 0) {
+            if (isMmapped() ? readDataFromMmap(readCount) : readDataFromMQ(readCount)) {
                 goto checkAcceptedReply;
             }
             LOG(ERROR) << __func__ << ": reading of " << readCount << " data bytes from MQ failed";
@@ -1028,8 +1091,10 @@ class StreamWriterLogic : public StreamCommonLogic {
             LOG(ERROR) << __func__ << ": no next command";
             return Status::ABORT;
         }
-        if (actualSize != 0 && !writeDataToMQ()) {
-            return Status::ABORT;
+        if (actualSize != 0) {
+            if (isMmapped() ? !writeDataToMmap() : !writeDataToMQ()) {
+                return Status::ABORT;
+            }
         }
         LOG(DEBUG) << "Writing command: " << command.toString();
         if (!getCommandMQ()->writeBlocking(&command, 1)) {
@@ -1058,7 +1123,8 @@ class StreamWriterLogic : public StreamCommonLogic {
             return Status::ABORT;
         }
         // It is OK for the implementation to leave data in the MQ when the stream is paused.
-        if (reply.state != StreamDescriptor::State::PAUSED &&
+        if (!isMmapped() &&
+            reply.state != StreamDescriptor::State::PAUSED &&
             getDataMQ()->availableToWrite() != getDataMQ()->getQuantumCount()) {
             LOG(ERROR) << __func__ << ": the HAL module did not consume all data from the data MQ: "
                        << "available to write " << getDataMQ()->availableToWrite()
@@ -1574,7 +1640,8 @@ TEST_P(AudioCoreModule, GetAudioPortWithExternalDevices) {
         }
         const auto dynamicProfileIt =
                 std::find_if(portProfiles.begin(), portProfiles.end(), [](const auto& profile) {
-                    return profile.format.type == AudioFormatType::DEFAULT;
+                    return (profile.format.type == AudioFormatType::DEFAULT && profile.format.encoding.empty()) ||
+                            profile.sampleRates.empty() || profile.channelMasks.empty();
                 });
         EXPECT_EQ(portProfiles.end(), dynamicProfileIt) << "Connected port contains dynamic "
                                                         << "profiles: " << connectedPort.toString();
@@ -2904,15 +2971,16 @@ class StreamFixture {
 
 class StreamLogicDefaultDriver : public StreamLogicDriver {
   public:
-    StreamLogicDefaultDriver(std::shared_ptr<StateSequence> commands, size_t frameSizeBytes)
-        : mCommands(commands), mFrameSizeBytes(frameSizeBytes) {
+    StreamLogicDefaultDriver(std::shared_ptr<StateSequence> commands, size_t frameSizeBytes,
+                             bool isMmap)
+        : mCommands(commands), mFrameSizeBytes(frameSizeBytes), mIsMmap(isMmap) {
         mCommands->rewind();
     }
 
     // The three methods below is intended to be called after the worker
     // thread has joined, thus no extra synchronization is needed.
-    bool hasObservablePositionIncrease() const { return mObservablePositionIncrease; }
-    bool hasRetrogradeObservablePosition() const { return mRetrogradeObservablePosition; }
+    bool hasPositionIncrease() const { return mPositionIncrease; }
+    bool hasRetrogradePosition() const { return mRetrogradePosition; }
     std::string getUnexpectedStateTransition() const { return mUnexpectedTransition; }
 
     bool done() override { return mCommands->done(); }
@@ -2939,15 +3007,17 @@ class StreamLogicDefaultDriver : public StreamLogicDriver {
     }
     bool interceptRawReply(const StreamDescriptor::Reply&) override { return false; }
     bool processValidReply(const StreamDescriptor::Reply& reply) override {
-        if (reply.observable.frames != StreamDescriptor::Position::UNKNOWN) {
+        StreamDescriptor::Position position =
+            mIsMmap ? reply.hardware : reply.observable;
+        if (position.frames != StreamDescriptor::Position::UNKNOWN) {
             if (mPreviousFrames.has_value()) {
-                if (reply.observable.frames > mPreviousFrames.value()) {
-                    mObservablePositionIncrease = true;
-                } else if (reply.observable.frames < mPreviousFrames.value()) {
-                    mRetrogradeObservablePosition = true;
+                if (position.frames > mPreviousFrames.value()) {
+                    mPositionIncrease = true;
+                } else if (position.frames < mPreviousFrames.value()) {
+                    mRetrogradePosition = true;
                 }
             }
-            mPreviousFrames = reply.observable.frames;
+            mPreviousFrames = position.frames;
         }
 
         auto expected = mCommands->getExpectedStates();
@@ -2976,9 +3046,10 @@ class StreamLogicDefaultDriver : public StreamLogicDriver {
     const size_t mFrameSizeBytes;
     std::optional<StreamDescriptor::State> mPreviousState;
     std::optional<int64_t> mPreviousFrames;
-    bool mObservablePositionIncrease = false;
-    bool mRetrogradeObservablePosition = false;
+    bool mPositionIncrease = false;
+    bool mRetrogradePosition = false;
     std::string mUnexpectedTransition;
+    bool mIsMmap = false;
 };
 
 // Defined later together with state transition sequences.
@@ -3030,7 +3101,8 @@ class StreamFixtureWithWorker {
     void StartWorkerToSendBurstCommands() {
         const StreamContext* context = mStream->getStreamContext();
         mWorkerDriver = std::make_unique<StreamLogicDefaultDriver>(makeBurstCommands(mIsSync),
-                                                                   context->getFrameSizeBytes());
+                                                                   context->getFrameSizeBytes(),
+                                                                   context->isMmapped());
         mWorker = std::make_unique<typename IOTraits<Stream>::Worker>(
                 *context, mWorkerDriver.get(), mStream->getStreamEventReceiver());
         LOG(DEBUG) << __func__ << ": starting " << IOTraits<Stream>::directionStr << " worker...";
@@ -3048,9 +3120,9 @@ class StreamFixtureWithWorker {
         EXPECT_EQ("", mWorkerDriver->getUnexpectedStateTransition());
         if (validatePosition) {
             if (IOTraits<Stream>::is_input) {
-                EXPECT_TRUE(mWorkerDriver->hasObservablePositionIncrease());
+                EXPECT_TRUE(mWorkerDriver->hasPositionIncrease());
             }
-            EXPECT_FALSE(mWorkerDriver->hasRetrogradeObservablePosition());
+            EXPECT_FALSE(mWorkerDriver->hasRetrogradePosition());
         }
         mWorker.reset();
         mWorkerDriver.reset();
@@ -3984,7 +4056,7 @@ class AudioStreamIo : public AudioCoreModuleBase,
         }
     }
 
-    bool ValidateObservablePosition(const AudioDevice& device) {
+    bool ValidatePosition(const AudioDevice& device) {
         return !isTelephonyDeviceType(device.type.type);
     }
 
@@ -3998,7 +4070,8 @@ class AudioStreamIo : public AudioCoreModuleBase,
         if (skipStreamIoTestForDevice(stream.getDevice())) return;
         ASSERT_EQ("", stream.skipTestReason());
         StreamLogicDefaultDriver driver(commandsAndStates,
-                                        stream.getStreamContext()->getFrameSizeBytes());
+                                        stream.getStreamContext()->getFrameSizeBytes(),
+                                        stream.getStreamContext()->isMmapped());
         typename IOTraits<Stream>::Worker worker(*stream.getStreamContext(), &driver,
                                                  stream.getStreamEventReceiver());
 
@@ -4008,11 +4081,11 @@ class AudioStreamIo : public AudioCoreModuleBase,
         worker.join();
         EXPECT_FALSE(worker.hasError()) << worker.getError();
         EXPECT_EQ("", driver.getUnexpectedStateTransition());
-        if (ValidateObservablePosition(stream.getDevice())) {
+        if (ValidatePosition(stream.getDevice())) {
             if (validatePositionIncrease) {
-                EXPECT_TRUE(driver.hasObservablePositionIncrease());
+                EXPECT_TRUE(driver.hasPositionIncrease());
             }
-            EXPECT_FALSE(driver.hasRetrogradeObservablePosition());
+            EXPECT_FALSE(driver.hasRetrogradePosition());
         }
     }
 
@@ -4028,7 +4101,8 @@ class AudioStreamIo : public AudioCoreModuleBase,
         ASSERT_EQ("", stream.skipTestReason());
         ASSERT_NO_FATAL_FAILURE(stream.TeardownPatchSetUpStream(module.get()));
         StreamLogicDefaultDriver driver(commandsAndStates,
-                                        stream.getStreamContext()->getFrameSizeBytes());
+                                        stream.getStreamContext()->getFrameSizeBytes(),
+                                        stream.getStreamContext()->isMmapped());
         typename IOTraits<Stream>::Worker worker(*stream.getStreamContext(), &driver,
                                                  stream.getStreamEventReceiver());
         ASSERT_NO_FATAL_FAILURE(stream.ReconnectPatch(module.get()));
@@ -4039,11 +4113,11 @@ class AudioStreamIo : public AudioCoreModuleBase,
         worker.join();
         EXPECT_FALSE(worker.hasError()) << worker.getError();
         EXPECT_EQ("", driver.getUnexpectedStateTransition());
-        if (ValidateObservablePosition(stream.getDevice())) {
+        if (ValidatePosition(stream.getDevice())) {
             if (validatePositionIncrease) {
-                EXPECT_TRUE(driver.hasObservablePositionIncrease());
+                EXPECT_TRUE(driver.hasPositionIncrease());
             }
-            EXPECT_FALSE(driver.hasRetrogradeObservablePosition());
+            EXPECT_FALSE(driver.hasRetrogradePosition());
         }
     }
 };
