@@ -4018,6 +4018,67 @@ TEST_P(ImportKeyTest, RsaSuccess) {
 }
 
 /*
+ * ImportKeyTest.RsaSuccessWithAttestation
+ *
+ * Verifies that importing and using an RSA key pair works correctly, generating an attestation
+ * along the way.
+ */
+TEST_P(ImportKeyTest, RsaSuccessWithAttestation) {
+    uint32_t key_size;
+    string key;
+
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        key_size = 2048;
+        key = rsa_2048_key;
+    } else {
+        key_size = 1024;
+        key = rsa_key;
+    }
+
+    auto challenge = "hello";
+    auto app_id = "foo";
+    auto subject = "cert subj";
+    vector<uint8_t> subject_der(make_name_from_str(subject));
+    uint64_t serial_int = 66;
+    vector<uint8_t> serial_blob(build_serial_blob(serial_int));
+
+    ASSERT_EQ(ErrorCode::OK, ImportKey(AuthorizationSetBuilder()
+                                               .Authorization(TAG_NO_AUTH_REQUIRED)
+                                               .RsaSigningKey(key_size, 65537)
+                                               .Digest(Digest::SHA_2_256)
+                                               .AttestationChallenge(challenge)
+                                               .AttestationApplicationId(app_id)
+                                               .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                                               .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                                               .Padding(PaddingMode::RSA_PSS)
+                                               .SetDefaultValidity(),
+                                       KeyFormat::PKCS8, key));
+
+    CheckCryptoParam(TAG_ALGORITHM, Algorithm::RSA);
+    CheckCryptoParam(TAG_KEY_SIZE, key_size);
+    CheckCryptoParam(TAG_RSA_PUBLIC_EXPONENT, 65537U);
+    CheckCryptoParam(TAG_DIGEST, Digest::SHA_2_256);
+    CheckCryptoParam(TAG_PADDING, PaddingMode::RSA_PSS);
+    CheckOrigin();
+
+    CheckCharacteristics(key_blob_, key_characteristics_);
+    ASSERT_GT(cert_chain_.size(), 0);
+    verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
+    EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
+
+    AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics_);
+    AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics_);
+    EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id,  //
+                                          sw_enforced, hw_enforced, SecLevel(),
+                                          cert_chain_[0].encodedCertificate));
+
+    string message(1024 / 8, 'a');
+    auto params = AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_PSS);
+    string signature = SignMessage(message, params);
+    LocalVerifyMessage(message, signature, params);
+}
+
+/*
  * ImportKeyTest.RsaSuccessWithoutParams
  *
  * Verifies that importing and using an RSA key pair without specifying parameters
