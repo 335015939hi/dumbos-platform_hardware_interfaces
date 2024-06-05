@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28a30f11_2c72c30c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-06-05T11:00:49Z",
+      "side": 1,
+      "message": "Sanity tested with different LEA earbuds. For compatible mode, it\u0027s depending on the BT stack CLs to input a high quality requirement.",
+      "parentUuid": "89c31cad_95b68864",
+      "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ec44a7c_fa3e6cac",
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "please ignore the suggested fix which is wrong.",
       "parentUuid": "3ec44a7c_fa3e6cac",
+      "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "327581f8_63532923",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-06-05T11:00:49Z",
+      "side": 1,
+      "message": "Hi, for high quality case, you can refer to `IBluetoothAudioProvider::BroadcastQuality::HIGH`, where I put the `lc3_stereo_48_2_2` as default. \n\nThis one is the default for standard quality `lc3_stereo_24_2_2`",
+      "parentUuid": "05a12461_9839df1f",
       "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -217,6 +253,24 @@
       "writtenOn": "2024-06-05T05:08:53Z",
       "side": 1,
       "message": "Any reason why we removed this line?\n  if (!broadcast_settings.empty()) return;",
+      "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c31837b0_f4435f8a",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1031,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-06-05T11:00:49Z",
+      "side": 1,
+      "message": "Thanks for pointing that out, fixed!",
+      "parentUuid": "f44ad1f9_17d1ade9",
       "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
