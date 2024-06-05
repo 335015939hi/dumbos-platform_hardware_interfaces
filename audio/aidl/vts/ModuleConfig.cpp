@@ -466,6 +466,10 @@ static size_t combineAudioConfigs(const AudioPort& port, const AudioProfile& pro
             config.format = profile.format;
             config.flags = port.flags;
             config.ext = port.ext;
+            if (config.ext.getTag() == AudioPortExt::Tag::mix) {
+                static std::atomic<uint32_t> mNextUniqueId(1);
+                config.ext.get<AudioPortExt::Tag::mix>().handle = mNextUniqueId++;
+            }
             result->push_back(std::move(config));
         }
     }
