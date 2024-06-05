@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89c31cad_95b68864",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2024-06-05T05:10:01Z",
+      "side": 1,
+      "message": "Sanity tests to make sure config parameters are not changed due to this CL.",
+      "parentUuid": "3d566491_3b355b43",
+      "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc3d742e_1c70b812",
         "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
         "patchSetId": 2
