@@ -388,6 +388,8 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     void CheckEncryptOneByteAtATime(BlockMode block_mode, const int block_size,
                                     PaddingMode padding_mode, const string& iv,
                                     const string& plaintext, const string& exp_cipher_text);
+    std::optional<AttestationKey> CreateAttestKeyIfRequired(const AuthorizationSet& key_desc,
+                                                            vector<Certificate>& attest_cert_chain);
 };
 
 // If the given string is non-empty, add it to the tag set under the given tag ID.

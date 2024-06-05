@@ -4045,6 +4045,167 @@ TEST_P(ImportKeyTest, RsaSuccess) {
 }
 
 /*
+ * ImportKeyTest.RsaSuccessWithAttestation
+ *
+ * Verifies that importing and using an RSA key pair works correctly, generating an attestation
+ * along the way.
+ */
+TEST_P(ImportKeyTest, RsaSuccessWithAttestation) {
+    if (get_vendor_api_level() <= AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
+        GTEST_SKIP() << "Only test attestation of imported keys from Android 16 onward";
+    }
+
+    uint32_t key_size;
+    string key;
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        key_size = 2048;
+        key = rsa_2048_key;
+    } else {
+        key_size = 1024;
+        key = rsa_key;
+    }
+
+    auto challenge = "hello";
+    auto app_id = "foo";
+    auto subject = "cert subj";
+    vector<uint8_t> subject_der(make_name_from_str(subject));
+    uint64_t serial_int = 66;
+    vector<uint8_t> serial_blob(build_serial_blob(serial_int));
+
+    ASSERT_EQ(ErrorCode::OK, ImportKey(AuthorizationSetBuilder()
+                                               .Authorization(TAG_NO_AUTH_REQUIRED)
+                                               .RsaSigningKey(key_size, 65537)
+                                               .Digest(Digest::SHA_2_256)
+                                               .AttestationChallenge(challenge)
+                                               .AttestationApplicationId(app_id)
+                                               .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                                               .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                                               .Padding(PaddingMode::RSA_PSS)
+                                               .SetDefaultValidity(),
+                                       KeyFormat::PKCS8, key));
+
+    CheckCryptoParam(TAG_ALGORITHM, Algorithm::RSA);
+    CheckCryptoParam(TAG_KEY_SIZE, key_size);
+    CheckCryptoParam(TAG_RSA_PUBLIC_EXPONENT, 65537U);
+    CheckCryptoParam(TAG_DIGEST, Digest::SHA_2_256);
+    CheckCryptoParam(TAG_PADDING, PaddingMode::RSA_PSS);
+    CheckOrigin();
+
+    CheckCharacteristics(key_blob_, key_characteristics_);
+    ASSERT_GT(cert_chain_.size(), 0);
+    verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
+    EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
+
+    AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics_);
+    AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics_);
+    EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id,  //
+                                          sw_enforced, hw_enforced, SecLevel(),
+                                          cert_chain_[0].encodedCertificate));
+
+    string message(1024 / 8, 'a');
+    auto params = AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_PSS);
+    string signature = SignMessage(message, params);
+    LocalVerifyMessage(message, signature, params);
+}
+
+/*
+ * ImportKeyTest.RsaSuccessWithAttestKeyAttestation
+ *
+ * Verifies that importing and using an RSA key pair works correctly, generating an attestation
+ * along the way using an ATTEST_KEY.
+ */
+TEST_P(ImportKeyTest, RsaSuccessWithAttestKeyAttestation) {
+    if (shouldSkipAttestKeyTest()) {
+        GTEST_SKIP() << "Test using ATTEST_KEY is not applicable on waivered device";
+    }
+    if (get_vendor_api_level() <= AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
+        GTEST_SKIP() << "Only test attestation of imported keys from Android 16 onward";
+    }
+
+    // First create an ATTEST_KEY.
+    std::optional<AttestationKey> attest_key = std::nullopt;
+    vector<Certificate> attest_cert_chain;
+    vector<uint8_t> attest_key_subject(make_name_from_str("Android Keystore ATTEST_KEY"));
+    AuthorizationSet attest_key_desc =
+            AuthorizationSetBuilder()
+                    .EcdsaKey(EcCurve::P_256)
+                    .AttestKey()
+                    .Authorization(TAG_CERTIFICATE_SUBJECT, attest_key_subject)
+                    .SetDefaultValidity();
+    attest_key.emplace();
+    vector<KeyCharacteristics> attest_key_characteristics;
+    auto error = GenerateAttestKey(attest_key_desc, std::nullopt, &attest_key.value().keyBlob,
+                                   &attest_key_characteristics, &attest_cert_chain);
+    EXPECT_EQ(error, ErrorCode::OK);
+    EXPECT_EQ(attest_cert_chain.size(), 1);
+    attest_key.value().issuerSubjectName = attest_key_subject;
+
+    // Now import an RSA key, requesting attestation along the way, using the ATTEST_KEY.
+    uint32_t key_size;
+    string key;
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        key_size = 2048;
+        key = rsa_2048_key;
+    } else {
+        key_size = 1024;
+        key = rsa_key;
+    }
+
+    auto challenge = "hello";
+    auto app_id = "foo";
+    auto subject = "cert subj";
+    vector<uint8_t> subject_der(make_name_from_str(subject));
+    uint64_t serial_int = 66;
+    vector<uint8_t> serial_blob(build_serial_blob(serial_int));
+
+    auto builder = AuthorizationSetBuilder()
+                           .Authorization(TAG_NO_AUTH_REQUIRED)
+                           .RsaSigningKey(key_size, 65537)
+                           .Digest(Digest::SHA_2_256)
+                           .AttestationChallenge(challenge)
+                           .AttestationApplicationId(app_id)
+                           .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                           .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                           .Padding(PaddingMode::RSA_PSS)
+                           .SetDefaultValidity();
+    KeyCreationResult creationResult;
+    Status result = keymint_->importKey(builder.vector_data(), KeyFormat::PKCS8,
+                                        vector<uint8_t>(key.begin(), key.end()), attest_key,
+                                        &creationResult);
+    ASSERT_TRUE(result.isOk());
+    EXPECT_GT(creationResult.keyBlob.size(), 0);
+
+    key_blob_ = std::move(creationResult.keyBlob);
+    key_characteristics_ = std::move(creationResult.keyCharacteristics);
+    cert_chain_ = std::move(creationResult.certificateChain);
+    EXPECT_GE(cert_chain_.size(), 1);
+    cert_chain_.push_back(attest_cert_chain[0]);
+
+    CheckCryptoParam(TAG_ALGORITHM, Algorithm::RSA);
+    CheckCryptoParam(TAG_KEY_SIZE, key_size);
+    CheckCryptoParam(TAG_RSA_PUBLIC_EXPONENT, 65537U);
+    CheckCryptoParam(TAG_DIGEST, Digest::SHA_2_256);
+    CheckCryptoParam(TAG_PADDING, PaddingMode::RSA_PSS);
+    CheckOrigin();
+
+    CheckCharacteristics(key_blob_, key_characteristics_);
+    ASSERT_GT(cert_chain_.size(), 0);
+    verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
+    EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
+
+    AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics_);
+    AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics_);
+    EXPECT_TRUE(verify_attestation_record(AidlVersion(), challenge, app_id,  //
+                                          sw_enforced, hw_enforced, SecLevel(),
+                                          cert_chain_[0].encodedCertificate));
+
+    string message(1024 / 8, 'a');
+    auto params = AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_PSS);
+    string signature = SignMessage(message, params);
+    LocalVerifyMessage(message, signature, params);
+}
+
+/*
  * ImportKeyTest.RsaSuccessWithoutParams
  *
  * Verifies that importing and using an RSA key pair without specifying parameters

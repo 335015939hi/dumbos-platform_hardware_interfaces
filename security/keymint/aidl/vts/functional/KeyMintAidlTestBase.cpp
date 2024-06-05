@@ -430,12 +430,9 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     return GenerateKey(key_desc, key_blob, key_characteristics, &cert_chain_);
 }
 
-ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
-                                           vector<uint8_t>* key_blob,
-                                           vector<KeyCharacteristics>* key_characteristics,
-                                           vector<Certificate>* cert_chain) {
+std::optional<AttestationKey> KeyMintAidlTestBase::CreateAttestKeyIfRequired(
+        const AuthorizationSet& key_desc, vector<Certificate>& attest_cert_chain) {
     std::optional<AttestationKey> attest_key = std::nullopt;
-    vector<Certificate> attest_cert_chain;
     // If an attestation is requested, but the system is RKP-only, we need to supply an explicit
     // attestation key. Else the result is a key without an attestation.
     // - If the RKP-only value is undeterminable (i.e., when running on GSI), generate and use the
@@ -446,17 +443,31 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     //   attestation parameters are correctly ignored), don't try to use an `ATTEST_KEY`.
     if (isRkpOnly().value_or(true) && key_desc.Contains(TAG_ATTESTATION_CHALLENGE) &&
         !shouldSkipAttestKeyTest() && is_asymmetric(key_desc)) {
+        vector<uint8_t> attest_key_subject(make_name_from_str("Android Keystore ATTEST_KEY"));
         AuthorizationSet attest_key_desc =
-                AuthorizationSetBuilder().EcdsaKey(EcCurve::P_256).AttestKey().SetDefaultValidity();
+                AuthorizationSetBuilder()
+                        .EcdsaKey(EcCurve::P_256)
+                        .AttestKey()
+                        .Authorization(TAG_CERTIFICATE_SUBJECT, attest_key_subject)
+                        .SetDefaultValidity();
         attest_key.emplace();
         vector<KeyCharacteristics> attest_key_characteristics;
         auto error = GenerateAttestKey(attest_key_desc, std::nullopt, &attest_key.value().keyBlob,
                                        &attest_key_characteristics, &attest_cert_chain);
         EXPECT_EQ(error, ErrorCode::OK);
         EXPECT_EQ(attest_cert_chain.size(), 1);
-        attest_key.value().issuerSubjectName = make_name_from_str("Android Keystore Key");
+        attest_key.value().issuerSubjectName = attest_key_subject;
     }
+    return attest_key;
+}
 
+ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
+                                           vector<uint8_t>* key_blob,
+                                           vector<KeyCharacteristics>* key_characteristics,
+                                           vector<Certificate>* cert_chain) {
+    vector<Certificate> attest_cert_chain;
+    std::optional<AttestationKey> attest_key =
+            CreateAttestKeyIfRequired(key_desc, attest_cert_chain);
     ErrorCode error = GenerateKey(key_desc, attest_key, key_blob, key_characteristics, cert_chain);
 
     if (error == ErrorCode::OK && attest_cert_chain.size() > 0) {
@@ -512,10 +523,14 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
     key_characteristics->clear();
     key_blob->clear();
 
+    vector<Certificate> attest_cert_chain;
+    std::optional<AttestationKey> attest_key =
+            CreateAttestKeyIfRequired(key_desc, attest_cert_chain);
+
     KeyCreationResult creationResult;
     result = keymint_->importKey(key_desc.vector_data(), format,
                                  vector<uint8_t>(key_material.begin(), key_material.end()),
-                                 {} /* attestationSigningKeyBlob */, &creationResult);
+                                 attest_key, &creationResult);
 
     if (result.isOk()) {
         EXPECT_PRED3(KeyCharacteristicsBasicallyValid, SecLevel(),
@@ -525,9 +540,17 @@ ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFo
         *key_blob = std::move(creationResult.keyBlob);
         *key_characteristics = std::move(creationResult.keyCharacteristics);
         cert_chain_ = std::move(creationResult.certificateChain);
+        if (attest_cert_chain.size() > 0) {
+            cert_chain_.push_back(attest_cert_chain[0]);
+        }
 
         if (is_asymmetric(key_desc)) {
+            // Asymmetric keys should always return at least one cert (the leaf cert holding the
+            // public key).
             EXPECT_GE(cert_chain_.size(), 1);
+            // If a challenge was provided then the leaf cert should have an attestation extension,
+            // which means that at least one more cert should be present (a cert holding the public
+            // key of the thing that signed the leaf).
             if (key_desc.Contains(TAG_ATTESTATION_CHALLENGE)) EXPECT_GT(cert_chain_.size(), 1);
         } else {
             // For symmetric keys there should be no certificates.
