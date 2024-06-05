@@ -205,35 +205,26 @@ ndk::ScopedAStatus Module::createStreamContext(
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
     const auto& flags = portConfigIt->flags.value();
-    if ((flags.getTag() == AudioIoFlags::Tag::input &&
-         !isBitPositionFlagSet(flags.get<AudioIoFlags::Tag::input>(),
-                               AudioInputFlags::MMAP_NOIRQ)) ||
-        (flags.getTag() == AudioIoFlags::Tag::output &&
-         !isBitPositionFlagSet(flags.get<AudioIoFlags::Tag::output>(),
-                               AudioOutputFlags::MMAP_NOIRQ))) {
-        StreamContext::DebugParameters params{mDebug.streamTransientStateDelayMs,
-                                              mVendorDebug.forceTransientBurst,
-                                              mVendorDebug.forceSynchronousDrain};
-        std::shared_ptr<ISoundDose> soundDose;
-        if (!getSoundDose(&soundDose).isOk()) {
-            LOG(ERROR) << __func__ << ": could not create sound dose instance";
-            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
-        }
-        StreamContext temp(
-                std::make_unique<StreamContext::CommandMQ>(1, true /*configureEventFlagWord*/),
-                std::make_unique<StreamContext::ReplyMQ>(1, true /*configureEventFlagWord*/),
-                portConfigIt->format.value(), portConfigIt->channelMask.value(),
-                portConfigIt->sampleRate.value().value, flags, nominalLatencyMs,
-                portConfigIt->ext.get<AudioPortExt::mix>().handle,
-                std::make_unique<StreamContext::DataMQ>(frameSize * in_bufferSizeFrames),
-                asyncCallback, outEventCallback, mSoundDose.getInstance(), params);
-        if (temp.isValid()) {
-            *out_context = std::move(temp);
-        } else {
-            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
-        }
+    StreamContext::DebugParameters params{mDebug.streamTransientStateDelayMs,
+                                          mVendorDebug.forceTransientBurst,
+                                          mVendorDebug.forceSynchronousDrain};
+    std::shared_ptr<ISoundDose> soundDose;
+    if (!getSoundDose(&soundDose).isOk()) {
+        LOG(ERROR) << __func__ << ": could not create sound dose instance";
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+    }
+    StreamContext temp(
+            std::make_unique<StreamContext::CommandMQ>(1, true /*configureEventFlagWord*/),
+            std::make_unique<StreamContext::ReplyMQ>(1, true /*configureEventFlagWord*/),
+            portConfigIt->format.value(), portConfigIt->channelMask.value(),
+            portConfigIt->sampleRate.value().value, flags, nominalLatencyMs,
+            portConfigIt->ext.get<AudioPortExt::mix>().handle,
+            std::make_unique<StreamContext::DataMQ>(frameSize * in_bufferSizeFrames),
+            asyncCallback, outEventCallback, mSoundDose.getInstance(), params);
+    if (temp.isValid()) {
+        *out_context = std::move(temp);
     } else {
-        // TODO: Implement simulation of MMAP buffer allocation
+        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
     return ndk::ScopedAStatus::ok();
 }
@@ -869,6 +860,9 @@ ndk::ScopedAStatus Module::openInputStream(const OpenInputStreamArguments& in_ar
     std::shared_ptr<StreamIn> stream;
     RETURN_STATUS_IF_ERROR(createInputStream(std::move(context), in_args.sinkMetadata,
                                              getMicrophoneInfos(), &stream));
+    if (context.isMmapped()) {
+        RETURN_STATUS_IF_ERROR(stream->updateMmapBuffer(&_aidl_return->desc));
+    }
     StreamWrapper streamWrapper(stream);
     if (auto patchIt = mPatches.find(in_args.portConfigId); patchIt != mPatches.end()) {
         RETURN_STATUS_IF_ERROR(
@@ -916,6 +910,9 @@ ndk::ScopedAStatus Module::openOutputStream(const OpenOutputStreamArguments& in_
     std::shared_ptr<StreamOut> stream;
     RETURN_STATUS_IF_ERROR(createOutputStream(std::move(context), in_args.sourceMetadata,
                                               in_args.offloadInfo, &stream));
+    if (context.isMmapped()) {
+        RETURN_STATUS_IF_ERROR(stream->updateMmapBuffer(&_aidl_return->desc));
+    }
     StreamWrapper streamWrapper(stream);
     if (auto patchIt = mPatches.find(in_args.portConfigId); patchIt != mPatches.end()) {
         RETURN_STATUS_IF_ERROR(
