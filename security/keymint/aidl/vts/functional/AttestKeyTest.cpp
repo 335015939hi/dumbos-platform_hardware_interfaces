@@ -52,9 +52,7 @@ class AttestKeyTest : public KeyMintAidlTestBase {
  */
 TEST_P(AttestKeyTest, AllRsaSizes) {
     for (auto size : ValidKeySizes(Algorithm::RSA)) {
-        /*
-         * Create attestation key.
-         */
+        // Create attestation key.
         AttestationKey attest_key;
         vector<KeyCharacteristics> attest_key_characteristics;
         vector<Certificate> attest_key_cert_chain;
@@ -71,9 +69,7 @@ TEST_P(AttestKeyTest, AllRsaSizes) {
         EXPECT_EQ(attest_key_cert_chain.size(), 1);
         EXPECT_TRUE(IsSelfSigned(attest_key_cert_chain)) << "Failed on size " << size;
 
-        /*
-         * Use attestation key to sign RSA signing key
-         */
+        // Use attestation key to sign RSA signing key
         attest_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
         vector<uint8_t> attested_key_blob;
         vector<KeyCharacteristics> attested_key_characteristics;
@@ -105,9 +101,7 @@ TEST_P(AttestKeyTest, AllRsaSizes) {
         EXPECT_TRUE(ChainSignaturesAreValid(attested_key_cert_chain));
         EXPECT_EQ(attested_key_cert_chain.size(), 2);
 
-        /*
-         * Use attestation key to sign RSA decryption key
-         */
+        // Use attestation key to sign RSA decryption key
         attested_key_characteristics.resize(0);
         attested_key_cert_chain.resize(0);
         ASSERT_EQ(ErrorCode::OK,
@@ -139,9 +133,7 @@ TEST_P(AttestKeyTest, AllRsaSizes) {
         EXPECT_TRUE(ChainSignaturesAreValid(attested_key_cert_chain));
         EXPECT_EQ(attested_key_cert_chain.size(), 2);
 
-        /*
-         * Use attestation key to sign EC key. Specify a CREATION_DATETIME for this one.
-         */
+        // Use attestation key to sign EC key. Specify a CREATION_DATETIME for this one.
         attested_key_characteristics.resize(0);
         attested_key_cert_chain.resize(0);
         uint64_t timestamp = 1619621648000;
@@ -234,9 +226,7 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
     uint64_t serial_int = 0;
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
-    /*
-     * Create attestation key.
-     */
+    // Create attestation key.
     AttestationKey attest_key;
     vector<KeyCharacteristics> attest_key_characteristics;
     vector<Certificate> attest_key_cert_chain;
@@ -267,9 +257,7 @@ TEST_P(AttestKeyTest, RsaAttestedAttestKeys) {
                                           sw_enforced, hw_enforced, SecLevel(),
                                           attest_key_cert_chain[0].encodedCertificate));
 
-    /*
-     * Use attestation key to sign RSA key
-     */
+    // Use attestation key to sign RSA key
     attest_key.issuerSubjectName = subject_der;
     vector<uint8_t> attested_key_blob;
     vector<KeyCharacteristics> attested_key_characteristics;
@@ -373,10 +361,8 @@ TEST_P(AttestKeyTest, RsaAttestKeyChaining) {
         }
 
         if (i > 0) {
-            /*
-             * The first key is attestated with factory chain, but all the rest of the keys are
-             * not supposed to be returned in attestation certificate chains.
-             */
+            // The first key is attestated with factory chain, but all the rest of the keys are
+            // not supposed to be returned in attestation certificate chains.
             EXPECT_FALSE(ChainSignaturesAreValid(cert_chain_list[i]));
 
             // Appending the attest_key chain to the attested_key_chain should yield a valid chain.
@@ -553,10 +539,8 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
         }
 
         if (i > 0) {
-            /*
-             * The first key is attestated with factory chain, but all the rest of the keys are
-             * not supposed to be returned in attestation certificate chains.
-             */
+            // The first key is attestated with factory chain, but all the rest of the keys are
+            // not supposed to be returned in attestation certificate chains.
             EXPECT_FALSE(ChainSignaturesAreValid(cert_chain_list[i]));
 
             // Appending the attest_key chain to the attested_key_chain should yield a valid chain.
@@ -573,9 +557,7 @@ TEST_P(AttestKeyTest, AlternateAttestKeyChaining) {
 
 TEST_P(AttestKeyTest, MissingChallenge) {
     for (auto size : ValidKeySizes(Algorithm::RSA)) {
-        /*
-         * Create attestation key.
-         */
+        // Create attestation key.
         AttestationKey attest_key;
         vector<KeyCharacteristics> attest_key_characteristics;
         vector<Certificate> attest_key_cert_chain;
@@ -591,9 +573,7 @@ TEST_P(AttestKeyTest, MissingChallenge) {
         EXPECT_EQ(attest_key_cert_chain.size(), 1);
         EXPECT_TRUE(IsSelfSigned(attest_key_cert_chain)) << "Failed on size " << size;
 
-        /*
-         * Use attestation key to sign RSA / ECDSA key but forget to provide a challenge
-         */
+        // Use attestation key to sign RSA / ECDSA key but forget to provide a challenge
         attest_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
         vector<uint8_t> attested_key_blob;
         vector<KeyCharacteristics> attested_key_characteristics;
@@ -620,9 +600,7 @@ TEST_P(AttestKeyTest, MissingChallenge) {
 
 TEST_P(AttestKeyTest, AllEcCurves) {
     for (auto curve : ValidCurves()) {
-        /*
-         * Create attestation key.
-         */
+        // Create attestation key.
         AttestationKey attest_key;
         vector<KeyCharacteristics> attest_key_characteristics;
         vector<Certificate> attest_key_cert_chain;
@@ -638,9 +616,7 @@ TEST_P(AttestKeyTest, AllEcCurves) {
         EXPECT_EQ(attest_key_cert_chain.size(), 1);
         EXPECT_TRUE(IsSelfSigned(attest_key_cert_chain)) << "Failed on curve " << curve;
 
-        /*
-         * Use attestation key to sign RSA key
-         */
+        // Use attestation key to sign RSA key
         attest_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
         vector<uint8_t> attested_key_blob;
         vector<KeyCharacteristics> attested_key_characteristics;
@@ -673,9 +649,7 @@ TEST_P(AttestKeyTest, AllEcCurves) {
         }
         EXPECT_TRUE(ChainSignaturesAreValid(attested_key_cert_chain));
 
-        /*
-         * Use attestation key to sign EC key
-         */
+        // Use attestation key to sign EC key
         ASSERT_EQ(ErrorCode::OK,
                   GenerateKey(AuthorizationSetBuilder()
                                       .EcdsaSigningKey(EcCurve::P_256)
