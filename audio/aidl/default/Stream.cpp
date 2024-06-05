@@ -46,6 +46,15 @@ using aidl::android::media::audio::common::MicrophoneInfo;
 
 namespace aidl::android::hardware::audio::core {
 
+bool StreamContext::isMmapped() const {
+    return (mFlags.getTag() == AudioIoFlags::Tag::input &&
+            isBitPositionFlagSet(mFlags.template get<AudioIoFlags::Tag::input>(),
+                                 AudioInputFlags::MMAP_NOIRQ)) ||
+           (mFlags.getTag() == AudioIoFlags::Tag::output &&
+            isBitPositionFlagSet(mFlags.template get<AudioIoFlags::Tag::output>(),
+                                 AudioOutputFlags::MMAP_NOIRQ));
+}
+
 void StreamContext::fillDescriptor(StreamDescriptor* desc) {
     if (mCommandMQ) {
         desc->command = mCommandMQ->dupeDesc();
@@ -137,15 +146,17 @@ std::string StreamWorkerCommonLogic::init() {
 void StreamWorkerCommonLogic::populateReply(StreamDescriptor::Reply* reply,
                                             bool isConnected) const {
     reply->status = STATUS_OK;
+    StreamDescriptor::Position *position =
+        mContext->isMmapped() ? &reply->hardware : &reply->observable;
     if (isConnected) {
-        reply->observable.frames = mContext->getFrameCount();
-        reply->observable.timeNs = ::android::uptimeNanos();
-        if (auto status = mDriver->refinePosition(&reply->observable); status == ::android::OK) {
+        position->frames = mContext->getFrameCount();
+        position->timeNs = ::android::uptimeNanos();
+        if (auto status = mDriver->refinePosition(position); status == ::android::OK) {
             return;
         }
     }
-    reply->observable.frames = StreamDescriptor::Position::UNKNOWN;
-    reply->observable.timeNs = StreamDescriptor::Position::UNKNOWN;
+    position->frames = StreamDescriptor::Position::UNKNOWN;
+    position->timeNs = StreamDescriptor::Position::UNKNOWN;
 }
 
 void StreamWorkerCommonLogic::populateReplyWrongState(
@@ -327,6 +338,23 @@ bool StreamInWorkerLogic::read(size_t clientSize, StreamDescriptor::Reply* reply
     size_t actualFrameCount = 0;
     bool fatal = false;
     int32_t latency = mContext->getNominalLatencyMs();
+    if (mContext->isMmapped()) {
+        // Just for getting latency.
+        if (::android::status_t status = mDriver->transfer(
+                    mDataBuffer.get(), clientSize / frameSize, &actualFrameCount, &latency);
+            status != ::android::OK) {
+            fatal = true;
+            LOG(ERROR) << __func__ << ": read failed: " << status;
+        }
+        // Mmap is non-blocking transfer.
+        actualFrameCount = clientSize / frameSize;
+        const size_t actualByteCount = actualFrameCount * frameSize;
+        reply->fmqByteCount += actualByteCount;
+        mContext->advanceFrameCount(actualFrameCount);
+        populateReply(reply, true);
+        reply->latencyMs = latency;
+        return !fatal;
+    }
     if (isConnected) {
         if (::android::status_t status = mDriver->transfer(mDataBuffer.get(), byteCount / frameSize,
                                                            &actualFrameCount, &latency);
@@ -600,8 +628,26 @@ bool StreamOutWorkerLogic::write(size_t clientSize, StreamDescriptor::Reply* rep
     const size_t readByteCount = dataMQ->availableToRead(&fmqError, &fmqErrorMsg);
     CHECK(fmqError == StreamContext::DataMQ::Error::NONE) << fmqErrorMsg;
     const size_t frameSize = mContext->getFrameSize();
+    size_t actualFrameCount = 0;
     bool fatal = false;
     int32_t latency = mContext->getNominalLatencyMs();
+    if (mContext->isMmapped()) {
+        // Just for getting latency.
+        if (::android::status_t status = mDriver->transfer(
+                    mDataBuffer.get(), clientSize / frameSize, &actualFrameCount, &latency);
+            status != ::android::OK) {
+            fatal = true;
+            LOG(ERROR) << __func__ << ": write failed: " << status;
+        }
+        // Mmap is non-blocking transfer.
+        actualFrameCount = clientSize / frameSize;
+        const size_t actualByteCount = actualFrameCount * frameSize;
+        reply->fmqByteCount += actualByteCount;
+        mContext->advanceFrameCount(actualFrameCount);
+        populateReply(reply, true);
+        reply->latencyMs = latency;
+        return !fatal;
+    }
     if (readByteCount > 0 ? dataMQ->read(&mDataBuffer[0], readByteCount) : true) {
         const bool isConnected = mIsConnected;
         LOG(VERBOSE) << __func__ << ": reading of " << readByteCount << " bytes from data MQ"
@@ -613,7 +659,6 @@ bool StreamOutWorkerLogic::write(size_t clientSize, StreamDescriptor::Reply* rep
             // simulate partial write.
             byteCount -= frameSize;
         }
-        size_t actualFrameCount = 0;
         if (isConnected) {
             if (::android::status_t status = mDriver->transfer(
                         mDataBuffer.get(), byteCount / frameSize, &actualFrameCount, &latency);
@@ -657,6 +702,9 @@ ndk::ScopedAStatus StreamCommonImpl::initInstance(
         const std::shared_ptr<StreamCommonInterface>& delegate) {
     mCommon = ndk::SharedRefBase::make<StreamCommonDelegator>(delegate);
     if (!mWorker->start()) {
+        if (mWorker->hasError()) {
+            LOG(ERROR) << __func__ << ": mWorker errors, " <<  mWorker->getError();
+        }
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
     if (auto flags = getContext().getFlags();
