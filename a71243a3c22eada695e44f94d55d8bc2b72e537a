@@ -38,6 +38,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ec44a7c_fa3e6cac",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2024-06-05T05:12:51Z",
+      "side": 1,
+      "message": "could you help to explain why we choose 48_4 instead of 48_2 for media? for our feature prd, 48_2 is default high quality config.",
+      "fixSuggestions": [
+        {
+          "fixId": "926e7c7f_bfa0c034",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+              "range": {
+                "startLine": 979,
+                "startChar": 0,
+                "endLine": 980,
+                "endChar": 0
+              },
+              "replacement": "    setting.maxSduOctets \u003d 48;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc3d742e_1c70b812",
         "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
         "patchSetId": 2
