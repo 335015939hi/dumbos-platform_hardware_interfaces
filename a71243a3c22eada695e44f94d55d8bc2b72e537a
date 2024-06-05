@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05a12461_9839df1f",
+        "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2024-06-05T05:13:19Z",
+      "side": 1,
+      "message": "please ignore the suggested fix which is wrong.",
+      "parentUuid": "3ec44a7c_fa3e6cac",
+      "revId": "a71243a3c22eada695e44f94d55d8bc2b72e537a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc3d742e_1c70b812",
         "filename": "bluetooth/audio/aidl/default/LeAudioOffloadAudioProvider.cpp",
         "patchSetId": 2
