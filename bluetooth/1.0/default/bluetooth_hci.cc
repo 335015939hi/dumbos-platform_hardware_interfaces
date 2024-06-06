@@ -64,6 +64,7 @@ Return<void> BluetoothHci::initialize(
   death_recipient_->setHasDied(false);
   cb->linkToDeath(death_recipient_, 0);
 
+  VendorInterface* old_vendor_interface = VendorInterface::get();
   bool rc = VendorInterface::Initialize(
       [cb](bool status) {
         auto hidl_status = cb->initializationComplete(
@@ -94,6 +95,10 @@ Return<void> BluetoothHci::initialize(
         ALOGE("VendorInterface -> No callback for ISO packets in HAL V1_0");
       });
   if (!rc) {
+    if (old_vendor_interface != nullptr) {
+        ALOGW("VendorInterface::Initialize() failed, unlinking death_recipient to avoid messing with active VendorInterface");
+        cb->unlinkToDeath(death_recipient_);
+    }
     auto hidl_status = cb->initializationComplete(Status::INITIALIZATION_ERROR);
     if (!hidl_status.isOk()) {
       ALOGE("VendorInterface -> Unable to call initializationComplete(ERR)");
