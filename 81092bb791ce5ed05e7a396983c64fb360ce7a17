@@ -16,6 +16,24 @@
       "message": "in my sanity test, found only left channel works in broadcast with this CL.",
       "revId": "81092bb791ce5ed05e7a396983c64fb360ce7a17",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60ae93c6_4ae1f16e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1981586
+      },
+      "writtenOn": "2024-06-06T05:43:03Z",
+      "side": 1,
+      "message": "after more testings, seem like not related to this CL.",
+      "parentUuid": "59082f3a_95b48ab2",
+      "revId": "81092bb791ce5ed05e7a396983c64fb360ce7a17",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
