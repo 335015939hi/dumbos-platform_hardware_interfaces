@@ -41,7 +41,27 @@ static constexpr uint32_t kSeqIdVndkBit = 0;
 #endif
 
 static constexpr uint32_t kSeqIdMax = 0x7fffffff;
-uint32_t Accessor::sSeqId = time(nullptr) & kSeqIdMax;
+
+Accessor::ConnectionIdGenerator::ConnectionIdGenerator() {
+    mSeqId = static_cast<uint32_t>(time(nullptr) & kSeqIdMax);
+    mPid = static_cast<int32_t>(getpid());
+}
+
+ConnectionId Accessor::ConnectionIdGenerator::getConnectionId() {
+    uint32_t seq;
+    {
+        std::lock_guard<std::mutex> l(mLock);
+        seq = mSeqId;
+        if (mSeqId == kSeqIdMax) {
+            mSeqId = 0;
+        } else {
+            ++mSeqId;
+        }
+    }
+    return (int64_t)mPid << 32 | seq | kSeqIdVndkBit;
+}
+
+Accessor::ConnectionIdGenerator Accessor::sConnectionIdGenerator;
 
 namespace {
 // anonymous namespace
@@ -245,7 +265,7 @@ BufferPoolStatus Accessor::connect(
         std::lock_guard<std::mutex> lock(mBufferPool.mMutex);
         if (newConnection) {
             int32_t pid = getpid();
-            ConnectionId id = (int64_t)pid << 32 | sSeqId | kSeqIdVndkBit;
+            ConnectionId id = sConnectionIdGenerator.getConnectionId();
             status = mBufferPool.mObserver.open(id, statusDescPtr);
             if (status == ResultStatus::OK) {
                 newConnection->initialize(ref<Accessor>(), id);
@@ -255,11 +275,6 @@ BufferPoolStatus Accessor::connect(
                 mBufferPool.mConnectionIds.insert(id);
                 mBufferPool.mInvalidationChannel.getDesc(invDescPtr);
                 mBufferPool.mInvalidation.onConnect(id, observer);
-                if (sSeqId == kSeqIdMax) {
-                   sSeqId = 0;
-                } else {
-                    ++sSeqId;
-                }
             }
 
         }
