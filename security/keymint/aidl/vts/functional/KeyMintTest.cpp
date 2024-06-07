@@ -8925,6 +8925,7 @@ class InstanceTest : public testing::Test {
             auto keymint = IKeyMintDevice::fromBinder(binder);
             ASSERT_NE(keymint, nullptr) << "Failed to get IKeyMintDevice instance " << param;
 
+<<<<<<< HEAD   (66f063 Merge changes I9fd5e4cb,I59872b1a into main)
             KeyMintHardwareInfo info;
             ASSERT_TRUE(keymint->getHardwareInfo(&info).isOk());
             ASSERT_EQ(keymints_.count(info.securityLevel), 0)
@@ -9002,6 +9003,8 @@ TEST_F(InstanceTest, FeatureVersionInAidl) {
 
 using aidl::android::hardware::security::keymint::test::KeyMintAidlTestBase;
 
+=======
+>>>>>>> BRANCH (0cff73 Delete standard output in VtsAidlKeyMintTargetTest)
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     for (int i = 1; i < argc; ++i) {
