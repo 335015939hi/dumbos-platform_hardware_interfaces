@@ -129,7 +129,7 @@ ConversionResult<AudioPortExt> createAudioPortExt(
 ConversionResult<AudioPortExt> createAudioPortExt(const ap_xsd::MixPorts::MixPort& xMixPort) {
     AudioPortMixExt mixExt = {
             .maxOpenStreamCount =
-                    xMixPort.hasMaxOpenCount() ? static_cast<int>(xMixPort.getMaxOpenCount()) : 0,
+                    xMixPort.hasMaxOpenCount() ? static_cast<int>(xMixPort.getMaxOpenCount()) : 1,
             .maxActiveStreamCount = xMixPort.hasMaxActiveCount()
                                             ? static_cast<int>(xMixPort.getMaxActiveCount())
                                             : 1,
