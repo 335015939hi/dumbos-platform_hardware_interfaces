@@ -1,0 +1,86 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed6c1df1_1f945186",
+        "filename": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-06-07T16:53:07Z",
+      "side": 1,
+      "message": "Please edit to `constexpr size_t kSensorsPerGroup` for style consistency",
+      "range": {
+        "startLine": 608,
+        "startChar": 4,
+        "endLine": 608,
+        "endChar": 23
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "1363a27d_44595b29",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
+              "range": {
+                "startLine": 608,
+                "startChar": 0,
+                "endLine": 609,
+                "endChar": 0
+              },
+              "replacement": "    constexpr size_t kSensorsPerGroup \u003d 10;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e378b8c01596ec1a7bb493042c4c93d6341542f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c286d83a_bfd36f2a",
+        "filename": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-06-07T16:53:07Z",
+      "side": 1,
+      "message": "Please rename to `size_t sensorOffset` for style",
+      "range": {
+        "startLine": 609,
+        "startChar": 9,
+        "endLine": 609,
+        "endChar": 14
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ecf7cc40_bbb69e64",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
+              "range": {
+                "startLine": 609,
+                "startChar": 0,
+                "endLine": 612,
+                "endChar": 0
+              },
+              "replacement": "    for (size_t sensorOffset \u003d 0; sensorOffset \u003c sensors.size();\n         sensorOffset +\u003d sensorsPerGroup) {\n        std::vector\u003cSensorInfoType\u003e sensorGroup(\n            sensors.begin() + sensorOffset,\n            sensors.begin() +\n                std::min(sensorOffset + sensorsPerGroup, sensors.size()));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e378b8c01596ec1a7bb493042c4c93d6341542f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
