@@ -114,3 +114,51 @@ phony {
         },
     },
 }
+
+soong_config_module_type {
+    name: "product_vintf_compatibility_matrix",
+    module_type: "vintf_compatibility_matrix",
+    config_namespace: "vintf_compatibility",
+    list_variables: [
+        "product_matrix_file", // DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE
+    ],
+    properties: [
+        "env_srcs",
+    ],
+}
+
+
+product_vintf_compatibility_matrix {
+    name: "product_compatibility_matrix.xml.bp",
+    stem: "compatibility_matrix.xml.bp",
+    //srcs: [""],
+    
+    /**
+    env_srcs: [
+        "device/google/gs-common/camera/device_framework_matrix_product.xml",
+        "device/google/gs-common/audio/hidl/device_framework_matrix_product.xml",
+        "device/google/gs201/device_framework_matrix_product.xml",
+        "device/google/gs-common/bcmbt/compatibility_matrix.xml",
+    ],
+    **/
+    soong_config_variables: {
+        product_matrix_file: {
+            env_srcs: ["%s"],
+        },
+    },
+}
+
+
+
+
+/**
+env_files {
+    name: "product_compaibility_file",
+    env_name: "DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE",
+}
+
+prebuilt_etc {
+    name: "bill_test",
+    src: "product_compaibility_file",
+}
+**/
