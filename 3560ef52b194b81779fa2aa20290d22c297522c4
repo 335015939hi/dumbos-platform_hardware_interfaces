@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c043a086_acd9dd55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-06-07T23:44:07Z",
+      "side": 1,
+      "message": "We cannot guarantee the underlying graphics is BQ.\nSo exposing slot-Id is against design philosophy.\n\nIf you want to a way to specify a buffer, use AHardwareBuffer id instead.\nIf it\u0027s not exposed, please file an issue.",
+      "revId": "3560ef52b194b81779fa2aa20290d22c297522c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
