@@ -19,6 +19,7 @@ import android.hardware.security.see.hwcrypto.IHwCryptoOperations;
 import android.hardware.security.see.hwcrypto.IOpaqueKey;
 import android.hardware.security.see.hwcrypto.KeyPolicy;
 import android.hardware.security.see.hwcrypto.types.ExplicitKeyMaterial;
+import android.hardware.security.see.hwcrypto.types.OpaqueKeyToken;
 
 /*
  * Higher level interface to access and generate keys.
@@ -217,4 +218,19 @@ interface IHwCryptoKey {
      *      otherwise.
      */
     IOpaqueKey importClearKey(in ExplicitKeyMaterial keyMaterial, in KeyPolicy newKeyPolicy);
+
+    /*
+     * key_token_import() - Imports a key from a different client service instance. Because
+     *                      IOpaqueKey are binder objects that cannot be directly shared between
+     *                      clients, this method provide an efficient way to send a key to
+     *                      another client. Keys to be imported are represented by a handle
+     *                      created using <code>IOpaqueKey::getShareableToken</code>.
+     *
+     * @requested_key:
+     *      Handle to the key to be imported to the caller service.
+     * Return:
+     *      A IOpaqueKey that can be directly be used on the local HWCrypto service on
+     *      success, service specific error based on <code>HalErrorCode</code> otherwise.
+     */
+    IOpaqueKey keyTokenImport(in OpaqueKeyToken requestedKey);
 }
