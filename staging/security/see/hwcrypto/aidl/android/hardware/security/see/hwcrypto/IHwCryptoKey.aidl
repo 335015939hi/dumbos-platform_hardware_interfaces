@@ -19,6 +19,7 @@ import android.hardware.security.see.hwcrypto.IHwCryptoOperations;
 import android.hardware.security.see.hwcrypto.IOpaqueKey;
 import android.hardware.security.see.hwcrypto.KeyPolicy;
 import android.hardware.security.see.hwcrypto.types.ExplicitKeyMaterial;
+import android.hardware.security.see.hwcrypto.types.OpaqueKeyToken;
 
 /*
  * Higher level interface to access and generate keys.
@@ -217,4 +218,42 @@ interface IHwCryptoKey {
      *      otherwise.
      */
     IOpaqueKey importClearKey(in ExplicitKeyMaterial keyMaterial, in KeyPolicy newKeyPolicy);
+
+    /*
+     * getCurrentDicePolicy() - Returns the client current DICE policy. This policy is encrypted and
+     *                          considered opaque from the client perspective. This policy is the
+     *                          same used to create DICE bound keys and will also be used to seal
+     *                          secrets that can only be retrieved by the DICE policy owner. The
+     *                          first use of this seal operation will be
+     *                          <code>IOpaqueKey::getShareableToken</code> and
+     *                          <code>IHwCryptoKey::keyTokenImport</code>. To start this process,
+     *                          the intended key receiver will call this function and then pass the
+     *                          generated DICE policy to the owner of the key that the receiver
+     *                          wants to import. The key owner will then call
+     *                          <code>IOpaqueKey::getShareableToken</code> passing the receiver DICE
+     *                          policy to insure that only that receiver can import the key.
+     *
+     * Return:
+     *      byte[] on success, which is the caller encrypted DICE policy.
+     */
+    byte[] getCurrentDicePolicy();
+
+    /*
+     * key_token_import() - Imports a key from a different client service instance. Because
+     *                      IOpaqueKey are binder objects that cannot be directly shared between
+     *                      binder rpc clients, this method provide a way to send a key to another
+     *                      client. Keys to be imported by the receiver are represented by a token
+     *                      created using <code>IOpaqueKey::getShareableToken</code>. The flow
+     *                      to create this token is described in
+     *                      <code>IHwCryptoKey::getCurrentDicePolicy</code>.
+     *
+     * @requested_key:
+     *      Handle to the key to be imported to the caller service.
+     * @sealingDicePolicy:
+     *      DICE policy used to seal the exported key.
+     * Return:
+     *      A IOpaqueKey that can be directly be used on the local HWCrypto service on
+     *      success, service specific error based on <code>HalErrorCode</code> otherwise.
+     */
+    IOpaqueKey keyTokenImport(in OpaqueKeyToken requestedKey, in byte[] sealingDicePolicy);
 }

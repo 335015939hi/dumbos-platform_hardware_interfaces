@@ -16,6 +16,7 @@
 package android.hardware.security.see.hwcrypto;
 
 import android.hardware.security.see.hwcrypto.KeyPolicy;
+import android.hardware.security.see.hwcrypto.types.OpaqueKeyToken;
 import android.hardware.security.see.hwcrypto.types.OperationType;
 
 interface IOpaqueKey {
@@ -52,4 +53,16 @@ interface IOpaqueKey {
      *      <code>HalErrorCode</code> otherwise. Format used for the returned public key is COSE.
      */
     byte[] getPublicKey();
+
+    /*
+     * getShareableToken() - Returns a token that can shared with another HWCrypto client.
+     *
+     * @sealingDicePolicy:
+     *      Token to be used to protect the returned OpaqueKeyToken. It will be used so only
+     *      the owner of the sealingDicePolicy can import the key.
+     * Return:
+     *      <code>OpaqueKeyMaterial</code> token on success, service specific error based on
+     *      <code>HalErrorCode</code> otherwise.
+     */
+    OpaqueKeyToken getShareableToken(in byte[] sealingDicePolicy);
 }
