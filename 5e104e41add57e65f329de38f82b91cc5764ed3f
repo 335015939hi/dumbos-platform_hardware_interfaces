@@ -52,6 +52,23 @@
       "parentUuid": "53f4569b_7c0c452f",
       "revId": "5e104e41add57e65f329de38f82b91cc5764ed3f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f329bc67_65c57bb2",
+        "filename": "media/bufferpool/aidl/default/Accessor.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2024-06-11T00:15:05Z",
+      "side": 1,
+      "message": "nit/optional: we could consider moving the id generation code in a common lib.",
+      "revId": "5e104e41add57e65f329de38f82b91cc5764ed3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
