@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac5af03b_38f41575",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018606
+      },
+      "writtenOn": "2024-06-11T00:06:22Z",
+      "side": 1,
+      "message": "Do we need the connection id generator code to be in sync across APEX, framework, and vendor, in order to avoid id collision?",
+      "revId": "5e104e41add57e65f329de38f82b91cc5764ed3f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
