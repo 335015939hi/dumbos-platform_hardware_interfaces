@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1acb19f_fde6a829",
+        "filename": "audio/aidl/vts/VtsHalVolumeTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-11T18:32:43Z",
+      "side": 1,
+      "message": "nit: are these easier to understand with hex format? `0x4000`",
+      "range": {
+        "startLine": 177,
+        "startChar": 38,
+        "endLine": 177,
+        "endChar": 43
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "8a1ca40d_72a763cd",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalVolumeTargetTest.cpp",
+              "range": {
+                "startLine": 177,
+                "startChar": 0,
+                "endLine": 178,
+                "endChar": 0
+              },
+              "replacement": "    static constexpr int kNPointFFT \u003d 0x4000;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a9171f9d8d2fe821389406da01eebc6840aad52b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
