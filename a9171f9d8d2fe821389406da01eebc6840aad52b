@@ -40,6 +40,30 @@
       ],
       "revId": "a9171f9d8d2fe821389406da01eebc6840aad52b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2237fdcc_ac870a6f",
+        "filename": "audio/aidl/vts/VtsHalVolumeTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-11T19:51:55Z",
+      "side": 1,
+      "message": "Lengths of FFTs and FIR filters are traditionally expressed using decimal notation, despite indeed being powers of 2. The reason is that usually when you see them you do a mental math for figuring out the FFT resolution (bin width) based on the sampling rate, and that\u0027s more natural to do using decimal numbers.",
+      "parentUuid": "b1acb19f_fde6a829",
+      "range": {
+        "startLine": 177,
+        "startChar": 38,
+        "endLine": 177,
+        "endChar": 43
+      },
+      "revId": "a9171f9d8d2fe821389406da01eebc6840aad52b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
