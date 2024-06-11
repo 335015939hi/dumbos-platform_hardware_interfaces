@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b870b74_423b3652",
+        "filename": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 608,
+      "author": {
+        "id": 1972920
+      },
+      "writtenOn": "2024-06-11T01:33:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed6c1df1_1f945186",
+      "range": {
+        "startLine": 608,
+        "startChar": 4,
+        "endLine": 608,
+        "endChar": 23
+      },
+      "revId": "e378b8c01596ec1a7bb493042c4c93d6341542f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c286d83a_bfd36f2a",
@@ -79,6 +103,30 @@
           ]
         }
       ],
+      "revId": "e378b8c01596ec1a7bb493042c4c93d6341542f1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8517f441_3de242af",
+        "filename": "sensors/common/vts/2_X/VtsHalSensorsV2_XTargetTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 609,
+      "author": {
+        "id": 1972920
+      },
+      "writtenOn": "2024-06-11T01:33:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c286d83a_bfd36f2a",
+      "range": {
+        "startLine": 609,
+        "startChar": 9,
+        "endLine": 609,
+        "endChar": 14
+      },
       "revId": "e378b8c01596ec1a7bb493042c4c93d6341542f1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
