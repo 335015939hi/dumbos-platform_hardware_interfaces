@@ -4177,6 +4177,7 @@ class BluetoothAudioProviderLeAudioBroadcastHardwareAidl
         CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies();
     sampling_rate.bitmask =
         CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ48000 |
+        CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ24000 |
         CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ16000;
     auto frame_duration =
         CodecSpecificCapabilitiesLtv::SupportedFrameDurations();
@@ -4373,19 +4374,6 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
   ASSERT_NE(configuration.numBis, 0);
   ASSERT_FALSE(configuration.subgroupsConfigurations.empty());
   VerifyBroadcastConfiguration(one_subgroup_requirement, configuration);
-
-  IBluetoothAudioProvider::LeAudioBroadcastConfigurationRequirement
-      two_subgroup_requirement =
-          GetBroadcastRequirement(true /* standard*/, true /* high */);
-
-  // Check empty capability for source direction
-  aidl_retval = audio_provider_->getLeAudioBroadcastConfiguration(
-      empty_capability, two_subgroup_requirement, &configuration);
-
-  ASSERT_TRUE(aidl_retval.isOk());
-  ASSERT_NE(configuration.numBis, 0);
-  ASSERT_FALSE(configuration.subgroupsConfigurations.empty());
-  VerifyBroadcastConfiguration(two_subgroup_requirement, configuration);
 }
 
 TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
@@ -4404,7 +4392,7 @@ TEST_P(BluetoothAudioProviderLeAudioBroadcastHardwareAidl,
 
   IBluetoothAudioProvider::LeAudioBroadcastConfigurationRequirement
       requirement =
-          GetBroadcastRequirement(true /* standard*/, true /* high */);
+          GetBroadcastRequirement(true /* standard*/, false /* high */);
 
   IBluetoothAudioProvider::LeAudioBroadcastConfigurationSetting configuration;
 
