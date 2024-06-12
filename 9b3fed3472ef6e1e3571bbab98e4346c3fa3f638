@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "628d21f6_fbc118ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-06-12T17:56:23Z",
+      "side": 1,
+      "message": "This is for C2AIDL. so android 14 does not need it.",
+      "revId": "9b3fed3472ef6e1e3571bbab98e4346c3fa3f638",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
