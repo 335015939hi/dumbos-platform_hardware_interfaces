@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e51098_9d70bfeb",
+        "filename": "audio/aidl/vts/VtsHalDownmixTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-06-12T11:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab85a7b9_5e827aac",
+      "range": {
+        "startLine": 175,
+        "startChar": 36,
+        "endLine": 175,
+        "endChar": 41
+      },
+      "revId": "d0dd6f1c45718adf2887833cf3f6b91f215182db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b59b6d7_2756e68a",
@@ -55,6 +79,30 @@
       "writtenOn": "2024-06-11T17:36:38Z",
       "side": 1,
       "message": "Same note about frame count",
+      "range": {
+        "startLine": 114,
+        "startChar": 35,
+        "endLine": 114,
+        "endChar": 42
+      },
+      "revId": "d0dd6f1c45718adf2887833cf3f6b91f215182db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fff53470_fbdf699b",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-06-12T11:49:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b59b6d7_2756e68a",
       "range": {
         "startLine": 114,
         "startChar": 35,
