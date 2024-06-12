@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3efc4236_e3074e84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "Thanks a lot for working on this! Please consider my comments.",
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa570af_c22c0865",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "In the `StreamDescriptor`, the data FMQ is mutually exclusive with the `MMapBufferDescriptor`: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl;l\u003d509;drc\u003d30301a42c76f82485c657f66bcdd0654564e5c9e. Thus, the data FMQ must not be created for MMap streams.",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 85
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da1cf7f4_362c5e9c",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "The MMap buffer should be part of the `StreamContext`, this separate operation should not be needed.",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 78
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c3966bf_95c001fd",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "In the case of MMap, both `observable` and `hardware` positions must be updated. They are retrieved on the client side separately, see here: https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/libaudiohal/impl/StreamHalAidl.cpp;l\u003d335;drc\u003d40618538671cb540f485fec790be6a4e1f020d56\n\nThe `observable` position is filled using the same way both for non-MMap and MMap streams. The `hardware` position is reported by tinyALSA via `pcm_mmap_get_hw_ptr`: https://cs.android.com/android/platform/superproject/main/+/main:external/tinyalsa_new/src/pcm.c;l\u003d1601;drc\u003d6a9dc10d114a161332fb6035a9983bc51d0a9c29.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 70
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0724c707_a8c0531b",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "`read` (as well as `write`) must not be called for MMap. There must be no `dataMQ` for MMap (see my previous comment), thus this code will crash. Latency should be reported by other means. For example, we may add an optional parameter to `refinePosition`.",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 94
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f70b38e0_00aaa9b7",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "If the worker can\u0027t start, there must be an error, so this check is redundant, we can just use `getError`. This will also eliminate the need for exposing `hasError`.",
+      "range": {
+        "startLine": 705,
+        "startChar": 0,
+        "endLine": 705,
+        "endChar": 34
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3f789e5_cb82bdff",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "This is in interface, all its methods must be abstract, no implementations.",
+      "range": {
+        "startLine": 343,
+        "startChar": 76,
+        "endLine": 345,
+        "endChar": 5
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4938ce47_fb2c58a8",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "`0` is actually a valid FD, it is typically bound to stdin: https://en.wikipedia.org/wiki/File_descriptor. We should return `-1` as `open(2)` does: https://man7.org/linux/man-pages/man2/open.2.html#RETURN_VALUE",
+      "range": {
+        "startLine": 683,
+        "startChar": 0,
+        "endLine": 683,
+        "endChar": 17
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04363ce4_2a547ec0",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "Please use `PLOG` for printing `errno`: https://cs.android.com/android/platform/superproject/main/+/main:system/libbase/include/android-base/logging.h;l\u003d240;drc\u003d3891348d37d071a4c496a3bd239e93912f48c966",
+      "range": {
+        "startLine": 898,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 70
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad125470_2fa3ecd9",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "I think this should be `int8_t` to match the data type of `mData`.",
+      "range": {
+        "startLine": 985,
+        "startChar": 4,
+        "endLine": 985,
+        "endChar": 11
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20b00d7_05f56caa",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "Long line",
+      "range": {
+        "startLine": 1643,
+        "startChar": 0,
+        "endLine": 1643,
+        "endChar": 114
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bf353a8_2b7176ac",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3011,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "This should always be `observable`. There should be some separate check for the `hardware` in the MMap case.",
+      "range": {
+        "startLine": 3010,
+        "startChar": 0,
+        "endLine": 3011,
+        "endChar": 56
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d91bc37_cc4dbb6e",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3062,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-12T23:30:04Z",
+      "side": 1,
+      "message": "These `MMap` flags should now be removed, otherwise MMap mix ports will not be tested.",
+      "range": {
+        "startLine": 3062,
+        "startChar": 37,
+        "endLine": 3062,
+        "endChar": 64
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
