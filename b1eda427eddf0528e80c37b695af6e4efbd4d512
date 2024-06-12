@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28dd3ed7_cd777043",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-06-12T11:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0133dca2_599e1e52",
+      "range": {
+        "startLine": 472,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 0
+      },
+      "revId": "b1eda427eddf0528e80c37b695af6e4efbd4d512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d49bc4d2_be60595d",
@@ -65,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77003ea1_71ad3c4b",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-06-12T11:43:06Z",
+      "side": 1,
+      "message": "Added checks to compare the buffer sizes with the computed size.",
+      "parentUuid": "d49bc4d2_be60595d",
+      "range": {
+        "startLine": 482,
+        "startChar": 0,
+        "endLine": 482,
+        "endChar": 39
+      },
+      "revId": "b1eda427eddf0528e80c37b695af6e4efbd4d512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10c04336_e4b902b8",
@@ -78,6 +126,30 @@
       "writtenOn": "2024-06-11T17:55:38Z",
       "side": 1,
       "message": "This is also possible to express using `std::accumulate` (I did not test the code, just suggesting an idea):\n\n```\nsquareDeltas \u003d std::accumulate(buffer.begin(), buffer.end(), 0, [\u003dmean](float a, float b) { return a + pow(b - mean, 2); });\n```",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 492,
+        "endChar": 9
+      },
+      "revId": "b1eda427eddf0528e80c37b695af6e4efbd4d512",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e31af298_6ec91fc0",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-06-12T11:43:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10c04336_e4b902b8",
       "range": {
         "startLine": 488,
         "startChar": 0,
