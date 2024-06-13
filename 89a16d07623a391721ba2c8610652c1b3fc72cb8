@@ -22,6 +22,30 @@
       },
       "revId": "89a16d07623a391721ba2c8610652c1b3fc72cb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6446f169_aa45080e",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-06-13T18:44:32Z",
+      "side": 0,
+      "message": "It is still used by IOpaqueKey::getKeyPolicy(), so I added a new item on my HwCrypto refactor to check if it makes sense to make all CBOR based and provide helper functions to get a Rust Structure: b/346810483.",
+      "parentUuid": "bfefc277_e9c977f5",
+      "range": {
+        "startLine": 95,
+        "startChar": 8,
+        "endLine": 95,
+        "endChar": 17
+      },
+      "revId": "89a16d07623a391721ba2c8610652c1b3fc72cb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
