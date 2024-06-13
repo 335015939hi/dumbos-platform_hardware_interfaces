@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bea16b5a_9360a050",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_cli.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-06-13T14:26:56Z",
+      "side": 1,
+      "message": "Comment needs updating",
+      "revId": "773249e1ac18d8f909f7e0a4db8e80a3facdc44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a8c57ba_03324ac9",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-06-13T14:26:56Z",
+      "side": 1,
+      "message": "comment needs updating",
+      "range": {
+        "startLine": 315,
+        "startChar": 11,
+        "endLine": 315,
+        "endChar": 23
+      },
+      "revId": "773249e1ac18d8f909f7e0a4db8e80a3facdc44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed8325a4_74bc8aef",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-06-13T14:26:56Z",
+      "side": 1,
+      "message": "comment needs updating",
+      "range": {
+        "startLine": 338,
+        "startChar": 48,
+        "endLine": 338,
+        "endChar": 59
+      },
+      "revId": "773249e1ac18d8f909f7e0a4db8e80a3facdc44e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
