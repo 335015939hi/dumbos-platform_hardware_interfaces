@@ -25,7 +25,7 @@ use authgraph_core::traits::Sha256;
 use clap::{Args, Parser, Subcommand};
 use coset::CborSerializable;
 use dice_policy_builder::{
-    policy_for_dice_chain, CertIndex, ConstraintSpec, ConstraintType, MissingAction,
+    policy_for_dice_chain, ConstraintSpec, ConstraintType, MissingAction, TargetEntry,
     WILDCARD_FULL_ARRAY,
 };
 
@@ -138,24 +138,24 @@ impl SkClient {
         let dice =
             self.dice_artifacts.explicit_key_dice_chain().context("extract explicit DICE chain")?;
 
-        let constraint_spec = [
+        let constraint_spec = vec![
             ConstraintSpec::new(
                 ConstraintType::ExactMatch,
                 vec![AUTHORITY_HASH],
                 MissingAction::Fail,
-                CertIndex::All,
+                TargetEntry::All,
             ),
             ConstraintSpec::new(
                 ConstraintType::ExactMatch,
                 vec![MODE],
                 MissingAction::Fail,
-                CertIndex::All,
+                TargetEntry::All,
             ),
             ConstraintSpec::new(
                 ConstraintType::GreaterOrEqual,
                 vec![CONFIG_DESC, SECURITY_VERSION],
                 MissingAction::Ignore,
-                CertIndex::All,
+                TargetEntry::All,
             ),
             // Constraints on sub components in the second last DiceChainEntry
             ConstraintSpec::new(
@@ -167,7 +167,7 @@ impl SkClient {
                     SUBCOMPONENT_SECURITY_VERSION,
                 ],
                 MissingAction::Fail,
-                CertIndex::FromEnd(1),
+                TargetEntry::ByName("Android".to_string()),
             ),
             ConstraintSpec::new(
                 ConstraintType::ExactMatch,
@@ -178,10 +178,10 @@ impl SkClient {
                     SUBCOMPONENT_AUTHORITY_HASH,
                 ],
                 MissingAction::Fail,
-                CertIndex::FromEnd(1),
+                TargetEntry::ByName("Android".to_string()),
             ),
         ];
-        policy_for_dice_chain(dice, &constraint_spec)
+        policy_for_dice_chain(dice, constraint_spec)
             .unwrap()
             .to_vec()
             .context("serialize DICE policy")

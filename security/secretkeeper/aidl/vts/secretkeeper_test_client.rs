@@ -20,7 +20,7 @@ use authgraph_vts_test as ag_vts;
 use authgraph_boringssl as boring;
 use authgraph_core::key;
 use coset::{CborOrdering, CborSerializable, CoseEncrypt0, CoseKey};
-use dice_policy_builder::{CertIndex, ConstraintSpec, ConstraintType, MissingAction, WILDCARD_FULL_ARRAY, policy_for_dice_chain};
+use dice_policy_builder::{TargetEntry, ConstraintSpec, ConstraintType, MissingAction, WILDCARD_FULL_ARRAY, policy_for_dice_chain};
 use rdroidtest::{ignore_if, rdroidtest};
 use secretkeeper_client::dice::OwnedDiceArtifactsWithExplicitKey;
 use secretkeeper_client::{SkSession, Error as SkClientError};
@@ -316,24 +316,24 @@ fn assert_result_matches(res: Result<Secret, Error>, want: SecretkeeperError) {
 ///     a) GreaterOrEqual on SECURITY_VERSION (Required)
 //      b) ExactMatch on AUTHORITY_HASH (Required).
 fn sealing_policy(dice: &[u8]) -> Vec<u8> {
-    let constraint_spec = [
+    let constraint_spec = vec![
         ConstraintSpec::new(
             ConstraintType::ExactMatch,
             vec![AUTHORITY_HASH],
             MissingAction::Fail,
-            CertIndex::All,
+            TargetEntry::All,
         ),
         ConstraintSpec::new(
             ConstraintType::ExactMatch,
             vec![MODE],
             MissingAction::Fail,
-            CertIndex::All,
+            TargetEntry::All,
         ),
         ConstraintSpec::new(
             ConstraintType::GreaterOrEqual,
             vec![CONFIG_DESC, SECURITY_VERSION],
             MissingAction::Ignore,
-            CertIndex::All,
+            TargetEntry::All,
         ),
         // Constraints on sub components in the second last DiceChainEntry
         ConstraintSpec::new(
@@ -345,7 +345,7 @@ fn sealing_policy(dice: &[u8]) -> Vec<u8> {
                 SUBCOMPONENT_SECURITY_VERSION,
             ],
             MissingAction::Fail,
-            CertIndex::FromEnd(1),
+            TargetEntry::ByName("Android".to_string()),
         ),
         ConstraintSpec::new(
             ConstraintType::ExactMatch,
@@ -356,11 +356,11 @@ fn sealing_policy(dice: &[u8]) -> Vec<u8> {
                 SUBCOMPONENT_AUTHORITY_HASH,
             ],
             MissingAction::Fail,
-            CertIndex::FromEnd(1),
+            TargetEntry::ByName("Android".to_string()),
         ),
     ];
 
-    policy_for_dice_chain(dice, &constraint_spec).unwrap().to_vec().unwrap()
+    policy_for_dice_chain(dice, constraint_spec).unwrap().to_vec().unwrap()
 }
 
 /// Perform AuthGraph key exchange, returning the session keys and session ID.
