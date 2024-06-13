@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "550b959b_8c3bb150",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-13T10:54:18Z",
+      "side": 1,
+      "message": "Since the `Stream` is created after `StreamContext`, do you preferred to configure MMap fd in `Module` and change `createStreamContext` to virtual function so that vendor can override them?",
+      "parentUuid": "da1cf7f4_362c5e9c",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 78
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c3966bf_95c001fd",
         "filename": "audio/aidl/default/Stream.cpp",
         "patchSetId": 3
@@ -77,6 +101,30 @@
       "writtenOn": "2024-06-12T23:30:04Z",
       "side": 1,
       "message": "In the case of MMap, both `observable` and `hardware` positions must be updated. They are retrieved on the client side separately, see here: https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/libaudiohal/impl/StreamHalAidl.cpp;l\u003d335;drc\u003d40618538671cb540f485fec790be6a4e1f020d56\n\nThe `observable` position is filled using the same way both for non-MMap and MMap streams. The `hardware` position is reported by tinyALSA via `pcm_mmap_get_hw_ptr`: https://cs.android.com/android/platform/superproject/main/+/main:external/tinyalsa_new/src/pcm.c;l\u003d1601;drc\u003d6a9dc10d114a161332fb6035a9983bc51d0a9c29.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 70
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c8cbbb9_f1b13a37",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-13T10:54:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c3966bf_95c001fd",
       "range": {
         "startLine": 149,
         "startChar": 0,
@@ -133,6 +181,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "235b478d_d8a290c6",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-13T10:54:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f70b38e0_00aaa9b7",
+      "range": {
+        "startLine": 705,
+        "startChar": 0,
+        "endLine": 705,
+        "endChar": 34
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3f789e5_cb82bdff",
@@ -179,6 +251,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c0312a5_fb7b8125",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-13T10:54:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4938ce47_fb2c58a8",
+      "range": {
+        "startLine": 683,
+        "startChar": 0,
+        "endLine": 683,
+        "endChar": 17
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04363ce4_2a547ec0",
@@ -192,6 +288,30 @@
       "writtenOn": "2024-06-12T23:30:04Z",
       "side": 1,
       "message": "Please use `PLOG` for printing `errno`: https://cs.android.com/android/platform/superproject/main/+/main:system/libbase/include/android-base/logging.h;l\u003d240;drc\u003d3891348d37d071a4c496a3bd239e93912f48c966",
+      "range": {
+        "startLine": 898,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 70
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c1e0be0_7ad05abc",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-13T10:54:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04363ce4_2a547ec0",
       "range": {
         "startLine": 898,
         "startChar": 0,
@@ -225,6 +345,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c76c11e2_f4e87dd1",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-13T10:54:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad125470_2fa3ecd9",
+      "range": {
+        "startLine": 985,
+        "startChar": 4,
+        "endLine": 985,
+        "endChar": 11
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a20b00d7_05f56caa",
@@ -238,6 +382,30 @@
       "writtenOn": "2024-06-12T23:30:04Z",
       "side": 1,
       "message": "Long line",
+      "range": {
+        "startLine": 1643,
+        "startChar": 0,
+        "endLine": 1643,
+        "endChar": 114
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdb93d59_34e2b481",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-13T10:54:18Z",
+      "side": 1,
+      "message": "Those are not relate to mmap, so remove them.",
+      "parentUuid": "a20b00d7_05f56caa",
       "range": {
         "startLine": 1643,
         "startChar": 0,
@@ -271,6 +439,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3916e90d_9b4257f5",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3011,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-13T10:54:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bf353a8_2b7176ac",
+      "range": {
+        "startLine": 3010,
+        "startChar": 0,
+        "endLine": 3011,
+        "endChar": 56
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d91bc37_cc4dbb6e",
@@ -284,6 +476,30 @@
       "writtenOn": "2024-06-12T23:30:04Z",
       "side": 1,
       "message": "These `MMap` flags should now be removed, otherwise MMap mix ports will not be tested.",
+      "range": {
+        "startLine": 3062,
+        "startChar": 37,
+        "endLine": 3062,
+        "endChar": 64
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d05a7e9e_23cb033e",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 3062,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-13T10:54:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d91bc37_cc4dbb6e",
       "range": {
         "startLine": 3062,
         "startChar": 37,
