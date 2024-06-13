@@ -102,4 +102,12 @@ interface IGraphicBufferAllocator {
      *     until allocating is unblocked.
      */
     ParcelFileDescriptor getWaitableFd();
+
+
+    /**
+     * Get consumer usage.
+     *
+     * @return consumer usage.
+     */
+    long getConsumerUsage();
 }

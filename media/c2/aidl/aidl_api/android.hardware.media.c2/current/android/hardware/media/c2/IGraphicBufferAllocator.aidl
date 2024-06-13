@@ -37,6 +37,7 @@ interface IGraphicBufferAllocator {
   android.hardware.media.c2.IGraphicBufferAllocator.Allocation allocate(in android.hardware.media.c2.IGraphicBufferAllocator.Description desc);
   boolean deallocate(in long id);
   ParcelFileDescriptor getWaitableFd();
+  long getConsumerUsage();
   parcelable Allocation {
     android.hardware.HardwareBuffer buffer;
     @nullable ParcelFileDescriptor fence;
