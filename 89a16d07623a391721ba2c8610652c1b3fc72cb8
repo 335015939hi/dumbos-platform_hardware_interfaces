@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfefc277_e9c977f5",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-06-13T18:21:00Z",
+      "side": 0,
+      "message": "is anything else using the `KeyPolicy` parcelable? Should that be removed also?",
+      "range": {
+        "startLine": 95,
+        "startChar": 8,
+        "endLine": 95,
+        "endChar": 17
+      },
+      "revId": "89a16d07623a391721ba2c8610652c1b3fc72cb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
