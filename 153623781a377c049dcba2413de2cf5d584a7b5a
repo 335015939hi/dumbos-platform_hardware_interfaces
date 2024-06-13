@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db269927_c66a78c8",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-13T21:05:16Z",
+      "side": 1,
+      "message": "Right, I was thinking that `createStreamContext` should be made virtual so that modules can override it. That\u0027s one option. Another is to create a more specialized virtual function for creating `MMapBufferDescriptor` only which will be called only when we are creating a context for an mmap stream. I think this should be preferred because `createStreamContext` does a lot of stuff, I wouldn\u0027t want module subclasses to re-implement all of it when they just need to provide an MMap buffer. This approach is very close to your `updateMmapBuffer` virtual function, but it\u0027s more explicit and happens before the stream creation for uniformity of the code flow between different types of streams.",
+      "parentUuid": "550b959b_8c3bb150",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 78
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c3966bf_95c001fd",
         "filename": "audio/aidl/default/Stream.cpp",
         "patchSetId": 3
