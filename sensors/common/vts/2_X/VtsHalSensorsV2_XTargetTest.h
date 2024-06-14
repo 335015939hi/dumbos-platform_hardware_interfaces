@@ -632,8 +632,12 @@ void SensorsHidlTest::runFlushTest(const std::vector<SensorInfoType>& sensors, b
         }
 
         // Wait up to one second for the flush events
+<<<<<<< HEAD   (3beaf4 Fix VtsHalSensorsV2_0TargetTest)
         callback.waitForFlushEvents(sensorGroup, flushCalls,
                                     std::chrono::milliseconds(1000) /* timeout */);
+=======
+        callback.waitForFlushEvents(sensorGroup, flushCalls, milliseconds(1000) /* timeout */);
+>>>>>>> BRANCH (8659a9 Fix VtsHalSensorsV2_0TargetTest)
 
         // Deactivate all sensors after waiting for flush events so pending flush events are not
         // abandoned by the HAL.
