@@ -67,3 +67,23 @@ cc_fuzz {
         "keymint_fuzzer_defaults",
     ],
 }
+
+cc_fuzz {
+    name: "keymint_remote_prov_fuzzer",
+    srcs: [
+        "keymint_remote_prov_fuzzer.cpp",
+    ],
+    defaults: [
+        "keymint_fuzzer_defaults",
+    ],
+    static_libs: [
+        "libkeymint_remote_prov_support",
+        "android.hardware.security.rkp-V3-ndk",
+    ],
+    shared_libs: [
+        "libcppbor",
+        "libcppcose_rkp",
+        "libjsoncpp",
+        "libkeymaster_portable",
+    ],
+}
