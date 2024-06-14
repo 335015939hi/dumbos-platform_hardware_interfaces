@@ -25,7 +25,7 @@ use authgraph_core::traits::Sha256;
 use clap::{Args, Parser, Subcommand};
 use coset::CborSerializable;
 use dice_policy_builder::{
-    policy_for_dice_chain, ConstraintSpec, ConstraintType, MissingAction, TargetEntry,
+    policy_for_dice_chain, CertIndex, ConstraintSpec, ConstraintType, MissingAction,
     WILDCARD_FULL_ARRAY,
 };
 
@@ -131,35 +131,33 @@ impl SkClient {
     }
 
     /// Construct a sealing policy on the DICE chain with constraints:
-    /// 1. `ExactMatch` on `AUTHORITY_HASH` (non-optional) on all nodes.
-    /// 2. `ExactMatch` on `MODE` (non-optional) on all nodes.
-    /// 3. `GreaterOrEqual` on `SECURITY_VERSION` (optional) on all nodes.
-    /// 4. The  DiceChainEntry corresponding to "AVB" contains SubcomponentDescriptor, for each of those:
-    ///     a) GreaterOrEqual on SECURITY_VERSION (Required)
-    //      b) ExactMatch on AUTHORITY_HASH (Required).
+    /// 1. `ExactMatch` on `AUTHORITY_HASH` (non-optional).
+    /// 2. `ExactMatch` on `MODE` (non-optional).
+    /// 3. `GreaterOrEqual` on `SECURITY_VERSION` (optional).
     fn sealing_policy(&self) -> Result<Vec<u8>> {
         let dice =
             self.dice_artifacts.explicit_key_dice_chain().context("extract explicit DICE chain")?;
 
-        let constraint_spec = vec![
+        let constraint_spec = [
             ConstraintSpec::new(
                 ConstraintType::ExactMatch,
                 vec![AUTHORITY_HASH],
                 MissingAction::Fail,
-                TargetEntry::All,
+                CertIndex::All,
             ),
             ConstraintSpec::new(
                 ConstraintType::ExactMatch,
                 vec![MODE],
                 MissingAction::Fail,
-                TargetEntry::All,
+                CertIndex::All,
             ),
             ConstraintSpec::new(
                 ConstraintType::GreaterOrEqual,
                 vec![CONFIG_DESC, SECURITY_VERSION],
                 MissingAction::Ignore,
-                TargetEntry::All,
+                CertIndex::All,
             ),
+            // Constraints on sub components in the second last DiceChainEntry
             ConstraintSpec::new(
                 ConstraintType::GreaterOrEqual,
                 vec![
@@ -169,7 +167,7 @@ impl SkClient {
                     SUBCOMPONENT_SECURITY_VERSION,
                 ],
                 MissingAction::Fail,
-                TargetEntry::ByName("AVB".to_string()),
+                CertIndex::FromEnd(1),
             ),
             ConstraintSpec::new(
                 ConstraintType::ExactMatch,
@@ -180,10 +178,10 @@ impl SkClient {
                     SUBCOMPONENT_AUTHORITY_HASH,
                 ],
                 MissingAction::Fail,
-                TargetEntry::ByName("AVB".to_string()),
+                CertIndex::FromEnd(1),
             ),
         ];
-        policy_for_dice_chain(dice, constraint_spec)
+        policy_for_dice_chain(dice, &constraint_spec)
             .unwrap()
             .to_vec()
             .context("serialize DICE policy")
