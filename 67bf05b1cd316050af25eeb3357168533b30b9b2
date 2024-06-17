@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a3f5de3_834ffe26",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-17T19:19:00Z",
+      "side": 1,
+      "message": "I think reopen is a little different than open/close because it will not change the effect into certain state, so no state checking here",
+      "parentUuid": "eae06a86_041dad24",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "67bf05b1cd316050af25eeb3357168533b30b9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7382bc6d_b58c46ae",
@@ -65,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4271ac5_a82d586f",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-17T19:19:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7382bc6d_b58c46ae",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 32
+      },
+      "revId": "67bf05b1cd316050af25eeb3357168533b30b9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef136461_6910571f",
@@ -88,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4105ce4a_d0cc0e7e",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-17T19:19:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef136461_6910571f",
+      "range": {
+        "startLine": 383,
+        "startChar": 12,
+        "endLine": 383,
+        "endChar": 23
+      },
+      "revId": "67bf05b1cd316050af25eeb3357168533b30b9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12c5b80b_345ff1a7",
@@ -101,6 +173,30 @@
       "writtenOn": "2024-06-17T18:25:24Z",
       "side": 1,
       "message": "Will it be more instructive to name this `mInputSizeSamples` or `...InSamples`?",
+      "range": {
+        "startLine": 445,
+        "startChar": 8,
+        "endLine": 445,
+        "endChar": 25
+      },
+      "revId": "67bf05b1cd316050af25eeb3357168533b30b9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d86c7867_44b9dd6d",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-17T19:19:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12c5b80b_345ff1a7",
       "range": {
         "startLine": 445,
         "startChar": 8,
