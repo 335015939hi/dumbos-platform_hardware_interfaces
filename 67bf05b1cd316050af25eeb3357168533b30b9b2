@@ -1,0 +1,114 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eae06a86_041dad24",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-17T18:25:24Z",
+      "side": 1,
+      "message": "Should we also check the state here as in `open`?",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 32
+      },
+      "revId": "67bf05b1cd316050af25eeb3357168533b30b9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7382bc6d_b58c46ae",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-17T18:25:24Z",
+      "side": 1,
+      "message": "Maybe do an early return here to have less of indent?",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 32
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ffd90131_07741517",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 184,
+                "startChar": 0,
+                "endLine": 197,
+                "endChar": 0
+              },
+              "replacement": "        if (status !\u003d EX_NONE) {\n            return;\n        }\n        switch (command) {\n            case CommandId::START:\n                ASSERT_NO_FATAL_FAILURE(expectState(effect, State::PROCESSING));\n                break;\n            case CommandId::STOP:\n                FALLTHROUGH_INTENDED;\n            case CommandId::RESET:\n                ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));\n                break;\n            default:\n                return;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "67bf05b1cd316050af25eeb3357168533b30b9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef136461_6910571f",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-17T18:25:24Z",
+      "side": 1,
+      "message": "`ASSERT_IS_OK`?",
+      "range": {
+        "startLine": 383,
+        "startChar": 12,
+        "endLine": 383,
+        "endChar": 23
+      },
+      "revId": "67bf05b1cd316050af25eeb3357168533b30b9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12c5b80b_345ff1a7",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-17T18:25:24Z",
+      "side": 1,
+      "message": "Will it be more instructive to name this `mInputSizeSamples` or `...InSamples`?",
+      "range": {
+        "startLine": 445,
+        "startChar": 8,
+        "endLine": 445,
+        "endChar": 25
+      },
+      "revId": "67bf05b1cd316050af25eeb3357168533b30b9b2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
