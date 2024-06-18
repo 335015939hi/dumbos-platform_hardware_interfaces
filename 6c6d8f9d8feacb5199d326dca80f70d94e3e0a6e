@@ -16,6 +16,24 @@
       "message": "You might put this in the wrong topic.",
       "revId": "6c6d8f9d8feacb5199d326dca80f70d94e3e0a6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3e37b0d_f579fc71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1318142
+      },
+      "writtenOn": "2024-06-18T19:54:11Z",
+      "side": 1,
+      "message": "unresolved.",
+      "parentUuid": "53925b71_a1076fb8",
+      "revId": "6c6d8f9d8feacb5199d326dca80f70d94e3e0a6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
