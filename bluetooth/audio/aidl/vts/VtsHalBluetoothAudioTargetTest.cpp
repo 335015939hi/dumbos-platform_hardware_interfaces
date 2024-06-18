@@ -3842,6 +3842,76 @@ TEST_P(BluetoothAudioProviderLeAudioInputHardwareAidl,
   ASSERT_FALSE(configurations.empty());
   VerifyIfRequirementsSatisfied(source_requirements, configurations);
 
+  ASSERT_NE(configurations.size(), 0lu);
+  ASSERT_TRUE(configurations.at(0).sourceAseConfiguration.has_value());
+  ASSERT_NE(configurations.at(0).sourceAseConfiguration->size(), 0lu);
+  ASSERT_NE(configurations.at(0)
+                .sourceAseConfiguration->at(0)
+                ->aseConfiguration.codecConfiguration.size(),
+            0lu);
+  ASSERT_TRUE(configurations.at(0)
+                  .sourceAseConfiguration->at(0)
+                  ->qosConfiguration.has_value());
+
+  int32_t frame_blocks = 0;
+  int8_t frame_duration = 0;
+  int32_t octets_per_frame = 0;
+  std::bitset<32> allocation_bitmask = 0;
+  for (auto const& param : configurations.at(0)
+                               .sourceAseConfiguration->at(0)
+                               ->aseConfiguration.codecConfiguration) {
+    if (param.getTag() ==
+        ::aidl::android::hardware::bluetooth::audio::
+            CodecSpecificConfigurationLtv::Tag::codecFrameBlocksPerSDU) {
+      frame_blocks = param
+                         .get<::aidl::android::hardware::bluetooth::audio::
+                                  CodecSpecificConfigurationLtv::Tag::
+                                      codecFrameBlocksPerSDU>()
+                         .value;
+    } else if (param.getTag() ==
+               ::aidl::android::hardware::bluetooth::audio::
+                   CodecSpecificConfigurationLtv::Tag::frameDuration) {
+      frame_duration = static_cast<int8_t>(
+          param.get<::aidl::android::hardware::bluetooth::audio::
+                        CodecSpecificConfigurationLtv::Tag::frameDuration>());
+    } else if (param.getTag() ==
+               ::aidl::android::hardware::bluetooth::audio::
+                   CodecSpecificConfigurationLtv::Tag::octetsPerCodecFrame) {
+      octets_per_frame = static_cast<int32_t>(
+          param
+              .get<
+                  ::aidl::android::hardware::bluetooth::audio::
+                      CodecSpecificConfigurationLtv::Tag::octetsPerCodecFrame>()
+              .value);
+    } else if (param.getTag() ==
+               ::aidl::android::hardware::bluetooth::audio::
+                   CodecSpecificConfigurationLtv::Tag::audioChannelAllocation) {
+      allocation_bitmask = static_cast<int32_t>(
+          param
+              .get<::aidl::android::hardware::bluetooth::audio::
+                       CodecSpecificConfigurationLtv::Tag::
+                           audioChannelAllocation>()
+              .bitmask);
+    }
+  }
+
+  ASSERT_NE(frame_blocks, 0);
+  ASSERT_NE(frame_duration, 0);
+  ASSERT_NE(octets_per_frame, 0);
+
+  auto const num_channels_per_cis = allocation_bitmask.count();
+  ASSERT_NE(num_channels_per_cis, 0);
+
+  // Verify if QoS takes the codec frame blocks per SDU into the account
+  ASSERT_TRUE(configurations.at(0)
+                  .sourceAseConfiguration->at(0)
+                  ->qosConfiguration->sduIntervalUs >=
+              frame_blocks * frame_duration);
+  ASSERT_TRUE(configurations.at(0)
+                  .sourceAseConfiguration->at(0)
+                  ->qosConfiguration->maxSdu >=
+              (frame_blocks * num_channels_per_cis * octets_per_frame));
+
   // Check empty capability for sink direction
   std::vector<LeAudioConfigurationRequirement> sink_requirements = {
       GetUnicastDefaultRequirement(AudioContext::MEDIA, true /* sink */,
