@@ -36,6 +36,7 @@ interface IHwCryptoKey {
   android.hardware.security.see.hwcrypto.IHwCryptoKey.DiceCurrentBoundKeyResult deriveCurrentDicePolicyBoundKey(in android.hardware.security.see.hwcrypto.IHwCryptoKey.DiceBoundDerivationKey derivationKey);
   android.hardware.security.see.hwcrypto.IHwCryptoKey.DiceBoundKeyResult deriveDicePolicyBoundKey(in android.hardware.security.see.hwcrypto.IHwCryptoKey.DiceBoundDerivationKey derivationKey, in byte[] dicePolicyForKeyVersion);
   android.hardware.security.see.hwcrypto.IHwCryptoKey.DerivedKey deriveKey(in android.hardware.security.see.hwcrypto.IHwCryptoKey.DerivedKeyParameters parameters);
+  android.hardware.security.see.hwcrypto.IHwCryptoOperations getHwCryptoOperations();
   enum DeviceKeyId {
     DEVICE_BOUND_KEY,
     BATCH_KEY,

@@ -124,7 +124,6 @@ createVehiclePropValueVec(aidl::android::hardware::automotive::vehicle::VehicleP
             break;  // Valid, but nothing to do.
         default:
             ALOGE("createVehiclePropValue: unknown type: %d", toInt(type));
-            val.reset(nullptr);
     }
     return val;
 }
@@ -329,9 +328,30 @@ struct PropIdAreaIdHash {
     }
 };
 
+// This is for debug purpose only.
 inline std::string propIdToString(int32_t propId) {
     return toString(
             static_cast<aidl::android::hardware::automotive::vehicle::VehicleProperty>(propId));
+}
+
+// This is for debug purpose only.
+android::base::Result<int32_t> stringToPropId(const std::string& propName);
+
+template <typename T>
+void roundToNearestResolution(std::vector<T>& arrayToSanitize, float resolution) {
+    if (resolution == 0) {
+        return;
+    }
+    for (size_t i = 0; i < arrayToSanitize.size(); i++) {
+        arrayToSanitize[i] = (T)((std::round(arrayToSanitize[i] / resolution)) * resolution);
+    }
+}
+
+inline void sanitizeByResolution(aidl::android::hardware::automotive::vehicle::RawPropValues* value,
+                                 float resolution) {
+    roundToNearestResolution(value->int32Values, resolution);
+    roundToNearestResolution(value->floatValues, resolution);
+    roundToNearestResolution(value->int64Values, resolution);
 }
 
 }  // namespace vehicle
