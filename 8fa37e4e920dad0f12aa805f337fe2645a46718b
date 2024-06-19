@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed4abf5b_463a7ad7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1730162
+      },
+      "writtenOn": "2024-06-19T03:54:13Z",
+      "side": 1,
+      "message": "Please test it via VTS as well, such as,\nTest: atest VtsHalBluetoothAudioTargetTest",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "8fa37e4e920dad0f12aa805f337fe2645a46718b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fa9bb0da_9e6a707d",
