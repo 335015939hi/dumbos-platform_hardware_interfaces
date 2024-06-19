@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb68a67c_a72d10fc",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleProxyServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2024-06-19T00:53:06Z",
+      "side": 1,
+      "message": "out of this CL: isn\u0027t `std::unique_ptr\u003cIVehicleHardware\u003e` better than rvalue reference in this case?",
+      "range": {
+        "startLine": 42,
+        "startChar": 47,
+        "endLine": 42,
+        "endChar": 82
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e3213a1f_43b752e0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleProxyServer.cpp",
+              "range": {
+                "startLine": 42,
+                "startChar": 0,
+                "endLine": 43,
+                "endChar": 0
+              },
+              "replacement": "                                               std::unique_ptr\u003cIVehicleHardware\u003e hardware)\n"
+            },
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleProxyServer.cpp",
+              "range": {
+                "startLine": 46,
+                "startChar": 0,
+                "endLine": 47,
+                "endChar": 0
+              },
+              "replacement": "                                               std::unique_ptr\u003cIVehicleHardware\u003e hardware)\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b8931c3dd6ab44caee2b048cad31cd29bac141f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
