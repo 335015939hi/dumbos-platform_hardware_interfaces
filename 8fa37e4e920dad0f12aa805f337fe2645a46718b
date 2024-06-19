@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9d8b2a6d_8f912f30",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 3349112
+      },
+      "writtenOn": "2024-06-19T09:23:21Z",
+      "side": 1,
+      "message": "I have tested and passed the vts test.\nIt is also added to the Test field in commit message.",
+      "parentUuid": "ed4abf5b_463a7ad7",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 30
+      },
+      "revId": "8fa37e4e920dad0f12aa805f337fe2645a46718b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "fa9bb0da_9e6a707d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
