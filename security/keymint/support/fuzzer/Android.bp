@@ -92,3 +92,14 @@ cc_fuzz {
         "keymint_remote_fuzzer_defaults",
     ],
 }
+
+cc_fuzz {
+    name: "keymint_rkpsupport_fuzzer",
+    srcs: [
+        "keymint_rkpsupport_fuzzer.cpp",
+    ],
+    defaults: [
+        "keymint_fuzzer_defaults",
+        "keymint_remote_fuzzer_defaults",
+    ],
+}

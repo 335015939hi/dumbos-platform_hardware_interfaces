@@ -13,6 +13,7 @@ The plugins feed the entire input data to the module. This ensures that the plug
 + [keymint_attestation_fuzzer](#KeyMintAttestation)
 + [keymint_authSet_fuzzer](#KeyMintAuthSet)
 + [keymint_remote_prov_fuzzer](#KeyMintRemoteProv)
++ [keymint_rkpsupport_fuzzer](#KeyMintRemoteKeyProvSupport)
 
 # <a name="KeyMintAttestation"></a> Fuzzer for KeyMintAttestation
 KeyMintAttestation supports the following parameters:
@@ -100,4 +101,31 @@ $ mm -j$(nproc) keymint_remote_prov_fuzzer
 ```
 $ adb sync data
 $ adb shell /data/fuzz/arm64/keymint_remote_prov_fuzzer/keymint_remote_prov_fuzzer
+```
+
+# <a name="KeyMintRemoteKeyProvSupport"></a> Fuzzer for KeyMintRemoteKeyProvSupport
+KeyMintRemoteKeyProvSupport supports the following parameters:
+1. SupportedEekCurve(parameter name: "supportedEekCurve")
+2. Length(parameter name: "length")
+3. SerialNumberProp(parameter name: "serialNoProp")
+4. InstanceName(parameter name: "instanceName")
+5. Value(parameter name: "value")
+
+| Parameter| Valid Values| Configured Value|
+|------------- |--------------| -------------------- |
+|`supportedEekCurve`| `uint8_t` |Value obtained from FuzzedDataProvider|
+|`length`| `uint8_t` |Value obtained from FuzzedDataProvider|
+|`serialNoProp`| `string` |Value obtained from FuzzedDataProvider|
+|`instanceName`| `string` |Value obtained from FuzzedDataProvider|
+|`value`| `uint8_t` |Value obtained from FuzzedDataProvider|
+
+#### Steps to run
+1. Build the fuzzer
+```
+$ mm -j$(nproc) keymint_rkpsupport_fuzzer
+```
+2. Run on device
+```
+$ adb sync data
+$ adb shell /data/fuzz/arm64/keymint_rkpsupport_fuzzer/keymint_rkpsupport_fuzzer
 ```
