@@ -40,7 +40,11 @@ static std::shared_ptr<::grpc::ServerCredentials> getServerCredentials() {
 
 GrpcVehicleProxyServer::GrpcVehicleProxyServer(std::string serverAddr,
                                                std::unique_ptr<IVehicleHardware>&& hardware)
-    : mServiceAddr(std::move(serverAddr)), mHardware(std::move(hardware)) {
+    : GrpcVehicleProxyServer(std::vector<std::string>({serverAddr}), std::move(hardware)){};
+
+GrpcVehicleProxyServer::GrpcVehicleProxyServer(std::vector<std::string> serverAddrs,
+                                               std::unique_ptr<IVehicleHardware>&& hardware)
+    : mServiceAddrs(std::move(serverAddrs)), mHardware(std::move(hardware)) {
     mHardware->registerOnPropertyChangeEvent(
             std::make_unique<const IVehicleHardware::PropertyChangeCallback>(
                     [this](std::vector<aidlvhal::VehiclePropValue> values) {
@@ -254,7 +258,9 @@ GrpcVehicleProxyServer& GrpcVehicleProxyServer::Start() {
     }
     ::grpc::ServerBuilder builder;
     builder.RegisterService(this);
-    builder.AddListeningPort(mServiceAddr, getServerCredentials());
+    for (const std::string& serviceAddr : mServiceAddrs) {
+        builder.AddListeningPort(serviceAddr, getServerCredentials());
+    }
     mServer = builder.BuildAndStart();
     CHECK(mServer) << __func__ << ": failed to create the GRPC server, "
                    << "please make sure the configuration and permissions are correct";
