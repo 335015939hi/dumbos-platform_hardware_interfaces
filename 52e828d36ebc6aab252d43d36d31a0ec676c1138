@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4400920c_75805991",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3845,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-06-19T14:12:01Z",
+      "side": 1,
+      "message": "can we pack it in the helper function\n\nVerifyConfiguration(configurations) and then use it also for the test which is not supporting multidirectional feature?",
+      "revId": "52e828d36ebc6aab252d43d36d31a0ec676c1138",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
