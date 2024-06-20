@@ -144,6 +144,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d7926c9_d35da55e",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-06-20T07:56:49Z",
+      "side": 1,
+      "message": "Ok, let\u0027s keep a line with the spi interface.",
+      "parentUuid": "65205768_3926b359",
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d804a3c_ecb61490",
