@@ -1,0 +1,163 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e0ca67f_1fa8d262",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-06-20T06:13:42Z",
+      "side": 1,
+      "message": "The unit of the `WaitForHardwareResetCompletion` parameter is `us`, but here pass the `Ms` to the parameter.",
+      "fixSuggestions": [
+        {
+          "fixId": "03da134a_6c9c8011",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "threadnetwork/aidl/default/socket_interface.cpp",
+              "range": {
+                "startLine": 196,
+                "startChar": 0,
+                "endLine": 197,
+                "endChar": 0
+              },
+              "replacement": "    return WaitForHardwareResetCompletion(kMaxSelectTimeUs);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd57ca6e_bcf2b9b3",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-06-20T06:13:42Z",
+      "side": 1,
+      "message": "We may need to use different log levels for the log message here.\n\n```\n\n        if (mIsHardwareResetting) {\n            LogInfo(\"Socket connection is closed by remote.\");\n            ResetStates();\n        } else {\n            LogCrit(\"Socket connection is closed by remote.\");\n            exit(OT_EXIT_FAILURE);\n        }\n```",
+      "fixSuggestions": [
+        {
+          "fixId": "335dc582_d203ab86",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "threadnetwork/aidl/default/socket_interface.cpp",
+              "range": {
+                "startLine": 209,
+                "startChar": 0,
+                "endLine": 210,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "threadnetwork/aidl/default/socket_interface.cpp",
+              "range": {
+                "startLine": 211,
+                "startChar": 0,
+                "endLine": 211,
+                "endChar": 0
+              },
+              "replacement": "            LogInfo(\"Socket connection is closed by remote.\");\n"
+            },
+            {
+              "path": "threadnetwork/aidl/default/socket_interface.cpp",
+              "range": {
+                "startLine": 213,
+                "startChar": 0,
+                "endLine": 213,
+                "endChar": 0
+              },
+              "replacement": "            LogCrit(\"Socket connection is closed by remote.\");\n"
+            }
+          ]
+        }
+      ],
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4505e7a_833499c2",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-06-20T06:13:42Z",
+      "side": 1,
+      "message": "There is no need to clear the `mInterfaceMetrics` after the hardware reset executed.",
+      "fixSuggestions": [
+        {
+          "fixId": "c3c4404d_845f74d0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "threadnetwork/aidl/default/socket_interface.cpp",
+              "range": {
+                "startLine": 354,
+                "startChar": 0,
+                "endLine": 356,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d804a3c_ecb61490",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-06-20T06:13:42Z",
+      "side": 1,
+      "message": "nit: align comments",
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09e9437f_fea276bd",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-06-20T06:13:42Z",
+      "side": 1,
+      "message": "nit: align comments",
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
