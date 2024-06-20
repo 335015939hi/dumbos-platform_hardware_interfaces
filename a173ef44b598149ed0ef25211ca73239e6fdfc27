@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e801d563_d751b033",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-06-20T09:19:06Z",
+      "side": 1,
+      "message": "nit: change `uint64_t` to `uint32_t`.",
+      "fixSuggestions": [
+        {
+          "fixId": "d9480ba1_7e0855e6",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "threadnetwork/aidl/default/socket_interface.cpp",
+              "range": {
+                "startLine": 129,
+                "startChar": 0,
+                "endLine": 130,
+                "endChar": 0
+              },
+              "replacement": "otError SocketInterface::WaitForHardwareResetCompletion(uint32_t aTimeoutMs) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a173ef44b598149ed0ef25211ca73239e6fdfc27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
