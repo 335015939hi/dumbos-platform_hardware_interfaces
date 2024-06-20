@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f48b809e_9d9e1a38",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-06-20T08:28:28Z",
+      "side": 1,
+      "message": "Done, thanks for pointing this out.",
+      "parentUuid": "3e0ca67f_1fa8d262",
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd57ca6e_bcf2b9b3",
@@ -87,6 +105,24 @@
           ]
         }
       ],
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbf836ea_9730b7b8",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-06-20T08:28:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd57ca6e_bcf2b9b3",
       "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -179,6 +215,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d59c5ce0_315c54dd",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-06-20T08:28:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d804a3c_ecb61490",
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09e9437f_fea276bd",
@@ -192,6 +246,24 @@
       "writtenOn": "2024-06-20T06:13:42Z",
       "side": 1,
       "message": "nit: align comments",
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a20ac45c_63c48ca7",
+        "filename": "threadnetwork/aidl/default/socket_interface.hpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-06-20T08:28:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09e9437f_fea276bd",
       "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
