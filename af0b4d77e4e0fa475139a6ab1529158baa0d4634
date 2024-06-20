@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65205768_3926b359",
+        "filename": "threadnetwork/aidl/default/socket_interface.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1958755
+      },
+      "writtenOn": "2024-06-20T06:20:16Z",
+      "side": 1,
+      "message": "I did this since I found in spi_interface, it clear the metrics before hardware reset. Or should I clear it before reset?\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:external/openthread/src/posix/platform/spi_interface.cpp;drc\u003dc4d7859d074d97259b11869811a2b5691aeb92a6;l\u003d101",
+      "parentUuid": "c4505e7a_833499c2",
+      "revId": "af0b4d77e4e0fa475139a6ab1529158baa0d4634",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d804a3c_ecb61490",
         "filename": "threadnetwork/aidl/default/socket_interface.hpp",
         "patchSetId": 3
