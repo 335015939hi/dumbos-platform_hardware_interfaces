@@ -49,6 +49,8 @@ static const std::vector<TagVectorPair> kParamsIncreasingVector = {
 
 static const TagVectorPair kDiffusionParam = {EnvironmentalReverb::diffusionPm,
                                               {200, 400, 600, 800, 1000}};
+static const TagVectorPair kDensityParam = {EnvironmentalReverb::densityPm,
+                                            {0, 200, 400, 600, 800, 1000}};
 
 static const std::vector<TagValuePair> kParamsMinimumValue = {
         {EnvironmentalReverb::roomLevelMb, kMinRoomLevel},
@@ -523,6 +525,74 @@ INSTANTIATE_TEST_SUITE_P(
         });
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EnvironmentalReverbDiffusionTest);
+
+enum ParamDensityTest { DESCRIPTOR, TAG_VALUE, PARAM_VALUE, IS_INPUT_MUTE };
+
+class EnvironmentalReverbDensityTest
+    : public ::testing::TestWithParam<std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>,
+                                                 EnvironmentalReverb::Tag, int, bool>>,
+      public EnvironmentalReverbHelper {
+  public:
+    EnvironmentalReverbDensityTest() : EnvironmentalReverbHelper(std::get<DESCRIPTOR>(GetParam())) {
+        mTag = std::get<TAG_VALUE>(GetParam());
+        mParamValues = std::get<PARAM_VALUE>(GetParam());
+        mIsInputMute = (std::get<IS_INPUT_MUTE>(GetParam()));
+        mInput.resize(kBufferSize);
+        if (mIsInputMute) {
+            std::fill(mInput.begin(), mInput.end(), 0);
+        } else {
+            generateSineWaveInput(mInput);
+        }
+    }
+    void SetUp() override { SetUpReverb(); }
+    void TearDown() override { TearDownReverb(); }
+
+    EnvironmentalReverb::Tag mTag;
+    int mParamValues;
+    std::vector<float> mInput;
+    bool mIsInputMute;
+};
+
+TEST_P(EnvironmentalReverbDensityTest, DensityOutput) {
+    float inputRmse =
+            audio_utils_compute_energy_mono(mInput.data(), AUDIO_FORMAT_PCM_FLOAT, mInput.size());
+
+    std::vector<float> output(kBufferSize);
+    setParameterAndProcess(mInput, output, mParamValues, mTag);
+
+    if (isAuxiliary()) {
+        for (size_t i = 0; i < output.size(); i++) {
+            output[i] += mInput[i];
+        }
+    }
+
+    float outputRmse =
+            audio_utils_compute_energy_mono(output.data(), AUDIO_FORMAT_PCM_FLOAT, output.size());
+    if (inputRmse != 0) {
+        EXPECT_GT(outputRmse, 0);
+    } else {
+        EXPECT_EQ(outputRmse, inputRmse);
+    }
+}
+
+INSTANTIATE_TEST_SUITE_P(
+        EnvironmentalReverbTest, EnvironmentalReverbDensityTest,
+        ::testing::Combine(
+                testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
+                                          IFactory::descriptor, getEffectTypeUuidEnvReverb())),
+                testing::Values(kDensityParam.first), testing::ValuesIn(kDensityParam.second),
+                testing::Bool()),
+        [](const testing::TestParamInfo<EnvironmentalReverbDensityTest::ParamType>& info) {
+            auto descriptor = std::get<DESCRIPTOR>(info.param).second;
+            auto tag = std::get<TAG_VALUE>(info.param);
+            auto value = std::get<PARAM_VALUE>(info.param);
+            std::string isInputMute = std::to_string(std::get<IS_INPUT_MUTE>(info.param));
+            std::string name = getPrefix(descriptor) + "_Tag_" + toString(tag) + "_Value_" +
+                               std::to_string(value) + "_isInputMute_" + isInputMute;
+            return name;
+        });
+
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EnvironmentalReverbDensityTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
