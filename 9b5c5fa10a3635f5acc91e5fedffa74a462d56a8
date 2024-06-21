@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b62b5c5_90851109",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-06-21T11:30:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d9be3c1_53e7156c",
+      "revId": "9b5c5fa10a3635f5acc91e5fedffa74a462d56a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8987b9b2_691a5dff",
@@ -60,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "008c94a9_3f9a2aae",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-06-21T11:30:34Z",
+      "side": 1,
+      "message": "Tried getting rid of the unused variable. It throws a build error:\n```\nhardware/interfaces/security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp:47:24: error: placeholder variables are a C++2c extension [-Werror,-Wc++26-extensions]\n   47 |     auto [coseMac0, _, _] \u003d cppbor::parse(macedPubKey.macedKey);\n      |                        ^\n1 error generated.\n17:12:37 ninja failed with: exit status 1\n```",
+      "parentUuid": "8987b9b2_691a5dff",
+      "range": {
+        "startLine": 47,
+        "startChar": 23,
+        "endLine": 47,
+        "endChar": 35
+      },
+      "revId": "9b5c5fa10a3635f5acc91e5fedffa74a462d56a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fce3b7e8_b374d451",
         "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
         "patchSetId": 1
@@ -71,6 +113,30 @@
       "writtenOn": "2024-06-17T11:23:30Z",
       "side": 1,
       "message": "Could do with a check that `coseMac0` is non-`nullptr`",
+      "range": {
+        "startLine": 50,
+        "startChar": 19,
+        "endLine": 50,
+        "endChar": 27
+      },
+      "revId": "9b5c5fa10a3635f5acc91e5fedffa74a462d56a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59295f26_ef7e7705",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-06-21T11:30:34Z",
+      "side": 1,
+      "message": "Added a check.",
+      "parentUuid": "fce3b7e8_b374d451",
       "range": {
         "startLine": 50,
         "startChar": 19,
@@ -106,6 +172,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46bf62f5_ec8901a8",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-06-21T11:30:34Z",
+      "side": 1,
+      "message": "`generateCoseMac0Mac()` uses the above declared lamda `generateHmac()` to generate the required `payload-\u003evalue()`.",
+      "parentUuid": "a9ff778b_3da19a8d",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 82
+      },
+      "revId": "9b5c5fa10a3635f5acc91e5fedffa74a462d56a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "438269f2_48c9c05b",
         "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
         "patchSetId": 1
@@ -117,6 +207,30 @@
       "writtenOn": "2024-06-17T11:23:30Z",
       "side": 1,
       "message": "As with aosp/3066743, can this be moved to a one-off initialization?",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 5
+      },
+      "revId": "9b5c5fa10a3635f5acc91e5fedffa74a462d56a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e153af7_9c9e7eb0",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-06-21T11:30:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "438269f2_48c9c05b",
       "range": {
         "startLine": 65,
         "startChar": 0,
@@ -152,6 +266,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d009520_82c40d71",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-06-21T11:30:34Z",
+      "side": 1,
+      "message": "`cppbor::EncodedItem()` ensures `payloadValue` is properly encoded into the required CBOR format before being added to `cborKeysToSign`. This step is essential for maintaining data integrity and correct encoding, and should not introduce unnecessary overhead.",
+      "parentUuid": "e1972d15_c11f33d7",
+      "range": {
+        "startLine": 83,
+        "startChar": 27,
+        "endLine": 83,
+        "endChar": 60
+      },
+      "revId": "9b5c5fa10a3635f5acc91e5fedffa74a462d56a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2022e241_f7e20184",
         "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
         "patchSetId": 1
@@ -163,6 +301,30 @@
       "writtenOn": "2024-06-17T11:23:30Z",
       "side": 1,
       "message": "IIUC these variants (and the `isCsrWithProperDiceChain` variant below) don\u0027t exercise the underlying `IRemotelyProvisionedComponent` instance, but instead fuzz the support library.  As such, it might make sense to pull them out into a separate fuzzer (which will run faster because it doesn\u0027t do binder calls).",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 18
+      },
+      "revId": "9b5c5fa10a3635f5acc91e5fedffa74a462d56a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99c1bf74_dd1943e2",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-06-21T11:30:34Z",
+      "side": 1,
+      "message": "Moved the requested APIs to a new fuzzer (keymint_rpsupport_fuzzer) except for `isCsrWithProperDiceChain()`, which takes CSR generated by `IRemotelyProvisionedComponent-\u003egenerateCertificateRequestV2()` as an argument. Therefore, this API is retained in the current fuzzer.",
+      "parentUuid": "2022e241_f7e20184",
       "range": {
         "startLine": 91,
         "startChar": 0,
