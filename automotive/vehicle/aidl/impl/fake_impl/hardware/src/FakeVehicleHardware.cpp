@@ -1902,6 +1902,34 @@ Result<int32_t> FakeVehicleHardware::parsePropId(const std::vector<std::string>&
     return safelyParseInt<int32_t>(index, propIdStr);
 }
 
+Result<int32_t> FakeVehicleHardware::parseArea(const std::vector<std::string>& options,
+                                               size_t index, int32_t propId) {
+    const std::string& areaIdStr = options[index];
+    auto result = safelyParseInt<int32_t>(index, areaIdStr);
+    if (result.ok()) {
+        return result;
+    }
+
+    // Check for pattern matching "AREA_1 | AREA_2 | AREA_3".
+    std::regex pattern(R"(^\w+(?:( )?\|( )?\w+)*$)");
+    std::smatch match;
+    int32_t area = 0;
+    if (!std::regex_match(areaIdStr, match, pattern)) {
+        return result;
+    }
+    pattern = R"(\w+)";
+
+    std::sregex_iterator end;
+    for (std::sregex_iterator it(areaIdStr.begin(), areaIdStr.end(), pattern); it != end; it++) {
+        auto result = stringToAreaId(it->str(), propId);
+        if (!result.ok()) {
+            return result;
+        }
+        area |= result.value();
+    }
+    return area;
+}
+
 std::string FakeVehicleHardware::dumpSpecificProperty(const std::vector<std::string>& options) {
     if (auto result = checkArgumentsSize(options, /*minSize=*/2); !result.ok()) {
         return getErrorMsg(result);
@@ -1958,6 +1986,7 @@ Result<VehiclePropValue> FakeVehicleHardware::parsePropOptions(
     prop.status = VehiclePropertyStatus::AVAILABLE;
     optionIndex++;
     std::unordered_set<std::string> parsedOptions;
+    int32_t areaIdIndex = -1;
 
     while (optionIndex < options.size()) {
         std::string argType = options[optionIndex];
@@ -2032,13 +2061,7 @@ Result<VehiclePropValue> FakeVehicleHardware::parsePropOptions(
             if (argValuesSize != 1) {
                 return Error() << "Expect exact one value when using \"-a\"\n";
             }
-            auto int32Result = safelyParseInt<int32_t>(currentIndex, argValues[0]);
-            if (!int32Result.ok()) {
-                return Error() << StringPrintf("Area ID: \"%s\" is not a valid int: %s\n",
-                                               argValues[0].c_str(),
-                                               getErrorMsg(int32Result).c_str());
-            }
-            prop.areaId = int32Result.value();
+            areaIdIndex = currentIndex;
         } else if (EqualsIgnoreCase(argType, "-t")) {
             if (argValuesSize != 1) {
                 return Error() << "Expect exact one value when using \"-t\"\n";
@@ -2053,6 +2076,16 @@ Result<VehiclePropValue> FakeVehicleHardware::parsePropOptions(
         } else {
             return Error() << StringPrintf("Unknown option: %s\n", argType.c_str());
         }
+    }
+
+    if (areaIdIndex != -1) {
+        auto int32Result = parseArea(options, areaIdIndex, prop.prop);
+        if (!int32Result.ok()) {
+            return Error() << StringPrintf("Area ID: \"%s\" is not a valid int or area name: %s\n",
+                                           options[areaIdIndex].c_str(),
+                                           getErrorMsg(int32Result).c_str());
+        }
+        prop.areaId = int32Result.value();
     }
 
     return prop;

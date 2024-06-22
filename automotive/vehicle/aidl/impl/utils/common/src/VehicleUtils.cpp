@@ -25,7 +25,13 @@ namespace vehicle {
 
 using ::aidl::android::hardware::automotive::vehicle::StatusCode;
 using ::aidl::android::hardware::automotive::vehicle::toString;
+using ::aidl::android::hardware::automotive::vehicle::VehicleArea;
 using ::aidl::android::hardware::automotive::vehicle::VehicleAreaConfig;
+using ::aidl::android::hardware::automotive::vehicle::VehicleAreaDoor;
+using ::aidl::android::hardware::automotive::vehicle::VehicleAreaMirror;
+using ::aidl::android::hardware::automotive::vehicle::VehicleAreaSeat;
+using ::aidl::android::hardware::automotive::vehicle::VehicleAreaWheel;
+using ::aidl::android::hardware::automotive::vehicle::VehicleAreaWindow;
 using ::aidl::android::hardware::automotive::vehicle::VehiclePropConfig;
 using ::aidl::android::hardware::automotive::vehicle::VehicleProperty;
 using ::aidl::android::hardware::automotive::vehicle::VehiclePropertyGroup;
@@ -62,6 +68,53 @@ class PropertyIdByNameSingleton {
         constexpr auto values = ndk::internal::enum_values<VehicleProperty>;
         for (unsigned int i = 0; i < values.size(); i++) {
             mPropertyIdByName.emplace(toString(values[i]), toInt(values[i]));
+        }
+    }
+};
+
+class AreaIdByNameSingleton {
+  public:
+    static AreaIdByNameSingleton& getInstance() {
+        static AreaIdByNameSingleton instance;
+        return instance;
+    }
+
+    Result<int32_t> getAreaId(const std::string& name, int32_t propId) const {
+        VehicleArea areaType = getPropArea(propId);
+
+        auto mapIt = mAreaIdByNameByAreaType.find(areaType);
+        if (mapIt == mAreaIdByNameByAreaType.end()) {
+            return Error() << "Invalid area type for property ID: " << propIdToString(propId);
+        }
+
+        const auto& areaIdByName = mapIt->second;
+        auto it = areaIdByName.find(name);
+        if (it == areaIdByName.end()) {
+            return Error() << "Invalid area name for property " << propIdToString(propId) << ": "
+                           << name;
+        }
+        return it->second;
+    }
+
+    AreaIdByNameSingleton(AreaIdByNameSingleton const&) = delete;
+    void operator=(AreaIdByNameSingleton const&) = delete;
+
+  private:
+    std::unordered_map<VehicleArea, std::unordered_map<std::string, int32_t>>
+            mAreaIdByNameByAreaType;
+
+    AreaIdByNameSingleton() {
+        populateMap(VehicleArea::WINDOW, ndk::internal::enum_values<VehicleAreaWindow>);
+        populateMap(VehicleArea::MIRROR, ndk::internal::enum_values<VehicleAreaMirror>);
+        populateMap(VehicleArea::SEAT, ndk::internal::enum_values<VehicleAreaSeat>);
+        populateMap(VehicleArea::DOOR, ndk::internal::enum_values<VehicleAreaDoor>);
+        populateMap(VehicleArea::WHEEL, ndk::internal::enum_values<VehicleAreaWheel>);
+    }
+
+    template <class T, std::size_t N>
+    void populateMap(VehicleArea areaType, std::array<T, N> values) {
+        for (unsigned int i = 0; i < values.size(); i++) {
+            mAreaIdByNameByAreaType[areaType].emplace(toString(values[i]), toInt(values[i]));
         }
     }
 };
@@ -252,6 +305,10 @@ std::string VhalError::print() const {
 
 Result<int32_t> stringToPropId(const std::string& propName) {
     return PropertyIdByNameSingleton::getInstance().getPropertyId(propName);
+}
+
+Result<int32_t> stringToAreaId(const std::string& areaName, int32_t propId) {
+    return AreaIdByNameSingleton::getInstance().getAreaId(areaName, propId);
 }
 
 }  // namespace vehicle
