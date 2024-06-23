@@ -506,6 +506,12 @@ TEST_F(FakeVehicleHardwareTest, testGetDefaultValues) {
             continue;
         }
 
+        if (propId == toInt(VehicleProperty::VEHICLE_IN_USE) ||
+            propId == toInt(VehicleProperty::AP_POWER_BOOTUP_REASON)) {
+            // These may be controller by an external power control unit.
+            continue;
+        }
+
         if (isGlobalProp(propId)) {
             if (config.initialValue == RawPropValues{}) {
                 addGetValueRequest(getValueRequests, expectedGetValueResults, requestId++,
@@ -2607,6 +2613,23 @@ TEST_F(FakeVehicleHardwareTest, testDumpSpecificProperties) {
                                            prop1.c_str(), prop2.c_str(), prop2.c_str())));
 }
 
+TEST_F(FakeVehicleHardwareTest, testDumpSpecificPropertiesWithName) {
+    std::vector<std::string> options;
+    options.push_back("--get");
+    std::string prop1 = "INFO_FUEL_CAPACITY";
+    std::string prop2 = "TIRE_PRESSURE";
+    int prop1Int = toInt(VehicleProperty::INFO_FUEL_CAPACITY);
+    int prop2Int = toInt(VehicleProperty::TIRE_PRESSURE);
+    options.push_back(prop1);
+    options.push_back(prop2);
+    DumpResult result = getHardware()->dump(options);
+    ASSERT_FALSE(result.callerShouldDumpState);
+    ASSERT_NE(result.buffer, "");
+    ASSERT_THAT(result.buffer,
+                ContainsRegex(StringPrintf("1:.*prop: %d.*\n2-0:.*prop: %d.*\n2-1:.*prop: %d.*\n",
+                                           prop1Int, prop2Int, prop2Int)));
+}
+
 TEST_F(FakeVehicleHardwareTest, testDumpSpecificPropertiesInvalidProp) {
     std::vector<std::string> options;
     options.push_back("--get");
@@ -2617,8 +2640,8 @@ TEST_F(FakeVehicleHardwareTest, testDumpSpecificPropertiesInvalidProp) {
     DumpResult result = getHardware()->dump(options);
     ASSERT_FALSE(result.callerShouldDumpState);
     ASSERT_NE(result.buffer, "");
-    ASSERT_THAT(result.buffer, ContainsRegex(StringPrintf("1:.*prop: %s.*\nNo property %d\n",
-                                                          prop1.c_str(), INVALID_PROP_ID)));
+    ASSERT_THAT(result.buffer, ContainsRegex(StringPrintf("1:.*prop: %s.*\nNo property INVALID\n",
+                                                          prop1.c_str())));
 }
 
 TEST_F(FakeVehicleHardwareTest, testDumpSpecificPropertiesNoArg) {
@@ -2701,8 +2724,7 @@ TEST_F(FakeVehicleHardwareTest, testDumpInjectEvent) {
             {"--inject-event", propIdStr, "-i", "1234", "-t", std::to_string(timestamp)});
 
     ASSERT_FALSE(result.callerShouldDumpState);
-    ASSERT_THAT(result.buffer,
-                ContainsRegex(StringPrintf("Event for property: %d injected", prop)));
+    ASSERT_THAT(result.buffer, ContainsRegex("Event for property: ENGINE_OIL_LEVEL injected"));
     ASSERT_TRUE(waitForChangedProperties(prop, 0, /*count=*/1, milliseconds(1000)))
             << "No changed event received for injected event from vehicle bus";
     auto events = getChangedProperties();
@@ -2761,6 +2783,7 @@ std::vector<SetPropTestCase> GenSetPropParams() {
     std::string infoMakeProperty = std::to_string(toInt(VehicleProperty::INFO_MAKE));
     return {
             {"success_set_string", {"--set", infoMakeProperty, "-s", CAR_MAKE}, true},
+            {"success_set_with_name", {"--set", "INFO_MAKE", "-s", CAR_MAKE}, true},
             {"success_set_bytes", {"--set", infoMakeProperty, "-b", "0xdeadbeef"}, true},
             {"success_set_bytes_caps", {"--set", infoMakeProperty, "-b", "0xDEADBEEF"}, true},
             {"success_set_int", {"--set", infoMakeProperty, "-i", "2147483647"}, true},
@@ -2785,10 +2808,7 @@ std::vector<SetPropTestCase> GenSetPropParams() {
              false,
              "No values specified"},
             {"fail_unknown_options", {"--set", infoMakeProperty, "-abcd"}, false, "Unknown option"},
-            {"fail_invalid_property",
-             {"--set", "not valid", "-s", CAR_MAKE},
-             false,
-             "not a valid int"},
+            {"fail_invalid_property", {"--set", "not_valid", "-s", CAR_MAKE}, false, "not valid"},
             {"fail_duplicate_string",
              {"--set", infoMakeProperty, "-s", CAR_MAKE, "-s", CAR_MAKE},
              false,
@@ -3442,6 +3462,14 @@ TEST_F(FakeVehicleHardwareTest, testSubscribeUnusubscribe_onChange) {
 
     ASSERT_FALSE(waitForChangedProperties(propHvac, areaId, /*count=*/1, milliseconds(100)))
             << "must not receive on change events if the propId, areaId is unsubscribed";
+}
+
+TEST_F(FakeVehicleHardwareTest, testSubscribeContinuous_rate0_mustReturnInvalidArg) {
+    int32_t propSpeed = toInt(VehicleProperty::PERF_VEHICLE_SPEED);
+    int32_t areaId = 0;
+    auto status = getHardware()->subscribe(newSubscribeOptions(propSpeed, areaId, 0));
+
+    ASSERT_EQ(status, StatusCode::INVALID_ARG);
 }
 
 TEST_F(FakeVehicleHardwareTest, testSetHvacTemperatureValueSuggestion) {

@@ -40,7 +40,7 @@ aidl_interface {
             enabled: true,
         },
     },
-    frozen: false,
+    frozen: true,
     versions_with_info: [
         {
             version: "1",
@@ -62,6 +62,10 @@ aidl_interface {
         },
         {
             version: "4",
+            imports: ["android.hardware.common-V2"],
+        },
+        {
+            version: "5",
             imports: ["android.hardware.common-V2"],
         },
 
