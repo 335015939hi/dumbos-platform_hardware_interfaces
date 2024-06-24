@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0655bf4f_09bd59b5",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BroadcastCapability.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-06-24T15:30:33Z",
+      "side": 1,
+      "message": "What is this integer supposed to be? Why does `AudioLocation` no longer work?\n\nWe don\u0027t want integers that aren\u0027t well defined in HAL interfaces.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "d835349b916ba6d0a18adced997c4322ad4dc9ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
