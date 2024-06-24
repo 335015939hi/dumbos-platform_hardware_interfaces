@@ -139,6 +139,7 @@ class StreamContext {
     // 'advanceFrameCount' and 'getFrameCount' are only called on the worker thread.
     long advanceFrameCount(size_t increase) { return mFrameCount += increase; }
     long getFrameCount() const { return mFrameCount; }
+    bool isMmapped() const;
 
   private:
     // Fields are non const to allow move assignment.
@@ -175,6 +176,10 @@ struct DriverInterface {
     // data than just total frame count. For example, the driver may correctly account
     // for any intermediate buffers.
     virtual ::android::status_t refinePosition(StreamDescriptor::Position* /*position*/) {
+        return ::android::OK;
+    }
+    virtual ::android::status_t refineMmapPosition(StreamDescriptor::Position* /*position*/,
+                                                   int32_t* /*latency*/) {
         return ::android::OK;
     }
     virtual void shutdown() = 0;  // This function is only called once.
@@ -241,6 +246,8 @@ struct StreamWorkerInterface {
     virtual bool start() = 0;
     virtual pid_t getTid() = 0;
     virtual void stop() = 0;
+    virtual bool hasError() = 0;
+    virtual std::string getError() = 0;
 };
 
 template <class WorkerLogic>
@@ -260,6 +267,8 @@ class StreamWorkerImpl : public StreamWorkerInterface,
     }
     pid_t getTid() override { return WorkerImpl::getTid(); }
     void stop() override { return WorkerImpl::stop(); }
+    bool hasError() override { return WorkerImpl::hasError(); }
+    std::string getError() override { return WorkerImpl::getError(); }
 };
 
 class StreamInWorkerLogic : public StreamWorkerCommonLogic {

@@ -205,15 +205,15 @@ ndk::ScopedAStatus Module::createStreamContext(
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
     const auto& flags = portConfigIt->flags.value();
+    StreamContext::DebugParameters params{mDebug.streamTransientStateDelayMs,
+                                          mVendorDebug.forceTransientBurst,
+                                          mVendorDebug.forceSynchronousDrain};
     if ((flags.getTag() == AudioIoFlags::Tag::input &&
          !isBitPositionFlagSet(flags.get<AudioIoFlags::Tag::input>(),
                                AudioInputFlags::MMAP_NOIRQ)) ||
         (flags.getTag() == AudioIoFlags::Tag::output &&
          !isBitPositionFlagSet(flags.get<AudioIoFlags::Tag::output>(),
                                AudioOutputFlags::MMAP_NOIRQ))) {
-        StreamContext::DebugParameters params{mDebug.streamTransientStateDelayMs,
-                                              mVendorDebug.forceTransientBurst,
-                                              mVendorDebug.forceSynchronousDrain};
         std::shared_ptr<ISoundDose> soundDose;
         if (!getSoundDose(&soundDose).isOk()) {
             LOG(ERROR) << __func__ << ": could not create sound dose instance";
@@ -233,7 +233,19 @@ ndk::ScopedAStatus Module::createStreamContext(
             return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
         }
     } else {
-        // TODO: Implement simulation of MMAP buffer allocation
+        StreamContext temp(
+                std::make_unique<StreamContext::CommandMQ>(1, true /*configureEventFlagWord*/),
+                std::make_unique<StreamContext::ReplyMQ>(1, true /*configureEventFlagWord*/),
+                portConfigIt->format.value(), portConfigIt->channelMask.value(),
+                portConfigIt->sampleRate.value().value, flags, nominalLatencyMs,
+                portConfigIt->ext.get<AudioPortExt::mix>().handle,
+                nullptr,
+                nullptr, nullptr, std::weak_ptr<sounddose::StreamDataProcessorInterface>(), params);
+        if (temp.isValid()) {
+            *out_context = std::move(temp);
+        } else {
+            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
+        }
     }
     return ndk::ScopedAStatus::ok();
 }
@@ -371,6 +383,12 @@ int32_t Module::getNominalLatencyMs(const AudioPortConfig&) {
     // Arbitrary value. Implementations must override this method to provide their actual latency.
     static constexpr int32_t kLatencyMs = 5;
     return kLatencyMs;
+}
+
+ndk::ScopedAStatus Module::createMmapBuffer(
+        const ::aidl::android::hardware::audio::core::StreamContext& context __unused,
+        ::aidl::android::hardware::audio::core::StreamDescriptor* desc __unused) {
+    return ndk::ScopedAStatus::ok();
 }
 
 std::vector<AudioRoute*> Module::getAudioRoutesForAudioPortImpl(int32_t portId) {
@@ -866,6 +884,9 @@ ndk::ScopedAStatus Module::openInputStream(const OpenInputStreamArguments& in_ar
     RETURN_STATUS_IF_ERROR(createStreamContext(in_args.portConfigId, in_args.bufferSizeFrames,
                                                nullptr, nullptr, &context));
     context.fillDescriptor(&_aidl_return->desc);
+    if (context.isMmapped()) {
+        RETURN_STATUS_IF_ERROR(createMmapBuffer(context, &_aidl_return->desc));
+    }
     std::shared_ptr<StreamIn> stream;
     RETURN_STATUS_IF_ERROR(createInputStream(std::move(context), in_args.sinkMetadata,
                                              getMicrophoneInfos(), &stream));
@@ -913,6 +934,9 @@ ndk::ScopedAStatus Module::openOutputStream(const OpenOutputStreamArguments& in_
                                                isNonBlocking ? in_args.callback : nullptr,
                                                in_args.eventCallback, &context));
     context.fillDescriptor(&_aidl_return->desc);
+    if (context.isMmapped()) {
+        RETURN_STATUS_IF_ERROR(createMmapBuffer(context, &_aidl_return->desc));
+    }
     std::shared_ptr<StreamOut> stream;
     RETURN_STATUS_IF_ERROR(createOutputStream(std::move(context), in_args.sourceMetadata,
                                               in_args.offloadInfo, &stream));

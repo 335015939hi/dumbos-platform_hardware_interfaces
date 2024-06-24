@@ -46,6 +46,15 @@ using aidl::android::media::audio::common::MicrophoneInfo;
 
 namespace aidl::android::hardware::audio::core {
 
+bool StreamContext::isMmapped() const {
+    return (mFlags.getTag() == AudioIoFlags::Tag::input &&
+            isBitPositionFlagSet(mFlags.template get<AudioIoFlags::Tag::input>(),
+                                 AudioInputFlags::MMAP_NOIRQ)) ||
+           (mFlags.getTag() == AudioIoFlags::Tag::output &&
+            isBitPositionFlagSet(mFlags.template get<AudioIoFlags::Tag::output>(),
+                                 AudioOutputFlags::MMAP_NOIRQ));
+}
+
 void StreamContext::fillDescriptor(StreamDescriptor* desc) {
     if (mCommandMQ) {
         desc->command = mCommandMQ->dupeDesc();
@@ -84,9 +93,11 @@ bool StreamContext::isValid() const {
         LOG(ERROR) << "frame size is invalid";
         return false;
     }
-    if (mDataMQ && !mDataMQ->isValid()) {
-        LOG(ERROR) << "data FMQ is invalid";
-        return false;
+    if (!isMmapped()) {
+        if (mDataMQ && !mDataMQ->isValid()) {
+            LOG(ERROR) << "data FMQ is invalid";
+            return false;
+        }
     }
     return true;
 }
@@ -116,17 +127,19 @@ pid_t StreamWorkerCommonLogic::getTid() const {
 std::string StreamWorkerCommonLogic::init() {
     if (mContext->getCommandMQ() == nullptr) return "Command MQ is null";
     if (mContext->getReplyMQ() == nullptr) return "Reply MQ is null";
-    StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
-    if (dataMQ == nullptr) return "Data MQ is null";
-    if (sizeof(DataBufferElement) != dataMQ->getQuantumSize()) {
-        return "Unexpected Data MQ quantum size: " + std::to_string(dataMQ->getQuantumSize());
-    }
-    mDataBufferSize = dataMQ->getQuantumCount() * dataMQ->getQuantumSize();
-    mDataBuffer.reset(new (std::nothrow) DataBufferElement[mDataBufferSize]);
-    if (mDataBuffer == nullptr) {
-        return "Failed to allocate data buffer for element count " +
-               std::to_string(dataMQ->getQuantumCount()) +
-               ", size in bytes: " + std::to_string(mDataBufferSize);
+    if (!mContext->isMmapped()) {
+        StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
+        if (dataMQ == nullptr) return "Data MQ is null";
+        if (sizeof(DataBufferElement) != dataMQ->getQuantumSize()) {
+            return "Unexpected Data MQ quantum size: " + std::to_string(dataMQ->getQuantumSize());
+        }
+        mDataBufferSize = dataMQ->getQuantumCount() * dataMQ->getQuantumSize();
+        mDataBuffer.reset(new (std::nothrow) DataBufferElement[mDataBufferSize]);
+        if (mDataBuffer == nullptr) {
+            return "Failed to allocate data buffer for element count " +
+                   std::to_string(dataMQ->getQuantumCount()) +
+                   ", size in bytes: " + std::to_string(mDataBufferSize);
+        }
     }
     if (::android::status_t status = mDriver->init(); status != STATUS_OK) {
         return "Failed to initialize the driver: " + std::to_string(status);
@@ -141,11 +154,20 @@ void StreamWorkerCommonLogic::populateReply(StreamDescriptor::Reply* reply,
         reply->observable.frames = mContext->getFrameCount();
         reply->observable.timeNs = ::android::uptimeNanos();
         if (auto status = mDriver->refinePosition(&reply->observable); status == ::android::OK) {
-            return;
+        }
+    } else {
+        reply->observable.frames = StreamDescriptor::Position::UNKNOWN;
+        reply->observable.timeNs = StreamDescriptor::Position::UNKNOWN;
+    }
+    if (mContext->isMmapped()) {
+        int32_t latency = mContext->getNominalLatencyMs();
+        reply->hardware.frames = mContext->getFrameCount();
+        reply->hardware.timeNs = ::android::uptimeNanos();
+        if (auto status = mDriver->refineMmapPosition(&reply->hardware, &latency);
+                status == ::android::OK) {
+            reply->latencyMs = latency;
         }
     }
-    reply->observable.frames = StreamDescriptor::Position::UNKNOWN;
-    reply->observable.timeNs = StreamDescriptor::Position::UNKNOWN;
 }
 
 void StreamWorkerCommonLogic::populateReplyWrongState(
@@ -224,8 +246,14 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
                     mState == StreamDescriptor::State::ACTIVE ||
                     mState == StreamDescriptor::State::PAUSED ||
                     mState == StreamDescriptor::State::DRAINING) {
-                    if (!read(fmqByteCount, &reply)) {
-                        mState = StreamDescriptor::State::ERROR;
+                    if (mContext->isMmapped()) {
+                        reply.fmqByteCount += fmqByteCount;
+                        mContext->advanceFrameCount(fmqByteCount);
+                        populateReply(&reply, true);
+                    } else {
+                        if (!read(fmqByteCount, &reply)) {
+                            mState = StreamDescriptor::State::ERROR;
+                        }
                     }
                     if (mState == StreamDescriptor::State::IDLE ||
                         mState == StreamDescriptor::State::PAUSED) {
@@ -470,8 +498,14 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
                 if (mState != StreamDescriptor::State::ERROR &&
                     mState != StreamDescriptor::State::TRANSFERRING &&
                     mState != StreamDescriptor::State::TRANSFER_PAUSED) {
-                    if (!write(fmqByteCount, &reply)) {
-                        mState = StreamDescriptor::State::ERROR;
+                    if (mContext->isMmapped()) {
+                        reply.fmqByteCount += fmqByteCount;
+                        mContext->advanceFrameCount(fmqByteCount);
+                        populateReply(&reply, true);
+                    } else {
+                        if (!write(fmqByteCount, &reply)) {
+                            mState = StreamDescriptor::State::ERROR;
+                        }
                     }
                     std::shared_ptr<IStreamCallback> asyncCallback = mContext->getAsyncCallback();
                     if (mState == StreamDescriptor::State::STANDBY ||
@@ -657,6 +691,7 @@ ndk::ScopedAStatus StreamCommonImpl::initInstance(
         const std::shared_ptr<StreamCommonInterface>& delegate) {
     mCommon = ndk::SharedRefBase::make<StreamCommonDelegator>(delegate);
     if (!mWorker->start()) {
+        LOG(ERROR) << __func__ << ": mWorker errors, " <<  mWorker->getError();
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
     if (auto flags = getContext().getFlags();
