@@ -256,6 +256,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf345654_7cc62aab",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "Yes, as specified here: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/android/hardware/audio/core/StreamDescriptor.aidl;l\u003d500;drc\u003d30301a42c76f82485c657f66bcdd0654564e5c9e, the client will still be sending `burst` commands for obtaining the current position and latency.",
+      "parentUuid": "15cf0d07_611010a4",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 94
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f70b38e0_00aaa9b7",
         "filename": "audio/aidl/default/Stream.cpp",
         "patchSetId": 3

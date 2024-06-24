@@ -1,0 +1,321 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52c9d9f4_ff250ee5",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "There should be no two almost identical paths for creating the context. I understand that the original code has this `if` but we should actually get rid of it. What we need to do is to have a local boolean `isMmap`, and then when creating a `StreamContext` use it as a conditional when passing in parameters:\n\n```\n        StreamContext temp(\n                std::make_unique\u003cStreamContext::CommandMQ\u003e(1, true /*configureEventFlagWord*/),\n                std::make_unique\u003cStreamContext::ReplyMQ\u003e(1, true /*configureEventFlagWord*/),\n                portConfigIt-\u003eformat.value(), portConfigIt-\u003echannelMask.value(),\n                portConfigIt-\u003esampleRate.value().value, flags, nominalLatencyMs,\n                portConfigIt-\u003eext.get\u003cAudioPortExt::mix\u003e().handle,\n                isMmap ? nullptr : std::make_unique\u003cStreamContext::DataMQ\u003e(frameSize * in_bufferSizeFrames),\n                isMmap ? nullptr : asyncCallback, outEventCallback, mSoundDose.getInstance(), params);\n```",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 6
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9b27492_40ebc286",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "This should be a function in https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/common/include/Utils.h which takes flags as a parameter. Then it can be used here and in `StreamContext`.",
+      "range": {
+        "startLine": 211,
+        "startChar": 8,
+        "endLine": 216,
+        "endChar": 61
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64ec11ef_bafbac9d",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "I think `IStreamOutEventCallback.onRecommendedLatencyModeChanged` can be used with MMap, so we should pass `outEventCallback` in here.",
+      "range": {
+        "startLine": 243,
+        "startChar": 25,
+        "endLine": 243,
+        "endChar": 32
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9a627c5_9e60338e",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "Please add a log warning that creation of MMap buffer is not implemented.",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 391,
+        "endChar": 4
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c68d051a_1bf547e4",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "Instead of `StreamContext`, please add this function to https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/common/include/Utils.h, taking flags as a parameter.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 0
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44087370_61d2d7fc",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "Should be one `if` statement.",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 45
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "80e91261_067fc1db",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 96,
+                "startChar": 0,
+                "endLine": 101,
+                "endChar": 0
+              },
+              "replacement": "    if (!isMmapped() \u0026\u0026 mDataMQ \u0026\u0026 !mDataMQ-\u003eisValid()) {\n        LOG(ERROR) \u003c\u003c \"data FMQ is invalid\";\n        return false;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecb796c4_e997acf5",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "I think this should look like this:\n\n```\n    static const StreamDescriptor::Position kUnknownPosition \u003d {\n        .frames \u003d StreamDescriptor::Position::UNKNOWN,\n        .timeNs \u003d  StreamDescriptor::Position::UNKNOWN\n    };\n    reply-\u003estatus \u003d STATUS_OK;\n    if (isConnected) {\n        reply-\u003eobservable.frames \u003d mContext-\u003egetFrameCount();\n        reply-\u003eobservable.timeNs \u003d ::android::uptimeNanos();\n        if (auto status \u003d mDriver-\u003erefinePosition(\u0026reply-\u003eobservable); status !\u003d ::android::OK) {\n            reply-\u003eobservable \u003d kUnknownPosition;\n        }\n        if (mContext-\u003eisMmapped()) {\n            if (auto status \u003d mDriver-\u003egetMmapPosition(\u0026reply-\u003ehardware, \u0026reply-\u003elatencyMs); status !\u003d ::android::OK) {\n                reply-\u003ehardware \u003d kUnknownPosition;\n                reply-\u003elatencyMs \u003d StreamDescriptor::LATENCY_UNKNOWN;\n            }\n        }\n    } else {\n        reply-\u003eobservable \u003d reply-\u003ehardware \u003d kUnknownPosition;\n    }\n```",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 9
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0fbe6e6_d06267dd",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "For the MMap, the `fmqByteCount` will always be `0` because the data FMQ is not used. So, this should look like the following:\n\n```\n                    if (mContext-\u003eisMmapped()) {\n                        populateReply(\u0026reply, mIsConnected);\n                    } else if (!read(fmqByteCount, \u0026reply)) {\n                        mState \u003d StreamDescriptor::State::ERROR;\n                    }\n```",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 21
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e242017_5c305449",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "Please see the comment for the input stream case.",
+      "range": {
+        "startLine": 501,
+        "startChar": 0,
+        "endLine": 509,
+        "endChar": 21
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfb7b281_ab978ae2",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "`error: `",
+      "range": {
+        "startLine": 694,
+        "startChar": 45,
+        "endLine": 694,
+        "endChar": 52
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abc67814_60de063a",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "Since the module can\u0027t estimate the hardware pointer position, it must always get it from the implementation, I suggest calling this `getMmapPositionAndLatency`. For clarity, please put a comment that the driver supporting MMap must provide an actual implementation of this function.",
+      "range": {
+        "startLine": 181,
+        "startChar": 32,
+        "endLine": 181,
+        "endChar": 50
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60684996_3d22ed53",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "This is not used, should be removed.",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 32
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f0b5ac0_94ca5a18",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-24T22:12:20Z",
+      "side": 1,
+      "message": "The shared memory must be opened and be owned by the `StreamContext`, not by the stream, similar to how the context owns the FMQs.",
+      "range": {
+        "startLine": 892,
+        "startChar": 0,
+        "endLine": 896,
+        "endChar": 47
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
