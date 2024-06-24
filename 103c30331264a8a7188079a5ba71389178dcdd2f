@@ -1,0 +1,252 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "908dacf2_e7c478e0",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:35:52Z",
+      "side": 1,
+      "message": "nit: parseAreaId() because it relates to parsing a whole areaID, not just a single area",
+      "range": {
+        "startLine": 1905,
+        "startChar": 37,
+        "endLine": 1905,
+        "endChar": 46
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62d413ab_1a43495d",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2084,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:35:52Z",
+      "side": 1,
+      "message": "one or more area names",
+      "range": {
+        "startLine": 2084,
+        "startChar": 82,
+        "endLine": 2084,
+        "endChar": 91
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db7449a7_efd77a30",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/test/FakeVehicleHardwareTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2947,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:35:52Z",
+      "side": 1,
+      "message": "Can you add a test to make sure that integer area ID still works",
+      "range": {
+        "startLine": 2947,
+        "startChar": 32,
+        "endLine": 2947,
+        "endChar": 67
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67d06c6a_bf423c55",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/include/VehicleUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:35:52Z",
+      "side": 1,
+      "message": "stringToArea",
+      "range": {
+        "startLine": 341,
+        "startChar": 31,
+        "endLine": 341,
+        "endChar": 45
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84db5e33_79775fa4",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:35:52Z",
+      "side": 1,
+      "message": "AreasByNameSingleton",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca7bc36e_7c61393b",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:35:52Z",
+      "side": 1,
+      "message": "getArea",
+      "range": {
+        "startLine": 82,
+        "startChar": 20,
+        "endLine": 82,
+        "endChar": 29
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e39136aa_209c3b60",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:35:52Z",
+      "side": 1,
+      "message": "nit: getPropAreaType, I know this is outside this CL, but can you update the function name for consistency?",
+      "range": {
+        "startLine": 83,
+        "startChar": 31,
+        "endLine": 83,
+        "endChar": 42
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "795d335b_ade8ef3b",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:35:52Z",
+      "side": 1,
+      "message": "areasByName",
+      "range": {
+        "startLine": 90,
+        "startChar": 20,
+        "endLine": 90,
+        "endChar": 32
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c042df2_e44ff951",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:35:52Z",
+      "side": 1,
+      "message": "nit: mAreasByNameByAreaType",
+      "range": {
+        "startLine": 104,
+        "startChar": 12,
+        "endLine": 104,
+        "endChar": 35
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7513bf8f_37af4a7c",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:35:52Z",
+      "side": 1,
+      "message": "nit: stringToArea() since it only parses and area name to produce the area value",
+      "range": {
+        "startLine": 310,
+        "startChar": 16,
+        "endLine": 310,
+        "endChar": 30
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "493e1e20_779bd870",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+              "range": {
+                "startLine": 310,
+                "startChar": 0,
+                "endLine": 311,
+                "endChar": 0
+              },
+              "replacement": "Result\u003cint32_t\u003e stringToArea(const std::string\u0026 areaName, int32_t propId) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
