@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75767c02_b1c4f952",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-24T07:07:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aa570af_c22c0865",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 222,
+        "endChar": 85
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da1cf7f4_362c5e9c",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Right, I was thinking that `createStreamContext` should be made virtual so that modules can override it. That\u0027s one option. Another is to create a more specialized virtual function for creating `MMapBufferDescriptor` only which will be called only when we are creating a context for an mmap stream. I think this should be preferred because `createStreamContext` does a lot of stuff, I wouldn\u0027t want module subclasses to re-implement all of it when they just need to provide an MMap buffer. This approach is very close to your `updateMmapBuffer` virtual function, but it\u0027s more explicit and happens before the stream creation for uniformity of the code flow between different types of streams.",
       "parentUuid": "550b959b_8c3bb150",
+      "range": {
+        "startLine": 864,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 78
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd76d785_55d5b490",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-24T07:07:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db269927_c66a78c8",
       "range": {
         "startLine": 864,
         "startChar": 0,
@@ -184,6 +232,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15cf0d07_611010a4",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-24T07:07:35Z",
+      "side": 1,
+      "message": "For compatible reason, I think adding new `refineMmapPosition` and do update in  `populateReply` for latency in mmap case is a better way. However, this means client side need to copy data to fd and sending `burst` command for position and latency. Is this change make sense to you?",
+      "parentUuid": "0724c707_a8c0531b",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 334,
+        "endChar": 94
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f70b38e0_00aaa9b7",
         "filename": "audio/aidl/default/Stream.cpp",
         "patchSetId": 3
@@ -242,6 +314,30 @@
       "writtenOn": "2024-06-12T23:30:04Z",
       "side": 1,
       "message": "This is in interface, all its methods must be abstract, no implementations.",
+      "range": {
+        "startLine": 343,
+        "startChar": 76,
+        "endLine": 345,
+        "endChar": 5
+      },
+      "revId": "153623781a377c049dcba2413de2cf5d584a7b5a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e425c1e_b2b89460",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-24T07:07:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3f789e5_cb82bdff",
       "range": {
         "startLine": 343,
         "startChar": 76,
