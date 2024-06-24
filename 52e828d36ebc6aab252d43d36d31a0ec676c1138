@@ -16,6 +16,24 @@
       "message": "can we pack it in the helper function\n\nVerifyConfiguration(configurations) and then use it also for the test which is not supporting multidirectional feature?",
       "revId": "52e828d36ebc6aab252d43d36d31a0ec676c1138",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b1efb60_497873ce",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 3845,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2024-06-24T11:12:59Z",
+      "side": 1,
+      "message": "I\u0027ve added it as `VerifyCodecParameters()` call under the `VerifyIfRequirementsSatisfied()` helper.",
+      "parentUuid": "4400920c_75805991",
+      "revId": "52e828d36ebc6aab252d43d36d31a0ec676c1138",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
