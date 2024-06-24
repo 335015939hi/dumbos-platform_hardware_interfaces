@@ -227,6 +227,8 @@ class StreamWorkerCommonLogic : public ::android::hardware::audio::common::Strea
     // memory allocation issues.
     std::unique_ptr<DataBufferElement[]> mDataBuffer;
     size_t mDataBufferSize;
+    // Cache the drain mode
+    StreamDescriptor::DrainMode mCachedDrainMode;
 };
 
 // This interface is used to decouple stream implementations from a concrete StreamWorker

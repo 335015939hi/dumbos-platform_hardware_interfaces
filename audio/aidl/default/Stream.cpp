@@ -246,8 +246,9 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
             }
             break;
         case Tag::drain:
-            if (const auto mode = command.get<Tag::drain>();
-                mode == StreamDescriptor::DrainMode::DRAIN_UNSPECIFIED) {
+            const auto mode = command.get<Tag::drain>();
+            mCachedDrainMode = mode;
+            if (mode == StreamDescriptor::DrainMode::DRAIN_UNSPECIFIED) {
                 if (mState == StreamDescriptor::State::ACTIVE) {
                     if (::android::status_t status = mDriver->drain(mode);
                         status == ::android::OK) {
@@ -454,6 +455,13 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
                     if (*nextState == StreamDescriptor::State::IDLE ||
                         *nextState == StreamDescriptor::State::ACTIVE) {
                         mState = *nextState;
+                    } else if (*nextState == StreamDescriptor::State::DRAINING) {
+                        if (status = mDriver->drain(mCachedDrainMode); status == ::android::OK) {
+                            switchToTransientState(*nextState);
+                        } else {
+                            LOG(ERROR) << __func__ << ": drain failed: " << status;
+                            mState = StreamDescriptor::State::ERROR;
+                        }
                     } else {
                         switchToTransientState(*nextState);
                     }
@@ -500,8 +508,9 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
             }
             break;
         case Tag::drain:
-            if (const auto mode = command.get<Tag::drain>();
-                mode == StreamDescriptor::DrainMode::DRAIN_ALL ||
+            const auto mode = command.get<Tag::drain>();
+            mCachedDrainMode = mode;
+            if (mode == StreamDescriptor::DrainMode::DRAIN_ALL ||
                 mode == StreamDescriptor::DrainMode::DRAIN_EARLY_NOTIFY) {
                 if (mState == StreamDescriptor::State::ACTIVE ||
                     mState == StreamDescriptor::State::TRANSFERRING) {
