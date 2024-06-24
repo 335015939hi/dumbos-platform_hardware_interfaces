@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8a71f2a_cac6e8c1",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-06-24T22:57:03Z",
+      "side": 1,
+      "message": "lol yeah it is confusing. Yeah one or more areas make up an area ID.",
+      "parentUuid": "6987722a_b4b31367",
+      "range": {
+        "startLine": 1905,
+        "startChar": 37,
+        "endLine": 1905,
+        "endChar": 46
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "62d413ab_1a43495d",
         "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
         "patchSetId": 1
