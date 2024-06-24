@@ -874,7 +874,7 @@ ndk::ScopedAStatus Module::openInputStream(const OpenInputStreamArguments& in_ar
         RETURN_STATUS_IF_ERROR(
                 streamWrapper.setConnectedDevices(findConnectedDevices(in_args.portConfigId)));
     }
-    auto streamBinder = streamWrapper.getBinder();
+    auto streamBinder = stream->asBinder();
     AIBinder_setMinSchedulerPolicy(streamBinder.get(), SCHED_NORMAL, ANDROID_PRIORITY_AUDIO);
     AIBinder_setInheritRt(streamBinder.get(), true);
     mStreams.insert(port->id, in_args.portConfigId, std::move(streamWrapper));
@@ -921,7 +921,7 @@ ndk::ScopedAStatus Module::openOutputStream(const OpenOutputStreamArguments& in_
         RETURN_STATUS_IF_ERROR(
                 streamWrapper.setConnectedDevices(findConnectedDevices(in_args.portConfigId)));
     }
-    auto streamBinder = streamWrapper.getBinder();
+    auto streamBinder = stream->asBinder();
     AIBinder_setMinSchedulerPolicy(streamBinder.get(), SCHED_NORMAL, ANDROID_PRIORITY_AUDIO);
     AIBinder_setInheritRt(streamBinder.get(), true);
     mStreams.insert(port->id, in_args.portConfigId, std::move(streamWrapper));
