@@ -18,6 +18,7 @@
 #include <aidl/Vintf.h>
 #include <aidl/android/hardware/bluetooth/finder/IBluetoothFinder.h>
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 #include <binder/IServiceManager.h>
@@ -34,6 +35,11 @@ class BluetoothFinderTest : public ::testing::TestWithParam<std::string> {
  public:
   virtual void SetUp() override {
     ALOGI("SetUp Finder Test");
+    if (!android::base::GetBoolProperty("ro.bluetooth.finder.supported",
+                                        false)) {
+      GTEST_SKIP() << "Skip test since finer not supported";
+    }
+
     bluetooth_finder = IBluetoothFinder::fromBinder(
         ndk::SpAIBinder(AServiceManager_waitForService(GetParam().c_str())));
     ASSERT_NE(bluetooth_finder, nullptr);
