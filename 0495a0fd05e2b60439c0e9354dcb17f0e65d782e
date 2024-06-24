@@ -16,6 +16,24 @@
       "message": "Akshata,\nPlease remove this.\n\ndefault_team is now defined in internal branches and that results in multiple definitions in the internal branches.",
       "revId": "0495a0fd05e2b60439c0e9354dcb17f0e65d782e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1b55d17_967bf439",
+        "filename": "automotive/vehicle/2.0/default/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1616561
+      },
+      "writtenOn": "2024-06-24T12:25:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8b73130_a58a2bb8",
+      "revId": "0495a0fd05e2b60439c0e9354dcb17f0e65d782e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
