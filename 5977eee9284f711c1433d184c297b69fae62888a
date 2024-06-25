@@ -350,6 +350,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "423655ec_e84bfa08",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-25T20:49:35Z",
+      "side": 1,
+      "message": "To clarify, for a stream the connection state is not associated with the state of external devices connection. Instead, it reflects the status of a mix port (hosting the stream) being patched to a device port (hardware). That is, the stream being \"not connected\" means that its mix port is not connected to any device port, thus any data going into it goes into a \"black hole,\" and input is always zeroes. That\u0027s why there can be no data on the \"observable\" position since the stream is not connected to any external observer.\n\nHowever, I tend to agree that since the MMap buffer is just a \"window\" into ADSP buffer, it is always there regardless of the state of the patch between the mix port and some device port. In other words, we can think of this hardware buffer as part of the mix port abstraction.\n\nOK, in that case your initial proposal of populating the `hardware` position regardless of the connection state is indeed correct, I apologize for dismissing it! So let\u0027s structure the code this way:\n\n```\n    if (isConnected) {\n        reply-\u003eobservable.frames \u003d mContext-\u003egetFrameCount();\n        reply-\u003eobservable.timeNs \u003d ::android::uptimeNanos();\n        if (auto status \u003d mDriver-\u003erefinePosition(\u0026reply-\u003eobservable); status !\u003d ::android::OK) {\n            reply-\u003eobservable \u003d kUnknownPosition;\n        }\n    } else {\n        reply-\u003eobservable \u003d kUnknownPosition;\n    }\n    if (hasMmapFlag(mContext-\u003egetFlags())) {\n        if (auto status \u003d mDriver-\u003egetMmapPosition(\u0026reply-\u003ehardware, \u0026reply-\u003elatencyMs); status !\u003d ::android::OK) {\n            reply-\u003ehardware \u003d kUnknownPosition;\n            reply-\u003elatencyMs \u003d StreamDescriptor::LATENCY_UNKNOWN;\n        }\n    }\n```\n\nI don\u0027t think that the lines `154–156` from the latest CL are needed because `getMmapPosition` is supposed to supply all the information, not \"refine\" it as in the case of the observable position. And if retrieval has failed, we just report that both position and latency are unknown.",
+      "parentUuid": "65a7b2f5_9e5d4dde",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 9
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0fbe6e6_d06267dd",
         "filename": "audio/aidl/default/Stream.cpp",
         "patchSetId": 4
