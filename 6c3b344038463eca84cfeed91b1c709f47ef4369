@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75db7f4b_c253cf81",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-25T17:14:40Z",
+      "side": 1,
+      "message": "nit: TAG_DENSITY_VALUE, PARAM_DENSITY_VALUE?",
+      "range": {
+        "startLine": 529,
+        "startChar": 36,
+        "endLine": 529,
+        "endChar": 58
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "85509e25_7b6d87a6",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 529,
+                "startChar": 0,
+                "endLine": 530,
+                "endChar": 0
+              },
+              "replacement": "enum ParamDensityTest { DESCRIPTOR, TAG_DENSITY_VALUE, PARAM_DENSITY_VALUE, IS_INPUT_MUTE };\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 537,
+                "startChar": 0,
+                "endLine": 539,
+                "endChar": 0
+              },
+              "replacement": "        mTag \u003d std::get\u003cTAG_DENSITY_VALUE\u003e(GetParam());\n        mParamValues \u003d std::get\u003cPARAM_DENSITY_VALUE\u003e(GetParam());\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 588,
+                "startChar": 0,
+                "endLine": 589,
+                "endChar": 0
+              },
+              "replacement": "            auto value \u003d std::get\u003cPARAM_DENSITY_VALUE\u003e(info.param);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "6c3b344038463eca84cfeed91b1c709f47ef4369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc55bade_163f2b60",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-25T17:14:40Z",
+      "side": 1,
+      "message": "\u0026\u0026 !mIsInputMute?",
+      "range": {
+        "startLine": 563,
+        "startChar": 8,
+        "endLine": 563,
+        "endChar": 22
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5402891c_c8c43993",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+              "range": {
+                "startLine": 563,
+                "startChar": 0,
+                "endLine": 564,
+                "endChar": 0
+              },
+              "replacement": "    if (isAuxiliary() \u0026\u0026 !mIsInputMute) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "6c3b344038463eca84cfeed91b1c709f47ef4369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4127a7e_43c783d9",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-25T17:14:40Z",
+      "side": 1,
+      "message": "maybe use `accumulate_float`?\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/media/audio_utils/primitives.c;l\u003d640;drc\u003dc244200710b3089cb4a3c24fe6e3ee5f6fd0f8df;bpv\u003d1;bpt\u003d1",
+      "range": {
+        "startLine": 564,
+        "startChar": 8,
+        "endLine": 566,
+        "endChar": 9
+      },
+      "revId": "6c3b344038463eca84cfeed91b1c709f47ef4369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
