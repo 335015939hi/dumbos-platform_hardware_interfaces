@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57af401b_47cf01f2",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52c9d9f4_ff250ee5",
+      "range": {
+        "startLine": 211,
+        "startChar": 0,
+        "endLine": 211,
+        "endChar": 6
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9b27492_40ebc286",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-24T22:12:20Z",
       "side": 1,
       "message": "This should be a function in https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/common/include/Utils.h which takes flags as a parameter. Then it can be used here and in `StreamContext`.",
+      "range": {
+        "startLine": 211,
+        "startChar": 8,
+        "endLine": 216,
+        "endChar": 61
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48302a4d_a6a75746",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9b27492_40ebc286",
       "range": {
         "startLine": 211,
         "startChar": 8,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65c977f6_262392a5",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64ec11ef_bafbac9d",
+      "range": {
+        "startLine": 243,
+        "startChar": 25,
+        "endLine": 243,
+        "endChar": 32
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9a627c5_9e60338e",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9cfe3c2_de9de51a",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9a627c5_9e60338e",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 391,
+        "endChar": 4
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c68d051a_1bf547e4",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-06-24T22:12:20Z",
       "side": 1,
       "message": "Instead of `StreamContext`, please add this function to https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/common/include/Utils.h, taking flags as a parameter.",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 0
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d59dac1d_21df0f02",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c68d051a_1bf547e4",
       "range": {
         "startLine": 49,
         "startChar": 0,
@@ -157,6 +277,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a394195_f6e5f514",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44087370_61d2d7fc",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 45
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecb796c4_e997acf5",
@@ -170,6 +314,30 @@
       "writtenOn": "2024-06-24T22:12:20Z",
       "side": 1,
       "message": "I think this should look like this:\n\n```\n    static const StreamDescriptor::Position kUnknownPosition \u003d {\n        .frames \u003d StreamDescriptor::Position::UNKNOWN,\n        .timeNs \u003d  StreamDescriptor::Position::UNKNOWN\n    };\n    reply-\u003estatus \u003d STATUS_OK;\n    if (isConnected) {\n        reply-\u003eobservable.frames \u003d mContext-\u003egetFrameCount();\n        reply-\u003eobservable.timeNs \u003d ::android::uptimeNanos();\n        if (auto status \u003d mDriver-\u003erefinePosition(\u0026reply-\u003eobservable); status !\u003d ::android::OK) {\n            reply-\u003eobservable \u003d kUnknownPosition;\n        }\n        if (mContext-\u003eisMmapped()) {\n            if (auto status \u003d mDriver-\u003egetMmapPosition(\u0026reply-\u003ehardware, \u0026reply-\u003elatencyMs); status !\u003d ::android::OK) {\n                reply-\u003ehardware \u003d kUnknownPosition;\n                reply-\u003elatencyMs \u003d StreamDescriptor::LATENCY_UNKNOWN;\n            }\n        }\n    } else {\n        reply-\u003eobservable \u003d reply-\u003ehardware \u003d kUnknownPosition;\n    }\n```",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 9
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65a7b2f5_9e5d4dde",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Since the position mmap stream is free run in driver side, I think it should not affect by device connection state, please correct me if my understanding is wrong.",
+      "parentUuid": "ecb796c4_e997acf5",
       "range": {
         "startLine": 156,
         "startChar": 0,
@@ -203,6 +371,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5c0f242_2875133f",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0fbe6e6_d06267dd",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 257,
+        "endChar": 21
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e242017_5c305449",
@@ -216,6 +408,30 @@
       "writtenOn": "2024-06-24T22:12:20Z",
       "side": 1,
       "message": "Please see the comment for the input stream case.",
+      "range": {
+        "startLine": 501,
+        "startChar": 0,
+        "endLine": 509,
+        "endChar": 21
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9728a38c_0010be59",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e242017_5c305449",
       "range": {
         "startLine": 501,
         "startChar": 0,
@@ -249,6 +465,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "812035b4_246ed928",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfb7b281_ab978ae2",
+      "range": {
+        "startLine": 694,
+        "startChar": 45,
+        "endLine": 694,
+        "endChar": 52
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abc67814_60de063a",
@@ -262,6 +502,30 @@
       "writtenOn": "2024-06-24T22:12:20Z",
       "side": 1,
       "message": "Since the module can\u0027t estimate the hardware pointer position, it must always get it from the implementation, I suggest calling this `getMmapPositionAndLatency`. For clarity, please put a comment that the driver supporting MMap must provide an actual implementation of this function.",
+      "range": {
+        "startLine": 181,
+        "startChar": 32,
+        "endLine": 181,
+        "endChar": 50
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "275799dd_990c7c55",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abc67814_60de063a",
       "range": {
         "startLine": 181,
         "startChar": 32,
@@ -295,6 +559,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c93c5088_b2e3aa9e",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60684996_3d22ed53",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 32
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f0b5ac0_94ca5a18",
@@ -308,6 +596,30 @@
       "writtenOn": "2024-06-24T22:12:20Z",
       "side": 1,
       "message": "The shared memory must be opened and be owned by the `StreamContext`, not by the stream, similar to how the context owns the FMQs.",
+      "range": {
+        "startLine": 892,
+        "startChar": 0,
+        "endLine": 896,
+        "endChar": 47
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7983290_52f4b0b2",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 896,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-25T03:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f0b5ac0_94ca5a18",
       "range": {
         "startLine": 892,
         "startChar": 0,
