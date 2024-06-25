@@ -18,6 +18,7 @@
 #include <android-base/logging.h>
 #include <audio_utils/power.h>
 #include <system/audio.h>
+#include <numeric>
 
 #include "EffectHelper.h"
 
@@ -39,13 +40,15 @@ static constexpr int kMinDiffusion = 0;
 static constexpr int kMinDelay = 0;
 
 static const std::vector<TagVectorPair> kParamsIncreasingVector = {
-
         {EnvironmentalReverb::roomLevelMb, {-3500, -2800, -2100, -1400, -700, 0}},
         {EnvironmentalReverb::roomHfLevelMb, {-4000, -3200, -2400, -1600, -800, 0}},
         {EnvironmentalReverb::decayTimeMs, {800, 1600, 2400, 3200, 4000}},
         {EnvironmentalReverb::decayHfRatioPm, {100, 600, 1100, 1600, 2000}},
         {EnvironmentalReverb::levelMb, {-3500, -2800, -2100, -1400, -700, 0}},
 };
+
+static const TagVectorPair kDiffusionParam = {EnvironmentalReverb::diffusionPm,
+                                              {200, 400, 600, 800, 1000}};
 
 static const std::vector<TagValuePair> kParamsMinimumValue = {
         {EnvironmentalReverb::roomLevelMb, kMinRoomLevel},
@@ -451,6 +454,75 @@ INSTANTIATE_TEST_SUITE_P(
         });
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EnvironmentalReverbMinimumParamTest);
+
+class EnvironmentalReverbDiffusionTest
+    : public ::testing::TestWithParam<
+              std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>, TagVectorPair>>,
+      public EnvironmentalReverbHelper {
+  public:
+    EnvironmentalReverbDiffusionTest()
+        : EnvironmentalReverbHelper(std::get<DESCRIPTOR_INDEX>(GetParam())) {
+        std::tie(mTag, mParamValues) = std::get<TAG_VALUE_PAIR>(GetParam());
+        mInput.resize(kBufferSize);
+        generateSineWaveInput(mInput);
+    }
+    void SetUp() override { SetUpReverb(); }
+    void TearDown() override { TearDownReverb(); }
+
+    float getMean(std::vector<float>& buffer) {
+        return std::accumulate(buffer.begin(), buffer.end(), 0.0) / buffer.size();
+    }
+
+    float getVariance(std::vector<float>& buffer) {
+        if (isAuxiliary()) {
+            for (size_t i = 0; i < buffer.size(); i++) {
+                buffer[i] += mInput[i];
+            }
+        }
+        float mean = getMean(buffer);
+        float squaredDeltas =
+                std::accumulate(buffer.begin(), buffer.end(), 0.0,
+                                [mean](float a, float b) { return a + pow(b - mean, 2); });
+
+        return squaredDeltas / buffer.size();
+    }
+
+    EnvironmentalReverb::Tag mTag;
+    std::vector<int> mParamValues;
+    std::vector<float> mInput;
+};
+
+TEST_P(EnvironmentalReverbDiffusionTest, DecreasingVarianceTest) {
+    std::vector<float> baseOutput(kBufferSize);
+    setParameterAndProcess(mInput, baseOutput, kMinDiffusion, mTag);
+    ASSERT_EQ(baseOutput.size(),
+              static_cast<size_t>(mFrameCount) * static_cast<size_t>(mStereoChannelCount));
+    float baseVariance = getVariance(baseOutput);
+    for (int value : mParamValues) {
+        std::vector<float> output(kBufferSize);
+        setParameterAndProcess(mInput, output, value, mTag);
+        ASSERT_EQ(output.size(),
+                  static_cast<size_t>(mFrameCount) * static_cast<size_t>(mStereoChannelCount));
+        float variance = getVariance(output);
+        ASSERT_LT(variance, baseVariance);
+        baseVariance = variance;
+    }
+}
+
+INSTANTIATE_TEST_SUITE_P(
+        EnvironmentalReverbTest, EnvironmentalReverbDiffusionTest,
+        ::testing::Combine(
+                testing::ValuesIn(kDescPair = EffectFactoryHelper::getAllEffectDescriptors(
+                                          IFactory::descriptor, getEffectTypeUuidEnvReverb())),
+                testing::Values(kDiffusionParam)),
+        [](const testing::TestParamInfo<EnvironmentalReverbDiffusionTest::ParamType>& info) {
+            auto descriptor = std::get<DESCRIPTOR_INDEX>(info.param).second;
+            auto tag = std::get<TAG_VALUE_PAIR>(info.param).first;
+            std::string name = getPrefix(descriptor) + "_Tag_" + toString(tag);
+            return name;
+        });
+
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(EnvironmentalReverbDiffusionTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
