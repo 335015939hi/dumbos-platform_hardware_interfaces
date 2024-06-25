@@ -244,6 +244,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "315843ae_f99bf32d",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-06-25T05:30:54Z",
+      "side": 1,
+      "message": "Yes, thanks for the clarification. Removed the unnecessary code.",
+      "parentUuid": "3aadc30e_18aa7c11",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 82
+      },
+      "revId": "9b5c5fa10a3635f5acc91e5fedffa74a462d56a8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "438269f2_48c9c05b",
         "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
         "patchSetId": 1
