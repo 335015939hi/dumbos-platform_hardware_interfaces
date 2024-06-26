@@ -16,6 +16,190 @@
       "message": "Please note—I have slightly modified the VTS test to provide separate checks for the observable and hardware positions. I have also temporarily disabled the position checks for MMap due to incomplete implementation in Android 15. This will be fixed later.",
       "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d031ce7_8d42b24f",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-26T22:56:39Z",
+      "side": 1,
+      "message": "should this be `!hasMmapFlag(mFlags) \u0026\u0026 (!mDataMQ || !mDataMQ-\u003eisValid())`?",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 62
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "9b6243c9_4332234c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 88,
+                "startChar": 0,
+                "endLine": 89,
+                "endChar": 0
+              },
+              "replacement": "    if (!hasMmapFlag(mFlags) \u0026\u0026 (!mDataMQ || !mDataMQ-\u003eisValid())) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b4ded6_ae911c94",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-26T22:56:39Z",
+      "side": 1,
+      "message": "should we log the error reply here and line#158?",
+      "range": {
+        "startLine": 149,
+        "startChar": 71,
+        "endLine": 149,
+        "endChar": 94
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "75885f26_71472330",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 150,
+                "startChar": 0,
+                "endLine": 150,
+                "endChar": 0
+              },
+              "replacement": "            LOG(WARNING) \u003c\u003c __func__ \u003c\u003c \": failed to refine position: \" \u003c\u003c status;\n"
+            },
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 158,
+                "startChar": 0,
+                "endLine": 158,
+                "endChar": 0
+              },
+              "replacement": "            LOG(WARNING) \u003c\u003c __func__ \u003c\u003c \": failed to get mmap position and latency: \" \u003c\u003c status;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b494b00f_c05253c3",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-26T22:56:39Z",
+      "side": 1,
+      "message": "nit: \"mWorker start error: \"?",
+      "range": {
+        "startLine": 677,
+        "startChar": 37,
+        "endLine": 677,
+        "endChar": 51
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "aef4dbd3_bbba026e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 677,
+                "startChar": 0,
+                "endLine": 678,
+                "endChar": 0
+              },
+              "replacement": "        LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \": mWorker start errors: \" \u003c\u003c mWorker-\u003egetError();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc39f443_28ce0759",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-06-26T22:56:39Z",
+      "side": 1,
+      "message": "nit: const?",
+      "range": {
+        "startLine": 249,
+        "startChar": 34,
+        "endLine": 249,
+        "endChar": 35
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c7ef00ef_cafe3959",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/include/core-impl/Stream.h",
+              "range": {
+                "startLine": 249,
+                "startChar": 0,
+                "endLine": 250,
+                "endChar": 0
+              },
+              "replacement": "    virtual std::string getError() const \u003d 0;\n"
+            },
+            {
+              "path": "audio/aidl/default/include/core-impl/Stream.h",
+              "range": {
+                "startLine": 269,
+                "startChar": 0,
+                "endLine": 270,
+                "endChar": 0
+              },
+              "replacement": "    std::string getError() const override { return WorkerImpl::getError(); }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
