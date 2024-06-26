@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62bf8e6f_29dbbc64",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1905,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-06-26T00:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8a71f2a_cac6e8c1",
+      "range": {
+        "startLine": 1905,
+        "startChar": 37,
+        "endLine": 1905,
+        "endChar": 46
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62d413ab_1a43495d",
@@ -85,6 +109,30 @@
       "writtenOn": "2024-06-24T22:35:52Z",
       "side": 1,
       "message": "one or more area names",
+      "range": {
+        "startLine": 2084,
+        "startChar": 82,
+        "endLine": 2084,
+        "endChar": 91
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5faa56d7_21c33295",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/src/FakeVehicleHardware.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2084,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-06-26T00:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62d413ab_1a43495d",
       "range": {
         "startLine": 2084,
         "startChar": 82,
@@ -118,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38bece00_9c651fae",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/test/FakeVehicleHardwareTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2947,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-06-26T00:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db7449a7_efd77a30",
+      "range": {
+        "startLine": 2947,
+        "startChar": 32,
+        "endLine": 2947,
+        "endChar": 67
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67d06c6a_bf423c55",
@@ -131,6 +203,30 @@
       "writtenOn": "2024-06-24T22:35:52Z",
       "side": 1,
       "message": "stringToArea",
+      "range": {
+        "startLine": 341,
+        "startChar": 31,
+        "endLine": 341,
+        "endChar": 45
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5c8751c_66c67b2c",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/include/VehicleUtils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-06-26T00:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67d06c6a_bf423c55",
       "range": {
         "startLine": 341,
         "startChar": 31,
@@ -164,6 +260,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca9b85bf_ad8ac79a",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-06-26T00:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84db5e33_79775fa4",
+      "range": {
+        "startLine": 77,
+        "startChar": 11,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca7bc36e_7c61393b",
@@ -177,6 +297,30 @@
       "writtenOn": "2024-06-24T22:35:52Z",
       "side": 1,
       "message": "getArea",
+      "range": {
+        "startLine": 82,
+        "startChar": 20,
+        "endLine": 82,
+        "endChar": 29
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f240268_941064b9",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-06-26T00:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca7bc36e_7c61393b",
       "range": {
         "startLine": 82,
         "startChar": 20,
@@ -210,6 +354,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26f59ca9_b3d9050c",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-06-26T00:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e39136aa_209c3b60",
+      "range": {
+        "startLine": 83,
+        "startChar": 31,
+        "endLine": 83,
+        "endChar": 42
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "795d335b_ade8ef3b",
@@ -233,6 +401,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd727da5_b73f0ecc",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-06-26T00:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "795d335b_ade8ef3b",
+      "range": {
+        "startLine": 90,
+        "startChar": 20,
+        "endLine": 90,
+        "endChar": 32
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c042df2_e44ff951",
@@ -246,6 +438,30 @@
       "writtenOn": "2024-06-24T22:35:52Z",
       "side": 1,
       "message": "nit: mAreasByNameByAreaType",
+      "range": {
+        "startLine": 104,
+        "startChar": 12,
+        "endLine": 104,
+        "endChar": 35
+      },
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6763add7_8bf2a92a",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-06-26T00:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c042df2_e44ff951",
       "range": {
         "startLine": 104,
         "startChar": 12,
@@ -293,6 +509,30 @@
           ]
         }
       ],
+      "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "496c7f99_f3fc0768",
+        "filename": "automotive/vehicle/aidl/impl/utils/common/src/VehicleUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-06-26T00:32:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7513bf8f_37af4a7c",
+      "range": {
+        "startLine": 310,
+        "startChar": 16,
+        "endLine": 310,
+        "endChar": 30
+      },
       "revId": "103c30331264a8a7188079a5ba71389178dcdd2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
