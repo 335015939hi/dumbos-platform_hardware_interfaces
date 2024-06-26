@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d53e2d0_94413477",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-26T00:06:29Z",
+      "side": 1,
+      "message": "Francois, thank you for your persistent work on addressing comments!\n\nIn the meantime, I have merged the changes to bump `android.media.audio.common.types` to V4, will update AOSP CLs tomorrow. This should result in clearing of merge conflicts.",
+      "revId": "21f1c8a9c6aa44201a06436872ced21cf3826a7b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
