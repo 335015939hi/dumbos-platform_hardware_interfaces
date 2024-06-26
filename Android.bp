@@ -63,8 +63,8 @@ cc_defaults {
         "libbase",
         // All the following are dependencies of any HAL definition library.
         "libcutils",
-        "liblog",
         "libhidlbase",
+        "liblog",
         "libutils",
     ],
     cflags: [
