@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3ba3cf7_da74c13f",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-26T20:13:21Z",
+      "side": 1,
+      "message": "The SoundDose should still be created, it\u0027s another question whether it will be working or not 😊",
+      "parentUuid": "ffbd3868_740a489a",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 47
+      },
+      "revId": "23b37cde068db58450c876a6596c2a98bac12322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8621f82_41d082fd",
