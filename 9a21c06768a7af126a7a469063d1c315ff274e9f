@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "655ebcfc_04cc3213",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-26T20:11:09Z",
+      "side": 1,
+      "message": "Please note—I have slightly modified the VTS test to provide separate checks for the observable and hardware positions. I have also temporarily disabled the position checks for MMap due to incomplete implementation in Android 15. This will be fixed later.",
+      "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
