@@ -62,6 +62,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a2aee8d_96c5802d",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-06-26T12:38:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75db7f4b_c253cf81",
+      "range": {
+        "startLine": 529,
+        "startChar": 36,
+        "endLine": 529,
+        "endChar": 58
+      },
+      "revId": "6c3b344038463eca84cfeed91b1c709f47ef4369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc55bade_163f2b60",
@@ -103,6 +127,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e32614b5_114b89bc",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-06-26T12:38:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc55bade_163f2b60",
+      "range": {
+        "startLine": 563,
+        "startChar": 8,
+        "endLine": 563,
+        "endChar": 22
+      },
+      "revId": "6c3b344038463eca84cfeed91b1c709f47ef4369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4127a7e_43c783d9",
@@ -116,6 +164,30 @@
       "writtenOn": "2024-06-25T17:14:40Z",
       "side": 1,
       "message": "maybe use `accumulate_float`?\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/media/audio_utils/primitives.c;l\u003d640;drc\u003dc244200710b3089cb4a3c24fe6e3ee5f6fd0f8df;bpv\u003d1;bpt\u003d1",
+      "range": {
+        "startLine": 564,
+        "startChar": 8,
+        "endLine": 566,
+        "endChar": 9
+      },
+      "revId": "6c3b344038463eca84cfeed91b1c709f47ef4369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e789b878_e0a9c7d9",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-06-26T12:38:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4127a7e_43c783d9",
       "range": {
         "startLine": 564,
         "startChar": 8,
