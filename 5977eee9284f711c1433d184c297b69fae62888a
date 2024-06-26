@@ -372,6 +372,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e13f3f1f_6a64338a",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-26T13:55:15Z",
+      "side": 1,
+      "message": "Got it. Thanks for the explain and confirmation.",
+      "parentUuid": "423655ec_e84bfa08",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 9
+      },
+      "revId": "5977eee9284f711c1433d184c297b69fae62888a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0fbe6e6_d06267dd",

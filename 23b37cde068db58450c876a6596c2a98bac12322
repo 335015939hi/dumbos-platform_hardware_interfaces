@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffbd3868_740a489a",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-26T13:55:15Z",
+      "side": 1,
+      "message": "Before your explanation, I\u0027m not sure how mmaped stream can implement SoundDose now, maybe it should be done in driver side.",
+      "parentUuid": "072eab3e_7f34c740",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 47
+      },
+      "revId": "23b37cde068db58450c876a6596c2a98bac12322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8621f82_41d082fd",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81714e1e_1588b1b1",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-26T13:55:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8621f82_41d082fd",
+      "range": {
+        "startLine": 650,
+        "startChar": 33,
+        "endLine": 650,
+        "endChar": 43
+      },
+      "revId": "23b37cde068db58450c876a6596c2a98bac12322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afcb6776_cb729464",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-06-25T20:49:35Z",
       "side": 1,
       "message": "`EXPECT_NE(nullptr` similar to MQs.",
+      "range": {
+        "startLine": 667,
+        "startChar": 12,
+        "endLine": 667,
+        "endChar": 23
+      },
+      "revId": "23b37cde068db58450c876a6596c2a98bac12322",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "208bd2a5_f5e22ab0",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-06-26T13:55:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afcb6776_cb729464",
       "range": {
         "startLine": 667,
         "startChar": 12,
