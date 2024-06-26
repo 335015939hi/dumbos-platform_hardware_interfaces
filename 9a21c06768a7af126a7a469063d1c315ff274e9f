@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1b8a321_77b82346",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-26T23:52:04Z",
+      "side": 1,
+      "message": "No. The current code is correct because if there is no FMQ it\u0027s OK. The aim of the `mDataMQ` check is to avoid calling `isValid()` on a `nullptr`. Compared to the version before the change, we just skip the validity check for MMap streams.",
+      "parentUuid": "2d031ce7_8d42b24f",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 62
+      },
+      "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0b4ded6_ae911c94",
@@ -110,6 +134,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb423ac8_e14ec7af",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-26T23:52:04Z",
+      "side": 1,
+      "message": "No, that will be too much log spam, because the situations where the position can\u0027t be retrieved happen often.",
+      "parentUuid": "e0b4ded6_ae911c94",
+      "range": {
+        "startLine": 149,
+        "startChar": 71,
+        "endLine": 149,
+        "endChar": 94
+      },
+      "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b494b00f_c05253c3",
@@ -147,6 +195,30 @@
           ]
         }
       ],
+      "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "878f752f_81e8bda4",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-26T23:52:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b494b00f_c05253c3",
+      "range": {
+        "startLine": 677,
+        "startChar": 37,
+        "endLine": 677,
+        "endChar": 51
+      },
       "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -198,6 +270,30 @@
           ]
         }
       ],
+      "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62522802_a8add805",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-06-26T23:52:04Z",
+      "side": 1,
+      "message": "Unfortunately, not possible because the function which underlies the implementation is not `const` due to reasons. https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/common/include/StreamWorker.h;l\u003d53;drc\u003d4bf6899cc7b7fdd24a43f39f0457829e428d4097",
+      "parentUuid": "fc39f443_28ce0759",
+      "range": {
+        "startLine": 249,
+        "startChar": 34,
+        "endLine": 249,
+        "endChar": 35
+      },
       "revId": "9a21c06768a7af126a7a469063d1c315ff274e9f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
