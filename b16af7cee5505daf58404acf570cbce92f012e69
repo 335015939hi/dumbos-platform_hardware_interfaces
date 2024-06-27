@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8087d2b9_16d531d4",
+        "filename": "bluetooth/finder/aidl/vts/VtsHalBluetoothFinderTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-27T15:49:34Z",
+      "side": 1,
+      "message": "if this is false, the interface should not be registered in VINTF or the test should check for \u0027not supported\u0027 (it will also fail vts_treble_vintf_test if the VINTF manifest is inconsistent)",
+      "range": {
+        "startLine": 38,
+        "startChar": 41,
+        "endLine": 38,
+        "endChar": 70
+      },
+      "revId": "b16af7cee5505daf58404acf570cbce92f012e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94ae50a5_35428f8d",
         "filename": "bluetooth/finder/aidl/vts/VtsHalBluetoothFinderTargetTest.cpp",
         "patchSetId": 1
@@ -36,6 +59,29 @@
         "startChar": 39,
         "endLine": 40,
         "endChar": 44
+      },
+      "revId": "b16af7cee5505daf58404acf570cbce92f012e69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d30081e_0af9d11b",
+        "filename": "bluetooth/finder/aidl/vts/VtsHalBluetoothFinderTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-27T15:49:34Z",
+      "side": 1,
+      "message": "so if it\u0027s not supported, it shouldn\u0027t be in this list - try to remove it from VINTF instead of using a new sysprop?",
+      "range": {
+        "startLine": 110,
+        "startChar": 52,
+        "endLine": 110,
+        "endChar": 75
       },
       "revId": "b16af7cee5505daf58404acf570cbce92f012e69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
