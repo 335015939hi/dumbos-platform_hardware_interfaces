@@ -327,6 +327,8 @@ class FakeVehicleHardware : public IVehicleHardware {
     static android::base::Result<float> safelyParseFloat(int index, const std::string& s);
     static android::base::Result<int32_t> parsePropId(const std::vector<std::string>& options,
                                                       size_t index);
+    static android::base::Result<int32_t> parseAreaId(const std::vector<std::string>& options,
+                                                      size_t index, int32_t propId);
 };
 
 }  // namespace fake
