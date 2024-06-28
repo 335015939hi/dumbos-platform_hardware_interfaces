@@ -319,6 +319,7 @@ class SensorsAidlTest : public testing::TestWithParam<std::string> {
     std::vector<SensorInfo> getNonOneShotAndNonOnChangeAndNonSpecialSensors();
     std::vector<SensorInfo> getOneShotSensors();
     std::vector<SensorInfo> getInjectEventSensors();
+    std::vector<SensorInfo> getNonMetaSensors();
 
     void verifyDirectChannel(ISensors::SharedMemInfo::SharedMemType memType);
 
@@ -492,6 +493,16 @@ std::vector<SensorInfo> SensorsAidlTest::getInjectEventSensors() {
         }
     }
     return out;
+}
+
+std::vector<SensorInfo> SensorsAidlTest::getNonMetaSensors() {
+    std::vector<SensorInfo> sensors;
+    for (const SensorInfo& info : getSensorsList()) {
+        if (info.type != SensorType::DYNAMIC_SENSOR_META) {
+            sensors.push_back(info);
+        }
+    }
+    return sensors;
 }
 
 void SensorsAidlTest::runSingleFlushTest(const std::vector<SensorInfo>& sensors,
@@ -698,7 +709,7 @@ TEST_P(SensorsAidlTest, CallInitializeTwice) {
             : SensorsAidlEnvironment(service_name) {}
     };
 
-    if (getSensorsList().size() == 0) {
+    if (getNonMetaSensors().size() == 0) {
         // No sensors
         return;
     }
@@ -738,6 +749,11 @@ TEST_P(SensorsAidlTest, CallInitializeTwice) {
 }
 
 TEST_P(SensorsAidlTest, CleanupConnectionsOnInitialize) {
+    if (getNonMetaSensors().size() == 0) {
+        // No sensors
+        return;
+    }
+
     activateAllSensors(true);
 
     // Verify that events are received
