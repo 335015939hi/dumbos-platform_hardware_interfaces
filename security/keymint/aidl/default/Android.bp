@@ -71,7 +71,7 @@ rust_binary {
         "android.hardware.security.secureclock-service.xml",
     ],
     defaults: [
-        "keymint_use_latest_hal_aidl_rust",
+        "keymint_use_latest_hal_aidl_rust_rot",
     ],
     srcs: [
         "main.rs",
