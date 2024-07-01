@@ -52,5 +52,6 @@ interface IKeyMintDevice {
   byte[16] getRootOfTrustChallenge();
   byte[] getRootOfTrust(in byte[16] challenge);
   void sendRootOfTrust(in byte[] rootOfTrust);
+  void sendSignedRootOfTrust(in byte[] signed_root_of_trust, out byte[] dice_cert_chain, out byte[] boot_nonce);
   const int AUTH_TOKEN_MAC_LENGTH = 32;
 }
