@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9edb159_293bc73a",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-07-01T21:27:35Z",
+      "side": 1,
+      "message": "nit: `nid` only makes sense in the scope of key type `EVP_PKEY_EC`. Please move it down into that branch.",
+      "range": {
+        "startLine": 124,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 88
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "9aaf090f_58e42c3d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 124,
+                "startChar": 0,
+                "endLine": 125,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 127,
+                "startChar": 0,
+                "endLine": 127,
+                "endChar": 0
+              },
+              "replacement": "            int nid \u003d EVP_PKEY_bits(pubKey.get()) \u003d\u003d 384 ? NID_secp384r1 : NID_X9_62_prime256v1;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "42c8c7d78ab0f94077f52277a89568dd14ed684e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
