@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54532b32_82f5135a",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 3235602
+      },
+      "writtenOn": "2024-07-01T06:31:50Z",
+      "side": 1,
+      "message": "enclose case in curly braces to avoid compilation failures",
+      "range": {
+        "startLine": 248,
+        "startChar": 18,
+        "endLine": 248,
+        "endChar": 23
+      },
+      "revId": "c5c99a5b2d93be0b6db72e872ef2ebf9ef3136ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87e16523_4e1351a5",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 3235602
+      },
+      "writtenOn": "2024-07-01T06:31:50Z",
+      "side": 1,
+      "message": "enclose case in curly braces to avoid compilation failures",
+      "revId": "c5c99a5b2d93be0b6db72e872ef2ebf9ef3136ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
