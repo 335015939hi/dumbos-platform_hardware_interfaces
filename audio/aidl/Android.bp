@@ -44,7 +44,7 @@ aidl_interface {
         "android/hardware/audio/common/SinkMetadata.aidl",
         "android/hardware/audio/common/SourceMetadata.aidl",
     ],
-    frozen: true,
+    frozen: false,
     backend: {
         cpp: {
             enabled: true,

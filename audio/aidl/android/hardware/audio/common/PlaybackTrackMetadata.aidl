@@ -19,6 +19,7 @@ package android.hardware.audio.common;
 import android.media.audio.common.AudioChannelLayout;
 import android.media.audio.common.AudioContentType;
 import android.media.audio.common.AudioDevice;
+import android.media.audio.common.AudioFormatDescription;
 import android.media.audio.common.AudioUsage;
 
 /**
@@ -48,4 +49,8 @@ parcelable PlaybackTrackMetadata {
      * namespace.
      */
     @utf8InCpp String[] tags;
+    /**
+     * Indicates the source format of the track, prior to being transformed to the track format
+     */
+    @nullable AudioFormatDescription sourceFormat;
 }
