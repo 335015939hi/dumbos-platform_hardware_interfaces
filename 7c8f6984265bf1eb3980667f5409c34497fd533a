@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59ee1c9d_15a0928d",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-07-03T06:28:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "834d2862_da5bda4d",
+      "revId": "7c8f6984265bf1eb3980667f5409c34497fd533a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7aa0f429_54520ce8",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-25T06:14:49Z",
       "side": 1,
       "message": "Just looking at this again, there\u0027s not much in the way of fuzzed inputs here (just the challenge, which is opaque bytes anyhow).\n\nSo I wonder if code below could add an arm that fed in fuzzed data for `keysToSign`, rather than the (presumably valid) data that came back from `generateEcdsaP256KeyPair()`?\n\n(Or this could be a TODO for a follow-up CL)",
+      "revId": "7c8f6984265bf1eb3980667f5409c34497fd533a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1941497e_2309b421",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-07-03T06:28:44Z",
+      "side": 1,
+      "message": "Sure, created the bug and added TODO for a follow-up CL.",
+      "parentUuid": "7aa0f429_54520ce8",
       "revId": "7c8f6984265bf1eb3980667f5409c34497fd533a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
