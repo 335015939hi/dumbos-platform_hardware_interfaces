@@ -33,6 +33,7 @@
 #include <shared_mutex>
 #include <string>
 #include <thread>
+#include <unordered_map>
 #include <vector>
 
 namespace android::hardware::automotive::vehicle::virtualization {
@@ -42,9 +43,6 @@ namespace aidlvhal = ::aidl::android::hardware::automotive::vehicle;
 class GRPCVehicleHardware : public IVehicleHardware {
   public:
     explicit GRPCVehicleHardware(std::string service_addr);
-
-    // Only used for unit testing.
-    explicit GRPCVehicleHardware(std::unique_ptr<proto::VehicleServer::StubInterface> stub);
 
     ~GRPCVehicleHardware();
 
@@ -94,7 +92,14 @@ class GRPCVehicleHardware : public IVehicleHardware {
     std::unique_ptr<const PropertyChangeCallback> mOnPropChange;
 
   private:
+    friend class GRPCVehicleHardwareUnitTest;
+
+    // Only used for unit testing.
+    GRPCVehicleHardware(std::unique_ptr<proto::VehicleServer::StubInterface> stub,
+                        bool startValuePollingLoop);
+
     void ValuePollingLoop();
+    void pollValue();
 
     std::string mServiceAddr;
     std::shared_ptr<::grpc::Channel> mGrpcChannel;
@@ -106,6 +111,20 @@ class GRPCVehicleHardware : public IVehicleHardware {
     std::mutex mShutdownMutex;
     std::condition_variable mShutdownCV;
     std::atomic<bool> mShuttingDownFlag{false};
+
+    // A map from [propId, areaId] to the latest timestamp this property is updated.
+    // The key is a tuple, the first element is the external timestamp (timestamp set by VHAL
+    // server), the second element is the Android timestamp (elapsedRealtimeNano).
+    mutable std::unordered_map<PropIdAreaId, int64_t[2], PropIdAreaIdHash> mLatestUpdateTimestamps;
+
+    aidlvhal::StatusCode getValuesWithRetry(const std::vector<aidlvhal::GetValueRequest>& requests,
+                                            std::vector<aidlvhal::GetValueResult>* results,
+                                            size_t retryCount) const;
+
+    // Check the external timestamp of propValue against the latest updated external timestamp, if
+    // this is an outdated value, return false. Otherwise, update the external timestamp to the
+    // Android timestamp and return true.
+    bool updateTimestamp(aidlvhal::VehiclePropValue* propValue) const;
 };
 
 }  // namespace android::hardware::automotive::vehicle::virtualization
