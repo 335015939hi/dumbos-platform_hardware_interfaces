@@ -796,6 +796,11 @@ ndk::ScopedAStatus StreamCommonImpl::updateMetadataCommon(const Metadata& metada
             LOG(FATAL) << __func__ << ": changing metadata variant is not allowed";
         }
         mMetadata = metadata;
+        if (std::holds_alternative<::aidl::android::hardware::audio::common::SourceMetadata>(mMetadata)) {
+            for (auto track : std::get<::aidl::android::hardware::audio::common::SourceMetadata>(mMetadata).tracks) {
+                LOG(DEBUG) << __func__ << track.sourceFormat;
+            }
+        }
         return ndk::ScopedAStatus::ok();
     }
     LOG(ERROR) << __func__ << ": stream was closed";
