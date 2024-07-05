@@ -28,6 +28,7 @@ using namespace aidl::android::hardware::security::keymint::remote_prov;
 constexpr size_t kMinSize = 0;
 constexpr size_t kSupportedNumKeys = 4;
 constexpr size_t kChallengeSize = 64;
+constexpr size_t kMacedKeySize = 119;
 constexpr size_t kMaxBytes = 128;
 const std::string kServiceName =
         "android.hardware.security.keymint.IRemotelyProvisionedComponent/default";
@@ -48,7 +49,7 @@ std::vector<uint8_t> KeyMintRemoteProv::ExtractPayloadValue(const MacedPublicKey
     std::vector<uint8_t> payloadValue;
 
     auto [coseMac0, _, mac0ParseErr] = cppbor::parse(macedPubKey.macedKey);
-    if (coseMac0) {
+    if (coseMac0 && coseMac0->asArray() && coseMac0->asArray()->size() == kCoseMac0EntryCount) {
         // The payload is a bstr holding an encoded COSE_Key
         auto payload = coseMac0->asArray()->get(kCoseMac0Payload)->asBstr();
         if (payload != nullptr) {
@@ -63,9 +64,13 @@ void KeyMintRemoteProv::process() {
             mFdp.ConsumeIntegralInRange<uint8_t>(kMinSize, kSupportedNumKeys));
     cppbor::Array cborKeysToSign;
     for (auto& key : keysToSign) {
-        // TODO: b/350649166 - Randomize keysToSign
-        std::vector<uint8_t> privateKeyBlob;
-        gRPC->generateEcdsaP256KeyPair(false /* testMode */, &key, &privateKeyBlob);
+        if (mFdp.ConsumeBool()) {
+            std::vector<uint8_t> privateKeyBlob;
+            gRPC->generateEcdsaP256KeyPair(false /* testMode */, &key, &privateKeyBlob);
+        } else {
+            key.macedKey = mFdp.ConsumeBytes<uint8_t>(kMacedKeySize);
+            key.macedKey.resize(kMacedKeySize);
+        }
 
         std::vector<uint8_t> payloadValue = ExtractPayloadValue(key);
         cborKeysToSign.add(cppbor::EncodedItem(payloadValue));
