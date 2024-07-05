@@ -140,4 +140,10 @@ interface INfc {
      * @return true if verbose logging flag value is enabled, false if disabled.
      */
     boolean isVerboseLoggingEnabled();
+
+    /**
+     * Called by libnfc-nci when NFCC control is granted to HAL.
+     * @return NfcStatus::OK on success and NfcStatus::FAILED on error.
+     */
+    NfcStatus controlGranted();
 }
