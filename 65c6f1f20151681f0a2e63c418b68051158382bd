@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71628727_c5ef8e90",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1965084
+      },
+      "writtenOn": "2024-07-08T13:34:55Z",
+      "side": 1,
+      "message": "Would be better to use `std::array\u003cint64_t, 2\u003e` or `std::pair\u003cint64_t, int64_t\u003e`",
+      "range": {
+        "startLine": 118,
+        "startChar": 45,
+        "endLine": 118,
+        "endChar": 55
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "356e9a2f_8015fc03",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
+              "range": {
+                "startLine": 118,
+                "startChar": 0,
+                "endLine": 119,
+                "endChar": 0
+              },
+              "replacement": "    mutable std::unordered_map\u003cPropIdAreaId, std::pair\u003cint64_t, int64_t\u003e, PropIdAreaIdHash\u003e\n            mLatestUpdateTimestamps;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "65c6f1f20151681f0a2e63c418b68051158382bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
