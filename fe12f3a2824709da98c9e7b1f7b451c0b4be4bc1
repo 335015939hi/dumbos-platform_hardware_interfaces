@@ -16,6 +16,24 @@
       "message": "unrelated build failure. Rerunning presubmits.",
       "revId": "fe12f3a2824709da98c9e7b1f7b451c0b4be4bc1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e390bcc_72751448",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-07-08T21:55:58Z",
+      "side": 1,
+      "message": "Same target failed with a different infra error this time...",
+      "parentUuid": "5d53f617_187f734b",
+      "revId": "fe12f3a2824709da98c9e7b1f7b451c0b4be4bc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
