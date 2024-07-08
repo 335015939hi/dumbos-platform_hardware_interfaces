@@ -20,6 +20,7 @@ aidl_interface {
             sdk_version: "module_current",
         },
         rust: {
+            apex_available: ["com.android.virt"],
             enabled: true,
         },
     },
