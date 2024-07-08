@@ -69,6 +69,24 @@
       "parentUuid": "7aa0f429_54520ce8",
       "revId": "7c8f6984265bf1eb3980667f5409c34497fd533a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f2f3fb9_2e6c3ab7",
+        "filename": "security/keymint/support/fuzzer/keymint_remote_prov_fuzzer.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 2045828
+      },
+      "writtenOn": "2024-07-08T11:01:36Z",
+      "side": 1,
+      "message": "Marking it as resolved.",
+      "parentUuid": "1941497e_2309b421",
+      "revId": "7c8f6984265bf1eb3980667f5409c34497fd533a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
