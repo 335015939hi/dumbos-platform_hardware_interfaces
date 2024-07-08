@@ -40,6 +40,47 @@
       ],
       "revId": "65c6f1f20151681f0a2e63c418b68051158382bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "571fce38_81be8d88",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1965084
+      },
+      "writtenOn": "2024-07-08T18:54:42Z",
+      "side": 1,
+      "message": "nit: maybe updateTimestampToAndroid",
+      "range": {
+        "startLine": 127,
+        "startChar": 9,
+        "endLine": 127,
+        "endChar": 24
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "334715df_184dc4b8",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
+              "range": {
+                "startLine": 127,
+                "startChar": 0,
+                "endLine": 128,
+                "endChar": 0
+              },
+              "replacement": "    bool updateTimestampToAndroid(aidlvhal::VehiclePropValue* propValue) const;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "65c6f1f20151681f0a2e63c418b68051158382bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
