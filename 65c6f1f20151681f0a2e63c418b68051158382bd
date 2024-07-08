@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a12031b_21183a07",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-07-08T22:25:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71628727_c5ef8e90",
+      "range": {
+        "startLine": 118,
+        "startChar": 45,
+        "endLine": 118,
+        "endChar": 55
+      },
+      "revId": "65c6f1f20151681f0a2e63c418b68051158382bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "571fce38_81be8d88",
@@ -79,6 +103,30 @@
           ]
         }
       ],
+      "revId": "65c6f1f20151681f0a2e63c418b68051158382bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afba5b66_d2eda156",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-07-08T22:25:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "571fce38_81be8d88",
+      "range": {
+        "startLine": 127,
+        "startChar": 9,
+        "endLine": 127,
+        "endChar": 24
+      },
       "revId": "65c6f1f20151681f0a2e63c418b68051158382bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
