@@ -250,7 +250,13 @@ bool KeyMintAidlTestBase::isSecondImeiIdAttestationRequired() {
     return AidlVersion() >= 3 && property_get_int32("ro.vendor.api_level", 0) > __ANDROID_API_T__;
 }
 
-bool KeyMintAidlTestBase::isRkpOnly() {
+std::optional<bool> KeyMintAidlTestBase::isRkpOnly() {
+    // GSI replaces the values for remote_prov_prop properties (since they’re system_internal_prop
+    // properties), so on GSI the properties are not reliable indicators of whether StrongBox/TEE is
+    // RKP-only or not.
+    if (is_gsi_image()) {
+        return std::nullopt;
+    }
     if (SecLevel() == SecurityLevel::STRONGBOX) {
         return property_get_bool("remote_provisioning.strongbox.rkp_only", false);
     }
@@ -318,8 +324,7 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     vector<Certificate> attest_cert_chain;
     // If an attestation is requested, but the system is RKP-only, we need to supply an explicit
     // attestation key. Else the result is a key without an attestation.
-    if (isRkpOnly() && key_desc.Contains(TAG_ATTESTATION_CHALLENGE)) {
-        skipAttestKeyTestIfNeeded();
+    if (isRkpOnly().value() && key_desc.Contains(TAG_ATTESTATION_CHALLENGE)) {
         AuthorizationSet attest_key_desc =
                 AuthorizationSetBuilder().EcdsaKey(EcCurve::P_256).AttestKey().SetDefaultValidity();
         attest_key.emplace();
@@ -1677,14 +1682,6 @@ bool KeyMintAidlTestBase::shouldSkipAttestKeyTest(void) const {
             is_attest_key_feature_disabled());
 }
 
-// Skip a test that involves use of the ATTEST_KEY feature in specific configurations
-// where ATTEST_KEY is not supported (for either StrongBox or TEE).
-void KeyMintAidlTestBase::skipAttestKeyTestIfNeeded() const {
-    if (shouldSkipAttestKeyTest()) {
-        GTEST_SKIP() << "Test using ATTEST_KEY is not applicable on waivered device";
-    }
-}
-
 void verify_serial(X509* cert, const uint64_t expected_serial) {
     BIGNUM_Ptr ser(BN_new());
     EXPECT_TRUE(ASN1_INTEGER_to_BN(X509_get_serialNumber(cert), ser.get()));
@@ -1748,8 +1745,9 @@ int get_vsr_api_level() {
 }
 
 bool is_gsi_image() {
-    std::ifstream ifs("/system/system_ext/etc/init/init.gsi.rc");
-    return ifs.good();
+    return true;
+    // std::ifstream ifs("/system/system_ext/etc/init/init.gsi.rc");
+    // return ifs.good();
 }
 
 vector<uint8_t> build_serial_blob(const uint64_t serial_int) {

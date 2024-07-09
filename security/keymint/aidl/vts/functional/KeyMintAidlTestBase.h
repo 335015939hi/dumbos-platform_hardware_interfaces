@@ -104,7 +104,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t boot_patch_level();
     bool isDeviceIdAttestationRequired();
     bool isSecondImeiIdAttestationRequired();
-    bool isRkpOnly();
+    std::optional<bool> isRkpOnly();
 
     bool Curve25519Supported();
 
