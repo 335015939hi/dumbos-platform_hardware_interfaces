@@ -47,6 +47,7 @@
 using aidl::android::hardware::security::keymint::AuthorizationSet;
 using aidl::android::hardware::security::keymint::KeyCharacteristics;
 using aidl::android::hardware::security::keymint::KeyFormat;
+using std::optional;
 
 namespace std {
 
@@ -8503,7 +8504,7 @@ class KeyAgreementTest : public KeyMintAidlTestBase {
         OPENSSL_free(p);
     }
 
-    void GenerateKeyMintEcKey(EcCurve curve, EVP_PKEY_Ptr* kmPubKey) {
+    void GenerateKeyMintEcKey(EcCurve curve, EVP_PKEY_Ptr* kmPubKey, string& skipReason) {
         vector<uint8_t> challenge = {0x41, 0x42};
         auto builder = AuthorizationSetBuilder()
                                .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -8513,6 +8514,17 @@ class KeyAgreementTest : public KeyMintAidlTestBase {
                                .Authorization(TAG_ATTESTATION_APPLICATION_ID, {0x61, 0x62})
                                .Authorization(TAG_ATTESTATION_CHALLENGE, challenge)
                                .SetDefaultValidity();
+
+        std::optional<bool> rkpOnly = isRkpOnly();
+        if (!rkpOnly.has_value()) {
+            skipReason = "Test not applicable under GSI";
+            return;
+        }
+        if (rkpOnly.value() && shouldSkipAttestKeyTest()) {
+            skipReason = "Test using ATTEST_KEY is not applicable on waivered device";
+            return;
+        }
+
         ErrorCode result = GenerateKey(builder);
         ASSERT_EQ(ErrorCode::OK, result) << "Failed to generate key";
         ASSERT_GT(cert_chain_.size(), 0);
@@ -8594,7 +8606,11 @@ TEST_P(KeyAgreementTest, Ecdh) {
 
             // Generate EC key in KeyMint (only access to public key material)
             EVP_PKEY_Ptr kmPubKey;
-            GenerateKeyMintEcKey(curve, &kmPubKey);
+            string skipReason;
+            GenerateKeyMintEcKey(curve, &kmPubKey, skipReason);
+            if (!skipReason.empty()) {
+                GTEST_SKIP() << skipReason;
+            }
 
             // Now that we have the two keys, we ask KeyMint to perform ECDH...
             if (curve != localCurve) {
@@ -8631,7 +8647,11 @@ TEST_P(KeyAgreementTest, EcdhCurve25519) {
     // Generate EC key in KeyMint (only access to public key material)
     EcCurve curve = EcCurve::CURVE_25519;
     EVP_PKEY_Ptr kmPubKey = nullptr;
-    GenerateKeyMintEcKey(curve, &kmPubKey);
+    string skipReason;
+    GenerateKeyMintEcKey(curve, &kmPubKey, skipReason);
+    if (!skipReason.empty()) {
+        GTEST_SKIP() << skipReason;
+    }
 
     // Generate EC key on same curve locally (with access to private key material).
     EVP_PKEY_Ptr privKey;
@@ -8700,7 +8720,14 @@ TEST_P(KeyAgreementTest, EcdhCurve25519InvalidSize) {
     // Generate EC key in KeyMint (only access to public key material)
     EcCurve curve = EcCurve::CURVE_25519;
     EVP_PKEY_Ptr kmPubKey = nullptr;
-    GenerateKeyMintEcKey(curve, &kmPubKey);
+    string skipReason;
+    if (isRkpOnly().value()) {
+        return;
+    }
+    GenerateKeyMintEcKey(curve, &kmPubKey, skipReason);
+    if (!skipReason.empty()) {
+        GTEST_SKIP() << skipReason;
+    }
 
     // Generate EC key on same curve locally (with access to private key material).
     EVP_PKEY_Ptr privKey;
@@ -8729,7 +8756,11 @@ TEST_P(KeyAgreementTest, EcdhCurve25519Mismatch) {
     // Generate EC key in KeyMint (only access to public key material)
     EcCurve curve = EcCurve::CURVE_25519;
     EVP_PKEY_Ptr kmPubKey = nullptr;
-    GenerateKeyMintEcKey(curve, &kmPubKey);
+    string skipReason;
+    GenerateKeyMintEcKey(curve, &kmPubKey, skipReason);
+    if (!skipReason.empty()) {
+        GTEST_SKIP() << skipReason;
+    }
 
     for (auto localCurve : ValidCurves()) {
         SCOPED_TRACE(testing::Message() << "local-curve-" << localCurve);
