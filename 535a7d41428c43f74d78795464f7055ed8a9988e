@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad3906c_909ffc3e",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1322530
+      },
+      "writtenOn": "2024-07-09T08:11:22Z",
+      "side": 1,
+      "message": "nit: for TODOs file bug and using the format: TODO(b/xxxxxx): Hack to put back allocation",
+      "range": {
+        "startLine": 445,
+        "startChar": 0,
+        "endLine": 445,
+        "endChar": 38
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5d8ff5f6_f3596b5c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+              "range": {
+                "startLine": 445,
+                "startChar": 0,
+                "endLine": 446,
+                "endChar": 0
+              },
+              "replacement": "  // TODO(b/289151111): Hack to put back allocation\n"
+            }
+          ]
+        }
+      ],
+      "revId": "535a7d41428c43f74d78795464f7055ed8a9988e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
