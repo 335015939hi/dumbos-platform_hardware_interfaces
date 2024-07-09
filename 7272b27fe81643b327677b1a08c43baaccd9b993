@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac7f8ec7_88cc8fdf",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2024-07-09T06:44:42Z",
+      "side": 1,
+      "message": "let\u0027s use anonymous namespace instead of `static`.",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "19eae490_9ba3eef5",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+              "range": {
+                "startLine": 32,
+                "startChar": 0,
+                "endLine": 33,
+                "endChar": 0
+              },
+              "replacement": "namespace {\nconstexpr size_t kMaxRetryCount \u003d 5;\n}\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b0a90d5_03496b5f",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2024-07-09T06:44:42Z",
+      "side": 1,
+      "message": "Out of this CL scope. Continuing from the above comment, we can include this function in the anonymous namespace.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 6
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e0fa4663_b1be1acb",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+              "range": {
+                "startLine": 34,
+                "startChar": 0,
+                "endLine": 34,
+                "endChar": 0
+              },
+              "replacement": "namespace {\n\n"
+            },
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+              "range": {
+                "startLine": 38,
+                "startChar": 0,
+                "endLine": 38,
+                "endChar": 0
+              },
+              "replacement": "\n}  // namespace\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7f56539_87526b37",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2024-07-09T06:44:42Z",
+      "side": 1,
+      "message": "out of curiosity: can this function be called from 2+ different thread?",
+      "range": {
+        "startLine": 130,
+        "startChar": 42,
+        "endLine": 130,
+        "endChar": 60
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "bb4f7e00_bb03a739",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+              "range": {
+                "startLine": 120,
+                "startChar": 0,
+                "endLine": 121,
+                "endChar": 0
+              },
+              "replacement": "    auto status \u003d getValuesWithRetry(requests, \u0026results);\n"
+            },
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+              "range": {
+                "startLine": 132,
+                "startChar": 0,
+                "endLine": 133,
+                "endChar": 0
+              },
+              "replacement": "        std::vector\u003caidlvhal::GetValueResult\u003e* results) const {\n    size_t retryCount \u003d 0;\n    while (retryCount \u003c kMaxRetryCount) {\n        auto status \u003d getValuesWithRetry(requests, results, retryCount);\n        if (status \u003d\u003d aidlvhal::StatusCode::OK) {\n            return status;\n        }\n        retryCount++;\n    }\n\n"
+            },
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+              "range": {
+                "startLine": 198,
+                "startChar": 0,
+                "endLine": 199,
+                "endChar": 0
+              },
+              "replacement": "        return getValuesWithRetry(retryRequests, results);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2328448c_8073acef",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2024-07-09T06:44:42Z",
+      "side": 1,
+      "message": "let\u0027s place function declarations together. Can you move these to line 103?",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 74
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d46879cc_06241084",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
+              "range": {
+                "startLine": 101,
+                "startChar": 0,
+                "endLine": 101,
+                "endChar": 0
+              },
+              "replacement": "    // Check the external timestamp of propValue against the latest updated external timestamp, if\n    // this is an outdated value, return false. Otherwise, update the external timestamp to the\n    // Android timestamp and return true.\n    bool setAndroidTimestamp(aidlvhal::VehiclePropValue* propValue) const;\n\n"
+            },
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
+              "range": {
+                "startLine": 124,
+                "startChar": 0,
+                "endLine": 129,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
