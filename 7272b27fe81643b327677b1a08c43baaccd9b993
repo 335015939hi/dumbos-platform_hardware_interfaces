@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c5c5ed3_53d480ae",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-07-09T18:17:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac7f8ec7_88cc8fdf",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 16
+      },
+      "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b0a90d5_03496b5f",
@@ -89,6 +113,30 @@
           ]
         }
       ],
+      "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90e18dd9_5d2ece97",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-07-09T18:17:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b0a90d5_03496b5f",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 6
+      },
       "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -154,6 +202,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc9362f5_1a4e304e",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-07-09T18:17:14Z",
+      "side": 1,
+      "message": "For one getValues call, it will only invoke getValuesWithRetry in the same binder thread. However, multiple getValues call can happen in different binder thread, so yes, getValuesWithRetry can be called from different binder threads.",
+      "parentUuid": "b7f56539_87526b37",
+      "range": {
+        "startLine": 130,
+        "startChar": 42,
+        "endLine": 130,
+        "endChar": 60
+      },
+      "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfbc1ccb_2ac96fb3",
@@ -191,6 +263,30 @@
           ]
         }
       ],
+      "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b86bc73d_73e545e5",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-07-09T18:17:14Z",
+      "side": 1,
+      "message": "Good point.",
+      "parentUuid": "bfbc1ccb_2ac96fb3",
+      "range": {
+        "startLine": 211,
+        "startChar": 14,
+        "endLine": 211,
+        "endChar": 37
+      },
       "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -242,6 +338,30 @@
           ]
         }
       ],
+      "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5cfb39e_83ca4fca",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-07-09T18:17:14Z",
+      "side": 1,
+      "message": "I moved the methods after the variables.",
+      "parentUuid": "2328448c_8073acef",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 74
+      },
       "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
