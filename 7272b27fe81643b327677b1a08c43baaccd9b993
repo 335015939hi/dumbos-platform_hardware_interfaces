@@ -156,6 +156,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bfbc1ccb_2ac96fb3",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2024-07-09T17:31:47Z",
+      "side": 1,
+      "message": "`GRPCVehicleHardware::getValues()` can be called from different threads. Then, shouldn\u0027t we protect `mLatestUpdateTimestamps` with a lock?",
+      "range": {
+        "startLine": 211,
+        "startChar": 14,
+        "endLine": 211,
+        "endChar": 37
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c49f8dec_ae4c49a2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.cpp",
+              "range": {
+                "startLine": 211,
+                "startChar": 0,
+                "endLine": 211,
+                "endChar": 0
+              },
+              "replacement": "    std::lock_guard lck(mLatestUpdateTimestampsMutex);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7272b27fe81643b327677b1a08c43baaccd9b993",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2328448c_8073acef",
         "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleHardware.h",
         "patchSetId": 2
