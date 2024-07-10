@@ -40,6 +40,30 @@
       ],
       "revId": "f37289fc8c33e4479d49df95f83b26e2aec75de8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0a2a0c5_c15d9818",
+        "filename": "tv/input/aidl/vts/functional/VtsHalTvInputTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1927725
+      },
+      "writtenOn": "2024-07-10T23:08:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51fa094f_13ea7db3",
+      "range": {
+        "startLine": 143,
+        "startChar": 4,
+        "endLine": 143,
+        "endChar": 6
+      },
+      "revId": "f37289fc8c33e4479d49df95f83b26e2aec75de8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
