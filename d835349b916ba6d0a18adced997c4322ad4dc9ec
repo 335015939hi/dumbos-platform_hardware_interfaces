@@ -22,6 +22,30 @@
       },
       "revId": "d835349b916ba6d0a18adced997c4322ad4dc9ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2625aee_7624c422",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/BroadcastCapability.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-07-10T03:50:33Z",
+      "side": 1,
+      "message": "Hi Devin, I changed the definition to use `CodecSpecificConfigurationLtv.AudioChannelAllocation` instead. This already has all constant defined and suits our use cases perfectly.",
+      "parentUuid": "0655bf4f_09bd59b5",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 22
+      },
+      "revId": "d835349b916ba6d0a18adced997c4322ad4dc9ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
