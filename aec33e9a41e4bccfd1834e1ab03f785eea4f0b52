@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e91a253_33d2be58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2024-07-10T12:50:48Z",
+      "side": 1,
+      "message": "So that we can determine which branch to merge this in: are you currently blocked on testing your platform without this change?",
+      "revId": "aec33e9a41e4bccfd1834e1ab03f785eea4f0b52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
