@@ -353,8 +353,14 @@ class EnvironmentalReverbDataTest
         mInput.resize(kBufferSize);
         generateSineWaveInput(mInput);
     }
-    void SetUp() override { SetUpReverb(); }
-    void TearDown() override { TearDownReverb(); }
+    void SetUp() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        SetUpReverb();
+    }
+    void TearDown() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        TearDownReverb();
+    }
 
     void assertEnergyIncreasingWithParameter(bool bypass) {
         createEnvParam(EnvironmentalReverb::bypass, bypass);
@@ -418,12 +424,16 @@ class EnvironmentalReverbMinimumParamTest
         std::tie(mTag, mValue) = std::get<TAG_VALUE_PAIR>(GetParam());
     }
     void SetUp() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
         SetUpReverb();
         createEnvParam(EnvironmentalReverb::roomLevelMb, kMinRoomLevel);
         ASSERT_NO_FATAL_FAILURE(
                 setAndVerifyParam(EX_NONE, mEnvParam, EnvironmentalReverb::roomLevelMb));
     }
-    void TearDown() override { TearDownReverb(); }
+    void TearDown() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        TearDownReverb();
+    }
 
     EnvironmentalReverb::Tag mTag;
     int mValue;
@@ -469,8 +479,14 @@ class EnvironmentalReverbDiffusionTest
         mInput.resize(kBufferSize);
         generateSineWaveInput(mInput);
     }
-    void SetUp() override { SetUpReverb(); }
-    void TearDown() override { TearDownReverb(); }
+    void SetUp() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        SetUpReverb();
+    }
+    void TearDown() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        TearDownReverb();
+    }
 
     float getMean(std::vector<float>& buffer) {
         return std::accumulate(buffer.begin(), buffer.end(), 0.0) / buffer.size();
@@ -543,8 +559,14 @@ class EnvironmentalReverbDensityTest
             generateSineWaveInput(mInput);
         }
     }
-    void SetUp() override { SetUpReverb(); }
-    void TearDown() override { TearDownReverb(); }
+    void SetUp() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        SetUpReverb();
+    }
+    void TearDown() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        TearDownReverb();
+    }
 
     EnvironmentalReverb::Tag mTag;
     int mParamValues;
