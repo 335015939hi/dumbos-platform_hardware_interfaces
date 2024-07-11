@@ -118,7 +118,15 @@ TEST_P(RadioSimTest, setSimCardPower) {
         EXPECT_EQ(CardStatus::STATE_PRESENT, slotStatus.cardState);
         if (CardStatus::STATE_PRESENT == slotStatus.cardState) {
             ASSERT_TRUE(slotStatus.portInfo[0].portActive);
-            EXPECT_EQ(0, cardStatus.slotMap.portId);
+            ALOGI("supportedMepMode = %s\n", toString(cardStatus.supportedMepMode).c_str());
+            if (cardStatus.supportedMepMode == aidl::android::hardware::radio::config::
+                                                       MultipleEnabledProfilesMode::MEP_A1 ||
+                cardStatus.supportedMepMode == aidl::android::hardware::radio::config::
+                                                       MultipleEnabledProfilesMode::MEP_A2) {
+                EXPECT_EQ(1, cardStatus.slotMap.portId);
+            } else {
+                EXPECT_EQ(0, cardStatus.slotMap.portId);
+            }
         }
     }
 }
