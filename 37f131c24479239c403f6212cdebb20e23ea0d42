@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1554391_0d7e6133",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-07-11T16:43:52Z",
+      "side": 1,
+      "message": "For effect data processing test cases, we will take the offload effects into consideration, something like \"SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);\" is usually necessary for them.\n\ncontext: https://android-review.googlesource.com/c/platform/hardware/interfaces/+/3161078\n\nthis is also a note for myself, thanks",
+      "range": {
+        "startLine": 339,
+        "startChar": 6,
+        "endLine": 339,
+        "endChar": 33
+      },
+      "revId": "37f131c24479239c403f6212cdebb20e23ea0d42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
