@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18b00526_2c4c6e4d",
+        "filename": "automotive/evs/aidl/vts/VtsHalEvsTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2024-07-11T16:30:37Z",
+      "side": 1,
+      "message": "we don\u0027t need this because at this point `status.isOk()` is always `false`.",
+      "range": {
+        "startLine": 331,
+        "startChar": 32,
+        "endLine": 331,
+        "endChar": 50
+      },
+      "revId": "c131454b7af3df38df57d6427eca196868695403",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
