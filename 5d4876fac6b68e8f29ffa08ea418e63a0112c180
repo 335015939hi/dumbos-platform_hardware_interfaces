@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ce6ef4e_2d713d4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-07-12T13:05:50Z",
+      "side": 1,
+      "message": "super-nit: it\u0027s nice to stick to 50/72 column limits for commit messages where possible",
+      "revId": "5d4876fac6b68e8f29ffa08ea418e63a0112c180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b74e37cf_f20fce62",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-07-12T13:05:50Z",
+      "side": 1,
+      "message": "super-nit: There\u0027s a bit of a gap between the check (`isRkpOnly`) and the reason (\"GSI\"); maybe re-word to \"Test not applicable because RKP-only status cannot be determined\" ?",
+      "revId": "5d4876fac6b68e8f29ffa08ea418e63a0112c180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc3db696_4a9a43d5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-07-12T13:05:50Z",
+      "side": 1,
+      "message": "Does this need some sort of check that `isRkpOnly().has_value()`, to prevent an exception on `std::nullopt`?\n\nAnd what do we want to happen next if it is `nullopt`?",
+      "revId": "5d4876fac6b68e8f29ffa08ea418e63a0112c180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6cff789_4c47a5a1",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 8506,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-07-12T13:05:50Z",
+      "side": 1,
+      "message": "nit: most methods/functions use pointers rather than non-`const`-references for output parameters, so it would be nice to be consistent\n\n(IIRC the old Google C++ style guide used to ban non-`const`-reference parameters)",
+      "range": {
+        "startLine": 8506,
+        "startChar": 68,
+        "endLine": 8506,
+        "endChar": 87
+      },
+      "revId": "5d4876fac6b68e8f29ffa08ea418e63a0112c180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2217aa2b_d9be5d98",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 8519,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-07-12T13:05:50Z",
+      "side": 1,
+      "message": "super-nit: There\u0027s a bit of a gap between the check (`isRkpOnly`) and the reason (\"GSI\"); maybe re-word to \"Test not applicable because RKP-only status cannot be determined\" ?",
+      "revId": "5d4876fac6b68e8f29ffa08ea418e63a0112c180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "049107a3_29359c9b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 8522,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-07-12T13:05:50Z",
+      "side": 1,
+      "message": "Do we know if this combination should ever happen?  I _suspect_ that all of the waivered devices are not RKP-only -- in which case we can remove this check.\n\n(If we get it wrong, someone will eventually complain and we can re-insert it!)",
+      "revId": "5d4876fac6b68e8f29ffa08ea418e63a0112c180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
