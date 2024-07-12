@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dfa2339_730610ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-07-12T15:13:50Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 10,
+        "startChar": 37,
+        "endLine": 10,
+        "endChar": 48
+      },
+      "revId": "63b8d19ddbb07579f0c549eb69d362d8bb429e2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ad5730d_8cf492ad",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleProxyServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1601154
+      },
+      "writtenOn": "2024-07-12T15:13:50Z",
+      "side": 1,
+      "message": "Do we need to worry about receiving an unexpected request ID?",
+      "range": {
+        "startLine": 97,
+        "startChar": 32,
+        "endLine": 97,
+        "endChar": 68
+      },
+      "revId": "63b8d19ddbb07579f0c549eb69d362d8bb429e2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
