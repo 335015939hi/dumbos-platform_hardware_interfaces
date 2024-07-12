@@ -45,6 +45,30 @@
       },
       "revId": "63b8d19ddbb07579f0c549eb69d362d8bb429e2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f5d67d2_4bb4d04d",
+        "filename": "automotive/vehicle/aidl/impl/grpc/GRPCVehicleProxyServer.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2024-07-12T20:14:37Z",
+      "side": 1,
+      "message": "This should not happen since our hardware implementation always return the expected request Ids.\n\nIf there is a bug in the hardware implementation that returns unexpected request ID, then this will ignore the result and the wait will timeout.",
+      "parentUuid": "1ad5730d_8cf492ad",
+      "range": {
+        "startLine": 97,
+        "startChar": 32,
+        "endLine": 97,
+        "endChar": 68
+      },
+      "revId": "63b8d19ddbb07579f0c549eb69d362d8bb429e2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
