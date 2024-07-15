@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd1a9123_e7308600",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-07-15T12:40:01Z",
+      "side": 1,
+      "message": "It does make it more explicit, but aren\u0027t there loads of places that call `GenerateKey` that don\u0027t currently/yet have any GSI checks?\n\n(E.g. what happens if you locally hack `is_gsi_image()` to return `true` and run the VTS tests?)",
+      "parentUuid": "10b42323_097cefe2",
+      "revId": "5d4876fac6b68e8f29ffa08ea418e63a0112c180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6cff789_4c47a5a1",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 3
