@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae196654_e25d6beb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1141163
+      },
+      "writtenOn": "2024-07-15T16:34:26Z",
+      "side": 1,
+      "message": "looks like its same as internal cl ag/28240842\n\nIf so then you should put the following line below Change-Id. Otherwise this CL will go to internal main branch.\n\nMerged-In: I62805cdf419553b468a04fe2af6ecbfd6cac810a",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 52
+      },
+      "revId": "4bb5efb733058da1419fd1f13632567fb7aa40c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
