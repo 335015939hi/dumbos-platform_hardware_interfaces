@@ -16,6 +16,23 @@
       "message": "Trivial cp on ASOP main.",
       "revId": "ca6839888e8f82b6f3a1d9f5c42571a72550637b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d91dbed2_d6b18d77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1141048
+      },
+      "writtenOn": "2024-07-16T17:47:05Z",
+      "side": 1,
+      "message": "cc Camera framework eng. for visibility",
+      "revId": "ca6839888e8f82b6f3a1d9f5c42571a72550637b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
