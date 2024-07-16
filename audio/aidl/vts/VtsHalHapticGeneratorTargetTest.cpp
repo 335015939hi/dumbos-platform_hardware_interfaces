@@ -21,11 +21,13 @@
 #define LOG_TAG "VtsHalHapticGeneratorTargetTest"
 #include <android-base/logging.h>
 #include <android/binder_enums.h>
+#include <audio_utils/power.h>
 
 #include "EffectHelper.h"
 
 using namespace android;
 
+using aidl::android::hardware::audio::common::getChannelCount;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::getEffectTypeUuidHapticGenerator;
 using aidl::android::hardware::audio::effect::HapticGenerator;
@@ -72,8 +74,86 @@ const std::vector<float> kResonantFrequencyValues = {MIN_FLOAT, 100, MAX_FLOAT};
 const std::vector<float> kQFactorValues = {MIN_FLOAT, 100, MAX_FLOAT};
 const std::vector<float> kMaxAmplitude = {MIN_FLOAT, 100, MAX_FLOAT};
 
+static const std::vector<int32_t> kHapticOutputLayouts = {AudioChannelLayout::CHANNEL_HAPTIC_A,
+                                                          AudioChannelLayout::CHANNEL_HAPTIC_B,
+                                                          AudioChannelLayout::LAYOUT_HAPTIC_AB};
+
+class HapticGeneratorHelper : public EffectHelper {
+  public:
+    void SetUpHapticGenerator(int32_t outputLayout = AudioChannelLayout::CHANNEL_HAPTIC_A) {
+        ASSERT_NE(nullptr, mFactory);
+        ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
+
+        AudioChannelLayout inputchannelLayout =
+                AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                        AudioChannelLayout::LAYOUT_MONO);
+        AudioChannelLayout outputchannelLayout =
+                AudioChannelLayout::make<AudioChannelLayout::layoutMask>(outputLayout);
+
+        Parameter::Common common = createParamCommon(
+                0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
+                kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */,
+                inputchannelLayout, outputchannelLayout);
+        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, std::nullopt, &ret, EX_NONE));
+        ASSERT_NE(nullptr, mEffect);
+    }
+
+    void TearDownHapticGenerator() {
+        ASSERT_NO_FATAL_FAILURE(close(mEffect));
+        ASSERT_NO_FATAL_FAILURE(destroy(mFactory, mEffect));
+        ret = IEffect::OpenEffectReturn{};
+    }
+
+    void setAndVerifyScaleParameter(int scaleId, HapticGenerator::VibratorScale scale) {
+        std::vector<HapticGenerator::HapticScale> hapticScales = {{.id = scaleId, .scale = scale}};
+        auto expectParam = Parameter::make<Parameter::specific>(
+                Parameter::Specific::make<Parameter::Specific::hapticGenerator>(
+                        HapticGenerator::make<HapticGenerator::hapticScales>(hapticScales)));
+        EXPECT_STATUS(EX_NONE, mEffect->setParameter(expectParam)) << expectParam.toString();
+
+        auto hapticId = HapticGenerator::Id::make<HapticGenerator::Id::commonTag>(
+                HapticGenerator::Tag(HapticGenerator::hapticScales));
+        auto id = Parameter::Id::make<Parameter::Id::hapticGeneratorTag>(hapticId);
+        // get parameter
+        Parameter getParam;
+        // If the set is successful, get param should match
+        EXPECT_STATUS(EX_NONE, mEffect->getParameter(id, &getParam));
+        EXPECT_EQ(expectParam, getParam) << "\nexpectedParam:" << expectParam.toString()
+                                         << "\ngetParam:" << getParam.toString();
+    }
+
+    void setAndVerifyVibratorParameter(float resonantFrequencyHz, float qFactor,
+                                       float maxAmplitude) {
+        HapticGenerator::VibratorInformation vibrationInfo = {
+                .resonantFrequencyHz = resonantFrequencyHz,
+                .qFactor = qFactor,
+                .maxAmplitude = maxAmplitude};
+        auto expectParam = Parameter::make<Parameter::specific>(
+                Parameter::Specific::make<Parameter::Specific::hapticGenerator>(
+                        HapticGenerator::make<HapticGenerator::vibratorInfo>(vibrationInfo)));
+        EXPECT_STATUS(EX_NONE, mEffect->setParameter(expectParam)) << expectParam.toString();
+
+        auto hapticId = HapticGenerator::Id::make<HapticGenerator::Id::commonTag>(
+                HapticGenerator::Tag(HapticGenerator::vibratorInfo));
+        auto id = Parameter::Id::make<Parameter::Id::hapticGeneratorTag>(hapticId);
+        // get parameter
+        Parameter getParam;
+        // If the set is successful, get param should match
+        EXPECT_STATUS(EX_NONE, mEffect->getParameter(id, &getParam));
+        EXPECT_EQ(expectParam, getParam) << "\nexpectedParam:" << expectParam.toString()
+                                         << "\ngetParam:" << getParam.toString();
+    }
+
+    static const long kInputFrameCount = 10000;
+    static const long kHapticFrameCount = kInputFrameCount;
+    static const long kOutputFrameCount = kInputFrameCount + kHapticFrameCount;
+    std::shared_ptr<IFactory> mFactory;
+    std::shared_ptr<IEffect> mEffect;
+    IEffect::OpenEffectReturn ret;
+};
+
 class HapticGeneratorParamTest : public ::testing::TestWithParam<HapticGeneratorParamTestParam>,
-                                 public EffectHelper {
+                                 public HapticGeneratorHelper {
   public:
     HapticGeneratorParamTest()
         : mParamHapticScaleId(std::get<PARAM_HAPTIC_SCALE_ID>(GetParam())),
@@ -84,96 +164,28 @@ class HapticGeneratorParamTest : public ::testing::TestWithParam<HapticGenerator
           mParamMaxAmplitude(std::get<PARAM_VIBRATION_INFORMATION_MAX_AMPLITUDE>(GetParam())) {
         std::tie(mFactory, mDescriptor) = std::get<PARAM_INSTANCE_NAME>(GetParam());
     }
-    void SetUp() override {
-        ASSERT_NE(nullptr, mFactory);
-        ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpHapticGenerator()); }
+    void TearDown() override { TearDownHapticGenerator(); }
 
-        Parameter::Common common = createParamCommon(
-                0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
-                kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */);
-        IEffect::OpenEffectReturn ret;
-        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, std::nullopt, &ret, EX_NONE));
-        ASSERT_NE(nullptr, mEffect);
-    }
-
-    void TearDown() override {
-        ASSERT_NO_FATAL_FAILURE(close(mEffect));
-        ASSERT_NO_FATAL_FAILURE(destroy(mFactory, mEffect));
-    }
-
-    static const long kInputFrameCount = 0x100, kOutputFrameCount = 0x100;
-    std::shared_ptr<IFactory> mFactory;
-    std::shared_ptr<IEffect> mEffect;
-    Descriptor mDescriptor;
     int mParamHapticScaleId = 0;
     HapticGenerator::VibratorScale mParamVibratorScale = HapticGenerator::VibratorScale::MUTE;
     float mParamResonantFrequency = 0;
     float mParamQFactor = 0;
     float mParamMaxAmplitude = 0;
-
-    void SetAndGetHapticGeneratorParameters() {
-        for (auto& it : mTags) {
-            auto& tag = std::get<ParamTestEnum::PARAM_TEST_TAG>(it);
-            auto& setHg = std::get<ParamTestEnum::PARAM_TEST_TARGET>(it);
-
-            // set parameter
-            Parameter expectParam;
-            Parameter::Specific specific;
-            specific.set<Parameter::Specific::hapticGenerator>(setHg);
-            expectParam.set<Parameter::specific>(specific);
-            EXPECT_STATUS(EX_NONE, mEffect->setParameter(expectParam)) << expectParam.toString();
-
-            // get parameter
-            Parameter getParam;
-            Parameter::Id id;
-            HapticGenerator::Id hgId;
-            hgId.set<HapticGenerator::Id::commonTag>(tag);
-            id.set<Parameter::Id::hapticGeneratorTag>(hgId);
-            EXPECT_STATUS(EX_NONE, mEffect->getParameter(id, &getParam));
-            EXPECT_EQ(expectParam, getParam) << expectParam.toString() << "\n"
-                                             << getParam.toString();
-        }
-    }
-
-    void addHapticScaleParam(int id, HapticGenerator::VibratorScale scale) {
-        HapticGenerator setHg;
-        std::vector<HapticGenerator::HapticScale> hapticScales = {{.id = id, .scale = scale}};
-        setHg.set<HapticGenerator::hapticScales>(hapticScales);
-        mTags.push_back({HapticGenerator::hapticScales, setHg});
-    }
-
-    void addVibratorInformationParam(float resonantFrequencyHz, float qFactor, float maxAmplitude) {
-        HapticGenerator hg;
-        HapticGenerator::VibratorInformation vibrationInfo = {
-                .resonantFrequencyHz = resonantFrequencyHz,
-                .qFactor = qFactor,
-                .maxAmplitude = maxAmplitude};
-        hg.set<HapticGenerator::vibratorInfo>(vibrationInfo);
-        mTags.push_back({HapticGenerator::vibratorInfo, hg});
-    }
-
-  private:
-    enum ParamTestEnum { PARAM_TEST_TAG, PARAM_TEST_TARGET };
-    std::vector<std::tuple<HapticGenerator::Tag, HapticGenerator>> mTags;
-
-    void CleanUp() { mTags.clear(); }
 };
 
 TEST_P(HapticGeneratorParamTest, SetAndGetHapticScale) {
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam(mParamHapticScaleId, mParamVibratorScale));
-    SetAndGetHapticGeneratorParameters();
+    ASSERT_NO_FATAL_FAILURE(setAndVerifyScaleParameter(mParamHapticScaleId, mParamVibratorScale));
 }
 
 TEST_P(HapticGeneratorParamTest, SetAndGetMultipleHapticScales) {
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam(mParamHapticScaleId, mParamVibratorScale));
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam(mParamHapticScaleId, mParamVibratorScale));
-    SetAndGetHapticGeneratorParameters();
+    ASSERT_NO_FATAL_FAILURE(setAndVerifyScaleParameter(mParamHapticScaleId, mParamVibratorScale));
+    ASSERT_NO_FATAL_FAILURE(setAndVerifyScaleParameter(mParamHapticScaleId, mParamVibratorScale));
 }
 
 TEST_P(HapticGeneratorParamTest, SetAndGetVibratorInformation) {
-    EXPECT_NO_FATAL_FAILURE(addVibratorInformationParam(mParamResonantFrequency, mParamQFactor,
-                                                        mParamMaxAmplitude));
-    SetAndGetHapticGeneratorParameters();
+    ASSERT_NO_FATAL_FAILURE(setAndVerifyVibratorParameter(mParamResonantFrequency, mParamQFactor,
+                                                          mParamMaxAmplitude));
 }
 
 INSTANTIATE_TEST_SUITE_P(
@@ -235,199 +247,107 @@ INSTANTIATE_TEST_SUITE_P(
         });
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(HapticGeneratorParamTest);
 
-// Test HapticScale[] hapticScales parameter
-using HapticGeneratorScalesTestParam = std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>>;
-class HapticGeneratorScalesTest : public ::testing::TestWithParam<HapticGeneratorScalesTestParam>,
-                                  public EffectHelper {
+enum DataTestParam { DATA_INSTANCE_NAME, DATA_LAYOUT };
+using HapticGeneratorDataTestParam =
+        std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>, int32_t>;
+
+class HapticGeneratorDataTest : public ::testing::TestWithParam<HapticGeneratorDataTestParam>,
+                                public HapticGeneratorHelper {
   public:
-    HapticGeneratorScalesTest() {
-        std::tie(mFactory, mDescriptor) = std::get<PARAM_INSTANCE_NAME>(GetParam());
+    HapticGeneratorDataTest() : mOutputLayout(std::get<DATA_LAYOUT>(GetParam())) {
+        std::tie(mFactory, mDescriptor) = std::get<DATA_INSTANCE_NAME>(GetParam());
+        mHapticChannelCount = getChannelCount(
+                AudioChannelLayout::make<AudioChannelLayout::layoutMask>(mOutputLayout),
+                AudioChannelLayout::LAYOUT_HAPTIC_AB);
+        mHapticOutputBufferSize = kHapticFrameCount * mHapticChannelCount;
+        mOutputBufferSize = mHapticOutputBufferSize + kInputBufferSize;
+        generateInput();
     }
 
-    void SetUp() override {
-        ASSERT_NE(nullptr, mFactory);
-        ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpHapticGenerator(mOutputLayout)); }
+    void TearDown() override { TearDownHapticGenerator(); }
 
-        Parameter::Common common = createParamCommon(
-                0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
-                kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */);
-        IEffect::OpenEffectReturn ret;
-        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, std::nullopt, &ret, EX_NONE));
-        ASSERT_NE(nullptr, mEffect);
-    }
-
-    void TearDown() override {
-        ASSERT_NO_FATAL_FAILURE(close(mEffect));
-        ASSERT_NO_FATAL_FAILURE(destroy(mFactory, mEffect));
-        CleanUp();
-    }
-
-    static const long kInputFrameCount = 0x100, kOutputFrameCount = 0x100;
-    std::shared_ptr<IFactory> mFactory;
-    std::shared_ptr<IEffect> mEffect;
-    Descriptor mDescriptor;
-
-    void addHapticScaleParam(std::vector<HapticGenerator::HapticScale> scales) {
-        mHapticScales.push_back(HapticGenerator::make<HapticGenerator::hapticScales>(scales));
-        for (const auto& scale : scales) {
-            expectMap.insert_or_assign(scale.id, scale.scale);
+    void generateInput() {
+        int frequency = 1000;
+        for (size_t i = 0; i < kInputBufferSize; i++) {
+            mInput.push_back(sin(2 * M_PI * frequency * i / 44100));
         }
     }
 
-    void SetHapticScaleParameters() {
-        // std::unordered_set<HapticGenerator::HapticScale> target;
-        for (auto& it : mHapticScales) {
-            Parameter::Specific specific =
-                    Parameter::Specific::make<Parameter::Specific::hapticGenerator>(it);
-            Parameter param = Parameter::make<Parameter::specific>(specific);
-            EXPECT_STATUS(EX_NONE, mEffect->setParameter(param)) << param.toString();
-        }
-    }
+    static constexpr int kSamplingFrequency = 44100;
+    static constexpr int kDefaultScaleID = 0;
+    static constexpr float kDefaultMaxAmp = 1;
+    static constexpr float kDefaultResonantFrequency = 150;
+    static constexpr float kDefaultQfactor = 8;
+    static constexpr HapticGenerator::VibratorScale kDefaultScale =
+            HapticGenerator::VibratorScale::NONE;
+    int kInputChannelCount =
+            getChannelCount(AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                    AudioChannelLayout::LAYOUT_MONO));
+    size_t kInputBufferSize = kInputFrameCount * kInputChannelCount;
 
-    void checkHapticScaleParameter() {
-        // get parameter
-        Parameter targetParam;
-        HapticGenerator::Id hgId = HapticGenerator::Id::make<HapticGenerator::Id::commonTag>(
-                HapticGenerator::hapticScales);
-        Parameter::Id id = Parameter::Id::make<Parameter::Id::hapticGeneratorTag>(hgId);
-        EXPECT_STATUS(EX_NONE, mEffect->getParameter(id, &targetParam));
-        ASSERT_EQ(Parameter::specific, targetParam.getTag());
-        Parameter::Specific specific = targetParam.get<Parameter::specific>();
-        ASSERT_EQ(Parameter::Specific::hapticGenerator, specific.getTag());
-        HapticGenerator hg = specific.get<Parameter::Specific::hapticGenerator>();
-        ASSERT_EQ(HapticGenerator::hapticScales, hg.getTag());
-        std::vector<HapticGenerator::HapticScale> scales = hg.get<HapticGenerator::hapticScales>();
-        ASSERT_EQ(scales.size(), expectMap.size());
-        for (const auto& scale : scales) {
-            auto itor = expectMap.find(scale.id);
-            ASSERT_NE(expectMap.end(), itor);
-            ASSERT_EQ(scale.scale, itor->second);
-            expectMap.erase(scale.id);
-        }
-        ASSERT_EQ(0ul, expectMap.size());
-    }
-
-    const static HapticGenerator::HapticScale kHapticScaleWithMinId;
-    const static HapticGenerator::HapticScale kHapticScaleWithMinIdNew;
-    const static HapticGenerator::HapticScale kHapticScale;
-    const static HapticGenerator::HapticScale kHapticScaleNew;
-    const static HapticGenerator::HapticScale kHapticScaleWithMaxId;
-    const static HapticGenerator::HapticScale kHapticScaleWithMaxIdNew;
-
-    std::vector<HapticGenerator> mHapticScales;
-
-    void CleanUp() {
-        mHapticScales.clear();
-        expectMap.clear();
-    }
-
-  private:
-    std::map<int /* trackID */, HapticGenerator::VibratorScale> expectMap;
+    size_t mOutputBufferSize;
+    size_t mHapticOutputBufferSize;
+    int32_t mOutputLayout;
+    int mHapticChannelCount;
+    std::vector<float> mInput;
 };
 
-const HapticGenerator::HapticScale HapticGeneratorScalesTest::kHapticScaleWithMinId = {
-        .id = MIN_ID, .scale = HapticGenerator::VibratorScale::MUTE};
-const HapticGenerator::HapticScale HapticGeneratorScalesTest::kHapticScaleWithMinIdNew = {
-        .id = MIN_ID, .scale = HapticGenerator::VibratorScale::VERY_LOW};
-const HapticGenerator::HapticScale HapticGeneratorScalesTest::kHapticScale = {
-        .id = 1, .scale = HapticGenerator::VibratorScale::LOW};
-const HapticGenerator::HapticScale HapticGeneratorScalesTest::kHapticScaleNew = {
-        .id = 1, .scale = HapticGenerator::VibratorScale::NONE};
-const HapticGenerator::HapticScale HapticGeneratorScalesTest::kHapticScaleWithMaxId = {
-        .id = MAX_ID, .scale = HapticGenerator::VibratorScale::VERY_HIGH};
-const HapticGenerator::HapticScale HapticGeneratorScalesTest::kHapticScaleWithMaxIdNew = {
-        .id = MAX_ID, .scale = HapticGenerator::VibratorScale::MUTE};
+TEST_P(HapticGeneratorDataTest, IncreaseingScaleTest) {
+    std::vector<float> output(mOutputBufferSize);
+    ASSERT_NO_FATAL_FAILURE(
+            setAndVerifyScaleParameter(kDefaultScaleID, HapticGenerator::VibratorScale::MUTE));
+    ASSERT_NO_FATAL_FAILURE(setAndVerifyVibratorParameter(kDefaultResonantFrequency,
+                                                          kDefaultQfactor, kDefaultMaxAmp));
+    ASSERT_NO_FATAL_FAILURE(processAndWriteToOutput(mInput, output, mEffect, &ret));
 
-TEST_P(HapticGeneratorScalesTest, SetAndUpdateOne) {
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam({kHapticScale}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam({kHapticScaleNew}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
+    float baseHapticOutputEnergy = audio_utils_compute_energy_mono(
+            output.data() + kInputBufferSize, AUDIO_FORMAT_PCM_FLOAT, mHapticOutputBufferSize);
 
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam({kHapticScaleWithMinId}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam({kHapticScaleWithMinIdNew}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
+    for (size_t i = 1; i < kVibratorScaleValues.size(); i++) {
+        ASSERT_NO_FATAL_FAILURE(
+                setAndVerifyScaleParameter(kDefaultScaleID, kVibratorScaleValues[i]));
 
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam({kHapticScaleWithMaxId}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam({kHapticScaleWithMaxIdNew}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-
-    EXPECT_NO_FATAL_FAILURE(checkHapticScaleParameter());
+        ASSERT_NO_FATAL_FAILURE(processAndWriteToOutput(mInput, output, mEffect, &ret));
+        float hapticOutputEnergy = audio_utils_compute_energy_mono(
+                output.data() + kInputBufferSize, AUDIO_FORMAT_PCM_FLOAT, mHapticOutputBufferSize);
+        ASSERT_GT(hapticOutputEnergy, baseHapticOutputEnergy);
+        baseHapticOutputEnergy = hapticOutputEnergy;
+    }
 }
 
-TEST_P(HapticGeneratorScalesTest, SetAndUpdateVector) {
-    EXPECT_NO_FATAL_FAILURE(
-            addHapticScaleParam({kHapticScale, kHapticScaleWithMaxId, kHapticScaleWithMinId}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam(
-            {kHapticScaleNew, kHapticScaleWithMaxIdNew, kHapticScaleWithMinIdNew}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
+TEST_P(HapticGeneratorDataTest, DecreasingMaxAmplitudeTest) {
+    std::vector<float> output(mOutputBufferSize);
+    std::vector<float> descreasingAmplitudeValues = {0.75, 0.5, 0.25, 0.1};
 
-    EXPECT_NO_FATAL_FAILURE(checkHapticScaleParameter());
-}
-
-TEST_P(HapticGeneratorScalesTest, SetAndUpdateMultipleVector) {
-    EXPECT_NO_FATAL_FAILURE(
-            addHapticScaleParam({kHapticScale, kHapticScaleWithMaxId, kHapticScaleWithMinId}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam(
-            {kHapticScaleNew, kHapticScaleWithMaxIdNew, kHapticScaleWithMinIdNew}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-    EXPECT_NO_FATAL_FAILURE(
-            addHapticScaleParam({kHapticScale, kHapticScaleWithMaxId, kHapticScaleWithMinId}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-
-    EXPECT_NO_FATAL_FAILURE(checkHapticScaleParameter());
-}
-
-TEST_P(HapticGeneratorScalesTest, SetOneAndAddMoreVector) {
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam({kHapticScale}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam({kHapticScaleWithMaxId, kHapticScaleWithMinId}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-
-    EXPECT_NO_FATAL_FAILURE(checkHapticScaleParameter());
-}
-
-TEST_P(HapticGeneratorScalesTest, SetMultipleAndAddOneVector) {
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam({kHapticScaleWithMaxId, kHapticScaleWithMinId}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-    EXPECT_NO_FATAL_FAILURE(addHapticScaleParam({kHapticScale}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-
-    EXPECT_NO_FATAL_FAILURE(checkHapticScaleParameter());
-}
-
-TEST_P(HapticGeneratorScalesTest, SetMultipleVectorRepeat) {
-    EXPECT_NO_FATAL_FAILURE(
-            addHapticScaleParam({kHapticScaleWithMaxId, kHapticScale, kHapticScaleWithMinId}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-    EXPECT_NO_FATAL_FAILURE(
-            addHapticScaleParam({kHapticScaleWithMaxId, kHapticScale, kHapticScaleWithMinId}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-    EXPECT_NO_FATAL_FAILURE(
-            addHapticScaleParam({kHapticScaleWithMaxId, kHapticScale, kHapticScaleWithMinId}));
-    EXPECT_NO_FATAL_FAILURE(SetHapticScaleParameters());
-
-    EXPECT_NO_FATAL_FAILURE(checkHapticScaleParameter());
+    ASSERT_NO_FATAL_FAILURE(setAndVerifyScaleParameter(kDefaultScaleID, kDefaultScale));
+    ASSERT_NO_FATAL_FAILURE(setAndVerifyVibratorParameter(kDefaultResonantFrequency,
+                                                          kDefaultQfactor, kDefaultMaxAmp));
+    ASSERT_NO_FATAL_FAILURE(processAndWriteToOutput(mInput, output, mEffect, &ret));
+    float baseHapticOutputEnergy = audio_utils_compute_energy_mono(
+            output.data() + kInputBufferSize, AUDIO_FORMAT_PCM_FLOAT, mHapticOutputBufferSize);
+    for (float amplitude : descreasingAmplitudeValues) {
+        ASSERT_NO_FATAL_FAILURE(setAndVerifyVibratorParameter(kDefaultResonantFrequency,
+                                                              kDefaultQfactor, amplitude));
+        ASSERT_NO_FATAL_FAILURE(processAndWriteToOutput(mInput, output, mEffect, &ret));
+        float hapticOutputEnergy = audio_utils_compute_energy_mono(
+                output.data() + kInputBufferSize, AUDIO_FORMAT_PCM_FLOAT, mHapticOutputBufferSize);
+        ASSERT_LT(hapticOutputEnergy, baseHapticOutputEnergy);
+        baseHapticOutputEnergy = hapticOutputEnergy;
+    }
 }
 
 INSTANTIATE_TEST_SUITE_P(
-        HapticGeneratorScalesTest, HapticGeneratorScalesTest,
+        DataTest, HapticGeneratorDataTest,
         ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
-                IFactory::descriptor, getEffectTypeUuidHapticGenerator()))),
-        [](const testing::TestParamInfo<HapticGeneratorScalesTest::ParamType>& info) {
-            auto descriptor = std::get<PARAM_INSTANCE_NAME>(info.param).second;
-            std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
-                               descriptor.common.name + "_UUID_" +
-                               toString(descriptor.common.id.uuid);
-            std::replace_if(
-                    name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
+                                   IFactory::descriptor, getEffectTypeUuidHapticGenerator())),
+                           testing::ValuesIn(kHapticOutputLayouts)),
+        [](const testing::TestParamInfo<HapticGeneratorDataTest::ParamType>& info) {
+            auto descriptor = std::get<DATA_INSTANCE_NAME>(info.param).second;
+            std::string layout = std::to_string(std::get<DATA_LAYOUT>(info.param));
+            std::string name = getPrefix(descriptor) + "_layout_" + layout;
             return name;
         });
-GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(HapticGeneratorScalesTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
