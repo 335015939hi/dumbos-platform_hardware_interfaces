@@ -390,11 +390,16 @@ class EffectHelper {
         }
 
         for (int i = 0; i < times; i++) {
+            ALOGE("--------before --writeToFmq-----------\n");
             EXPECT_NO_FATAL_FAILURE(
                     EffectHelper::writeToFmq(statusMQ, inputMQ, inputBuffer, version));
+            ALOGE("--------after --writeToFmq-----------\n");
+            
             // Read the updated message queues into buffer
             EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(statusMQ, 1, outputMQ,
                                                               outputBuffer.size(), outputBuffer));
+            ALOGE("--------after --writeToFmq-----------\n");
+
         }
 
         // Disable the process
@@ -452,6 +457,12 @@ class EffectHelper {
         mOutputFrameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(
                 common.output.base.format, common.output.base.channelMask);
         mOutputSamples = common.output.frameCount * mOutputFrameSize / sizeof(float);
+    }
+
+    void generateInput(std::vector<float>& input, float inputFrequency, float samplingFrequency) {
+        for (size_t i = 0; i < input.size(); i++) {
+            input[i] = sin(2 * M_PI * inputFrequency * i / samplingFrequency);
+        }
     }
 
     bool mIsSpatializer;
