@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "220958e0_02e2d099",
+        "filename": "security/keymint/support/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-07-16T09:01:42Z",
+      "side": 1,
+      "message": "1084733 is a slightly better component here (KeyMint instead of Keystore)",
+      "range": {
+        "startLine": 53,
+        "startChar": 21,
+        "endLine": 53,
+        "endChar": 28
+      },
+      "revId": "dee74ee91dd46fae2ef7e5a38488e9ff14abfbb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c3bf4c1_beae67b1",
+        "filename": "security/keymint/support/fuzzer/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-07-16T09:01:42Z",
+      "side": 1,
+      "message": "Can we also have 4271696 here please?",
+      "revId": "dee74ee91dd46fae2ef7e5a38488e9ff14abfbb2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
