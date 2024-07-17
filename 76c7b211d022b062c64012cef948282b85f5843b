@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0574fcc3_8f8890c6",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-07-17T22:37:16Z",
+      "side": 1,
+      "message": "I know there seems no HapticGenerator offload use case yet, but can we skip when the effect declares to be offload?\n`SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);` here and in TearDown\nOr have a `EffectDataTestHelper` defined in EffectHelper.h and do the SKIP in SetUp/TearDown will be even better, so all effect DataTest class can inheritance the SKIP_TEST_IF_DATA_UNSUPPORTED behavior.",
+      "range": {
+        "startLine": 264,
+        "startChar": 27,
+        "endLine": 264,
+        "endChar": 28
+      },
+      "revId": "76c7b211d022b062c64012cef948282b85f5843b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
