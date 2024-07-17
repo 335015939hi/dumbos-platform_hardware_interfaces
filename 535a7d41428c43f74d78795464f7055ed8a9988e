@@ -40,6 +40,30 @@
       ],
       "revId": "535a7d41428c43f74d78795464f7055ed8a9988e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2ef996b_8d3e7019",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-07-17T09:28:48Z",
+      "side": 1,
+      "message": "Done, remove the TODO since there is not work left",
+      "parentUuid": "9ad3906c_909ffc3e",
+      "range": {
+        "startLine": 445,
+        "startChar": 0,
+        "endLine": 445,
+        "endChar": 38
+      },
+      "revId": "535a7d41428c43f74d78795464f7055ed8a9988e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
