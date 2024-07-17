@@ -124,6 +124,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98cf4233_b64c235a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-07-17T02:04:41Z",
+      "side": 1,
+      "message": "Thanks for catching.\nI used the suggestion you gave in our 1:1 - if we can\u0027t figure out the RKP-only value (due to running on GSI), generate and use the attest key anyways. In the case that using an attest key is not supported (shouldSkipAttestKeyTest), assume the device has factory keys (so not RKP-only).",
+      "parentUuid": "bd1a9123_e7308600",
+      "revId": "5d4876fac6b68e8f29ffa08ea418e63a0112c180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6cff789_4c47a5a1",
