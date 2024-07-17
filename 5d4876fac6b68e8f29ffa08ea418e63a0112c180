@@ -160,6 +160,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6103efc0_8b575f1e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-07-17T12:42:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46cffe8e_4afcd104",
+      "revId": "5d4876fac6b68e8f29ffa08ea418e63a0112c180",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6cff789_4c47a5a1",
