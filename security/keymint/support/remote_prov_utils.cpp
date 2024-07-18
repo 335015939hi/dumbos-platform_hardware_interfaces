@@ -327,7 +327,8 @@ bytevec getProdEekChain(int32_t supportedEekCurve) {
 ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
                                                 hwtrust::DiceChain::Kind kind) {
     auto encodedBcc = bcc->encode();
-    auto chain = hwtrust::DiceChain::Verify(encodedBcc, kind);
+    auto chain = hwtrust::DiceChain::Verify(
+            encodedBcc, kind, ::android::base::GetBoolProperty("ro.debuggable", false));
     if (!chain.ok()) return chain.error().message();
     auto keys = chain->CosePublicKeys();
     if (!keys.ok()) return keys.error().message();
@@ -1113,7 +1114,9 @@ ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr) {
     }
 
     auto encodedDiceChain = diceCertChain->encode();
-    auto chain = hwtrust::DiceChain::Verify(encodedDiceChain, *diceChainKind);
+    auto chain =
+            hwtrust::DiceChain::Verify(encodedDiceChain, *diceChainKind,
+                                       ::android::base::GetBoolProperty("ro.debuggable", false));
     if (!chain.ok()) return chain.error().message();
     return chain->IsProper();
 }
