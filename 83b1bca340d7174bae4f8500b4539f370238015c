@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "997f0159_81c34d22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-07-19T23:46:38Z",
+      "side": 1,
+      "message": "This script covers all changes in libvintf (aosp/3159278), but not for vts. I thought this is a process for the finalization at which the version is finalized. So I didn\u0027t expect we may define the versions before that.",
+      "parentUuid": "a64b1b48_a9a244ec",
+      "revId": "83b1bca340d7174bae4f8500b4539f370238015c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2616e16_cedbd63f",
@@ -65,6 +83,30 @@
           ]
         }
       ],
+      "revId": "83b1bca340d7174bae4f8500b4539f370238015c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b032866d_98a07207",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-07-19T23:46:38Z",
+      "side": 1,
+      "message": "I thought they do, but found sed never exit with non-zero status for missing patterns as it does for grep.\nIt would be better to add grep before calling sed not to ignore the change of patterns in the original code.\n\nAnyway, I think the script must return an error if it does not find the patterns, so that we know the code or script must be updated with the change.",
+      "parentUuid": "b2616e16_cedbd63f",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 14
+      },
       "revId": "83b1bca340d7174bae4f8500b4539f370238015c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
