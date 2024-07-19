@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a64b1b48_a9a244ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-07-19T15:57:39Z",
+      "side": 1,
+      "message": "This seems like a good solution right now for CI, but we will probably want to create a script to do this + fix up some other places to make sure VTS still passes. There are couple of other places in https://android-review.git.corp.google.com/q/topic:%22next_2025_level%22 that probably aren\u0027t needed for CI since we aren\u0027t running VTS. I created b/354198611",
+      "revId": "83b1bca340d7174bae4f8500b4539f370238015c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2616e16_cedbd63f",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-07-19T15:57:39Z",
+      "side": 1,
+      "message": "Do these calls raise an exception if sed doesn\u0027t find the pattern?",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 14
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "79802c15_c534c429",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "compatibility_matrices/bump.py",
+              "range": {
+                "startLine": 171,
+                "startChar": 0,
+                "endLine": 172,
+                "endChar": 0
+              },
+              "replacement": "    try:\n        check_call([\n"
+            },
+            {
+              "path": "compatibility_matrices/bump.py",
+              "range": {
+                "startLine": 175,
+                "startChar": 0,
+                "endLine": 176,
+                "endChar": 0
+              },
+              "replacement": "        ])\n    except subprocess.CalledProcessError:\n        print(f\"Failed to add lines above {pattern} in {file}\")\n"
+            }
+          ]
+        }
+      ],
+      "revId": "83b1bca340d7174bae4f8500b4539f370238015c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
