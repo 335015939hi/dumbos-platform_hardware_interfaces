@@ -26,7 +26,8 @@ use kmr_crypto_boring::{
     hmac::BoringHmac, rng::BoringRng, rsa::BoringRsa, sha256::BoringSha256,
 };
 use kmr_ta::device::{
-    BootloaderDone, CsrSigningAlgorithm, Implementation, TrustedPresenceUnsupported,
+    BootloaderDone, CsrSigningAlgorithm, Implementation, RetrieveCertSigningInfo,
+    TrustedPresenceUnsupported,
 };
 use kmr_ta::{HardwareInfo, KeyMintTa, RpcInfo, RpcInfoV3};
 use kmr_wire::keymint::SecurityLevel;
@@ -60,8 +61,12 @@ pub fn boringssl_crypto_impls() -> crypto::Implementation {
     }
 }
 
+/// Whether the TA should act as an RKP-only implementation.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct RkpOnly(pub bool);
+
 /// Build a [`kmr_ta::KeyMintTa`] instance for nonsecure use.
-pub fn build_ta() -> kmr_ta::KeyMintTa {
+pub fn build_ta(rkp_only: RkpOnly) -> kmr_ta::KeyMintTa {
     info!("Building NON-SECURE KeyMint Rust TA");
     let hw_info = HardwareInfo {
         version_number: 1,
@@ -78,7 +83,11 @@ pub fn build_ta() -> kmr_ta::KeyMintTa {
         supported_num_of_keys_in_csr: MINIMUM_SUPPORTED_KEYS_IN_CSR,
     };
 
-    let sign_info = attest::CertSignInfo::new();
+    let sign_info: Option<Box<dyn RetrieveCertSigningInfo>> = if rkp_only.0 {
+        None
+    } else {
+        Some(Box::new(attest::CertSignInfo::new()))
+    };
     let keys: Box<dyn kmr_ta::device::RetrieveKeyMaterial> = Box::new(soft::Keys);
     let rpc: Box<dyn kmr_ta::device::RetrieveRpcArtifacts> = Box::new(soft::RpcArtifacts::new(
         soft::Derive::default(),
@@ -86,7 +95,7 @@ pub fn build_ta() -> kmr_ta::KeyMintTa {
     ));
     let dev = Implementation {
         keys,
-        sign_info: Some(Box::new(sign_info)),
+        sign_info,
         // HAL populates attestation IDs from properties.
         attest_ids: None,
         sdd_mgr: None,

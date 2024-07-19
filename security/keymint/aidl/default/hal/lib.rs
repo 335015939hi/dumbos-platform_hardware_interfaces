@@ -97,3 +97,30 @@ pub fn get_boot_info() -> kmr_wire::SetBootInfoRequest {
         boot_patchlevel,
     }
 }
+
+/// Examine system properties to determine whether the device is RKP-only for TEE,
+/// defaulting to false.  Note that the relevant property requires an SELinux
+/// permission for access.
+pub fn tee_rkp_only() -> bool {
+    let value = get_property("remote_provisioning.tee.rkp_only").unwrap_or_else(|_e| String::new());
+    log::info!("tee.rkp_only property is '{value}'");
+    prop_to_bool(&value, false)
+}
+
+fn prop_to_bool(value: &str, default: bool) -> bool {
+    match value.len() {
+        0 => default,
+        1 => match value {
+            "0" => false,
+            "n" => false,
+            "1" => true,
+            "y" => true,
+            _ => default,
+        },
+        _ => match value {
+            "no" | "false" | "off" => false,
+            "yes" | "true" | "on" => true,
+            _ => default,
+        },
+    }
+}
