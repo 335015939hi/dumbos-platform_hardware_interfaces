@@ -24,7 +24,8 @@
 //! that is based on the Rust reference implementation are described in system/keymint/README.md.
 
 use kmr_hal::SerializedChannel;
-use kmr_hal_nonsecure::{attestation_id_info, get_boot_info};
+use kmr_hal_nonsecure::{attestation_id_info, get_boot_info, tee_rkp_only};
+use kmr_ta_nonsecure::RkpOnly;
 use log::{debug, error, info, warn};
 use std::ops::DerefMut;
 use std::sync::{mpsc, Arc, Mutex};
@@ -72,7 +73,7 @@ fn inner_main() -> Result<(), HalServiceError> {
     binder::ProcessState::start_thread_pool();
 
     // Create a TA in-process, which acts as a local channel for communication.
-    let channel = Arc::new(Mutex::new(LocalTa::new()));
+    let channel = Arc::new(Mutex::new(LocalTa::new(RkpOnly(tee_rkp_only()))));
 
     // Let the TA know information about the boot environment. In a real device this
     // is communicated directly from the bootloader to the TA, but here we retrieve
@@ -146,14 +147,14 @@ pub struct LocalTa {
 
 impl LocalTa {
     /// Create a new instance.
-    pub fn new() -> Self {
+    pub fn new(rkp_only: RkpOnly) -> Self {
         // Create a pair of channels to communicate with the TA thread.
         let (in_tx, in_rx) = mpsc::channel();
         let (out_tx, out_rx) = mpsc::channel();
 
         // The TA code expects to run single threaded, so spawn a thread to run it in.
         std::thread::spawn(move || {
-            let mut ta = kmr_ta_nonsecure::build_ta();
+            let mut ta = kmr_ta_nonsecure::build_ta(rkp_only);
             loop {
                 let req_data: Vec<u8> = in_rx.recv().expect("failed to receive next req");
                 let rsp_data = ta.process(&req_data);
