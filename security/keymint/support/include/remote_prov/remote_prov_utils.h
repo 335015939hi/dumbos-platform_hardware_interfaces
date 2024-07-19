@@ -186,4 +186,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
 /** Checks whether the CSR has a proper DICE chain. */
 ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr);
 
+/** Extract the UDS from a CSR (with minimal validation). */
+std::vector<uint8_t> getUdsFromCsr(const cppbor::Array& request);
+
 }  // namespace aidl::android::hardware::security::keymint::remote_prov

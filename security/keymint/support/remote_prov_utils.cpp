@@ -1118,4 +1118,35 @@ ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr) {
     return chain->IsProper();
 }
 
+std::vector<uint8_t> getUdsFromCsr(const cppbor::Array& request) {
+    if (request.size() < 3U) {
+        std::cerr << "CSR is not a CBOR array of at least 3 elements." << std::endl;
+        exit(-1);
+    }
+
+    auto diceCertChain = request.get(2)->asArray();
+    if (!diceCertChain) {
+        std::cerr << "DiceCertChain must be an Array." << std::endl;
+        exit(-1);
+    }
+
+    auto diceChainKind = getDiceChainKind();
+    if (!diceChainKind) {
+        std::cerr << "Failed to get DICE chain kind: " << diceChainKind.message() << std::endl;
+        exit(-1);
+    }
+
+    auto diceContents = validateBcc(diceCertChain, *diceChainKind);
+    if (!diceContents) {
+        std::cerr
+            << "Failed to validate DICE chain: "
+            << diceContents.message() + "\n" + prettyPrint(diceCertChain)
+            << std::endl;
+        exit(-1);
+    }
+
+    return diceContents->back().pubKey;
+}
+
+
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
