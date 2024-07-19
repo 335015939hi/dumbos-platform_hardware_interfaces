@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a58024d6_784b2b92",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-07-19T23:39:00Z",
+      "side": 1,
+      "message": "It\u0027s lacking a unit test for now, I can add that once I get some initial agreement on this approach.",
+      "range": {
+        "startLine": 1121,
+        "startChar": 21,
+        "endLine": 1121,
+        "endChar": 34
+      },
+      "revId": "15ab4d0637d0f348c890500972812b1d718049a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
