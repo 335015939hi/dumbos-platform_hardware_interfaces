@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "052d3fd5_e59a2027",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-07-22T16:05:12Z",
+      "side": 1,
+      "message": "Let\u0027s see if this will help to reduce flakiness of capture-related tests.",
+      "revId": "2be5078e25cb26d952de365feb28f455add54b57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
