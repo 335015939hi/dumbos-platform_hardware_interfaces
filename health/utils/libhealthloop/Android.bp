@@ -30,8 +30,8 @@ cc_library_static {
         "utils.cpp",
     ],
     shared_libs: [
-        "libcutils",
         "libbase",
+        "libcutils",
     ],
     header_libs: [
         "libbatteryservice_headers",
