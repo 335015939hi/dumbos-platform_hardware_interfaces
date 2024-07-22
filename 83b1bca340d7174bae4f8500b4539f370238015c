@@ -109,6 +109,30 @@
       },
       "revId": "83b1bca340d7174bae4f8500b4539f370238015c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d61515c_6bf3ed9e",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-22T23:58:20Z",
+      "side": 1,
+      "message": "or just implement this with native Python by reading the lines, looking for pattern, and adding your new lines",
+      "parentUuid": "b032866d_98a07207",
+      "range": {
+        "startLine": 171,
+        "startChar": 4,
+        "endLine": 171,
+        "endChar": 14
+      },
+      "revId": "83b1bca340d7174bae4f8500b4539f370238015c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
