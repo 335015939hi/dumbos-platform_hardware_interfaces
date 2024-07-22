@@ -73,6 +73,30 @@
       ],
       "revId": "15ab4d0637d0f348c890500972812b1d718049a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9edfdc1_558ea1b8",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-07-22T22:41:49Z",
+      "side": 1,
+      "message": "I just rolled with this because I saw other code using the last key as UDS.\n\nIt\u0027s pretty clear to me now this is incorrect. The fix should be pretty simple, but I need to find some sample data to be sure I\u0027m not breaking anything.",
+      "parentUuid": "afb42bdc_046d22b2",
+      "range": {
+        "startLine": 1148,
+        "startChar": 11,
+        "endLine": 1148,
+        "endChar": 38
+      },
+      "revId": "15ab4d0637d0f348c890500972812b1d718049a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
