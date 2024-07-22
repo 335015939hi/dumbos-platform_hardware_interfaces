@@ -46,6 +46,30 @@
       },
       "revId": "0c5b6503ed6d6a54b87b6be33f7662960a84f4bd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5e3412a_2e14355c",
+        "filename": "security/keymint/aidl/vts/functional/AttestKeyTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-07-22T21:29:48Z",
+      "side": 1,
+      "message": "Aha! I see, thanks.",
+      "parentUuid": "4319fb59_e04ad62a",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 5
+      },
+      "revId": "0c5b6503ed6d6a54b87b6be33f7662960a84f4bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
