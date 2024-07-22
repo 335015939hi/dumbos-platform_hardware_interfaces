@@ -22,6 +22,57 @@
       },
       "revId": "15ab4d0637d0f348c890500972812b1d718049a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afb42bdc_046d22b2",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2024-07-22T18:59:42Z",
+      "side": 1,
+      "message": "I see other code in the file doing this for the UDS, but I can\u0027t see how it works... I feel like I\u0027m overlooking something, I can\u0027t see how the UDS gets on the end of the vector, or even gets in the vector at all. Otherwise, the approach LGTM.",
+      "range": {
+        "startLine": 1148,
+        "startChar": 11,
+        "endLine": 1148,
+        "endChar": 38
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "9180b3ce_2c5a0734",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 1022,
+                "startChar": 0,
+                "endLine": 1023,
+                "endChar": 0
+              },
+              "replacement": "    // DICE chain is [ pubkey, + DiceChainEntry ]. The last entry is the UDS.\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 1109,
+                "startChar": 0,
+                "endLine": 1110,
+                "endChar": 0
+              },
+              "replacement": "    // DICE chain is [ pubkey, + DiceChainEntry ]. The last entry is the UDS.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "15ab4d0637d0f348c890500972812b1d718049a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
