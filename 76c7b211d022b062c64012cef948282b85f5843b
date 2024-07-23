@@ -22,6 +22,30 @@
       },
       "revId": "76c7b211d022b062c64012cef948282b85f5843b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39c9e2e9_6b53dfac",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-07-23T11:37:38Z",
+      "side": 1,
+      "message": "We\u0027ll upload another CL for this",
+      "parentUuid": "0574fcc3_8f8890c6",
+      "range": {
+        "startLine": 264,
+        "startChar": 27,
+        "endLine": 264,
+        "endChar": 28
+      },
+      "revId": "76c7b211d022b062c64012cef948282b85f5843b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
