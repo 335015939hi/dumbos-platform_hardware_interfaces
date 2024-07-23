@@ -218,3 +218,8 @@ filegroup {
     name: "default-android.hardware.wifi-service.xml",
     srcs: ["android.hardware.wifi-service.xml"],
 }
+
+filegroup {
+    name: "default-android.hardware.wifi-service-lazy.rc",
+    srcs: ["android.hardware.wifi-service-lazy.rc"],
+}
