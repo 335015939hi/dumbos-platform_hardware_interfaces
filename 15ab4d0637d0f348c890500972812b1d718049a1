@@ -97,6 +97,30 @@
       },
       "revId": "15ab4d0637d0f348c890500972812b1d718049a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34f27aa2_d767a183",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1148,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-07-23T07:02:41Z",
+      "side": 1,
+      "message": "Can we add a cpp function that simply extracts the UDS? It feels a bit obscure that we collect all the public keys from payloads and just say the first or last one is UDS? \n\nOtherwise, as the function [get_dice_chain_public_key](https://cs.android.com/android/platform/superproject/main/+/main:tools/security/remote_provisioning/hwtrust/cxxbridge/lib.rs;l\u003d84;drc\u003dd2e108085997c7402eb47e3bb5f07f25df598518) only gets the public keys from payloads, is UDS actually considered as a payload key?",
+      "parentUuid": "a9edfdc1_558ea1b8",
+      "range": {
+        "startLine": 1148,
+        "startChar": 11,
+        "endLine": 1148,
+        "endChar": 38
+      },
+      "revId": "15ab4d0637d0f348c890500972812b1d718049a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
