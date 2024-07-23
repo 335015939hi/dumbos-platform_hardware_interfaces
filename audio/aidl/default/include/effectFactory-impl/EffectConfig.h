@@ -81,7 +81,7 @@ class EffectConfig {
     /* Parsed Effects result */
     std::unordered_map<std::string, struct EffectLibraries> mEffectsMap;
     /**
-     * For parsed pre/post processing result: {key: AudioStreamType/AudioSource/AudioDevice, value:
+     * For parsed pre/post processing result: {key: AudioStreamType/AudioSource, value:
      * EffectLibraries}
      */
     ProcessingLibrariesMap mProcessingMap;
@@ -110,8 +110,7 @@ class EffectConfig {
     bool resolveLibrary(const std::string& path, std::string* resolvedPath);
 
     std::optional<Processing::Type> stringToProcessingType(Processing::Type::Tag typeTag,
-                                                           const std::string& type,
-                                                           const std::string& address);
+                                                           const std::string& type);
 };
 
 }  // namespace aidl::android::hardware::audio::effect

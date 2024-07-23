@@ -17,7 +17,6 @@
 package android.hardware.audio.effect;
 
 import android.hardware.audio.effect.Descriptor;
-import android.media.audio.common.AudioDevice;
 import android.media.audio.common.AudioSource;
 import android.media.audio.common.AudioStreamType;
 import android.media.audio.common.AudioUuid;
@@ -31,7 +30,6 @@ parcelable Processing {
     union Type {
         AudioStreamType streamType = AudioStreamType.INVALID;
         AudioSource source;
-        AudioDevice device;
     }
 
     /**
