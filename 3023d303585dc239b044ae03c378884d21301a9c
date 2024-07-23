@@ -1,0 +1,183 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d584cea4_312feb6a",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-07-23T15:28:38Z",
+      "side": 1,
+      "message": "Is it true that all values that the test provides are valid? I see on the line `112` that only success is expected. Are there any values in any of the parameters that should return an error? Same for `setAndVerifyVibratorParameter`. Why even `MAX_FLOAT` resonant frequency is valid?",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 59
+      },
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02c1d7e8_73fada2f",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-07-23T15:28:38Z",
+      "side": 1,
+      "message": "Should these values be different from the previous call? What is the intent of this test?",
+      "range": {
+        "startLine": 183,
+        "startChar": 55,
+        "endLine": 183,
+        "endChar": 95
+      },
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37626457_715b55ca",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-07-23T15:28:38Z",
+      "side": 1,
+      "message": "This should use `kSamplingFrequency`.",
+      "range": {
+        "startLine": 273,
+        "startChar": 60,
+        "endLine": 273,
+        "endChar": 65
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "990adbe1_ef08d45f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 273,
+                "startChar": 0,
+                "endLine": 274,
+                "endChar": 0
+              },
+              "replacement": "            mInput.push_back(sin(2 * M_PI * frequency * i / kSamplingFrequency));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e424379_699bc8ab",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-07-23T15:28:38Z",
+      "side": 1,
+      "message": "typo: Increasing",
+      "range": {
+        "startLine": 296,
+        "startChar": 32,
+        "endLine": 296,
+        "endChar": 52
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ea932cde_5f26b3cc",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 296,
+                "startChar": 0,
+                "endLine": 297,
+                "endChar": 0
+              },
+              "replacement": "TEST_P(HapticGeneratorDataTest, IncreasingScaleTest) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11246b96_cefb07f4",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-07-23T15:28:38Z",
+      "side": 1,
+      "message": "Please add `SCOPED_TRACE(\"i: \" + std::to_string(i))` or something like that for easier identification of which test value has cause. Same for other tests.",
+      "range": {
+        "startLine": 307,
+        "startChar": 61,
+        "endLine": 307,
+        "endChar": 62
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "7af97f7b_9ab3bedc",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 308,
+                "startChar": 0,
+                "endLine": 308,
+                "endChar": 0
+              },
+              "replacement": "        SCOPED_TRACE(\"i: \" + std::to_string(i));\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 330,
+                "startChar": 0,
+                "endLine": 330,
+                "endChar": 0
+              },
+              "replacement": "        SCOPED_TRACE(\"amplitude: \" + std::to_string(amplitude));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
