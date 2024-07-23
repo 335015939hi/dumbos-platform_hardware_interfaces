@@ -52,6 +52,24 @@
       "parentUuid": "1e8bbebd_000b7d22",
       "revId": "f1b13d4b683e2deef2306c12ef8309d63646e462",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ca4a787_3962efda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-07-23T22:07:32Z",
+      "side": 1,
+      "message": "😄 HIDL is fully deprecated! after 5 years! AIDL is in!",
+      "parentUuid": "3407fdd4_e16b02d5",
+      "revId": "f1b13d4b683e2deef2306c12ef8309d63646e462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
