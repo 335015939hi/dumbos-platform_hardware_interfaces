@@ -55,6 +55,32 @@ class MockGrpcClientStub : public WakeupClient::StubInterface {
         return Status::OK;
     }
 
+    Status ScheduleTask(ClientContext* context, const ScheduleTaskRequest& request,
+                        ScheduleTaskResponse* response) {
+        return Status::OK;
+    }
+
+    Status UnscheduleTask(ClientContext* context, const UnscheduleTaskRequest& request,
+                          UnscheduleTaskResponse* response) {
+        return Status::OK;
+    }
+
+    Status UnscheduleAllTasks(ClientContext* context, const UnscheduleAllTasksRequest& request,
+                              UnscheduleAllTasksResponse* response) {
+        return Status::OK;
+    }
+
+    Status IsTaskScheduled(ClientContext* context, const IsTaskScheduledRequest& request,
+                           IsTaskScheduledResponse* response) {
+        return Status::OK;
+    }
+
+    Status GetAllPendingScheduledTasks(ClientContext* context,
+                                       const GetAllPendingScheduledTasksRequest& request,
+                                       GetAllPendingScheduledTasksResponse* response) {
+        return Status::OK;
+    }
+
     // Async methods which we do not care.
     ClientAsyncReaderInterface<GetRemoteTasksResponse>* AsyncGetRemoteTasksRaw(
             [[maybe_unused]] ClientContext* context,
@@ -81,6 +107,78 @@ class MockGrpcClientStub : public WakeupClient::StubInterface {
     PrepareAsyncNotifyWakeupRequiredRaw([[maybe_unused]] ClientContext* context,
                                         [[maybe_unused]] const NotifyWakeupRequiredRequest& request,
                                         [[maybe_unused]] CompletionQueue* c) {
+        return nullptr;
+    }
+
+    ClientAsyncResponseReaderInterface<ScheduleTaskResponse>* AsyncScheduleTaskRaw(
+            [[maybe_unused]] ClientContext* context,
+            [[maybe_unused]] const ScheduleTaskRequest& request,
+            [[maybe_unused]] CompletionQueue* cq) {
+        return nullptr;
+    }
+
+    ClientAsyncResponseReaderInterface<ScheduleTaskResponse>* PrepareAsyncScheduleTaskRaw(
+            [[maybe_unused]] ClientContext* context,
+            [[maybe_unused]] const ScheduleTaskRequest& request,
+            [[maybe_unused]] CompletionQueue* c) {
+        return nullptr;
+    }
+
+    ClientAsyncResponseReaderInterface<UnscheduleTaskResponse>* AsyncUnscheduleTaskRaw(
+            [[maybe_unused]] ClientContext* context,
+            [[maybe_unused]] const UnscheduleTaskRequest& request,
+            [[maybe_unused]] CompletionQueue* cq) {
+        return nullptr;
+    }
+
+    ClientAsyncResponseReaderInterface<UnscheduleTaskResponse>* PrepareAsyncUnscheduleTaskRaw(
+            [[maybe_unused]] ClientContext* context,
+            [[maybe_unused]] const UnscheduleTaskRequest& request,
+            [[maybe_unused]] CompletionQueue* c) {
+        return nullptr;
+    }
+
+    ClientAsyncResponseReaderInterface<UnscheduleAllTasksResponse>* AsyncUnscheduleAllTasksRaw(
+            [[maybe_unused]] ClientContext* context,
+            [[maybe_unused]] const UnscheduleAllTasksRequest& request,
+            [[maybe_unused]] CompletionQueue* cq) {
+        return nullptr;
+    }
+
+    ClientAsyncResponseReaderInterface<UnscheduleAllTasksResponse>*
+    PrepareAsyncUnscheduleAllTasksRaw([[maybe_unused]] ClientContext* context,
+                                      [[maybe_unused]] const UnscheduleAllTasksRequest& request,
+                                      [[maybe_unused]] CompletionQueue* c) {
+        return nullptr;
+    }
+
+    ClientAsyncResponseReaderInterface<IsTaskScheduledResponse>* AsyncIsTaskScheduledRaw(
+            [[maybe_unused]] ClientContext* context,
+            [[maybe_unused]] const IsTaskScheduledRequest& request,
+            [[maybe_unused]] CompletionQueue* cq) {
+        return nullptr;
+    }
+
+    ClientAsyncResponseReaderInterface<IsTaskScheduledResponse>* PrepareAsyncIsTaskScheduledRaw(
+            [[maybe_unused]] ClientContext* context,
+            [[maybe_unused]] const IsTaskScheduledRequest& request,
+            [[maybe_unused]] CompletionQueue* c) {
+        return nullptr;
+    }
+
+    ClientAsyncResponseReaderInterface<GetAllPendingScheduledTasksResponse>*
+    AsyncGetAllPendingScheduledTasksRaw(
+            [[maybe_unused]] ClientContext* context,
+            [[maybe_unused]] const GetAllPendingScheduledTasksRequest& request,
+            [[maybe_unused]] CompletionQueue* cq) {
+        return nullptr;
+    }
+
+    ClientAsyncResponseReaderInterface<GetAllPendingScheduledTasksResponse>*
+    PrepareAsyncGetAllPendingScheduledTasksRaw(
+            [[maybe_unused]] ClientContext* context,
+            [[maybe_unused]] const GetAllPendingScheduledTasksRequest& request,
+            [[maybe_unused]] CompletionQueue* c) {
         return nullptr;
     }
 };

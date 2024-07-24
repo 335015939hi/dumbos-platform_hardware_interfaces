@@ -75,6 +75,14 @@ aidl_interface {
                 "android.hardware.audio.common-V2",
             ],
         },
+        {
+            version: "4",
+            imports: [
+                "android.hardware.audio.common-V3",
+                "android.hardware.common-V2",
+                "android.hardware.common.fmq-V1",
+            ],
+        },
 
     ],
     frozen: false,
@@ -82,7 +90,7 @@ aidl_interface {
 }
 
 // Note: This should always be one version ahead of the last frozen version
-latest_android_hardware_bluetooth_audio = "android.hardware.bluetooth.audio-V4"
+latest_android_hardware_bluetooth_audio = "android.hardware.bluetooth.audio-V5"
 
 cc_defaults {
     name: "latest_android_hardware_bluetooth_audio_ndk_shared",
@@ -96,4 +104,26 @@ cc_defaults {
     static_libs: [
         latest_android_hardware_bluetooth_audio + "-ndk",
     ],
+}
+
+cc_defaults {
+    name: "latest_android_hardware_bluetooth_audio_ndk_android_shared",
+    target: {
+        android: {
+            shared_libs: [
+                latest_android_hardware_bluetooth_audio + "-ndk",
+            ],
+        },
+    },
+}
+
+cc_defaults {
+    name: "latest_android_hardware_bluetooth_audio_ndk_android_static",
+    target: {
+        android: {
+            static_libs: [
+                latest_android_hardware_bluetooth_audio + "-ndk",
+            ],
+        },
+    },
 }

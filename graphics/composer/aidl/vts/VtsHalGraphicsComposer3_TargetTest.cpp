@@ -34,6 +34,7 @@
 #include <ui/PixelFormat.h>
 #include <algorithm>
 #include <iterator>
+#include <mutex>
 #include <numeric>
 #include <string>
 #include <thread>
@@ -45,7 +46,6 @@
 #define LOG_TAG "VtsHalGraphicsComposer3_TargetTest"
 
 namespace aidl::android::hardware::graphics::composer3::vts {
-namespace {
 
 using namespace std::chrono_literals;
 
@@ -70,7 +70,7 @@ class GraphicsComposerAidlTest : public ::testing::TestWithParam<std::string> {
     }
 
     void TearDown() override {
-        ASSERT_TRUE(mComposerClient->tearDown());
+        ASSERT_TRUE(mComposerClient->tearDown(nullptr));
         mComposerClient.reset();
     }
 
@@ -832,36 +832,58 @@ TEST_P(GraphicsComposerAidlTest, DestroyVirtualDisplay_BadDisplay) {
 }
 
 TEST_P(GraphicsComposerAidlTest, CreateLayer) {
+    if (hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+        GTEST_SKIP() << "Create layer will be tested in GraphicsComposerAidlBatchedCommandTest";
+        return;
+    }
+
     const auto& [status, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, nullptr);
 
     EXPECT_TRUE(status.isOk());
-    EXPECT_TRUE(mComposerClient->destroyLayer(getPrimaryDisplayId(), layer).isOk());
+    EXPECT_TRUE(mComposerClient->destroyLayer(getPrimaryDisplayId(), layer, nullptr).isOk());
 }
 
 TEST_P(GraphicsComposerAidlTest, CreateLayer_BadDisplay) {
-    const auto& [status, _] = mComposerClient->createLayer(getInvalidDisplayId(), kBufferSlotCount);
+    if (hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+        GTEST_SKIP() << "Create layer will be tested in GraphicsComposerAidlBatchedCommandTest";
+        return;
+    }
+
+    const auto& [status, _] =
+            mComposerClient->createLayer(getInvalidDisplayId(), kBufferSlotCount, nullptr);
 
     EXPECT_FALSE(status.isOk());
     EXPECT_NO_FATAL_FAILURE(assertServiceSpecificError(status, IComposerClient::EX_BAD_DISPLAY));
 }
 
 TEST_P(GraphicsComposerAidlTest, DestroyLayer_BadDisplay) {
+    if (hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+        GTEST_SKIP() << "Destroy layer will be tested in GraphicsComposerAidlBatchedCommandTest";
+        return;
+    }
+
     const auto& [status, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, nullptr);
     EXPECT_TRUE(status.isOk());
 
-    const auto& destroyStatus = mComposerClient->destroyLayer(getInvalidDisplayId(), layer);
+    const auto& destroyStatus =
+            mComposerClient->destroyLayer(getInvalidDisplayId(), layer, nullptr);
 
     EXPECT_FALSE(destroyStatus.isOk());
     EXPECT_NO_FATAL_FAILURE(
             assertServiceSpecificError(destroyStatus, IComposerClient::EX_BAD_DISPLAY));
-    ASSERT_TRUE(mComposerClient->destroyLayer(getPrimaryDisplayId(), layer).isOk());
+    ASSERT_TRUE(mComposerClient->destroyLayer(getPrimaryDisplayId(), layer, nullptr).isOk());
 }
 
 TEST_P(GraphicsComposerAidlTest, DestroyLayer_BadLayerError) {
+    if (hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+        GTEST_SKIP() << "Destroy layer will be tested in GraphicsComposerAidlBatchedCommandTest";
+        return;
+    }
+
     // We haven't created any layers yet, so any id should be invalid
-    const auto& status = mComposerClient->destroyLayer(getPrimaryDisplayId(), /*layer*/ 1);
+    const auto& status = mComposerClient->destroyLayer(getPrimaryDisplayId(), /*layer*/ 1, nullptr);
 
     EXPECT_FALSE(status.isOk());
     EXPECT_NO_FATAL_FAILURE(assertServiceSpecificError(status, IComposerClient::EX_BAD_LAYER));
@@ -889,39 +911,6 @@ TEST_P(GraphicsComposerAidlTest, GetDisplayConfig_BadDisplay) {
 TEST_P(GraphicsComposerAidlTest, GetDisplayName) {
     const auto& [status, _] = mComposerClient->getDisplayName(getPrimaryDisplayId());
     EXPECT_TRUE(status.isOk());
-}
-
-TEST_P(GraphicsComposerAidlTest, GetOverlaySupport) {
-    if (getInterfaceVersion() <= 1) {
-        GTEST_SUCCEED() << "Device does not support the new API for overlay support";
-        return;
-    }
-
-    const auto& [status, properties] = mComposerClient->getOverlaySupport();
-    if (!status.isOk() && status.getExceptionCode() == EX_SERVICE_SPECIFIC &&
-        status.getServiceSpecificError() == IComposerClient::EX_UNSUPPORTED) {
-        GTEST_SUCCEED() << "getOverlaySupport is not supported";
-        return;
-    }
-
-    ASSERT_TRUE(status.isOk());
-    for (const auto& i : properties.combinations) {
-        for (const auto standard : i.standards) {
-            const auto val = static_cast<int32_t>(standard) &
-                             static_cast<int32_t>(common::Dataspace::STANDARD_MASK);
-            ASSERT_TRUE(val == static_cast<int32_t>(standard));
-        }
-        for (const auto transfer : i.transfers) {
-            const auto val = static_cast<int32_t>(transfer) &
-                             static_cast<int32_t>(common::Dataspace::TRANSFER_MASK);
-            ASSERT_TRUE(val == static_cast<int32_t>(transfer));
-        }
-        for (const auto range : i.ranges) {
-            const auto val = static_cast<int32_t>(range) &
-                             static_cast<int32_t>(common::Dataspace::RANGE_MASK);
-            ASSERT_TRUE(val == static_cast<int32_t>(range));
-        }
-    }
 }
 
 TEST_P(GraphicsComposerAidlTest, GetDisplayPhysicalOrientation_BadDisplay) {
@@ -1169,33 +1158,260 @@ TEST_P(GraphicsComposerAidlTest, GetDataspaceSaturationMatrix_BadParameter) {
     EXPECT_NO_FATAL_FAILURE(assertServiceSpecificError(status, IComposerClient::EX_BAD_PARAMETER));
 }
 
+/*
+ * Test that no two display configs are exactly the same.
+ */
+TEST_P(GraphicsComposerAidlTest, GetDisplayConfigNoRepetitions) {
+    for (const auto& display : mDisplays) {
+        const auto& [status, configs] = mComposerClient->getDisplayConfigs(display.getDisplayId());
+        for (std::vector<int>::size_type i = 0; i < configs.size(); i++) {
+            for (std::vector<int>::size_type j = i + 1; j < configs.size(); j++) {
+                const auto& [widthStatus1, width1] = mComposerClient->getDisplayAttribute(
+                        display.getDisplayId(), configs[i], DisplayAttribute::WIDTH);
+                const auto& [heightStatus1, height1] = mComposerClient->getDisplayAttribute(
+                        display.getDisplayId(), configs[i], DisplayAttribute::HEIGHT);
+                const auto& [vsyncPeriodStatus1, vsyncPeriod1] =
+                        mComposerClient->getDisplayAttribute(display.getDisplayId(), configs[i],
+                                                             DisplayAttribute::VSYNC_PERIOD);
+                const auto& [groupStatus1, group1] = mComposerClient->getDisplayAttribute(
+                        display.getDisplayId(), configs[i], DisplayAttribute::CONFIG_GROUP);
+
+                const auto& [widthStatus2, width2] = mComposerClient->getDisplayAttribute(
+                        display.getDisplayId(), configs[j], DisplayAttribute::WIDTH);
+                const auto& [heightStatus2, height2] = mComposerClient->getDisplayAttribute(
+                        display.getDisplayId(), configs[j], DisplayAttribute::HEIGHT);
+                const auto& [vsyncPeriodStatus2, vsyncPeriod2] =
+                        mComposerClient->getDisplayAttribute(display.getDisplayId(), configs[j],
+                                                             DisplayAttribute::VSYNC_PERIOD);
+                const auto& [groupStatus2, group2] = mComposerClient->getDisplayAttribute(
+                        display.getDisplayId(), configs[j], DisplayAttribute::CONFIG_GROUP);
+
+                ASSERT_FALSE(width1 == width2 && height1 == height2 &&
+                             vsyncPeriod1 == vsyncPeriod2 && group1 == group2);
+            }
+        }
+    }
+}
+
+TEST_P(GraphicsComposerAidlTest, LayerLifecycleCapabilityNotSupportedOnOldVersions) {
+    if (hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+        EXPECT_GE(getInterfaceVersion(), 3);
+    }
+}
+
+class GraphicsComposerAidlV2Test : public GraphicsComposerAidlTest {
+  protected:
+    void SetUp() override {
+        GraphicsComposerAidlTest::SetUp();
+        if (getInterfaceVersion() <= 1) {
+            GTEST_SKIP() << "Device interface version is expected to be >= 2";
+        }
+    }
+};
+
+TEST_P(GraphicsComposerAidlV2Test, GetOverlaySupport) {
+    const auto& [status, properties] = mComposerClient->getOverlaySupport();
+    if (!status.isOk() && status.getExceptionCode() == EX_SERVICE_SPECIFIC &&
+        status.getServiceSpecificError() == IComposerClient::EX_UNSUPPORTED) {
+        GTEST_SUCCEED() << "getOverlaySupport is not supported";
+        return;
+    }
+
+    ASSERT_TRUE(status.isOk());
+    for (const auto& i : properties.combinations) {
+        for (const auto standard : i.standards) {
+            const auto val = static_cast<int32_t>(standard) &
+                             static_cast<int32_t>(common::Dataspace::STANDARD_MASK);
+            ASSERT_TRUE(val == static_cast<int32_t>(standard));
+        }
+        for (const auto transfer : i.transfers) {
+            const auto val = static_cast<int32_t>(transfer) &
+                             static_cast<int32_t>(common::Dataspace::TRANSFER_MASK);
+            ASSERT_TRUE(val == static_cast<int32_t>(transfer));
+        }
+        for (const auto range : i.ranges) {
+            const auto val = static_cast<int32_t>(range) &
+                             static_cast<int32_t>(common::Dataspace::RANGE_MASK);
+            ASSERT_TRUE(val == static_cast<int32_t>(range));
+        }
+    }
+}
+
+class GraphicsComposerAidlV3Test : public GraphicsComposerAidlTest {
+  protected:
+    void SetUp() override {
+        GraphicsComposerAidlTest::SetUp();
+        if (getInterfaceVersion() <= 2) {
+            GTEST_SKIP() << "Device interface version is expected to be >= 3";
+        }
+    }
+};
+
+TEST_P(GraphicsComposerAidlV3Test, GetDisplayConfigurations) {
+    for (const auto& display : mDisplays) {
+        const auto& [status, displayConfigurations] =
+                mComposerClient->getDisplayConfigurations(display.getDisplayId());
+        EXPECT_TRUE(status.isOk());
+        EXPECT_FALSE(displayConfigurations.empty());
+
+        for (const auto& displayConfig : displayConfigurations) {
+            EXPECT_NE(-1, displayConfig.width);
+            EXPECT_NE(-1, displayConfig.height);
+            EXPECT_NE(-1, displayConfig.vsyncPeriod);
+            EXPECT_NE(-1, displayConfig.configGroup);
+            if (displayConfig.dpi) {
+                EXPECT_NE(-1.f, displayConfig.dpi->x);
+                EXPECT_NE(-1.f, displayConfig.dpi->y);
+            }
+            if (displayConfig.vrrConfig) {
+                const auto& vrrConfig = *displayConfig.vrrConfig;
+                EXPECT_GE(vrrConfig.minFrameIntervalNs, displayConfig.vsyncPeriod);
+
+                EXPECT_EQ(1, std::count_if(
+                                     displayConfigurations.cbegin(), displayConfigurations.cend(),
+                                     [displayConfig](const auto& config) {
+                                         return config.configGroup == displayConfig.configGroup;
+                                     }))
+                        << "There should be only one VRR mode in one ConfigGroup";
+
+                const auto verifyFrameIntervalIsDivisorOfVsync = [&](int32_t frameIntervalNs) {
+                    constexpr auto kThreshold = 0.05f;  // 5%
+                    const auto ratio =
+                            static_cast<float>(frameIntervalNs) / displayConfig.vsyncPeriod;
+                    return ratio - std::round(ratio) <= kThreshold;
+                };
+
+                EXPECT_TRUE(verifyFrameIntervalIsDivisorOfVsync(vrrConfig.minFrameIntervalNs));
+
+                if (vrrConfig.frameIntervalPowerHints) {
+                    const auto& frameIntervalPowerHints = *vrrConfig.frameIntervalPowerHints;
+                    EXPECT_FALSE(frameIntervalPowerHints.empty());
+
+                    const auto minFrameInterval = *min_element(frameIntervalPowerHints.cbegin(),
+                                                               frameIntervalPowerHints.cend());
+                    EXPECT_LE(minFrameInterval->frameIntervalNs,
+                              VtsComposerClient::kMaxFrameIntervalNs);
+                    const auto maxFrameInterval = *max_element(frameIntervalPowerHints.cbegin(),
+                                                               frameIntervalPowerHints.cend());
+                    EXPECT_GE(maxFrameInterval->frameIntervalNs, vrrConfig.minFrameIntervalNs);
+
+                    EXPECT_TRUE(std::all_of(frameIntervalPowerHints.cbegin(),
+                                            frameIntervalPowerHints.cend(),
+                                            [&](const auto& frameIntervalPowerHint) {
+                                                return verifyFrameIntervalIsDivisorOfVsync(
+                                                        frameIntervalPowerHint->frameIntervalNs);
+                                            }));
+                }
+
+                if (vrrConfig.notifyExpectedPresentConfig) {
+                    const auto& notifyExpectedPresentConfig =
+                            *vrrConfig.notifyExpectedPresentConfig;
+                    EXPECT_GE(notifyExpectedPresentConfig.headsUpNs, 0);
+                    EXPECT_GE(notifyExpectedPresentConfig.timeoutNs, 0);
+                }
+            }
+        }
+    }
+}
+
+TEST_P(GraphicsComposerAidlV3Test, GetDisplayConfigsIsSubsetOfGetDisplayConfigurations) {
+    for (const auto& display : mDisplays) {
+        const auto& [status, displayConfigurations] =
+                mComposerClient->getDisplayConfigurations(display.getDisplayId());
+        EXPECT_TRUE(status.isOk());
+
+        const auto& [legacyConfigStatus, legacyConfigs] =
+                mComposerClient->getDisplayConfigs(display.getDisplayId());
+        EXPECT_TRUE(legacyConfigStatus.isOk());
+        EXPECT_FALSE(legacyConfigs.empty());
+        EXPECT_TRUE(legacyConfigs.size() <= displayConfigurations.size());
+
+        for (const auto legacyConfigId : legacyConfigs) {
+            const auto& legacyWidth = mComposerClient->getDisplayAttribute(
+                    display.getDisplayId(), legacyConfigId, DisplayAttribute::WIDTH);
+            const auto& legacyHeight = mComposerClient->getDisplayAttribute(
+                    display.getDisplayId(), legacyConfigId, DisplayAttribute::HEIGHT);
+            const auto& legacyVsyncPeriod = mComposerClient->getDisplayAttribute(
+                    display.getDisplayId(), legacyConfigId, DisplayAttribute::VSYNC_PERIOD);
+            const auto& legacyConfigGroup = mComposerClient->getDisplayAttribute(
+                    display.getDisplayId(), legacyConfigId, DisplayAttribute::CONFIG_GROUP);
+            const auto& legacyDpiX = mComposerClient->getDisplayAttribute(
+                    display.getDisplayId(), legacyConfigId, DisplayAttribute::DPI_X);
+            const auto& legacyDpiY = mComposerClient->getDisplayAttribute(
+                    display.getDisplayId(), legacyConfigId, DisplayAttribute::DPI_Y);
+
+            EXPECT_TRUE(legacyWidth.first.isOk() && legacyHeight.first.isOk() &&
+                        legacyVsyncPeriod.first.isOk() && legacyConfigGroup.first.isOk());
+
+            EXPECT_TRUE(std::any_of(
+                    displayConfigurations.begin(), displayConfigurations.end(),
+                    [&](const auto& displayConfiguration) {
+                        const bool requiredAttributesPredicate =
+                                displayConfiguration.configId == legacyConfigId &&
+                                displayConfiguration.width == legacyWidth.second &&
+                                displayConfiguration.height == legacyHeight.second &&
+                                displayConfiguration.vsyncPeriod == legacyVsyncPeriod.second &&
+                                displayConfiguration.configGroup == legacyConfigGroup.second;
+
+                        if (!requiredAttributesPredicate) {
+                            // Required attributes did not match
+                            return false;
+                        }
+
+                        // Check optional attributes
+                        const auto& [legacyDpiXStatus, legacyDpiXValue] = legacyDpiX;
+                        const auto& [legacyDpiYStatus, legacyDpiYValue] = legacyDpiY;
+                        if (displayConfiguration.dpi) {
+                            if (!legacyDpiXStatus.isOk() || !legacyDpiYStatus.isOk()) {
+                                // getDisplayAttribute failed for optional attributes
+                                return false;
+                            }
+
+                            // DPI values in DisplayConfigurations are not scaled (* 1000.f)
+                            // the way they are in the legacy DisplayConfigs.
+                            constexpr float kEpsilon = 0.001f;
+                            return std::abs(displayConfiguration.dpi->x -
+                                            legacyDpiXValue / 1000.f) < kEpsilon &&
+                                   std::abs(displayConfiguration.dpi->y -
+                                            legacyDpiYValue / 1000.f) < kEpsilon;
+                        } else {
+                            return !legacyDpiXStatus.isOk() && !legacyDpiYStatus.isOk() &&
+                                   EX_SERVICE_SPECIFIC == legacyDpiXStatus.getExceptionCode() &&
+                                   EX_SERVICE_SPECIFIC == legacyDpiYStatus.getExceptionCode() &&
+                                   IComposerClient::EX_UNSUPPORTED ==
+                                           legacyDpiXStatus.getServiceSpecificError() &&
+                                   IComposerClient::EX_UNSUPPORTED ==
+                                           legacyDpiYStatus.getServiceSpecificError();
+                        }
+                    }));
+        }
+    }
+}
+
 // Tests for Command.
 class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
   protected:
     void TearDown() override {
-        const auto errors = mReader.takeErrors();
+        ASSERT_FALSE(mDisplays.empty());
         ASSERT_TRUE(mReader.takeErrors().empty());
         ASSERT_TRUE(mReader.takeChangedCompositionTypes(getPrimaryDisplayId()).empty());
 
+        ASSERT_TRUE(mComposerClient->tearDown(&getWriter(getPrimaryDisplayId())));
         ASSERT_NO_FATAL_FAILURE(GraphicsComposerAidlTest::TearDown());
     }
 
     void execute() {
         std::vector<CommandResultPayload> payloads;
         for (auto& [_, writer] : mWriters) {
-            auto commands = writer.takePendingCommands();
-            if (commands.empty()) {
-                continue;
-            }
-
-            auto [status, results] = mComposerClient->executeCommands(commands);
-            ASSERT_TRUE(status.isOk()) << "executeCommands failed " << status.getDescription();
-
-            payloads.reserve(payloads.size() + results.size());
-            payloads.insert(payloads.end(), std::make_move_iterator(results.begin()),
-                            std::make_move_iterator(results.end()));
+            executeInternal(writer, payloads);
         }
         mReader.parse(std::move(payloads));
+    }
+
+    void execute(ComposerClientWriter& writer, ComposerClientReader& reader) {
+        std::vector<CommandResultPayload> payloads;
+        executeInternal(writer, payloads);
+        reader.parse(std::move(payloads));
     }
 
     static inline auto toTimePoint(nsecs_t time) {
@@ -1268,10 +1484,10 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
                                            RenderIntent::COLORIMETRIC)
                             .isOk());
 
-        const auto& [status, layer] =
-                mComposerClient->createLayer(display.getDisplayId(), kBufferSlotCount);
-        EXPECT_TRUE(status.isOk());
         auto& writer = getWriter(display.getDisplayId());
+        const auto& [status, layer] =
+                mComposerClient->createLayer(display.getDisplayId(), kBufferSlotCount, &writer);
+        EXPECT_TRUE(status.isOk());
         {
             const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
             ASSERT_NE(nullptr, buffer);
@@ -1284,7 +1500,8 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
                                   /*acquireFence*/ -1);
             writer.setLayerDataspace(display.getDisplayId(), layer, common::Dataspace::UNKNOWN);
 
-            writer.validateDisplay(display.getDisplayId(), ComposerClientWriter::kNoTimestamp);
+            writer.validateDisplay(display.getDisplayId(), ComposerClientWriter::kNoTimestamp,
+                                   VtsComposerClient::kNoFrameIntervalNs);
             execute();
             ASSERT_TRUE(mReader.takeErrors().empty());
 
@@ -1301,7 +1518,8 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
                                   /*acquireFence*/ -1);
             writer.setLayerSurfaceDamage(display.getDisplayId(), layer,
                                          std::vector<Rect>(1, {0, 0, 10, 10}));
-            writer.validateDisplay(display.getDisplayId(), ComposerClientWriter::kNoTimestamp);
+            writer.validateDisplay(display.getDisplayId(), ComposerClientWriter::kNoTimestamp,
+                                   VtsComposerClient::kNoFrameIntervalNs);
             execute();
             ASSERT_TRUE(mReader.takeErrors().empty());
 
@@ -1309,21 +1527,24 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
             execute();
         }
 
-        EXPECT_TRUE(mComposerClient->destroyLayer(display.getDisplayId(), layer).isOk());
+        EXPECT_TRUE(mComposerClient->destroyLayer(display.getDisplayId(), layer, &writer).isOk());
     }
 
     sp<::android::Fence> presentAndGetFence(
-            std::optional<ClockMonotonicTimestamp> expectedPresentTime) {
-        auto& writer = getWriter(getPrimaryDisplayId());
-        writer.validateDisplay(getPrimaryDisplayId(), expectedPresentTime);
+            std::optional<ClockMonotonicTimestamp> expectedPresentTime,
+            std::optional<int64_t> displayIdOpt = {},
+            int32_t frameIntervalNs = VtsComposerClient::kNoFrameIntervalNs) {
+        const auto displayId = displayIdOpt.value_or(getPrimaryDisplayId());
+        auto& writer = getWriter(displayId);
+        writer.validateDisplay(displayId, expectedPresentTime, frameIntervalNs);
         execute();
         EXPECT_TRUE(mReader.takeErrors().empty());
 
-        writer.presentDisplay(getPrimaryDisplayId());
+        writer.presentDisplay(displayId);
         execute();
         EXPECT_TRUE(mReader.takeErrors().empty());
 
-        auto presentFence = mReader.takePresentFence(getPrimaryDisplayId());
+        auto presentFence = mReader.takePresentFence(displayId);
         // take ownership
         const int fenceOwner = presentFence.get();
         *presentFence.getR() = -1;
@@ -1342,17 +1563,17 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
         return vsyncPeriod;
     }
 
-    int64_t createOnScreenLayer(Composition composition = Composition::DEVICE) {
+    int64_t createOnScreenLayer(const VtsDisplay& display,
+                                Composition composition = Composition::DEVICE) {
+        auto& writer = getWriter(display.getDisplayId());
         const auto& [status, layer] =
-                mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+                mComposerClient->createLayer(display.getDisplayId(), kBufferSlotCount, &writer);
         EXPECT_TRUE(status.isOk());
-        Rect displayFrame{0, 0, getPrimaryDisplay().getDisplayWidth(),
-                          getPrimaryDisplay().getDisplayHeight()};
-        FRect cropRect{0, 0, (float)getPrimaryDisplay().getDisplayWidth(),
-                       (float)getPrimaryDisplay().getDisplayHeight()};
-        configureLayer(getPrimaryDisplay(), layer, composition, displayFrame, cropRect);
-        auto& writer = getWriter(getPrimaryDisplayId());
-        writer.setLayerDataspace(getPrimaryDisplayId(), layer, common::Dataspace::UNKNOWN);
+        Rect displayFrame{0, 0, display.getDisplayWidth(), display.getDisplayHeight()};
+        FRect cropRect{0, 0, (float)display.getDisplayWidth(), (float)display.getDisplayHeight()};
+        configureLayer(display, layer, composition, displayFrame, cropRect);
+
+        writer.setLayerDataspace(display.getDisplayId(), layer, common::Dataspace::UNKNOWN);
         return layer;
     }
 
@@ -1464,7 +1685,7 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
         ASSERT_NE(nullptr, buffer1);
         ASSERT_NE(nullptr, buffer2);
 
-        const auto layer = createOnScreenLayer();
+        const auto layer = createOnScreenLayer(getPrimaryDisplay());
         auto& writer = getWriter(getPrimaryDisplayId());
         writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 0, buffer1->handle,
                               /*acquireFence*/ -1);
@@ -1497,6 +1718,38 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
         ASSERT_TRUE(mComposerClient->setPowerMode(getPrimaryDisplayId(), PowerMode::OFF).isOk());
     }
 
+    void forEachNotifyExpectedPresentConfig(
+            std::function<void(VtsDisplay&, const DisplayConfiguration&)> func) {
+        for (VtsDisplay& display : mDisplays) {
+            const auto displayId = display.getDisplayId();
+            EXPECT_TRUE(mComposerClient->setPowerMode(displayId, PowerMode::ON).isOk());
+            const auto& [status, displayConfigurations] =
+                    mComposerClient->getDisplayConfigurations(displayId);
+            EXPECT_TRUE(status.isOk());
+            EXPECT_FALSE(displayConfigurations.empty());
+            for (const auto& config : displayConfigurations) {
+                if (config.vrrConfig && config.vrrConfig->notifyExpectedPresentConfig) {
+                    const auto [vsyncPeriodStatus, oldVsyncPeriod] =
+                            mComposerClient->getDisplayVsyncPeriod(displayId);
+                    ASSERT_TRUE(vsyncPeriodStatus.isOk());
+                    const auto& [timelineStatus, timeline] =
+                            mComposerClient->setActiveConfigWithConstraints(
+                                    &display, config.configId,
+                                    VsyncPeriodChangeConstraints{.seamlessRequired = false});
+                    ASSERT_TRUE(timelineStatus.isOk());
+                    if (timeline.refreshRequired) {
+                        sendRefreshFrame(display, &timeline);
+                    }
+                    waitForVsyncPeriodChange(displayId, timeline, systemTime(), oldVsyncPeriod,
+                                             config.vsyncPeriod);
+                    func(display, config);
+                }
+            }
+            EXPECT_TRUE(
+                    mComposerClient->setPowerMode(getPrimaryDisplayId(), PowerMode::OFF).isOk());
+        }
+    }
+
     void configureLayer(const VtsDisplay& display, int64_t layer, Composition composition,
                         const Rect& displayFrame, const FRect& cropRect) {
         auto& writer = getWriter(display.getDisplayId());
@@ -1522,6 +1775,7 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
     // clang-format on
 
     ComposerClientWriter& getWriter(int64_t display) {
+        std::lock_guard guard{mWritersMutex};
         auto [it, _] = mWriters.try_emplace(display, display);
         return it->second;
     }
@@ -1529,7 +1783,27 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
     ComposerClientReader mReader;
 
   private:
-    std::unordered_map<int64_t, ComposerClientWriter> mWriters;
+    void executeInternal(ComposerClientWriter& writer,
+                         std::vector<CommandResultPayload>& payloads) {
+        auto commands = writer.takePendingCommands();
+        if (commands.empty()) {
+            return;
+        }
+
+        auto [status, results] = mComposerClient->executeCommands(commands);
+        ASSERT_TRUE(status.isOk()) << "executeCommands failed " << status.getDescription();
+
+        payloads.reserve(payloads.size() + results.size());
+        payloads.insert(payloads.end(), std::make_move_iterator(results.begin()),
+                        std::make_move_iterator(results.end()));
+    }
+
+    // Guards access to the map itself. Callers must ensure not to attempt to
+    // - modify the same writer from multiple threads
+    // - insert a new writer into the map during concurrent access, which would invalidate
+    //   references from other threads
+    std::mutex mWritersMutex;
+    std::unordered_map<int64_t, ComposerClientWriter> mWriters GUARDED_BY(mWritersMutex);
 };
 
 TEST_P(GraphicsComposerAidlCommandTest, SetColorTransform) {
@@ -1539,10 +1813,10 @@ TEST_P(GraphicsComposerAidlCommandTest, SetColorTransform) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerColorTransform) {
-    const auto& [status, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
-    EXPECT_TRUE(status.isOk());
     auto& writer = getWriter(getPrimaryDisplayId());
+    const auto& [status, layer] =
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
+    EXPECT_TRUE(status.isOk());
     writer.setLayerColorTransform(getPrimaryDisplayId(), layer, kIdentity.data());
     execute();
 
@@ -1610,7 +1884,7 @@ TEST_P(GraphicsComposerAidlCommandTest, SetClientTarget) {
 
     auto& writer = getWriter(getPrimaryDisplayId());
     writer.setClientTarget(getPrimaryDisplayId(), /*slot*/ 0, nullptr, /*acquireFence*/ -1,
-                           Dataspace::UNKNOWN, std::vector<Rect>());
+                           Dataspace::UNKNOWN, std::vector<Rect>(), 1.0f);
 
     execute();
 }
@@ -1637,20 +1911,23 @@ TEST_P(GraphicsComposerAidlCommandTest, SetOutputBuffer) {
 
 TEST_P(GraphicsComposerAidlCommandTest, ValidDisplay) {
     auto& writer = getWriter(getPrimaryDisplayId());
-    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp);
+    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp,
+                           VtsComposerClient::kNoFrameIntervalNs);
     execute();
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, AcceptDisplayChanges) {
     auto& writer = getWriter(getPrimaryDisplayId());
-    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp);
+    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp,
+                           VtsComposerClient::kNoFrameIntervalNs);
     writer.acceptDisplayChanges(getPrimaryDisplayId());
     execute();
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, PresentDisplay) {
     auto& writer = getWriter(getPrimaryDisplayId());
-    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp);
+    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp,
+                           VtsComposerClient::kNoFrameIntervalNs);
     writer.presentDisplay(getPrimaryDisplayId());
     execute();
 }
@@ -1663,10 +1940,6 @@ TEST_P(GraphicsComposerAidlCommandTest, PresentDisplay) {
  * surface damage have been set
  */
 TEST_P(GraphicsComposerAidlCommandTest, PresentDisplayNoLayerStateChanges) {
-    if (!hasCapability(Capability::SKIP_VALIDATE)) {
-        GTEST_SUCCEED() << "Device does not have skip validate capability, skipping";
-        return;
-    }
     EXPECT_TRUE(mComposerClient->setPowerMode(getPrimaryDisplayId(), PowerMode::ON).isOk());
 
     const auto& [renderIntentsStatus, renderIntents] =
@@ -1682,7 +1955,7 @@ TEST_P(GraphicsComposerAidlCommandTest, PresentDisplayNoLayerStateChanges) {
         ASSERT_NE(nullptr, handle);
 
         const auto& [layerStatus, layer] =
-                mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+                mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
         EXPECT_TRUE(layerStatus.isOk());
 
         Rect displayFrame{0, 0, getPrimaryDisplay().getDisplayWidth(),
@@ -1693,7 +1966,8 @@ TEST_P(GraphicsComposerAidlCommandTest, PresentDisplayNoLayerStateChanges) {
         writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 0, handle,
                               /*acquireFence*/ -1);
         writer.setLayerDataspace(getPrimaryDisplayId(), layer, Dataspace::UNKNOWN);
-        writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp);
+        writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp,
+                               VtsComposerClient::kNoFrameIntervalNs);
         execute();
         if (!mReader.takeChangedCompositionTypes(getPrimaryDisplayId()).empty()) {
             GTEST_SUCCEED() << "Composition change requested, skipping test";
@@ -1718,15 +1992,15 @@ TEST_P(GraphicsComposerAidlCommandTest, PresentDisplayNoLayerStateChanges) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerCursorPosition) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
     const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
     const auto handle = buffer->handle;
     ASSERT_NE(nullptr, handle);
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 0, handle, /*acquireFence*/ -1);
 
     Rect displayFrame{0, 0, getPrimaryDisplay().getDisplayWidth(),
@@ -1735,7 +2009,8 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerCursorPosition) {
                    (float)getPrimaryDisplay().getDisplayHeight()};
     configureLayer(getPrimaryDisplay(), layer, Composition::CURSOR, displayFrame, cropRect);
     writer.setLayerDataspace(getPrimaryDisplayId(), layer, Dataspace::UNKNOWN);
-    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp);
+    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp,
+                           VtsComposerClient::kNoFrameIntervalNs);
 
     execute();
 
@@ -1750,7 +2025,8 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerCursorPosition) {
     execute();
 
     writer.setLayerCursorPosition(getPrimaryDisplayId(), layer, /*x*/ 0, /*y*/ 0);
-    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp);
+    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp,
+                           VtsComposerClient::kNoFrameIntervalNs);
     writer.presentDisplay(getPrimaryDisplayId());
     execute();
 }
@@ -1760,66 +2036,19 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerBuffer) {
     const auto handle = buffer->handle;
     ASSERT_NE(nullptr, handle);
 
-    const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
-    EXPECT_TRUE(layerStatus.isOk());
     auto& writer = getWriter(getPrimaryDisplayId());
+    const auto& [layerStatus, layer] =
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
+    EXPECT_TRUE(layerStatus.isOk());
     writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 0, handle, /*acquireFence*/ -1);
     execute();
 }
 
-TEST_P(GraphicsComposerAidlCommandTest, SetLayerBufferSlotsToClear) {
-    // Older HAL versions use a backwards compatible way of clearing buffer slots
-    const auto& [versionStatus, version] = mComposerClient->getInterfaceVersion();
-    ASSERT_TRUE(versionStatus.isOk());
-    if (version <= 1) {
-        GTEST_SUCCEED() << "HAL at version 1 or lower does not have "
-                           "LayerCommand::bufferSlotsToClear.";
-        return;
-    }
-
-    const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
-    EXPECT_TRUE(layerStatus.isOk());
-    auto& writer = getWriter(getPrimaryDisplayId());
-
-    // setup 3 buffers in the buffer cache, with the last buffer being active
-    // then emulate the Android platform code that clears all 3 buffer slots
-
-    const auto buffer1 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
-    ASSERT_NE(nullptr, buffer1);
-    const auto handle1 = buffer1->handle;
-    writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 0, handle1, /*acquireFence*/ -1);
-    execute();
-    ASSERT_TRUE(mReader.takeErrors().empty());
-
-    const auto buffer2 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
-    ASSERT_NE(nullptr, buffer2);
-    const auto handle2 = buffer2->handle;
-    writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 1, handle2, /*acquireFence*/ -1);
-    execute();
-    ASSERT_TRUE(mReader.takeErrors().empty());
-
-    const auto buffer3 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
-    ASSERT_NE(nullptr, buffer3);
-    const auto handle3 = buffer3->handle;
-    writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 2, handle3, /*acquireFence*/ -1);
-    execute();
-    ASSERT_TRUE(mReader.takeErrors().empty());
-
-    // Ensure we can clear all 3 buffer slots, even the active buffer - it is assumed the
-    // current active buffer's slot will be cleared, but still remain the active buffer and no
-    // errors will occur.
-    writer.setLayerBufferSlotsToClear(getPrimaryDisplayId(), layer, {0, 1, 2});
-    execute();
-    ASSERT_TRUE(mReader.takeErrors().empty());
-}
-
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerBufferMultipleTimes) {
-    const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
-    EXPECT_TRUE(layerStatus.isOk());
     auto& writer = getWriter(getPrimaryDisplayId());
+    const auto& [layerStatus, layer] =
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
+    EXPECT_TRUE(layerStatus.isOk());
 
     // Setup 3 buffers in the buffer cache, with the last buffer being active. Then, emulate the
     // Android platform code that clears all 3 buffer slots by setting all but the active buffer
@@ -1867,14 +2096,14 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerBufferMultipleTimes) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerSurfaceDamage) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
     Rect empty{0, 0, 0, 0};
     Rect unit{0, 0, 1, 1};
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerSurfaceDamage(getPrimaryDisplayId(), layer, std::vector<Rect>(1, empty));
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
@@ -1889,14 +2118,14 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerSurfaceDamage) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerBlockingRegion) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
     Rect empty{0, 0, 0, 0};
     Rect unit{0, 0, 1, 1};
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerBlockingRegion(getPrimaryDisplayId(), layer, std::vector<Rect>(1, empty));
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
@@ -1911,11 +2140,11 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerBlockingRegion) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerBlendMode) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerBlendMode(getPrimaryDisplayId(), layer, BlendMode::NONE);
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
@@ -1930,11 +2159,11 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerBlendMode) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerColor) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerColor(getPrimaryDisplayId(), layer, Color{1.0f, 1.0f, 1.0f, 1.0f});
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
@@ -1945,11 +2174,11 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerColor) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerCompositionType) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerCompositionType(getPrimaryDisplayId(), layer, Composition::CLIENT);
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
@@ -1968,8 +2197,9 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerCompositionType) {
 
 TEST_P(GraphicsComposerAidlCommandTest, DisplayDecoration) {
     for (VtsDisplay& display : mDisplays) {
+        auto& writer = getWriter(display.getDisplayId());
         const auto [layerStatus, layer] =
-                mComposerClient->createLayer(display.getDisplayId(), kBufferSlotCount);
+                mComposerClient->createLayer(display.getDisplayId(), kBufferSlotCount, &writer);
         EXPECT_TRUE(layerStatus.isOk());
 
         const auto [error, support] =
@@ -1992,11 +2222,11 @@ TEST_P(GraphicsComposerAidlCommandTest, DisplayDecoration) {
         }
 
         configureLayer(display, layer, Composition::DISPLAY_DECORATION, display.getFrameRect(),
-                          display.getCrop());
-        auto& writer = getWriter(display.getDisplayId());
+                       display.getCrop());
         writer.setLayerBuffer(display.getDisplayId(), layer, /*slot*/ 0, decorBuffer->handle,
                               /*acquireFence*/ -1);
-        writer.validateDisplay(display.getDisplayId(), ComposerClientWriter::kNoTimestamp);
+        writer.validateDisplay(display.getDisplayId(), ComposerClientWriter::kNoTimestamp,
+                               VtsComposerClient::kNoFrameIntervalNs);
         execute();
         if (support) {
             ASSERT_TRUE(mReader.takeErrors().empty());
@@ -2009,31 +2239,31 @@ TEST_P(GraphicsComposerAidlCommandTest, DisplayDecoration) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerDataspace) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerDataspace(getPrimaryDisplayId(), layer, Dataspace::UNKNOWN);
     execute();
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerDisplayFrame) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerDisplayFrame(getPrimaryDisplayId(), layer, Rect{0, 0, 1, 1});
     execute();
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerPlaneAlpha) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerPlaneAlpha(getPrimaryDisplayId(), layer, /*alpha*/ 0.0f);
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
@@ -2053,31 +2283,31 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerSidebandStream) {
     const auto handle = buffer->handle;
     ASSERT_NE(nullptr, handle);
 
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerSidebandStream(getPrimaryDisplayId(), layer, handle);
     execute();
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerSourceCrop) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerSourceCrop(getPrimaryDisplayId(), layer, FRect{0.0f, 0.0f, 1.0f, 1.0f});
     execute();
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerTransform) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerTransform(getPrimaryDisplayId(), layer, static_cast<Transform>(0));
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
@@ -2116,14 +2346,14 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerTransform) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerVisibleRegion) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
     Rect empty{0, 0, 0, 0};
     Rect unit{0, 0, 1, 1};
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerVisibleRegion(getPrimaryDisplayId(), layer, std::vector<Rect>(1, empty));
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
@@ -2138,11 +2368,12 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerVisibleRegion) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerZOrder) {
+    auto& writer = getWriter(getPrimaryDisplayId());
+
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerZOrder(getPrimaryDisplayId(), layer, /*z*/ 10);
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
@@ -2153,8 +2384,9 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerZOrder) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerPerFrameMetadata) {
+    auto& writer = getWriter(getPrimaryDisplayId());
     const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
     /**
@@ -2169,7 +2401,6 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerPerFrameMetadata) {
      *  white (D65)     0.3127  0.3290
      */
 
-    auto& writer = getWriter(getPrimaryDisplayId());
     std::vector<PerFrameMetadata> aidlMetadata;
     aidlMetadata.push_back({PerFrameMetadataKey::DISPLAY_RED_PRIMARY_X, 0.680f});
     aidlMetadata.push_back({PerFrameMetadataKey::DISPLAY_RED_PRIMARY_Y, 0.320f});
@@ -2189,18 +2420,19 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerPerFrameMetadata) {
     const auto errors = mReader.takeErrors();
     if (errors.size() == 1 && errors[0].errorCode == EX_UNSUPPORTED_OPERATION) {
         GTEST_SUCCEED() << "SetLayerPerFrameMetadata is not supported";
-        EXPECT_TRUE(mComposerClient->destroyLayer(getPrimaryDisplayId(), layer).isOk());
+        EXPECT_TRUE(mComposerClient->destroyLayer(getPrimaryDisplayId(), layer, &writer).isOk());
         return;
     }
 
-    EXPECT_TRUE(mComposerClient->destroyLayer(getPrimaryDisplayId(), layer).isOk());
+    EXPECT_TRUE(mComposerClient->destroyLayer(getPrimaryDisplayId(), layer, &writer).isOk());
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, setLayerBrightness) {
-    const auto& [layerStatus, layer] =
-            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount);
-
     auto& writer = getWriter(getPrimaryDisplayId());
+
+    const auto& [layerStatus, layer] =
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
+
     writer.setLayerBrightness(getPrimaryDisplayId(), layer, 0.2f);
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
@@ -2385,7 +2617,7 @@ TEST_P(GraphicsComposerAidlCommandTest, SetIdleTimerEnabled_Timeout_2) {
     const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
     ASSERT_NE(nullptr, buffer->handle);
 
-    const auto layer = createOnScreenLayer();
+    const auto layer = createOnScreenLayer(getPrimaryDisplay());
     auto& writer = getWriter(getPrimaryDisplayId());
     writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 0, buffer->handle,
                           /*acquireFence*/ -1);
@@ -2406,12 +2638,69 @@ TEST_P(GraphicsComposerAidlCommandTest, SetIdleTimerEnabled_Timeout_2) {
     EXPECT_TRUE(mComposerClient->setPowerMode(getPrimaryDisplayId(), PowerMode::OFF).isOk());
 }
 
-TEST_P(GraphicsComposerAidlCommandTest, SetRefreshRateChangedCallbackDebug_Unsupported) {
-    if (getInterfaceVersion() <= 1) {
-        GTEST_SUCCEED() << "Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG is "
-                           "not supported on older version of the service";
-        return;
+class GraphicsComposerAidlCommandV2Test : public GraphicsComposerAidlCommandTest {
+  protected:
+    void SetUp() override {
+        GraphicsComposerAidlTest::SetUp();
+        if (getInterfaceVersion() <= 1) {
+            GTEST_SKIP() << "Device interface version is expected to be >= 2";
+        }
     }
+};
+/**
+ * Test Capability::SKIP_VALIDATE
+ *
+ * Capability::SKIP_VALIDATE has been deprecated and should not be enabled.
+ */
+TEST_P(GraphicsComposerAidlCommandV2Test, SkipValidateDeprecatedTest) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    ASSERT_FALSE(hasCapability(Capability::SKIP_VALIDATE))
+            << "Found Capability::SKIP_VALIDATE capability.";
+#pragma clang diagnostic pop
+}
+
+TEST_P(GraphicsComposerAidlCommandV2Test, SetLayerBufferSlotsToClear) {
+    auto& writer = getWriter(getPrimaryDisplayId());
+    // Older HAL versions use a backwards compatible way of clearing buffer slots
+    // HAL at version 1 or lower does not have LayerCommand::bufferSlotsToClear
+    const auto& [layerStatus, layer] =
+            mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
+    EXPECT_TRUE(layerStatus.isOk());
+
+    // setup 3 buffers in the buffer cache, with the last buffer being active
+    // then emulate the Android platform code that clears all 3 buffer slots
+
+    const auto buffer1 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    ASSERT_NE(nullptr, buffer1);
+    const auto handle1 = buffer1->handle;
+    writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 0, handle1, /*acquireFence*/ -1);
+    execute();
+    ASSERT_TRUE(mReader.takeErrors().empty());
+
+    const auto buffer2 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    ASSERT_NE(nullptr, buffer2);
+    const auto handle2 = buffer2->handle;
+    writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 1, handle2, /*acquireFence*/ -1);
+    execute();
+    ASSERT_TRUE(mReader.takeErrors().empty());
+
+    const auto buffer3 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    ASSERT_NE(nullptr, buffer3);
+    const auto handle3 = buffer3->handle;
+    writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 2, handle3, /*acquireFence*/ -1);
+    execute();
+    ASSERT_TRUE(mReader.takeErrors().empty());
+
+    // Ensure we can clear all 3 buffer slots, even the active buffer - it is assumed the
+    // current active buffer's slot will be cleared, but still remain the active buffer and no
+    // errors will occur.
+    writer.setLayerBufferSlotsToClear(getPrimaryDisplayId(), layer, {0, 1, 2});
+    execute();
+    ASSERT_TRUE(mReader.takeErrors().empty());
+}
+
+TEST_P(GraphicsComposerAidlCommandV2Test, SetRefreshRateChangedCallbackDebug_Unsupported) {
     if (!hasCapability(Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG)) {
         auto status = mComposerClient->setRefreshRateChangedCallbackDebugEnabled(
                 getPrimaryDisplayId(), /*enabled*/ true);
@@ -2427,46 +2716,50 @@ TEST_P(GraphicsComposerAidlCommandTest, SetRefreshRateChangedCallbackDebug_Unsup
     }
 }
 
-TEST_P(GraphicsComposerAidlCommandTest, SetRefreshRateChangedCallbackDebug_Enabled) {
-    if (getInterfaceVersion() <= 1) {
-        GTEST_SUCCEED() << "Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG is "
-                           "not supported on older version of the service";
-        return;
-    }
+TEST_P(GraphicsComposerAidlCommandV2Test, SetRefreshRateChangedCallbackDebug_Enabled) {
     if (!hasCapability(Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG)) {
         GTEST_SUCCEED() << "Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG is not supported";
         return;
     }
 
-    const auto displayId = getPrimaryDisplayId();
-    EXPECT_TRUE(mComposerClient->setPowerMode(displayId, PowerMode::ON).isOk());
-    // Enable the callback
-    ASSERT_TRUE(mComposerClient
-                        ->setRefreshRateChangedCallbackDebugEnabled(displayId,
-                                                                    /*enabled*/ true)
-                        .isOk());
-    std::this_thread::sleep_for(100ms);
+    for (VtsDisplay& display : mDisplays) {
+        const auto displayId = display.getDisplayId();
+        EXPECT_TRUE(mComposerClient->setPowerMode(displayId, PowerMode::ON).isOk());
+        // Enable the callback
+        ASSERT_TRUE(mComposerClient
+                            ->setRefreshRateChangedCallbackDebugEnabled(displayId,
+                                                                        /*enabled*/ true)
+                            .isOk());
+        std::this_thread::sleep_for(100ms);
 
-    const auto displayFilter = [displayId](auto refreshRateChangedDebugData) {
-        return displayId == refreshRateChangedDebugData.display;
-    };
+        const auto [status, configId] = mComposerClient->getActiveConfig(display.getDisplayId());
+        EXPECT_TRUE(status.isOk());
 
-    // Check that we immediately got a callback
-    EXPECT_TRUE(checkIfCallbackRefreshRateChangedDebugEnabledReceived(displayFilter));
+        const auto displayFilter = [&](auto refreshRateChangedDebugData) {
+            bool nonVrrRateMatching = true;
+            if (std::optional<VrrConfig> vrrConfigOpt =
+                        display.getDisplayConfig(configId).vrrConfig;
+                getInterfaceVersion() >= 3 && !vrrConfigOpt) {
+                nonVrrRateMatching = refreshRateChangedDebugData.refreshPeriodNanos ==
+                                     refreshRateChangedDebugData.vsyncPeriodNanos;
+            }
+            const bool isDisplaySame =
+                    display.getDisplayId() == refreshRateChangedDebugData.display;
+            return nonVrrRateMatching && isDisplaySame;
+        };
 
-    ASSERT_TRUE(mComposerClient
-                        ->setRefreshRateChangedCallbackDebugEnabled(displayId,
-                                                                    /*enabled*/ false)
-                        .isOk());
+        // Check that we immediately got a callback
+        EXPECT_TRUE(checkIfCallbackRefreshRateChangedDebugEnabledReceived(displayFilter));
+
+        ASSERT_TRUE(mComposerClient
+                            ->setRefreshRateChangedCallbackDebugEnabled(displayId,
+                                                                        /*enabled*/ false)
+                            .isOk());
+    }
 }
 
-TEST_P(GraphicsComposerAidlCommandTest,
+TEST_P(GraphicsComposerAidlCommandV2Test,
        SetRefreshRateChangedCallbackDebugEnabled_noCallbackWhenIdle) {
-    if (getInterfaceVersion() <= 1) {
-        GTEST_SUCCEED() << "Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG is "
-                           "not supported on older version of the service";
-        return;
-    }
     if (!hasCapability(Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG)) {
         GTEST_SUCCEED() << "Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG is not supported";
         return;
@@ -2510,8 +2803,8 @@ TEST_P(GraphicsComposerAidlCommandTest,
     }
 
     // Send the REFRESH_RATE_INDICATOR update
-    ASSERT_NO_FATAL_FAILURE(
-            sendBufferUpdate(createOnScreenLayer(Composition::REFRESH_RATE_INDICATOR)));
+    ASSERT_NO_FATAL_FAILURE(sendBufferUpdate(
+            createOnScreenLayer(getPrimaryDisplay(), Composition::REFRESH_RATE_INDICATOR)));
     std::this_thread::sleep_for(1s);
     EXPECT_FALSE(checkIfCallbackRefreshRateChangedDebugEnabledReceived(displayFilter))
             << "A callback should not be received for REFRESH_RATE_INDICATOR";
@@ -2522,13 +2815,8 @@ TEST_P(GraphicsComposerAidlCommandTest,
                         .isOk());
 }
 
-TEST_P(GraphicsComposerAidlCommandTest,
+TEST_P(GraphicsComposerAidlCommandV2Test,
        SetRefreshRateChangedCallbackDebugEnabled_SetActiveConfigWithConstraints) {
-    if (getInterfaceVersion() <= 1) {
-        GTEST_SUCCEED() << "Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG is "
-                           "not supported on older version of the service";
-        return;
-    }
     if (!hasCapability(Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG)) {
         GTEST_SUCCEED() << "Capability::REFRESH_RATE_CHANGED_CALLBACK_DEBUG is not supported";
         return;
@@ -2596,53 +2884,355 @@ TEST_P(GraphicsComposerAidlCommandTest,
     }
 }
 
-/*
- * Test that no two display configs are exactly the same.
- */
-TEST_P(GraphicsComposerAidlTest, GetDisplayConfigNoRepetitions) {
-    for (const auto& display : mDisplays) {
-        const auto& [status, configs] = mComposerClient->getDisplayConfigs(display.getDisplayId());
-        for (std::vector<int>::size_type i = 0; i < configs.size(); i++) {
-            for (std::vector<int>::size_type j = i + 1; j < configs.size(); j++) {
-                const auto& [widthStatus1, width1] = mComposerClient->getDisplayAttribute(
-                        display.getDisplayId(), configs[i], DisplayAttribute::WIDTH);
-                const auto& [heightStatus1, height1] = mComposerClient->getDisplayAttribute(
-                        display.getDisplayId(), configs[i], DisplayAttribute::HEIGHT);
-                const auto& [vsyncPeriodStatus1, vsyncPeriod1] =
-                        mComposerClient->getDisplayAttribute(display.getDisplayId(), configs[i],
-                                                             DisplayAttribute::VSYNC_PERIOD);
-                const auto& [groupStatus1, group1] = mComposerClient->getDisplayAttribute(
-                        display.getDisplayId(), configs[i], DisplayAttribute::CONFIG_GROUP);
-
-                const auto& [widthStatus2, width2] = mComposerClient->getDisplayAttribute(
-                        display.getDisplayId(), configs[j], DisplayAttribute::WIDTH);
-                const auto& [heightStatus2, height2] = mComposerClient->getDisplayAttribute(
-                        display.getDisplayId(), configs[j], DisplayAttribute::HEIGHT);
-                const auto& [vsyncPeriodStatus2, vsyncPeriod2] =
-                        mComposerClient->getDisplayAttribute(display.getDisplayId(), configs[j],
-                                                             DisplayAttribute::VSYNC_PERIOD);
-                const auto& [groupStatus2, group2] = mComposerClient->getDisplayAttribute(
-                        display.getDisplayId(), configs[j], DisplayAttribute::CONFIG_GROUP);
-
-                ASSERT_FALSE(width1 == width2 && height1 == height2 &&
-                             vsyncPeriod1 == vsyncPeriod2 && group1 == group2);
-            }
+TEST_P(GraphicsComposerAidlCommandTest, MultiThreadedPresent) {
+    std::vector<VtsDisplay*> displays;
+    for (auto& display : mDisplays) {
+        if (hasDisplayCapability(display.getDisplayId(),
+                                 DisplayCapability::MULTI_THREADED_PRESENT)) {
+            displays.push_back(&display);
         }
+    }
+
+    const size_t numDisplays = displays.size();
+    if (numDisplays <= 1u) {
+        GTEST_SKIP();
+    }
+
+    // When multi-threaded, use a reader per display. As with mWriters, this mutex
+    // guards access to the map.
+    std::mutex readersMutex;
+    std::unordered_map<int64_t, ComposerClientReader> readers;
+    std::vector<std::thread> threads;
+    threads.reserve(numDisplays);
+
+    // Each display will have a layer to present. This maps from the display to
+    // the layer, so we can properly destroy each layer at the end.
+    std::unordered_map<int64_t, int64_t> layers;
+
+    for (auto* const display : displays) {
+        const int64_t displayId = display->getDisplayId();
+
+        // Ensure that all writers and readers have been added to their respective
+        // maps initially, so that the following loop never modifies the maps. The
+        // maps are accessed from different threads, and if the maps were modified,
+        // this would invalidate their iterators, and therefore references to the
+        // writers and readers.
+        auto& writer = getWriter(displayId);
+        {
+            std::lock_guard guard{readersMutex};
+            readers.try_emplace(displayId, displayId);
+        }
+
+        EXPECT_TRUE(mComposerClient->setPowerMode(displayId, PowerMode::ON).isOk());
+
+        const auto& [status, layer] =
+                mComposerClient->createLayer(displayId, kBufferSlotCount, &writer);
+        const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        ASSERT_NE(nullptr, buffer);
+        ASSERT_EQ(::android::OK, buffer->initCheck());
+        ASSERT_NE(nullptr, buffer->handle);
+
+        configureLayer(*display, layer, Composition::DEVICE, display->getFrameRect(),
+                       display->getCrop());
+        writer.setLayerBuffer(displayId, layer, /*slot*/ 0, buffer->handle,
+                              /*acquireFence*/ -1);
+        writer.setLayerDataspace(displayId, layer, common::Dataspace::UNKNOWN);
+        layers.try_emplace(displayId, layer);
+    }
+
+    for (auto* const display : displays) {
+        const int64_t displayId = display->getDisplayId();
+        auto& writer = getWriter(displayId);
+        std::unique_lock lock{readersMutex};
+        auto& reader = readers.at(displayId);
+        lock.unlock();
+
+        writer.validateDisplay(displayId, ComposerClientWriter::kNoTimestamp,
+                               VtsComposerClient::kNoFrameIntervalNs);
+        execute(writer, reader);
+
+        threads.emplace_back([this, displayId, &readers, &readersMutex]() {
+            auto& writer = getWriter(displayId);
+            std::unique_lock lock{readersMutex};
+            ComposerClientReader& reader = readers.at(displayId);
+            lock.unlock();
+
+            writer.presentDisplay(displayId);
+            execute(writer, reader);
+            ASSERT_TRUE(reader.takeErrors().empty());
+
+            auto presentFence = reader.takePresentFence(displayId);
+            // take ownership
+            const int fenceOwner = presentFence.get();
+            *presentFence.getR() = -1;
+            EXPECT_NE(-1, fenceOwner);
+            const auto presentFence2 = sp<::android::Fence>::make(fenceOwner);
+            presentFence2->waitForever(LOG_TAG);
+        });
+    }
+
+    for (auto& thread : threads) {
+        thread.join();
+    }
+
+    for (auto& [displayId, layer] : layers) {
+        auto& writer = getWriter(displayId);
+        EXPECT_TRUE(mComposerClient->destroyLayer(displayId, layer, &writer).isOk());
+    }
+
+    std::lock_guard guard{readersMutex};
+    for (auto& [displayId, reader] : readers) {
+        ASSERT_TRUE(reader.takeErrors().empty());
+        ASSERT_TRUE(reader.takeChangedCompositionTypes(displayId).empty());
     }
 }
 
-/**
- * Test Capability::SKIP_VALIDATE
- *
- * Capability::SKIP_VALIDATE has been deprecated and should not be enabled.
- */
-TEST_P(GraphicsComposerAidlCommandTest, SkipValidateDeprecatedTest) {
-    if (getInterfaceVersion() <= 1) {
-        GTEST_SUCCEED() << "HAL at version 1 or lower can contain Capability::SKIP_VALIDATE.";
+class GraphicsComposerAidlCommandV3Test : public GraphicsComposerAidlCommandTest {
+  protected:
+    void SetUp() override {
+        GraphicsComposerAidlTest::SetUp();
+        if (getInterfaceVersion() <= 2) {
+            GTEST_SKIP() << "Device interface version is expected to be >= 3";
+        }
+    }
+};
+
+TEST_P(GraphicsComposerAidlCommandV3Test, CreateBatchedCommand) {
+    if (!hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+        GTEST_SKIP() << "LAYER_LIFECYCLE_BATCH_COMMAND not supported by the implementation";
         return;
     }
-    ASSERT_FALSE(hasCapability(Capability::SKIP_VALIDATE))
-            << "Found Capability::SKIP_VALIDATE capability.";
+
+    auto& writer = getWriter(getPrimaryDisplayId());
+    int64_t layer = 5;
+    writer.setLayerLifecycleBatchCommandType(getPrimaryDisplayId(), layer,
+                                             LayerLifecycleBatchCommandType::CREATE);
+    writer.setNewBufferSlotCount(getPrimaryDisplayId(), layer, 1);
+    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp,
+                           VtsComposerClient::kNoFrameIntervalNs);
+    execute();
+    ASSERT_TRUE(mReader.takeErrors().empty());
+}
+
+TEST_P(GraphicsComposerAidlCommandV3Test, CreateBatchedCommand_BadDisplay) {
+    if (!hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+        GTEST_SKIP() << "LAYER_LIFECYCLE_BATCH_COMMAND not supported by the implementation";
+        return;
+    }
+
+    auto& writer = getWriter(getPrimaryDisplayId());
+    int64_t layer = 5;
+    writer.setLayerLifecycleBatchCommandType(getInvalidDisplayId(), layer,
+                                             LayerLifecycleBatchCommandType::CREATE);
+    writer.setNewBufferSlotCount(getPrimaryDisplayId(), layer, 1);
+    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp,
+                           VtsComposerClient::kNoFrameIntervalNs);
+    execute();
+    const auto errors = mReader.takeErrors();
+    ASSERT_TRUE(errors.size() == 1 && errors[0].errorCode == IComposerClient::EX_BAD_DISPLAY);
+}
+
+TEST_P(GraphicsComposerAidlCommandV3Test, DestroyBatchedCommand) {
+    if (!hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+        GTEST_SKIP() << "LAYER_LIFECYCLE_BATCH_COMMAND not supported by the implementation";
+        return;
+    }
+
+    auto& writer = getWriter(getPrimaryDisplayId());
+    int64_t layer = 5;
+    writer.setLayerLifecycleBatchCommandType(getPrimaryDisplayId(), layer,
+                                             LayerLifecycleBatchCommandType::CREATE);
+    writer.setNewBufferSlotCount(getPrimaryDisplayId(), layer, 1);
+    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp,
+                           VtsComposerClient::kNoFrameIntervalNs);
+    execute();
+    ASSERT_TRUE(mReader.takeErrors().empty());
+    writer.setLayerLifecycleBatchCommandType(getPrimaryDisplayId(), layer,
+                                             LayerLifecycleBatchCommandType::DESTROY);
+    layer++;
+    writer.setLayerLifecycleBatchCommandType(getPrimaryDisplayId(), layer,
+                                             LayerLifecycleBatchCommandType::CREATE);
+    writer.setNewBufferSlotCount(getPrimaryDisplayId(), layer, 1);
+
+    execute();
+    const auto errors = mReader.takeErrors();
+    ASSERT_TRUE(errors.size() == 1 && errors[0].errorCode == IComposerClient::EX_BAD_DISPLAY);
+}
+
+TEST_P(GraphicsComposerAidlCommandV3Test, DestroyBatchedCommand_BadDisplay) {
+    if (!hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+        GTEST_SKIP() << "LAYER_LIFECYCLE_BATCH_COMMAND not supported by the implementation";
+        return;
+    }
+
+    auto& writer = getWriter(getPrimaryDisplayId());
+    int64_t layer = 5;
+    writer.setLayerLifecycleBatchCommandType(getPrimaryDisplayId(), layer,
+                                             LayerLifecycleBatchCommandType::CREATE);
+    writer.setNewBufferSlotCount(getPrimaryDisplayId(), layer, 1);
+    writer.validateDisplay(getPrimaryDisplayId(), ComposerClientWriter::kNoTimestamp,
+                           VtsComposerClient::kNoFrameIntervalNs);
+    execute();
+    ASSERT_TRUE(mReader.takeErrors().empty());
+    writer.setLayerLifecycleBatchCommandType(getInvalidDisplayId(), layer,
+                                             LayerLifecycleBatchCommandType::DESTROY);
+    layer++;
+    writer.setLayerLifecycleBatchCommandType(getInvalidDisplayId(), layer,
+                                             LayerLifecycleBatchCommandType::CREATE);
+    writer.setNewBufferSlotCount(getPrimaryDisplayId(), layer, 1);
+
+    execute();
+    ASSERT_TRUE(mReader.takeErrors().empty());
+}
+
+TEST_P(GraphicsComposerAidlCommandV3Test, NoCreateDestroyBatchedCommandIncorrectLayer) {
+    if (!hasCapability(Capability::LAYER_LIFECYCLE_BATCH_COMMAND)) {
+        GTEST_SKIP() << "LAYER_LIFECYCLE_BATCH_COMMAND not supported by the implementation";
+        return;
+    }
+
+    auto& writer = getWriter(getPrimaryDisplayId());
+    int64_t layer = 5;
+    writer.setLayerLifecycleBatchCommandType(getPrimaryDisplayId(), layer,
+                                             LayerLifecycleBatchCommandType::DESTROY);
+    execute();
+    const auto errors = mReader.takeErrors();
+    ASSERT_TRUE(errors.size() == 1 && errors[0].errorCode == IComposerClient::EX_BAD_LAYER);
+}
+
+TEST_P(GraphicsComposerAidlCommandV3Test, notifyExpectedPresentTimeout) {
+    if (hasCapability(Capability::PRESENT_FENCE_IS_NOT_RELIABLE)) {
+        GTEST_SUCCEED() << "Device has unreliable present fences capability, skipping";
+        return;
+    }
+    forEachNotifyExpectedPresentConfig([&](VtsDisplay& display,
+                                           const DisplayConfiguration& config) {
+        const auto displayId = display.getDisplayId();
+        auto minFrameIntervalNs = config.vrrConfig->minFrameIntervalNs;
+        const auto timeoutNs = config.vrrConfig->notifyExpectedPresentConfig->timeoutNs;
+
+        const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        ASSERT_NE(nullptr, buffer);
+        const auto layer = createOnScreenLayer(display);
+        auto& writer = getWriter(displayId);
+        writer.setLayerBuffer(displayId, layer, /*slot*/ 0, buffer->handle,
+                              /*acquireFence*/ -1);
+        sp<::android::Fence> presentFence = presentAndGetFence(ComposerClientWriter::kNoTimestamp,
+                                                               displayId, minFrameIntervalNs);
+        presentFence->waitForever(LOG_TAG);
+        auto lastPresentTimeNs = presentFence->getSignalTime();
+
+        // Frame presents 30ms after timeout
+        const auto timeout = static_cast<const std::chrono::nanoseconds>(timeoutNs);
+        const auto vsyncPeriod = config.vsyncPeriod;
+        int32_t frameAfterTimeoutNs =
+                vsyncPeriod * static_cast<int32_t>((timeout + 30ms).count() / vsyncPeriod);
+        auto expectedPresentTimestamp =
+                ClockMonotonicTimestamp{lastPresentTimeNs + frameAfterTimeoutNs};
+        std::this_thread::sleep_for(timeout);
+        mComposerClient->notifyExpectedPresent(displayId, expectedPresentTimestamp,
+                                               minFrameIntervalNs);
+        presentFence = presentAndGetFence(expectedPresentTimestamp, displayId, minFrameIntervalNs);
+        presentFence->waitForever(LOG_TAG);
+        lastPresentTimeNs = presentFence->getSignalTime();
+        ASSERT_GE(lastPresentTimeNs, expectedPresentTimestamp.timestampNanos - vsyncPeriod / 2);
+        mComposerClient->destroyLayer(displayId, layer, &writer);
+    });
+}
+
+TEST_P(GraphicsComposerAidlCommandV3Test, notifyExpectedPresentFrameIntervalChange) {
+    if (hasCapability(Capability::PRESENT_FENCE_IS_NOT_RELIABLE)) {
+        GTEST_SUCCEED() << "Device has unreliable present fences capability, skipping";
+        return;
+    }
+    forEachNotifyExpectedPresentConfig([&](VtsDisplay& display,
+                                           const DisplayConfiguration& config) {
+        const auto displayId = display.getDisplayId();
+        const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        ASSERT_NE(nullptr, buffer);
+        const auto layer = createOnScreenLayer(display);
+        auto& writer = getWriter(displayId);
+        writer.setLayerBuffer(displayId, layer, /*slot*/ 0, buffer->handle,
+                              /*acquireFence*/ -1);
+        auto minFrameIntervalNs = config.vrrConfig->minFrameIntervalNs;
+        sp<::android::Fence> presentFence = presentAndGetFence(ComposerClientWriter::kNoTimestamp,
+                                                               displayId, minFrameIntervalNs);
+        presentFence->waitForever(LOG_TAG);
+        auto lastPresentTimeNs = presentFence->getSignalTime();
+
+        auto vsyncPeriod = config.vsyncPeriod;
+        int32_t highestDivisor = VtsComposerClient::kMaxFrameIntervalNs / vsyncPeriod;
+        int32_t lowestDivisor = minFrameIntervalNs / vsyncPeriod;
+        const auto headsUpNs = config.vrrConfig->notifyExpectedPresentConfig->headsUpNs;
+        float totalDivisorsPassed = 0.f;
+        for (int divisor = lowestDivisor; divisor <= highestDivisor; divisor++) {
+            const auto frameIntervalNs = vsyncPeriod * divisor;
+            const auto frameAfterHeadsUp = frameIntervalNs * (headsUpNs / frameIntervalNs);
+            auto presentTime = lastPresentTimeNs + frameIntervalNs + frameAfterHeadsUp;
+            const auto expectedPresentTimestamp = ClockMonotonicTimestamp{presentTime};
+            ASSERT_TRUE(mComposerClient
+                                ->notifyExpectedPresent(displayId, expectedPresentTimestamp,
+                                                        frameIntervalNs)
+                                .isOk());
+            presentFence = presentAndGetFence(expectedPresentTimestamp, displayId, frameIntervalNs);
+            presentFence->waitForever(LOG_TAG);
+            lastPresentTimeNs = presentFence->getSignalTime();
+            if (lastPresentTimeNs >= expectedPresentTimestamp.timestampNanos - vsyncPeriod / 2) {
+                ++totalDivisorsPassed;
+            }
+        }
+        EXPECT_TRUE(totalDivisorsPassed >
+                    (static_cast<float>(highestDivisor - lowestDivisor)) * 0.75f);
+        mComposerClient->destroyLayer(displayId, layer, &writer);
+    });
+}
+
+TEST_P(GraphicsComposerAidlCommandV3Test, frameIntervalChangeAtPresentFrame) {
+    if (hasCapability(Capability::PRESENT_FENCE_IS_NOT_RELIABLE)) {
+        GTEST_SUCCEED() << "Device has unreliable present fences capability, skipping";
+        return;
+    }
+    forEachNotifyExpectedPresentConfig([&](VtsDisplay& display,
+                                           const DisplayConfiguration& config) {
+        const auto displayId = display.getDisplayId();
+        const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        ASSERT_NE(nullptr, buffer);
+        const auto layer = createOnScreenLayer(display);
+        auto& writer = getWriter(displayId);
+        writer.setLayerBuffer(displayId, layer, /*slot*/ 0, buffer->handle,
+                              /*acquireFence*/ -1);
+        auto minFrameIntervalNs = config.vrrConfig->minFrameIntervalNs;
+
+        auto vsyncPeriod = config.vsyncPeriod;
+        int32_t highestDivisor = VtsComposerClient::kMaxFrameIntervalNs / vsyncPeriod;
+        int32_t lowestDivisor = minFrameIntervalNs / vsyncPeriod;
+        const auto headsUpNs = config.vrrConfig->notifyExpectedPresentConfig->headsUpNs;
+        float totalDivisorsPassed = 0.f;
+        int divisor = lowestDivisor;
+        auto frameIntervalNs = vsyncPeriod * divisor;
+        sp<::android::Fence> presentFence =
+                presentAndGetFence(ComposerClientWriter::kNoTimestamp, displayId, frameIntervalNs);
+        presentFence->waitForever(LOG_TAG);
+        auto lastPresentTimeNs = presentFence->getSignalTime();
+        do {
+            frameIntervalNs = vsyncPeriod * divisor;
+            ++divisor;
+            const auto nextFrameIntervalNs = vsyncPeriod * divisor;
+            const auto frameAfterHeadsUp = frameIntervalNs * (headsUpNs / frameIntervalNs);
+            auto presentTime = lastPresentTimeNs + frameIntervalNs + frameAfterHeadsUp;
+            const auto expectedPresentTimestamp = ClockMonotonicTimestamp{presentTime};
+            presentFence =
+                    presentAndGetFence(expectedPresentTimestamp, displayId, nextFrameIntervalNs);
+            presentFence->waitForever(LOG_TAG);
+            lastPresentTimeNs = presentFence->getSignalTime();
+            if (lastPresentTimeNs >= expectedPresentTimestamp.timestampNanos - vsyncPeriod / 2) {
+                ++totalDivisorsPassed;
+            }
+        } while (divisor < highestDivisor);
+        EXPECT_TRUE(totalDivisorsPassed >
+                    (static_cast<float>(highestDivisor - lowestDivisor)) * 0.75f);
+        mComposerClient->destroyLayer(displayId, layer, &writer);
+    });
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(GraphicsComposerAidlCommandTest);
@@ -2650,13 +3240,31 @@ INSTANTIATE_TEST_SUITE_P(
         PerInstance, GraphicsComposerAidlCommandTest,
         testing::ValuesIn(::android::getAidlHalInstanceNames(IComposer::descriptor)),
         ::android::PrintInstanceNameToString);
-
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(GraphicsComposerAidlTest);
 INSTANTIATE_TEST_SUITE_P(
         PerInstance, GraphicsComposerAidlTest,
         testing::ValuesIn(::android::getAidlHalInstanceNames(IComposer::descriptor)),
         ::android::PrintInstanceNameToString);
-}  // namespace
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(GraphicsComposerAidlV2Test);
+INSTANTIATE_TEST_SUITE_P(
+        PerInstance, GraphicsComposerAidlV2Test,
+        testing::ValuesIn(::android::getAidlHalInstanceNames(IComposer::descriptor)),
+        ::android::PrintInstanceNameToString);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(GraphicsComposerAidlV3Test);
+INSTANTIATE_TEST_SUITE_P(
+        PerInstance, GraphicsComposerAidlV3Test,
+        testing::ValuesIn(::android::getAidlHalInstanceNames(IComposer::descriptor)),
+        ::android::PrintInstanceNameToString);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(GraphicsComposerAidlCommandV2Test);
+INSTANTIATE_TEST_SUITE_P(
+        PerInstance, GraphicsComposerAidlCommandV2Test,
+        testing::ValuesIn(::android::getAidlHalInstanceNames(IComposer::descriptor)),
+        ::android::PrintInstanceNameToString);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(GraphicsComposerAidlCommandV3Test);
+INSTANTIATE_TEST_SUITE_P(
+        PerInstance, GraphicsComposerAidlCommandV3Test,
+        testing::ValuesIn(::android::getAidlHalInstanceNames(IComposer::descriptor)),
+        ::android::PrintInstanceNameToString);
 }  // namespace aidl::android::hardware::graphics::composer3::vts
 
 int main(int argc, char** argv) {

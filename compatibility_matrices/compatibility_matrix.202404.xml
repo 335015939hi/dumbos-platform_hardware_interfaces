@@ -67,6 +67,14 @@
         </interface>
     </hal>
     <hal format="aidl">
+        <name>android.hardware.macsec</name>
+        <version>1</version>
+        <interface>
+            <name>IMacsecPskPlugin</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl">
         <name>android.hardware.automotive.occupant_awareness</name>
         <version>1</version>
         <interface>
@@ -76,7 +84,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.automotive.vehicle</name>
-        <version>1-2</version>
+        <version>1-3</version>
         <interface>
             <name>IVehicle</name>
             <instance>default</instance>
@@ -84,6 +92,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.automotive.remoteaccess</name>
+        <version>1-2</version>
         <interface>
             <name>IRemoteAccess</name>
             <instance>default</instance>
@@ -98,15 +107,16 @@
     </hal>
     <hal format="aidl" updatable-via-apex="true">
         <name>android.hardware.biometrics.face</name>
-        <version>3</version>
+        <version>3-4</version>
         <interface>
             <name>IFace</name>
             <instance>default</instance>
+            <instance>virtual</instance>
         </interface>
     </hal>
     <hal format="aidl" updatable-via-apex="true">
         <name>android.hardware.biometrics.fingerprint</name>
-        <version>3</version>
+        <version>3-4</version>
         <interface>
             <name>IFingerprint</name>
             <instance>default</instance>
@@ -161,6 +171,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.broadcastradio</name>
+        <version>1-2</version>
         <interface>
             <name>IBroadcastRadio</name>
             <regex-instance>.*</regex-instance>
@@ -168,7 +179,7 @@
     </hal>
     <hal format="aidl" updatable-via-apex="true">
         <name>android.hardware.camera.provider</name>
-        <version>1-2</version>
+        <version>1-3</version>
         <interface>
             <name>ICameraProvider</name>
             <regex-instance>[^/]+/[0-9]+</regex-instance>
@@ -191,7 +202,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.contexthub</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IContextHub</name>
             <instance>default</instance>
@@ -222,7 +233,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.gnss</name>
-        <version>2-3</version>
+        <version>2-4</version>
         <interface>
             <name>IGnss</name>
             <instance>default</instance>
@@ -238,18 +249,9 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.graphics.composer3</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IComposer</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <!-- Either the native or the HIDL mapper HAL must exist on the device -->
-    <hal format="hidl">
-        <name>android.hardware.graphics.mapper</name>
-        <version>4.0</version>
-        <interface>
-            <name>IMapper</name>
             <instance>default</instance>
         </interface>
     </hal>
@@ -377,7 +379,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.power</name>
-        <version>4</version>
+        <version>5</version>
         <interface>
             <name>IPower</name>
             <instance>default</instance>
@@ -393,7 +395,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.config</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IRadioConfig</name>
             <instance>default</instance>
@@ -401,7 +403,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.data</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IRadioData</name>
             <instance>slot1</instance>
@@ -411,7 +413,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.messaging</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IRadioMessaging</name>
             <instance>slot1</instance>
@@ -421,7 +423,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.modem</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IRadioModem</name>
             <instance>slot1</instance>
@@ -431,7 +433,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.network</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IRadioNetwork</name>
             <instance>slot1</instance>
@@ -441,7 +443,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.sim</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IRadioSim</name>
             <instance>slot1</instance>
@@ -461,7 +463,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.voice</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IRadioVoice</name>
             <instance>slot1</instance>
@@ -471,7 +473,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.ims</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IRadioIms</name>
             <instance>slot1</instance>
@@ -481,7 +483,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.radio.ims.media</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IImsMedia</name>
             <instance>default</instance>
@@ -527,6 +529,7 @@
             <name>ISharedSecret</name>
             <instance>default</instance>
             <instance>strongbox</instance>
+            <regex-instance>.*</regex-instance>
         </interface>
     </hal>
     <hal format="aidl">
@@ -555,7 +558,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.thermal</name>
-        <version>1</version>
+        <version>2</version>
         <interface>
             <name>IThermal</name>
             <instance>default</instance>
@@ -567,14 +570,6 @@
         <interface>
             <name>IThreadChip</name>
             <regex-instance>chip[0-9]+</regex-instance>
-        </interface>
-    </hal>
-    <hal format="aidl">
-        <name>android.hardware.threadnetwork</name>
-        <version>1</version>
-        <interface>
-            <name>IThreadChip</name>
-            <instance>chip0</instance>
         </interface>
     </hal>
     <hal format="aidl">
@@ -611,7 +606,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.tv.input</name>
-        <version>1</version>
+        <version>1-2</version>
         <interface>
             <name>ITvInput</name>
             <instance>default</instance>
@@ -619,7 +614,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.usb</name>
-        <version>1-2</version>
+        <version>1-3</version>
         <interface>
             <name>IUsb</name>
             <instance>default</instance>
@@ -658,7 +653,7 @@
     </hal>
     <hal format="aidl" updatable-via-apex="true">
         <name>android.hardware.wifi</name>
-        <version>1</version>
+        <version>1-2</version>
         <interface>
             <name>IWifi</name>
             <instance>default</instance>
@@ -674,7 +669,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.wifi.hostapd</name>
-        <version>1</version>
+        <version>1-2</version>
         <interface>
             <name>IHostapd</name>
             <instance>default</instance>
@@ -682,13 +677,13 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.wifi.supplicant</name>
-        <version>2</version>
+        <version>2-3</version>
         <interface>
             <name>ISupplicant</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <!-- Either the native or the HIDL mapper HAL must exist on the device -->
+    <!-- The native mapper HAL must exist on the device -->
     <hal format="native">
         <name>mapper</name>
         <version>5.0</version>

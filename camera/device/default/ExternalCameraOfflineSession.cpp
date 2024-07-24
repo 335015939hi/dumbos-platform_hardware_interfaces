@@ -110,7 +110,8 @@ Status ExternalCameraOfflineSession::processCaptureResult(std::shared_ptr<HalReq
             if (req->buffers[i].acquireFence >= 0) {
                 native_handle_t* handle = native_handle_create(/*numFds*/ 1, /*numInts*/ 0);
                 handle->data[0] = req->buffers[i].acquireFence;
-                result.outputBuffers[i].releaseFence = android::makeToAidl(handle);
+                result.outputBuffers[i].releaseFence = android::dupToAidl(handle);
+                native_handle_delete(handle);
             }
             notifyError(req->frameNumber, req->buffers[i].streamId, ErrorCode::ERROR_BUFFER);
         } else {
@@ -119,7 +120,8 @@ Status ExternalCameraOfflineSession::processCaptureResult(std::shared_ptr<HalReq
             if (req->buffers[i].acquireFence >= 0) {
                 native_handle_t* handle = native_handle_create(/*numFds*/ 1, /*numInts*/ 0);
                 handle->data[0] = req->buffers[i].acquireFence;
-                outputBuffer.releaseFence = android::makeToAidl(handle);
+                outputBuffer.releaseFence = android::dupToAidl(handle);
+                native_handle_delete(handle);
             }
         }
     }
@@ -247,7 +249,8 @@ Status ExternalCameraOfflineSession::processCaptureRequestError(
         if (req->buffers[i].acquireFence >= 0) {
             native_handle_t* handle = native_handle_create(/*numFds*/ 1, /*numInts*/ 0);
             handle->data[0] = req->buffers[i].acquireFence;
-            outputBuffer.releaseFence = makeToAidl(handle);
+            outputBuffer.releaseFence = dupToAidl(handle);
+            native_handle_delete(handle);
         }
     }
 
@@ -486,13 +489,23 @@ bool ExternalCameraOfflineSession::OutputThread::threadLoop() {
             } break;
             case PixelFormat::YCBCR_420_888:
             case PixelFormat::YV12: {
-                IMapper::Rect outRect{0, 0, static_cast<int32_t>(halBuf.width),
+                android::Rect outRect{0, 0, static_cast<int32_t>(halBuf.width),
                                       static_cast<int32_t>(halBuf.height)};
-                YCbCrLayout outLayout = sHandleImporter.lockYCbCr(
+                android_ycbcr result = sHandleImporter.lockYCbCr(
                         *(halBuf.bufPtr), static_cast<uint64_t>(halBuf.usage), outRect);
-                ALOGV("%s: outLayout y %p cb %p cr %p y_str %d c_str %d c_step %d", __FUNCTION__,
-                      outLayout.y, outLayout.cb, outLayout.cr, outLayout.yStride, outLayout.cStride,
-                      outLayout.chromaStep);
+                ALOGV("%s: outLayout y %p cb %p cr %p y_str %zu c_str %zu c_step %zu", __FUNCTION__,
+                      result.y, result.cb, result.cr, result.ystride, result.cstride,
+                      result.chroma_step);
+                if (result.ystride > UINT32_MAX || result.cstride > UINT32_MAX ||
+                    result.chroma_step > UINT32_MAX) {
+                    return onDeviceError("%s: lockYCbCr failed. Unexpected values!", __FUNCTION__);
+                }
+                YCbCrLayout outLayout = {.y = result.y,
+                                         .cb = result.cb,
+                                         .cr = result.cr,
+                                         .yStride = static_cast<uint32_t>(result.ystride),
+                                         .cStride = static_cast<uint32_t>(result.cstride),
+                                         .chromaStep = static_cast<uint32_t>(result.chroma_step)};
 
                 // Convert to output buffer size/format
                 uint32_t outputFourcc = getFourCcFromLayout(outLayout);

@@ -25,6 +25,7 @@
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
 #include <android/hardware/graphics/composer3/ComposerClientReader.h>
+#include <android/hardware/graphics/composer3/ComposerClientWriter.h>
 #include <binder/ProcessState.h>
 #include <gtest/gtest.h>
 #include <ui/Fence.h>
@@ -59,9 +60,9 @@ class VtsComposerClient {
 
     ScopedAStatus createClient();
 
-    bool tearDown();
+    bool tearDown(ComposerClientWriter*);
 
-    std::pair<ScopedAStatus, int32_t> getInterfaceVersion();
+    std::pair<ScopedAStatus, int32_t> getInterfaceVersion() const;
 
     std::pair<ScopedAStatus, VirtualDisplay> createVirtualDisplay(int32_t width, int32_t height,
                                                                   PixelFormat pixelFormat,
@@ -69,9 +70,10 @@ class VtsComposerClient {
 
     ScopedAStatus destroyVirtualDisplay(int64_t display);
 
-    std::pair<ScopedAStatus, int64_t> createLayer(int64_t display, int32_t bufferSlotCount);
+    std::pair<ScopedAStatus, int64_t> createLayer(int64_t display, int32_t bufferSlotCount,
+                                                  ComposerClientWriter*);
 
-    ScopedAStatus destroyLayer(int64_t display, int64_t layer);
+    ScopedAStatus destroyLayer(int64_t display, int64_t layer, ComposerClientWriter*);
 
     std::pair<ScopedAStatus, int32_t> getActiveConfig(int64_t display);
 
@@ -142,6 +144,13 @@ class VtsComposerClient {
 
     std::pair<ScopedAStatus, std::vector<int32_t>> getDisplayConfigs(int64_t display);
 
+    std::pair<ScopedAStatus, std::vector<DisplayConfiguration>> getDisplayConfigurations(
+            int64_t display);
+
+    ScopedAStatus notifyExpectedPresent(int64_t display,
+                                        ClockMonotonicTimestamp expectedPresentTime,
+                                        int frameIntervalNs);
+
     std::pair<ScopedAStatus, int32_t> getDisplayVsyncPeriod(int64_t display);
 
     ScopedAStatus setAutoLowLatencyMode(int64_t display, bool isEnabled);
@@ -189,8 +198,13 @@ class VtsComposerClient {
 
     std::vector<RefreshRateChangedDebugData> takeListOfRefreshRateChangedDebugData();
 
+    static constexpr int32_t kMaxFrameIntervalNs = 50000000;  // 20fps
+    static constexpr int32_t kNoFrameIntervalNs = 0;
+
   private:
-    ScopedAStatus addDisplayConfig(VtsDisplay* vtsDisplay, int32_t config);
+    void addDisplayConfigs(VtsDisplay*, const std::vector<DisplayConfiguration>&);
+    ScopedAStatus addDisplayConfigLegacy(VtsDisplay*, int32_t config);
+    bool getDisplayConfigurationSupported() const;
     ScopedAStatus updateDisplayProperties(VtsDisplay* vtsDisplay, int32_t config);
 
     ScopedAStatus addDisplayToDisplayResources(int64_t display, bool isVirtual);
@@ -199,7 +213,7 @@ class VtsComposerClient {
 
     void removeLayerFromDisplayResources(int64_t display, int64_t layer);
 
-    bool destroyAllLayers();
+    bool destroyAllLayers(ComposerClientWriter*);
 
     bool verifyComposerCallbackParams();
 
@@ -217,6 +231,8 @@ class VtsComposerClient {
     std::shared_ptr<IComposerClient> mComposerClient;
     std::shared_ptr<GraphicsComposerCallback> mComposerCallback;
     std::unordered_map<int64_t, DisplayResource> mDisplayResources;
+    bool mSupportsBatchedCreateLayer = false;
+    std::atomic<int64_t> mNextLayerHandle = 1;
 };
 
 class VtsDisplay {
@@ -241,10 +257,14 @@ class VtsDisplay {
     int32_t getDisplayHeight() const { return mDisplayHeight; }
 
     struct DisplayConfig {
-        DisplayConfig(int32_t vsyncPeriod_, int32_t configGroup_)
-            : vsyncPeriod(vsyncPeriod_), configGroup(configGroup_) {}
+        DisplayConfig(int32_t vsyncPeriod_, int32_t configGroup_,
+                      std::optional<VrrConfig> vrrConfig_ = {})
+            : vsyncPeriod(vsyncPeriod_),
+              configGroup(configGroup_),
+              vrrConfig(std::move(vrrConfig_)) {}
         int32_t vsyncPeriod;
         int32_t configGroup;
+        std::optional<VrrConfig> vrrConfig;
     };
 
     void addDisplayConfig(int32_t config, DisplayConfig displayConfig) {

@@ -54,6 +54,13 @@ void RadioConfigTest::updateSimSlotStatus() {
  * Test IRadioConfig.getHalDeviceCapabilities() for the response returned.
  */
 TEST_P(RadioConfigTest, getHalDeviceCapabilities) {
+    if (telephony_flags::enforce_telephony_feature_mapping()) {
+        if (!deviceSupportsFeature(FEATURE_TELEPHONY)) {
+            GTEST_SKIP() << "Skipping getHalDeviceCapabilities "
+                            "due to undefined FEATURE_TELEPHONY";
+        }
+    }
+
     serial = GetRandomSerialNumber();
     ndk::ScopedAStatus res = radio_config->getHalDeviceCapabilities(serial);
     ASSERT_OK(res);
@@ -66,6 +73,13 @@ TEST_P(RadioConfigTest, getHalDeviceCapabilities) {
  * Test IRadioConfig.getSimSlotsStatus() for the response returned.
  */
 TEST_P(RadioConfigTest, getSimSlotsStatus) {
+    if (telephony_flags::enforce_telephony_feature_mapping()) {
+        if (!deviceSupportsFeature(FEATURE_TELEPHONY_SUBSCRIPTION)) {
+            GTEST_SKIP() << "Skipping getSimSlotsStatus "
+                            "due to undefined FEATURE_TELEPHONY_SUBSCRIPTION";
+        }
+    }
+
     serial = GetRandomSerialNumber();
     ndk::ScopedAStatus res = radio_config->getSimSlotsStatus(serial);
     ASSERT_OK(res);
@@ -78,6 +92,13 @@ TEST_P(RadioConfigTest, getSimSlotsStatus) {
  * Test IRadioConfig.getPhoneCapability() for the response returned.
  */
 TEST_P(RadioConfigTest, getPhoneCapability) {
+    if (telephony_flags::enforce_telephony_feature_mapping()) {
+        if (!deviceSupportsFeature(FEATURE_TELEPHONY)) {
+            GTEST_SKIP() << "Skipping getPhoneCapability "
+                            "due to undefined FEATURE_TELEPHONY";
+        }
+    }
+
     serial = GetRandomSerialNumber();
     ndk::ScopedAStatus res = radio_config->getPhoneCapability(serial);
     ASSERT_OK(res);
@@ -101,9 +122,58 @@ TEST_P(RadioConfigTest, getPhoneCapability) {
 }
 
 /*
+ * Test IRadioConfig.getSimultaneousCallingSupport() for the response returned.
+ */
+TEST_P(RadioConfigTest, getSimultaneousCallingSupport) {
+    if (telephony_flags::enforce_telephony_feature_mapping()) {
+        if (!deviceSupportsFeature(FEATURE_TELEPHONY)) {
+            GTEST_SKIP() << "Skipping getSimultaneousCallingSupport "
+                            "due to undefined FEATURE_TELEPHONY";
+        }
+    }
+
+    int32_t aidl_version;
+    ndk::ScopedAStatus aidl_status = radio_config->getInterfaceVersion(&aidl_version);
+    ASSERT_OK(aidl_status);
+    if (aidl_version < 3) {
+        ALOGI("Skipped the test since"
+                " getSimultaneousCallingSupport is not supported on version < 3.");
+        GTEST_SKIP();
+    }
+
+    serial = GetRandomSerialNumber();
+    ndk::ScopedAStatus res = radio_config->getSimultaneousCallingSupport(serial);
+    ASSERT_OK(res);
+    EXPECT_EQ(std::cv_status::no_timeout, wait());
+    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_config->rspInfo.type);
+    EXPECT_EQ(serial, radioRsp_config->rspInfo.serial);
+    ALOGI("getSimultaneousCallingSupport, rspInfo.error = %s\n",
+          toString(radioRsp_config->rspInfo.error).c_str());
+
+    // REQUEST_NOT_SUPPORTED is omitted here because users of the V3 HAL should implement this
+    // method and return at least an empty array
+    ASSERT_TRUE(CheckAnyOfErrors(
+            radioRsp_config->rspInfo.error,
+            {RadioError::NONE, RadioError::RADIO_NOT_AVAILABLE, RadioError::INTERNAL_ERR,
+            RadioError::MODEM_ERR}));
+
+    if (radioRsp_config->rspInfo.error == RadioError ::NONE) {
+        // The size of enabledLogicalSLots should be 0 or a positive number:
+        EXPECT_GE(radioRsp_config->currentEnabledLogicalSlots.size(), 0);
+    }
+}
+
+/*
  * Test IRadioConfig.setPreferredDataModem() for the response returned.
  */
 TEST_P(RadioConfigTest, setPreferredDataModem) {
+    if (telephony_flags::enforce_telephony_feature_mapping()) {
+        if (!deviceSupportsFeature(FEATURE_TELEPHONY_DATA)) {
+            GTEST_SKIP() << "Skipping setPreferredDataModem "
+                            "due to undefined FEATURE_TELEPHONY_DATA";
+        }
+    }
+
     serial = GetRandomSerialNumber();
     ndk::ScopedAStatus res = radio_config->getPhoneCapability(serial);
     ASSERT_OK(res);
@@ -146,6 +216,13 @@ TEST_P(RadioConfigTest, setPreferredDataModem) {
  * Test IRadioConfig.setPreferredDataModem() with invalid arguments.
  */
 TEST_P(RadioConfigTest, setPreferredDataModem_invalidArgument) {
+    if (telephony_flags::enforce_telephony_feature_mapping()) {
+        if (!deviceSupportsFeature(FEATURE_TELEPHONY_DATA)) {
+            GTEST_SKIP() << "Skipping setPreferredDataModem_invalidArgument "
+                            "due to undefined FEATURE_TELEPHONY_DATA";
+        }
+    }
+
     serial = GetRandomSerialNumber();
     uint8_t modemId = -1;
     ndk::ScopedAStatus res = radio_config->setPreferredDataModem(serial, modemId);
@@ -166,6 +243,13 @@ TEST_P(RadioConfigTest, setPreferredDataModem_invalidArgument) {
  * Test IRadioConfig.setSimSlotsMapping() for the response returned.
  */
 TEST_P(RadioConfigTest, setSimSlotsMapping) {
+    if (telephony_flags::enforce_telephony_feature_mapping()) {
+        if (!deviceSupportsFeature(FEATURE_TELEPHONY_SUBSCRIPTION)) {
+            GTEST_SKIP() << "Skipping setSimSlotsMapping "
+                            "due to undefined FEATURE_TELEPHONY_SUBSCRIPTION";
+        }
+    }
+
     // get slot status and set SIM slots mapping based on the result.
     updateSimSlotStatus();
     if (radioRsp_config->rspInfo.error == RadioError::NONE) {
@@ -227,6 +311,13 @@ TEST_P(RadioConfigTest, setSimSlotsMapping) {
  */
 
 TEST_P(RadioConfigTest, checkPortInfoExistsAndPortActive) {
+    if (telephony_flags::enforce_telephony_feature_mapping()) {
+        if (!deviceSupportsFeature(FEATURE_TELEPHONY_SUBSCRIPTION)) {
+            GTEST_SKIP() << "Skipping checkPortInfoExistsAndPortActive "
+                            "due to undefined FEATURE_TELEPHONY_SUBSCRIPTION";
+        }
+    }
+
     serial = GetRandomSerialNumber();
     ndk::ScopedAStatus res = radio_config->getSimSlotsStatus(serial);
     ASSERT_OK(res);

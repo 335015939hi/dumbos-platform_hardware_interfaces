@@ -20,11 +20,50 @@ package {
     // all of the 'license_kinds' from "hardware_interfaces_license"
     // to get the below license kinds:
     //   SPDX-license-identifier-Apache-2.0
+    default_team: "trendy_team_aaos_framework",
     default_applicable_licenses: ["hardware_interfaces_license"],
 }
 
 cc_library_static {
     name: "android.hardware.broadcastradio@common-utils-aidl-lib",
+    defaults: [
+        "BroadcastRadioUtilsDefaults",
+    ],
+    shared_libs: [
+        "android.hardware.broadcastradio-V1-ndk",
+    ],
+}
+
+cc_library_static {
+    name: "android.hardware.broadcastradio@common-utils-aidl-lib-V2",
+    defaults: [
+        "BroadcastRadioUtilsDefaults",
+    ],
+    srcs: [
+        "src/UtilsV2.cpp",
+    ],
+    shared_libs: [
+        "android.hardware.broadcastradio-V2-ndk",
+    ],
+}
+
+cc_test {
+    name: "broadcastradio_utils_aidl_test",
+    defaults: [
+        "BroadcastRadioUtilsDefaults",
+    ],
+    srcs: [
+        "test/*.cpp",
+    ],
+    static_libs: [
+        "android.hardware.broadcastradio@common-utils-aidl-lib-V2",
+        "android.hardware.broadcastradio-V2-ndk",
+    ],
+    test_suites: ["general-tests"],
+}
+
+cc_defaults {
+    name: "BroadcastRadioUtilsDefaults",
     vendor_available: true,
     relative_install_path: "hw",
     cflags: [
@@ -37,11 +76,10 @@ cc_library_static {
         "-std=c++1z",
     ],
     srcs: [
-        "Utils.cpp",
+        "src/Utils.cpp",
     ],
     export_include_dirs: ["include"],
     shared_libs: [
-        "android.hardware.broadcastradio-V1-ndk",
         "libbase",
     ],
     static_libs: [

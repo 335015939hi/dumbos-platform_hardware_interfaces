@@ -65,9 +65,9 @@ ErrMsgOr<bytevec> ecKeyGetPrivateKey(const EC_KEY* ecKey) {
     return privKey;
 }
 
-ErrMsgOr<bytevec> ecKeyGetPublicKey(const EC_KEY* ecKey) {
+ErrMsgOr<bytevec> ecKeyGetPublicKey(const EC_KEY* ecKey, const int nid) {
     // Extract public key.
-    auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
+    auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(nid));
     if (group.get() == nullptr) {
         return "Error creating EC group by curve name";
     }
@@ -123,11 +123,12 @@ ErrMsgOr<bytevec> getRawPublicKey(const EVP_PKEY_Ptr& pubKey) {
     int keyType = EVP_PKEY_base_id(pubKey.get());
     switch (keyType) {
         case EVP_PKEY_EC: {
+            int nid = EVP_PKEY_bits(pubKey.get()) == 384 ? NID_secp384r1 : NID_X9_62_prime256v1;
             auto ecKey = EC_KEY_Ptr(EVP_PKEY_get1_EC_KEY(pubKey.get()));
             if (ecKey.get() == nullptr) {
                 return "Failed to get ec key";
-            }
-            return ecKeyGetPublicKey(ecKey.get());
+          }
+          return ecKeyGetPublicKey(ecKey.get(), nid);
         }
         case EVP_PKEY_ED25519: {
             bytevec rawPubKey;
@@ -165,7 +166,7 @@ ErrMsgOr<std::tuple<bytevec, bytevec>> generateEc256KeyPair() {
     auto privKey = ecKeyGetPrivateKey(ec_key.get());
     if (!privKey) return privKey.moveMessage();
 
-    auto pubKey = ecKeyGetPublicKey(ec_key.get());
+    auto pubKey = ecKeyGetPublicKey(ec_key.get(), NID_X9_62_prime256v1);
     if (!pubKey) return pubKey.moveMessage();
 
     return std::make_tuple(pubKey.moveValue(), privKey.moveValue());
@@ -824,7 +825,7 @@ ErrMsgOr<bytevec> validateCertChain(const cppbor::Array& chain) {
         }
         if (i == chain.size() - 1) {
             auto key = getRawPublicKey(pubKey);
-            if (!key) key.moveMessage();
+            if (!key) return key.moveMessage();
             rawPubKey = key.moveValue();
         }
     }
@@ -1079,6 +1080,42 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
         IRemotelyProvisionedComponent* provisionable, const std::vector<uint8_t>& challenge) {
     return verifyCsr(keysToSign, csr, provisionable, challenge, /*isFactory=*/false);
+}
+
+ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr) {
+    auto [parsedRequest, _, csrErrMsg] = cppbor::parse(csr);
+    if (!parsedRequest) {
+        return csrErrMsg;
+    }
+    if (!parsedRequest->asArray()) {
+        return "AuthenticatedRequest is not a CBOR array.";
+    }
+    if (parsedRequest->asArray()->size() != 4U) {
+        return "AuthenticatedRequest must contain version, UDS certificates, DICE chain, and "
+               "signed data. However, the parsed AuthenticatedRequest has " +
+               std::to_string(parsedRequest->asArray()->size()) + " entries.";
+    }
+
+    auto version = parsedRequest->asArray()->get(0)->asUint();
+    auto diceCertChain = parsedRequest->asArray()->get(2)->asArray();
+
+    if (!version || version->value() != 1U) {
+        return "AuthenticatedRequest version must be an unsigned integer and must be equal to 1.";
+    }
+    if (!diceCertChain) {
+        return "AuthenticatedRequest DiceCertChain must be an Array.";
+    }
+
+    // DICE chain is [ pubkey, + DiceChainEntry ].
+    auto diceChainKind = getDiceChainKind();
+    if (!diceChainKind) {
+        return diceChainKind.message();
+    }
+
+    auto encodedDiceChain = diceCertChain->encode();
+    auto chain = hwtrust::DiceChain::Verify(encodedDiceChain, *diceChainKind);
+    if (!chain.ok()) return chain.error().message();
+    return chain->IsProper();
 }
 
 }  // namespace aidl::android::hardware::security::keymint::remote_prov

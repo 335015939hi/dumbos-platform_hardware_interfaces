@@ -22,6 +22,7 @@
 #include <LargeParcelableBase.h>
 #include <VehicleHalTypes.h>
 #include <VehicleUtils.h>
+#include <VersionForVehicleProperty.h>
 
 #include <android-base/result.h>
 #include <android-base/stringprintf.h>
@@ -32,6 +33,7 @@
 #include <utils/Trace.h>
 
 #include <inttypes.h>
+#include <chrono>
 #include <set>
 #include <unordered_set>
 
@@ -60,6 +62,7 @@ using ::aidl::android::hardware::automotive::vehicle::VehiclePropertyAccess;
 using ::aidl::android::hardware::automotive::vehicle::VehiclePropertyChangeMode;
 using ::aidl::android::hardware::automotive::vehicle::VehiclePropertyStatus;
 using ::aidl::android::hardware::automotive::vehicle::VehiclePropValue;
+using ::aidl::android::hardware::automotive::vehicle::VersionForVehicleProperty;
 using ::android::automotive::car_binder_lib::LargeParcelableBase;
 using ::android::base::Error;
 using ::android::base::expected;
@@ -92,57 +95,46 @@ float getDefaultSampleRateHz(float sampleRateHz, float minSampleRateHz, float ma
 
 }  // namespace
 
-std::shared_ptr<SubscriptionClient> DefaultVehicleHal::SubscriptionClients::maybeAddClient(
-        const CallbackType& callback) {
-    std::scoped_lock<std::mutex> lockGuard(mLock);
-    return getOrCreateClient(&mClients, callback, mPendingRequestPool);
-}
-
-std::shared_ptr<SubscriptionClient> DefaultVehicleHal::SubscriptionClients::getClient(
-        const CallbackType& callback) {
-    std::scoped_lock<std::mutex> lockGuard(mLock);
-    const AIBinder* clientId = callback->asBinder().get();
-    if (mClients.find(clientId) == mClients.end()) {
-        return nullptr;
-    }
-    return mClients[clientId];
-}
-
-int64_t DefaultVehicleHal::SubscribeIdByClient::getId(const CallbackType& callback) {
-    std::scoped_lock<std::mutex> lockGuard(mLock);
-    // This would be initialized to 0 if callback does not exist in the map.
-    int64_t subscribeId = (mIds[callback->asBinder().get()])++;
-    return subscribeId;
-}
-
-void DefaultVehicleHal::SubscriptionClients::removeClient(const AIBinder* clientId) {
-    std::scoped_lock<std::mutex> lockGuard(mLock);
-    mClients.erase(clientId);
-}
-
-size_t DefaultVehicleHal::SubscriptionClients::countClients() {
-    std::scoped_lock<std::mutex> lockGuard(mLock);
-    return mClients.size();
-}
-
 DefaultVehicleHal::DefaultVehicleHal(std::unique_ptr<IVehicleHardware> vehicleHardware)
+    : DefaultVehicleHal(std::move(vehicleHardware), /* testInterfaceVersion= */ 0){};
+
+DefaultVehicleHal::DefaultVehicleHal(std::unique_ptr<IVehicleHardware> vehicleHardware,
+                                     int32_t testInterfaceVersion)
     : mVehicleHardware(std::move(vehicleHardware)),
-      mPendingRequestPool(std::make_shared<PendingRequestPool>(TIMEOUT_IN_NANO)) {
+      mPendingRequestPool(std::make_shared<PendingRequestPool>(TIMEOUT_IN_NANO)),
+      mTestInterfaceVersion(testInterfaceVersion) {
     if (!getAllPropConfigsFromHardware()) {
         return;
     }
 
-    mSubscriptionClients = std::make_shared<SubscriptionClients>(mPendingRequestPool);
-
-    auto subscribeIdByClient = std::make_shared<SubscribeIdByClient>();
     IVehicleHardware* vehicleHardwarePtr = mVehicleHardware.get();
     mSubscriptionManager = std::make_shared<SubscriptionManager>(vehicleHardwarePtr);
+    mEventBatchingWindow = mVehicleHardware->getPropertyOnChangeEventBatchingWindow();
+    if (mEventBatchingWindow != std::chrono::nanoseconds(0)) {
+        mBatchedEventQueue = std::make_shared<ConcurrentQueue<VehiclePropValue>>();
+        mPropertyChangeEventsBatchingConsumer =
+                std::make_shared<BatchingConsumer<VehiclePropValue>>();
+        mPropertyChangeEventsBatchingConsumer->run(
+                mBatchedEventQueue.get(), mEventBatchingWindow,
+                [this](std::vector<VehiclePropValue> batchedEvents) {
+                    handleBatchedPropertyEvents(std::move(batchedEvents));
+                });
+    }
 
+    std::weak_ptr<ConcurrentQueue<VehiclePropValue>> batchedEventQueueCopy = mBatchedEventQueue;
+    std::chrono::nanoseconds eventBatchingWindow = mEventBatchingWindow;
     std::weak_ptr<SubscriptionManager> subscriptionManagerCopy = mSubscriptionManager;
     mVehicleHardware->registerOnPropertyChangeEvent(
             std::make_unique<IVehicleHardware::PropertyChangeCallback>(
-                    [subscriptionManagerCopy](std::vector<VehiclePropValue> updatedValues) {
-                        onPropertyChangeEvent(subscriptionManagerCopy, updatedValues);
+                    [subscriptionManagerCopy, batchedEventQueueCopy,
+                     eventBatchingWindow](std::vector<VehiclePropValue> updatedValues) {
+                        if (eventBatchingWindow != std::chrono::nanoseconds(0)) {
+                            batchPropertyChangeEvent(batchedEventQueueCopy,
+                                                     std::move(updatedValues));
+                        } else {
+                            onPropertyChangeEvent(subscriptionManagerCopy,
+                                                  std::move(updatedValues));
+                        }
                     }));
     mVehicleHardware->registerOnPropertySetErrorEvent(
             std::make_unique<IVehicleHardware::PropertySetErrorCallback>(
@@ -175,26 +167,48 @@ DefaultVehicleHal::~DefaultVehicleHal() {
     // mRecurrentAction uses pointer to mVehicleHardware, so it has to be unregistered before
     // mVehicleHardware.
     mRecurrentTimer.unregisterTimerCallback(mRecurrentAction);
+
+    if (mBatchedEventQueue) {
+        // mPropertyChangeEventsBatchingConsumer uses mSubscriptionManager and mBatchedEventQueue.
+        mBatchedEventQueue->deactivate();
+        mPropertyChangeEventsBatchingConsumer->requestStop();
+        mPropertyChangeEventsBatchingConsumer->waitStopped();
+        mPropertyChangeEventsBatchingConsumer.reset();
+        mBatchedEventQueue.reset();
+    }
+
     // mSubscriptionManager uses pointer to mVehicleHardware, so it has to be destroyed before
     // mVehicleHardware.
     mSubscriptionManager.reset();
     mVehicleHardware.reset();
 }
 
+void DefaultVehicleHal::batchPropertyChangeEvent(
+        const std::weak_ptr<ConcurrentQueue<VehiclePropValue>>& batchedEventQueue,
+        std::vector<VehiclePropValue>&& updatedValues) {
+    auto batchedEventQueueStrong = batchedEventQueue.lock();
+    if (batchedEventQueueStrong == nullptr) {
+        ALOGW("the batched property events queue is destroyed, DefaultVehicleHal is ending");
+        return;
+    }
+    batchedEventQueueStrong->push(std::move(updatedValues));
+}
+
+void DefaultVehicleHal::handleBatchedPropertyEvents(std::vector<VehiclePropValue>&& batchedEvents) {
+    onPropertyChangeEvent(mSubscriptionManager, std::move(batchedEvents));
+}
+
 void DefaultVehicleHal::onPropertyChangeEvent(
         const std::weak_ptr<SubscriptionManager>& subscriptionManager,
-        const std::vector<VehiclePropValue>& updatedValues) {
+        std::vector<VehiclePropValue>&& updatedValues) {
+    ATRACE_CALL();
     auto manager = subscriptionManager.lock();
     if (manager == nullptr) {
         ALOGW("the SubscriptionManager is destroyed, DefaultVehicleHal is ending");
         return;
     }
-    auto updatedValuesByClients = manager->getSubscribedClients(updatedValues);
-    for (const auto& [callback, valuePtrs] : updatedValuesByClients) {
-        std::vector<VehiclePropValue> values;
-        for (const VehiclePropValue* valuePtr : valuePtrs) {
-            values.push_back(*valuePtr);
-        }
+    auto updatedValuesByClients = manager->getSubscribedClients(std::move(updatedValues));
+    for (auto& [callback, values] : updatedValuesByClients) {
         SubscriptionClient::sendUpdatedValues(callback, std::move(values));
     }
 }
@@ -262,7 +276,6 @@ void DefaultVehicleHal::onBinderDiedWithContext(const AIBinder* clientId) {
     ALOGD("binder died, client ID: %p", clientId);
     mSetValuesClients.erase(clientId);
     mGetValuesClients.erase(clientId);
-    mSubscriptionClients->removeClient(clientId);
     mSubscriptionManager->unsubscribe(clientId);
 }
 
@@ -301,22 +314,51 @@ template std::shared_ptr<DefaultVehicleHal::SetValuesClient>
 DefaultVehicleHal::getOrCreateClient<DefaultVehicleHal::SetValuesClient>(
         std::unordered_map<const AIBinder*, std::shared_ptr<SetValuesClient>>* clients,
         const CallbackType& callback, std::shared_ptr<PendingRequestPool> pendingRequestPool);
-template std::shared_ptr<SubscriptionClient>
-DefaultVehicleHal::getOrCreateClient<SubscriptionClient>(
-        std::unordered_map<const AIBinder*, std::shared_ptr<SubscriptionClient>>* clients,
-        const CallbackType& callback, std::shared_ptr<PendingRequestPool> pendingRequestPool);
 
 void DefaultVehicleHal::setTimeout(int64_t timeoutInNano) {
     mPendingRequestPool = std::make_unique<PendingRequestPool>(timeoutInNano);
 }
 
+int32_t DefaultVehicleHal::getVhalInterfaceVersion() {
+    if (mTestInterfaceVersion != 0) {
+        return mTestInterfaceVersion;
+    }
+    int32_t myVersion = 0;
+    getInterfaceVersion(&myVersion);
+    return myVersion;
+}
+
 bool DefaultVehicleHal::getAllPropConfigsFromHardware() {
     auto configs = mVehicleHardware->getAllPropertyConfigs();
+    std::vector<VehiclePropConfig> filteredConfigs;
+    int32_t myVersion = getVhalInterfaceVersion();
     for (auto& config : configs) {
+        if (!isSystemProp(config.prop)) {
+            filteredConfigs.push_back(std::move(config));
+            continue;
+        }
+        VehicleProperty property = static_cast<VehicleProperty>(config.prop);
+        std::string propertyName = aidl::android::hardware::automotive::vehicle::toString(property);
+        auto it = VersionForVehicleProperty.find(property);
+        if (it == VersionForVehicleProperty.end()) {
+            ALOGE("The property: %s is not a supported system property, ignore",
+                  propertyName.c_str());
+            continue;
+        }
+        int requiredVersion = it->second;
+        if (myVersion < requiredVersion) {
+            ALOGE("The property: %s is not supported for current client VHAL version, "
+                  "require %d, current version: %d, ignore",
+                  propertyName.c_str(), requiredVersion, myVersion);
+            continue;
+        }
+        filteredConfigs.push_back(std::move(config));
+    }
+    for (auto& config : filteredConfigs) {
         mConfigsByPropId[config.prop] = config;
     }
     VehiclePropConfigs vehiclePropConfigs;
-    vehiclePropConfigs.payloads = std::move(configs);
+    vehiclePropConfigs.payloads = std::move(filteredConfigs);
     auto result = LargeParcelableBase::parcelableToStableLargeParcelable(vehiclePropConfigs);
     if (!result.ok()) {
         ALOGE("failed to convert configs to shared memory file, error: %s, code: %d",
@@ -411,9 +453,9 @@ ScopedAStatus DefaultVehicleHal::getValues(const CallbackType& callback,
                     .status = getErrorCode(result),
                     .prop = {},
             });
-        } else {
-            hardwareRequests.push_back(request);
+            continue;
         }
+        hardwareRequests.push_back(request);
     }
 
     // The set of request Ids that we would send to hardware.
@@ -604,6 +646,23 @@ ScopedAStatus DefaultVehicleHal::getPropConfigs(const std::vector<int32_t>& prop
     return vectorToStableLargeParcelable(std::move(configs), output);
 }
 
+bool hasRequiredAccess(VehiclePropertyAccess access, VehiclePropertyAccess requiredAccess) {
+    return access == requiredAccess || access == VehiclePropertyAccess::READ_WRITE;
+}
+
+bool areaConfigsHaveRequiredAccess(const std::vector<VehicleAreaConfig>& areaConfigs,
+                                   VehiclePropertyAccess requiredAccess) {
+    if (areaConfigs.empty()) {
+        return false;
+    }
+    for (VehicleAreaConfig areaConfig : areaConfigs) {
+        if (!hasRequiredAccess(areaConfig.access, requiredAccess)) {
+            return false;
+        }
+    }
+    return true;
+}
+
 VhalResult<void> DefaultVehicleHal::checkSubscribeOptions(
         const std::vector<SubscribeOptions>& options) {
     for (const auto& option : options) {
@@ -613,6 +672,26 @@ VhalResult<void> DefaultVehicleHal::checkSubscribeOptions(
                    << StringPrintf("no config for property, ID: %" PRId32, propId);
         }
         const VehiclePropConfig& config = mConfigsByPropId[propId];
+        std::vector<VehicleAreaConfig> areaConfigs;
+        if (option.areaIds.empty()) {
+            areaConfigs = config.areaConfigs;
+        } else {
+            std::unordered_map<int, VehicleAreaConfig> areaConfigByAreaId;
+            for (const VehicleAreaConfig& areaConfig : config.areaConfigs) {
+                areaConfigByAreaId.emplace(areaConfig.areaId, areaConfig);
+            }
+            for (int areaId : option.areaIds) {
+                auto it = areaConfigByAreaId.find(areaId);
+                if (it != areaConfigByAreaId.end()) {
+                    areaConfigs.push_back(it->second);
+                } else if (areaId != 0 || !areaConfigByAreaId.empty()) {
+                    return StatusError(StatusCode::INVALID_ARG)
+                           << StringPrintf("invalid area ID: %" PRId32 " for prop ID: %" PRId32
+                                           ", not listed in config",
+                                           areaId, propId);
+                }
+            }
+        }
 
         if (config.changeMode != VehiclePropertyChangeMode::ON_CHANGE &&
             config.changeMode != VehiclePropertyChangeMode::CONTINUOUS) {
@@ -620,8 +699,9 @@ VhalResult<void> DefaultVehicleHal::checkSubscribeOptions(
                    << "only support subscribing to ON_CHANGE or CONTINUOUS property";
         }
 
-        if (config.access != VehiclePropertyAccess::READ &&
-            config.access != VehiclePropertyAccess::READ_WRITE) {
+        // Either VehiclePropConfig.access or VehicleAreaConfig.access will be specified
+        if (!hasRequiredAccess(config.access, VehiclePropertyAccess::READ) &&
+            !areaConfigsHaveRequiredAccess(areaConfigs, VehiclePropertyAccess::READ)) {
             return StatusError(StatusCode::ACCESS_DENIED)
                    << StringPrintf("Property %" PRId32 " has no read access", propId);
         }
@@ -642,19 +722,9 @@ VhalResult<void> DefaultVehicleHal::checkSubscribeOptions(
                 return StatusError(StatusCode::INVALID_ARG)
                        << "invalid sample rate: " << sampleRateHz << " HZ";
             }
-        }
-
-        if (isGlobalProp(propId)) {
-            continue;
-        }
-
-        // Non-global property.
-        for (int32_t areaId : option.areaIds) {
-            if (auto areaConfig = getAreaConfig(propId, areaId, config); areaConfig == nullptr) {
+            if (!SubscriptionManager::checkResolution(option.resolution)) {
                 return StatusError(StatusCode::INVALID_ARG)
-                       << StringPrintf("invalid area ID: %" PRId32 " for prop ID: %" PRId32
-                                       ", not listed in config",
-                                       areaId, propId);
+                       << "invalid resolution: " << option.resolution;
             }
         }
     }
@@ -694,7 +764,39 @@ ScopedAStatus DefaultVehicleHal::subscribe(const CallbackType& callback,
         if (config.changeMode == VehiclePropertyChangeMode::CONTINUOUS) {
             optionCopy.sampleRate = getDefaultSampleRateHz(
                     optionCopy.sampleRate, config.minSampleRate, config.maxSampleRate);
-            continuousSubscriptions.push_back(std::move(optionCopy));
+            if (!optionCopy.enableVariableUpdateRate) {
+                continuousSubscriptions.push_back(std::move(optionCopy));
+            } else {
+                // If clients enables to VUR, we need to check whether VUR is supported for the
+                // specific [propId, areaId] and overwrite the option to disable if not supported.
+                std::vector<int32_t> areasVurEnabled;
+                std::vector<int32_t> areasVurDisabled;
+                for (int32_t areaId : optionCopy.areaIds) {
+                    const VehicleAreaConfig* areaConfig = getAreaConfig(propId, areaId, config);
+                    if (areaConfig == nullptr) {
+                        areasVurDisabled.push_back(areaId);
+                        continue;
+                    }
+                    if (!areaConfig->supportVariableUpdateRate) {
+                        areasVurDisabled.push_back(areaId);
+                        continue;
+                    }
+                    areasVurEnabled.push_back(areaId);
+                }
+                if (!areasVurEnabled.empty()) {
+                    SubscribeOptions optionVurEnabled = optionCopy;
+                    optionVurEnabled.areaIds = areasVurEnabled;
+                    optionVurEnabled.enableVariableUpdateRate = true;
+                    continuousSubscriptions.push_back(std::move(optionVurEnabled));
+                }
+
+                if (!areasVurDisabled.empty()) {
+                    // We use optionCopy for areas with VUR disabled.
+                    optionCopy.areaIds = areasVurDisabled;
+                    optionCopy.enableVariableUpdateRate = false;
+                    continuousSubscriptions.push_back(std::move(optionCopy));
+                }
+            }
         } else {
             onChangeSubscriptions.push_back(std::move(optionCopy));
         }
@@ -707,9 +809,6 @@ ScopedAStatus DefaultVehicleHal::subscribe(const CallbackType& callback,
             return ScopedAStatus::fromExceptionCodeWithMessage(EX_TRANSACTION_FAILED,
                                                                "client died");
         }
-
-        // Create a new SubscriptionClient if there isn't an existing one.
-        mSubscriptionClients->maybeAddClient(callback);
 
         if (!onChangeSubscriptions.empty()) {
             auto result = mSubscriptionManager->subscribe(callback, onChangeSubscriptions,
@@ -746,36 +845,43 @@ IVehicleHardware* DefaultVehicleHal::getHardware() {
     return mVehicleHardware.get();
 }
 
-VhalResult<void> DefaultVehicleHal::checkWritePermission(const VehiclePropValue& value) const {
+VhalResult<void> DefaultVehicleHal::checkPermissionHelper(
+        const VehiclePropValue& value, VehiclePropertyAccess accessToTest) const {
+    static const std::unordered_set<VehiclePropertyAccess> validAccesses = {
+            VehiclePropertyAccess::WRITE, VehiclePropertyAccess::READ,
+            VehiclePropertyAccess::READ_WRITE};
+    if (validAccesses.find(accessToTest) == validAccesses.end()) {
+        return StatusError(StatusCode::INVALID_ARG)
+               << "checkPermissionHelper parameter is an invalid access type";
+    }
+
     int32_t propId = value.prop;
     auto result = getConfig(propId);
     if (!result.ok()) {
         return StatusError(StatusCode::INVALID_ARG) << getErrorMsg(result);
     }
-    const VehiclePropConfig* config = result.value();
 
-    if (config->access != VehiclePropertyAccess::WRITE &&
-        config->access != VehiclePropertyAccess::READ_WRITE) {
+    const VehiclePropConfig* config = result.value();
+    const VehicleAreaConfig* areaConfig = getAreaConfig(value, *config);
+
+    if (areaConfig == nullptr && !isGlobalProp(propId)) {
+        return StatusError(StatusCode::INVALID_ARG) << "no config for area ID: " << value.areaId;
+    }
+    if (!hasRequiredAccess(config->access, accessToTest) &&
+        (areaConfig == nullptr || !hasRequiredAccess(areaConfig->access, accessToTest))) {
         return StatusError(StatusCode::ACCESS_DENIED)
-               << StringPrintf("Property %" PRId32 " has no write access", propId);
+               << StringPrintf("Property %" PRId32 " does not have the following access: %" PRId32,
+                               propId, accessToTest);
     }
     return {};
 }
 
-VhalResult<void> DefaultVehicleHal::checkReadPermission(const VehiclePropValue& value) const {
-    int32_t propId = value.prop;
-    auto result = getConfig(propId);
-    if (!result.ok()) {
-        return StatusError(StatusCode::INVALID_ARG) << getErrorMsg(result);
-    }
-    const VehiclePropConfig* config = result.value();
+VhalResult<void> DefaultVehicleHal::checkWritePermission(const VehiclePropValue& value) const {
+    return checkPermissionHelper(value, VehiclePropertyAccess::WRITE);
+}
 
-    if (config->access != VehiclePropertyAccess::READ &&
-        config->access != VehiclePropertyAccess::READ_WRITE) {
-        return StatusError(StatusCode::ACCESS_DENIED)
-               << StringPrintf("Property %" PRId32 " has no read access", propId);
-    }
-    return {};
+VhalResult<void> DefaultVehicleHal::checkReadPermission(const VehiclePropValue& value) const {
+    return checkPermissionHelper(value, VehiclePropertyAccess::READ);
 }
 
 void DefaultVehicleHal::checkHealth(IVehicleHardware* vehicleHardware,
@@ -786,12 +892,12 @@ void DefaultVehicleHal::checkHealth(IVehicleHardware* vehicleHardware,
         return;
     }
     std::vector<VehiclePropValue> values = {{
-            .prop = toInt(VehicleProperty::VHAL_HEARTBEAT),
             .areaId = 0,
+            .prop = toInt(VehicleProperty::VHAL_HEARTBEAT),
             .status = VehiclePropertyStatus::AVAILABLE,
             .value.int64Values = {uptimeMillis()},
     }};
-    onPropertyChangeEvent(subscriptionManager, values);
+    onPropertyChangeEvent(subscriptionManager, std::move(values));
     return;
 }
 
@@ -839,13 +945,17 @@ binder_status_t DefaultVehicleHal::dump(int fd, const char** args, uint32_t numA
     dprintf(fd, "Vehicle HAL State: \n");
     {
         std::scoped_lock<std::mutex> lockGuard(mLock);
+        dprintf(fd, "Interface version: %" PRId32 "\n", getVhalInterfaceVersion());
         dprintf(fd, "Containing %zu property configs\n", mConfigsByPropId.size());
         dprintf(fd, "Currently have %zu getValues clients\n", mGetValuesClients.size());
         dprintf(fd, "Currently have %zu setValues clients\n", mSetValuesClients.size());
-        dprintf(fd, "Currently have %zu subscription clients\n",
-                mSubscriptionClients->countClients());
+        dprintf(fd, "Currently have %zu subscribe clients\n", countSubscribeClients());
     }
     return STATUS_OK;
+}
+
+size_t DefaultVehicleHal::countSubscribeClients() {
+    return mSubscriptionManager->countClients();
 }
 
 }  // namespace vehicle

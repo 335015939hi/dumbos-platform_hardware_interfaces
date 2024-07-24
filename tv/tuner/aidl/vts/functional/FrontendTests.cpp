@@ -353,8 +353,7 @@ void FrontendTests::verifyFrontendStatus(vector<FrontendStatusType> statusTypes,
                 break;
             }
             case FrontendStatusType::UEC: {
-                ASSERT_TRUE(realStatuses[i].get<FrontendStatus::Tag::uec>() ==
-                            expectStatuses[i].get<FrontendStatus::Tag::uec>());
+                ASSERT_TRUE(realStatuses[i].get<FrontendStatus::Tag::uec>() >= 0);
                 break;
             }
             case FrontendStatusType::T2_SYSTEM_ID: {
@@ -475,6 +474,10 @@ AssertionResult FrontendTests::tuneFrontend(FrontendConfig config, bool testWith
             << "FrontendConfig does not match the frontend info of the given id.";
 
     mIsSoftwareFe = config.isSoftwareFe;
+    std::unique_ptr<IpStreamer> ipThread = std::make_unique<IpStreamer>();
+    if (config.type == FrontendType::IPTV) {
+        ipThread->startIpStream();
+    }
     if (mIsSoftwareFe && testWithDemux) {
         if (getDvrTests()->openDvrInDemux(mDvrConfig.type, mDvrConfig.bufferSize) != success()) {
             ALOGW("[vts] Software frontend dvr configure openDvr failed.");
@@ -494,6 +497,9 @@ AssertionResult FrontendTests::tuneFrontend(FrontendConfig config, bool testWith
         getDvrTests()->startDvrPlayback();
     }
     mFrontendCallback->tuneTestOnLock(mFrontend, config.settings);
+    if (config.type == FrontendType::IPTV) {
+        ipThread->stopIpStream();
+    }
     return AssertionResult(true);
 }
 

@@ -18,6 +18,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <optional>
 #include <string>
 #include <type_traits>
 #include <unordered_map>
@@ -42,11 +43,18 @@
 using namespace android;
 using aidl::android::hardware::audio::effect::CommandId;
 using aidl::android::hardware::audio::effect::Descriptor;
+using aidl::android::hardware::audio::effect::getEffectTypeUuidSpatializer;
+using aidl::android::hardware::audio::effect::getRange;
 using aidl::android::hardware::audio::effect::IEffect;
+using aidl::android::hardware::audio::effect::isRangeValid;
+using aidl::android::hardware::audio::effect::kEffectTypeUuidSpatializer;
+using aidl::android::hardware::audio::effect::kEventFlagDataMqNotEmpty;
 using aidl::android::hardware::audio::effect::kEventFlagDataMqUpdate;
 using aidl::android::hardware::audio::effect::kEventFlagNotEmpty;
+using aidl::android::hardware::audio::effect::kReopenSupportedVersion;
 using aidl::android::hardware::audio::effect::Parameter;
 using aidl::android::hardware::audio::effect::Range;
+using aidl::android::hardware::audio::effect::Spatializer;
 using aidl::android::hardware::audio::effect::State;
 using aidl::android::hardware::common::fmq::SynchronizedReadWrite;
 using aidl::android::media::audio::common::AudioChannelLayout;
@@ -70,19 +78,24 @@ typedef ::android::AidlMessageQueue<float,
 static inline std::string getPrefix(Descriptor& descriptor) {
     std::string prefix = "Implementor_" + descriptor.common.implementor + "_name_" +
                          descriptor.common.name + "_UUID_" + toString(descriptor.common.id.uuid);
+    std::replace_if(
+            prefix.begin(), prefix.end(), [](const char c) { return !std::isalnum(c); }, '_');
     return prefix;
 }
 
 class EffectHelper {
   public:
-    static void create(std::shared_ptr<IFactory> factory, std::shared_ptr<IEffect>& effect,
-                       Descriptor& desc, binder_status_t status = EX_NONE) {
+    void create(std::shared_ptr<IFactory> factory, std::shared_ptr<IEffect>& effect,
+                Descriptor& desc, binder_status_t status = EX_NONE) {
         ASSERT_NE(factory, nullptr);
         auto& id = desc.common.id;
         ASSERT_STATUS(status, factory->createEffect(id.uuid, &effect));
         if (status == EX_NONE) {
             ASSERT_NE(effect, nullptr) << toString(id.uuid);
+            ASSERT_NO_FATAL_FAILURE(expectState(effect, State::INIT));
         }
+        mIsSpatializer = id.type == getEffectTypeUuidSpatializer();
+        mDescriptor = desc;
     }
 
     static void destroyIgnoreRet(std::shared_ptr<IFactory> factory,
@@ -99,19 +112,34 @@ class EffectHelper {
         ASSERT_STATUS(status, factory->destroyEffect(effect));
     }
 
-    static void open(std::shared_ptr<IEffect> effect, const Parameter::Common& common,
-                     const std::optional<Parameter::Specific>& specific,
-                     IEffect::OpenEffectReturn* ret, binder_status_t status = EX_NONE) {
+    void open(std::shared_ptr<IEffect> effect, const Parameter::Common& common,
+              const std::optional<Parameter::Specific>& specific, IEffect::OpenEffectReturn* ret,
+              binder_status_t status = EX_NONE) {
         ASSERT_NE(effect, nullptr);
         ASSERT_STATUS(status, effect->open(common, specific, ret));
+        if (status != EX_NONE) {
+            return;
+        }
+
+        ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
+        updateFrameSize(common);
     }
 
-    static void open(std::shared_ptr<IEffect> effect, int session = 0,
-                     binder_status_t status = EX_NONE) {
+    void open(std::shared_ptr<IEffect> effect, int session = 0, binder_status_t status = EX_NONE) {
         ASSERT_NE(effect, nullptr);
-        Parameter::Common common = EffectHelper::createParamCommon(session);
+        Parameter::Common common = createParamCommon(session);
         IEffect::OpenEffectReturn ret;
         ASSERT_NO_FATAL_FAILURE(open(effect, common, std::nullopt /* specific */, &ret, status));
+    }
+
+    void reopen(std::shared_ptr<IEffect> effect, const Parameter::Common& common,
+                IEffect::OpenEffectReturn* ret, binder_status_t status = EX_NONE) {
+        ASSERT_NE(effect, nullptr);
+        ASSERT_STATUS(status, effect->reopen(ret));
+        if (status != EX_NONE) {
+            return;
+        }
+        updateFrameSize(common);
     }
 
     static void closeIgnoreRet(std::shared_ptr<IEffect> effect) {
@@ -119,16 +147,22 @@ class EffectHelper {
             effect->close();
         }
     }
+
     static void close(std::shared_ptr<IEffect> effect, binder_status_t status = EX_NONE) {
         if (effect) {
             ASSERT_STATUS(status, effect->close());
+            if (status == EX_NONE) {
+                ASSERT_NO_FATAL_FAILURE(expectState(effect, State::INIT));
+            }
         }
     }
+
     static void getDescriptor(std::shared_ptr<IEffect> effect, Descriptor& desc,
                               binder_status_t status = EX_NONE) {
         ASSERT_NE(effect, nullptr);
         ASSERT_STATUS(status, effect->getDescriptor(&desc));
     }
+
     static void expectState(std::shared_ptr<IEffect> effect, State expectState,
                             binder_status_t status = EX_NONE) {
         ASSERT_NE(effect, nullptr);
@@ -136,29 +170,37 @@ class EffectHelper {
         ASSERT_STATUS(status, effect->getState(&state));
         ASSERT_EQ(expectState, state);
     }
+
     static void commandIgnoreRet(std::shared_ptr<IEffect> effect, CommandId command) {
         if (effect) {
             effect->command(command);
         }
     }
+
     static void command(std::shared_ptr<IEffect> effect, CommandId command,
                         binder_status_t status = EX_NONE) {
         ASSERT_NE(effect, nullptr);
         ASSERT_STATUS(status, effect->command(command));
+        if (status != EX_NONE) {
+            return;
+        }
+
+        switch (command) {
+            case CommandId::START:
+                ASSERT_NO_FATAL_FAILURE(expectState(effect, State::PROCESSING));
+                break;
+            case CommandId::STOP:
+                FALLTHROUGH_INTENDED;
+            case CommandId::RESET:
+                ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
+                break;
+            default:
+                return;
+        }
     }
-    static void allocateInputData(const Parameter::Common common, std::unique_ptr<DataMQ>& mq,
-                                  std::vector<float>& buffer) {
-        ASSERT_NE(mq, nullptr);
-        auto frameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(
-                common.input.base.format, common.input.base.channelMask);
-        const size_t floatsToWrite = mq->availableToWrite();
-        ASSERT_NE(0UL, floatsToWrite);
-        ASSERT_EQ(frameSize * common.input.frameCount, floatsToWrite * sizeof(float));
-        buffer.resize(floatsToWrite);
-        std::fill(buffer.begin(), buffer.end(), 0x5a);
-    }
+
     static void writeToFmq(std::unique_ptr<StatusMQ>& statusMq, std::unique_ptr<DataMQ>& dataMq,
-                           const std::vector<float>& buffer) {
+                           const std::vector<float>& buffer, int version) {
         const size_t available = dataMq->availableToWrite();
         ASSERT_NE(0Ul, available);
         auto bufferFloats = buffer.size();
@@ -169,9 +211,11 @@ class EffectHelper {
         ASSERT_EQ(::android::OK,
                   EventFlag::createEventFlag(statusMq->getEventFlagWord(), &efGroup));
         ASSERT_NE(nullptr, efGroup);
-        efGroup->wake(kEventFlagNotEmpty);
+        efGroup->wake(version >= kReopenSupportedVersion ? kEventFlagDataMqNotEmpty
+                                                         : kEventFlagNotEmpty);
         ASSERT_EQ(::android::OK, EventFlag::deleteEventFlag(&efGroup));
     }
+
     static void readFromFmq(std::unique_ptr<StatusMQ>& statusMq, size_t statusNum,
                             std::unique_ptr<DataMQ>& dataMq, size_t expectFloats,
                             std::vector<float>& buffer,
@@ -192,6 +236,7 @@ class EffectHelper {
             ASSERT_TRUE(dataMq->read(buffer.data(), expectFloats));
         }
     }
+
     static void expectDataMqUpdateEventFlag(std::unique_ptr<StatusMQ>& statusMq) {
         EventFlag* efGroup;
         ASSERT_EQ(::android::OK,
@@ -202,15 +247,35 @@ class EffectHelper {
                                                true /* retry */));
         EXPECT_TRUE(efState & kEventFlagDataMqUpdate);
     }
-    static Parameter::Common createParamCommon(
-            int session = 0, int ioHandle = -1, int iSampleRate = 48000, int oSampleRate = 48000,
-            long iFrameCount = 0x100, long oFrameCount = 0x100,
-            AudioChannelLayout inputChannelLayout =
-                    AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
-                            AudioChannelLayout::LAYOUT_STEREO),
-            AudioChannelLayout outputChannelLayout =
-                    AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
-                            AudioChannelLayout::LAYOUT_STEREO)) {
+
+    Parameter::Common createParamCommon(int session = 0, int ioHandle = -1, int iSampleRate = 48000,
+                                        int oSampleRate = 48000, long iFrameCount = 0x100,
+                                        long oFrameCount = 0x100) {
+        AudioChannelLayout inputLayout = AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                AudioChannelLayout::LAYOUT_STEREO);
+        AudioChannelLayout outputLayout = inputLayout;
+
+        // query supported input layout and use it as the default parameter in common
+        if (mIsSpatializer && isRangeValid<Range::spatializer>(Spatializer::supportedChannelLayout,
+                                                               mDescriptor.capability)) {
+            const auto layoutRange = getRange<Range::spatializer, Range::SpatializerRange>(
+                    mDescriptor.capability, Spatializer::supportedChannelLayout);
+            if (std::vector<AudioChannelLayout> layouts;
+                layoutRange &&
+                0 != (layouts = layoutRange->min.get<Spatializer::supportedChannelLayout>())
+                                .size()) {
+                inputLayout = layouts[0];
+            }
+        }
+
+        return createParamCommon(session, ioHandle, iSampleRate, oSampleRate, iFrameCount,
+                                 oFrameCount, inputLayout, outputLayout);
+    }
+
+    static Parameter::Common createParamCommon(int session, int ioHandle, int iSampleRate,
+                                               int oSampleRate, long iFrameCount, long oFrameCount,
+                                               AudioChannelLayout inputChannelLayout,
+                                               AudioChannelLayout outputChannelLayout) {
         Parameter::Common common;
         common.session = session;
         common.ioHandle = ioHandle;
@@ -305,30 +370,38 @@ class EffectHelper {
 
     static void processAndWriteToOutput(std::vector<float>& inputBuffer,
                                         std::vector<float>& outputBuffer,
-                                        const std::shared_ptr<IEffect>& mEffect,
-                                        IEffect::OpenEffectReturn* mOpenEffectReturn) {
+                                        const std::shared_ptr<IEffect>& effect,
+                                        IEffect::OpenEffectReturn* openEffectReturn,
+                                        int version = -1, int times = 1) {
         // Initialize AidlMessagequeues
-        auto statusMQ = std::make_unique<EffectHelper::StatusMQ>(mOpenEffectReturn->statusMQ);
+        auto statusMQ = std::make_unique<EffectHelper::StatusMQ>(openEffectReturn->statusMQ);
         ASSERT_TRUE(statusMQ->isValid());
-        auto inputMQ = std::make_unique<EffectHelper::DataMQ>(mOpenEffectReturn->inputDataMQ);
+        auto inputMQ = std::make_unique<EffectHelper::DataMQ>(openEffectReturn->inputDataMQ);
         ASSERT_TRUE(inputMQ->isValid());
-        auto outputMQ = std::make_unique<EffectHelper::DataMQ>(mOpenEffectReturn->outputDataMQ);
+        auto outputMQ = std::make_unique<EffectHelper::DataMQ>(openEffectReturn->outputDataMQ);
         ASSERT_TRUE(outputMQ->isValid());
 
         // Enabling the process
-        ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::START));
-        ASSERT_NO_FATAL_FAILURE(expectState(mEffect, State::PROCESSING));
+        ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::START));
 
         // Write from buffer to message queues and calling process
-        EXPECT_NO_FATAL_FAILURE(EffectHelper::writeToFmq(statusMQ, inputMQ, inputBuffer));
+        if (version == -1) {
+            ASSERT_IS_OK(effect->getInterfaceVersion(&version));
+        }
 
-        // Read the updated message queues into buffer
-        EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(statusMQ, 1, outputMQ,
-                                                          outputBuffer.size(), outputBuffer));
+        for (int i = 0; i < times; i++) {
+            EXPECT_NO_FATAL_FAILURE(
+                    EffectHelper::writeToFmq(statusMQ, inputMQ, inputBuffer, version));
+            // Read the updated message queues into buffer
+            EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(statusMQ, 1, outputMQ,
+                                                              outputBuffer.size(), outputBuffer));
+        }
+
+        ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::STOP));
+        EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(statusMQ, 0, outputMQ, 0, outputBuffer));
 
         // Disable the process
-        ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::RESET));
-        ASSERT_NO_FATAL_FAILURE(expectState(mEffect, State::IDLE));
+        ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::RESET));
     }
 
     // Find FFT bin indices for testFrequencies and get bin center frequencies
@@ -371,4 +444,18 @@ class EffectHelper {
 
         return bufferMag;
     }
+
+    void updateFrameSize(const Parameter::Common& common) {
+        mInputFrameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(
+                common.input.base.format, common.input.base.channelMask);
+        mInputSamples = common.input.frameCount * mInputFrameSize / sizeof(float);
+        mOutputFrameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(
+                common.output.base.format, common.output.base.channelMask);
+        mOutputSamples = common.output.frameCount * mOutputFrameSize / sizeof(float);
+    }
+
+    bool mIsSpatializer;
+    Descriptor mDescriptor;
+    size_t mInputFrameSize, mOutputFrameSize;
+    size_t mInputSamples, mOutputSamples;
 };

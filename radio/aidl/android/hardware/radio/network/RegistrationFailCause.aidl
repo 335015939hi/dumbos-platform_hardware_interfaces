@@ -19,6 +19,7 @@ package android.hardware.radio.network;
 /**
  * Call fail causes for Circuit-switched service enumerated in 3GPP TS 24.008, 10.5.3.6 and
  * 10.5.147. Additional detail is available in 3GPP TS 24.008 Annex G.
+ * @hide
  */
 @VintfStability
 @Backing(type="int")
@@ -85,9 +86,14 @@ enum RegistrationFailCause {
      */
     NO_SUITABLE_CELLS = 15,
     /**
-     * 16 - MSC temporarily not reachable
+     * @deprecated MSC_TEMPORARILY_NOT_REACHABLE value is wrong and should not be used.
+     * Use MSC_TEMP_NOT_REACHABLE instead.
      */
     MSC_TEMPORARILY_NOT_REACHABLE = 15,
+    /**
+     * 16 - MSC temporarily not reachable
+     */
+    MSC_TEMP_NOT_REACHABLE = 16,
     /**
      * 17 - Network Failure
      */

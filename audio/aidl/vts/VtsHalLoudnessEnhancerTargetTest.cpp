@@ -23,6 +23,7 @@
 
 using namespace android;
 
+using aidl::android::hardware::audio::common::getChannelCount;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::getEffectTypeUuidLoudnessEnhancer;
 using aidl::android::hardware::audio::effect::IEffect;
@@ -48,11 +49,12 @@ class LoudnessEnhancerEffectHelper : public EffectHelper {
         ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
 
         Parameter::Specific specific = getDefaultParamSpecific();
-        Parameter::Common common = EffectHelper::createParamCommon(
+        Parameter::Common common = createParamCommon(
                 0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
-                kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */);
+                kFrameCount /* iFrameCount */, kFrameCount /* oFrameCount */);
         ASSERT_NO_FATAL_FAILURE(open(mEffect, common, specific, &mOpenEffectReturn, EX_NONE));
         ASSERT_NE(nullptr, mEffect);
+        mVersion = EffectFactoryHelper::getHalVersion(mFactory);
     }
 
     void TearDownLoudnessEnhancer() {
@@ -109,11 +111,12 @@ class LoudnessEnhancerEffectHelper : public EffectHelper {
                                            << "\ngetParam:" << getParam.toString();
     }
 
-    static const long kInputFrameCount = 0x100, kOutputFrameCount = 0x100;
+    static const long kFrameCount = 256;
     IEffect::OpenEffectReturn mOpenEffectReturn;
     std::shared_ptr<IFactory> mFactory;
     std::shared_ptr<IEffect> mEffect;
     Descriptor mDescriptor;
+    int mVersion = 0;
 };
 
 /**
@@ -151,11 +154,16 @@ class LoudnessEnhancerDataTest : public ::testing::TestWithParam<LoudnessEnhance
   public:
     LoudnessEnhancerDataTest() {
         std::tie(mFactory, mDescriptor) = GetParam();
+        mBufferSize = kFrameCount *
+                      getChannelCount(AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                              AudioChannelLayout::LAYOUT_STEREO));
         generateInputBuffer();
-        mOutputBuffer.resize(kBufferSize);
+
+        mOutputBuffer.resize(mBufferSize);
     }
 
     void SetUp() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
         SetUpLoudnessEnhancer();
 
         // Creating AidlMessageQueues
@@ -164,11 +172,14 @@ class LoudnessEnhancerDataTest : public ::testing::TestWithParam<LoudnessEnhance
         mOutputMQ = std::make_unique<EffectHelper::DataMQ>(mOpenEffectReturn.outputDataMQ);
     }
 
-    void TearDown() override { TearDownLoudnessEnhancer(); }
+    void TearDown() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        TearDownLoudnessEnhancer();
+    }
 
     // Fill inputBuffer with random values between -kMaxAudioSample to kMaxAudioSample
     void generateInputBuffer() {
-        for (size_t i = 0; i < kBufferSize; i++) {
+        for (size_t i = 0; i < mBufferSize; i++) {
             mInputBuffer.push_back(((static_cast<float>(std::rand()) / RAND_MAX) * 2 - 1) *
                                    kMaxAudioSample);
         }
@@ -186,7 +197,8 @@ class LoudnessEnhancerDataTest : public ::testing::TestWithParam<LoudnessEnhance
         ASSERT_NO_FATAL_FAILURE(expectState(mEffect, State::PROCESSING));
 
         // Write from buffer to message queues and calling process
-        EXPECT_NO_FATAL_FAILURE(EffectHelper::writeToFmq(mStatusMQ, mInputMQ, mInputBuffer));
+        EXPECT_NO_FATAL_FAILURE(
+                EffectHelper::writeToFmq(mStatusMQ, mInputMQ, mInputBuffer, mVersion));
 
         // Read the updated message queues into buffer
         EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(mStatusMQ, 1, mOutputMQ,
@@ -208,7 +220,7 @@ class LoudnessEnhancerDataTest : public ::testing::TestWithParam<LoudnessEnhance
     }
 
     void assertSequentialGains(const std::vector<int>& gainValues, bool isIncreasing) {
-        std::vector<float> baseOutput(kBufferSize);
+        std::vector<float> baseOutput(mBufferSize);
 
         // Process a reference output buffer with 0 gain which gives compressed input values
         binder_exception_t expected;
@@ -245,7 +257,7 @@ class LoudnessEnhancerDataTest : public ::testing::TestWithParam<LoudnessEnhance
 
     std::vector<float> mInputBuffer;
     std::vector<float> mOutputBuffer;
-    static constexpr float kBufferSize = 128;
+    size_t mBufferSize;
 };
 
 TEST_P(LoudnessEnhancerDataTest, IncreasingGains) {

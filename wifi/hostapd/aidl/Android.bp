@@ -28,6 +28,9 @@ aidl_interface {
     srcs: [
         "android/hardware/wifi/hostapd/*.aidl",
     ],
+    imports: [
+        "android.hardware.wifi.common-V1",
+    ],
     stability: "vintf",
     backend: {
         java: {
@@ -37,9 +40,18 @@ aidl_interface {
                 "com.android.wifi",
             ],
             min_sdk_version: "30",
+            lint: {
+                baseline_filename: "lint-baseline.xml",
+            },
         },
         ndk: {
             gen_trace: true,
+        },
+        cpp: {
+            enabled: false,
+        },
+        rust: {
+            enabled: false,
         },
     },
     versions_with_info: [
@@ -47,6 +59,11 @@ aidl_interface {
             version: "1",
             imports: [],
         },
-    ],
+        {
+            version: "2",
+            imports: ["android.hardware.wifi.common-V1"],
+        },
 
+    ],
+    frozen: true,
 }

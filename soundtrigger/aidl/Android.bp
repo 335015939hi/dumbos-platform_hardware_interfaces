@@ -41,13 +41,18 @@ aidl_interface {
             version: "1",
             imports: ["android.media.soundtrigger.types-V1"],
         },
+        {
+            version: "2",
+            imports: ["android.media.soundtrigger.types-V2"],
+        },
+
         // IMPORTANT: Update latest_android_hardware_soundtrigger3 every time
         // you add the latest frozen version to versions_with_info
     ],
 }
 
 // Note: This should always be one version ahead of the last frozen version
-latest_android_hardware_soundtrigger3 = "android.hardware.soundtrigger3-V2"
+latest_android_hardware_soundtrigger3 = "android.hardware.soundtrigger3-V3"
 
 // Modules that depend on android.hardware.soundtrigger3 directly can include
 // the following java_defaults to avoid explicitly managing dependency versions

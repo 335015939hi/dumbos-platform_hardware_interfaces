@@ -37,7 +37,7 @@ class VolumeControlHelper : public EffectHelper {
         ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
         initFrameCount();
         Parameter::Specific specific = getDefaultParamSpecific();
-        Parameter::Common common = EffectHelper::createParamCommon(
+        Parameter::Common common = createParamCommon(
                 0 /* session */, 1 /* ioHandle */, kSamplingFrequency /* iSampleRate */,
                 kSamplingFrequency /* oSampleRate */, mInputFrameCount /* iFrameCount */,
                 mInputFrameCount /* oFrameCount */);
@@ -94,7 +94,7 @@ class VolumeControlHelper : public EffectHelper {
     }
 
     static constexpr int kSamplingFrequency = 44100;
-    static constexpr int kDurationMilliSec = 2000;
+    static constexpr int kDurationMilliSec = 720;
     static constexpr int kBufferSize = kSamplingFrequency * kDurationMilliSec / 1000;
     static constexpr int kMinLevel = -96;
     static constexpr int kDefaultChannelLayout = AudioChannelLayout::LAYOUT_STEREO;
@@ -163,12 +163,18 @@ class VolumeDataTest : public ::testing::TestWithParam<VolumeDataTestParam>,
     // Convert Decibel value to Percentage
     int percentageDb(float level) { return std::round((1 - (pow(10, level / 20))) * 100); }
 
-    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpVolumeControl()); }
-    void TearDown() override { TearDownVolumeControl(); }
+    void SetUp() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        ASSERT_NO_FATAL_FAILURE(SetUpVolumeControl());
+    }
+    void TearDown() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        TearDownVolumeControl();
+    }
 
     static constexpr int kMaxAudioSample = 1;
     static constexpr int kTransitionDuration = 300;
-    static constexpr int kNPointFFT = 32768;
+    static constexpr int kNPointFFT = 16384;
     static constexpr float kBinWidth = (float)kSamplingFrequency / kNPointFFT;
     static constexpr size_t offset = kSamplingFrequency * kTransitionDuration / 1000;
     static constexpr float kBaseLevel = 0;

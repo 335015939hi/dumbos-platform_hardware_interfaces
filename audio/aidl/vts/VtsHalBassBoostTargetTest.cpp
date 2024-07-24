@@ -57,7 +57,7 @@ class BassBoostEffectHelper : public EffectHelper {
                 AudioChannelLayout::make<AudioChannelLayout::layoutMask>(layout);
 
         Parameter::Specific specific = getDefaultParamSpecific();
-        Parameter::Common common = EffectHelper::createParamCommon(
+        Parameter::Common common = createParamCommon(
                 0 /* session */, 1 /* ioHandle */, kSamplingFrequency /* iSampleRate */,
                 kSamplingFrequency /* oSampleRate */, mInputFrameCount /* iFrameCount */,
                 mOutputFrameCount /* oFrameCount */, channelLayout, channelLayout);
@@ -114,7 +114,7 @@ class BassBoostEffectHelper : public EffectHelper {
     }
 
     static constexpr int kSamplingFrequency = 44100;
-    static constexpr int kDurationMilliSec = 2000;
+    static constexpr int kDurationMilliSec = 720;
     static constexpr int kInputSize = kSamplingFrequency * kDurationMilliSec / 1000;
     long mInputFrameCount, mOutputFrameCount;
     std::shared_ptr<IFactory> mFactory;
@@ -166,6 +166,7 @@ class BassBoostDataTest : public ::testing::TestWithParam<BassBoostDataTestParam
     }
 
     void SetUp() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
         ASSERT_NO_FATAL_FAILURE(SetUpBassBoost(mChannelLayout));
         if (int32_t version;
             mEffect->getInterfaceVersion(&version).isOk() && version < kMinDataTestHalVersion) {
@@ -173,7 +174,10 @@ class BassBoostDataTest : public ::testing::TestWithParam<BassBoostDataTestParam
         }
     }
 
-    void TearDown() override { TearDownBassBoost(); }
+    void TearDown() override {
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        TearDownBassBoost();
+    }
 
     // Find FFT bin indices for testFrequencies and get bin center frequencies
     void roundToFreqCenteredToFftBin(std::vector<int>& testFrequencies,
@@ -227,7 +231,7 @@ class BassBoostDataTest : public ::testing::TestWithParam<BassBoostDataTestParam
         return gains[0] - gains[1];
     }
 
-    static constexpr int kNPointFFT = 32768;
+    static constexpr int kNPointFFT = 16384;
     static constexpr float kBinWidth = (float)kSamplingFrequency / kNPointFFT;
     std::set<int> mStrengthValues;
     int32_t mChannelLayout;

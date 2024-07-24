@@ -16,9 +16,15 @@
 
 package android.hardware.wifi.supplicant;
 
+import android.hardware.wifi.supplicant.P2pDeviceFoundEventParams;
+import android.hardware.wifi.supplicant.P2pGoNegotiationReqEventParams;
 import android.hardware.wifi.supplicant.P2pGroupCapabilityMask;
 import android.hardware.wifi.supplicant.P2pGroupStartedEventParams;
+import android.hardware.wifi.supplicant.P2pInvitationEventParams;
+import android.hardware.wifi.supplicant.P2pPeerClientDisconnectedEventParams;
+import android.hardware.wifi.supplicant.P2pPeerClientJoinedEventParams;
 import android.hardware.wifi.supplicant.P2pProvDiscStatusCode;
+import android.hardware.wifi.supplicant.P2pProvisionDiscoveryCompletedEventParams;
 import android.hardware.wifi.supplicant.P2pStatusCode;
 import android.hardware.wifi.supplicant.WpsConfigMethods;
 import android.hardware.wifi.supplicant.WpsDevPasswordId;
@@ -35,6 +41,9 @@ import android.hardware.wifi.supplicant.WpsDevPasswordId;
 oneway interface ISupplicantP2pIfaceCallback {
     /**
      * Used to indicate that a P2P device has been found.
+     * <p>
+     * @deprecated This callback is deprecated from AIDL v3, newer HAL should call
+     * onDeviceFoundWithParams.
      *
      * @param srcAddress MAC address of the device found. This must either
      *        be the P2P device address or the P2P interface address.
@@ -81,6 +90,10 @@ oneway interface ISupplicantP2pIfaceCallback {
      * @param srcAddress MAC address of the device that initiated the GO
      *        negotiation request.
      * @param passwordId Type of password.
+     *
+     * <p>
+     * @deprecated This method is deprecated from AIDL v3, newer HALs should use
+     * onGoNegotiationRequestWithParams.
      */
     void onGoNegotiationRequest(in byte[] srcAddress, in WpsDevPasswordId passwordId);
 
@@ -128,6 +141,9 @@ oneway interface ISupplicantP2pIfaceCallback {
      * @param bssid Bssid of the group.
      * @param persistentNetworkId Persistent network Id of the group.
      * @param operatingFrequency Frequency on which the invitation was received.
+     * <p>
+     * @deprecated This method is deprecated from AIDL v3, newer HALs should use
+     * onInvitationReceivedWithParams.
      */
     void onInvitationReceived(in byte[] srcAddress, in byte[] goDeviceAddress, in byte[] bssid,
             in int persistentNetworkId, in int operatingFrequency);
@@ -142,6 +158,9 @@ oneway interface ISupplicantP2pIfaceCallback {
 
     /**
      * Used to indicate the completion of a P2P provision discovery request.
+     * <p>
+     * @deprecated This callback is deprecated from AIDL v3, newer HAL should call
+     * onProvisionDiscoveryCompletedEvent.
      *
      * @param p2pDeviceAddress P2P device address.
      * @param isRequest Whether we received or sent the provision discovery.
@@ -192,6 +211,9 @@ oneway interface ISupplicantP2pIfaceCallback {
 
     /**
      * Used to indicate when a STA device is connected to this device.
+     * <p>
+     * @deprecated This callback is deprecated from AIDL v3, newer HAL should call
+     * onPeerClientJoined()
      *
      * @param srcAddress MAC address of the device that was authorized.
      * @param p2pDeviceAddress P2P device address.
@@ -200,6 +222,9 @@ oneway interface ISupplicantP2pIfaceCallback {
 
     /**
      * Used to indicate when a STA device is disconnected from this device.
+     * <p>
+     * @deprecated This callback is deprecated from AIDL v3, newer HAL should call
+     * onPeerClientDisconnected()
      *
      * @param srcAddress MAC address of the device that was deauthorized.
      * @param p2pDeviceAddress P2P device address.
@@ -216,6 +241,9 @@ oneway interface ISupplicantP2pIfaceCallback {
 
     /**
      * Used to indicate that a P2P device has been found.
+     * <p>
+     * @deprecated This callback is deprecated from AIDL v3, newer HAL should call
+     * onDeviceFoundWithParams.
      *
      * @param srcAddress MAC address of the device found. This must either
      *        be the P2P device address for a peer which is not in a group,
@@ -251,4 +279,50 @@ oneway interface ISupplicantP2pIfaceCallback {
      * @param groupStartedEventParams Parameters describing the P2P group.
      */
     void onGroupStartedWithParams(in P2pGroupStartedEventParams groupStartedEventParams);
+
+    /**
+     * Used to indicate that a P2P client has joined this device group owner.
+     *
+     * @param clientJoinedEventParams Parameters associated with peer client joined event.
+     */
+    void onPeerClientJoined(in P2pPeerClientJoinedEventParams clientJoinedEventParams);
+
+    /**
+     * Used to indicate that a P2P client has disconnected from this device group owner.
+     *
+     * @param clientDisconnectedEventParams Parameters associated with peer client disconnected
+     *         event.
+     */
+    void onPeerClientDisconnected(
+            in P2pPeerClientDisconnectedEventParams clientDisconnectedEventParams);
+
+    /**
+     * Used to indicate the completion of a P2P provision discovery request.
+     *
+     * @param provisionDiscoveryCompletedEventParams Parameters associated with
+     *        P2P provision discovery frame notification.
+     */
+    void onProvisionDiscoveryCompletedEvent(
+            in P2pProvisionDiscoveryCompletedEventParams provisionDiscoveryCompletedEventParams);
+
+    /**
+     * Used to indicate that a P2P device has been found.
+     *
+     * @param deviceFoundEventParams Parameters associated with the device found event.
+     */
+    void onDeviceFoundWithParams(in P2pDeviceFoundEventParams deviceFoundEventParams);
+
+    /**
+     * Used to indicate the reception of a P2P Group Owner negotiation request.
+     *
+     * @param params Parameters associated with the GO negotiation request event.
+     */
+    void onGoNegotiationRequestWithParams(in P2pGoNegotiationReqEventParams params);
+
+    /**
+     * Used to indicate the reception of a P2P invitation.
+     *
+     * @param params Parameters associated with the invitation request event.
+     */
+    void onInvitationReceivedWithParams(in P2pInvitationEventParams params);
 }

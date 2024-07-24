@@ -21,7 +21,15 @@ package {
 cc_defaults {
     name: "VehicleHalInterfaceDefaults",
     static_libs: [
-        "android.hardware.automotive.vehicle-V2-ndk",
-        "android.hardware.automotive.vehicle.property-V2-ndk",
+        "android.hardware.automotive.vehicle-V3-ndk",
+        "android.hardware.automotive.vehicle.property-V3-ndk",
+    ],
+}
+
+rust_defaults {
+    name: "VehicleHalInterfaceRustDefaults",
+    rustlibs: [
+        "android.hardware.automotive.vehicle-V3-rust",
+        "android.hardware.automotive.vehicle.property-V3-rust",
     ],
 }

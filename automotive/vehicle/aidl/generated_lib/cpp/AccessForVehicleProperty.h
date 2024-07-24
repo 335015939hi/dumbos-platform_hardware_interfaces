@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,7 @@
 
 // clang-format off
 
-#ifndef android_hardware_automotive_vehicle_aidl_generated_lib_AccessForVehicleProperty_H_
-#define android_hardware_automotive_vehicle_aidl_generated_lib_AccessForVehicleProperty_H_
+#pragma once
 
 #include <aidl/android/hardware/automotive/vehicle/VehicleProperty.h>
 #include <aidl/android/hardware/automotive/vehicle/VehiclePropertyAccess.h>
@@ -68,9 +67,11 @@ std::unordered_map<VehicleProperty, VehiclePropertyAccess> AccessForVehiclePrope
         {VehicleProperty::EV_CHARGE_PORT_CONNECTED, VehiclePropertyAccess::READ},
         {VehicleProperty::EV_BATTERY_INSTANTANEOUS_CHARGE_RATE, VehiclePropertyAccess::READ},
         {VehicleProperty::RANGE_REMAINING, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::EV_BATTERY_AVERAGE_TEMPERATURE, VehiclePropertyAccess::READ},
         {VehicleProperty::TIRE_PRESSURE, VehiclePropertyAccess::READ},
         {VehicleProperty::CRITICALLY_LOW_TIRE_PRESSURE, VehiclePropertyAccess::READ},
         {VehicleProperty::ENGINE_IDLE_AUTO_STOP_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::IMPACT_DETECTED, VehiclePropertyAccess::READ},
         {VehicleProperty::GEAR_SELECTION, VehiclePropertyAccess::READ},
         {VehicleProperty::CURRENT_GEAR, VehiclePropertyAccess::READ},
         {VehicleProperty::PARKING_BRAKE_ON, VehiclePropertyAccess::READ},
@@ -83,6 +84,8 @@ std::unordered_map<VehicleProperty, VehiclePropertyAccess> AccessForVehiclePrope
         {VehicleProperty::ABS_ACTIVE, VehiclePropertyAccess::READ},
         {VehicleProperty::TRACTION_CONTROL_ACTIVE, VehiclePropertyAccess::READ},
         {VehicleProperty::EV_STOPPING_MODE, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::ELECTRONIC_STABILITY_CONTROL_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::ELECTRONIC_STABILITY_CONTROL_STATE, VehiclePropertyAccess::READ},
         {VehicleProperty::HVAC_FAN_SPEED, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::HVAC_FAN_DIRECTION, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::HVAC_TEMPERATURE_CURRENT, VehiclePropertyAccess::READ},
@@ -120,6 +123,8 @@ std::unordered_map<VehicleProperty, VehiclePropertyAccess> AccessForVehiclePrope
         {VehicleProperty::AP_POWER_BOOTUP_REASON, VehiclePropertyAccess::READ},
         {VehicleProperty::DISPLAY_BRIGHTNESS, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::PER_DISPLAY_BRIGHTNESS, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::VALET_MODE_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::HEAD_UP_DISPLAY_ENABLED, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::HW_KEY_INPUT, VehiclePropertyAccess::READ},
         {VehicleProperty::HW_KEY_INPUT_V2, VehiclePropertyAccess::READ},
         {VehicleProperty::HW_MOTION_INPUT, VehiclePropertyAccess::READ},
@@ -169,11 +174,13 @@ std::unordered_map<VehicleProperty, VehiclePropertyAccess> AccessForVehiclePrope
         {VehicleProperty::SEAT_FOOTWELL_LIGHTS_SWITCH, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::SEAT_EASY_ACCESS_ENABLED, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::SEAT_AIRBAG_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::SEAT_AIRBAGS_DEPLOYED, VehiclePropertyAccess::READ},
         {VehicleProperty::SEAT_CUSHION_SIDE_SUPPORT_POS, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::SEAT_CUSHION_SIDE_SUPPORT_MOVE, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::SEAT_LUMBAR_VERTICAL_POS, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::SEAT_LUMBAR_VERTICAL_MOVE, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::SEAT_WALK_IN_POS, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::SEAT_BELT_PRETENSIONER_DEPLOYED, VehiclePropertyAccess::READ},
         {VehicleProperty::SEAT_OCCUPANCY, VehiclePropertyAccess::READ},
         {VehicleProperty::WINDOW_POS, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::WINDOW_MOVE, VehiclePropertyAccess::READ_WRITE},
@@ -192,6 +199,12 @@ std::unordered_map<VehicleProperty, VehiclePropertyAccess> AccessForVehiclePrope
         {VehicleProperty::GLOVE_BOX_LOCKED, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::VEHICLE_MAP_SERVICE, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::LOCATION_CHARACTERIZATION, VehiclePropertyAccess::READ},
+        {VehicleProperty::ULTRASONICS_SENSOR_POSITION, VehiclePropertyAccess::READ},
+        {VehicleProperty::ULTRASONICS_SENSOR_ORIENTATION, VehiclePropertyAccess::READ},
+        {VehicleProperty::ULTRASONICS_SENSOR_FIELD_OF_VIEW, VehiclePropertyAccess::READ},
+        {VehicleProperty::ULTRASONICS_SENSOR_DETECTION_RANGE, VehiclePropertyAccess::READ},
+        {VehicleProperty::ULTRASONICS_SENSOR_SUPPORTED_RANGES, VehiclePropertyAccess::READ},
+        {VehicleProperty::ULTRASONICS_SENSOR_MEASURED_DISTANCE, VehiclePropertyAccess::READ},
         {VehicleProperty::OBD2_LIVE_FRAME, VehiclePropertyAccess::READ},
         {VehicleProperty::OBD2_FREEZE_FRAME, VehiclePropertyAccess::READ},
         {VehicleProperty::OBD2_FREEZE_FRAME_INFO, VehiclePropertyAccess::READ},
@@ -247,6 +260,9 @@ std::unordered_map<VehicleProperty, VehiclePropertyAccess> AccessForVehiclePrope
         {VehicleProperty::SUPPORTED_PROPERTY_IDS, VehiclePropertyAccess::READ},
         {VehicleProperty::SHUTDOWN_REQUEST, VehiclePropertyAccess::WRITE},
         {VehicleProperty::VEHICLE_IN_USE, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::CLUSTER_HEARTBEAT, VehiclePropertyAccess::WRITE},
+        {VehicleProperty::VEHICLE_DRIVING_AUTOMATION_CURRENT_LEVEL, VehiclePropertyAccess::READ},
+        {VehicleProperty::CAMERA_SERVICE_CURRENT_STATE, VehiclePropertyAccess::WRITE},
         {VehicleProperty::AUTOMATIC_EMERGENCY_BRAKING_ENABLED, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::AUTOMATIC_EMERGENCY_BRAKING_STATE, VehiclePropertyAccess::READ},
         {VehicleProperty::FORWARD_COLLISION_WARNING_ENABLED, VehiclePropertyAccess::READ_WRITE},
@@ -272,6 +288,20 @@ std::unordered_map<VehicleProperty, VehiclePropertyAccess> AccessForVehiclePrope
         {VehicleProperty::HANDS_ON_DETECTION_ENABLED, VehiclePropertyAccess::READ_WRITE},
         {VehicleProperty::HANDS_ON_DETECTION_DRIVER_STATE, VehiclePropertyAccess::READ},
         {VehicleProperty::HANDS_ON_DETECTION_WARNING, VehiclePropertyAccess::READ},
+        {VehicleProperty::DRIVER_DROWSINESS_ATTENTION_SYSTEM_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::DRIVER_DROWSINESS_ATTENTION_STATE, VehiclePropertyAccess::READ},
+        {VehicleProperty::DRIVER_DROWSINESS_ATTENTION_WARNING_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::DRIVER_DROWSINESS_ATTENTION_WARNING, VehiclePropertyAccess::READ},
+        {VehicleProperty::DRIVER_DISTRACTION_SYSTEM_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::DRIVER_DISTRACTION_STATE, VehiclePropertyAccess::READ},
+        {VehicleProperty::DRIVER_DISTRACTION_WARNING_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::DRIVER_DISTRACTION_WARNING, VehiclePropertyAccess::READ},
+        {VehicleProperty::LOW_SPEED_COLLISION_WARNING_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::LOW_SPEED_COLLISION_WARNING_STATE, VehiclePropertyAccess::READ},
+        {VehicleProperty::CROSS_TRAFFIC_MONITORING_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::CROSS_TRAFFIC_MONITORING_WARNING_STATE, VehiclePropertyAccess::READ},
+        {VehicleProperty::LOW_SPEED_AUTOMATIC_EMERGENCY_BRAKING_ENABLED, VehiclePropertyAccess::READ_WRITE},
+        {VehicleProperty::LOW_SPEED_AUTOMATIC_EMERGENCY_BRAKING_STATE, VehiclePropertyAccess::READ},
 };
 
 }  // namespace vehicle
@@ -279,5 +309,3 @@ std::unordered_map<VehicleProperty, VehiclePropertyAccess> AccessForVehiclePrope
 }  // namespace hardware
 }  // namespace android
 }  // aidl
-
-#endif  // android_hardware_automotive_vehicle_aidl_generated_lib_AccessForVehicleProperty_H_

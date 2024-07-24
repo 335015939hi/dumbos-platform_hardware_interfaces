@@ -25,9 +25,6 @@
       "name": "VehiclePropertyAnnotationJavaTest"
     },
     {
-      "name": "FakeVehicleHardwareTest"
-    },
-    {
       "name": "FakeVehicleHalValueGeneratorsTest"
     },
     {
@@ -43,6 +40,28 @@
   "auto-presubmit": [
     {
       "name": "VtsHalAutomotiveVehicle_TargetTest"
+    },
+    {
+      "name": "FakeVehicleHardwareTest"
+    },
+    {
+      "name": "GRPCVehicleHardwareUnitTest"
+    },
+    {
+      "name": "CarServiceUnitTest",
+      "options" : [
+        {
+          "include-filter": "com.android.car.hal.fakevhal.FakeVehicleStubUnitTest"
+        }
+      ]
+    },
+    {
+      "name": "VehicleHalProtoMessageConverterTest"
+    }
+  ],
+  "postsubmit": [
+    {
+      "name": "VehicleHalProtoMessageConverterTest"
     }
   ]
 }

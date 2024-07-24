@@ -68,10 +68,6 @@ class FakeFingerprintEngine {
 
     virtual void fingerDownAction();
 
-    std::vector<int32_t> parseIntSequence(const std::string& str, const std::string& sep = ",");
-
-    std::vector<std::vector<int32_t>> parseEnrollmentCapture(const std::string& str);
-
     int32_t getLatency(const std::vector<std::optional<std::int32_t>>& latencyVec);
 
     std::mt19937 mRandom;
@@ -79,6 +75,7 @@ class FakeFingerprintEngine {
     enum class WorkMode : int8_t { kIdle = 0, kAuthenticate, kEnroll, kDetectInteract };
 
     WorkMode getWorkMode() { return mWorkMode; }
+    void notifyFingerdown() { mFingerIsDown = true; }
 
     virtual std::string toString() const {
         std::ostringstream os;
@@ -104,17 +101,17 @@ class FakeFingerprintEngine {
     keymaster::HardwareAuthToken mHat;
     std::future<void> mCancel;
     int64_t mOperationId;
+    bool mFingerIsDown;
 
   private:
     static constexpr int32_t FINGERPRINT_ACQUIRED_VENDOR_BASE = 1000;
     static constexpr int32_t FINGERPRINT_ERROR_VENDOR_BASE = 1000;
     std::pair<AcquiredInfo, int32_t> convertAcquiredInfo(int32_t code);
     std::pair<Error, int32_t> convertError(int32_t code);
-    bool parseEnrollmentCaptureSingle(const std::string& str,
-                                      std::vector<std::vector<int32_t>>& res);
     int32_t getRandomInRange(int32_t bound1, int32_t bound2);
     bool checkSensorLockout(ISessionCallback*);
     void clearLockout(ISessionCallback* cb);
+    void waitForFingerDown(ISessionCallback* cb, const std::future<void>& cancel);
 
     FakeLockoutTracker mLockoutTracker;
 

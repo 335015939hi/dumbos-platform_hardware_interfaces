@@ -21,6 +21,7 @@ import android.hardware.wifi.RttStatus;
 import android.hardware.wifi.RttType;
 import android.hardware.wifi.WifiInformationElement;
 import android.hardware.wifi.WifiRateInfo;
+import android.hardware.wifi.common.OuiKeyedData;
 
 /**
  * RTT results.
@@ -33,6 +34,8 @@ parcelable RttResult {
     byte[6] addr;
     /**
      * Burst number in a multi-burst request.
+     *
+     * Note: Applicable to 1-sided RTT and 2-sided IEEE 802.11mc only.
      */
     int burstNum;
     /**
@@ -45,7 +48,7 @@ parcelable RttResult {
     int successNumber;
     /**
      * Maximum number of "FTM frames per burst" supported by
-     * the responder STA. Applies to 2-sided RTT only.
+     * the responder STA. Applies to 2-sided IEEE 802.11mc RTT only.
      * If reponder overrides with larger value:
      * - for single-burst request, initiator will truncate the
      * larger value and send a TMR_STOP after receiving as
@@ -59,10 +62,8 @@ parcelable RttResult {
      */
     RttStatus status;
     /**
-     * If status is RTT_STATUS_FAIL_BUSY_TRY_LATER,
-     * this will be the time provided by the responder as to
-     * when the request can be tried again. Applies to 2-sided
-     * RTT only. In sec, 1-31 sec.
+     * If status is RTT_STATUS_FAIL_BUSY_TRY_LATER, this will be the time provided by the responder
+     * as to when the request can be tried again. Applies to 2-sided RTT only. In sec, 1-31 sec.
      */
     byte retryAfterDuration;
     /**
@@ -104,11 +105,13 @@ parcelable RttResult {
      */
     int distanceInMm;
     /**
-     * Standard deviation in mm (optional).
+     * Standard deviation in mm.
      */
     int distanceSdInMm;
     /**
      * Difference between max and min distance recorded in mm (optional).
+     *
+     * Note: Only applicable for IEEE 802.11mc
      */
     int distanceSpreadInMm;
     /**
@@ -116,21 +119,20 @@ parcelable RttResult {
      */
     long timeStampInUs;
     /**
-     * Actual time taken by the FW to finish one burst
-     * measurement (in ms). Applies to 1-sided and 2-sided RTT.
+     * Actual time taken by the FW to finish one burst measurement (in ms). Applies to 1-sided
+     * and 2-sided IEEE 802.11mc RTT.
      */
     int burstDurationInMs;
     /**
-     * Number of bursts allowed by the responder. Applies
-     * to 2-sided RTT only.
+     * Number of bursts allowed by the responder. Applies to 2-sided IEEE 802.11mc RTT only.
      */
     int negotiatedBurstNum;
     /**
-     * For 11mc only.
+     * For IEEE 802.11mc and IEEE 802.11az only.
      */
     WifiInformationElement lci;
     /**
-     * For 11mc only.
+     * For IEEE 802.11mc and IEEE 802.11az only.
      */
     WifiInformationElement lcr;
     /**
@@ -140,8 +142,75 @@ parcelable RttResult {
     int channelFreqMHz;
     /**
      * RTT packet bandwidth.
-     * This value is an average bandwidth of the bandwidths of measurement
-     * frames. Cap the average close to a specific valid RttBw.
+     * This value is an average bandwidth of the bandwidths of measurement frames. Cap the average
+     * close to a specific valid RttBw.
      */
     RttBw packetBw;
+    /**
+     * Multiple transmissions of HE-LTF symbols in an HE (I2R) Ranging NDP. An HE-LTF repetition
+     * value of 1 indicates no repetitions.
+     *
+     * Note: A required field for IEEE 802.11az result.
+     */
+    byte i2rTxLtfRepetitionCount;
+    /**
+     * Multiple transmissions of HE-LTF symbols in an HE (R2I) Ranging NDP. An HE-LTF repetition
+     * value of 1 indicates no repetitions.
+     *
+     * Note: A required field for IEEE 802.11az result.
+     */
+    byte r2iTxLtfRepetitionCount;
+    /**
+     * Minimum non-trigger based (non-TB) dynamic measurement time in units of 100 microseconds
+     * assigned by the IEEE 802.11az responder.
+     *
+     * After initial non-TB negotiation, if the next ranging request for this peer comes in between
+     * [ntbMinMeasurementTime, ntbMaxMeasurementTime], vendor software shall do the NDPA sounding
+     * sequence for dynamic non-TB measurement.
+     *
+     * If the ranging request for this peer comes sooner than minimum measurement time, vendor
+     * software shall return the cached result of the last measurement including the time stamp
+     * |RttResult.timestamp|.
+     *
+     * Reference: IEEE Std 802.11az-2022 spec, section 9.4.2.298 Ranging Parameters element.
+     *
+     * Note: A required field for IEEE 802.11az result.
+     */
+    long ntbMinMeasurementTime;
+    /**
+     * Maximum non-trigger based (non-TB) dynamic measurement time in units of 10 milliseconds
+     * assigned by the IEEE 802.11az responder.
+     *
+     * After initial non-TB negotiation, if the next ranging request for this peer comes in between
+     * [ntbMinMeasurementTime, ntbMaxMeasurementTime], vendor software shall do the NDPA sounding
+     * sequence for dynamic non-TB measurement.
+     *
+     * If the ranging request for this peer comes later than the maximum measurement time, vendor
+     * software shall clean up any existing IEEE 802.11ax non-TB ranging session and re-do the
+     * non-TB ranging negotiation.
+     *
+     * Reference: IEEE Std 802.11az-2022 spec, section 9.4.2.298 Ranging Parameters element.
+     *
+     * Note: A required field for IEEE 802.11az result.
+     */
+    long ntbMaxMeasurementTime;
+    /**
+     * Number of transmit space-time streams used. Value is in the range 1 to 8.
+     *
+     * Note: Maximum limit is ultimately defined by the number of antennas that can be supported.
+     * A required field for IEEE 802.11az result.
+     */
+    byte numTxSpatialStreams;
+    /**
+     * Number of receive space-time streams used. Value is in the range 1 to 8.
+     *
+     * Note: Maximum limit is ultimately defined by the number of antennas that can be supported.
+     * A required field for IEEE 802.11az result.
+     */
+    byte numRxSpatialStreams;
+    /**
+     * Optional vendor-specific parameters. Null value indicates
+     * that no vendor data is provided.
+     */
+    @nullable OuiKeyedData[] vendorData;
 }

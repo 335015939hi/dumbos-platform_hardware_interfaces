@@ -18,6 +18,8 @@
 #include <string>
 #define LOG_TAG "AHAL_EffectConfig"
 #include <android-base/logging.h>
+#include <media/AidlConversionCppNdk.h>
+#include <system/audio.h>
 #include <system/audio_aidl_utils.h>
 #include <system/audio_effects/audio_effects_conf.h>
 #include <system/audio_effects/effect_uuid.h>
@@ -28,6 +30,10 @@
 #include <android/apexsupport.h>
 #endif
 
+using aidl::android::media::audio::common::AudioDevice;
+using aidl::android::media::audio::common::AudioDeviceAddress;
+using aidl::android::media::audio::common::AudioDeviceDescription;
+using aidl::android::media::audio::common::AudioDeviceType;
 using aidl::android::media::audio::common::AudioSource;
 using aidl::android::media::audio::common::AudioStreamType;
 using aidl::android::media::audio::common::AudioUuid;
@@ -37,7 +43,6 @@ namespace aidl::android::hardware::audio::effect {
 EffectConfig::EffectConfig(const std::string& file) {
     tinyxml2::XMLDocument doc;
     doc.LoadFile(file.c_str());
-    LOG(DEBUG) << __func__ << " loading " << file;
     // parse the xml file into maps
     if (doc.Error()) {
         LOG(ERROR) << __func__ << " tinyxml2 failed to load " << file
@@ -75,6 +80,14 @@ EffectConfig::EffectConfig(const std::string& file) {
             for (auto& xmlStream : getChildren(xmlPostprocess, "stream")) {
                 // AudioStreamType
                 registerFailure(parseProcessing(Processing::Type::streamType, xmlStream));
+            }
+        }
+
+        // Parse device effect chains
+        for (auto& xmlDeviceEffects : getChildren(xmlConfig, "deviceEffects")) {
+            for (auto& xmlDevice : getChildren(xmlDeviceEffects, "device")) {
+                // AudioDevice
+                registerFailure(parseProcessing(Processing::Type::device, xmlDevice));
             }
         }
     }
@@ -143,7 +156,7 @@ bool EffectConfig::parseEffect(const tinyxml2::XMLElement& xml) {
     std::string name = xml.Attribute("name");
     RETURN_VALUE_IF(name == "", false, "effectsNoName");
 
-    LOG(DEBUG) << __func__ << dump(xml);
+    LOG(VERBOSE) << __func__ << dump(xml);
     struct Library library;
     if (std::strcmp(xml.Name(), "effectProxy") == 0) {
         // proxy lib and uuid
@@ -187,16 +200,17 @@ bool EffectConfig::parseLibrary(const tinyxml2::XMLElement& xml, struct Library&
     }
     RETURN_VALUE_IF((library.uuid == getEffectUuidZero()), false, "invalidUuidAttribute");
 
-    LOG(DEBUG) << __func__ << (isProxy ? " proxy " : library.name) << " : uuid "
-               << ::android::audio::utils::toString(library.uuid)
-               << (library.type.has_value()
-                           ? ::android::audio::utils::toString(library.type.value())
-                           : "");
+    LOG(VERBOSE) << __func__ << (isProxy ? " proxy " : library.name) << " : uuid "
+                 << ::android::audio::utils::toString(library.uuid)
+                 << (library.type.has_value()
+                             ? ::android::audio::utils::toString(library.type.value())
+                             : "");
     return true;
 }
 
 std::optional<Processing::Type> EffectConfig::stringToProcessingType(Processing::Type::Tag typeTag,
-                                                                     const std::string& type) {
+                                                                     const std::string& type,
+                                                                     const std::string& address) {
     // see list of audio stream types in audio_stream_type_t:
     // system/media/audio/include/system/audio_effects/audio_effects_conf.h
     // AUDIO_STREAM_DEFAULT_TAG is not listed here because according to SYS_RESERVED_DEFAULT in
@@ -239,15 +253,31 @@ std::optional<Processing::Type> EffectConfig::stringToProcessingType(Processing:
         if (typeIter != sAudioSourceTable.end()) {
             return typeIter->second;
         }
+    } else if (typeTag == Processing::Type::device) {
+        audio_devices_t deviceType;
+        if (!audio_device_from_string(type.c_str(), &deviceType)) {
+            LOG(ERROR) << __func__ << "DeviceEffect: invalid type " << type;
+            return std::nullopt;
+        }
+        auto ret = ::aidl::android::legacy2aidl_audio_device_AudioDevice(deviceType, address);
+        if (!ret.ok()) {
+            LOG(ERROR) << __func__ << "DeviceEffect: Failed to get AudioDevice from type "
+                    << deviceType << ", address " << address;
+            return std::nullopt;
+        }
+        return ret.value();
     }
 
     return std::nullopt;
 }
 
 bool EffectConfig::parseProcessing(Processing::Type::Tag typeTag, const tinyxml2::XMLElement& xml) {
-    LOG(DEBUG) << __func__ << dump(xml);
+    LOG(VERBOSE) << __func__ << dump(xml);
     const char* typeStr = xml.Attribute("type");
-    auto aidlType = stringToProcessingType(typeTag, typeStr);
+    const char* addressStr = xml.Attribute("address");
+    // For device effect, device address is optional, match will be done for the given device type
+    // with empty address.
+    auto aidlType = stringToProcessingType(typeTag, typeStr, addressStr ? addressStr : "");
     RETURN_VALUE_IF(!aidlType.has_value(), false, "illegalStreamType");
     RETURN_VALUE_IF(0 != mProcessingMap.count(aidlType.value()), false, "duplicateStreamType");
 
@@ -259,7 +289,6 @@ bool EffectConfig::parseProcessing(Processing::Type::Tag typeTag, const tinyxml2
         }
         RETURN_VALUE_IF(!name, false, "noEffectAttribute");
         mProcessingMap[aidlType.value()].emplace_back(mEffectsMap[name]);
-        LOG(WARNING) << __func__ << " " << typeStr << " : " << name;
     }
     return true;
 }

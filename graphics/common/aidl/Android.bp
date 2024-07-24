@@ -12,11 +12,7 @@ aidl_interface {
     name: "android.hardware.graphics.common",
     host_supported: true,
     vendor_available: true,
-    vndk: {
-        enabled: true,
-        support_system_process: true,
-    },
-    vndk_use_version: "4",
+    double_loadable: true,
     srcs: [
         "android/hardware/graphics/common/*.aidl",
     ],
@@ -28,15 +24,18 @@ aidl_interface {
         java: {
             enabled: true,
             platform_apis: true,
+            apex_available: [
+                "//apex_available:anyapex",
+                "//apex_available:platform",
+            ],
         },
         cpp: {
             enabled: false,
         },
         ndk: {
             apex_available: [
+                "//apex_available:anyapex",
                 "//apex_available:platform",
-                "com.android.media.swcodec",
-                "com.android.neuralnetworks",
             ],
             min_sdk_version: "29",
         },
@@ -66,6 +65,10 @@ aidl_interface {
         },
         {
             version: "4",
+            imports: ["android.hardware.common-V2"],
+        },
+        {
+            version: "5",
             imports: ["android.hardware.common-V2"],
         },
 

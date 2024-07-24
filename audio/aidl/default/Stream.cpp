@@ -21,6 +21,7 @@
 #include <Utils.h>
 #include <android-base/logging.h>
 #include <android/binder_ibinder_platform.h>
+#include <cutils/properties.h>
 #include <utils/SystemClock.h>
 #include <utils/Trace.h>
 
@@ -29,6 +30,7 @@
 using aidl::android::hardware::audio::common::AudioOffloadMetadata;
 using aidl::android::hardware::audio::common::getChannelCount;
 using aidl::android::hardware::audio::common::getFrameSizeInBytes;
+using aidl::android::hardware::audio::common::hasMmapFlag;
 using aidl::android::hardware::audio::common::isBitPositionFlagSet;
 using aidl::android::hardware::audio::common::SinkMetadata;
 using aidl::android::hardware::audio::common::SourceMetadata;
@@ -83,7 +85,7 @@ bool StreamContext::isValid() const {
         LOG(ERROR) << "frame size is invalid";
         return false;
     }
-    if (mDataMQ && !mDataMQ->isValid()) {
+    if (!hasMmapFlag(mFlags) && mDataMQ && !mDataMQ->isValid()) {
         LOG(ERROR) << "data FMQ is invalid";
         return false;
     }
@@ -115,17 +117,19 @@ pid_t StreamWorkerCommonLogic::getTid() const {
 std::string StreamWorkerCommonLogic::init() {
     if (mContext->getCommandMQ() == nullptr) return "Command MQ is null";
     if (mContext->getReplyMQ() == nullptr) return "Reply MQ is null";
-    StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
-    if (dataMQ == nullptr) return "Data MQ is null";
-    if (sizeof(DataBufferElement) != dataMQ->getQuantumSize()) {
-        return "Unexpected Data MQ quantum size: " + std::to_string(dataMQ->getQuantumSize());
-    }
-    mDataBufferSize = dataMQ->getQuantumCount() * dataMQ->getQuantumSize();
-    mDataBuffer.reset(new (std::nothrow) DataBufferElement[mDataBufferSize]);
-    if (mDataBuffer == nullptr) {
-        return "Failed to allocate data buffer for element count " +
-               std::to_string(dataMQ->getQuantumCount()) +
-               ", size in bytes: " + std::to_string(mDataBufferSize);
+    if (!hasMmapFlag(mContext->getFlags())) {
+        StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
+        if (dataMQ == nullptr) return "Data MQ is null";
+        if (sizeof(DataBufferElement) != dataMQ->getQuantumSize()) {
+            return "Unexpected Data MQ quantum size: " + std::to_string(dataMQ->getQuantumSize());
+        }
+        mDataBufferSize = dataMQ->getQuantumCount() * dataMQ->getQuantumSize();
+        mDataBuffer.reset(new (std::nothrow) DataBufferElement[mDataBufferSize]);
+        if (mDataBuffer == nullptr) {
+            return "Failed to allocate data buffer for element count " +
+                   std::to_string(dataMQ->getQuantumCount()) +
+                   ", size in bytes: " + std::to_string(mDataBufferSize);
+        }
     }
     if (::android::status_t status = mDriver->init(); status != STATUS_OK) {
         return "Failed to initialize the driver: " + std::to_string(status);
@@ -135,16 +139,26 @@ std::string StreamWorkerCommonLogic::init() {
 
 void StreamWorkerCommonLogic::populateReply(StreamDescriptor::Reply* reply,
                                             bool isConnected) const {
+    static const StreamDescriptor::Position kUnknownPosition = {
+            .frames = StreamDescriptor::Position::UNKNOWN,
+            .timeNs = StreamDescriptor::Position::UNKNOWN};
     reply->status = STATUS_OK;
     if (isConnected) {
         reply->observable.frames = mContext->getFrameCount();
         reply->observable.timeNs = ::android::uptimeNanos();
-        if (auto status = mDriver->refinePosition(&reply->observable); status == ::android::OK) {
-            return;
+        if (auto status = mDriver->refinePosition(&reply->observable); status != ::android::OK) {
+            reply->observable = kUnknownPosition;
+        }
+    } else {
+        reply->observable = reply->hardware = kUnknownPosition;
+    }
+    if (hasMmapFlag(mContext->getFlags())) {
+        if (auto status = mDriver->getMmapPositionAndLatency(&reply->hardware, &reply->latencyMs);
+            status != ::android::OK) {
+            reply->hardware = kUnknownPosition;
+            reply->latencyMs = StreamDescriptor::LATENCY_UNKNOWN;
         }
     }
-    reply->observable.frames = StreamDescriptor::Position::UNKNOWN;
-    reply->observable.timeNs = StreamDescriptor::Position::UNKNOWN;
 }
 
 void StreamWorkerCommonLogic::populateReplyWrongState(
@@ -182,17 +196,19 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
     switch (command.getTag()) {
         case Tag::halReservedExit: {
             const int32_t cookie = command.get<Tag::halReservedExit>();
+            StreamInWorkerLogic::Status status = Status::CONTINUE;
             if (cookie == (mContext->getInternalCommandCookie() ^ getTid())) {
                 mDriver->shutdown();
                 setClosed();
+                status = Status::EXIT;
             } else {
                 LOG(WARNING) << __func__ << ": EXIT command has a bad cookie: " << cookie;
             }
             if (cookie != 0) {  // This is an internal command, no need to reply.
-                return Status::EXIT;
-            } else {
-                break;
+                return status;
             }
+            // `cookie == 0` can only occur in the context of a VTS test, need to reply.
+            break;
         }
         case Tag::getStatus:
             populateReply(&reply, mIsConnected);
@@ -221,7 +237,9 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
                     mState == StreamDescriptor::State::ACTIVE ||
                     mState == StreamDescriptor::State::PAUSED ||
                     mState == StreamDescriptor::State::DRAINING) {
-                    if (!read(fmqByteCount, &reply)) {
+                    if (hasMmapFlag(mContext->getFlags())) {
+                        populateReply(&reply, mIsConnected);
+                    } else if (!read(fmqByteCount, &reply)) {
                         mState = StreamDescriptor::State::ERROR;
                     }
                     if (mState == StreamDescriptor::State::IDLE ||
@@ -314,7 +332,11 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
 bool StreamInWorkerLogic::read(size_t clientSize, StreamDescriptor::Reply* reply) {
     ATRACE_CALL();
     StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
-    const size_t byteCount = std::min({clientSize, dataMQ->availableToWrite(), mDataBufferSize});
+    StreamContext::DataMQ::Error fmqError = StreamContext::DataMQ::Error::NONE;
+    std::string fmqErrorMsg;
+    const size_t byteCount = std::min(
+            {clientSize, dataMQ->availableToWrite(&fmqError, &fmqErrorMsg), mDataBufferSize});
+    CHECK(fmqError == StreamContext::DataMQ::Error::NONE) << fmqErrorMsg;
     const bool isConnected = mIsConnected;
     const size_t frameSize = mContext->getFrameSize();
     size_t actualFrameCount = 0;
@@ -406,17 +428,19 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
     switch (command.getTag()) {
         case Tag::halReservedExit: {
             const int32_t cookie = command.get<Tag::halReservedExit>();
+            StreamOutWorkerLogic::Status status = Status::CONTINUE;
             if (cookie == (mContext->getInternalCommandCookie() ^ getTid())) {
                 mDriver->shutdown();
                 setClosed();
+                status = Status::EXIT;
             } else {
                 LOG(WARNING) << __func__ << ": EXIT command has a bad cookie: " << cookie;
             }
             if (cookie != 0) {  // This is an internal command, no need to reply.
-                return Status::EXIT;
-            } else {
-                break;
+                return status;
             }
+            // `cookie == 0` can only occur in the context of a VTS test, need to reply.
+            break;
         }
         case Tag::getStatus:
             populateReply(&reply, mIsConnected);
@@ -461,7 +485,9 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
                 if (mState != StreamDescriptor::State::ERROR &&
                     mState != StreamDescriptor::State::TRANSFERRING &&
                     mState != StreamDescriptor::State::TRANSFER_PAUSED) {
-                    if (!write(fmqByteCount, &reply)) {
+                    if (hasMmapFlag(mContext->getFlags())) {
+                        populateReply(&reply, mIsConnected);
+                    } else if (!write(fmqByteCount, &reply)) {
                         mState = StreamDescriptor::State::ERROR;
                     }
                     std::shared_ptr<IStreamCallback> asyncCallback = mContext->getAsyncCallback();
@@ -586,7 +612,10 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
 bool StreamOutWorkerLogic::write(size_t clientSize, StreamDescriptor::Reply* reply) {
     ATRACE_CALL();
     StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
-    const size_t readByteCount = dataMQ->availableToRead();
+    StreamContext::DataMQ::Error fmqError = StreamContext::DataMQ::Error::NONE;
+    std::string fmqErrorMsg;
+    const size_t readByteCount = dataMQ->availableToRead(&fmqError, &fmqErrorMsg);
+    CHECK(fmqError == StreamContext::DataMQ::Error::NONE) << fmqErrorMsg;
     const size_t frameSize = mContext->getFrameSize();
     bool fatal = false;
     int32_t latency = mContext->getNominalLatencyMs();
@@ -645,6 +674,7 @@ ndk::ScopedAStatus StreamCommonImpl::initInstance(
         const std::shared_ptr<StreamCommonInterface>& delegate) {
     mCommon = ndk::SharedRefBase::make<StreamCommonDelegator>(delegate);
     if (!mWorker->start()) {
+        LOG(ERROR) << __func__ << ": Worker start error: " << mWorker->getError();
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
     if (auto flags = getContext().getFlags();
@@ -652,16 +682,34 @@ ndk::ScopedAStatus StreamCommonImpl::initInstance(
          isBitPositionFlagSet(flags.template get<AudioIoFlags::Tag::input>(),
                               AudioInputFlags::FAST)) ||
         (flags.getTag() == AudioIoFlags::Tag::output &&
-         isBitPositionFlagSet(flags.template get<AudioIoFlags::Tag::output>(),
-                              AudioOutputFlags::FAST))) {
+         (isBitPositionFlagSet(flags.template get<AudioIoFlags::Tag::output>(),
+                               AudioOutputFlags::FAST) ||
+          isBitPositionFlagSet(flags.template get<AudioIoFlags::Tag::output>(),
+                               AudioOutputFlags::SPATIALIZER)))) {
         // FAST workers should be run with a SCHED_FIFO scheduler, however the host process
         // might be lacking the capability to request it, thus a failure to set is not an error.
         pid_t workerTid = mWorker->getTid();
         if (workerTid > 0) {
-            struct sched_param param;
-            param.sched_priority = 3;  // Must match SchedulingPolicyService.PRIORITY_MAX (Java).
+            constexpr int32_t kRTPriorityMin = 1;  // SchedulingPolicyService.PRIORITY_MIN (Java).
+            constexpr int32_t kRTPriorityMax = 3;  // SchedulingPolicyService.PRIORITY_MAX (Java).
+            int priorityBoost = kRTPriorityMax;
+            if (flags.getTag() == AudioIoFlags::Tag::output &&
+                isBitPositionFlagSet(flags.template get<AudioIoFlags::Tag::output>(),
+                                     AudioOutputFlags::SPATIALIZER)) {
+                const int32_t sptPrio =
+                        property_get_int32("audio.spatializer.priority", kRTPriorityMin);
+                if (sptPrio >= kRTPriorityMin && sptPrio <= kRTPriorityMax) {
+                    priorityBoost = sptPrio;
+                } else {
+                    LOG(WARNING) << __func__ << ": invalid spatializer priority: " << sptPrio;
+                    return ndk::ScopedAStatus::ok();
+                }
+            }
+            struct sched_param param = {
+                    .sched_priority = priorityBoost,
+            };
             if (sched_setscheduler(workerTid, SCHED_FIFO | SCHED_RESET_ON_FORK, &param) != 0) {
-                PLOG(WARNING) << __func__ << ": failed to set FIFO scheduler for a fast thread";
+                PLOG(WARNING) << __func__ << ": failed to set FIFO scheduler and priority";
             }
         } else {
             LOG(WARNING) << __func__ << ": invalid worker tid: " << workerTid;

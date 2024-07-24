@@ -86,7 +86,7 @@ union Metadata {
     /**
      * DAB ensemble name abbreviated (string).
      *
-     * <p>Note: The string must be up to 8 characters long.
+     * <p>Note: The string should be <= 8 characters.
      *
      * <p>Note: If the short variant is present, the long ({@link Metadata#dabEnsembleName})
      * one must be present as well.
@@ -101,7 +101,7 @@ union Metadata {
     /**
      * DAB service name abbreviated (string)
      *
-     * <p>Note: The string must be up to 8 characters long.
+     * <p>Note: The string should be <= 8 characters.
      */
     String dabServiceNameShort;
 
@@ -113,7 +113,73 @@ union Metadata {
     /**
      * DAB component name abbreviated (string)
      *
-     * <p>Note: The string must be up to 8 characters long.
+     * <p>Note: The string should be <= 8 characters.
      */
     String dabComponentNameShort;
+
+    /**
+     * Genre of the current audio piece (string)
+     *
+     * <p>(see NRSC-G200-A and id3v2.3.0 for more info)
+     */
+    String genre;
+
+    /**
+     * Short context description of comment (string)
+     *
+     * <p>Comment could relate to the current audio program content, or it might
+     * be unrelated information that the station chooses to send. It is
+     * composed of short content description and actual text (see NRSC-G200-A
+     * and id3v2.3.0 for more info).
+     */
+    String commentShortDescription;
+
+    /**
+     * Actual text of comment (string)
+     *
+     * @see #commentShortDescription
+     */
+    String commentActualText;
+
+    /**
+     * Commercial (string)
+     *
+     * <p>Commercial is application specific and generally used to facilitate the
+     * sale of products and services (see NRSC-G200-A and id3v2.3.0 for more info).
+     */
+    String commercial;
+
+    /**
+     * HD Unique File Identifiers (Array of strings)
+     *
+     * <p>Unique File Identifier (UFID) can be used to transmit an alphanumeric
+     * identifier of the current content, or of an advertised product or service
+     * (see NRSC-G200-A and id3v2.3.0 for more info).
+     */
+    String[] ufids;
+
+    /**
+     * HD short station name or HD universal short station name
+     *
+     * <p>It can be <= 12 characters (see SY_IDD_1020s for more info).
+     */
+    String hdStationNameShort;
+
+    /**
+     * HD long station name, HD station slogan or HD station message
+     *
+     * <p>(see SY_IDD_1020s for more info)
+     */
+    String hdStationNameLong;
+
+    /**
+     * Bit mask of all HD Radio subchannels available (uint8_t)
+     *
+     * <p>Bit {@link HdSubChannel#HD1} from LSB represents the availability
+     * of HD-1 subchannel (main program service, MPS). Bits
+     * {@link HdSubChannel#HD2} to {@link HdSubChannel#HD8} from LSB represent
+     * HD-2 to HD-8 subchannel (supplemental program services, SPS)
+     * respectively.
+     */
+    int hdSubChannelsAvailable;
 }

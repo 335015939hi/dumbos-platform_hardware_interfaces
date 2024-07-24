@@ -24,6 +24,9 @@
 #include <aidl/android/hardware/camera/device/BufferRequest.h>
 #include <aidl/android/hardware/camera/device/Stream.h>
 #include <android-base/unique_fd.h>
+#include <android/hardware/graphics/mapper/2.0/IMapper.h>
+#include <android/hardware/graphics/mapper/3.0/IMapper.h>
+#include <android/hardware/graphics/mapper/4.0/IMapper.h>
 #include <fmq/AidlMessageQueue.h>
 #include <utils/Thread.h>
 #include <deque>
@@ -55,6 +58,7 @@ using ::android::base::unique_fd;
 using ::android::hardware::camera::common::helper::SimpleThread;
 using ::android::hardware::camera::external::common::ExternalCameraConfig;
 using ::android::hardware::camera::external::common::SizeHasher;
+using ::android::hardware::graphics::mapper::V2_0::YCbCrLayout;
 using ::ndk::ScopedAStatus;
 
 class ExternalCameraDeviceSession : public BnCameraDeviceSession, public OutputThreadInterface {
@@ -240,9 +244,9 @@ class ExternalCameraDeviceSession : public BnCameraDeviceSession, public OutputT
     // To init/close different version of output thread
     void initOutputThread();
     void closeOutputThread();
-    void closeOutputThreadImpl();
+    void closeBufferRequestThread();
 
-    void close(bool callerIsDtor);
+    void closeImpl();
     Status initStatus() const;
     status_t initDefaultRequests();
 
@@ -261,15 +265,6 @@ class ExternalCameraDeviceSession : public BnCameraDeviceSession, public OutputT
     static bool isSupported(const Stream& stream,
                             const std::vector<SupportedV4L2Format>& supportedFormats,
                             const ExternalCameraConfig& cfg);
-
-    // Validate and import request's output buffers and acquire fence
-    Status importRequestLocked(const CaptureRequest& request,
-                               std::vector<buffer_handle_t*>& allBufPtrs,
-                               std::vector<int>& allFences);
-
-    Status importRequestLockedImpl(const CaptureRequest& request,
-                                   std::vector<buffer_handle_t*>& allBufPtrs,
-                                   std::vector<int>& allFences);
 
     Status importBufferLocked(int32_t streamId, uint64_t bufId, buffer_handle_t buf,
                               /*out*/ buffer_handle_t** outBufPtr);

@@ -28,11 +28,20 @@ aidl_interface {
         "android/hardware/power/*.aidl",
     ],
     stability: "vintf",
+    imports: [
+        "android.hardware.common.fmq-V1",
+        "android.hardware.common-V2",
+    ],
     backend: {
         cpp: {
+            enabled: false,
+        },
+        ndk: {
             enabled: true,
         },
         java: {
+            sdk_version: "module_current",
+            enabled: true,
             platform_apis: true,
         },
     },
@@ -53,8 +62,53 @@ aidl_interface {
             version: "4",
             imports: [],
         },
+        {
+            version: "5",
+            imports: [
+                "android.hardware.common.fmq-V1",
+                "android.hardware.common-V2",
+            ],
+        },
 
     ],
     frozen: true,
 
+}
+
+cc_defaults {
+    name: "android.hardware.power-ndk_shared",
+    shared_libs: [
+        "android.hardware.power-V5-ndk",
+    ],
+}
+
+cc_defaults {
+    name: "android.hardware.power-ndk_export_shared",
+    shared_libs: [
+        "android.hardware.power-V5-ndk",
+    ],
+    export_shared_lib_headers: [
+        "android.hardware.power-V5-ndk",
+    ],
+}
+
+cc_defaults {
+    name: "android.hardware.power-ndk_static",
+    static_libs: [
+        "android.hardware.power-V5-ndk",
+    ],
+}
+
+java_defaults {
+    name: "android.hardware.power-java_shared",
+    libs: [
+        "android.hardware.power-V5-java",
+    ],
+}
+
+java_defaults {
+    name: "android.hardware.power-java_static",
+    static_libs: [
+        "android.hardware.power-V5-java",
+    ],
 }

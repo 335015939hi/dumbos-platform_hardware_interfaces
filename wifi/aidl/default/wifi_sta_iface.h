@@ -90,10 +90,20 @@ class WifiStaIface : public BnWifiStaIface {
     ndk::ScopedAStatus getFactoryMacAddress(std::array<uint8_t, 6>* _aidl_return) override;
     ndk::ScopedAStatus setScanMode(bool in_enable) override;
     ndk::ScopedAStatus setDtimMultiplier(int32_t in_multiplier) override;
+    ndk::ScopedAStatus getCachedScanData(CachedScanData* _aidl_return) override;
+    ndk::ScopedAStatus twtGetCapabilities(TwtCapabilities* _aidl_return) override;
+    ndk::ScopedAStatus twtSessionSetup(int in_cmdId, const TwtRequest& in_twtRequest) override;
+    ndk::ScopedAStatus twtSessionUpdate(int in_cmdId, int32_t in_sessionId,
+                                        const TwtRequest& in_twtRequest) override;
+    ndk::ScopedAStatus twtSessionSuspend(int in_cmdId, int32_t in_sessionId) override;
+    ndk::ScopedAStatus twtSessionResume(int in_cmdId, int32_t in_sessionId) override;
+    ndk::ScopedAStatus twtSessionTeardown(int in_cmdId, int32_t in_sessionId) override;
+    ndk::ScopedAStatus twtSessionGetStats(int in_cmdId, int32_t in_sessionId) override;
 
   private:
     // Corresponding worker functions for the AIDL methods.
     std::pair<std::string, ndk::ScopedAStatus> getNameInternal();
+    ndk::ScopedAStatus registerTwtEventCallbackInternal();
     ndk::ScopedAStatus registerEventCallbackInternal(
             const std::shared_ptr<IWifiStaIfaceEventCallback>& callback);
     std::pair<int32_t, ndk::ScopedAStatus> getFeatureSetInternal();
@@ -130,6 +140,15 @@ class WifiStaIface : public BnWifiStaIface {
     std::pair<std::array<uint8_t, 6>, ndk::ScopedAStatus> getFactoryMacAddressInternal();
     ndk::ScopedAStatus setScanModeInternal(bool enable);
     ndk::ScopedAStatus setDtimMultiplierInternal(const int multiplier);
+    std::pair<CachedScanData, ndk::ScopedAStatus> getCachedScanDataInternal();
+    std::pair<TwtCapabilities, ndk::ScopedAStatus> twtGetCapabilitiesInternal();
+    ndk::ScopedAStatus twtSessionSetupInternal(int cmdId, const TwtRequest& twtRequest);
+    ndk::ScopedAStatus twtSessionUpdateInternal(int cmdId, int32_t sessionId,
+                                                const TwtRequest& twtRequest);
+    ndk::ScopedAStatus twtSessionSuspendInternal(int cmdId, int32_t sessionId);
+    ndk::ScopedAStatus twtSessionResumeInternal(int cmdId, int32_t sessionId);
+    ndk::ScopedAStatus twtSessionTeardownInternal(int cmdId, int32_t sessionId);
+    ndk::ScopedAStatus twtSessionGetStatsInternal(int cmdId, int32_t sessionId);
 
     void setWeakPtr(std::weak_ptr<WifiStaIface> ptr);
 
@@ -139,6 +158,7 @@ class WifiStaIface : public BnWifiStaIface {
     std::weak_ptr<WifiStaIface> weak_ptr_this_;
     bool is_valid_;
     aidl_callback_util::AidlCallbackHandler<IWifiStaIfaceEventCallback> event_cb_handler_;
+    bool is_twt_registered_;
 
     DISALLOW_COPY_AND_ASSIGN(WifiStaIface);
 };

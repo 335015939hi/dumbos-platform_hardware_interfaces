@@ -64,6 +64,7 @@ using ::aidl::android::hardware::camera::device::BufferRequest;
 using ::aidl::android::hardware::camera::device::BufferRequestStatus;
 using ::aidl::android::hardware::camera::device::CameraMetadata;
 using ::aidl::android::hardware::camera::device::CaptureResult;
+using ::aidl::android::hardware::camera::device::ConfigureStreamsRet;
 using ::aidl::android::hardware::camera::device::ErrorCode;
 using ::aidl::android::hardware::camera::device::HalStream;
 using ::aidl::android::hardware::camera::device::ICameraDevice;
@@ -98,6 +99,11 @@ using ::ndk::ScopedAStatus;
 
 class DeviceCb;  // Forward declare to break circular header dependency
 
+template <typename T>
+bool contains(const std::set<T>& container, T value) {
+    return container.find(value) != container.end();
+}
+
 class CameraAidlTest : public ::testing::TestWithParam<std::string> {
   public:
     enum SystemCameraKind {
@@ -119,6 +125,8 @@ class CameraAidlTest : public ::testing::TestWithParam<std::string> {
          */
         HIDDEN_SECURE_CAMERA
     };
+
+    enum BufferManagerType { FRAMEWORK = 0, HAL, SESSION };
 
     struct AvailableStream {
         int32_t width;
@@ -199,15 +207,22 @@ class CameraAidlTest : public ::testing::TestWithParam<std::string> {
             std::shared_ptr<ICameraDeviceSession>* session /*out*/, Stream* stream /*out*/,
             std::vector<HalStream>* halStreams, bool* supportsPartialResults /*out*/,
             int32_t* partialResultCount /*out*/, std::shared_ptr<DeviceCb>* outCb /*out*/,
-            int32_t* jpegBufferSize /*out*/, bool* useHalBufManager /*out*/);
+            int32_t* jpegBufferSize /*out*/, std::set<int32_t>* halBufManagedStreamIds /*out*/);
+
+    ndk::ScopedAStatus configureStreams(std::shared_ptr<ICameraDeviceSession>& session,
+                                        const StreamConfiguration& config,
+                                        BufferManagerType bufferManagerType,
+                                        std::set<int32_t>* halBufManagedStreamIds,
+                                        std::vector<HalStream>* halStreams);
 
     void configureStreams(
             const std::string& name, const std::shared_ptr<ICameraProvider>& provider,
             PixelFormat format, std::shared_ptr<ICameraDeviceSession>* session /*out*/,
             Stream* previewStream /*out*/, std::vector<HalStream>* halStreams /*out*/,
             bool* supportsPartialResults /*out*/, int32_t* partialResultCount /*out*/,
-            bool* useHalBufManager /*out*/, std::shared_ptr<DeviceCb>* outCb /*out*/,
-            uint32_t streamConfigCounter, bool maxResolution,
+            std::set<int32_t>* halBufManagedStreamIds /*out*/,
+            std::shared_ptr<DeviceCb>* outCb /*out*/, uint32_t streamConfigCounter,
+            bool maxResolution,
             RequestAvailableDynamicRangeProfilesMap dynamicRangeProf =
                     RequestAvailableDynamicRangeProfilesMap::
                             ANDROID_REQUEST_AVAILABLE_DYNAMIC_RANGE_PROFILES_MAP_STANDARD,
@@ -221,7 +236,7 @@ class CameraAidlTest : public ::testing::TestWithParam<std::string> {
             const std::unordered_set<std::string>& physicalIds,
             std::shared_ptr<ICameraDeviceSession>* session /*out*/, Stream* previewStream /*out*/,
             std::vector<HalStream>* halStreams /*out*/, bool* supportsPartialResults /*out*/,
-            int32_t* partialResultCount /*out*/, bool* useHalBufManager /*out*/,
+            int32_t* partialResultCount /*out*/, std::set<int32_t>* halBufManagedStreamIds /*out*/,
             std::shared_ptr<DeviceCb>* cb /*out*/, int32_t streamConfigCounter = 0,
             bool allowUnsupport = false);
 
@@ -262,6 +277,9 @@ class CameraAidlTest : public ::testing::TestWithParam<std::string> {
 
     static void verifyMonochromeCharacteristics(const CameraMetadata& chars);
 
+    static void verifyManualFlashStrengthControlCharacteristics(
+            const camera_metadata_t* staticMeta);
+
     static void verifyMonochromeCameraResult(
             const ::android::hardware::camera::common::V1_0::helper::CameraMetadata& metadata);
 
@@ -270,11 +288,15 @@ class CameraAidlTest : public ::testing::TestWithParam<std::string> {
     static void verifySettingsOverrideCharacteristics(const camera_metadata_t* metadata);
 
     static void verifyStreamCombination(const std::shared_ptr<ICameraDevice>& device,
-                                        const StreamConfiguration& config, bool expectedStatus,
-                                        bool expectStreamCombQuery);
+                                        const StreamConfiguration& config, bool expectedStatus);
+
+    static void verifySessionCharacteristics(const CameraMetadata& session_chars,
+                                             const CameraMetadata& camera_chars);
 
     static void verifyLogicalCameraResult(const camera_metadata_t* staticMetadata,
                                           const std::vector<uint8_t>& resultMetadata);
+
+    static void verifyLensIntrinsicsResult(const std::vector<uint8_t>& resultMetadata);
 
     static void verifyBuffersReturned(const std::shared_ptr<ICameraDeviceSession>& session,
                                       int32_t streamId, const std::shared_ptr<DeviceCb>& cb,
@@ -579,6 +601,9 @@ class CameraAidlTest : public ::testing::TestWithParam<std::string> {
     static void waitForReleaseFence(
             std::vector<InFlightRequest::StreamBufferAndTimestamp>& resultOutputBuffers);
 
+    static void validateDefaultRequestMetadata(RequestTemplate reqTemplate,
+                                               const CameraMetadata& rawMetadata);
+
     // Map from frame number to the in-flight request state
     typedef std::unordered_map<uint32_t, std::shared_ptr<InFlightRequest>> InFlightMap;
 
@@ -615,6 +640,7 @@ namespace {
 // device@<major>.<minor>/<type>/id
 const char* kDeviceNameRE = "device@([0-9]+\\.[0-9]+)/\\s+/(.+)";
 const std::string CAMERA_DEVICE_API_VERSION_1 = "1.1";
+const int32_t CAMERA_DEVICE_API_MINOR_VERSION_3 = 3;
 
 const int32_t kMaxVideoWidth = 4096;
 const int32_t kMaxVideoHeight = 2160;

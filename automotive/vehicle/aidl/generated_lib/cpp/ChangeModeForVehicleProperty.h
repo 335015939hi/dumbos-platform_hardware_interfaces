@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,8 +22,7 @@
 
 // clang-format off
 
-#ifndef android_hardware_automotive_vehicle_aidl_generated_lib_ChangeModeForVehicleProperty_H_
-#define android_hardware_automotive_vehicle_aidl_generated_lib_ChangeModeForVehicleProperty_H_
+#pragma once
 
 #include <aidl/android/hardware/automotive/vehicle/VehicleProperty.h>
 #include <aidl/android/hardware/automotive/vehicle/VehiclePropertyChangeMode.h>
@@ -68,9 +67,11 @@ std::unordered_map<VehicleProperty, VehiclePropertyChangeMode> ChangeModeForVehi
         {VehicleProperty::EV_CHARGE_PORT_CONNECTED, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::EV_BATTERY_INSTANTANEOUS_CHARGE_RATE, VehiclePropertyChangeMode::CONTINUOUS},
         {VehicleProperty::RANGE_REMAINING, VehiclePropertyChangeMode::CONTINUOUS},
+        {VehicleProperty::EV_BATTERY_AVERAGE_TEMPERATURE, VehiclePropertyChangeMode::CONTINUOUS},
         {VehicleProperty::TIRE_PRESSURE, VehiclePropertyChangeMode::CONTINUOUS},
         {VehicleProperty::CRITICALLY_LOW_TIRE_PRESSURE, VehiclePropertyChangeMode::STATIC},
         {VehicleProperty::ENGINE_IDLE_AUTO_STOP_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::IMPACT_DETECTED, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::GEAR_SELECTION, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::CURRENT_GEAR, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::PARKING_BRAKE_ON, VehiclePropertyChangeMode::ON_CHANGE},
@@ -83,6 +84,8 @@ std::unordered_map<VehicleProperty, VehiclePropertyChangeMode> ChangeModeForVehi
         {VehicleProperty::ABS_ACTIVE, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::TRACTION_CONTROL_ACTIVE, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::EV_STOPPING_MODE, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::ELECTRONIC_STABILITY_CONTROL_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::ELECTRONIC_STABILITY_CONTROL_STATE, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::HVAC_FAN_SPEED, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::HVAC_FAN_DIRECTION, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::HVAC_TEMPERATURE_CURRENT, VehiclePropertyChangeMode::ON_CHANGE},
@@ -120,6 +123,8 @@ std::unordered_map<VehicleProperty, VehiclePropertyChangeMode> ChangeModeForVehi
         {VehicleProperty::AP_POWER_BOOTUP_REASON, VehiclePropertyChangeMode::STATIC},
         {VehicleProperty::DISPLAY_BRIGHTNESS, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::PER_DISPLAY_BRIGHTNESS, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::VALET_MODE_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::HEAD_UP_DISPLAY_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::HW_KEY_INPUT, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::HW_KEY_INPUT_V2, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::HW_MOTION_INPUT, VehiclePropertyChangeMode::ON_CHANGE},
@@ -169,11 +174,13 @@ std::unordered_map<VehicleProperty, VehiclePropertyChangeMode> ChangeModeForVehi
         {VehicleProperty::SEAT_FOOTWELL_LIGHTS_SWITCH, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::SEAT_EASY_ACCESS_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::SEAT_AIRBAG_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::SEAT_AIRBAGS_DEPLOYED, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::SEAT_CUSHION_SIDE_SUPPORT_POS, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::SEAT_CUSHION_SIDE_SUPPORT_MOVE, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::SEAT_LUMBAR_VERTICAL_POS, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::SEAT_LUMBAR_VERTICAL_MOVE, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::SEAT_WALK_IN_POS, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::SEAT_BELT_PRETENSIONER_DEPLOYED, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::SEAT_OCCUPANCY, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::WINDOW_POS, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::WINDOW_MOVE, VehiclePropertyChangeMode::ON_CHANGE},
@@ -192,6 +199,12 @@ std::unordered_map<VehicleProperty, VehiclePropertyChangeMode> ChangeModeForVehi
         {VehicleProperty::GLOVE_BOX_LOCKED, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::VEHICLE_MAP_SERVICE, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::LOCATION_CHARACTERIZATION, VehiclePropertyChangeMode::STATIC},
+        {VehicleProperty::ULTRASONICS_SENSOR_POSITION, VehiclePropertyChangeMode::STATIC},
+        {VehicleProperty::ULTRASONICS_SENSOR_ORIENTATION, VehiclePropertyChangeMode::STATIC},
+        {VehicleProperty::ULTRASONICS_SENSOR_FIELD_OF_VIEW, VehiclePropertyChangeMode::STATIC},
+        {VehicleProperty::ULTRASONICS_SENSOR_DETECTION_RANGE, VehiclePropertyChangeMode::STATIC},
+        {VehicleProperty::ULTRASONICS_SENSOR_SUPPORTED_RANGES, VehiclePropertyChangeMode::STATIC},
+        {VehicleProperty::ULTRASONICS_SENSOR_MEASURED_DISTANCE, VehiclePropertyChangeMode::CONTINUOUS},
         {VehicleProperty::OBD2_LIVE_FRAME, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::OBD2_FREEZE_FRAME, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::OBD2_FREEZE_FRAME_INFO, VehiclePropertyChangeMode::ON_CHANGE},
@@ -247,6 +260,9 @@ std::unordered_map<VehicleProperty, VehiclePropertyChangeMode> ChangeModeForVehi
         {VehicleProperty::SUPPORTED_PROPERTY_IDS, VehiclePropertyChangeMode::STATIC},
         {VehicleProperty::SHUTDOWN_REQUEST, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::VEHICLE_IN_USE, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::CLUSTER_HEARTBEAT, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::VEHICLE_DRIVING_AUTOMATION_CURRENT_LEVEL, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::CAMERA_SERVICE_CURRENT_STATE, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::AUTOMATIC_EMERGENCY_BRAKING_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::AUTOMATIC_EMERGENCY_BRAKING_STATE, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::FORWARD_COLLISION_WARNING_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
@@ -272,6 +288,20 @@ std::unordered_map<VehicleProperty, VehiclePropertyChangeMode> ChangeModeForVehi
         {VehicleProperty::HANDS_ON_DETECTION_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::HANDS_ON_DETECTION_DRIVER_STATE, VehiclePropertyChangeMode::ON_CHANGE},
         {VehicleProperty::HANDS_ON_DETECTION_WARNING, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::DRIVER_DROWSINESS_ATTENTION_SYSTEM_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::DRIVER_DROWSINESS_ATTENTION_STATE, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::DRIVER_DROWSINESS_ATTENTION_WARNING_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::DRIVER_DROWSINESS_ATTENTION_WARNING, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::DRIVER_DISTRACTION_SYSTEM_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::DRIVER_DISTRACTION_STATE, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::DRIVER_DISTRACTION_WARNING_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::DRIVER_DISTRACTION_WARNING, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::LOW_SPEED_COLLISION_WARNING_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::LOW_SPEED_COLLISION_WARNING_STATE, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::CROSS_TRAFFIC_MONITORING_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::CROSS_TRAFFIC_MONITORING_WARNING_STATE, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::LOW_SPEED_AUTOMATIC_EMERGENCY_BRAKING_ENABLED, VehiclePropertyChangeMode::ON_CHANGE},
+        {VehicleProperty::LOW_SPEED_AUTOMATIC_EMERGENCY_BRAKING_STATE, VehiclePropertyChangeMode::ON_CHANGE},
 };
 
 }  // namespace vehicle
@@ -279,5 +309,3 @@ std::unordered_map<VehicleProperty, VehiclePropertyChangeMode> ChangeModeForVehi
 }  // namespace hardware
 }  // namespace android
 }  // aidl
-
-#endif  // android_hardware_automotive_vehicle_aidl_generated_lib_ChangeModeForVehicleProperty_H_

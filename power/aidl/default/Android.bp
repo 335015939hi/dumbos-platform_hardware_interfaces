@@ -23,14 +23,19 @@ package {
 
 cc_binary {
     name: "android.hardware.power-service.example",
+    defaults: ["android.hardware.power-ndk_shared"],
     relative_install_path: "hw",
     init_rc: [":android.hardware.power.rc"],
     vintf_fragments: [":android.hardware.power.xml"],
     vendor: true,
     shared_libs: [
+        "android.hardware.common-V2-ndk",
+        "android.hardware.common.fmq-V1-ndk",
         "libbase",
         "libbinder_ndk",
-        "android.hardware.power-V4-ndk",
+        "libcutils",
+        "libfmq",
+        "libutils",
     ],
     srcs: [
         "main.cpp",

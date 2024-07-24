@@ -21,6 +21,7 @@
 #include <aidl/android/hardware/automotive/remoteaccess/BnRemoteAccess.h>
 #include <aidl/android/hardware/automotive/remoteaccess/BnRemoteTaskCallback.h>
 #include <aidl/android/hardware/automotive/remoteaccess/IRemoteTaskCallback.h>
+#include <aidl/android/hardware/automotive/remoteaccess/ScheduleInfo.h>
 #include <android-base/thread_annotations.h>
 #include <android/binder_auto_utils.h>
 #include <utils/SystemClock.h>
@@ -78,6 +79,28 @@ class RemoteAccessService
     ndk::ScopedAStatus notifyApStateChange(
             const aidl::android::hardware::automotive::remoteaccess::ApState& newState) override;
 
+    ndk::ScopedAStatus isTaskScheduleSupported(bool* out) override;
+
+    ndk::ScopedAStatus getSupportedTaskTypesForScheduling(
+            std::vector<aidl::android::hardware::automotive::remoteaccess::TaskType>* out) override;
+
+    ndk::ScopedAStatus scheduleTask(
+            const aidl::android::hardware::automotive::remoteaccess::ScheduleInfo& scheduleInfo)
+            override;
+
+    ndk::ScopedAStatus unscheduleTask(const std::string& clientId,
+                                      const std::string& scheduleId) override;
+
+    ndk::ScopedAStatus unscheduleAllTasks(const std::string& clientId) override;
+
+    ndk::ScopedAStatus isTaskScheduled(const std::string& clientId, const std::string& scheduleId,
+                                       bool* out) override;
+
+    ndk::ScopedAStatus getAllPendingScheduledTasks(
+            const std::string& clientId,
+            std::vector<aidl::android::hardware::automotive::remoteaccess::ScheduleInfo>* out)
+            override;
+
     binder_status_t dump(int fd, const char** args, uint32_t numArgs) override;
 
   private:
@@ -88,6 +111,8 @@ class RemoteAccessService
 
     WakeupClient::StubInterface* mGrpcStub;
     std::thread mThread;
+    // Whether the GRPC server exists. Only checked and set during init.
+    bool mGrpcServerExist = false;
     std::mutex mLock;
     std::condition_variable mCv;
     std::shared_ptr<aidl::android::hardware::automotive::remoteaccess::IRemoteTaskCallback>
@@ -98,7 +123,7 @@ class RemoteAccessService
     // A mutex to make sure startTaskLoop does not overlap with stopTaskLoop.
     std::mutex mStartStopTaskLoopLock;
     bool mTaskLoopRunning GUARDED_BY(mStartStopTaskLoopLock) = false;
-    bool mGrpcConnected GUARDED_BY(mLock) = false;
+    bool mGrpcReadChannelOpen GUARDED_BY(mLock) = false;
     std::unordered_map<std::string, size_t> mClientIdToTaskCount GUARDED_BY(mLock);
 
     // Default wait time before retry connecting to remote access client is 10s.
@@ -120,9 +145,10 @@ class RemoteAccessService
     void debugInjectTask(int fd, std::string_view clientId, std::string_view taskData);
     void debugInjectTaskNextReboot(int fd, std::string_view clientId, std::string_view taskData,
                                    const char* latencyInSecStr);
-    void updateGrpcConnected(bool connected);
+    void updateGrpcReadChannelOpen(bool grpcReadChannelOpen);
     android::base::Result<void> deliverRemoteTaskThroughCallback(const std::string& clientId,
                                                                  std::string_view taskData);
+    bool isTaskScheduleSupported();
 };
 
 }  // namespace remoteaccess

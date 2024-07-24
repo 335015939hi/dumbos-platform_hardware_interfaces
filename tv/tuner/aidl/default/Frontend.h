@@ -21,6 +21,7 @@
 #include <iostream>
 #include <thread>
 #include "Tuner.h"
+#include "dtv_plugin.h"
 
 using namespace std;
 
@@ -31,6 +32,9 @@ namespace tv {
 namespace tuner {
 
 class Tuner;
+
+const int TUNE_BUFFER_SIZE = 1;        // byte
+const int TUNE_BUFFER_TIMEOUT = 2000;  // ms
 
 class Frontend : public BnFrontend {
   public:
@@ -60,6 +64,13 @@ class Frontend : public BnFrontend {
     FrontendType getFrontendType();
     int32_t getFrontendId();
     string getSourceFile();
+    dtv_plugin* getIptvPluginInterface();
+    string getIptvTransportDescription();
+    dtv_streamer* getIptvPluginStreamer();
+    void readTuneByte(void* buf);
+    void* getTuneByteBuffer() { return mTuneByteBuffer; };
+    dtv_streamer* createIptvPluginStreamer(dtv_plugin* interface, const char* transport_desc);
+    dtv_plugin* createIptvPluginInterface();
     bool isLocked();
     void getFrontendInfo(FrontendInfo* _aidl_return);
     void setTunerService(std::shared_ptr<Tuner> tuner);
@@ -81,6 +92,11 @@ class Frontend : public BnFrontend {
     std::ifstream mFrontendData;
     FrontendCapabilities mFrontendCaps;
     vector<FrontendStatusType> mFrontendStatusCaps;
+    dtv_plugin* mIptvPluginInterface;
+    string mIptvTransportDescription;
+    dtv_streamer* mIptvPluginStreamer;
+    std::thread mIptvFrontendTuneThread;
+    void* mTuneByteBuffer = nullptr;
 };
 
 }  // namespace tuner

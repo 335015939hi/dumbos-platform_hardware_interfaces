@@ -62,6 +62,23 @@ bool configureChipToSupportConcurrencyTypeInternal(const std::shared_ptr<IWifiCh
     int mode_id;
     return configureChipToSupportConcurrencyTypeInternal(wifi_chip, type, &mode_id);
 }
+
+OuiKeyedData generateOuiKeyedData(int oui) {
+    PersistableBundle bundle;
+    bundle.putString("stringKey", "stringValue");
+    bundle.putInt("intKey", 12345);
+
+    OuiKeyedData data;
+    data.oui = oui;
+    data.vendorData = bundle;
+    return data;
+}
+
+// Wraps generateOuiKeyedData result in std::optional
+std::optional<OuiKeyedData> generateOuiKeyedDataOptional(int oui) {
+    return std::optional<OuiKeyedData>{generateOuiKeyedData(oui)};
+}
+
 }  // namespace
 
 bool checkStatusCode(ndk::ScopedAStatus* status, WifiStatusCode expected_code) {
@@ -197,7 +214,24 @@ std::shared_ptr<IWifiApIface> getBridgedWifiApIface(const char* instance_name) {
 
 bool configureChipToSupportConcurrencyType(const std::shared_ptr<IWifiChip>& wifi_chip,
                                            IfaceConcurrencyType type, int* configured_mode_id) {
+    if (!wifi_chip.get()) {
+        return false;
+    }
     return configureChipToSupportConcurrencyTypeInternal(wifi_chip, type, configured_mode_id);
+}
+
+bool doesChipSupportConcurrencyType(const std::shared_ptr<IWifiChip>& wifi_chip,
+                                    IfaceConcurrencyType type) {
+    if (!wifi_chip.get()) {
+        return false;
+    }
+    std::vector<IWifiChip::ChipMode> chip_modes;
+    auto status = wifi_chip->getAvailableModes(&chip_modes);
+    if (!status.isOk()) {
+        return false;
+    }
+    int mode_id;
+    return findAnyModeSupportingConcurrencyType(type, chip_modes, &mode_id);
 }
 
 void stopWifiService(const char* instance_name) {
@@ -208,6 +242,9 @@ void stopWifiService(const char* instance_name) {
 }
 
 int32_t getChipFeatureSet(const std::shared_ptr<IWifiChip>& wifi_chip) {
+    if (!wifi_chip.get()) {
+        return 0;
+    }
     int32_t features = 0;
     if (wifi_chip->getFeatureSet(&features).isOk()) {
         return features;
@@ -217,4 +254,21 @@ int32_t getChipFeatureSet(const std::shared_ptr<IWifiChip>& wifi_chip) {
 
 bool isAidlServiceAvailable(const char* instance_name) {
     return AServiceManager_isDeclared(instance_name);
+}
+
+std::vector<OuiKeyedData> generateOuiKeyedDataList(int size) {
+    std::vector<OuiKeyedData> dataList;
+    for (int i = 0; i < size; i++) {
+        dataList.push_back(generateOuiKeyedData(i + 1));
+    }
+    return dataList;
+}
+
+// Generate OuiKeyedData list fully wrapped in std::optional
+std::optional<std::vector<std::optional<OuiKeyedData>>> generateOuiKeyedDataListOptional(int size) {
+    std::vector<std::optional<OuiKeyedData>> dataList;
+    for (int i = 0; i < size; i++) {
+        dataList.push_back(generateOuiKeyedDataOptional(i + 1));
+    }
+    return std::optional<std::vector<std::optional<OuiKeyedData>>>{dataList};
 }

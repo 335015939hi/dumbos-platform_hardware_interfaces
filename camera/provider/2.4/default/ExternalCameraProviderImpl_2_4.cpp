@@ -99,7 +99,7 @@ Return<Status> ExternalCameraProviderImpl_2_4::setCallback(
         Mutex::Autolock _l(mLock);
         mCallbacks = callback;
     }
-    if (mCallbacks == nullptr) {
+    if (callback == nullptr) {
         return Status::OK;
     }
     // Send a callback for all devices to initialize

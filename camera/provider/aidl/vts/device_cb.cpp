@@ -20,6 +20,7 @@
 #include <aidlcommonsupport/NativeHandle.h>
 #include <grallocusage/GrallocUsageConversion.h>
 #include <cinttypes>
+#include <nativebase/nativebase.h>
 
 using ::aidl::android::hardware::camera::device::BufferStatus;
 using ::aidl::android::hardware::camera::device::ErrorMsg;
@@ -143,8 +144,8 @@ ScopedAStatus DeviceCb::requestStreamBuffers(const std::vector<BufferRequest>& b
 
             CameraAidlTest::allocateGraphicBuffer(
                     w, h,
-                    android_convertGralloc1To0Usage(static_cast<uint64_t>(halStream.producerUsage),
-                                                    static_cast<uint64_t>(halStream.consumerUsage)),
+                    ANDROID_NATIVE_UNSIGNED_CAST(android_convertGralloc1To0Usage(static_cast<uint64_t>(halStream.producerUsage),
+                                                    static_cast<uint64_t>(halStream.consumerUsage))),
                     halStream.overrideFormat, &handle);
 
             StreamBuffer streamBuffer = StreamBuffer();
@@ -388,15 +389,16 @@ bool DeviceCb::processCaptureResultLocked(
         // Verify logical camera result metadata
         bool isLogicalCamera =
                 Status::OK == CameraAidlTest::isLogicalMultiCamera(staticMetadataBuffer);
+        camera_metadata_t* collectedMetadata =
+                const_cast<camera_metadata_t*>(request->collectedResult.getAndLock());
+        uint8_t* rawMetadata = reinterpret_cast<uint8_t*>(collectedMetadata);
+        std::vector metadata =
+                std::vector(rawMetadata, rawMetadata + get_camera_metadata_size(collectedMetadata));
         if (isLogicalCamera) {
-            camera_metadata_t* collectedMetadata =
-                    const_cast<camera_metadata_t*>(request->collectedResult.getAndLock());
-            uint8_t* rawMetadata = reinterpret_cast<uint8_t*>(collectedMetadata);
-            std::vector metadata = std::vector(
-                    rawMetadata, rawMetadata + get_camera_metadata_size(collectedMetadata));
             CameraAidlTest::verifyLogicalCameraResult(staticMetadataBuffer, metadata);
-            request->collectedResult.unlock(collectedMetadata);
         }
+        CameraAidlTest::verifyLensIntrinsicsResult(metadata);
+        request->collectedResult.unlock(collectedMetadata);
     }
 
     uint32_t numBuffersReturned = results.outputBuffers.size();

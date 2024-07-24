@@ -21,6 +21,7 @@ import android.hardware.radio.config.SimSlotStatus;
 
 /**
  * Interface declaring response functions to solicited radio config requests.
+ * @hide
  */
 @VintfStability
 oneway interface IRadioConfigResponse {
@@ -39,6 +40,7 @@ oneway interface IRadioConfigResponse {
      *          IRadioIndication.currentPhysicalChannelConfigs_1_6()
      *
      * Valid errors returned:
+     *   RadioError:REQUEST_NOT_SUPPORTED when android.hardware.telephony is not defined
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
@@ -52,6 +54,7 @@ oneway interface IRadioConfigResponse {
      *        are enabled and actively working as part of a working connectivity stack
      *
      * Valid errors returned:
+     *   RadioError:REQUEST_NOT_SUPPORTED when android.hardware.telephony is not defined
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      */
@@ -64,6 +67,7 @@ oneway interface IRadioConfigResponse {
      *        how many logical modems it has, how many data connections it supports.
      *
      * Valid errors returned:
+     *   RadioError:REQUEST_NOT_SUPPORTED when android.hardware.telephony is not defined
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
@@ -77,6 +81,8 @@ oneway interface IRadioConfigResponse {
      *        equal to the number of physical slots on the device
      *
      * Valid errors returned:
+     *   RadioError:REQUEST_NOT_SUPPORTED when android.hardware.telephony.subscription is not
+     *                                    defined
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:NO_MEMORY
@@ -90,6 +96,7 @@ oneway interface IRadioConfigResponse {
      * @param info Response info struct containing response type, serial no. and error
      *
      * Valid errors returned:
+     *   RadioError:REQUEST_NOT_SUPPORTED when android.hardware.telephony is not defined
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INVALID_ARGUMENTS
@@ -100,6 +107,7 @@ oneway interface IRadioConfigResponse {
      * @param info Response info struct containing response type, serial no. and error
      *
      * Valid errors returned:
+     *   RadioError:REQUEST_NOT_SUPPORTED when android.hardware.telephony.data is not defined
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:INTERNAL_ERR
@@ -111,6 +119,8 @@ oneway interface IRadioConfigResponse {
      * @param info Response info struct containing response type, serial no. and error
      *
      * Valid errors returned:
+     *   RadioError:REQUEST_NOT_SUPPORTED when android.hardware.telephony.subscription is not
+     *                                    defined
      *   RadioError:NONE
      *   RadioError:RADIO_NOT_AVAILABLE
      *   RadioError:NO_MEMORY
@@ -119,4 +129,27 @@ oneway interface IRadioConfigResponse {
      *   RadioError:INVALID_ARGUMENTS
      */
     void setSimSlotsMappingResponse(in android.hardware.radio.RadioResponseInfo info);
+
+    /**
+     * Response to the asynchronous
+     * {@link IRadioConfig#getSimultaneousCallingSupport} request.
+     *
+     * @param info Response info struct containing response type, serial no. and error
+     * @param enabledLogicalSlots The slots that have simultaneous cellular calling enabled. If
+     * there is a call active on logical slot X, then a simultaneous cellular call is only possible
+     * on logical slot Y if BOTH slot X and slot Y are in enabledLogicalSlots. If simultaneous
+     * cellular calling is not currently supported, the expected value of enabledLogicalSLots is an
+     * empty int array. Sending only one radio slot is not acceptable in any case.
+     *
+     * Valid errors returned:
+     *   RadioError:REQUEST_NOT_SUPPORTED when android.hardware.telephony is not defined
+     *   RadioError:NONE
+     *   RadioError:RADIO_NOT_AVAILABLE
+     *   RadioError:INTERNAL_ERR
+     *   RadioError:MODEM_ERR
+     *
+     * @see IRadioConfig#getSimultaneousCallingSupport for more information.
+     */
+    void getSimultaneousCallingSupportResponse(
+            in android.hardware.radio.RadioResponseInfo info, in int[] enabledLogicalSlots);
 }

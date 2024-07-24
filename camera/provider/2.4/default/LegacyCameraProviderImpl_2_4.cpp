@@ -450,7 +450,7 @@ Return<Status> LegacyCameraProviderImpl_2_4::setCallback(
         const sp<ICameraProviderCallback>& callback) {
     Mutex::Autolock _l(mCbLock);
     mCallbacks = callback;
-    if (mCallbacks == nullptr) {
+    if (callback == nullptr) {
         return Status::OK;
     }
     // Add and report all presenting external cameras.

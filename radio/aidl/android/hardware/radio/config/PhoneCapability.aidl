@@ -20,10 +20,12 @@ package android.hardware.radio.config;
  * Phone capability which describes the data connection capability of modem.
  * It's used to evaluate possible phone config change, for example from single
  * SIM device to multi-SIM device.
+ * @hide
  */
 @VintfStability
 @JavaDerive(toString=true)
 parcelable PhoneCapability {
+    const byte UNKNOWN = -1;
     /**
      * maxActiveData defines how many logical modems can have
      * PS attached simultaneously. For example, for L+L modem it
@@ -46,4 +48,10 @@ parcelable PhoneCapability {
      * List of logical modem IDs.
      */
     byte[] logicalModemIds;
+    /**
+     * maxActiveVoice defines how many logical modems can have
+     * cellular voice calls simultaneously. For example, for cellular DSDA
+     * with simultaneous calling support, it should be 2.
+     */
+    byte maxActiveVoice = UNKNOWN;
 }
