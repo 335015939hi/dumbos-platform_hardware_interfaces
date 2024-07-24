@@ -1,0 +1,36 @@
+package android.hardware.gnss.gnss_assistance;
+
+import android.hardware.gnss.GnssConstellationType;
+
+/*
+ * Contains the GNSS-GNSS system time offset between the GNSS system time.
+ * TODO: Defined in ?
+ */
+@VintfStability
+parcelable TimeModel {
+  /*
+   * Model represents parameters to convert from current GNSS to GNSS system
+   * time indicated by to_gnss.
+   *
+   * TODO: This is different from the type in google3/java/com/google/location/lbs/supl/data/proto/gnss_type.proto
+   */
+  GnssConstellationType to_gnss;
+
+  /*
+   * Coefficients A0 and A1 are used together to calculate the time
+   * correction needed.
+   * a0, a1 Coefficients of 1-deg polynomial (a0 sec, a1 sec/sec)
+   * CORR(s) = a0 + a1 * DELTAT
+   * GLONASS - a0 = TauC, a1=zero
+   */
+  double a0;
+  double a1;
+
+  /** Reference time of week in GNSS system time. */
+  int timeOfWeek; // Renamed for better readability
+
+  /** Reference week number in GNSS system time. */
+  int weekNumber;
+
+  long transmissionTime;
+}
