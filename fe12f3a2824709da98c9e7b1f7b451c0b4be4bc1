@@ -51,6 +51,24 @@
       "message": "Did we possibly mean `target-level` instead of `max-level` here?  See b/352139307 and (internal link) https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/libvintf/xsd/halManifest/hal_manifest.xsd",
       "revId": "fe12f3a2824709da98c9e7b1f7b451c0b4be4bc1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2d7cbca_0ce55df2",
+        "filename": "cas/1.2/default/android.hardware.cas@1.2-service.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-07-24T22:54:04Z",
+      "side": 1,
+      "message": "Er, b/353354885",
+      "parentUuid": "94c0a511_82facb04",
+      "revId": "fe12f3a2824709da98c9e7b1f7b451c0b4be4bc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
