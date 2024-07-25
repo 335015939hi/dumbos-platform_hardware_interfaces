@@ -1,0 +1,93 @@
+/*
+ * Copyright (C) 2024 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package android.hardware.gnss.gnss_assistance;
+
+import android.hardware.gnss.gnss_assistance.GpsSatelliteClockModel;
+import android.hardware.gnss.gnss_assistance.OrbitModel;
+import android.hardware.gnss.gnss_assistance.SatelliteEphemerisTime;
+import android.hardware.gnss.gnss_assistance.DGnssCorrection;
+
+/**
+ * Contains information about L2 params
+ * TODO: Defined in ?
+ */
+@VintfStability
+parcelable GpsL2Params {
+    int l2Code;
+    int l2Flag;
+}
+
+/**
+ * Contains information about GPS health. The information is tied to
+ * Legacy Navigation (LNAV) data, not Civil Navigation (CNAV) data.
+ */
+@VintfStability
+parcelable GpsSatelliteHealth {
+    /**
+     * Represents "SV health" in the "BROADCAST ORBIT - 6"
+     * record of RINEX 3.05. Table A6, pp.68.
+     */
+    int svHealth;
+
+    /**
+     * Represents "SV accuracy" in meters in the "BROADCAST ORBIT - 6"
+     * record of RINEX 3.05. Table A6, pp.68.
+     */
+    double svAccur;
+
+    /**
+     * Represents the "Fit Interval" in hours in the "BROADCAST ORBIT - 7"
+     * record of RINEX 3.05. Table A6, pp.69.
+     */
+    double fitInt;
+}
+
+/**
+ * Contains ephemeris parameters specific to GPS satellites.
+ */
+@VintfStability
+parcelable GpsSatelliteEphemeris {
+    /** Satellite PRN */
+    int prn;
+
+    /** L2 parameters */
+    GpsL2Params gpsL2Params;
+
+    /** Clock model */
+    GpsSatelliteClockModel satelliteClockModel;
+
+    /** Orbit model */
+    KeplerianOrbitModel satelliteOrbitModel;
+
+    /** Health */
+    GpsSatelliteHealth satelliteHealth;
+
+    /** Ephemeris time */
+    SatelliteEphemerisTime satelliteEphemerisTime;
+}
+
+/**
+ * GNSS corrections specific to GPS satellites.
+ */
+@VintfStability
+parcelable GpsSatelliteCorrections {
+    /** Satellite PRN */
+    int prn;
+
+    /** GNSS Signal corrections */
+    DgnssSignalCorrection[] signalCorrections;
+}
