@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41d5aafd_9582bbac",
+        "filename": "tv/tuner/aidl/vts/functional/VtsHalTvTunerTargetTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1840540
+      },
+      "writtenOn": "2024-07-25T03:20:28Z",
+      "side": 1,
+      "message": "variant.size() is 92, the value of PROPERTY_VALUE_MAX.",
+      "revId": "7d03f49853dca617b18a0570ddd28d76d2ce24b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
