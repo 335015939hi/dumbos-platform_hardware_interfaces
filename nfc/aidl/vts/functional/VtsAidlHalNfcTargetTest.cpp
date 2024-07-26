@@ -440,6 +440,16 @@ TEST_P(NfcAidl, CheckisVerboseLoggingEnabledAfterSetEnableVerboseLogging) {
     EXPECT_TRUE(!enabled);
 }
 
+TEST_P(NfcAidl, CheckControlGrantedStatus) {
+    int interface_version;
+    EXPECT_TRUE(infc_->getInterfaceVersion(&interface_version).isOk());
+    if (interface_version > 1) {
+        NfcStatus status;
+        EXPECT_TRUE(infc_->controlGranted(&status).isOk());
+        EXPECT_EQ(status, NfcStatus::OK);
+    }
+}
+
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(NfcAidl);
 INSTANTIATE_TEST_SUITE_P(Nfc, NfcAidl,
                          testing::ValuesIn(::android::getAidlHalInstanceNames(INfc::descriptor)),
