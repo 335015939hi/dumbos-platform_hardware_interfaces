@@ -15,13 +15,19 @@
  */
 package android.hardware.security.see.storage;
 
-import android.hardware.security.see.storage.FileAvailability;
-import android.hardware.security.see.storage.FileIntegrity;
+import android.hardware.security.see.storage.Availability;
+import android.hardware.security.see.storage.Integrity;
 
-parcelable FileProperties {
-    FileIntegrity integrity = FileIntegrity.TAMPER_PROOF_AT_REST;
-    FileAvailability availability = FileAvailability.BEFORE_USERDATA;
+/**
+ * Specifies minimum security requirements for a Secure Storage filesystem.
+ */
+parcelable Filesystem {
+    Integrity integrity = Integrity.TAMPER_PROOF_AT_REST;
+    Availability availability = Availability.BEFORE_USERDATA;
 
-    /** Whether the file is reset when user data is wiped. */
+    /**
+     * Whether the file is reset on factory resets. Factory resets will not be reported as
+     * tampering.
+     */
     boolean persistent;
 }
