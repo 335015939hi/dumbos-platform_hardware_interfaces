@@ -35,8 +35,14 @@
 #include <healthd/healthd.h>
 #include <utils/Errors.h>
 
+#include <BpfSyscallWrappers.h>
+#include <bpf/KernelUtils.h>
 #include <health/utils.h>
 
+using android::base::ErrnoError;
+using android::base::Result;
+using android::base::unique_fd;
+using android::bpf::isAtLeastKernelVersion;
 using namespace android;
 using namespace std::chrono_literals;
 
@@ -122,7 +128,6 @@ void HealthLoop::PeriodicChores() {
     ScheduleBatteryUpdate();
 }
 
-// TODO(b/140330870): Use BPF instead.
 #define UEVENT_MSG_LEN 2048
 void HealthLoop::UeventEvent(uint32_t /*epevents*/) {
     // No need to lock because uevent_fd_ is guaranteed to be initialized.
@@ -152,6 +157,23 @@ void HealthLoop::UeventEvent(uint32_t /*epevents*/) {
     }
 }
 
+// Attach a BPF filter to the @uevent_fd file descriptor. This fails in recovery mode because BPF is
+// not supported in recovery mode. This fails for kernel versions 5.4 and before because the BPF
+// program is rejected by the BPF verifier of older kernels.
+Result<unique_fd> HealthLoop::AttachFilter(int uevent_fd) {
+    static const char prg[] =
+            "/sys/fs/bpf/vendor/prog_filterPowerSupplyEvents_skfilter_power_supply";
+    int filter_fd(bpf::retrieveProgram(prg));
+    if (filter_fd < 0) {
+        return ErrnoError() << "failed to load BPF program " << prg;
+    }
+    if (setsockopt(uevent_fd, SOL_SOCKET, SO_ATTACH_BPF, &filter_fd, sizeof(filter_fd)) < 0) {
+        close(filter_fd);
+        return ErrnoError() << "failed to attach BPF program";
+    }
+    return unique_fd(filter_fd);
+}
+
 void HealthLoop::UeventInit(void) {
     uevent_fd_.reset(uevent_open_socket(64 * 1024, true));
 
@@ -161,6 +183,23 @@ void HealthLoop::UeventInit(void) {
     }
 
     fcntl(uevent_fd_, F_SETFL, O_NONBLOCK);
+
+    Result<unique_fd> filter_fd = AttachFilter(uevent_fd_);
+    // filter_fd.ok() checks whether or not AttachFilter() returned an error.
+    // filter_fd->ok() checks whether or not the BPF program file descriptor is valid.
+    if (!filter_fd.ok()) {
+        const std::string& error_msg = filter_fd.error().message();
+        KLOG_ERROR(LOG_TAG, "%s", error_msg.c_str());
+    } else if (filter_fd->ok()) {
+        KLOG_INFO(LOG_TAG, "Successfully attached the BPF filter to the uevent socket");
+        // From the bpf(2) man page: "Applying close(2) to the file descriptor returned by
+        // BPF_PROG_LOAD will unload the eBPF program". Hence keep the BPF program file descriptor
+        // open by moving it into a class member.
+        filter_fd_ = std::move(*filter_fd);
+    } else {
+        KLOG_INFO(LOG_TAG, "No BPF filter has been attached to the uevent socket");
+    }
+
     if (RegisterEvent(uevent_fd_, &HealthLoop::UeventEvent, EVENT_WAKEUP_FD))
         KLOG_ERROR(LOG_TAG, "register for uevent events failed\n");
 }
