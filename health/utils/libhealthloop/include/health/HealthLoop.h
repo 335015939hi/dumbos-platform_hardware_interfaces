@@ -20,6 +20,7 @@
 #include <mutex>
 #include <vector>
 
+#include <android-base/result.h>
 #include <android-base/unique_fd.h>
 #include <healthd/healthd.h>
 
@@ -87,6 +88,7 @@ class HealthLoop {
     };
 
     int InitInternal();
+    static android::base::Result<android::base::unique_fd> AttachFilter(int uevent_fd);
     void MainLoop();
     void WakeAlarmInit();
     void WakeAlarmEvent(uint32_t);
@@ -99,6 +101,7 @@ class HealthLoop {
     struct healthd_config healthd_config_;
     android::base::unique_fd wakealarm_fd_;
     android::base::unique_fd uevent_fd_;
+    android::base::unique_fd filter_fd_;
 
     android::base::unique_fd epollfd_;
     std::vector<std::unique_ptr<EventHandler>> event_handlers_;
