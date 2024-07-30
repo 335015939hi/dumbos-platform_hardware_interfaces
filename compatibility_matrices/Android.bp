@@ -114,3 +114,20 @@ phony {
         },
     },
 }
+
+// (TODO) Rename to framework_compatibility_matrix.device.xml after.
+// Currently use this module to diff between the generate xml from bp and mk.
+vintf_compatibility_matrix {
+    name: "framework_compatibility_matrix.device.xml.bp",
+    stem: "compatibility_matrix.device.bp.xml",
+    use_framework_compatibility_env: true,
+}
+
+// (TODO) Rename to product_compatibility_matrix.xml after.
+// Currently use this module to diff between the generate xml from bp and mk.
+vintf_compatibility_matrix {
+    name: "product_compatibility_matrix.xml.bp",
+    stem: "compatibility_matrix.bp.xml",
+    use_product_compatibility_env: true,
+    product_specific: true,
+}
