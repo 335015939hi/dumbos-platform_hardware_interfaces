@@ -160,6 +160,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0a76429_0704b393",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-30T23:32:19Z",
+      "side": 1,
+      "message": "It just feels a bit awkward to me. I suggest one of the following, from most preferred to least preferred:\n\n- Fix Soong so required in static library works; then add `required:` here\n- Add `filterPowerSupplyEvents.o` to base_vendor.mk (preferably with some comment to explain why it is in `base_vendor.mk` not in libhealthloop `required:`)\n- Or at the very least, add some blurb to https://android.googlesource.com/platform/hardware/interfaces/+/refs/changes/31/3199931/4/health/aidl/, then ask partner eng to spread the words to partners",
+      "parentUuid": "d34fb7f2_60cee0bc",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 71
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02e49beb_489a328b",
         "filename": "health/utils/libhealthloop/Android.bp",
         "patchSetId": 4
