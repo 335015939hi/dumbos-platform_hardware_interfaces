@@ -35,10 +35,10 @@ var (
 	pctx = android.NewPackageContext("android/vintf")
 
 	assembleVintfRule = pctx.AndroidStaticRule("assemble_vintf", blueprint.RuleParams{
-		Command:     `${assembleVintfCmd} -i ${inputs} -o ${out}`,
-		CommandDeps: []string{"${assembleVintfCmd}"},
+		Command:     `${assembleVintfEnv} ${assembleVintfCmd} -i ${inputs} -o ${out} ${extraArgs}`,
+		CommandDeps: []string{"${assembleVintfCmd}", "${AvbToolCmd}"},
 		Description: "assemble_vintf -i ${inputs}",
-	}, "inputs")
+	}, "inputs", "extraArgs", "assembleVintfEnv")
 
 	xmllintXsd = pctx.AndroidStaticRule("xmllint-xsd", blueprint.RuleParams{
 		Command:     `$XmlLintCmd --quiet --schema $xsd $in > /dev/null && touch -a $out`,
@@ -52,7 +52,10 @@ var (
 )
 
 const (
-	relpath = "vintf"
+	relpath                  = "vintf"
+	emptyManifest            = "hardware/interfaces/compatibility_matrices/manifest.empty.xml"
+	compatibilityEmptyMatrix = "hardware/interfaces/compatibility_matrices/compatibility_matrix.empty.xml"
+	policyVers               = "30"
 )
 
 type vintfCompatibilityMatrixProperties struct {
@@ -64,6 +67,9 @@ type vintfCompatibilityMatrixProperties struct {
 
 	// list of kernel_config modules to be combined to final output
 	Kernel_configs []string
+
+	// Type of the FCM type, the allowed type are device_fcm and product_fcm and it should only be used under hardware/interfaces/compatibility_matrices
+	Type *string
 }
 
 type vintfCompatibilityMatrixRule struct {
@@ -72,11 +78,13 @@ type vintfCompatibilityMatrixRule struct {
 
 	genFile                android.WritablePath
 	additionalDependencies android.WritablePaths
+	phonyOnly              bool
 }
 
 func init() {
 	pctx.HostBinToolVariable("assembleVintfCmd", "assemble_vintf")
 	pctx.HostBinToolVariable("XmlLintCmd", "xmllint")
+	pctx.HostBinToolVariable("AvbToolCmd", "avbtool")
 	android.RegisterModuleType("vintf_compatibility_matrix", vintfCompatibilityMatrixFactory)
 }
 
@@ -131,6 +139,20 @@ func (g *vintfCompatibilityMatrixRule) getSchema(ctx android.ModuleContext) andr
 }
 
 func (g *vintfCompatibilityMatrixRule) GenerateAndroidBuildActions(ctx android.ModuleContext) {
+	frameworkRuleImplicits := []android.Path{}
+	extraArgs := []string{}
+
+	// Types attribute only allow `device_fcm` or `product_fcm` if set and only restricted it being used under
+	// `hardware/interfaces/compatibility_matrices` to prevent accidental external usages.
+	matrixType := proptools.String(g.properties.Type)
+	if matrixType != "" {
+		if matrixType != "device_fcm" && matrixType != "product_fcm" {
+			panic(fmt.Errorf("The attribute 'type' value must be either 'device_fcm' or 'product_fcm' if set!"))
+		}
+		if !strings.HasPrefix(android.PathForModuleSrc(ctx).String(), "hardware/interfaces/compatibility_matrices") {
+			panic(fmt.Errorf("Attribute type can only be set for module under `hardware/interfaces/compatibility_matrices`!"))
+		}
+	}
 
 	outputFilename := proptools.String(g.properties.Stem)
 	if outputFilename == "" {
@@ -158,15 +180,70 @@ func (g *vintfCompatibilityMatrixRule) GenerateAndroidBuildActions(ctx android.M
 		}
 	})
 
+	// For product_compatibility_matrix.xml the source will from the environment variable
+	// DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE.
+	if matrixType == "product_fcm" {
+		productMatrixs := android.PathsForSource(ctx, ctx.Config().DeviceProductCompatibilityMatrixFile())
+		if len(productMatrixs) > 0 {
+			extraArgs = append(extraArgs, "-c", android.PathForSource(ctx, emptyManifest).String())
+		}
+
+		inputPaths = append(inputPaths, productMatrixs...)
+	}
+
+	// For framework_compatibility_matrix.device.xml the source may come from the environment variable
+	// DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE or use compatibilityEmptyMatrix if not set.
+	if matrixType == "device_fcm" {
+		frameworkMatrixs := android.PathsForSource(ctx, ctx.Config().DeviceFrameworkCompatibilityMatrixFile())
+		if len(frameworkMatrixs) > 0 {
+			inputPaths = append(inputPaths, frameworkMatrixs...)
+
+			// Generate BuildAction for generating the check manifest.
+			emptyManifestPath := android.PathForSource(ctx, emptyManifest)
+			genCheckManifest := android.PathForModuleGen(ctx, "manifest.check.xml")
+			checkManifestInputs := []android.Path{emptyManifestPath}
+			genCheckManifestEnvs := []string{
+				"BOARD_SEPOLICY_VERS=" + ctx.DeviceConfig().BoardSepolicyVers(),
+				"VINTF_IGNORE_TARGET_FCM_VERSION=true",
+			}
+
+			ctx.Build(pctx, android.BuildParams{
+				Rule:        assembleVintfRule,
+				Description: "Framework Check Manifest",
+				Implicits:   checkManifestInputs,
+				Output:      genCheckManifest,
+				Args: map[string]string{
+					"inputs":           android.PathForSource(ctx, emptyManifest).String(),
+					"extraArgs":        "",
+					"assembleVintfEnv": strings.Join(genCheckManifestEnvs, " "),
+				},
+			})
+
+			frameworkRuleImplicits = append(frameworkRuleImplicits, genCheckManifest)
+			extraArgs = append(extraArgs, "-c", genCheckManifest.String())
+		} else {
+			inputPaths = append(inputPaths, android.PathForSource(ctx, compatibilityEmptyMatrix))
+		}
+	}
+
+	// If there's no any inputs means it will not need to generate any installed targets and will treat it as a phony target.
+	if len(inputPaths) == 0 {
+		g.phonyOnly = true
+		return
+	}
+
 	g.genFile = android.PathForModuleGen(ctx, outputFilename)
+	frameworkRuleImplicits = append(frameworkRuleImplicits, inputPaths...)
 
 	ctx.Build(pctx, android.BuildParams{
 		Rule:        assembleVintfRule,
 		Description: "Framework Compatibility Matrix",
-		Implicits:   inputPaths,
+		Implicits:   frameworkRuleImplicits,
 		Output:      g.genFile,
 		Args: map[string]string{
-			"inputs": strings.Join(inputPaths.Strings(), ":"),
+			"inputs":           strings.Join(inputPaths.Strings(), ":"),
+			"extraArgs":        strings.Join(extraArgs, " "),
+			"assembleVintfEnv": g.getAssembleVintfEnv(ctx),
 		},
 	})
 	g.generateValidateBuildAction(ctx, g.genFile, schema.Path())
@@ -174,7 +251,38 @@ func (g *vintfCompatibilityMatrixRule) GenerateAndroidBuildActions(ctx android.M
 	ctx.InstallFile(android.PathForModuleInstall(ctx, "etc", relpath), outputFilename, g.genFile)
 }
 
+func (g *vintfCompatibilityMatrixRule) getAssembleVintfEnv(ctx android.ModuleContext) string {
+	if proptools.String(g.properties.Type) == "device_fcm" {
+		assembleVintfEnvs := []string{
+			fmt.Sprintf("POLICYVERS=%s", policyVers),
+			fmt.Sprintf("PLATFORM_SEPOLICY_VERSION=%s", ctx.DeviceConfig().PlatformSepolicyVersion()),
+			fmt.Sprintf("PLATFORM_SEPOLICY_COMPAT_VERSIONS=\"%s\"", strings.Join(ctx.DeviceConfig().PlatformSepolicyCompatVersions(), " ")),
+		}
+
+		if ctx.Config().BoardAvbEnable() {
+			assembleVintfEnvs = append(assembleVintfEnvs, fmt.Sprintf("FRAMEWORK_VBMETA_VERSION=\"$$(${AvbToolCmd} add_hashtree_footer --print_required_libavb_version %s)\"", strings.Join(ctx.Config().BoardAvbSystemAddHashtreeFooterArgs(), " ")))
+		} else {
+			assembleVintfEnvs = append(assembleVintfEnvs, "FRAMEWORK_VBMETA_VERSION=\"0.0\"")
+		}
+
+		return strings.Join(assembleVintfEnvs, " ")
+	}
+
+	return ""
+}
+
 func (g *vintfCompatibilityMatrixRule) AndroidMk() android.AndroidMkData {
+	if g.phonyOnly {
+		return android.AndroidMkData{
+			Custom: func(w io.Writer, name, prefix, moduleDir string, data android.AndroidMkData) {
+				fmt.Fprintln(w, "\ninclude $(CLEAR_VARS)", " # vintf.vintf_compatibility_matrix")
+				fmt.Fprintln(w, "LOCAL_PATH :=", moduleDir)
+				fmt.Fprintln(w, "LOCAL_MODULE :=", name)
+				fmt.Fprintln(w, "include $(BUILD_PHONY_PACKAGE)")
+			},
+		}
+	}
+
 	return android.AndroidMkData{
 		Class:      "ETC",
 		OutputFile: android.OptionalPathForPath(g.genFile),
