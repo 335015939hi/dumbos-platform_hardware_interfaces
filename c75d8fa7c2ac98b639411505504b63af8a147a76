@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24c7f9e5_eccd3efe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-07-30T16:18:52Z",
+      "side": 1,
+      "message": "Thanks for pitching in!",
+      "revId": "c75d8fa7c2ac98b639411505504b63af8a147a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7591f568_a5d21d9f",
+        "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-07-30T16:18:52Z",
+      "side": 1,
+      "message": "The more generic solution here is to key off of the reporting mode, since there are other valid HAL configurations that wouldn\u0027t pass the test (e.g. if you only had this meta sensor + step detect, the test would fail for the same reason):\n\n```\nint32_t reportingMode \u003d info.flags \u0026 SensorInfo:: SENSOR_FLAG_BITS_MASK_REPORTING_MODE;\nif (reportingMode \u003d\u003d ...CONTINUOUS_MODE ||\n    reportingMode \u003d\u003d ...ON_CHANGE_MODE) {\n  ...push_back...\n```\n\nPlease also change the function name to reflect this different behavior.",
+      "range": {
+        "startLine": 501,
+        "startChar": 0,
+        "endLine": 503,
+        "endChar": 9
+      },
+      "revId": "c75d8fa7c2ac98b639411505504b63af8a147a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d32e1f9f_7431faad",
+        "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-07-30T16:18:52Z",
+      "side": 1,
+      "message": "We shouldn\u0027t skip the entire test, since it helps ensure that the HAL doesn\u0027t crash under this condition that can happen in normal operation, etc.\n\nInstead, we should just skip any assertions on `collectEvents(..., kNumEvents)`\n\nThe same applies to CleanupConnectionsOnInitialize, and actually that same reasoning applies here for the case when there are 0 sensors - could you help update that?",
+      "range": {
+        "startLine": 712,
+        "startChar": 0,
+        "endLine": 715,
+        "endChar": 5
+      },
+      "revId": "c75d8fa7c2ac98b639411505504b63af8a147a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
