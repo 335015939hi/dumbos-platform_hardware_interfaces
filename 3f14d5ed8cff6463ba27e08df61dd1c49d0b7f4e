@@ -159,6 +159,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e36ce52d_c11be1b1",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-30T23:24:04Z",
+      "side": 1,
+      "message": "(same here, I just meant to rename the file. The module name can be anything that makes sense. But lowerCameCase_mixed_with_snake_case seems a bit awkward to me...)",
+      "parentUuid": "02e49beb_489a328b",
+      "range": {
+        "startLine": 68,
+        "startChar": 11,
+        "endLine": 68,
+        "endChar": 39
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "174b4277_c3476f6f",
         "filename": "health/utils/libhealthloop/Android.bp",
         "patchSetId": 4
