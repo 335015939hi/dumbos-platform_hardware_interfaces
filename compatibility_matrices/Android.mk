@@ -57,6 +57,8 @@ my_gen_check_manifest :=
 endif # DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE
 
 # TODO(b/296875906): use POLICYVERS from Soong
+# For soong,
+# define in hardware/interfaces/compatibility_matrices/build/vintf_compatibility_matrix.go
 POLICYVERS ?= 30
 
 LOCAL_ADD_VBMETA_VERSION := true
