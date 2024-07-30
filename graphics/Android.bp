@@ -55,6 +55,9 @@ cc_defaults {
     static_libs: [
         "android.hardware.graphics.composer3-V3-ndk",
     ],
+    defaults: [
+        "android.hardware.graphics.common-ndk_shared",
+    ],
 }
 
 cc_defaults {
@@ -62,4 +65,24 @@ cc_defaults {
     shared_libs: [
         "android.hardware.graphics.composer3-V3-ndk",
     ],
+    defaults: [
+        "android.hardware.graphics.common-ndk_shared",
+    ],
+}
+
+aidl_interface_defaults {
+    name: "android.hardware.graphics.common_aidl",
+    imports: ["android.hardware.graphics.common-V5"],
+}
+
+aidl_interface_defaults {
+    name: "android.hardware.graphics.allocator_aidl",
+    imports: ["android.hardware.graphics.allocator-V3"],
+    defaults: ["android.hardware.graphics.common_aidl"],
+}
+
+aidl_interface_defaults {
+    name: "android.hardware.graphics.composer3_aidl",
+    imports: ["android.hardware.graphics.composer3-v4"],
+    defaults: ["android.hardware.graphics.common_aidl"],
 }
