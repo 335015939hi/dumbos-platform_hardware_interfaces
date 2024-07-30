@@ -601,7 +601,6 @@ LeAudioOffloadAudioProvider::getCapabilitiesMatchedAseConfigurationSettings(
     const IBluetoothAudioProvider::LeAudioDeviceCapabilities& capabilities,
     uint8_t direction) {
   // Create a new LeAudioAseConfigurationSetting and return
-  // For other direction will contain all settings
   LeAudioAseConfigurationSetting filtered_setting{
       .audioContext = setting.audioContext,
       .sinkAseConfiguration = setting.sinkAseConfiguration,
@@ -651,17 +650,10 @@ LeAudioOffloadAudioProvider::getRequirementMatchedAseConfigurationSettings(
     IBluetoothAudioProvider::LeAudioAseConfigurationSetting& setting,
     const IBluetoothAudioProvider::LeAudioConfigurationRequirement&
         requirement) {
-  // Try to match context in metadata.
-  if ((setting.audioContext.bitmask & requirement.audioContext.bitmask) !=
-      requirement.audioContext.bitmask)
-    return std::nullopt;
-
-  // Further filter setting's context
-  setting.audioContext.bitmask &= requirement.audioContext.bitmask;
-
   // Create a new LeAudioAseConfigurationSetting to return
+  // Make context the same as the requirement
   LeAudioAseConfigurationSetting filtered_setting{
-      .audioContext = setting.audioContext,
+      .audioContext = requirement.audioContext,
       .packing = setting.packing,
       .flags = setting.flags,
   };
@@ -707,41 +699,39 @@ LeAudioOffloadAudioProvider::getRequirementMatchedAseConfigurationSettings(
   return filtered_setting;
 }
 
-std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
+std::optional<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
 LeAudioOffloadAudioProvider::matchWithRequirement(
     std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>&
         matched_ase_configuration_settings,
-    const std::vector<IBluetoothAudioProvider::LeAudioConfigurationRequirement>&
-        in_requirements) {
-  // Each requirement will match with a valid setting
-  std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting> result;
-  for (auto& requirement : in_requirements) {
-    LOG(INFO) << __func__ << ": Trying to match for the requirement "
-              << requirement.toString();
-    bool is_matched = false;
-
-    for (auto& setting : matched_ase_configuration_settings) {
-      auto filtered_ase_configuration_setting =
-          getRequirementMatchedAseConfigurationSettings(setting, requirement);
-      if (filtered_ase_configuration_setting.has_value()) {
-        result.push_back(filtered_ase_configuration_setting.value());
-        LOG(INFO) << __func__ << ": Result found: "
-                  << getSettingOutputString(
-                         filtered_ase_configuration_setting.value());
-        // Found a matched setting, ignore other settings
-        is_matched = true;
-        break;
-      }
+    const IBluetoothAudioProvider::LeAudioConfigurationRequirement& requirement,
+    bool isMatchContext) {
+  LOG(INFO) << __func__ << ": Trying to match for the requirement "
+            << requirement.toString() << ", match context = " << isMatchContext;
+  for (auto& setting : matched_ase_configuration_settings) {
+    // Try to match context in metadata.
+    if (isMatchContext) {
+      if ((setting.audioContext.bitmask & requirement.audioContext.bitmask) !=
+          requirement.audioContext.bitmask)
+        continue;
+      LOG(DEBUG) << __func__ << ": Setting with matched context: "
+                 << getSettingOutputString(setting);
     }
-    if (!is_matched) {
-      // If cannot satisfy this requirement, return an empty result
-      LOG(WARNING) << __func__ << ": Cannot match the requirement "
-                   << requirement.toString();
-      result.clear();
-      break;
+
+    auto filtered_ase_configuration_setting =
+        getRequirementMatchedAseConfigurationSettings(setting, requirement);
+    if (filtered_ase_configuration_setting.has_value()) {
+      LOG(INFO) << __func__ << ": Result found: "
+                << getSettingOutputString(
+                       filtered_ase_configuration_setting.value());
+      // Found a matched setting, ignore other settings
+      return filtered_ase_configuration_setting;
     }
   }
-  return result;
+  // If cannot satisfy this requirement, return nullopt
+  LOG(WARNING) << __func__ << ": Cannot match the requirement "
+               << requirement.toString()
+               << ", match context = " << isMatchContext;
+  return std::nullopt;
 }
 
 // For each requirement, a valid ASE configuration will satify:
@@ -769,20 +759,11 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::getLeAudioAseConfiguration(
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
   }
 
-  // Split out preferred and non-preferred settings based on context
-  // An example: preferred = MEDIA, available: MEDIA | CONVERSATION
-  // -> preferred list will have settings with MEDIA context
-  // -> non-preferred list will have settings with any context
-  // We want to match requirement with preferred context settings first
+  // Matched ASE configuration with ignored audio context
   std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
       sink_matched_ase_configuration_settings;
   std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
       matched_ase_configuration_settings;
-  // Matched ASE configuration with non-preferred audio context
-  std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
-      sink_non_prefer_matched_ase_configuration_settings;
-  std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
-      non_prefer_matched_ase_configuration_settings;
 
   // A setting must match both source and sink.
   // First filter all setting matched with sink capability
@@ -790,32 +771,20 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::getLeAudioAseConfiguration(
     for (auto& setting : ase_configuration_settings)
       for (auto& capability : in_remoteSinkAudioCapabilities.value()) {
         if (!capability.has_value()) continue;
-        // LOG(DEBUG) << __func__ << ": " << capability.value().toString();
         auto filtered_ase_configuration_setting =
             getCapabilitiesMatchedAseConfigurationSettings(
                 setting, capability.value(), kLeAudioDirectionSink);
         if (filtered_ase_configuration_setting.has_value()) {
-          // Push to non-prefer first for the broadest matching possible
-          sink_non_prefer_matched_ase_configuration_settings.push_back(
+          sink_matched_ase_configuration_settings.push_back(
               filtered_ase_configuration_setting.value());
-          // Try to filter out prefer context to another vector.
-          if (filterCapabilitiesMatchedContext(
-                  filtered_ase_configuration_setting.value().audioContext,
-                  capability.value())) {
-            sink_matched_ase_configuration_settings.push_back(
-                filtered_ase_configuration_setting.value());
-          }
         }
       }
   } else {
     sink_matched_ase_configuration_settings = ase_configuration_settings;
-    sink_non_prefer_matched_ase_configuration_settings =
-        ase_configuration_settings;
   }
 
   // Combine filter every source capability
   if (in_remoteSourceAudioCapabilities.has_value()) {
-    // Prefer context
     for (auto& setting : sink_matched_ase_configuration_settings)
       for (auto& capability : in_remoteSourceAudioCapabilities.value()) {
         if (!capability.has_value()) continue;
@@ -823,62 +792,47 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::getLeAudioAseConfiguration(
             getCapabilitiesMatchedAseConfigurationSettings(
                 setting, capability.value(), kLeAudioDirectionSource);
         if (filtered_ase_configuration_setting.has_value()) {
-          // Try to filter out prefer context to another vector.
-          if (filterCapabilitiesMatchedContext(
-                  filtered_ase_configuration_setting.value().audioContext,
-                  capability.value())) {
-            matched_ase_configuration_settings.push_back(
-                filtered_ase_configuration_setting.value());
-          }
-        }
-      }
-
-    // Non prefer context
-    for (auto& setting : sink_non_prefer_matched_ase_configuration_settings)
-      for (auto& capability : in_remoteSourceAudioCapabilities.value()) {
-        if (!capability.has_value()) continue;
-        auto filtered_ase_configuration_setting =
-            getCapabilitiesMatchedAseConfigurationSettings(
-                setting, capability.value(), kLeAudioDirectionSource);
-        if (filtered_ase_configuration_setting.has_value()) {
-          // Push to non-prefer first for the broadest matching possible
-          non_prefer_matched_ase_configuration_settings.push_back(
+          matched_ase_configuration_settings.push_back(
               filtered_ase_configuration_setting.value());
         }
       }
   } else {
     matched_ase_configuration_settings =
         sink_matched_ase_configuration_settings;
-    non_prefer_matched_ase_configuration_settings =
-        sink_non_prefer_matched_ase_configuration_settings;
   }
 
-  // Matching priority list:
-  // Preferred context - exact match with allocation
-  // Any context - exact match with allocation
-
-  LOG(DEBUG) << __func__ << ": Called with requirement: ";
+  std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting> result;
   for (auto& requirement : in_requirements) {
-    LOG(DEBUG) << __func__ << " requirement: " << requirement.toString();
+    // For each requirement, try to match with a setting.
+    // If we cannot match, return an empty result.
+
+    // Matching priority list:
+    // Preferred context - exact match with allocation
+    // Any context - exact match with allocation
+
+    auto matched_setting_with_context = matchWithRequirement(
+        matched_ase_configuration_settings, requirement, true);
+    if (matched_setting_with_context.has_value()) {
+      result.push_back(matched_setting_with_context.value());
+    } else {
+      auto matched_setting = matchWithRequirement(
+          matched_ase_configuration_settings, requirement, false);
+      if (matched_setting.has_value()) {
+        result.push_back(matched_setting_with_context.value());
+      } else {
+        // Cannot find a match for this requirement
+        // Immediately return
+        LOG(ERROR)
+            << __func__
+            << ": Cannot find any match for this requirement, exitting...";
+        result.clear();
+        *_aidl_return = result;
+        return ndk::ScopedAStatus::ok();
+      }
+    }
   }
 
-  LOG(DEBUG) << __func__ << ": List of settings with the same context:";
-  for (auto& setting : matched_ase_configuration_settings) {
-    LOG(DEBUG) << __func__ << ": " << getSettingOutputString(setting);
-  }
-
-  auto result =
-      matchWithRequirement(matched_ase_configuration_settings, in_requirements);
-  if (result.empty()) {
-    LOG(WARNING) << __func__
-                 << ": Cannot match with preferred context settings";
-    result = matchWithRequirement(non_prefer_matched_ase_configuration_settings,
-                                  in_requirements);
-  }
-  if (result.empty()) {
-    LOG(ERROR) << __func__
-               << ": Cannot match with non-preferred context settings";
-  }
+  LOG(INFO) << __func__ << ": Found matches for all requirements!";
   *_aidl_return = result;
   return ndk::ScopedAStatus::ok();
 };
