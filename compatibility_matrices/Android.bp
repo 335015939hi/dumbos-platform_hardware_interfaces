@@ -114,3 +114,69 @@ phony {
         },
     },
 }
+
+/** 
+genrule {
+    name: "manifest_check_xml",
+    out: ["manifest.check.xml"],
+    srcs: [
+        "manifest.empty.xml",
+    ],
+    tools: [
+        "assemble_vintf",
+    ],
+    cmd: "BOARD_SEPOLICY_VERS=202504 VINTF_IGNORE_TARGET_FCM_VERSION=true " +
+         "$(location assemble_vintf) -i $(in) -o $(out)",
+}
+**/
+
+/**
+vintf_compatibility_matrix {
+    name: "framework_compatibility_matrix.device.xml.bp",
+    stem: "compatibility_matrix.device.bpxml",
+    use_device_framework_compatibility_matrix_file: true,
+    srcs: [
+        "manifest.empty.xml",
+    ],
+}
+**/
+
+
+vintf_compatibility_matrix {
+    name: "product_compatibility_matrix.xml.bp",
+    stem: "compatibility_matrix.bp.xml",
+    use_product_compatibility_env: true,
+    product_specific: true,
+}
+
+vintf_compatibility_matrix {
+    name: "framework_compatibility_matrix.device.xml.bp",
+    stem: "compatibility_matrix.device.bp.xml",
+    use_framework_compatibility_env: true,
+    product_specific: true,
+}
+
+/**
+genrule {
+    name: "version_build_fingerprint",
+    srcs: [
+        ":buildinfo.prop",
+    ],
+    out: ["fingerprint.txt"],
+    cmd: "grep ro.build.version.incremental= $(location :buildinfo.prop) > $(out) && " +
+        "sed -i 's/ro.build.version.incremental=//' $(out)",
+}
+
+genrule {
+    name: "framework_vbmeta_version",
+    out: ["framework_vbmeta_version.txt"],
+    srcs: [
+        "manifest.empty.xml",
+    ],
+    tools: [
+        "avbtool",
+    ],
+    cmd: "BOARD_SEPOLICY_VERS=202504 VINTF_IGNORE_TARGET_FCM_VERSION=true " +
+         "$(location assemble_vintf) -i $(in) -o $(out)",
+}
+**/
