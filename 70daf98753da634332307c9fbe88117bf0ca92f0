@@ -46,6 +46,69 @@
       },
       "revId": "70daf98753da634332307c9fbe88117bf0ca92f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c749b038_fe607637",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-07-30T22:30:21Z",
+      "side": 1,
+      "message": "just FYI, this cribs pretty strongly from\nhttps://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/17129272\nwhich Stephane Lee, Connor and I spent a lot of effort on getting things working.\n\nPerhaps some attribution (in the commit message?) would be appropriate.",
+      "revId": "70daf98753da634332307c9fbe88117bf0ca92f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f71cd8a4_aea7a8f1",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-07-30T22:30:21Z",
+      "side": 1,
+      "message": "probably should document M4/M2/M1/... return 0 on match",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "70daf98753da634332307c9fbe88117bf0ca92f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39410370_fcef3c60",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-07-30T22:30:21Z",
+      "side": 1,
+      "message": "dead code?",
+      "range": {
+        "startLine": 83,
+        "startChar": 1,
+        "endLine": 84,
+        "endChar": 45
+      },
+      "revId": "70daf98753da634332307c9fbe88117bf0ca92f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
