@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ec99c1f_706db91d",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-07-30T22:34:56Z",
+      "side": 1,
+      "message": "hmm, do you know where the resulting .o goes in the image?\n\n/system/etc/bpf\n/system/etc/bpf/vendor\n/vendor/etc/bpf\n\nI would guess the latter but worth confirming.",
+      "parentUuid": "47a153a3_e050aece",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 17
+      },
+      "revId": "70daf98753da634332307c9fbe88117bf0ca92f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c749b038_fe607637",
