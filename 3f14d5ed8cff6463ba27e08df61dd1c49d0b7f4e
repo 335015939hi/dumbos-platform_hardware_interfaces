@@ -136,6 +136,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d34fb7f2_60cee0bc",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-30T23:24:31Z",
+      "side": 1,
+      "message": "The only aspect that will not be enabled in partner builds is uevent filtering. Otherwise their code that uses libhealthloop will work fine. Does this address your concern?",
+      "parentUuid": "91d7f51b_2bc35ce8",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 71
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02e49beb_489a328b",
         "filename": "health/utils/libhealthloop/Android.bp",
         "patchSetId": 4

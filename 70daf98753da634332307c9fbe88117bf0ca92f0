@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f2c221e_09b08bdf",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-30T23:24:31Z",
+      "side": 1,
+      "message": "From Cuttlefish:\n```\n$ adb -s 0.0.0.0:6520 shell \u0027find / 2\u003e\u00261 | grep filterPowerSupplyEvents\u0027\n/sys/fs/bpf/vendor/prog_filterPowerSupplyEvents_skfilter_power_supply\n/vendor/etc/bpf/filterPowerSupplyEvents.o\n```",
+      "parentUuid": "8ec99c1f_706db91d",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 17
+      },
+      "revId": "70daf98753da634332307c9fbe88117bf0ca92f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c749b038_fe607637",
