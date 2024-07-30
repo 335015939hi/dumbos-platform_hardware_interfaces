@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e13b9a1c_757e03fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-30T23:22:23Z",
+      "side": 1,
+      "message": "Prefer r.android.com links; git.corp.google.com links cannot be resolved by the public.",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 76
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c10a4ef3_6eff1e4c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-30T23:22:23Z",
+      "side": 1,
+      "message": "This is not visible to the public. I would say just delete this line, or keep it with the title of the commit message of that change.",
+      "range": {
+        "startLine": 17,
+        "startChar": 67,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "660b244f_8c70723b",
