@@ -22,6 +22,30 @@
       },
       "revId": "e3fb50ff3fd308602e9abdd490135ef036df575a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaabac06_d8263b5c",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2024-07-31T00:46:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30d2fe7e_4a74ed24",
+      "range": {
+        "startLine": 464,
+        "startChar": 15,
+        "endLine": 464,
+        "endChar": 42
+      },
+      "revId": "e3fb50ff3fd308602e9abdd490135ef036df575a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
