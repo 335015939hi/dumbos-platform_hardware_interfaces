@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "157e1614_88888990",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-07-31T23:24:30Z",
+      "side": 1,
+      "message": "technically this is dead code too",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 0
+      },
+      "revId": "edeb340a80fd2b62e6bb8f212dd374923f9ee484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d20cb12_46c2de7b",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-07-31T23:24:30Z",
+      "side": 1,
+      "message": "does this need to be -1?\n\nnote that you\u0027re matching \\0SUBSYSTEM\u003d and I imagine the first line doesn\u0027t actually start with a 0...",
+      "range": {
+        "startLine": 65,
+        "startChar": 36,
+        "endLine": 65,
+        "endChar": 37
+      },
+      "revId": "edeb340a80fd2b62e6bb8f212dd374923f9ee484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
