@@ -92,6 +92,30 @@
       },
       "revId": "edeb340a80fd2b62e6bb8f212dd374923f9ee484",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e0a2e74_c575b9cc",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-07-31T23:38:00Z",
+      "side": 1,
+      "message": "yeah perhaps worth commenting (possibly linking\n\nhttps://source.corp.google.com/h/prodkernel/kernel/upstream/torvalds/linux-2.6/+/master:lib/kobject_uevent.c;l\u003d558)\n\nreading the above it also seems like we\u0027re guaranteed to have ACTION\u003d%s\\0 and DEVPATH\u003d%s\\0 so we could do +16",
+      "parentUuid": "88715f41_fd348fbd",
+      "range": {
+        "startLine": 65,
+        "startChar": 36,
+        "endLine": 65,
+        "endChar": 37
+      },
+      "revId": "edeb340a80fd2b62e6bb8f212dd374923f9ee484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
