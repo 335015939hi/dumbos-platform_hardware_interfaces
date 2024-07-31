@@ -121,6 +121,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ec695d7a_6edb601c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T18:28:27Z",
+      "side": 1,
+      "message": "The googleplex link has been removed and has been replaced with the following text: \"Stephane Lee, Add BPF filter to filter uevents for SUBSYSTEM\u003dpowersupply, 2022-05-06.\"",
+      "parentUuid": "b14791cc_24add85f",
+      "range": {
+        "startLine": 17,
+        "startChar": 67,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "660b244f_8c70723b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
