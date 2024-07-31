@@ -68,6 +68,30 @@
       },
       "revId": "edeb340a80fd2b62e6bb8f212dd374923f9ee484",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88715f41_fd348fbd",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T23:30:36Z",
+      "side": 1,
+      "message": "kobject_uevent_env() never puts SUBSYSTEM\u003d at the start so I think that the current code is fine. Do you perhaps want me to add a comment?",
+      "parentUuid": "4d20cb12_46c2de7b",
+      "range": {
+        "startLine": 65,
+        "startChar": 36,
+        "endLine": 65,
+        "endChar": 37
+      },
+      "revId": "edeb340a80fd2b62e6bb8f212dd374923f9ee484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
