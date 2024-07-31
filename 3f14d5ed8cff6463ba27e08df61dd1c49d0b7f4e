@@ -279,6 +279,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "553e5bd7_a80384a5",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-31T20:18:35Z",
+      "side": 1,
+      "message": "I see. I think this is fine, given that other bpf programs also follow the lowerCamelCase naming:\n\nhttps://cs.android.com/search?q\u003df:android.bp%20bpf%5C%20%7B\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain\u0026ct\u003dos\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/bpfprogs/Android.bp?q\u003df:android.bp%20bpf%5C%20%7B\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain\u0026ct\u003dos\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:frameworks/native/services/gpuservice/bpfprogs/Android.bp?q\u003df:android.bp%20bpf%5C%20%7B\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain\u0026ct\u003dos\n\nSo let\u0027s stick with the current file name and module name.",
+      "parentUuid": "75634ff6_d35ac480",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91d7f51b_2bc35ce8",
@@ -530,6 +554,30 @@
       "side": 1,
       "message": "`FilterPowerSupplyEventsTest.cpp` not `filterPowerSupplyEventsTest.cpp`, please",
       "parentUuid": "67ff71d8_94766a31",
+      "range": {
+        "startLine": 71,
+        "startChar": 9,
+        "endLine": 71,
+        "endChar": 37
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05d8db95_44f105dd",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-31T20:18:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bab20885_08fb1a43",
       "range": {
         "startLine": 71,
         "startChar": 9,
