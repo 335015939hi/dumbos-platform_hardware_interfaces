@@ -66,6 +66,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "068bbf33_b1675cee",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T19:33:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30762a94_9ef24452",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 16
+      },
+      "revId": "ad10922ef7433f10cdff125da92647d4c102c960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cebd7cef_54985b66",
@@ -79,6 +103,30 @@
       "writtenOn": "2024-07-31T19:20:56Z",
       "side": 1,
       "message": "nit (feel free to ignore):\n\n```\nfilter_fd_ \u003d std::move(*filter_fd);\n```\n\nstd::move indicates the transfer of ownership so you don\u0027t even need the comment. (They are the same internally though: https://cs.android.com/android/platform/superproject/main/+/main:system/libbase/include/android-base/unique_fd.h;l\u003d70;drc\u003d7bc8db18d96e9c76d72aefe16826981fbf44fba4 )",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 43
+      },
+      "revId": "ad10922ef7433f10cdff125da92647d4c102c960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1fc1ce1_1e586cc3",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T19:33:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cebd7cef_54985b66",
       "range": {
         "startLine": 188,
         "startChar": 4,
