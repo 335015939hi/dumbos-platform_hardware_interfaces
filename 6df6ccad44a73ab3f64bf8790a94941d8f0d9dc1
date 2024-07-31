@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30d02465_9ee1d7c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-31T22:27:25Z",
+      "side": 1,
+      "message": "If we don\u0027t support bpf in recovery, then UeventInit() needs to NOT call AttachFilter() in recovery.\n\nPlease still manually test it in recovery to ensure it doesn\u0027t break; that is, libhealthloop needs to correctly skip calling AttachFilter() in recovery mode.",
+      "parentUuid": "2ee25ec1_a8348e4f",
+      "revId": "6df6ccad44a73ab3f64bf8790a94941d8f0d9dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99b22c1a_56a55123",
         "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
         "patchSetId": 11
