@@ -257,6 +257,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "75634ff6_d35ac480",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T20:06:14Z",
+      "side": 1,
+      "message": "Renaming the file without renaming the filter doesn\u0027t work. Apparently the \u0027bpf\u0027 module type doesn\u0027t support using different case for the file name and the module name. So I can either rename both the source file and the module name (and make the module name inconsistent with other BPF filters) or keep the current approach (which is inconsistent with existing source file names in the same directory as already mentioned above). Please let me know what you prefer.",
+      "parentUuid": "dd8d18cb_6a21c28e",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "91d7f51b_2bc35ce8",
         "filename": "health/utils/libhealthloop/Android.bp",
         "patchSetId": 4
