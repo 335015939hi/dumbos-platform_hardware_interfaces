@@ -44,6 +44,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ca80d9f_50992ea2",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-31T19:23:50Z",
+      "side": 1,
+      "message": "I mean, keep the KLOG_ERROR() and also add LOG(FATAL) so we have logs in both klog and system log. I don\u0027t know if there\u0027s a way to dump stack trace in klog (there\u0027s no KLOG_FATAL); if so, that should be preferred.",
+      "parentUuid": "30762a94_9ef24452",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 16
+      },
+      "revId": "ad10922ef7433f10cdff125da92647d4c102c960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cebd7cef_54985b66",
         "filename": "health/utils/libhealthloop/HealthLoop.cpp",
         "patchSetId": 8
