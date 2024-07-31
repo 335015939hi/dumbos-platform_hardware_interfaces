@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ee25ec1_a8348e4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-07-31T22:15:11Z",
+      "side": 1,
+      "message": "Do we even support bpf in recovery?  I think we don\u0027t...\n\nbpf depends on tethering mainline module apex being mounted...",
+      "parentUuid": "ff11da4f_22768f6b",
+      "revId": "6df6ccad44a73ab3f64bf8790a94941d8f0d9dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99b22c1a_56a55123",
         "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
         "patchSetId": 11
