@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c65e5991_6931af3e",
+        "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 2017122
+      },
+      "writtenOn": "2024-07-31T10:08:19Z",
+      "side": 1,
+      "message": "I think it won\u0027t, otherwise it will be de-activated immediately.",
+      "parentUuid": "59fc4b7c_f9962177",
+      "range": {
+        "startLine": 501,
+        "startChar": 0,
+        "endLine": 503,
+        "endChar": 9
+      },
+      "revId": "c75d8fa7c2ac98b639411505504b63af8a147a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d32e1f9f_7431faad",
         "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
         "patchSetId": 1
