@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7c72c7e_c33ba690",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T23:59:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "912e5fd8_c631997b",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 0
+      },
+      "revId": "edeb340a80fd2b62e6bb8f212dd374923f9ee484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d82efa5_ec2108c3",
