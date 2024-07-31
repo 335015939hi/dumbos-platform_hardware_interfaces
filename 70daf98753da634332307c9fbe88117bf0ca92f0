@@ -113,6 +113,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "654a25f6_bbce78d9",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T18:16:00Z",
+      "side": 1,
+      "message": "The following has been added in the CL description: \"Multiple ideas and also some code in this CL have been borrowed from Stephane Lee\u0027s CL\". Please let me know if you want me to make that text more detailed.",
+      "parentUuid": "c749b038_fe607637",
+      "revId": "70daf98753da634332307c9fbe88117bf0ca92f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f71cd8a4_aea7a8f1",
@@ -136,6 +154,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3c4ed2b_8628343a",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T18:16:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f71cd8a4_aea7a8f1",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 20
+      },
+      "revId": "70daf98753da634332307c9fbe88117bf0ca92f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39410370_fcef3c60",
@@ -149,6 +191,30 @@
       "writtenOn": "2024-07-30T22:30:21Z",
       "side": 1,
       "message": "dead code?",
+      "range": {
+        "startLine": 83,
+        "startChar": 1,
+        "endLine": 84,
+        "endChar": 45
+      },
+      "revId": "70daf98753da634332307c9fbe88117bf0ca92f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1da81e0f_d4bdc356",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T18:16:00Z",
+      "side": 1,
+      "message": "Thanks for having reported this. This debugging code has now been removed.",
+      "parentUuid": "39410370_fcef3c60",
       "range": {
         "startLine": 83,
         "startChar": 1,
