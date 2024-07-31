@@ -52,6 +52,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73ddec93_56aea037",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-07-31T03:46:37Z",
+      "side": 1,
+      "message": "The added lines still must have indents to align with the existing codes. I think `textwrap.indent` with `textwrap.dedent` works for this.",
+      "parentUuid": "33128982_7d4c9c5e",
+      "range": {
+        "startLine": 147,
+        "startChar": 28,
+        "endLine": 147,
+        "endChar": 29
+      },
+      "revId": "45ed3a99c1d500a6697ca0c8b5794982eda999c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abd1b2ba_c6c5035b",
@@ -93,6 +117,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27989111_2ce38847",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-07-31T03:46:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abd1b2ba_c6c5035b",
+      "range": {
+        "startLine": 173,
+        "startChar": 31,
+        "endLine": 173,
+        "endChar": 37
+      },
+      "revId": "45ed3a99c1d500a6697ca0c8b5794982eda999c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4052d30c_2ceea23d",
@@ -106,6 +154,24 @@
       "writtenOn": "2024-07-31T01:29:09Z",
       "side": 1,
       "message": "nit: I think it is good practice to `f.truncate()` here, even though we know what we write is larger than what we read.\n\nAlternatively, split into two `with open(file, \u0027r\u0027)` and `with open(file, \"w\")` to ensure it is truncated.",
+      "revId": "45ed3a99c1d500a6697ca0c8b5794982eda999c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ffeda8f_0e4e2e82",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-07-31T03:46:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4052d30c_2ceea23d",
       "revId": "45ed3a99c1d500a6697ca0c8b5794982eda999c8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
