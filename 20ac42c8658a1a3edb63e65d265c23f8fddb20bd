@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11671862_6309150c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1328430
+      },
+      "writtenOn": "2024-07-31T08:02:38Z",
+      "side": 1,
+      "message": "this part seems to be required for this topic? nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+      "revId": "20ac42c8658a1a3edb63e65d265c23f8fddb20bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
