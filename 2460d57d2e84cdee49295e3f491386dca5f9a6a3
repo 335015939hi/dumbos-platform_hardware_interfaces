@@ -16,6 +16,24 @@
       "message": "Don\u0027t call this in recovery; check `#ifndef __ANDROID_RECOVERY__` here.\n\nAnd please add a comment on why we want to skip it in recovery.",
       "revId": "2460d57d2e84cdee49295e3f491386dca5f9a6a3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e5cc1b0_41a93857",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T23:16:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f1f7183_e4ae7766",
+      "revId": "2460d57d2e84cdee49295e3f491386dca5f9a6a3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

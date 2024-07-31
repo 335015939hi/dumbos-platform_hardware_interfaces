@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d77f934d_9e240631",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T23:16:52Z",
+      "side": 1,
+      "message": "The CL has been modified such that AttachFilter() is skipped in recovery mode.\n\nIt has been tested as follows that recovery mode still works fine for Cuttlefish:\n```\n$ adb reboot recovery \u0026\u0026 sleep 10 \u0026\u0026 adb root \u0026\u0026 adb dmesg | grep -E \u0027F DEBUG|HealthLoop\n[    1.639577] HealthLoop: No BPF filter has been attached to the uevent socket\n```",
+      "parentUuid": "30d02465_9ee1d7c4",
+      "revId": "6df6ccad44a73ab3f64bf8790a94941d8f0d9dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99b22c1a_56a55123",
