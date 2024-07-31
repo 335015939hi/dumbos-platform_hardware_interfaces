@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d9bdf4_6ba37b2f",
+        "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-07-31T15:29:04Z",
+      "side": 1,
+      "message": "This one is checking that no unexpected events are received, so we should keep it in.",
+      "range": {
+        "startLine": 720,
+        "startChar": 0,
+        "endLine": 721,
+        "endChar": 95
+      },
+      "revId": "608c689aa333cc3e7f939f166ad9b16ab5d11c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f53f275_b0017503",
+        "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-07-31T15:29:04Z",
+      "side": 1,
+      "message": "Should keep this one too",
+      "revId": "608c689aa333cc3e7f939f166ad9b16ab5d11c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
