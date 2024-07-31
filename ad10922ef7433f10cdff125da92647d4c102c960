@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30762a94_9ef24452",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-31T19:20:56Z",
+      "side": 1,
+      "message": "Consider \n\n```\nLOG(FATAL) \u003c\u003c filter_fd.error().message();\n```\n\nso we get a stack trace. exit(1) doesn\u0027t leave a stack trace in logcat. See L58",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 16
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "94b83a36_169b1d30",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "health/utils/libhealthloop/HealthLoop.cpp",
+              "range": {
+                "startLine": 184,
+                "startChar": 0,
+                "endLine": 186,
+                "endChar": 0
+              },
+              "replacement": "        LOG(FATAL) \u003c\u003c filter_fd.error().message();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "ad10922ef7433f10cdff125da92647d4c102c960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cebd7cef_54985b66",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-31T19:20:56Z",
+      "side": 1,
+      "message": "nit (feel free to ignore):\n\n```\nfilter_fd_ \u003d std::move(*filter_fd);\n```\n\nstd::move indicates the transfer of ownership so you don\u0027t even need the comment. (They are the same internally though: https://cs.android.com/android/platform/superproject/main/+/main:system/libbase/include/android-base/unique_fd.h;l\u003d70;drc\u003d7bc8db18d96e9c76d72aefe16826981fbf44fba4 )",
+      "range": {
+        "startLine": 188,
+        "startChar": 4,
+        "endLine": 189,
+        "endChar": 43
+      },
+      "revId": "ad10922ef7433f10cdff125da92647d4c102c960",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

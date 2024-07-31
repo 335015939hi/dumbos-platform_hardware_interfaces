@@ -233,6 +233,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd8d18cb_6a21c28e",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-31T19:20:56Z",
+      "side": 1,
+      "message": "`FilterPowerSupplyEvents.c` not `filterPowerSupplyEvents.c` for consistency with other files, please?",
+      "parentUuid": "3b842af7_409d7d67",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "91d7f51b_2bc35ce8",
         "filename": "health/utils/libhealthloop/Android.bp",
         "patchSetId": 4
@@ -397,6 +421,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d897204_b8363ddf",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-31T19:20:56Z",
+      "side": 1,
+      "message": "hardware/interfaces usually use lower_snake_case and UpperCamelCase for filenames and Soong targets; lowerCamelCase seems a bit rare.\n\ne.g. https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/health/aidl/vts/functional/Android.bp;l\u003d26;drc\u003d85b3b0321a43df61a40dff5588da9b9816802ca9",
+      "parentUuid": "aa0f98e1_dd848341",
+      "range": {
+        "startLine": 68,
+        "startChar": 11,
+        "endLine": 68,
+        "endChar": 39
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "174b4277_c3476f6f",
@@ -434,6 +482,30 @@
       "side": 1,
       "message": "I have renamed this file into FilterPowerSupplyEvents_test.cpp.",
       "parentUuid": "174b4277_c3476f6f",
+      "range": {
+        "startLine": 71,
+        "startChar": 9,
+        "endLine": 71,
+        "endChar": 37
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab20885_08fb1a43",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-31T19:20:56Z",
+      "side": 1,
+      "message": "`FilterPowerSupplyEventsTest.cpp` not `filterPowerSupplyEventsTest.cpp`, please",
+      "parentUuid": "67ff71d8_94766a31",
       "range": {
         "startLine": 71,
         "startChar": 9,
