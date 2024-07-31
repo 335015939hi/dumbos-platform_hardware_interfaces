@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff11da4f_22768f6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-07-31T20:39:45Z",
+      "side": 1,
+      "message": "Did you also check that the service runs properly (bpf program is loaded properly) in recovery?\n\nTo do that you can do this: In https://cs.android.com/android/platform/superproject/main/+/main:bootable/recovery/recovery.cpp;l\u003d502;drc\u003dc031e9d3d1c05896f2792eb0b749ab995f45fa35, replace `run_graphics_test(ui)` with calls to `IsBatteryOk()` or `GetBatteryInfo()`. Print the result to recovery logs or even just draw it on the UI with `ui-\u003ePrint()`.\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:bootable/recovery/recovery.cpp;l\u003d532;drc\u003dc031e9d3d1c05896f2792eb0b749ab995f45fa35\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:bootable/recovery/recovery_utils/battery_utils.cpp;l\u003d27;drc\u003d67a8fd2175b3ff198f4d27d82c43f6296211858b\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:bootable/recovery/recovery_ui/include/recovery_ui/ui.h;l\u003d100;drc\u003defb735f4d5a2f04550e33e8aa9485f906018fe4e\n\nUnfortunately there are no good automated test yet because it is recovery 😞",
+      "revId": "6df6ccad44a73ab3f64bf8790a94941d8f0d9dc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99b22c1a_56a55123",
         "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
         "patchSetId": 11
