@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1547bd1a_5e36e116",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T15:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e13b9a1c_757e03fe",
+      "range": {
+        "startLine": 16,
+        "startChar": 2,
+        "endLine": 16,
+        "endChar": 76
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c10a4ef3_6eff1e4c",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-30T23:22:23Z",
       "side": 1,
       "message": "This is not visible to the public. I would say just delete this line, or keep it with the title of the commit message of that change.",
+      "range": {
+        "startLine": 17,
+        "startChar": 67,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd93b998_96237826",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T15:03:54Z",
+      "side": 1,
+      "message": "Isn\u0027t including this link convenient for Googlers?",
+      "parentUuid": "c10a4ef3_6eff1e4c",
       "range": {
         "startLine": 17,
         "startChar": 67,
@@ -101,6 +149,30 @@
       "side": 1,
       "message": "The comment was supposed to be on the filename not the module name. For the module name, please just follow how other bpf programs are named",
       "parentUuid": "4d58ac42_d6ee9836",
+      "range": {
+        "startLine": 25,
+        "startChar": 11,
+        "endLine": 25,
+        "endChar": 34
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b842af7_409d7d67",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T15:03:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b70d3ea_93dc9448",
       "range": {
         "startLine": 25,
         "startChar": 11,
@@ -182,6 +254,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb16c2f0_44914482",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T15:03:54Z",
+      "side": 1,
+      "message": "The second option has been implemented. See also https://android-review.git.corp.google.com/c/platform/build/+/3202150.",
+      "parentUuid": "f0a76429_0704b393",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 71
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02e49beb_489a328b",
@@ -229,6 +325,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa0f98e1_dd848341",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T15:03:54Z",
+      "side": 1,
+      "message": "Isn\u0027t the _test.cpp a well-established convention? There are multiple examples of tests in system/core of a camel case name followed by _test.cpp.",
+      "parentUuid": "e36ce52d_c11be1b1",
+      "range": {
+        "startLine": 68,
+        "startChar": 11,
+        "endLine": 68,
+        "endChar": 39
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "174b4277_c3476f6f",
@@ -242,6 +362,30 @@
       "writtenOn": "2024-07-30T23:17:58Z",
       "side": 1,
       "message": "FilterPowerSupplyEventsTest.cpp to follow other files in this directory",
+      "range": {
+        "startLine": 71,
+        "startChar": 9,
+        "endLine": 71,
+        "endChar": 37
+      },
+      "revId": "3f14d5ed8cff6463ba27e08df61dd1c49d0b7f4e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67ff71d8_94766a31",
+        "filename": "health/utils/libhealthloop/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T15:03:54Z",
+      "side": 1,
+      "message": "I have renamed this file into FilterPowerSupplyEvents_test.cpp.",
+      "parentUuid": "174b4277_c3476f6f",
       "range": {
         "startLine": 71,
         "startChar": 9,
