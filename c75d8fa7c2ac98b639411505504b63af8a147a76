@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59fc4b7c_f9962177",
+        "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 503,
+      "author": {
+        "id": 2017122
+      },
+      "writtenOn": "2024-07-31T08:22:38Z",
+      "side": 1,
+      "message": "Thanks for the suggestion!\n\nShould we also need to include \"One-shot\" reporting mode? I\u0027m not sure if it will trigger event on \"activate\".\n\nIf \"Continuous\" and \"On-change\" are the only two modes that will trigger event on \"activate\", then `getNonOneShotAndNonSpecialSensors` seems to be the function we need here, I\u0027ll just reuse this function.",
+      "parentUuid": "7591f568_a5d21d9f",
+      "range": {
+        "startLine": 501,
+        "startChar": 0,
+        "endLine": 503,
+        "endChar": 9
+      },
+      "revId": "c75d8fa7c2ac98b639411505504b63af8a147a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d32e1f9f_7431faad",
         "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2024-07-30T16:18:52Z",
       "side": 1,
       "message": "We shouldn\u0027t skip the entire test, since it helps ensure that the HAL doesn\u0027t crash under this condition that can happen in normal operation, etc.\n\nInstead, we should just skip any assertions on `collectEvents(..., kNumEvents)`\n\nThe same applies to CleanupConnectionsOnInitialize, and actually that same reasoning applies here for the case when there are 0 sensors - could you help update that?",
+      "range": {
+        "startLine": 712,
+        "startChar": 0,
+        "endLine": 715,
+        "endChar": 5
+      },
+      "revId": "c75d8fa7c2ac98b639411505504b63af8a147a76",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14f0f9ba_64c4d5ae",
+        "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 2017122
+      },
+      "writtenOn": "2024-07-31T08:22:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d32e1f9f_7431faad",
       "range": {
         "startLine": 712,
         "startChar": 0,
