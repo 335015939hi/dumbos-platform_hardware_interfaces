@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a26417e_905d0efe",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T23:55:59Z",
+      "side": 1,
+      "message": "Yes. From the kernel function `add_uevent_var()`:\n```\n\tlen \u003d vsnprintf(...);\n\t...\n\tenv-\u003ebuflen +\u003d len + 1;\n```\nThis guarantees NUL-termination.",
+      "parentUuid": "1d82efa5_ec2108c3",
+      "range": {
+        "startLine": 55,
+        "startChar": 53,
+        "endLine": 55,
+        "endChar": 76
+      },
+      "revId": "edeb340a80fd2b62e6bb8f212dd374923f9ee484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d20cb12_46c2de7b",
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "+1 to adding a comment if you are relying on some implementation details of kobject_uevent_env() like this",
       "parentUuid": "88715f41_fd348fbd",
+      "range": {
+        "startLine": 65,
+        "startChar": 36,
+        "endLine": 65,
+        "endChar": 37
+      },
+      "revId": "edeb340a80fd2b62e6bb8f212dd374923f9ee484",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2570d920_abe4cc54",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-07-31T23:55:59Z",
+      "side": 1,
+      "message": "A comment that explains that the search start position is fine has been added. Additionally, a link to the kobject_uevent_env() implementation has been added.",
+      "parentUuid": "0e0a2e74_c575b9cc",
       "range": {
         "startLine": 65,
         "startChar": 36,
