@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bc60b6f0_afdac336",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-08-02T21:59:00Z",
+      "side": 1,
+      "message": "(ie. not log anything on failure, only log on success)",
+      "parentUuid": "f237bb17_a9ca3559",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 0
+      },
+      "revId": "d2889d4d6af82540ecf700546555d529483ee8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "be8776f2_b3336b9f",
         "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
         "patchSetId": 22
