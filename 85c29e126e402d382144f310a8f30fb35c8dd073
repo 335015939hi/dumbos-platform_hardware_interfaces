@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63541593_d7cb656b",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-08-02T18:38:14Z",
+      "side": 1,
+      "message": "The distinction between filter_fd.ok() and filter_fd-\u003eok() is *very* subtle.\n\nI\u0027d probably get rid of the #ifndef in AttachFilter, and instead move that check here, by just not running the entire filter_fd related code block.\n\nAlso note that AttachFilter() doesn\u0027t really need to return an fd at all, does it?\nSince it\u0027s already handled attaching the filter...\nAs such it should probably just return Result\u003cvoid\u003e\n\n(I can\u0027t imagine filter_fd_ field actually being useful... just remove it)",
+      "range": {
+        "startLine": 198,
+        "startChar": 17,
+        "endLine": 198,
+        "endChar": 19
+      },
+      "revId": "85c29e126e402d382144f310a8f30fb35c8dd073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
