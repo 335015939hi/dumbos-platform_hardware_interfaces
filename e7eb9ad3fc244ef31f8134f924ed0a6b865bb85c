@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "403a2132_85f2c68f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-08-02T21:29:44Z",
+      "side": 1,
+      "message": "Also note that AFAICT, this no longer going to trigger fatal on non-rescue mode with 5.10+ kernel and a missing pinned bpf program.\n\nIndeed you may want to flag the bpf .o file as being critical to prevent the bpfloader from failing to load (and ignoring the failure),\n\nie. at the bottom of the bpf .c add:\n\nLICENSE(\"Apache 2.0\");\nCRITICAL(\"healthd\");",
+      "revId": "e7eb9ad3fc244ef31f8134f924ed0a6b865bb85c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae70d227_69713bf2",
