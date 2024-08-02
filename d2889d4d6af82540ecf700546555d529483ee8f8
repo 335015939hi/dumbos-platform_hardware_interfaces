@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cf459885_f654f5b1",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-02T22:08:50Z",
+      "side": 1,
+      "message": "On a second thought, \"warning\" is suitable here IMO. It indicates that there MIGHT be an issue (e.g. on higher kernels in non-recovery, not attaching the BPF program indicates something goes wrong), but it might not be an actual issue (e.g. on lower kernels or in recovery, this warning is okay). \n\nThis could also be \n\n```\nKLOG_WARNING(LOG_TAG, \"%s\", (error_msg + \"Are you in recovery? Does the kernel support BPF programs?\").c_str());\n```",
+      "parentUuid": "da8e490d_4f8f3ba1",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 0
+      },
+      "revId": "d2889d4d6af82540ecf700546555d529483ee8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "be8776f2_b3336b9f",
         "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
         "patchSetId": 22
