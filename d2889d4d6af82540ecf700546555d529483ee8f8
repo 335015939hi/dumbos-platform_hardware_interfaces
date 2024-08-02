@@ -98,6 +98,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "89e7763f_b2360016",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-08-02T22:34:30Z",
+      "side": 1,
+      "message": "The warning message has been made more detailed.",
+      "parentUuid": "cf459885_f654f5b1",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 0
+      },
+      "revId": "d2889d4d6af82540ecf700546555d529483ee8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "be8776f2_b3336b9f",
         "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
         "patchSetId": 22
