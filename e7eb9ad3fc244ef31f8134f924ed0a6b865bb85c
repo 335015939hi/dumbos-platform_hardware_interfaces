@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae70d227_69713bf2",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-08-02T21:25:37Z",
+      "side": 1,
+      "message": "Yeah this simply isn\u0027t true, it\u0027s reference count based, and there\u0027s a permanent reference count caused by it being pinned into the bpffs by the bpfloader.\nFurthermore there\u0027s an additional reference held by virtue of it being attached to the socket that is being filtered.",
+      "range": {
+        "startLine": 195,
+        "startChar": 8,
+        "endLine": 197,
+        "endChar": 49
+      },
+      "revId": "e7eb9ad3fc244ef31f8134f924ed0a6b865bb85c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a8105c2_28aa42f4",
         "filename": "health/utils/libhealthloop/HealthLoop.cpp",
         "patchSetId": 21
