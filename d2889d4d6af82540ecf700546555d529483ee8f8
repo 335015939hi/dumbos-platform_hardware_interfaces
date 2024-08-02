@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "da8e490d_4f8f3ba1",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-02T22:06:25Z",
+      "side": 1,
+      "message": "Perhaps KLOG_INFO() then? Personally (from the kernel team\u0027s perspective), any code wrapping in a kernel version check is a PITA; we should just always do the syscall and handle the error if the feature is not there. For one thing, this allows us to backport any feature and it will \"just work\" without adjusting the kernel version checks.\n\nBut wrapping a log below a kernel version check is probably fine... I guess.",
+      "parentUuid": "bc60b6f0_afdac336",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 0
+      },
+      "revId": "d2889d4d6af82540ecf700546555d529483ee8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "be8776f2_b3336b9f",
         "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
         "patchSetId": 22
