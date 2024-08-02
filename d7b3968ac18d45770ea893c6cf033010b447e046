@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3ae0ab_4035fb12",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-08-02T16:23:19Z",
+      "side": 1,
+      "message": "technically u16, and the next one u8",
+      "range": {
+        "startLine": 29,
+        "startChar": 14,
+        "endLine": 29,
+        "endChar": 22
+      },
+      "revId": "d7b3968ac18d45770ea893c6cf033010b447e046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "056c1c23_b10978a1",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-08-02T16:23:19Z",
+      "side": 1,
+      "message": "technically both these matches could also use \u0027Return 0 on match\u0027",
+      "revId": "d7b3968ac18d45770ea893c6cf033010b447e046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2727e850_351b619a",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-08-02T16:23:19Z",
+      "side": 1,
+      "message": "Android 24Q3/V (incl 24Q4/V-QPR1 this code is currently targetting) only requires 4.19 kernel and the next version (sdk\u003d36) will presumably only bump this to 5.4 minimum (the next LTS version after 4.19), so there will be devices where this program simply isn\u0027t loaded and thus the attach will fail.\n\nEither the userspace attach logic needs a similar bpf::isAtLeastKernelVersion(5, 10, 0) check or this check needs to be lowered or reduced.\n\nI don\u0027t immediately see anything in this program which would prevent it from running on 4.19 or 5.4.\n\nAny idea why this value was chosen?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 36
+      },
+      "revId": "d7b3968ac18d45770ea893c6cf033010b447e046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
