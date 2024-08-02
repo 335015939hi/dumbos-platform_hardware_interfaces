@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6633a7d4_25d756de",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-08-02T21:42:46Z",
+      "side": 1,
+      "message": "This comment has been removed.",
+      "parentUuid": "ae70d227_69713bf2",
+      "range": {
+        "startLine": 195,
+        "startChar": 8,
+        "endLine": 197,
+        "endChar": 49
+      },
+      "revId": "e7eb9ad3fc244ef31f8134f924ed0a6b865bb85c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a8105c2_28aa42f4",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-08-02T21:24:08Z",
       "side": 1,
       "message": "nit: This is a dead branch now",
+      "range": {
+        "startLine": 199,
+        "startChar": 5,
+        "endLine": 201,
+        "endChar": 5
+      },
+      "revId": "e7eb9ad3fc244ef31f8134f924ed0a6b865bb85c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81dff043_c7b1038a",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 21
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-08-02T21:42:46Z",
+      "side": 1,
+      "message": "This branch has been removed.",
+      "parentUuid": "9a8105c2_28aa42f4",
       "range": {
         "startLine": 199,
         "startChar": 5,
