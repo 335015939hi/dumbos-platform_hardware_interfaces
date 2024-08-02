@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f237bb17_a9ca3559",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-08-02T21:58:24Z",
+      "side": 1,
+      "message": "Personally not a huge fan of warning messages that get printed but are known to be expected, so I would still wrap this in #ifndef RECOVERY and only log on \u003e\u003d5.10.\n\nThat said, you could also not log anything at all... the CRITICAL annotation now ensures that on non-rescue 5.10+ the pinned program will always be present, so this really could only fail due to some stupid reason (like something breaking sepolicy).",
+      "range": {
+        "startLine": 189,
+        "startChar": 0,
+        "endLine": 191,
+        "endChar": 0
+      },
+      "revId": "d2889d4d6af82540ecf700546555d529483ee8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be8776f2_b3336b9f",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1003247
+      },
+      "writtenOn": "2024-08-02T21:58:24Z",
+      "side": 1,
+      "message": "Just so you\u0027re aware of what this means.\n\nWhen the bpfloader runs it will load all the .o files it finds - including this one.  If anything (not otherwise marked optional) fails while loading a critical .o file, it will exit(1) with a message (in this case including \u0027healthd\u0027).  Bpfloader is a one-shot boot time must-not-fail process, so the exit(1) results in a reboot and thus a boot loop.\n\nI find this to be the easiest way to make sure things work and stay working.\n\nThis also means that by the time healthd\u0027s userspace code starts running the pinned program will either be present (on 5.10+ non-rescue targets) or not (on \u003c5.10 or rescue targets, since rescue doesn\u0027t even start the bpfloader).",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 20
+      },
+      "revId": "d2889d4d6af82540ecf700546555d529483ee8f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
