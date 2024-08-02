@@ -167,13 +167,13 @@ class LeAudioOffloadAudioProvider : public BluetoothAudioProvider {
       AudioContext requirement_context,
       IBluetoothAudioProvider::BroadcastQuality quality,
       LeAudioBroadcastSubgroupConfiguration configuration);
-  std::optional<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
+  std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
   matchWithRequirement(
       std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>&
           matched_ase_configuration_settings,
-      const IBluetoothAudioProvider::LeAudioConfigurationRequirement&
-          requirements,
-      bool isMatchContext);
+      const std::vector<
+          IBluetoothAudioProvider::LeAudioConfigurationRequirement>&
+          in_requirements);
 };
 
 class LeAudioOffloadOutputAudioProvider : public LeAudioOffloadAudioProvider {
