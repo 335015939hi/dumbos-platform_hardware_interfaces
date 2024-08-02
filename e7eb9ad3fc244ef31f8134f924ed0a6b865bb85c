@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26d9f197_4c0f545e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-08-02T21:45:07Z",
+      "side": 1,
+      "message": "The text `CRITICAL(\"healthd\");` has been added.",
+      "parentUuid": "403a2132_85f2c68f",
+      "revId": "e7eb9ad3fc244ef31f8134f924ed0a6b865bb85c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae70d227_69713bf2",
