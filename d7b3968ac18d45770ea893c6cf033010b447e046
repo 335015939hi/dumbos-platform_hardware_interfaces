@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5986fe30_0614d644",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-08-02T18:26:27Z",
+      "side": 1,
+      "message": "The M2() and M1() return types have been changed.",
+      "parentUuid": "3b3ae0ab_4035fb12",
+      "range": {
+        "startLine": 29,
+        "startChar": 14,
+        "endLine": 29,
+        "endChar": 22
+      },
+      "revId": "d7b3968ac18d45770ea893c6cf033010b447e046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "056c1c23_b10978a1",
         "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
         "patchSetId": 16
@@ -37,6 +61,24 @@
       "writtenOn": "2024-08-02T16:23:19Z",
       "side": 1,
       "message": "technically both these matches could also use \u0027Return 0 on match\u0027",
+      "revId": "d7b3968ac18d45770ea893c6cf033010b447e046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73b1ae09_afa9efbe",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-08-02T18:26:27Z",
+      "side": 1,
+      "message": "The comments above the M2() and M1() function definitions have been changed.",
+      "parentUuid": "056c1c23_b10978a1",
       "revId": "d7b3968ac18d45770ea893c6cf033010b447e046",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +96,30 @@
       "writtenOn": "2024-08-02T16:23:19Z",
       "side": 1,
       "message": "Android 24Q3/V (incl 24Q4/V-QPR1 this code is currently targetting) only requires 4.19 kernel and the next version (sdk\u003d36) will presumably only bump this to 5.4 minimum (the next LTS version after 4.19), so there will be devices where this program simply isn\u0027t loaded and thus the attach will fail.\n\nEither the userspace attach logic needs a similar bpf::isAtLeastKernelVersion(5, 10, 0) check or this check needs to be lowered or reduced.\n\nI don\u0027t immediately see anything in this program which would prevent it from running on 4.19 or 5.4.\n\nAny idea why this value was chosen?",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 36
+      },
+      "revId": "d7b3968ac18d45770ea893c6cf033010b447e046",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "202af2d9_7bf552a1",
+        "filename": "health/utils/libhealthloop/filterPowerSupplyEvents.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-08-02T18:26:27Z",
+      "side": 1,
+      "message": "Loading this BPF program with kernel 5.4 fails, probably because of its size. A comment has been added.",
+      "parentUuid": "2727e850_351b619a",
       "range": {
         "startLine": 53,
         "startChar": 0,
