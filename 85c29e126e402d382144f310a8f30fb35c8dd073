@@ -22,6 +22,30 @@
       },
       "revId": "85c29e126e402d382144f310a8f30fb35c8dd073",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa4a8d4f_b228ec6b",
+        "filename": "health/utils/libhealthloop/HealthLoop.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1869780
+      },
+      "writtenOn": "2024-08-02T19:27:23Z",
+      "side": 1,
+      "message": "\u003e The distinction between filter_fd.ok() and filter_fd-\u003eok() is *very* subtle.\n\nTwo comments have been added.\n \n\u003e I\u0027d probably get rid of the #ifndef in AttachFilter, and instead move that check here, by just not running the entire filter_fd related code block.\n\nThis has been changed.\n \n\u003e Also note that AttachFilter() doesn\u0027t really need to return an fd at all, does it?\n\nIt is on purpose that AttachFilter() does not modify filter_fd_. If any failure happens in AttachFilter(), all that is needed to close filter_fd is a return statement. If AttachFilter() would modify filter_fd_ directly then code would have to be added to close filter_fd_ in the error paths.\n\n\u003e (I can\u0027t imagine filter_fd_ field actually being useful... just remove it)\n\nIs it safe to close BPF filter file descriptors while a BPF filter is in use? All the examples I found in the kernel tree keep the BPF program file descriptor open while the filter is in use.",
+      "parentUuid": "63541593_d7cb656b",
+      "range": {
+        "startLine": 198,
+        "startChar": 17,
+        "endLine": 198,
+        "endChar": 19
+      },
+      "revId": "85c29e126e402d382144f310a8f30fb35c8dd073",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
