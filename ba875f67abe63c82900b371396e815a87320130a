@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93dac83a_87832392",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1886738
+      },
+      "writtenOn": "2024-08-03T22:46:38Z",
+      "side": 1,
+      "message": "As per this https://b.corp.google.com/issues/351698476#comment22, need to cp to git_aosp-24Q3-ts-dev.",
+      "revId": "ba875f67abe63c82900b371396e815a87320130a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
