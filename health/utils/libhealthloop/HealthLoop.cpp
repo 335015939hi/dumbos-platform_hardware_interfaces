@@ -20,20 +20,15 @@
 #include <health/HealthLoop.h>
 
 #include <errno.h>
-#include <libgen.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/epoll.h>
+#include <sys/epoll.h>  // epoll_create1(), epoll_ctl(), epoll_wait()
 #include <sys/timerfd.h>
-#include <unistd.h>
+#include <unistd.h>  // read()
 
 #include <android-base/logging.h>
 #include <batteryservice/BatteryService.h>
-#include <cutils/klog.h>
+#include <cutils/klog.h>  // KLOG_*()
 #include <cutils/uevent.h>
 #include <healthd/healthd.h>
-#include <utils/Errors.h>
 
 #include <health/utils.h>
 
