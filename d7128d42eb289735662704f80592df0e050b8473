@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db1a7366_933effb6",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-08-05T17:39:45Z",
+      "side": 1,
+      "message": "nit-picking:\n\n```suggestion\n                            ; The Root certificate is recommended to be generated in an air-gapped,\n                            ; HSM-based secure environment. The intermediate certificates can be a\n```",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 98
+      },
+      "revId": "d7128d42eb289735662704f80592df0e050b8473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "747dfeac_003845eb",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-08-05T17:39:45Z",
+      "side": 1,
+      "message": "The last sentence is mixing two completely different ideas, so we should split them apart.\n\n```suggestion\n                            ; HSM based secure environment. The intermediate certificates may be\n                            ; online, and should be rotated regularly (e.g. annually). Additionally,\n                            ; the intermediate certificates may contain product family identifiers.\n```",
+      "range": {
+        "startLine": 69,
+        "startChar": 60,
+        "endLine": 71,
+        "endChar": 47
+      },
+      "revId": "d7128d42eb289735662704f80592df0e050b8473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
