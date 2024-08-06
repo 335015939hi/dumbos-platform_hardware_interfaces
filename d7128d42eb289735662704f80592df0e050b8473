@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd833a6_99588d14",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1347934
+      },
+      "writtenOn": "2024-08-06T02:00:32Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "db1a7366_933effb6",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 98
+      },
+      "revId": "d7128d42eb289735662704f80592df0e050b8473",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "747dfeac_003845eb",
