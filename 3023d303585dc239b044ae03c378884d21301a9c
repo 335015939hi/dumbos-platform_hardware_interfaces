@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7b121e2_0d7b6c10",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-06T13:01:19Z",
+      "side": 1,
+      "message": "Added capabilities for vibrator parameter.\n\nFor resonant frequency and qFactor, we didn\u0027t find any check for invalid or maximum value.\nUsing MAX_FLOAT as the max value for these parameters.",
+      "parentUuid": "d584cea4_312feb6a",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 59
+      },
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02c1d7e8_73fada2f",
         "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-23T15:28:38Z",
       "side": 1,
       "message": "Should these values be different from the previous call? What is the intent of this test?",
+      "range": {
+        "startLine": 183,
+        "startChar": 55,
+        "endLine": 183,
+        "endChar": 95
+      },
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eb709f3_084b4952",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-06T13:01:19Z",
+      "side": 1,
+      "message": "Using different values to test setting of multiple scales.",
+      "parentUuid": "02c1d7e8_73fada2f",
       "range": {
         "startLine": 183,
         "startChar": 55,
@@ -88,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78175bc8_fa292dcb",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-06T13:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37626457_715b55ca",
+      "range": {
+        "startLine": 273,
+        "startChar": 60,
+        "endLine": 273,
+        "endChar": 65
+      },
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e424379_699bc8ab",
@@ -125,6 +197,30 @@
           ]
         }
       ],
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abaa2ef6_18b7536c",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-06T13:01:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e424379_699bc8ab",
+      "range": {
+        "startLine": 296,
+        "startChar": 32,
+        "endLine": 296,
+        "endChar": 52
+      },
       "revId": "3023d303585dc239b044ae03c378884d21301a9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -176,6 +272,30 @@
           ]
         }
       ],
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f55349_e63843e9",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-06T13:01:19Z",
+      "side": 1,
+      "message": "Using it in ```validateIncreasingEnergy``` method",
+      "parentUuid": "11246b96_cefb07f4",
+      "range": {
+        "startLine": 307,
+        "startChar": 61,
+        "endLine": 307,
+        "endChar": 62
+      },
       "revId": "3023d303585dc239b044ae03c378884d21301a9c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
