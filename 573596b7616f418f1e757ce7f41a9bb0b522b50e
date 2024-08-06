@@ -1,0 +1,49 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c107025_d3f79a1d",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-06T04:24:41Z",
+      "side": 1,
+      "message": "Need to double confirm if just treat it as a constant.",
+      "fixSuggestions": [
+        {
+          "fixId": "5b35863e_526f0f7b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 58,
+                "startChar": 0,
+                "endLine": 59,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 252,
+                "startChar": 0,
+                "endLine": 253,
+                "endChar": 0
+              },
+              "replacement": "\t\t\tfmt.Sprintf(\"POLICYVERS\u003d%s\", ctx.DeviceConfig().PolicyVers()),\n"
+            }
+          ]
+        }
+      ],
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
