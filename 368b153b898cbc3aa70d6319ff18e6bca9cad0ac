@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "392c8de7_18e59ec0",
+        "filename": "security/rkp/aidl/android/hardware/security/keymint/generateCertificateRequestV2.cddl",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-08-06T17:55:37Z",
+      "side": 1,
+      "message": "```suggestion\n                            ; HSM-based secure environment. The intermediate signing keys may be\n```",
+      "range": {
+        "startLine": 69,
+        "startChar": 77,
+        "endLine": 69,
+        "endChar": 89
+      },
+      "revId": "368b153b898cbc3aa70d6319ff18e6bca9cad0ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
