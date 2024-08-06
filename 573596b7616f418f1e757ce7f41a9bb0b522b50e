@@ -44,6 +44,23 @@
       ],
       "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cfe845e_6d1af5d1",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2024-08-06T06:30:10Z",
+      "side": 1,
+      "message": "When `DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE` has a value, are we missing the processing of the following sections?\n\n1. `LOCAL_GENERATED_SOURCES :\u003d $(DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE)` in `hardware/interfaces/compatibility_matrices/Android.mk`\n\n2. The following code snippet in `hardware/interfaces/compatibility_matrices/compatibility_matrix.mk`:\n\n```\n$(foreach varname,$(PRIVATE_ENV_VARS),$(varname)\u003d\"$($(varname))\") \\\n\t$(PRIVATE_ADDITIONAL_ENV_VARS) \\\n\t$(HOST_OUT_EXECUTABLES)/assemble_vintf \\\n\t-i $(call normalize-path-list,$(PRIVATE_SRC_FILES)) \\\n\t-o $@ \\\n\t$(PRIVATE_FLAGS) $(PRIVATE_COMMAND_TAIL)   \n```",
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
