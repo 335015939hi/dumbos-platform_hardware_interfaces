@@ -61,6 +61,24 @@
       "message": "When `DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE` has a value, are we missing the processing of the following sections?\n\n1. `LOCAL_GENERATED_SOURCES :\u003d $(DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE)` in `hardware/interfaces/compatibility_matrices/Android.mk`\n\n2. The following code snippet in `hardware/interfaces/compatibility_matrices/compatibility_matrix.mk`:\n\n```\n$(foreach varname,$(PRIVATE_ENV_VARS),$(varname)\u003d\"$($(varname))\") \\\n\t$(PRIVATE_ADDITIONAL_ENV_VARS) \\\n\t$(HOST_OUT_EXECUTABLES)/assemble_vintf \\\n\t-i $(call normalize-path-list,$(PRIVATE_SRC_FILES)) \\\n\t-o $@ \\\n\t$(PRIVATE_FLAGS) $(PRIVATE_COMMAND_TAIL)   \n```",
       "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e5a5b2_1cfe9f3c",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-06T07:01:51Z",
+      "side": 1,
+      "message": "For 1:\n\nWe can separate the original logic to 2 section\n\n1. Load the file paths from $(DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE) to inputPaths in `line#186`. And if there\u0027s no input path, I will treat it as below ifndef condition which will add a flag between `line#225 to line#228` and do the related logic on `line#270` for generate the `include $(BUILD_PHONY_PACKAGE)`.\n```\nifndef DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE\n  my_framework_matrix_deps :\u003d\n  include $(BUILD_PHONY_PACKAGE)\n```\n2. This is the main logic if having `$(DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE)` defined which can be map to line#182, \n```\nelse # DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE\n  ...\n  ...\n\n  # DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE specifies absolute paths\n  LOCAL_GENERATED_SOURCES :\u003d $(DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE)\n  ...\n  ...\n  LOCAL_GEN_FILE_DEPENDENCIES +\u003d $(my_empty_manifest)\n  LOCAL_ASSEMBLE_VINTF_FLAGS +\u003d -c \"$(my_empty_manifest)\"\n\n  include $(BUILD_FRAMEWORK_COMPATIBILITY_MATRIX)\nendif # DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE\n```\n\n\nFor 2:\nIt is actually the section for `line#37\u0027s` Command part, but didn\u0027t handle `$(PRIVATE_ADDITIONAL_ENV_VARS)` because it is come from `$(GEN): PRIVATE_ADDITIONAL_ENV_VARS :\u003d $(LOCAL_ASSEMBLE_VINTF_ENV_VARS_OVERRIDE)`\nin [hardware/interfaces/compatibility_matrices/compatibility_matrix.mk](https://source.corp.google.com/h/android/platform/superproject/main/+/main:hardware/interfaces/compatibility_matrices/compatibility_matrix.mk;l\u003d103;bpv\u003d0) and it is not being used in this 2 cases.\n\nBut for `foreach varname,$(PRIVATE_ENV_VARS),$(varname)\u003d\"$($(varname))\")` it is already handled by ${assembleVintfEnv} and it being used for `framework_compatibility_matrix.device.xml`.",
+      "parentUuid": "0cfe845e_6d1af5d1",
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
