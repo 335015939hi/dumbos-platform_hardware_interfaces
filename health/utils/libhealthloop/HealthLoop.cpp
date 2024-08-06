@@ -20,20 +20,15 @@
 #include <health/HealthLoop.h>
 
 #include <errno.h>
-#include <libgen.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/epoll.h>
+#include <sys/epoll.h>  // epoll_create1(), epoll_ctl(), epoll_wait()
 #include <sys/timerfd.h>
-#include <unistd.h>
+#include <unistd.h>  // read()
 
 #include <android-base/logging.h>
 #include <batteryservice/BatteryService.h>
-#include <cutils/klog.h>
+#include <cutils/klog.h>  // KLOG_*()
 #include <cutils/uevent.h>
 #include <healthd/healthd.h>
-#include <utils/Errors.h>
 
 #include <health/utils.h>
 
@@ -57,18 +52,17 @@ HealthLoop::~HealthLoop() {
 int HealthLoop::RegisterEvent(int fd, BoundFunction func, EventWakeup wakeup) {
     CHECK(!reject_event_register_);
 
-    auto* event_handler =
-            event_handlers_
-                    .emplace_back(std::make_unique<EventHandler>(EventHandler{this, fd, func}))
-                    .get();
+    auto* event_handler = event_handlers_
+                                  .emplace_back(std::make_unique<EventHandler>(
+                                          EventHandler{this, fd, std::move(func)}))
+                                  .get();
 
-    struct epoll_event ev;
-
-    ev.events = EPOLLIN;
+    struct epoll_event ev = {
+            .events = EPOLLIN | EPOLLERR,
+            .data.ptr = reinterpret_cast<void*>(event_handler),
+    };
 
     if (wakeup == EVENT_WAKEUP_FD) ev.events |= EPOLLWAKEUP;
-
-    ev.data.ptr = reinterpret_cast<void*>(event_handler);
 
     if (epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd, &ev) == -1) {
         KLOG_ERROR(LOG_TAG, "epoll_ctl failed; errno=%d\n", errno);
@@ -124,8 +118,14 @@ void HealthLoop::PeriodicChores() {
 
 // TODO(b/140330870): Use BPF instead.
 #define UEVENT_MSG_LEN 2048
-void HealthLoop::UeventEvent(uint32_t /*epevents*/) {
+void HealthLoop::UeventEvent(uint32_t epevents) {
     // No need to lock because uevent_fd_ is guaranteed to be initialized.
+
+    if (epevents & EPOLLERR) {
+        // The netlink receive buffer overflowed.
+        ScheduleBatteryUpdate();
+        return;
+    }
 
     char msg[UEVENT_MSG_LEN + 2];
     char* cp;

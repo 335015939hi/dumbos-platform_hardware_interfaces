@@ -818,7 +818,7 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::getLeAudioAseConfiguration(
       auto matched_setting = matchWithRequirement(
           matched_ase_configuration_settings, requirement, false);
       if (matched_setting.has_value()) {
-        result.push_back(matched_setting_with_context.value());
+        result.push_back(matched_setting.value());
       } else {
         // Cannot find a match for this requirement
         // Immediately return
