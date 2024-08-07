@@ -79,6 +79,24 @@
       "parentUuid": "0cfe845e_6d1af5d1",
       "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77d781b7_e4080ee1",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2024-08-07T03:37:43Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a0e5a5b2_1cfe9f3c",
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
