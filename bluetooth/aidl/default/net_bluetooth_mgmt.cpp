@@ -23,6 +23,8 @@
 #include <poll.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <thread>
+#include <chrono>
 
 #include <cerrno>
 #include <cstdint>
@@ -90,6 +92,7 @@ int NetBluetoothMgmt::waitHciDev(int hci_interface) {
   ALOGI("waiting for hci interface %d", hci_interface);
 
   int ret = -1;
+  const int retry_times = 15;
   struct mgmt_pkt cmd;
   struct pollfd pollfd;
   struct sockaddr_hci hci_addr = {
@@ -119,23 +122,19 @@ int NetBluetoothMgmt::waitHciDev(int hci_interface) {
       .len = 0,
   };
 
-  if (write(fd, &cmd, 6) != 6) {
-    ALOGE("error writing mgmt command: %s", strerror(errno));
-    goto end;
-  }
-
-  // Poll the control socket waiting for the command response,
-  // and subsequent [Index Added] events. The loops continue without
-  // timeout until the selected hci interface is detected.
-  pollfd = {.fd = fd, .events = POLLIN};
-
-  for (;;) {
-    ret = poll(&pollfd, 1, -1);
-
-    // Poll interrupted, try again.
-    if (ret == -1 && (errno == EINTR || errno == EAGAIN)) {
-      continue;
+  for (int n = 0; n < retry_times; n++) {
+    if (write(fd, &cmd, 6) != 6) {
+      ALOGE("error writing mgmt command: %s", strerror(errno));
+      goto end;
     }
+
+    // Poll the control socket waiting for the command response,
+    // and subsequent [Index Added] events. The loops continue without
+    // timeout until the selected hci interface is detected.
+    do {
+      pollfd = {.fd = fd, .events = POLLIN};
+      ret = poll(&pollfd, 1, -1);
+    } while (ret == -1 && (errno == EINTR || errno == EAGAIN));
 
     // Poll failure, abandon.
     if (ret == -1) {
@@ -178,14 +177,13 @@ int NetBluetoothMgmt::waitHciDev(int hci_interface) {
           goto end;
         }
       }
-    }
-
-    // Received [Index Added] event.
-    if (ev.opcode == MGMT_EV_INDEX_ADDED && ev.index == hci_interface) {
+    } else if (ev.opcode == MGMT_EV_INDEX_ADDED && ev.index == hci_interface) {
       ALOGI("hci interface %d added", hci_interface);
       ret = hci_interface;
       goto end;
     }
+    ALOGI("hci controller not register, wait 200ms to retry again!");
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
   }
 
 end:
