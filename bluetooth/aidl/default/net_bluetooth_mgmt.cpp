@@ -23,6 +23,8 @@
 #include <poll.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <thread>
+#include <chrono>
 
 #include <cerrno>
 #include <cstdint>
@@ -47,6 +49,7 @@ struct sockaddr_hci {
 #define MGMT_OP_READ_INDEX_LIST 0x0003
 #define MGMT_EV_INDEX_ADDED 0x0004
 #define MGMT_EV_CMD_COMPLETE 0x0001
+#define MGMT_EV_CMD_COMPLETE_LEN 7
 #define MGMT_PKT_SIZE_MAX 1024
 #define MGMT_INDEX_NONE 0xFFFF
 
@@ -90,6 +93,7 @@ int NetBluetoothMgmt::waitHciDev(int hci_interface) {
   ALOGI("waiting for hci interface %d", hci_interface);
 
   int ret = -1;
+  int retry_times = 15;
   struct mgmt_pkt cmd;
   struct pollfd pollfd;
   struct sockaddr_hci hci_addr = {
@@ -119,17 +123,16 @@ int NetBluetoothMgmt::waitHciDev(int hci_interface) {
       .len = 0,
   };
 
-  if (write(fd, &cmd, 6) != 6) {
-    ALOGE("error writing mgmt command: %s", strerror(errno));
-    goto end;
-  }
+ for (int n = 0; n < retry_times; n++) {
+    if (write(fd, &cmd, 6) != 6) {
+      ALOGE("error writing mgmt command: %s", strerror(errno));
+      goto end;
+    }
 
-  // Poll the control socket waiting for the command response,
-  // and subsequent [Index Added] events. The loops continue without
-  // timeout until the selected hci interface is detected.
-  pollfd = {.fd = fd, .events = POLLIN};
-
-  for (;;) {
+    // Poll the control socket waiting for the command response,
+    // and subsequent [Index Added] events. The loops continue without
+    // timeout until the selected hci interface is detected.
+    pollfd = {.fd = fd, .events = POLLIN};
     ret = poll(&pollfd, 1, -1);
 
     // Poll interrupted, try again.
@@ -155,7 +158,11 @@ int NetBluetoothMgmt::waitHciDev(int hci_interface) {
       ALOGE("error reading mgmt event: %s", strerror(errno));
       goto end;
     }
-
+    if (ev.len != MGMT_EV_CMD_COMPLETE_LEN) {
+      ALOGI("hci controller not register, wait 200ms to retry again!");
+      std::this_thread::sleep_for(std::chrono::milliseconds(200));
+      continue;
+    }
     // Received [Read Index List] command response.
     if (ev.opcode == MGMT_EV_CMD_COMPLETE) {
       struct mgmt_ev_read_index_list* data =
