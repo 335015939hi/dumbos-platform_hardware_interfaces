@@ -136,6 +136,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f6e1d68e_6c06bbc8",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-08T11:35:25Z",
+      "side": 1,
+      "message": "Yes, also ping on b/352234038#comment7",
+      "parentUuid": "a1a562ca_92075121",
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f21ec7c5_17e8f87e",
         "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
         "patchSetId": 7
@@ -282,6 +300,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0da13cd8_bce254bc",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-08T11:35:25Z",
+      "side": 1,
+      "message": "Thanks for the suggestion, I just update as weel, PTAL.",
+      "parentUuid": "f21ec7c5_17e8f87e",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 94
+      },
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e5e5e106_12a652b4",
         "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
         "patchSetId": 7
@@ -344,6 +386,48 @@
           ]
         }
       ],
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "672c55e5_b929b545",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-08T11:35:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5e5e106_12a652b4",
+      "range": {
+        "startLine": 178,
+        "startChar": 87,
+        "endLine": 178,
+        "endChar": 94
+      },
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "220af5de_7c72dd41",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-08T11:35:25Z",
+      "side": 1,
+      "message": "Thank you so much, sorry, I didn\u0027t aware the mismatch comment for these part.",
+      "parentUuid": "f857bc2d_4ad7d153",
       "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -414,6 +498,30 @@
       "writtenOn": "2024-08-08T05:09:08Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 189,
+        "startChar": 82,
+        "endLine": 189,
+        "endChar": 89
+      },
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea73cf39_836121f2",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-08T11:35:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10342609_cef9bbc9",
       "range": {
         "startLine": 189,
         "startChar": 82,
