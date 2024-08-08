@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2a608e1_446ec2ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-08T05:09:08Z",
+      "side": 1,
+      "message": "Seems okay overall. I only have some style-wise comments on the API.\n\nAlso, when you are done please update\n\nhttps://source.android.com/docs/core/architecture/vintf/resources\n\nAnd encourage people to use vintf_compatibility_matrix in Soong + adding them in PRODUCT_PACKAGES, instead of using the make variables",
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c107025_d3f79a1d",
         "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
         "patchSetId": 7
@@ -55,6 +72,196 @@
                 "endChar": 0
               },
               "replacement": "\t\t\tfmt.Sprintf(\"POLICYVERS\u003d%s\", ctx.DeviceConfig().PolicyVers()),\n"
+            }
+          ]
+        }
+      ],
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f21ec7c5_17e8f87e",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-08T05:09:08Z",
+      "side": 1,
+      "message": "It appears that these two variables can only be set from hardware/interfaces/compatibility_matrices targets in order to handle the make variables DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE / DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE, right? \n\nI assume partners shouldn\u0027t use them? Can we somehow enforce that only targets in hardware/interfaces/compatibility_matrices are allowed to set these? This prevents accidental external usages.",
+      "range": {
+        "startLine": 148,
+        "startChar": 4,
+        "endLine": 148,
+        "endChar": 94
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5a47bd1c_4dabed74",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 149,
+                "startChar": 0,
+                "endLine": 150,
+                "endChar": 0
+              },
+              "replacement": "\t\tpanic(fmt.Errorf(\"Attribute use_framework_compatibility_env and use_product_compatibility_env should not set simultaneously! \" +\n\t\t\t\"These two variables can only be set from hardware/interfaces/compatibility_matrices targets in order to handle the \" +\n\t\t\t\"make variables DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE / DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE.\"))\n"
+            }
+          ]
+        }
+      ],
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73bb448b_c37760b5",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-08T05:09:08Z",
+      "side": 1,
+      "message": "why not just set a enum/string like `env: \"framework\"` or `env: \"product\"`?\n\nOr even better:\n\n`type: \"device_fcm\"`\n\n`type: \"product_fcm\"`\n\nThis matches the terminology in https://source.android.com/docs/core/architecture/vintf/comp-matrices#framework-compatibility-matrix . \n\n\"framework\" is a little bit vague because in VINTF world, \"framework\" \u003d system + product + system_ext.",
+      "range": {
+        "startLine": 148,
+        "startChar": 1,
+        "endLine": 148,
+        "endChar": 94
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "9a0112ed_01e67011",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 71,
+                "startChar": 0,
+                "endLine": 76,
+                "endChar": 0
+              },
+              "replacement": "\t// Type of the compatibility matrix.\n\tType string\n"
+            },
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 147,
+                "startChar": 0,
+                "endLine": 151,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 180,
+                "startChar": 0,
+                "endLine": 181,
+                "endChar": 0
+              },
+              "replacement": "\tif g.properties.Type \u003d\u003d \"product_fcm\" {\n"
+            },
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 191,
+                "startChar": 0,
+                "endLine": 192,
+                "endChar": 0
+              },
+              "replacement": "\tif g.properties.Type \u003d\u003d \"framework_fcm\" {\n"
+            },
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 250,
+                "startChar": 0,
+                "endLine": 251,
+                "endChar": 0
+              },
+              "replacement": "\tif g.properties.Type \u003d\u003d \"framework_fcm\" {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5e5e106_12a652b4",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-08T05:09:08Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 178,
+        "startChar": 87,
+        "endLine": 178,
+        "endChar": 94
+      },
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f857bc2d_4ad7d153",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-08T05:09:08Z",
+      "side": 1,
+      "message": "you mean product_compatibility_matrix? the comment seems to be switched up with L189/190",
+      "fixSuggestions": [
+        {
+          "fixId": "f7a79502_afe244f2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 178,
+                "startChar": 0,
+                "endLine": 180,
+                "endChar": 0
+              },
+              "replacement": "\t// For product_compatibility_matrix.xml the source may come from the environment variabe\n\t// DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE.\n"
+            },
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 189,
+                "startChar": 0,
+                "endLine": 191,
+                "endChar": 0
+              },
+              "replacement": "\t// For framework_compatibility_matrix.device.xml the source will from the environment variabe\n\t// DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE.\n"
             }
           ]
         }
@@ -112,6 +319,29 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "a0e5a5b2_1cfe9f3c",
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10342609_cef9bbc9",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-08T05:09:08Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 189,
+        "startChar": 82,
+        "endLine": 189,
+        "endChar": 89
+      },
       "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
