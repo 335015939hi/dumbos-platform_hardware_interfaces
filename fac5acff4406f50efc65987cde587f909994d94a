@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebbbda60_a02f8b99",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1318142
+      },
+      "writtenOn": "2024-08-09T09:13:47Z",
+      "side": 1,
+      "message": "it looks kernel_config also changes inputPaths.",
+      "revId": "fac5acff4406f50efc65987cde587f909994d94a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
