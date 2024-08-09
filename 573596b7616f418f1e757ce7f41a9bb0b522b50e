@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ccf71f98_42d0d760",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-09T02:05:29Z",
+      "side": 1,
+      "message": "I follow the logic in make, it should be great if you have time to take a deeper code review, but I already test the generated output of both make and bp for `aosp_cheetah`, `aosp_trout`, `aosp_cf_x86_64_phone` are same.",
+      "parentUuid": "318bfb92_ff5d8640",
+      "revId": "573596b7616f418f1e757ce7f41a9bb0b522b50e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c107025_d3f79a1d",
         "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
         "patchSetId": 7
