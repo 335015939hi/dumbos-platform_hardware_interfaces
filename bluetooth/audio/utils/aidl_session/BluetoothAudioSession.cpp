@@ -145,15 +145,18 @@ void BluetoothAudioSession::ReportAudioConfigChanged(
       return;
     }
   } else {
-    if (session_type_ !=
-            SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH &&
-        session_type_ !=
+    if (session_type_ ==
+            SessionType::LE_AUDIO_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
+        session_type_ ==
             SessionType::LE_AUDIO_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
-      return;
-    }
-    if (audio_config.getTag() != AudioConfiguration::leAudioConfig) {
-      LOG(ERROR) << __func__ << " invalid audio config type for SessionType ="
-                 << toString(session_type_);
+      if (audio_config.getTag() != AudioConfiguration::leAudioConfig) {
+        LOG(ERROR) << __func__ << " invalid audio config type for SessionType ="
+                   << toString(session_type_);
+        return;
+      }
+    } else {
+      LOG(ERROR) << __func__
+                 << " invalid SessionType =" << toString(session_type_);
       return;
     }
   }
