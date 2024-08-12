@@ -502,6 +502,30 @@
       },
       "revId": "ec85aa86b03cf87503a770ebfb09b5a62e258209",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c0e8c1d_fd4b6b06",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-12T06:42:58Z",
+      "side": 1,
+      "message": "Thank you, ya that should make it more close to the original logic in Android.mk.",
+      "parentUuid": "8b5561be_bf90a336",
+      "range": {
+        "startLine": 230,
+        "startChar": 1,
+        "endLine": 233,
+        "endChar": 2
+      },
+      "revId": "ec85aa86b03cf87503a770ebfb09b5a62e258209",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
