@@ -1,0 +1,224 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c450091d_5055f33e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-12T22:53:32Z",
+      "side": 1,
+      "message": "nit: please remove empty line",
+      "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "861484dc_da678c71",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-12T22:53:32Z",
+      "side": 1,
+      "message": "Calls to this method need to be wrapped into `ASSERT_NO_FATAL_FAILURE`",
+      "range": {
+        "startLine": 324,
+        "startChar": 4,
+        "endLine": 324,
+        "endChar": 24
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "df7e04e2_253cb994",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 324,
+                "startChar": 0,
+                "endLine": 325,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(setBaseVibratorParam());\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 335,
+                "startChar": 0,
+                "endLine": 336,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(setBaseScaleParam());\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 350,
+                "startChar": 0,
+                "endLine": 351,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(setBaseScaleParam());\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 364,
+                "startChar": 0,
+                "endLine": 365,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(setBaseScaleParam());\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26b206f9_c87f9e4d",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-12T22:53:32Z",
+      "side": 1,
+      "message": "Calls to this method need to be wrapped into `ASSERT_NO_FATAL_FAILURE`. Currently this will not change much, however if anyone will have to add test code after it, it will be important.",
+      "range": {
+        "startLine": 329,
+        "startChar": 4,
+        "endLine": 329,
+        "endChar": 28
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "8031e52b_ab4835eb",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 329,
+                "startChar": 0,
+                "endLine": 330,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(validateIncreasingEnergy(HapticGenerator::hapticScales));\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 344,
+                "startChar": 0,
+                "endLine": 345,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(validateIncreasingEnergy(HapticGenerator::vibratorInfo));\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 358,
+                "startChar": 0,
+                "endLine": 359,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(validateIncreasingEnergy(HapticGenerator::vibratorInfo));\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 372,
+                "startChar": 0,
+                "endLine": 373,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(validateIncreasingEnergy(HapticGenerator::vibratorInfo));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "199b6a37_5f3babde",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-12T22:53:32Z",
+      "side": 1,
+      "message": "Calls to this method need to be wrapped into `ASSERT_NO_FATAL_FAILURE`",
+      "range": {
+        "startLine": 335,
+        "startChar": 4,
+        "endLine": 335,
+        "endChar": 21
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d0296459_56c0426a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 335,
+                "startChar": 0,
+                "endLine": 336,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(setBaseScaleParam());\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 350,
+                "startChar": 0,
+                "endLine": 351,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(setBaseScaleParam());\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 364,
+                "startChar": 0,
+                "endLine": 365,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(setBaseScaleParam());\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

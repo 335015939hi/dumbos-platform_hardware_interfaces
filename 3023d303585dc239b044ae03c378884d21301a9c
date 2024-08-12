@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e326bb41_deb29584",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-12T22:53:32Z",
+      "side": 1,
+      "message": "OK. Changing that is out of scope of this CL.\n@yaoshunkai@google.com Shunkai, please make a note. I think we need to provide some ranges for these parameters.",
+      "parentUuid": "e7b121e2_0d7b6c10",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 59
+      },
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02c1d7e8_73fada2f",
