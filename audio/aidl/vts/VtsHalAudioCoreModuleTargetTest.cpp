@@ -3085,7 +3085,8 @@ static bool skipStreamIoTestForMixPortConfig(const AudioPortConfig& portConfig) 
 
 // Certain types of devices can not be used without special preconditions.
 static bool skipStreamIoTestForDevice(const AudioDevice& device) {
-    return device.type.type == AudioDeviceType::IN_ECHO_REFERENCE;
+    return device.type.type == AudioDeviceType::IN_ECHO_REFERENCE ||
+            isTelephonyDeviceType(device.type.type);
 }
 
 template <typename Stream>
