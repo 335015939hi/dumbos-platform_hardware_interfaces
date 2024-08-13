@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9305a74_5dde7b06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-13T05:33:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c450091d_5055f33e",
+      "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47e1ca83_b6c8eaac",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-08-13T00:45:46Z",
       "side": 1,
       "message": "also need `ASSERT_NO_FATAL_FAILURE` here?",
+      "range": {
+        "startLine": 149,
+        "startChar": 31,
+        "endLine": 149,
+        "endChar": 54
+      },
+      "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd6274d_81f0c341",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-13T05:33:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47e1ca83_b6c8eaac",
       "range": {
         "startLine": 149,
         "startChar": 31,
@@ -112,6 +154,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a30c9455_51baa9e4",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-13T05:33:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "861484dc_da678c71",
+      "range": {
+        "startLine": 324,
+        "startChar": 4,
+        "endLine": 324,
+        "endChar": 24
+      },
+      "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26b206f9_c87f9e4d",
@@ -183,6 +249,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbb22320_9c25b813",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-13T05:33:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26b206f9_c87f9e4d",
+      "range": {
+        "startLine": 329,
+        "startChar": 4,
+        "endLine": 329,
+        "endChar": 28
+      },
+      "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "199b6a37_5f3babde",
@@ -240,6 +330,30 @@
           ]
         }
       ],
+      "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cb640e6_a9b8718a",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-13T05:33:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "199b6a37_5f3babde",
+      "range": {
+        "startLine": 335,
+        "startChar": 4,
+        "endLine": 335,
+        "endChar": 21
+      },
       "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
