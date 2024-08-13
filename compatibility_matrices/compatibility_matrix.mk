@@ -29,11 +29,7 @@
 #       (corresponds to <avb><vbmeta-version> tag)
 # LOCAL_ASSEMBLE_VINTF_ENV_VARS: Add a list of environment variable names from global variables in
 #       the build system that is lazily evaluated (e.g. PRODUCT_ENFORCE_VINTF_MANIFEST).
-# LOCAL_ASSEMBLE_VINTF_ENV_VARS_OVERRIDE: Add a list of environment variables that is local to
-#       assemble_vintf invocation. Format is "VINTF_ENFORCE_NO_UNUSED_HALS=true".
 # LOCAL_ASSEMBLE_VINTF_FLAGS: Add additional command line arguments to assemble_vintf invocation.
-# LOCAL_KERNEL_CONFIG_DATA_PATHS: Paths to search for kernel config requirements. Format for each is
-#       <kernel version x.y.z>:<path that contains android-base*.config>.
 # LOCAL_GEN_FILE_DEPENDENCIES: A list of additional dependencies for the generated file.
 
 ifndef LOCAL_MODULE
@@ -64,15 +60,11 @@ $(GEN): $(LOCAL_GEN_FILE_DEPENDENCIES)
 ifeq (true,$(strip $(LOCAL_ADD_VBMETA_VERSION)))
 ifeq (true,$(BOARD_AVB_ENABLE))
 $(GEN): $(AVBTOOL)
-# INTERNAL_AVB_SYSTEM_SIGNING_ARGS consists of BOARD_AVB_SYSTEM_KEY_PATH and
-# BOARD_AVB_SYSTEM_ALGORITHM. We should add the dependency of key path, which
-# is a file, here.
 $(GEN): $(BOARD_AVB_SYSTEM_KEY_PATH)
 # Use deferred assignment (=) instead of immediate assignment (:=).
 # Otherwise, cannot get INTERNAL_AVB_SYSTEM_SIGNING_ARGS.
 $(GEN): FRAMEWORK_VBMETA_VERSION = $$("$(AVBTOOL)" add_hashtree_footer \
                            --print_required_libavb_version \
-                           $(INTERNAL_AVB_SYSTEM_SIGNING_ARGS) \
                            $(BOARD_AVB_SYSTEM_ADD_HASHTREE_FOOTER_ARGS))
 else
 $(GEN): FRAMEWORK_VBMETA_VERSION := 0.0
@@ -80,43 +72,17 @@ endif # BOARD_AVB_ENABLE
 $(GEN): PRIVATE_ENV_VARS += FRAMEWORK_VBMETA_VERSION
 endif # LOCAL_ADD_VBMETA_VERSION
 
-ifeq (true,$(strip $(LOCAL_ADD_VBMETA_VERSION_OVERRIDE)))
-ifneq ($(BOARD_OTA_FRAMEWORK_VBMETA_VERSION_OVERRIDE),)
-$(GEN): FRAMEWORK_VBMETA_VERSION_OVERRIDE := $(BOARD_OTA_FRAMEWORK_VBMETA_VERSION_OVERRIDE)
-$(GEN): PRIVATE_ENV_VARS += FRAMEWORK_VBMETA_VERSION_OVERRIDE
-endif
-endif
-
-ifneq (,$(strip $(LOCAL_KERNEL_CONFIG_DATA_PATHS)))
-$(GEN): PRIVATE_KERNEL_CONFIG_DATA_PATHS := $(LOCAL_KERNEL_CONFIG_DATA_PATHS)
-$(GEN): $(foreach pair,$(LOCAL_KERNEL_CONFIG_DATA_PATHS),\
-    $(wildcard $(call word-colon,2,$(pair))/android-base*.config))
-$(GEN): PRIVATE_FLAGS += $(foreach pair,$(PRIVATE_KERNEL_CONFIG_DATA_PATHS),\
-	--kernel=$(call word-colon,1,$(pair)):$(call normalize-path-list,\
-		$(wildcard $(call word-colon,2,$(pair))/android-base*.config)))
-endif
-
 my_matrix_src_files := \
 	$(addprefix $(LOCAL_PATH)/,$(LOCAL_SRC_FILES)) \
 	$(LOCAL_GENERATED_SOURCES)
 
-$(GEN): PRIVATE_ADDITIONAL_ENV_VARS := $(LOCAL_ASSEMBLE_VINTF_ENV_VARS_OVERRIDE)
-
-ifneq (,$(strip $(LOCAL_ASSEMBLE_VINTF_ERROR_MESSAGE)))
-$(GEN): PRIVATE_COMMAND_TAIL := || (echo $(strip $(LOCAL_ASSEMBLE_VINTF_ERROR_MESSAGE)) && false)
-endif
-
 $(GEN): PRIVATE_SRC_FILES := $(my_matrix_src_files)
 $(GEN): $(my_matrix_src_files) $(HOST_OUT_EXECUTABLES)/assemble_vintf
-	$(foreach varname,$(PRIVATE_ENV_VARS),\
-		$(if $(findstring $(varname),$(PRIVATE_ADDITIONAL_ENV_VARS)),\
-			$(error $(varname) should not be overridden by LOCAL_ASSEMBLE_VINTF_ENV_VARS_OVERRIDE.)))
 	$(foreach varname,$(PRIVATE_ENV_VARS),$(varname)="$($(varname))") \
-		$(PRIVATE_ADDITIONAL_ENV_VARS) \
 		$(HOST_OUT_EXECUTABLES)/assemble_vintf \
 		-i $(call normalize-path-list,$(PRIVATE_SRC_FILES)) \
 		-o $@ \
-		$(PRIVATE_FLAGS) $(PRIVATE_COMMAND_TAIL)
+		$(PRIVATE_FLAGS)
 
 LOCAL_PREBUILT_MODULE_FILE := $(GEN)
 LOCAL_SRC_FILES :=
