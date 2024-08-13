@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47e1ca83_b6c8eaac",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-08-13T00:45:46Z",
+      "side": 1,
+      "message": "also need `ASSERT_NO_FATAL_FAILURE` here?",
+      "range": {
+        "startLine": 149,
+        "startChar": 31,
+        "endLine": 149,
+        "endChar": 54
+      },
+      "revId": "d231da4183f7dfdc215b5474af8a5c818fea5e29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "861484dc_da678c71",
         "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
         "patchSetId": 6

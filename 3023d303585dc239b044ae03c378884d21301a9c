@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ed82697_a40e81d1",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-08-13T00:45:46Z",
+      "side": 1,
+      "message": "Tracking this with b/359366002",
+      "parentUuid": "e326bb41_deb29584",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 59
+      },
+      "revId": "3023d303585dc239b044ae03c378884d21301a9c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02c1d7e8_73fada2f",
