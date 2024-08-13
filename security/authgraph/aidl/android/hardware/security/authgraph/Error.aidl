@@ -48,4 +48,6 @@ enum Error {
     MEMORY_ALLOCATION_FAILED = -10,
     /* The protocol version negotiated with the sink is incompatible */
     INCOMPATIBLE_PROTOCOL_VERSION = -11,
+    /* Invalid instance identifier */
+    INVALID_INSTANCE_IDENTIFIER = -12,
 }
