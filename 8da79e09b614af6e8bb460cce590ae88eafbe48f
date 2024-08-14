@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f6a1c97_44747589",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-14T05:16:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc582aa5_ff6857b9",
+      "range": {
+        "startLine": 192,
+        "startChar": 31,
+        "endLine": 192,
+        "endChar": 54
+      },
+      "revId": "8da79e09b614af6e8bb460cce590ae88eafbe48f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc361273_e9726039",
@@ -110,6 +134,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "204f6014_d3cce183",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-14T05:16:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc361273_e9726039",
+      "range": {
+        "startLine": 257,
+        "startChar": 31,
+        "endLine": 257,
+        "endChar": 54
+      },
+      "revId": "8da79e09b614af6e8bb460cce590ae88eafbe48f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dca192ce_dad8c5c3",
@@ -123,6 +171,30 @@
       "writtenOn": "2024-08-13T15:57:06Z",
       "side": 1,
       "message": "I think, the loop would look simpler if we let `i` run from `0` to `cycleSize` and then add `startSize` when indexing `mInput`.",
+      "range": {
+        "startLine": 269,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 13
+      },
+      "revId": "8da79e09b614af6e8bb460cce590ae88eafbe48f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bf96977_d3e65783",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-14T05:16:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dca192ce_dad8c5c3",
       "range": {
         "startLine": 269,
         "startChar": 0,
@@ -170,6 +242,30 @@
           ]
         }
       ],
+      "revId": "8da79e09b614af6e8bb460cce590ae88eafbe48f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6943ec30_2bc0282c",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-14T05:16:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70c91e40_8ab6b832",
+      "range": {
+        "startLine": 303,
+        "startChar": 12,
+        "endLine": 303,
+        "endChar": 21
+      },
       "revId": "8da79e09b614af6e8bb460cce590ae88eafbe48f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
