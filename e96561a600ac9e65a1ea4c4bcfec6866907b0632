@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5c44e4bb_f62853ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-14T02:14:54Z",
+      "side": 1,
+      "message": "Forget to update the commit message, thanks for the notice.",
+      "parentUuid": "68fddd37_5cccece0",
+      "range": {
+        "startLine": 9,
+        "startChar": 93,
+        "endLine": 9,
+        "endChar": 262
+      },
+      "revId": "e96561a600ac9e65a1ea4c4bcfec6866907b0632",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bae3f5ab_2a9cc5f9",
         "filename": "compatibility_matrices/Android.bp",
         "patchSetId": 14
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-14T01:27:23Z",
       "side": 1,
       "message": "I think this doesn\u0027t match the logic at lines 79-81 in Android.mk.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 1
+      },
+      "revId": "e96561a600ac9e65a1ea4c4bcfec6866907b0632",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d21f5f2_aa7c2c61",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-14T02:14:54Z",
+      "side": 1,
+      "message": "The original logic will be that if the product configuration `DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE` is being set and add the module it self as a dependency.\n```\nmy_framework_matrix_deps :\u003d $(LOCAL_MODULE)\n```\n\nBut in Android.bp\u0027s scope I think we have no way to do that kind of logic and always put it as a dependency should not be a problem, because if it is not set it will be a phony_target which will touch a fake target under intermediate folder and won\u0027t install extra files, that\u0027s why　I just add it as a constant because the output is already control in soong.",
+      "parentUuid": "bae3f5ab_2a9cc5f9",
       "range": {
         "startLine": 133,
         "startChar": 0,

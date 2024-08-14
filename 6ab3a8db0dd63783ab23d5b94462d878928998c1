@@ -22,6 +22,30 @@
       },
       "revId": "6ab3a8db0dd63783ab23d5b94462d878928998c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f1ef5bb_3ab3e695",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-14T02:14:54Z",
+      "side": 1,
+      "message": "Thanks, just move it.",
+      "parentUuid": "f3c88e96_541fb787",
+      "range": {
+        "startLine": 198,
+        "startChar": 2,
+        "endLine": 198,
+        "endChar": 52
+      },
+      "revId": "6ab3a8db0dd63783ab23d5b94462d878928998c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
