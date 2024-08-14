@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "564a9f0e_aa9b0744",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-14T19:38:52Z",
+      "side": 1,
+      "message": "Test: m",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 5
+      },
+      "revId": "4029013f955cc781c938fd25dc394b018ba39d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a7d222a_8e56d23e",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-14T19:38:52Z",
+      "side": 1,
+      "message": "Extra space.",
+      "range": {
+        "startLine": 62,
+        "startChar": 21,
+        "endLine": 62,
+        "endChar": 22
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "6621aabb_d36e2a57",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/common/include/Utils.h",
+              "range": {
+                "startLine": 62,
+                "startChar": 0,
+                "endLine": 63,
+                "endChar": 0
+              },
+              "replacement": "constexpr std::array\u003c::aidl::android::media::audio::common::AudioPolicyForcedConfig, 17\u003e\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4029013f955cc781c938fd25dc394b018ba39d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
