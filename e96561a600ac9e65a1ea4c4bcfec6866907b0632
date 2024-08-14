@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68fddd37_5cccece0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1318142
+      },
+      "writtenOn": "2024-08-14T01:27:23Z",
+      "side": 1,
+      "message": "update",
+      "range": {
+        "startLine": 9,
+        "startChar": 93,
+        "endLine": 9,
+        "endChar": 262
+      },
+      "revId": "e96561a600ac9e65a1ea4c4bcfec6866907b0632",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae3f5ab_2a9cc5f9",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1318142
+      },
+      "writtenOn": "2024-08-14T01:27:23Z",
+      "side": 1,
+      "message": "I think this doesn\u0027t match the logic at lines 79-81 in Android.mk.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 1
+      },
+      "revId": "e96561a600ac9e65a1ea4c4bcfec6866907b0632",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
