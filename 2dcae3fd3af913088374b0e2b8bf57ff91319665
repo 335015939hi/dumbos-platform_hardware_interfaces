@@ -1,0 +1,75 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d69ffd11_060de15e",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-14T17:06:24Z",
+      "side": 1,
+      "message": "nit: why not just `return` here (and in `createVibratorParam`)?",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 20
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "74cf3b73_974f1a71",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 82,
+                "startChar": 0,
+                "endLine": 83,
+                "endChar": 0
+              },
+              "replacement": "        return Parameter::make\u003cParameter::specific\u003e(\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 85,
+                "startChar": 0,
+                "endLine": 86,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 89,
+                "startChar": 0,
+                "endLine": 90,
+                "endChar": 0
+              },
+              "replacement": "        return Parameter::make\u003cParameter::specific\u003e(\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+              "range": {
+                "startLine": 92,
+                "startChar": 0,
+                "endLine": 93,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "2dcae3fd3af913088374b0e2b8bf57ff91319665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
