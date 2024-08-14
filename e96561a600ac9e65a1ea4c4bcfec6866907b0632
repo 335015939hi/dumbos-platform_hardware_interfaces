@@ -93,6 +93,30 @@
       },
       "revId": "e96561a600ac9e65a1ea4c4bcfec6866907b0632",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6109757_93420252",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-14T18:43:22Z",
+      "side": 1,
+      "message": "There shouldn\u0027t be conflict in files, right?\n\nAn edge case is that, if the user did not specify `DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE`, but instead have:\n\n```\nvintf_compatibility_matrix {\n    name: \"foo_product_compatibility_matrix.xml\",\n    stem: \"compatibility_matrix.xml\",\n    product_specific: true,\n    type: \"product_fcm\",\n}\n```\nand\n```\nPRODUCT_PACKAGES +\u003d foo_product_compatibility_matrix.xml\n```\n\nWould that conflict with `product_compatibility_matrix.xml` after your change? It looks like if `DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE` is not set, then `product_compatibility_matrix.xml` does not install any files, so it seems okay.",
+      "parentUuid": "5d21f5f2_aa7c2c61",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 1
+      },
+      "revId": "e96561a600ac9e65a1ea4c4bcfec6866907b0632",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

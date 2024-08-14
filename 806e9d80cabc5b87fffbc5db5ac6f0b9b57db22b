@@ -1,0 +1,131 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c0d079d_ab97f8ed",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-14T18:43:22Z",
+      "side": 1,
+      "message": "nit: The official name (on source.android.com) is \"device framework compatibility matrix\". https://source.android.com/docs/core/architecture/vintf/comp-matrices\n\nYou can even add a link for future reference",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 96,
+        "endChar": 9
+      },
+      "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d12fb9_a3f22359",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-14T18:43:22Z",
+      "side": 1,
+      "message": "nit: Why do we need an extra variable here? It seemed to be used only once.\n\nAlso maybe `FRAMEWORK_MATRIX_DEPS\u003dSYSTEM_MATRIX_DEPS+[...]` in a single expression.",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 43
+      },
+      "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c26f28b9_52940561",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 15
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-14T18:43:22Z",
+      "side": 1,
+      "message": "nit: deviceFcmType/productFcmType, because acronyms should be treated as a single word",
+      "range": {
+        "startLine": 59,
+        "startChar": 1,
+        "endLine": 59,
+        "endChar": 14
+      },
+      "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff5e6ab5_f42e2716",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 15
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-14T18:43:22Z",
+      "side": 1,
+      "message": "nit delete\n\nnit maybe also mention that, to update inputs for this rule, edit vintf_compatibility_matric.go directly (because srcs/kernel_configs is not set in Android.bp)",
+      "range": {
+        "startLine": 155,
+        "startChar": 99,
+        "endLine": 155,
+        "endChar": 100
+      },
+      "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15792e95_06ff8582",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 15
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-08-14T18:43:22Z",
+      "side": 1,
+      "message": "nit: please add \"we can\u0027t use a phony target because we still need to install framework_compatibility_matrix.device.xml to include sepolicy versions\"",
+      "fixSuggestions": [
+        {
+          "fixId": "043365dc_e4fdf515",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+              "range": {
+                "startLine": 201,
+                "startChar": 0,
+                "endLine": 202,
+                "endChar": 0
+              },
+              "replacement": "\t// DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE or use compatibilityEmptyMatrix if not set. We can\u0027t\n\t// use a phony target because we still need to install framework_compatibility_matrix.device.xml\n\t// to include `BOARD_SEPOLICY_VERS`.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
