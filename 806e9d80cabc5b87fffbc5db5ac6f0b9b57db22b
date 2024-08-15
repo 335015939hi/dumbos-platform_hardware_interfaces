@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc74fa07_7803c0de",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-15T03:43:56Z",
+      "side": 1,
+      "message": "Thanks, just change it and add the reference link.",
+      "parentUuid": "3c0d079d_ab97f8ed",
+      "range": {
+        "startLine": 96,
+        "startChar": 3,
+        "endLine": 96,
+        "endChar": 9
+      },
+      "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64d12fb9_a3f22359",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-14T18:43:22Z",
       "side": 1,
       "message": "nit: Why do we need an extra variable here? It seemed to be used only once.\n\nAlso maybe `FRAMEWORK_MATRIX_DEPS\u003dSYSTEM_MATRIX_DEPS+[...]` in a single expression.",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 43
+      },
+      "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dddc5eb7_c1fac960",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-15T03:43:56Z",
+      "side": 1,
+      "message": "Thanks, just change it as suggested",
+      "parentUuid": "64d12fb9_a3f22359",
       "range": {
         "startLine": 132,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf719b04_a3d983f4",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 15
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-15T03:43:56Z",
+      "side": 1,
+      "message": "Thanks, just update it.",
+      "parentUuid": "c26f28b9_52940561",
+      "range": {
+        "startLine": 59,
+        "startChar": 1,
+        "endLine": 59,
+        "endChar": 14
+      },
+      "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff5e6ab5_f42e2716",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-08-14T18:43:22Z",
       "side": 1,
       "message": "nit delete\n\nnit maybe also mention that, to update inputs for this rule, edit vintf_compatibility_matric.go directly (because srcs/kernel_configs is not set in Android.bp)",
+      "range": {
+        "startLine": 155,
+        "startChar": 99,
+        "endLine": 155,
+        "endChar": 100
+      },
+      "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97b083ef_e26f1745",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 15
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-15T03:43:56Z",
+      "side": 1,
+      "message": "Thanks, just updated.",
+      "parentUuid": "ff5e6ab5_f42e2716",
       "range": {
         "startLine": 155,
         "startChar": 99,
@@ -124,6 +220,24 @@
           ]
         }
       ],
+      "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "681669d0_57539cc2",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 15
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-15T03:43:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15792e95_06ff8582",
       "revId": "806e9d80cabc5b87fffbc5db5ac6f0b9b57db22b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

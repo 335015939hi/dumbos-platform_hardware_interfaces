@@ -117,6 +117,30 @@
       },
       "revId": "e96561a600ac9e65a1ea4c4bcfec6866907b0632",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77e05a1_e42d13f3",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-15T03:43:56Z",
+      "side": 1,
+      "message": "Yes, a phony rule will not installed any thing to affect the device, so it is OK to always being add as a require module.",
+      "parentUuid": "f6109757_93420252",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 1
+      },
+      "revId": "e96561a600ac9e65a1ea4c4bcfec6866907b0632",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

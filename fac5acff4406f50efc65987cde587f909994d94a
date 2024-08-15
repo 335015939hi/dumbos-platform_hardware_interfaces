@@ -34,6 +34,24 @@
       "parentUuid": "ebbbda60_a02f8b99",
       "revId": "fac5acff4406f50efc65987cde587f909994d94a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4aa9bd0_510b9e8c",
+        "filename": "compatibility_matrices/build/vintf_compatibility_matrix.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-08-15T03:43:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14151be0_39eb0c63",
+      "revId": "fac5acff4406f50efc65987cde587f909994d94a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
