@@ -20,9 +20,6 @@
 #warn "ComposerCommandBuffer.h included without LOG_TAG"
 #endif
 
-#undef LOG_NDEBUG
-#define LOG_NDEBUG 0
-
 #include <algorithm>
 #include <limits>
 #include <memory>
