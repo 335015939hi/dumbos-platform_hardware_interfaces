@@ -16,6 +16,24 @@
       "message": "variant.size() is 92, the value of PROPERTY_VALUE_MAX.",
       "revId": "7d03f49853dca617b18a0570ddd28d76d2ce24b7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d7647d0_8b4c30b0",
+        "filename": "tv/tuner/aidl/vts/functional/VtsHalTvTunerTargetTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1947190
+      },
+      "writtenOn": "2024-08-15T02:52:08Z",
+      "side": 1,
+      "message": "Fixed in later changes.",
+      "parentUuid": "41d5aafd_9582bbac",
+      "revId": "7d03f49853dca617b18a0570ddd28d76d2ce24b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
