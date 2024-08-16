@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "033cddf0_b1cabfc8",
+        "filename": "graphics/composer/2.1/utils/command-buffer/include/composer-command-buffer/2.1/ComposerCommandBuffer.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1012974
+      },
+      "writtenOn": "2024-08-16T16:31:53Z",
+      "side": 0,
+      "message": "Looking at the other files in `hardware/interfaces` (and elsewhere), we typically just comment out the line that defines it. Deleting the `undef` (as you\u0027ve done here) is in line with the other files as well.",
+      "revId": "6883d48156ab3e029ddddcd290b5a78061172af8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
