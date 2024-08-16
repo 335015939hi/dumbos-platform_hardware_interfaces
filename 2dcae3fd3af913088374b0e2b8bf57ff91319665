@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6fa2a55_ac18757b",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-16T11:01:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d69ffd11_060de15e",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 20
+      },
+      "revId": "2dcae3fd3af913088374b0e2b8bf57ff91319665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2cab63f_b71325b1",
@@ -85,6 +109,30 @@
       "writtenOn": "2024-08-14T17:16:34Z",
       "side": 1,
       "message": "nit: these could be inside a common place like helper or util for other tests to refer",
+      "range": {
+        "startLine": 259,
+        "startChar": 9,
+        "endLine": 259,
+        "endChar": 25
+      },
+      "revId": "2dcae3fd3af913088374b0e2b8bf57ff91319665",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f5f60b2_d7d243c8",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-08-16T11:01:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2cab63f_b71325b1",
       "range": {
         "startLine": 259,
         "startChar": 9,
