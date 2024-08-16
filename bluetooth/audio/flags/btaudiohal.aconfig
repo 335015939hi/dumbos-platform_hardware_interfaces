@@ -14,3 +14,10 @@ flag {
     description: "Flag for reporting lea broadcast audio config to HAL"
     bug: "321168976"
 }
+
+flag {
+    name: "hfp_software_datapath"
+    namespace: "bluetooth"
+    description: "enable HFP software decode/encode data path"
+    bug: "367167324"
+}

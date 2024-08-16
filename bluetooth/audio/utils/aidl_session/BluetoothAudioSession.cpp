@@ -205,6 +205,9 @@ bool BluetoothAudioSession::IsSessionReady() {
            SessionType::LE_AUDIO_BROADCAST_HARDWARE_OFFLOAD_ENCODING_DATAPATH ||
        session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH ||
        session_type_ == SessionType::HFP_HARDWARE_OFFLOAD_DATAPATH ||
+       (com::android::btaudio::hal::flags::hfp_software_datapath() &&
+        (session_type_ == SessionType::HFP_SOFTWARE_DECODING_DATAPATH ||
+         session_type_ == SessionType::HFP_SOFTWARE_ENCODING_DATAPATH)) ||
        (data_mq_ != nullptr && data_mq_->isValid()));
   return stack_iface_ != nullptr && is_mq_valid && audio_config_ != nullptr;
 }
