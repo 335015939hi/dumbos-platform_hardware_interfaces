@@ -16,6 +16,24 @@
       "message": "Do old methods need to return new enumeration values? I\u0027d recommend avoiding doing that or mixing old/new values, as there will be many issues like this if methods return unsupported types.\n\n(though Sarah should say if she\u0027s okay with this)",
       "revId": "768b312a23dfa2fe227dbbf97e6bc8b3bdc30675",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1183d990_31c801dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2026112
+      },
+      "writtenOn": "2024-08-17T02:45:08Z",
+      "side": 1,
+      "message": "Dear google:\nfirstly, sorry for taking so long to reply\nI think this is necessary, many Xiaomi devices will return a new RAT (e.g. 5g) and then test fail",
+      "parentUuid": "701c0529_1699482d",
+      "revId": "768b312a23dfa2fe227dbbf97e6bc8b3bdc30675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
