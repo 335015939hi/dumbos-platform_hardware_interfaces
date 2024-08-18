@@ -290,7 +290,7 @@ std::vector<VehiclePropValuePool::RecyclableType> VehiclePropertyStore::readAllV
 
     for (auto const& [_, record] : mRecordsByPropId) {
         for (auto const& [_, value] : record.values) {
-            allValues.push_back(std::move(mValuePool->obtain(*value)));
+            allValues.push_back(mValuePool->obtain(*value));
         }
     }
 
@@ -309,7 +309,7 @@ VehiclePropertyStore::ValuesResultType VehiclePropertyStore::readValuesForProper
     }
 
     for (auto const& [_, value] : record->values) {
-        values.push_back(std::move(mValuePool->obtain(*value)));
+        values.push_back(mValuePool->obtain(*value));
     }
     return values;
 }
