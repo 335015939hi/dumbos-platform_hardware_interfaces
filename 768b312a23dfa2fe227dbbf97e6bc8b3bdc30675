@@ -69,6 +69,24 @@
       "parentUuid": "cece1886_85f4f67e",
       "revId": "768b312a23dfa2fe227dbbf97e6bc8b3bdc30675",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af883f34_678d9103",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2018356
+      },
+      "writtenOn": "2024-08-19T02:13:54Z",
+      "side": 1,
+      "message": "\u003e could this  fix  “ag/25986682  ” will be merged  in brach android14-tests-dev? this have been already exisited  in main branch\nmany xiaomi devices support NR , so  this method will return nr(5G), then test fail , so still hope to  accept this  fix  on  branch  android14-tests-dev, Thanks",
+      "parentUuid": "62d3a892_fa3d3a2d",
+      "revId": "768b312a23dfa2fe227dbbf97e6bc8b3bdc30675",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
