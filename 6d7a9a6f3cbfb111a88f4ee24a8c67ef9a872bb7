@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7feaaab8_42257f64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-08-20T23:50:39Z",
+      "side": 1,
+      "message": "Looks like something is still declaring that service in a vintf manifest based on the build failures.",
+      "revId": "6d7a9a6f3cbfb111a88f4ee24a8c67ef9a872bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
