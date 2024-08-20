@@ -26,14 +26,6 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="aidl">
-        <name>android.hardware.audio.sounddose</name>
-        <version>1-3</version>
-        <interface>
-            <name>ISoundDoseFactory</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="aidl" updatable-via-apex="true">
          <name>android.hardware.authsecret</name>
          <version>1</version>
