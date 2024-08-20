@@ -1871,7 +1871,7 @@ TEST_F(FakeVehicleHardwareTest, testSetVehicleMapService) {
 
 TEST_F(FakeVehicleHardwareTest, testGetHvacPropNotAvailable) {
     FakeVehicleHardwareTestHelper helper(getHardware());
-    auto hvacPowerOnConfig = std::move(getVehiclePropConfig(toInt(VehicleProperty::HVAC_POWER_ON)));
+    auto hvacPowerOnConfig = getVehiclePropConfig(toInt(VehicleProperty::HVAC_POWER_ON));
     EXPECT_NE(hvacPowerOnConfig, nullptr);
     for (auto& hvacPowerOnAreaConfig : hvacPowerOnConfig->areaConfigs) {
         int hvacPowerAreaId = hvacPowerOnAreaConfig.areaId;
@@ -1882,7 +1882,7 @@ TEST_F(FakeVehicleHardwareTest, testGetHvacPropNotAvailable) {
         EXPECT_EQ(status, StatusCode::OK);
 
         for (auto& powerPropId : helper.getHvacPowerDependentProps()) {
-            auto powerPropConfig = std::move(getVehiclePropConfig(powerPropId));
+            auto powerPropConfig = getVehiclePropConfig(powerPropId);
             EXPECT_NE(powerPropConfig, nullptr);
             if (powerPropConfig->access == VehiclePropertyAccess::WRITE) {
                 continue;
@@ -1918,7 +1918,7 @@ TEST_F(FakeVehicleHardwareTest, testGetHvacPropNotAvailable) {
 
 TEST_F(FakeVehicleHardwareTest, testSetHvacPropNotAvailable) {
     FakeVehicleHardwareTestHelper helper(getHardware());
-    auto hvacPowerOnConfig = std::move(getVehiclePropConfig(toInt(VehicleProperty::HVAC_POWER_ON)));
+    auto hvacPowerOnConfig = getVehiclePropConfig(toInt(VehicleProperty::HVAC_POWER_ON));
     EXPECT_NE(hvacPowerOnConfig, nullptr);
     for (auto& hvacPowerOnAreaConfig : hvacPowerOnConfig->areaConfigs) {
         int hvacPowerAreaId = hvacPowerOnAreaConfig.areaId;
@@ -1929,7 +1929,7 @@ TEST_F(FakeVehicleHardwareTest, testSetHvacPropNotAvailable) {
         EXPECT_EQ(status, StatusCode::OK);
 
         for (auto& powerPropId : helper.getHvacPowerDependentProps()) {
-            auto powerPropConfig = std::move(getVehiclePropConfig(powerPropId));
+            auto powerPropConfig = getVehiclePropConfig(powerPropId);
             EXPECT_NE(powerPropConfig, nullptr);
             if (powerPropConfig->access == VehiclePropertyAccess::READ) {
                 continue;
@@ -1968,7 +1968,7 @@ TEST_F(FakeVehicleHardwareTest, testSetHvacPropNotAvailable) {
 
 TEST_F(FakeVehicleHardwareTest, testHvacPowerOnSendCurrentHvacPropValues) {
     FakeVehicleHardwareTestHelper helper(getHardware());
-    auto hvacPowerOnConfig = std::move(getVehiclePropConfig(toInt(VehicleProperty::HVAC_POWER_ON)));
+    auto hvacPowerOnConfig = getVehiclePropConfig(toInt(VehicleProperty::HVAC_POWER_ON));
     EXPECT_NE(hvacPowerOnConfig, nullptr);
     for (auto& hvacPowerOnAreaConfig : hvacPowerOnConfig->areaConfigs) {
         int hvacPowerAreaId = hvacPowerOnAreaConfig.areaId;
@@ -2007,9 +2007,9 @@ TEST_F(FakeVehicleHardwareTest, testHvacPowerOnSendCurrentHvacPropValues) {
 }
 
 TEST_F(FakeVehicleHardwareTest, testHvacDualOnSynchronizesTemp) {
-    auto hvacDualOnConfig = std::move(getVehiclePropConfig(toInt(VehicleProperty::HVAC_DUAL_ON)));
+    auto hvacDualOnConfig = getVehiclePropConfig(toInt(VehicleProperty::HVAC_DUAL_ON));
     auto hvacTemperatureSetConfig =
-            std::move(getVehiclePropConfig(toInt(VehicleProperty::HVAC_TEMPERATURE_SET)));
+            getVehiclePropConfig(toInt(VehicleProperty::HVAC_TEMPERATURE_SET));
     EXPECT_NE(hvacDualOnConfig, nullptr);
     EXPECT_NE(hvacTemperatureSetConfig, nullptr);
     for (auto& hvacTemperatureSetConfig : hvacTemperatureSetConfig->areaConfigs) {
@@ -3605,7 +3605,7 @@ TEST_F(FakeVehicleHardwareTest, testSetHvacTemperatureValueSuggestion) {
     // Config array values from HVAC_TEMPERATURE_SET in DefaultProperties.json
     auto configs = getHardware()->getAllPropertyConfigs();
     auto hvacTemperatureSetConfig =
-            std::move(getVehiclePropConfig(toInt(VehicleProperty::HVAC_TEMPERATURE_SET)));
+            getVehiclePropConfig(toInt(VehicleProperty::HVAC_TEMPERATURE_SET));
     EXPECT_NE(hvacTemperatureSetConfig, nullptr);
 
     auto& hvacTemperatureSetConfigArray = hvacTemperatureSetConfig->configArray;

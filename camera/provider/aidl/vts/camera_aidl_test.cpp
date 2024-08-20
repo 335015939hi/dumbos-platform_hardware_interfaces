@@ -456,6 +456,22 @@ Status CameraAidlTest::isLogicalMultiCamera(const camera_metadata_t* staticMeta)
     return ret;
 }
 
+bool CameraAidlTest::isReadoutTimestampSupported(const camera_metadata_t* staticMeta) {
+    camera_metadata_ro_entry readoutTimestampEntry;
+    int rc = find_camera_metadata_ro_entry(staticMeta, ANDROID_SENSOR_READOUT_TIMESTAMP,
+                                           &readoutTimestampEntry);
+    if (rc != 0) {
+        ALOGI("%s: Failed to find ANDROID_SENSOR_READOUT_TIMESTAMP", __FUNCTION__);
+        return true;
+    }
+    if (readoutTimestampEntry.count == 1 && !readoutTimestampEntry.data.u8[0]) {
+        ALOGI("%s: readout timestamp not supported", __FUNCTION__);
+        return false;
+    }
+    ALOGI("%s: readout timestamp supported", __FUNCTION__);
+    return true;
+}
+
 void CameraAidlTest::verifyLogicalCameraResult(const camera_metadata_t* staticMetadata,
                                                const std::vector<uint8_t>& resultMetadata) {
     camera_metadata_t* metadata = (camera_metadata_t*)resultMetadata.data();
@@ -2380,13 +2396,13 @@ void CameraAidlTest::processCaptureRequestInternal(uint64_t bufferUsage,
             ASSERT_NE(inflightReq->resultOutputBuffers.size(), 0u);
             ASSERT_EQ(testStream.id, inflightReq->resultOutputBuffers[0].buffer.streamId);
 
-            // shutterReadoutTimestamp must be available, and it must
+            // shutterReadoutTimestamp, if supported, must
             // be >= shutterTimestamp + exposureTime,
             // and < shutterTimestamp + exposureTime + rollingShutterSkew / 2.
-            ASSERT_TRUE(inflightReq->shutterReadoutTimestampValid);
             ASSERT_FALSE(inflightReq->collectedResult.isEmpty());
 
-            if (inflightReq->collectedResult.exists(ANDROID_SENSOR_EXPOSURE_TIME)) {
+            if (mSupportReadoutTimestamp &&
+                inflightReq->collectedResult.exists(ANDROID_SENSOR_EXPOSURE_TIME)) {
                 camera_metadata_entry_t exposureTimeResult =
                         inflightReq->collectedResult.find(ANDROID_SENSOR_EXPOSURE_TIME);
                 nsecs_t exposureToReadout =
@@ -2901,13 +2917,14 @@ void CameraAidlTest::processPreviewStabilizationCaptureRequestInternal(
             ASSERT_FALSE(inflightReq->errorCodeValid);
             ASSERT_NE(inflightReq->resultOutputBuffers.size(), 0u);
             ASSERT_EQ(testStream.id, inflightReq->resultOutputBuffers[0].buffer.streamId);
-            ASSERT_TRUE(inflightReq->shutterReadoutTimestampValid);
-            nsecs_t readoutTimestamp = inflightReq->shutterReadoutTimestamp;
+            nsecs_t captureTimestamp = mSupportReadoutTimestamp
+                                               ? inflightReq->shutterReadoutTimestamp
+                                               : inflightReq->shutterTimestamp;
 
             if (previewStabilizationOn) {
                 // Here we collect the time difference between the buffer ready
-                // timestamp - notify readout timestamp.
-                // timeLag = buffer ready timestamp - notify readout timestamp.
+                // timestamp - notify timestamp.
+                // timeLag = buffer ready timestamp - notify timestamp.
                 // timeLag(previewStabilization) must be <=
                 //        timeLag(stabilization off) + 1 frame duration.
                 auto it = cameraDeviceToTimeLag.find(name);
@@ -2918,12 +2935,12 @@ void CameraAidlTest::processPreviewStabilizationCaptureRequestInternal(
                 ASSERT_TRUE(it != cameraDeviceToTimeLag.end());
 
                 nsecs_t previewStabOnLagTime =
-                        inflightReq->resultOutputBuffers[0].timeStamp - readoutTimestamp;
+                        inflightReq->resultOutputBuffers[0].timeStamp - captureTimestamp;
                 ASSERT_TRUE(previewStabOnLagTime <= (it->second + frameDuration));
             } else {
                 // Fill in the buffer ready timestamp - notify timestamp;
                 cameraDeviceToTimeLag[std::string(name)] =
-                        inflightReq->resultOutputBuffers[0].timeStamp - readoutTimestamp;
+                        inflightReq->resultOutputBuffers[0].timeStamp - captureTimestamp;
             }
         }
 

@@ -20,23 +20,22 @@
 #include <health/HealthLoop.h>
 
 #include <errno.h>
-#include <libgen.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/epoll.h>
+#include <sys/epoll.h>  // epoll_create1(), epoll_ctl(), epoll_wait()
 #include <sys/timerfd.h>
-#include <unistd.h>
+#include <unistd.h>  // read()
 
 #include <android-base/logging.h>
 #include <batteryservice/BatteryService.h>
-#include <cutils/klog.h>
+#include <cutils/klog.h>  // KLOG_*()
 #include <cutils/uevent.h>
 #include <healthd/healthd.h>
-#include <utils/Errors.h>
 
+#include <BpfSyscallWrappers.h>
 #include <health/utils.h>
 
+using android::base::ErrnoError;
+using android::base::Result;
+using android::base::unique_fd;
 using namespace android;
 using namespace std::chrono_literals;
 
@@ -57,18 +56,17 @@ HealthLoop::~HealthLoop() {
 int HealthLoop::RegisterEvent(int fd, BoundFunction func, EventWakeup wakeup) {
     CHECK(!reject_event_register_);
 
-    auto* event_handler =
-            event_handlers_
-                    .emplace_back(std::make_unique<EventHandler>(EventHandler{this, fd, func}))
-                    .get();
+    auto* event_handler = event_handlers_
+                                  .emplace_back(std::make_unique<EventHandler>(
+                                          EventHandler{this, fd, std::move(func)}))
+                                  .get();
 
-    struct epoll_event ev;
-
-    ev.events = EPOLLIN;
+    struct epoll_event ev = {
+            .events = EPOLLIN | EPOLLERR,
+            .data.ptr = reinterpret_cast<void*>(event_handler),
+    };
 
     if (wakeup == EVENT_WAKEUP_FD) ev.events |= EPOLLWAKEUP;
-
-    ev.data.ptr = reinterpret_cast<void*>(event_handler);
 
     if (epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd, &ev) == -1) {
         KLOG_ERROR(LOG_TAG, "epoll_ctl failed; errno=%d\n", errno);
@@ -122,10 +120,15 @@ void HealthLoop::PeriodicChores() {
     ScheduleBatteryUpdate();
 }
 
-// TODO(b/140330870): Use BPF instead.
 #define UEVENT_MSG_LEN 2048
-void HealthLoop::UeventEvent(uint32_t /*epevents*/) {
+void HealthLoop::UeventEvent(uint32_t epevents) {
     // No need to lock because uevent_fd_ is guaranteed to be initialized.
+
+    if (epevents & EPOLLERR) {
+        // The netlink receive buffer overflowed.
+        ScheduleBatteryUpdate();
+        return;
+    }
 
     char msg[UEVENT_MSG_LEN + 2];
     char* cp;
@@ -152,8 +155,26 @@ void HealthLoop::UeventEvent(uint32_t /*epevents*/) {
     }
 }
 
+// Attach a BPF filter to the @uevent_fd file descriptor. This fails in recovery mode because BPF is
+// not supported in recovery mode. This fails for kernel versions 5.4 and before because the BPF
+// program is rejected by the BPF verifier of older kernels.
+Result<void> HealthLoop::AttachFilter(int uevent_fd) {
+    static const char prg[] =
+            "/sys/fs/bpf/vendor/prog_filterPowerSupplyEvents_skfilter_power_supply";
+    int filter_fd(bpf::retrieveProgram(prg));
+    if (filter_fd < 0) {
+        return ErrnoError() << "failed to load BPF program " << prg;
+    }
+    if (setsockopt(uevent_fd, SOL_SOCKET, SO_ATTACH_BPF, &filter_fd, sizeof(filter_fd)) < 0) {
+        close(filter_fd);
+        return ErrnoError() << "failed to attach BPF program";
+    }
+    close(filter_fd);
+    return {};
+}
+
 void HealthLoop::UeventInit(void) {
-    uevent_fd_.reset(uevent_open_socket(64 * 1024, true));
+    uevent_fd_.reset(uevent_create_socket(64 * 1024, true));
 
     if (uevent_fd_ < 0) {
         KLOG_ERROR(LOG_TAG, "uevent_init: uevent_open_socket failed\n");
@@ -161,8 +182,25 @@ void HealthLoop::UeventInit(void) {
     }
 
     fcntl(uevent_fd_, F_SETFL, O_NONBLOCK);
+
+    Result<void> attach_result = AttachFilter(uevent_fd_);
+    if (!attach_result.ok()) {
+        std::string error_msg = attach_result.error().message();
+        error_msg +=
+                ". This is expected in recovery mode and also for kernel versions before 5.10.";
+        KLOG_WARNING(LOG_TAG, "%s", error_msg.c_str());
+    } else {
+        KLOG_INFO(LOG_TAG, "Successfully attached the BPF filter to the uevent socket");
+    }
+
     if (RegisterEvent(uevent_fd_, &HealthLoop::UeventEvent, EVENT_WAKEUP_FD))
         KLOG_ERROR(LOG_TAG, "register for uevent events failed\n");
+
+    if (uevent_bind(uevent_fd_.get()) < 0) {
+        uevent_fd_.reset();
+        KLOG_ERROR(LOG_TAG, "uevent_init: binding socket failed\n");
+        return;
+    }
 }
 
 void HealthLoop::WakeAlarmEvent(uint32_t /*epevents*/) {

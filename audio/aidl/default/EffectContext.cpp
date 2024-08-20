@@ -242,4 +242,17 @@ RetCode EffectContext::notifyDataMqUpdate() {
     LOG(VERBOSE) << __func__ << " : signal client for reopen";
     return RetCode::SUCCESS;
 }
+
+RetCode EffectContext::enable() {
+    return RetCode::SUCCESS;
+}
+
+RetCode EffectContext::disable() {
+    return RetCode::SUCCESS;
+}
+
+RetCode EffectContext::reset() {
+    return RetCode::SUCCESS;
+}
+
 }  // namespace aidl::android::hardware::audio::effect

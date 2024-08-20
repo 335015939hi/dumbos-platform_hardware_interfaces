@@ -397,10 +397,10 @@ class EffectHelper {
                                                               outputBuffer.size(), outputBuffer));
         }
 
+        // Disable the process
         ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::STOP));
         EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(statusMQ, 0, outputMQ, 0, outputBuffer));
 
-        // Disable the process
         ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::RESET));
     }
 

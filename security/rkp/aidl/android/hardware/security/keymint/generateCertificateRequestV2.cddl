@@ -62,9 +62,13 @@ UdsCerts = {
 SignerName = tstr
 
 UdsCertChain = [
-    2* X509Certificate      ; Root -> ... -> Leaf. "Root" is the vendor self-signed
-                            ; cert, "Leaf" contains UDS_Public. There may also be
-                            ; intermediate certificates between Root and Leaf.
+    + X509Certificate       ; Root -> ... -> Leaf. "Root" is the vendor self-signed
+                            ; cert, "Leaf" contains UDS_Public. It's recommended to
+                            ; have at least 3 certificates in the chain.
+                            ; The Root certificate is recommended to be generated in an air-gapped,
+                            ; HSM-based secure environment. The intermediate signing keys may be
+                            ; online, and should be rotated regularly (e.g. annually). Additionally,
+                            ; the intermediate certificates may contain product family identifiers.
 ]
 
 ; A bstr containing a DER-encoded X.509 certificate (RSA, NIST P-curve, or EdDSA)
