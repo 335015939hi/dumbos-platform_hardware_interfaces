@@ -644,5 +644,29 @@ interface IMapper {
             generates (Error error,
                        pointer reservedRegion,
                        uint64_t reservedSize);
+
+    /**
+     *  Get view bit masks of all views included in this handle.
+     */
+    @callflow(next="*")
+    getMultiViewInfo(pointer bufferHandle, pointer views) generates (Error error);
+
+    /**
+     * Imports a specific view buffer from a imported meta handle to create an imported buffer
+     * specific for the view only.
+     *
+     * @param metaHandle Meta handle which has already been imported by importBuffer.
+     * @param view View of the meta buffer to import.
+     * @return error Error status of the call, which may be
+     *     - `NONE` upon success.
+     *     - `BAD_BUFFER` if the raw handle is invalid.
+     *     - `BAD_VALUE` if the view id is not valid in the meta handle.
+     *     - `NO_RESOURCES` if the raw handle cannot be imported due to
+     *       unavailability of resources.
+     * @return outBufferHandle The resulting imported buffer handle for the specific view.
+     */
+    @callflow(next="*")
+    importViewBuffer(pointer metaHandle, uint32_t view)
+            generates (Error error, pointer outBufferHandle);
 };
 
