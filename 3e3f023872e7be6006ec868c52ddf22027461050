@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48c392f7_a8becdef",
+        "filename": "audio/aidl/sounddose/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-21T21:03:22Z",
+      "side": 1,
+      "message": "Maybe it should be made back `frozen` because without that the \"current\" V3 would still exist.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 18
+      },
+      "revId": "3e3f023872e7be6006ec868c52ddf22027461050",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
