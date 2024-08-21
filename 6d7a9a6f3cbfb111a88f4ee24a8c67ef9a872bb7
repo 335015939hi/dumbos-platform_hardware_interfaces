@@ -70,6 +70,24 @@
       "parentUuid": "b68f5eaa_fa7b2a9f",
       "revId": "6d7a9a6f3cbfb111a88f4ee24a8c67ef9a872bb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c10196dd_b8d1119d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1570284
+      },
+      "writtenOn": "2024-08-21T17:11:27Z",
+      "side": 1,
+      "message": "Good catch. Forgot about the 2 different libraries. Added the android.hardware.audio.sounddose@3 to the deprecated HALs",
+      "parentUuid": "653f018e_e7bf8f53",
+      "revId": "6d7a9a6f3cbfb111a88f4ee24a8c67ef9a872bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
