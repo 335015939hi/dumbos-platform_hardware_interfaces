@@ -16,6 +16,24 @@
       "message": "Looks like something is still declaring that service in a vintf manifest based on the build failures.",
       "revId": "6d7a9a6f3cbfb111a88f4ee24a8c67ef9a872bb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e86d1c9_2db1f7d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1570284
+      },
+      "writtenOn": "2024-08-21T00:21:25Z",
+      "side": 1,
+      "message": "Not sure I understand why this is failing. Shouldn\u0027t the exclusion in fcm_exclude.cpp prevent this error?",
+      "parentUuid": "7feaaab8_42257f64",
+      "revId": "6d7a9a6f3cbfb111a88f4ee24a8c67ef9a872bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
