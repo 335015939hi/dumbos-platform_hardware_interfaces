@@ -60,7 +60,7 @@ aidl_interface {
 }
 
 // Note: This should always be one version ahead of the last frozen version
-latest_android_hardware_audio_sounddose = "android.hardware.audio.sounddose-V3"
+latest_android_hardware_audio_sounddose = "android.hardware.audio.sounddose-V2"
 
 // Modules that depend on android.hardware.audio.sounddose directly can include
 // the following cc_defaults to avoid explicitly managing dependency versions
