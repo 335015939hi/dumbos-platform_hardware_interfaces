@@ -34,6 +34,24 @@
       "parentUuid": "7feaaab8_42257f64",
       "revId": "6d7a9a6f3cbfb111a88f4ee24a8c67ef9a872bb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b68f5eaa_fa7b2a9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-08-21T15:20:40Z",
+      "side": 1,
+      "message": "Ah, it looks like there are two different sounddose packages.\n\n[android.hardware.audio.core.sounddose@3](https://cs.android.com/android/platform/superproject/+/android14-qpr3-release:hardware/interfaces/audio/aidl/Android.bp;drc\u003da8efdb127e3c241cf4a6b3400a4750ca5242be06;l\u003d223) and this one is [android.hardware.audio.sounddose@3](https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/sounddose/Android.bp;drc\u003ddab7ab0807d5fc1357c787166d8bee58f3a1e6e6;l\u003d27) which needs to be added to the exclude now.",
+      "parentUuid": "8e86d1c9_2db1f7d8",
+      "revId": "6d7a9a6f3cbfb111a88f4ee24a8c67ef9a872bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
