@@ -52,6 +52,24 @@
       "parentUuid": "8e86d1c9_2db1f7d8",
       "revId": "6d7a9a6f3cbfb111a88f4ee24a8c67ef9a872bb7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "653f018e_e7bf8f53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-08-21T15:39:34Z",
+      "side": 1,
+      "message": "`android.hardware.audio.sounddose@3` should go under the \"Deprecated HALs\" section for AIDL interfaces: https://cs.android.com/android/platform/superproject/+/android14-qpr3-release:hardware/interfaces/compatibility_matrices/exclude/fcm_exclude.cpp;drc\u003d1fc8301983f59ea935b8aedefcd83e9cf2187a0a;l\u003d169",
+      "parentUuid": "b68f5eaa_fa7b2a9f",
+      "revId": "6d7a9a6f3cbfb111a88f4ee24a8c67ef9a872bb7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
