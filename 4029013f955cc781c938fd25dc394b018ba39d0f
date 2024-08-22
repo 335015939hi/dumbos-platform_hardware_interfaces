@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b27a8a1d_87c9f73f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-08-22T08:36:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "564a9f0e_aa9b0744",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 5
+      },
+      "revId": "4029013f955cc781c938fd25dc394b018ba39d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a7d222a_8e56d23e",
@@ -61,6 +85,30 @@
           ]
         }
       ],
+      "revId": "4029013f955cc781c938fd25dc394b018ba39d0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc32f8c6_22d46348",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-08-22T08:36:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a7d222a_8e56d23e",
+      "range": {
+        "startLine": 62,
+        "startChar": 21,
+        "endLine": 62,
+        "endChar": 22
+      },
       "revId": "4029013f955cc781c938fd25dc394b018ba39d0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
