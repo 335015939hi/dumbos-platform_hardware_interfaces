@@ -22,6 +22,30 @@
       },
       "revId": "696fbcd3338ce77d58d9feaa34089c2ad7c6c440",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bf73153_1af7a556",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-08-22T16:02:11Z",
+      "side": 1,
+      "message": "Interesting! After some digging I found that ag/27273371 (`Merge Android 24Q2 Release (ab/11526283) to aosp-main-future`) removed it in a merge conflict resolution that never shows up in the git log of the file.\n\n```\n$ git log --oneline compatibility_matrix.202504.xml                                                                                             \ne2a71fb696 Remove the ISoundDoseFactory HAL library\ndad5092eae [Hal] Add request/release control event in aidl interface.\ndab7ab0807 Migrate all related audio component to media.audio.common.types V4\na8efdb127e Vendor API level 202404 is now frozen\n```\n\nBut I can clearly see the change if I diff that specific merge commit with that file.\n```\ngit diff 64e598ce2b~1..64e598ce2b compatibility_matrix.202504.xml\ndiff --git a/compatibility_matrices/compatibility_matrix.202504.xml b/compatibility_matrices/compatibility_matrix.202504.xml\nindex 4b438cecdc..62756bdc31 100644\n--- a/compatibility_matrices/compatibility_matrix.202504.xml\n+++ b/compatibility_matrices/compatibility_matrix.202504.xml\n@@ -529,7 +529,6 @@\n             \u003cname\u003eISharedSecret\u003c/name\u003e\n             \u003cinstance\u003edefault\u003c/instance\u003e\n             \u003cinstance\u003estrongbox\u003c/instance\u003e\n-            \u003cregex-instance\u003e.*\u003c/regex-instance\u003e\n         \u003c/interface\u003e\n     \u003c/hal\u003e\n     \u003chal format\u003d\"aidl\"\u003e\n```",
+      "parentUuid": "58c96be6_f62b65d3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "696fbcd3338ce77d58d9feaa34089c2ad7c6c440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
