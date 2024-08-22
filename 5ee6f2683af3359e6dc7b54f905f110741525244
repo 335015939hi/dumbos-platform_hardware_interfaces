@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18d3ae40_48915600",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-08-22T22:56:26Z",
+      "side": 1,
+      "message": "we should probably add `|| vendor_api_level \u003d\u003d __ANDROID_API_V__` here as well",
+      "range": {
+        "startLine": 989,
+        "startChar": 15,
+        "endLine": 989,
+        "endChar": 41
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "345360a7_3196586d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 989,
+                "startChar": 0,
+                "endLine": 990,
+                "endChar": 0
+              },
+              "replacement": "    } else if (vendor_api_level \u003d\u003d 202404 || vendor_api_level \u003d\u003d __ANDROID_API_V__) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5ee6f2683af3359e6dc7b54f905f110741525244",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
