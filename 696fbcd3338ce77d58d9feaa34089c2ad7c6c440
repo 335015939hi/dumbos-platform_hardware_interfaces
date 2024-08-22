@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58c96be6_f62b65d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-22T00:14:27Z",
+      "side": 1,
+      "message": "That change does not use Merged-In, so this should be impossible. Can you double-check something else didn\u0027t remove it internally? If a CL gets lost like this, we should report to build team to check for other lost changes.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 30
+      },
+      "revId": "696fbcd3338ce77d58d9feaa34089c2ad7c6c440",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
