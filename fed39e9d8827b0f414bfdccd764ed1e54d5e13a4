@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c487e68_4454f22f",
+        "filename": "audio/aidl/common/include/Utils.h",
+        "patchSetId": 32
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-08-22T08:22:09Z",
+      "side": 1,
+      "message": "Done, thanks for this!",
+      "parentUuid": "ac9accf3_421a9b82",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 73
+      },
+      "revId": "fed39e9d8827b0f414bfdccd764ed1e54d5e13a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed345480_c0877dfb",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-14T20:35:48Z",
       "side": 1,
       "message": "Please fix this ERROR reported by Common Typos: Common typo found: \"EXPECT_TRUE(false)\" -- should it be \"ADD_FAILURE()\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"EXPECT_TRUE(false)\" -- should it be \"ADD_FAILURE()\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 355,
+        "startChar": 16,
+        "endLine": 355,
+        "endChar": 34
+      },
+      "revId": "fed39e9d8827b0f414bfdccd764ed1e54d5e13a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cad7b783_a89f74a4",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-08-22T08:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed345480_c0877dfb",
       "range": {
         "startLine": 355,
         "startChar": 16,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f421690_3e30748b",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-08-22T08:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22242755_9044b59b",
+      "range": {
+        "startLine": 373,
+        "startChar": 12,
+        "endLine": 373,
+        "endChar": 30
+      },
+      "revId": "fed39e9d8827b0f414bfdccd764ed1e54d5e13a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6eb1ae1b_3f5dc5f9",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-08-14T20:35:48Z",
       "side": 1,
       "message": "Please fix this ERROR reported by Common Typos: Common typo found: \"occurence\" -- should it be \"occurrence\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"occurence\" -- should it be \"occurrence\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 557,
+        "startChar": 25,
+        "endLine": 557,
+        "endChar": 34
+      },
+      "revId": "fed39e9d8827b0f414bfdccd764ed1e54d5e13a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "279b5613_69f8afc6",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 32
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-08-22T08:22:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eb1ae1b_3f5dc5f9",
       "range": {
         "startLine": 557,
         "startChar": 25,
