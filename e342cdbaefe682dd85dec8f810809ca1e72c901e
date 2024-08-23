@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6a49f7c_a5e99e41",
+        "filename": "audio/aidl/common/Android.bp",
+        "patchSetId": 34
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-23T20:23:15Z",
+      "side": 1,
+      "message": "Note: these two lines were missing and causing build breakage for tests.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 27
+      },
+      "revId": "e342cdbaefe682dd85dec8f810809ca1e72c901e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
