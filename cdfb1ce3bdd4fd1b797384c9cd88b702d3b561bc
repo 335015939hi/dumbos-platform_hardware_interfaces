@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "213a19c3_78c552ca",
+        "filename": "audio/aidl/vts/VtsHalHapticGeneratorTargetTest.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-08-23T18:37:29Z",
+      "side": 1,
+      "message": "The actual haptic generator amplitude is not necessary reach to the level of `kDefaultMaxAmp`.\nI think one possible way is to run one time of HapticGenerator processing with the max amplitude set to 1.f, get the max amplitude from the generated haptic data, and use this max amplitude as the actual cap, so the increasingAmplitudeValues will be something like {0, 0.25 * maxAmplitude, 0.5 * maxAmplitude, 0.75 * maxAmplitude, maxAmplitude}",
+      "range": {
+        "startLine": 325,
+        "startChar": 52,
+        "endLine": 325,
+        "endChar": 83
+      },
+      "revId": "cdfb1ce3bdd4fd1b797384c9cd88b702d3b561bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
