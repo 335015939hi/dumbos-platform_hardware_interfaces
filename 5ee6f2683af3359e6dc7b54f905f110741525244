@@ -40,6 +40,30 @@
       ],
       "revId": "5ee6f2683af3359e6dc7b54f905f110741525244",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a207c81_37b6143f",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2024-08-23T18:13:32Z",
+      "side": 1,
+      "message": "This was changed away from the macro by the team that manages these versions in aosp/2865434. The doc linked from the related bug b/312798205 gives a bit more information.",
+      "parentUuid": "18d3ae40_48915600",
+      "range": {
+        "startLine": 989,
+        "startChar": 15,
+        "endLine": 989,
+        "endChar": 41
+      },
+      "revId": "5ee6f2683af3359e6dc7b54f905f110741525244",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
