@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "cdcf34a0_fe06375f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-23T20:24:50Z",
+      "side": 1,
+      "message": "Francois, this time I have re-uploaded CLs in hardware/interfaces in order to fix a build error and run them through code formatter. Please download on your side first before making any updates.",
+      "revId": "e342cdbaefe682dd85dec8f810809ca1e72c901e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f6a49f7c_a5e99e41",
         "filename": "audio/aidl/common/Android.bp",
         "patchSetId": 34
