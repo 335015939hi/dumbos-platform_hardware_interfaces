@@ -173,3 +173,35 @@ prebuilt_etc {
         "android.hardware.security.secureclock-service.xml",
     ],
 }
+
+apex {
+    name: "com.android.hardware.keymint.cpp_nonsecure",
+    manifest: "manifest.json",
+    file_contexts: "cpp_file_contexts",
+    key: "com.google.cf.apex.key",
+    certificate: ":com.android.hardware.certificate",
+    soc_specific: true,
+    updatable: false,
+    binaries: [
+        "android.hardware.security.keymint-service",
+    ],
+    prebuilts: [
+        "keymint_aidl_cpp_init_rc",
+        "keymint_aidl_nonsecure_vintf",
+        "android.hardware.hardware_keystore.xml", // permissions
+    ],
+}
+
+prebuilt_etc {
+    name: "keymint_aidl_cpp_init_rc",
+    filename_from_src: true,
+    vendor: true,
+    src: ":gen-keymint_aidl_cpp_init_rc",
+}
+
+genrule {
+    name: "gen-keymint_aidl_cpp_init_rc",
+    srcs: ["android.hardware.security.keymint-service.rc"],
+    out: ["android.hardware.security.keymint-service.apex.rc"],
+    cmd: "sed -E 's%/vendor/bin/%/apex/com.android.hardware.keymint/bin/%' $(in) > $(out)",
+}
