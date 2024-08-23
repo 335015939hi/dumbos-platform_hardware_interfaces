@@ -88,6 +88,30 @@
       },
       "revId": "5ee6f2683af3359e6dc7b54f905f110741525244",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a903283f_678aa6c8",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-08-23T19:00:48Z",
+      "side": 1,
+      "message": "Thanks!\n\nI just assumed this constant predated the existed of macros, but apparently literals are the new cool thing.",
+      "parentUuid": "394a158b_ef4ab65a",
+      "range": {
+        "startLine": 989,
+        "startChar": 15,
+        "endLine": 989,
+        "endChar": 41
+      },
+      "revId": "5ee6f2683af3359e6dc7b54f905f110741525244",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
