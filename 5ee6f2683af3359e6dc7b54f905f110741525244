@@ -64,6 +64,30 @@
       },
       "revId": "5ee6f2683af3359e6dc7b54f905f110741525244",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "394a158b_ef4ab65a",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-08-23T18:54:05Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1a207c81_37b6143f",
+      "range": {
+        "startLine": 989,
+        "startChar": 15,
+        "endLine": 989,
+        "endChar": 41
+      },
+      "revId": "5ee6f2683af3359e6dc7b54f905f110741525244",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
