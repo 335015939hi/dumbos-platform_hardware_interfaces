@@ -663,10 +663,14 @@ bool StreamOutWorkerLogic::write(size_t clientSize, StreamDescriptor::Reply* rep
 }
 
 StreamCommonImpl::~StreamCommonImpl() {
-    if (!isClosed()) {
-        LOG(ERROR) << __func__ << ": stream was not closed prior to destruction, resource leak";
-        stopWorker();
-        // The worker and the context should clean up by themselves via destructors.
+    // It is responsibility of the class that implements 'DriverInterface' to call 'cleanupWorker'
+    // in the destructor. Note that 'cleanupWorker' can not be properly called from this destructor
+    // because any subclasses have already been destroyed and thus the 'DriverInterface'
+    // implementation is not valid. Thus, here it can only be asserted whether the subclass has done
+    // its job.
+    if (!mWorkerStopIssued && !isClosed()) {
+        LOG(FATAL) << __func__ << ": the stream implementation must call 'cleanupWorker' "
+                   << "in order to clean up the worker thread.";
     }
 }
 
@@ -770,10 +774,7 @@ ndk::ScopedAStatus StreamCommonImpl::removeEffect(
 ndk::ScopedAStatus StreamCommonImpl::close() {
     LOG(DEBUG) << __func__;
     if (!isClosed()) {
-        stopWorker();
-        LOG(DEBUG) << __func__ << ": joining the worker thread...";
-        mWorker->join();
-        LOG(DEBUG) << __func__ << ": worker thread joined";
+        stopAndJoinWorker();
         onClose(mWorker->setClosed());
         return ndk::ScopedAStatus::ok();
     } else {
@@ -791,6 +792,20 @@ ndk::ScopedAStatus StreamCommonImpl::prepareToClose() {
     return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
 }
 
+void StreamCommonImpl::cleanupWorker() {
+    if (!isClosed()) {
+        LOG(ERROR) << __func__ << ": stream was not closed prior to destruction, resource leak";
+        stopAndJoinWorker();
+    }
+}
+
+void StreamCommonImpl::stopAndJoinWorker() {
+    stopWorker();
+    LOG(DEBUG) << __func__ << ": joining the worker thread...";
+    mWorker->join();
+    LOG(DEBUG) << __func__ << ": worker thread joined";
+}
+
 void StreamCommonImpl::stopWorker() {
     if (auto commandMQ = mContext.getCommandMQ(); commandMQ != nullptr) {
         LOG(DEBUG) << __func__ << ": asking the worker to exit...";
@@ -805,6 +820,7 @@ void StreamCommonImpl::stopWorker() {
         }
         LOG(DEBUG) << __func__ << ": done";
     }
+    mWorkerStopIssued = true;
 }
 
 ndk::ScopedAStatus StreamCommonImpl::updateMetadataCommon(const Metadata& metadata) {
