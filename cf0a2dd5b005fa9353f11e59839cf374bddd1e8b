@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b7622a2_f88d857e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-26T20:42:26Z",
+      "side": 1,
+      "message": "Hi, it\u0027s kind of been intentional to avoid doing this for a long time. We explicitly DON\u0027T want to dedupe these entries, and the build error is intentional.\n\nFor instance, imagine we have two different servers:\n\n- server foo - keymint/default - has vintf entry\n- server bar - keymint/default - has vintf entry\n\nIf we install both \u0027foo\u0027 and \u0027bar\u0027 then we get the build error that the same server is installed twice.\n\nHowever, there is no such runtime check, so if these use the same module, both instances may be installed, and there may be a warning log sometimes, but the impact is that:\n- which one is used will race.\n- we might not realize we installed both and may waste resources.\n\nThis is a real issue, and it has happened on production devices, so I\u0027d ask you avoid de-duping these manifest fragments. WDYT?",
+      "revId": "cf0a2dd5b005fa9353f11e59839cf374bddd1e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4a26ca4_4316b6a8",
+        "filename": "tv/tuner/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-26T20:42:26Z",
+      "side": 1,
+      "message": "Why this instead of:\n\n```\nvintf_fragments: [\n    \":tuner-default.xml\"\n],\n```\n\nOtherwise, I wonder what the difference is between `vintf_fragment_modules` and `required`. Why do we need the new field?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "cf0a2dd5b005fa9353f11e59839cf374bddd1e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
