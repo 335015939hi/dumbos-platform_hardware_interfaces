@@ -1,0 +1,320 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c2584bb_0549d779",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "Thanks for the fixes. Commented a few more improvements while we\u0027re making changes.",
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c4aeeec_cabce405",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "#",
+      "range": {
+        "startLine": 32,
+        "startChar": 53,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5940af94_a71f860a",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "#",
+      "range": {
+        "startLine": 33,
+        "startChar": 39,
+        "endLine": 33,
+        "endChar": 40
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2eed8f7_d5468f4b",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "IRadioNetworkIndication#currentLinkCapacityEstimate",
+      "range": {
+        "startLine": 34,
+        "startChar": 16,
+        "endLine": 34,
+        "endChar": 59
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7606738_a0e7420b",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "IRadioNetwork#setNrDualConnectivityState",
+      "range": {
+        "startLine": 35,
+        "startChar": 24,
+        "endLine": 35,
+        "endChar": 57
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a719aa4_0983061b",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "IRadioNetwork#isNrDualConnectivityEnabled",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 50
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3dd5954_a9ceeb5a",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "IRadioData#setDataThrottling",
+      "range": {
+        "startLine": 37,
+        "startChar": 27,
+        "endLine": 37,
+        "endChar": 53
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ccc97e7_ad69e6bf",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "IRadioData#getSlicingConfig",
+      "range": {
+        "startLine": 38,
+        "startChar": 48,
+        "endLine": 38,
+        "endChar": 66
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e6f2abf_53700f3d",
+        "filename": "radio/aidl/android/hardware/radio/config/IRadioConfigResponse.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "IRadioNetworkIndication#currentPhysicalChannelConfigs",
+      "range": {
+        "startLine": 40,
+        "startChar": 16,
+        "endLine": 40,
+        "endChar": 68
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddb255bf_56483a6c",
+        "filename": "radio/aidl/android/hardware/radio/config/PhoneCapability.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "can we fit this on 2 lines?",
+      "range": {
+        "startLine": 30,
+        "startChar": 7,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df92761e_c418508b",
+        "filename": "radio/aidl/android/hardware/radio/config/PhoneCapability.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 56
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53605575_453c07b9",
+        "filename": "radio/aidl/android/hardware/radio/config/PhoneCapability.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 51,
+        "startChar": 7,
+        "endLine": 53,
+        "endChar": 57
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9360334_68b61653",
+        "filename": "radio/aidl/android/hardware/radio/config/SimPortInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 36,
+        "endChar": 24
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "564787b0_dc864e14",
+        "filename": "radio/aidl/android/hardware/radio/config/SimSlotStatus.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-08-26T22:00:01Z",
+      "side": 1,
+      "message": "shall",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 11
+      },
+      "revId": "30e833c4f6846135fc9fa285a6e84e88ebe30854",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
