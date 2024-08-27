@@ -974,15 +974,16 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequestSignedPayload(
 
 ErrMsgOr<hwtrust::DiceChain::Kind> getDiceChainKind() {
     int vendor_api_level = ::android::base::GetIntProperty("ro.vendor.api_level", -1);
-    switch (vendor_api_level) {
-        case __ANDROID_API_T__:
-            return hwtrust::DiceChain::Kind::kVsr13;
-        case __ANDROID_API_U__:
-            return hwtrust::DiceChain::Kind::kVsr14;
-        case 202404: /* TODO(b/315056516) Use a version macro for vendor API 24Q2 */
-            return hwtrust::DiceChain::Kind::kVsr15;
-        default:
-            return "Unsupported vendor API level: " + std::to_string(vendor_api_level);
+    if (vendor_api_level == __ANDROID_API_T__) {
+        return hwtrust::DiceChain::Kind::kVsr13;
+    } else if (vendor_api_level == __ANDROID_API_U__) {
+        return hwtrust::DiceChain::Kind::kVsr14;
+    } else if (vendor_api_level == 202404) {
+        return hwtrust::DiceChain::Kind::kVsr15;
+    } else if (vendor_api_level > 202404) {
+        return hwtrust::DiceChain::Kind::kVsr16;
+    } else {
+        return "Unsupported vendor API level: " + std::to_string(vendor_api_level);
     }
 }
 
