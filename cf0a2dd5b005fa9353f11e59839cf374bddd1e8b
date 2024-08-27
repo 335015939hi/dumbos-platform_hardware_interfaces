@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3042981c_034f375b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2024-08-27T02:07:05Z",
+      "side": 1,
+      "message": "I don\u0027t get it. This change is just to modularize a single vintf file which is referenced from mulitple modules. Also, current design of change will also make build error if there are two different vintf modules installed to the same location.\n\nCurrent idea is to define `vintf_fragment` library and reference it with `vintf_fragment_modules` property, instead of handling `vintf_fragments` in a separated way between soong and kati. If there are multiple `vintf_fragment` modules installed to the same location, it will generate error from ninja by defining multiple rules which targets same location.\n\nPlease let me know if I misunderstood your concern. You can find more information from aosp/3213372 and aosp/3183863. Thanks.",
+      "parentUuid": "3b7622a2_f88d857e",
+      "revId": "cf0a2dd5b005fa9353f11e59839cf374bddd1e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c4a26ca4_4316b6a8",
         "filename": "tv/tuner/aidl/default/Android.bp",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2024-08-26T20:42:26Z",
       "side": 1,
       "message": "Why this instead of:\n\n```\nvintf_fragments: [\n    \":tuner-default.xml\"\n],\n```\n\nOtherwise, I wonder what the difference is between `vintf_fragment_modules` and `required`. Why do we need the new field?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "cf0a2dd5b005fa9353f11e59839cf374bddd1e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61fab6f1_49fff44f",
+        "filename": "tv/tuner/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2024-08-27T02:07:05Z",
+      "side": 1,
+      "message": "This is discussed from https://android-review.git.corp.google.com/c/platform/build/soong/+/3183863/6..17/android/module.go#b502 . I decided to use `vintf_fragment_modules` instead of `required` because APEX exposes required of internal modules as APEX required itself - which means if we put this module as `required` then vintf_fragment file will be installed both in the APEX, and also partition contains APEX.",
+      "parentUuid": "c4a26ca4_4316b6a8",
       "range": {
         "startLine": 45,
         "startChar": 0,
