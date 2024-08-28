@@ -57,6 +57,75 @@
       },
       "revId": "e342cdbaefe682dd85dec8f810809ca1e72c901e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f91fff80_d839307c",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-28T18:39:50Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Build Warnings: moving a temporary object prevents copy elision [-Wpessimizing-move]\n\nAnalyzer Description: Reports warnings that originate from build.log in the build artifacts.\nOwner: farivar@google.com\n\n    moving a temporary object prevents copy elision [-Wpessimizing-move]\n      401 |         mAidlCapDomains \u003d std::make_optional\u003c\u003e(std::move(VALUE_OR_FATAL(\n          |                                                ^\n    hardware/interfaces/audio/aidl/default/CapEngineConfigXmlConverter.cpp:401:48: note: remove std::move call here\n\nThis finding was found on https://android-build.googleplex.com/builds/build-details/P79914370/targets/aosp_cf_x86_64_phone-trunk_staging-userdebug, but may also be present on other builds.\n\nThis is a different branch than your cl originated on (it was automerged), and thus might better reflect the state of the code in the aosp-main branch.",
+      "range": {
+        "startLine": 401,
+        "startChar": 47,
+        "endLine": 401,
+        "endChar": 72
+      },
+      "revId": "e342cdbaefe682dd85dec8f810809ca1e72c901e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "217a2e5f_7e5570cd",
+        "filename": "audio/aidl/default/EngineConfigXmlConverter.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-28T18:39:50Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Build Warnings: moving a temporary object prevents copy elision [-Wpessimizing-move]\n\nAnalyzer Description: Reports warnings that originate from build.log in the build artifacts.\nOwner: farivar@google.com\n\n    moving a temporary object prevents copy elision [-Wpessimizing-move]\n      267 |                 std::make_optional\u003c\u003e(std::move(VALUE_OR_FATAL((convertCapCriteriaCollectionToAidl(\n          |                                      ^\n    hardware/interfaces/audio/aidl/default/EngineConfigXmlConverter.cpp:267:38: note: remove std::move call here\n\nThis finding was found on https://android-build.googleplex.com/builds/build-details/P79914370/targets/aosp_cf_x86_64_phone-trunk_staging-userdebug, but may also be present on other builds.\n\nThis is a different branch than your cl originated on (it was automerged), and thus might better reflect the state of the code in the aosp-main branch.",
+      "range": {
+        "startLine": 267,
+        "startChar": 37,
+        "endLine": 267,
+        "endChar": 98
+      },
+      "revId": "e342cdbaefe682dd85dec8f810809ca1e72c901e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eb46a9f_3298c722",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 34
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-08-28T18:39:50Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Build Warnings: moving a temporary object prevents copy elision [-Wpessimizing-move]\n\nAnalyzer Description: Reports warnings that originate from build.log in the build artifacts.\nOwner: farivar@google.com\n\n    moving a temporary object prevents copy elision [-Wpessimizing-move]\n      578 |                     std::optional\u003cAudioHalCapCriterionV2\u003e(std::move(VALUE_OR_FATAL(\n          |                                                           ^\n    hardware/interfaces/audio/aidl/default/XsdcConversion.cpp:578:59: note: remove std::move call here\n\nThis finding was found on https://android-build.googleplex.com/builds/build-details/P79914370/targets/aosp_cf_x86_64_phone-trunk_staging-userdebug, but may also be present on other builds.\n\nThis is a different branch than your cl originated on (it was automerged), and thus might better reflect the state of the code in the aosp-main branch.",
+      "range": {
+        "startLine": 578,
+        "startChar": 58,
+        "endLine": 578,
+        "endChar": 83
+      },
+      "revId": "e342cdbaefe682dd85dec8f810809ca1e72c901e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
