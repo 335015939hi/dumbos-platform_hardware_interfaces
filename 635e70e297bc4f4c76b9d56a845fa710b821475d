@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36b575d1_c8d07c27",
+        "filename": "compatibility_matrices/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1317851
+      },
+      "writtenOn": "2024-08-28T07:07:45Z",
+      "side": 1,
+      "message": "From the presubmit fail, this revert will change `system_compatibility_matrix.xml` to mk. Then Android.bp can\u0027t access it. Then impact aosp/3139175.",
+      "range": {
+        "startLine": 124,
+        "startChar": 16,
+        "endLine": 124,
+        "endChar": 47
+      },
+      "revId": "635e70e297bc4f4c76b9d56a845fa710b821475d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
