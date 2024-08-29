@@ -43,6 +43,8 @@ namespace android {
 namespace hardware {
 namespace health {
 
+static constexpr uint32_t kUeventMsgLen = 2048;
+
 HealthLoop::HealthLoop() {
     InitHealthdConfig(&healthd_config_);
     awake_poll_interval_ = -1;
@@ -121,32 +123,38 @@ void HealthLoop::PeriodicChores() {
     ScheduleBatteryUpdate();
 }
 
-#define UEVENT_MSG_LEN 2048
-void HealthLoop::UeventEvent(uint32_t /*epevents*/) {
-    // No need to lock because uevent_fd_ is guaranteed to be initialized.
-
-    char msg[UEVENT_MSG_LEN + 2];
-    char* cp;
-    int n;
-
-    n = uevent_kernel_multicast_recv(uevent_fd_, msg, UEVENT_MSG_LEN);
-    if (n <= 0) return;
-    if (n >= UEVENT_MSG_LEN) /* overflow -- discard */
-        return;
-
-    msg[n] = '\0';
-    msg[n + 1] = '\0';
-    cp = msg;
-
-    while (*cp) {
-        if (!strcmp(cp, "SUBSYSTEM=power_supply")) {
-            ScheduleBatteryUpdate();
-            break;
+/* Returns true if and only if the battery statistics should be updated. */
+bool HealthLoop::RecvUevents() {
+    bool update_stats = false;
+    for (;;) {
+        char msg[kUeventMsgLen + 2];
+        int n = uevent_kernel_multicast_recv(uevent_fd_, msg, kUeventMsgLen);
+        if (n <= 0) return update_stats;
+        if (n >= kUeventMsgLen) /* too long -- discard */
+            continue;
+        if (update_stats) {
+            continue;
         }
 
-        /* advance to after the next \0 */
-        while (*cp++)
-            ;
+        msg[n] = '\0';
+        msg[n + 1] = '\0';
+        for (char* cp = msg; *cp;) {
+            if (strcmp(cp, "SUBSYSTEM=power_supply") == 0) {
+                update_stats = true;
+                break;
+            }
+
+            /* advance to after the next \0 */
+            while (*cp++) {
+            }
+        }
+    }
+}
+
+void HealthLoop::UeventEvent(uint32_t /*epevents*/) {
+    // No need to lock because uevent_fd_ is guaranteed to be initialized.
+    if (RecvUevents()) {
+        ScheduleBatteryUpdate();
     }
 }
 
