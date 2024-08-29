@@ -20,6 +20,8 @@
 #include <openthread/platform/alarm-milli.h>
 #include <utils/Log.h>
 
+#define UNUSED(x) (void)(x)
+
 void otLogPlatArgs(otLogLevel aLogLevel, const char* aPlatModuleName, const char* aFormat,
                    va_list aArgs) {
     OT_UNUSED_VARIABLE(aPlatModuleName);
@@ -43,6 +45,7 @@ void otLogCritPlat(const char* format, ...) {
 }
 
 void otDumpDebgPlat(const char* aText, const void* aData, uint16_t aDataLength) {
+#ifdef DEV_BUILD
     constexpr uint16_t kBufSize = 512;
     char buf[kBufSize];
 
@@ -55,6 +58,11 @@ void otDumpDebgPlat(const char* aText, const void* aData, uint16_t aDataLength) 
 
         __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, "%s: %s", aText, buf);
     }
+#else
+    UNUSED(aText);
+    UNUSED(aData);
+    UNUSED(aDataLength);
+#endif
 }
 
 OT_TOOL_WEAK void otPlatAlarmMilliFired(otInstance* aInstance) {
