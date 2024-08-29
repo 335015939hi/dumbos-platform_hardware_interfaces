@@ -64,7 +64,7 @@ int HealthLoop::RegisterEvent(int fd, BoundFunction func, EventWakeup wakeup) {
                                   .get();
 
     struct epoll_event ev = {
-        .events = EPOLLIN,
+        .events = EPOLLIN | EPOLLERR,
         .data.ptr = reinterpret_cast<void*>(event_handler),
     };
 
@@ -128,6 +128,9 @@ bool HealthLoop::RecvUevents() {
     for (;;) {
         char msg[kUeventMsgLen + 2];
         int n = uevent_kernel_multicast_recv(uevent_fd_, msg, kUeventMsgLen);
+        if (n < 0 && errno == ENOBUFS) {
+            update_stats = true;
+        }
         if (n <= 0) return update_stats;
         if (n >= kUeventMsgLen) {
             // too long -- discard
