@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67676f7f_b23d28ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956258
+      },
+      "writtenOn": "2024-08-29T21:01:55Z",
+      "side": 1,
+      "message": "Adding the fuzzer corpus generated using go/binder2corpus for AIDL service fuzzer: Requesting owners approval",
+      "revId": "7665b84c32fbfe8e135a9eb78fb96bb18a536f2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
