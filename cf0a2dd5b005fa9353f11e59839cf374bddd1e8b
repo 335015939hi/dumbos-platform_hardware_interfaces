@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f707d3e3_c7d26efd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-29T01:16:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3042981c_034f375b",
+      "revId": "cf0a2dd5b005fa9353f11e59839cf374bddd1e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4a26ca4_4316b6a8",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "This is discussed from https://android-review.git.corp.google.com/c/platform/build/soong/+/3183863/6..17/android/module.go#b502 . I decided to use `vintf_fragment_modules` instead of `required` because APEX exposes required of internal modules as APEX required itself - which means if we put this module as `required` then vintf_fragment file will be installed both in the APEX, and also partition contains APEX.",
       "parentUuid": "c4a26ca4_4316b6a8",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 6
+      },
+      "revId": "cf0a2dd5b005fa9353f11e59839cf374bddd1e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "606064c9_3fba97ec",
+        "filename": "tv/tuner/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-08-29T01:16:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "61fab6f1_49fff44f",
       "range": {
         "startLine": 45,
         "startChar": 0,
