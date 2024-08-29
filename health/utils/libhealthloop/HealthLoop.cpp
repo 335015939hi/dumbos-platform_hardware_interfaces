@@ -180,7 +180,7 @@ Result<void> HealthLoop::AttachFilter(int uevent_fd) {
 }
 
 void HealthLoop::UeventInit(void) {
-    uevent_fd_.reset(uevent_create_socket(64 * 1024, true));
+    uevent_fd_.reset(uevent_create_socket(kUeventMsgLen, true));
 
     if (uevent_fd_ < 0) {
         KLOG_ERROR(LOG_TAG, "uevent_init: uevent_open_socket failed\n");
