@@ -106,6 +106,40 @@ rust_library {
     ],
 }
 
+// Example of a single binary that supports 3 distinct KeyMint instances.
+rust_binary {
+    name: "android.hardware.security.keymint-service.multi.nonsecure",
+    relative_install_path: "hw",
+    vendor: true,
+    init_rc: ["android.hardware.security.keymint-service.multi.nonsecure.rc"],
+    vintf_fragments: [
+        "android.hardware.security.keymint-service.xml",
+        "android.hardware.security.sharedsecret-service.xml",
+        "android.hardware.security.secureclock-service.xml",
+        "android.hardware.security.keymint-service.alt1.xml",
+        "android.hardware.security.sharedsecret-service.alt1.xml",
+        "android.hardware.security.secureclock-service.alt1.xml",
+        "android.hardware.security.keymint-service.alt2.xml",
+        "android.hardware.security.sharedsecret-service.alt2.xml",
+        "android.hardware.security.secureclock-service.alt2.xml",
+    ],
+    defaults: [
+        "keymint_use_latest_hal_aidl_rust",
+    ],
+    srcs: [
+        "multi.rs",
+    ],
+    rustlibs: [
+        "libandroid_logger",
+        "libbinder_rs",
+        "liblog_rust",
+        "libkmr_nonsecure_main",
+    ],
+    required: [
+        "android.hardware.hardware_keystore.xml",
+    ],
+}
+
 prebuilt_etc {
     name: "android.hardware.hardware_keystore.xml",
     sub_dir: "permissions",
