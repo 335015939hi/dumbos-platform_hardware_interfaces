@@ -1,0 +1,4 @@
+service vendor.sharedmem-default /vendor/bin/hw/android.hardware.sharedmem-service.example
+    class hal
+    user nobody
+    group system
