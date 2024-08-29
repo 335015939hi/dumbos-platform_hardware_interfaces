@@ -183,9 +183,9 @@ void HealthLoop::UeventInit(void) {
         std::string error_msg = attach_result.error().message();
         error_msg +=
                 ". This is expected in recovery mode and also for kernel versions before 5.10.";
-        KLOG_WARNING(LOG_TAG, "%s", error_msg.c_str());
+        KLOG_WARNING(LOG_TAG, "%s\n", error_msg.c_str());
     } else {
-        KLOG_INFO(LOG_TAG, "Successfully attached the BPF filter to the uevent socket");
+        KLOG_INFO(LOG_TAG, "Successfully attached the BPF filter to the uevent socket\n");
     }
 
     if (RegisterEvent(uevent_fd_, &HealthLoop::UeventEvent, EVENT_WAKEUP_FD))
