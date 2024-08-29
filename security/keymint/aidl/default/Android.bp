@@ -80,12 +80,29 @@ rust_binary {
         "libandroid_logger",
         "libbinder_rs",
         "liblog_rust",
-        "libkmr_hal",
-        "libkmr_hal_nonsecure",
-        "libkmr_ta_nonsecure",
+        "libkmr_nonsecure_main",
     ],
     required: [
         "android.hardware.hardware_keystore.xml",
+    ],
+}
+
+rust_library {
+    name: "libkmr_nonsecure_main",
+    crate_name: "kmr_nonsecure_main",
+    vendor_available: true,
+    defaults: [
+        "keymint_use_latest_hal_aidl_rust",
+    ],
+    srcs: [
+        "lib.rs",
+    ],
+    rustlibs: [
+        "libbinder_rs",
+        "liblog_rust",
+        "libkmr_hal",
+        "libkmr_hal_nonsecure",
+        "libkmr_ta_nonsecure",
     ],
 }
 
