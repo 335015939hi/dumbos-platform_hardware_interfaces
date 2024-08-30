@@ -1,0 +1,66 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c9358e7_482127e4",
+        "filename": "threadnetwork/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-08-30T05:25:39Z",
+      "side": 1,
+      "message": "Do we need to output debug logs in the eng build?\n\n```\n      eng {\n        cppflags: [\"-DDEV_BUILD\"],\n      },\n```",
+      "revId": "57009ac8599daedadf5a0f5b6c2fcf8d6ad90583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e2bc5ed_41ca98e6",
+        "filename": "threadnetwork/aidl/default/utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1837411
+      },
+      "writtenOn": "2024-08-30T05:25:39Z",
+      "side": 1,
+      "message": "I think you can directly the macro `OT_UNUSED_VARIABLE`. See the code in line 27.",
+      "fixSuggestions": [
+        {
+          "fixId": "0c6319ba_50b01a7e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "threadnetwork/aidl/default/utils.cpp",
+              "range": {
+                "startLine": 23,
+                "startChar": 0,
+                "endLine": 25,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "threadnetwork/aidl/default/utils.cpp",
+              "range": {
+                "startLine": 62,
+                "startChar": 0,
+                "endLine": 65,
+                "endChar": 0
+              },
+              "replacement": "    OT_UNUSED_VARIABLE(aText);\n    OT_UNUSED_VARIABLE(aData);\n    OT_UNUSED_VARIABLE(aDataLength);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "57009ac8599daedadf5a0f5b6c2fcf8d6ad90583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
