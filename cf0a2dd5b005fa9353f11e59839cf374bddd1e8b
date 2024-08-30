@@ -54,6 +54,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f173aa8_71aa1906",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010674
+      },
+      "writtenOn": "2024-08-30T23:44:32Z",
+      "side": 1,
+      "message": "This CL also broke keymint in main-swcar-dev \n\n[    5.073132] servicemanager: Caller(pid\u003d169,uid\u003d9999,sid\u003du:r:hal_keymint_default:s0) Could not find android.hardware.security.keymint.IKeyMintDevice/default in the VINTF manifest. No alternative instances declared in VINTF.",
+      "revId": "cf0a2dd5b005fa9353f11e59839cf374bddd1e8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4a26ca4_4316b6a8",
