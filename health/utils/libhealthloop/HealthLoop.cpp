@@ -61,12 +61,13 @@ int HealthLoop::RegisterEvent(int fd, BoundFunction func, EventWakeup wakeup) {
                                           EventHandler{this, fd, std::move(func)}))
                                   .get();
 
-    struct epoll_event ev = {
-            .events = EPOLLIN | EPOLLERR,
-            .data.ptr = reinterpret_cast<void*>(event_handler),
-    };
+    struct epoll_event ev;
+
+    ev.events = EPOLLIN;
 
     if (wakeup == EVENT_WAKEUP_FD) ev.events |= EPOLLWAKEUP;
+
+    ev.data.ptr = reinterpret_cast<void*>(event_handler);
 
     if (epoll_ctl(epollfd_, EPOLL_CTL_ADD, fd, &ev) == -1) {
         KLOG_ERROR(LOG_TAG, "epoll_ctl failed; errno=%d\n", errno);
@@ -121,14 +122,8 @@ void HealthLoop::PeriodicChores() {
 }
 
 #define UEVENT_MSG_LEN 2048
-void HealthLoop::UeventEvent(uint32_t epevents) {
+void HealthLoop::UeventEvent(uint32_t /*epevents*/) {
     // No need to lock because uevent_fd_ is guaranteed to be initialized.
-
-    if (epevents & EPOLLERR) {
-        // The netlink receive buffer overflowed.
-        ScheduleBatteryUpdate();
-        return;
-    }
 
     char msg[UEVENT_MSG_LEN + 2];
     char* cp;
