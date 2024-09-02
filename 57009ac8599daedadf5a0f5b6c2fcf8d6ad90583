@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06616bc4_04a9c584",
+        "filename": "threadnetwork/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1310614
+      },
+      "writtenOn": "2024-09-02T05:44:11Z",
+      "side": 1,
+      "message": "Please add `debuggable\u003dtrue` cases in the CL description.",
+      "range": {
+        "startLine": 51,
+        "startChar": 8,
+        "endLine": 51,
+        "endChar": 18
+      },
+      "revId": "57009ac8599daedadf5a0f5b6c2fcf8d6ad90583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c9358e7_482127e4",
         "filename": "threadnetwork/aidl/default/Android.bp",
         "patchSetId": 1
