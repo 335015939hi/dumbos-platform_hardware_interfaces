@@ -17,6 +17,7 @@
     <option name="test-suite-tag" value="apct" />
     <option name="test-suite-tag" value="apct-native" />
     <option name="config-descriptor:metadata" key="token" value="SECURE_ELEMENT_SIM_CARD" />
+    <option name="not-shardable" value="true" />
 
     <target_preparer class="com.android.tradefed.targetprep.RootTargetPreparer">
     </target_preparer>
