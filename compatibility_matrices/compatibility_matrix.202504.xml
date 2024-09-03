@@ -325,6 +325,7 @@
         <version>1-3</version>
         <interface>
             <name>IRemotelyProvisionedComponent</name>
+            <instance>avf</instance>
             <instance>default</instance>
             <instance>strongbox</instance>
         </interface>
