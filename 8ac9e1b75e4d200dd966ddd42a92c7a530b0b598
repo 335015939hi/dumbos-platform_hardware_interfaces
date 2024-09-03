@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec740776_6bd53763",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1141048
+      },
+      "writtenOn": "2024-09-03T17:25:36Z",
+      "side": 1,
+      "message": "Thanks Devin, after ag/28806446 I believe we no longer need this. Jayant could you confirm?",
+      "revId": "8ac9e1b75e4d200dd966ddd42a92c7a530b0b598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
