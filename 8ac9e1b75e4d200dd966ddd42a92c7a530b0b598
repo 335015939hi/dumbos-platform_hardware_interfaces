@@ -16,6 +16,24 @@
       "message": "Thanks Devin, after ag/28806446 I believe we no longer need this. Jayant could you confirm?",
       "revId": "8ac9e1b75e4d200dd966ddd42a92c7a530b0b598",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec2bd162_1ddbd61b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-09-03T17:28:32Z",
+      "side": 1,
+      "message": "That\u0027s what it looks like to me. I\u0027ve got that cherry-pick added to this topic (it never made its way to aosp). https://android-review.git.corp.google.com/c/platform/frameworks/hardware/interfaces/+/3253555?usp\u003dsubmitted-together",
+      "parentUuid": "ec740776_6bd53763",
+      "revId": "8ac9e1b75e4d200dd966ddd42a92c7a530b0b598",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
