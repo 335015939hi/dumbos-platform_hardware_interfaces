@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d4dd03d_eb090156",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-09-04T15:16:25Z",
+      "side": 1,
+      "message": "I verified that the presubmit build go/ab/P80327384 has working WiFi on mokey_go32.  I defer to smoreland@ for the +2.",
+      "revId": "4a518d2e1e05a78ffbd4dd3ddfb34aba1b721397",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
