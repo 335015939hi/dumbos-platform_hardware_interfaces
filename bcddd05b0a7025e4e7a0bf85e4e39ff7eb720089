@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7995da25_824dfcc5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2024-09-04T00:46:25Z",
+      "side": 1,
+      "message": "Could you please explain (in the commit message or in the code comments) why we want to update battery stats on a buffer overflow error? e.g. why won\u0027t we just propagate the error, restart the service, etc?",
+      "range": {
+        "startLine": 10,
+        "startChar": 10,
+        "endLine": 10,
+        "endChar": 67
+      },
+      "revId": "bcddd05b0a7025e4e7a0bf85e4e39ff7eb720089",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
