@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf0bed0e_acd5e096",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 37
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-04T23:06:54Z",
+      "side": 1,
+      "message": "This is not SDK or NDK API. It\u0027s a schema used internally by vendor code in order to generate a parser for vendor XML files.",
+      "revId": "57ccab7fc82928f1301575aa067e0540fa4e215b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
