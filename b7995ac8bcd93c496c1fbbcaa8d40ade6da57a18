@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdb9dfb5_c38ed891",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-09-05T09:24:36Z",
+      "side": 1,
+      "message": "The reason of the breaks is cause by DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE defined file not exist in PDK branch, already add check for file exist before set the file path to DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE, and also pass on forrest run.",
+      "revId": "b7995ac8bcd93c496c1fbbcaa8d40ade6da57a18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
