@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "01156468_261b2b19",
+        "filename": "threadnetwork/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 2032448
+      },
+      "writtenOn": "2024-09-09T06:22:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06616bc4_04a9c584",
+      "range": {
+        "startLine": 51,
+        "startChar": 8,
+        "endLine": 51,
+        "endChar": 18
+      },
+      "revId": "57009ac8599daedadf5a0f5b6c2fcf8d6ad90583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c9358e7_482127e4",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-08-30T05:25:39Z",
       "side": 1,
       "message": "Do we need to output debug logs in the eng build?\n\n```\n      eng {\n        cppflags: [\"-DDEV_BUILD\"],\n      },\n```",
+      "revId": "57009ac8599daedadf5a0f5b6c2fcf8d6ad90583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edaa6e79_56cac64d",
+        "filename": "threadnetwork/aidl/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 2032448
+      },
+      "writtenOn": "2024-09-09T06:22:33Z",
+      "side": 1,
+      "message": "The flags in \"debuggable\" will be applied to userdebug/eng builds. Reference: https://docs.google.com/presentation/d/1YgZQh6TxwOzUiZL4kySuffMQ4tROoLNXIiciOJhxB1Q/edit#slide\u003did.g6c1bc64ae8_1_31",
+      "parentUuid": "8c9358e7_482127e4",
       "revId": "57009ac8599daedadf5a0f5b6c2fcf8d6ad90583",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -82,6 +124,24 @@
           ]
         }
       ],
+      "revId": "57009ac8599daedadf5a0f5b6c2fcf8d6ad90583",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b0c98d5_ad61eb88",
+        "filename": "threadnetwork/aidl/default/utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 2032448
+      },
+      "writtenOn": "2024-09-09T06:22:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e2bc5ed_41ca98e6",
       "revId": "57009ac8599daedadf5a0f5b6c2fcf8d6ad90583",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
