@@ -711,8 +711,8 @@ void CameraAidlTest::verifyCameraCharacteristics(const CameraMetadata& chars) {
     retcode = find_camera_metadata_ro_entry(metadata, ANDROID_LENS_POSE_REFERENCE, &entry);
     if (0 == retcode && entry.count > 0) {
         uint8_t poseReference = entry.data.u8[0];
-        ASSERT_TRUE(poseReference <= ANDROID_LENS_POSE_REFERENCE_UNDEFINED &&
-                    poseReference >= ANDROID_LENS_POSE_REFERENCE_PRIMARY_CAMERA);
+        ASSERT_TRUE(poseReference <= ANDROID_LENS_POSE_REFERENCE_AUTOMOTIVE &&
+                poseReference >= ANDROID_LENS_POSE_REFERENCE_PRIMARY_CAMERA);
     }
 
     retcode =
@@ -1221,18 +1221,21 @@ void CameraAidlTest::verifyManualFlashStrengthControlCharacteristics(
     int torchDefRetCode = find_camera_metadata_ro_entry(staticMeta,
             ANDROID_FLASH_TORCH_STRENGTH_DEFAULT_LEVEL, &torchDefEntry);
     if (torch_supported) {
+        int expectedEntryCount;
         if(singleMaxRetCode == 0 && singleDefRetCode == 0 && torchMaxRetCode == 0 &&
                 torchDefRetCode == 0) {
             singleMaxLevel = *singleMaxEntry.data.i32;
             singleDefLevel = *singleDefEntry.data.i32;
             torchMaxLevel = *torchMaxEntry.data.i32;
             torchDefLevel = *torchDefEntry.data.i32;
-            ASSERT_TRUE((singleMaxEntry.count == singleDefEntry.count == torchMaxEntry.count
-                    == torchDefEntry.count == 1));
+            expectedEntryCount = 1;
         } else {
-            ASSERT_TRUE((singleMaxEntry.count == singleDefEntry.count == torchMaxEntry.count
-                    == torchDefEntry.count == 0));
+            expectedEntryCount = 0;
         }
+        ASSERT_EQ(singleMaxEntry.count, expectedEntryCount);
+        ASSERT_EQ(singleDefEntry.count, expectedEntryCount);
+        ASSERT_EQ(torchMaxEntry.count, expectedEntryCount);
+        ASSERT_EQ(torchDefEntry.count, expectedEntryCount);
         // if the device supports this feature default levels should be greater than 0
         if (singleMaxLevel > 1) {
             ASSERT_GT(torchMaxLevel, 1);

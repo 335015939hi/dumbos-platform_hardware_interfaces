@@ -26,3 +26,12 @@ cc_library_headers {
     defaults: ["VehicleHalInterfaceDefaults"],
     host_supported: true,
 }
+
+cc_library_headers {
+    name: "IVehicleGeneratedHeaders-V4",
+    vendor_available: true,
+    local_include_dirs: ["."],
+    export_include_dirs: ["."],
+    defaults: ["VehicleHalInterfaceDefaults"],
+    host_supported: true,
+}

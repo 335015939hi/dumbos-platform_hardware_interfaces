@@ -1875,7 +1875,7 @@ std::string FakeVehicleHardware::dumpListProperties() {
         for (const auto& areaConfig : config.areaConfigs) {
             areaIds.push_back(areaConfig.areaId);
         }
-        ss << rowNumber++ << ": " << propIdToString(config.prop) << ", propID: " << std::showbase
+        ss << rowNumber++ << ": " << PROP_ID_TO_CSTR(config.prop) << ", propID: " << std::showbase
            << std::hex << config.prop << std::noshowbase << std::dec
            << ", areaIDs: " << vecToStringOfHexValues(areaIds) << std::endl;
     }
