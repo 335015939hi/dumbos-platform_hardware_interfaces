@@ -16,6 +16,23 @@
       "message": "Some founds updated on the bug.",
       "revId": "822f8d20f0b92537a580d6f25d6c7056dd51212f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab76c655_6976b2c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1527754
+      },
+      "writtenOn": "2024-09-10T08:38:10Z",
+      "side": 1,
+      "message": "Hi Mikhail,\n\nThis change will be helpful for us as well, for unknown positions cases.\ncan it be merged and made part of next VTS releases?",
+      "revId": "822f8d20f0b92537a580d6f25d6c7056dd51212f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
