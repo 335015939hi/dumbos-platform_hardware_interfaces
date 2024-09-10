@@ -1030,14 +1030,15 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
         return diceContents.message() + "\n" + prettyPrint(diceCertChain);
     }
 
-    auto& udsPub = diceContents->back().pubKey;
+    auto udsPub = diceCertChain->get(0)->asMap()->encode();
+    auto& kmDiceKey = diceContents->back().pubKey;
 
     auto error = validateUdsCerts(*udsCerts, udsPub);
     if (!error.empty()) {
         return error;
     }
 
-    auto signedPayload = verifyAndParseCoseSign1(signedData, udsPub, {} /* aad */);
+    auto signedPayload = verifyAndParseCoseSign1(signedData, kmDiceKey, {} /* aad */);
     if (!signedPayload) {
         return signedPayload.message();
     }
