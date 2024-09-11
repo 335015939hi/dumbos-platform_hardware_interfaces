@@ -32,7 +32,6 @@ using aidl::android::hardware::audio::effect::LoudnessEnhancer;
 using aidl::android::hardware::audio::effect::Parameter;
 using android::hardware::audio::common::testing::detail::TestExecutionTracer;
 
-static constexpr float kMaxAudioSample = 1;
 static constexpr int kZeroGain = 0;
 static constexpr int kMaxGain = std::numeric_limits<int>::max();
 static constexpr int kMinGain = std::numeric_limits<int>::min();
@@ -157,7 +156,7 @@ class LoudnessEnhancerDataTest : public ::testing::TestWithParam<LoudnessEnhance
         mBufferSize = kFrameCount *
                       getChannelCount(AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
                               AudioChannelLayout::LAYOUT_STEREO));
-        generateInputBuffer();
+        mInputBuffer = generateInputBuffer(mBufferSize);
 
         mOutputBuffer.resize(mBufferSize);
     }
@@ -175,14 +174,6 @@ class LoudnessEnhancerDataTest : public ::testing::TestWithParam<LoudnessEnhance
     void TearDown() override {
         SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
         TearDownLoudnessEnhancer();
-    }
-
-    // Fill inputBuffer with random values between -kMaxAudioSample to kMaxAudioSample
-    void generateInputBuffer() {
-        for (size_t i = 0; i < mBufferSize; i++) {
-            mInputBuffer.push_back(((static_cast<float>(std::rand()) / RAND_MAX) * 2 - 1) *
-                                   kMaxAudioSample);
-        }
     }
 
     // Add gains to the mInputBuffer and store processed output to mOutputBuffer

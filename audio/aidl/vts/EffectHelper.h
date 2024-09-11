@@ -83,6 +83,18 @@ static inline std::string getPrefix(Descriptor& descriptor) {
     return prefix;
 }
 
+static constexpr float kMaxAudioSample = 1;
+
+// Fill inputBuffer with random values between -kMaxAudioSample to kMaxAudioSample
+std::vector<float> generateInputBuffer(size_t numBufferElements) {
+    std::vector<float> inputBuffer;
+    for (size_t i = 0; i < numBufferElements; i++) {
+        inputBuffer.push_back(((static_cast<float>(std::rand()) / RAND_MAX) * 2 - 1) *
+                              kMaxAudioSample);
+    }
+    return inputBuffer;
+}
+
 class EffectHelper {
   public:
     void create(std::shared_ptr<IFactory> factory, std::shared_ptr<IEffect>& effect,
