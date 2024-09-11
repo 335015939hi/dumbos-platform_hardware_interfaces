@@ -24,6 +24,7 @@
 
 using namespace android;
 
+using aidl::android::hardware::audio::common::getChannelCount;
 using aidl::android::hardware::audio::effect::Descriptor;
 using aidl::android::hardware::audio::effect::getEffectTypeUuidVisualizer;
 using aidl::android::hardware::audio::effect::IEffect;
@@ -56,6 +57,15 @@ class VisualizerParamTest : public ::testing::TestWithParam<VisualizerParamTestP
           mMeasurementMode(std::get<PARAM_MEASUREMENT_MODE>(GetParam())),
           mLatency(std::get<PARAM_LATENCY>(GetParam())) {
         std::tie(mFactory, mDescriptor) = std::get<PARAM_INSTANCE_NAME>(GetParam());
+
+        size_t channelCount =
+                getChannelCount(AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                        AudioChannelLayout::LAYOUT_STEREO));
+        mBufferSizeInFrames = kInputFrameCount * channelCount;
+        mInputBuffer.resize(mBufferSizeInFrames);
+        generateInputBuffer(mInputBuffer, 0, true, channelCount, kMaxAudioSampleValue);
+
+        mOutputBuffer.resize(mBufferSizeInFrames);
     }
 
     void SetUp() override {
@@ -65,14 +75,43 @@ class VisualizerParamTest : public ::testing::TestWithParam<VisualizerParamTestP
         Parameter::Common common = createParamCommon(
                 0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
                 kInputFrameCount /* iFrameCount */, kOutputFrameCount /* oFrameCount */);
-        IEffect::OpenEffectReturn ret;
-        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, std::nullopt, &ret, EX_NONE));
+        ASSERT_NO_FATAL_FAILURE(open(mEffect, common, std::nullopt, &mOpenEffectReturn, EX_NONE));
         ASSERT_NE(nullptr, mEffect);
+        mVersion = EffectFactoryHelper::getHalVersion(mFactory);
+
+        // Creating AidlMessageQueues
+        mStatusMQ = std::make_unique<EffectHelper::StatusMQ>(mOpenEffectReturn.statusMQ);
+        mInputMQ = std::make_unique<EffectHelper::DataMQ>(mOpenEffectReturn.inputDataMQ);
+        mOutputMQ = std::make_unique<EffectHelper::DataMQ>(mOpenEffectReturn.outputDataMQ);
+
+        // Check AidlMessageQueues are not null
+        ASSERT_TRUE(mStatusMQ->isValid());
+        ASSERT_TRUE(mInputMQ->isValid());
+        ASSERT_TRUE(mOutputMQ->isValid());
     }
 
     void TearDown() override {
         ASSERT_NO_FATAL_FAILURE(close(mEffect));
         ASSERT_NO_FATAL_FAILURE(destroy(mFactory, mEffect));
+        mOpenEffectReturn = IEffect::OpenEffectReturn{};
+    }
+
+    // Add gains to the mInputBuffer and store processed output to mOutputBuffer
+    void processAndWriteToOutput() {
+        // Enabling the process
+        ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::START));
+        ASSERT_NO_FATAL_FAILURE(expectState(mEffect, State::PROCESSING));
+
+        // Write from buffer to message queues and calling process
+        EXPECT_NO_FATAL_FAILURE(
+                EffectHelper::writeToFmq(mStatusMQ, mInputMQ, mInputBuffer, mVersion));
+
+        // Read the updated message queues into buffer
+        EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(mStatusMQ, 1, mOutputMQ,
+                                                          mOutputBuffer.size(), mOutputBuffer));
+
+        // Disable the process
+        ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::STOP));
     }
 
     static const long kInputFrameCount = 0x100, kOutputFrameCount = 0x100;
@@ -83,6 +122,15 @@ class VisualizerParamTest : public ::testing::TestWithParam<VisualizerParamTestP
     Visualizer::ScalingMode mScalingMode = Visualizer::ScalingMode::NORMALIZED;
     Visualizer::MeasurementMode mMeasurementMode = Visualizer::MeasurementMode::NONE;
     int mLatency = 0;
+    int mVersion = 0;
+    std::vector<float> mInputBuffer;
+    std::vector<float> mOutputBuffer;
+    size_t mBufferSizeInFrames;
+    IEffect::OpenEffectReturn mOpenEffectReturn;
+    std::unique_ptr<StatusMQ> mStatusMQ;
+    std::unique_ptr<DataMQ> mInputMQ;
+    std::unique_ptr<DataMQ> mOutputMQ;
+    bool mAllParamsValid = true;
 
     void SetAndGetParameters() {
         for (auto& it : mCommonTags) {
@@ -94,6 +142,7 @@ class VisualizerParamTest : public ::testing::TestWithParam<VisualizerParamTestP
             ASSERT_STATUS(EX_NONE, mEffect->getDescriptor(&desc));
             const bool valid = isParameterValid<Visualizer, Range::visualizer>(vs, desc);
             const binder_exception_t expected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
+            if (expected == EX_ILLEGAL_ARGUMENT) mAllParamsValid = false;
 
             // set parameter
             Parameter expectParam;
@@ -170,6 +219,31 @@ TEST_P(VisualizerParamTest, SetAndGetMeasurementMode) {
 TEST_P(VisualizerParamTest, SetAndGetLatency) {
     EXPECT_NO_FATAL_FAILURE(addLatencyParam(mLatency));
     SetAndGetParameters();
+}
+
+TEST_P(VisualizerParamTest, testCaptureSampleBufferSizeAndOutput) {
+    EXPECT_NO_FATAL_FAILURE(addCaptureSizeParam(mCaptureSize));
+    EXPECT_NO_FATAL_FAILURE(addScalingModeParam(mScalingMode));
+    EXPECT_NO_FATAL_FAILURE(addMeasurementModeParam(mMeasurementMode));
+    EXPECT_NO_FATAL_FAILURE(addLatencyParam(mLatency));
+    SetAndGetParameters();
+    if (!mAllParamsValid) return;
+
+    Parameter getParam;
+    Parameter::Id id;
+    Visualizer::Id vsId;
+    vsId.set<Visualizer::Id::commonTag>(Visualizer::captureSampleBuffer);
+    id.set<Parameter::Id::visualizerTag>(vsId);
+    EXPECT_STATUS(EX_NONE, mEffect->getParameter(id, &getParam)) << " with: " << id.toString();
+
+    ASSERT_NO_FATAL_FAILURE(processAndWriteToOutput());
+
+    std::vector<uint8_t> captureBuffer = getParam.get<Parameter::specific>()
+                                                 .get<Parameter::Specific::visualizer>()
+                                                 .get<Visualizer::captureSampleBuffer>();
+
+    ASSERT_EQ((size_t)mCaptureSize, captureBuffer.size());
+    ASSERT_EQ(mInputBuffer, mOutputBuffer);
 }
 
 std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor>> kDescPair;
