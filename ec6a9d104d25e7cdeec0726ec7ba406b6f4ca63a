@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2a79224_e442d3c4",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-11T16:43:54Z",
+      "side": 1,
+      "message": "Please use `getFrameSizeInBytes` which also takes into account the size of a sample: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/common/include/Utils.h;l\u003d134;drc\u003db7f45516fe2a810eab186adf3c69e90dc403b2c9",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 65
+      },
+      "revId": "ec6a9d104d25e7cdeec0726ec7ba406b6f4ca63a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "737a5821_ab2b0204",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-11T16:43:54Z",
+      "side": 1,
+      "message": "Instead of copying code, please extract it from the LoudnessEnhancer test and reuse here. See https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp;l\u003d181;drc\u003d807c9523e76cd27948e43932b30b1b047beaa42e",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 5
+      },
+      "revId": "ec6a9d104d25e7cdeec0726ec7ba406b6f4ca63a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d94ecc9_bec3a04e",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-11T16:43:54Z",
+      "side": 1,
+      "message": "Why isn\u0027t this checked in `SetUp`?",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 42
+      },
+      "revId": "ec6a9d104d25e7cdeec0726ec7ba406b6f4ca63a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
