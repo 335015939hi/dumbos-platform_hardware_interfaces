@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d59f31c0_97733159",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2024-09-11T21:54:13Z",
+      "side": 1,
+      "message": "NXP: Can you update the API stubs for this HAL Change using `m android.hardware.nfc-update-api` and then reupload including the generated API stubs.",
+      "revId": "c57fc808496b7d41cf7c2a53449659014eba0027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
