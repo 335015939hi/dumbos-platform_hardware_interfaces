@@ -27,7 +27,6 @@
 #include <android/binder_process.h>
 #include <binder/IServiceManager.h>
 
-#include <atomic>
 #include <chrono>
 #include <condition_variable>
 #include <future>
@@ -68,8 +67,8 @@ using ::bluetooth::hci::PacketView;
 using ::bluetooth::hci::ReadLocalVersionInformationBuilder;
 using ::bluetooth::hci::ReadLocalVersionInformationCompleteView;
 
-static constexpr uint8_t kMinLeAdvSetForBt5 = 16;
-static constexpr uint8_t kMinLeAdvSetForBt5FoTv = 10;
+static constexpr uint8_t kMinLeAdvSetForBt5 = 10;
+static constexpr uint8_t kMinLeAdvSetForBt5ForTv = 10;
 static constexpr uint8_t kMinLeResolvingListForBt5 = 8;
 
 static constexpr size_t kNumHciCommandsBandwidth = 100;
@@ -1036,7 +1035,7 @@ TEST_P(BluetoothAidlTest, Vsr_Bluetooth5Requirements) {
   auto num_adv_set = num_adv_set_view.GetNumberSupportedAdvertisingSets();
 
   if (isTv() && get_vsr_api_level() == __ANDROID_API_U__) {
-    ASSERT_GE(num_adv_set, kMinLeAdvSetForBt5FoTv);
+    ASSERT_GE(num_adv_set, kMinLeAdvSetForBt5ForTv);
   } else {
     ASSERT_GE(num_adv_set, kMinLeAdvSetForBt5);
   }

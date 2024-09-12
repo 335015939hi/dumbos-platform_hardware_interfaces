@@ -33,6 +33,7 @@
 #include <unistd.h>
 
 #include <string>
+#include <vector>
 
 #include "common/code_utils.hpp"
 #include "openthread/openthread-system.h"
@@ -49,10 +50,8 @@ SocketInterface::SocketInterface(const ot::Url::Url& aRadioUrl)
     : mReceiveFrameCallback(nullptr),
       mReceiveFrameContext(nullptr),
       mReceiveFrameBuffer(nullptr),
-      mSockFd(-1),
       mRadioUrl(aRadioUrl) {
-    memset(&mInterfaceMetrics, 0, sizeof(mInterfaceMetrics));
-    mInterfaceMetrics.mRcpInterfaceType = kSpinelInterfaceTypeVendor;
+    ResetStates();
 }
 
 otError SocketInterface::Init(ReceiveFrameCallback aCallback, void* aCallbackContext,
@@ -120,8 +119,45 @@ otError SocketInterface::WaitForFrame(uint64_t aTimeoutUs) {
     } else if (rval == 0) {
         ExitNow(error = OT_ERROR_RESPONSE_TIMEOUT);
     } else {
-        DieNowWithMessage("wait response", OT_EXIT_FAILURE);
+        DieNowWithMessage("Wait response", OT_EXIT_FAILURE);
     }
+
+exit:
+    return error;
+}
+
+otError SocketInterface::WaitForHardwareResetCompletion(uint32_t aTimeoutMs) {
+    otError error = OT_ERROR_NONE;
+    int retries = 0;
+    int rval;
+
+    while (mIsHardwareResetting && retries++ < kMaxRetriesForSocketCloseCheck) {
+        struct timeval timeout;
+        timeout.tv_sec = static_cast<time_t>(aTimeoutMs / MS_PER_S);
+        timeout.tv_usec = static_cast<suseconds_t>((aTimeoutMs % MS_PER_S) * MS_PER_S);
+
+        fd_set readFds;
+
+        FD_ZERO(&readFds);
+        FD_SET(mSockFd, &readFds);
+
+        rval = TEMP_FAILURE_RETRY(select(mSockFd + 1, &readFds, nullptr, nullptr, &timeout));
+
+        if (rval > 0) {
+            Read();
+        } else if (rval < 0) {
+            DieNowWithMessage("Wait response", OT_EXIT_ERROR_ERRNO);
+        } else {
+            LogInfo("Waiting for hardware reset, retry attempt: %d, max attempt: %d", retries,
+                    kMaxRetriesForSocketCloseCheck);
+        }
+    }
+
+    VerifyOrExit(!mIsHardwareResetting, error = OT_ERROR_FAILED);
+
+    WaitForSocketFileCreated(mRadioUrl.GetPath());
+    mSockFd = OpenFile(mRadioUrl);
+    VerifyOrExit(mSockFd != -1, error = OT_ERROR_FAILED);
 
 exit:
     return error;
@@ -150,6 +186,16 @@ void SocketInterface::Process(const void* aMainloopContext) {
     }
 }
 
+otError SocketInterface::HardwareReset(void) {
+    otError error = OT_ERROR_NONE;
+    std::vector<uint8_t> resetCommand = {SPINEL_HEADER_FLAG, SPINEL_CMD_RESET, 0x04};
+
+    mIsHardwareResetting = true;
+    SendFrame(resetCommand.data(), resetCommand.size());
+
+    return WaitForHardwareResetCompletion(kMaxSelectTimeMs);
+}
+
 void SocketInterface::Read(void) {
     uint8_t buffer[kMaxFrameSize];
 
@@ -160,8 +206,13 @@ void SocketInterface::Read(void) {
     } else if (rval < 0) {
         DieNow(OT_EXIT_ERROR_ERRNO);
     } else {
-        LogCrit("Socket connection is closed by remote.");
-        exit(OT_EXIT_FAILURE);
+        if (mIsHardwareResetting) {
+            LogInfo("Socket connection is closed due to hardware reset.");
+            ResetStates();
+        } else {
+            LogCrit("Socket connection is closed by remote.");
+            exit(OT_EXIT_FAILURE);
+        }
     }
 }
 
@@ -296,6 +347,13 @@ exit:
 bool SocketInterface::IsSocketFileExisted(const char* aPath) {
     struct stat st;
     return stat(aPath, &st) == 0 && S_ISSOCK(st.st_mode);
+}
+
+void SocketInterface::ResetStates() {
+    mSockFd = -1;
+    mIsHardwareResetting = false;
+    memset(&mInterfaceMetrics, 0, sizeof(mInterfaceMetrics));
+    mInterfaceMetrics.mRcpInterfaceType = kSpinelInterfaceTypeVendor;
 }
 
 }  // namespace threadnetwork

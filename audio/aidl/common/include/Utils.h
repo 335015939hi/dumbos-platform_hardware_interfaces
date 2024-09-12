@@ -26,6 +26,7 @@
 #include <aidl/android/media/audio/common/AudioDeviceType.h>
 #include <aidl/android/media/audio/common/AudioFormatDescription.h>
 #include <aidl/android/media/audio/common/AudioInputFlags.h>
+#include <aidl/android/media/audio/common/AudioIoFlags.h>
 #include <aidl/android/media/audio/common/AudioMode.h>
 #include <aidl/android/media/audio/common/AudioOutputFlags.h>
 #include <aidl/android/media/audio/common/PcmType.h>
@@ -189,6 +190,17 @@ constexpr int32_t frameCountFromDurationUs(long durationUs, int32_t sampleRateHz
 
 constexpr int32_t frameCountFromDurationMs(int32_t durationMs, int32_t sampleRateHz) {
     return frameCountFromDurationUs(durationMs * 1000, sampleRateHz);
+}
+
+constexpr bool hasMmapFlag(const ::aidl::android::media::audio::common::AudioIoFlags& flags) {
+    return (flags.getTag() == ::aidl::android::media::audio::common::AudioIoFlags::Tag::input &&
+            isBitPositionFlagSet(
+                    flags.get<::aidl::android::media::audio::common::AudioIoFlags::Tag::input>(),
+                    ::aidl::android::media::audio::common::AudioInputFlags::MMAP_NOIRQ)) ||
+           (flags.getTag() == ::aidl::android::media::audio::common::AudioIoFlags::Tag::output &&
+            isBitPositionFlagSet(
+                    flags.get<::aidl::android::media::audio::common::AudioIoFlags::Tag::output>(),
+                    ::aidl::android::media::audio::common::AudioOutputFlags::MMAP_NOIRQ));
 }
 
 }  // namespace aidl::android::hardware::audio::common

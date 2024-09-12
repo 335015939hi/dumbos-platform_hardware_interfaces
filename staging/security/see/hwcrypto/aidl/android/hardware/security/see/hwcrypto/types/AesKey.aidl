@@ -16,18 +16,16 @@
 package android.hardware.security.see.hwcrypto.types;
 
 /*
- * Structure representing a section of a memory buffer.
+ * Type that represents an AES key.
  */
-@RustDerive(Copy=true, Clone=true)
-parcelable MemoryBufferReference {
+union AesKey {
     /*
-     * Start of the memory buffer section measured from the start of the memory buffer set for this
-     * operation.
+     * Raw AES 128 bit key material.
      */
-    int startOffset;
+    byte[16] aes128 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
     /*
-     * Total size of the memory buffer section.
+     * Raw AES 256 bit key material.
      */
-    int sizeBytes;
+    byte[32] aes256;
 }

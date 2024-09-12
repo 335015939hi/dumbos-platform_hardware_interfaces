@@ -32,8 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.see.hwcrypto.types;
-@RustDerive(Clone=true, Copy=true)
-parcelable MemoryBufferReference {
-  int startOffset;
-  int sizeBytes;
+union AesKey {
+  byte[16] aes128 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+  byte[32] aes256;
 }
