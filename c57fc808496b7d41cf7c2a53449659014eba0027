@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb4dbcd6_87c6c386",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1985025
+      },
+      "writtenOn": "2024-09-13T14:15:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d59f31c0_97733159",
+      "revId": "c57fc808496b7d41cf7c2a53449659014eba0027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcf2bdde_ac89baa0",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-09-13T00:19:25Z",
       "side": 1,
       "message": "cannot change old compat matrix",
+      "range": {
+        "startLine": 393,
+        "startChar": 0,
+        "endLine": 393,
+        "endChar": 30
+      },
+      "revId": "c57fc808496b7d41cf7c2a53449659014eba0027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ad72d06_e5dc1a20",
+        "filename": "compatibility_matrices/compatibility_matrix.8.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1985025
+      },
+      "writtenOn": "2024-09-13T14:15:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dcf2bdde_ac89baa0",
       "range": {
         "startLine": 393,
         "startChar": 0,
@@ -87,6 +129,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70d309a5_f6cb2014",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1985025
+      },
+      "writtenOn": "2024-09-13T14:15:17Z",
+      "side": 1,
+      "message": "Yes, Table 126: NFCEE IDs",
+      "parentUuid": "926b974a_039aa784",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 7
+      },
+      "revId": "c57fc808496b7d41cf7c2a53449659014eba0027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0236bf59_a2a83b11",
@@ -100,6 +166,30 @@
       "writtenOn": "2024-09-13T00:19:25Z",
       "side": 1,
       "message": "Sim",
+      "range": {
+        "startLine": 92,
+        "startChar": 18,
+        "endLine": 92,
+        "endChar": 21
+      },
+      "revId": "c57fc808496b7d41cf7c2a53449659014eba0027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2665371f_538e5f06",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1985025
+      },
+      "writtenOn": "2024-09-13T14:15:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0236bf59_a2a83b11",
       "range": {
         "startLine": 92,
         "startChar": 18,
