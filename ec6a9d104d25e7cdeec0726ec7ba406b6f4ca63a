@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ecad45e_50c6f7e4",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-09-13T13:53:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2a79224_e442d3c4",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 65
+      },
+      "revId": "ec6a9d104d25e7cdeec0726ec7ba406b6f4ca63a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "737a5821_ab2b0204",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80641961_e7e5bcc6",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-09-13T13:53:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "737a5821_ab2b0204",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 5
+      },
+      "revId": "ec6a9d104d25e7cdeec0726ec7ba406b6f4ca63a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d94ecc9_bec3a04e",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-09-11T16:43:54Z",
       "side": 1,
       "message": "Why isn\u0027t this checked in `SetUp`?",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 42
+      },
+      "revId": "ec6a9d104d25e7cdeec0726ec7ba406b6f4ca63a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97b1a1f2_c0686e74",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-09-13T13:53:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d94ecc9_bec3a04e",
       "range": {
         "startLine": 105,
         "startChar": 0,
