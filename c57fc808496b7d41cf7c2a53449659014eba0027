@@ -108,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c0425ab_418d13e2",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2024-09-13T17:08:45Z",
+      "side": 1,
+      "message": "No, this is not part of the NCI spec. See other pipeId in the struct above. `offHostESEPipeId`, `offHostSIMPipeId`",
+      "parentUuid": "60c2d8b0_9d7704ef",
+      "range": {
+        "startLine": 90,
+        "startChar": 7,
+        "endLine": 90,
+        "endChar": 24
+      },
+      "revId": "c57fc808496b7d41cf7c2a53449659014eba0027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "926b974a_039aa784",
         "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
         "patchSetId": 3
