@@ -130,6 +130,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36a294d5_6f6a0a39",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2024-09-13T17:09:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c0425ab_418d13e2",
+      "range": {
+        "startLine": 90,
+        "startChar": 7,
+        "endLine": 90,
+        "endChar": 24
+      },
+      "revId": "c57fc808496b7d41cf7c2a53449659014eba0027",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "926b974a_039aa784",
