@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "633a5f97_c1294e78",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-13T18:54:46Z",
+      "side": 1,
+      "message": "Apologies, I have misunderstood what are the units of the buffer size. Since it\u0027s in frames, the initial version was better because now the code relies on the fact that `kDefaultFormatDescription` uses float.\n\nPlease rename `mBufferSize` to `mBufferSizeFrames` to make it more clear.",
+      "parentUuid": "6ecad45e_50c6f7e4",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 65
+      },
+      "revId": "ec6a9d104d25e7cdeec0726ec7ba406b6f4ca63a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "737a5821_ab2b0204",
         "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
         "patchSetId": 1

@@ -1,0 +1,162 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b643f11_e8b6f017",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-13T18:54:46Z",
+      "side": 1,
+      "message": "`kMaxAudioSampleValue`.",
+      "range": {
+        "startLine": 86,
+        "startChar": 23,
+        "endLine": 86,
+        "endChar": 38
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "9222a57c_ec0cb332",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 86,
+                "startChar": 0,
+                "endLine": 87,
+                "endChar": 0
+              },
+              "replacement": "static constexpr float kMaxAudioSampleValue \u003d 1;\n"
+            },
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 88,
+                "startChar": 0,
+                "endLine": 89,
+                "endChar": 0
+              },
+              "replacement": "// Fill inputBuffer with random values between -kMaxAudioSampleValue to kMaxAudioSampleValue\n"
+            },
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 93,
+                "startChar": 0,
+                "endLine": 94,
+                "endChar": 0
+              },
+              "replacement": "                              kMaxAudioSampleValue);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3879803c_2bf96b07",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-13T18:54:46Z",
+      "side": 1,
+      "message": "Please also make use of this function in DownmixTest: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/vts/VtsHalDownmixTargetTest.cpp;l\u003d162;drc\u003d807c9523e76cd27948e43932b30b1b047beaa42e",
+      "range": {
+        "startLine": 89,
+        "startChar": 19,
+        "endLine": 89,
+        "endChar": 38
+      },
+      "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b49de134_91074eb2",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-13T18:54:46Z",
+      "side": 1,
+      "message": "Why not to make the maximum amplitude a function argument? That will be more flexible.",
+      "range": {
+        "startLine": 89,
+        "startChar": 63,
+        "endLine": 89,
+        "endChar": 64
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ffc9afe5_ea730a11",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 88,
+                "startChar": 0,
+                "endLine": 90,
+                "endChar": 0
+              },
+              "replacement": "// Fill inputBuffer with random values between -maxSample to maxSample\nstd::vector\u003cfloat\u003e generateInputBuffer(size_t numBufferElements, float maxSample \u003d kMaxAudioSample) {\n"
+            },
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 93,
+                "startChar": 0,
+                "endLine": 94,
+                "endChar": 0
+              },
+              "replacement": "                              maxSample);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b7cce38_1a3517df",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-13T18:54:46Z",
+      "side": 1,
+      "message": "This way we define a non-inline function in a header file. This is not recommended as it can lead to ODR violations. I would suggest putting it inside `EffectHelper` instead, there is already a somewhat similar function `generateMultiTone` there.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 66
+      },
+      "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
