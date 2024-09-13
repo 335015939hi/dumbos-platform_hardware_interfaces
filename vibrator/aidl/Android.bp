@@ -11,6 +11,7 @@ package {
 aidl_interface {
     name: "android.hardware.vibrator",
     vendor_available: true,
+    frozen: true,
     host_supported: true,
     srcs: [
         "android/hardware/vibrator/*.aidl",
