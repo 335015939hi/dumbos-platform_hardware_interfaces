@@ -64,7 +64,7 @@ int HealthLoop::RegisterEvent(int fd, BoundFunction func, EventWakeup wakeup) {
                                   .get();
 
     struct epoll_event ev = {
-        .events = EPOLLIN,
+        .events = EPOLLIN | EPOLLERR,
         .data.ptr = reinterpret_cast<void*>(event_handler),
     };
 
@@ -128,6 +128,9 @@ bool HealthLoop::RecvUevents() {
     for (;;) {
         char msg[kUeventMsgLen + 2];
         int n = uevent_kernel_multicast_recv(uevent_fd_, msg, kUeventMsgLen);
+        if (n < 0 && errno == ENOBUFS) {
+            update_stats = true;
+        }
         if (n <= 0) return update_stats;
         if (n >= kUeventMsgLen) {
             // too long -- discard
@@ -177,7 +180,7 @@ Result<void> HealthLoop::AttachFilter(int uevent_fd) {
 }
 
 void HealthLoop::UeventInit(void) {
-    uevent_fd_.reset(uevent_create_socket(64 * 1024, true));
+    uevent_fd_.reset(uevent_create_socket(kUeventMsgLen, true));
 
     if (uevent_fd_ < 0) {
         KLOG_ERROR(LOG_TAG, "uevent_init: uevent_open_socket failed\n");

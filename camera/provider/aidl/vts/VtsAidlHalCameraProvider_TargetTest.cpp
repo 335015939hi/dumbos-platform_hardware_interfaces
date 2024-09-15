@@ -178,6 +178,9 @@ TEST_P(CameraAidlTest, validateManualFlashStrengthControlKeys) {
             const camera_metadata_t* staticMeta =
                     reinterpret_cast<const camera_metadata_t*>(meta.metadata.data());
             verifyManualFlashStrengthControlCharacteristics(staticMeta);
+            ret = mSession->close();
+            mSession = nullptr;
+            ASSERT_TRUE(ret.isOk());
         }
     } else {
         ALOGI("validateManualFlashStrengthControlKeys: Test skipped.\n");
@@ -297,6 +300,15 @@ TEST_P(CameraAidlTest, getSessionCharacteristics) {
             ASSERT_TRUE(ret.isOk());
             ASSERT_NE(device, nullptr);
 
+            int32_t interfaceVersion = -1;
+            ret = device->getInterfaceVersion(&interfaceVersion);
+            ASSERT_TRUE(ret.isOk());
+            bool supportSessionCharacteristics =
+                    (interfaceVersion >= CAMERA_DEVICE_API_MINOR_VERSION_3);
+            if (!supportSessionCharacteristics) {
+                continue;
+            }
+
             CameraMetadata meta;
             openEmptyDeviceSession(name, mProvider, &mSession /*out*/, &meta /*out*/,
                                    &device /*out*/);
@@ -339,6 +351,10 @@ TEST_P(CameraAidlTest, getSessionCharacteristics) {
             ret = device->getSessionCharacteristics(config, &session_chars);
             ASSERT_TRUE(ret.isOk());
             verifySessionCharacteristics(session_chars, camera_chars);
+
+            ret = mSession->close();
+            mSession = nullptr;
+            ASSERT_TRUE(ret.isOk());
         }
     } else {
         ALOGI("getSessionCharacteristics: Test skipped.\n");
