@@ -81,3 +81,20 @@ rust_library {
         "libcoset",
     ],
 }
+
+rust_library {
+    name: "libauthgraph_agkm_vts_test",
+    crate_name: "authgraph_agkm_vts_test",
+    srcs: ["km_lib.rs"],
+    defaults: [
+        "authgraph_use_latest_km_hal_aidl_rust",
+    ],
+    rustlibs: [
+        "libauthgraph_boringssl",
+        "libauthgraph_core",
+        "libauthgraph_km_hal",
+        "libauthgraph_km_nonsecure",
+        "libbinder_rs",
+        "libcoset",
+    ],
+}
