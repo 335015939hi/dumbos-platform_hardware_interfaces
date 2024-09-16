@@ -253,6 +253,30 @@
       },
       "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc991d1d_1cb45806",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-16T17:07:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2060becf_06ff5327",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 66
+      },
+      "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
