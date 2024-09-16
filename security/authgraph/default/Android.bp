@@ -42,19 +42,39 @@ rust_library {
 
 }
 
+rust_library {
+    name: "libauthgraph_km_nonsecure",
+    crate_name: "authgraph_km_nonsecure",
+    defaults: [
+        "authgraph_use_latest_km_hal_aidl_rust",
+    ],
+    vendor_available: true,
+    rustlibs: [
+        "libandroid_logger",
+        "libauthgraph_boringssl",
+        "libauthgraph_core",
+        "libauthgraph_km_hal",
+        "libbinder_rs",
+        "liblibc",
+        "liblog_rust",
+    ],
+    srcs: ["src/km_lib.rs"],
+
+}
+
 rust_binary {
     name: "android.hardware.security.authgraph-service.nonsecure",
     relative_install_path: "hw",
     vendor: true,
     installable: false, // install com.android.hardware.security.authgraph
     defaults: [
-        "authgraph_use_latest_hal_aidl_rust",
+        "authgraph_use_latest_km_hal_aidl_rust",
     ],
     prefer_rlib: true,
     rustlibs: [
         "libandroid_logger",
-        "libauthgraph_hal",
-        "libauthgraph_nonsecure",
+        "libauthgraph_km_hal",
+        "libauthgraph_km_nonsecure",
         "libbinder_rs",
         "liblibc",
         "liblog_rust",
@@ -67,8 +87,8 @@ rust_binary {
 rust_fuzz {
     name: "android.hardware.authgraph-service.nonsecure_fuzzer",
     rustlibs: [
-        "libauthgraph_hal",
-        "libauthgraph_nonsecure",
+        "libauthgraph_km_hal",
+        "libauthgraph_km_nonsecure",
         "libbinder_random_parcel_rs",
         "libbinder_rs",
     ],
