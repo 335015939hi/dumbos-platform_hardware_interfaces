@@ -61,6 +61,9 @@ class FakeVehicleHardware : public IVehicleHardware {
     FakeVehicleHardware(std::string defaultConfigDir, std::string overrideConfigDir,
                         bool forceOverride);
 
+    FakeVehicleHardware(std::string defaultConfigDir, std::string overrideConfigDir,
+                        bool forceOverride, int s2rs2dconfig);
+
     ~FakeVehicleHardware();
 
     // Get all the property configs.
@@ -204,7 +207,7 @@ class FakeVehicleHardware : public IVehicleHardware {
     // provides power controlling related properties.
     std::string mPowerControllerServiceAddress = "";
 
-    void init();
+    void init(int s2rs2dconfig);
     // Stores the initial value to property store.
     void storePropInitialValue(const ConfigDeclaration& config);
     // The callback that would be called when a vehicle property value change happens.

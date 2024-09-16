@@ -348,6 +348,11 @@ FakeVehicleHardware::FakeVehicleHardware()
 
 FakeVehicleHardware::FakeVehicleHardware(std::string defaultConfigDir,
                                          std::string overrideConfigDir, bool forceOverride)
+    : FakeVehicleHardware(defaultConfigDir, overrideConfigDir, forceOverride, getS2rS2dConfig()) {}
+
+FakeVehicleHardware::FakeVehicleHardware(std::string defaultConfigDir,
+                                         std::string overrideConfigDir, bool forceOverride,
+                                         int s2rs2dconfig)
     : mValuePool(std::make_unique<VehiclePropValuePool>()),
       mServerSidePropStore(new VehiclePropertyStore(mValuePool)),
       mDefaultConfigDir(defaultConfigDir),
@@ -360,7 +365,7 @@ FakeVehicleHardware::FakeVehicleHardware(std::string defaultConfigDir,
       mPendingGetValueRequests(this),
       mPendingSetValueRequests(this),
       mForceOverride(forceOverride) {
-    init();
+    init(s2rs2dconfig);
 }
 
 FakeVehicleHardware::~FakeVehicleHardware() {
@@ -388,7 +393,7 @@ std::unordered_map<int32_t, ConfigDeclaration> FakeVehicleHardware::loadConfigDe
     return configsByPropId;
 }
 
-void FakeVehicleHardware::init() {
+void FakeVehicleHardware::init(int s2rs2dconfig) {
     maybeGetGrpcServiceInfo(&mPowerControllerServiceAddress);
 
     for (auto& [_, configDeclaration] : loadConfigDeclarations()) {
@@ -396,7 +401,7 @@ void FakeVehicleHardware::init() {
         VehiclePropertyStore::TokenFunction tokenFunction = nullptr;
 
         if (cfg.prop == toInt(VehicleProperty::AP_POWER_STATE_REQ)) {
-            cfg.configArray[0] = getS2rS2dConfig();
+            cfg.configArray[0] = s2rs2dconfig;
         } else if (cfg.prop == OBD2_FREEZE_FRAME) {
             tokenFunction = [](const VehiclePropValue& propValue) { return propValue.timestamp; };
         }
