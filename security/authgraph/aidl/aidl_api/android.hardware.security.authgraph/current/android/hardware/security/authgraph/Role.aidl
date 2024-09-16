@@ -34,19 +34,7 @@
 package android.hardware.security.authgraph;
 /* @hide */
 @Backing(type="int") @VintfStability
-enum Error {
-  OK = 0,
-  INVALID_PEER_NONCE = (-1) /* -1 */,
-  INVALID_PEER_KE_KEY = (-2) /* -2 */,
-  INVALID_IDENTITY = (-3) /* -3 */,
-  INVALID_CERT_CHAIN = (-4) /* -4 */,
-  INVALID_SIGNATURE = (-5) /* -5 */,
-  INVALID_KE_KEY = (-6) /* -6 */,
-  INVALID_PUB_KEY_IN_KEY = (-7) /* -7 */,
-  INVALID_PRIV_KEY_ARC_IN_KEY = (-8) /* -8 */,
-  INVALID_SHARED_KEY_ARCS = (-9) /* -9 */,
-  MEMORY_ALLOCATION_FAILED = (-10) /* -10 */,
-  INCOMPATIBLE_PROTOCOL_VERSION = (-11) /* -11 */,
-  KEY_ROTATION_REQUIRTED = (-12) /* -12 */,
-  ENFORCEMENTS_FAILED = (-13) /* -13 */,
+enum Role {
+  SOURCE = 0,
+  SINK = 1,
 }

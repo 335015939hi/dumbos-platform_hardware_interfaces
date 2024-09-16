@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,20 +33,9 @@
 
 package android.hardware.security.authgraph;
 /* @hide */
-@Backing(type="int") @VintfStability
-enum Error {
-  OK = 0,
-  INVALID_PEER_NONCE = (-1) /* -1 */,
-  INVALID_PEER_KE_KEY = (-2) /* -2 */,
-  INVALID_IDENTITY = (-3) /* -3 */,
-  INVALID_CERT_CHAIN = (-4) /* -4 */,
-  INVALID_SIGNATURE = (-5) /* -5 */,
-  INVALID_KE_KEY = (-6) /* -6 */,
-  INVALID_PUB_KEY_IN_KEY = (-7) /* -7 */,
-  INVALID_PRIV_KEY_ARC_IN_KEY = (-8) /* -8 */,
-  INVALID_SHARED_KEY_ARCS = (-9) /* -9 */,
-  MEMORY_ALLOCATION_FAILED = (-10) /* -10 */,
-  INCOMPATIBLE_PROTOCOL_VERSION = (-11) /* -11 */,
-  KEY_ROTATION_REQUIRTED = (-12) /* -12 */,
-  ENFORCEMENTS_FAILED = (-13) /* -13 */,
+@VintfStability
+interface IAuthGraphKeyManagement {
+  android.hardware.security.authgraph.Arc create(in android.hardware.security.authgraph.Arc wrappingArc, in @nullable android.hardware.security.authgraph.Capability childArcCaps, in android.hardware.security.authgraph.Role role);
+  android.hardware.security.authgraph.Arc snap(in android.hardware.security.authgraph.Arc parentArc, in android.hardware.security.authgraph.Arc childArc);
+  android.hardware.security.authgraph.Arc mint(in android.hardware.security.authgraph.Arc sourceArc, in android.hardware.security.authgraph.Arc destArc);
 }
