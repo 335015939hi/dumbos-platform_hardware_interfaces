@@ -524,6 +524,14 @@
         </interface>
     </hal>
     <hal format="aidl" updatable-via-apex="true">
+        <name>android.hardware.security.authgraph</name>
+        <version>2</version>
+        <interface>
+            <name>IAuthGraphKeyManagement</name>
+            <instance>nonsecure</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" updatable-via-apex="true">
         <name>android.hardware.security.secureclock</name>
         <version>1</version>
         <interface>

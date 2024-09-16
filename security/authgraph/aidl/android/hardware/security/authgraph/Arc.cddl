@@ -40,18 +40,21 @@ ArcProtectedHeaders = {
     ? -70010 : bstr .size 32       ; "session_id" computed during the key exchange protocol
 }
 
+
+
 ; Permissions indicate what an arc can be used with.
 Permission = &(
     -4770552 : IdentityEncoded,  ; "source_id" - in the operations performed by a source, the
                                  ; source adds its own identity to the permissions of an arc.
     -4770553 : IdentityEncoded,  ; "sink_id" - in the operations performed by a sink, the sink
                                  ; adds its own identity to the permissions of an arc.
-    -4770555 : [ +IdentityEncoded ]  ; "minting_allowed" - defines the set of TA identities
+    -4770555 : MintingAllowed    ; "minting_allowed" - defines the set of TA identities
                                      ; to whom the payload key is allowed to be minted.
     -4770556 : bool                  ; "deleted_on_biometric_change" - A Boolean value that
                                      ; indicates whether an auth key issued from a biometric TA is
                                      ; invalidated on new biometric enrollment or removal of all
                                      ; biometrics.
+    -4770557 : [+UID]              ; A unique identifier
 )
 
 ; Limitations indicate what restrictions are applied on the usage of an arc.
@@ -59,10 +62,25 @@ Limitation = &(
     -4770554 : bstr,      ; "challenge" - is added to an arc that encrypts an auth key from a
                           ; channel key, in order to ensure the freshness of the authentication.
                           ; A challenge is issued by a sink (e.g. Keymint TA, Biometric TAs).
+    -4770558 : long,      ; "timeout" - time expressed in milliseconds since some arbitrary point in time
+    -4770559 : uint,      ; "max_usage" - maximum number of allowed uses.
 )
 
+; Map describing the rules that allow minting
+MintingAllowed = {
+    1 : [ +DicePolicy ],  ; SourceIDs
+    ? 2 : [ DicePolicy ], ; SinkIDs
+    3 : UIDPolicy,        ; UIDPolicy
+}
+
 ; INCLUDE Identity.cddl for: Identity
+; INCLUDE DicePolicy.cddl for: DicePolicy
 IdentityEncoded = bstr .cbor Identity
+
+UIDPolicy = &(
+    Single :  1,
+    Multiple: 2,
+)
 
 Direction = &(
     In:  1,
@@ -109,5 +127,6 @@ ArcEncStruct = [              ; COSE_Enc_structure [RFC9052 s5.3]
     external_aad : bstr .size 0,
 ]
 
+UID = bstr .size 32                ; Unique identifier
 ; INCLUDE generateCertificateRequestV2.cddl for: PubKeyEd25519, PubKeyECDSA256, PubKeyECDSA384
 ; from hardware/interfaces/security/rkp/aidl/android/hardware/security/keymint/
