@@ -450,6 +450,26 @@ TEST_P(NfcAidl, CheckControlGrantedStatus) {
     }
 }
 
+/*
+ * checkGetConfigValues:
+ * Calls getConfig()
+ * checks if fields in NfcConfig are populated correctly
+ */
+TEST_P(NfcAidl, CheckGetConfigValues_V2) {
+    int interface_version;
+    EXPECT_TRUE(infc_->getInterfaceVersion(&interface_version).isOk());
+    if (interface_version > 1) {
+        NfcConfig configValue;
+        EXPECT_TRUE(infc_->getConfig(&configValue).isOk());
+        for (auto simPipeId: configValue.offHostSimPipeIds) {
+            LOG(INFO) << StringPrintf("offHostSimPipeId= %x", simPipeId);
+            EXPECT_GE(simPipeId, MIN_OFFHOST_ROUTE_ID);
+            EXPECT_LE(simPipeId, MAX_OFFHOST_ROUTE_ID);
+        }
+    }
+}
+
+
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(NfcAidl);
 INSTANTIATE_TEST_SUITE_P(Nfc, NfcAidl,
                          testing::ValuesIn(::android::getAidlHalInstanceNames(INfc::descriptor)),
