@@ -49,17 +49,15 @@ namespace fake {
 
 class FakeVehicleHardware : public IVehicleHardware {
   public:
-    // Supports Suspend_to_ram.
-    static constexpr int32_t SUPPORT_S2R = 0x1;
-    // Supports Suspend_to_disk.
-    static constexpr int32_t SUPPORT_S2D = 0x4;
-
     using ValueResultType = VhalResult<VehiclePropValuePool::RecyclableType>;
 
     FakeVehicleHardware();
 
     FakeVehicleHardware(std::string defaultConfigDir, std::string overrideConfigDir,
                         bool forceOverride);
+
+    FakeVehicleHardware(std::string defaultConfigDir, std::string overrideConfigDir,
+                        bool forceOverride, std::function<int32_t()> getS2rS2dConfigFunc);
 
     ~FakeVehicleHardware();
 
@@ -121,12 +119,6 @@ class FakeVehicleHardware : public IVehicleHardware {
             const aidl::android::hardware::automotive::vehicle::VehiclePropValue& value);
 
     bool UseOverrideConfigDir();
-
-    // Gets the config whether S2R or S2D is supported, must returns a bit flag made up of
-    // SUPPORT_S2R and SUPPORT_S2D, for example, 0x0 means no support, 0x5 means support both.
-    // The default implementation is reading this from system property:
-    // "ro.vendor.fake_vhal.ap_power_state_req.config".
-    int32_t getS2rS2dConfig();
 
   private:
     // Expose private methods to unit test.
@@ -196,6 +188,13 @@ class FakeVehicleHardware : public IVehicleHardware {
 
     const bool mForceOverride;
     bool mAddExtraTestVendorConfigs = false;
+
+    // Gets the config whether S2R or S2D is supported, must returns a bit flag combining values
+    // from VehicleApPowerStateConfigFlag.
+    // The default implementation is reading this from system property:
+    // "ro.vendor.fake_vhal.ap_power_state_req.config".
+    // Only set during constructor.
+    std::function<int32_t()> mGetS2rS2dConfigFunc;
 
     // Only used during initialization.
     JsonConfigLoader mLoader;
