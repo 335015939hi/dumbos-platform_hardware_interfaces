@@ -33,6 +33,24 @@
       "message": "Is there any way to test this in CTS/VTS to make sure they are handled correctly? (It looks like maybe they are not used in the HIDL VTS).",
       "revId": "3b3a3947bfb77b74d5348b26fb483a7b8430300d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4a8576a_ca14b9bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-09-16T16:41:11Z",
+      "side": 1,
+      "message": "It looks like V2 nfc is already in the FCM: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/compatibility_matrices/compatibility_matrix.202504.xml;drc\u003d2f9e4310cea98a8e73b69508bed01dd428a62833;l\u003d367",
+      "parentUuid": "f6ff9d86_fa82d7fe",
+      "revId": "3b3a3947bfb77b74d5348b26fb483a7b8430300d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
