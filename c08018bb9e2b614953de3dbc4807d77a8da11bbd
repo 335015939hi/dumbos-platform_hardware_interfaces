@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "982734c1_6853442e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1963028
+      },
+      "writtenOn": "2024-09-16T22:48:09Z",
+      "side": 1,
+      "message": "are you sure this would tbe correct place? Looks like other session types are all offload path",
+      "revId": "c08018bb9e2b614953de3dbc4807d77a8da11bbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
