@@ -7,4 +7,12 @@
             <instance>nonsecure</instance>
         </interface>
     </hal>
+    <hal format="aidl">
+        <name>android.hardware.security.authgraph</name>
+        <version>2</version>
+        <interface>
+            <name>IAuthGraphKeyManagement</name>
+            <instance>nonsecure</instance>
+        </interface>
+    </hal>
 </manifest>

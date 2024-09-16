@@ -65,6 +65,23 @@ rust_test {
     ],
 }
 
+rust_test {
+    name: "VtsAidlAuthGraphKeyManagementTest",
+    srcs: ["km_test.rs"],
+    require_root: true,
+    test_suites: [
+        "general-tests",
+        "vts",
+    ],
+    defaults: [
+        "authgraph_use_latest_km_hal_aidl_rust",
+    ],
+    rustlibs: [
+        "libauthgraph_agkm_vts_test",
+        "libbinder_rs",
+    ],
+}
+
 rust_library {
     name: "libauthgraph_vts_test",
     crate_name: "authgraph_vts_test",
@@ -79,5 +96,23 @@ rust_library {
         "libauthgraph_nonsecure",
         "libbinder_rs",
         "libcoset",
+    ],
+}
+
+rust_library {
+    name: "libauthgraph_agkm_vts_test",
+    crate_name: "authgraph_agkm_vts_test",
+    srcs: ["km_lib.rs"],
+    defaults: [
+        "authgraph_use_latest_km_hal_aidl_rust",
+    ],
+    rustlibs: [
+        "libauthgraph_boringssl",
+        "libauthgraph_core",
+        "libauthgraph_km_hal",
+        "libauthgraph_km_nonsecure",
+        "libbinder_rs",
+        "libcoset",
+        "libauthgraph_test_ids",
     ],
 }
