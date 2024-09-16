@@ -16,6 +16,24 @@
       "message": "question: do we need a `Merged-In` here?",
       "revId": "31003e5672053def0b9c7ad591df467f75bd9ca6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37eb43cd_b8e00f3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-16T18:35:24Z",
+      "side": 1,
+      "message": "Added, thanks!",
+      "parentUuid": "546f37f5_e677ba44",
+      "revId": "31003e5672053def0b9c7ad591df467f75bd9ca6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
