@@ -22,10 +22,11 @@
 //! expose an entrypoint that allowed retrieval of the specific IAuthGraphKeyExchange instance that
 //! is correlated with the component).
 
-use authgraph_hal::service;
-use authgraph_nonsecure::LocalTa;
+use authgraph_km_hal::{service};
+use authgraph_km_nonsecure::SharedLocalTa;
 use log::{error, info};
 
+static KM_SERVICE_NAME: &str = "android.hardware.security.authgraph.IAuthGraphKeyManagement";
 static SERVICE_NAME: &str = "android.hardware.security.authgraph.IAuthGraphKeyExchange";
 static SERVICE_INSTANCE: &str = "nonsecure";
 
@@ -58,19 +59,30 @@ fn inner_main() -> Result<(), HalServiceError> {
         error!("{}", panic_info);
     }));
 
-    info!("Insecure AuthGraph key exchange HAL service is starting.");
+    info!("Insecure AuthGraph key management HAL service is starting.");
 
     info!("Starting thread pool now.");
     binder::ProcessState::start_thread_pool();
 
     // Register the service
-    let local_ta = LocalTa::new().map_err(|e| format!("Failed to create the TA because: {e:?}"))?;
-    let service = service::AuthGraphService::new_as_binder(local_ta);
-    let service_name = format!("{}/{}", SERVICE_NAME, SERVICE_INSTANCE);
-    binder::add_service(&service_name, service.as_binder()).map_err(|e| {
+    let channel = SharedLocalTa::new()
+                  .map_err(|e| format!("Failed to create the TA because: {e:?}"))?;
+
+    let ke_service = service::AuthGraphService::new_as_binder(channel.clone());
+    let ke_service_name = format!("{}/{}", SERVICE_NAME, SERVICE_INSTANCE);
+    binder::add_service(&ke_service_name, ke_service.as_binder()).map_err(|e| {
         format!(
             "Failed to register service {} because of {:?}.",
-            service_name, e
+            ke_service_name, e
+        )
+    })?;
+
+    let km_service = service::AuthGraphService::new_km_as_binder(channel.clone());
+    let km_service_name = format!("{}/{}", KM_SERVICE_NAME, SERVICE_INSTANCE);
+    binder::add_service(&km_service_name, km_service.as_binder()).map_err(|e| {
+        format!(
+            "Failed to register service {} because of {:?}.",
+            km_service_name, e
         )
     })?;
 
