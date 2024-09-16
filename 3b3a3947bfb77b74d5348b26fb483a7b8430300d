@@ -51,6 +51,24 @@
       "parentUuid": "f6ff9d86_fa82d7fe",
       "revId": "3b3a3947bfb77b74d5348b26fb483a7b8430300d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a624afd1_18c4ee55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2024-09-16T17:12:26Z",
+      "side": 1,
+      "message": "Yeah, this was done in a previous CL for HAL update.",
+      "parentUuid": "e4a8576a_ca14b9bf",
+      "revId": "3b3a3947bfb77b74d5348b26fb483a7b8430300d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
