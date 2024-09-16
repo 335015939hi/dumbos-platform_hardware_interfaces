@@ -62,6 +62,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4736d0c3_03766342",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-09-16T13:29:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b643f11_e8b6f017",
+      "range": {
+        "startLine": 86,
+        "startChar": 23,
+        "endLine": 86,
+        "endChar": 38
+      },
+      "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3879803c_2bf96b07",
@@ -154,6 +178,78 @@
         "startChar": 0,
         "endLine": 89,
         "endChar": 66
+      },
+      "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2060becf_06ff5327",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-09-16T13:29:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b7cce38_1a3517df",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 66
+      },
+      "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d665aac1_6c896698",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-09-16T13:29:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3879803c_2bf96b07",
+      "range": {
+        "startLine": 89,
+        "startChar": 19,
+        "endLine": 89,
+        "endChar": 38
+      },
+      "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72126f44_59c6183c",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-09-16T13:29:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b49de134_91074eb2",
+      "range": {
+        "startLine": 89,
+        "startChar": 63,
+        "endLine": 89,
+        "endChar": 64
       },
       "revId": "1766baf165971a760aeadea01842d87cfef92dbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
