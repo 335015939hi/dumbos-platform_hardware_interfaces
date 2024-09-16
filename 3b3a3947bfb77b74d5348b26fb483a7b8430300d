@@ -16,6 +16,23 @@
       "message": "You should however add it to the 202504 compatibility matrix. Otherwise, \u0027next\u0027 devices which declare the NXP service in xml won\u0027t build.\n\n+Devin as FYI we don\u0027t have testing coverage for this.",
       "revId": "3b3a3947bfb77b74d5348b26fb483a7b8430300d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2a68de_1598fb21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-09-16T16:36:26Z",
+      "side": 1,
+      "message": "Is there any way to test this in CTS/VTS to make sure they are handled correctly? (It looks like maybe they are not used in the HIDL VTS).",
+      "revId": "3b3a3947bfb77b74d5348b26fb483a7b8430300d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
