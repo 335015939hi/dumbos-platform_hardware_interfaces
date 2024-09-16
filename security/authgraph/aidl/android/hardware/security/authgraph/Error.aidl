@@ -48,4 +48,8 @@ enum Error {
     MEMORY_ALLOCATION_FAILED = -10,
     /* The protocol version negotiated with the sink is incompatible */
     INCOMPATIBLE_PROTOCOL_VERSION = -11,
+    /* The Identities of two arcs don't match and key rotations required */
+    KEY_ROTATION_REQUIRTED = -12,
+    /* The protocol version negotiated with the sink is incompatible */
+    ENFORCEMENTS_FAILED = -13,
 }
