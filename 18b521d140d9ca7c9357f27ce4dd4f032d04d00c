@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e900851f_7d29b8db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1998840
+      },
+      "writtenOn": "2024-09-16T21:50:08Z",
+      "side": 1,
+      "message": "FYI, I don\u0027t think you need Flag in AOSP",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 26
+      },
+      "revId": "18b521d140d9ca7c9357f27ce4dd4f032d04d00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
