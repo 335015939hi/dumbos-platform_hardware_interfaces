@@ -21,11 +21,11 @@ use authgraph_core::{
     error, keyexchange,
     ta::{AuthGraphTa, Role},
 };
-use authgraph_hal::channel::SerializedChannel;
+use authgraph_km_hal::channel::SerializedChannel;
 use log::error;
 use std::cell::RefCell;
 use std::rc::Rc;
-use std::sync::{mpsc, Mutex};
+use std::sync::{mpsc, Mutex, Arc};
 
 /// Implementation of the AuthGraph TA that runs locally in-process (and which is therefore
 /// insecure).
@@ -36,6 +36,10 @@ pub struct LocalTa {
 struct Channels {
     in_tx: mpsc::Sender<Vec<u8>>,
     out_rx: mpsc::Receiver<Vec<u8>>,
+}
+
+pub struct SharedLocalTa {
+  shared_local_ta: Arc<LocalTa>,
 }
 
 impl LocalTa {
@@ -94,4 +98,24 @@ impl SerializedChannel for LocalTa {
             .expect("failed to send in request");
         Ok(channels.out_rx.recv().expect("failed to receive response"))
     }
+}
+
+impl SharedLocalTa{
+  pub fn new() -> Result<Self, error::Error> {
+    Ok(Self {
+      shared_local_ta : Arc::new(LocalTa::new()?),
+    })
+  }
+  pub fn clone(&self) -> Self{
+    Self{
+      shared_local_ta: self.shared_local_ta.clone(),
+    }
+  }
+}
+
+impl SerializedChannel for SharedLocalTa {
+  const MAX_SIZE: usize = usize::MAX;
+  fn execute(&self, req_data: &[u8]) -> binder::Result<Vec<u8>> {
+    self.shared_local_ta.execute(req_data)
+  }
 }
