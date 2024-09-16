@@ -22,8 +22,8 @@
 //! expose an entrypoint that allowed retrieval of the specific IAuthGraphKeyExchange instance that
 //! is correlated with the component).
 
-use authgraph_hal::service;
-use authgraph_nonsecure::LocalTa;
+use authgraph_km_hal::service;
+use authgraph_km_nonsecure::SharedLocalTa;
 use log::{error, info};
 
 static SERVICE_NAME: &str = "android.hardware.security.authgraph.IAuthGraphKeyExchange";
@@ -64,8 +64,9 @@ fn inner_main() -> Result<(), HalServiceError> {
     binder::ProcessState::start_thread_pool();
 
     // Register the service
-    let local_ta = LocalTa::new().map_err(|e| format!("Failed to create the TA because: {e:?}"))?;
-    let service = service::AuthGraphService::new_as_binder(local_ta);
+    let channel = SharedLocalTa::new().map_err(|e| format!("Failed to create the TA because: {e:?}"))?;
+
+    let service = service::AuthGraphService::new_as_binder(channel.clone());
     let service_name = format!("{}/{}", SERVICE_NAME, SERVICE_INSTANCE);
     binder::add_service(&service_name, service.as_binder()).map_err(|e| {
         format!(
