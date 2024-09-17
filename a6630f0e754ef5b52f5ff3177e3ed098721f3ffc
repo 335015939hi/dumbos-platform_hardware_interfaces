@@ -64,6 +64,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebed5df2_264e73a2",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-09-17T07:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa7f68d2_83a049c1",
+      "range": {
+        "startLine": 419,
+        "startChar": 69,
+        "endLine": 419,
+        "endChar": 77
+      },
+      "revId": "a6630f0e754ef5b52f5ff3177e3ed098721f3ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63419e1d_01240436",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-09-17T07:00:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f694c4f7_fbfdacfa",
+      "range": {
+        "startLine": 419,
+        "startChar": 86,
+        "endLine": 419,
+        "endChar": 95
+      },
+      "revId": "a6630f0e754ef5b52f5ff3177e3ed098721f3ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fceafaff_f634aa63",
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4577d082_d0f85b36",
+        "filename": "audio/aidl/vts/VtsHalLoudnessEnhancerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-09-17T07:00:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fceafaff_f634aa63",
+      "range": {
+        "startLine": 253,
+        "startChar": 11,
+        "endLine": 253,
+        "endChar": 28
+      },
+      "revId": "a6630f0e754ef5b52f5ff3177e3ed098721f3ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4cecde09_6d7eb96c",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-09-16T19:46:10Z",
       "side": 1,
       "message": "how about make this method to return a boolean?",
+      "range": {
+        "startLine": 145,
+        "startChar": 49,
+        "endLine": 145,
+        "endChar": 63
+      },
+      "revId": "a6630f0e754ef5b52f5ff3177e3ed098721f3ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de0ccd15_78afc96b",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-09-17T07:00:59Z",
+      "side": 1,
+      "message": "If we change the return type, then it leads to following errors.\n\nhardware/interfaces/audio/aidl/vts/VtsHalVisualizerTargetTest.cpp:142:13: error: cannot initialize return object of type \u0027bool\u0027 with an rvalue of type \u0027void\u0027\n  142 |             ASSERT_STATUS(EX_NONE, mEffect-\u003egetDescriptor(\u0026desc));",
+      "parentUuid": "4cecde09_6d7eb96c",
       "range": {
         "startLine": 145,
         "startChar": 49,
