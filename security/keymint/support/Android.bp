@@ -64,6 +64,7 @@ cc_library {
         "keymint_use_latest_hal_aidl_ndk_shared",
     ],
     shared_libs: [
+        "android.hardware.security.keymint-V1-ndk_platform",
         "libbase",
         "libcppbor_external",
         "libcppcose_rkp",
@@ -84,6 +85,7 @@ cc_test {
         "keymint_use_latest_hal_aidl_ndk_shared",
     ],
     shared_libs: [
+        "android.hardware.security.keymint-V1-ndk_platform",
         "libbase",
         "libcppbor_external",
         "libcppcose_rkp",

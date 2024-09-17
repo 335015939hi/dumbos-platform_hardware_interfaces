@@ -225,7 +225,11 @@ ErrMsgOr<EekChain> generateEekChain(int32_t supportedEekCurve, size_t length,
     bytevec prev_priv_key;
     for (size_t i = 0; i < length - 1; ++i) {
         auto keyPair = generateKeyPair(supportedEekCurve, false);
+<<<<<<< HEAD   (242523 [automerger skipped] Fixed vts tests cases which do not supp)
         if (!keyPair) return keyPair.moveMessage();
+=======
+        if (!keyPair) keyPair.moveMessage();
+>>>>>>> BRANCH (59737c Support for P256 curve in RKP for Strongbox am: 8785f89b1d)
         auto [pub_key, priv_key] = keyPair.moveValue();
 
         // The first signing key is self-signed.
@@ -242,7 +246,11 @@ ErrMsgOr<EekChain> generateEekChain(int32_t supportedEekCurve, size_t length,
         prev_priv_key = priv_key;
     }
     auto keyPair = generateKeyPair(supportedEekCurve, true);
+<<<<<<< HEAD   (242523 [automerger skipped] Fixed vts tests cases which do not supp)
     if (!keyPair) return keyPair.moveMessage();
+=======
+    if (!keyPair) keyPair.moveMessage();
+>>>>>>> BRANCH (59737c Support for P256 curve in RKP for Strongbox am: 8785f89b1d)
     auto [pub_key, priv_key] = keyPair.moveValue();
 
     auto coseKey = constructCoseKey(supportedEekCurve, eekId, pub_key);

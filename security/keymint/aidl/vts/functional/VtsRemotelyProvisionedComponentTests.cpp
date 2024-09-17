@@ -358,11 +358,20 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_testMode) {
 
 class CertificateRequestTest : public VtsRemotelyProvisionedComponentTests {
   protected:
+<<<<<<< HEAD   (242523 [automerger skipped] Fixed vts tests cases which do not supp)
     CertificateRequestTest() : eekId_(string_to_bytevec("eekid")), challenge_(randomBytes(64)) {}
+=======
+    CertificateRequestTest() : eekId_(string_to_bytevec("eekid")), challenge_(randomBytes(32)) {
+    }
+>>>>>>> BRANCH (59737c Support for P256 curve in RKP for Strongbox am: 8785f89b1d)
 
     void generateTestEekChain(size_t eekLength) {
         auto chain = generateEekChain(rpcHardwareInfo.supportedEekCurve, eekLength, eekId_);
+<<<<<<< HEAD   (242523 [automerger skipped] Fixed vts tests cases which do not supp)
         ASSERT_TRUE(chain) << chain.message();
+=======
+        EXPECT_TRUE(chain) << chain.message();
+>>>>>>> BRANCH (59737c Support for P256 curve in RKP for Strongbox am: 8785f89b1d)
         if (chain) testEekChain_ = chain.moveValue();
         testEekLength_ = eekLength;
     }
