@@ -22,6 +22,30 @@
       },
       "revId": "31ee391293b38632873989dda36b78f47ed8049f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6182f81f_8f352e67",
+        "filename": "light/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-09-17T15:33:26Z",
+      "side": 1,
+      "message": "\u003e we should have a specific one for this demo? \n\nA new interface for the demo would be nice, but virtmgr on the host is the gatekeeper/delegator and has to know the type of the interface and will be around even outside of the demo. So it would be cool if there was a HAL that will actually be useful from within the VM.\n\nLights is probably not right HAL for that either! It\u0027s small though and easy to hand write a delegator for since we don\u0027t have Rust delegators yet.\n\nI think a new interface for the demo will probably be the right choice for now.",
+      "parentUuid": "fef481be_2a49f24a",
+      "range": {
+        "startLine": 22,
+        "startChar": 30,
+        "endLine": 22,
+        "endChar": 46
+      },
+      "revId": "31ee391293b38632873989dda36b78f47ed8049f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
