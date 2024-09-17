@@ -1677,10 +1677,15 @@ enum VehicleProperty {
      * For configuration information, VehiclePropConfig.configArray must have bit flag combining
      * values in VehicleApPowerStateConfigFlag.
      *
+     *   configArray[0] : Bit flag combining values in VehicleApPowerStateConfigFlag,
+     *                    0x0 if not used,
+     *                    0x1 for enabling suspend to ram,
+     *                    0x2 for supporting powering on AP from off state after timeout.
+     *                    0x4 for enabling suspend to disk,
+     *
      *   int32Values[0] : VehicleApPowerStateReq enum value
      *   int32Values[1] : additional parameter relevant for each state,
      *                    0 if not used.
-     *
      * @change_mode VehiclePropertyChangeMode.ON_CHANGE
      * @access VehiclePropertyAccess.READ
      * @version 2
