@@ -16,6 +16,24 @@
       "message": "are you sure this would tbe correct place? Looks like other session types are all offload path",
       "revId": "c08018bb9e2b614953de3dbc4807d77a8da11bbd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46260c22_2cbe6e07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1079709
+      },
+      "writtenOn": "2024-09-17T14:02:23Z",
+      "side": 1,
+      "message": "Thanks for the catch, Yuyang.\nThis is one of the local patches a while ago I used to unblock HFP SW testing. Now I read the logic again it feels quite wrong :/\nWill give this more test to see what really needs to fix.",
+      "parentUuid": "982734c1_6853442e",
+      "revId": "c08018bb9e2b614953de3dbc4807d77a8da11bbd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
