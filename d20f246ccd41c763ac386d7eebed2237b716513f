@@ -40,6 +40,30 @@
       ],
       "revId": "d20f246ccd41c763ac386d7eebed2237b716513f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e3f9a47_354a0689",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1886780
+      },
+      "writtenOn": "2024-09-17T13:10:52Z",
+      "side": 1,
+      "message": "Sorry I\u0027m late.\n\nNew networks actually depend on the modem.\n\nFor example, there is no 6G in Android at the moment, but when a 6G modem comes out, it can be combined with the current version of Android. Therefore, it is better to skip 6G rather than block it in order to combine with the 6G network.\n\nIn the same way, Android using 1.0, 1.2 does not support 5G, but should not be blocked.",
+      "parentUuid": "a5818b97_5d735c22",
+      "range": {
+        "startLine": 82,
+        "startChar": 14,
+        "endLine": 84,
+        "endChar": 41
+      },
+      "revId": "d20f246ccd41c763ac386d7eebed2237b716513f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
