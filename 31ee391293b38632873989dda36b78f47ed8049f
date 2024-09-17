@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef481be_2a49f24a",
+        "filename": "light/aidl/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-09-17T00:05:08Z",
+      "side": 1,
+      "message": "we should have a specific one for this demo? or go ahead and make it anyapex?",
+      "range": {
+        "startLine": 22,
+        "startChar": 30,
+        "endLine": 22,
+        "endChar": 46
+      },
+      "revId": "31ee391293b38632873989dda36b78f47ed8049f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
