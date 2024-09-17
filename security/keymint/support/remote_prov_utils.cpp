@@ -36,6 +36,7 @@ constexpr uint32_t kBccPayloadIssuer = 1;
 constexpr uint32_t kBccPayloadSubject = 2;
 constexpr int32_t kBccPayloadSubjPubKey = -4670552;
 constexpr int32_t kBccPayloadKeyUsage = -4670553;
+<<<<<<< HEAD   (ee5066 audio: Add AUDIO_FORMAT_DEFAULT to supported formats (V6) am)
 constexpr int kP256AffinePointSize = 32;
 
 using EC_KEY_Ptr = bssl::UniquePtr<EC_KEY>;
@@ -196,6 +197,8 @@ ErrMsgOr<bytevec> constructCoseKey(int32_t supportedEekCurve, const bytevec& eek
 
     return coseKey.canonicalize().encode();
 }
+=======
+>>>>>>> BRANCH (52d015 Include the CWT validation in VTS testing. am: b326f33fbc)
 
 bytevec kTestMacKey(32 /* count */, 0 /* byte value */);
 
@@ -294,6 +297,18 @@ ErrMsgOr<bytevec> validatePayloadAndFetchPubKey(const cppbor::Map* payload) {
     return serializedKey->asBstr()->value();
 }
 
+ErrMsgOr<bytevec> validatePayloadAndFetchPubKey(const cppbor::Map* payload) {
+    const auto& issuer = payload->get(kBccPayloadIssuer);
+    if (!issuer || !issuer->asTstr()) return "Issuer is not present or not a tstr.";
+    const auto& subject = payload->get(kBccPayloadSubject);
+    if (!subject || !subject->asTstr()) return "Subject is not present or not a tstr.";
+    const auto& keyUsage = payload->get(kBccPayloadKeyUsage);
+    if (!keyUsage || !keyUsage->asBstr()) return "Key usage is not present or not a bstr.";
+    const auto& serializedKey = payload->get(kBccPayloadSubjPubKey);
+    if (!serializedKey || !serializedKey->asBstr()) return "Key is not present or not a bstr.";
+    return serializedKey->asBstr()->value();
+}
+
 ErrMsgOr<bytevec> verifyAndParseCoseSign1Cwt(const cppbor::Array* coseSign1,
                                              const bytevec& signingCoseKey, const bytevec& aad) {
     if (!coseSign1 || coseSign1->size() != kCoseSign1EntryCount) {
@@ -329,8 +344,24 @@ ErrMsgOr<bytevec> verifyAndParseCoseSign1Cwt(const cppbor::Array* coseSign1,
     auto serializedKey = validatePayloadAndFetchPubKey(parsedPayload->asMap());
     if (!serializedKey) {
         return "CWT validation failed: " + serializedKey.moveMessage();
+<<<<<<< HEAD   (ee5066 audio: Add AUDIO_FORMAT_DEFAULT to supported formats (V6) am)
+=======
     }
 
+    bool selfSigned = signingCoseKey.empty();
+    auto key = CoseKey::parseEd25519(selfSigned ? *serializedKey : signingCoseKey);
+    if (!key) return "Bad signing key: " + key.moveMessage();
+
+    bytevec signatureInput =
+            cppbor::Array().add("Signature1").add(*protectedParams).add(aad).add(*payload).encode();
+
+    if (!ED25519_verify(signatureInput.data(), signatureInput.size(), signature->value().data(),
+                        key->getBstrValue(CoseKey::PUBKEY_X)->data())) {
+        return "Signature verification failed";
+>>>>>>> BRANCH (52d015 Include the CWT validation in VTS testing. am: b326f33fbc)
+    }
+
+<<<<<<< HEAD   (ee5066 audio: Add AUDIO_FORMAT_DEFAULT to supported formats (V6) am)
     bool selfSigned = signingCoseKey.empty();
     bytevec signatureInput =
         cppbor::Array().add("Signature1").add(*protectedParams).add(aad).add(*payload).encode();
@@ -364,6 +395,8 @@ ErrMsgOr<bytevec> verifyAndParseCoseSign1Cwt(const cppbor::Array* coseSign1,
         }
     }
 
+=======
+>>>>>>> BRANCH (52d015 Include the CWT validation in VTS testing. am: b326f33fbc)
     return serializedKey.moveValue();
 }
 
