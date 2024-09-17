@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "471979a0_9e97c028",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1886780
+      },
+      "writtenOn": "2024-09-17T13:11:50Z",
+      "side": 1,
+      "message": "I cherry-picked my cl, which is already merged in internal google repository, to https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3270731",
+      "revId": "d20f246ccd41c763ac386d7eebed2237b716513f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5818b97_5d735c22",
         "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
         "patchSetId": 5
