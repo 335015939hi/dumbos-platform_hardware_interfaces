@@ -1938,6 +1938,7 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationTags) {
                         builder, &key_blob, &key_characteristics);
             }
         }
+<<<<<<< HEAD   (b22263 [automerger skipped] Support for P256 curve in RKP for Stron)
 
         device_id_attestation_check_acceptable_error(tag.tag, error);
     }
@@ -2018,6 +2019,9 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
                                               cert_chain_[0].encodedCertificate));
 
         CheckedDeleteKey(&key_blob);
+=======
+        ASSERT_EQ(error, ErrorCode::CANNOT_ATTEST_IDS);
+>>>>>>> BRANCH (4d4f7c Updated the vts attestation tests for strongbox implementati)
     }
 }
 
@@ -7649,8 +7653,45 @@ TEST_P(KeyAgreementTest, Ecdh) {
             GenerateLocalEcKey(localCurve, &localPrivKey, &localPublicKey);
 
             // Generate EC key in KeyMint (only access to public key material)
+<<<<<<< HEAD   (b22263 [automerger skipped] Support for P256 curve in RKP for Stron)
             EVP_PKEY_Ptr kmPubKey;
             GenerateKeyMintEcKey(curve, &kmPubKey);
+=======
+            vector<uint8_t> challenge = {0x41, 0x42};
+            auto builder = AuthorizationSetBuilder()
+                                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                                        .Authorization(TAG_EC_CURVE, curve)
+                                        .Authorization(TAG_PURPOSE, KeyPurpose::AGREE_KEY)
+                                        .Authorization(TAG_ALGORITHM, Algorithm::EC)
+                                        .Authorization(TAG_ATTESTATION_APPLICATION_ID, {0x61, 0x62})
+                                        .Authorization(TAG_ATTESTATION_CHALLENGE, challenge)
+                                        .SetDefaultValidity();
+
+            ErrorCode result = GenerateKey(builder);
+            if (SecLevel() == SecurityLevel::STRONGBOX) {
+                if (result == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+                    result = GenerateKeyWithSelfSignedAttestKey(
+                            AuthorizationSetBuilder()
+                                    .EcdsaKey(EcCurve::P_256)
+                                    .AttestKey()
+                                    .SetDefaultValidity(), /* attest key params */
+                            builder, &key_blob_, &key_characteristics_, &cert_chain_);
+                }
+            }
+            ASSERT_EQ(ErrorCode::OK, result) << "Failed to generate key";
+            ASSERT_GT(cert_chain_.size(), 0);
+            X509_Ptr kmKeyCert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+            ASSERT_NE(kmKeyCert, nullptr);
+            // Check that keyAgreement (bit 4) is set in KeyUsage
+            EXPECT_TRUE((X509_get_key_usage(kmKeyCert.get()) & X509v3_KU_KEY_AGREEMENT) != 0);
+            auto kmPkey = EVP_PKEY_Ptr(X509_get_pubkey(kmKeyCert.get()));
+            ASSERT_NE(kmPkey, nullptr);
+            if (dump_Attestations) {
+                for (size_t n = 0; n < cert_chain_.size(); n++) {
+                    std::cout << bin2hex(cert_chain_[n].encodedCertificate) << std::endl;
+                }
+            }
+>>>>>>> BRANCH (4d4f7c Updated the vts attestation tests for strongbox implementati)
 
             // Now that we have the two keys, we ask KeyMint to perform ECDH...
             if (curve != localCurve) {
