@@ -16,6 +16,24 @@
       "message": "@chrisforbes@google.com After your +1 this patch should be in ready to submit right? Is it be because of Presubmit-Verified has -1?",
       "revId": "8aa200ef9c03436ead38fd40447557e782c430ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f0625c0_2dd6e6fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2024-09-17T17:32:07Z",
+      "side": 1,
+      "message": "Yeah, presubmit-verified -1 means it failed presubmit so can\u0027t be easily merged. But looks like it was just a flaky test failure, so trying again",
+      "parentUuid": "6dc5dcf9_5e257c0b",
+      "revId": "8aa200ef9c03436ead38fd40447557e782c430ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
