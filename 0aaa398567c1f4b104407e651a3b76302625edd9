@@ -16,6 +16,24 @@
       "message": "We should keep this",
       "revId": "0aaa398567c1f4b104407e651a3b76302625edd9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8694d664_8de55361",
+        "filename": "automotive/vehicle/aidl_property/android/hardware/automotive/vehicle/VehicleProperty.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 1681,
+      "author": {
+        "id": 1998840
+      },
+      "writtenOn": "2024-09-17T18:31:13Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "77611137_cf670b5f",
+      "revId": "0aaa398567c1f4b104407e651a3b76302625edd9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
