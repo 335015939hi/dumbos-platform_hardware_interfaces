@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ca8b5bc_6872c7ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2024-09-17T01:18:16Z",
+      "side": 1,
+      "message": "Addressed the comments. PTAL, Thanks!",
+      "revId": "d16e3379564bde990631769162b35daf9432b3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27bd0312_2e502481",
@@ -14,6 +31,30 @@
       "writtenOn": "2024-09-17T00:07:46Z",
       "side": 1,
       "message": "do you need this check? If the interface is old, configValue should be the default value and it should be empty.",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 461,
+        "endChar": 32
+      },
+      "revId": "d16e3379564bde990631769162b35daf9432b3e5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b349556e_135e5581",
+        "filename": "nfc/aidl/vts/functional/VtsAidlHalNfcTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 461,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2024-09-17T01:18:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27bd0312_2e502481",
       "range": {
         "startLine": 461,
         "startChar": 0,
