@@ -204,6 +204,30 @@
       },
       "revId": "a6630f0e754ef5b52f5ff3177e3ed098721f3ffc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8e35c58_d69a7753",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-17T16:00:43Z",
+      "side": 1,
+      "message": "This error is due to the fact that all `ASSERT_...` macros end up with a `return` statement. Because of that, methods that use `EXPECT_...` and `ASSERT_...` macros can only have `void` return type. Any errors should be reported through these macros, and the caller must wrap every call to this method into `EXPECT|ASSERT_NO_FATAL_FAILURE`.\n\nThat means, on the lines `229–230` we should have something like this:\n\n```\n    ASSERT_NO_FATAL_FAILURE(SetAndGetParameters());\n```",
+      "parentUuid": "de0ccd15_78afc96b",
+      "range": {
+        "startLine": 145,
+        "startChar": 49,
+        "endLine": 145,
+        "endChar": 63
+      },
+      "revId": "a6630f0e754ef5b52f5ff3177e3ed098721f3ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

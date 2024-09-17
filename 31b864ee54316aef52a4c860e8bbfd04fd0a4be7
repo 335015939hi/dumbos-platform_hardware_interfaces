@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "920647b3_2f2187d2",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-17T16:00:43Z",
+      "side": 1,
+      "message": "Note that that `EXPECT_` macros continue execution. Is it OK to continue execution if this method fails? If not, please replace with `ASSERT_`.",
+      "range": {
+        "startLine": 205,
+        "startChar": 4,
+        "endLine": 205,
+        "endChar": 27
+      },
+      "revId": "31b864ee54316aef52a4c860e8bbfd04fd0a4be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d14647ac_4238bc3c",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-09-17T16:00:43Z",
+      "side": 1,
+      "message": "Please wrap all calls to this method in `ASSERT_NO_FATAL_FAILURE`.",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 23
+      },
+      "revId": "31b864ee54316aef52a4c860e8bbfd04fd0a4be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
