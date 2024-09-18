@@ -112,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cc2db90_e65b63c6",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-09-18T13:58:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63419e1d_01240436",
+      "range": {
+        "startLine": 419,
+        "startChar": 86,
+        "endLine": 419,
+        "endChar": 95
+      },
+      "revId": "a6630f0e754ef5b52f5ff3177e3ed098721f3ffc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fceafaff_f634aa63",
