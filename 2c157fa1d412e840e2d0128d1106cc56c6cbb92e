@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "467643d0_e1285c9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-09-18T05:40:48Z",
+      "side": 1,
+      "message": "Current limitation: lack of visibility of the subtests results.\nNeed to figure how to hook the Tradefed GTest Test Result parser.",
+      "revId": "2c157fa1d412e840e2d0128d1106cc56c6cbb92e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
