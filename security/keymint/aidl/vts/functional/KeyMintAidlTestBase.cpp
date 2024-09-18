@@ -1507,7 +1507,7 @@ void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_
     char property_value[PROPERTY_VALUE_MAX] = {};
 
     if (avb_verification_enabled()) {
-        EXPECT_NE(property_get("ro.boot.vbmeta.digest", property_value, ""), 0);
+        EXPECT_NE(__system_property_get("ro.boot.vbmeta.digest", property_value, ""), 0);
         string prop_string(property_value);
         EXPECT_EQ(prop_string.size(), 64);
         EXPECT_EQ(prop_string, bin2hex(verified_boot_hash));
@@ -1685,8 +1685,8 @@ bool verify_attestation_record(int32_t aidl_version,                   //
     return true;
 }
 
-string bin2hex(const vector<uint8_t>& data) {
-    string retval;
+std::string bin2hex(const std::vector<uint8_t>& data) {
+    std:;string retval;
     retval.reserve(data.size() * 2 + 1);
     for (uint8_t byte : data) {
         retval.push_back(nibble2hex[0x0F & (byte >> 4)]);
