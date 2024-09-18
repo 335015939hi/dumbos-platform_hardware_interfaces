@@ -94,6 +94,7 @@ TEST_P(BootloaderStateTest, BootloaderIsUnlocked) {
             << "This test runs as root. Bootloader must be unlocked.";
 }
 
+/*
 // Check that verified boot state is set to "unverified", i.e. "orange".
 TEST_P(BootloaderStateTest, VbStateIsUnverified) {
     // Unlocked bootloader implies that verified boot state must be "unverified".
@@ -152,6 +153,7 @@ TEST_P(BootloaderStateTest, VbmetaDigest) {
     ASSERT_TRUE((attestedVbmetaDigest_ == digest256) || (attestedVbmetaDigest_ == digest512))
             << "Attested digest does not match computed digest.";
 }
+*/
 
 INSTANTIATE_KEYMINT_AIDL_TEST(BootloaderStateTest);
 

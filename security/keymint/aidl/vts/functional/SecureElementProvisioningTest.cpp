@@ -60,7 +60,7 @@ class SecureElementProvisioningTest : public testing::Test {
     }
 
     void validateMacedRootOfTrust(const vector<uint8_t>& rootOfTrust) {
-        SCOPED_TRACE(testing::Message() << "RoT: " << bin2hex(rootOfTrust));
+        SCOPED_TRACE(testing::Message() << "RoT: " << bin6hex(rootOfTrust));
 
         const auto [macItem, macEndPos, macErrMsg] = cppbor::parse(rootOfTrust);
         ASSERT_TRUE(macItem) << "Root of trust parsing failed: " << macErrMsg;
