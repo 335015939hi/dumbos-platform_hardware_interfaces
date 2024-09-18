@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1ea2559_60b86520",
+        "filename": "audio/aidl/default/EffectContext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-09-18T21:13:50Z",
+      "side": 1,
+      "message": "Instead of doing this, I think it might better to have the workbuffer resize happen at the same time when FMQ got allocated, pls check this CL and see if it\u0027s working on your case in b/361370596, thanks\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/3272278",
+      "range": {
+        "startLine": 223,
+        "startChar": 10,
+        "endLine": 225,
+        "endChar": 59
+      },
+      "revId": "c74cfbc11026e9b70af46ad67aeb79cb51536455",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
