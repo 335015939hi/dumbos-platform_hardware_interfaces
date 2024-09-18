@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a724b67_b718e0cf",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-09-18T13:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "920647b3_2f2187d2",
+      "range": {
+        "startLine": 205,
+        "startChar": 4,
+        "endLine": 205,
+        "endChar": 27
+      },
+      "revId": "31b864ee54316aef52a4c860e8bbfd04fd0a4be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d14647ac_4238bc3c",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-09-17T16:00:43Z",
       "side": 1,
       "message": "Please wrap all calls to this method in `ASSERT_NO_FATAL_FAILURE`.",
+      "range": {
+        "startLine": 206,
+        "startChar": 4,
+        "endLine": 206,
+        "endChar": 23
+      },
+      "revId": "31b864ee54316aef52a4c860e8bbfd04fd0a4be7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43596234_e739d857",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-09-18T13:11:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d14647ac_4238bc3c",
       "range": {
         "startLine": 206,
         "startChar": 4,
