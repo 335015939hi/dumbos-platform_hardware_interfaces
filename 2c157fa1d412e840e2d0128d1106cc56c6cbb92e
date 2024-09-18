@@ -16,6 +16,29 @@
       "message": "Current limitation: lack of visibility of the subtests results.\nNeed to figure how to hook the Tradefed GTest Test Result parser.",
       "revId": "2c157fa1d412e840e2d0128d1106cc56c6cbb92e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b227fa07_02bcacb6",
+        "filename": "staging/security/see/storage/aidl/vts/functional/VtsHalSecureStorageTargetTest.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-09-18T11:34:04Z",
+      "side": 1,
+      "message": "Could we refactor the `trusty-ut-ctrl` target as a gtest or Rust test, as recommended by the VTS guidelines [1]? This would provide clearer error messages in case of failures. We could then skip the test during the gtest setup by checking the system property for the KeyMint VM.\n\n[1] https://source.android.com/docs/core/tests/vts",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 129
+      },
+      "revId": "2c157fa1d412e840e2d0128d1106cc56c6cbb92e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
