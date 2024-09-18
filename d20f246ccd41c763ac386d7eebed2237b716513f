@@ -105,6 +105,30 @@
       },
       "revId": "d20f246ccd41c763ac386d7eebed2237b716513f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42ce4c4f_acc23888",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-09-18T00:23:52Z",
+      "side": 1,
+      "message": "The HIDL getDataRegistrationState API doesn\u0027t have to return 5G related things, right? Can it filter to what clients of the older API expect?\n\nIn AIDL this type of change would be standard, but in HIDL it is a bit out of the ordinary.",
+      "parentUuid": "af7c75ec_58dac7d1",
+      "range": {
+        "startLine": 82,
+        "startChar": 14,
+        "endLine": 84,
+        "endChar": 41
+      },
+      "revId": "d20f246ccd41c763ac386d7eebed2237b716513f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
