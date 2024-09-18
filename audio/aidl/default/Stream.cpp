@@ -47,6 +47,21 @@ using aidl::android::media::audio::common::MicrophoneInfo;
 
 namespace aidl::android::hardware::audio::core {
 
+namespace {
+
+template <typename MQTypeError>
+void fmqErrorHandler(MQTypeError fmqError, std::string&& errorMessage) {
+    CHECK(fmqError == MQTypeError::NONE) << errorMessage;
+}
+template void fmqErrorHandler<StreamContext::CommandMQ::Error>(
+        StreamContext::CommandMQ::Error fmqError, std::string&& errorMessage);
+template void fmqErrorHandler<StreamContext::DataMQ::Error>(StreamContext::DataMQ::Error fmqError,
+                                                            std::string&& errorMessage);
+template void fmqErrorHandler<StreamContext::ReplyMQ::Error>(StreamContext::ReplyMQ::Error fmqError,
+                                                             std::string&& errorMessage);
+
+}  // namespace
+
 void StreamContext::fillDescriptor(StreamDescriptor* desc) {
     if (mCommandMQ) {
         desc->command = mCommandMQ->dupeDesc();
@@ -332,11 +347,7 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
 bool StreamInWorkerLogic::read(size_t clientSize, StreamDescriptor::Reply* reply) {
     ATRACE_CALL();
     StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
-    StreamContext::DataMQ::Error fmqError = StreamContext::DataMQ::Error::NONE;
-    std::string fmqErrorMsg;
-    const size_t byteCount = std::min(
-            {clientSize, dataMQ->availableToWrite(&fmqError, &fmqErrorMsg), mDataBufferSize});
-    CHECK(fmqError == StreamContext::DataMQ::Error::NONE) << fmqErrorMsg;
+    const size_t byteCount = std::min({clientSize, dataMQ->availableToWrite(), mDataBufferSize});
     const bool isConnected = mIsConnected;
     const size_t frameSize = mContext->getFrameSize();
     size_t actualFrameCount = 0;
@@ -612,10 +623,7 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
 bool StreamOutWorkerLogic::write(size_t clientSize, StreamDescriptor::Reply* reply) {
     ATRACE_CALL();
     StreamContext::DataMQ* const dataMQ = mContext->getDataMQ();
-    StreamContext::DataMQ::Error fmqError = StreamContext::DataMQ::Error::NONE;
-    std::string fmqErrorMsg;
-    const size_t readByteCount = dataMQ->availableToRead(&fmqError, &fmqErrorMsg);
-    CHECK(fmqError == StreamContext::DataMQ::Error::NONE) << fmqErrorMsg;
+    const size_t readByteCount = dataMQ->availableToRead();
     const size_t frameSize = mContext->getFrameSize();
     bool fatal = false;
     int32_t latency = mContext->getNominalLatencyMs();
@@ -718,6 +726,11 @@ ndk::ScopedAStatus StreamCommonImpl::initInstance(
         } else {
             LOG(WARNING) << __func__ << ": invalid worker tid: " << workerTid;
         }
+    }
+    getContext().getCommandMQ()->setErrorHandler(fmqErrorHandler<StreamContext::CommandMQ::Error>);
+    getContext().getReplyMQ()->setErrorHandler(fmqErrorHandler<StreamContext::ReplyMQ::Error>);
+    if (getContext().getDataMQ() != nullptr) {
+        getContext().getDataMQ()->setErrorHandler(fmqErrorHandler<StreamContext::DataMQ::Error>);
     }
     return ndk::ScopedAStatus::ok();
 }
