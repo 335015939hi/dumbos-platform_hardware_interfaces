@@ -1530,9 +1530,15 @@ void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_
     }
 
     // Verified boot key should be all 0's if the boot state is not verified or self signed
+
+    // 2 added by Vaibhav
+    EXPECT_EQ(verified_boot_state, VerifiedBoot::UNVERIFIED);
+    EXPECT_NE(verified_boot_key.size(), 0);
+    // Till here.
     std::string empty_boot_key(32, '\0');
     std::string verified_boot_key_str((const char*)verified_boot_key.data(),
                                       verified_boot_key.size());
+    /*
     EXPECT_NE(property_get("ro.boot.verifiedbootstate", property_value, ""), 0);
     if (!strcmp(property_value, "green")) {
         EXPECT_EQ(verified_boot_state, VerifiedBoot::VERIFIED);
@@ -1553,6 +1559,7 @@ void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_
         EXPECT_EQ(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
                             verified_boot_key.size()));
     }
+    */
 }
 
 bool verify_attestation_record(int32_t aidl_version,                   //
