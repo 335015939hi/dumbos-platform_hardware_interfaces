@@ -8238,7 +8238,6 @@ TEST_P(KeyDeletionTest, DeleteKey) {
 
     ASSERT_EQ(ErrorCode::OK, DeleteKey(true /* keep key blob */));
 
-    string message = "12345678901234567890123456789012";
     AuthorizationSet begin_out_params;
     EXPECT_EQ(ErrorCode::INVALID_KEY_BLOB,
               Begin(KeyPurpose::SIGN, key_blob_,
@@ -8246,6 +8245,60 @@ TEST_P(KeyDeletionTest, DeleteKey) {
                     &begin_out_params));
     AbortIfNeeded();
     key_blob_ = AidlBuf();
+}
+
+/**
+ * KeyDeletionTest.DeleteKeyInUse
+ *
+ * This test checks that if rollback protection is implemented, DeleteKey invalidates a formerly
+ * valid key blob.
+ */
+TEST_P(KeyDeletionTest, DeleteKeyInUse) {
+    for (bool rollback_resistance : {false, true}) {
+        SCOPED_TRACE(testing::Message() << "rollback-resistance-" << rollback_resistance);
+        auto builder = AuthorizationSetBuilder()
+                               .RsaSigningKey(2048, 65537)
+                               .Digest(Digest::NONE)
+                               .Padding(PaddingMode::NONE)
+                               .Authorization(TAG_NO_AUTH_REQUIRED)
+                               .SetDefaultValidity();
+        if (rollback_resistance) {
+            builder.Authorization(TAG_ROLLBACK_RESISTANCE);
+        }
+        auto error = GenerateKey(builder);
+        if (rollback_resistance && error == ErrorCode::ROLLBACK_RESISTANCE_UNAVAILABLE) {
+            continue;
+        }
+
+        ASSERT_EQ(ErrorCode::OK, error);
+        if (rollback_resistance) {
+            AuthorizationSet hardwareEnforced(SecLevelAuthorizations());
+            ASSERT_TRUE(hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE));
+        }
+
+        // Start an operation.
+        AuthorizationSet begin_out_params;
+        ASSERT_EQ(ErrorCode::OK,
+                  Begin(KeyPurpose::SIGN, key_blob_,
+                        AuthorizationSetBuilder().Digest(Digest::NONE).Padding(PaddingMode::NONE),
+                        &begin_out_params));
+
+        // Delete the key while the operation is still active.
+        ASSERT_EQ(ErrorCode::OK, DeleteKey(true /* keep key blob */));
+
+        const string message = "12345678901234567890123456789012";
+        string signature;
+        auto result = Finish(message, &signature);
+
+        // Continuing use of a deleted key may or may not succeed (so this is mostly a robustness
+        // test).
+        EXPECT_TRUE(result == ErrorCode::OK || result == ErrorCode::INVALID_KEY_BLOB ||
+                    result == ErrorCode::INVALID_OPERATION_HANDLE ||
+                    result == ErrorCode::INVALID_OPERATION ||
+                    result == ErrorCode::INVALID_ARGUMENT ||
+                    result == ErrorCode::OPERATION_CANCELLED);
+        key_blob_ = AidlBuf();
+    }
 }
 
 /**
