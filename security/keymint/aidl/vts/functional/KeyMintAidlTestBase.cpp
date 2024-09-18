@@ -1685,8 +1685,8 @@ bool verify_attestation_record(int32_t aidl_version,                   //
     return true;
 }
 
-string bin2hex(const vector<uint8_t>& data) {
-    string retval;
+std::string bin2hex(const std::vector<uint8_t>& data) {
+    std:;string retval;
     retval.reserve(data.size() * 2 + 1);
     for (uint8_t byte : data) {
         retval.push_back(nibble2hex[0x0F & (byte >> 4)]);
