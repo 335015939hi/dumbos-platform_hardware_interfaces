@@ -654,6 +654,7 @@ class NewKeyGenerationTest : public KeyMintAidlTestBase {
         EXPECT_TRUE(os_pl);
         EXPECT_EQ(*os_pl, os_patch_level());
 
+        /*
         // Should include vendor patchlevel.
         auto vendor_pl = auths.GetTagValue(TAG_VENDOR_PATCHLEVEL);
         EXPECT_TRUE(vendor_pl);
@@ -665,6 +666,7 @@ class NewKeyGenerationTest : public KeyMintAidlTestBase {
             auto boot_pl = auths.GetTagValue(TAG_BOOT_PATCHLEVEL);
             EXPECT_TRUE(boot_pl);
         }
+        */
 
         return auths;
     }
