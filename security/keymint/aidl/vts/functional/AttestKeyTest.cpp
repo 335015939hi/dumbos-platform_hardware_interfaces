@@ -849,7 +849,7 @@ TEST_P(AttestKeyTest, EcdsaAttestationID) {
                                         .EcdsaKey(EcCurve::P_256)
                                         .AttestKey()
                                         .SetDefaultValidity(),
-                                {} /* attestation signing key */, &attest_key.keyBlob,
+                                {} , &attest_key.keyBlob,
                                 &attest_key_characteristics, &attest_key_cert_chain));
     attest_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
     ASSERT_GT(attest_key_cert_chain.size(), 0);
