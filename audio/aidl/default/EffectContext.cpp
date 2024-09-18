@@ -201,7 +201,7 @@ RetCode EffectContext::updateIOFrameSize(const Parameter::Common& common) {
             common.output.base.format, common.output.base.channelMask);
 
     // workBuffer and data MQ not allocated yet, no need to update
-    if (mWorkBuffer.size() == 0 || !mInputMQ || !mOutputMQ) {
+    if (mWorkBuffer.size() == 0) {
         return RetCode::SUCCESS;
     }
     // IEffect::reopen introduced in android.hardware.audio.effect-V2
@@ -210,18 +210,19 @@ RetCode EffectContext::updateIOFrameSize(const Parameter::Common& common) {
         return RetCode::SUCCESS;
     }
     bool needUpdateMq = false;
-    if (mInputFrameSize != prevInputFrameSize ||
-        mCommon.input.frameCount != common.input.frameCount) {
+    if (mInputMQ && (mInputFrameSize != prevInputFrameSize ||
+        mCommon.input.frameCount != common.input.frameCount)) {
         mInputMQ.reset();
         needUpdateMq = true;
     }
-    if (mOutputFrameSize != prevOutputFrameSize ||
-        mCommon.output.frameCount != common.output.frameCount) {
+    if (mOutputMQ && (mOutputFrameSize != prevOutputFrameSize ||
+        mCommon.output.frameCount != common.output.frameCount)) {
         mOutputMQ.reset();
         needUpdateMq = true;
     }
-
-    if (needUpdateMq) {
+    if ( (mOutputFrameSize != prevOutputFrameSize ||
+        mCommon.output.frameCount != common.output.frameCount) || (mInputFrameSize != prevInputFrameSize ||
+        mCommon.input.frameCount != common.input.frameCount)) {
         mWorkBuffer.resize(std::max(common.input.frameCount * mInputFrameSize / sizeof(float),
                                     common.output.frameCount * mOutputFrameSize / sizeof(float)));
         return notifyDataMqUpdate();
