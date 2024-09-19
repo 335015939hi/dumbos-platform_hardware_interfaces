@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f976b7a8_667b7281",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-09-19T23:29:37Z",
+      "side": 1,
+      "message": "nit: always prefer CHECK_EQ?",
+      "range": {
+        "startLine": 55,
+        "startChar": 8,
+        "endLine": 55,
+        "endChar": 13
+      },
+      "revId": "4628ede5020e7722d6738de5af89241af285cda8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
