@@ -22,6 +22,30 @@
       },
       "revId": "07f8a422a1e5c2110344491fc1d7a4751f7629ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5388f67_9257e588",
+        "filename": "configstore/1.1/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-09-19T09:37:01Z",
+      "side": 1,
+      "message": "Actually it is a bit different, the original meaning of the make is that if the build is not a coverage build and it\u0027s a arm64 build target, add `configstore@1.1.policy` as required module.\n\nAnd the normal conversion should be look like this,\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:system/core/code_coverage/Android.bp;l\u003d15?q\u003dsystem%2Fcore%2Fcode_coverage%2FAndroid.bp\u0026ss\u003dandroid\n\nBut due to `required` is not currently allow for coverage condition and the policy file seems just a text file and should not affect coverage so I just restricted it by arm64 only as describe in commit message.\n\nAnd for native_coverage just claim it could support code coverage.",
+      "parentUuid": "39365573_b452079a",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 26
+      },
+      "revId": "07f8a422a1e5c2110344491fc1d7a4751f7629ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
