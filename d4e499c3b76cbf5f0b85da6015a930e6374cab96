@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e9df7a2_238fde6e",
+        "filename": "graphics/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2024-09-19T21:47:09Z",
+      "side": 1,
+      "message": "why linux and not android? I don\u0027t think these HALs meaningfully exist anywhere other than Android.\n\nBut if possible I\u0027d rather tweak HWUI\u0027s android.bp to only use these defaults on Android if that\u0027s possible",
+      "revId": "d4e499c3b76cbf5f0b85da6015a930e6374cab96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
