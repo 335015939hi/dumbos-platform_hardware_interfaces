@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39365573_b452079a",
+        "filename": "configstore/1.1/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1317851
+      },
+      "writtenOn": "2024-09-19T09:10:14Z",
+      "side": 1,
+      "message": "Do you mean it\u0027s for following code in Android.mk?\n```\nifneq ($(NATIVE_COVERAGE),true)\nLOCAL_REQUIRED_MODULES_arm64 :\u003d configstore@1.1.policy\nendif\n```\nCould you provide more information about it?",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 26
+      },
+      "revId": "07f8a422a1e5c2110344491fc1d7a4751f7629ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
