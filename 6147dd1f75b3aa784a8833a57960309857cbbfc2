@@ -1,0 +1,1136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71e22a7e_d8b7efa7",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Arc.cddl",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "uses",
+      "range": {
+        "startLine": 66,
+        "startChar": 68,
+        "endLine": 66,
+        "endChar": 71
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a5a9f68_7794586d",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Arc.cddl",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "allow",
+      "range": {
+        "startLine": 69,
+        "startChar": 32,
+        "endLine": 69,
+        "endChar": 38
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9839e7cf_4088ef41",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "13?",
+      "range": {
+        "startLine": 54,
+        "startChar": 27,
+        "endLine": 54,
+        "endChar": 29
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1c37ac2_b63a5c6a",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "This isn\u0027t the generated file, is it?  Why does it have this header?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 78
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92541caa_f2fd3053",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "delete comma",
+      "range": {
+        "startLine": 46,
+        "startChar": 65,
+        "endLine": 46,
+        "endChar": 66
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1a90699_00d26e51",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "-",
+      "range": {
+        "startLine": 46,
+        "startChar": 42,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d7bd6bf_5aefd124",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "-",
+      "range": {
+        "startLine": 49,
+        "startChar": 25,
+        "endLine": 49,
+        "endChar": 26
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0c77d2e_b19443cd",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "It doesn\u0027t have to be by a user.  I\u0027d just delete this.",
+      "range": {
+        "startLine": 50,
+        "startChar": 41,
+        "endLine": 50,
+        "endChar": 53
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98bd1c3a_8feaf2e2",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Delete this.",
+      "range": {
+        "startLine": 53,
+        "startChar": 27,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3eb7edd_10e102fc",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "set up",
+      "range": {
+        "startLine": 58,
+        "startChar": 32,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc5a8337_ddfa0851",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "in the",
+      "range": {
+        "startLine": 59,
+        "startChar": 18,
+        "endLine": 59,
+        "endChar": 22
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a2027b8_2f1c15e2",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "-",
+      "range": {
+        "startLine": 60,
+        "startChar": 25,
+        "endLine": 60,
+        "endChar": 26
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff0345e0_0ae32232",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "set up",
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "839830c2_ea747059",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Delete",
+      "range": {
+        "startLine": 64,
+        "startChar": 62,
+        "endLine": 64,
+        "endChar": 85
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bcea22d_3eebc130",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "-",
+      "range": {
+        "startLine": 65,
+        "startChar": 43,
+        "endLine": 65,
+        "endChar": 44
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "890464be_6454d11a",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "What if it\u0027s not a user?  What if it\u0027s a server or something else?",
+      "range": {
+        "startLine": 66,
+        "startChar": 9,
+        "endLine": 66,
+        "endChar": 18
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1985746c_29309f6b",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "The untrusted party through whom the",
+      "range": {
+        "startLine": 70,
+        "startChar": 10,
+        "endLine": 70,
+        "endChar": 44
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29155573_738592e4",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Delete comma",
+      "range": {
+        "startLine": 70,
+        "startChar": 72,
+        "endLine": 70,
+        "endChar": 73
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5db91f61_03794ccc",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "illegitimate... but what makes a key legitimate or not?",
+      "range": {
+        "startLine": 71,
+        "startChar": 58,
+        "endLine": 71,
+        "endChar": 72
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "501d5dbc_60d67fa3",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "We also have to assume that the untrusted channel is not compromised during creation, don\u0027t we?\n\nOverall, I don\u0027t think this security guarantee is very clear. Readers will find it very confusing.",
+      "range": {
+        "startLine": 72,
+        "startChar": 43,
+        "endLine": 73,
+        "endChar": 70
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73f3cac6_7fe24744",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "after key creation",
+      "range": {
+        "startLine": 74,
+        "startChar": 42,
+        "endLine": 74,
+        "endChar": 50
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f3eb874_0154b12a",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "that",
+      "range": {
+        "startLine": 76,
+        "startChar": 46,
+        "endLine": 76,
+        "endChar": 49
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddc2713e_61f40c76",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Arc needs to be defined.",
+      "range": {
+        "startLine": 80,
+        "startChar": 43,
+        "endLine": 80,
+        "endChar": 46
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f51e87fa_76257aa9",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Couldn\u0027t it also be from two ephemeral arcs, or any other combination?",
+      "range": {
+        "startLine": 82,
+        "startChar": 30,
+        "endLine": 82,
+        "endChar": 93
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54dff731_fe126832",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "create",
+      "range": {
+        "startLine": 85,
+        "startChar": 17,
+        "endLine": 85,
+        "endChar": 22
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1630dd9_a0b33d1f",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Delete comma",
+      "range": {
+        "startLine": 86,
+        "startChar": 43,
+        "endLine": 86,
+        "endChar": 44
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a498cab_25a400a7",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "these",
+      "range": {
+        "startLine": 87,
+        "startChar": 37,
+        "endLine": 87,
+        "endChar": 41
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc3ea518_c0cdcce0",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "How about IAuthGraphKeyManager?  The things that implement this interface are managers of keys.",
+      "range": {
+        "startLine": 95,
+        "startChar": 10,
+        "endLine": 95,
+        "endChar": 33
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fd79c08_d96bf1cb",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "method",
+      "range": {
+        "startLine": 97,
+        "startChar": 12,
+        "endLine": 97,
+        "endChar": 21
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dbb9590_47b536d1",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "This is true of all methods in the interface, isn\u0027t it?",
+      "range": {
+        "startLine": 100,
+        "startChar": 7,
+        "endLine": 100,
+        "endChar": 74
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b8edb64_c300c651",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "What if the check fails?  This needs to be specified for all of the checks below... or maybe if the answer is the same for all cases, put something above like:\n\n\"Before creating the new Arc, the IAuthGraphKeyManagement instance performs a series of checks to verify that the creation should be allowed.  If any check fails, the instance must \u003cwhatever it does\u003e.  The checks performed are:",
+      "range": {
+        "startLine": 105,
+        "startChar": 10,
+        "endLine": 105,
+        "endChar": 53
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afb6ea20_096e2898",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "I\u0027m not sure these little headers breaking the checks up by argument are useful.",
+      "range": {
+        "startLine": 107,
+        "startChar": 35,
+        "endLine": 107,
+        "endChar": 78
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "935ce8d6_41316a8f",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "I\u0027m not clear what \"this\" refers to.  If it refers to the TA implementing IAuthGraphKeyManagement, perhaps write \"If the IAuthKeyGraphManagement instance is a source...\"",
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7ec8902_5bfc48fd",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "What does it mean for a sourceId to be supported?  Same for sinkId.",
+      "range": {
+        "startLine": 109,
+        "startChar": 11,
+        "endLine": 109,
+        "endChar": 30
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feed5d56_1ade0dcd",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "MintingAllowed?",
+      "range": {
+        "startLine": 112,
+        "startChar": 21,
+        "endLine": 112,
+        "endChar": 35
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c8dda63_bbd80c5c",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "are",
+      "range": {
+        "startLine": 113,
+        "startChar": 25,
+        "endLine": 113,
+        "endChar": 27
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b985a78f_e9dc81d4",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "I\u0027m not clear what is being checked here.",
+      "range": {
+        "startLine": 114,
+        "startChar": 10,
+        "endLine": 114,
+        "endChar": 64
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3733679b_9bcb07b2",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "How is this check done?",
+      "range": {
+        "startLine": 115,
+        "startChar": 11,
+        "endLine": 115,
+        "endChar": 64
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20be817_cc458b80",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "symmetric",
+      "range": {
+        "startLine": 115,
+        "startChar": 51,
+        "endLine": 115,
+        "endChar": 60
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56aa647_9c42f8f7",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "What permission?",
+      "range": {
+        "startLine": 119,
+        "startChar": 14,
+        "endLine": 119,
+        "endChar": 28
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eee5cbd4_0d534d52",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "I think you mean \"and\"?",
+      "range": {
+        "startLine": 119,
+        "startChar": 56,
+        "endLine": 119,
+        "endChar": 60
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a25825f_9a012499",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "sinkIds",
+      "range": {
+        "startLine": 121,
+        "startChar": 63,
+        "endLine": 121,
+        "endChar": 76
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75b405c9_3d06765d",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Delete this word, I think.",
+      "range": {
+        "startLine": 122,
+        "startChar": 20,
+        "endLine": 122,
+        "endChar": 23
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07152690_4ebcaede",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Again, what it means for something to be supported is not defined.",
+      "range": {
+        "startLine": 122,
+        "startChar": 38,
+        "endLine": 122,
+        "endChar": 47
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cd69ca9_fc9d4875",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Common Typos: Common typo found: \"Alllowed\" -- should it be \"Allowed\"?\n\nAnalyzer Description: Linter for catching common typos motivated by go/todo-fail and go/lol-codesearch. Shared with google3 common typos library go/common-typos.\nOwner: ayeaye-team@google.com\n\nCommon typo found: \"Alllowed\" -- should it be \"Allowed\"?\nNote: a line containing \"common_typos_disable\" or \"common_typos_enable\" will turn off or on (respectively) the linter for subsequent lines in the file. Alternatively include the token \"NOTYPO\" within a line to skip typo linting that line or include \u0027No-Typo-Check: \u003creason\u003e\u0027in the commit message.",
+      "range": {
+        "startLine": 152,
+        "startChar": 38,
+        "endLine": 152,
+        "endChar": 46
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8b65016_b1ad913f",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Ah, okay.  This is what to do if checks fail.  I think it would be better to specify this at the top, so the reader isn\u0027t wondering all the way through.",
+      "range": {
+        "startLine": 166,
+        "startChar": 7,
+        "endLine": 167,
+        "endChar": 25
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57d905ea_622b53dc",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "method",
+      "range": {
+        "startLine": 180,
+        "startChar": 12,
+        "endLine": 180,
+        "endChar": 29
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c30735af_51b74cdb",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Must it?  Why?",
+      "range": {
+        "startLine": 183,
+        "startChar": 6,
+        "endLine": 183,
+        "endChar": 75
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d715ba66_08f39828",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "I assume you mean the ID of this IAuthGraphKeyManagement instance, right?  It would be good to make that clearer.\n\nAlso, why would",
+      "range": {
+        "startLine": 189,
+        "startChar": 57,
+        "endLine": 189,
+        "endChar": 71
+      },
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "290efd90_72aadcd0",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-09-19T17:37:59Z",
+      "side": 1,
+      "message": "Do we have any cases where we need to snap a sequence of arcs?  Are we sure that we never will?  It would be unfortunate to have to make multiple calls, when instead we could just have one call that takes an array of Arcs.",
+      "revId": "6147dd1f75b3aa784a8833a57960309857cbbfc2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
