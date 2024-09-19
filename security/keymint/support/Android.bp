@@ -57,10 +57,12 @@ cc_library {
         "include",
     ],
     shared_libs: [
+        "android.hardware.security.keymint-V1-ndk_platform",
         "libbase",
         "libcppbor_external",
         "libcppcose_rkp",
         "libcrypto",
+        "libkeymaster_portable",
         "libjsoncpp",
     ],
 }
@@ -73,6 +75,7 @@ cc_test {
         "libgtest_main",
     ],
     shared_libs: [
+        "android.hardware.security.keymint-V1-ndk_platform",
         "libbase",
         "libcppbor_external",
         "libcppcose_rkp",

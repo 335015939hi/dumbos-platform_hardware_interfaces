@@ -93,6 +93,21 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     ErrorCode GenerateKey(const AuthorizationSet& key_desc,
                           const optional<AttestationKey>& attest_key = std::nullopt);
 
+    // Generate key for implementations which do not support factory attestation.
+    ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
+                                                 const AuthorizationSet& key_desc,
+                                                 vector<uint8_t>* key_blob,
+                                                 vector<KeyCharacteristics>* key_characteristics,
+                                                 vector<Certificate>* cert_chain);
+
+    ErrorCode GenerateKeyWithSelfSignedAttestKey(const AuthorizationSet& attest_key_desc,
+                                                 const AuthorizationSet& key_desc,
+                                                 vector<uint8_t>* key_blob,
+                                                 vector<KeyCharacteristics>* key_characteristics) {
+        return GenerateKeyWithSelfSignedAttestKey(attest_key_desc, key_desc, key_blob,
+                                                  key_characteristics, &cert_chain_);
+    }
+
     ErrorCode ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                         const string& key_material, vector<uint8_t>* key_blob,
                         vector<KeyCharacteristics>* key_characteristics);
@@ -250,7 +265,10 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
                                                      .SetDefaultValidity();
         tagModifier(&rsaBuilder);
         errorCode = GenerateKey(rsaBuilder, &rsaKeyData.blob, &rsaKeyData.characteristics);
-        EXPECT_EQ(expectedReturn, errorCode);
+        if (!(SecLevel() == SecurityLevel::STRONGBOX &&
+              ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED == errorCode)) {
+            EXPECT_EQ(expectedReturn, errorCode);
+        }
 
         /* ECDSA */
         KeyData ecdsaKeyData;
@@ -262,7 +280,10 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
                                                        .SetDefaultValidity();
         tagModifier(&ecdsaBuilder);
         errorCode = GenerateKey(ecdsaBuilder, &ecdsaKeyData.blob, &ecdsaKeyData.characteristics);
-        EXPECT_EQ(expectedReturn, errorCode);
+        if (!(SecLevel() == SecurityLevel::STRONGBOX &&
+              ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED == errorCode)) {
+            EXPECT_EQ(expectedReturn, errorCode);
+        }
         return {aesKeyData, hmacKeyData, rsaKeyData, ecdsaKeyData};
     }
     bool IsSecure() const { return securityLevel_ != SecurityLevel::SOFTWARE; }
@@ -279,6 +300,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     vector<EcCurve> InvalidCurves();
 
     vector<Digest> ValidDigests(bool withNone, bool withMD5);
+    vector<uint64_t> ValidExponents();
 
     static vector<string> build_params() {
         auto params = ::android::getAidlHalInstanceNames(IKeyMintDevice::descriptor);
