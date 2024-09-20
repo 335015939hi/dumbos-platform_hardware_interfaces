@@ -121,17 +121,23 @@ class HapticGeneratorParamTest : public ::testing::TestWithParam<HapticGenerator
             Parameter::Specific specific;
             specific.set<Parameter::Specific::hapticGenerator>(setHg);
             expectParam.set<Parameter::specific>(specific);
-            EXPECT_STATUS(EX_NONE, mEffect->setParameter(expectParam)) << expectParam.toString();
 
-            // get parameter
-            Parameter getParam;
-            Parameter::Id id;
-            HapticGenerator::Id hgId;
-            hgId.set<HapticGenerator::Id::commonTag>(tag);
-            id.set<Parameter::Id::hapticGeneratorTag>(hgId);
-            EXPECT_STATUS(EX_NONE, mEffect->getParameter(id, &getParam));
-            EXPECT_EQ(expectParam, getParam) << expectParam.toString() << "\n"
-                                             << getParam.toString();
+            const bool valid =
+                    isParameterValid<HapticGenerator, Range::hapticGenerator>(setHg, mDescriptor);
+            const binder_exception_t expected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
+            EXPECT_STATUS(expected, mEffect->setParameter(expectParam)) << expectParam.toString();
+
+            // only get if parameter in range and set success
+            if (expected == EX_NONE) {
+                Parameter getParam;
+                Parameter::Id id;
+                HapticGenerator::Id hgId;
+                hgId.set<HapticGenerator::Id::commonTag>(tag);
+                id.set<Parameter::Id::hapticGeneratorTag>(hgId);
+                EXPECT_STATUS(EX_NONE, mEffect->getParameter(id, &getParam));
+                EXPECT_EQ(expectParam, getParam) << expectParam.toString() << "\n"
+                                                 << getParam.toString();
+            }
         }
     }
 
