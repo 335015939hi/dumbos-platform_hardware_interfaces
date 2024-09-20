@@ -22,6 +22,67 @@
       },
       "revId": "18b521d140d9ca7c9357f27ce4dd4f032d04d00c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21cd3b69_8fbdb3f4",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/include/FakeVehicleHardware.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1165189
+      },
+      "writtenOn": "2024-09-20T00:53:56Z",
+      "side": 1,
+      "message": "this function is called at init, so passing a list of config would be a good alternative to passing a function.",
+      "range": {
+        "startLine": 60,
+        "startChar": 44,
+        "endLine": 60,
+        "endChar": 88
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a42b7948_00c153dd",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "automotive/vehicle/aidl/impl/fake_impl/hardware/include/FakeVehicleHardware.h",
+              "range": {
+                "startLine": 59,
+                "startChar": 0,
+                "endLine": 61,
+                "endChar": 0
+              },
+              "replacement": "    FakeVehicleHardware(\n            std::string defaultConfigDir, std::string overrideConfigDir, bool forceOverride,\n            std::vector\u003cint32_t\u003e s2rS2dConfig);\n"
+            },
+            {
+              "path": "automotive/vehicle/aidl/impl/fake_impl/hardware/include/FakeVehicleHardware.h",
+              "range": {
+                "startLine": 192,
+                "startChar": 0,
+                "endLine": 196,
+                "endChar": 0
+              },
+              "replacement": "    // The config whether S2R or S2D is supported, must be a bit flag combining values from\n    // VehicleApPowerStateConfigFlag.\n"
+            },
+            {
+              "path": "automotive/vehicle/aidl/impl/fake_impl/hardware/include/FakeVehicleHardware.h",
+              "range": {
+                "startLine": 197,
+                "startChar": 0,
+                "endLine": 198,
+                "endChar": 0
+              },
+              "replacement": "    std::vector\u003cint32_t\u003e mS2rS2dConfig;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "18b521d140d9ca7c9357f27ce4dd4f032d04d00c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
