@@ -90,4 +90,8 @@ parcelable NfcConfig {
      * Pipe IDs for UICC. Empty if not available
      */
     byte[] offHostSimPipeIds = {};
+    /**
+     * T4T NFCEE feature configuration
+     */
+    byte t4tNfceeEnable;
 }
