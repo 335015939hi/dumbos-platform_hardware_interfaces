@@ -39,6 +39,30 @@
       },
       "revId": "2c157fa1d412e840e2d0128d1106cc56c6cbb92e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73b5611f_5a47d3a2",
+        "filename": "staging/security/see/storage/aidl/vts/functional/VtsHalSecureStorageTargetTest.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-09-21T22:51:31Z",
+      "side": 1,
+      "message": "see rationale here b/368815598",
+      "parentUuid": "b227fa07_02bcacb6",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 129
+      },
+      "revId": "2c157fa1d412e840e2d0128d1106cc56c6cbb92e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
