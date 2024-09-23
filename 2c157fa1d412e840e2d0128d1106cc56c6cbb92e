@@ -87,6 +87,30 @@
       },
       "revId": "2c157fa1d412e840e2d0128d1106cc56c6cbb92e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c38b9708_03ddeb92",
+        "filename": "staging/security/see/storage/aidl/vts/functional/VtsHalSecureStorageTargetTest.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-09-23T07:37:05Z",
+      "side": 1,
+      "message": "How will errors be reported in this scenario? Will we have the complete call stack if a partner reports an error?\n\nActually I\u0027m interested in exploring whether we can restructure the test target in a way that each test interacts with the Trusty VM and verifies a single functionality, as we do for Microdroid VMs. This could potentially improve error reporting and make debugging more efficient.",
+      "parentUuid": "080fd896_1c033d6e",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 129
+      },
+      "revId": "2c157fa1d412e840e2d0128d1106cc56c6cbb92e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
