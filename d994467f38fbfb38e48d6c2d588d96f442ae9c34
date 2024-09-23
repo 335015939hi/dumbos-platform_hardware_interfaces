@@ -16,6 +16,23 @@
       "message": "Hi Mikhail, this is to address b/368467232, it has been verified with the custom vts build: https://android-build.corp.google.com/builds/abtd/run/L87100030006624576\nThanks",
       "revId": "d994467f38fbfb38e48d6c2d588d96f442ae9c34",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7162333f_23ccbcf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-09-23T21:26:23Z",
+      "side": 1,
+      "message": "adding @samgarg@google.com for DrNo-Review, thanks",
+      "revId": "d994467f38fbfb38e48d6c2d588d96f442ae9c34",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
