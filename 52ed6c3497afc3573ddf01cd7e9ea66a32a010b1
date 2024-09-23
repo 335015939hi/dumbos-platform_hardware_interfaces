@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a64a8ead_bbc76188",
+        "filename": "configstore/1.1/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-09-23T08:25:31Z",
+      "side": 0,
+      "message": "Need this module if arm64 target build but not native coverage, skip the if condition to only arm64 only.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 5
+      },
+      "revId": "52ed6c3497afc3573ddf01cd7e9ea66a32a010b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "539dff02_d1f8cd7c",
+        "filename": "configstore/1.1/default/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-09-23T08:25:31Z",
+      "side": 0,
+      "message": "include it in build directly.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "52ed6c3497afc3573ddf01cd7e9ea66a32a010b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
