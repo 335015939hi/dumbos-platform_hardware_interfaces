@@ -46,6 +46,30 @@
       },
       "revId": "3990393ebfaee3d83ad7bda140ab101fac42b0a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d146544d_3dbcc6d1",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-09-23T17:29:54Z",
+      "side": 1,
+      "message": "Right. getDataRegistrationState was defined in version 1.0 of the HAL. Why is it returning a much later result which is not defined to be returned at that point?",
+      "parentUuid": "0106d4b1_e56e8155",
+      "range": {
+        "startLine": 81,
+        "startChar": 14,
+        "endLine": 86,
+        "endChar": 9
+      },
+      "revId": "3990393ebfaee3d83ad7bda140ab101fac42b0a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
