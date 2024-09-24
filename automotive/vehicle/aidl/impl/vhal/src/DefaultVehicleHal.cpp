@@ -384,8 +384,8 @@ const ScopedFileDescriptor* DefaultVehicleHal::getConfigFile() const {
     return mConfigFile.get();
 }
 
-const std::unordered_map<int32_t, VehiclePropConfig>& DefaultVehicleHal::getConfigsByPropId()
-        const {
+const std::unordered_map<int32_t, VehiclePropConfig>& DefaultVehicleHal::getConfigsByPropId() const
+        NO_THREAD_SAFETY_ANALYSIS {
     std::scoped_lock lockGuard(mConfigInitLock);
     if (!mConfigInit) {
         CHECK(getAllPropConfigsFromHardwareLocked())
