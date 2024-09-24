@@ -95,6 +95,18 @@ float getDefaultSampleRateHz(float sampleRateHz, float minSampleRateHz, float ma
     return sampleRateHz;
 }
 
+class SCOPED_CAPABILITY SharedScopedLockAssertion {
+  public:
+    SharedScopedLockAssertion(std::shared_timed_mutex& mutex) ACQUIRE_SHARED(mutex) {}
+    ~SharedScopedLockAssertion() RELEASE() {}
+};
+
+class SCOPED_CAPABILITY UniqueScopedLockAssertion {
+  public:
+    UniqueScopedLockAssertion(std::shared_timed_mutex& mutex) ACQUIRE(mutex) {}
+    ~UniqueScopedLockAssertion() RELEASE() {}
+};
+
 }  // namespace
 
 DefaultVehicleHal::DefaultVehicleHal(std::unique_ptr<IVehicleHardware> vehicleHardware)
@@ -355,68 +367,82 @@ bool DefaultVehicleHal::getAllPropConfigsFromHardwareLocked() const {
         }
         filteredConfigs.push_back(std::move(config));
     }
-    for (auto& config : filteredConfigs) {
-        mConfigsByPropId[config.prop] = config;
-    }
-    VehiclePropConfigs vehiclePropConfigs;
-    vehiclePropConfigs.payloads = std::move(filteredConfigs);
-    auto result = LargeParcelableBase::parcelableToStableLargeParcelable(vehiclePropConfigs);
-    if (!result.ok()) {
-        ALOGE("failed to convert configs to shared memory file, error: %s, code: %d",
-              result.error().message().c_str(), static_cast<int>(result.error().code()));
-        mConfigFile = nullptr;
-        return false;
+
+    {
+        std::unique_lock<std::shared_timed_mutex> configWriteLock(mConfigLock);
+        UniqueScopedLockAssertion lockAssertion(mConfigLock);
+
+        for (auto& config : filteredConfigs) {
+            mConfigsByPropId[config.prop] = config;
+        }
+        VehiclePropConfigs vehiclePropConfigs;
+        vehiclePropConfigs.payloads = std::move(filteredConfigs);
+        auto result = LargeParcelableBase::parcelableToStableLargeParcelable(vehiclePropConfigs);
+        if (!result.ok()) {
+            ALOGE("failed to convert configs to shared memory file, error: %s, code: %d",
+                  result.error().message().c_str(), static_cast<int>(result.error().code()));
+            mConfigFile = nullptr;
+            return false;
+        }
+
+        if (result.value() != nullptr) {
+            mConfigFile = std::move(result.value());
+        }
     }
 
-    if (result.value() != nullptr) {
-        mConfigFile = std::move(result.value());
-    }
+    mConfigInit = true;
     return true;
 }
 
-const ScopedFileDescriptor* DefaultVehicleHal::getConfigFile() const {
-    std::scoped_lock lockGuard(mConfigInitLock);
+void DefaultVehicleHal::getConfigsByPropId(
+        std::function<void(const std::unordered_map<int32_t, VehiclePropConfig>&)> callback) const {
     if (!mConfigInit) {
         CHECK(getAllPropConfigsFromHardwareLocked())
                 << "Failed to get property configs from hardware";
-        mConfigInit = true;
     }
-    return mConfigFile.get();
-}
 
-const std::unordered_map<int32_t, VehiclePropConfig>& DefaultVehicleHal::getConfigsByPropId()
-        const {
-    std::scoped_lock lockGuard(mConfigInitLock);
-    if (!mConfigInit) {
-        CHECK(getAllPropConfigsFromHardwareLocked())
-                << "Failed to get property configs from hardware";
-        mConfigInit = true;
-    }
-    return mConfigsByPropId;
+    std::shared_lock<std::shared_timed_mutex> configReadLock(mConfigLock);
+    SharedScopedLockAssertion lockAssertion(mConfigLock);
+
+    callback(mConfigsByPropId);
 }
 
 ScopedAStatus DefaultVehicleHal::getAllPropConfigs(VehiclePropConfigs* output) {
-    const ScopedFileDescriptor* configFile = getConfigFile();
-    const auto& configsByPropId = getConfigsByPropId();
-    if (configFile != nullptr) {
+    if (!mConfigInit) {
+        CHECK(getAllPropConfigsFromHardwareLocked())
+                << "Failed to get property configs from hardware";
+    }
+
+    std::shared_lock<std::shared_timed_mutex> configReadLock(mConfigLock);
+    SharedScopedLockAssertion lockAssertion(mConfigLock);
+
+    if (mConfigFile != nullptr) {
         output->payloads.clear();
-        output->sharedMemoryFd.set(dup(configFile->get()));
+        output->sharedMemoryFd.set(dup(mConfigFile->get()));
         return ScopedAStatus::ok();
     }
-    output->payloads.reserve(configsByPropId.size());
-    for (const auto& [_, config] : configsByPropId) {
+
+    output->payloads.reserve(mConfigsByPropId.size());
+    for (const auto& [_, config] : mConfigsByPropId) {
         output->payloads.push_back(config);
     }
     return ScopedAStatus::ok();
 }
 
-Result<const VehiclePropConfig*> DefaultVehicleHal::getConfig(int32_t propId) const {
-    const auto& configsByPropId = getConfigsByPropId();
-    auto it = configsByPropId.find(propId);
-    if (it == configsByPropId.end()) {
-        return Error() << "no config for property, ID: " << propId;
-    }
-    return &(it->second);
+Result<VehiclePropConfig> DefaultVehicleHal::getConfig(int32_t propId) const {
+    Result<VehiclePropConfig> result;
+    getConfigsByPropId([this, &result, propId](const auto& configsByPropId) {
+        SharedScopedLockAssertion lockAssertion(mConfigLock);
+
+        auto it = configsByPropId.find(propId);
+        if (it == configsByPropId.end()) {
+            result = Error() << "no config for property, ID: " << propId;
+            return;
+        }
+        // Copy the VehiclePropConfig
+        result = it->second;
+    });
+    return result;
 }
 
 Result<void> DefaultVehicleHal::checkProperty(const VehiclePropValue& propValue) {
@@ -425,15 +451,15 @@ Result<void> DefaultVehicleHal::checkProperty(const VehiclePropValue& propValue)
     if (!result.ok()) {
         return result.error();
     }
-    const VehiclePropConfig* config = result.value();
-    const VehicleAreaConfig* areaConfig = getAreaConfig(propValue, *config);
+    const VehiclePropConfig& config = result.value();
+    const VehicleAreaConfig* areaConfig = getAreaConfig(propValue, config);
     if (!isGlobalProp(propId) && areaConfig == nullptr) {
         // Ignore areaId for global property. For non global property, check whether areaId is
         // allowed. areaId must appear in areaConfig.
         return Error() << "invalid area ID: " << propValue.areaId << " for prop ID: " << propId
                        << ", not listed in config";
     }
-    if (auto result = checkPropValue(propValue, config); !result.ok()) {
+    if (auto result = checkPropValue(propValue, &config); !result.ok()) {
         return Error() << "invalid property value: " << propValue.toString()
                        << ", error: " << getErrorMsg(result);
     }
@@ -659,17 +685,27 @@ ScopedAStatus DefaultVehicleHal::setValues(const CallbackType& callback,
 ScopedAStatus DefaultVehicleHal::getPropConfigs(const std::vector<int32_t>& props,
                                                 VehiclePropConfigs* output) {
     std::vector<VehiclePropConfig> configs;
-    const auto& configsByPropId = getConfigsByPropId();
-    for (int32_t prop : props) {
-        auto it = configsByPropId.find(prop);
-        if (it != configsByPropId.end()) {
-            configs.push_back(it->second);
-        } else {
-            return ScopedAStatus::fromServiceSpecificErrorWithMessage(
-                    toInt(StatusCode::INVALID_ARG),
-                    StringPrintf("no config for property, ID: %" PRId32, prop).c_str());
+    ScopedAStatus status = ScopedAStatus::ok();
+    getConfigsByPropId([this, &configs, &status, &props](const auto& configsByPropId) {
+        SharedScopedLockAssertion lockAssertion(mConfigLock);
+
+        for (int32_t prop : props) {
+            auto it = configsByPropId.find(prop);
+            if (it != configsByPropId.end()) {
+                configs.push_back(it->second);
+            } else {
+                status = ScopedAStatus::fromServiceSpecificErrorWithMessage(
+                        toInt(StatusCode::INVALID_ARG),
+                        StringPrintf("no config for property, ID: %" PRId32, prop).c_str());
+                return;
+            }
         }
+    });
+
+    if (!status.isOk()) {
+        return status;
     }
+
     return vectorToStableLargeParcelable(std::move(configs), output);
 }
 
@@ -691,8 +727,8 @@ bool areaConfigsHaveRequiredAccess(const std::vector<VehicleAreaConfig>& areaCon
 }
 
 VhalResult<void> DefaultVehicleHal::checkSubscribeOptions(
-        const std::vector<SubscribeOptions>& options) {
-    const auto& configsByPropId = getConfigsByPropId();
+        const std::vector<SubscribeOptions>& options,
+        const std::unordered_map<int32_t, VehiclePropConfig>& configsByPropId) {
     for (const auto& option : options) {
         int32_t propId = option.propId;
         auto it = configsByPropId.find(propId);
@@ -757,23 +793,15 @@ VhalResult<void> DefaultVehicleHal::checkSubscribeOptions(
             }
         }
     }
+
     return {};
 }
 
-ScopedAStatus DefaultVehicleHal::subscribe(const CallbackType& callback,
-                                           const std::vector<SubscribeOptions>& options,
-                                           [[maybe_unused]] int32_t maxSharedMemoryFileCount) {
-    // TODO(b/205189110): Use shared memory file count.
-    if (callback == nullptr) {
-        return ScopedAStatus::fromExceptionCode(EX_NULL_POINTER);
-    }
-    if (auto result = checkSubscribeOptions(options); !result.ok()) {
-        ALOGE("subscribe: invalid subscribe options: %s", getErrorMsg(result).c_str());
-        return toScopedAStatus(result);
-    }
-    std::vector<SubscribeOptions> onChangeSubscriptions;
-    std::vector<SubscribeOptions> continuousSubscriptions;
-    const auto& configsByPropId = getConfigsByPropId();
+void DefaultVehicleHal::parseSubscribeOptions(
+        const std::vector<SubscribeOptions>& options,
+        const std::unordered_map<int32_t, VehiclePropConfig>& configsByPropId,
+        std::vector<SubscribeOptions>& onChangeSubscriptions,
+        std::vector<SubscribeOptions>& continuousSubscriptions) {
     for (const auto& option : options) {
         int32_t propId = option.propId;
         // We have already validate config exists.
@@ -830,6 +858,34 @@ ScopedAStatus DefaultVehicleHal::subscribe(const CallbackType& callback,
         } else {
             onChangeSubscriptions.push_back(std::move(optionCopy));
         }
+    }
+}
+
+ScopedAStatus DefaultVehicleHal::subscribe(const CallbackType& callback,
+                                           const std::vector<SubscribeOptions>& options,
+                                           [[maybe_unused]] int32_t maxSharedMemoryFileCount) {
+    // TODO(b/205189110): Use shared memory file count.
+    if (callback == nullptr) {
+        return ScopedAStatus::fromExceptionCode(EX_NULL_POINTER);
+    }
+    std::vector<SubscribeOptions> onChangeSubscriptions;
+    std::vector<SubscribeOptions> continuousSubscriptions;
+    ScopedAStatus returnStatus = ScopedAStatus::ok();
+    getConfigsByPropId([this, &returnStatus, &options, &onChangeSubscriptions,
+                        &continuousSubscriptions](const auto& configsByPropId) {
+        SharedScopedLockAssertion lockAssertion(mConfigLock);
+
+        if (auto result = checkSubscribeOptions(options, configsByPropId); !result.ok()) {
+            ALOGE("subscribe: invalid subscribe options: %s", getErrorMsg(result).c_str());
+            returnStatus = toScopedAStatus(result);
+            return;
+        }
+        parseSubscribeOptions(options, configsByPropId, onChangeSubscriptions,
+                              continuousSubscriptions);
+    });
+
+    if (!returnStatus.isOk()) {
+        return returnStatus;
     }
 
     {
@@ -891,13 +947,13 @@ VhalResult<void> DefaultVehicleHal::checkPermissionHelper(
         return StatusError(StatusCode::INVALID_ARG) << getErrorMsg(result);
     }
 
-    const VehiclePropConfig* config = result.value();
-    const VehicleAreaConfig* areaConfig = getAreaConfig(value, *config);
+    const VehiclePropConfig& config = result.value();
+    const VehicleAreaConfig* areaConfig = getAreaConfig(value, config);
 
     if (areaConfig == nullptr && !isGlobalProp(propId)) {
         return StatusError(StatusCode::INVALID_ARG) << "no config for area ID: " << value.areaId;
     }
-    if (!hasRequiredAccess(config->access, accessToTest) &&
+    if (!hasRequiredAccess(config.access, accessToTest) &&
         (areaConfig == nullptr || !hasRequiredAccess(areaConfig->access, accessToTest))) {
         return StatusError(StatusCode::ACCESS_DENIED)
                << StringPrintf("Property %" PRId32 " does not have the following access: %" PRId32,
@@ -966,7 +1022,6 @@ binder_status_t DefaultVehicleHal::dump(int fd, const char** args, uint32_t numA
     }
     DumpResult result = mVehicleHardware->dump(options);
     if (result.refreshPropertyConfigs) {
-        std::scoped_lock lockGuard(mConfigInitLock);
         getAllPropConfigsFromHardwareLocked();
     }
     dprintf(fd, "%s", (result.buffer + "\n").c_str());
@@ -974,11 +1029,16 @@ binder_status_t DefaultVehicleHal::dump(int fd, const char** args, uint32_t numA
         return STATUS_OK;
     }
     dprintf(fd, "Vehicle HAL State: \n");
-    const auto& configsByPropId = getConfigsByPropId();
+    std::unordered_map<int32_t, VehiclePropConfig> configsByPropIdCopy;
+    getConfigsByPropId([this, &configsByPropIdCopy](const auto& configsByPropId) {
+        SharedScopedLockAssertion lockAssertion(mConfigLock);
+
+        configsByPropIdCopy = configsByPropId;
+    });
     {
         std::scoped_lock<std::mutex> lockGuard(mLock);
         dprintf(fd, "Interface version: %" PRId32 "\n", getVhalInterfaceVersion());
-        dprintf(fd, "Containing %zu property configs\n", configsByPropId.size());
+        dprintf(fd, "Containing %zu property configs\n", configsByPropIdCopy.size());
         dprintf(fd, "Currently have %zu getValues clients\n", mGetValuesClients.size());
         dprintf(fd, "Currently have %zu setValues clients\n", mSetValuesClients.size());
         dprintf(fd, "Currently have %zu subscribe clients\n", countSubscribeClients());
