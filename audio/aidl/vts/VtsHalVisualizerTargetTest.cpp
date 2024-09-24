@@ -20,6 +20,8 @@
 #include <android-base/logging.h>
 #include <android/binder_enums.h>
 
+#include <numeric>  // For std::accumulate
+
 #include "EffectHelper.h"
 
 using namespace android;
@@ -64,7 +66,6 @@ class VisualizerParamTest : public ::testing::TestWithParam<VisualizerParamTestP
         mBufferSizeInFrames = kInputFrameCount * channelCount;
         mInputBuffer.resize(mBufferSizeInFrames);
         generateInputBuffer(mInputBuffer, 0, true, channelCount, kMaxAudioSampleValue);
-
         mOutputBuffer.resize(mBufferSizeInFrames);
     }
 
@@ -86,7 +87,7 @@ class VisualizerParamTest : public ::testing::TestWithParam<VisualizerParamTestP
         mOpenEffectReturn = IEffect::OpenEffectReturn{};
     }
 
-    static const long kInputFrameCount = 0x100, kOutputFrameCount = 0x100;
+    static const long kInputFrameCount = 256, kOutputFrameCount = 256;
     std::shared_ptr<IFactory> mFactory;
     std::shared_ptr<IEffect> mEffect;
     Descriptor mDescriptor;
@@ -190,7 +191,7 @@ TEST_P(VisualizerParamTest, SetAndGetLatency) {
     ASSERT_NO_FATAL_FAILURE(SetAndGetParameters());
 }
 
-TEST_P(VisualizerParamTest, testCaptureSampleBufferSizeAndOutput) {
+TEST_P(VisualizerParamTest, testCaptureSampleBufferAndOutput) {
     SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
     ASSERT_NO_FATAL_FAILURE(addCaptureSizeParam(mCaptureSize));
     ASSERT_NO_FATAL_FAILURE(addScalingModeParam(mScalingMode));
@@ -206,15 +207,33 @@ TEST_P(VisualizerParamTest, testCaptureSampleBufferSizeAndOutput) {
     EXPECT_STATUS(EX_NONE, mEffect->getParameter(id, &getParam)) << " with: " << id.toString();
 
     ASSERT_NO_FATAL_FAILURE(processAndWriteToOutput(mInputBuffer, mOutputBuffer, mEffect,
-                                                    &mOpenEffectReturn, mVersion));
+                                                    &mOpenEffectReturn, mVersion, 1, false));
     ASSERT_EQ(mInputBuffer, mOutputBuffer);
 
     if (mAllParamsValid) {
+        Parameter getParam;
+        Parameter::Id id;
+        Visualizer::Id vsId;
+        vsId.set<Visualizer::Id::commonTag>(Visualizer::captureSampleBuffer);
+        id.set<Parameter::Id::visualizerTag>(vsId);
+        EXPECT_STATUS(EX_NONE, mEffect->getParameter(id, &getParam)) << " with: " << id.toString();
         std::vector<uint8_t> captureBuffer = getParam.get<Parameter::specific>()
                                                      .get<Parameter::Specific::visualizer>()
                                                      .get<Visualizer::captureSampleBuffer>();
         ASSERT_EQ((size_t)mCaptureSize, captureBuffer.size());
+
+        if (mLatency == 0 && mScalingMode == Visualizer::ScalingMode::NORMALIZED &&
+            mCaptureSize <= kInputFrameCount) {
+            float input_sum = std::accumulate(mInputBuffer.begin(), mInputBuffer.end(),
+                                              (float)mBufferSizeInFrames);
+            int capture_sum = std::accumulate(captureBuffer.begin(), captureBuffer.end(), 0);
+            EXPECT_NEAR((float)capture_sum,
+                        (input_sum * 128.0 * (float)mCaptureSize / (float)mBufferSizeInFrames),
+                        mCaptureSize);
+        }
     }
+    ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::STOP));
+    ASSERT_NO_FATAL_FAILURE(command(mEffect, CommandId::RESET));
 }
 
 std::vector<std::pair<std::shared_ptr<IFactory>, Descriptor>> kDescPair;
