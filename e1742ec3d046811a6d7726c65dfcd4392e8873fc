@@ -16,6 +16,29 @@
       "message": "There a ticket for it, ref https://issuetracker.google.com/issues/368087676.",
       "revId": "e1742ec3d046811a6d7726c65dfcd4392e8873fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77804ad1_2cbefa19",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2024-09-24T22:39:41Z",
+      "side": 1,
+      "message": "No. Absolutely not. Please turn this into a loop or a separate function if you have to. `goto` just makes the code flow more difficult to understand.",
+      "range": {
+        "startLine": 1287,
+        "startChar": 8,
+        "endLine": 1287,
+        "endChar": 21
+      },
+      "revId": "e1742ec3d046811a6d7726c65dfcd4392e8873fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
