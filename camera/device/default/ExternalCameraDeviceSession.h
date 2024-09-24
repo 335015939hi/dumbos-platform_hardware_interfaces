@@ -382,6 +382,8 @@ class ExternalCameraDeviceSession : public BnCameraDeviceSession, public OutputT
     std::string mExifMake;
     std::string mExifModel;
     /* End of members not changed after initialize() */
+
+    uint64_t mMaxLagNs;
 };
 
 }  // namespace implementation
