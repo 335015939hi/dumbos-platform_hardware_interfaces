@@ -959,4 +959,22 @@ interface IKeyMintDevice {
      * not implemented.  TEE KeyMint implementations must return ErrorCode::UNIMPLEMENTED.
      */
     void sendRootOfTrust(in byte[] rootOfTrust);
+
+    /**
+     * Called by Android exactly once during boot to deliver updated module information to the
+     * IKeyMintDevice.
+     *
+     * moduleInfo is the SHA-256 hash of the DER-encoded ASN.1 structure denoted as Modules in the
+     * following ASN.1 schema:
+     *
+     *     Modules ::= SET OF Module
+     *     Module ::= SEQUENCE {
+     *         package_name OCTET_STRING,
+     *         version INTEGER,
+     *     }
+     *
+     * moduleInfo must be included in attestations as the moduleInfo field (associated with
+     * Tag:::MODULE_INFO) of the software enforced authorization list.
+     */
+    void setModuleInfo(in byte[] moduleInfo);
 }
