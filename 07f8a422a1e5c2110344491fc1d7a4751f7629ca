@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb02601f_d748cbec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1318142
+      },
+      "writtenOn": "2024-09-25T23:18:12Z",
+      "side": 1,
+      "message": "I can understand it but it would be better if it describes the situation in a clearer way.",
+      "range": {
+        "startLine": 11,
+        "startChar": 42,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "07f8a422a1e5c2110344491fc1d7a4751f7629ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8ffc44e_c0d8365b",
+        "filename": "configstore/1.1/default/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1318142
+      },
+      "writtenOn": "2024-09-25T23:18:12Z",
+      "side": 1,
+      "message": "it doesn\u0027t look like being used, remove?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 1
+      },
+      "revId": "07f8a422a1e5c2110344491fc1d7a4751f7629ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39365573_b452079a",
         "filename": "configstore/1.1/default/Android.bp",
         "patchSetId": 1
