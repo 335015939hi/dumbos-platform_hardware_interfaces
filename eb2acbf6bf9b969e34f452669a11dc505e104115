@@ -22,6 +22,30 @@
       },
       "revId": "eb2acbf6bf9b969e34f452669a11dc505e104115",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b933c5c_42ae091c",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothAudioSession.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1957996
+      },
+      "writtenOn": "2024-09-25T02:44:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a634fdb_1a335cff",
+      "range": {
+        "startLine": 181,
+        "startChar": 14,
+        "endLine": 181,
+        "endChar": 75
+      },
+      "revId": "eb2acbf6bf9b969e34f452669a11dc505e104115",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
