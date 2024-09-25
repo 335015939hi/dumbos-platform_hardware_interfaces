@@ -901,6 +901,17 @@ enum Tag {
     ATTESTATION_ID_SECOND_IMEI = TagType.BYTES | 723,
 
     /**
+     * Tag::MODULE_INFO provides information on updated modules. See IKeyMintDevice:setModuleInfo
+     * for details.
+     *
+     * This tag is never provided or returned from KeyMint in the key characteristics. It exists
+     * only to define the tag for use in the attestation record.
+     *
+     * Must never appear in KeyCharacteristics.
+     */
+    MODULE_INFO = TagType.BYTES | 724,
+
+    /**
      * OBSOLETE: Do not use.
      *
      * This tag value is included for historical reasons -- in Keymaster it was used to hold
