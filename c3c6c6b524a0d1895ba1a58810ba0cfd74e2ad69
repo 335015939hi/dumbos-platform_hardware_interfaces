@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f73e092f_fb150266",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-09-26T12:30:38Z",
+      "side": 1,
+      "message": "Hmm, the presubmit failures may put paid to our cunning plan of doing the changes in stages...",
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5e7f3ec_e0cec714",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-09-26T12:30:38Z",
+      "side": 1,
+      "message": "What should an implementation of this interface do if it\u0027s called more than once?\n\nAlso, is there any constraint on when this can be invoked?  (e.g. is it only valid to set module info before `earlyBootEnded()` happens?)",
+      "range": {
+        "startLine": 964,
+        "startChar": 25,
+        "endLine": 964,
+        "endChar": 37
+      },
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63678a87_f0f6b873",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-09-26T12:30:38Z",
+      "side": 1,
+      "message": "It\u0027s probably worth including a reminder that DER-encoding requires a specific ordering for `SET OF`, which ensures that the hash value is not order-dependent.",
+      "range": {
+        "startLine": 967,
+        "startChar": 45,
+        "endLine": 967,
+        "endChar": 56
+      },
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2554f9fd_20dbd4aa",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-09-26T12:30:38Z",
+      "side": 1,
+      "message": "Why `OCTET_STRING` ?  Is it actually expected to be UTF-8 data? (If so, an ASN.1 `Utf8String` might be better.)",
+      "range": {
+        "startLine": 972,
+        "startChar": 28,
+        "endLine": 972,
+        "endChar": 40
+      },
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5d68d22_e12d1ca0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-09-26T12:30:38Z",
+      "side": 1,
+      "message": "I\u0027m not sure where the best place to put this chunk of ASN.1 schema is.  From the perspective of a KeyMint implementation, it\u0027s completely irrelevant -- KeyMint gets a 32-byte value that it parrots back in attestations, without any need to know where it came from.  So it might be better suited for `KeyCreationResult` ?",
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77212a6d_64b6f53f",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-09-26T12:30:38Z",
+      "side": 1,
+      "message": "Presumably the change to the schema in `KeyCreationResult.aidl` is coming in a separate commit?",
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
