@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d982e0e4_77e133ea",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a9700d8_db41f20b",
+      "range": {
+        "startLine": 23,
+        "startChar": 70,
+        "endLine": 24,
+        "endChar": 51
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06d4fed4_feca9e21",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-09-24T22:23:06Z",
       "side": 1,
       "message": "Nit: an",
+      "range": {
+        "startLine": 29,
+        "startChar": 62,
+        "endLine": 29,
+        "endChar": 63
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19de5be0_5c8efd57",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06d4fed4_feca9e21",
       "range": {
         "startLine": 29,
         "startChar": 62,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fd1e5c5_bd6728c2",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d8de0919_bc7540bf",
+      "range": {
+        "startLine": 30,
+        "startChar": 33,
+        "endLine": 30,
+        "endChar": 40
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "137c769e_f1425a11",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-09-24T22:23:06Z",
       "side": 1,
       "message": "Do you think something like this better clarifies the operation?: \"creates a secret key and returns an arc that encrypts the newly created secret key with the per-boot key\" (need to mention what per-boot key before this).",
+      "range": {
+        "startLine": 31,
+        "startChar": 18,
+        "endLine": 31,
+        "endChar": 76
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5e4bf8c_edc70b46",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "137c769e_f1425a11",
       "range": {
         "startLine": 31,
         "startChar": 18,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c41304e4_a7817992",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20113791_7940e822",
+      "range": {
+        "startLine": 31,
+        "startChar": 78,
+        "endLine": 32,
+        "endChar": 12
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de4207a0_506b6ac8",
@@ -146,6 +266,30 @@
       "writtenOn": "2024-09-24T22:23:06Z",
       "side": 1,
       "message": "How about: \"Given two arcs with per-boot key as their encrypting key, return an arc that encrypts the payload key of the second arc with the payload key of the first arc",
+      "range": {
+        "startLine": 33,
+        "startChar": 16,
+        "endLine": 33,
+        "endChar": 81
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9041024d_7171f5c1",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "de4207a0_506b6ac8",
       "range": {
         "startLine": 33,
         "startChar": 16,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e10eae33_b4e9866e",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1f3c2fe4_dbf9fb63",
+      "range": {
+        "startLine": 34,
+        "startChar": 16,
+        "endLine": 34,
+        "endChar": 93
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "471c5693_5ea85f15",
@@ -192,6 +360,30 @@
       "writtenOn": "2024-09-24T22:23:06Z",
       "side": 1,
       "message": "It would be good to move the definition of the per-boot key before we use it in the sentences.",
+      "range": {
+        "startLine": 36,
+        "startChar": 38,
+        "endLine": 38,
+        "endChar": 40
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "754a41d3_1cb5666f",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "471c5693_5ea85f15",
       "range": {
         "startLine": 36,
         "startChar": 38,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bef9f195_303c8eb9",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93038e02_b336ab64",
+      "range": {
+        "startLine": 42,
+        "startChar": 85,
+        "endLine": 42,
+        "endChar": 88
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15de386c_5a2091af",
@@ -238,6 +454,30 @@
       "writtenOn": "2024-09-24T22:23:06Z",
       "side": 1,
       "message": "Nit: usecases",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 26
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fd9dd15_068b1453",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15de386c_5a2091af",
       "range": {
         "startLine": 45,
         "startChar": 19,
@@ -271,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61713a50_904bcad9",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e50b8e5_16f82a3e",
+      "range": {
+        "startLine": 64,
+        "startChar": 76,
+        "endLine": 65,
+        "endChar": 56
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a9efa3e_06035a8b",
@@ -284,6 +548,30 @@
       "writtenOn": "2024-09-24T22:23:06Z",
       "side": 1,
       "message": "Same here",
+      "range": {
+        "startLine": 66,
+        "startChar": 72,
+        "endLine": 67,
+        "endChar": 54
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d55a194_fe99c265",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a9efa3e_06035a8b",
       "range": {
         "startLine": 66,
         "startChar": 72,
@@ -317,6 +605,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ee7b1ee_3c7db0f3",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63a70b12_84139d28",
+      "range": {
+        "startLine": 71,
+        "startChar": 14,
+        "endLine": 71,
+        "endChar": 69
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58f9f085_7be334e3",
@@ -340,6 +652,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a8d66ca_7f5acaa4",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58f9f085_7be334e3",
+      "range": {
+        "startLine": 74,
+        "startChar": 51,
+        "endLine": 74,
+        "endChar": 52
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e580678_b6aa67fe",
@@ -353,6 +689,30 @@
       "writtenOn": "2024-09-24T22:23:06Z",
       "side": 1,
       "message": "better to say \"shared key arc\"",
+      "range": {
+        "startLine": 75,
+        "startChar": 21,
+        "endLine": 75,
+        "endChar": 31
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19aaa7d1_c13f135e",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e580678_b6aa67fe",
       "range": {
         "startLine": 75,
         "startChar": 21,
@@ -409,6 +769,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70c38c6f_a69e35bd",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f10c10d_91dfd42c",
+      "range": {
+        "startLine": 83,
+        "startChar": 65,
+        "endLine": 83,
+        "endChar": 66
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d78c5c_fda1bbd6",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3840733f_66aee7ff",
+      "range": {
+        "startLine": 83,
+        "startChar": 68,
+        "endLine": 83,
+        "endChar": 71
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f089773a_7373feba",
@@ -422,6 +830,30 @@
       "writtenOn": "2024-09-24T22:23:06Z",
       "side": 1,
       "message": "Nit: formatting",
+      "range": {
+        "startLine": 94,
+        "startChar": 3,
+        "endLine": 94,
+        "endChar": 18
+      },
+      "revId": "67b7c6ee4a14e31be9119d2d25345984b37c3ffd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8870e192_c41dd0af",
+        "filename": "security/authgraph/aidl/android/hardware/security/authgraph/IAuthGraphKeyManagement.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1647128
+      },
+      "writtenOn": "2024-09-26T19:36:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f089773a_7373feba",
       "range": {
         "startLine": 94,
         "startChar": 3,
