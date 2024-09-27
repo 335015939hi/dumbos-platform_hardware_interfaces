@@ -39,6 +39,30 @@
       },
       "revId": "e1742ec3d046811a6d7726c65dfcd4392e8873fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ebdd10e_733a3652",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1287,
+      "author": {
+        "id": 1130869
+      },
+      "writtenOn": "2024-09-27T09:23:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77804ad1_2cbefa19",
+      "range": {
+        "startLine": 1287,
+        "startChar": 8,
+        "endLine": 1287,
+        "endChar": 21
+      },
+      "revId": "e1742ec3d046811a6d7726c65dfcd4392e8873fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
