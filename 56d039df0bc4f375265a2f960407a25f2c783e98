@@ -16,6 +16,24 @@
       "message": "I am trying to understand how the Trusted Service will implement/use this call. How does the trusted service knows which of its interfaces (in case it has more than 1) does the client wants to access? Also, how will it use the fd passed as a parameter? I had assumed that the kernel would be the one in charge of handling/keeping track of the handoff of the channel. Will this be a process initiated by the trusted service after this call?",
       "revId": "56d039df0bc4f375265a2f960407a25f2c783e98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853cb85e_f88ae272",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/ITrustedServicesCommonsConnect.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-09-27T17:38:23Z",
+      "side": 1,
+      "message": "Hi Orlando, can you please confirm whether all the above questions are answered in the two meetings we had regarding this? Thanks!",
+      "parentUuid": "79165503_361ca56e",
+      "revId": "56d039df0bc4f375265a2f960407a25f2c783e98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
