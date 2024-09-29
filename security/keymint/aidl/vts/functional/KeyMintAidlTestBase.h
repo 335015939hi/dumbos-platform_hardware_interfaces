@@ -250,10 +250,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
                                                      .SetDefaultValidity();
         tagModifier(&rsaBuilder);
         errorCode = GenerateKey(rsaBuilder, &rsaKeyData.blob, &rsaKeyData.characteristics);
-        if (!(SecLevel() == SecurityLevel::STRONGBOX &&
-              ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED == errorCode)) {
-            EXPECT_EQ(expectedReturn, errorCode);
-        }
+        EXPECT_EQ(expectedReturn, errorCode);
 
         /* ECDSA */
         KeyData ecdsaKeyData;
@@ -265,10 +262,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
                                                        .SetDefaultValidity();
         tagModifier(&ecdsaBuilder);
         errorCode = GenerateKey(ecdsaBuilder, &ecdsaKeyData.blob, &ecdsaKeyData.characteristics);
-        if (!(SecLevel() == SecurityLevel::STRONGBOX &&
-              ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED == errorCode)) {
-            EXPECT_EQ(expectedReturn, errorCode);
-        }
+        EXPECT_EQ(expectedReturn, errorCode);
         return {aesKeyData, hmacKeyData, rsaKeyData, ecdsaKeyData};
     }
     bool IsSecure() const { return securityLevel_ != SecurityLevel::SOFTWARE; }
@@ -285,7 +279,6 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     vector<EcCurve> InvalidCurves();
 
     vector<Digest> ValidDigests(bool withNone, bool withMD5);
-    vector<uint64_t> ValidExponents();
 
     static vector<string> build_params() {
         auto params = ::android::getAidlHalInstanceNames(IKeyMintDevice::descriptor);
