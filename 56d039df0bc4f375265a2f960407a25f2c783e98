@@ -52,6 +52,24 @@
       "parentUuid": "853cb85e_f88ae272",
       "revId": "56d039df0bc4f375265a2f960407a25f2c783e98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df67e164_68342672",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/ITrustedServicesCommonsConnect.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-09-30T23:50:19Z",
+      "side": 1,
+      "message": "Thanks for the reply, Orlando. Can you please give an example of an app hosting more than one trusted service? Is it the case for HWCrypto/Secure storage?",
+      "parentUuid": "988a2f55_ae027754",
+      "revId": "56d039df0bc4f375265a2f960407a25f2c783e98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
