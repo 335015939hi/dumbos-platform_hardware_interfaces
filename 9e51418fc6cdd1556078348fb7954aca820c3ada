@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d6986ff_650c4062",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1494236
+      },
+      "writtenOn": "2024-09-30T19:19:36Z",
+      "side": 1,
+      "message": "Honestly, not sure about the history on requiring multilib/32bit, but I presume if it builds its fine.",
+      "revId": "9e51418fc6cdd1556078348fb7954aca820c3ada",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
