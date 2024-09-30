@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ea1afeb_8a01168d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2024-09-30T18:41:58Z",
+      "side": 1,
+      "message": "@Hui, please fix the compilation failures. See \"Checks\" tab for the failure message.",
+      "revId": "3fd4ebe4d4af439c3703a9a1dd5d7dba0f0a7861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "252f6055_39d37ed2",
         "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
         "patchSetId": 5
