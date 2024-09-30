@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f44e5d6_3068ead2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-09-30T19:13:12Z",
+      "side": 1,
+      "message": "Hey, this is a deprecated HAL. Could we delete hardware/interfaces/configstore instead?",
+      "revId": "5f74565ab61acd4ca03b46c8445d442e66161a5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
