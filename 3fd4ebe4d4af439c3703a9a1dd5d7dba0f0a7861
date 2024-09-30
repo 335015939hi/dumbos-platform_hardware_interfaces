@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b85bcb2c_453fdfa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2024-09-30T17:51:06Z",
+      "side": 1,
+      "message": "LGTM! Except the nit.",
+      "revId": "3fd4ebe4d4af439c3703a9a1dd5d7dba0f0a7861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "252f6055_39d37ed2",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2024-09-30T17:51:06Z",
+      "side": 1,
+      "message": "minor nit: Enclose in braces to match the style of the rest of the file.",
+      "range": {
+        "startLine": 1288,
+        "startChar": 12,
+        "endLine": 1288,
+        "endChar": 43
+      },
+      "revId": "3fd4ebe4d4af439c3703a9a1dd5d7dba0f0a7861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
