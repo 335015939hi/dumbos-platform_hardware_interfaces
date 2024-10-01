@@ -16,6 +16,24 @@
       "message": "Hey, this is a deprecated HAL. Could we delete hardware/interfaces/configstore instead?",
       "revId": "5f74565ab61acd4ca03b46c8445d442e66161a5b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a025f53_e156c3a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-10-01T03:39:31Z",
+      "side": 1,
+      "message": "Hi Stevn,\n\nI just made a version of removing `hardware/interfaces/configstore` directly.\nBut there\u0027s some other module that depend on configstore hals.\n\n```\nframeworks/base/native/android/Android.bp\nframeworks/base/services/core/Android.bp\nframeworks/native/libs/gui/tests/Android.bp\nframeworks/native/opengl/libs/Android.bp\nframeworks/native/opengl/tests/EGLTest/Android.bp\nframeworks/native/services/surfaceflinger/Android.bp\nframeworks/native/services/surfaceflinger/tests/unittests/Android.bp\nframeworks/native/vulkan/libvulkan/Android.bp\n```\n\nEven though I just removing those config store deps declaration easily there\u0027s still build time error after, I am worried that I don\u0027t have enough knowledge base to do this clean up if we want to remove that directly.\n\n```\nframeworks/native/services/surfaceflinger/SurfaceFlingerProperties.h:21:10: fatal error: \u0027android/hardware/configstore/\n1.1/ISurfaceFlingerConfigs.h\u0027 file not found\n   21 | #include \u003candroid/hardware/configstore/1.1/ISurfaceFlingerConfigs.h\u003e\n      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n1 error generated.\n03:27:51 ninja failed with: exit status 1\nThere were 2 actions that completed after the action that failed. See verbose.log.gz for their output.\n\n#### failed to build some targets (07:26 (mm:ss)) ####\n\n```",
+      "parentUuid": "4f44e5d6_3068ead2",
+      "revId": "5f74565ab61acd4ca03b46c8445d442e66161a5b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
