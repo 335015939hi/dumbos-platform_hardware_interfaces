@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67c12194_c9eda506",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-10-01T16:57:15Z",
+      "side": 1,
+      "message": "https://b.corp.google.com/issues/370755706#comment6\n\nThe problem looks like a split topic. It should fix itself once https://r.android.com/3285915 makes it to aosp-main. (go/wimcl says its not there yet)",
+      "revId": "85ae6cce113cbdf9918c3281df6d06563f5a3493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
