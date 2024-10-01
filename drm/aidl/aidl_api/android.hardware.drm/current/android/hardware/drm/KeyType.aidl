@@ -34,7 +34,7 @@
 package android.hardware.drm;
 @Backing(type="int") @VintfStability
 enum KeyType {
-  OFFLINE,
-  STREAMING,
-  RELEASE,
+  OFFLINE = 0,
+  STREAMING = 1,
+  RELEASE = 2,
 }
