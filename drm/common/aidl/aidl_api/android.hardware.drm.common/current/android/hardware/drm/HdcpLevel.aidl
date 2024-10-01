@@ -34,12 +34,12 @@
 package android.hardware.drm;
 @Backing(type="int") @VintfStability
 enum HdcpLevel {
-  HDCP_UNKNOWN = 0,
-  HDCP_NONE = 1,
-  HDCP_V1 = 2,
-  HDCP_V2 = 3,
-  HDCP_V2_1 = 4,
-  HDCP_V2_2 = 5,
-  HDCP_NO_OUTPUT = 6,
-  HDCP_V2_3 = 7,
+  HDCP_UNKNOWN,
+  HDCP_NONE,
+  HDCP_V1,
+  HDCP_V2,
+  HDCP_V2_1,
+  HDCP_V2_2,
+  HDCP_NO_OUTPUT,
+  HDCP_V2_3,
 }
