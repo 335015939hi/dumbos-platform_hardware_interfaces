@@ -34,10 +34,10 @@
 package android.hardware.drm;
 @Backing(type="int") @VintfStability
 enum KeyRequestType {
-  INITIAL,
-  RENEWAL,
-  RELEASE,
-  UNKNOWN,
-  NONE,
-  UPDATE,
+  INITIAL = 0,
+  RENEWAL = 1,
+  RELEASE = 2,
+  UNKNOWN = 3,
+  NONE = 4,
+  UPDATE = 5,
 }
