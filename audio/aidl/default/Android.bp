@@ -76,6 +76,7 @@ cc_library {
         "r_submix/ModuleRemoteSubmix.cpp",
         "r_submix/SubmixRoute.cpp",
         "r_submix/StreamRemoteSubmix.cpp",
+        "stub/DriverStubImpl.cpp",
         "stub/ModuleStub.cpp",
         "stub/StreamStub.cpp",
         "usb/ModuleUsb.cpp",
