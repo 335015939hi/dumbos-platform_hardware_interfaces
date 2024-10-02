@@ -231,6 +231,10 @@ cc_defaults {
         "-Wthread-safety",
         "-DBACKEND_NDK",
     ],
+    visibility: [
+        "//device:__subpackages__",
+        "//hardware/interfaces/audio/aidl/default:__subpackages__",
+    ],
 }
 
 filegroup {
