@@ -16,6 +16,24 @@
       "message": "Running a build manually since these presubmits won\u0027t help (b/369806225)\n\nhttps://android-build.corp.google.com/builds/abtd/run/L37600030006841810\n\nRelanding with the new hash in the beginning of the file to avoid the build error.",
       "revId": "56f279ca9568463a3a2dc2d5fe6c576012772f15",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "035041ee_6ba73112",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-10-02T22:52:27Z",
+      "side": 1,
+      "message": "Passed!",
+      "parentUuid": "ab41bbdc_27e3eed3",
+      "revId": "56f279ca9568463a3a2dc2d5fe6c576012772f15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
