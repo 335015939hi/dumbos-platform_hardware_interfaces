@@ -40,6 +40,30 @@
       ],
       "revId": "f5ec73e546cd7e4abfc065a697f84a19741221a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c5ab549_614698f1",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-03T21:48:18Z",
+      "side": 1,
+      "message": "I think it takes less mental effort in the current form—the reader don\u0027t have to recall what does `isStubStreamOnWorker` mean. I introduced that function merely to make the code in all other shorter and more intuitive (\"is stub?—use stub\"), but here due to presence of other checks and assignments its use makes less sense IMO.",
+      "parentUuid": "dd3d1d32_27123566",
+      "range": {
+        "startLine": 76,
+        "startChar": 54,
+        "endLine": 76,
+        "endChar": 88
+      },
+      "revId": "f5ec73e546cd7e4abfc065a697f84a19741221a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
