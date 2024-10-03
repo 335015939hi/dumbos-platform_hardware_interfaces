@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84e04c37_dca632e9",
+        "filename": "staging/security/see/hwcrypto/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-10-03T08:34:45Z",
+      "side": 1,
+      "message": "@aliceywang@google.com this is where the test is configured to run as root; should be ok for VTS.",
+      "revId": "bf4d500181d6ef5b85e8fc35840f9ca80212421e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
