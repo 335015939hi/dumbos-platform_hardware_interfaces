@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffa27992_c7493a93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130869
+      },
+      "writtenOn": "2024-10-04T03:38:01Z",
+      "side": 1,
+      "message": "Sorry for late response. I\u0027m in National Day Holiday.\n\nBTW, I just build under my local android-14 branch. Since met issue when build under \"main\" branch, like below:\nhardware/interfaces/compatibility_matrices/build/vintf_compatibility_matrix.go:189:62: ctx.Config().DeviceProductCompatibilityMatrixFile undefined (type android.Config has no field or method DeviceProductCompatibilityMatrixFile)\n \n \nI just check errors in https://android-review.googlesource.com/c/platform/hardware/interfaces/+/3277653/5?checksPatchset\u003d5\u0026tab\u003dchecks.\nI can\u0027t login (need user/pass) the detail link https://android-build.googleplex.com/builds/pending/P81817750/aosp_cheetah-trunk_staging-userdebug/latest/view/logs/build_error.log.\nNot sure if all build erros are fixed.",
+      "revId": "c9f44444a317c5865651fbc14d08ceb532320b6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85697d5e_1e7258e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1130869
+      },
+      "writtenOn": "2024-10-04T03:38:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ea1afeb_8a01168d",
+      "revId": "3fd4ebe4d4af439c3703a9a1dd5d7dba0f0a7861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "252f6055_39d37ed2",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-09-30T17:51:06Z",
       "side": 1,
       "message": "minor nit: Enclose in braces to match the style of the rest of the file.",
+      "range": {
+        "startLine": 1288,
+        "startChar": 12,
+        "endLine": 1288,
+        "endChar": 43
+      },
+      "revId": "3fd4ebe4d4af439c3703a9a1dd5d7dba0f0a7861",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d613441_38d08b00",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1288,
+      "author": {
+        "id": 1130869
+      },
+      "writtenOn": "2024-10-04T03:38:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "252f6055_39d37ed2",
       "range": {
         "startLine": 1288,
         "startChar": 12,
