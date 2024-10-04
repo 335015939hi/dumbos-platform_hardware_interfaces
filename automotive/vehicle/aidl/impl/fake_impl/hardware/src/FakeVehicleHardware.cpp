@@ -538,6 +538,9 @@ VhalResult<void> FakeVehicleHardware::setApPowerStateReport(const VehiclePropVal
                        << getErrorMsg(writeResult);
             }
             break;
+        case toint(VehicleApPowerStateReport::ON):
+            ALOGI("Received VehicleApPowerStateReport::ON, entering normal operating state");
+            break;
         default:
             ALOGE("Unknown VehicleApPowerStateReport: %d", state);
             break;
