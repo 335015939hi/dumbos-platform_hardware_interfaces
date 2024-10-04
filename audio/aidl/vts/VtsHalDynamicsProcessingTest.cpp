@@ -20,6 +20,8 @@
 
 #define LOG_TAG "VtsHalDynamicsProcessingTest"
 #include <android-base/logging.h>
+#include <audio_utils/power.h>
+#include <audio_utils/primitives.h>
 
 #include <Utils.h>
 
@@ -55,14 +57,14 @@ class DynamicsProcessingTestHelper : public EffectHelper {
     void SetUpDynamicsProcessingEffect() {
         ASSERT_NE(nullptr, mFactory);
         ASSERT_NO_FATAL_FAILURE(create(mFactory, mEffect, mDescriptor));
-
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
         Parameter::Specific specific = getDefaultParamSpecific();
         Parameter::Common common = createParamCommon(
-                0 /* session */, 1 /* ioHandle */, 44100 /* iSampleRate */, 44100 /* oSampleRate */,
-                0x100 /* iFrameCount */, 0x100 /* oFrameCount */,
+                0 /* session */, 1 /* ioHandle */, kSamplingFrequency /* iSampleRate */,
+                kSamplingFrequency /* oSampleRate */, kFrameCount /* iFrameCount */,
+                kFrameCount /* oFrameCount */,
                 AudioChannelLayout::make<AudioChannelLayout::layoutMask>(mChannelLayout),
                 AudioChannelLayout::make<AudioChannelLayout::layoutMask>(mChannelLayout));
-        IEffect::OpenEffectReturn ret;
         ASSERT_NO_FATAL_FAILURE(open(mEffect, common, specific, &ret, EX_NONE));
         ASSERT_NE(nullptr, mEffect);
         mEngineConfigApplied = mEngineConfigPreset;
@@ -124,11 +126,24 @@ class DynamicsProcessingTestHelper : public EffectHelper {
     void addLimiterConfig(const std::vector<DynamicsProcessing::LimiterConfig>& cfg);
     void addInputGain(const std::vector<DynamicsProcessing::InputGain>& inputGain);
 
-    static constexpr float kPreferredProcessingDurationMs = 10.0f;
+    // Fill Limiter config
+    void fillLimiterConfig(std::vector<DynamicsProcessing::LimiterConfig>& limiterConfigList,
+                           int channelIndex, bool enable, int linkGroup, float attackTime,
+                           float releaseTime, float ratio, float threshold, float postGain);
+
+    // Generate input samples
+    void generateSineWaveInput(std::vector<float>& input);
+
+    static constexpr float kPreferredProcessingDurationMs = 200.0f;
     static constexpr int kBandCount = 5;
+    static constexpr int kSamplingFrequency = 44100;
+    static constexpr int kFrameCount = 44100;
+    binder_exception_t mExpected;
     std::shared_ptr<IFactory> mFactory;
     std::shared_ptr<IEffect> mEffect;
     Descriptor mDescriptor;
+    IEffect::OpenEffectReturn ret;
+    int32_t mChannelLayout;
     DynamicsProcessing::EngineArchitecture mEngineConfigApplied;
     DynamicsProcessing::EngineArchitecture mEngineConfigPreset{
             .resolutionPreference =
@@ -150,10 +165,6 @@ class DynamicsProcessingTestHelper : public EffectHelper {
 
   protected:
     int mChannelCount;
-
-  private:
-    int32_t mChannelLayout;
-    std::vector<std::pair<DynamicsProcessing::Tag, DynamicsProcessing>> mTags;
     void CleanUp() {
         mTags.clear();
         mPreEqChannelEnable.clear();
@@ -161,6 +172,9 @@ class DynamicsProcessingTestHelper : public EffectHelper {
         mMbcChannelEnable.clear();
         mLimiterChannelEnable.clear();
     }
+
+  private:
+    std::vector<std::pair<DynamicsProcessing::Tag, DynamicsProcessing>> mTags;
 };
 
 // test value set for DynamicsProcessing::StageEnablement
@@ -338,27 +352,27 @@ void DynamicsProcessingTestHelper::SetAndGetDynamicsProcessingParameters() {
         ASSERT_STATUS(EX_NONE, mEffect->getDescriptor(&desc));
         bool valid = isParamInRange(dp, desc.capability.range.get<Range::dynamicsProcessing>());
         if (valid) valid = isParamValid(tag, dp);
-        const binder_exception_t expected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
+        mExpected = valid ? EX_NONE : EX_ILLEGAL_ARGUMENT;
 
         // set parameter
         Parameter expectParam;
         Parameter::Specific specific;
         specific.set<Parameter::Specific::dynamicsProcessing>(dp);
         expectParam.set<Parameter::specific>(specific);
-        ASSERT_STATUS(expected, mEffect->setParameter(expectParam))
+        ASSERT_STATUS(mExpected, mEffect->setParameter(expectParam))
                 << "\n"
                 << expectParam.toString() << "\n"
                 << desc.toString();
 
         // only get if parameter in range and set success
-        if (expected == EX_NONE) {
+        if (mExpected == EX_NONE) {
             Parameter getParam;
             Parameter::Id id;
             DynamicsProcessing::Id dpId;
             dpId.set<DynamicsProcessing::Id::commonTag>(tag);
             id.set<Parameter::Id::dynamicsProcessingTag>(dpId);
             // if set success, then get should match
-            EXPECT_STATUS(expected, mEffect->getParameter(id, &getParam));
+            EXPECT_STATUS(mExpected, mEffect->getParameter(id, &getParam));
             Parameter::Specific specificTest = getParam.get<Parameter::specific>();
             const auto& target = specificTest.get<Parameter::Specific::dynamicsProcessing>();
             EXPECT_TRUE(isParamEqual(tag, dp, target)) << dp.toString() << "\n"
@@ -446,6 +460,29 @@ void DynamicsProcessingTestHelper::addInputGain(
     mTags.push_back({DynamicsProcessing::inputGain, dp});
 }
 
+void DynamicsProcessingTestHelper::fillLimiterConfig(
+        std::vector<DynamicsProcessing::LimiterConfig>& limiterConfigList, int channelIndex,
+        bool enable, int linkGroup, float attackTime, float releaseTime, float ratio,
+        float threshold, float postGain) {
+    DynamicsProcessing::LimiterConfig cfg;
+    cfg.channel = channelIndex;
+    cfg.enable = enable;
+    cfg.linkGroup = linkGroup;
+    cfg.attackTimeMs = attackTime;
+    cfg.releaseTimeMs = releaseTime;
+    cfg.ratio = ratio;
+    cfg.thresholdDb = threshold;
+    cfg.postGainDb = postGain;
+    limiterConfigList.push_back(cfg);
+}
+
+void DynamicsProcessingTestHelper::generateSineWaveInput(std::vector<float>& input) {
+    int frequency = 1000;
+    for (size_t i = 0; i < input.size(); i++) {
+        input[i] = sin(2 * M_PI * frequency * i / kSamplingFrequency);
+    }
+}
+
 /**
  * Test DynamicsProcessing Engine Configuration
  */
@@ -527,7 +564,7 @@ class DynamicsProcessingTestInputGain
   public:
     DynamicsProcessingTestInputGain()
         : DynamicsProcessingTestHelper(std::get<INPUT_GAIN_INSTANCE_NAME>(GetParam())),
-          mInputGain(std::get<INPUT_GAIN_PARAM>(GetParam())){};
+          mInputGain(std::get<INPUT_GAIN_PARAM>(GetParam())) {};
 
     void SetUp() override { SetUpDynamicsProcessingEffect(); }
 
@@ -567,39 +604,16 @@ enum LimiterConfigTestParamName {
     LIMITER_CHANNEL,
     LIMITER_ENABLE,
     LIMITER_LINK_GROUP,
-    LIMITER_ADDITIONAL,
-};
-enum LimiterConfigTestAdditionalParam {
     LIMITER_ATTACK_TIME,
     LIMITER_RELEASE_TIME,
     LIMITER_RATIO,
     LIMITER_THRESHOLD,
     LIMITER_POST_GAIN,
-    LIMITER_MAX_NUM,
 };
-using LimiterConfigTestAdditional = std::array<float, LIMITER_MAX_NUM>;
-// attackTime, releaseTime, ratio, thresh, postGain
-static constexpr std::array<LimiterConfigTestAdditional, 4> kLimiterConfigTestAdditionalParam = {
-        {{-1, -60, -2.5, -2, -3.14},
-         {-1, 60, -2.5, 2, -3.14},
-         {1, -60, 2.5, -2, 3.14},
-         {1, 60, 2.5, -2, 3.14}}};
 
-using LimiterConfigTestParams = std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>,
-                                           int32_t, bool, int32_t, LimiterConfigTestAdditional>;
-
-void fillLimiterConfig(DynamicsProcessing::LimiterConfig& cfg,
-                       const LimiterConfigTestParams& params) {
-    const std::array<float, LIMITER_MAX_NUM> additional = std::get<LIMITER_ADDITIONAL>(params);
-    cfg.channel = std::get<LIMITER_CHANNEL>(params);
-    cfg.enable = std::get<LIMITER_ENABLE>(params);
-    cfg.linkGroup = std::get<LIMITER_LINK_GROUP>(params);
-    cfg.attackTimeMs = additional[LIMITER_ATTACK_TIME];
-    cfg.releaseTimeMs = additional[LIMITER_RELEASE_TIME];
-    cfg.ratio = additional[LIMITER_RATIO];
-    cfg.thresholdDb = additional[LIMITER_THRESHOLD];
-    cfg.postGainDb = additional[LIMITER_POST_GAIN];
-}
+using LimiterConfigTestParams =
+        std::tuple<std::pair<std::shared_ptr<IFactory>, Descriptor>, int32_t, bool, int32_t, float,
+                   float, float, float, float>;
 
 class DynamicsProcessingTestLimiterConfig
     : public ::testing::TestWithParam<LimiterConfigTestParams>,
@@ -607,7 +621,16 @@ class DynamicsProcessingTestLimiterConfig
   public:
     DynamicsProcessingTestLimiterConfig()
         : DynamicsProcessingTestHelper(std::get<LIMITER_INSTANCE_NAME>(GetParam())) {
-        fillLimiterConfig(mCfg, GetParam());
+        mChannelIndex = std::get<LIMITER_CHANNEL>(GetParam());
+        mEnable = std::get<LIMITER_ENABLE>(GetParam());
+        mLinkerGroup = std::get<LIMITER_LINK_GROUP>(GetParam());
+        mAttackTime = std::get<LIMITER_ATTACK_TIME>(GetParam());
+        mReleaseTime = std::get<LIMITER_RELEASE_TIME>(GetParam());
+        mRatio = std::get<LIMITER_RATIO>(GetParam());
+        mThreshold = std::get<LIMITER_THRESHOLD>(GetParam());
+        mPostGain = std::get<LIMITER_POST_GAIN>(GetParam());
+        fillLimiterConfig(mLimiterConfigList, mChannelIndex, mEnable, mLinkerGroup, mAttackTime,
+                          mReleaseTime, mRatio, mThreshold, mPostGain);
     }
 
     void SetUp() override { SetUpDynamicsProcessingEffect(); }
@@ -615,11 +638,21 @@ class DynamicsProcessingTestLimiterConfig
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
 
     DynamicsProcessing::LimiterConfig mCfg;
+    std::vector<DynamicsProcessing::LimiterConfig> mLimiterConfigList;
+
+    float mChannelIndex = 0;
+    bool mEnable = true;
+    float mLinkerGroup = 3;
+    float mAttackTime = 0;
+    float mReleaseTime = 0;
+    float mRatio = 4;
+    float mThreshold = 0;
+    float mPostGain = 0;
 };
 
 TEST_P(DynamicsProcessingTestLimiterConfig, SetAndGetLimiterConfig) {
     EXPECT_NO_FATAL_FAILURE(addEngineConfig(mEngineConfigPreset));
-    EXPECT_NO_FATAL_FAILURE(addLimiterConfig({mCfg}));
+    EXPECT_NO_FATAL_FAILURE(addLimiterConfig(mLimiterConfigList));
     SetAndGetDynamicsProcessingParameters();
 }
 
@@ -627,23 +660,141 @@ INSTANTIATE_TEST_SUITE_P(
         DynamicsProcessingTest, DynamicsProcessingTestLimiterConfig,
         ::testing::Combine(testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
                                    IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
-                           testing::Values(-1, 0, 1, 2),                           // channel count
-                           testing::Bool(),                                        // enable
-                           testing::Values(3),                                     // link group
-                           testing::ValuesIn(kLimiterConfigTestAdditionalParam)),  // Additional
+                           testing::Values(-1, 0, 1, 2),  // channel count
+                           testing::Bool(),               // enable
+                           testing::Values(3),            // link group
+                           testing::Values(-1, 1),        // attackTime
+                           testing::Values(-60, 60),      // releaseTime
+                           testing::Values(-2.5, 2.5),    // ratio
+                           testing::Values(-2, 2),        // thresh
+                           testing::Values(-3.14, 3.14)   // postGain
+                           ),
         [](const auto& info) {
             auto descriptor = std::get<LIMITER_INSTANCE_NAME>(info.param).second;
-            DynamicsProcessing::LimiterConfig cfg;
-            fillLimiterConfig(cfg, info.param);
-            std::string name = "Implementor_" + descriptor.common.implementor + "_name_" +
-                               descriptor.common.name + "_UUID_" +
-                               toString(descriptor.common.id.uuid) + "_limiterConfig_" +
-                               cfg.toString();
+            std::string channelIndex = std::to_string(std::get<LIMITER_CHANNEL>(info.param));
+            std::string enable = std::to_string(std::get<LIMITER_ENABLE>(info.param));
+            std::string linkGroup = std::to_string(std::get<LIMITER_LINK_GROUP>(info.param));
+            std::string attackTime = std::to_string(std::get<LIMITER_ATTACK_TIME>(info.param));
+            std::string releaseTime = std::to_string(std::get<LIMITER_RELEASE_TIME>(info.param));
+            std::string ratio = std::to_string(std::get<LIMITER_RATIO>(info.param));
+            std::string threshold = std::to_string(std::get<LIMITER_THRESHOLD>(info.param));
+            std::string postGain = std::to_string(std::get<LIMITER_POST_GAIN>(info.param));
+            std::string name = getPrefix(descriptor) + channelIndex + enable + linkGroup +
+                               attackTime + releaseTime + ratio + threshold + postGain;
             std::replace_if(
                     name.begin(), name.end(), [](const char c) { return !std::isalnum(c); }, '_');
             return name;
         });
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(DynamicsProcessingTestLimiterConfig);
+
+using LimiterConfigDataTestParams = std::pair<std::shared_ptr<IFactory>, Descriptor>;
+
+class DynamicsProcessingLimiterConfigDataTest
+    : public ::testing::TestWithParam<LimiterConfigDataTestParams>,
+      public DynamicsProcessingTestHelper {
+  public:
+    DynamicsProcessingLimiterConfigDataTest()
+        : DynamicsProcessingTestHelper(GetParam(), AudioChannelLayout::LAYOUT_MONO) {
+        mBufferSize = kFrameCount * mChannelCount;
+    }
+
+    void SetUp() override { SetUpDynamicsProcessingEffect(); }
+
+    void TearDown() override { TearDownDynamicsProcessingEffect(); }
+
+    float calculateDb(std::vector<float> input, size_t start) {
+        std::vector<float> subOut(input.begin() + start, input.end());
+        float rmse = audio_utils_compute_energy_mono(subOut.data(), AUDIO_FORMAT_PCM_FLOAT,
+                                                     subOut.size());
+        float dbVal = 20 * log10(sqrt(rmse / subOut.size()));
+        return dbVal;
+    }
+
+    void checkExpectedRatio(float inputDb, float threshold, float ratio,
+                            const std::vector<float>& output) {
+        float outputDb = calculateDb(output, kStartIndex);
+
+        if (threshold >= inputDb) {
+            ASSERT_EQ(std::round(inputDb), std::round(outputDb));
+        } else {
+            float inputOverThreshold = inputDb - threshold;
+            float outputOverThreshold = outputDb - threshold;
+            float expectedRatio = inputOverThreshold / outputOverThreshold;
+            ASSERT_EQ(ratio, std::round(expectedRatio));
+        }
+    }
+
+    static constexpr float kDefaultLinkerGroup = 3;
+    static constexpr float kDefaultAttackTime = 0;
+    static constexpr float kDefaultReleaseTime = 0;
+    static constexpr float kDefaultRatio = 4;
+    static constexpr float kDefaultThreshold = 0;
+    static constexpr float kDefaultPostGain = 0;
+    static constexpr int kStartIndex = 300 * kSamplingFrequency / 1000;  // skip 300ms
+    std::vector<DynamicsProcessing::LimiterConfig> mLimiterConfigList;
+    int mBufferSize;
+};
+
+TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingThresholdDb) {
+    std::vector<float> thresholdValues = {-150, -50, 0, 50, 150, 200};
+    std::vector<float> input(mBufferSize);
+    std::vector<float> output(mBufferSize);
+    generateSineWaveInput(input);
+    float inputDb = calculateDb(input, 0);
+    for (float threshold : thresholdValues) {
+        for (int i = 0; i < mChannelCount; i++) {
+            fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
+                              kDefaultReleaseTime, kDefaultRatio, threshold, kDefaultPostGain);
+        }
+        EXPECT_NO_FATAL_FAILURE(addLimiterConfig(mLimiterConfigList));
+        EXPECT_NO_FATAL_FAILURE(addEngineConfig(mEngineConfigPreset));
+        ASSERT_NO_FATAL_FAILURE(SetAndGetDynamicsProcessingParameters());
+        if (mExpected == EX_ILLEGAL_ARGUMENT) {
+            continue;
+        }
+        ASSERT_NO_FATAL_FAILURE(processAndWriteToOutput(input, output, mEffect, &ret));
+        checkExpectedRatio(inputDb, threshold, kDefaultRatio, output);
+        mLimiterConfigList.clear();
+        CleanUp();
+    }
+}
+
+TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingRatio) {
+    std::vector<float> ratioValues = {1, 10, 20, 30, 40, 50};
+    std::vector<float> input(mBufferSize);
+    std::vector<float> output(mBufferSize);
+    generateSineWaveInput(input);
+    float inputDb = calculateDb(input, 0);
+    float threshold = -10;
+    for (float ratio : ratioValues) {
+        for (int i = 0; i < mChannelCount; i++) {
+            fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
+                              kDefaultReleaseTime, ratio, threshold, kDefaultPostGain);
+        }
+        EXPECT_NO_FATAL_FAILURE(addLimiterConfig(mLimiterConfigList));
+        EXPECT_NO_FATAL_FAILURE(addEngineConfig(mEngineConfigPreset));
+        ASSERT_NO_FATAL_FAILURE(SetAndGetDynamicsProcessingParameters());
+        if (mExpected == EX_ILLEGAL_ARGUMENT) {
+            continue;
+        }
+        ASSERT_NO_FATAL_FAILURE(processAndWriteToOutput(input, output, mEffect, &ret));
+        checkExpectedRatio(inputDb, threshold, ratio, output);
+        mLimiterConfigList.clear();
+        CleanUp();
+    }
+}
+
+INSTANTIATE_TEST_SUITE_P(DynamicsProcessingTest, DynamicsProcessingLimiterConfigDataTest,
+                         testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                 IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
+                         [](const auto& info) {
+                             auto descriptor = info.param;
+                             std::string name = getPrefix(descriptor.second);
+                             std::replace_if(
+                                     name.begin(), name.end(),
+                                     [](const char c) { return !std::isalnum(c); }, '_');
+                             return name;
+                         });
 
 /**
  * Test DynamicsProcessing ChannelConfig
