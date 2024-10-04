@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f24266b_83e9e288",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-10-04T13:28:51Z",
+      "side": 1,
+      "message": "How long time should this test take?\n\nI tried this locally and it took 20 minutes and is till running with no finished test printed out in stdout.\n\nThere are also lots of warnings as following, are they expected?\n\n```\n10-04 13:23:10.493   234   245 I virtmgr : virtualizationmanager::aidl: Console(200): file_delete():1110: file c0ee7860b88c4903ae0f4f3e2c8a5638/test_file_list_00_file not found\n10-04 13:23:10.581   234   245 I virtmgr : virtualizationmanager::aidl: Console(200): file_delete():1110: file c0ee7860b88c4903ae0f4f3e2c8a5638/test_file_list_01_file not found\n... [there are 100 files not found] ...\nfile c0ee7860b88c4903ae0f4f3e2c8a5638/test_file_list_98_file not found\n10-04 13:23:18.810   234   245 I virtmgr : virtualizationmanager::aidl: Console(200): file_delete():1110: file c0ee7860b88c4903ae0f4f3e2c8a5638/test_file_list_99_file not found\n10-04 13:23:18.863   234   245 I virtmgr : virtualizationmanager::aidl: Console(200): DEBUG - sent 552 bytes from com.android.trusty.storage.proxy\n```",
+      "revId": "860039824e1179d0a2445ac08694d23eb822925f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
