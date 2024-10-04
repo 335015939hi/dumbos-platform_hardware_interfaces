@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "345b4e87_aeb1d74f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-10-04T14:54:58Z",
+      "side": 1,
+      "message": "Hi Mikhail\nI want to be able to override the default hal apex to add my own effect extensions, ... \nSince now automotive can make use of this AIDL HAL for cuttlfish, I d like to improve reuse of default AudioHAL",
+      "revId": "a7280e407da77d5328d214a94f31a9ef13315a36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
