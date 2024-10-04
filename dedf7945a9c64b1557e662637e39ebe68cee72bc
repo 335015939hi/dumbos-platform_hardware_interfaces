@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c8476a6_4b87c060",
+        "filename": "audio/aidl/default/apex/com.android.hardware.audio/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-04T18:32:12Z",
+      "side": 1,
+      "message": "The name of the service binary is specified in the `.rc` file. I think the name of binaries should be listed together with it. Also, if a vendor wants to have their own service, it\u0027s likely shouldn\u0027t be called `example`. So I think logically `binaries` should go here as well.",
+      "range": {
+        "startLine": 56,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 55
+      },
+      "revId": "dedf7945a9c64b1557e662637e39ebe68cee72bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
