@@ -31,7 +31,6 @@
 #include <android-base/thread_annotations.h>
 #include <android/binder_auto_utils.h>
 
-#include <functional>
 #include <memory>
 #include <mutex>
 #include <shared_mutex>
@@ -139,11 +138,12 @@ class DefaultVehicleHal final : public aidlvhal::BnVehicle {
     // Only used for testing.
     int32_t mTestInterfaceVersion = 0;
 
-    mutable std::atomic<bool> mConfigInit = false;
-    mutable std::shared_timed_mutex mConfigLock;
+    // mConfigsByPropId and mConfigFile is lazy initialized.
+    mutable std::mutex mConfigInitLock;
+    mutable bool mConfigInit GUARDED_BY(mConfigInitLock) = false;
     mutable std::unordered_map<int32_t, aidlvhal::VehiclePropConfig> mConfigsByPropId
-            GUARDED_BY(mConfigLock);
-    mutable std::unique_ptr<ndk::ScopedFileDescriptor> mConfigFile GUARDED_BY(mConfigLock);
+            GUARDED_BY(mConfigInitLock);
+    mutable std::unique_ptr<ndk::ScopedFileDescriptor> mConfigFile GUARDED_BY(mConfigInitLock);
 
     std::mutex mLock;
     std::unordered_map<const AIBinder*, std::unique_ptr<OnBinderDiedContext>> mOnBinderDiedContexts
@@ -175,10 +175,7 @@ class DefaultVehicleHal final : public aidlvhal::BnVehicle {
 
     android::base::Result<std::vector<int64_t>> checkDuplicateRequests(
             const std::vector<aidlvhal::SetValueRequest>& requests);
-    VhalResult<void> checkSubscribeOptions(
-            const std::vector<aidlvhal::SubscribeOptions>& options,
-            const std::unordered_map<int32_t, aidlvhal::VehiclePropConfig>& configsByPropId)
-            REQUIRES_SHARED(mConfigLock);
+    VhalResult<void> checkSubscribeOptions(const std::vector<aidlvhal::SubscribeOptions>& options);
 
     VhalResult<void> checkPermissionHelper(const aidlvhal::VehiclePropValue& value,
                                            aidlvhal::VehiclePropertyAccess accessToTest) const;
@@ -187,7 +184,7 @@ class DefaultVehicleHal final : public aidlvhal::BnVehicle {
 
     VhalResult<void> checkWritePermission(const aidlvhal::VehiclePropValue& value) const;
 
-    android::base::Result<aidlvhal::VehiclePropConfig> getConfig(int32_t propId) const;
+    android::base::Result<const aidlvhal::VehiclePropConfig*> getConfig(int32_t propId) const;
 
     void onBinderDiedWithContext(const AIBinder* clientId);
 
@@ -199,7 +196,7 @@ class DefaultVehicleHal final : public aidlvhal::BnVehicle {
 
     bool checkDumpPermission();
 
-    bool getAllPropConfigsFromHardwareLocked() const EXCLUDES(mConfigLock);
+    bool getAllPropConfigsFromHardwareLocked() const REQUIRES(mConfigInitLock);
 
     // The looping handler function to process all onBinderDied or onBinderUnlinked events in
     // mBinderEvents.
@@ -212,12 +209,10 @@ class DefaultVehicleHal final : public aidlvhal::BnVehicle {
 
     int32_t getVhalInterfaceVersion() const;
 
-    // Gets mConfigsByPropId, lazy init it if necessary. Note that the reference is only valid in
-    // the scope of the callback and it is guaranteed that read lock is obtained during the
-    // callback.
-    void getConfigsByPropId(
-            std::function<void(const std::unordered_map<int32_t, aidlvhal::VehiclePropConfig>&)>
-                    callback) const EXCLUDES(mConfigLock);
+    // Gets mConfigsByPropId, lazy init it if necessary.
+    const std::unordered_map<int32_t, aidlvhal::VehiclePropConfig>& getConfigsByPropId() const;
+    // Gets mConfigFile, lazy init it if necessary.
+    const ndk::ScopedFileDescriptor* getConfigFile() const;
 
     // Puts the property change events into a queue so that they can handled in batch.
     static void batchPropertyChangeEvent(
@@ -243,12 +238,6 @@ class DefaultVehicleHal final : public aidlvhal::BnVehicle {
     static void onBinderDied(void* cookie);
 
     static void onBinderUnlinked(void* cookie);
-
-    static void parseSubscribeOptions(
-            const std::vector<aidlvhal::SubscribeOptions>& options,
-            const std::unordered_map<int32_t, aidlvhal::VehiclePropConfig>& configsByPropId,
-            std::vector<aidlvhal::SubscribeOptions>& onChangeSubscriptions,
-            std::vector<aidlvhal::SubscribeOptions>& continuousSubscriptions);
 
     // Test-only
     // Set the default timeout for pending requests.
