@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "adbe7c79_08d7a025",
+        "filename": "staging/security/see/hwcrypto/aidl/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-10-07T12:13:08Z",
+      "side": 1,
+      "message": "This target cannot be enabled by default in all environment. The required binary `trusty-ut-ctrl.system` is only compiled into cuttlefish for now.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 18
+      },
+      "revId": "bf4d500181d6ef5b85e8fc35840f9ca80212421e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84e04c37_dca632e9",
         "filename": "staging/security/see/hwcrypto/aidl/vts/functional/AndroidTest.xml",
         "patchSetId": 2
@@ -14,6 +37,47 @@
       "writtenOn": "2024-10-03T08:34:45Z",
       "side": 1,
       "message": "@aliceywang@google.com this is where the test is configured to run as root; should be ok for VTS.",
+      "revId": "bf4d500181d6ef5b85e8fc35840f9ca80212421e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f39e0bc9_7763f043",
+        "filename": "staging/security/see/hwcrypto/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-10-07T12:13:08Z",
+      "side": 1,
+      "message": "Replied in https://android-review.git.corp.google.com/c/platform/system/core/+/3285396/comment/57450c7b_17874c57/",
+      "parentUuid": "84e04c37_dca632e9",
+      "revId": "bf4d500181d6ef5b85e8fc35840f9ca80212421e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8b0f92f_ef7c4037",
+        "filename": "staging/security/see/hwcrypto/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-10-07T12:13:08Z",
+      "side": 1,
+      "message": "Hi @jdesprez@google.com, is there a mechanism in the config like [1] to conditionally execute the test only when a specific sysprop (e.g. `ro.hardware.security.trusty_vm.system`) is set to \"true\" and skip it otherwise? We don\u0027t want to execute this test in all environments for the W release.\n\n[1] https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Scheduling/tests/AndroidTest.xml;l\u003d32;drc\u003dc525da7006edd882bd18065af7b2ce5b72222edd",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 20
+      },
       "revId": "bf4d500181d6ef5b85e8fc35840f9ca80212421e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
