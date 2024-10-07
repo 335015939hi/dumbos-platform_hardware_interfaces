@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2229e7e_28816272",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-07T22:00:51Z",
+      "side": 1,
+      "message": "This is a CP of ag/29554433. It has the same Change-Id as ag/29553691, already upstreamed as aosp/3291103 and the cherry-picker gets confused. Not sure how two CLs with the same Change-Id could be uploaded to internal Gerrit 😊 This is also why `Merged-In` and `Change-Id` on this upstreaming CL are different. I have generated a new `Change-Id` for this change to avoid confusing it with aosp/3291103.",
+      "revId": "349aea2127e170449d2224ff97b21554903ab98d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
