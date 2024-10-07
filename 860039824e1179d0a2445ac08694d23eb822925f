@@ -16,6 +16,29 @@
       "message": "How long time should this test take?\n\nI tried this locally and it took 20 minutes and is till running with no finished test printed out in stdout.\n\nThere are also lots of warnings as following, are they expected?\n\n```\n10-04 13:23:10.493   234   245 I virtmgr : virtualizationmanager::aidl: Console(200): file_delete():1110: file c0ee7860b88c4903ae0f4f3e2c8a5638/test_file_list_00_file not found\n10-04 13:23:10.581   234   245 I virtmgr : virtualizationmanager::aidl: Console(200): file_delete():1110: file c0ee7860b88c4903ae0f4f3e2c8a5638/test_file_list_01_file not found\n... [there are 100 files not found] ...\nfile c0ee7860b88c4903ae0f4f3e2c8a5638/test_file_list_98_file not found\n10-04 13:23:18.810   234   245 I virtmgr : virtualizationmanager::aidl: Console(200): file_delete():1110: file c0ee7860b88c4903ae0f4f3e2c8a5638/test_file_list_99_file not found\n10-04 13:23:18.863   234   245 I virtmgr : virtualizationmanager::aidl: Console(200): DEBUG - sent 552 bytes from com.android.trusty.storage.proxy\n```",
       "revId": "860039824e1179d0a2445ac08694d23eb822925f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f1b3851_9ab43c2b",
+        "filename": "staging/security/see/storage/aidl/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-10-07T11:45:29Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m a bit confused, if `trusty-ut-ctrl.sh` needs to run with the environment set up in `AndroidTest.xml` to run correctly, wouldn\u0027t it be simpler to just add the script `trusty-ut-ctrl.sh` directly in this cl? That seems like a more straightforward approach.",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "860039824e1179d0a2445ac08694d23eb822925f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
