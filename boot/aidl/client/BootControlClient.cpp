@@ -22,6 +22,8 @@
 #include <android/hardware/boot/1.0/IBootControl.h>
 #include <android/hardware/boot/1.1/IBootControl.h>
 #include <android/hardware/boot/1.2/IBootControl.h>
+#include "android/binder_ibinder.h"
+#include "log/log_main.h"
 #include "utils/StrongPointer.h"
 
 #define CONCAT(x, y) x##y
@@ -61,11 +63,20 @@ std::ostream& operator<<(std::ostream& os, MergeStatus status) {
 }
 
 namespace android::hal {
+
 class BootControlClientAidl final : public BootControlClient {
     using IBootControl = ::aidl::android::hardware::boot::IBootControl;
 
   public:
-    BootControlClientAidl(std::shared_ptr<IBootControl> module) : module_(module) {}
+    BootControlClientAidl(std::shared_ptr<IBootControl> module) : module_(module) {
+        AIBinder_DeathRecipient* boot_control_death_recipient =
+                AIBinder_DeathRecipient_new(onBootCootControlServiceDied);
+        binder_status_t status = AIBinder_linkToDeath(module->asBinder().get(),
+                                                      boot_control_death_recipient, nullptr);
+        if (status != STATUS_OK) {
+            return;
+        }
+    }
 
     BootControlVersion GetVersion() const override { return BootControlVersion::BOOTCTL_AIDL; }
 
@@ -162,6 +173,7 @@ class BootControlClientAidl final : public BootControlClient {
 
   private:
     const std::shared_ptr<IBootControl> module_;
+    static void onBootCootControlServiceDied() { ALOGI("Boot Control Service Died"); }
 };
 
 using namespace android::hardware::boot;
@@ -326,7 +338,6 @@ class BootControlClientHIDL final : public BootControlClient {
 std::unique_ptr<BootControlClient> BootControlClient::WaitForService() {
     const auto instance_name =
             std::string(::aidl::android::hardware::boot::IBootControl::descriptor) + "/default";
-
     if (AServiceManager_isDeclared(instance_name.c_str())) {
         auto module = ::aidl::android::hardware::boot::IBootControl::fromBinder(
                 ndk::SpAIBinder(AServiceManager_waitForService(instance_name.c_str())));
