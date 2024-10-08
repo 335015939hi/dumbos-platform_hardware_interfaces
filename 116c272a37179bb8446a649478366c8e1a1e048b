@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc26672_f4158513",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-08T21:26:28Z",
+      "side": 1,
+      "message": "Make this a member function for better composibility? You can pass in a pointer to `BootControlClientAidl *client` , and call the member function `client-\u003eonBootControlServiceDied()`",
+      "range": {
+        "startLine": 180,
+        "startChar": 16,
+        "endLine": 180,
+        "endChar": 44
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "72f779ea_d8c91d7a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 180,
+                "startChar": 0,
+                "endLine": 181,
+                "endChar": 0
+              },
+              "replacement": "    static void onBootControlServiceDied(void*) { LOG(ERROR) \u003c\u003c \"Boot Control Service Died\"; }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "116c272a37179bb8446a649478366c8e1a1e048b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
