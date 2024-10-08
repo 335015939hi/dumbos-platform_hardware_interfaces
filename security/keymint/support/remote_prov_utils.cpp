@@ -39,6 +39,8 @@
 
 namespace aidl::android::hardware::security::keymint::remote_prov {
 
+const std::string RKPVM_INSTANCE_UNIQUE_ID = "AVF Remote Provisioning 1";
+
 constexpr uint32_t kBccPayloadIssuer = 1;
 constexpr uint32_t kBccPayloadSubject = 2;
 constexpr int32_t kBccPayloadSubjPubKey = -4670552;
@@ -325,7 +327,7 @@ bytevec getProdEekChain(int32_t supportedEekCurve) {
 
 ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
                                                 hwtrust::DiceChain::Kind kind, bool allowAnyMode,
-                                                bool allowDegenerate) {
+                                                bool allowDegenerate, bool isRkpVmChain) {
     auto encodedBcc = bcc->encode();
 
     // Use ro.build.type instead of ro.debuggable because ro.debuggable=1 for VTS testing
@@ -334,7 +336,7 @@ ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
         allowAnyMode = true;
     }
 
-    auto chain = hwtrust::DiceChain::Verify(encodedBcc, kind, allowAnyMode);
+    auto chain = hwtrust::DiceChain::Verify(encodedBcc, kind, allowAnyMode, isRkpVmChain);
     if (!chain.ok()) return chain.error().message();
 
     if (!allowDegenerate && !chain->IsProper()) {
@@ -706,8 +708,11 @@ ErrMsgOr<std::vector<BccEntryData>> verifyProtectedData(
     }
 
     // BCC is [ pubkey, + BccEntry]
+    RpcHardwareInfo info;
+    provisionable->getHardwareInfo(&info);
+    bool isRkpVmChain = info.uniqueId == RKPVM_INSTANCE_UNIQUE_ID;
     auto bccContents = validateBcc(bcc->asArray(), hwtrust::DiceChain::Kind::kVsr13, allowAnyMode,
-                                   /*allowDegenerate=*/true);
+                                   /*allowDegenerate=*/true, isRkpVmChain);
     if (!bccContents) {
         return bccContents.message() + "\n" + prettyPrint(bcc.get());
     }
@@ -1004,7 +1009,8 @@ ErrMsgOr<hwtrust::DiceChain::Kind> getDiceChainKind() {
 ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t>& request,
                                                        const std::vector<uint8_t>& challenge,
                                                        bool allowAnyMode = false,
-                                                       bool allowDegenerate = true) {
+                                                       bool allowDegenerate = true,
+                                                       bool isRkpVmChain = false) {
     auto [parsedRequest, _, csrErrMsg] = cppbor::parse(request);
     if (!parsedRequest) {
         return csrErrMsg;
@@ -1042,7 +1048,8 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
         return diceChainKind.message();
     }
 
-    auto diceContents = validateBcc(diceCertChain, *diceChainKind, allowAnyMode, allowDegenerate);
+    auto diceContents =
+            validateBcc(diceCertChain, *diceChainKind, allowAnyMode, allowDegenerate, isRkpVmChain);
     if (!diceContents) {
         return diceContents.message() + "\n" + prettyPrint(diceCertChain);
     }
@@ -1081,8 +1088,9 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(const cppbor::Array& keysToSi
                ") does not match expected version (3).";
     }
 
-    auto csrPayload =
-            parseAndValidateAuthenticatedRequest(csr, challenge, allowAnyMode, allowDegenerate);
+    bool isRkpVmChain = info.uniqueId == RKPVM_INSTANCE_UNIQUE_ID;
+    auto csrPayload = parseAndValidateAuthenticatedRequest(csr, challenge, allowAnyMode,
+                                                           allowDegenerate, isRkpVmChain);
     if (!csrPayload) {
         return csrPayload.message();
     }
@@ -1136,8 +1144,10 @@ ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr) {
     }
 
     auto encodedDiceChain = diceCertChain->encode();
-    auto chain =
-            hwtrust::DiceChain::Verify(encodedDiceChain, *diceChainKind, /*allowAnyMode=*/false);
+    // isRkpVmChain is set to false because this method is not used to verify the RKP VM
+    // DICE chain for now.
+    auto chain = hwtrust::DiceChain::Verify(encodedDiceChain, *diceChainKind,
+                                            /*allowAnyMode=*/false, /*isRkpVmChain=*/false);
     if (!chain.ok()) return chain.error().message();
     return chain->IsProper();
 }

@@ -193,6 +193,6 @@ ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr);
 /** Verify the DICE chain. */
 ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
                                                 hwtrust::DiceChain::Kind kind, bool allowAnyMode,
-                                                bool allowDegenerate);
+                                                bool allowDegenerate, bool isRkpVmChain);
 
 }  // namespace aidl::android::hardware::security::keymint::remote_prov

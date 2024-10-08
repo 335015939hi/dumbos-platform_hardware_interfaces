@@ -298,9 +298,11 @@ TEST(RemoteProvUtilsTest, validateBccDegenerate) {
     ASSERT_TRUE(bcc) << "Error: " << errMsg;
 
     EXPECT_TRUE(validateBcc(bcc->asArray(), hwtrust::DiceChain::Kind::kVsr16,
-                            /*allowAnyMode=*/false, /*allowDegenerate=*/true));
+                            /*allowAnyMode=*/false, /*allowDegenerate=*/true,
+                            /*isRkpVmChain=*/false));
     EXPECT_FALSE(validateBcc(bcc->asArray(), hwtrust::DiceChain::Kind::kVsr16,
-                             /*allowAnyMode=*/false, /*allowDegenerate=*/false));
+                             /*allowAnyMode=*/false, /*allowDegenerate=*/false,
+                             /*isRkpVmChain=*/false));
 }
 }  // namespace
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
