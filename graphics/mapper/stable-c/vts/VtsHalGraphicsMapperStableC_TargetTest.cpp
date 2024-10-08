@@ -550,6 +550,97 @@ class GraphicsTestsBase {
         EXPECT_NE(nullptr, yCbCr_P010.yCbCr.cr);
         return yCbCr_P010;
     }
+
+    YCbCr getAndroidYCbCr_P210(const native_handle_t* bufferHandle, uint8_t* data) {
+        YCbCr yCbCr_P210;
+        auto decodeResult = getStandardMetadata<StandardMetadataType::PLANE_LAYOUTS>(bufferHandle);
+        if (!decodeResult.has_value()) {
+            ADD_FAILURE() << "failed to get plane layout";
+            return YCbCr{};
+        }
+        const auto& planeLayouts = *decodeResult;
+        EXPECT_EQ(2, planeLayouts.size());
+        EXPECT_EQ(1, planeLayouts[0].components.size());
+        EXPECT_EQ(2, planeLayouts[1].components.size());
+
+        yCbCr_P210.yCbCr.y = nullptr;
+        yCbCr_P210.yCbCr.cb = nullptr;
+        yCbCr_P210.yCbCr.cr = nullptr;
+        yCbCr_P210.yCbCr.ystride = 0;
+        yCbCr_P210.yCbCr.cstride = 0;
+        yCbCr_P210.yCbCr.chroma_step = 0;
+        int64_t cb_offset = 0;
+        int64_t cr_offset = 0;
+
+        for (const auto& planeLayout : planeLayouts) {
+            for (const auto& planeLayoutComponent : planeLayout.components) {
+                if (!gralloc4::isStandardPlaneLayoutComponentType(planeLayoutComponent.type)) {
+                    continue;
+                }
+
+                uint8_t* tmpData = data + planeLayout.offsetInBytes +
+                                   bitsToBytes(planeLayoutComponent.offsetInBits);
+                uint64_t sampleIncrementInBytes = 0;
+                auto type = static_cast<PlaneLayoutComponentType>(planeLayoutComponent.type.value);
+                switch (type) {
+                    case PlaneLayoutComponentType::Y:
+                        // For specs refer:
+                        // https://docs.microsoft.com/en-us/windows/win32/medfound/10-bit-and-16-bit-yuv-video-formats
+                        EXPECT_EQ(6, planeLayoutComponent.offsetInBits);
+                        EXPECT_EQ(nullptr, yCbCr_P210.yCbCr.y);
+                        EXPECT_EQ(10, planeLayoutComponent.sizeInBits);
+                        EXPECT_EQ(16, planeLayout.sampleIncrementInBits);
+
+                        yCbCr_P210.yCbCr.y = tmpData;
+                        yCbCr_P210.yCbCr.ystride = planeLayout.strideInBytes;
+                        break;
+
+                    case PlaneLayoutComponentType::CB:
+                    case PlaneLayoutComponentType::CR:
+                        sampleIncrementInBytes = bitsToBytes(planeLayout.sampleIncrementInBits);
+                        EXPECT_EQ(4, sampleIncrementInBytes);
+
+                        if (yCbCr_P210.yCbCr.cstride == 0 && yCbCr_P210.yCbCr.chroma_step == 0) {
+                            yCbCr_P210.yCbCr.cstride = planeLayout.strideInBytes;
+                            yCbCr_P210.yCbCr.chroma_step = sampleIncrementInBytes;
+                        } else {
+                            EXPECT_EQ(yCbCr_P210.yCbCr.cstride, planeLayout.strideInBytes);
+                            EXPECT_EQ(yCbCr_P210.yCbCr.chroma_step, sampleIncrementInBytes);
+                        }
+
+                        if (yCbCr_P210.horizontalSubSampling == 0 &&
+                            yCbCr_P210.verticalSubSampling == 0) {
+                            yCbCr_P210.horizontalSubSampling = planeLayout.horizontalSubsampling;
+                            yCbCr_P210.verticalSubSampling = planeLayout.verticalSubsampling;
+                        } else {
+                            EXPECT_EQ(yCbCr_P210.horizontalSubSampling,
+                                      planeLayout.horizontalSubsampling);
+                            EXPECT_EQ(yCbCr_P210.verticalSubSampling,
+                                      planeLayout.verticalSubsampling);
+                        }
+
+                        if (type == PlaneLayoutComponentType::CB) {
+                            EXPECT_EQ(nullptr, yCbCr_P210.yCbCr.cb);
+                            yCbCr_P210.yCbCr.cb = tmpData;
+                            cb_offset = planeLayoutComponent.offsetInBits;
+                        } else {
+                            EXPECT_EQ(nullptr, yCbCr_P210.yCbCr.cr);
+                            yCbCr_P210.yCbCr.cr = tmpData;
+                            cr_offset = planeLayoutComponent.offsetInBits;
+                        }
+                        break;
+                    default:
+                        break;
+                };
+            }
+        }
+
+        EXPECT_EQ(cb_offset + bytesToBits(2), cr_offset);
+        EXPECT_NE(nullptr, yCbCr_P210.yCbCr.y);
+        EXPECT_NE(nullptr, yCbCr_P210.yCbCr.cb);
+        EXPECT_NE(nullptr, yCbCr_P210.yCbCr.cr);
+        return yCbCr_P210;
+    }
 };
 
 class GraphicsMapperStableCTests
@@ -1103,6 +1194,53 @@ TEST_P(GraphicsMapperStableCTests, Lock_YCBCR_P010) {
     constexpr uint32_t kCbCrSubSampleFactor = 2;
     ASSERT_EQ(kCbCrSubSampleFactor, yCbCr.horizontalSubSampling);
     ASSERT_EQ(kCbCrSubSampleFactor, yCbCr.verticalSubSampling);
+
+    ASSERT_EQ(0, info.height % 2);
+
+    // fill the data
+    fillYCbCrData(yCbCr.yCbCr, info.width, info.height, yCbCr.horizontalSubSampling,
+                  yCbCr.verticalSubSampling);
+    // verify the YCbCr data
+    verifyYCbCrData(yCbCr.yCbCr, info.width, info.height, yCbCr.horizontalSubSampling,
+                    yCbCr.verticalSubSampling);
+
+    int releaseFence = -1;
+    ASSERT_EQ(AIMAPPER_ERROR_NONE, mapper()->v5.unlock(*handle, &releaseFence));
+    if (releaseFence != -1) {
+        close(releaseFence);
+    }
+}
+
+TEST_P(GraphicsMapperStableCTests, Lock_YCBCR_P210) {
+    BufferDescriptorInfo info{
+            .name = {"VTS_TEMP"},
+            .width = 64,
+            .height = 64,
+            .layerCount = 1,
+            .format = PixelFormat::YCBCR_P210,
+            .usage = BufferUsage::CPU_WRITE_OFTEN | BufferUsage::CPU_READ_OFTEN,
+            .reservedSize = 0,
+    };
+    auto buffer = allocate(info);
+    if (!buffer) {
+        ASSERT_FALSE(isSupported(info));
+        GTEST_SUCCEED() << "YCBCR_P210 format is unsupported";
+        return;
+    }
+
+    // lock buffer for writing
+    const ARect region{0, 0, info.width, info.height};
+    auto handle = buffer->import();
+    uint8_t* data = nullptr;
+    ASSERT_EQ(AIMAPPER_ERROR_NONE, mapper()->v5.lock(*handle, static_cast<int64_t>(info.usage),
+                                                     region, -1, (void**)&data));
+
+    YCbCr yCbCr;
+    ASSERT_NO_FATAL_FAILURE(yCbCr = getAndroidYCbCr_P210(*handle, data));
+
+    constexpr uint32_t kCbCrSubSampleFactor = 2;
+    ASSERT_EQ(kCbCrSubSampleFactor, yCbCr.horizontalSubSampling);
+    ASSERT_EQ(1, yCbCr.verticalSubSampling);
 
     ASSERT_EQ(0, info.height % 2);
 
