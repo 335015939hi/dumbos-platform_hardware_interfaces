@@ -460,14 +460,41 @@ TEST_P(RadioSimTest, setAllowedCarriers) {
     serial = GetRandomSerialNumber();
     CarrierRestrictions carrierRestrictions;
     memset(&carrierRestrictions, 0, sizeof(carrierRestrictions));
-    carrierRestrictions.allowedCarriers.resize(1);
-    carrierRestrictions.excludedCarriers.resize(0);
-    carrierRestrictions.allowedCarriers[0].mcc = std::string("123");
-    carrierRestrictions.allowedCarriers[0].mnc = std::string("456");
-    carrierRestrictions.allowedCarriers[0].matchType = Carrier::MATCH_TYPE_ALL;
-    carrierRestrictions.allowedCarriers[0].matchData = std::string();
-    carrierRestrictions.allowedCarriersPrioritized = true;
+    int32_t aidl_version;
+    ndk::ScopedAStatus aidl_status = radio_sim->getInterfaceVersion(&aidl_version);
+    ASSERT_OK(aidl_status);
+
+    // Changes start
+
     SimLockMultiSimPolicy multisimPolicy = SimLockMultiSimPolicy::NO_MULTISIM_POLICY;
+    ALOGI("VTSAllowedCarriers Current AIDL version is %d ", aidl_version);
+    if (aidl_version <= 2) {
+        ALOGI("VTSAllowedCarriers If aidl_version is below 3 then , it will consider old AIDLs");
+        carrierRestrictions.allowedCarrierInfoList.resize(1);
+        if ((carrierRestrictions.allowedCarrierInfoList.size() > 0)) {
+            ALOGI("VTSAllowedCarriers If size of allowedCarrierInfoList is greater than 0");
+        }
+        carrierRestrictions.allowedCarriers.resize(1);
+        carrierRestrictions.excludedCarriers.resize(0);
+        carrierRestrictions.allowedCarriers[0].mcc = std::string("123");
+        carrierRestrictions.allowedCarriers[0].mnc = std::string("456");
+        carrierRestrictions.allowedCarriers[0].matchType = Carrier::MATCH_TYPE_ALL;
+        carrierRestrictions.allowedCarriers[0].matchData = std::string();
+        carrierRestrictions.allowedCarriersPrioritized = true;
+        multisimPolicy = SimLockMultiSimPolicy::NO_MULTISIM_POLICY;
+    } else {
+        carrierRestrictions.allowedCarrierInfoList.resize(1);
+        carrierRestrictions.excludedCarrierInfoList.resize(0);
+        carrierRestrictions.allowedCarrierInfoList[0].mcc = std::string("321");
+        carrierRestrictions.allowedCarrierInfoList[0].mnc = std::string("654");
+        carrierRestrictions.allowedCarrierInfoList[0].spn = std::string("TestNetwork");
+        carrierRestrictions.allowedCarrierInfoList[0].gid1 = std::string("BAE000000000000");
+        carrierRestrictions.allowedCarrierInfoList[0].gid2 = std::string("AE0000000000000");
+        carrierRestrictions.allowedCarrierInfoList[0].imsiPrefix = std::string("9987");
+        carrierRestrictions.allowedCarriersPrioritized = true;
+        carrierRestrictions.status = CarrierRestrictions::CarrierRestrictionStatus::RESTRICTED;
+        multisimPolicy = SimLockMultiSimPolicy::NO_MULTISIM_POLICY;
+    }
 
     radio_sim->setAllowedCarriers(serial, carrierRestrictions, multisimPolicy);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
@@ -503,17 +530,36 @@ TEST_P(RadioSimTest, setAllowedCarriers) {
         EXPECT_EQ(serial, radioRsp_sim->rspInfo.serial);
         EXPECT_EQ(RadioError::NONE, radioRsp_sim->rspInfo.error);
 
-        EXPECT_EQ(1, radioRsp_sim->carrierRestrictionsResp.allowedCarriers.size());
-        EXPECT_EQ(0, radioRsp_sim->carrierRestrictionsResp.excludedCarriers.size());
-        ASSERT_TRUE(std::string("123") ==
-                    radioRsp_sim->carrierRestrictionsResp.allowedCarriers[0].mcc);
-        ASSERT_TRUE(std::string("456") ==
-                    radioRsp_sim->carrierRestrictionsResp.allowedCarriers[0].mnc);
-        EXPECT_EQ(Carrier::MATCH_TYPE_ALL,
-                  radioRsp_sim->carrierRestrictionsResp.allowedCarriers[0].matchType);
-        ASSERT_TRUE(radioRsp_sim->carrierRestrictionsResp.allowedCarriersPrioritized);
-        EXPECT_EQ(SimLockMultiSimPolicy::NO_MULTISIM_POLICY, radioRsp_sim->multiSimPolicyResp);
+        if (aidl_version <= 2) {
+            EXPECT_EQ(1, radioRsp_sim->carrierRestrictionsResp.allowedCarriers.size());
+            EXPECT_EQ(0, radioRsp_sim->carrierRestrictionsResp.excludedCarriers.size());
 
+            ASSERT_TRUE(std::string("123") ==
+                        radioRsp_sim->carrierRestrictionsResp.allowedCarriers[0].mcc);
+            ASSERT_TRUE(std::string("456") ==
+                        radioRsp_sim->carrierRestrictionsResp.allowedCarriers[0].mnc);
+            EXPECT_EQ(Carrier::MATCH_TYPE_ALL,
+                      radioRsp_sim->carrierRestrictionsResp.allowedCarriers[0].matchType);
+            ASSERT_TRUE(radioRsp_sim->carrierRestrictionsResp.allowedCarriersPrioritized);
+            EXPECT_EQ(SimLockMultiSimPolicy::NO_MULTISIM_POLICY, radioRsp_sim->multiSimPolicyResp);
+        } else {
+            EXPECT_EQ(1, radioRsp_sim->carrierRestrictionsResp.allowedCarrierInfoList.size());
+            EXPECT_EQ(0, radioRsp_sim->carrierRestrictionsResp.excludedCarrierInfoList.size());
+            ASSERT_TRUE(std::string("321") ==
+                        radioRsp_sim->carrierRestrictionsResp.allowedCarrierInfoList[0].mcc);
+            ASSERT_TRUE(std::string("654") ==
+                        radioRsp_sim->carrierRestrictionsResp.allowedCarrierInfoList[0].mnc);
+            ASSERT_TRUE(std::string("BAE000000000000") ==
+                        radioRsp_sim->carrierRestrictionsResp.allowedCarrierInfoList[0].gid1);
+            ASSERT_TRUE(std::string("AE0000000000000") ==
+                        radioRsp_sim->carrierRestrictionsResp.allowedCarrierInfoList[0].gid2);
+            ASSERT_TRUE(std::string("9987") ==
+                        radioRsp_sim->carrierRestrictionsResp.allowedCarrierInfoList[0].imsiPrefix);
+            ASSERT_TRUE(radioRsp_sim->carrierRestrictionsResp.allowedCarriersPrioritized);
+            EXPECT_EQ(CarrierRestrictions::CarrierRestrictionStatus::RESTRICTED,
+                      radioRsp_sim->carrierRestrictionsResp.status);
+            EXPECT_EQ(SimLockMultiSimPolicy::NO_MULTISIM_POLICY, radioRsp_sim->multiSimPolicyResp);
+        }
         sleep(10);
 
         /**
@@ -522,9 +568,15 @@ TEST_P(RadioSimTest, setAllowedCarriers) {
          * status for cardStatus.
          */
         memset(&carrierRestrictions, 0, sizeof(carrierRestrictions));
-        carrierRestrictions.allowedCarriers.resize(0);
-        carrierRestrictions.excludedCarriers.resize(0);
-        carrierRestrictions.allowedCarriersPrioritized = false;
+        if (aidl_version <= 2) {
+            carrierRestrictions.allowedCarriers.resize(0);
+            carrierRestrictions.excludedCarriers.resize(0);
+            carrierRestrictions.allowedCarriersPrioritized = false;
+        } else {
+            carrierRestrictions.allowedCarrierInfoList.resize(0);
+            carrierRestrictions.excludedCarrierInfoList.resize(0);
+            carrierRestrictions.allowedCarriersPrioritized = false;
+        }
 
         serial = GetRandomSerialNumber();
         radio_sim->setAllowedCarriers(serial, carrierRestrictions, multisimPolicy);
