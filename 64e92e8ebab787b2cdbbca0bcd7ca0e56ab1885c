@@ -1,0 +1,321 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe4fc32a_6105e7d0",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "Since there already exist other similar generators: https://cs.android.com/search?q\u003dgenerateSineWaveInput%20f:audio%20f:vts\u0026sq\u003d, could you please coalesce them within `EffectHelper`.",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 58
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3869278a_617f0506",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "Can it be derived from the sampling frequency and duration?",
+      "range": {
+        "startLine": 140,
+        "startChar": 39,
+        "endLine": 140,
+        "endChar": 44
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b9c5474_10f4705a",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "Why `ret` has to be a field? If there is actually a need for that, it should be called `mRet`.",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 34
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90be6982_53ec26b8",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "I\u0027m not favoring the fact that `mExpected` is now a field and has a dependency on a  call to `SetAndGetDynamicsProcessingParameters` in order to set it. I would suggest making `expected` an output argument of this method so that any other code which needs to know an expected error will not forget to call this method.",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 58
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffdf520b_bd1dad09",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "Please wrap into `ASSERT_NO_FATAL_FAILURE`, this should make any further modifications less error-prone.",
+      "range": {
+        "startLine": 656,
+        "startChar": 4,
+        "endLine": 656,
+        "endChar": 41
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7a92297_3eee8117",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "This allows `enable` to be `false`. Does that disables processing? If it is so, where do we check that behavior is different depending on this setting? Also, when processing is disabled, it probably does not make sense to test all the combinations of parameters, just check that using a non-default parameter value does not affect the output.",
+      "range": {
+        "startLine": 664,
+        "startChar": 27,
+        "endLine": 664,
+        "endChar": 67
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d796490_12520775",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "I don\u0027t think that the resulting name is readable w/o delimiters between fields.",
+      "range": {
+        "startLine": 682,
+        "startChar": 31,
+        "endLine": 683,
+        "endChar": 86
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95a87e6b_a61ebba7",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "`\u003d 0`",
+      "range": {
+        "startLine": 705,
+        "startChar": 55,
+        "endLine": 705,
+        "endChar": 60
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c60c9862_5150e5ec",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 705,
+                "startChar": 0,
+                "endLine": 706,
+                "endChar": 0
+              },
+              "replacement": "    float calculateDb(std::vector\u003cfloat\u003e input, size_t start \u003d 0) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9e947c5_bb9daad5",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "No need to make a copy. You can either use `input.data() + start` or `\u0026input[start]`, then adjust the size value passed to `audio_utils_compute_energy_mono`.",
+      "range": {
+        "startLine": 706,
+        "startChar": 8,
+        "endLine": 706,
+        "endChar": 70
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ddcc5c4_e44ecd1e",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "Should it be `EXPECT`? Nothing bad will happen if we continue testing after a failed comparison.",
+      "range": {
+        "startLine": 718,
+        "startChar": 12,
+        "endLine": 718,
+        "endChar": 21
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bd5a5a0_9f3e8cbc",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "Should `ratio` be rounded, too? Alternatively, it might be better to compare `ratio` and `expectedRatio` directly with some tolerance by using `EXPECT_FLOAT_EQ`. https://cs.android.com/android/platform/superproject/main/+/main:external/googletest/googletest/include/gtest/gtest.h;l\u003d1985;drc\u003de1a38bc3707741d249fa22d2064552a08e37555b",
+      "range": {
+        "startLine": 723,
+        "startChar": 22,
+        "endLine": 723,
+        "endChar": 27
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "649f2ec9_0d33b558",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "Should be wrapped into `EXPECT_NO_FATAL_FAILURE`.",
+      "range": {
+        "startLine": 756,
+        "startChar": 8,
+        "endLine": 756,
+        "endChar": 26
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43457290_747b705e",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-08T17:10:37Z",
+      "side": 1,
+      "message": "I think it makes sense to redefine `CleanUp` in this test fixture class so that it clears `mLimiterConfigList` and then calls `CleanUp` from base class.",
+      "range": {
+        "startLine": 757,
+        "startChar": 0,
+        "endLine": 758,
+        "endChar": 18
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
