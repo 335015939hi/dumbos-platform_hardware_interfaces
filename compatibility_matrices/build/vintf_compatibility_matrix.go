@@ -276,7 +276,7 @@ func (g *vintfCompatibilityMatrixRule) getAssembleVintfEnv(ctx android.ModuleCon
 	return ""
 }
 
-func (g *vintfCompatibilityMatrixRule) AndroidMk() android.AndroidMkData {
+func (g *vintfCompatibilityMatrixRule) AndroidMk(ctx android.ConfigurableEvaluatorContext) android.AndroidMkData {
 	if g.phonyOnly {
 		return android.AndroidMkData{
 			Custom: func(w io.Writer, name, prefix, moduleDir string, data android.AndroidMkData) {
