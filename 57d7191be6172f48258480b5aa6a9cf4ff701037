@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e71ffc6_d7d28bef",
+        "filename": "boot/aidl/client/include/BootControlClient.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-09T23:32:13Z",
+      "side": 1,
+      "message": "It was intentionally kept inside the .cpp file to hide implementation detail from user of BootControlClient",
+      "fixSuggestions": [
+        {
+          "fixId": "510a63ca_73ce2b64",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "boot/aidl/client/include/BootControlClient.h",
+              "range": {
+                "startLine": 96,
+                "startChar": 0,
+                "endLine": 97,
+                "endChar": 0
+              },
+              "replacement": "class BootControlClientAidl final : public android::hal::BootControlClient {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "57d7191be6172f48258480b5aa6a9cf4ff701037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
