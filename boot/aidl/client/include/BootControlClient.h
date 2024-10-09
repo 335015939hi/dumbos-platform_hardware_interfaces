@@ -19,6 +19,11 @@
 
 #include <aidl/android/hardware/boot/IBootControl.h>
 #include <aidl/android/hardware/boot/MergeStatus.h>
+#include <android/binder_ibinder.h>
+#include <android/binder_manager.h>
+#include <android/hardware/boot/1.0/IBootControl.h>
+#include <android/hardware/boot/1.1/IBootControl.h>
+#include <android/hardware/boot/1.2/IBootControl.h>
 
 #include <stdint.h>
 
@@ -127,6 +132,43 @@ class BootControlClientAidl final : public BootControlClient {
         self->onBootControlServiceDied();
     }
 };
+
+using namespace android::hardware::boot;
+
+class BootControlClientHIDL final : public BootControlClient {
+  public:
+    BootControlClientHIDL(android::sp<V1_0::IBootControl> module_v1,
+                          android::sp<V1_1::IBootControl> module_v1_1,
+                          android::sp<V1_2::IBootControl> module_v1_2);
+
+    BootControlVersion GetVersion() const override;
+    int32_t GetNumSlots() const;
+
+    int32_t GetCurrentSlot() const;
+    std::string GetSuffix(int32_t slot) const;
+
+    std::optional<bool> IsSlotBootable(int32_t slot) const;
+
+    CommandResult MarkSlotUnbootable(int32_t slot);
+
+    CommandResult SetActiveBootSlot(int32_t slot);
+
+    CommandResult MarkBootSuccessful();
+
+    std::optional<bool> IsSlotMarkedSuccessful(int32_t slot) const;
+
+    MergeStatus getSnapshotMergeStatus() const;
+
+    CommandResult SetSnapshotMergeStatus(MergeStatus merge_status);
+
+    int32_t GetActiveBootSlot() const;
+
+  private:
+    android::sp<V1_0::IBootControl> module_v1_;
+    android::sp<V1_1::IBootControl> module_v1_1_;
+    android::sp<V1_2::IBootControl> module_v1_2_;
+};
+
 }  // namespace android::hal
 
 #endif
