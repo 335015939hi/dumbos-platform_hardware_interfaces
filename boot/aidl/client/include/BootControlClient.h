@@ -17,6 +17,7 @@
 #ifndef __BOOT_CONTROL_CLIENT_H_
 #define __BOOT_CONTROL_CLIENT_H_
 
+#include <aidl/android/hardware/boot/IBootControl.h>
 #include <aidl/android/hardware/boot/MergeStatus.h>
 
 #include <stdint.h>
@@ -92,6 +93,54 @@ class BootControlClient {
     [[nodiscard]] static std::unique_ptr<BootControlClient> WaitForService();
 };
 
+class BootControlClientAidl final : public BootControlClient {
+    using IBootControl = ::aidl::android::hardware::boot::IBootControl;
+
+  public:
+    explicit BootControlClientAidl(std::shared_ptr<IBootControl> module)
+        : module_(module),
+          boot_control_death_recipient(AIBinder_DeathRecipient_new(onBootControlServiceDied)) {
+        binder_status_t status = AIBinder_linkToDeath(module->asBinder().get(),
+                                                      boot_control_death_recipient, nullptr);
+        if (status != STATUS_OK) {
+            LOG(ERROR) << "Could not link to binder death";
+            return;
+        }
+    }
+
+    BootControlVersion GetVersion() const override;
+    ~BootControlClientAidl() {
+        if (boot_control_death_recipient) {
+            AIBinder_unlinkToDeath(module_->asBinder().get(), boot_control_death_recipient, this);
+        }
+    }
+
+    void onBootControlServiceDied();
+    virtual int32_t GetNumSlots() const;
+    int32_t GetCurrentSlot() const;
+    MergeStatus getSnapshotMergeStatus() const;
+    std::string GetSuffix(int32_t slot) const;
+    std::optional<bool> IsSlotBootable(int32_t slot) const;
+    CommandResult MarkSlotUnbootable(int32_t slot);
+
+    CommandResult SetActiveBootSlot(int slot);
+    int GetActiveBootSlot() const;
+
+    // Check if |slot| is marked boot successfully.
+    std::optional<bool> IsSlotMarkedSuccessful(int slot) const;
+
+    CommandResult MarkBootSuccessful();
+
+    CommandResult SetSnapshotMergeStatus(aidl::android::hardware::boot::MergeStatus merge_status);
+
+  private:
+    const std::shared_ptr<IBootControl> module_;
+    AIBinder_DeathRecipient* boot_control_death_recipient;
+    static void onBootControlServiceDied(void* client) {
+        BootControlClientAidl* self = static_cast<BootControlClientAidl*>(client);
+        self->onBootControlServiceDied();
+    }
+};
 }  // namespace android::hal
 
 #endif
