@@ -146,6 +146,7 @@ class HintSessionAidl : public PowerAidl {
         }
         ASSERT_NE(nullptr, mSession);
     }
+<<<<<<< HEAD   (16e747 Remove unused global const variable am: 6dc643db27)
 };
 
 class FMQAidl : public PowerAidl {
@@ -198,6 +199,10 @@ class FMQAidl : public PowerAidl {
     SessionConfig mSessionConfig;
     ChannelConfig mChannelConfig;
     ::android::hardware::EventFlag* mEventFlag;
+||||||| BASE
+    std::shared_ptr<IPowerHintSession> mSession;
+=======
+>>>>>>> BRANCH (f5a213 VTSHalPowerTarget: check if HintSession supported)
 };
 
 TEST_P(PowerAidl, setMode) {
