@@ -34,9 +34,14 @@
 namespace aidl::android::hardware::power {
 namespace {
 
+<<<<<<< HEAD   (8fc171 Add a new known hash to drm)
 using ::aidl::android::hardware::common::fmq::SynchronizedReadWrite;
 using ::android::AidlMessageQueue;
 using ::android::hardware::EventFlag;
+||||||| BASE
+using ::android::base::GetUintProperty;
+=======
+>>>>>>> BRANCH (87f9c2 Refactor Power VTS in terms of AIDL version)
 using android::hardware::power::Boost;
 using android::hardware::power::ChannelConfig;
 using android::hardware::power::ChannelMessage;
@@ -122,14 +127,20 @@ class PowerAidl : public testing::TestWithParam<std::string> {
         power = IPower::fromBinder(ndk::SpAIBinder(binder));
         auto status = power->getInterfaceVersion(&mServiceVersion);
         ASSERT_TRUE(status.isOk());
+<<<<<<< HEAD   (8fc171 Add a new known hash to drm)
         if (mServiceVersion >= 2) {
             status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &mSession);
             mSessionSupport = status.isOk();
         }
+||||||| BASE
+        ASSERT_NE(mApiLevel, 0);
+=======
+>>>>>>> BRANCH (87f9c2 Refactor Power VTS in terms of AIDL version)
     }
 
     std::shared_ptr<IPower> power;
     int32_t mServiceVersion;
+<<<<<<< HEAD   (8fc171 Add a new known hash to drm)
     std::shared_ptr<IPowerHintSession> mSession;
     bool mSessionSupport = false;
 };
@@ -198,6 +209,24 @@ class FMQAidl : public PowerAidl {
     SessionConfig mSessionConfig;
     ChannelConfig mChannelConfig;
     ::android::hardware::EventFlag* mEventFlag;
+||||||| BASE
+=======
+};
+
+class HintSessionAidl : public PowerAidl {
+  public:
+    virtual void SetUp() override {
+        PowerAidl::SetUp();
+        if (mServiceVersion < 2) {
+            GTEST_SKIP() << "DEVICE not launching with Power V2 and beyond.";
+        }
+
+        auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &mSession);
+        ASSERT_TRUE(status.isOk());
+        ASSERT_NE(nullptr, mSession);
+    }
+    std::shared_ptr<IPowerHintSession> mSession;
+>>>>>>> BRANCH (87f9c2 Refactor Power VTS in terms of AIDL version)
 };
 
 TEST_P(PowerAidl, setMode) {
@@ -251,12 +280,27 @@ TEST_P(PowerAidl, isBoostSupported) {
 }
 
 TEST_P(PowerAidl, getHintSessionPreferredRate) {
+<<<<<<< HEAD   (8fc171 Add a new known hash to drm)
     if (!mSessionSupport) {
         GTEST_SKIP() << "DEVICE not support Hint Session.";
+||||||| BASE
+    int64_t rate = -1;
+    auto status = power->getHintSessionPreferredRate(&rate);
+    if (mApiLevel < kCompatibilityMatrix7ApiLevel && !status.isOk()) {
+        EXPECT_TRUE(isUnknownOrUnsupported(status));
+        GTEST_SKIP() << "DEVICE not launching with Android 13 and beyond.";
+=======
+    if (mServiceVersion < 2) {
+        GTEST_SKIP() << "DEVICE not launching with Power V2 and beyond.";
+>>>>>>> BRANCH (87f9c2 Refactor Power VTS in terms of AIDL version)
     }
+<<<<<<< HEAD   (8fc171 Add a new known hash to drm)
     if (mServiceVersion < 2) {
         GTEST_SKIP() << "DEVICE not launching with Power V2 and beyond.";
     }
+||||||| BASE
+=======
+>>>>>>> BRANCH (87f9c2 Refactor Power VTS in terms of AIDL version)
 
     int64_t rate = -1;
     ASSERT_TRUE(power->getHintSessionPreferredRate(&rate).isOk());
@@ -264,6 +308,7 @@ TEST_P(PowerAidl, getHintSessionPreferredRate) {
     ASSERT_GE(rate, 1000000);
 }
 
+<<<<<<< HEAD   (8fc171 Add a new known hash to drm)
 TEST_P(PowerAidl, createHintSessionWithConfig) {
     if (!mSessionSupport) {
         GTEST_SKIP() << "DEVICE not support Hint Session.";
@@ -278,6 +323,132 @@ TEST_P(PowerAidl, createHintSessionWithConfig) {
                                                      SessionTag::OTHER, &config, &session);
     ASSERT_TRUE(status.isOk());
     ASSERT_NE(nullptr, session);
+||||||| BASE
+TEST_P(PowerAidl, createAndCloseHintSession) {
+    std::shared_ptr<IPowerHintSession> session;
+    auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &session);
+    if (mApiLevel < kCompatibilityMatrix7ApiLevel && !status.isOk()) {
+        EXPECT_TRUE(isUnknownOrUnsupported(status));
+        GTEST_SKIP() << "DEVICE not launching with Android 13 and beyond.";
+    }
+    ASSERT_TRUE(status.isOk());
+    ASSERT_NE(nullptr, session);
+    ASSERT_TRUE(session->pause().isOk());
+    ASSERT_TRUE(session->resume().isOk());
+    // Test normal destroy operation
+    ASSERT_TRUE(session->close().isOk());
+    session.reset();
+}
+
+TEST_P(PowerAidl, createHintSessionFailed) {
+    std::shared_ptr<IPowerHintSession> session;
+    auto status = power->createHintSession(getpid(), getuid(), kEmptyTids, 16666666L, &session);
+
+    // Regardless of whether V2 and beyond is supported, the status is always not STATUS_OK.
+    ASSERT_FALSE(status.isOk());
+
+    // If device not launching with Android 13 and beyond, check whether it's supported,
+    // if not, skip the test.
+    if (mApiLevel < kCompatibilityMatrix7ApiLevel && isUnknownOrUnsupported(status)) {
+        GTEST_SKIP() << "DEVICE not launching with Android 13 and beyond.";
+    }
+    ASSERT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode());
+}
+
+TEST_P(PowerAidl, updateAndReportDurations) {
+    std::shared_ptr<IPowerHintSession> session;
+    auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &session);
+    if (mApiLevel < kCompatibilityMatrix7ApiLevel && !status.isOk()) {
+        EXPECT_TRUE(isUnknownOrUnsupported(status));
+        GTEST_SKIP() << "DEVICE not launching with Android 13 and beyond.";
+    }
+    ASSERT_TRUE(status.isOk());
+    ASSERT_NE(nullptr, session);
+
+    ASSERT_TRUE(session->updateTargetWorkDuration(16666667LL).isOk());
+    ASSERT_TRUE(session->reportActualWorkDuration(kDurations).isOk());
+}
+
+TEST_P(PowerAidl, sendSessionHint) {
+    std::shared_ptr<IPowerHintSession> session;
+    auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &session);
+    if (!status.isOk()) {
+        EXPECT_TRUE(isUnknownOrUnsupported(status));
+        return;
+    }
+    for (const auto& sessionHint : kSessionHints) {
+        ASSERT_TRUE(session->sendHint(sessionHint).isOk());
+    }
+    for (const auto& sessionHint : kInvalidSessionHints) {
+        ASSERT_TRUE(session->sendHint(sessionHint).isOk());
+    }
+}
+
+TEST_P(PowerAidl, setThreads) {
+    std::shared_ptr<IPowerHintSession> session;
+    auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &session);
+    if (mApiLevel < kCompatibilityMatrix7ApiLevel && !status.isOk()) {
+        EXPECT_TRUE(isUnknownOrUnsupported(status));
+        GTEST_SKIP() << "DEVICE not launching with Android 13 and beyond.";
+    }
+    ASSERT_TRUE(status.isOk());
+
+    status = session->setThreads(kEmptyTids);
+    if (mApiLevel < kCompatibilityMatrix8ApiLevel && isUnknownOrUnsupported(status)) {
+        GTEST_SKIP() << "DEVICE not launching with Android 14 and beyond.";
+    }
+    ASSERT_FALSE(status.isOk());
+    ASSERT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode());
+
+    status = session->setThreads(kSelfTids);
+    ASSERT_TRUE(status.isOk());
+=======
+TEST_P(HintSessionAidl, createAndCloseHintSession) {
+    ASSERT_TRUE(mSession->pause().isOk());
+    ASSERT_TRUE(mSession->resume().isOk());
+    // Test normal destroy operation
+    ASSERT_TRUE(mSession->close().isOk());
+    mSession.reset();
+}
+
+TEST_P(HintSessionAidl, createHintSessionFailed) {
+    std::shared_ptr<IPowerHintSession> session;
+    auto status = power->createHintSession(getpid(), getuid(), kEmptyTids, 16666666L, &session);
+
+    // Regardless of whether V2 and beyond is supported, the status is always not STATUS_OK.
+    ASSERT_FALSE(status.isOk());
+    ASSERT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode());
+}
+
+TEST_P(HintSessionAidl, updateAndReportDurations) {
+    ASSERT_TRUE(mSession->updateTargetWorkDuration(16666667LL).isOk());
+    ASSERT_TRUE(mSession->reportActualWorkDuration(kDurations).isOk());
+}
+
+TEST_P(HintSessionAidl, sendSessionHint) {
+    if (mServiceVersion < 4) {
+        GTEST_SKIP() << "DEVICE not launching with Power V4 and beyond.";
+    }
+
+    for (const auto& sessionHint : kSessionHints) {
+        ASSERT_TRUE(mSession->sendHint(sessionHint).isOk());
+    }
+    for (const auto& sessionHint : kInvalidSessionHints) {
+        ASSERT_TRUE(mSession->sendHint(sessionHint).isOk());
+    }
+}
+
+TEST_P(HintSessionAidl, setThreads) {
+    if (mServiceVersion < 4) {
+        GTEST_SKIP() << "DEVICE not launching with Power V4 and beyond.";
+    }
+
+    auto status = mSession->setThreads(kEmptyTids);
+    ASSERT_FALSE(status.isOk());
+    ASSERT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode());
+
+    ASSERT_TRUE(mSession->setThreads(kSelfTids).isOk());
+>>>>>>> BRANCH (87f9c2 Refactor Power VTS in terms of AIDL version)
 }
 
 // FIXED_PERFORMANCE mode is required for all devices which ship on Android 11
@@ -433,7 +604,11 @@ TEST_P(FMQAidl, writeExcess) {
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(PowerAidl);
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(HintSessionAidl);
+<<<<<<< HEAD   (8fc171 Add a new known hash to drm)
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(FMQAidl);
+||||||| BASE
+=======
+>>>>>>> BRANCH (87f9c2 Refactor Power VTS in terms of AIDL version)
 
 INSTANTIATE_TEST_SUITE_P(Power, PowerAidl,
                          testing::ValuesIn(::android::getAidlHalInstanceNames(IPower::descriptor)),
@@ -441,9 +616,13 @@ INSTANTIATE_TEST_SUITE_P(Power, PowerAidl,
 INSTANTIATE_TEST_SUITE_P(Power, HintSessionAidl,
                          testing::ValuesIn(::android::getAidlHalInstanceNames(IPower::descriptor)),
                          ::android::PrintInstanceNameToString);
+<<<<<<< HEAD   (8fc171 Add a new known hash to drm)
 INSTANTIATE_TEST_SUITE_P(Power, FMQAidl,
                          testing::ValuesIn(::android::getAidlHalInstanceNames(IPower::descriptor)),
                          ::android::PrintInstanceNameToString);
+||||||| BASE
+=======
+>>>>>>> BRANCH (87f9c2 Refactor Power VTS in terms of AIDL version)
 
 }  // namespace
 }  // namespace aidl::android::hardware::power
