@@ -63,6 +63,30 @@
       },
       "revId": "a28c9b13ef6b54cbb11b100491d61a8edd84a8a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be30b892_07664937",
+        "filename": "bluetooth/async/async_fd_watcher.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-09T17:40:58Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong concern, I just wanted to make sure to use the minimal priority required 👍 @smoreland@google.com does that look reasonable to you ?",
+      "parentUuid": "f6e5476f_b3c0dbab",
+      "range": {
+        "startLine": 35,
+        "startChar": 34,
+        "endLine": 35,
+        "endChar": 36
+      },
+      "revId": "a28c9b13ef6b54cbb11b100491d61a8edd84a8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
