@@ -266,7 +266,7 @@ TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
     bytevec challenge = randomBytes(64);
     bytevec csr;
     auto status = rpc->generateCertificateRequestV2({} /* keysToSign */, challenge, &csr);
-    EXPECT_TRUE(status.isOk()) << status.getDescription();
+    ASSERT_TRUE(status.isOk()) << status.getDescription();
 
     auto result = isCsrWithProperDiceChain(csr);
     ASSERT_TRUE(result) << result.message();
