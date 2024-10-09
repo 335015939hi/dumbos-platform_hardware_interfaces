@@ -64,6 +64,30 @@
       },
       "revId": "116c272a37179bb8446a649478366c8e1a1e048b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5798afa3_3727fa93",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-09T19:56:55Z",
+      "side": 1,
+      "message": "Yes it expects a static function, but it also allows you to forward a `void *` parameter. You can pass an object to your static function, and invoke member function on that object.",
+      "parentUuid": "7cb79f39_0ca1a47d",
+      "range": {
+        "startLine": 180,
+        "startChar": 16,
+        "endLine": 180,
+        "endChar": 44
+      },
+      "revId": "116c272a37179bb8446a649478366c8e1a1e048b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
