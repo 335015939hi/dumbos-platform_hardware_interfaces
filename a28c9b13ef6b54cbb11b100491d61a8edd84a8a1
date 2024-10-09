@@ -39,6 +39,30 @@
       },
       "revId": "a28c9b13ef6b54cbb11b100491d61a8edd84a8a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6e5476f_b3c0dbab",
+        "filename": "bluetooth/async/async_fd_watcher.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 3594109
+      },
+      "writtenOn": "2024-10-09T17:11:42Z",
+      "side": 1,
+      "message": "We set the priority to 1 to verify and found the issue is not resolved. Can you tell us what concern you have about setting the priority to 20? Thanks.",
+      "parentUuid": "01e89d1d_efe8158c",
+      "range": {
+        "startLine": 35,
+        "startChar": 34,
+        "endLine": 35,
+        "endChar": 36
+      },
+      "revId": "a28c9b13ef6b54cbb11b100491d61a8edd84a8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
