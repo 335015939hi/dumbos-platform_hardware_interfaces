@@ -48,7 +48,8 @@ IvnAndroidDeviceService::IvnAndroidDeviceService(std::string_view configPath) {
 }
 
 bool IvnAndroidDeviceService::init() {
-    std::ifstream configStream(mConfigPath);
+    std::string path_str(mConfigPath);
+    std::ifstream configStream(path_str);
     if (!configStream) {
         LOG(ERROR) << "couldn't open " << mConfigPath << " for parsing.";
         return false;
