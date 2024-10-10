@@ -52,6 +52,24 @@
       "parentUuid": "1e71ffc6_d7d28bef",
       "revId": "57d7191be6172f48258480b5aa6a9cf4ff701037",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b4e3f06_3c3e14c3",
+        "filename": "boot/aidl/client/include/BootControlClient.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-10T00:13:06Z",
+      "side": 1,
+      "message": "We typically don\u0027t want users to directly access the implementations. Final class can\u0027t have `pure virtual member function`, as a final class can\u0027t be inherited anymore.",
+      "parentUuid": "bddb4f1f_01a20c08",
+      "revId": "57d7191be6172f48258480b5aa6a9cf4ff701037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
