@@ -33,6 +33,24 @@
       "message": "To be more defensive against future bugs, would we want to add `mMaxLagNs(0)` here to make sure we never use this value uninitialized?\n\nI\u0027m assuming the current logic assures that `configureV4l2StreamLocked()` gets far enough along to initialize `mMaxLagNs` before `dequeueV4l2FrameLocked()` ever gets called and reads from it.  But in case a bug was introduced in the future, it would be nice to have things be consistent (and easier to debug), instead of potentially using uninitialized memory for `mMaxLagNs`.",
       "revId": "8c428d7ad225937c3d716dce88c9129e844b203b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62ade110_4e10cf05",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2024-10-10T17:15:39Z",
+      "side": 1,
+      "message": "That is very good point! The only thing to amend here is that the default value should be `UINT64_MAX` rather than `0`. `0` might trigger an infinite loop in `dequeueV4l2FrameLocked`",
+      "parentUuid": "9a80be3b_a7dbcdc9",
+      "revId": "8c428d7ad225937c3d716dce88c9129e844b203b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
