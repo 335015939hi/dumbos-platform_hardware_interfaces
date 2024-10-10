@@ -70,6 +70,24 @@
       "parentUuid": "bddb4f1f_01a20c08",
       "revId": "57d7191be6172f48258480b5aa6a9cf4ff701037",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8266d683_0e60113f",
+        "filename": "boot/aidl/client/include/BootControlClient.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-10-10T00:18:31Z",
+      "side": 1,
+      "message": "then the `virtual` keyword in l:105 here is useless right?, shouldn\u0027t this be an override of the base class method?",
+      "parentUuid": "9b4e3f06_3c3e14c3",
+      "revId": "57d7191be6172f48258480b5aa6a9cf4ff701037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
