@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14d94e71_1d0d2145",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1113714
+      },
+      "writtenOn": "2024-10-10T18:01:22Z",
+      "side": 1,
+      "message": "There is not sufficient information in the bug to show that:\n- This is not a general capacity issue with this device\n- This would not adversely affect other devices",
+      "revId": "a28c9b13ef6b54cbb11b100491d61a8edd84a8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01e89d1d_efe8158c",
@@ -151,6 +168,30 @@
       "side": 1,
       "message": "It\u0027s still realtime though. I\u0027m actually not familiar with the BT stack or what could trigger the async thread here. It may be DOS. Do you know?\n\nAdded Philip because I\u0027m worried this might be a device specific issue, and we may want to measure the impact on real devices.",
       "parentUuid": "190c7fc8_1b980343",
+      "range": {
+        "startLine": 35,
+        "startChar": 34,
+        "endLine": 35,
+        "endChar": 36
+      },
+      "revId": "a28c9b13ef6b54cbb11b100491d61a8edd84a8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72c273aa_3b841e62",
+        "filename": "bluetooth/async/async_fd_watcher.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1113714
+      },
+      "writtenOn": "2024-10-10T18:01:22Z",
+      "side": 1,
+      "message": "If you\u0027re competing with other RT threads (as in RT prio 1 did not solve this) then this is not a valid general solution to the problem.  You\u0027ll probably cause audio glitches, frame drops, and other user perceptible problems.  We should not take this CL.",
+      "parentUuid": "de3a2684_dcc19757",
       "range": {
         "startLine": 35,
         "startChar": 34,
