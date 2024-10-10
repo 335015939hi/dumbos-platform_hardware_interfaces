@@ -34,6 +34,24 @@
       ],
       "revId": "57d7191be6172f48258480b5aa6a9cf4ff701037",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bddb4f1f_01a20c08",
+        "filename": "boot/aidl/client/include/BootControlClient.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-10-10T00:08:24Z",
+      "side": 1,
+      "message": "hmm okay. So we don\u0027t want users to directly access the subclasses? Also is a final class allowed to have a virtual member function ? (don\u0027t understand why the Aidl GetNumSlots() doesn\u0027t override the base class method).",
+      "parentUuid": "1e71ffc6_d7d28bef",
+      "revId": "57d7191be6172f48258480b5aa6a9cf4ff701037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
