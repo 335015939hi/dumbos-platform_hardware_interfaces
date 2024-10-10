@@ -38,25 +38,25 @@ void useSocketDomain(int domain) {
     ifreqs::socketDomain = domain;
 }
 
-bool exists(std::string ifname) {
+bool exists(std::string_view ifname) {
     return nametoindex(ifname) != 0;
 }
 
-bool up(std::string ifname) {
+bool up(std::string_view ifname) {
     auto ifr = ifreqs::fromName(ifname);
     if (!ifreqs::send(SIOCGIFFLAGS, ifr)) return false;
     ifr.ifr_flags |= IFF_UP;
     return ifreqs::send(SIOCSIFFLAGS, ifr);
 }
 
-bool down(std::string ifname) {
+bool down(std::string_view ifname) {
     auto ifr = ifreqs::fromName(ifname);
     if (!ifreqs::send(SIOCGIFFLAGS, ifr)) return false;
     ifr.ifr_flags &= ~IFF_UP;
     return ifreqs::send(SIOCSIFFLAGS, ifr);
 }
 
-bool add(std::string dev, std::string type) {
+bool add(std::string_view dev, std::string_view type) {
     nl::MessageFactory<ifinfomsg> req(RTM_NEWLINK,
                                       NLM_F_REQUEST | NLM_F_CREATE | NLM_F_EXCL | NLM_F_ACK);
     req.add(IFLA_IFNAME, dev);
@@ -70,7 +70,7 @@ bool add(std::string dev, std::string type) {
     return sock.send(req) && sock.receiveAck(req);
 }
 
-bool del(std::string dev) {
+bool del(std::string_view dev) {
     nl::MessageFactory<ifinfomsg> req(RTM_DELLINK, NLM_F_REQUEST | NLM_F_ACK);
     req.add(IFLA_IFNAME, dev);
 
@@ -78,7 +78,7 @@ bool del(std::string dev) {
     return sock.send(req) && sock.receiveAck(req);
 }
 
-std::optional<hwaddr_t> getHwAddr(const std::string& ifname) {
+std::optional<hwaddr_t> getHwAddr(std::string_view ifname) {
     auto ifr = ifreqs::fromName(ifname);
     if (!ifreqs::send(SIOCGIFHWADDR, ifr)) return std::nullopt;
 
@@ -87,7 +87,7 @@ std::optional<hwaddr_t> getHwAddr(const std::string& ifname) {
     return hwaddr;
 }
 
-bool setHwAddr(const std::string& ifname, hwaddr_t hwaddr) {
+bool setHwAddr(std::string_view ifname, hwaddr_t hwaddr) {
     auto ifr = ifreqs::fromName(ifname);
 
     // fetch sa_family
@@ -97,13 +97,13 @@ bool setHwAddr(const std::string& ifname, hwaddr_t hwaddr) {
     return ifreqs::send(SIOCSIFHWADDR, ifr);
 }
 
-std::optional<bool> isUp(std::string ifname) {
+std::optional<bool> isUp(std::string_view ifname) {
     auto ifr = ifreqs::fromName(ifname);
     if (!ifreqs::send(SIOCGIFFLAGS, ifr)) return std::nullopt;
     return ifr.ifr_flags & IFF_UP;
 }
 
-static bool hasIpv4(std::string ifname) {
+static bool hasIpv4(std::string_view ifname) {
     auto ifr = ifreqs::fromName(ifname);
     switch (ifreqs::trySend(SIOCGIFADDR, ifr)) {
         case 0:

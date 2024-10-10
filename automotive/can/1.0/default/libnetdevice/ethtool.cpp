@@ -23,7 +23,7 @@
 
 namespace android::netdevice::ethtool {
 
-std::optional<uint32_t> getValue(const std::string& ifname, uint32_t command) {
+std::optional<uint32_t> getValue(std::string_view ifname, uint32_t command) {
     struct ethtool_value valueop = {};
     valueop.cmd = command;
 
@@ -34,7 +34,7 @@ std::optional<uint32_t> getValue(const std::string& ifname, uint32_t command) {
     return valueop.data;
 }
 
-bool setValue(const std::string& ifname, uint32_t command, uint32_t value) {
+bool setValue(std::string_view ifname, uint32_t command, uint32_t value) {
     struct ethtool_value valueop = {};
     valueop.cmd = command;
     valueop.data = value;
