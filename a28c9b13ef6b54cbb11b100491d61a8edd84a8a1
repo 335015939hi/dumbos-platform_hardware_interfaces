@@ -135,6 +135,53 @@
       },
       "revId": "a28c9b13ef6b54cbb11b100491d61a8edd84a8a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cdbe103_716310ff",
+        "filename": "bluetooth/async/async_fd_watcher.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-10T17:59:57Z",
+      "side": 1,
+      "message": "It\u0027s still realtime though. I\u0027m actually not familiar with the BT stack or what could trigger the async thread here. It may be DOS. Do you know?\n\nAdded Philip because I\u0027m worried this might be a device specific issue, and we may want to measure the impact on real devices.",
+      "parentUuid": "190c7fc8_1b980343",
+      "range": {
+        "startLine": 35,
+        "startChar": 34,
+        "endLine": 35,
+        "endChar": 36
+      },
+      "revId": "a28c9b13ef6b54cbb11b100491d61a8edd84a8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "367dd827_a49ee7eb",
+        "filename": "bluetooth/async/async_fd_watcher.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-10T17:59:57Z",
+      "side": 1,
+      "message": "may want a hard failure, otherwise easy to ignore",
+      "range": {
+        "startLine": 124,
+        "startChar": 4,
+        "endLine": 124,
+        "endChar": 9
+      },
+      "revId": "a28c9b13ef6b54cbb11b100491d61a8edd84a8a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
