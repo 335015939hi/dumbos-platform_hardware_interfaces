@@ -88,6 +88,24 @@
       "parentUuid": "9b4e3f06_3c3e14c3",
       "revId": "57d7191be6172f48258480b5aa6a9cf4ff701037",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8103196_dbedd3ff",
+        "filename": "boot/aidl/client/include/BootControlClient.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-10T00:22:53Z",
+      "side": 1,
+      "message": "hmmm right, should be an override keyword",
+      "parentUuid": "8266d683_0e60113f",
+      "revId": "57d7191be6172f48258480b5aa6a9cf4ff701037",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
