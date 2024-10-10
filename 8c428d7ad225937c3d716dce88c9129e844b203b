@@ -16,6 +16,23 @@
       "message": "Adding camera framework team for the second approval (needs 2 approvals for submission)",
       "revId": "8c428d7ad225937c3d716dce88c9129e844b203b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a80be3b_a7dbcdc9",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-10-10T13:25:11Z",
+      "side": 1,
+      "message": "To be more defensive against future bugs, would we want to add `mMaxLagNs(0)` here to make sure we never use this value uninitialized?\n\nI\u0027m assuming the current logic assures that `configureV4l2StreamLocked()` gets far enough along to initialize `mMaxLagNs` before `dequeueV4l2FrameLocked()` ever gets called and reads from it.  But in case a bug was introduced in the future, it would be nice to have things be consistent (and easier to debug), instead of potentially using uninitialized memory for `mMaxLagNs`.",
+      "revId": "8c428d7ad225937c3d716dce88c9129e844b203b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
