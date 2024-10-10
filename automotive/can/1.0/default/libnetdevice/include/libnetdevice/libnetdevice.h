@@ -112,6 +112,37 @@ bool up(std::string_view ifname);
 bool down(std::string_view ifname);
 
 /**
+ * Retrieves all IPv4 addresses of a given interface.
+ *
+ * \param ifname Interface to query
+ * \return list of IPv4 addresses of this interface
+ */
+std::set<std::string> getAllAddr4(std::string_view ifname);
+
+/**
+ * Set IPv4 address on a given interface.
+ *
+ * This function will overwrite any other existing IPv4 addresses.
+ *
+ * \param ifname Interface to modify
+ * \param addr IPv4 address to set
+ * \return true in case of success, false otherwise
+ */
+bool setAddr4(std::string_view ifname, std::string_view addr);
+
+/**
+ * Add new IPv4 address to a given interface.
+ *
+ * Please note this doesn't remove existing IPv4 addresses.
+ *
+ * \param ifname Interface to modify
+ * \param addr IPv4 address to add
+ * \param prefixlen IPv4 netmask length
+ * \return true in case of success, false otherwise
+ */
+bool addAddr4(std::string_view ifname, std::string_view addr, uint8_t prefixlen = 24);
+
+/**
  * Adds virtual link.
  *
  * \param dev the name of the new virtual device

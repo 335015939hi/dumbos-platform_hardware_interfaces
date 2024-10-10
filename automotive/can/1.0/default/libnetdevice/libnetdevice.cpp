@@ -23,9 +23,12 @@
 #include <libnl++/MessageFactory.h>
 #include <libnl++/Socket.h>
 
+#include <arpa/inet.h>
+#include <ifaddrs.h>
 #include <linux/can.h>
 #include <linux/rtnetlink.h>
 #include <net/if.h>
+#include <netdb.h>
 #include <sys/ioctl.h>
 
 #include <algorithm>
@@ -45,6 +48,7 @@ bool exists(std::string_view ifname) {
 bool up(std::string_view ifname) {
     auto ifr = ifreqs::fromName(ifname);
     if (!ifreqs::send(SIOCGIFFLAGS, ifr)) return false;
+    if (ifr.ifr_flags & IFF_UP) return true;
     ifr.ifr_flags |= IFF_UP;
     return ifreqs::send(SIOCSIFFLAGS, ifr);
 }
@@ -52,8 +56,67 @@ bool up(std::string_view ifname) {
 bool down(std::string_view ifname) {
     auto ifr = ifreqs::fromName(ifname);
     if (!ifreqs::send(SIOCGIFFLAGS, ifr)) return false;
+    if (!(ifr.ifr_flags & IFF_UP)) return true;
     ifr.ifr_flags &= ~IFF_UP;
     return ifreqs::send(SIOCSIFFLAGS, ifr);
+}
+
+static std::string toString(const sockaddr* addr) {
+    char host[NI_MAXHOST];
+    socklen_t addrlen = (addr->sa_family == AF_INET) ? sizeof(sockaddr_in) : sizeof(sockaddr_in6);
+    auto res = getnameinfo(addr, addrlen, host, sizeof(host), nullptr, 0, NI_NUMERICHOST);
+    CHECK(res == 0) << "getnameinfo failed: " << gai_strerror(res);
+    return host;
+}
+
+static std::unique_ptr<ifaddrs, decltype(&freeifaddrs)> getifaddrs() {
+    ifaddrs* addrs = nullptr;
+    CHECK(getifaddrs(&addrs) == 0) << "getifaddrs failed: " << strerror(errno);
+    return {addrs, freeifaddrs};
+}
+
+std::set<std::string> getAllAddr4(std::string_view ifname) {
+    std::set<std::string> addresses;
+    auto addrs = getifaddrs();
+    for (ifaddrs* addr = addrs.get(); addr != nullptr; addr = addr->ifa_next) {
+        if (ifname != addr->ifa_name) continue;
+        if (addr->ifa_addr == nullptr) continue;
+        if (addr->ifa_addr->sa_family != AF_INET) continue;
+        addresses.insert(toString(addr->ifa_addr));
+    }
+    return addresses;
+}
+
+static in_addr_t inetAddr(std::string_view addr) {
+    auto addrn = inet_addr(std::string(addr).c_str());
+    CHECK(addrn != INADDR_NONE) << "Invalid address " << addr;
+    return addrn;
+}
+
+bool setAddr4(std::string_view ifname, std::string_view addr) {
+    auto ifr = ifreqs::fromName(ifname);
+
+    struct sockaddr_in* ifrAddr = reinterpret_cast<sockaddr_in*>(&ifr.ifr_addr);
+    ifrAddr->sin_family = AF_INET;
+    ifrAddr->sin_addr.s_addr = inetAddr(addr);
+
+    return ifreqs::send(SIOCSIFADDR, ifr);
+}
+
+bool addAddr4(std::string_view ifname, std::string_view addr, uint8_t prefixlen) {
+    android::nl::MessageFactory<ifaddrmsg> req(
+            RTM_NEWADDR, NLM_F_REQUEST | NLM_F_CREATE | NLM_F_EXCL | NLM_F_ACK);
+    req->ifa_family = AF_INET;
+    req->ifa_prefixlen = prefixlen;
+    req->ifa_flags = IFA_F_SECONDARY;
+    req->ifa_index = nametoindex(ifname);
+
+    auto addrn = inetAddr(addr);
+    req.add(IFLA_ADDRESS, addrn);
+    req.add(IFLA_BROADCAST, addrn);
+
+    nl::Socket sock(NETLINK_ROUTE);
+    return sock.send(req) && sock.receiveAck(req);
 }
 
 bool add(std::string_view dev, std::string_view type) {
