@@ -311,8 +311,8 @@
         </interface>
     </hal>
     <hal format="aidl">
-        <name>android.hardware.security.secretkeeper</name>
-        <version>1</version>
+        <name>c</name>
+        <version>1-2</version>
         <interface>
             <name>ISecretkeeper</name>
             <instance>default</instance>
