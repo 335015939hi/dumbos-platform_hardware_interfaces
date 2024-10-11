@@ -23,12 +23,12 @@
 #include <error/expected_utils.h>
 
 #include "core-impl/StreamStub.h"
-#include "deprecated/StreamSwitcher.h"
+#include "core-impl/StreamSwitcher.h"
 
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::media::audio::common::AudioDevice;
 
-namespace aidl::android::hardware::audio::core::deprecated {
+namespace aidl::android::hardware::audio::core {
 
 StreamSwitcher::StreamSwitcher(StreamContext* context, const Metadata& metadata)
     : mContext(context),
@@ -268,4 +268,4 @@ ndk::ScopedAStatus StreamSwitcher::setGain(float gain) {
     return mStream->setGain(gain);
 }
 
-}  // namespace aidl::android::hardware::audio::core::deprecated
+}  // namespace aidl::android::hardware::audio::core
