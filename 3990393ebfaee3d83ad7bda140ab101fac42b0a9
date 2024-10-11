@@ -70,6 +70,30 @@
       },
       "revId": "3990393ebfaee3d83ad7bda140ab101fac42b0a9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a5ba104_9999cbc7",
+        "filename": "radio/1.0/vts/functional/radio_hidl_hal_data.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1886780
+      },
+      "writtenOn": "2024-10-11T04:13:29Z",
+      "side": 1,
+      "message": "There is no reason why it should not be allowed. If Google forces HALs that only allows supported network tech, Google should always allow new tech before OEMs. But Android is open source and OEMs can test new tech faster than Google, so I don\u0027t think it should be forced.",
+      "parentUuid": "d146544d_3dbcc6d1",
+      "range": {
+        "startLine": 81,
+        "startChar": 14,
+        "endLine": 86,
+        "endChar": 9
+      },
+      "revId": "3990393ebfaee3d83ad7bda140ab101fac42b0a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
