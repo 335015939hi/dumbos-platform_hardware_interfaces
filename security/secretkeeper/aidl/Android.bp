@@ -47,6 +47,11 @@ aidl_interface {
             version: "1",
             imports: ["android.hardware.security.authgraph-V1"],
         },
+        {
+            version: "2",
+            imports: ["android.hardware.security.authgraph-V1"],
+        },
+
     ],
 
 }
