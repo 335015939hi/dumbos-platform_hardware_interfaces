@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecfdcd37_94a0b6ee",
+        "filename": "security/see/authmgr/aidl/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-10-11T16:29:26Z",
+      "side": 1,
+      "message": "```suggestion\n// Copyright (C) 2024 The Android Open Source Project\n```",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5ca3135_d9adcdae",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-10-11T16:29:26Z",
+      "side": 1,
+      "message": "It could be clearer to state this in the form of an assumption along with the IPC assumptions above. We assume the AuthMgr-FE has a trusted mechanism for discovering and establishing a connection to AuthMgr-BE so that mutual authentication is not needed.",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e84f0b31_99cd29a6",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-10-11T16:29:26Z",
+      "side": 1,
+      "message": "I think this section mixes requirements with implementation details and it\u0027s not clear to me which implementation details we want to mandate in this interface. Is it possible that other platforms can achieve the same assurances in a different way? E.g. maybe some platforms have transport ids that are not reusable so they can trust the hypervisor to prevent use-after-destroy threats? I\u0027m not sure if such differences exist or if we want to support them, so please take this with a grain of salt!\n\nMy reading of the requirements:\n1. AuthMgr-BE must be able to uniquely identify pVMs for their entire lifecycle. It must also be able to identify clients for an entire boot cycle. It must not use or leak state pertaining to one client in the context of another.\n\n2. AuthMgr-BE must prevent use-after-destroy threats. Once a client has been deleted, future clients with the same instance and/or transport ids must not be able to access the deleted client\u0027s resources. \n\n3. AuthMgr-BE must provide a unique client identifier to trusted services so that they can provide the same assurances.\n\nThen the global sequence number and client id can be given as the recommended way to meet these requirements.",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bca73b7_29bcb122",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-10-11T16:29:26Z",
+      "side": 1,
+      "message": "what is the use case for this optional field? Could we mandate that an instance id always be present for this protocol?",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1195dc3_6b629c62",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-10-11T16:29:26Z",
+      "side": 1,
+      "message": "```suggestion\n     * another AuthMgr BE. Both transport IDs are included for completeness, although it is\n```",
+      "range": {
+        "startLine": 138,
+        "startChar": 63,
+        "endLine": 138,
+        "endChar": 74
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "392786c5_c772f54e",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-10-11T16:29:26Z",
+      "side": 1,
+      "message": "how is this enforced? do we have a pathway for testing?",
+      "range": {
+        "startLine": 151,
+        "startChar": 81,
+        "endLine": 152,
+        "endChar": 14
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44eb52ad_7e06a31d",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-10-11T16:29:26Z",
+      "side": 1,
+      "message": "```suggestion\n     * Upon successful execution of this method, the AuthMgr BE should store some state associated\n```",
+      "range": {
+        "startLine": 163,
+        "startChar": 53,
+        "endLine": 163,
+        "endChar": 61
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ff0500_113c3b39",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-10-11T16:29:26Z",
+      "side": 1,
+      "message": "Possibly related to my earlier factory question: Does this mean that we\u0027ll require a factory reset to clear state after tests?",
+      "range": {
+        "startLine": 198,
+        "startChar": 85,
+        "endLine": 200,
+        "endChar": 66
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
