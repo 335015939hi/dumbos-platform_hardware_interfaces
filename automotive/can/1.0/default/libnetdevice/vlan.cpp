@@ -33,8 +33,7 @@ bool add(std::string_view eth, std::string_view vlan, uint16_t id) {
         return false;
     }
 
-    nl::MessageFactory<ifinfomsg> req(RTM_NEWLINK,
-                                      NLM_F_REQUEST | NLM_F_CREATE | NLM_F_EXCL | NLM_F_ACK);
+    nl::MessageFactory<ifinfomsg> req(RTM_NEWLINK, nl::kCreateFlags);
     req.add(IFLA_IFNAME, vlan);
     req.add<uint32_t>(IFLA_LINK, ethidx);
 

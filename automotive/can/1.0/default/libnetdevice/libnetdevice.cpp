@@ -104,8 +104,7 @@ bool setAddr4(std::string_view ifname, std::string_view addr) {
 }
 
 bool addAddr4(std::string_view ifname, std::string_view addr, uint8_t prefixlen) {
-    android::nl::MessageFactory<ifaddrmsg> req(
-            RTM_NEWADDR, NLM_F_REQUEST | NLM_F_CREATE | NLM_F_EXCL | NLM_F_ACK);
+    nl::MessageFactory<ifaddrmsg> req(RTM_NEWADDR, nl::kCreateFlags);
     req->ifa_family = AF_INET;
     req->ifa_prefixlen = prefixlen;
     req->ifa_flags = IFA_F_SECONDARY;
@@ -120,8 +119,7 @@ bool addAddr4(std::string_view ifname, std::string_view addr, uint8_t prefixlen)
 }
 
 bool add(std::string_view dev, std::string_view type) {
-    nl::MessageFactory<ifinfomsg> req(RTM_NEWLINK,
-                                      NLM_F_REQUEST | NLM_F_CREATE | NLM_F_EXCL | NLM_F_ACK);
+    nl::MessageFactory<ifinfomsg> req(RTM_NEWLINK, nl::kCreateFlags);
     req.add(IFLA_IFNAME, dev);
 
     {
@@ -134,7 +132,7 @@ bool add(std::string_view dev, std::string_view type) {
 }
 
 bool del(std::string_view dev) {
-    nl::MessageFactory<ifinfomsg> req(RTM_DELLINK, NLM_F_REQUEST | NLM_F_ACK);
+    nl::MessageFactory<ifinfomsg> req(RTM_DELLINK);
     req.add(IFLA_IFNAME, dev);
 
     nl::Socket sock(NETLINK_ROUTE);
