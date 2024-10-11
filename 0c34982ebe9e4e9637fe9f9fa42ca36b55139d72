@@ -16,6 +16,52 @@
       "message": "Hi Seth, PTAL",
       "revId": "0c34982ebe9e4e9637fe9f9fa42ca36b55139d72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b5d3eaf_5d4131cf",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-10-11T16:32:40Z",
+      "side": 1,
+      "message": "Would it be simpler to check the instance name? Or is it not guaranteed to be \"avf\"?\n\nFor other HALs like keymint, we have well-known instance names. These are, IMO, a lot simpler to use than something that involves a binder call.",
+      "range": {
+        "startLine": 711,
+        "startChar": 0,
+        "endLine": 713,
+        "endChar": 66
+      },
+      "revId": "0c34982ebe9e4e9637fe9f9fa42ca36b55139d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca53ddbe_b7b8df6c",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 715,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-10-11T16:32:40Z",
+      "side": 1,
+      "message": "I think we should pass a string value that describes the instance. That will be a lot more flexible, in terms of how chain policy is applied, than a boolean.\n\nI\u0027d prefer we use instance name for this string, as we will likely have some policies we want to apply for other instances in the future.",
+      "range": {
+        "startLine": 715,
+        "startChar": 61,
+        "endLine": 715,
+        "endChar": 73
+      },
+      "revId": "0c34982ebe9e4e9637fe9f9fa42ca36b55139d72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
