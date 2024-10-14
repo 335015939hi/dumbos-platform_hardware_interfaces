@@ -123,6 +123,24 @@
       "parentUuid": "c5106543_f6a93d91",
       "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4a06d16_0f1bdfe7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1942180
+      },
+      "writtenOn": "2024-10-14T05:27:20Z",
+      "side": 1,
+      "message": "Looks like Henry dropped his +2 for this change, is there anyone else who can sign off on this?",
+      "parentUuid": "5cb7dd02_181c9c9b",
+      "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
