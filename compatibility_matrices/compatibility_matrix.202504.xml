@@ -139,6 +139,14 @@
         </interface>
     </hal>
     <hal format="aidl">
+        <name>android.hardware.bluetooth.socket</name>
+        <version>1</version>
+        <interface>
+            <name>IBluetoothSocket</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl">
         <name>android.hardware.bluetooth.finder</name>
         <version>1</version>
         <interface>
