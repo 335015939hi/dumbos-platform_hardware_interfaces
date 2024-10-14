@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7df3976f_4b2b4b73",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-10-14T21:40:54Z",
+      "side": 1,
+      "message": "Which documentation format are you using here? `/**` is used to trigger kerneldoc (although that is not what you have here) parsing but that is the same for both single-line and multi-line comments. Here you are only using it for multi-line comments. Is that intentional?",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7b034e3_ea99efbd",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-10-14T21:40:54Z",
+      "side": 1,
+      "message": "What does this error mean? If the request is valid but the back-end ran out of memory, what can the front-end do with this information? Does it need to know that the back-end ran out of memory? What if the back-end ran out of a different resource? Or the service?",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f5ca3135_d9adcdae",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
         "patchSetId": 18
@@ -65,6 +99,23 @@
       "writtenOn": "2024-10-11T16:29:26Z",
       "side": 1,
       "message": "what is the use case for this optional field? Could we mandate that an instance id always be present for this protocol?",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe8c5e9_e49170c6",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-10-14T21:40:54Z",
+      "side": 1,
+      "message": "@paulcrowley@google.com did you want the backend\u0027s transport-id here as well?",
       "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
