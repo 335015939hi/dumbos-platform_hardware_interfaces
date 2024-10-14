@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "110f6672_50eb31a9",
+        "filename": "security/see/authmgr/aidl/Android.bp",
+        "patchSetId": 18
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecfdcd37_94a0b6ee",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7df3976f_4b2b4b73",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-10-14T21:40:54Z",
       "side": 1,
       "message": "Which documentation format are you using here? `/**` is used to trigger kerneldoc (although that is not what you have here) parsing but that is the same for both single-line and multi-line comments. Here you are only using it for multi-line comments. Is that intentional?",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50af76ca_3f19402f",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "Yes, I am using it only for the multi-line comments. Should I use something else?",
+      "parentUuid": "7df3976f_4b2b4b73",
       "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4e3a546_d68f6377",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "I understand your point that the front-end may not be able to do anything with this information. But since this is a specific category of error, I think it is useful to identify it with a separate error code rather than throwing the generic \"InternalError\" code.\nBoth Keymint (https://cs.android.com/android/platform/superproject/+/master:hardware/interfaces/security/keymint/aidl/android/hardware/security/keymint/ErrorCode.aidl;l\u003d68) and AuthGraph (https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/security/authgraph/aidl/android/hardware/security/authgraph/Error.aidl;l\u003d48) have this error code in the AIDL definition, so I used the same here as well.\n\nPlease let me know if you prefer to throw the error code: \"InternalError\" for OOM errors. Thanks!",
+      "parentUuid": "f7b034e3_ea99efbd",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f5ca3135_d9adcdae",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
         "patchSetId": 18
@@ -65,6 +119,24 @@
       "writtenOn": "2024-10-11T16:29:26Z",
       "side": 1,
       "message": "It could be clearer to state this in the form of an assumption along with the IPC assumptions above. We assume the AuthMgr-FE has a trusted mechanism for discovering and establishing a connection to AuthMgr-BE so that mutual authentication is not needed.",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d33c512_a1c0cbc7",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "Thanks! I added it as the 4th assumption.",
+      "parentUuid": "f5ca3135_d9adcdae",
       "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -88,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04b2e624_f0d44cae",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "Thanks Gil! This is very useful feedback. I have updated the documentation to specify the requirements w.r.t the \"use after destroy\" threat and an example approach of addressing such requirements with the global sequence number.\n\nRe: \n\u003e maybe some platforms have transport ids that are not reusable so they can trust the hypervisor to prevent use-after-destroy threats\nI am not sure about the transport id -  AFAIK, it is per pVM boot, in which case we cannot use it for storage related things. But I am not sure if this is the case for all the platforms.",
+      "parentUuid": "e84f0b31_99cd29a6",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7bca73b7_29bcb122",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
         "patchSetId": 18
@@ -99,6 +189,24 @@
       "writtenOn": "2024-10-11T16:29:26Z",
       "side": 1,
       "message": "what is the use case for this optional field? Could we mandate that an instance id always be present for this protocol?",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f9e28da_197252d6",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "This optional field is for the cases where the instance identifier is not included in the DICE chain of the AuthMgr FE. One example is: if the AuthMgr FE is in the host. There is no DICE chain for the Android host as of now anyway.  The instance identifier is added for the pVMs by the virtualization manager AFAIK. I am not sure whether the host\u0027s DICE chain - even when we have one - will have an instance identifier.",
+      "parentUuid": "7bca73b7_29bcb122",
       "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -122,6 +230,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6dd63b44_33339563",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "@arve@android.com Shouldn\u0027t the AuthMgr FE be able to retrieve it from the transport?",
+      "parentUuid": "dbe8c5e9_e49170c6",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1195dc3_6b629c62",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
         "patchSetId": 18
@@ -133,6 +259,30 @@
       "writtenOn": "2024-10-11T16:29:26Z",
       "side": 1,
       "message": "```suggestion\n     * another AuthMgr BE. Both transport IDs are included for completeness, although it is\n```",
+      "range": {
+        "startLine": 138,
+        "startChar": 63,
+        "endLine": 138,
+        "endChar": 74
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a99df486_bbfd5048",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1195dc3_6b629c62",
       "range": {
         "startLine": 138,
         "startChar": 63,
@@ -168,6 +318,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9938263_5b49db58",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "There will be a trait method that the common protocol code will call to check whether instance creation is allowed. The Trusty implementation of this method will call \"is_provisioning_allowed\" (from SystemState service as I got to know from @arve@android.com) which indicates whether the device is in factory or not. I need to find out whether we can test it on non-production devices.",
+      "parentUuid": "392786c5_c772f54e",
+      "range": {
+        "startLine": 151,
+        "startChar": 81,
+        "endLine": 152,
+        "endChar": 14
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44eb52ad_7e06a31d",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
         "patchSetId": 18
@@ -179,6 +353,30 @@
       "writtenOn": "2024-10-11T16:29:26Z",
       "side": 1,
       "message": "```suggestion\n     * Upon successful execution of this method, the AuthMgr BE should store some state associated\n```",
+      "range": {
+        "startLine": 163,
+        "startChar": 53,
+        "endLine": 163,
+        "endChar": 61
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8002af0b_ae902b9b",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44eb52ad_7e06a31d",
       "range": {
         "startLine": 163,
         "startChar": 53,
@@ -202,6 +400,30 @@
       "writtenOn": "2024-10-11T16:29:26Z",
       "side": 1,
       "message": "Possibly related to my earlier factory question: Does this mean that we\u0027ll require a factory reset to clear state after tests?",
+      "range": {
+        "startLine": 198,
+        "startChar": 85,
+        "endLine": 200,
+        "endChar": 66
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e8b0cba_d7b75051",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-10-14T23:27:06Z",
+      "side": 1,
+      "message": "I think so, because in the first release, our goal is to support only the persistent pVMs. @arve@android.com Do you think there is a way or should we provide a way only for tests, in order to clear the storage without doing factory reset?",
+      "parentUuid": "01ff0500_113c3b39",
       "range": {
         "startLine": 198,
         "startChar": 85,
