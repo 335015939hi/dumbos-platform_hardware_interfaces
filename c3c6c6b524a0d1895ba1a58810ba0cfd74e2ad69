@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab9577d_08b0b4df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-10-14T06:38:35Z",
+      "side": 1,
+      "message": "Thanks for teaching me the phrase \"put paid to\" :)",
+      "parentUuid": "f73e092f_fb150266",
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5e7f3ec_e0cec714",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-09-26T12:30:38Z",
       "side": 1,
       "message": "What should an implementation of this interface do if it\u0027s called more than once?\n\nAlso, is there any constraint on when this can be invoked?  (e.g. is it only valid to set module info before `earlyBootEnded()` happens?)",
+      "range": {
+        "startLine": 964,
+        "startChar": 25,
+        "endLine": 964,
+        "endChar": 37
+      },
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d69785fe_d4462849",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-10-14T06:38:35Z",
+      "side": 1,
+      "message": "Thanks, updated this text (in the newer CL) to include that if called more than once with different information, should throw a `ModuleInfoAlreadySet` error. Also added that this should be called by Android during boot before modules are run. (And discussed over chat- no, this is not only valid before `earlyBootEnded()` happens.)",
+      "parentUuid": "a5e7f3ec_e0cec714",
       "range": {
         "startLine": 964,
         "startChar": 25,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60bd2bf4_141a5ec1",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-10-14T06:38:35Z",
+      "side": 1,
+      "message": "Acknowledged, will add to `KeyCreationResult` when I move the schema there.",
+      "parentUuid": "63678a87_f0f6b873",
+      "range": {
+        "startLine": 967,
+        "startChar": 45,
+        "endLine": 967,
+        "endChar": 56
+      },
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2554f9fd_20dbd4aa",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-09-26T12:30:38Z",
       "side": 1,
       "message": "Why `OCTET_STRING` ?  Is it actually expected to be UTF-8 data? (If so, an ASN.1 `Utf8String` might be better.)",
+      "range": {
+        "startLine": 972,
+        "startChar": 28,
+        "endLine": 972,
+        "endChar": 40
+      },
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86c4fece_374b6154",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-10-14T06:38:35Z",
+      "side": 1,
+      "message": "I *think* the apex name comes from a proto (https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:out/soong/.intermediates/system/apex/proto/lib_apex_manifest_proto/android_x86_64_silvermont_static/gen/proto/system/apex/proto/apex_manifest.pb.h;drc\u003dbb6c5092cb6ed64dbf14f1450878e84de59542bb;l\u003d688) and it\u0027s therefore UTF-8 data (https://protobuf.dev/reference/protobuf/textformat-spec/). I\u0027ll change this to `Utf8String`.",
+      "parentUuid": "2554f9fd_20dbd4aa",
       "range": {
         "startLine": 972,
         "startChar": 28,
@@ -106,6 +196,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0f9e6bc1_5527e90c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-10-14T06:38:35Z",
+      "side": 1,
+      "message": "You\u0027re right, this doesn\u0027t belong here. I\u0027ll put it in `KeyCreationResult`.",
+      "parentUuid": "c5d68d22_e12d1ca0",
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "77212a6d_64b6f53f",
         "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
         "patchSetId": 3
@@ -117,6 +225,24 @@
       "writtenOn": "2024-09-26T12:30:38Z",
       "side": 1,
       "message": "Presumably the change to the schema in `KeyCreationResult.aidl` is coming in a separate commit?",
+      "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22b04ffe_197b7512",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/Tag.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 908,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-10-14T06:38:35Z",
+      "side": 1,
+      "message": "Yes!",
+      "parentUuid": "77212a6d_64b6f53f",
       "revId": "c3c6c6b524a0d1895ba1a58810ba0cfd74e2ad69",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
