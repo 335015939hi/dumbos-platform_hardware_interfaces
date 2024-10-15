@@ -191,6 +191,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cdb4ab77_18a0483b",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-15T15:53:05Z",
+      "side": 1,
+      "message": "Which variable?",
+      "parentUuid": "4bd51172_1985ee5f",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 58
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffdf520b_bd1dad09",
         "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
         "patchSetId": 2
@@ -526,6 +550,30 @@
       "side": 1,
       "message": "```EXPECT_FLOAT_EQ``` uses a tolerance of 1e-5.\nDifference between ```expectedRatio``` and ```ratio``` is greater than 1e-5.\nCan I just round the ratio? as the expected values are whole numbers.",
       "parentUuid": "0bd5a5a0_9f3e8cbc",
+      "range": {
+        "startLine": 723,
+        "startChar": 22,
+        "endLine": 723,
+        "endChar": 27
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11c0084b_253bd687",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-15T15:53:05Z",
+      "side": 1,
+      "message": "If you need to specify tolerance, you can use `EXPECT_NEAR`: https://cs.android.com/android/platform/superproject/main/+/main:external/googletest/googletest/include/gtest/gtest.h;l\u003d2001;drc\u003de1a38bc3707741d249fa22d2064552a08e37555b.\n\nI was also asking if `ratio` can be rounded. However, that raises a question why `expectedRatio` and `kDefaultRatio` are floats in the first place. What guarantees that they are always whole numbers?",
+      "parentUuid": "4b96a345_3f7d9322",
       "range": {
         "startLine": 723,
         "startChar": 22,
