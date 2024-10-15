@@ -141,6 +141,24 @@
       "parentUuid": "5cb7dd02_181c9c9b",
       "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4c7efd6_1b45cf6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-10-15T16:23:06Z",
+      "side": 1,
+      "message": "I still see Henry\u0027s +2. The comments need to be resolved and anyone else give a +2. I think your (the owner\u0027s) +2 counts for it too.\n\nThis seems fine to me - I still have the concerns in the comments, but they are about old things that are likely hard to change now. Maybe create a bug to address the entry in base_vendor.mk, then close out the comments, +2, and submit?",
+      "parentUuid": "a4a06d16_0f1bdfe7",
+      "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
