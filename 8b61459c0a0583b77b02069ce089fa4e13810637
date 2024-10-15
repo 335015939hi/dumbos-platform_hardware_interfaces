@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24608a2c_28337532",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2024-10-15T17:32:43Z",
+      "side": 1,
+      "message": "Not just SoC, maybe SoC/SE? or Secure IC? StrongBox vendor?",
+      "range": {
+        "startLine": 132,
+        "startChar": 35,
+        "endLine": 132,
+        "endChar": 38
+      },
+      "revId": "8b61459c0a0583b77b02069ce089fa4e13810637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af15fabd_383f8662",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2024-10-15T17:32:43Z",
+      "side": 1,
+      "message": "is this a typo?",
+      "range": {
+        "startLine": 141,
+        "startChar": 69,
+        "endLine": 141,
+        "endChar": 73
+      },
+      "revId": "8b61459c0a0583b77b02069ce089fa4e13810637",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
