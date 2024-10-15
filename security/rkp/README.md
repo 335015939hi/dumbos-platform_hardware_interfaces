@@ -31,12 +31,13 @@ use one of two mechanisms:
 1.  (Preferred, recommended) The device OEM extracts the UDS\_pub from each
     device they manufacture and uploads the public keys to a backend server.
 
-1.  The device OEM signs the UDS\_pub and stores the certificates on the device
-    rather than uploading a UDS\_pub for every device immediately. However,
-    there are many disadvantages and costs associated with this option as the
-    OEM will need to pass a security audit of their factory's physical security,
-    CA and HSM configuration, and incident response processes before the OEM's
-    public key is registered with the provisioning server.
+1.  The device OEM certifies the UDS\_pub using an x.509 certificate chain
+    then stores the chain on the device rather than uploading a UDS\_pub for
+    every device immediately. However, there are many disadvantages and costs
+    associated with this option as the OEM will need to pass a security audit
+    of their factory's physical security, CA and HSM configuration, and
+    incident response processes before the OEM's public key is registered with
+    the provisioning server.
 
 Note that in the full elaboration of this plan, UDS\_pub is not the key used to
 sign certificate requests. Instead, UDS\_pub is just the first public key in a
@@ -123,6 +124,54 @@ to bind choices across different CDDL groups, it is important that the
 implementor stays consistent in which type is chosen. E.g. taking ES256 as the
 choice for algorithm implies the implementor should also choose the P256 public
 key group further down in the COSE structure.
+
+## UDS certificates
+
+As noted in the section [General approach](#general-approach), the UDS\_pub may
+be authenticated by an OEM using an x.509 certificate chain. Additionally,
+[RKP Phase 3](#phases), depends on chip vendor signing the UDS\_pub and
+issuing an x.509 certificate chain. This section describes the requirements for
+both signing keys and the resulting certificate chain.
+
+### X.509 Certificates
+
+X.509v3 public key certificates are the only supported mechanism for
+authenticating a UDS\_pub. Certificates must be formatted according to
+[RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280), and certificate
+chains must satisfy the certificate path validation described in the RFC. RFC
+5280 covers most requirements for the chain, but this specification has some
+additional requirements that must be met for the certificates:
+
+*   <code>[BasicConstraints](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.9)</code>
+    *   All CA certificates must include this as a critical extension.
+    *   <code>pathLenConstraint</code> must be set correctly in each CA
+        certificate to limit the maximum chain length.
+    *   <code>cA</code> must be set to true for any certificates that sign other
+        certificates.
+    *   Consider the chain <code>root -> intermediate -> UDS</code>. In such a
+        chain, <code>BasicConstraints</code> must be:
+        *   <code>{ cA: TRUE, pathLenConstraint: 1}</code> for the root
+            certificate
+        *   <code>{ cA: TRUE, pathLenConstraint: 0}</code> for the intermediate
+            certificate
+        *   Absent for the UDS certificate
+*   <code>[KeyUsage](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.3)</code>
+    *   All certificates in a UDS certificate chain must include this as a
+        critical extension.
+    *   CA certificates must set <code>KeyUsage</code> to only
+        <code>keyCertSign</code>.
+    *   The UDS certificate must set <code>KeyUsage</code> to only
+        <code>digitalSignature</code>.
+
+### Supported Algorithms
+
+UDS certificates must be signed using one of the following allowed algorithms:
+
+*   `ecdsa-with-SHA256` (RFC 5758)
+    *   Note: this algorithm is only usable with ECDSA P-256 keys
+*   `ecdsa-with-SHA384` (RFC 5758)
+    *   Note: this algorithm is only usable with ECDSA P-384 keys
+*   `id-Ed25519` (RFC 8410)
 
 ## Design
 
