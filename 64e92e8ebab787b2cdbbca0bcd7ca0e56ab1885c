@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab4887da_eb77d7ea",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "```generateMultiTone``` can be used to generate both single and multi tone input.\nWill upload another CL to update the tests to use this method.",
+      "parentUuid": "fe4fc32a_6105e7d0",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 58
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3869278a_617f0506",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5580a138_a4b95330",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Yes.\nBut using ```KFrameCount``` and ```mChannelCount``` to compute the number of samples.\n```kFrameCount * mChannelCount```",
+      "parentUuid": "3869278a_617f0506",
+      "range": {
+        "startLine": 140,
+        "startChar": 39,
+        "endLine": 140,
+        "endChar": 44
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b9c5474_10f4705a",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-10-08T17:10:37Z",
       "side": 1,
       "message": "Why `ret` has to be a field? If there is actually a need for that, it should be called `mRet`.",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 34
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88455ba0_d8d80d60",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Renamed it to mOpenEffectReturn. Using it in the call to ```processAndWriteToOutput```",
+      "parentUuid": "7b9c5474_10f4705a",
       "range": {
         "startLine": 145,
         "startChar": 0,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4bd51172_1985ee5f",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Using a bool variable to skip the data test.\nShould this variable be used in the ```processAndWriteToOutput``` to skip the call to effect process?",
+      "parentUuid": "90be6982_53ec26b8",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 58
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffdf520b_bd1dad09",
         "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
         "patchSetId": 2
@@ -106,6 +202,30 @@
       "writtenOn": "2024-10-08T17:10:37Z",
       "side": 1,
       "message": "Please wrap into `ASSERT_NO_FATAL_FAILURE`, this should make any further modifications less error-prone.",
+      "range": {
+        "startLine": 656,
+        "startChar": 4,
+        "endLine": 656,
+        "endChar": 41
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e6cb952_10df528a",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffdf520b_bd1dad09",
       "range": {
         "startLine": 656,
         "startChar": 4,
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "363c604a_a31cd33c",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Added a test to check the limiter ```enable``` parameter functionality.",
+      "parentUuid": "b7a92297_3eee8117",
+      "range": {
+        "startLine": 664,
+        "startChar": 27,
+        "endLine": 664,
+        "endChar": 67
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d796490_12520775",
@@ -152,6 +296,30 @@
       "writtenOn": "2024-10-08T17:10:37Z",
       "side": 1,
       "message": "I don\u0027t think that the resulting name is readable w/o delimiters between fields.",
+      "range": {
+        "startLine": 682,
+        "startChar": 31,
+        "endLine": 683,
+        "endChar": 86
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ffd467d_cef0720e",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 683,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Added a call to ```toString``` method",
+      "parentUuid": "3d796490_12520775",
       "range": {
         "startLine": 682,
         "startChar": 31,
@@ -203,6 +371,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7b71fc9_4c71accc",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 705,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95a87e6b_a61ebba7",
+      "range": {
+        "startLine": 705,
+        "startChar": 55,
+        "endLine": 705,
+        "endChar": 60
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9e947c5_bb9daad5",
@@ -226,6 +418,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f5f83e0_07090f07",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9e947c5_bb9daad5",
+      "range": {
+        "startLine": 706,
+        "startChar": 8,
+        "endLine": 706,
+        "endChar": 70
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ddcc5c4_e44ecd1e",
@@ -239,6 +455,30 @@
       "writtenOn": "2024-10-08T17:10:37Z",
       "side": 1,
       "message": "Should it be `EXPECT`? Nothing bad will happen if we continue testing after a failed comparison.",
+      "range": {
+        "startLine": 718,
+        "startChar": 12,
+        "endLine": 718,
+        "endChar": 21
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f82a201e_90d51665",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ddcc5c4_e44ecd1e",
       "range": {
         "startLine": 718,
         "startChar": 12,
@@ -274,6 +514,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b96a345_3f7d9322",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "```EXPECT_FLOAT_EQ``` uses a tolerance of 1e-5.\nDifference between ```expectedRatio``` and ```ratio``` is greater than 1e-5.\nCan I just round the ratio? as the expected values are whole numbers.",
+      "parentUuid": "0bd5a5a0_9f3e8cbc",
+      "range": {
+        "startLine": 723,
+        "startChar": 22,
+        "endLine": 723,
+        "endChar": 27
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "649f2ec9_0d33b558",
         "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
         "patchSetId": 2
@@ -285,6 +549,30 @@
       "writtenOn": "2024-10-08T17:10:37Z",
       "side": 1,
       "message": "Should be wrapped into `EXPECT_NO_FATAL_FAILURE`.",
+      "range": {
+        "startLine": 756,
+        "startChar": 8,
+        "endLine": 756,
+        "endChar": 26
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e207cb2_4a16dd21",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "649f2ec9_0d33b558",
       "range": {
         "startLine": 756,
         "startChar": 8,
@@ -308,6 +596,30 @@
       "writtenOn": "2024-10-08T17:10:37Z",
       "side": 1,
       "message": "I think it makes sense to redefine `CleanUp` in this test fixture class so that it clears `mLimiterConfigList` and then calls `CleanUp` from base class.",
+      "range": {
+        "startLine": 757,
+        "startChar": 0,
+        "endLine": 758,
+        "endChar": 18
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a50c9ca6_725d20ba",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 758,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-15T10:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43457290_747b705e",
       "range": {
         "startLine": 757,
         "startChar": 0,
