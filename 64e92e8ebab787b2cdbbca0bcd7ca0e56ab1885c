@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d31f97f8_c889d1e1",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-15T16:27:44Z",
+      "side": 1,
+      "message": "What I was asking is whether `kFrameCount \u003d\u003d 1 * kSamplingFrequency` where `1` is \"1 second\".",
+      "parentUuid": "5580a138_a4b95330",
+      "range": {
+        "startLine": 140,
+        "startChar": 39,
+        "endLine": 140,
+        "endChar": 44
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b9c5474_10f4705a",
         "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
         "patchSetId": 2
@@ -297,6 +321,30 @@
       "side": 1,
       "message": "Added a test to check the limiter ```enable``` parameter functionality.",
       "parentUuid": "b7a92297_3eee8117",
+      "range": {
+        "startLine": 664,
+        "startChar": 27,
+        "endLine": 664,
+        "endChar": 67
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "171371de_b81bf8e1",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-15T16:27:44Z",
+      "side": 1,
+      "message": "What I mean is that `enabled` should not be among the parameters. When we are testing combinations of inputs, processing should always be enabled. And separately, we should have tests that check for each parameter that with processing disabled, the output is the same as input.\n\nIt\u0027s just to avoid generating too many test instances with processing being disabled that do not add anything new and only waste resources.",
+      "parentUuid": "363c604a_a31cd33c",
       "range": {
         "startLine": 664,
         "startChar": 27,
