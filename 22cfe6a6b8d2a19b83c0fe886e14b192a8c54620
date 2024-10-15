@@ -159,6 +159,24 @@
       "parentUuid": "a4a06d16_0f1bdfe7",
       "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec599bb7_1daa21fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1942180
+      },
+      "writtenOn": "2024-10-15T20:56:51Z",
+      "side": 1,
+      "message": "Sorry, by dropped I meant he gave his +2.\n\nI\u0027m not a Googler so I don\u0027t have the ability to provide a +2, +1 is the only CR available to me.\n\nWould you still want me to create an issue on the public issue tracker or leave it to another Googler to create an internal one?",
+      "parentUuid": "b4c7efd6_1b45cf6d",
+      "revId": "22cfe6a6b8d2a19b83c0fe886e14b192a8c54620",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
