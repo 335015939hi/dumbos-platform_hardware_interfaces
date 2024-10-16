@@ -184,7 +184,9 @@ ErrMsgOr<std::vector<BccEntryData>> verifyProductionProtectedData(
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyFactoryCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
         IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
-        const std::vector<uint8_t>& challenge, bool allowDegenerate = true);
+        const std::vector<uint8_t>& challenge, bool allowDegenerate = true,
+        bool requireUdsCerts = false);
+
 /**
  * Verify the CSR as if the device is a final production sample.
  */
