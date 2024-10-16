@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51a477ab_3d623a61",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-16T07:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdeb530f_20916342",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5365f2d3_8abac5b5",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-10-16T01:40:43Z",
       "side": 1,
       "message": "`initialRxCredits`, `initialTxCredits`",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 19
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ebac4b2_752d136e",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-16T07:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5365f2d3_8abac5b5",
       "range": {
         "startLine": 62,
         "startChar": 8,
@@ -150,6 +198,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1457273_518bc142",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/ProtocolProperties.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-16T07:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8285270a_f99dd08a",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c978597_4aa2eeaa",
@@ -167,6 +239,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d30e4c9_a97b49f1",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/ProtocolProperties.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-16T07:07:01Z",
+      "side": 1,
+      "message": "You\u0027re right. Done.",
+      "parentUuid": "9c978597_4aa2eeaa",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f874d76a_1ca095a8",
@@ -180,6 +270,24 @@
       "writtenOn": "2024-10-16T01:40:43Z",
       "side": 1,
       "message": "The additional EndPointInfo type seems superfluous, we could just inline the hubId, appId.",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40505714_c4320e93",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-16T07:07:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f874d76a_1ca095a8",
       "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -203,6 +311,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3bb79c48_66108be2",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketProperties.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-16T07:07:01Z",
+      "side": 1,
+      "message": "Do we want to remove all data path options coming from Android API?",
+      "parentUuid": "50c36e5a_f77884a1",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9edee127_8f82e13d",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketProperties.aidl",
         "patchSetId": 6
@@ -214,6 +340,24 @@
       "writtenOn": "2024-10-16T01:40:43Z",
       "side": 1,
       "message": "I don\u0027t expect that the number of protocol will increase much in the future.\nIt might make sense to inline the properties to simplify the API:\n\n```\n// say \nLeCocCapabilities le_coc_capabilities;\n```",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87a07a12_38b0938f",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketProperties.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-16T07:07:01Z",
+      "side": 1,
+      "message": "Agreed. Done.",
+      "parentUuid": "9edee127_8f82e13d",
       "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -231,6 +375,30 @@
       "writtenOn": "2024-10-16T01:40:43Z",
       "side": 1,
       "message": "The 16 byte uuid is a bit overkill, should we use a long value instead ?\nDo we actually use the full range of values here ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd79c25b_575c7a46",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/Uuid.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-16T07:07:01Z",
+      "side": 1,
+      "message": "Agreed. We can try to generate random long value until the existing connection doesn\u0027t have same value when a new connection is created. Done.",
+      "parentUuid": "8f2766e9_73b82b3a",
       "range": {
         "startLine": 21,
         "startChar": 2,
