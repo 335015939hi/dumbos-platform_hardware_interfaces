@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae5b0144_aa0e9e69",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-10-16T18:48:31Z",
+      "side": 1,
+      "message": "Pro-tip: add a line like this to auto-link CLs to bugs:\n\n`Bug: 123456789`",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 6
+      },
+      "revId": "cb568acbe2cf1d1b5c6ef37788b66281722bb067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6b642744_1a6f32dd",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
