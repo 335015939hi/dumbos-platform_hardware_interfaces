@@ -85,7 +85,23 @@ class BootControlClientAidl final : public BootControlClient {
         }
     }
 
-    void onBootControlServiceDied() { LOG(ERROR) << "boot control service AIDL died"; }
+    void onBootControlServiceDied() {
+        LOG(ERROR) << "boot control service AIDL died. Attempting to reconnect...";
+        const auto instance_name =
+                std::string(::aidl::android::hardware::boot::IBootControl::descriptor) + "/default";
+        if (AServiceManager_isDeclared(instance_name.c_str())) {
+            auto module_ = ::aidl::android::hardware::boot::IBootControl::fromBinder(
+                    ndk::SpAIBinder(AServiceManager_waitForService(instance_name.c_str())));
+            if (module_ == nullptr) {
+                LOG(ERROR) << "AIDL " << instance_name
+                           << " is declared but waitForService returned nullptr when trying to "
+                              "reconnect boot control service";
+            }
+            LOG(INFO) << "Reconnected to AIDL version of IBootControl";
+        } else {
+            LOG(ERROR) << "Failed to get service manager for: " << instance_name;
+        }
+    }
 
     int32_t GetNumSlots() const override {
         int32_t ret = -1;
