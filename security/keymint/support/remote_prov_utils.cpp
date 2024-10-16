@@ -846,15 +846,15 @@ ErrMsgOr<bytevec> validateCertChain(const cppbor::Array& chain) {
     return rawPubKey;
 }
 
-std::string validateUdsCerts(const cppbor::Map& udsCerts, const bytevec& udsCoseKeyBytes) {
+std::optional<std::string> validateUdsCerts(const cppbor::Map& udsCerts,
+                                            const bytevec& udsCoseKeyBytes) {
     for (const auto& [signerName, udsCertChain] : udsCerts) {
         if (!signerName || !signerName->asTstr()) {
             return "Signer Name must be a Tstr.";
         }
         if (!udsCertChain || !udsCertChain->asArray()) {
             return "UDS certificate chain must be an Array.";
-        }
-        if (udsCertChain->asArray()->size() < 2) {
+        } else if (udsCertChain->asArray()->size() < 2) {
             return "UDS certificate chain must have at least two entries: root and leaf.";
         }
 
@@ -863,8 +863,9 @@ std::string validateUdsCerts(const cppbor::Map& udsCerts, const bytevec& udsCose
             return leafPubKey.message();
         }
         auto coseKey = CoseKey::parse(udsCoseKeyBytes);
-        if (!coseKey) return coseKey.moveMessage();
-
+        if (!coseKey) {
+            return coseKey.moveMessage();
+        }
         auto curve = coseKey->getIntValue(CoseKey::CURVE);
         if (!curve) {
             return "CoseKey must contain curve.";
@@ -872,7 +873,9 @@ std::string validateUdsCerts(const cppbor::Map& udsCerts, const bytevec& udsCose
         bytevec udsPub;
         if (curve == CoseKeyCurve::P256 || curve == CoseKeyCurve::P384) {
             auto pubKey = coseKey->getEcPublicKey();
-            if (!pubKey) return pubKey.moveMessage();
+            if (!pubKey) {
+                return pubKey.moveMessage();
+            }
             // convert public key to uncompressed form by prepending 0x04 at begin.
             pubKey->insert(pubKey->begin(), 0x04);
             udsPub = pubKey.moveValue();
@@ -889,7 +892,7 @@ std::string validateUdsCerts(const cppbor::Map& udsCerts, const bytevec& udsCose
             return "Leaf public key in UDS certificate chain doesn't match UDS public key.";
         }
     }
-    return "";
+    return std::nullopt;
 }
 
 ErrMsgOr<std::unique_ptr<cppbor::Array>> parseAndValidateCsrPayload(
@@ -1004,15 +1007,14 @@ ErrMsgOr<hwtrust::DiceChain::Kind> getDiceChainKind() {
 ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t>& request,
                                                        const std::vector<uint8_t>& challenge,
                                                        bool allowAnyMode = false,
-                                                       bool allowDegenerate = true) {
+                                                       bool allowDegenerate = true,
+                                                       bool requireUdsCerts = false) {
     auto [parsedRequest, _, csrErrMsg] = cppbor::parse(request);
     if (!parsedRequest) {
         return csrErrMsg;
-    }
-    if (!parsedRequest->asArray()) {
+    } else if (!parsedRequest->asArray()) {
         return "AuthenticatedRequest is not a CBOR array.";
-    }
-    if (parsedRequest->asArray()->size() != 4U) {
+    } else if (parsedRequest->asArray()->size() != 4U) {
         return "AuthenticatedRequest must contain version, UDS certificates, DICE chain, and "
                "signed data. However, the parsed AuthenticatedRequest has " +
                std::to_string(parsedRequest->asArray()->size()) + " entries.";
@@ -1026,14 +1028,27 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
     if (!version || version->value() != 1U) {
         return "AuthenticatedRequest version must be an unsigned integer and must be equal to 1.";
     }
+
     if (!udsCerts) {
-        return "AuthenticatedRequest UdsCerts must be an Map.";
+        return "AuthenticatedRequest UdsCerts must be a Map.";
+    } else if (requireUdsCerts && udsCerts->size() == 0) {
+        return "AuthenticatedRequest UdsCerts must not be empty.";
     }
+
     if (!diceCertChain) {
         return "AuthenticatedRequest DiceCertChain must be an Array.";
+    } else if (diceCertChain->size() == 0) {
+        return "AuthenticatedRequest DiceCertChain must not be empty.";
     }
+
     if (!signedData) {
         return "AuthenticatedRequest SignedData must be an Array.";
+    }
+
+    auto udsPub = diceCertChain->get(0)->asMap()->encode();
+    auto error = validateUdsCerts(*udsCerts, udsPub);
+    if (error) {
+        return *error;
     }
 
     // DICE chain is [ pubkey, + DiceChainEntry ].
@@ -1045,17 +1060,12 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
     auto diceContents = validateBcc(diceCertChain, *diceChainKind, allowAnyMode, allowDegenerate);
     if (!diceContents) {
         return diceContents.message() + "\n" + prettyPrint(diceCertChain);
+    } else if (diceContents->empty()) {
+        return "Authenticated Request DiceContents must not be empty.";
     }
 
-    auto udsPub = diceCertChain->get(0)->asMap()->encode();
     auto& kmDiceKey = diceContents->back().pubKey;
-
-    auto error = validateUdsCerts(*udsCerts, udsPub);
-    if (!error.empty()) {
-        return error;
-    }
-
-    auto signedPayload = verifyAndParseCoseSign1(signedData, kmDiceKey, {} /* aad */);
+    auto signedPayload = verifyAndParseCoseSign1(signedData, kmDiceKey, /*aad=*/{});
     if (!signedPayload) {
         return signedPayload.message();
     }
@@ -1073,7 +1083,8 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(const cppbor::Array& keysToSi
                                                    IRemotelyProvisionedComponent* provisionable,
                                                    const std::vector<uint8_t>& challenge,
                                                    bool isFactory, bool allowAnyMode = false,
-                                                   bool allowDegenerate = true) {
+                                                   bool allowDegenerate = true,
+                                                   bool requireUdsCerts = false) {
     RpcHardwareInfo info;
     provisionable->getHardwareInfo(&info);
     if (info.versionNumber != 3) {
@@ -1081,8 +1092,8 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(const cppbor::Array& keysToSi
                ") does not match expected version (3).";
     }
 
-    auto csrPayload =
-            parseAndValidateAuthenticatedRequest(csr, challenge, allowAnyMode, allowDegenerate);
+    auto csrPayload = parseAndValidateAuthenticatedRequest(csr, challenge, allowAnyMode,
+                                                           allowDegenerate, requireUdsCerts);
     if (!csrPayload) {
         return csrPayload.message();
     }
@@ -1093,9 +1104,9 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(const cppbor::Array& keysToSi
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyFactoryCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
         IRemotelyProvisionedComponent* provisionable, const std::vector<uint8_t>& challenge,
-        bool allowDegenerate) {
+        bool allowDegenerate, bool requireUdsCerts) {
     return verifyCsr(keysToSign, csr, provisionable, challenge, /*isFactory=*/true,
-                     /*allowAnyMode=*/false, allowDegenerate);
+                     /*allowAnyMode=*/false, allowDegenerate, requireUdsCerts);
 }
 
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
