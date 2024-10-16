@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bb404f4_a1b634e8",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/EventType.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T15:48:41Z",
+      "side": 1,
+      "message": "Can you document the purpose for each event ?\nCLOSE_REQUEST is clear enough but the other events are ambiguous.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f880b27a_52e7d32a",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocket.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T15:48:41Z",
+      "side": 1,
+      "message": "Return only one element for now, for the hardware path.",
+      "range": {
+        "startLine": 40,
+        "startChar": 14,
+        "endLine": 40,
+        "endChar": 32
+      },
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "379663db_0d20da36",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T15:48:41Z",
+      "side": 1,
+      "message": "Given the number of events, you should implement one callback per event, e.g.\n\n```\n// Request the host stack to close the selected socket.\nvoid closeSocket();\n```",
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88b69168_97f2a480",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/ProtocolChannelInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T15:48:41Z",
+      "side": 1,
+      "message": "ChannelInfo ? Not sure that adding Protocol adds any information here;",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6958721c_534c4565",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T15:48:41Z",
+      "side": 1,
+      "message": "Please rephrase to make it more explicit that this is the handle used to refer to the socket, e.g.\n\n\u003e Identifier assigned to the socket by the host stack. \n\u003e Used to uniquely identify the socket in other callbacks and method invocations.",
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7181270f_df2d3050",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketProperties.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T15:48:41Z",
+      "side": 1,
+      "message": "SocketCapabilities",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
