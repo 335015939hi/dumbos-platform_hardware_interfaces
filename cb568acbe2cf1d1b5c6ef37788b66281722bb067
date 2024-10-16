@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbc50a7e_22231bb8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-10-16T18:47:59Z",
+      "side": 1,
+      "message": "Please be more descriptive\n\nI\u0027m not quite sure what \"returning appropriately\" even means :) (still reading).",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "cb568acbe2cf1d1b5c6ef37788b66281722bb067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b642744_1a6f32dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-10-16T18:47:59Z",
+      "side": 1,
+      "message": "A unit test would be nice 😊",
+      "revId": "cb568acbe2cf1d1b5c6ef37788b66281722bb067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ae54f63_635dc2d1",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-10-16T18:47:59Z",
+      "side": 1,
+      "message": "This flag really means \"require UDS certs\".\n\nThe UDS is sort of an intrinsic property of DICE, so it\u0027s always there.",
+      "range": {
+        "startLine": 1008,
+        "startChar": 60,
+        "endLine": 1008,
+        "endChar": 70
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "47d6b8bf_c7f719fb",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 1008,
+                "startChar": 0,
+                "endLine": 1009,
+                "endChar": 0
+              },
+              "replacement": "                                                       bool requireUdsCerts \u003d false) {\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 1031,
+                "startChar": 0,
+                "endLine": 1032,
+                "endChar": 0
+              },
+              "replacement": "    } else if (requireUdsCerts \u0026\u0026 udsCerts-\u003esize() \u003d\u003d 0) {\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 1081,
+                "startChar": 0,
+                "endLine": 1082,
+                "endChar": 0
+              },
+              "replacement": "                                                   bool allowDegenerate \u003d true,\n                                                   bool requireUdsCerts \u003d false) {\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 1090,
+                "startChar": 0,
+                "endLine": 1091,
+                "endChar": 0
+              },
+              "replacement": "            parseAndValidateAuthenticatedRequest(csr, challenge, allowAnyMode, allowDegenerate,\n                                                 requireUdsCerts);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 1101,
+                "startChar": 0,
+                "endLine": 1102,
+                "endChar": 0
+              },
+              "replacement": "        bool allowDegenerate, bool requireUdsCerts) {\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 1103,
+                "startChar": 0,
+                "endLine": 1104,
+                "endChar": 0
+              },
+              "replacement": "                     /*allowAnyMode\u003d*/false, allowDegenerate, requireUdsCerts);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "cb568acbe2cf1d1b5c6ef37788b66281722bb067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
