@@ -1004,15 +1004,14 @@ ErrMsgOr<hwtrust::DiceChain::Kind> getDiceChainKind() {
 ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t>& request,
                                                        const std::vector<uint8_t>& challenge,
                                                        bool allowAnyMode = false,
-                                                       bool allowDegenerate = true) {
+                                                       bool allowDegenerate = true,
+                                                       bool requireUds = false) {
     auto [parsedRequest, _, csrErrMsg] = cppbor::parse(request);
     if (!parsedRequest) {
         return csrErrMsg;
-    }
-    if (!parsedRequest->asArray()) {
+    } else if (!parsedRequest->asArray()) {
         return "AuthenticatedRequest is not a CBOR array.";
-    }
-    if (parsedRequest->asArray()->size() != 4U) {
+    } else if (parsedRequest->asArray()->size() != 4U) {
         return "AuthenticatedRequest must contain version, UDS certificates, DICE chain, and "
                "signed data. However, the parsed AuthenticatedRequest has " +
                std::to_string(parsedRequest->asArray()->size()) + " entries.";
@@ -1026,14 +1025,27 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
     if (!version || version->value() != 1U) {
         return "AuthenticatedRequest version must be an unsigned integer and must be equal to 1.";
     }
+
     if (!udsCerts) {
-        return "AuthenticatedRequest UdsCerts must be an Map.";
+        return "AuthenticatedRequest UdsCerts must be a Map.";
+    } else if (requireUds && udsCerts->size() == 0) {
+        return "AuthenticatedRequest UdsCerts must not be empty.";
     }
+
     if (!diceCertChain) {
         return "AuthenticatedRequest DiceCertChain must be an Array.";
+    } else if (diceCertChain->size() == 0) {
+        return "AuthenticatedRequest DiceCertChain must not be empty.";
     }
+
     if (!signedData) {
         return "AuthenticatedRequest SignedData must be an Array.";
+    }
+
+    auto udsPub = diceCertChain->get(0)->asMap()->encode();
+    auto error = validateUdsCerts(*udsCerts, udsPub);
+    if (!error.empty()) {
+        return error;
     }
 
     // DICE chain is [ pubkey, + DiceChainEntry ].
@@ -1047,15 +1059,8 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
         return diceContents.message() + "\n" + prettyPrint(diceCertChain);
     }
 
-    auto udsPub = diceCertChain->get(0)->asMap()->encode();
     auto& kmDiceKey = diceContents->back().pubKey;
-
-    auto error = validateUdsCerts(*udsCerts, udsPub);
-    if (!error.empty()) {
-        return error;
-    }
-
-    auto signedPayload = verifyAndParseCoseSign1(signedData, kmDiceKey, {} /* aad */);
+    auto signedPayload = verifyAndParseCoseSign1(signedData, kmDiceKey, /*aad=*/{});
     if (!signedPayload) {
         return signedPayload.message();
     }
@@ -1073,7 +1078,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(const cppbor::Array& keysToSi
                                                    IRemotelyProvisionedComponent* provisionable,
                                                    const std::vector<uint8_t>& challenge,
                                                    bool isFactory, bool allowAnyMode = false,
-                                                   bool allowDegenerate = true) {
+                                                   bool allowDegenerate = true, bool requireUds = false) {
     RpcHardwareInfo info;
     provisionable->getHardwareInfo(&info);
     if (info.versionNumber != 3) {
@@ -1082,7 +1087,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(const cppbor::Array& keysToSi
     }
 
     auto csrPayload =
-            parseAndValidateAuthenticatedRequest(csr, challenge, allowAnyMode, allowDegenerate);
+            parseAndValidateAuthenticatedRequest(csr, challenge, allowAnyMode, allowDegenerate, requireUds);
     if (!csrPayload) {
         return csrPayload.message();
     }
@@ -1093,9 +1098,9 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(const cppbor::Array& keysToSi
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyFactoryCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
         IRemotelyProvisionedComponent* provisionable, const std::vector<uint8_t>& challenge,
-        bool allowDegenerate) {
+        bool allowDegenerate, bool requireUds) {
     return verifyCsr(keysToSign, csr, provisionable, challenge, /*isFactory=*/true,
-                     /*allowAnyMode=*/false, allowDegenerate);
+                     /*allowAnyMode=*/false, allowDegenerate, requireUds);
 }
 
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
