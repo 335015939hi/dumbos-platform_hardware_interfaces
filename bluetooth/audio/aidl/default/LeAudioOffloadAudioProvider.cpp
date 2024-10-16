@@ -487,11 +487,11 @@ std::optional<AseDirectionConfiguration> findValidMonoConfig(
 std::vector<AseDirectionConfiguration> getValidConfigurationsFromAllocation(
     int req_allocation_bitmask,
     std::vector<AseDirectionConfiguration>& valid_direction_configurations,
-    bool is_exact) {
+    bool isExact) {
   // Prefer the same allocation_bitmask
   int channel_count = getCountFromBitmask(req_allocation_bitmask);
 
-  if (is_exact) {
+  if (isExact) {
     for (auto& cfg : valid_direction_configurations) {
       int cfg_bitmask =
           getLeAudioAseConfigurationAllocationBitmask(cfg.aseConfiguration);
@@ -704,16 +704,34 @@ LeAudioOffloadAudioProvider::matchWithRequirement(
     std::vector<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>&
         matched_ase_configuration_settings,
     const IBluetoothAudioProvider::LeAudioConfigurationRequirement& requirement,
-    bool isMatchContext) {
+    bool isMatchContext, bool isMatchFlags) {
   LOG(INFO) << __func__ << ": Trying to match for the requirement "
-            << requirement.toString() << ", match context = " << isMatchContext;
+            << requirement.toString() << ", match context = " << isMatchContext
+            << ", match flags = " << isMatchFlags;
+  // Don't have to match with flag if requirements don't have flags.
+  auto requirement_flags_bitmask = 0;
+  if (isMatchFlags) {
+    if (!requirement.flags.has_value()) return std::nullopt;
+    requirement_flags_bitmask = requirement.flags.value().bitmask;
+  }
+
   for (auto& setting : matched_ase_configuration_settings) {
-    // Try to match context in metadata.
+    // Try to match context.
     if (isMatchContext) {
       if ((setting.audioContext.bitmask & requirement.audioContext.bitmask) !=
           requirement.audioContext.bitmask)
         continue;
       LOG(DEBUG) << __func__ << ": Setting with matched context: "
+                 << getSettingOutputString(setting);
+    }
+
+    // Try to match configuration flags
+    if (isMatchFlags) {
+      if (!setting.flags.has_value()) continue;
+      if ((setting.flags.value().bitmask & requirement_flags_bitmask) !=
+          requirement_flags_bitmask)
+        continue;
+      LOG(DEBUG) << __func__ << ": Setting with matched flags: "
                  << getSettingOutputString(setting);
     }
 
@@ -807,32 +825,51 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::getLeAudioAseConfiguration(
     // If we cannot match, return an empty result.
 
     // Matching priority list:
-    // Preferred context - exact match with allocation
-    // Any context - exact match with allocation
+    // 1. Matched configuration flags, i.e. for asymmetric requirement.
+    // - Preferred context - exact match with allocation + flags
+    // - Any context - exact match with allocation + flags
+    // 2. Don't have to match configuration flags:
+    // - Preferred context - exact match with allocation
+    // - Any context - exact match with allocation
 
-    auto matched_setting_with_context = matchWithRequirement(
-        matched_ase_configuration_settings, requirement, true);
-    if (matched_setting_with_context.has_value()) {
-      result.push_back(matched_setting_with_context.value());
-    } else {
-      auto matched_setting = matchWithRequirement(
-          matched_ase_configuration_settings, requirement, false);
-      if (matched_setting.has_value()) {
-        result.push_back(matched_setting.value());
-      } else {
-        // Cannot find a match for this requirement
-        // Immediately return
-        LOG(ERROR)
-            << __func__
-            << ": Cannot find any match for this requirement, exitting...";
-        result.clear();
-        *_aidl_return = result;
-        return ndk::ScopedAStatus::ok();
+    std::vector<
+        std::optional<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>>
+        priority_matched_settings = {
+            matchWithRequirement(matched_ase_configuration_settings,
+                                 requirement, true, true),
+            matchWithRequirement(matched_ase_configuration_settings,
+                                 requirement, false, true),
+            matchWithRequirement(matched_ase_configuration_settings,
+                                 requirement, true, false),
+            matchWithRequirement(matched_ase_configuration_settings,
+                                 requirement, false, false),
+
+        };
+    std::optional<IBluetoothAudioProvider::LeAudioAseConfigurationSetting>
+        matched_setting = std::nullopt;
+    for (auto& setting : priority_matched_settings)
+      if (setting.has_value()) {
+        matched_setting = setting;
+        break;
       }
+    if (matched_setting.has_value()) {
+      result.push_back(matched_setting.value());
+    } else {
+      // Cannot find a match for this requirement
+      // Immediately return
+      LOG(ERROR) << __func__
+                 << ": Cannot find any match for this requirement, exitting...";
+      result.clear();
+      *_aidl_return = result;
+      return ndk::ScopedAStatus::ok();
     }
   }
 
-  LOG(INFO) << __func__ << ": Found matches for all requirements!";
+  LOG(INFO) << __func__
+            << ": Found matches for all requirements, choosen settings:";
+  for (auto& setting : result) {
+    LOG(INFO) << __func__ << ": " << getSettingOutputString(setting);
+  }
   *_aidl_return = result;
   return ndk::ScopedAStatus::ok();
 };
@@ -864,7 +901,13 @@ LeAudioOffloadAudioProvider::getDirectionQosConfiguration(
     const IBluetoothAudioProvider::LeAudioAseQosConfigurationRequirement&
         qosRequirement,
     std::vector<LeAudioAseConfigurationSetting>& ase_configuration_settings,
-    bool is_exact) {
+    bool isExact, bool isMatchFlags) {
+  auto requirement_flags_bitmask = 0;
+  if (isMatchFlags) {
+    if (!qosRequirement.flags.has_value()) return std::nullopt;
+    requirement_flags_bitmask = qosRequirement.flags.value().bitmask;
+  }
+
   std::optional<AseQosDirectionRequirement> direction_qos_requirement =
       std::nullopt;
 
@@ -880,9 +923,18 @@ LeAudioOffloadAudioProvider::getDirectionQosConfiguration(
     if ((setting.audioContext.bitmask & qosRequirement.audioContext.bitmask) !=
         qosRequirement.audioContext.bitmask)
       continue;
+    LOG(DEBUG) << __func__ << ": Setting with matched context: "
+               << getSettingOutputString(setting);
 
     // Match configuration flags
-    // Currently configuration flags are not populated, ignore.
+    if (isMatchFlags) {
+      if (!setting.flags.has_value()) continue;
+      if ((setting.flags.value().bitmask & requirement_flags_bitmask) !=
+          requirement_flags_bitmask)
+        continue;
+      LOG(DEBUG) << __func__ << ": Setting with matched flags: "
+                 << getSettingOutputString(setting);
+    }
 
     // Get a list of all matched AseDirectionConfiguration
     // for the input direction
@@ -931,7 +983,7 @@ LeAudioOffloadAudioProvider::getDirectionQosConfiguration(
         direction_qos_requirement.value().aseConfiguration);
     // Get the best matching config based on channel allocation
     auto req_valid_configs = getValidConfigurationsFromAllocation(
-        qos_allocation_bitmask, temp, is_exact);
+        qos_allocation_bitmask, temp, isExact);
     if (req_valid_configs.empty()) {
       LOG(WARNING) << __func__
                    << ": Cannot find matching allocation for bitmask "
@@ -962,29 +1014,62 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::getLeAudioAseQosConfiguration(
     if (!isValidQosRequirement(in_qosRequirement.sinkAseQosRequirement.value()))
       return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     {
-      // Try exact match first
-      result.sinkQosConfiguration =
-          getDirectionQosConfiguration(kLeAudioDirectionSink, in_qosRequirement,
-                                       ase_configuration_settings, true);
-      if (!result.sinkQosConfiguration.has_value()) {
-        result.sinkQosConfiguration = getDirectionQosConfiguration(
-            kLeAudioDirectionSink, in_qosRequirement,
-            ase_configuration_settings, false);
-      }
+      std::vector<
+          std::optional<IBluetoothAudioProvider::LeAudioAseQosConfiguration>>
+          priority_matched_qos_configuration = {
+              getDirectionQosConfiguration(
+                  kLeAudioDirectionSink, in_qosRequirement,
+                  ase_configuration_settings, true, true),
+              getDirectionQosConfiguration(
+                  kLeAudioDirectionSink, in_qosRequirement,
+                  ase_configuration_settings, true, false),
+              getDirectionQosConfiguration(
+                  kLeAudioDirectionSink, in_qosRequirement,
+                  ase_configuration_settings, true, false),
+              getDirectionQosConfiguration(
+                  kLeAudioDirectionSink, in_qosRequirement,
+                  ase_configuration_settings, false, false),
+          };
+
+      std::optional<IBluetoothAudioProvider::LeAudioAseQosConfiguration>
+          matched_qos_configuration = std::nullopt;
+      for (auto& setting : priority_matched_qos_configuration)
+        if (setting.has_value()) {
+          matched_qos_configuration = setting;
+          break;
+        }
+      result.sinkQosConfiguration = matched_qos_configuration;
     }
   }
   if (in_qosRequirement.sourceAseQosRequirement.has_value()) {
     if (!isValidQosRequirement(
             in_qosRequirement.sourceAseQosRequirement.value()))
       return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
-    result.sourceQosConfiguration =
-        getDirectionQosConfiguration(kLeAudioDirectionSource, in_qosRequirement,
-                                     ase_configuration_settings, true);
-    if (!result.sourceQosConfiguration.has_value()) {
-      result.sourceQosConfiguration = getDirectionQosConfiguration(
-          kLeAudioDirectionSource, in_qosRequirement,
-          ase_configuration_settings, false);
-    }
+    std::vector<
+        std::optional<IBluetoothAudioProvider::LeAudioAseQosConfiguration>>
+        priority_matched_qos_configuration = {
+            getDirectionQosConfiguration(
+                kLeAudioDirectionSource, in_qosRequirement,
+                ase_configuration_settings, true, true),
+            getDirectionQosConfiguration(
+                kLeAudioDirectionSource, in_qosRequirement,
+                ase_configuration_settings, true, false),
+            getDirectionQosConfiguration(
+                kLeAudioDirectionSource, in_qosRequirement,
+                ase_configuration_settings, false, true),
+            getDirectionQosConfiguration(
+                kLeAudioDirectionSource, in_qosRequirement,
+                ase_configuration_settings, false, false),
+        };
+
+    std::optional<IBluetoothAudioProvider::LeAudioAseQosConfiguration>
+        matched_qos_configuration = std::nullopt;
+    for (auto& setting : priority_matched_qos_configuration)
+      if (setting.has_value()) {
+        matched_qos_configuration = setting;
+        break;
+      }
+    result.sourceQosConfiguration = matched_qos_configuration;
   }
 
   *_aidl_return = result;
