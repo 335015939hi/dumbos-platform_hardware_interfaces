@@ -79,13 +79,30 @@ class BootControlClientAidl final : public BootControlClient {
 
     BootControlVersion GetVersion() const override { return BootControlVersion::BOOTCTL_AIDL; }
 
-    ~BootControlClientAidl() {
-        if (boot_control_death_recipient) {
-            AIBinder_unlinkToDeath(module_->asBinder().get(), boot_control_death_recipient, this);
+    void onBootControlServiceDied() {
+        LOG(ERROR) << "boot control service AIDL died. Attempting to reconnect...";
+        const auto instance_name =
+                std::string(::aidl::android::hardware::boot::IBootControl::descriptor) + "/default";
+        if (AServiceManager_isDeclared(instance_name.c_str())) {
+            module_ = ::aidl::android::hardware::boot::IBootControl::fromBinder(
+                    ndk::SpAIBinder(AServiceManager_waitForService(instance_name.c_str())));
+            if (module_ == nullptr) {
+                LOG(ERROR) << "AIDL " << instance_name
+                           << " is declared but waitForService returned nullptr when trying to "
+                              "reconnect boot control service";
+            }
+            LOG(INFO) << "Reconnected to AIDL version of IBootControl";
+            binder_status_t status = AIBinder_linkToDeath(module_->asBinder().get(),
+                                                          boot_control_death_recipient, this);
+            if (status != STATUS_OK) {
+                LOG(ERROR) << "Could not link to binder death";
+                return;
+            }
+
+        } else {
+            LOG(ERROR) << "Failed to get service manager for: " << instance_name;
         }
     }
-
-    void onBootControlServiceDied() { LOG(ERROR) << "boot control service AIDL died"; }
 
     int32_t GetNumSlots() const override {
         int32_t ret = -1;
@@ -95,6 +112,7 @@ class BootControlClientAidl final : public BootControlClient {
 
     int32_t GetCurrentSlot() const override {
         int32_t ret = -1;
+        LOG(INFO) << "daniel: boot control clinet get current slot";
         LOG_NDK_STATUS(module_->getCurrentSlot(&ret));
         return ret;
     }
@@ -179,7 +197,7 @@ class BootControlClientAidl final : public BootControlClient {
     }
 
   private:
-    const std::shared_ptr<IBootControl> module_;
+    std::shared_ptr<IBootControl> module_;
     AIBinder_DeathRecipient* boot_control_death_recipient;
     static void onBootControlServiceDied(void* client) {
         BootControlClientAidl* self = static_cast<BootControlClientAidl*>(client);
