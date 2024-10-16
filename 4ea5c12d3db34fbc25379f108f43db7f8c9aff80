@@ -1,0 +1,244 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2439b245_ca7e2dbe",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/EndPointInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "The naming should follow the IContextHub convention.\ni.e. `long contextHubId, long appId`\n\nDoes that make sense ?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdeb530f_20916342",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "`L2cap` is redundant.. `localCid` is enough.",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 21
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5365f2d3_8abac5b5",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "`initialRxCredits`, `initialTxCredits`",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 19
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fa5930e_db3ac066",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "You should mention the minimal value (23 for LE-U logical links).\nFrom the specification, the MTU is protocol specific. It might make more sense to let the application specify the value in full knowledge.\n\n(currently it seems to be fixed at the maximum value L2CAP_SDU_LENGTH_LE_MAX \u003d 0xffff)",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84c60006_6e44c853",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "It absolutely makes sense to have it here.\nCan you please include the documentation from the specification:\n\n\u003e Specifies the maximum PDU payload size (in octets) that the\n\u003e offloaded Bluetooth stack is capable of receiving on this channel. L2CAP\n\u003e implementations shall support a minimum MPS of 23 octets and may support\n\u003e an MPS up to 65533 octets.",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eb0ed4e_a3a1b73d",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "Should the initial credit count be 0 regardless of what the offload stack wants ?\n\n1. The credit count might depend on the protocol the socket is opened for, in which case this configuration will not help when multiple protocols are supported.\n\n2. Having initial credit set to 0 ensures no packets is exchanged until the MCU gets hold of the socket.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8285270a_f99dd08a",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/ProtocolProperties.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "Would rename to `xxxCapabilities`",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 29
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c978597_4aa2eeaa",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/ProtocolProperties.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "This type is not necessary as union in AIDL are already tagged unions.",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f874d76a_1ca095a8",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "The additional EndPointInfo type seems superfluous, we could just inline the hubId, appId.",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50c36e5a_f77884a1",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketProperties.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "You should leave it out until were are committed to implement the software offload path.",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9edee127_8f82e13d",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketProperties.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "I don\u0027t expect that the number of protocol will increase much in the future.\nIt might make sense to inline the properties to simplify the API:\n\n```\n// say \nLeCocCapabilities le_coc_capabilities;\n```",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f2766e9_73b82b3a",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/Uuid.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-16T01:40:43Z",
+      "side": 1,
+      "message": "The 16 byte uuid is a bit overkill, should we use a long value instead ?\nDo we actually use the full range of values here ?",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 18
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
