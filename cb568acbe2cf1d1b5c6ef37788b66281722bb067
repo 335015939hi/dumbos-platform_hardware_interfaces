@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0b69ff2_a885f07a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-17T16:53:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35eb03eb_bf6cb8c8",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 23
+      },
+      "revId": "cb568acbe2cf1d1b5c6ef37788b66281722bb067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae5b0144_aa0e9e69",
@@ -61,6 +85,30 @@
       "writtenOn": "2024-10-16T18:48:31Z",
       "side": 1,
       "message": "Pro-tip: add a line like this to auto-link CLs to bugs:\n\n`Bug: 123456789`",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 6
+      },
+      "revId": "cb568acbe2cf1d1b5c6ef37788b66281722bb067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8530a051_3919d5b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-17T16:53:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae5b0144_aa0e9e69",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -102,6 +150,24 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "6b642744_1a6f32dd",
+      "revId": "cb568acbe2cf1d1b5c6ef37788b66281722bb067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ea880fc_b6ca4482",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-17T16:53:06Z",
+      "side": 1,
+      "message": "Going to get on this.",
+      "parentUuid": "4f4e5c1d_43f9c798",
       "revId": "cb568acbe2cf1d1b5c6ef37788b66281722bb067",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -211,6 +277,30 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "5ae54f63_635dc2d1",
+      "range": {
+        "startLine": 1008,
+        "startChar": 60,
+        "endLine": 1008,
+        "endChar": 70
+      },
+      "revId": "cb568acbe2cf1d1b5c6ef37788b66281722bb067",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b004f929_bd40c269",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1008,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-17T16:53:06Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "f348bccc_2299e1ba",
       "range": {
         "startLine": 1008,
         "startChar": 60,
