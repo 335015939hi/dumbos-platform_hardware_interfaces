@@ -63,6 +63,30 @@
       },
       "revId": "106cd07ca1700df376aae5239fdb241dd07621b6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32ce3f13_d3329a34",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-10-17T14:20:05Z",
+      "side": 1,
+      "message": "Correction: \n\nFor randomly generated data with inputFrameCount \u003d 256 and capture size \u003d 256,\n\nNORMALIZED\nInput Range:[-0.5, 0.5] - Captured Data Range:[1, 245]\nInput Range:[-1,1]      - Captured Data Range:[1, 245]\n\nAS_PLAYED\nInput Range:[-0.5, 0.5] - Captured Data Range:[64, 187]\nInput Range:[-1,1]      - Captured Data Range:[1, 245]",
+      "parentUuid": "279a28c6_1a03d464",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 38
+      },
+      "revId": "106cd07ca1700df376aae5239fdb241dd07621b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
