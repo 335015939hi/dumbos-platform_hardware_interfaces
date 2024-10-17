@@ -16,6 +16,52 @@
       "message": "Thanks for the review. Updated CL and comments.",
       "revId": "6ae9de3fa8f9bb66216d59d3ace74811297cb022",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a56abcf_97aad348",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-17T18:50:22Z",
+      "side": 1,
+      "message": "Should open() return a status instead ?\nThe HAL can also invoke SocketCallback.closeRequest() if it is not able to handle the socket.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 81
+      },
+      "revId": "6ae9de3fa8f9bb66216d59d3ace74811297cb022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe27ee1b_5b83d4cc",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-17T18:50:22Z",
+      "side": 1,
+      "message": "Why does the socket offload HAL need to report the status of a close operation ?\nThe way I see it, the stack will notify the HAL when the socket is closed, but no further action / status is required from the HAL.",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 82
+      },
+      "revId": "6ae9de3fa8f9bb66216d59d3ace74811297cb022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
