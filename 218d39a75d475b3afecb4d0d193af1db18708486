@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04cfccc5_fb97340c",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/EventType.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bb404f4_a1b634e8",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f880b27a_52e7d32a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-10-16T15:48:41Z",
       "side": 1,
       "message": "Return only one element for now, for the hardware path.",
+      "range": {
+        "startLine": 40,
+        "startChar": 14,
+        "endLine": 40,
+        "endChar": 32
+      },
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d39b488_fa31aa4e",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocket.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f880b27a_52e7d32a",
       "range": {
         "startLine": 40,
         "startChar": 14,
@@ -64,6 +112,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14c1cde4_be3ae43e",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "379663db_0d20da36",
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88b69168_97f2a480",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-10-16T15:48:41Z",
       "side": 1,
       "message": "ChannelInfo ? Not sure that adding Protocol adds any information here;",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 25
+      },
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75a10255_25f81834",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/ProtocolChannelInfo.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88b69168_97f2a480",
       "range": {
         "startLine": 25,
         "startChar": 6,
@@ -104,6 +194,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1362b14_540604d4",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6958721c_534c4565",
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7181270f_df2d3050",
@@ -117,6 +225,30 @@
       "writtenOn": "2024-10-16T15:48:41Z",
       "side": 1,
       "message": "SocketCapabilities",
+      "range": {
+        "startLine": 26,
+        "startChar": 11,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "218d39a75d475b3afecb4d0d193af1db18708486",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd876a6b_99907955",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketProperties.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7181270f_df2d3050",
       "range": {
         "startLine": 26,
         "startChar": 11,

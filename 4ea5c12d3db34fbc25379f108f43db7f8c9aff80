@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b1a86f5_d6bba81c",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/EndPointInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "I moved the members to SocketContext. The current names in IContextHub is coupled with CHRE but we want to have general name.",
+      "parentUuid": "2439b245_ca7e2dbe",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdeb530f_20916342",
@@ -135,6 +159,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc0cd820_0211d4b2",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "Added document describing the specification and possible range. \nWhen offload stack/framework receives a packets, they allocate buffer and let offload app frees the buffer after picking up the packet. So, we need the configuration for stack.",
+      "parentUuid": "0fa5930e_db3ac066",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84c60006_6e44c853",
@@ -152,6 +194,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0a60fe1_a23bba79",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "For LE CoC, host stack is using MPS as LE ACL packet length. So, it seems we don\u0027t need to provide the configuration option. Removed MPS option.\n\n`uint16_t max_mps \u003d bluetooth::shim::GetController()-\u003eGetLeBufferSize().le_data_packet_length_;`",
+      "parentUuid": "84c60006_6e44c853",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9eb0ed4e_a3a1b73d",
@@ -165,6 +225,30 @@
       "writtenOn": "2024-10-16T01:40:43Z",
       "side": 1,
       "message": "Should the initial credit count be 0 regardless of what the offload stack wants ?\n\n1. The credit count might depend on the protocol the socket is opened for, in which case this configuration will not help when multiple protocols are supported.\n\n2. Having initial credit set to 0 ensures no packets is exchanged until the MCU gets hold of the socket.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e732b165_d59696c6",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "Updated description about specification. In spec, the value should be in range 0 to 65535. Credits must be set considering the buffer size to prevent the offload L2CAP layer receive buffer from overflowing. Setting credits per upper protocol can be complex to maintain while considering interoperability. The goal is to give enough credits to fit the memory at the beginning of the connection.",
+      "parentUuid": "9eb0ed4e_a3a1b73d",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -341,6 +425,24 @@
       "side": 1,
       "message": "We shouldn\u0027t be adding APIs that are yet unimplemented.\nAs long as it is possible to extend this interface later to include it back, it is better to remove it I think.",
       "parentUuid": "3bb79c48_66108be2",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58f0727c_e397b98f",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketProperties.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-17T18:19:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c123b79_7fba68eb",
       "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
