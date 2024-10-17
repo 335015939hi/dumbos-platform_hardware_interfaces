@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b2007ca8_df90fac0",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-17T17:30:30Z",
+      "side": 1,
+      "message": "I would suggest comparing energy as we do in other tests, use functions from  https://cs.android.com/android/platform/superproject/main/+/main:system/media/audio_utils/include/audio_utils/power.h for calculation. There is `audio_utils_compute_power_mono` which uses values as is and `audio_utils_compute_energy_mono` which normalizes values.",
+      "parentUuid": "6b79d58d_3c998fa7",
+      "revId": "106cd07ca1700df376aae5239fdb241dd07621b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac4370e9_eda254a1",
         "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
         "patchSetId": 1
@@ -79,6 +97,30 @@
       "side": 1,
       "message": "Correction: \n\nFor randomly generated data with inputFrameCount \u003d 256 and capture size \u003d 256,\n\nNORMALIZED\nInput Range:[-0.5, 0.5] - Captured Data Range:[1, 245]\nInput Range:[-1,1]      - Captured Data Range:[1, 245]\n\nAS_PLAYED\nInput Range:[-0.5, 0.5] - Captured Data Range:[64, 187]\nInput Range:[-1,1]      - Captured Data Range:[1, 245]",
       "parentUuid": "279a28c6_1a03d464",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 38
+      },
+      "revId": "106cd07ca1700df376aae5239fdb241dd07621b6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c69b968_64403f09",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-17T17:30:30Z",
+      "side": 1,
+      "message": "That makes sense to me. \"Normalized\" always normalizes to the whole range. Although, for some reason the maximum is `245` instead of `255`, and the minimum is `1` instead of `0`. For \"as played\", since the input range is 2 times smaller, we get a 2 times smaller interval for output values (245-1+1 \u003d 245 ~ 246 \u003d 2*(187-64+1))",
+      "parentUuid": "32ce3f13_d3329a34",
       "range": {
         "startLine": 230,
         "startChar": 0,
