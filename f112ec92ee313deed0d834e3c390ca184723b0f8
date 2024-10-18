@@ -33,6 +33,58 @@
       "message": "Hi Seth, friendly ping :) Could you please take a look at this cl and the [factory_tool] cl in the same topic? Thanks 🙏",
       "revId": "f112ec92ee313deed0d834e3c390ca184723b0f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4622f3d2_88ed1e7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-18T19:24:08Z",
+      "side": 1,
+      "message": "It looks like this might have already gone through, but I just had one question about \"avf\" and rkp VM. See the comment.",
+      "revId": "f112ec92ee313deed0d834e3c390ca184723b0f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13473e28_882daa9a",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-18T19:24:08Z",
+      "side": 1,
+      "message": "Is \"avf\" synonymous with rkp VM?",
+      "fixSuggestions": [
+        {
+          "fixId": "3dff7c76_73cba3b0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+              "range": {
+                "startLine": 94,
+                "startChar": 0,
+                "endLine": 95,
+                "endChar": 0
+              },
+              "replacement": "const std::string RKP_VM_INSTANCE_NAME \u003d\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f112ec92ee313deed0d834e3c390ca184723b0f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
