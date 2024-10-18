@@ -85,6 +85,24 @@
       ],
       "revId": "f112ec92ee313deed0d834e3c390ca184723b0f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e15ad77e_6d2dff55",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-10-18T19:29:17Z",
+      "side": 1,
+      "message": "\"it\u0027s complicated\", I\u0027ll send you a doc link\n\nAVF is the platform itself for running VMs.\n\nThe RKP VM is a special VM (running on AVF) that generates attested keys for \"client VMs\". So it\u0027s special in that we need to recognize it so we can provision certs to it.\n\n\"client VMs\" are running arbitrary \"stuff\" on microdroid.",
+      "parentUuid": "13473e28_882daa9a",
+      "revId": "f112ec92ee313deed0d834e3c390ca184723b0f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
