@@ -22,6 +22,30 @@
       },
       "revId": "647654260a7c9243b43afc1dc4ffe7251cbd10f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b318697e_fe35fe6e",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2024-10-18T20:28:26Z",
+      "side": 1,
+      "message": "Or alternatively make this a boolean if this is really a binary flag.",
+      "parentUuid": "c0169d65_c13c5d03",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 38
+      },
+      "revId": "647654260a7c9243b43afc1dc4ffe7251cbd10f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
