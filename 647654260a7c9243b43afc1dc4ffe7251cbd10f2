@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0169d65_c13c5d03",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-10-18T20:24:57Z",
+      "side": 1,
+      "message": "can we add a comment pointing to where we can find the acceptable values? (or maybe even better, define them in this interface as constants or enums)",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 38
+      },
+      "revId": "647654260a7c9243b43afc1dc4ffe7251cbd10f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
