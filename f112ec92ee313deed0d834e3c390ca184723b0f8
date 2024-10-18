@@ -16,6 +16,23 @@
       "message": "Hi Seth, PTAL",
       "revId": "f112ec92ee313deed0d834e3c390ca184723b0f8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb740281_d1b26bc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-10-18T09:55:42Z",
+      "side": 1,
+      "message": "Hi Seth, friendly ping :) Could you please take a look at this cl and the [factory_tool] cl in the same topic? Thanks 🙏",
+      "revId": "f112ec92ee313deed0d834e3c390ca184723b0f8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
