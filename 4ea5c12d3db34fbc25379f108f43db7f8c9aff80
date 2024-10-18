@@ -245,6 +245,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1d0321f1_326aee42",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1999105
+      },
+      "writtenOn": "2024-10-18T00:57:23Z",
+      "side": 1,
+      "message": "MCU needs the RX MTU to be in the 1kB to 2kB range.",
+      "parentUuid": "af548d9e_f561790a",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84c60006_6e44c853",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
         "patchSetId": 6
@@ -339,6 +357,30 @@
       "side": 1,
       "message": "If you give 0 initial credits that won\u0027t happen, the remote device will not be able to send any data until the offload l2cap has released credits. \n\nAre you talking about the possibility of the offload l2cap overflowing from nanoapp PDUs ? That value will not be able to help since it represents initial rx credits only.",
       "parentUuid": "e732b165_d59696c6",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14009ea1_c2325585",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1999105
+      },
+      "writtenOn": "2024-10-18T00:57:23Z",
+      "side": 1,
+      "message": "We want to set RX credits to a smaller value that (in combination with RX MTU) ensures that the remote device cannot exhaust the memory on the MCU.",
+      "parentUuid": "7575876a_4f6dba9d",
       "range": {
         "startLine": 33,
         "startChar": 0,
