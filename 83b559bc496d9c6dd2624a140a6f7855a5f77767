@@ -1,0 +1,252 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78db6cd0_19e4f749",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-10-18T08:54:19Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Check Contents: Please remove the trailing whitespace.\n\nAnalyzer Description: Validates that changes do not have prohibited expressions in them.\nOwner: ayeaye-team@google.com\n\nPlease remove the trailing whitespace.",
+      "range": {
+        "startLine": 9,
+        "startChar": 71,
+        "endLine": 9,
+        "endChar": 72
+      },
+      "revId": "83b559bc496d9c6dd2624a140a6f7855a5f77767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7a62cc9_cd2af35f",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-10-18T08:54:19Z",
+      "side": 1,
+      "message": "Nit: remove comma",
+      "range": {
+        "startLine": 132,
+        "startChar": 22,
+        "endLine": 132,
+        "endChar": 23
+      },
+      "revId": "83b559bc496d9c6dd2624a140a6f7855a5f77767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de5b6513_86aa266c",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-10-18T08:54:19Z",
+      "side": 1,
+      "message": "\"...on the chip...\"",
+      "range": {
+        "startLine": 132,
+        "startChar": 34,
+        "endLine": 132,
+        "endChar": 35
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "743267d4_e6f8876a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/rkp/README.md",
+              "range": {
+                "startLine": 132,
+                "startChar": 0,
+                "endLine": 133,
+                "endChar": 0
+              },
+              "replacement": "[RKP Phase 3](#phases), depends on the chip vendor signing the UDS\\_pub and\n"
+            }
+          ]
+        }
+      ],
+      "revId": "83b559bc496d9c6dd2624a140a6f7855a5f77767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9198118_6e1b11fd",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-10-18T08:54:19Z",
+      "side": 1,
+      "message": "Nit: \"the signing keys\" otherwise it read as requirements for \"both of the two signing keys\" IMO",
+      "range": {
+        "startLine": 134,
+        "startChar": 5,
+        "endLine": 134,
+        "endChar": 12
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "79a8d0ac_9d506c78",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/rkp/README.md",
+              "range": {
+                "startLine": 134,
+                "startChar": 0,
+                "endLine": 135,
+                "endChar": 0
+              },
+              "replacement": "both the signing keys and the resulting certificate chain.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "83b559bc496d9c6dd2624a140a6f7855a5f77767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce6ab814_550e5fe5",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-10-18T08:54:19Z",
+      "side": 1,
+      "message": "Why not use backticks instead of the HTML-style \u003ccode\u003e\u003c/code\u003e tags in this file?",
+      "range": {
+        "startLine": 145,
+        "startChar": 4,
+        "endLine": 145,
+        "endChar": 10
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "9e9f8286_cb160335",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/rkp/README.md",
+              "range": {
+                "startLine": 145,
+                "startChar": 0,
+                "endLine": 146,
+                "endChar": 0
+              },
+              "replacement": "*   \u003ccode\u003e[BasicConstraints](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.9)\u003c/code\u003e:\n"
+            },
+            {
+              "path": "security/rkp/README.md",
+              "range": {
+                "startLine": 158,
+                "startChar": 0,
+                "endLine": 159,
+                "endChar": 0
+              },
+              "replacement": "*   \u003ccode\u003e[KeyUsage](https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.3)\u003c/code\u003e:\n"
+            }
+          ]
+        }
+      ],
+      "revId": "83b559bc496d9c6dd2624a140a6f7855a5f77767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23b272d7_26f5ae0e",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-10-18T08:54:19Z",
+      "side": 1,
+      "message": "\"set correctly such that the initial `pathLenConstraint` should not exceed the length of the certificate chain - 1\". Or however that could be more artfully worded...",
+      "range": {
+        "startLine": 147,
+        "startChar": 60,
+        "endLine": 147,
+        "endChar": 62
+      },
+      "revId": "83b559bc496d9c6dd2624a140a6f7855a5f77767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6e4fcc9_55acb160",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-10-18T08:54:19Z",
+      "side": 1,
+      "message": "Is: \"for all certificates except the leaf certificate endorsing the UDS\\_Pub key\" more explicit? Although your example is also pretty clear.",
+      "range": {
+        "startLine": 149,
+        "startChar": 48,
+        "endLine": 150,
+        "endChar": 20
+      },
+      "revId": "83b559bc496d9c6dd2624a140a6f7855a5f77767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa272afb_1d6ff4e3",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-10-18T08:54:19Z",
+      "side": 1,
+      "message": "Given you linked to the RFC for X.509 above, should you link the RFC here directly as well for consistency?",
+      "range": {
+        "startLine": 170,
+        "startChar": 24,
+        "endLine": 170,
+        "endChar": 34
+      },
+      "revId": "83b559bc496d9c6dd2624a140a6f7855a5f77767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
