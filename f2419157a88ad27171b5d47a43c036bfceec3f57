@@ -161,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d32d3038_10b810af",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T17:42:21Z",
+      "side": 1,
+      "message": "Depending on the offload architecture, an offload domain crash may not cause or require an Android BT stack crash. For example, in a sideband design, if an offload domain crash occurs, \bwe may only need to release the related BT offload socket, while in a passthrough design, we may need to force an Android BT stack crash. So, I think it is better to keep this callback to clean up all BT offload sockets when it is called.",
+      "parentUuid": "1a50f573_4456832c",
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "beae4db8_a1848927",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
         "patchSetId": 9
