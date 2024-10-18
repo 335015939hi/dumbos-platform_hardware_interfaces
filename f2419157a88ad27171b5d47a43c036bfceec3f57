@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5570de4_421ee4f6",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocket.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-18T00:30:10Z",
+      "side": 1,
+      "message": "what errors are possible from the methods here?",
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f71778fc_3cfd99ae",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-18T00:30:10Z",
+      "side": 1,
+      "message": "could this be namespaced to avoid conflicts?\n\nE.g.\n```\nunion Error {\n    FailureReason standard;\n    parcelable VendorStatus {\n         // reverse domain notation\n         String namespace;\n         int vendorStatusCode;\n    } extension;\n}\n```",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 41
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e33bba12_2daa47f6",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-18T00:30:10Z",
+      "side": 1,
+      "message": "is this and the below vendorStatusCode supposed to be the same as above?",
+      "range": {
+        "startLine": 72,
+        "startChar": 61,
+        "endLine": 72,
+        "endChar": 81
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78aea502_5b49d483",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-18T00:30:10Z",
+      "side": 1,
+      "message": "could we have standard values/reasons for this as well?",
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beae4db8_a1848927",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-18T00:30:10Z",
+      "side": 1,
+      "message": "localMtuBytes, Bits? (same below, include exact units)",
+      "range": {
+        "startLine": 42,
+        "startChar": 15,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbb38754_44b860d1",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-18T00:30:10Z",
+      "side": 1,
+      "message": "what happens when the host stack sends conflicting socket IDs?",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 18
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b778e15_f27c65ea",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-18T00:30:10Z",
+      "side": 1,
+      "message": "can you emphasize here that it is for debugging only?",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b67e7dea_3a465bdd",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-18T00:30:10Z",
+      "side": 1,
+      "message": "what is this? When I google ACL handle, it doesn\u0027t give a clear result immediately.",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 10
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
