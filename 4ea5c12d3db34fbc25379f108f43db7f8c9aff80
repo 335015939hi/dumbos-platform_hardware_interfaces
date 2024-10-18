@@ -281,6 +281,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "599449d6_595cecb7",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T06:28:58Z",
+      "side": 1,
+      "message": "In current flow, host stack has to know the required RX MTU to open the connection before talking to offload app. Do we want to add RX MTU option in regular socket as well? Then, host app can provide the RX MTU option through `BluetoothSocketSetting` when creating regular/offload sockets.",
+      "parentUuid": "3cd7a14b_a56d17b1",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84c60006_6e44c853",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
         "patchSetId": 6
@@ -447,6 +465,30 @@
       "side": 1,
       "message": "To clarify again : this value does *not* indicate the number of RX buffers, the number can fluctuate and is indicate by the available credits shared with the remote device.",
       "parentUuid": "8bdf5e5c_adbb2378",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89f31c50_ee0bd4b2",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T06:28:58Z",
+      "side": 1,
+      "message": "That\u0027s right. But if the host stack has already given too many RX credits like 65535, L2CAP_FLOW_CONTROL_CREDIT_IND will not be able to control RX traffic until all credits are used up because the credit value field in L2CAP_FLOW_CONTROL_CREDIT_IND represents number of credits the receiving device can\n*increment*.",
+      "parentUuid": "90742b53_d4e078fa",
       "range": {
         "startLine": 33,
         "startChar": 0,

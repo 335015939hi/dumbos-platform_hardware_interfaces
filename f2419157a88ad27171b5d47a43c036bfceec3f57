@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a92eece_aade8626",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T06:28:58Z",
+      "side": 1,
+      "message": "yes it uses same vendor status code group as above.",
+      "parentUuid": "e33bba12_2daa47f6",
+      "range": {
+        "startLine": 72,
+        "startChar": 61,
+        "endLine": 72,
+        "endChar": 81
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78aea502_5b49d483",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
         "patchSetId": 9
@@ -77,6 +101,24 @@
       "writtenOn": "2024-10-18T00:30:10Z",
       "side": 1,
       "message": "could we have standard values/reasons for this as well?",
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a30752d_b01d1466",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T06:28:58Z",
+      "side": 1,
+      "message": "annaherrera@ and mogenson@, can you recommends some standard reset/restart reasons by MCU?",
+      "parentUuid": "78aea502_5b49d483",
       "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -151,6 +193,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ddd136f_bed9d1b3",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T06:28:58Z",
+      "side": 1,
+      "message": "If IBluetoothSocket::open() finds duplicated socket ID, `INVALID_SOCKET_ID` should be returned from HAL then host stack will disconnect this new socket connection.\n\n```\nIBluetoothSocketCallback::onOpenFailed(long socketId, FailureReason::INVALID_SOCKET_ID, int vendorStatusCode)\n```",
+      "parentUuid": "dbb38754_44b860d1",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 18
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b778e15_f27c65ea",
@@ -164,6 +230,30 @@
       "writtenOn": "2024-10-18T00:30:10Z",
       "side": 1,
       "message": "can you emphasize here that it is for debugging only?",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "707fb0b9_8355dfce",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T06:28:58Z",
+      "side": 1,
+      "message": "Added description.",
+      "parentUuid": "9b778e15_f27c65ea",
       "range": {
         "startLine": 32,
         "startChar": 1,
@@ -211,6 +301,30 @@
       "side": 1,
       "message": "ACL is standard bluetooth terminology.\nWe could alternatively use `connectionHandle` here, if that\u0027s better.",
       "parentUuid": "b67e7dea_3a465bdd",
+      "range": {
+        "startLine": 38,
+        "startChar": 7,
+        "endLine": 38,
+        "endChar": 10
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89b470f3_466d1d7e",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T06:28:58Z",
+      "side": 1,
+      "message": "Updated as `aclConnectionHandle`",
+      "parentUuid": "e61f9160_afdbc9ab",
       "range": {
         "startLine": 38,
         "startChar": 7,
