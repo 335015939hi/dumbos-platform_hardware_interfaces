@@ -393,6 +393,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8bdf5e5c_adbb2378",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-18T01:07:33Z",
+      "side": 1,
+      "message": "This is only the initial credits, once the connection is offloaded the MCU will have full control over the credit information. What I am suggesting is:\n\n- In the L2CAP_LE_CREDIT_BASED_CONNECTION_REQ frame the stack sets initial credits to 0 to ensure that no packets is transmitted until the MCU can handle them\n\n- Once the MCU receives the offloaded connection it can emit L2CAP_FLOW_CONTROL_CREDIT_IND to indicate the local buffers",
+      "parentUuid": "14009ea1_c2325585",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8285270a_f99dd08a",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/ProtocolProperties.aidl",
         "patchSetId": 6
