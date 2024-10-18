@@ -16,6 +16,24 @@
       "message": "From the presubmit failures, it looks like there\u0027s some extra policy elsewhere that needs to be updated, probably [serial number](https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/security/keymint/aidl/default/hal/lib.rs;l\u003d24).",
       "revId": "580ae4e9b8f1e36c73451e4c4068a2bbaadc1091",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce0d9edc_84c44b4c",
+        "filename": "security/keymint/aidl/default/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-10-18T06:11:39Z",
+      "side": 1,
+      "message": "Maybe [here](https://cs.android.com/android/platform/superproject/main/+/main:device/google/cuttlefish/shared/sepolicy/vendor/hal_keymint_rust.te;l\u003d18?q\u003dserialno_prop\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain:device%2Fgoogle%2Fcuttlefish%2F) or [here](https://cs.android.com/android/platform/superproject/main/+/main:device/google/cuttlefish/shared/sepolicy/system_ext/private/hal_keymint_system.te;l\u003d2?q\u003dserialno_prop\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain:device%2Fgoogle%2Fcuttlefish%2F)?",
+      "parentUuid": "246cb982_a5b0c93d",
+      "revId": "580ae4e9b8f1e36c73451e4c4068a2bbaadc1091",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
