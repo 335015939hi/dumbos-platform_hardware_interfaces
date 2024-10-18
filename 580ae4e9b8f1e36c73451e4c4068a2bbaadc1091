@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "246cb982_a5b0c93d",
+        "filename": "security/keymint/aidl/default/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-10-18T06:08:35Z",
+      "side": 1,
+      "message": "From the presubmit failures, it looks like there\u0027s some extra policy elsewhere that needs to be updated, probably [serial number](https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/security/keymint/aidl/default/hal/lib.rs;l\u003d24).",
+      "revId": "580ae4e9b8f1e36c73451e4c4068a2bbaadc1091",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
