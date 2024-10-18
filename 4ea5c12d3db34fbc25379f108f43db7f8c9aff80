@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bab31b4_b72d7656",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/EndPointInfo.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T00:02:05Z",
+      "side": 1,
+      "message": "IContextHub would be generic hub. That was aligned with vendor.",
+      "parentUuid": "72d1cdf4_e6b7dbcc",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdeb530f_20916342",

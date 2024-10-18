@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16989cf0_cb540ad5",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T00:02:05Z",
+      "side": 1,
+      "message": "open() will reach out to multiple components in offload domain. We wanted to have asynchronous callback instead of synchronous API for the flexibility on different Android platforms. SocketCallback.closeRequest() would be better to be used for the socket already opened successfully to offload domain.",
+      "parentUuid": "4a56abcf_97aad348",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 81
+      },
+      "revId": "6ae9de3fa8f9bb66216d59d3ace74811297cb022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe27ee1b_5b83d4cc",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "onClose() should probably be removed for the same reason, the stack does not need this information.",
       "parentUuid": "8eb41fd1_91a31657",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 82
+      },
+      "revId": "6ae9de3fa8f9bb66216d59d3ace74811297cb022",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "498c3252_a6ffd9fc",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-18T00:02:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0751ea5_293a7c93",
       "range": {
         "startLine": 45,
         "startChar": 0,
