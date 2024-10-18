@@ -24,6 +24,7 @@ import android.hardware.contexthub.HostEndpointInfo;
 import android.hardware.contexthub.HubInfo;
 import android.hardware.contexthub.IContextHubCallback;
 import android.hardware.contexthub.IEndpointCallback;
+import android.hardware.contexthub.IEndpointLifecycleCallback;
 import android.hardware.contexthub.Message;
 import android.hardware.contexthub.MessageDeliveryStatus;
 import android.hardware.contexthub.NanSessionStateUpdate;
@@ -287,6 +288,11 @@ interface IContextHub {
      * caller.
      */
     void registerEndpointCallback(in IEndpointCallback callback);
+
+    /**
+     * Attaches a callback interface to receive lifecycle events for endpoints.
+     */
+    void registerEndpointLifecycleCallback(in IEndpointLifecycleCallback callback);
 
     /**
      * Request a range of session IDs for the caller to use when initiating sessions. This may be

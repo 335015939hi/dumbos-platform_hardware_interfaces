@@ -55,6 +55,11 @@ enum Reason {
     ENDPOINT_GONE,
 
     /**
+     * Endpoint crashed.
+     */
+    ENDPOINT_CRASHED,
+
+    /**
      * Hub was reset or is resetting.
      */
     HUB_RESET,
