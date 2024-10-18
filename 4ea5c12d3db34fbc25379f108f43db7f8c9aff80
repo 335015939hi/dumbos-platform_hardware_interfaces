@@ -417,6 +417,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "90742b53_d4e078fa",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-18T01:09:19Z",
+      "side": 1,
+      "message": "To clarify again : this value does *not* indicate the number of RX buffers, the number can fluctuate and is indicate by the available credits shared with the remote device.",
+      "parentUuid": "8bdf5e5c_adbb2378",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8285270a_f99dd08a",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/ProtocolProperties.aidl",
         "patchSetId": 6
