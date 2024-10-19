@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e5a27bb9_4b9f6843",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-19T06:39:01Z",
+      "side": 1,
+      "message": "void onCloseFailed(long socketId, FailureReason reason, String vendorLog);",
+      "parentUuid": "f71778fc_3cfd99ae",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 41
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e33bba12_2daa47f6",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
         "patchSetId": 9
@@ -214,6 +238,30 @@
       "side": 1,
       "message": "This is standard naming, from the Bluetooth specification, I support keeping the name identical.",
       "parentUuid": "beae4db8_a1848927",
+      "range": {
+        "startLine": 42,
+        "startChar": 15,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a2ee8cc_54b5ed46",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-19T06:39:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d684720_e281b81d",
       "range": {
         "startLine": 42,
         "startChar": 15,

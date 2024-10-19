@@ -547,6 +547,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d711e03e_c8f4683f",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-19T06:39:01Z",
+      "side": 1,
+      "message": "Thanks Henri for the discussion offline, host stack will not give LE L2CAP COC credit for offload socket during connection setup. Offload stack should send LE COC CREDIT IND when offload socket is transferred to offload. So, initial credit is not required in HAL anymore. Overall flow is like following:\n\n```\n1. host stack gives the LE L2CAP COC 0 credits initially, the remote device is initially not allowed to send any packet\n2. host stack transfers the socket to offload\n3. offload stack send LE COC CREDIT IND of 65535 or less to initiate the transfer\n```\n\nAdded documents in LeCocCapabilities",
+      "parentUuid": "7e9697df_376981c1",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 15
+      },
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8285270a_f99dd08a",
