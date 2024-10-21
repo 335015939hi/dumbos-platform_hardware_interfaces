@@ -16,6 +16,41 @@
       "message": "should we return here?",
       "revId": "d637c290273d5284e63e99e1c8e93148f535c285",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc49a074_32463ded",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-21T17:08:34Z",
+      "side": 1,
+      "message": "You don\u0027t have to do it in this CL, but since module_ can be nullptr now, maybe check for nullness before use",
+      "fixSuggestions": [
+        {
+          "fixId": "d4fe1fa1_645353cb",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 115,
+                "startChar": 0,
+                "endLine": 116,
+                "endChar": 0
+              },
+              "replacement": "        LOG_NDK_STATUS(module_-\u003egetCurrentSlot(\u0026ret));  // Y\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d637c290273d5284e63e99e1c8e93148f535c285",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
