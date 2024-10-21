@@ -243,6 +243,10 @@ ndk::ScopedAStatus StreamInPrimary::setHwGain(const std::vector<float>& in_chann
         mHwGains = currentGains;
         return status;
     }
+    float gain;
+    RETURN_STATUS_IF_ERROR(primary::PrimaryMixer::getInstance().getMicGain(&gain));
+    if (gain != in_channelGains[0])
+        LOG(WARNING) << __func__ << ": unmatched gain: set: " << in_channelGains[0] << ", get: " << gain;
     return ndk::ScopedAStatus::ok();
 }
 
@@ -276,6 +280,12 @@ ndk::ScopedAStatus StreamOutPrimary::setHwVolume(const std::vector<float>& in_ch
         mHwVolumes = currentVolumes;
         return status;
     }
+    std::vector<float> volumes;
+    RETURN_STATUS_IF_ERROR(primary::PrimaryMixer::getInstance().getVolumes(&volumes));
+    if (volumes != in_channelVolumes)
+        LOG(WARNING) << __func__ << ": unmatched volumes: set: "
+            << ::android::internal::ToString(in_channelVolumes)
+            << ", get: " << ::android::internal::ToString(volumes);
     return ndk::ScopedAStatus::ok();
 }
 
