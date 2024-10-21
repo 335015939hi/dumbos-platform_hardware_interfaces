@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6185d8c2_16436026",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-21T21:34:30Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t understand the intent here.\n\nShould `maxAudioSampleValue` method argument be removed?\n\nAlso, in case you always want to use the constant, why not just replace `maxAudioSampleValue` with `kMaxAudioSampleValue`? The left operand gives us a value in [-1.0, 1.0] interval, then we scale it within `kMaxAudioSampleValue` by multiplying. What\u0027s the need for pushing `kMaxAudioSampleValue` inside?",
+      "range": {
+        "startLine": 427,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 43
+      },
+      "revId": "0541dfd0f29dde933523817ce545e6053b60485f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16a8358e_a42a09f9",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-21T21:34:30Z",
+      "side": 1,
+      "message": "Is this a field or a variable?\n\nThe field can also be initialized within the section above because `getChannelCount` is a static function. Because of that, `mBufferSizeInFrames` and the buffers can also be initialized in the field initialization section.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 30
+      },
+      "revId": "0541dfd0f29dde933523817ce545e6053b60485f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f969cb5_86b10ce2",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-21T21:34:30Z",
+      "side": 1,
+      "message": "This is a memory leak. Who is going to delete this allocation?",
+      "range": {
+        "startLine": 91,
+        "startChar": 52,
+        "endLine": 91,
+        "endChar": 69
+      },
+      "revId": "0541dfd0f29dde933523817ce545e6053b60485f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3b210bb_1c85e7b2",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-21T21:34:30Z",
+      "side": 1,
+      "message": "Can we make some or all of these const?",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 0
+      },
+      "revId": "0541dfd0f29dde933523817ce545e6053b60485f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
