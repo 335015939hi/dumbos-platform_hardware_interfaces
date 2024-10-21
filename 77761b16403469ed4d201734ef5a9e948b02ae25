@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e938bb83_13561079",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-21T18:16:08Z",
+      "side": 1,
+      "message": "Please enclose the branch code with curly brackets and add a comment: \"Due to rounding errors, round trip conversions between percents and indexed values may not match.\"",
+      "range": {
+        "startLine": 248,
+        "startChar": 34,
+        "endLine": 248,
+        "endChar": 35
+      },
+      "revId": "77761b16403469ed4d201734ef5a9e948b02ae25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff56ff3f_2c8f9add",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-21T18:16:08Z",
+      "side": 1,
+      "message": "There should be auto formatting in place during uploading, did you disable it? The line is too long.",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 105
+      },
+      "revId": "77761b16403469ed4d201734ef5a9e948b02ae25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfa37821_0cdc3fbc",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-21T18:16:08Z",
+      "side": 1,
+      "message": "change to \"from mixer:\"",
+      "range": {
+        "startLine": 249,
+        "startChar": 90,
+        "endLine": 249,
+        "endChar": 93
+      },
+      "revId": "77761b16403469ed4d201734ef5a9e948b02ae25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "318994ed_e595e308",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-21T18:16:08Z",
+      "side": 1,
+      "message": "Please enclose the branch code with curly brackets and add a comment: \"Due to rounding errors, round trip conversions between percents and indexed values may not match.\"",
+      "range": {
+        "startLine": 285,
+        "startChar": 36,
+        "endLine": 285,
+        "endChar": 37
+      },
+      "revId": "77761b16403469ed4d201734ef5a9e948b02ae25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87289a94_24944430",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-21T18:16:08Z",
+      "side": 1,
+      "message": "Also \"from mixer:\"",
+      "range": {
+        "startLine": 288,
+        "startChar": 18,
+        "endLine": 288,
+        "endChar": 21
+      },
+      "revId": "77761b16403469ed4d201734ef5a9e948b02ae25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
