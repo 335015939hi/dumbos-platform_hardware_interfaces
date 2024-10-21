@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86ed6507_22e39fc3",
+        "filename": "thermal/1.1/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-21T21:46:23Z",
+      "side": 1,
+      "message": "hey it\u0027s a bit strange to have Pixel owners of a system test. Is there a platform thermal/power team you could use, or could you add multiple?",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "76de8a5089054c301475378b769f72ae12dfef0d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
