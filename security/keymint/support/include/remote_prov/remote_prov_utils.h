@@ -203,4 +203,7 @@ ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
                                                 bool allowDegenerate,
                                                 const std::string& instanceName);
 
+ErrMsgOr<std::vector<uint8_t>> getUdsPubFromAuthenticatedRequest(
+        const std::vector<uint8_t>& request, const std::string& instanceName);
+
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
