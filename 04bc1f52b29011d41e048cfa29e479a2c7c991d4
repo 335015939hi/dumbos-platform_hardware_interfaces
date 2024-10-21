@@ -41,6 +41,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd2a77df_47dc76c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1377410
+      },
+      "writtenOn": "2024-10-21T19:02:11Z",
+      "side": 1,
+      "message": "This change is conflicting with the rest of the branches. Please check the code in Android 15 test here. https://android.git.corp.google.com/platform/hardware/interfaces/+/refs/heads/android15-tests-dev/broadcastradio/aidl/vts/src/VtsHalBroadcastradioAidlTargetTest.cpp\n\nIf the Android 15 code works for you, you can port the change over to Android 14.\nIf both the different code are required, edit the commit message of this change to add \"RESTRICT AUTOMERGE\" https://source.android.com/docs/compatibility/cts/development#submitting-your-changes. And you may need to push a separate change to Android 15 with the conflicts resolved to ensure it works in the future Android branches too.",
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92824e75_da525997",
