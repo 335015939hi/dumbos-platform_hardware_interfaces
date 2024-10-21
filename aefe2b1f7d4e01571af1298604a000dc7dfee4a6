@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd5d67e8_f998d1be",
+        "filename": "cas/aidl/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-21T21:59:15Z",
+      "side": 1,
+      "message": "cas should be media team",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "aefe2b1f7d4e01571af1298604a000dc7dfee4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09349d1d_5a43261f",
+        "filename": "neuralnetworks/1.3/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-21T21:59:15Z",
+      "side": 1,
+      "message": "nnapi should be aicore team or miaowang@ for instance. Do you have something like this?",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "aefe2b1f7d4e01571af1298604a000dc7dfee4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
