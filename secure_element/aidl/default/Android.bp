@@ -55,7 +55,6 @@ apex {
     prebuilts: [
         "secure_element.rc",
         "secure_element.xml",
-        // TODO (b/289193458): Add this back when access control is implemented for cuttlefish.
-        // "android.hardware.se.omapi.ese.prebuilt.xml", // <feature>
+        "android.hardware.se.omapi.ese.prebuilt.xml", // <feature>
     ],
 }
