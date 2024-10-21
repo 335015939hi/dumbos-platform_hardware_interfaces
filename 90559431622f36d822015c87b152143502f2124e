@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e546d13_dbf06a01",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-21T18:08:29Z",
+      "side": 1,
+      "message": "Please remove, it\u0027s not needed, unsure how it was introduced in the first place.",
+      "range": {
+        "startLine": 224,
+        "startChar": 0,
+        "endLine": 224,
+        "endChar": 32
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "1647d504_7844ccdc",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/primary/StreamPrimary.cpp",
+              "range": {
+                "startLine": 224,
+                "startChar": 0,
+                "endLine": 225,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "90559431622f36d822015c87b152143502f2124e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
