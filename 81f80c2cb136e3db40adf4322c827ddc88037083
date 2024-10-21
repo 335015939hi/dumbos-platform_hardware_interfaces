@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c95f2c4a_91d4a4ae",
+        "filename": "thermal/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1859295
+      },
+      "writtenOn": "2024-10-21T08:14:06Z",
+      "side": 1,
+      "message": "trendy_team_pixel_system_sw_performance_thermal",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "81f80c2cb136e3db40adf4322c827ddc88037083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3799f8f7_5fedb0ad",
+        "filename": "thermal/2.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1859295
+      },
+      "writtenOn": "2024-10-21T08:14:06Z",
+      "side": 1,
+      "message": "trendy_team_pixel_system_sw_performance_thermal",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "81f80c2cb136e3db40adf4322c827ddc88037083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc315844_5c82c7a0",
+        "filename": "thermal/aidl/vts/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1859295
+      },
+      "writtenOn": "2024-10-21T08:14:06Z",
+      "side": 1,
+      "message": "trendy_team_pixel_system_sw_performance_thermal",
+      "range": {
+        "startLine": 16,
+        "startChar": 19,
+        "endLine": 16,
+        "endChar": 55
+      },
+      "revId": "81f80c2cb136e3db40adf4322c827ddc88037083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
