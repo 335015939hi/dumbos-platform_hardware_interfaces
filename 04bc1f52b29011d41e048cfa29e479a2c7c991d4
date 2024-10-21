@@ -1,0 +1,85 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a10ce042_db1413a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2024-10-21T16:30:29Z",
+      "side": 1,
+      "message": "Why can frequency be 0/not found? There has to be a valid frequency as `ProgramInfo.physicallyTunedTo`",
+      "range": {
+        "startLine": 11,
+        "startChar": 34,
+        "endLine": 12,
+        "endChar": 3
+      },
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "136aba4c_8f4cff7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2024-10-21T16:30:29Z",
+      "side": 1,
+      "message": "The CL causes merge conflict against internally. Probably we need to first land this CL into internal branch first.",
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92824e75_da525997",
+        "filename": "broadcastradio/aidl/vts/src/VtsHalBroadcastradioAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2024-10-21T16:30:29Z",
+      "side": 1,
+      "message": "In what situation can `SID_EXT` exist in secondary Ids?",
+      "range": {
+        "startLine": 755,
+        "startChar": 7,
+        "endLine": 755,
+        "endChar": 66
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "33fa6e67_79f42725",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "broadcastradio/aidl/vts/src/VtsHalBroadcastradioAidlTargetTest.cpp",
+              "range": {
+                "startLine": 755,
+                "startChar": 0,
+                "endLine": 756,
+                "endChar": 0
+              },
+              "replacement": "    // iterate through primaryId and secondaryIds to find SID_EXTs.\n    // SID_EXT is a required field for DAB programs.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
