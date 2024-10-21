@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "041b567a_a10d0411",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-21T17:07:45Z",
+      "side": 1,
+      "message": "should we return here?",
+      "revId": "d637c290273d5284e63e99e1c8e93148f535c285",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
