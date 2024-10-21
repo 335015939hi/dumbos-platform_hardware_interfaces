@@ -347,6 +347,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f4610be_326bf234",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-10-21T08:17:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93e6f3eb_c075271f",
+      "range": {
+        "startLine": 147,
+        "startChar": 60,
+        "endLine": 147,
+        "endChar": 62
+      },
+      "revId": "83b559bc496d9c6dd2624a140a6f7855a5f77767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6e4fcc9_55acb160",
@@ -384,6 +408,30 @@
       "side": 1,
       "message": "tweaked, PTAL",
       "parentUuid": "f6e4fcc9_55acb160",
+      "range": {
+        "startLine": 149,
+        "startChar": 48,
+        "endLine": 150,
+        "endChar": 20
+      },
+      "revId": "83b559bc496d9c6dd2624a140a6f7855a5f77767",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb13f4bd_d71851bb",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1115498
+      },
+      "writtenOn": "2024-10-21T08:17:36Z",
+      "side": 1,
+      "message": "Looks good to me",
+      "parentUuid": "2030e6b8_ec92885d",
       "range": {
         "startLine": 149,
         "startChar": 48,
