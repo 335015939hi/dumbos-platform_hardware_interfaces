@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f01bc217_49856785",
+        "filename": "sensors/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-10-21T23:38:22Z",
+      "side": 1,
+      "message": "```suggestion\n    default_team: \"trendy_team_android_sensors\",\n```",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 42
+      },
+      "revId": "acd6c747bef0e8baba49a08a2c3b0a4887447f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5bd2ebd_b0a7ee20",
+        "filename": "sensors/2.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-10-21T23:38:22Z",
+      "side": 1,
+      "message": "```suggestion\n    default_team: \"trendy_team_android_sensors\",\n```",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 42
+      },
+      "revId": "acd6c747bef0e8baba49a08a2c3b0a4887447f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4db19caa_536c7407",
+        "filename": "sensors/2.1/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-10-21T23:38:22Z",
+      "side": 1,
+      "message": "```suggestion\n    default_team: \"trendy_team_android_sensors\",\n```",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 42
+      },
+      "revId": "acd6c747bef0e8baba49a08a2c3b0a4887447f0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
