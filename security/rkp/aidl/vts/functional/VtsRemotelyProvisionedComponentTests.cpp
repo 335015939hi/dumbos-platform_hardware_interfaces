@@ -73,14 +73,13 @@ using ::android::sp;
 using bytevec = std::vector<uint8_t>;
 using testing::MatchesRegex;
 using namespace remote_prov;
-using namespace keymaster;
 
-bytevec string_to_bytevec(const char* s) {
+bytevec stringToBytevec(const char* s) {
     const uint8_t* p = reinterpret_cast<const uint8_t*>(s);
     return bytevec(p, p + strlen(s));
 }
 
-ErrMsgOr<MacedPublicKey> corrupt_maced_key(const MacedPublicKey& macedPubKey) {
+ErrMsgOr<MacedPublicKey> corruptMacedKey(const MacedPublicKey& macedPubKey) {
     auto [coseMac0, _, mac0ParseErr] = cppbor::parse(macedPubKey.macedKey);
     if (!coseMac0 || coseMac0->asArray()->size() != kCoseMac0EntryCount) {
         return "COSE Mac0 parse failed";
@@ -104,7 +103,7 @@ ErrMsgOr<MacedPublicKey> corrupt_maced_key(const MacedPublicKey& macedPubKey) {
     return MacedPublicKey{corruptMac0.encode()};
 }
 
-ErrMsgOr<cppbor::Array> corrupt_sig(const cppbor::Array* coseSign1) {
+ErrMsgOr<cppbor::Array> corruptSig(const cppbor::Array* coseSign1) {
     if (coseSign1->size() != kCoseSign1EntryCount) {
         return "Invalid COSE_Sign1, wrong entry count";
     }
@@ -127,7 +126,7 @@ ErrMsgOr<cppbor::Array> corrupt_sig(const cppbor::Array* coseSign1) {
     return std::move(corruptSig);
 }
 
-ErrMsgOr<bytevec> corrupt_sig_chain(const bytevec& encodedEekChain, int which) {
+ErrMsgOr<bytevec> corruptSigChain(const bytevec& encodedEekChain, int which) {
     auto [chain, _, parseErr] = cppbor::parse(encodedEekChain);
     if (!chain || !chain->asArray()) {
         return "EekChain parse failed";
@@ -141,7 +140,7 @@ ErrMsgOr<bytevec> corrupt_sig_chain(const bytevec& encodedEekChain, int which) {
 
     for (int ii = 0; ii < eekChain->size(); ++ii) {
         if (ii == which) {
-            auto sig = corrupt_sig(eekChain->get(which)->asArray());
+            auto sig = corruptSig(eekChain->get(which)->asArray());
             if (!sig) {
                 return "Failed to build corrupted signature" + sig.moveMessage();
             }
@@ -153,7 +152,7 @@ ErrMsgOr<bytevec> corrupt_sig_chain(const bytevec& encodedEekChain, int which) {
     return corruptChain.encode();
 }
 
-string device_suffix(const string& name) {
+string deviceSuffix(const string& name) {
     size_t pos = name.find('/');
     if (pos == string::npos) {
         return name;
@@ -161,20 +160,33 @@ string device_suffix(const string& name) {
     return name.substr(pos + 1);
 }
 
-bool matching_keymint_device(const string& rp_name, std::shared_ptr<IKeyMintDevice>* keyMint) {
-    string rp_suffix = device_suffix(rp_name);
+template <class T>
+auto getHandle(const string& serviceName) {
+    ::ndk::SpAIBinder binder(AServiceManager_waitForService(serviceName.c_str()));
+    return T::fromBinder(binder);
+}
 
-    vector<string> km_names = ::android::getAidlHalInstanceNames(IKeyMintDevice::descriptor);
-    for (const string& km_name : km_names) {
+auto getCsrV2(std::shared_ptr<IRemotelyProvisionedComponent> rpc, bytevec* csr) {
+    bytevec challenge = randomBytes(MAX_CHALLENGE_SIZE);
+    if (!rpc) {
+        ::ndk::ScopedAStatus status{};
+        return status;
+    }
+    return rpc->generateCertificateRequestV2({} /* keysToSign */, challenge, csr);
+}
+
+std::shared_ptr<IKeyMintDevice> matchingKeyMintDevice(const string& rpcName) {
+    string rpcSuffix = deviceSuffix(rpcName);
+
+    vector<string> kmNames = ::android::getAidlHalInstanceNames(IKeyMintDevice::descriptor);
+    for (const string& kmName : kmNames) {
         // If the suffix of the KeyMint instance equals the suffix of the
         // RemotelyProvisionedComponent instance, assume they match.
-        if (device_suffix(km_name) == rp_suffix && AServiceManager_isDeclared(km_name.c_str())) {
-            ::ndk::SpAIBinder binder(AServiceManager_waitForService(km_name.c_str()));
-            *keyMint = IKeyMintDevice::fromBinder(binder);
-            return true;
+        if (deviceSuffix(kmName) == rpcSuffix && AServiceManager_isDeclared(kmName.c_str())) {
+            return getHandle<IKeyMintDevice>(kmName);
         }
     }
-    return false;
+    return nullptr;
 }
 
 }  // namespace
@@ -183,20 +195,21 @@ class VtsRemotelyProvisionedComponentTests : public testing::TestWithParam<std::
   public:
     virtual void SetUp() override {
         if (AServiceManager_isDeclared(GetParam().c_str())) {
-            ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
-            provisionable_ = IRemotelyProvisionedComponent::fromBinder(binder);
+            provisionable_ = getHandle<IRemotelyProvisionedComponent>(GetParam());
         }
         ASSERT_NE(provisionable_, nullptr);
         auto status = provisionable_->getHardwareInfo(&rpcHardwareInfo);
         isRkpVmInstance_ = GetParam() == RKP_VM_INSTANCE_NAME;
         if (isRkpVmInstance_) {
             if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
-                GTEST_SKIP() << "The RKP VM is not supported on this system.";
+                GTEST_SKIP() << "The RKP VM (" << RKP_VM_INSTANCE_NAME
+                             << ")is not supported on this device.";
             }
             int apiLevel = get_vsr_api_level();
             if (apiLevel < __ANDROID_API_V__) {
-                GTEST_SKIP() << "The RKP VM is supported only on V+ devices. Vendor API level: "
-                             << apiLevel;
+                GTEST_SKIP() << "The RKP VM (" << RKP_VM_INSTANCE_NAME
+                             << ") is supported on devices with API level " << __ANDROID_API_V__
+                             << " or newer, this device is: " << apiLevel;
             }
         }
         ASSERT_TRUE(status.isOk());
@@ -220,15 +233,14 @@ TEST(NonParameterizedTests, eachRpcHasAUniqueId) {
     std::set<std::string> uniqueIds;
     for (auto hal : ::android::getAidlHalInstanceNames(IRemotelyProvisionedComponent::descriptor)) {
         ASSERT_TRUE(AServiceManager_isDeclared(hal.c_str()));
-        ::ndk::SpAIBinder binder(AServiceManager_waitForService(hal.c_str()));
-        std::shared_ptr<IRemotelyProvisionedComponent> rpc =
-                IRemotelyProvisionedComponent::fromBinder(binder);
+        auto rpc = getHandle<IRemotelyProvisionedComponent>(hal);
         ASSERT_NE(rpc, nullptr);
 
         RpcHardwareInfo hwInfo;
         auto status = rpc->getHardwareInfo(&hwInfo);
         if (hal == RKP_VM_INSTANCE_NAME && status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
-            GTEST_SKIP() << "The RKP VM is not supported on this system.";
+            GTEST_SKIP() << "The RKP VM (" << RKP_VM_INSTANCE_NAME
+                         << ") is not supported on this device.";
         }
         ASSERT_TRUE(status.isOk());
 
@@ -243,34 +255,75 @@ TEST(NonParameterizedTests, eachRpcHasAUniqueId) {
 }
 
 /**
- * Verify that the default implementation supports DICE if there is a StrongBox KeyMint instance
- * on the device.
+ * Verify that if there is a StrongBox KeyMint instance on the device, then
+ * the primary KeyMint (a.k.a. "default") implementation supports the Android Profile for DICE.
  */
-// @VsrTest = 3.10-015
+// @VsrTest = 3.10-018
 TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
-    int vsr_api_level = get_vsr_api_level();
-    if (vsr_api_level < 35) {
-        GTEST_SKIP() << "Applies only to VSR API level 35 or newer, this device is: "
-                     << vsr_api_level;
+    int apiLevel = get_vsr_api_level();
+    if (apiLevel < __ANDROID_API_V__) {
+        GTEST_SKIP() << "Applies only to API level " << __ANDROID_API_V__
+                     << " or newer, this device is: " << apiLevel;
     }
 
     if (!AServiceManager_isDeclared(KEYMINT_STRONGBOX_INSTANCE_NAME.c_str())) {
-        GTEST_SKIP() << "Strongbox is not present on this device.";
+        GTEST_SKIP() << "Strongbox (" << KEYMINT_STRONGBOX_INSTANCE_NAME
+                     << ") is not present on this device.";
     }
 
-    ::ndk::SpAIBinder binder(AServiceManager_waitForService(DEFAULT_INSTANCE_NAME.c_str()));
-    std::shared_ptr<IRemotelyProvisionedComponent> rpc =
-            IRemotelyProvisionedComponent::fromBinder(binder);
+    auto rpc = getHandle<IRemotelyProvisionedComponent>(DEFAULT_INSTANCE_NAME);
     ASSERT_NE(rpc, nullptr);
 
-    bytevec challenge = randomBytes(64);
     bytevec csr;
-    auto status = rpc->generateCertificateRequestV2({} /* keysToSign */, challenge, &csr);
+    auto status = getCsrV2(rpc, &csr);
     EXPECT_TRUE(status.isOk()) << status.getDescription();
 
     auto result = isCsrWithProperDiceChain(csr);
     ASSERT_TRUE(result) << result.message();
     ASSERT_TRUE(*result);
+}
+
+/**
+ * Verify that if a protected VM (a.k.a. avf, a.k.a. RKP VM) implementation exists, then the
+ * protected VM and the primary KeyMint (a.k.a. default) implementation's DICE certificate chain has
+ * the same root public key, i.e., the same UDS public key.
+ */
+// @VsrTest = 7.1-001.005
+TEST(NonParameterizedTests,
+     requireSameRootPublicKeyInDiceCertChainForRkpVmAndPrimaryKeyMintInstances) {
+    int apiLevel = get_vsr_api_level();
+    if (apiLevel < __ANDROID_API_V__) {
+        GTEST_SKIP() << "Applies only to API level " << __ANDROID_API_V__
+                     << " or newer, this device is: " << apiLevel;
+    }
+
+    if (!AServiceManager_isDeclared(RKP_VM_INSTANCE_NAME.c_str())) {
+        GTEST_SKIP() << "The RKP VM (" << RKP_VM_INSTANCE_NAME
+                     << ") is not present on this device.";
+    }
+
+    auto rkpVmRpc = getHandle<IRemotelyProvisionedComponent>(RKP_VM_INSTANCE_NAME);
+    ASSERT_NE(rkpVmRpc, nullptr);
+
+    bytevec rkpVmCsr;
+    auto rkpVmStatus = getCsrV2(rkpVmRpc, &rkpVmCsr);
+    ASSERT_TRUE(rkpVmStatus.isOk()) << rkpVmStatus.getDescription();
+
+    auto rkpVmUdsPub = getUdsPubFromAuthenticatedRequest(rkpVmCsr);
+    ASSERT_TRUE(rkpVmUdsPub) << rkpVmUdsPub.message();
+
+    auto primaryKeyMintRpc = getHandle<IRemotelyProvisionedComponent>(DEFAULT_INSTANCE_NAME);
+    ASSERT_NE(primaryKeyMintRpc, nullptr);
+
+    bytevec primaryKeyMintCsr;
+    auto primaryKeyMintStatus = getCsrV2(primaryKeyMintRpc, &primaryKeyMintCsr);
+    ASSERT_TRUE(primaryKeyMintStatus.isOk()) << primaryKeyMintStatus.getDescription();
+
+    auto primaryKeyMintPub = getUdsPubFromAuthenticatedRequest(primaryKeyMintCsr);
+    ASSERT_TRUE(primaryKeyMintPub) << primaryKeyMintPub.message();
+
+    ASSERT_EQ(*primaryKeyMintPub, *rkpVmUdsPub)
+            << "Primary KeyMint and RKP VM have different UDS public keys";
 }
 
 using GetHardwareInfoTests = VtsRemotelyProvisionedComponentTests;
@@ -346,9 +399,8 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_prodMode) {
  */
 TEST_P(GenerateKeyTests, generateAndUseEcdsaP256Key_prodMode) {
     // See if there is a matching IKeyMintDevice for this IRemotelyProvisionedComponent.
-    std::shared_ptr<IKeyMintDevice> keyMint;
-    if (!matching_keymint_device(GetParam(), &keyMint)) {
-        // No matching IKeyMintDevice.
+    std::shared_ptr<IKeyMintDevice> keyMint = matchingKeyMintDevice(GetParam());
+    if (!keyMint) {
         GTEST_SKIP() << "Skipping key use test as no matching KeyMint device found";
         return;
     }
@@ -378,31 +430,31 @@ TEST_P(GenerateKeyTests, generateAndUseEcdsaP256Key_prodMode) {
     KeyCreationResult creationResult;
     auto result = keyMint->generateKey(keyDesc.vector_data(), attestKey, &creationResult);
     ASSERT_TRUE(result.isOk());
-    vector<uint8_t> attested_key_blob = std::move(creationResult.keyBlob);
-    vector<KeyCharacteristics> attested_key_characteristics =
+    vector<uint8_t> attestedKeyBlob = std::move(creationResult.keyBlob);
+    vector<KeyCharacteristics> attestedKeyCharacteristics =
             std::move(creationResult.keyCharacteristics);
-    vector<Certificate> attested_key_cert_chain = std::move(creationResult.certificateChain);
-    EXPECT_EQ(attested_key_cert_chain.size(), 1);
+    vector<Certificate> attestedKeyCertChain = std::move(creationResult.certificateChain);
+    EXPECT_EQ(attestedKeyCertChain.size(), 1);
 
-    int32_t aidl_version = 0;
-    ASSERT_TRUE(keyMint->getInterfaceVersion(&aidl_version).isOk());
-    AuthorizationSet hw_enforced = HwEnforcedAuthorizations(attested_key_characteristics);
-    AuthorizationSet sw_enforced = SwEnforcedAuthorizations(attested_key_characteristics);
-    EXPECT_TRUE(verify_attestation_record(aidl_version, "foo", "bar", sw_enforced, hw_enforced,
+    int32_t aidlVersion = 0;
+    ASSERT_TRUE(keyMint->getInterfaceVersion(&aidlVersion).isOk());
+    AuthorizationSet hwEnforced = HwEnforcedAuthorizations(attestedKeyCharacteristics);
+    AuthorizationSet swEnforced = SwEnforcedAuthorizations(attestedKeyCharacteristics);
+    EXPECT_TRUE(verify_attestation_record(aidlVersion, "foo", "bar", swEnforced, hwEnforced,
                                           info.securityLevel,
-                                          attested_key_cert_chain[0].encodedCertificate));
+                                          attestedKeyCertChain[0].encodedCertificate));
 
     // Attestation by itself is not valid (last entry is not self-signed).
-    EXPECT_FALSE(ChainSignaturesAreValid(attested_key_cert_chain));
+    EXPECT_FALSE(ChainSignaturesAreValid(attestedKeyCertChain));
 
     // The signature over the attested key should correspond to the P256 public key.
-    X509_Ptr key_cert(parse_cert_blob(attested_key_cert_chain[0].encodedCertificate));
-    ASSERT_TRUE(key_cert.get());
-    EVP_PKEY_Ptr signing_pubkey;
-    p256_pub_key(coseKeyData, &signing_pubkey);
-    ASSERT_TRUE(signing_pubkey.get());
+    X509_Ptr keyCert(parse_cert_blob(attestedKeyCertChain[0].encodedCertificate));
+    ASSERT_TRUE(keyCert.get());
+    EVP_PKEY_Ptr signingPubkey;
+    p256_pub_key(coseKeyData, &signingPubkey);
+    ASSERT_TRUE(signingPubkey.get());
 
-    ASSERT_TRUE(X509_verify(key_cert.get(), signing_pubkey.get()))
+    ASSERT_TRUE(X509_verify(keyCert.get(), signingPubkey.get()))
             << "Verification of attested certificate failed "
             << "OpenSSL error string: " << ERR_error_string(ERR_get_error(), NULL);
 }
@@ -429,7 +481,7 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_testMode) {
 class CertificateRequestTestBase : public VtsRemotelyProvisionedComponentTests {
   protected:
     CertificateRequestTestBase()
-        : eekId_(string_to_bytevec("eekid")), challenge_(randomBytes(64)) {}
+        : eekId_(stringToBytevec("eekid")), challenge_(randomBytes(MAX_CHALLENGE_SIZE)) {}
 
     void generateTestEekChain(size_t eekLength) {
         auto chain = generateEekChain(rpcHardwareInfo.supportedEekCurve, eekLength, eekId_);
@@ -447,9 +499,9 @@ class CertificateRequestTestBase : public VtsRemotelyProvisionedComponentTests {
             auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &key, &privateKeyBlob);
             ASSERT_TRUE(status.isOk()) << status.getDescription();
 
-            vector<uint8_t> payload_value;
-            check_maced_pubkey(key, testMode, &payload_value);
-            cborKeysToSign_.add(cppbor::EncodedItem(payload_value));
+            vector<uint8_t> payloadValue;
+            check_maced_pubkey(key, testMode, &payloadValue);
+            cborKeysToSign_.add(cppbor::EncodedItem(payloadValue));
         }
     }
 
@@ -608,7 +660,7 @@ TEST_P(CertificateRequestTest, DISABLED_NonEmptyRequest_prodMode) {
 TEST_P(CertificateRequestTest, NonEmptyRequestCorruptMac_testMode) {
     bool testMode = true;
     generateKeys(testMode, 1 /* numKeys */);
-    auto result = corrupt_maced_key(keysToSign_[0]);
+    auto result = corruptMacedKey(keysToSign_[0]);
     ASSERT_TRUE(result) << result.moveMessage();
     MacedPublicKey keyWithCorruptMac = result.moveValue();
 
@@ -629,7 +681,7 @@ TEST_P(CertificateRequestTest, NonEmptyRequestCorruptMac_testMode) {
 TEST_P(CertificateRequestTest, NonEmptyRequestCorruptMac_prodMode) {
     bool testMode = false;
     generateKeys(testMode, 1 /* numKeys */);
-    auto result = corrupt_maced_key(keysToSign_[0]);
+    auto result = corruptMacedKey(keysToSign_[0]);
     ASSERT_TRUE(result) << result.moveMessage();
     MacedPublicKey keyWithCorruptMac = result.moveValue();
 
@@ -657,7 +709,7 @@ TEST_P(CertificateRequestTest, NonEmptyCorruptEekRequest_prodMode) {
     ASSERT_NE(parsedChain->asArray(), nullptr);
 
     for (int ii = 0; ii < parsedChain->asArray()->size(); ++ii) {
-        auto chain = corrupt_sig_chain(prodEekChain, ii);
+        auto chain = corruptSigChain(prodEekChain, ii);
         ASSERT_TRUE(chain) << chain.message();
 
         bytevec keysToSignMac;
@@ -856,7 +908,7 @@ TEST_P(CertificateRequestV2Test, NonEmptyRequestMultipleKeys) {
  */
 TEST_P(CertificateRequestV2Test, NonEmptyRequestCorruptMac) {
     generateKeys(false /* testMode */, 1 /* numKeys */);
-    auto result = corrupt_maced_key(keysToSign_[0]);
+    auto result = corruptMacedKey(keysToSign_[0]);
     ASSERT_TRUE(result) << result.moveMessage();
     MacedPublicKey keyWithCorruptMac = result.moveValue();
 
@@ -895,17 +947,17 @@ TEST_P(CertificateRequestV2Test, CertificateRequestV1Removed_testMode) {
     EXPECT_EQ(status.getServiceSpecificError(), BnRemotelyProvisionedComponent::STATUS_REMOVED);
 }
 
-void parse_root_of_trust(const vector<uint8_t>& attestation_cert,
-                         vector<uint8_t>* verified_boot_key, VerifiedBoot* verified_boot_state,
-                         bool* device_locked, vector<uint8_t>* verified_boot_hash) {
-    X509_Ptr cert(parse_cert_blob(attestation_cert));
+void parseRootOfTrust(const vector<uint8_t>& attestationCert, vector<uint8_t>* verifiedBootKey,
+                      VerifiedBoot* verifiedBootState, bool* deviceLocked,
+                      vector<uint8_t>* verifiedBootHash) {
+    X509_Ptr cert(parse_cert_blob(attestationCert));
     ASSERT_TRUE(cert.get());
 
-    ASN1_OCTET_STRING* attest_rec = get_attestation_record(cert.get());
-    ASSERT_TRUE(attest_rec);
+    ASN1_OCTET_STRING* attestRec = get_attestation_record(cert.get());
+    ASSERT_TRUE(attestRec);
 
-    auto error = parse_root_of_trust(attest_rec->data, attest_rec->length, verified_boot_key,
-                                     verified_boot_state, device_locked, verified_boot_hash);
+    auto error = parse_root_of_trust(attestRec->data, attestRec->length, verifiedBootKey,
+                                     verifiedBootState, deviceLocked, verifiedBootHash);
     ASSERT_EQ(error, ErrorCode::OK);
 }
 
@@ -915,8 +967,8 @@ void parse_root_of_trust(const vector<uint8_t>& attestation_cert,
 // @VsrTest = 3.10-015
 TEST_P(CertificateRequestV2Test, DeviceInfo) {
     // See if there is a matching IKeyMintDevice for this IRemotelyProvisionedComponent.
-    std::shared_ptr<IKeyMintDevice> keyMint;
-    if (!matching_keymint_device(GetParam(), &keyMint)) {
+    std::shared_ptr<IKeyMintDevice> keyMint = matchingKeyMintDevice(GetParam());
+    if (!keyMint) {
         // No matching IKeyMintDevice.
         GTEST_SKIP() << "Skipping key use test as no matching KeyMint device found";
         return;
@@ -947,13 +999,13 @@ TEST_P(CertificateRequestV2Test, DeviceInfo) {
     auto kmStatus = keyMint->generateKey(keyDesc.vector_data(), attestKey, &creationResult);
     ASSERT_TRUE(kmStatus.isOk());
 
-    vector<KeyCharacteristics> key_characteristics = std::move(creationResult.keyCharacteristics);
-    vector<Certificate> key_cert_chain = std::move(creationResult.certificateChain);
+    vector<KeyCharacteristics> keyCharacteristics = std::move(creationResult.keyCharacteristics);
+    vector<Certificate> keyCertChain = std::move(creationResult.certificateChain);
     // We didn't provision the attestation key.
-    ASSERT_EQ(key_cert_chain.size(), 1);
+    ASSERT_EQ(keyCertChain.size(), 1);
 
     // Parse attested patch levels.
-    auto auths = HwEnforcedAuthorizations(key_characteristics);
+    auto auths = HwEnforcedAuthorizations(keyCharacteristics);
 
     auto attestedSystemPatchLevel = auths.GetTagValue(TAG_OS_PATCHLEVEL);
     auto attestedVendorPatchLevel = auths.GetTagValue(TAG_VENDOR_PATCHLEVEL);
@@ -968,8 +1020,8 @@ TEST_P(CertificateRequestV2Test, DeviceInfo) {
     VerifiedBoot attestedVbState;
     bool attestedBootloaderState;
     vector<uint8_t> attestedVbmetaDigest;
-    parse_root_of_trust(key_cert_chain[0].encodedCertificate, &key, &attestedVbState,
-                        &attestedBootloaderState, &attestedVbmetaDigest);
+    parseRootOfTrust(keyCertChain[0].encodedCertificate, &key, &attestedVbState,
+                     &attestedBootloaderState, &attestedVbmetaDigest);
 
     // Get IDs from DeviceInfo.
     bytevec csr;
@@ -1002,7 +1054,7 @@ TEST_P(CertificateRequestV2Test, DeviceInfo) {
     ASSERT_TRUE(bootPatchLevel);
     ASSERT_TRUE(securityLevel);
 
-    auto kmDeviceName = device_suffix(GetParam());
+    auto kmDeviceName = deviceSuffix(GetParam());
 
     // Compare DeviceInfo against IDs attested by KeyMint.
     ASSERT_TRUE((securityLevel->value() == "tee" && kmDeviceName == "default") ||
@@ -1027,10 +1079,10 @@ INSTANTIATE_REM_PROV_AIDL_TEST(VsrRequirementTest);
 TEST_P(VsrRequirementTest, VsrEnforcementTest) {
     RpcHardwareInfo hwInfo;
     ASSERT_TRUE(provisionable_->getHardwareInfo(&hwInfo).isOk());
-    int vsr_api_level = get_vsr_api_level();
-    if (vsr_api_level < 34) {
-        GTEST_SKIP() << "Applies only to VSR API level 34 or newer, this device is: "
-                     << vsr_api_level;
+    int apiLevel = get_vsr_api_level();
+    if (apiLevel < __ANDROID_API_U__) {
+        GTEST_SKIP() << "Applies only to API level " << __ANDROID_API_U__
+                     << " or newer, this device is: " << apiLevel;
     }
     EXPECT_GE(hwInfo.versionNumber, 3)
             << "VSR 14+ requires IRemotelyProvisionedComponent v3 or newer.";
