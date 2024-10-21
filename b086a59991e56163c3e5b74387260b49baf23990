@@ -16,6 +16,23 @@
       "message": "Shouldn\u0027t this be the kernel team or an AOSP health team? David?",
       "revId": "b086a59991e56163c3e5b74387260b49baf23990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5e03873_f2c93c33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1290458
+      },
+      "writtenOn": "2024-10-21T22:03:04Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong opinion. Pixel asked to be on reviews for IHealth changes since they use BatteryMonitor.",
+      "revId": "b086a59991e56163c3e5b74387260b49baf23990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
