@@ -424,7 +424,8 @@ class EffectHelper {
 
         for (size_t i = startPosition; i < inputBuffer.size(); i += increment) {
             inputBuffer[i] =
-                    ((static_cast<float>(std::rand()) / RAND_MAX) * 2 - 1) * maxAudioSampleValue;
+                    ((static_cast<float>(std::rand()) / RAND_MAX) * (maxAudioSampleValue * 2) -
+                     maxAudioSampleValue);
         }
     }
 
