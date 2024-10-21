@@ -1012,11 +1012,15 @@ ErrMsgOr<hwtrust::DiceChain::Kind> getDiceChainKind() {
     }
 }
 
-ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t>& request,
-                                                       const std::vector<uint8_t>& challenge,
-                                                       const std::string& instanceName,
-                                                       bool allowAnyMode = false,
-                                                       bool allowDegenerate = true) {
+typedef struct {
+    std::unique_ptr<cppbor::Item> parsedRequest;
+    const cppbor::Uint* version;
+    const cppbor::Map* udsCerts;
+    const cppbor::Array* diceCertChain;
+    const cppbor::Array* signedData;
+} AuthenticatedRequest;
+
+ErrMsgOr<AuthenticatedRequest> parseAuthenticatedRequest(const std::vector<uint8_t>& request) {
     auto [parsedRequest, _, csrErrMsg] = cppbor::parse(request);
     if (!parsedRequest) {
         return csrErrMsg;
@@ -1035,8 +1039,8 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
     auto diceCertChain = parsedRequest->asArray()->get(2)->asArray();
     auto signedData = parsedRequest->asArray()->get(3)->asArray();
 
-    if (!version || version->value() != 1U) {
-        return "AuthenticatedRequest version must be an unsigned integer and must be equal to 1.";
+    if (!version) {
+        return "AuthenticatedRequest version must be an unsigned integer.";
     }
     if (!udsCerts) {
         return "AuthenticatedRequest UdsCerts must be an Map.";
@@ -1047,27 +1051,84 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
     if (!signedData) {
         return "AuthenticatedRequest SignedData must be an Array.";
     }
+    return AuthenticatedRequest{.parsedRequest = std::move(parsedRequest),
+                                .version = version,
+                                .udsCerts = udsCerts,
+                                .diceCertChain = diceCertChain,
+                                .signedData = signedData};
+}
 
-    // DICE chain is [ pubkey, + DiceChainEntry ].
+ErrMsgOr<std::tuple<std::vector<uint8_t>, std::vector<BccEntryData>>> validateDiceCertChain(
+        const AuthenticatedRequest& request, const std::string& instanceName, bool allowAnyMode,
+        bool allowDegenerate) {
     auto diceChainKind = getDiceChainKind();
     if (!diceChainKind) {
         return diceChainKind.message();
     }
+
+    auto diceCertChain = request.diceCertChain;
+    if (diceCertChain->asArray() || diceCertChain->size() == 0U) {
+        return "AuthenticatedRequest diceCertChain must be a non-empty array.";
+    }
+
+    auto udsPub = diceCertChain->get(0)->asMap()->encode();
 
     auto diceContents =
             validateBcc(diceCertChain, *diceChainKind, allowAnyMode, allowDegenerate, instanceName);
     if (!diceContents) {
         return diceContents.message() + "\n" + prettyPrint(diceCertChain);
     }
+    return std::make_tuple(udsPub, diceContents.moveValue());
+}
 
-    auto udsPub = diceCertChain->get(0)->asMap()->encode();
-    auto& kmDiceKey = diceContents->back().pubKey;
+ErrMsgOr<std::vector<uint8_t>> getUdsPubFromAuthenticatedRequest(
+        const std::vector<uint8_t>& request, const std::string& instanceName) {
+    auto authenticatedRequest = parseAuthenticatedRequest(request);
+    if (!authenticatedRequest) {
+        return authenticatedRequest.message();
+    }
 
+    auto result = validateDiceCertChain(*authenticatedRequest, instanceName, false /*allowAnyMode*/,
+                                        false /*allowDegenerate*/);
+    if (!result) {
+        return result.message();
+    }
+
+    auto [udsPub, _] = *result;
+    return udsPub;
+}
+
+ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t>& request,
+                                                       const std::vector<uint8_t>& challenge,
+                                                       const std::string& instanceName,
+                                                       bool allowAnyMode = false,
+                                                       bool allowDegenerate = true) {
+    auto authenticatedRequest = parseAuthenticatedRequest(request);
+    if (!authenticatedRequest) {
+        return authenticatedRequest.message();
+    }
+
+    auto version = authenticatedRequest->version;
+    if (version->value() != 1U) {
+        return "AuthenticatedRequest version be equal to 1.";
+    }
+
+    auto result = validateDiceCertChain(*authenticatedRequest, instanceName, allowAnyMode,
+                                        allowDegenerate);
+    if (!result) {
+        return result.message();
+    }
+
+    auto [udsPub, diceContents] = *result;
+
+    auto udsCerts = authenticatedRequest->udsCerts;
     auto error = validateUdsCerts(*udsCerts, udsPub);
     if (!error.empty()) {
         return error;
     }
 
+    auto& kmDiceKey = diceContents.back().pubKey;
+    auto signedData = authenticatedRequest->signedData;
     auto signedPayload = verifyAndParseCoseSign1(signedData, kmDiceKey, {} /* aad */);
     if (!signedPayload) {
         return signedPayload.message();
@@ -1088,6 +1149,10 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(const cppbor::Array& keysToSi
                                                    const std::vector<uint8_t>& challenge,
                                                    bool isFactory, bool allowAnyMode = false,
                                                    bool allowDegenerate = true) {
+    if (provisionable == nullptr) {
+        return "Remotely provisioned component is null.";
+    }
+
     RpcHardwareInfo info;
     provisionable->getHardwareInfo(&info);
     if (info.versionNumber != 3) {
