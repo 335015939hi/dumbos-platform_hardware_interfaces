@@ -134,6 +134,24 @@
       ],
       "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03b16324_c12264fa",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-10-22T17:38:09Z",
+      "side": 1,
+      "message": "we can\u0027t reconnect the bootctl module in these functions since they are const. I can return an \"error\" to the caller but they would be different types and the caller would need to recognize the return as an error",
+      "parentUuid": "05371efb_f2d72826",
+      "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
