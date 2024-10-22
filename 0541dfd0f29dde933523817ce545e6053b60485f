@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "308caf48_0e38e477",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-10-22T06:02:38Z",
+      "side": 1,
+      "message": "Corrected the logic.",
+      "parentUuid": "6185d8c2_16436026",
+      "range": {
+        "startLine": 427,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 43
+      },
+      "revId": "0541dfd0f29dde933523817ce545e6053b60485f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16a8358e_a42a09f9",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-10-21T21:34:30Z",
       "side": 1,
       "message": "This is a memory leak. Who is going to delete this allocation?",
+      "range": {
+        "startLine": 91,
+        "startChar": 52,
+        "endLine": 91,
+        "endChar": 69
+      },
+      "revId": "0541dfd0f29dde933523817ce545e6053b60485f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fecc38f7_dec3aaab",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-10-22T06:02:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f969cb5_86b10ce2",
       "range": {
         "startLine": 91,
         "startChar": 52,
