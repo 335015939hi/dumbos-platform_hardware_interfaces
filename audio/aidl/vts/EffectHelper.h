@@ -436,16 +436,24 @@ class EffectHelper {
 
     // Generate multitone input between -amplitude to +amplitude using testFrequencies
     // All test frequencies are considered having the same amplitude
-    void generateMultiTone(const std::vector<int>& testFrequencies, std::vector<float>& input,
-                           const int samplingFrequency, float amplitude = 1.0) {
+    void generateSineWave(const std::vector<int>& testFrequencies, std::vector<float>& input,
+                          const float amplitude = 1.0,
+                          const int samplingFrequency = kSamplingFrequency) {
         for (size_t i = 0; i < input.size(); i++) {
             input[i] = 0;
 
             for (size_t j = 0; j < testFrequencies.size(); j++) {
                 input[i] += sin(2 * M_PI * testFrequencies[j] * i / samplingFrequency);
             }
-            input[i] = input[i] * amplitude / testFrequencies.size();
+            input[i] *= amplitude / testFrequencies.size();
         }
+    }
+
+    // Generate single tone input between -amplitude to +amplitude using testFrequency
+    void generateSineWave(const int testFrequency, std::vector<float>& input,
+                          const float amplitude = 1.0,
+                          const int samplingFrequency = kSamplingFrequency) {
+        generateSineWave(std::vector<int>{testFrequency}, input, amplitude, samplingFrequency);
     }
 
     // Use FFT transform to convert the buffer to frequency domain
