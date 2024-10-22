@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "148841ce_71ee5712",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-10-22T22:38:33Z",
+      "side": 1,
+      "message": "can this be done in the macro definition?",
+      "parentUuid": "7085d470_ae11863b",
+      "revId": "da93dc116c0547cf1ab6fee16b8197a40585dcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d56739fb_0f3d22bd",
         "filename": "boot/aidl/client/BootControlClient.cpp",
         "patchSetId": 2
