@@ -1,0 +1,139 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05371efb_f2d72826",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-22T17:28:34Z",
+      "side": 1,
+      "message": "this code runs on device, consider returning an error gracefully, or maybe re-try connecting to boot ctl module",
+      "fixSuggestions": [
+        {
+          "fixId": "91d1f17a_fc3ba956",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 109,
+                "startChar": 0,
+                "endLine": 110,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return -1;\n        }\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 116,
+                "startChar": 0,
+                "endLine": 117,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return -1;\n        }\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 122,
+                "startChar": 0,
+                "endLine": 123,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return MergeStatus::UNKNOWN;\n        }\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 128,
+                "startChar": 0,
+                "endLine": 129,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return {};\n        }\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 140,
+                "startChar": 0,
+                "endLine": 141,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return {};\n        }\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 152,
+                "startChar": 0,
+                "endLine": 153,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return {.success \u003d false, .errMsg \u003d \"module_ is null\"};\n        }\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 162,
+                "startChar": 0,
+                "endLine": 163,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return {.success \u003d false, .errMsg \u003d \"module_ is null\"};\n        }\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 171,
+                "startChar": 0,
+                "endLine": 172,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return -1;\n        }\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 179,
+                "startChar": 0,
+                "endLine": 180,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return {};\n        }\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 191,
+                "startChar": 0,
+                "endLine": 192,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return {.success \u003d false, .errMsg \u003d \"module_ is null\"};\n        }\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 201,
+                "startChar": 0,
+                "endLine": 202,
+                "endChar": 0
+              },
+              "replacement": "        if (module_ \u003d\u003d nullptr) {\n            LOG(ERROR) \u003c\u003c \"module_ is null\";\n            return {.success \u003d false, .errMsg \u003d \"module_ is null\"};\n        }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
