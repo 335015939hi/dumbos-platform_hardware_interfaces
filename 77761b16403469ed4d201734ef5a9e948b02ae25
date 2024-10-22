@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2712f6b1_b3ec63df",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2024-10-22T02:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e938bb83_13561079",
+      "range": {
+        "startLine": 248,
+        "startChar": 34,
+        "endLine": 248,
+        "endChar": 35
+      },
+      "revId": "77761b16403469ed4d201734ef5a9e948b02ae25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff56ff3f_2c8f9add",
@@ -70,6 +94,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35ac5a86_42798bea",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2024-10-22T02:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfa37821_0cdc3fbc",
+      "range": {
+        "startLine": 249,
+        "startChar": 90,
+        "endLine": 249,
+        "endChar": 93
+      },
+      "revId": "77761b16403469ed4d201734ef5a9e948b02ae25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "618a1a9b_91b83fce",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2024-10-22T02:44:44Z",
+      "side": 1,
+      "message": "Maybe because I was using the raw git push command to upload, which didn\u0027t call the formatting script.\nNow I have manually run the script and fixed the format.\nThank you.",
+      "parentUuid": "ff56ff3f_2c8f9add",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 105
+      },
+      "revId": "77761b16403469ed4d201734ef5a9e948b02ae25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "318994ed_e595e308",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6ee095e_d170e24e",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2024-10-22T02:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "318994ed_e595e308",
+      "range": {
+        "startLine": 285,
+        "startChar": 36,
+        "endLine": 285,
+        "endChar": 37
+      },
+      "revId": "77761b16403469ed4d201734ef5a9e948b02ae25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87289a94_24944430",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-10-21T18:16:08Z",
       "side": 1,
       "message": "Also \"from mixer:\"",
+      "range": {
+        "startLine": 288,
+        "startChar": 18,
+        "endLine": 288,
+        "endChar": 21
+      },
+      "revId": "77761b16403469ed4d201734ef5a9e948b02ae25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14322030_48f84430",
+        "filename": "audio/aidl/default/primary/StreamPrimary.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2024-10-22T02:44:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87289a94_24944430",
       "range": {
         "startLine": 288,
         "startChar": 18,
