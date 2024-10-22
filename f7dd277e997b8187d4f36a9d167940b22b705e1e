@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f8c669_e6723534",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-22T16:32:46Z",
+      "side": 1,
+      "message": "open should return an immediate failure, and any other asynchronous failure within the socket HAL should result in a call to closeRequest.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 62
+      },
+      "revId": "f7dd277e997b8187d4f36a9d167940b22b705e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a94a8942_20d644d3",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocCapabilities.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-22T16:32:46Z",
+      "side": 1,
+      "message": "Why did you remove the MPS here ?",
+      "revId": "f7dd277e997b8187d4f36a9d167940b22b705e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05d99e41_7cf59a52",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-22T16:32:46Z",
+      "side": 1,
+      "message": "Technically this value will always be zero, as the host stack will not give any initial credits",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 24
+      },
+      "revId": "f7dd277e997b8187d4f36a9d167940b22b705e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7175266_692ef895",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-22T16:32:46Z",
+      "side": 1,
+      "message": "contextHubId to match the IContextHub HAL naming ?",
+      "range": {
+        "startLine": 52,
+        "startChar": 9,
+        "endLine": 52,
+        "endChar": 14
+      },
+      "revId": "f7dd277e997b8187d4f36a9d167940b22b705e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

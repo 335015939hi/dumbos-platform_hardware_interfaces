@@ -317,6 +317,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67a11c56_13d6b48c",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-22T16:32:46Z",
+      "side": 1,
+      "message": "You might either pick the minimum value, or return an error if higher than the offload stack supported value.",
+      "parentUuid": "58cb330c_5087bccb",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84c60006_6e44c853",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
         "patchSetId": 6
