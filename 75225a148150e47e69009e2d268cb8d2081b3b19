@@ -46,6 +46,30 @@
       },
       "revId": "75225a148150e47e69009e2d268cb8d2081b3b19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71cd3743_8210e442",
+        "filename": "rebootescrow/aidl/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-22T00:47:54Z",
+      "side": 1,
+      "message": "no, I don\u0027t mean AOSP specifically, I just mean a non-pixel thing, e.g. maybe trendy_team_platform_security",
+      "parentUuid": "d3fc7736_b427d9ba",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "75225a148150e47e69009e2d268cb8d2081b3b19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
