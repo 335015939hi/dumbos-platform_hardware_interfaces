@@ -359,6 +359,24 @@
       "parentUuid": "5af46a3e_5d977d09",
       "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4d5cb39_b979c7cb",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-22T18:08:15Z",
+      "side": 1,
+      "message": "https://cs.android.com/android/platform/superproject/main/+/main:system/update_engine/common/utils.h;l\u003d627?q\u003dTEST_NE\u0026ss\u003dandroid",
+      "parentUuid": "e937b1cf_0b0d966d",
+      "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
