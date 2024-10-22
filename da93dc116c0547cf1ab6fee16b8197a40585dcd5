@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "188d450c_b407fb93",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-22T22:41:31Z",
+      "side": 1,
+      "message": "it\u0027s hard for macro to figure out a good error value for all different types. Sometimes we just have to code something manually",
+      "parentUuid": "148841ce_71ee5712",
+      "revId": "da93dc116c0547cf1ab6fee16b8197a40585dcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d56739fb_0f3d22bd",
         "filename": "boot/aidl/client/BootControlClient.cpp",
         "patchSetId": 2
