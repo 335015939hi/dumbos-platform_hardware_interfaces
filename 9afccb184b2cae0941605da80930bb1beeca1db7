@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d204acff_72d2244c",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2024-10-22T16:01:24Z",
+      "side": 1,
+      "message": "should we also test as_played mode?\n\ni.e. in case of normalized, the captured data min and max needs to be closer to 0 and 255\nin case of as_played, it needs to be closer to 0 and 255 when input is between -1.0 to 1.0 and captured min and max near 64 and 192 when input is between -0.5 to 0.5",
+      "range": {
+        "startLine": 251,
+        "startChar": 27,
+        "endLine": 251,
+        "endChar": 61
+      },
+      "revId": "9afccb184b2cae0941605da80930bb1beeca1db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6183d90f_87458388",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2024-10-22T16:01:24Z",
+      "side": 1,
+      "message": "static constexpr and rename to kcaptureBufferTolerance",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 46
+      },
+      "revId": "9afccb184b2cae0941605da80930bb1beeca1db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
