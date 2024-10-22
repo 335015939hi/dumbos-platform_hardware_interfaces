@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37bb0d1c_18c7c1c3",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2024-10-22T16:41:12Z",
+      "side": 1,
+      "message": "mAudioChannelLayout\n\nk prefix is for static constexpr generally",
+      "range": {
+        "startLine": 161,
+        "startChar": 18,
+        "endLine": 161,
+        "endChar": 37
+      },
+      "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f366a8_69ca7e04",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2024-10-22T16:41:12Z",
+      "side": 1,
+      "message": "mChannelCount",
+      "range": {
+        "startLine": 165,
+        "startChar": 14,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "781fd290_14f840ce",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2024-10-22T16:41:12Z",
+      "side": 1,
+      "message": "change to const where possible",
+      "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
