@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "117223d5_fe1fd190",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2024-10-22T02:41:05Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "080320c3_5fe0e8a0",
+      "range": {
+        "startLine": 940,
+        "startChar": 65,
+        "endLine": 940,
+        "endChar": 96
+      },
+      "revId": "362843c8c55b32c9df1deb16fd9e183c9c9c851d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39309da3_291c051f",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-10-21T18:08:29Z",
       "side": 0,
       "message": "Same here.",
+      "range": {
+        "startLine": 1072,
+        "startChar": 6,
+        "endLine": 1072,
+        "endChar": 37
+      },
+      "revId": "362843c8c55b32c9df1deb16fd9e183c9c9c851d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc9a19e0_8ea76a77",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2024-10-22T02:41:05Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "39309da3_291c051f",
       "range": {
         "startLine": 1072,
         "startChar": 6,
