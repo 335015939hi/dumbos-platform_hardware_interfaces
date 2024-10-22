@@ -22,6 +22,30 @@
       },
       "revId": "4564f1bdd6717409127e311ddb9c96119ee03828",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdf1867a_27bd933b",
+        "filename": "automotive/sv/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897543
+      },
+      "writtenOn": "2024-10-22T00:07:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea9271a6_e432d933",
+      "range": {
+        "startLine": 0,
+        "startChar": 0,
+        "endLine": 0,
+        "endChar": 0
+      },
+      "revId": "4564f1bdd6717409127e311ddb9c96119ee03828",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
