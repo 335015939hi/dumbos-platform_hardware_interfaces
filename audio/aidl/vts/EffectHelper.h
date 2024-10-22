@@ -374,7 +374,8 @@ class EffectHelper {
                                         std::vector<float>& outputBuffer,
                                         const std::shared_ptr<IEffect>& effect,
                                         IEffect::OpenEffectReturn* openEffectReturn,
-                                        int version = -1, int times = 1) {
+                                        int version = -1, int times = 1,
+                                        bool callStopReset = true) {
         // Initialize AidlMessagequeues
         auto statusMQ = std::make_unique<EffectHelper::StatusMQ>(openEffectReturn->statusMQ);
         ASSERT_TRUE(statusMQ->isValid());
@@ -400,10 +401,14 @@ class EffectHelper {
         }
 
         // Disable the process
-        ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::STOP));
+        if (callStopReset) {
+            ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::STOP));
+        }
         EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(statusMQ, 0, outputMQ, 0, outputBuffer));
 
-        ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::RESET));
+        if (callStopReset) {
+            ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::RESET));
+        }
     }
 
     // Find FFT bin indices for testFrequencies and get bin center frequencies
@@ -428,16 +433,17 @@ class EffectHelper {
         }
     }
 
-    // Generate multitone input between -1 to +1 using testFrequencies
+    // Generate multitone input between -amplitude to +amplitude using testFrequencies
+    // All test frequencies are considered having the same amplitude
     void generateMultiTone(const std::vector<int>& testFrequencies, std::vector<float>& input,
-                           const int samplingFrequency) {
+                           const int samplingFrequency, float amplitude = 1.0) {
         for (size_t i = 0; i < input.size(); i++) {
             input[i] = 0;
 
             for (size_t j = 0; j < testFrequencies.size(); j++) {
                 input[i] += sin(2 * M_PI * testFrequencies[j] * i / samplingFrequency);
             }
-            input[i] /= testFrequencies.size();
+            input[i] *= amplitude / testFrequencies.size();
         }
     }
 
