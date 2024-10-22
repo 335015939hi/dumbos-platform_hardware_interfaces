@@ -70,6 +70,30 @@
       },
       "revId": "75225a148150e47e69009e2d268cb8d2081b3b19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d5ea312_93bbb876",
+        "filename": "rebootescrow/aidl/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-22T06:31:57Z",
+      "side": 1,
+      "message": "Ok, @slotus@google.com, let us use the following instead: \nTrendy Tean Name: Platform Security\nTrendy Team ID: 5243033213599744",
+      "parentUuid": "71cd3743_8210e442",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "75225a148150e47e69009e2d268cb8d2081b3b19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
