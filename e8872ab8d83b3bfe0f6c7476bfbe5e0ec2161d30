@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "061e3fc1_79cc206b",
+        "filename": "cas/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-22T06:09:24Z",
+      "side": 1,
+      "message": "Hi @smoreland@google.com, none of the currently listed owners belongs to any \"Media\" team, so I have to ask you to suggest which one of the following \"Media\" Trendy teams would be the best candidate as the owner of this test module: \nAndroid Media DRM\nAndroid Media Codec Framework\nAndroid Media Better Together\nAndroid Media Reliability\nAndroid Media Solutions\nAndroid Media Solutions Playback\nAndroid Media Audio Framework\n\nThank you!",
+      "parentUuid": "3994f8a0_27115388",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "e8872ab8d83b3bfe0f6c7476bfbe5e0ec2161d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a97b5102_805396d5",
         "filename": "confirmationui/1.0/vts/functional/Android.bp",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2024-10-21T21:47:52Z",
       "side": 1,
       "message": "confirmation UI should be owned by security team",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "e8872ab8d83b3bfe0f6c7476bfbe5e0ec2161d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7eecaa1_0507ec4b",
+        "filename": "confirmationui/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-22T06:09:24Z",
+      "side": 1,
+      "message": "Hi @smoreland@google.com, \n\nI assume you mean this test module actually contains both Security test cases and \"Media\" test cases.  Unless those two teams split this test module into two, we will have to designate only one Trendy team as the primary owner for this test module.  I\u0027m going to set Media team as the primary owner of this test module.  When the need arises, we\u0027ll ask Media and Security team to split up this test module into two, so they can own each separately.  Let me know if the POR sounds ok to you.  Thank you.",
+      "parentUuid": "a97b5102_805396d5",
       "range": {
         "startLine": 18,
         "startChar": 19,
