@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d1ce9b0_a1c57956",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-10-22T19:15:44Z",
+      "side": 1,
+      "message": "Nah, not necessary, especially if it\u0027s any extra work at all. Just mentioned it.",
+      "parentUuid": "0d6bf8d0_a977425d",
+      "range": {
+        "startLine": 1034,
+        "startChar": 15,
+        "endLine": 1034,
+        "endChar": 55
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dd982f4_27d50783",
