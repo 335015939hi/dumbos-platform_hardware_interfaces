@@ -174,6 +174,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72742ed0_2d3173c4",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-10-22T18:05:16Z",
+      "side": 1,
+      "message": "we can do that but then we can\u0027t reconnect death recipient since that is not a const fucntion",
+      "parentUuid": "da67d751_0b62a0ac",
+      "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f1c81d3_0d473e41",
         "filename": "boot/aidl/client/BootControlClient.cpp",
         "patchSetId": 1
@@ -303,6 +321,24 @@
           ]
         }
       ],
+      "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5af46a3e_5d977d09",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-10-22T18:05:16Z",
+      "side": 1,
+      "message": "is the update_engine utils TEST_AND_RETURN_FALSE?",
+      "parentUuid": "6f1c81d3_0d473e41",
       "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
