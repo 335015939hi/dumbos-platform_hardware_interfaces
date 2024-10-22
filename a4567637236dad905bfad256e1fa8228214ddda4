@@ -152,6 +152,24 @@
       "parentUuid": "05371efb_f2d72826",
       "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da67d751_0b62a0ac",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-22T17:40:34Z",
+      "side": 1,
+      "message": "(you don\u0027t have to do this, but) marking the module_ member variable as `mutable` would allow const methods to modify it. FYI\n\nyea returning an error is fine. The return types typically had an error value already",
+      "parentUuid": "03b16324_c12264fa",
+      "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
