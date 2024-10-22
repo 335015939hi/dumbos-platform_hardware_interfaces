@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "382ceb53_ac18d42c",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-10-22T18:59:06Z",
+      "side": 1,
+      "message": "Hmm, why would mocking be affected by whether this code is in `validateUdsCerts` or not?",
+      "parentUuid": "d7e6a146_d1bdc1bf",
+      "range": {
+        "startLine": 1034,
+        "startChar": 15,
+        "endLine": 1034,
+        "endChar": 55
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2dd982f4_27d50783",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 7
@@ -189,6 +213,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "874e7975_66b8573d",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-10-22T18:59:06Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "31b0f1f6_3ce9dcda",
+      "range": {
+        "startLine": 1047,
+        "startChar": 0,
+        "endLine": 1052,
+        "endChar": 5
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f3993f5_19654b9a",
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "I guess what bugged me is that if `diceContents` is empty, then accessing `pubKey` of the last entry could be bad.",
       "parentUuid": "8f3993f5_19654b9a",
+      "range": {
+        "startLine": 1063,
+        "startChar": 6,
+        "endLine": 1065,
+        "endChar": 5
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f98d5c5_396c85fd",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-10-22T18:59:06Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "beaf93af_b3fd4842",
       "range": {
         "startLine": 1063,
         "startChar": 6,
