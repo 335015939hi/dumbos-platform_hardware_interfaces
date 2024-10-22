@@ -51,6 +51,14 @@ aidl_interface {
 
 }
 
+// An aidl_interface_defaults that includes the latest KeyMint AIDL interface.
+// aidl_interface modules that depend on KeyMint directly can include this
+// aidl_interface_defaults to avoid managing dependency versions explicitly.
+aidl_interface_defaults {
+    name: "android.hardware.security.keymint-latest-defaults",
+    imports: ["android.hardware.security.keymint-V3"],
+}
+
 // cc_defaults that includes the latest KeyMint AIDL library.
 // Modules that depend on KeyMint directly can include this cc_defaults to avoid
 // managing dependency versions explicitly.
