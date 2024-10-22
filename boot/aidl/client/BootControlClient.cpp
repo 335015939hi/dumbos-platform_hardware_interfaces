@@ -80,6 +80,7 @@ class BootControlClientAidl final : public BootControlClient {
     explicit BootControlClientAidl(std::shared_ptr<IBootControl> module)
         : module_(module),
           boot_control_death_recipient(AIBinder_DeathRecipient_new(onBootControlServiceDied)) {
+        AIBinder_DeathRecipient_setOnUnlinked(boot_control_death_recipient, onCallbackUnlinked);
         binder_status_t status =
                 AIBinder_linkToDeath(module->asBinder().get(), boot_control_death_recipient, this);
         if (status != STATUS_OK) {
@@ -89,6 +90,8 @@ class BootControlClientAidl final : public BootControlClient {
     }
 
     BootControlVersion GetVersion() const override { return BootControlVersion::BOOTCTL_AIDL; }
+    // Delete the owned cookie.
+    void onCallbackUnlinked() { LOG(INFO) << "BootControl Service is unlinked"; }
 
     void onBootControlServiceDied() {
         LOG(ERROR) << "boot control service AIDL died. Attempting to reconnect...";
@@ -236,9 +239,12 @@ class BootControlClientAidl final : public BootControlClient {
   private:
     std::shared_ptr<IBootControl> module_;
     AIBinder_DeathRecipient* boot_control_death_recipient;
-    static void onBootControlServiceDied(void* client) {
+    static void onCallbackUnlinked(void* client) {
         BootControlClientAidl* self = static_cast<BootControlClientAidl*>(client);
         self->onBootControlServiceDied();
+    }
+    static void onBootControlServiceDied(void* client) {
+        BootControlClientAidl* self = static_cast<BootControlClientAidl*>(client);
     }
 };
 
