@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d6bf8d0_a977425d",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-22T19:11:54Z",
+      "side": 1,
+      "message": "Ah, I erroneously conflated two things in my mind that is not worth going into. I can move that check where you mentioned and generate some appropriate test data to get what you suggested to work.",
+      "parentUuid": "382ceb53_ac18d42c",
+      "range": {
+        "startLine": 1034,
+        "startChar": 15,
+        "endLine": 1034,
+        "endChar": 55
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2dd982f4_27d50783",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 7
