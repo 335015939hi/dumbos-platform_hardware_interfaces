@@ -80,6 +80,8 @@ class BootControlClientAidl final : public BootControlClient {
     explicit BootControlClientAidl(std::shared_ptr<IBootControl> module)
         : module_(module),
           boot_control_death_recipient(AIBinder_DeathRecipient_new(onBootControlServiceDied)) {
+        AIBinder_DeathRecipient_setOnUnlinked(boot_control_death_recipient,
+                                              onBootControlServiceDied);
         binder_status_t status =
                 AIBinder_linkToDeath(module->asBinder().get(), boot_control_death_recipient, this);
         if (status != STATUS_OK) {
@@ -89,6 +91,11 @@ class BootControlClientAidl final : public BootControlClient {
     }
 
     BootControlVersion GetVersion() const override { return BootControlVersion::BOOTCTL_AIDL; }
+    // Delete the owned cookie.
+    void onCallbackUnlinked(void* cookie) {
+        BootControlClientAidl* linked = reinterpret_cast<BootControlClientAidl*>(cookie);
+        LOG(ERROR) << "Daniel: OnCallbackUnlinked";
+    }
 
     void onBootControlServiceDied() {
         LOG(ERROR) << "boot control service AIDL died. Attempting to reconnect...";
@@ -119,6 +126,7 @@ class BootControlClientAidl final : public BootControlClient {
     int32_t GetNumSlots() const override {
         int32_t ret = -1;
         if (!module_) {
+            LOG(ERROR) << "bootctl module not set";
             return ret;
         }
         LOG_NDK_STATUS(module_->getNumberSlots(&ret));
@@ -128,6 +136,7 @@ class BootControlClientAidl final : public BootControlClient {
     int32_t GetCurrentSlot() const override {
         int32_t ret = -1;
         if (!module_) {
+            LOG(ERROR) << "bootctl module not set";
             return ret;
         }
         LOG_NDK_STATUS(module_->getCurrentSlot(&ret));
@@ -137,6 +146,7 @@ class BootControlClientAidl final : public BootControlClient {
     MergeStatus getSnapshotMergeStatus() const override {
         MergeStatus status = MergeStatus::UNKNOWN;
         if (!module_) {
+            LOG(ERROR) << "bootctl module not set";
             return status;
         }
         LOG_NDK_STATUS(module_->getSnapshotMergeStatus(&status));
@@ -190,6 +200,7 @@ class BootControlClientAidl final : public BootControlClient {
     int GetActiveBootSlot() const {
         int ret = -1;
         if (!module_) {
+            LOG(ERROR) << "bootctl module not set";
             return ret;
         }
         LOG_NDK_STATUS(module_->getActiveBootSlot(&ret));
