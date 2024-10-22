@@ -170,6 +170,141 @@
       "parentUuid": "03b16324_c12264fa",
       "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f1c81d3_0d473e41",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-22T17:41:18Z",
+      "side": 1,
+      "message": "TEST_AND_RETURN(module_ !\u003d nullptr);",
+      "fixSuggestions": [
+        {
+          "fixId": "c7a7a4e3_a7343e69",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 109,
+                "startChar": 0,
+                "endLine": 110,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, -1);\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 116,
+                "startChar": 0,
+                "endLine": 117,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, -1);\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 122,
+                "startChar": 0,
+                "endLine": 123,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, MergeStatus::UNKNOWN);\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 128,
+                "startChar": 0,
+                "endLine": 129,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, {});\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 140,
+                "startChar": 0,
+                "endLine": 141,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, {});\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 152,
+                "startChar": 0,
+                "endLine": 153,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, {.success \u003d false, .errMsg \u003d \"module is null\"});\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 162,
+                "startChar": 0,
+                "endLine": 163,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, {.success \u003d false, .errMsg \u003d \"module is null\"});\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 171,
+                "startChar": 0,
+                "endLine": 172,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, -1);\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 179,
+                "startChar": 0,
+                "endLine": 180,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, {});\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 191,
+                "startChar": 0,
+                "endLine": 192,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, {.success \u003d false, .errMsg \u003d \"module is null\"});\n"
+            },
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 201,
+                "startChar": 0,
+                "endLine": 202,
+                "endChar": 0
+              },
+              "replacement": "        TEST_AND_RETURN(module_ !\u003d nullptr, {.success \u003d false, .errMsg \u003d \"module is null\"});\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
