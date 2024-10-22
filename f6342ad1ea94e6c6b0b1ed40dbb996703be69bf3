@@ -16,6 +16,24 @@
       "message": "should we have a bug number for this in commit message?",
       "revId": "f6342ad1ea94e6c6b0b1ed40dbb996703be69bf3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c889c9_47fadcf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-22T21:03:11Z",
+      "side": 1,
+      "message": "Good point! I have created a bug and added its number to both changes.",
+      "parentUuid": "914b92c3_f29f10db",
+      "revId": "f6342ad1ea94e6c6b0b1ed40dbb996703be69bf3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
