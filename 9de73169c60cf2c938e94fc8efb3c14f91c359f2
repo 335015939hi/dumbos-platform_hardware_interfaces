@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac96e36_0e6b9806",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2024-10-22T15:56:00Z",
+      "side": 1,
+      "message": "constexpr",
+      "range": {
+        "startLine": 141,
+        "startChar": 11,
+        "endLine": 141,
+        "endChar": 16
+      },
+      "revId": "9de73169c60cf2c938e94fc8efb3c14f91c359f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b346be15_8e590854",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2024-10-22T15:56:00Z",
+      "side": 1,
+      "message": "these can be const?\nno need to initialize here as these are initialized in the constructor",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 21
+      },
+      "revId": "9de73169c60cf2c938e94fc8efb3c14f91c359f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ec32778_ab5ae29e",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1047003
+      },
+      "writtenOn": "2024-10-22T15:56:00Z",
+      "side": 1,
+      "message": "do not initialize here and make const?",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 85
+      },
+      "revId": "9de73169c60cf2c938e94fc8efb3c14f91c359f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
