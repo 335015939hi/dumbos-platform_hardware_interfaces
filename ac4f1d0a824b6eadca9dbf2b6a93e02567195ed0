@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea0ab000_91e1aeb8",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 857,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-22T10:26:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36b166c9_f408cfaa",
+      "range": {
+        "startLine": 857,
+        "startChar": 10,
+        "endLine": 857,
+        "endChar": 17
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e727789e_c2090845",
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7e6a146_d1bdc1bf",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-22T10:26:48Z",
+      "side": 1,
+      "message": "I put this here because it was an easy way to write a test that would prove that the code would error out if `udsCerts` were not provided and `requireUdsCerts \u003d\u003d true`. When trying to mock something, the call to `generateChallenge` in `getCsrV3` created issues because it could not be controlled. (At least, I could not figure out a way around it.)",
+      "parentUuid": "e727789e_c2090845",
+      "range": {
+        "startLine": 1034,
+        "startChar": 15,
+        "endLine": 1034,
+        "endChar": 55
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2dd982f4_27d50783",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 7
@@ -60,6 +108,30 @@
       "writtenOn": "2024-10-21T22:49:08Z",
       "side": 1,
       "message": "The size of the DICE chain gets checked later in validateBcc (http://shortn/_esk932uhpC), and if we move the validateUdsCerts call to be after the call to validateBcc, I don\u0027t think we need this.",
+      "range": {
+        "startLine": 1040,
+        "startChar": 6,
+        "endLine": 1042,
+        "endChar": 5
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "145ca1d5_ab472aca",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-22T10:26:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dd982f4_27d50783",
       "range": {
         "startLine": 1040,
         "startChar": 6,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31b0f1f6_3ce9dcda",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-22T10:26:48Z",
+      "side": 1,
+      "message": "It just seemed largely independent of the later code, but with your comment below, I can see how there are benefits to keeping it where it was. This was done.",
+      "parentUuid": "0e4f8746_58a90858",
+      "range": {
+        "startLine": 1047,
+        "startChar": 0,
+        "endLine": 1052,
+        "endChar": 5
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f3993f5_19654b9a",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 7
@@ -106,6 +202,30 @@
       "writtenOn": "2024-10-21T22:49:08Z",
       "side": 1,
       "message": "Is this check needed given the validation we\u0027re already doing in validateBcc?",
+      "range": {
+        "startLine": 1063,
+        "startChar": 6,
+        "endLine": 1065,
+        "endChar": 5
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beaf93af_b3fd4842",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-22T10:26:48Z",
+      "side": 1,
+      "message": "I guess what bugged me is that if `diceContents` is empty, then accessing `pubKey` of the last entry could be bad.",
+      "parentUuid": "8f3993f5_19654b9a",
       "range": {
         "startLine": 1063,
         "startChar": 6,
@@ -139,6 +259,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ec2f12d_e0cad0ad",
+        "filename": "security/keymint/support/remote_prov_utils_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-22T10:26:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d1b2a86_d3f1d63d",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 1
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c24f5727_104173ac",
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47e686ed_e5a16e17",
+        "filename": "security/keymint/support/remote_prov_utils_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-22T10:26:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c24f5727_104173ac",
+      "range": {
+        "startLine": 86,
+        "startChar": 25,
+        "endLine": 86,
+        "endChar": 80
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d024d69_c05b6ddc",
@@ -175,6 +343,30 @@
       "writtenOn": "2024-10-21T22:49:08Z",
       "side": 1,
       "message": "Can this assertion be more specific so we know verification failed because of the missing UDS certs?",
+      "range": {
+        "startLine": 600,
+        "startChar": 4,
+        "endLine": 600,
+        "endChar": 21
+      },
+      "revId": "ac4f1d0a824b6eadca9dbf2b6a93e02567195ed0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6151309a_92977c0c",
+        "filename": "security/keymint/support/remote_prov_utils_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 600,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-10-22T10:26:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d024d69_c05b6ddc",
       "range": {
         "startLine": 600,
         "startChar": 4,
