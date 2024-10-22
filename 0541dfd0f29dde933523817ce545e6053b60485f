@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb155fb2_38d522f7",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-10-22T06:45:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16a8358e_a42a09f9",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 30
+      },
+      "revId": "0541dfd0f29dde933523817ce545e6053b60485f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f969cb5_86b10ce2",
@@ -131,6 +155,30 @@
       "writtenOn": "2024-10-21T21:34:30Z",
       "side": 1,
       "message": "Can we make some or all of these const?",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 0
+      },
+      "revId": "0541dfd0f29dde933523817ce545e6053b60485f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34711302_1e446bdb",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-10-22T06:45:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3b210bb_1c85e7b2",
       "range": {
         "startLine": 147,
         "startChar": 0,
