@@ -335,6 +335,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5bc45c62_1806f8d8",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-22T22:52:36Z",
+      "side": 1,
+      "message": "That\u0027s good idea. You can choose the minimum value between what the app requests and what the Stack supports. The selected Tx/Rx MTU cold be readable by existing public API.\n\n```\npublic int BluetoothSocket::getMaxReceivePacketSize ()\npublic int BluetoothSocket::getMaxTransmitPacketSize ()\n\n```",
+      "parentUuid": "67a11c56_13d6b48c",
+      "revId": "4ea5c12d3db34fbc25379f108f43db7f8c9aff80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "84c60006_6e44c853",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocSpec.aidl",
         "patchSetId": 6

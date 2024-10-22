@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d6b5801_0b746dd2",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-22T22:52:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35f8c669_e6723534",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 62
+      },
+      "revId": "f7dd277e997b8187d4f36a9d167940b22b705e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a94a8942_20d644d3",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-10-22T16:32:46Z",
       "side": 1,
       "message": "Why did you remove the MPS here ?",
+      "revId": "f7dd277e997b8187d4f36a9d167940b22b705e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83bafec2_efab68fd",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocCapabilities.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-22T22:52:36Z",
+      "side": 1,
+      "message": "MPS is better aligned to the LE ACL packet length, and that\u0027s what Android host stack sets. LE ACL packet length is typically 251 bytes, which shouldn\u0027t be a burden on MCU memory allocation, so we\u0027ve removed it from the values ​​that MCU can set. Please refer the previous comments - \n\nhttps://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3303007/comment/84c60006_6e44c853/",
+      "parentUuid": "a94a8942_20d644d3",
       "revId": "f7dd277e997b8187d4f36a9d167940b22b705e1e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "695686f9_6c952302",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-22T22:52:36Z",
+      "side": 1,
+      "message": "Yes, this credit will be negotiated to 0 by the host stack as we discussed. The offload stack will be notified with the value that the host stack negotiated. Added document about it.",
+      "parentUuid": "05d99e41_7cf59a52",
+      "range": {
+        "startLine": 62,
+        "startChar": 8,
+        "endLine": 62,
+        "endChar": 24
+      },
+      "revId": "f7dd277e997b8187d4f36a9d167940b22b705e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7175266_692ef895",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-10-22T16:32:46Z",
       "side": 1,
       "message": "contextHubId to match the IContextHub HAL naming ?",
+      "range": {
+        "startLine": 52,
+        "startChar": 9,
+        "endLine": 52,
+        "endChar": 14
+      },
+      "revId": "f7dd277e997b8187d4f36a9d167940b22b705e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2985ef79_aed54d23",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-22T22:52:36Z",
+      "side": 1,
+      "message": "The hub ID matches the ContextHub that is in progress.\n\nhttps://googleplex-android-review.git.corp.google.com/c/platform/hardware/interfaces/+/29314878/14/contexthub/aidl/android/hardware/contexthub/EndpointInfo.aidl",
+      "parentUuid": "c7175266_692ef895",
       "range": {
         "startLine": 52,
         "startChar": 9,
