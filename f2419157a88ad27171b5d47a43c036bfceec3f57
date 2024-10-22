@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "659b814f_be8acfcd",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocket.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-22T06:45:52Z",
+      "side": 1,
+      "message": "This method could return error if the input callback is null. Renamed this method as `registerCallback`.",
+      "parentUuid": "a5570de4_421ee4f6",
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f71778fc_3cfd99ae",
@@ -65,6 +83,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "788bdcb1_636b9bfe",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-22T06:45:52Z",
+      "side": 1,
+      "message": "Actually, we just need a request reason string for debug purpose. Simplified the input parameters.",
+      "parentUuid": "e5a27bb9_4b9f6843",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 41
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e33bba12_2daa47f6",
@@ -102,6 +144,30 @@
       "side": 1,
       "message": "yes it uses same vendor status code group as above.",
       "parentUuid": "e33bba12_2daa47f6",
+      "range": {
+        "startLine": 72,
+        "startChar": 61,
+        "endLine": 72,
+        "endChar": 81
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5375f7ec_f84ae0d0",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-22T06:45:52Z",
+      "side": 1,
+      "message": "Actually, we just need a request reason string for debug purpose. Simplified the input parameters.",
+      "parentUuid": "5a92eece_aade8626",
       "range": {
         "startLine": 72,
         "startChar": 61,
@@ -215,6 +281,24 @@
       "side": 1,
       "message": "Restarting all the BT services would be safer in ensuring that the state is properly reset I think. Doing this also enforces a common behavior for passthrough and sideband modes: the stack should not have to be aware of the difference.",
       "parentUuid": "d32d3038_10b810af",
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f115feca_9a43fdb1",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-22T06:45:52Z",
+      "side": 1,
+      "message": "Thanks for the comments. We agree to remove this callback from Socket HAL.",
+      "parentUuid": "4cc94a65_c4563efc",
       "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
