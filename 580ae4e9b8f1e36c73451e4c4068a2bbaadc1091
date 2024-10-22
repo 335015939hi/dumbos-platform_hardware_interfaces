@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c24b3c5_1c9341c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1291337
+      },
+      "writtenOn": "2024-10-22T20:34:19Z",
+      "side": 1,
+      "message": "FYI v2/android-ota/cf_incremental_from_but errors are from b/373671108",
+      "revId": "580ae4e9b8f1e36c73451e4c4068a2bbaadc1091",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "246cb982_a5b0c93d",
