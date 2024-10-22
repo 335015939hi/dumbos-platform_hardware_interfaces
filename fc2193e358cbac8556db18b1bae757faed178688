@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07ab45ca_f1b26560",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-22T22:55:47Z",
+      "side": 1,
+      "message": "might want to log an error so that we know when looking at bugreports",
+      "fixSuggestions": [
+        {
+          "fixId": "7fc37b11_d920fa7a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 140,
+                "startChar": 0,
+                "endLine": 140,
+                "endChar": 0
+              },
+              "replacement": "            LOG(ERROR) \u003c\u003c __FUNCTION__ \u003c\u003c \" failed, module is null\";\n"
+            }
+          ]
+        }
+      ],
+      "revId": "fc2193e358cbac8556db18b1bae757faed178688",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
