@@ -52,6 +52,24 @@
       "parentUuid": "603b559a_b758aa91",
       "revId": "5ae1f40fc8508f3280125455e3818a21d799852b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "042c21a4_fff8f6a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-22T06:37:43Z",
+      "side": 1,
+      "message": "@smoreland@google.com, which of the following Power teams would be the best candidate as the owner here? Thx!\n\nPowerManager Framework\nAndroid Power and Comms infra\nSystem Power\nFramework - Backstage \u0026 Power",
+      "parentUuid": "0c99c48d_f7c115e3",
+      "revId": "5ae1f40fc8508f3280125455e3818a21d799852b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
