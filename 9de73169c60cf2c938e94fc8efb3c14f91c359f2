@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71040e4c_577b83fc",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 428,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-22T16:10:40Z",
+      "side": 1,
+      "message": "As we have discussed, this change just makes the line longer, so we can leave the old version of this code.",
+      "range": {
+        "startLine": 427,
+        "startChar": 0,
+        "endLine": 428,
+        "endChar": 41
+      },
+      "revId": "9de73169c60cf2c938e94fc8efb3c14f91c359f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7bb43470_1a3c719e",
         "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
         "patchSetId": 5
