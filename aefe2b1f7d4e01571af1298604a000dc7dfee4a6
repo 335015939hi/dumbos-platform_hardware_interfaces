@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0194d76_720f16dc",
+        "filename": "cas/aidl/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-22T06:27:24Z",
+      "side": 1,
+      "message": "We\u0027ll designate \"Renderscript \u0026 NNAPI\" as the primary owner for this test module, unless either team is willing to split up this test module into two smaller modules: one for Media, one for \"Renderscript \u0026 NNAPI\"",
+      "parentUuid": "cd5d67e8_f998d1be",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "aefe2b1f7d4e01571af1298604a000dc7dfee4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09349d1d_5a43261f",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-10-21T21:59:15Z",
       "side": 1,
       "message": "nnapi should be aicore team or miaowang@ for instance. Do you have something like this?",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "aefe2b1f7d4e01571af1298604a000dc7dfee4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccb0f01f_6152c25e",
+        "filename": "neuralnetworks/1.3/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-22T06:27:24Z",
+      "side": 1,
+      "message": "Trendy Team Name: Renderscript \u0026 NNAPI\nTrendy Team ID: 6527262794842112\n\nWe\u0027ll designate this Trendy Team as the primary owner for this test owner.  @slotus@google.com.\n\nThank you!",
+      "parentUuid": "09349d1d_5a43261f",
       "range": {
         "startLine": 18,
         "startChar": 19,
