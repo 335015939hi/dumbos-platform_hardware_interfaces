@@ -190,6 +190,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b6e467_41a94d55",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-10-22T21:36:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72742ed0_2d3173c4",
+      "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f1c81d3_0d473e41",
@@ -375,6 +393,24 @@
       "side": 1,
       "message": "https://cs.android.com/android/platform/superproject/main/+/main:system/update_engine/common/utils.h;l\u003d627?q\u003dTEST_NE\u0026ss\u003dandroid",
       "parentUuid": "e937b1cf_0b0d966d",
+      "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16a7073e_ce7a8347",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-10-22T21:36:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4d5cb39_b979c7cb",
       "revId": "a4567637236dad905bfad256e1fa8228214ddda4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
