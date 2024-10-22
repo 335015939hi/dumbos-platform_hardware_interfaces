@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0a5ba24_e5f9afe6",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-22T13:50:17Z",
+      "side": 1,
+      "message": "Using duration of 1 second. Deriving frame count using sampling frequency and duration.",
+      "parentUuid": "d31f97f8_c889d1e1",
+      "range": {
+        "startLine": 140,
+        "startChar": 39,
+        "endLine": 140,
+        "endChar": 44
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b9c5474_10f4705a",
@@ -239,6 +263,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24654f82_02395040",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-22T13:50:17Z",
+      "side": 1,
+      "message": "```allParamsValid```",
+      "parentUuid": "cdb4ab77_18a0483b",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 58
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffdf520b_bd1dad09",
         "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
         "patchSetId": 2
@@ -345,6 +393,30 @@
       "side": 1,
       "message": "What I mean is that `enabled` should not be among the parameters. When we are testing combinations of inputs, processing should always be enabled. And separately, we should have tests that check for each parameter that with processing disabled, the output is the same as input.\n\nIt\u0027s just to avoid generating too many test instances with processing being disabled that do not add anything new and only waste resources.",
       "parentUuid": "363c604a_a31cd33c",
+      "range": {
+        "startLine": 664,
+        "startChar": 27,
+        "endLine": 664,
+        "endChar": 67
+      },
+      "revId": "64e92e8ebab787b2cdbbca0bcd7ca0e56ab1885c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfd19e19_d7472a53",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-22T13:50:17Z",
+      "side": 1,
+      "message": "I\u0027m no longer using it in param test. The default value of ```enable``` is made ```true```.\n\nI\u0027ve added a data test that compares the input and output decibel values when the limiter is enabled and disabled.",
+      "parentUuid": "171371de_b81bf8e1",
       "range": {
         "startLine": 664,
         "startChar": 27,

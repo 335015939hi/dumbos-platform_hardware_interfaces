@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13bc9ebb_a1b180ec",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-22T13:50:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01046370_4b2c74c6",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 22
+      },
+      "revId": "eac02f68c1e720e0ea0743d63442e2864746f8ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "683ef21c_db0e7c0a",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a77a5893_ca310ce1",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-22T13:50:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "683ef21c_db0e7c0a",
+      "range": {
+        "startLine": 170,
+        "startChar": 12,
+        "endLine": 170,
+        "endChar": 26
+      },
+      "revId": "eac02f68c1e720e0ea0743d63442e2864746f8ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "331f4e5e_21dbca01",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-10-15T16:27:44Z",
       "side": 1,
       "message": "Same note about `enable` parameter for this test.",
+      "range": {
+        "startLine": 1121,
+        "startChar": 27,
+        "endLine": 1121,
+        "endChar": 65
+      },
+      "revId": "eac02f68c1e720e0ea0743d63442e2864746f8ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a97fce08_20f1aceb",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1121,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-22T13:50:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "331f4e5e_21dbca01",
       "range": {
         "startLine": 1121,
         "startChar": 27,
