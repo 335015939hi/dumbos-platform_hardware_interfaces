@@ -287,8 +287,13 @@ TEST_P(VisualizerDataTest, testScalingModeParameters) {
         ASSERT_NO_FATAL_FAILURE(SetAndGetParameters(&allParamsValid));
 
         if (mScalingMode == Visualizer::ScalingMode::NORMALIZED) {
+<<<<<<< PATCH SET (ac029a Refactor VTS tests to use common sine input generation metho)
+            generateSineWave(1000 /*Input Frequency*/, mInputBuffer, maxAudioSampleValue);
+||||||| BASE
+=======
             generateMultiTone(std::vector<int>{1000}, mInputBuffer, kSamplingFrequency,
                               maxAudioSampleValue);
+>>>>>>> BASE      (e5041e VisualizerTest: Improve testing for visualizer effect parame)
         } else {
             generateInputBuffer(mInputBuffer, 0, true, mChannelCount, maxAudioSampleValue);
         }

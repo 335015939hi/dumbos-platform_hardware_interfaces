@@ -434,18 +434,43 @@ class EffectHelper {
         }
     }
 
+<<<<<<< PATCH SET (ac029a Refactor VTS tests to use common sine input generation metho)
+    // Generate multitone input between -amplitude to +amplitude using testFrequency
+    // All test frequencies are considered having the same amplitude
+    void generateSineWave(const std::vector<int>& testFrequencies, std::vector<float>& input,
+                          const float amplitude = 1.0,
+                          const int samplingFrequency = kSamplingFrequency) {
+||||||| BASE
+    // Generate multitone input between -1 to +1 using testFrequencies
+    void generateMultiTone(const std::vector<int>& testFrequencies, std::vector<float>& input,
+                           const int samplingFrequency) {
+=======
     // Generate multitone input between -amplitude to +amplitude using testFrequencies
     // All test frequencies are considered having the same amplitude
     void generateMultiTone(const std::vector<int>& testFrequencies, std::vector<float>& input,
                            const int samplingFrequency, float amplitude = 1.0) {
+>>>>>>> BASE      (e5041e VisualizerTest: Improve testing for visualizer effect parame)
         for (size_t i = 0; i < input.size(); i++) {
             input[i] = 0;
 
             for (size_t j = 0; j < testFrequencies.size(); j++) {
                 input[i] += sin(2 * M_PI * testFrequencies[j] * i / samplingFrequency);
             }
+<<<<<<< PATCH SET (ac029a Refactor VTS tests to use common sine input generation metho)
+            input[i] *= amplitude / testFrequencies.size();
+||||||| BASE
+            input[i] /= testFrequencies.size();
+=======
             input[i] = input[i] * amplitude / testFrequencies.size();
+>>>>>>> BASE      (e5041e VisualizerTest: Improve testing for visualizer effect parame)
         }
+    }
+
+    // Generate single tone input between -amplitude to +amplitude using testFrequencies
+    void generateSineWave(const int testFrequency, std::vector<float>& input,
+                          const float amplitude = 1.0,
+                          const int samplingFrequency = kSamplingFrequency) {
+        generateSineWave(std::vector<int>{testFrequency}, input, amplitude, samplingFrequency);
     }
 
     // Use FFT transform to convert the buffer to frequency domain
