@@ -1,0 +1,80 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7085d470_ae11863b",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-22T22:34:35Z",
+      "side": 1,
+      "message": "this macro returns a default constructed value, for int32_t that means 0. Which is probably not OK, we need to return an error value such as -1",
+      "fixSuggestions": [
+        {
+          "fixId": "be43f3a4_7770de49",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 127,
+                "startChar": 0,
+                "endLine": 131,
+                "endChar": 0
+              },
+              "replacement": "        return TEST_NE(module_, nullptr, -1, module_-\u003egetCurrentSlot());\n"
+            }
+          ]
+        }
+      ],
+      "revId": "da93dc116c0547cf1ab6fee16b8197a40585dcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d56739fb_0f3d22bd",
+        "filename": "boot/aidl/client/BootControlClient.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1710792
+      },
+      "writtenOn": "2024-10-22T22:34:35Z",
+      "side": 1,
+      "message": "Default initialized value for MergeStatus is 0, which is MergeStatus::NONE, we need to return UNKNOWN",
+      "range": {
+        "startLine": 134,
+        "startChar": 42,
+        "endLine": 134,
+        "endChar": 49
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "bbcea198_c8cb0144",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "boot/aidl/client/BootControlClient.cpp",
+              "range": {
+                "startLine": 134,
+                "startChar": 0,
+                "endLine": 135,
+                "endChar": 0
+              },
+              "replacement": "        MergeStatus status;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "da93dc116c0547cf1ab6fee16b8197a40585dcd5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
