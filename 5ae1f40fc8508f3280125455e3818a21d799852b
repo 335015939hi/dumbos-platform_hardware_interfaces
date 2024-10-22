@@ -16,6 +16,24 @@
       "message": "Is there an AOSP power team? Pixel doesn\u0027t really own this.",
       "revId": "5ae1f40fc8508f3280125455e3818a21d799852b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "603b559a_b758aa91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-22T06:10:52Z",
+      "side": 1,
+      "message": "Yes: \nTrendy Team: AOSP\nTrendy Team ID: 4860855378018304\n\n@slotus@google.com, let us use AOSP instead as the Trendy team owner here. Thank you.",
+      "parentUuid": "8239f9c6_8af9213d",
+      "revId": "5ae1f40fc8508f3280125455e3818a21d799852b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
