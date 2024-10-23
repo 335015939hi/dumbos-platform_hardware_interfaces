@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1fa309e_51c3b1b5",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-23T21:44:14Z",
+      "side": 1,
+      "message": "Can we use `ndk::ScopedAStatus` in implementation?",
+      "parentUuid": "155a35e7_7ab9f670",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 62
+      },
+      "revId": "f7dd277e997b8187d4f36a9d167940b22b705e1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a94a8942_20d644d3",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocCapabilities.aidl",
         "patchSetId": 13
