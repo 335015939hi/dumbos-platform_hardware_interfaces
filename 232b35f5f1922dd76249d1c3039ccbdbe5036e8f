@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "792e6572_251821b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-10-23T22:15:51Z",
+      "side": 1,
+      "message": "This one shouldn\u0027t be necessary (it\u0027s already in git_main) and I would worry it would revert the one from main.",
+      "revId": "232b35f5f1922dd76249d1c3039ccbdbe5036e8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
