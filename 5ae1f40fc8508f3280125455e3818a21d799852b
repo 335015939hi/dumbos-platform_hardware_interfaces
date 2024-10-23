@@ -70,6 +70,24 @@
       "parentUuid": "0c99c48d_f7c115e3",
       "revId": "5ae1f40fc8508f3280125455e3818a21d799852b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d81da59_8cd5716e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-23T00:30:11Z",
+      "side": 1,
+      "message": "It should be the same as http://r.android.com/3306549 for thermal.\n\nFor hardware/interfaces/power thing, I think you could pick one of these, e.g. \"PowerManager Framework\"",
+      "parentUuid": "042c21a4_fff8f6a5",
+      "revId": "5ae1f40fc8508f3280125455e3818a21d799852b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
