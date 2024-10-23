@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34c4bd9e_f769fd25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1899520
+      },
+      "writtenOn": "2024-10-23T18:18:04Z",
+      "side": 1,
+      "message": "This bug is related to NXP\u0027s KeyMint HAL updates. Should a new bug be opened for this general KeyMint VTS issue?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "76ea184be26ca6457a199967be19c7792dc86856",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
