@@ -45,6 +45,23 @@
       },
       "revId": "4ba8aa28cc934ff69d1503e59696c2ceae62b1c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9af2600d_0ace0543",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1094493
+      },
+      "writtenOn": "2024-10-23T16:20:59Z",
+      "side": 1,
+      "message": "Ideally we\u0027d `import android.hardware.contexthub.EndpointId` and then use it here as something like `EndpointId offloadEndpointId`, so the relationship is clear. There\u0027s some complexity with doing that because of the AOSP/internal split, but we can move the contexthub updates to AOSP to resolve it.",
+      "revId": "4ba8aa28cc934ff69d1503e59696c2ceae62b1c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
