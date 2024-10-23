@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "759e6814_5b25bbec",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-10-23T11:40:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d204acff_72d2244c",
+      "range": {
+        "startLine": 251,
+        "startChar": 27,
+        "endLine": 251,
+        "endChar": 61
+      },
+      "revId": "9afccb184b2cae0941605da80930bb1beeca1db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6183d90f_87458388",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-10-22T16:01:24Z",
       "side": 1,
       "message": "static constexpr and rename to kcaptureBufferTolerance",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 46
+      },
+      "revId": "9afccb184b2cae0941605da80930bb1beeca1db7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54eec4d3_0138cffa",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-10-23T11:40:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6183d90f_87458388",
       "range": {
         "startLine": 255,
         "startChar": 0,
