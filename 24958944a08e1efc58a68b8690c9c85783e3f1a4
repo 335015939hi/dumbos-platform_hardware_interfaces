@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40d98f8b_7df0cd3d",
+        "filename": "bluetooth/socket/aidl/default/bluetooth-socket-service-default.rc",
+        "patchSetId": 11
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-23T00:54:25Z",
+      "side": 1,
+      "message": "none of these are needed for this reference implementation.\n\nKeep it only as `user nobody` and `group nobody` and delete the others, until they are needed.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 33
+      },
+      "revId": "24958944a08e1efc58a68b8690c9c85783e3f1a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "398778dc_320f9fbb",
+        "filename": "bluetooth/socket/aidl/default/service.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-23T00:54:25Z",
+      "side": 1,
+      "message": "EXIT_FAILURE",
+      "range": {
+        "startLine": 45,
+        "startChar": 9,
+        "endLine": 45,
+        "endChar": 10
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "830d3cb1_9000aef2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/socket/aidl/default/service.cpp",
+              "range": {
+                "startLine": 45,
+                "startChar": 0,
+                "endLine": 46,
+                "endChar": 0
+              },
+              "replacement": "  return 1;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "24958944a08e1efc58a68b8690c9c85783e3f1a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
