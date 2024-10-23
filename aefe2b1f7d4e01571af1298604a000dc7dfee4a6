@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8a09b56_db9ee7f7",
+        "filename": "cas/aidl/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-23T00:38:21Z",
+      "side": 1,
+      "message": "right, cas should be the media team, same as you ask in another CL.",
+      "parentUuid": "b3ff4dd0_06f4916d",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "aefe2b1f7d4e01571af1298604a000dc7dfee4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "09349d1d_5a43261f",
         "filename": "neuralnetworks/1.3/vts/functional/Android.bp",
         "patchSetId": 2
