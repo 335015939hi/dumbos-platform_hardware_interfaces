@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8141535c_d019393f",
+        "filename": "cas/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-23T06:51:08Z",
+      "side": 1,
+      "message": "@slotus@google.com, let us use: \nTrendy Team Name: Android Media Codec Framework\t\nTrendy Team ID: 4943966050844672\n\nThank you.",
+      "parentUuid": "90ac74b0_5558cc86",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "e8872ab8d83b3bfe0f6c7476bfbe5e0ec2161d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a97b5102_805396d5",
@@ -157,6 +181,30 @@
       "side": 1,
       "message": "everything under confirmationui/ should be the security team",
       "parentUuid": "b6bf64d3_59a9197f",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "e8872ab8d83b3bfe0f6c7476bfbe5e0ec2161d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b566ee6_60c3791f",
+        "filename": "confirmationui/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-23T06:51:08Z",
+      "side": 1,
+      "message": "@slotus@google.com, let us use: \nTeam: Platform Security\nID: 5243033213599744\n\nThank you.",
+      "parentUuid": "5e48cddf_42a385e1",
       "range": {
         "startLine": 18,
         "startChar": 19,
