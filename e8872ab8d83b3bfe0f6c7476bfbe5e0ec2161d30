@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "90ac74b0_5558cc86",
+        "filename": "cas/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-23T00:31:16Z",
+      "side": 1,
+      "message": "`Android Media Codec Framework` maybe? I\u0027m not really sure, we could ask them.",
+      "parentUuid": "061e3fc1_79cc206b",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "e8872ab8d83b3bfe0f6c7476bfbe5e0ec2161d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a97b5102_805396d5",
         "filename": "confirmationui/1.0/vts/functional/Android.bp",
         "patchSetId": 2
@@ -109,6 +133,30 @@
       "side": 1,
       "message": "I think Steven means this module only owned by security team.\n\nMaybe the following team?\nTeam: Platform Security\nID: 5243033213599744",
       "parentUuid": "a7eecaa1_0507ec4b",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 45
+      },
+      "revId": "e8872ab8d83b3bfe0f6c7476bfbe5e0ec2161d30",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e48cddf_42a385e1",
+        "filename": "confirmationui/1.0/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-23T00:31:16Z",
+      "side": 1,
+      "message": "everything under confirmationui/ should be the security team",
+      "parentUuid": "b6bf64d3_59a9197f",
       "range": {
         "startLine": 18,
         "startChar": 19,
