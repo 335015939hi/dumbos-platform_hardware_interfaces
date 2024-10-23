@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64f42c6f_c967a646",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-10-23T14:38:03Z",
+      "side": 1,
+      "message": "these two tests have lot of identical code.\n\ncreate a function and use that in these two tests.",
+      "revId": "06a80b3dda70e6e942bc4d569830e3bfc1f19e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
