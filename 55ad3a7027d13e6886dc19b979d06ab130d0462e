@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d6734c8_144d153b",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-10-23T14:33:58Z",
+      "side": 1,
+      "message": "allParamsValid !\u003d nullptr to make explicit that we are looking at a pointer being non-null.\n\nhere and line 96 and line 230",
+      "range": {
+        "startLine": 86,
+        "startChar": 12,
+        "endLine": 86,
+        "endChar": 26
+      },
+      "revId": "55ad3a7027d13e6886dc19b979d06ab130d0462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
