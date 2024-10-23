@@ -376,6 +376,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88205110_80451369",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-23T00:53:01Z",
+      "side": 1,
+      "message": "Okay, but please document what unit the size is in. AIDL style guide recommends putting unit in the name, but if not there, it needs to be in the comment. If more information is in the standard, please link that as well.",
+      "parentUuid": "6a2ee8cc_54b5ed46",
+      "range": {
+        "startLine": 42,
+        "startChar": 15,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "f2419157a88ad27171b5d47a43c036bfceec3f57",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dbb38754_44b860d1",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
         "patchSetId": 9
