@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15604042_0360e158",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-23T20:19:36Z",
+      "side": 1,
+      "message": "I discussed another option with Jayden, that is to assume the HAL would invoke IBluetoothSocketCallback.close() if an issue is reported during the initialization of the socket. That would give on less \u0027state\u0027 in the Host stack (waiting for opOpened confirmation).\n\nThe sequence of calls would look like this:\n\n- host calls IBluetoothSocket.open()\n  - HAL returns SUCCESS -\u003e host reports offload success\n  - HAL returns FAILURE -\u003e host closes the socket and reports offload failure\n- HAL sets up the socket\n  - setup SUCCESS -\u003e nothing to report, host already assumes success\n  - setup FAILURE -\u003e HAL calls IBluetoothSocketCallbacks.close() with documenting reason string",
+      "parentUuid": "22be1724_8a44b1c0",
+      "range": {
+        "startLine": 29,
+        "startChar": 9,
+        "endLine": 29,
+        "endChar": 17
+      },
+      "revId": "4ba8aa28cc934ff69d1503e59696c2ceae62b1c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9fe586fc_eb7f2b89",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
         "patchSetId": 16
