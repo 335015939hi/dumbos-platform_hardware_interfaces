@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "518c650a_498854fb",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-10-23T21:55:38Z",
+      "side": 1,
+      "message": "Can you share the flow you intend to implement in the application / framework / android app ? I don\u0027t see any issue with reporting the failure case through close() as it is...",
+      "parentUuid": "f45ba485_b9be8542",
+      "range": {
+        "startLine": 29,
+        "startChar": 9,
+        "endLine": 29,
+        "endChar": 17
+      },
+      "revId": "4ba8aa28cc934ff69d1503e59696c2ceae62b1c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9fe586fc_eb7f2b89",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
         "patchSetId": 16
