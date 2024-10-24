@@ -34,6 +34,24 @@
       "parentUuid": "665e6c7b_5c10c8a5",
       "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3ee6376_f7ca2687",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-10-24T18:29:42Z",
+      "side": 1,
+      "message": "Ouch, you check this in hal_implementation_test, so I guess I can\u0027t do it separately...",
+      "parentUuid": "a46362c8_3aa0f82d",
+      "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
