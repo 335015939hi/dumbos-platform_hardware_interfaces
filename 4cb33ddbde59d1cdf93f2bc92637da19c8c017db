@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b57fbde_8abd9ce9",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-10-24T15:15:40Z",
+      "side": 1,
+      "message": "can we pass this as a test parameter?\nthat way if there is a failure, it will be clear which mode is failing.",
+      "range": {
+        "startLine": 259,
+        "startChar": 47,
+        "endLine": 259,
+        "endChar": 59
+      },
+      "revId": "4cb33ddbde59d1cdf93f2bc92637da19c8c017db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "296e6027_d1ffd531",
         "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
         "patchSetId": 7
