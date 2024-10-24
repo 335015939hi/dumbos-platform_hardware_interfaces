@@ -16,6 +16,24 @@
       "message": "I don\u0027t see `UNDEFINED_SCALE_FACTOR` in AOSP: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/android/hardware/audio/effect/HapticGenerator.aidl.\n\n@yaoshunkai@google.com Have we upstreamed all the internal changes?",
       "revId": "0e01f4f8b0bdcf059061c454b859f5423a8c19e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b2188c9_2d58d4f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-10-24T22:24:24Z",
+      "side": 1,
+      "message": "I think some haptic generator related changes were not upstream on AOSP by the team.\nThis cl has been merged internally instead: ag/28729214",
+      "parentUuid": "724111a7_3f56d6f4",
+      "revId": "0e01f4f8b0bdcf059061c454b859f5423a8c19e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
