@@ -222,6 +222,30 @@
       },
       "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44f5aa7a_1cb9d5cd",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-24T20:41:11Z",
+      "side": 1,
+      "message": "For consistency with https://r.android.com/3315021 I would prefer not adding `Ptr` suffix but rather comparing pointers explicitly with `nullptr`.",
+      "parentUuid": "d6375deb_07b99abd",
+      "range": {
+        "startLine": 727,
+        "startChar": 12,
+        "endLine": 727,
+        "endChar": 26
+      },
+      "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
