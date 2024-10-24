@@ -52,6 +52,24 @@
       "parentUuid": "a46362c8_3aa0f82d",
       "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74f9df24_bad06a7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-10-24T18:33:04Z",
+      "side": 1,
+      "message": "\u003e I split bumping CF implementation (and all other elements of the reverted CL) to separate CL\n\nThat\u0027s fine! It just needs to be a part of this topic, otherwise `hal_implementation_test` fails in presubmits like the previous patchset.\n\n\n\u003e I don\u0027t think there\u0027s anything wrong with the test -\n\n`java.lang.AssertionError: Invalid HAL Version (Pair{-1 -1}) of service (1)` from http://b/375241855 which caused the revert is what I\u0027m referring to. I didn\u0027t look into the details. I\u0027m just assuming you\u0027ve figured it out and this won\u0027t be reverted again.",
+      "parentUuid": "a46362c8_3aa0f82d",
+      "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
