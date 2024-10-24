@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "665e6c7b_5c10c8a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-10-24T18:11:25Z",
+      "side": 1,
+      "message": "The CF implementation needs to be bumped (which is why presubmits are failing), and I\u0027m assuming that failing test that caused the revert is fixed to handle that.",
+      "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
