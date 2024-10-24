@@ -22,6 +22,30 @@
       },
       "revId": "55ad3a7027d13e6886dc19b979d06ab130d0462e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1986a4f_0adcd5c9",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-24T20:38:38Z",
+      "side": 1,
+      "message": "Agree, it\u0027s especially helpful for the line `96` in order to emphasize that we are checking the pointer for not being null, and not just forgot to put the dereference operator.\n\nBut on the line `230` it\u0027s really a boolean, check the line `212`. But that just confirms we should comparing pointers to bool with a nullptr explicitly so that we can know from the variable usage if it\u0027s a pointer or not.",
+      "parentUuid": "7d6734c8_144d153b",
+      "range": {
+        "startLine": 86,
+        "startChar": 12,
+        "endLine": 86,
+        "endChar": 26
+      },
+      "revId": "55ad3a7027d13e6886dc19b979d06ab130d0462e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
