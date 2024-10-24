@@ -16,6 +16,24 @@
       "message": "these two tests have lot of identical code.\n\ncreate a function and use that in these two tests.",
       "revId": "06a80b3dda70e6e942bc4d569830e3bfc1f19e20",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5a7d64c_f57b27d1",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-10-24T07:35:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64f42c6f_c967a646",
+      "revId": "06a80b3dda70e6e942bc4d569830e3bfc1f19e20",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
