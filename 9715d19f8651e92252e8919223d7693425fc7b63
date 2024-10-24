@@ -88,6 +88,24 @@
       "parentUuid": "74f9df24_bad06a7c",
       "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec649e4d_bbbe7e19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-10-24T18:40:31Z",
+      "side": 1,
+      "message": "I think I found likely culprit: https://googleplex-android-review.git.corp.google.com/c/platform/frameworks/opt/telephony/+/22579591/2/src/java/com/android/internal/telephony/RIL.java",
+      "parentUuid": "e149a3ab_b0c73e2f",
+      "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
