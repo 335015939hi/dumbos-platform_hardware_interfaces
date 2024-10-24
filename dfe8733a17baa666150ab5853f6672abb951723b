@@ -22,6 +22,30 @@
       },
       "revId": "dfe8733a17baa666150ab5853f6672abb951723b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "198d7269_86a0b9ff",
+        "filename": "thermal/aidl/vts/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-24T00:07:50Z",
+      "side": 1,
+      "message": "same on http://r.android.com/3306549",
+      "parentUuid": "f747e1ec_0e0923f9",
+      "range": {
+        "startLine": 16,
+        "startChar": 19,
+        "endLine": 16,
+        "endChar": 36
+      },
+      "revId": "dfe8733a17baa666150ab5853f6672abb951723b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
