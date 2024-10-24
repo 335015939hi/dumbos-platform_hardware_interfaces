@@ -16,6 +16,24 @@
       "message": "The CF implementation needs to be bumped (which is why presubmits are failing), and I\u0027m assuming that failing test that caused the revert is fixed to handle that.",
       "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46362c8_3aa0f82d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-10-24T18:25:45Z",
+      "side": 1,
+      "message": "I split bumping CF implementation (and all other elements of the reverted CL) to separate CL so I can fix one thing at a time.\n\nI don\u0027t think there\u0027s anything wrong with the test - the new HAL doesn\u0027t include anything except new enum values (which are not directly used yet - they are currently hardcoded without referring to the HAL). There\u0027s just something wrong with config that prevents this HAL to boot correctly.",
+      "parentUuid": "665e6c7b_5c10c8a5",
+      "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
