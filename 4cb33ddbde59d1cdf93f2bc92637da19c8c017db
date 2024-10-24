@@ -3,6 +3,88 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9811ccae_ed9f4350",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-24T21:08:27Z",
+      "side": 1,
+      "message": "This is fragile because we are making an assumption in the comment, without actually checking it. If this assumption is actually important for us, there should be a `static_assert` (https://en.cppreference.com/w/cpp/language/static_assert).",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 54
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "502cf79e_42822379",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 254,
+                "startChar": 0,
+                "endLine": 256,
+                "endChar": 0
+              },
+              "replacement": "    // Valid range of maxAudioSample value: [0.0, 1.0].\n    // This test holds true for this range.\n    static_assert(kMaxAudioSampleValue \u003c\u003d 1.0);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4cb33ddbde59d1cdf93f2bc92637da19c8c017db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d55836a_8218e3b2",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-24T21:08:27Z",
+      "side": 1,
+      "message": "These should be `0.25 * kMaxAudioSampleValue` because according to the comment above, it is not necessarily `1.0`.",
+      "range": {
+        "startLine": 256,
+        "startChar": 65,
+        "endLine": 256,
+        "endChar": 81
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "46858876_9a43e737",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 256,
+                "startChar": 0,
+                "endLine": 257,
+                "endChar": 0
+              },
+              "replacement": "    const std::vector\u003cfloat\u003e testMaxAudioSampleValueList \u003d {0.0, 0.25 * kMaxAudioSampleValue,\n                                                            0.5 * kMaxAudioSampleValue,\n                                                            0.75 * kMaxAudioSampleValue,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4cb33ddbde59d1cdf93f2bc92637da19c8c017db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b57fbde_8abd9ce9",
         "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
         "patchSetId": 7
@@ -14,6 +96,30 @@
       "writtenOn": "2024-10-24T15:15:40Z",
       "side": 1,
       "message": "can we pass this as a test parameter?\nthat way if there is a failure, it will be clear which mode is failing.",
+      "range": {
+        "startLine": 259,
+        "startChar": 47,
+        "endLine": 259,
+        "endChar": 59
+      },
+      "revId": "4cb33ddbde59d1cdf93f2bc92637da19c8c017db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edacbf9e_465b2da2",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-24T21:08:27Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "9b57fbde_8abd9ce9",
       "range": {
         "startLine": 259,
         "startChar": 47,
@@ -42,6 +148,29 @@
         "startChar": 39,
         "endLine": 301,
         "endChar": 40
+      },
+      "revId": "4cb33ddbde59d1cdf93f2bc92637da19c8c017db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89e96734_e8198c91",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-24T21:08:27Z",
+      "side": 1,
+      "message": "In my understanding, comparing sample values is fragile. For example, if the test signal is random noise with average sample values are within [-0.5, 0.5], but there is one sample peaking at `1.0`, then our expected maximum value will be around sample maximum, but in our capture, since it by design has much less resolution, this one off peak in the test signal may not present. And that\u0027s OK because it does not contribute much to the power of the signal. That\u0027s why I was mentioning before that we should really be comparing the power or energy (normalized power), depending on the measurement mode, to have more reliable validation of the capture.",
+      "range": {
+        "startLine": 303,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 57
       },
       "revId": "4cb33ddbde59d1cdf93f2bc92637da19c8c017db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
