@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f747e1ec_0e0923f9",
+        "filename": "thermal/aidl/vts/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-24T00:07:34Z",
+      "side": 1,
+      "message": "games still doesn\u0027t seem right for thermal. Is there any framework or AAOSP thermal team?",
+      "range": {
+        "startLine": 16,
+        "startChar": 19,
+        "endLine": 16,
+        "endChar": 36
+      },
+      "revId": "dfe8733a17baa666150ab5853f6672abb951723b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
