@@ -198,6 +198,30 @@
       },
       "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6375deb_07b99abd",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-10-24T05:43:15Z",
+      "side": 1,
+      "message": "Correction:\nif (allParamsValidPtr \u0026\u0026 *allParamsValidPtr){\n}",
+      "parentUuid": "a17c62ab_d083c69f",
+      "range": {
+        "startLine": 727,
+        "startChar": 12,
+        "endLine": 727,
+        "endChar": 26
+      },
+      "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
