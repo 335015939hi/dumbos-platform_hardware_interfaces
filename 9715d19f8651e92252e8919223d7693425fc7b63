@@ -70,6 +70,24 @@
       "parentUuid": "a46362c8_3aa0f82d",
       "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e149a3ab_b0c73e2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-10-24T18:35:44Z",
+      "side": 1,
+      "message": "I didn\u0027t figure out \"Invalid HAL Version\" yet, but I\u0027m testing with ABTD to make sure it doesn\u0027t happen. Just taking small steps this time.\n\nLet me get aosp/3318209 through first (this one already caused unrelated merge conflicts). Small steps this time...",
+      "parentUuid": "74f9df24_bad06a7c",
+      "revId": "9715d19f8651e92252e8919223d7693425fc7b63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
