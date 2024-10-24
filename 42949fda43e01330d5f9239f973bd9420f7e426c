@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edd280d6_9b4bdb83",
+        "filename": "automotive/sv/1.0/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1410300
+      },
+      "writtenOn": "2024-10-24T21:26:18Z",
+      "side": 1,
+      "message": "Surround View HAL is deprecated (T+) and not supported.\nNot sure what the implications are but can you provide some background why we need this change, thanks!",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 43
+      },
+      "revId": "42949fda43e01330d5f9239f973bd9420f7e426c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
