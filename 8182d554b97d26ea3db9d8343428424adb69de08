@@ -50,6 +50,30 @@
       ],
       "revId": "8182d554b97d26ea3db9d8343428424adb69de08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d12a8a7_0eb2202b",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-10-25T21:42:09Z",
+      "side": 1,
+      "message": "As per the documentation,\n\nFor historical reasons, we allow one exception to the above rules: the curly braces for the controlled statement or the line breaks inside the curly braces may be omitted if as a result the entire statement appears on either a single line (in which case there is a space between the closing parenthesis and the controlled statement) or on two lines (in which case there is a line break after the closing parenthesis and there are no braces).\n\nExample:\n// OK - condition fits on one line, body fits on another.\nif (x \u003d\u003d kBar)\n  Bar(arg1, arg2, arg3);\n\nIs it okay to keep the code as is?",
+      "parentUuid": "b09e5edc_0d836d9c",
+      "range": {
+        "startLine": 96,
+        "startChar": 76,
+        "endLine": 96,
+        "endChar": 77
+      },
+      "revId": "8182d554b97d26ea3db9d8343428424adb69de08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
