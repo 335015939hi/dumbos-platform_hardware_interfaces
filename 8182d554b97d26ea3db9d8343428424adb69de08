@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09e5edc_0d836d9c",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-25T19:49:44Z",
+      "side": 1,
+      "message": "Since it\u0027s a long statement now, please add braces, see https://google.github.io/styleguide/cppguide.html#Formatting_Looping_Branching",
+      "range": {
+        "startLine": 96,
+        "startChar": 76,
+        "endLine": 96,
+        "endChar": 77
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c7ad532c_67a25fd1",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 96,
+                "startChar": 0,
+                "endLine": 97,
+                "endChar": 0
+              },
+              "replacement": "            if (expected \u003d\u003d EX_ILLEGAL_ARGUMENT \u0026\u0026 allParamsValid !\u003d nullptr) {\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 98,
+                "startChar": 0,
+                "endLine": 98,
+                "endChar": 0
+              },
+              "replacement": "            }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8182d554b97d26ea3db9d8343428424adb69de08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
