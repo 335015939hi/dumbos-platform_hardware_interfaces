@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7098a76_a467ad34",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-25T21:52:35Z",
+      "side": 1,
+      "message": "AIDL doesn\u0027t care about `/*` vs `/**` and I suggest less people do as well. As an IDL, ALL comments are interface comments, and any comment parsing (if we ever add such tooling) would have to reflect all the comments.",
+      "parentUuid": "50af76ca_3f19402f",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7b034e3_ea99efbd",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
         "patchSetId": 18

@@ -16,6 +16,46 @@
       "message": "Hi Devin @devinmoore@google.com and Steven @smoreland@google.com\n\nAs described in the email, I would appreciate your feedback on this AIDL while other items of the checklist required for landing this AIDL are being completed.\n\nThank you!",
       "revId": "bbdebca5d682ddd4bfb680c9c92f3ce3ef842ed9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40540232_5c047e22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-25T21:52:35Z",
+      "side": 1,
+      "message": "Hi - please assign a CBOR API reviewer from the security team and get them to review it for maintainability/backwards compatibility, thanks!",
+      "revId": "bbdebca5d682ddd4bfb680c9c92f3ce3ef842ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5327c743_c588a0d6",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/DicePolicy.aidl",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-25T21:52:35Z",
+      "side": 1,
+      "message": "mention the full path here only, instead of above, which is further from where it is used? same elsewhere\n\n(I missed it above at first)",
+      "range": {
+        "startLine": 26,
+        "startChar": 53,
+        "endLine": 26,
+        "endChar": 68
+      },
+      "revId": "bbdebca5d682ddd4bfb680c9c92f3ce3ef842ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
