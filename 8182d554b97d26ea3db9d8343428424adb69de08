@@ -74,6 +74,30 @@
       },
       "revId": "8182d554b97d26ea3db9d8343428424adb69de08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "733facbc_ee48fc2e",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-25T23:22:44Z",
+      "side": 1,
+      "message": "They say \"for historical reasons\"—it\u0027s likely just a justification for not changing existing code which falls under this exception. Without brackets it\u0027s trivial to make a mistake when modifying this code. Please fix.",
+      "parentUuid": "6d12a8a7_0eb2202b",
+      "range": {
+        "startLine": 96,
+        "startChar": 76,
+        "endLine": 96,
+        "endChar": 77
+      },
+      "revId": "8182d554b97d26ea3db9d8343428424adb69de08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
