@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfb03399_87f6bf80",
+        "filename": "staging/security/see/storage/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-10-25T22:34:47Z",
+      "side": 1,
+      "message": "@smoreland@google.com @hasinitg@google.com @aliceywang@google.com\nthis is the proposed approach to allow to test to run on any target / GSI update.\nthe test is only executed when the Trusty VM property is defined.",
+      "revId": "98130bc9044b123468acac3f7c7a698ff063eb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
