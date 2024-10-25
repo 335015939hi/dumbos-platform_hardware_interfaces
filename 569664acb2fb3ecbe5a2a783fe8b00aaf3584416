@@ -33,6 +33,24 @@
       "message": "Hi Yihan,\nThe trendy team name is wrong.\nCan you upload a new CL to fix it ?",
       "revId": "569664acb2fb3ecbe5a2a783fe8b00aaf3584416",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a40b3d06_553e1629",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897543
+      },
+      "writtenOn": "2024-10-25T02:58:25Z",
+      "side": 1,
+      "message": "Which one is wrong?",
+      "parentUuid": "2cf72429_a0f8ecbe",
+      "revId": "569664acb2fb3ecbe5a2a783fe8b00aaf3584416",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
