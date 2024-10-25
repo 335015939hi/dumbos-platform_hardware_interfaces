@@ -28,7 +28,7 @@ using hfp::setting::CodecType;
 using hfp::setting::PathConfiguration;
 
 static const char* kHfpCodecCapabilitiesFile =
-    "/vendor/etc/aidl/hfp/hfp_codec_capabilities.xml";
+    "/apex/com.android.hardware.audio/etc/aidl/hfp/hfp_codec_capabilities.xml";
 
 std::optional<HfpOffloadSetting>
 BluetoothHfpCodecsProvider::ParseFromHfpOffloadSettingFile() {
