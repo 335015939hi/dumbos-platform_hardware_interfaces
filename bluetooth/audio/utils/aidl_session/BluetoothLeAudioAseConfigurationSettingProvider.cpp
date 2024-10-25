@@ -244,27 +244,28 @@ std::map<uint32_t, uint32_t> audio_channel_allocation_map = {
 static const std::vector<
     std::pair<const char* /*schema*/, const char* /*content*/>>
     kLeAudioSetConfigs = {
-        {"/vendor/etc/aidl/le_audio/"
+        {"/apex/com.android.hardware.audio/etc/aidl/le_audio/"
          "aidl_audio_set_configurations.bfbs",
          "/vendor/etc/aidl/le_audio/"
          "aidl_audio_set_configurations.json"},
 
-        {"/vendor/etc/aidl/le_audio/"
+        {"/apex/com.android.hardware.audio/etc/aidl/le_audio/"
          "aidl_audio_set_configurations.bfbs",
-         "/vendor/etc/aidl/le_audio/"
+         "/apex/com.android.hardware.audio/etc/aidl/le_audio/"
          "aidl_default_audio_set_configurations.json"},
 };
 static const std::vector<
     std::pair<const char* /*schema*/, const char* /*content*/>>
-    kLeAudioSetScenarios = {{"/vendor/etc/aidl/le_audio/"
-                             "aidl_audio_set_scenarios.bfbs",
-                             "/vendor/etc/aidl/le_audio/"
-                             "aidl_audio_set_scenarios.json"},
+    kLeAudioSetScenarios = {
+        {"/apex/com.android.hardware.audio/etc/aidl/le_audio/"
+         "aidl_audio_set_scenarios.bfbs",
+         "/vendor/etc/aidl/le_audio/"
+         "aidl_audio_set_scenarios.json"},
 
-                            {"/vendor/etc/aidl/le_audio/"
-                             "aidl_audio_set_scenarios.bfbs",
-                             "/vendor/etc/aidl/le_audio/"
-                             "aidl_default_audio_set_scenarios.json"}};
+        {"/apex/com.android.hardware.audio/etc/aidl/le_audio/"
+         "aidl_audio_set_scenarios.bfbs",
+         "/apex/com.android.hardware.audio/etc/aidl/le_audio/"
+         "aidl_default_audio_set_scenarios.json"}};
 
 /* Implementation */
 
