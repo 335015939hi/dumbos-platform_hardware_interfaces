@@ -98,6 +98,30 @@
       },
       "revId": "8182d554b97d26ea3db9d8343428424adb69de08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e745891_70a8b868",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-10-26T04:06:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "733facbc_ee48fc2e",
+      "range": {
+        "startLine": 96,
+        "startChar": 76,
+        "endLine": 96,
+        "endChar": 77
+      },
+      "revId": "8182d554b97d26ea3db9d8343428424adb69de08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
