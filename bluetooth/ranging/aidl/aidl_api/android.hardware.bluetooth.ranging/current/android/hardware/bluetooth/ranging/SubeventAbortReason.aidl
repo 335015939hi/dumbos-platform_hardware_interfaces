@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 The Android Open Source Project
+ * Copyright 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,21 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.ranging;
-@VintfStability
-parcelable BluetoothChannelSoundingParameters {
-  android.hardware.bluetooth.ranging.SessionType sessionType;
-  int aclHandle;
-  int l2capCid;
-  int realTimeProcedureDataAttHandle;
-  /**
-   * @deprecated use the role in Config.aidl
-   */
-  android.hardware.bluetooth.ranging.Role role;
-  boolean localSupportsSoundingPhaseBasedRanging;
-  boolean remoteSupportsSoundingPhaseBaseRanging;
-  android.hardware.bluetooth.ranging.Config config;
-  android.hardware.bluetooth.ranging.DeviceAddress address;
-  @nullable android.hardware.bluetooth.ranging.VendorSpecificData[] vendorSpecificData;
-  android.hardware.bluetooth.ranging.LocationType locationType;
-  android.hardware.bluetooth.ranging.SightType sightType;
+@Backing(type="byte") @VintfStability
+enum SubeventAbortReason {
+  SUCCESS = 0x0,
+  LOCAL_OR_REMOTE_REQUEST = 0x01,
+  NO_CS_SYNC_RECEIVED = 0x02,
+  SCHEDULING_CONFLICTS_OR_LIMITED_RESOURCES = 0x03,
+  UNSPECIFIED = 0x0F,
 }
