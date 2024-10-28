@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 The Android Open Source Project
+ * Copyright 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,20 +33,18 @@
 
 package android.hardware.bluetooth.ranging;
 @VintfStability
-parcelable BluetoothChannelSoundingParameters {
-  android.hardware.bluetooth.ranging.SessionType sessionType;
-  int aclHandle;
-  int l2capCid;
-  int realTimeProcedureDataAttHandle;
-  /**
-   * @deprecated use the role in Config.aidl
-   */
-  android.hardware.bluetooth.ranging.Role role;
-  boolean localSupportsSoundingPhaseBasedRanging;
-  boolean remoteSupportsSoundingPhaseBaseRanging;
-  android.hardware.bluetooth.ranging.Config config;
-  android.hardware.bluetooth.ranging.DeviceAddress address;
-  @nullable android.hardware.bluetooth.ranging.VendorSpecificData[] vendorSpecificData;
-  android.hardware.bluetooth.ranging.LocationType locationType;
-  android.hardware.bluetooth.ranging.SightType sightType;
+parcelable ModeOneData {
+  byte packetQuality;
+  android.hardware.bluetooth.ranging.Nadm packetNadm;
+  byte packetRssiDbm = PACKET_RSSI_UNAVAILABLE /* 127 */;
+  android.hardware.bluetooth.ranging.RttToaTodData rttToaTodData;
+  byte packetAntenna;
+  @nullable android.hardware.bluetooth.ranging.PctIQSample packetPct1;
+  @nullable android.hardware.bluetooth.ranging.PctIQSample packetPct2;
+  const byte FLAG_CS_ACCESS_ADDR_SUCCESS = 0x0;
+  const byte FLAG_CS_ACCESS_ADDR_ERRORS = 0x1;
+  const byte FLAG_CS_ACCESS_ADDR_NOT_FOUND = 0x2;
+  const byte FLAG_CS_ACCESS_ADDR_MASK = 0xF;
+  const byte RANDOM_OR_SOUNDING_SEQUENCE_ERROR_COUNT_SHIFT = 4;
+  const byte PACKET_RSSI_UNAVAILABLE = 0x7Fu8;
 }
