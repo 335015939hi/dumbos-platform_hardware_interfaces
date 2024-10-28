@@ -70,6 +70,30 @@
       },
       "revId": "647654260a7c9243b43afc1dc4ffe7251cbd10f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36e79dac_bcfef1ee",
+        "filename": "nfc/aidl/android/hardware/nfc/NfcConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-10-28T15:17:05Z",
+      "side": 1,
+      "message": "There were no changes with the latest patchset, so this is unresolved.",
+      "parentUuid": "1e5b9954_f4421769",
+      "range": {
+        "startLine": 93,
+        "startChar": 4,
+        "endLine": 94,
+        "endChar": 38
+      },
+      "revId": "647654260a7c9243b43afc1dc4ffe7251cbd10f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
