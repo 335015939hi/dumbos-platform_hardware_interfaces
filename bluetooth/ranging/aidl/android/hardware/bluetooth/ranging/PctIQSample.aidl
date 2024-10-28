@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 The Android Open Source Project
+ * Copyright 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,19 @@
 package android.hardware.bluetooth.ranging;
 
 /**
- * @deprecated use PctIQSample instead for V2 and above.
+ * I and Q sample data of PCT.
+ * See BLUETOOTH CORE SPECIFICATION Version 6.0 | Vol 4, Part E 7.7.65.44 for details.
+ *
+ * Specification: https://www.bluetooth.com/specifications/specs/core60-html/
+ *
+ * BT core defines the I and Q sample as following, they were converted to 2 integers here.
+ * ** bits 0 to 11 are the I sample with type sint12
+ * ** bits 12 to 23 are the Q sample with type sint12
  */
 @VintfStability
-parcelable ComplexNumber {
-    double real;
-    double imaginary;
+parcelable PctIQSample {
+    const int SAMPLE_UNAVAILABLE = 0xFFFFFFFF;
+
+    int iSample = SAMPLE_UNAVAILABLE;
+    int qSample = SAMPLE_UNAVAILABLE;
 }
