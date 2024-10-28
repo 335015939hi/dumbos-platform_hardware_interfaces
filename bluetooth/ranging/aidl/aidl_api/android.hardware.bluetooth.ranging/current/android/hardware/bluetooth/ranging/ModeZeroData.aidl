@@ -33,20 +33,9 @@
 
 package android.hardware.bluetooth.ranging;
 @VintfStability
-parcelable BluetoothChannelSoundingParameters {
-  android.hardware.bluetooth.ranging.SessionType sessionType;
-  int aclHandle;
-  int l2capCid;
-  int realTimeProcedureDataAttHandle;
-  /**
-   * @deprecated use the role in Config.aidl
-   */
-  android.hardware.bluetooth.ranging.Role role;
-  boolean localSupportsSoundingPhaseBasedRanging;
-  boolean remoteSupportsSoundingPhaseBaseRanging;
-  android.hardware.bluetooth.ranging.Config config;
-  android.hardware.bluetooth.ranging.DeviceAddress address;
-  @nullable android.hardware.bluetooth.ranging.VendorSpecificData[] vendorSpecificData;
-  android.hardware.bluetooth.ranging.LocationType locationType;
-  android.hardware.bluetooth.ranging.SightType sightType;
+parcelable ModeZeroData {
+  byte packetQuality;
+  byte packetRssi;
+  byte packetAntenna;
+  byte[2] initiatorMeasuredFreqOffset;
 }
