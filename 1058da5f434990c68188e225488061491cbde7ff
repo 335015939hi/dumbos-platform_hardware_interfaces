@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ac2b220_141b107e",
+        "filename": "bluetooth/audio/utils/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-10-28T01:12:13Z",
+      "side": 0,
+      "message": "Moving files into the apex requires additional changes in loading code: for example,\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/bluetooth/audio/utils/aidl_session/BluetoothHfpCodecsProvider.cpp;l\u003d31?q\u003dhardware%2Finterfaces%2Fbluetooth%2Faudio%2Futils%2Faidl_session%2FBluetoothHfpCodecsProvider.cpp",
+      "range": {
+        "startLine": 87,
+        "startChar": 9,
+        "endLine": 87,
+        "endChar": 35
+      },
+      "revId": "1058da5f434990c68188e225488061491cbde7ff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
