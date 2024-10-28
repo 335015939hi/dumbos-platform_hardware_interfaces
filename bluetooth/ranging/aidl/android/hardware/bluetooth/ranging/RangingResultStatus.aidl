@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 The Android Open Source Project
+ * Copyright 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,21 @@
 
 package android.hardware.bluetooth.ranging;
 
-/**
- * @deprecated use PctIQSample instead for V2 and above.
- */
 @VintfStability
-parcelable ComplexNumber {
-    double real;
-    double imaginary;
+@Backing(type="byte")
+enum RangingResultStatus {
+    SUCCESS = 0x00,
+    /**
+     * The procedure of the initiator was aborted
+     */
+    FAIL_INITIATOR_ABORT = 0x01,
+    /**
+     * The procedure of the reflector was aborted
+     */
+    FAIL_REFLECTOR_ABORT = 0x02,
+    /**
+     * The procedure of both the initiator and the reflector were aborted
+     */
+    FAIL_BOTH_ABORT = 0x03,
+    FAIL_UNSPECIFIED = 0xFFu8,
 }

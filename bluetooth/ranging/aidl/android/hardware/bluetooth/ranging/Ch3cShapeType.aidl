@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 The Android Open Source Project
+ * Copyright 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,10 +17,20 @@
 package android.hardware.bluetooth.ranging;
 
 /**
- * @deprecated use PctIQSample instead for V2 and above.
+ * The selected shape to be rendered when Channel Selection Algorithm #3c is used
+ * See BLUETOOTH CORE SPECIFICATION Version 6.0 | Vol 4, Part E 7.7.65.42 for details.
+ *
+ * Specification: https://www.bluetooth.com/specifications/specs/core60-html/
  */
 @VintfStability
-parcelable ComplexNumber {
-    double real;
-    double imaginary;
+@Backing(type="byte")
+enum Ch3cShapeType {
+    /**
+     * Use Hat shape for user-specified channel sequence
+     */
+    HAT_SHAPE = 0x00,
+    /**
+     * Use X shape for user-specified channel sequence
+     */
+    X_SHAPE = 0x01,
 }

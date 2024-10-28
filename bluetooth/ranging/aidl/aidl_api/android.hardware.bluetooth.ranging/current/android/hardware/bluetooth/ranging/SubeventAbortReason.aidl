@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 The Android Open Source Project
+ * Copyright 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,25 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.ranging;
-/**
- * @deprecated use ModeTwoData
- */
-@VintfStability
-parcelable StepTonePct {
-  List<android.hardware.bluetooth.ranging.ComplexNumber> tonePcts;
-  byte[] toneQualityIndicator;
-  byte toneExtensionAntennaIndex;
-  const int TONE_QUALITY_GOOD = 0;
-  const int TONE_QUALITY_MEDIUM = 1;
-  const int TONE_QUALITY_LOW = 2;
-  const int TONE_QUALITY_UNAVAILABLE = 3;
-  const int EXTENSION_SLOT_NONE = 0;
-  const int EXTENSION_SLOT_TONE_NOT_EXPECTED_TO_BE_PRESENT = 1;
-  const int EXTENSION_SLOT_TONE_EXPECTED_TO_BE_PRESENT = 2;
-  const int EXTENSION_SLOT_SHIFT_AMOUNT = 4;
-  const byte TONE_EXTENSION_ANTENNA_1 = 0x0;
-  const byte TONE_EXTENSION_ANTENNA_2 = 0x1;
-  const byte TONE_EXTENSION_ANTENNA_3 = 0x2;
-  const byte TONE_EXTENSION_ANTENNA_4 = 0x3;
-  const byte TONE_EXTENSION_UNUSED = 0xFFu8;
+@Backing(type="byte") @VintfStability
+enum SubeventAbortReason {
+  SUCCESS = 0x0,
+  LOCAL_OR_REMOTE_REQUEST = 0x01,
+  NO_CS_SYNC_RECEIVED = 0x02,
+  SCHEDULING_CONFLICTS_OR_LIMITED_RESOURCES = 0x03,
+  UNSPECIFIED = 0x0F,
 }
