@@ -88,6 +88,8 @@ cc_library {
     vendor_available: true,
     srcs: [
         "remote_prov_utils.cpp",
+        "AuthenticatedRequest.cpp",
+        "remote_prov_utils_common.cpp",
     ],
     export_include_dirs: [
         "include",

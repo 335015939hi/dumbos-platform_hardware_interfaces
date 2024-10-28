@@ -24,10 +24,12 @@
 #include <hwtrust/hwtrust.h>
 #include <keymaster/cppcose/cppcose.h>
 
-namespace aidl::android::hardware::security::keymint::remote_prov {
+#include <remote_prov/remote_prov_utils_common.h>
 
-using bytevec = std::vector<uint8_t>;
-using namespace cppcose;
+using cppcose::bytevec;
+using cppcose::ErrMsgOr;
+
+namespace aidl::android::hardware::security::keymint::remote_prov {
 
 extern bytevec kTestMacKey;
 
@@ -94,13 +96,6 @@ const std::string DEFAULT_INSTANCE_NAME =
 const std::string RKPVM_INSTANCE_NAME =
         "android.hardware.security.keymint.IRemotelyProvisionedComponent/avf";
 
-/**
- * Returns the portion of an instance name after the /
- * e.g. for "android.hardware.security.keymint.IRemotelyProvisionedComponent/avf",
- * it returns "avf".
- */
-std::string deviceSuffix(const std::string& name);
-
 struct EekChain {
     bytevec chain;
     bytevec last_pubkey;
@@ -117,10 +112,6 @@ ErrMsgOr<EekChain> generateEekChain(int32_t supportedEekCurve, size_t length, co
  * Returns the CBOR-encoded, production Google Endpoint Encryption Key chain.
  */
 bytevec getProdEekChain(int32_t supportedEekCurve);
-
-struct BccEntryData {
-    bytevec pubKey;
-};
 
 struct JsonOutput {
     static JsonOutput Ok(std::string json) { return {std::move(json), ""}; }
@@ -168,7 +159,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateProductionDeviceInfo(
  * Verify the protected data as if the device is still early in the factory process and may not
  * have all device identifiers provisioned yet.
  */
-ErrMsgOr<std::vector<BccEntryData>> verifyFactoryProtectedData(
+ErrMsgOr<std::vector<DiceCertChainEntry>> verifyFactoryProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
         const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
@@ -177,7 +168,7 @@ ErrMsgOr<std::vector<BccEntryData>> verifyFactoryProtectedData(
 /**
  * Verify the protected data as if the device is a final production sample.
  */
-ErrMsgOr<std::vector<BccEntryData>> verifyProductionProtectedData(
+ErrMsgOr<std::vector<DiceCertChainEntry>> verifyProductionProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
         const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
@@ -204,12 +195,14 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
 
 /** Checks whether the CSR has a proper DICE chain. */
 ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr,
+                                        const std::vector<uint8_t>& challenge,
                                         const std::string& instanceName);
 
-/** Verify the DICE chain. */
-ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
-                                                hwtrust::DiceChain::Kind kind, bool allowAnyMode,
-                                                bool allowDegenerate,
-                                                const std::string& instanceName);
+/** Extracts UdsPub (Unique Device Secret Public key) from DiceCertChain (DICE Certificate chain).
+ *  The DiceCertChain comes from an AuthenticatedRequest.
+ */
+ErrMsgOr<std::vector<uint8_t>> getUdsPubFromDiceCertChain(const std::vector<uint8_t>& request,
+                                                          const std::vector<uint8_t>& challenge,
+                                                          const std::string& instanceName);
 
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
