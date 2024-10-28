@@ -33,20 +33,16 @@
 
 package android.hardware.bluetooth.ranging;
 @VintfStability
-parcelable BluetoothChannelSoundingParameters {
-  android.hardware.bluetooth.ranging.SessionType sessionType;
-  int aclHandle;
-  int l2capCid;
-  int realTimeProcedureDataAttHandle;
-  /**
-   * @deprecated use the role in Config.aidl
-   */
-  android.hardware.bluetooth.ranging.Role role;
-  boolean localSupportsSoundingPhaseBasedRanging;
-  boolean remoteSupportsSoundingPhaseBaseRanging;
-  android.hardware.bluetooth.ranging.Config config;
-  android.hardware.bluetooth.ranging.DeviceAddress address;
-  @nullable android.hardware.bluetooth.ranging.VendorSpecificData[] vendorSpecificData;
-  android.hardware.bluetooth.ranging.LocationType locationType;
-  android.hardware.bluetooth.ranging.SightType sightType;
+parcelable ModeZeroData {
+  byte packetQuality;
+  byte packetRssiDbm = PACKET_RSSI_UNAVAILABLE /* 127 */;
+  byte packetAntenna;
+  int initiatorMeasuredFreqOffset = MEASURED_FREQ_OFFSET_UNAVAILABLE /* -16384 */;
+  const byte FLAG_CS_ACCESS_ADDR_SUCCESS = 0x0;
+  const byte FLAG_CS_ACCESS_ADDR_ERRORS = 0x1;
+  const byte FLAG_CS_ACCESS_ADDR_NOT_FOUND = 0x2;
+  const byte FLAG_CS_ACCESS_ADDR_MASK = 0xF;
+  const byte RANDOM_OR_SOUNDING_SEQUENCE_ERROR_COUNT_SHIFT = 4;
+  const byte PACKET_RSSI_UNAVAILABLE = 0x7Fu8;
+  const int MEASURED_FREQ_OFFSET_UNAVAILABLE = 0xFFFFC000;
 }
