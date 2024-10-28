@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 The Android Open Source Project
+ * Copyright 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,20 +33,14 @@
 
 package android.hardware.bluetooth.ranging;
 @VintfStability
-parcelable BluetoothChannelSoundingParameters {
-  android.hardware.bluetooth.ranging.SessionType sessionType;
-  int aclHandle;
-  int l2capCid;
-  int realTimeProcedureDataAttHandle;
-  /**
-   * @deprecated use the role in Config.aidl
-   */
-  android.hardware.bluetooth.ranging.Role role;
-  boolean localSupportsSoundingPhaseBasedRanging;
-  boolean remoteSupportsSoundingPhaseBaseRanging;
-  android.hardware.bluetooth.ranging.Config config;
-  android.hardware.bluetooth.ranging.DeviceAddress address;
-  @nullable android.hardware.bluetooth.ranging.VendorSpecificData[] vendorSpecificData;
-  android.hardware.bluetooth.ranging.LocationType locationType;
-  android.hardware.bluetooth.ranging.SightType sightType;
+parcelable ChannelSoundingProcedureData {
+  int procedureCounter;
+  int procedureSequence;
+  byte initiatorSelectedTxPower = SELECTED_TX_POWER_UNAVAILABLE /* 127 */;
+  byte reflectorSelectedTxPower = SELECTED_TX_POWER_UNAVAILABLE /* 127 */;
+  android.hardware.bluetooth.ranging.SubeventResultData[] initiatorSubeventResultData;
+  android.hardware.bluetooth.ranging.ProcedureAbortReason initiatorProcedureAbortReason;
+  android.hardware.bluetooth.ranging.SubeventResultData[] relectorSubeventResultData;
+  android.hardware.bluetooth.ranging.ProcedureAbortReason reflectorProcedureAbortReason;
+  const byte SELECTED_TX_POWER_UNAVAILABLE = 0x7Fu8;
 }
