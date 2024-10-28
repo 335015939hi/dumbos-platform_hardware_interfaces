@@ -1,0 +1,104 @@
+diff --git a/bluetooth/ranging/aidl/default/Android.bp b/bluetooth/ranging/aidl/default/Android.bp
+index 5072a43141..0912a4fae3 100644
+--- a/bluetooth/ranging/aidl/default/Android.bp
++++ b/bluetooth/ranging/aidl/default/Android.bp
+@@ -14,7 +14,7 @@ cc_binary {
+         "service.cpp",
+     ],
+     shared_libs: [
+-        "android.hardware.bluetooth.ranging-V1-ndk",
++        "android.hardware.bluetooth.ranging-V2-ndk",
+         "libbase",
+         "libbinder_ndk",
+         "libhidlbase",
+diff --git a/bluetooth/ranging/aidl/default/BluetoothChannelSounding.cpp b/bluetooth/ranging/aidl/default/BluetoothChannelSounding.cpp
+index 3807d4f8f3..b3ef7debb9 100644
+--- a/bluetooth/ranging/aidl/default/BluetoothChannelSounding.cpp
++++ b/bluetooth/ranging/aidl/default/BluetoothChannelSounding.cpp
+@@ -55,4 +55,10 @@ ndk::ScopedAStatus BluetoothChannelSounding::openSession(
+   *_aidl_return = session;
+   return ::ndk::ScopedAStatus::ok();
+ }
++ndk::ScopedAStatus getSupportedCsSecurityLevels(
++        std::vector<CsSecurityLevel>* _aidl_return) {
++    std::vector<CsSecurityLevel> supported_security_levels = {};
++    *_aidl_return = supported_security_levels;
++    return ::ndk::ScopedAStatus::ok();
++}
+ }  // namespace aidl::android::hardware::bluetooth::ranging::impl
+diff --git a/bluetooth/ranging/aidl/default/BluetoothChannelSounding.h b/bluetooth/ranging/aidl/default/BluetoothChannelSounding.h
+index d6b5c03112..18cb90f71f 100644
+--- a/bluetooth/ranging/aidl/default/BluetoothChannelSounding.h
++++ b/bluetooth/ranging/aidl/default/BluetoothChannelSounding.h
+@@ -47,6 +47,8 @@ class BluetoothChannelSounding : public BnBluetoothChannelSounding {
+       const std::shared_ptr<IBluetoothChannelSoundingSessionCallback>&
+           in_callback,
+       std::shared_ptr<IBluetoothChannelSoundingSession>* _aidl_return) override;
++  ndk::ScopedAStatus getSupportedCsSecurityLevels(
++          std::vector<CsSecurityLevel>* _aidl_return) override;
+ };
+ 
+ }  // namespace aidl::android::hardware::bluetooth::ranging::impl
+diff --git a/bluetooth/ranging/aidl/default/BluetoothChannelSoundingSession.cpp b/bluetooth/ranging/aidl/default/BluetoothChannelSoundingSession.cpp
+index 6c58a07f80..4ab50cc18b 100644
+--- a/bluetooth/ranging/aidl/default/BluetoothChannelSoundingSession.cpp
++++ b/bluetooth/ranging/aidl/default/BluetoothChannelSoundingSession.cpp
+@@ -52,4 +52,16 @@ ndk::ScopedAStatus BluetoothChannelSoundingSession::close(Reason in_reason) {
+   callback_->onClose(in_reason);
+   return ::ndk::ScopedAStatus::ok();
+ }
++ndk::ScopedAStatus writeProcedureData(
++        const ChannelSoundingProcedureData& /*in_procedureData*/) {
++    return ::ndk::ScopedAStatus::ok();
++}
++ndk::ScopedAStatus updateChannelSoundingConfig(
++        const Config& /*in_config*/) {
++    return ::ndk::ScopedAStatus::ok();
++}
++ndk::ScopedAStatus updateProcedureEnableConfig(
++        const ProcedureEnableConfig& /*in_procedureEnableConfig*/) {
++    return ::ndk::ScopedAStatus::ok();
++}
+ }  // namespace aidl::android::hardware::bluetooth::ranging::impl
+diff --git a/bluetooth/ranging/aidl/default/BluetoothChannelSoundingSession.h b/bluetooth/ranging/aidl/default/BluetoothChannelSoundingSession.h
+index 6703f7fe9b..edde6d8515 100644
+--- a/bluetooth/ranging/aidl/default/BluetoothChannelSoundingSession.h
++++ b/bluetooth/ranging/aidl/default/BluetoothChannelSoundingSession.h
+@@ -21,7 +21,10 @@
+ 
+ namespace aidl::android::hardware::bluetooth::ranging::impl {
+ 
++using ::aidl::android::hardware::bluetooth::ranging::ChannelSoundingProcedureData;
+ using ::aidl::android::hardware::bluetooth::ranging::ChannelSoudingRawData;
++using ::aidl::android::hardware::bluetooth::ranging::Config;
++using ::aidl::android::hardware::bluetooth::ranging::ProcedureEnableConfig;
+ using ::aidl::android::hardware::bluetooth::ranging::Reason;
+ using ::aidl::android::hardware::bluetooth::ranging::ResultType;
+ using ::aidl::android::hardware::bluetooth::ranging::VendorSpecificData;
+@@ -42,7 +45,12 @@ class BluetoothChannelSoundingSession
+   ndk::ScopedAStatus writeRawData(
+       const ChannelSoudingRawData& in_rawData) override;
+   ndk::ScopedAStatus close(Reason in_reason) override;
+-
++  ndk::ScopedAStatus writeProcedureData(
++          const ChannelSoundingProcedureData& in_procedureData) override;
++  ndk::ScopedAStatus updateChannelSoundingConfig(
++          const Config& in_config) override;
++  ndk::ScopedAStatus updateProcedureEnableConfig(
++          const ProcedureEnableConfig& in_procedureEnableConfig) override;
+  private:
+   std::shared_ptr<IBluetoothChannelSoundingSessionCallback> callback_;
+ };
+diff --git a/compatibility_matrices/compatibility_matrix.202504.xml b/compatibility_matrices/compatibility_matrix.202504.xml
+index 7e19852dc2..a24fd63580 100644
+--- a/compatibility_matrices/compatibility_matrix.202504.xml
++++ b/compatibility_matrices/compatibility_matrix.202504.xml
+@@ -132,7 +132,7 @@
+     </hal>
+     <hal format="aidl">
+         <name>android.hardware.bluetooth.ranging</name>
+-        <version>1</version>
++        <version>1-2</version>
+         <interface>
+             <name>IBluetoothChannelSounding</name>
+             <instance>default</instance>
