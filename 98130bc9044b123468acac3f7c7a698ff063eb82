@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da6ad154_0595caeb",
+        "filename": "staging/security/see/storage/aidl/vts/functional/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-10-28T09:55:02Z",
+      "side": 1,
+      "message": "Where is this target defined? I couldn\u0027t find it in the other cl of the same topic.",
+      "range": {
+        "startLine": 18,
+        "startChar": 13,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "98130bc9044b123468acac3f7c7a698ff063eb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dfb03399_87f6bf80",
         "filename": "staging/security/see/storage/aidl/vts/functional/AndroidTest.xml",
         "patchSetId": 5
@@ -14,6 +37,24 @@
       "writtenOn": "2024-10-25T22:34:47Z",
       "side": 1,
       "message": "@smoreland@google.com @hasinitg@google.com @aliceywang@google.com\nthis is the proposed approach to allow to test to run on any target / GSI update.\nthe test is only executed when the Trusty VM property is defined.",
+      "revId": "98130bc9044b123468acac3f7c7a698ff063eb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe101511_3cd01b01",
+        "filename": "staging/security/see/storage/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-10-28T09:55:02Z",
+      "side": 1,
+      "message": "nit: The current approach LGTM. However, should we still check the `ro.hardware.security.trusty_vm.system` property that\u0027s exposed to vendors (as described in go/android-w-avf-trusty-vms \u003e Deployment)? This would allow us to avoid modifying this test when we introduce the secure Trusty VM.",
+      "parentUuid": "dfb03399_87f6bf80",
       "revId": "98130bc9044b123468acac3f7c7a698ff063eb82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
