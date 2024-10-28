@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc7190ec_a915e282",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-28T20:57:52Z",
+      "side": 1,
+      "message": "Since the dependent CL is a WIP, let\u0027s submit this one on its own.",
+      "revId": "083aa97084b9983553e8d0a5d7b43272fd4d39b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
