@@ -25,9 +25,9 @@
 #include <aidl/android/hardware/security/keymint/RpcHardwareInfo.h>
 #include <android-base/macros.h>
 #include <android-base/properties.h>
+#include <authenticated_request.h>
 #include <cppbor.h>
 #include <json/json.h>
-#include <keymaster/km_openssl/ec_key.h>
 #include <keymaster/km_openssl/ecdsa_operation.h>
 #include <keymaster/km_openssl/openssl_err.h>
 #include <keymaster/km_openssl/openssl_utils.h>
@@ -37,177 +37,11 @@
 #include <openssl/x509.h>
 #include <remote_prov/remote_prov_utils.h>
 
+#include "include/remote_prov/remote_prov_utils_common.h"
+
 namespace aidl::android::hardware::security::keymint::remote_prov {
 
-constexpr uint32_t kBccPayloadIssuer = 1;
-constexpr uint32_t kBccPayloadSubject = 2;
-constexpr int32_t kBccPayloadSubjPubKey = -4670552;
-constexpr int32_t kBccPayloadKeyUsage = -4670553;
-constexpr int kP256AffinePointSize = 32;
 constexpr uint32_t kNumTeeDeviceInfoEntries = 14;
-
-using EC_KEY_Ptr = bssl::UniquePtr<EC_KEY>;
-using EVP_PKEY_Ptr = bssl::UniquePtr<EVP_PKEY>;
-using EVP_PKEY_CTX_Ptr = bssl::UniquePtr<EVP_PKEY_CTX>;
-using X509_Ptr = bssl::UniquePtr<X509>;
-using CRYPTO_BUFFER_Ptr = bssl::UniquePtr<CRYPTO_BUFFER>;
-
-std::string deviceSuffix(const std::string& name) {
-    size_t pos = name.rfind('/');
-    if (pos == std::string::npos) {
-        return name;
-    }
-    return name.substr(pos + 1);
-}
-
-ErrMsgOr<bytevec> ecKeyGetPrivateKey(const EC_KEY* ecKey) {
-    // Extract private key.
-    const BIGNUM* bignum = EC_KEY_get0_private_key(ecKey);
-    if (bignum == nullptr) {
-        return "Error getting bignum from private key";
-    }
-    // Pad with zeros in case the length is lesser than 32.
-    bytevec privKey(32, 0);
-    BN_bn2binpad(bignum, privKey.data(), privKey.size());
-    return privKey;
-}
-
-ErrMsgOr<bytevec> ecKeyGetPublicKey(const EC_KEY* ecKey, const int nid) {
-    // Extract public key.
-    auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(nid));
-    if (group.get() == nullptr) {
-        return "Error creating EC group by curve name";
-    }
-    const EC_POINT* point = EC_KEY_get0_public_key(ecKey);
-    if (point == nullptr) return "Error getting ecpoint from public key";
-
-    int size =
-        EC_POINT_point2oct(group.get(), point, POINT_CONVERSION_UNCOMPRESSED, nullptr, 0, nullptr);
-    if (size == 0) {
-        return "Error generating public key encoding";
-    }
-
-    bytevec publicKey;
-    publicKey.resize(size);
-    EC_POINT_point2oct(group.get(), point, POINT_CONVERSION_UNCOMPRESSED, publicKey.data(),
-                       publicKey.size(), nullptr);
-    return publicKey;
-}
-
-ErrMsgOr<std::tuple<bytevec, bytevec>> getAffineCoordinates(const bytevec& pubKey) {
-    auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
-    if (group.get() == nullptr) {
-        return "Error creating EC group by curve name";
-    }
-    auto point = EC_POINT_Ptr(EC_POINT_new(group.get()));
-    if (EC_POINT_oct2point(group.get(), point.get(), pubKey.data(), pubKey.size(), nullptr) != 1) {
-        return "Error decoding publicKey";
-    }
-    BIGNUM_Ptr x(BN_new());
-    BIGNUM_Ptr y(BN_new());
-    BN_CTX_Ptr ctx(BN_CTX_new());
-    if (!ctx.get()) return "Failed to create BN_CTX instance";
-
-    if (!EC_POINT_get_affine_coordinates_GFp(group.get(), point.get(), x.get(), y.get(),
-                                             ctx.get())) {
-        return "Failed to get affine coordinates from ECPoint";
-    }
-    bytevec pubX(kP256AffinePointSize);
-    bytevec pubY(kP256AffinePointSize);
-    if (BN_bn2binpad(x.get(), pubX.data(), kP256AffinePointSize) != kP256AffinePointSize) {
-        return "Error in converting absolute value of x coordinate to big-endian";
-    }
-    if (BN_bn2binpad(y.get(), pubY.data(), kP256AffinePointSize) != kP256AffinePointSize) {
-        return "Error in converting absolute value of y coordinate to big-endian";
-    }
-    return std::make_tuple(std::move(pubX), std::move(pubY));
-}
-
-ErrMsgOr<bytevec> getRawPublicKey(const EVP_PKEY_Ptr& pubKey) {
-    if (pubKey.get() == nullptr) {
-        return "pkey is null.";
-    }
-    int keyType = EVP_PKEY_base_id(pubKey.get());
-    switch (keyType) {
-        case EVP_PKEY_EC: {
-            int nid = EVP_PKEY_bits(pubKey.get()) == 384 ? NID_secp384r1 : NID_X9_62_prime256v1;
-            auto ecKey = EC_KEY_Ptr(EVP_PKEY_get1_EC_KEY(pubKey.get()));
-            if (ecKey.get() == nullptr) {
-                return "Failed to get ec key";
-          }
-          return ecKeyGetPublicKey(ecKey.get(), nid);
-        }
-        case EVP_PKEY_ED25519: {
-            bytevec rawPubKey;
-            size_t rawKeySize = 0;
-            if (!EVP_PKEY_get_raw_public_key(pubKey.get(), NULL, &rawKeySize)) {
-                return "Failed to get raw public key.";
-            }
-            rawPubKey.resize(rawKeySize);
-            if (!EVP_PKEY_get_raw_public_key(pubKey.get(), rawPubKey.data(), &rawKeySize)) {
-                return "Failed to get raw public key.";
-            }
-            return rawPubKey;
-        }
-        default:
-            return "Unknown key type.";
-    }
-}
-
-ErrMsgOr<std::tuple<bytevec, bytevec>> generateEc256KeyPair() {
-    auto ec_key = EC_KEY_Ptr(EC_KEY_new());
-    if (ec_key.get() == nullptr) {
-        return "Failed to allocate ec key";
-    }
-
-    auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
-    if (group.get() == nullptr) {
-        return "Error creating EC group by curve name";
-    }
-
-    if (EC_KEY_set_group(ec_key.get(), group.get()) != 1 ||
-        EC_KEY_generate_key(ec_key.get()) != 1 || EC_KEY_check_key(ec_key.get()) < 0) {
-        return "Error generating key";
-    }
-
-    auto privKey = ecKeyGetPrivateKey(ec_key.get());
-    if (!privKey) return privKey.moveMessage();
-
-    auto pubKey = ecKeyGetPublicKey(ec_key.get(), NID_X9_62_prime256v1);
-    if (!pubKey) return pubKey.moveMessage();
-
-    return std::make_tuple(pubKey.moveValue(), privKey.moveValue());
-}
-
-ErrMsgOr<std::tuple<bytevec, bytevec>> generateX25519KeyPair() {
-    /* Generate X25519 key pair */
-    bytevec pubKey(X25519_PUBLIC_VALUE_LEN);
-    bytevec privKey(X25519_PRIVATE_KEY_LEN);
-    X25519_keypair(pubKey.data(), privKey.data());
-    return std::make_tuple(std::move(pubKey), std::move(privKey));
-}
-
-ErrMsgOr<std::tuple<bytevec, bytevec>> generateED25519KeyPair() {
-    /* Generate ED25519 key pair */
-    bytevec pubKey(ED25519_PUBLIC_KEY_LEN);
-    bytevec privKey(ED25519_PRIVATE_KEY_LEN);
-    ED25519_keypair(pubKey.data(), privKey.data());
-    return std::make_tuple(std::move(pubKey), std::move(privKey));
-}
-
-ErrMsgOr<std::tuple<bytevec, bytevec>> generateKeyPair(int32_t supportedEekCurve, bool isEek) {
-    switch (supportedEekCurve) {
-    case RpcHardwareInfo::CURVE_25519:
-        if (isEek) {
-            return generateX25519KeyPair();
-        }
-        return generateED25519KeyPair();
-    case RpcHardwareInfo::CURVE_P256:
-        return generateEc256KeyPair();
-    default:
-        return "Unknown EEK Curve.";
-    }
-}
 
 ErrMsgOr<bytevec> constructCoseKey(int32_t supportedEekCurve, const bytevec& eekId,
                                    const bytevec& pubKey) {
@@ -329,38 +163,6 @@ bytevec getProdEekChain(int32_t supportedEekCurve) {
             bytevec(std::begin(kCoseEncodedGeekCert), std::end(kCoseEncodedGeekCert))));
     }
     return chain.encode();
-}
-
-ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
-                                                hwtrust::DiceChain::Kind kind, bool allowAnyMode,
-                                                bool allowDegenerate,
-                                                const std::string& instanceName) {
-    auto encodedBcc = bcc->encode();
-
-    // Use ro.build.type instead of ro.debuggable because ro.debuggable=1 for VTS testing
-    std::string build_type = ::android::base::GetProperty("ro.build.type", "");
-    if (!build_type.empty() && build_type != "user") {
-        allowAnyMode = true;
-    }
-
-    auto chain =
-            hwtrust::DiceChain::Verify(encodedBcc, kind, allowAnyMode, deviceSuffix(instanceName));
-    if (!chain.ok()) {
-        return chain.error().message();
-    }
-    if (!allowDegenerate && !chain->IsProper()) {
-        return "DICE chain is degenerate";
-    }
-
-    auto keys = chain->CosePublicKeys();
-    if (!keys.ok()) {
-        return keys.error().message();
-    }
-    std::vector<BccEntryData> result;
-    for (auto& key : *keys) {
-        result.push_back({std::move(key)});
-    }
-    return result;
 }
 
 JsonOutput jsonEncodeCsrWithBuild(const std::string& instance_name, const cppbor::Array& csr,
@@ -658,7 +460,7 @@ ErrMsgOr<bytevec> getSessionKey(ErrMsgOr<std::pair<bytevec, bytevec>>& senderPub
     }
 }
 
-ErrMsgOr<std::vector<BccEntryData>> verifyProtectedData(
+ErrMsgOr<std::vector<DiceCertChainEntry>> verifyProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
         const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
@@ -710,20 +512,23 @@ ErrMsgOr<std::vector<BccEntryData>> verifyProtectedData(
     }
 
     auto& signedMac = parsedPayload->asArray()->get(0);
-    auto& bcc = parsedPayload->asArray()->get(1);
+    auto& diceCertChain = parsedPayload->asArray()->get(1);
     if (!signedMac->asArray()) {
         return "The SignedMAC in the protected data payload is not an Array.";
     }
-    if (!bcc->asArray()) {
-        return "The BCC in the protected data payload is not an Array.";
+    if (!diceCertChain->asArray()) {
+        return "The  in the protected data payload is not an Array.";
     }
 
     // BCC is [ pubkey, + BccEntry]
-    auto bccContents = validateBcc(bcc->asArray(), hwtrust::DiceChain::Kind::kVsr13, allowAnyMode,
-                                   /*allowDegenerate=*/true, instanceName);
-    if (!bccContents) {
-        return bccContents.message() + "\n" + prettyPrint(bcc.get());
+    auto encodedDiceCertChain = diceCertChain->asArray()->encode();
+    auto result = validateDiceCertChain(encodedDiceCertChain, hwtrust::DiceChain::Kind::kVsr13,
+                                        allowAnyMode, instanceName);
+    if (!result) {
+        return result.message() + "\n" + prettyPrint(diceCertChain.get());
     }
+
+    auto [isProper, diceCertChainEntries] = *result;
 
     auto deviceInfoResult =
             parseAndValidateDeviceInfo(deviceInfo.deviceInfo, provisionable, isFactory);
@@ -731,8 +536,8 @@ ErrMsgOr<std::vector<BccEntryData>> verifyProtectedData(
         return deviceInfoResult.message();
     }
     std::unique_ptr<cppbor::Map> deviceInfoMap = deviceInfoResult.moveValue();
-    auto& signingKey = bccContents->back().pubKey;
-    auto macKey = verifyAndParseCoseSign1(signedMac->asArray(), signingKey,
+    auto& leafSigningKey = diceCertChainEntries.back().pubKey;
+    auto macKey = verifyAndParseCoseSign1(signedMac->asArray(), leafSigningKey,
                                           cppbor::Array()  // SignedMacAad
                                                   .add(challenge)
                                                   .add(std::move(deviceInfoMap))
@@ -756,10 +561,10 @@ ErrMsgOr<std::vector<BccEntryData>> verifyProtectedData(
         return macPayload.message();
     }
 
-    return *bccContents;
+    return diceCertChainEntries;
 }
 
-ErrMsgOr<std::vector<BccEntryData>> verifyFactoryProtectedData(
+ErrMsgOr<std::vector<DiceCertChainEntry>> verifyFactoryProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
         const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
@@ -770,7 +575,7 @@ ErrMsgOr<std::vector<BccEntryData>> verifyFactoryProtectedData(
                                /*isFactory=*/true);
 }
 
-ErrMsgOr<std::vector<BccEntryData>> verifyProductionProtectedData(
+ErrMsgOr<std::vector<DiceCertChainEntry>> verifyProductionProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
         const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
@@ -779,135 +584,6 @@ ErrMsgOr<std::vector<BccEntryData>> verifyProductionProtectedData(
     return verifyProtectedData(deviceInfo, keysToSign, keysToSignMac, protectedData, eekChain,
                                eekId, supportedEekCurve, provisionable, instanceName, challenge,
                                /*isFactory=*/false, allowAnyMode);
-}
-
-ErrMsgOr<X509_Ptr> parseX509Cert(const std::vector<uint8_t>& cert) {
-    CRYPTO_BUFFER_Ptr certBuf(CRYPTO_BUFFER_new(cert.data(), cert.size(), nullptr));
-    if (!certBuf.get()) {
-        return "Failed to create crypto buffer.";
-    }
-    X509_Ptr result(X509_parse_from_buffer(certBuf.get()));
-    if (!result.get()) {
-        return "Failed to parse certificate.";
-    }
-    return result;
-}
-
-std::string getX509IssuerName(const X509_Ptr& cert) {
-    char* name = X509_NAME_oneline(X509_get_issuer_name(cert.get()), nullptr, 0);
-    std::string result(name);
-    OPENSSL_free(name);
-    return result;
-}
-
-std::string getX509SubjectName(const X509_Ptr& cert) {
-    char* name = X509_NAME_oneline(X509_get_subject_name(cert.get()), nullptr, 0);
-    std::string result(name);
-    OPENSSL_free(name);
-    return result;
-}
-
-// Validates the certificate chain and returns the leaf public key.
-ErrMsgOr<bytevec> validateCertChain(const cppbor::Array& chain) {
-    bytevec rawPubKey;
-    for (size_t i = 0; i < chain.size(); ++i) {
-        // Root must be self-signed.
-        size_t signingCertIndex = (i > 0) ? i - 1 : i;
-        auto& keyCertItem = chain[i];
-        auto& signingCertItem = chain[signingCertIndex];
-        if (!keyCertItem || !keyCertItem->asBstr()) {
-            return "Key certificate must be a Bstr.";
-        }
-        if (!signingCertItem || !signingCertItem->asBstr()) {
-            return "Signing certificate must be a Bstr.";
-        }
-
-        auto keyCert = parseX509Cert(keyCertItem->asBstr()->value());
-        if (!keyCert) {
-            return keyCert.message();
-        }
-        auto signingCert = parseX509Cert(signingCertItem->asBstr()->value());
-        if (!signingCert) {
-            return signingCert.message();
-        }
-
-        EVP_PKEY_Ptr pubKey(X509_get_pubkey(keyCert->get()));
-        if (!pubKey.get()) {
-            return "Failed to get public key.";
-        }
-        EVP_PKEY_Ptr signingPubKey(X509_get_pubkey(signingCert->get()));
-        if (!signingPubKey.get()) {
-            return "Failed to get signing public key.";
-        }
-
-        if (!X509_verify(keyCert->get(), signingPubKey.get())) {
-            return "Verification of certificate " + std::to_string(i) +
-                   " faile. OpenSSL error string: " + ERR_error_string(ERR_get_error(), NULL);
-        }
-
-        auto certIssuer = getX509IssuerName(*keyCert);
-        auto signerSubj = getX509SubjectName(*signingCert);
-        if (certIssuer != signerSubj) {
-            return "Certificate " + std::to_string(i) + " has wrong issuer. Signer subject is " +
-                   signerSubj + " Issuer subject is " + certIssuer;
-        }
-        if (i == chain.size() - 1) {
-            auto key = getRawPublicKey(pubKey);
-            if (!key) return key.moveMessage();
-            rawPubKey = key.moveValue();
-        }
-    }
-    return rawPubKey;
-}
-
-std::optional<std::string> validateUdsCerts(const cppbor::Map& udsCerts,
-                                            const bytevec& udsCoseKeyBytes) {
-    for (const auto& [signerName, udsCertChain] : udsCerts) {
-        if (!signerName || !signerName->asTstr()) {
-            return "Signer Name must be a Tstr.";
-        }
-        if (!udsCertChain || !udsCertChain->asArray()) {
-            return "UDS certificate chain must be an Array.";
-        }
-        if (udsCertChain->asArray()->size() < 2) {
-            return "UDS certificate chain must have at least two entries: root and leaf.";
-        }
-
-        auto leafPubKey = validateCertChain(*udsCertChain->asArray());
-        if (!leafPubKey) {
-            return leafPubKey.message();
-        }
-        auto coseKey = CoseKey::parse(udsCoseKeyBytes);
-        if (!coseKey) {
-            return coseKey.moveMessage();
-        }
-        auto curve = coseKey->getIntValue(CoseKey::CURVE);
-        if (!curve) {
-            return "CoseKey must contain curve.";
-        }
-        bytevec udsPub;
-        if (curve == CoseKeyCurve::P256 || curve == CoseKeyCurve::P384) {
-            auto pubKey = coseKey->getEcPublicKey();
-            if (!pubKey) {
-                return pubKey.moveMessage();
-            }
-            // convert public key to uncompressed form by prepending 0x04 at begin.
-            pubKey->insert(pubKey->begin(), 0x04);
-            udsPub = pubKey.moveValue();
-        } else if (curve == CoseKeyCurve::ED25519) {
-            auto& pubkey = coseKey->getMap().get(cppcose::CoseKey::PUBKEY_X);
-            if (!pubkey || !pubkey->asBstr()) {
-                return "Invalid public key.";
-            }
-            udsPub = pubkey->asBstr()->value();
-        } else {
-            return "Unknown curve.";
-        }
-        if (*leafPubKey != udsPub) {
-            return "Leaf public key in UDS certificate chain doesn't match UDS public key.";
-        }
-    }
-    return std::nullopt;
 }
 
 ErrMsgOr<std::unique_ptr<cppbor::Array>> parseAndValidateCsrPayload(
@@ -961,148 +637,13 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> parseAndValidateCsrPayload(
     return std::move(parsed);
 }
 
-ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequestSignedPayload(
-        const std::vector<uint8_t>& signedPayload, const std::vector<uint8_t>& challenge) {
-    auto [parsedSignedPayload, _, errMsg] = cppbor::parse(signedPayload);
-    if (!parsedSignedPayload) {
-        return errMsg;
-    }
-    if (!parsedSignedPayload->asArray()) {
-        return "SignedData payload is not a CBOR array.";
-    }
-    if (parsedSignedPayload->asArray()->size() != 2U) {
-        return "SignedData payload must contain the challenge and request. However, the parsed "
-               "SignedData payload has " +
-               std::to_string(parsedSignedPayload->asArray()->size()) + " entries.";
-    }
-
-    auto signedChallenge = parsedSignedPayload->asArray()->get(0)->asBstr();
-    auto signedRequest = parsedSignedPayload->asArray()->get(1)->asBstr();
-
-    if (!signedChallenge) {
-        return "Challenge must be a Bstr.";
-    }
-
-    if (challenge.size() > 64) {
-        return "Challenge size must be between 0 and 64 bytes inclusive. "
-               "However, challenge is " +
-               std::to_string(challenge.size()) + " bytes long.";
-    }
-
-    auto challengeBstr = cppbor::Bstr(challenge);
-    if (*signedChallenge != challengeBstr) {
-        return "Signed challenge does not match."
-               "\n  Actual: " +
-               cppbor::prettyPrint(signedChallenge->asBstr(), 64 /* maxBStrSize */) +
-               "\nExpected: " + cppbor::prettyPrint(&challengeBstr, 64 /* maxBStrSize */);
-    }
-
-    if (!signedRequest) {
-        return "Request must be a Bstr.";
-    }
-
-    return signedRequest->value();
-}
-
-ErrMsgOr<hwtrust::DiceChain::Kind> getDiceChainKind() {
-    int vendor_api_level = ::android::base::GetIntProperty("ro.vendor.api_level", -1);
-    if (vendor_api_level == __ANDROID_API_T__) {
-        return hwtrust::DiceChain::Kind::kVsr13;
-    } else if (vendor_api_level == __ANDROID_API_U__) {
-        return hwtrust::DiceChain::Kind::kVsr14;
-    } else if (vendor_api_level == 202404) {
-        return hwtrust::DiceChain::Kind::kVsr15;
-    } else if (vendor_api_level > 202404) {
-        return hwtrust::DiceChain::Kind::kVsr16;
-    } else {
-        return "Unsupported vendor API level: " + std::to_string(vendor_api_level);
-    }
-}
-
-ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t>& request,
-                                                       const std::vector<uint8_t>& challenge,
-                                                       const std::string& instanceName,
-                                                       bool allowAnyMode = false,
-                                                       bool allowDegenerate = true,
-                                                       bool requireUdsCerts = false) {
-    auto [parsedRequest, _, csrErrMsg] = cppbor::parse(request);
-    if (!parsedRequest) {
-        return csrErrMsg;
-    }
-    if (!parsedRequest->asArray()) {
-        return "AuthenticatedRequest is not a CBOR array.";
-    }
-    if (parsedRequest->asArray()->size() != 4U) {
-        return "AuthenticatedRequest must contain version, UDS certificates, DICE chain, and "
-               "signed data. However, the parsed AuthenticatedRequest has " +
-               std::to_string(parsedRequest->asArray()->size()) + " entries.";
-    }
-
-    auto version = parsedRequest->asArray()->get(0)->asUint();
-    auto udsCerts = parsedRequest->asArray()->get(1)->asMap();
-    auto diceCertChain = parsedRequest->asArray()->get(2)->asArray();
-    auto signedData = parsedRequest->asArray()->get(3)->asArray();
-
-    if (!version || version->value() != 1U) {
-        return "AuthenticatedRequest version must be an unsigned integer and must be equal to 1.";
-    }
-
-    if (!udsCerts) {
-        return "AuthenticatedRequest UdsCerts must be a Map.";
-    }
-    if (requireUdsCerts && udsCerts->size() == 0) {
-        return "AuthenticatedRequest UdsCerts must not be empty.";
-    }
-    if (!diceCertChain) {
-        return "AuthenticatedRequest DiceCertChain must be an Array.";
-    }
-    if (!signedData) {
-        return "AuthenticatedRequest SignedData must be an Array.";
-    }
-
-    // DICE chain is [ pubkey, + DiceChainEntry ].
-    auto diceChainKind = getDiceChainKind();
-    if (!diceChainKind) {
-        return diceChainKind.message();
-    }
-
-    auto diceContents =
-            validateBcc(diceCertChain, *diceChainKind, allowAnyMode, allowDegenerate, instanceName);
-    if (!diceContents) {
-        return diceContents.message() + "\n" + prettyPrint(diceCertChain);
-    }
-
-    if (!diceCertChain->get(0)->asMap()) {
-        return "AuthenticatedRequest The first entry in DiceCertChain must be a Map.";
-    }
-    auto udsPub = diceCertChain->get(0)->asMap()->encode();
-    auto error = validateUdsCerts(*udsCerts, udsPub);
-    if (error) {
-        return *error;
-    }
-
-    if (diceContents->empty()) {
-        return "AuthenticatedRequest DiceContents must not be empty.";
-    }
-    auto& kmDiceKey = diceContents->back().pubKey;
-    auto signedPayload = verifyAndParseCoseSign1(signedData, kmDiceKey, /*aad=*/{});
-    if (!signedPayload) {
-        return signedPayload.message();
-    }
-
-    auto payload = parseAndValidateAuthenticatedRequestSignedPayload(*signedPayload, challenge);
-    if (!payload) {
-        return payload.message();
-    }
-
-    return payload;
-}
-
-ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(
-        const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
-        const std::vector<uint8_t>& challenge, bool isFactory, bool allowAnyMode = false,
-        bool allowDegenerate = true, bool requireUdsCerts = false) {
+ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(const cppbor::Array& keysToSign,
+                                                   const std::vector<uint8_t>& csr,
+                                                   IRemotelyProvisionedComponent* provisionable,
+                                                   const std::string& instanceName,
+                                                   const std::vector<uint8_t>& challenge,
+                                                   bool isFactory, bool allowAnyMode,
+                                                   bool allowDegenerate, bool requireUdsCerts) {
     RpcHardwareInfo info;
     provisionable->getHardwareInfo(&info);
     if (info.versionNumber != 3) {
@@ -1110,9 +651,10 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(
                ") does not match expected version (3).";
     }
 
-    auto csrPayload = parseAndValidateAuthenticatedRequest(
-            csr, challenge, instanceName, allowAnyMode, allowDegenerate, requireUdsCerts);
+    auto authenticateRequest = AuthenticatedRequest(csr, challenge, instanceName, allowAnyMode,
+                                                    allowDegenerate, requireUdsCerts);
 
+    auto csrPayload = authenticateRequest.csrPayload();
     if (!csrPayload) {
         return csrPayload.message();
     }
@@ -1124,54 +666,41 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyFactoryCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
         IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
         const std::vector<uint8_t>& challenge, bool allowDegenerate, bool requireUdsCerts) {
-    return verifyCsr(keysToSign, csr, provisionable, instanceName, challenge, /*isFactory=*/true,
-                     /*allowAnyMode=*/false, allowDegenerate, requireUdsCerts);
+    return verifyCsr(keysToSign, csr, provisionable, instanceName, challenge, true /*isFactory*/,
+                     false /*allowAnyMode*/, allowDegenerate, requireUdsCerts);
 }
 
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
         IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
         const std::vector<uint8_t>& challenge, bool allowAnyMode) {
-    return verifyCsr(keysToSign, csr, provisionable, instanceName, challenge, /*isFactory=*/false,
-                     allowAnyMode);
+    return verifyCsr(keysToSign, csr, provisionable, instanceName, challenge, false /*isFactory*/,
+                     allowAnyMode, true /*allowDegenerate*/, false /*requireUdsCerts*/);
 }
 
 ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr,
+                                        const std::vector<uint8_t>& challenge,
                                         const std::string& instanceName) {
-    auto [parsedRequest, _, csrErrMsg] = cppbor::parse(csr);
-    if (!parsedRequest) {
-        return csrErrMsg;
-    }
-    if (!parsedRequest->asArray()) {
-        return "AuthenticatedRequest is not a CBOR array.";
-    }
-    if (parsedRequest->asArray()->size() != 4U) {
-        return "AuthenticatedRequest must contain version, UDS certificates, DICE chain, and "
-               "signed data. However, the parsed AuthenticatedRequest has " +
-               std::to_string(parsedRequest->asArray()->size()) + " entries.";
+    auto authenticateRequest =
+            AuthenticatedRequest(csr, challenge, instanceName, false /*allowAnyMode*/,
+                                 true /*allowDegenerate*/, false /*requireUdsCerts*/);
+
+    return authenticateRequest.isProper();
+}
+
+ErrMsgOr<std::vector<uint8_t>> getUdsPubFromDiceCertChain(const std::vector<uint8_t>& request,
+                                                          const std::vector<uint8_t>& challenge,
+                                                          const std::string& instanceName) {
+    auto authenticateRequest =
+            AuthenticatedRequest(request, challenge, instanceName, false /*allowAnyMode*/,
+                                 true /*allowDegenerate*/, false /*requireUdsCerts*/);
+
+    auto udsPub = authenticateRequest.getUdsPubFromDiceChain();
+    if (!udsPub) {
+        return udsPub.message();
     }
 
-    auto version = parsedRequest->asArray()->get(0)->asUint();
-    auto diceCertChain = parsedRequest->asArray()->get(2)->asArray();
-
-    if (!version || version->value() != 1U) {
-        return "AuthenticatedRequest version must be an unsigned integer and must be equal to 1.";
-    }
-    if (!diceCertChain) {
-        return "AuthenticatedRequest DiceCertChain must be an Array.";
-    }
-
-    // DICE chain is [ pubkey, + DiceChainEntry ].
-    auto diceChainKind = getDiceChainKind();
-    if (!diceChainKind) {
-        return diceChainKind.message();
-    }
-
-    auto encodedDiceChain = diceCertChain->encode();
-    auto chain = hwtrust::DiceChain::Verify(encodedDiceChain, *diceChainKind,
-                                            /*allowAnyMode=*/false, deviceSuffix(instanceName));
-    if (!chain.ok()) return chain.error().message();
-    return chain->IsProper();
+    return *udsPub;
 }
 
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
