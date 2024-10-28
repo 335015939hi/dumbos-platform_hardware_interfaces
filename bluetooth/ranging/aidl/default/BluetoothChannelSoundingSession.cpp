@@ -52,4 +52,15 @@ ndk::ScopedAStatus BluetoothChannelSoundingSession::close(Reason in_reason) {
   callback_->onClose(in_reason);
   return ::ndk::ScopedAStatus::ok();
 }
+ndk::ScopedAStatus writeProcedureData(
+    const ChannelSoundingProcedureData& /*in_procedureData*/) {
+  return ::ndk::ScopedAStatus::ok();
+}
+ndk::ScopedAStatus updateChannelSoundingConfig(const Config& /*in_config*/) {
+  return ::ndk::ScopedAStatus::ok();
+}
+ndk::ScopedAStatus updateProcedureEnableConfig(
+    const ProcedureEnableConfig& /*in_procedureEnableConfig*/) {
+  return ::ndk::ScopedAStatus::ok();
+}
 }  // namespace aidl::android::hardware::bluetooth::ranging::impl
