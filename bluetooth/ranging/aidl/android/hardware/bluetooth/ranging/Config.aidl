@@ -16,10 +16,20 @@
 
 package android.hardware.bluetooth.ranging;
 
+import android.hardware.bluetooth.ranging.Ch3cShapeType;
+import android.hardware.bluetooth.ranging.ChannelSelectionType;
+import android.hardware.bluetooth.ranging.CsSyncPhyType;
 import android.hardware.bluetooth.ranging.ModeType;
+import android.hardware.bluetooth.ranging.Role;
 import android.hardware.bluetooth.ranging.RttType;
 import android.hardware.bluetooth.ranging.SubModeType;
 
+/**
+ * Procedure data of Channel Sounding.
+
+ *
+ * Specification: https://www.bluetooth.com/specifications/specs/core60-html/
+ */
 @VintfStability
 parcelable Config {
     /**
@@ -42,4 +52,85 @@ parcelable Config {
      * Channel n is disabled for CS procedure = 0
      */
     byte[10] channelMap;
+    /**
+     * Minimum number of CS main mode steps to be executed before a submode step is executed
+     */
+    int minMainModeSteps;
+    /**
+     * Maximum number of CS main mode steps to be executed before a submode step is executed
+     */
+    int maxMainModeSteps;
+    /**
+     * Number of main mode steps taken from the end of the last CS subevent to be repeated at
+     * the beginning of the current CS subevent directly after the last mode-0 step of that event
+     */
+    int mainModeRepetition;
+    /**
+     * Number of CS mode-0 steps to be included at the beginning of each CS subevent
+     */
+    int mode0Steps;
+    /**
+     * The Channel Sounding role of the local device
+     */
+    Role role;
+    /**
+     * Indicates the PHY to be used for CS_SYNC exchanges during the CS procedure
+     */
+    CsSyncPhyType csSyncPhyType;
+    /**
+     * Indicates the Channel Selection Algorithm to be used during the CS procedure for non-mode-0
+     * steps
+     */
+    ChannelSelectionType channelSelectionType;
+    /**
+     * Indicates the selected shape
+     */
+    Ch3cShapeType ch3cShapeType;
+    /**
+     * Number of channels skipped in each rising and falling sequence
+     * Range: 0x02 to 0x08
+     */
+    byte ch3cJump;
+    /**
+     * The number of times the map represented by the Channel_Map field is to be cycled through
+     * for non-mode-0 steps within a CS procedure
+     */
+    int channelMapRepetition;
+    /**
+     * Interlude time in microseconds between the RTT packets
+     * unit: us
+     */
+    int tIp1Time;
+    /**
+     * Interlude time in microseconds between the CS tones
+     * unit: us
+     */
+    int tIp2Time;
+    /**
+     * Time in microseconds for frequency changes
+     * unit: us
+     */
+    int tFcsTime;
+    /**
+     * Time in microseconds for the phase measurement period of the CS tones
+     * unit: us
+     */
+    int tPmTime;
+    /**
+     * Time in microseconds for the antenna switch period of the CS tones supported by local device
+     * Value: 0, 1, 2, 4, 10 us
+     * see BLUETOOTH CORE SPECIFICATION Version 6.0 | Vol 4, Part E 7.8.130
+     */
+    byte tSwTimeSupportedByLocal;
+    /**
+     * Time in microseconds for the antenna switch period of the CS tones supported by remote device
+     * Value: 0, 1, 2, 4, 10 us
+     * see BLUETOOTH CORE SPECIFICATION Version 6.0 | Vol 4, Part E 7.7.65.39
+     */
+    byte tSwTimeSupportedByRemote;
+    /**
+     * BLE event connection interval, a multiple of 1.25 ms in the range 7.5 ms to 4.0 s
+     * see BLUETOOTH CORE SPECIFICATION Version 6.0 | Vol 6, Part B 4.5.1
+     */
+    int bleConnInterval;
 }
