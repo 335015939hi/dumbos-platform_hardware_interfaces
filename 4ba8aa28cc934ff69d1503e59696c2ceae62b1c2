@@ -240,6 +240,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0856fc0_c5cf88db",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocketCallback.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-28T19:31:40Z",
+      "side": 1,
+      "message": "thanks for the discussion offline. added status code and reason string into the callback `openedComplete`",
+      "parentUuid": "01a20eee_a8ffe319",
+      "range": {
+        "startLine": 29,
+        "startChar": 9,
+        "endLine": 29,
+        "endChar": 17
+      },
+      "revId": "4ba8aa28cc934ff69d1503e59696c2ceae62b1c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fe586fc_eb7f2b89",

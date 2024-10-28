@@ -22,6 +22,30 @@
       },
       "revId": "362e9db20d13803327d8334f2c7a2f630c6fbc04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91e6fb75_575c8dbb",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-28T19:31:40Z",
+      "side": 1,
+      "message": "socket id is only valid while socket is connected. updated the document.",
+      "parentUuid": "5d839b3f_d1dec315",
+      "range": {
+        "startLine": 27,
+        "startChar": 58,
+        "endLine": 28,
+        "endChar": 13
+      },
+      "revId": "362e9db20d13803327d8334f2c7a2f630c6fbc04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
