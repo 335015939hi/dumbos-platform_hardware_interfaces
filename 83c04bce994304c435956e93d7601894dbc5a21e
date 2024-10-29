@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50b4ef8c_04142066",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-29T12:44:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aaecedf_5627a44f",
+      "range": {
+        "startLine": 161,
+        "startChar": 18,
+        "endLine": 161,
+        "endChar": 37
+      },
+      "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18f366a8_69ca7e04",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Agree. The general rule is that you wouldn\u0027t see constants whose name starts with `k` being initialized in the constructor.",
       "parentUuid": "18f366a8_69ca7e04",
+      "range": {
+        "startLine": 165,
+        "startChar": 14,
+        "endLine": 165,
+        "endChar": 27
+      },
+      "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b218d06f_7d0809e6",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-29T12:44:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4630472b_c0967b6b",
       "range": {
         "startLine": 165,
         "startChar": 14,
@@ -136,6 +184,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a93a6da_4be67ee6",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-29T12:44:59Z",
+      "side": 1,
+      "message": "Using the default value in the ```SetAndGetDynamicsProcessingParameters``` method declaration.",
+      "parentUuid": "444adcbb_55ccd641",
+      "range": {
+        "startLine": 340,
+        "startChar": 93,
+        "endLine": 340,
+        "endChar": 96
+      },
+      "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "781fd290_14f840ce",
@@ -149,6 +221,24 @@
       "writtenOn": "2024-10-22T16:41:12Z",
       "side": 1,
       "message": "change to const where possible",
+      "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ff97b8_13a1ad1b",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-29T12:44:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "781fd290_14f840ce",
       "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -238,6 +328,30 @@
       "side": 1,
       "message": "For consistency with https://r.android.com/3315021 I would prefer not adding `Ptr` suffix but rather comparing pointers explicitly with `nullptr`.",
       "parentUuid": "d6375deb_07b99abd",
+      "range": {
+        "startLine": 727,
+        "startChar": 12,
+        "endLine": 727,
+        "endChar": 26
+      },
+      "revId": "83c04bce994304c435956e93d7601894dbc5a21e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccf9e631_ca49cbf4",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 727,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-10-29T12:44:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f553067b_1f77e5f4",
       "range": {
         "startLine": 727,
         "startChar": 12,
