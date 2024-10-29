@@ -88,6 +88,24 @@
       "parentUuid": "df67e164_68342672",
       "revId": "56d039df0bc4f375265a2f960407a25f2c783e98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce17bdf2_5dd77bdb",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/ITrustedServicesCommonsConnect.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-10-29T20:30:59Z",
+      "side": 1,
+      "message": "This was discussed and clarified offline, closing the comment.",
+      "parentUuid": "baab6d35_9f4b0951",
+      "revId": "56d039df0bc4f375265a2f960407a25f2c783e98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
