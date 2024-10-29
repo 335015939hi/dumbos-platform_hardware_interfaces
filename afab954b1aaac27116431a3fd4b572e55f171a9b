@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "945b68a0_293a774f",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/ModeOneData.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 3368974
+      },
+      "writtenOn": "2024-10-29T12:08:43Z",
+      "side": 1,
+      "message": "1.Looks Packet_Antenna missed？\n\n2.The Mode_Role_Specific_Info defined in Mode 1 varies with “role” and whether “the RTT type contains a sounding sequence”，even though we can distingush whether is “ToA_ToD_Initiator” or “ToD_ToA_Reflector” through initiatorSubeventResultData/relectorSubeventResultData, but seems lost the physical meaning?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "afab954b1aaac27116431a3fd4b572e55f171a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
