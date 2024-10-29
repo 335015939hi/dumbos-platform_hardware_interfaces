@@ -220,10 +220,10 @@ void WeaverTest::FindFreeSlots() {
             used_slots.insert(slot);
         }
     }
-    // Starting in Android 14, the system will always use at least one Weaver slot if Weaver is
-    // supported at all.  Make sure we saw at least one.
-    ASSERT_FALSE(used_slots.empty())
-            << "Could not determine which Weaver slots are in use by the system";
+
+    // We should assert !used_slots.empty() here, but that can't be done yet due to
+    // config_disableWeaverOnUnsecuredUsers being supported.  The value of that option is not
+    // accessible from here, so we have to assume it might be set to true.
 
     // Find the first free slot.
     int found = 0;
