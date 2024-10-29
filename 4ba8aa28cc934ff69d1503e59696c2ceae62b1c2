@@ -344,6 +344,24 @@
       "parentUuid": "9af2600d_0ace0543",
       "revId": "4ba8aa28cc934ff69d1503e59696c2ceae62b1c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b103b21b_d9c335f5",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-29T20:32:15Z",
+      "side": 1,
+      "message": "As discussed with Brian offline, will update for `import android.hardware.contexthub.EndpointId` when it is available in AOSP later.",
+      "parentUuid": "2f3b758f_ec871f21",
+      "revId": "4ba8aa28cc934ff69d1503e59696c2ceae62b1c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
