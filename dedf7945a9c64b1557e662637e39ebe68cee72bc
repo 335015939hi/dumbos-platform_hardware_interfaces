@@ -22,6 +22,30 @@
       },
       "revId": "dedf7945a9c64b1557e662637e39ebe68cee72bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2719b182_97962ae9",
+        "filename": "audio/aidl/default/apex/com.android.hardware.audio/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-10-29T15:44:26Z",
+      "side": 1,
+      "message": "agree, will move also binaries section here",
+      "parentUuid": "7c8476a6_4b87c060",
+      "range": {
+        "startLine": 56,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 55
+      },
+      "revId": "dedf7945a9c64b1557e662637e39ebe68cee72bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
