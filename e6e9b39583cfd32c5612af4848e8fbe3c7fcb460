@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "302e9254_65ac083c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-29T22:24:30Z",
+      "side": 1,
+      "message": "Just `audio:`.",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cba28b49_ce7dba67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-29T22:24:30Z",
+      "side": 1,
+      "message": "Please add:\n\nBug: 370242708\nTest: atest VtsHalAudioCoreTargetTest",
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91473abe_e03aeb2a",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-29T22:24:30Z",
+      "side": 1,
+      "message": "nit: Please remove empty lines to match the style of other functions.",
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6afd2478_97965b40",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-29T22:24:30Z",
+      "side": 1,
+      "message": "`auto it \u003d findById\u003cAudioPortConfig\u003e(configs, id);`",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 0
+      },
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8dc7445_8e74eaeb",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-29T22:24:30Z",
+      "side": 1,
+      "message": "```\n            LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \": \" \u003c\u003c mType\n                       \u003c\u003c \": failed to find a device for port config id \" \u003c\u003c id;\n```",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 94
+      },
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bd5949e_03a56b96",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-29T22:24:30Z",
+      "side": 1,
+      "message": "We should also be able to replace this code with:\n\n```\nreturn getDevicesFromDevicePortConfigIds(findConnectedPortConfigIds(portConfigId));\n```\n\nright?",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 18
+      },
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7b8b7b0_3d25d38a",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-29T22:24:30Z",
+      "side": 1,
+      "message": "Please keep alphabetic order, put after `getConnectedDevicePorts`. Same for the implementation code.",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 0
+      },
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
