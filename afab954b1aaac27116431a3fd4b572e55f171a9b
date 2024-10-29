@@ -22,6 +22,30 @@
       },
       "revId": "afab954b1aaac27116431a3fd4b572e55f171a9b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddc5a70e_f8cb855a",
+        "filename": "bluetooth/ranging/aidl/aidl_api/android.hardware.bluetooth.ranging/current/android/hardware/bluetooth/ranging/ModeOneData.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-10-29T16:23:43Z",
+      "side": 1,
+      "message": "done, but TBH, I don\u0027t think it can save anything, as you need to know the role in any cases.",
+      "parentUuid": "945b68a0_293a774f",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 20
+      },
+      "revId": "afab954b1aaac27116431a3fd4b572e55f171a9b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
