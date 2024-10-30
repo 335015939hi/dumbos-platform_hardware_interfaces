@@ -557,6 +557,17 @@ TEST(RemoteProvUtilsTest, validateBccDegenerate) {
                              DEFAULT_INSTANCE_NAME));
 }
 
+TEST(RemoteProvUtils, validateDiceChainProper) {
+    auto csr = hwtrust::Csr::validate(kCsrWithUdsCerts, hwtrust::Csr::Version::kV3,
+                                      hwtrust::DiceChain::Kind::kVsr16, false /*allowAnyMode*/,
+                                      deviceSuffix(DEFAULT_INSTANCE_NAME));
+    ASSERT_TRUE(csr.ok()) << csr.error().message();
+
+    auto diceChain = csr->getDiceChain();
+    ASSERT_TRUE(diceChain.ok()) << diceChain.error().message();
+    ASSERT_TRUE(diceChain->IsProper());
+}
+
 TEST(RemoteProvUtilsTest, requireUdsCertsWhenPresent) {
     auto [keysToSignPtr, _, errMsg] = cppbor::parse(kKeysToSignForCsrWithUdsCerts);
     ASSERT_TRUE(keysToSignPtr) << "Error: " << errMsg;
