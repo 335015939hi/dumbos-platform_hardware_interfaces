@@ -24,10 +24,15 @@
 #include <hwtrust/hwtrust.h>
 #include <keymaster/cppcose/cppcose.h>
 
+using cppcose::bytevec;
+using cppcose::ErrMsgOr;
+
 namespace aidl::android::hardware::security::keymint::remote_prov {
 
-using bytevec = std::vector<uint8_t>;
-using namespace cppcose;
+const std::string kErrorChallengeMismatch = "challenges do not match";
+const std::string kErrorUdsCertsAreRequired = "UdsCerts are required";
+const std::string kErrorKeysToSignMismatch = "KeysToSign do not match";
+const std::string kErrorDiceChainIsDegenerate = "DICE chain is degenerate";
 
 extern bytevec kTestMacKey;
 
@@ -153,7 +158,7 @@ JsonOutput jsonEncodeCsrWithBuild(const std::string& instance_name, const cppbor
  * is parsed in the manufacturing process.
  */
 ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateFactoryDeviceInfo(
-        const std::vector<uint8_t>& deviceInfoBytes, IRemotelyProvisionedComponent* provisionable);
+        const std::vector<uint8_t>& deviceInfoBytes, const RpcHardwareInfo& info);
 
 /**
  * Parses a DeviceInfo structure from the given CBOR data. The parsed data is then validated to
@@ -162,7 +167,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateFactoryDeviceInfo(
  * suitable for the end user.
  */
 ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateProductionDeviceInfo(
-        const std::vector<uint8_t>& deviceInfoBytes, IRemotelyProvisionedComponent* provisionable);
+        const std::vector<uint8_t>& deviceInfoBytes, const RpcHardwareInfo& info);
 
 /**
  * Verify the protected data as if the device is still early in the factory process and may not
@@ -172,7 +177,7 @@ ErrMsgOr<std::vector<BccEntryData>> verifyFactoryProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
         const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
+        const RpcHardwareInfo& info, const std::string& instanceName,
         const std::vector<uint8_t>& challenge);
 /**
  * Verify the protected data as if the device is a final production sample.
@@ -181,35 +186,43 @@ ErrMsgOr<std::vector<BccEntryData>> verifyProductionProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
         const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
+        const RpcHardwareInfo& info, const std::string& instanceName,
         const std::vector<uint8_t>& challenge, bool allowAnyMode = false);
 
 /**
  * Verify the CSR as if the device is still early in the factory process and may not
  * have all device identifiers provisioned yet.
  */
-ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyFactoryCsr(
-        const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
-        const std::vector<uint8_t>& challenge, bool allowDegenerate = true,
-        bool requireUdsCerts = false);
+ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyFactoryCsr(const cppbor::Array& keysToSign,
+                                                          const std::vector<uint8_t>& csr,
+                                                          const RpcHardwareInfo& info,
+                                                          const std::string& instanceName,
+                                                          const std::vector<uint8_t>& challenge,
+                                                          bool allowDegenerate = true,
+                                                          bool requireUdsCerts = false);
 
 /**
  * Verify the CSR as if the device is a final production sample.
  */
-ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
-        const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
-        const std::vector<uint8_t>& challenge, bool allowAnyMode = false);
+ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(const cppbor::Array& keysToSign,
+                                                             const std::vector<uint8_t>& csr,
+                                                             const RpcHardwareInfo& info,
+                                                             const std::string& instanceName,
+                                                             const std::vector<uint8_t>& challenge,
+                                                             bool allowAnyMode = false);
 
 /** Checks whether the CSR has a proper DICE chain. */
 ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr,
                                         const std::string& instanceName);
 
-/** Verify the DICE chain. */
+/** Verify the DICE chain and return the DICE chain without the root (UDS public key). */
 ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
                                                 hwtrust::DiceChain::Kind kind, bool allowAnyMode,
                                                 bool allowDegenerate,
                                                 const std::string& instanceName);
+
+/** Extracts the root public key from the DICE certificate chain **/
+ErrMsgOr<std::vector<uint8_t>> getUdsPubFromDiceCertChain(const std::vector<uint8_t>& csr,
+                                                          const std::string& instanceName);
 
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
