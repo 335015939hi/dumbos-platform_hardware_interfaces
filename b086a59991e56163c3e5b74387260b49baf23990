@@ -51,6 +51,24 @@
       "parentUuid": "f5e03873_f2c93c33",
       "revId": "b086a59991e56163c3e5b74387260b49baf23990",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d2e3a3b_11cad0b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-30T04:24:54Z",
+      "side": 1,
+      "message": "Folks, based on your input, could we designate the following Trendy team as the owner of this test module?  Pixel folks will still be on reviews, but they won\u0027t be on the hook to investigate test breakages if culprit-finding or DM can\u0027t figure it out. In that case, we\u0027ll request help from the Trendy owner team: \n\nTrendy Team: Android Kernel\nTrendy Team ID: 5014334795022336\n\n@slotus@google.com FYI.",
+      "parentUuid": "5e6b5814_9c64b0e8",
+      "revId": "b086a59991e56163c3e5b74387260b49baf23990",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
