@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ebc984e_0dd0a95c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-10-30T10:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "302e9254_65ac083c",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cba28b49_ce7dba67",
@@ -58,6 +82,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8b63bbf_01a70d16",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-10-30T10:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91473abe_e03aeb2a",
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6afd2478_97965b40",
@@ -71,6 +113,30 @@
       "writtenOn": "2024-10-29T22:24:30Z",
       "side": 1,
       "message": "`auto it \u003d findById\u003cAudioPortConfig\u003e(configs, id);`",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 0
+      },
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c858aff1_cf00d7e0",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-10-30T10:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6afd2478_97965b40",
       "range": {
         "startLine": 245,
         "startChar": 0,
@@ -104,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cec75c7_549d70eb",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-10-30T10:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8dc7445_8e74eaeb",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 94
+      },
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bd5949e_03a56b96",
@@ -127,6 +217,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9090c65e_580e8f0b",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-10-30T10:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bd5949e_03a56b96",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 18
+      },
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7b8b7b0_3d25d38a",
@@ -140,6 +254,30 @@
       "writtenOn": "2024-10-29T22:24:30Z",
       "side": 1,
       "message": "Please keep alphabetic order, put after `getConnectedDevicePorts`. Same for the implementation code.",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 0
+      },
+      "revId": "e6e9b39583cfd32c5612af4848e8fbe3c7fcb460",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15a3b8f5_6032d823",
+        "filename": "audio/aidl/default/include/core-impl/Module.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-10-30T10:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7b8b7b0_3d25d38a",
       "range": {
         "startLine": 233,
         "startChar": 0,
