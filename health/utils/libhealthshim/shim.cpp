@@ -190,6 +190,10 @@ ScopedAStatus HealthShim::getStorageInfo(std::vector<StorageInfo>* out) {
     return ReturnAndResultToStatus(ret, out_result);
 }
 
+ScopedAStatus HealthShim::getFoldInfo(std::vector<FoldInfo>* /*out*/) {
+    return ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
 ScopedAStatus HealthShim::getDiskStats(std::vector<DiskStats>* out) {
     Result out_result = Result::UNKNOWN;
     auto ret = service_->getDiskStats([out, &out_result](auto result, const auto& value) {
