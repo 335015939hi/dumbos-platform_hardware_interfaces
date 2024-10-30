@@ -70,6 +70,30 @@
       },
       "revId": "dfe8733a17baa666150ab5853f6672abb951723b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fe5f07e_2460aec1",
+        "filename": "thermal/aidl/vts/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1933945
+      },
+      "writtenOn": "2024-10-30T20:38:06Z",
+      "side": 1,
+      "message": "let me sync with the ADPF team internally and get back to you all!",
+      "parentUuid": "d3addeeb_edb6968c",
+      "range": {
+        "startLine": 16,
+        "startChar": 19,
+        "endLine": 16,
+        "endChar": 36
+      },
+      "revId": "dfe8733a17baa666150ab5853f6672abb951723b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
