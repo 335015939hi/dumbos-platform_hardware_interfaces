@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4648a34_f67815f5",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-10-30T23:30:02Z",
+      "side": 1,
+      "message": "add a ENOACCESS error code to make it clear that this API is only accessible to known clients.",
+      "revId": "33ffd85e629a73a258846d059d27e1d5801ad8fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3160be78_38076228",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
         "patchSetId": 58
@@ -14,6 +31,24 @@
       "writtenOn": "2024-10-30T23:17:58Z",
       "side": 1,
       "message": "armellel@ has some reservations about using strings to name slot IDs - will let her give more detail",
+      "revId": "33ffd85e629a73a258846d059d27e1d5801ad8fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf616398_41a36585",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 58
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-10-30T23:30:02Z",
+      "side": 1,
+      "message": "preferring an enum here in order to comply to the Stable AIDL pattern.",
+      "parentUuid": "3160be78_38076228",
       "revId": "33ffd85e629a73a258846d059d27e1d5801ad8fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
