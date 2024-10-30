@@ -112,6 +112,30 @@
       },
       "revId": "f07046c1434663b1f21cdcd1121873863be14ed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bcb5ad9_2baa5e13",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-30T22:00:12Z",
+      "side": 1,
+      "message": "We can change to `LOG(FATAL)`. Ajender, WDYT?",
+      "parentUuid": "b65abaa6_6945cb25",
+      "range": {
+        "startLine": 248,
+        "startChar": 16,
+        "endLine": 248,
+        "endChar": 21
+      },
+      "revId": "f07046c1434663b1f21cdcd1121873863be14ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
