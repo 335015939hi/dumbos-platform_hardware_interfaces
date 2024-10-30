@@ -64,6 +64,30 @@
       },
       "revId": "f07046c1434663b1f21cdcd1121873863be14ed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70cf70c9_1546758c",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-30T20:29:09Z",
+      "side": 1,
+      "message": "Agree. Since `devicePortConfigIds` is generated internally, if it contains IDs that do not relate to actual device port configs, that means something got corrupted internally, and it\u0027s a problem. Whereas `WARNING` is mostly used for things that look suspicious but should not cause big problems.",
+      "parentUuid": "0595649a_87b26ff2",
+      "range": {
+        "startLine": 248,
+        "startChar": 16,
+        "endLine": 248,
+        "endChar": 21
+      },
+      "revId": "f07046c1434663b1f21cdcd1121873863be14ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
