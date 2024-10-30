@@ -88,6 +88,30 @@
       },
       "revId": "f07046c1434663b1f21cdcd1121873863be14ed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b65abaa6_6945cb25",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-10-30T20:54:00Z",
+      "side": 1,
+      "message": "I guess the followup question is, if this means something goes wrong, is a ERROR logging enough?",
+      "parentUuid": "70cf70c9_1546758c",
+      "range": {
+        "startLine": 248,
+        "startChar": 16,
+        "endLine": 248,
+        "endChar": 21
+      },
+      "revId": "f07046c1434663b1f21cdcd1121873863be14ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
