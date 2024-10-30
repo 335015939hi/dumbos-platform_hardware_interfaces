@@ -94,13 +94,6 @@ const std::string DEFAULT_INSTANCE_NAME =
 const std::string RKPVM_INSTANCE_NAME =
         "android.hardware.security.keymint.IRemotelyProvisionedComponent/avf";
 
-/**
- * Returns the portion of an instance name after the /
- * e.g. for "android.hardware.security.keymint.IRemotelyProvisionedComponent/avf",
- * it returns "avf".
- */
-std::string deviceSuffix(const std::string& name);
-
 struct EekChain {
     bytevec chain;
     bytevec last_pubkey;
@@ -206,10 +199,13 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
 ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr,
                                         const std::string& instanceName);
 
-/** Verify the DICE chain. */
+/** Verify the DICE chain and return the DICE chain without the root (UDS public key). */
 ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
                                                 hwtrust::DiceChain::Kind kind, bool allowAnyMode,
                                                 bool allowDegenerate,
                                                 const std::string& instanceName);
+
+ErrMsgOr<std::vector<uint8_t>> getUdsPubFromDiceCertChain(const std::vector<uint8_t>& csr,
+                                                          const std::string& instanceName);
 
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
