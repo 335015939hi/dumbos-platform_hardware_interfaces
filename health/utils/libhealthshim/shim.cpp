@@ -190,6 +190,22 @@ ScopedAStatus HealthShim::getStorageInfo(std::vector<StorageInfo>* out) {
     return ReturnAndResultToStatus(ret, out_result);
 }
 
+ScopedAStatus HealthShim::getFoldInfo(std::vector<FoldInfo>* out) {
+    Result out_result = Result::UNKNOWN;
+    auto ret = service_->getFoldInfo([out, &out_result](auto result, const auto& value) {
+        out_result = result;
+        if (out_result != Result::SUCCESS) return;
+        out->clear();
+        out->reserve(value.size());
+        for (const auto& hidl_info : value) {
+            auto& aidl_info = out->emplace_back();
+            // translate() should always return true.
+            CHECK(translate(hidl_info, &aidl_info));
+        }
+    });
+    return ReturnAndResultToStatus(ret, out_result);
+}
+
 ScopedAStatus HealthShim::getDiskStats(std::vector<DiskStats>* out) {
     Result out_result = Result::UNKNOWN;
     auto ret = service_->getDiskStats([out, &out_result](auto result, const auto& value) {
