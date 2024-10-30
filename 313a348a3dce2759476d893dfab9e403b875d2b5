@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d6c280f_78e3cb15",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocket.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-30T14:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0415dcd_d85b6867",
+      "revId": "313a348a3dce2759476d893dfab9e403b875d2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28ed996d_4fe1af45",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-10-30T00:48:02Z",
       "side": 1,
       "message": "Is this only in response to IBluetoothSocketCallback.close()? Either way, it\u0027d be good to clarify in the comment the situations in which this will be called.",
+      "range": {
+        "startLine": 50,
+        "startChar": 7,
+        "endLine": 50,
+        "endChar": 65
+      },
+      "revId": "313a348a3dce2759476d893dfab9e403b875d2b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2050372_4314d11d",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/IBluetoothSocket.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-10-30T14:33:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28ed996d_4fe1af45",
       "range": {
         "startLine": 50,
         "startChar": 7,
