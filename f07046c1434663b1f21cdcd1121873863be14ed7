@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc801e7d_3e0f3b0e",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-10-30T19:47:33Z",
+      "side": 1,
+      "message": "nit: should this be WARNING? I see it\u0027s considered as FATAL only when the result vector is empty (line#494)",
+      "range": {
+        "startLine": 248,
+        "startChar": 16,
+        "endLine": 248,
+        "endChar": 21
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "b4bb7797_fc13c661",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Module.cpp",
+              "range": {
+                "startLine": 248,
+                "startChar": 0,
+                "endLine": 249,
+                "endChar": 0
+              },
+              "replacement": "            LOG(WARNING) \u003c\u003c __func__ \u003c\u003c \": \" \u003c\u003c mType\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f07046c1434663b1f21cdcd1121873863be14ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
