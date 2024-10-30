@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c7d19c5_9db99656",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-30T16:22:31Z",
+      "side": 1,
+      "message": "This looks almost finished. What is missing for submission—is that the issue of the processing lag and the need to ignore first N ms of output?",
+      "revId": "921dbad0aa88139e1eae00b8ecbb234ce22ccb1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27361704_11ad7150",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-10-30T16:22:31Z",
+      "side": 1,
+      "message": "There is already a similar method in `VtsHalEnvironmentalReverbTargetTest` and `VtsHalPresetReverbTargetTest`. Instead of creating one more copy, could you please factor out the implementation into a common place and reuse it?",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 1
+      },
+      "revId": "921dbad0aa88139e1eae00b8ecbb234ce22ccb1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
