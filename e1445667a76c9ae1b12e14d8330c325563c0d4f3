@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46c1af01_6e1b07f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-10-30T18:18:44Z",
+      "side": 1,
+      "message": "add prefix",
+      "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97541183_4fcd09f4",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/ProtectionId.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-10-30T18:18:44Z",
+      "side": 1,
+      "message": "Should we have reserved protection-id for unprotected buffers as well? Do we need a separate protection id for encoded and decoded secure video buffers?",
+      "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
