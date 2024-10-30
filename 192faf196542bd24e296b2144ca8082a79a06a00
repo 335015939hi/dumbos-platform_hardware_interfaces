@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59d22c13_a9df91d8",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ProcedureEnableConfig.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-10-30T14:11:55Z",
+      "side": 1,
+      "message": "no, we just don\u0027t want to assume anything. it\u0027s up to the vendor to use it or not.",
+      "parentUuid": "facdda2e_88128959",
+      "range": {
+        "startLine": 73,
+        "startChar": 8,
+        "endLine": 73,
+        "endChar": 23
+      },
+      "revId": "192faf196542bd24e296b2144ca8082a79a06a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f163cb64_48e76fb7",
