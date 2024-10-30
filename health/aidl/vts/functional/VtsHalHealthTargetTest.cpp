@@ -360,6 +360,16 @@ TEST_P(HealthAidl, getStorageInfo) {
 }
 
 /*
+ * Tests the values returned by getFoldInfo() from interface IHealth.
+ */
+TEST_P(HealthAidl, getFoldInfo) {
+    std::vector<FoldInfo> value;
+    auto status = health->getFoldInfo(&value);
+    ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
+    if (!status.isOk()) return;
+}
+
+/*
  * Tests the values returned by getDiskStats() from interface IHealth.
  */
 TEST_P(HealthAidl, getDiskStats) {
