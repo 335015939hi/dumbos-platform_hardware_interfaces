@@ -46,6 +46,30 @@
       },
       "revId": "dfe8733a17baa666150ab5853f6672abb951723b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3addeeb_edb6968c",
+        "filename": "thermal/aidl/vts/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-10-30T07:05:53Z",
+      "side": 1,
+      "message": "There is no Thermal trendy team today.  You can look up Trendy teams with these utility widgets (in a PLX dashboard): https://dashboards.corp.google.com/_cda33260_0383_41a3_aa9d_30821a150637?av\u003dapovsz:afoikv#tmslup\n\nPer xwxw@\u0027s comments in http://r.android.com/3306549, we have to settle on Games for now.  So we\u0027ll use Games for this test module too.  \nFWIW, the ADPF Moma team (mentioned in http://r.android.com/3306549) is linked to two Trendy teams: \nGames (https://android-trendy.corp.google.com/manage/engineers/6736719759933440)\nAndroid Core Graphics Stack (https://android-trendy.corp.google.com/manage/engineers/5260625399644160)\n\nAgain, to be consistent with http://r.android.com/3306549, we\u0027ll use Games for this test module.",
+      "parentUuid": "198d7269_86a0b9ff",
+      "range": {
+        "startLine": 16,
+        "startChar": 19,
+        "endLine": 16,
+        "endChar": 36
+      },
+      "revId": "dfe8733a17baa666150ab5853f6672abb951723b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
