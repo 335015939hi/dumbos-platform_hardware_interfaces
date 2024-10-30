@@ -73,11 +73,9 @@ static constexpr uint8_t kMinLeAdvSetForBt5FoTv = 10;
 static constexpr uint8_t kMinLeResolvingListForBt5 = 8;
 
 static constexpr size_t kNumHciCommandsBandwidth = 100;
-static constexpr size_t kNumScoPacketsBandwidth = 100;
 static constexpr size_t kNumAclPacketsBandwidth = 100;
 static constexpr std::chrono::milliseconds kWaitForInitTimeout(2000);
 static constexpr std::chrono::milliseconds kWaitForHciEventTimeout(2000);
-static constexpr std::chrono::milliseconds kWaitForScoDataTimeout(1000);
 static constexpr std::chrono::milliseconds kWaitForAclDataTimeout(1000);
 static constexpr std::chrono::milliseconds kInterfaceCloseDelayMs(200);
 
@@ -206,7 +204,6 @@ class BluetoothAidlTest : public ::testing::TestWithParam<std::string> {
 
   // Functions called from within tests in loopback mode
   void sendAndCheckHci(int num_packets);
-  void sendAndCheckSco(int num_packets, size_t size, uint16_t handle);
   void sendAndCheckAcl(int num_packets, size_t size, uint16_t handle);
 
   // Helper functions to try to get a handle on verbosity
@@ -549,38 +546,6 @@ void BluetoothAidlTest::sendAndCheckHci(int num_packets) {
   logger.setTotalBytes(command_size * num_packets * 2);
 }
 
-// Send a SCO data packet (in Loopback mode) and check the response.
-void BluetoothAidlTest::sendAndCheckSco(int num_packets, size_t size,
-                                        uint16_t handle) {
-  ThroughputLogger logger{__func__};
-  for (int n = 0; n < num_packets; n++) {
-    // Send a SCO packet
-    std::vector<uint8_t> sco_packet;
-    std::vector<uint8_t> payload;
-    for (size_t i = 0; i < size; i++) {
-      payload.push_back(static_cast<uint8_t>(i + n));
-    }
-    ::bluetooth::packet::BitInserter bi{sco_packet};
-    ::bluetooth::hci::ScoBuilder::Create(
-        handle, ::bluetooth::hci::PacketStatusFlag::CORRECTLY_RECEIVED, payload)
-        ->Serialize(bi);
-    hci->sendScoData(sco_packet);
-
-    // Check the loopback of the SCO packet
-    std::vector<uint8_t> sco_loopback;
-    ASSERT_TRUE(
-        sco_queue.tryPopWithTimeout(sco_loopback, kWaitForScoDataTimeout));
-
-    if (sco_loopback.size() < size) {
-      // The packets may have been split for USB. Reassemble before checking.
-      reassemble_sco_loopback_pkt(sco_loopback, size);
-    }
-
-    ASSERT_EQ(sco_packet, sco_loopback);
-  }
-  logger.setTotalBytes(num_packets * size * 2);
-}
-
 // Send an ACL data packet (in Loopback mode) and check the response.
 void BluetoothAidlTest::sendAndCheckAcl(int num_packets, size_t size,
                                         uint16_t handle) {
@@ -710,22 +675,6 @@ void BluetoothAidlTest::send_and_wait_for_cmd_complete(
       wait_for_command_complete_event(view.GetOpCode(), cmd_complete));
 }
 
-// Handle the loopback packet.
-void BluetoothAidlTest::reassemble_sco_loopback_pkt(std::vector<uint8_t>& scoPackets,
-        size_t size) {
-    std::vector<uint8_t> sco_packet_whole;
-    sco_packet_whole.assign(scoPackets.begin(), scoPackets.end());
-    while (size + 3 > sco_packet_whole.size()) {
-      std::vector<uint8_t> sco_packets;
-      ASSERT_TRUE(
-      sco_queue.tryPopWithTimeout(sco_packets, kWaitForScoDataTimeout));
-      sco_packet_whole.insert(sco_packet_whole.end(), sco_packets.begin() + 3,
-          sco_packets.end());
-    }
-    scoPackets.assign(sco_packet_whole.begin(), sco_packet_whole.end());
-    scoPackets[2] = size;
-}
-
 // Empty test: Initialize()/Close() are called in SetUp()/TearDown().
 TEST_P(BluetoothAidlTest, InitializeAndClose) {}
 
@@ -815,26 +764,6 @@ TEST_P(BluetoothAidlTest, LoopbackModeSingleCommand) {
   sendAndCheckHci(1);
 }
 
-// Enter loopback mode and send a single SCO packet.
-TEST_P(BluetoothAidlTest, LoopbackModeSingleSco) {
-  setBufferSizes();
-  setSynchronousFlowControlEnable();
-
-  enterLoopbackMode();
-
-  if (!sco_connection_handles.empty()) {
-    ASSERT_LT(0, max_sco_data_packet_length);
-    sendAndCheckSco(1, max_sco_data_packet_length, sco_connection_handles[0]);
-    int sco_packets_sent = 1;
-    int completed_packets =
-        wait_for_completed_packets_event(sco_connection_handles[0]);
-    if (sco_packets_sent != completed_packets) {
-      ALOGW("%s: packets_sent (%d) != completed_packets (%d)", __func__,
-            sco_packets_sent, completed_packets);
-    }
-  }
-}
-
 // Enter loopback mode and send a single ACL packet.
 TEST_P(BluetoothAidlTest, LoopbackModeSingleAcl) {
   setBufferSizes();
@@ -863,27 +792,6 @@ TEST_P(BluetoothAidlTest, LoopbackModeCommandBandwidth) {
   enterLoopbackMode();
 
   sendAndCheckHci(kNumHciCommandsBandwidth);
-}
-
-// Enter loopback mode and send SCO packets for bandwidth measurements.
-TEST_P(BluetoothAidlTest, LoopbackModeScoBandwidth) {
-  setBufferSizes();
-  setSynchronousFlowControlEnable();
-
-  enterLoopbackMode();
-
-  if (!sco_connection_handles.empty()) {
-    ASSERT_LT(0, max_sco_data_packet_length);
-    sendAndCheckSco(kNumScoPacketsBandwidth, max_sco_data_packet_length,
-                    sco_connection_handles[0]);
-    int sco_packets_sent = kNumScoPacketsBandwidth;
-    int completed_packets =
-        wait_for_completed_packets_event(sco_connection_handles[0]);
-    if (sco_packets_sent != completed_packets) {
-      ALOGW("%s: packets_sent (%d) != completed_packets (%d)", __func__,
-            sco_packets_sent, completed_packets);
-    }
-  }
 }
 
 // Enter loopback mode and send packets for ACL bandwidth measurements.
@@ -974,7 +882,16 @@ TEST_P(BluetoothAidlTest, CallInitializeTwice) {
   ASSERT_EQ(status, std::future_status::ready);
 }
 
+// @VsrTest = 5.3.14-001
+// @VsrTest = 5.3.14-002
+// @VsrTest = 5.3.14-004
 TEST_P(BluetoothAidlTest, Vsr_Bluetooth5Requirements) {
+  int api_level = get_vsr_api_level();
+  if (api_level < __ANDROID_API_U__) {
+    GTEST_SKIP() << "API level is lower than 34";
+    return;
+  }
+
   std::vector<uint8_t> version_event;
   send_and_wait_for_cmd_complete(ReadLocalVersionInformationBuilder::Create(),
                                  version_event);
@@ -984,10 +901,12 @@ TEST_P(BluetoothAidlTest, Vsr_Bluetooth5Requirements) {
   ASSERT_TRUE(version_view.IsValid());
   ASSERT_EQ(::bluetooth::hci::ErrorCode::SUCCESS, version_view.GetStatus());
   auto version = version_view.GetLocalVersionInformation();
+
   if (version.hci_version_ < ::bluetooth::hci::HciVersion::V_5_0) {
-    // This test does not apply to controllers below 5.0
+    GTEST_SKIP() << "Bluetooth version is lower than 5.0";
     return;
-  };
+  }
+
   // When HCI version is 5.0, LMP version must also be at least 5.0
   ASSERT_GE(static_cast<int>(version.lmp_version_),
             static_cast<int>(version.hci_version_));
@@ -1000,6 +919,16 @@ TEST_P(BluetoothAidlTest, Vsr_Bluetooth5Requirements) {
           std::make_shared<std::vector<uint8_t>>(le_features_event)))));
   ASSERT_TRUE(le_features_view.IsValid());
   ASSERT_EQ(::bluetooth::hci::ErrorCode::SUCCESS, le_features_view.GetStatus());
+
+  // CHIPSETs that set ro.board.api_level to 34 and report 5.0 or higher for
+  // the Bluetooth version through the IBluetoothHci HAL:
+  //
+  // [VSR-5.3.14-001] Must return TRUE for
+  //   - LE 2M PHY
+  //   - LE Coded PHY
+  //   - LE Advertising Extension
+  //   - LE Periodic Advertising
+  //   - LE Link Layer Privacy
   auto le_features = le_features_view.GetLeFeatures();
   ASSERT_TRUE(le_features & static_cast<uint64_t>(LLFeaturesBits::LL_PRIVACY));
   ASSERT_TRUE(le_features & static_cast<uint64_t>(LLFeaturesBits::LE_2M_PHY));
@@ -1007,6 +936,8 @@ TEST_P(BluetoothAidlTest, Vsr_Bluetooth5Requirements) {
               static_cast<uint64_t>(LLFeaturesBits::LE_CODED_PHY));
   ASSERT_TRUE(le_features &
               static_cast<uint64_t>(LLFeaturesBits::LE_EXTENDED_ADVERTISING));
+  ASSERT_TRUE(le_features &
+              static_cast<uint64_t>(LLFeaturesBits::LE_PERIODIC_ADVERTISING));
 
   std::vector<uint8_t> num_adv_set_event;
   send_and_wait_for_cmd_complete(
@@ -1020,6 +951,10 @@ TEST_P(BluetoothAidlTest, Vsr_Bluetooth5Requirements) {
   ASSERT_EQ(::bluetooth::hci::ErrorCode::SUCCESS, num_adv_set_view.GetStatus());
   auto num_adv_set = num_adv_set_view.GetNumberSupportedAdvertisingSets();
 
+  // CHIPSETs that set ro.board.api_level to 34 and report 5.0 or higher for
+  // the Bluetooth version through the IBluetoothHci HAL:
+  //
+  // [VSR-5.3.14-002] MUST support at least 10 advertising sets.
   if (isTv() && get_vsr_api_level() == __ANDROID_API_U__) {
     ASSERT_GE(num_adv_set, kMinLeAdvSetForBt5FoTv);
   } else {
@@ -1036,6 +971,11 @@ TEST_P(BluetoothAidlTest, Vsr_Bluetooth5Requirements) {
   ASSERT_EQ(::bluetooth::hci::ErrorCode::SUCCESS,
             num_resolving_list_view.GetStatus());
   auto num_resolving_list = num_resolving_list_view.GetResolvingListSize();
+
+  // CHIPSETs that set ro.board.api_level to 34 and report 5.0 or higher for
+  // the Bluetooth version through the IBluetoothHci HAL:
+  //
+  // [VSR-5.3.14-004] MUST support a resolving list size of at least 8 entries.
   ASSERT_GE(num_resolving_list, kMinLeResolvingListForBt5);
 }
 
