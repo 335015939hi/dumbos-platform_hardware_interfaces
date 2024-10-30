@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67b6a948_bd67d00a",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1415877
+      },
+      "writtenOn": "2024-10-30T09:06:53Z",
+      "side": 1,
+      "message": "Well, if possible, I\u0027d like to avoid hard-coded apex name. I\u0027m not sure how this code will be used, but in case this is used by non-apex binary in downstream branch (e.g. OEMs), then they should fix this. Or, if they want to package their own vendor apex, they also need replace this with their own apex name.\n\nI wish we had a better locator API (which can expand the path at runtime). I used add a sysprop, or use libapexsupport API to avoid hard-coded apex name.\n\nIt\u0027s upto the owners of this code.",
+      "range": {
+        "startLine": 260,
+        "startChar": 16,
+        "endLine": 260,
+        "endChar": 42
+      },
+      "revId": "1e7052d6bae17267d23d6b993821b129f7c2d442",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
