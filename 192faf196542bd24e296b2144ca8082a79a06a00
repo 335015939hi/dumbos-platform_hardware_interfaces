@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67cd1a6e_6bf2073a",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingProcedureData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-10-30T14:04:21Z",
+      "side": 1,
+      "message": "removed. see new patch.",
+      "parentUuid": "44cfbbbd_ff3adb87",
+      "range": {
+        "startLine": 47,
+        "startChar": 9,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "192faf196542bd24e296b2144ca8082a79a06a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "facdda2e_88128959",
@@ -70,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9115c18b_4c04f3c3",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SubeventResultData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-10-30T14:04:21Z",
+      "side": 1,
+      "message": "updated, see new patch",
+      "parentUuid": "f163cb64_48e76fb7",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 44
+      },
+      "revId": "192faf196542bd24e296b2144ca8082a79a06a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b726eb61_6b1ea522",
@@ -83,6 +131,30 @@
       "writtenOn": "2024-10-30T02:11:25Z",
       "side": 1,
       "message": "Looks unnecessary here, we have delivered all the connection and CS related information to HAL, the ranging lib is expeced to use such information to do the timestampMs calculation. Moreover, the timestampMs from the host side introduced addtional delay which might have negative effect on the final result calculation\n\nIf other consideration here, do you mean the host should\ntimestamper_in_milliseconds.GetTimestamp() at last subevent in each CS Procedure?",
+      "range": {
+        "startLine": 68,
+        "startChar": 9,
+        "endLine": 68,
+        "endChar": 20
+      },
+      "revId": "192faf196542bd24e296b2144ca8082a79a06a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8753b190_37dde379",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SubeventResultData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-10-30T14:04:21Z",
+      "side": 1,
+      "message": "you can ignore it if it is not needed for your algorithm. Also, we expect the ranging result with a timestamp as the 1st subevent timestamp. please check the new RangingResult.",
+      "parentUuid": "b726eb61_6b1ea522",
       "range": {
         "startLine": 68,
         "startChar": 9,
