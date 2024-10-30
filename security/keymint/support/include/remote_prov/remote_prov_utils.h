@@ -206,10 +206,13 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
 ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr,
                                         const std::string& instanceName);
 
-/** Verify the DICE chain. */
+/** Verify the DICE chain and return the DICE chain without the root (UDS public key). */
 ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
                                                 hwtrust::DiceChain::Kind kind, bool allowAnyMode,
                                                 bool allowDegenerate,
                                                 const std::string& instanceName);
+
+ErrMsgOr<std::vector<uint8_t>> getUdsPubFromDiceCertChain(const std::vector<uint8_t>& csr,
+                                                          const std::string& instanceName);
 
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
