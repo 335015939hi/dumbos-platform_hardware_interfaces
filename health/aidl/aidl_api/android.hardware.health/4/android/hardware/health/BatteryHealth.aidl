@@ -32,34 +32,16 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.health;
-@VintfStability
-parcelable HealthInfo {
-  boolean chargerAcOnline;
-  boolean chargerUsbOnline;
-  boolean chargerWirelessOnline;
-  boolean chargerDockOnline;
-  int maxChargingCurrentMicroamps;
-  int maxChargingVoltageMicrovolts;
-  android.hardware.health.BatteryStatus batteryStatus;
-  android.hardware.health.BatteryHealth batteryHealth;
-  boolean batteryPresent;
-  int batteryLevel;
-  int batteryVoltageMillivolts;
-  int batteryTemperatureTenthsCelsius;
-  int batteryCurrentMicroamps;
-  int batteryCycleCount;
-  int batteryFullChargeUah;
-  int batteryChargeCounterUah;
-  String batteryTechnology;
-  int batteryCurrentAverageMicroamps;
-  android.hardware.health.DiskStats[] diskStats;
-  android.hardware.health.StorageInfo[] storageInfos;
-  android.hardware.health.BatteryCapacityLevel batteryCapacityLevel;
-  long batteryChargeTimeToFullNowSeconds;
-  int batteryFullChargeDesignCapacityUah;
-  android.hardware.health.BatteryChargingState chargingState;
-  android.hardware.health.BatteryChargingPolicy chargingPolicy;
-  @nullable android.hardware.health.BatteryHealthData batteryHealthData;
-  @nullable android.hardware.health.FoldInfo[] foldInfos;
-  const int BATTERY_CHARGE_TIME_TO_FULL_NOW_SECONDS_UNSUPPORTED = (-1) /* -1 */;
+@Backing(type="int") @VintfStability
+enum BatteryHealth {
+  UNKNOWN = 1,
+  GOOD = 2,
+  OVERHEAT = 3,
+  DEAD = 4,
+  OVER_VOLTAGE = 5,
+  UNSPECIFIED_FAILURE = 6,
+  COLD = 7,
+  FAIR = 8,
+  NOT_AVAILABLE = 11,
+  INCONSISTENT = 12,
 }
