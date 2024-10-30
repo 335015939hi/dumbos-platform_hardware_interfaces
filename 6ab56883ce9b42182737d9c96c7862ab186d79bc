@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dabe3372_32310f73",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/Status.aidl",
+        "patchSetId": 20
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-10-30T18:32:27Z",
+      "side": 1,
+      "message": "maybe a bool?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "6ab56883ce9b42182737d9c96c7862ab186d79bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
