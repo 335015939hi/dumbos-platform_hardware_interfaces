@@ -470,55 +470,80 @@ ndk::ScopedAStatus Module::updateStreamsConnectedState(const AudioPatch& oldPatc
     fillConnections(oldConnections, oldPatch);
     fillConnections(newConnections, newPatch);
 
-    std::for_each(oldConnections.begin(), oldConnections.end(), [&](const auto& connectionPair) {
-        const int32_t mixPortConfigId = connectionPair.first;
-        if (auto it = newConnections.find(mixPortConfigId);
+    std::set<int32_t> idsToConnectBackOnFailure;
+    for (const auto& [oldMixPortConfigId, oldDevicePortConfigIds] : oldConnections) {
+        if (auto it = newConnections.find(oldMixPortConfigId);
             it == newConnections.end() || it->second != connectionPair.second) {
-            if (auto status = mStreams.setStreamConnectedDevices(mixPortConfigId, {});
+            idsToConnectBackOnFailure.insert(oldMixPortConfigId);
+            if (auto status = mStreams.setStreamConnectedDevices(oldMixPortConfigId, {});
                 status.isOk()) {
-                LOG(DEBUG) << "updateStreamsConnectedState: The stream on port config id "
-                           << mixPortConfigId << " has been disconnected";
+                LOG(DEBUG) << __func__ << ": The stream on port config id " << oldMixPortConfigId
+                           << " has been disconnected";
             } else {
-                // Disconnection is tricky to roll back, just register a failure.
                 maybeFailure = std::move(status);
+                // proceed to rollback even on one failure
+                break;
             }
         }
-    });
-    if (!maybeFailure.isOk()) return maybeFailure;
-    std::set<int32_t> idsToDisconnectOnFailure;
-    std::for_each(newConnections.begin(), newConnections.end(), [&](const auto& connectionPair) {
-        const int32_t mixPortConfigId = connectionPair.first;
-        if (auto it = oldConnections.find(mixPortConfigId);
-            it == oldConnections.end() || it->second != connectionPair.second) {
-            const auto connectedDevices = getDevicesFromDevicePortConfigIds(connectionPair.second);
+    }
+
+    if (!maybeFailure.isOk()) {
+        for (const auto m : idsToConnectBackOnFailure) {
+            if (auto it = oldConnections.find(m); it != oldConnections.end()) {
+                const auto& d = getDevicesFromDevicePortConfigIds(it->second);
+                if (auto status = mStreams.setStreamConnectedDevices(m, d); status.isOk()) {
+                    LOG(WARNING) << __func__ << ": rollback: mix port config:" << m;
+                } else {
+                    // can't do much about rollback failures
+                    LOG(ERROR) << __func__ << ": rollback: failed for mix port config:" << m;
+                }
+            }
+        }
+        LOG(WARNING) << __func__ << ": failed to disconnect from old patch. attempted rollback";
+        return maybeFailure;
+    }
+
+    std::set<int32_t> idsToRollbackOnFailure;
+    for (const auto& [newMixPortConfigId, newDevicePortConfigIds] : newConnections) {
+        if (auto it = oldConnections.find(newMixPortConfigId);
+            it == oldConnections.end() || it->second != newDevicePortConfigIds) {
+            const auto connectedDevices = getDevicesFromDevicePortConfigIds(newDevicePortConfigIds);
+            idsToRollbackOnFailure.insert(newMixPortConfigId);
             if (connectedDevices.empty()) {
                 // This is important as workers use the vector size to derive the connection status.
-                LOG(FATAL) << "updateStreamsConnectedState: No connected devices found for port "
-                              "config id "
-                           << mixPortConfigId;
+                LOG(FATAL) << __func__ << ": No connected devices found for port config id "
+                           << newMixPortConfigId;
             }
-            if (auto status = mStreams.setStreamConnectedDevices(mixPortConfigId, connectedDevices);
+            if (auto status =
+                        mStreams.setStreamConnectedDevices(newMixPortConfigId, connectedDevices);
                 status.isOk()) {
-                LOG(DEBUG) << "updateStreamsConnectedState: The stream on port config id "
-                           << mixPortConfigId << " has been connected to: "
+                LOG(DEBUG) << __func__ << ": The stream on port config id " << newMixPortConfigId
+                           << " has been connected to: "
                            << ::android::internal::ToString(connectedDevices);
             } else {
                 maybeFailure = std::move(status);
-                idsToDisconnectOnFailure.insert(mixPortConfigId);
+                // proceed to rollback even on one failure
+                break;
             }
         }
-    });
+    }
+
     if (!maybeFailure.isOk()) {
-        LOG(WARNING) << __func__ << ": " << mType
-                     << ": Due to a failure, disconnecting streams on port config ids "
-                     << ::android::internal::ToString(idsToDisconnectOnFailure);
-        std::for_each(idsToDisconnectOnFailure.begin(), idsToDisconnectOnFailure.end(),
-                      [&](const auto& portConfigId) {
-                          auto status = mStreams.setStreamConnectedDevices(portConfigId, {});
-                          (void)status.isOk();  // Can't do much about a failure here.
-                      });
+        for (const auto m : idsToRollbackOnFailure) {
+            if (auto it = oldConnections.find(m); it != oldConnections.end()) {
+                const auto& d = getDevicesFromDevicePortConfigIds(it->second);
+                if (auto status = mStreams.setStreamConnectedDevices(m, d); status.isOk()) {
+                    LOG(WARNING) << __func__ << ": rollback: mix port config:" << m;
+                } else {
+                    // can't do much about rollback failures
+                    LOG(ERROR) << __func__ << ": rollback: failed for mix port config:" << m;
+                }
+            }
+        }
+        LOG(WARNING) << __func__ << ": failed to connect for new patch. attempted rollback";
         return maybeFailure;
     }
+
     return ndk::ScopedAStatus::ok();
 }
 
