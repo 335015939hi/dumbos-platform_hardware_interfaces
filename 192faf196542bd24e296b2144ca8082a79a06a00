@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44cfbbbd_ff3adb87",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingProcedureData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 3368974
+      },
+      "writtenOn": "2024-10-30T02:11:25Z",
+      "side": 1,
+      "message": "Looks unnecessary here, we have delivered all the connection and CS related information to HAL, the ranging lib is expeced to use such information to do the timestampMs calculation. Moreover, the timestampMs from the host side introduced addtional delay which might have negative effect on the final result calculation\n\nIf other consideration here, do you mean the host should\ntimestamper_in_milliseconds.GetTimestamp() recieves the LE_CS_Procedure_Enable Complete?",
+      "range": {
+        "startLine": 47,
+        "startChar": 9,
+        "endLine": 47,
+        "endChar": 20
+      },
+      "revId": "192faf196542bd24e296b2144ca8082a79a06a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "facdda2e_88128959",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ProcedureEnableConfig.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 3368974
+      },
+      "writtenOn": "2024-10-30T02:11:25Z",
+      "side": 1,
+      "message": "maxProcedureLen is useless for HAL to do the calculation. Do we have any consideration here?",
+      "range": {
+        "startLine": 73,
+        "startChar": 8,
+        "endLine": 73,
+        "endChar": 23
+      },
+      "revId": "192faf196542bd24e296b2144ca8082a79a06a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f163cb64_48e76fb7",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SubeventResultData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 3368974
+      },
+      "writtenOn": "2024-10-30T02:11:25Z",
+      "side": 1,
+      "message": "Looks the ProcedureAbortReason missed? On spec BLUETOOTH CORE SPECIFICATION Version 6.0 | Vol 4, Part E and Ranging Service / Service Specification Table 3.8, both the \nProcedureAbortReason and SubeventAbortReason defined with 4 bits, suggest we follow up the spec.\n\nIn a case with 50 procedure defined in a CS ranging , uppper layer disable the procedure at 32th, then the Procedure_Done_Status:0xF \u003d All subsequent CS procedures aborted",
+      "range": {
+        "startLine": 59,
+        "startChar": 4,
+        "endLine": 59,
+        "endChar": 44
+      },
+      "revId": "192faf196542bd24e296b2144ca8082a79a06a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b726eb61_6b1ea522",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SubeventResultData.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 3368974
+      },
+      "writtenOn": "2024-10-30T02:11:25Z",
+      "side": 1,
+      "message": "Looks unnecessary here, we have delivered all the connection and CS related information to HAL, the ranging lib is expeced to use such information to do the timestampMs calculation. Moreover, the timestampMs from the host side introduced addtional delay which might have negative effect on the final result calculation\n\nIf other consideration here, do you mean the host should\ntimestamper_in_milliseconds.GetTimestamp() at last subevent in each CS Procedure?",
+      "range": {
+        "startLine": 68,
+        "startChar": 9,
+        "endLine": 68,
+        "endChar": 20
+      },
+      "revId": "192faf196542bd24e296b2144ca8082a79a06a00",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
