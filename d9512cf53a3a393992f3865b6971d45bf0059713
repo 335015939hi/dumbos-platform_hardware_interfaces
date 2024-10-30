@@ -208,6 +208,30 @@
       },
       "revId": "d9512cf53a3a393992f3865b6971d45bf0059713",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d6462ed_e134233f",
+        "filename": "bluetooth/aidl/vts/VtsHalBluetoothTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 983,
+      "author": {
+        "id": 1955440
+      },
+      "writtenOn": "2024-10-30T03:05:49Z",
+      "side": 1,
+      "message": "Per offline discussion with Henri, he will follow up the comments in future CLs.",
+      "parentUuid": "fd894ba6_ab206890",
+      "range": {
+        "startLine": 982,
+        "startChar": 3,
+        "endLine": 983,
+        "endChar": 34
+      },
+      "revId": "d9512cf53a3a393992f3865b6971d45bf0059713",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
