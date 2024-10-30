@@ -50,9 +50,8 @@ aidl_interface {
             version: "3",
             imports: [],
         },
-
     ],
-    frozen: true,
+    frozen: false,
 
 }
 
