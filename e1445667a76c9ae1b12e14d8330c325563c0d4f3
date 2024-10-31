@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c635e8d_c8c39390",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-10-31T00:06:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46c1af01_6e1b07f8",
+      "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97541183_4fcd09f4",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-10-30T18:18:44Z",
       "side": 1,
       "message": "Should we have reserved protection-id for unprotected buffers as well? Do we need a separate protection id for encoded and decoded secure video buffers?",
+      "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "649d3b89_8c3d5bc5",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/ProtectionId.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-10-31T00:06:14Z",
+      "side": 1,
+      "message": "Right now if a ProtectionID is not used, then the buffer is an unprotected one. Would you prefer this to be explicit? One thing I don\u0027t like too much about the explicit enum value is that it makes possible for a caller to try to set up a ProtectionID like SECURE_VIDEO_BUFFER and also try to set it to the unprotected enum value.\nOn the API [the function call to set up protection IDs here](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3122114/4/staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl#89) distinguish between a buffer from which we read and the one we write to. This should cover the encoded/decoded case, wouldn\u0027t it?",
+      "parentUuid": "97541183_4fcd09f4",
       "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
