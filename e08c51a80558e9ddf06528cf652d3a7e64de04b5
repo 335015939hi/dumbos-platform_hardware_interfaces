@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62f1a8df_d728880c",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-10-31T00:47:51Z",
+      "side": 1,
+      "message": "@swillden@google.comden@google.com do you like this wording?",
+      "revId": "e08c51a80558e9ddf06528cf652d3a7e64de04b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35c98840_56166cc1",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-10-31T00:47:51Z",
+      "side": 1,
+      "message": "@swillden@google.com we\u0027re returning an opaque key here, making the shared HMAC key resilient to any Normal World vuln. However this will require a trip to SWd for generating and authenticating the Auth token.\n\nI recall that the security posture gained by protecting the Shared HMAC key was not seen as critical. Should we have the option to return this in clear.\nNote that HWCryptoKey is expected to use DICE chain/policy for granting access to this key by a VM client.",
+      "revId": "e08c51a80558e9ddf06528cf652d3a7e64de04b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
