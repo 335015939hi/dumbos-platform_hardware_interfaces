@@ -1514,7 +1514,7 @@ TEST_P(AudioCoreModule, CheckDevicePorts) {
     const int defaultDeviceFlag = 1 << AudioPortDeviceExt::FLAG_INDEX_DEFAULT_DEVICE;
     for (const auto& port : ports) {
         if (port.ext.getTag() != AudioPortExt::Tag::device) continue;
-        const auto& devicePort = port.ext.get<AudioPortExt::Tag::device>();
+        const AudioPortDeviceExt& devicePort = port.ext.get<AudioPortExt::Tag::device>();
         EXPECT_NE(AudioDeviceType::NONE, devicePort.device.type.type);
         EXPECT_NE(AudioDeviceType::IN_DEFAULT, devicePort.device.type.type);
         EXPECT_NE(AudioDeviceType::OUT_DEFAULT, devicePort.device.type.type);
@@ -1548,6 +1548,13 @@ TEST_P(AudioCoreModule, CheckDevicePorts) {
             } else {
                 FAIL() << "Invalid AudioIoFlags Tag: " << toString(port.flags.getTag());
             }
+        }
+        // Speaker layout can be null or layoutMask variant.
+        if (devicePort.speakerLayout.has_value()) {
+            const AudioChannelLayout::Tag speakerLayoutTag =
+                    devicePort.speakerLayout.value().getTag();
+            EXPECT_EQ(speakerLayoutTag, AudioChannelLayout::Tag::layoutMask)
+                    << "If set, speaker layout must be layoutMask.  Received: " << speakerLayoutTag;
         }
     }
 }
