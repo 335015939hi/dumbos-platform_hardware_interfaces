@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "385dbe42_f8189c09",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-10-31T16:29:07Z",
+      "side": 1,
+      "message": "I\u0027d replace \"will be now\" with \"is\".",
+      "parentUuid": "62f1a8df_d728880c",
+      "revId": "e08c51a80558e9ddf06528cf652d3a7e64de04b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35c98840_56166cc1",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
         "patchSetId": 62
@@ -31,6 +49,24 @@
       "writtenOn": "2024-10-31T00:47:51Z",
       "side": 1,
       "message": "@swillden@google.com we\u0027re returning an opaque key here, making the shared HMAC key resilient to any Normal World vuln. However this will require a trip to SWd for generating and authenticating the Auth token.\n\nI recall that the security posture gained by protecting the Shared HMAC key was not seen as critical. Should we have the option to return this in clear.\nNote that HWCryptoKey is expected to use DICE chain/policy for granting access to this key by a VM client.",
+      "revId": "e08c51a80558e9ddf06528cf652d3a7e64de04b5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5945568_f50a8d08",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 62
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-10-31T16:29:07Z",
+      "side": 1,
+      "message": "Out of band, you proposed sticking with the opaque key and testing performance, with the option to switch to a plaintext token if it looks expensive.  That plan SGTM.",
+      "parentUuid": "35c98840_56166cc1",
       "revId": "e08c51a80558e9ddf06528cf652d3a7e64de04b5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
