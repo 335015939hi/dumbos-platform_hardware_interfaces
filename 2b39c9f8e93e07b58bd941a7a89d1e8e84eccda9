@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cac9eb2d_47eca251",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-10-31T00:06:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "297645af_a7c9bfb4",
+      "revId": "2b39c9f8e93e07b58bd941a7a89d1e8e84eccda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "829117a3_08cc87a9",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2104256_c40d383e",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-10-31T00:06:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "829117a3_08cc87a9",
+      "range": {
+        "startLine": 239,
+        "startChar": 28,
+        "endLine": 239,
+        "endChar": 35
+      },
+      "revId": "2b39c9f8e93e07b58bd941a7a89d1e8e84eccda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5f3eaea_4e9fada5",
@@ -54,6 +96,24 @@
       "writtenOn": "2024-10-30T18:09:54Z",
       "side": 1,
       "message": "\"It will be used so only the creator of the token can import the key\" seems contradictory to \"Returns a token that can shared...\"",
+      "revId": "2b39c9f8e93e07b58bd941a7a89d1e8e84eccda9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "584309ad_ad7326e0",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-10-31T00:06:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5f3eaea_4e9fada5",
       "revId": "2b39c9f8e93e07b58bd941a7a89d1e8e84eccda9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
