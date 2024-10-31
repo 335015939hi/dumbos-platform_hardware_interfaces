@@ -136,6 +136,30 @@
       },
       "revId": "f07046c1434663b1f21cdcd1121873863be14ed7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b411c38_d9ecef70",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-10-31T15:45:10Z",
+      "side": 1,
+      "message": "Sure, we can be strict about AudioPortConfigs sanity.",
+      "parentUuid": "7bcb5ad9_2baa5e13",
+      "range": {
+        "startLine": 248,
+        "startChar": 16,
+        "endLine": 248,
+        "endChar": 21
+      },
+      "revId": "f07046c1434663b1f21cdcd1121873863be14ed7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
