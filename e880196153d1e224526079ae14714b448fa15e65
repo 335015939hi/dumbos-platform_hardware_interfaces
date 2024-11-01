@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abc75e46_eed521f7",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1553,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-01T20:39:33Z",
+      "side": 1,
+      "message": "Please add a check that the speaker layout can only have value when it\u0027s an output device port.",
+      "range": {
+        "startLine": 1553,
+        "startChar": 0,
+        "endLine": 1553,
+        "endChar": 51
+      },
+      "revId": "e880196153d1e224526079ae14714b448fa15e65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
