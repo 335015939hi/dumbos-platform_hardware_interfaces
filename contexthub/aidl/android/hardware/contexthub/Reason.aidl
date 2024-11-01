@@ -16,18 +16,46 @@
 
 package android.hardware.contexthub;
 
-import android.hardware.contexthub.ErrorCode;
-
 @VintfStability
-parcelable MessageDeliveryStatus {
+@Backing(type="byte")
+enum Reason {
     /**
-     * The messageSequenceNumber of the ContextHubMessage or Message to which this status is
-     * required.
+     * Unspecified reason.
      */
-    int messageSequenceNumber;
+    UNSPECIFIED = 0,
 
     /**
-     * The error code associated with this status.
+     * Out of memory. There's not enough memory to perform this operation.
      */
-    ErrorCode errorCode;
+    OUT_OF_MEMORY,
+
+    /**
+     * Timeout. This operation timed out.
+     */
+    TIMEOUT,
+
+    /**
+     * Endpoint rejected this openEndpointSession request.
+     */
+    OPEN_ENDPOINT_SESSION_REQUEST_REJECTED,
+
+    /**
+     * Endpoint requested closeEndpointSession.
+     */
+    CLOSE_ENDPOINT_SESSION_REQUESTED,
+
+    /**
+     * Invalid endpoint.
+     */
+    ENDPOINT_INVALID,
+
+    /**
+     * Endpoint is now stopped.
+     */
+    ENDPOINT_GONE,
+
+    /**
+     * Hub was reset or is resetting.
+     */
+    HUB_RESET,
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +16,18 @@
 
 package android.hardware.contexthub;
 
-import android.hardware.contexthub.ErrorCode;
-
+/**
+ * A representation of a vendor-specific hub providing endpoints (with services). The hub does not
+ * run the Context Hub Runtime Environment, but exposes a similar messaging API.
+ */
 @VintfStability
-parcelable MessageDeliveryStatus {
-    /**
-     * The messageSequenceNumber of the ContextHubMessage or Message to which this status is
-     * required.
-     */
-    int messageSequenceNumber;
+parcelable VendorHubInfo {
+    /** Descriptive name of the basic hub */
+    String name;
 
-    /**
-     * The error code associated with this status.
-     */
-    ErrorCode errorCode;
+    /** Version of the hub */
+    int version;
+
+    /** Hook for additional detail in vendor-specific type */
+    ParcelableHolder extendedInfo;
 }
