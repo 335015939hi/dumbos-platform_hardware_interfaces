@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38f68f81_5805a2db",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SubeventResultData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-01T15:27:48Z",
+      "side": 1,
+      "message": "it should be in nanos not ms.",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
