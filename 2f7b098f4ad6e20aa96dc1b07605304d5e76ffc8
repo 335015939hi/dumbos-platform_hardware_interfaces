@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a2a28fd_1602ae00",
+        "filename": "bluetooth/socket/aidl/default/BluetoothSocket.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-01T23:17:21Z",
+      "side": 1,
+      "message": "should we set this to something? does this implementation pass VTS?",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "2f7b098f4ad6e20aa96dc1b07605304d5e76ffc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
