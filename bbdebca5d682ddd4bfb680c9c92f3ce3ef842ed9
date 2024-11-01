@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5888e12e_c6dfafc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-01T21:30:55Z",
+      "side": 1,
+      "message": "I have set up a meeting with @paulcrowley@google.com for this review and will ask Paul to resolve this comment once the review is done.",
+      "parentUuid": "40540232_5c047e22",
+      "revId": "bbdebca5d682ddd4bfb680c9c92f3ce3ef842ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5327c743_c588a0d6",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/DicePolicy.aidl",
         "patchSetId": 20
@@ -48,6 +66,30 @@
       "writtenOn": "2024-10-25T21:52:35Z",
       "side": 1,
       "message": "mention the full path here only, instead of above, which is further from where it is used? same elsewhere\n\n(I missed it above at first)",
+      "range": {
+        "startLine": 26,
+        "startChar": 53,
+        "endLine": 26,
+        "endChar": 68
+      },
+      "revId": "bbdebca5d682ddd4bfb680c9c92f3ce3ef842ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80da2dba_896799fd",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/DicePolicy.aidl",
+        "patchSetId": 20
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-01T21:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5327c743_c588a0d6",
       "range": {
         "startLine": 26,
         "startChar": 53,

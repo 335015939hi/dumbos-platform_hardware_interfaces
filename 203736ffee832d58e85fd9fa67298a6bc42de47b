@@ -89,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "071ad3e1_09fae87a",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-01T21:30:55Z",
+      "side": 1,
+      "message": "Thanks for confirming. I will keep the comments as it is.",
+      "parentUuid": "d7098a76_a467ad34",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7b034e3_ea99efbd",
