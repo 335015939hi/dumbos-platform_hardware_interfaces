@@ -94,6 +94,30 @@
       },
       "revId": "dfe8733a17baa666150ab5853f6672abb951723b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd92884b_8609c129",
+        "filename": "thermal/aidl/vts/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1967145
+      },
+      "writtenOn": "2024-11-01T07:21:21Z",
+      "side": 1,
+      "message": "Per xwxw@\u0027s latest comment: b/376390423#comment6, we\u0027ll say with Games for thermal tests, as well.  \n@slotus as FYI.  Thank you.",
+      "parentUuid": "6fe5f07e_2460aec1",
+      "range": {
+        "startLine": 16,
+        "startChar": 19,
+        "endLine": 16,
+        "endChar": 36
+      },
+      "revId": "dfe8733a17baa666150ab5853f6672abb951723b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
