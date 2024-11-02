@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b702b76c_b28f47fe",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-02T00:24:00Z",
+      "side": 1,
+      "message": "can we test anything based on these capabilities?",
+      "range": {
+        "startLine": 104,
+        "startChar": 21,
+        "endLine": 104,
+        "endChar": 40
+      },
+      "revId": "9c9f68e833614554aaac63204bf926e41d144623",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9eedee0_f4be9334",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-02T00:24:00Z",
+      "side": 1,
+      "message": "please delete this file and put `require_root: true` in the Android.bp file. We should not need to manually write files like this.",
+      "revId": "9c9f68e833614554aaac63204bf926e41d144623",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
