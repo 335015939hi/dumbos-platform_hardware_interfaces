@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e505fe01_63c0df18",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-02T06:07:32Z",
+      "side": 1,
+      "message": "Added a test to check if MTU size is valid.",
+      "parentUuid": "b702b76c_b28f47fe",
+      "range": {
+        "startLine": 104,
+        "startChar": 21,
+        "endLine": 104,
+        "endChar": 40
+      },
+      "revId": "9c9f68e833614554aaac63204bf926e41d144623",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9eedee0_f4be9334",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-11-02T00:24:00Z",
       "side": 1,
       "message": "please delete this file and put `require_root: true` in the Android.bp file. We should not need to manually write files like this.",
+      "revId": "9c9f68e833614554aaac63204bf926e41d144623",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce108c31_5cf92745",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.xml",
+        "patchSetId": 16
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-02T06:07:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9eedee0_f4be9334",
       "revId": "9c9f68e833614554aaac63204bf926e41d144623",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
