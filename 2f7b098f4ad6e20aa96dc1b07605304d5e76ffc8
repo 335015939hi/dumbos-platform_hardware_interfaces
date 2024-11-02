@@ -22,6 +22,30 @@
       },
       "revId": "2f7b098f4ad6e20aa96dc1b07605304d5e76ffc8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c93304_0705520e",
+        "filename": "bluetooth/socket/aidl/default/BluetoothSocket.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-02T06:07:40Z",
+      "side": 1,
+      "message": "Added a default socket capability to be tested in VTS.",
+      "parentUuid": "2a2a28fd_1602ae00",
+      "range": {
+        "startLine": 38,
+        "startChar": 6,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "2f7b098f4ad6e20aa96dc1b07605304d5e76ffc8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
