@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9e8256a_ef246387",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-11-03T06:19:41Z",
+      "side": 1,
+      "message": "Try to run this locally gives:\n```\n11-03 13:58:39.468468  1041   835   896 I BTAudioAseConfigAidl: LoadConfigurationsFromFiles: Loading file /apex/com.android.hardware.audio/etc/aidl/le_audio/aidl_audio_set_configurations.bfbs\n11-03 13:58:39.468510  1041   835   896 I BTAudioAseConfigAidl: LoadConfigurationsFromFiles: Loading file /apex/com.android.hardware.audio/etc/aidl/le_audio/aidl_audio_set_configurations.bfbs\n11-03 13:58:39.468532  1041   835   896 I BTAudioAseConfigAidl: LoadScenariosFromFiles: Loading file /apex/com.android.hardware.audio/etc/aidl/le_audio/aidl_audio_set_scenarios.bfbs\n11-03 13:58:39.468552  1041   835   896 I BTAudioAseConfigAidl: LoadScenariosFromFiles: Loading file /apex/com.android.hardware.audio/etc/aidl/le_audio/aidl_audio_set_scenarios.bfbs\n11-03 13:58:39.468563  1041   835   896 E BTAudioAseConfigAidl: : Unable to load le audio set configuration files.\n```\n\nAlso, cherrypick to internal and run vts will fail: atest -c VtsHalBluetoothAudioTargetTest",
+      "range": {
+        "startLine": 247,
+        "startChar": 9,
+        "endLine": 247,
+        "endChar": 62
+      },
+      "revId": "1e7052d6bae17267d23d6b993821b129f7c2d442",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67b6a948_bd67d00a",
         "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
         "patchSetId": 2
