@@ -53,7 +53,7 @@ parcelable CellIdentityLte {
      */
     OperatorInfo operatorNames;
     /**
-     * Cell bandwidth, in kHz.
+     * Cell bandwidth, in kHz; must be valid per 3GPP TS 36.101 5.6.
      */
     int bandwidth;
     /**
