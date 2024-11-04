@@ -1,0 +1,196 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ed8d82d_dd6d80c2",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-04T20:00:48Z",
+      "side": 1,
+      "message": "Refactoring of this sort (switching out `IRemotelyProvisionedComponent` for `RpcHardwareInfo` is what allowed `MockIRemotelyProvisionedComponent.h` to be deleted and only be used in rkp factory lib tests/",
+      "fixSuggestions": [
+        {
+          "fixId": "08c99fba_ed7db40c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+              "range": {
+                "startLine": 161,
+                "startChar": 0,
+                "endLine": 162,
+                "endChar": 0
+              },
+              "replacement": "        const std::vector\u003cuint8_t\u003e\u0026 deviceInfoBytes, const IRemotelyProvisionedComponent\u0026 info);\n"
+            },
+            {
+              "path": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+              "range": {
+                "startLine": 170,
+                "startChar": 0,
+                "endLine": 171,
+                "endChar": 0
+              },
+              "replacement": "        const std::vector\u003cuint8_t\u003e\u0026 deviceInfoBytes, const IRemotelyProvisionedComponent\u0026 info);\n"
+            },
+            {
+              "path": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+              "range": {
+                "startLine": 180,
+                "startChar": 0,
+                "endLine": 181,
+                "endChar": 0
+              },
+              "replacement": "        const IRemotelyProvisionedComponent\u0026 info, const std::string\u0026 instanceName,\n"
+            },
+            {
+              "path": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+              "range": {
+                "startLine": 189,
+                "startChar": 0,
+                "endLine": 190,
+                "endChar": 0
+              },
+              "replacement": "        const IRemotelyProvisionedComponent\u0026 info, const std::string\u0026 instanceName,\n"
+            },
+            {
+              "path": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+              "range": {
+                "startLine": 198,
+                "startChar": 0,
+                "endLine": 199,
+                "endChar": 0
+              },
+              "replacement": "                                                          const IRemotelyProvisionedComponent\u0026 info,\n"
+            },
+            {
+              "path": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+              "range": {
+                "startLine": 209,
+                "startChar": 0,
+                "endLine": 210,
+                "endChar": 0
+              },
+              "replacement": "                                                             const IRemotelyProvisionedComponent\u0026 info,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "677083f6c23627ec0602aad5ecd787ed7fed0cd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dfc76b8_99cd568e",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-04T20:00:48Z",
+      "side": 1,
+      "message": "Don\u0027t use `using namespace ...`",
+      "fixSuggestions": [
+        {
+          "fixId": "ecae45fb_ba00a3cb",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 37,
+                "startChar": 0,
+                "endLine": 37,
+                "endChar": 0
+              },
+              "replacement": "namespace aidl::android::hardware::security::keymint::remote_prov {\n\nconstexpr uint32_t kBccPayloadIssuer \u003d 1;\nconstexpr uint32_t kBccPayloadSubject \u003d 2;\nconstexpr int32_t kBccPayloadSubjPubKey \u003d -4670552;\nconstexpr int32_t kBccPayloadKeyUsage \u003d -4670553;\nconstexpr int kP256AffinePointSize \u003d 32;\nconstexpr uint32_t kNumTeeDeviceInfoEntries \u003d 14;\n\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 67,
+                "startChar": 0,
+                "endLine": 78,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "677083f6c23627ec0602aad5ecd787ed7fed0cd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2c21d3e_4380e5c1",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-04T20:00:48Z",
+      "side": 1,
+      "message": "Nicer interface.",
+      "revId": "677083f6c23627ec0602aad5ecd787ed7fed0cd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9629e01_d863a783",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-04T20:00:48Z",
+      "side": 1,
+      "message": "Main focus of ticket. Test the thing below. However, this and checking if DICE chain is proper and another future requirement made it advantageous to refactor much functionality from remote_prov_utils and expose the functionality of hwtrust.",
+      "fixSuggestions": [
+        {
+          "fixId": "f7856b8a_7abb0ce0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+              "range": {
+                "startLine": 264,
+                "startChar": 0,
+                "endLine": 264,
+                "endChar": 0
+              },
+              "replacement": "\nusing UdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintInstancesTest \u003d\n        VtsRemotelyProvisionedComponentTests;\n\nINSTANTIATE_REM_PROV_AIDL_TEST(\n        UdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintInstancesTest);\n"
+            },
+            {
+              "path": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+              "range": {
+                "startLine": 271,
+                "startChar": 0,
+                "endLine": 272,
+                "endChar": 0
+              },
+              "replacement": "TEST_P(UdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintInstancesTest,\n       requireUdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintInstances) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "677083f6c23627ec0602aad5ecd787ed7fed0cd4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
