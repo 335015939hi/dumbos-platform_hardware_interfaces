@@ -165,6 +165,14 @@ struct CodecObserver : public IOmxObserver {
                     // event.
                     if (msg->data.eventData.event == OMX_EventBufferFlag)
                         continue;
+                    // Ignore vendor specific events.
+                    // Known Vendor Extensions:
+                    //  Vendor - Android:
+                    //  Event Details:
+                    //    - 0x7F000001 -> OMX_EventOutputRendered -> Event when tunneled decoder has
+                    //    rendered an output
+                    if (msg->data.eventData.event >= OMX_EventVendorStartUnused)
+                        continue;
                     return ::android::hardware::media::omx::V1_0::Status::OK;
                 } else if (it->type == android::hardware::media::omx::V1_0::
                                            Message::Type::FILL_BUFFER_DONE) {
