@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2f66fe6_82149a19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-11-04T19:15:24Z",
+      "side": 1,
+      "message": "Presubmit is failing because of two changes outside this topic that need to be cherry-picked (those changes are waiting to be +2ed).",
+      "revId": "866d2752a9030ffdc442985471c7d9b629abcbbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
