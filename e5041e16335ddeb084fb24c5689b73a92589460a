@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7d7476e_a6431425",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-04T14:12:21Z",
+      "side": 1,
+      "message": "we are not comparing with the input power/energy.\n\nwhat are the values of input power/energy and output power/energy in both the scaling modes?",
+      "revId": "e5041e16335ddeb084fb24c5689b73a92589460a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
