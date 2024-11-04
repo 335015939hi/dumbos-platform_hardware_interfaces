@@ -16,6 +16,29 @@
       "message": "Thanks for reviewing @smoreland@google.com! Sorry, I have missed the email notification about your review comments. I only saw them when I looked at the CL today.",
       "revId": "c9ddd9bfd0caed83fd9a30be7b7fdc152d2f6712",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d1402da_4e4d355f",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedResponseForChallenge.cddl",
+        "patchSetId": 22
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-11-04T21:20:58Z",
+      "side": 1,
+      "message": "I know this was recently changed because of a comment I made, so sorry for asking another question about it.\n\nI know we define a 2 byte transport ID here because VM-IDs are 16 bits, but given the transport-agnostic name, do we need to leave more room for implementations that don\u0027t use ARM FF-A (not sure if we know of any use cases)?",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 65
+      },
+      "revId": "c9ddd9bfd0caed83fd9a30be7b7fdc152d2f6712",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
