@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e58c6881_8fb9a6c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-04T21:31:24Z",
+      "side": 1,
+      "message": "Thank you for working on this, Ajender! In general, the approach makes sense to me, let\u0027s iron out the implementation.",
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52d803ab_0b4cce68",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-04T21:31:24Z",
+      "side": 1,
+      "message": "How about changing \u0027segment\u0027 into \u0027step\u0027? \"Segment\" is a \"piece of something\", but we usually don\u0027t say \"a piece of algorithm\".",
+      "range": {
+        "startLine": 492,
+        "startChar": 50,
+        "endLine": 492,
+        "endChar": 57
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc61208d_adf2e27d",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-04T21:31:24Z",
+      "side": 1,
+      "message": "Since it\u0027s almost the same as \u0027b\u0027, just with different number of sinks, can we leave only one of them? Or is the point of \u0027b\u0027 to include one of the sinks from \u0027a\u0027? Then we should emphasize why it\u0027s important.\n\nAlso, for completeness, there should be sinks that:\n\na) present both in \u0027old\u0027 and \u0027new\u0027 connections\nb) only present in \u0027old\u0027 connections\nc) only present in \u0027new\u0027 connections\n\nThus, I would propose to have \u0027d\u0027 as: `{G, H, I} -\u003e {H, I, J}`",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 80
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6923e2d_349fdeff",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-04T21:31:24Z",
+      "side": 1,
+      "message": "Please move outside of the loop, same for the comment about the connection step.",
+      "range": {
+        "startLine": 509,
+        "startChar": 0,
+        "endLine": 509,
+        "endChar": 32
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de18d13b_08660f8b",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-04T21:31:24Z",
+      "side": 1,
+      "message": "Since we repeat the same code in case of the connection step failure, I would suggest defining it as a lambda and reuse.",
+      "range": {
+        "startLine": 525,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 96
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f090693_243772f0",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-04T21:31:24Z",
+      "side": 1,
+      "message": "This comment is not needed.",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 552,
+        "endChar": 25
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aad3145_21e5c8fa",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-04T21:31:24Z",
+      "side": 1,
+      "message": "It appears to me that if we first build an intersection of `idsToConnectBackOnFailure` and the keys of `oldConnections`, and iterate over it instead of entire `idsToConnectBackOnFailure` then we can reuse the loop above.\n\nAlternatively, since we already plan to define a lambda for the restoration, it can take a boolean parameter whether it should `continue` when the port id is not found in the keys of `oldConnections`. And we call this lambda with `false` for `idsToRollbackOnFailure` and with `true` for `idsToConnectBackOnFailure`.",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 78
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
