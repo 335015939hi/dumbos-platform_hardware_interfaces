@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a053bc40_f7baf6e5",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-11-04T12:10:18Z",
+      "side": 1,
+      "message": "copy paste issue gLegacyOutputDevicePrefix",
+      "range": {
+        "startLine": 80,
+        "startChar": 40,
+        "endLine": 80,
+        "endChar": 65
+      },
+      "revId": "0179c5e197ef829a3c7f20a55871c209dc22b91c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
