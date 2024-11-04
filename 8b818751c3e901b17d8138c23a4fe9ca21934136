@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76b2d782_6dce816c",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocCapabilities.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-04T22:24:05Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 25,
+        "startChar": 79,
+        "endLine": 25,
+        "endChar": 85
+      },
+      "revId": "8b818751c3e901b17d8138c23a4fe9ca21934136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13e957bd_9ef21b50",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocCapabilities.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-04T22:24:05Z",
+      "side": 1,
+      "message": "Maximum Transmission Unit size in octets.",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 38
+      },
+      "revId": "8b818751c3e901b17d8138c23a4fe9ca21934136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6d8b3bf_2a124ab8",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocCapabilities.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-04T22:24:05Z",
+      "side": 1,
+      "message": "That\u0027s unnecessary in the description, implied by the L2CAP specification.",
+      "range": {
+        "startLine": 30,
+        "startChar": 39,
+        "endLine": 31,
+        "endChar": 36
+      },
+      "revId": "8b818751c3e901b17d8138c23a4fe9ca21934136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33fccb9b_ba0215af",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocCapabilities.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-04T22:24:05Z",
+      "side": 1,
+      "message": "must",
+      "range": {
+        "startLine": 31,
+        "startChar": 51,
+        "endLine": 31,
+        "endChar": 57
+      },
+      "revId": "8b818751c3e901b17d8138c23a4fe9ca21934136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8adb637_60d356f2",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocCapabilities.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-04T22:24:05Z",
+      "side": 1,
+      "message": "The actual value of the local MTU shared in the connection configuration is set in LeCocChannelInfo.localMtu in the IBluetoothSocket.opened() context parameter.",
+      "range": {
+        "startLine": 33,
+        "startChar": 7,
+        "endLine": 34,
+        "endChar": 74
+      },
+      "revId": "8b818751c3e901b17d8138c23a4fe9ca21934136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6df32cc0_1c7cac68",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocChannelInfo.aidl",
+        "patchSetId": 22
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-04T22:24:05Z",
+      "side": 1,
+      "message": "Reformulate:\n\nThe host stack will always set the initial credits to 0 when configuring the L2CAP Coc channel, and this value will always be zero.",
+      "range": {
+        "startLine": 64,
+        "startChar": 7,
+        "endLine": 65,
+        "endChar": 59
+      },
+      "revId": "8b818751c3e901b17d8138c23a4fe9ca21934136",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
