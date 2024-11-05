@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af17a970_0366f5cf",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T23:44:30Z",
+      "side": 1,
+      "message": "OK, I have played with the compiler and realized that both using `const std::vector\u003cAudioDevice\u003e` (or `const auto`) and `const auto\u0026` (and it must be `const`) actually give the same outcome. The second case involves knowing the rule that a const reference prolongs the lifetime of a temporary. Either works, sorry for the noise.",
+      "parentUuid": "07ef298e_d252b703",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 70
+      },
+      "revId": "b7e7c439d4c2515cd8265378ac64771ec3226950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6ec03b1_32cff4bc",

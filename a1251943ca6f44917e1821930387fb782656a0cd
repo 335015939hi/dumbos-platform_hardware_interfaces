@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e71a9aa_0993ca7f",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T23:44:30Z",
+      "side": 1,
+      "message": "\"disconnection\" or just \"disconnect\"",
+      "range": {
+        "startLine": 519,
+        "startChar": 33,
+        "endLine": 519,
+        "endChar": 45
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a4c451_1b4bdd23",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T23:44:30Z",
+      "side": 1,
+      "message": "\"connection\" or \"connect\"",
+      "range": {
+        "startLine": 521,
+        "startChar": 33,
+        "endLine": 521,
+        "endChar": 42
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc6eecec_64be42ef",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T23:44:30Z",
+      "side": 1,
+      "message": "Where is the code which performs the \"exclusive disconnection\"? Or WDYM by saying this?\n\nPlease also see my comment to the code below. It seems that we will not reconnect `O` in the case of a failure.",
+      "range": {
+        "startLine": 526,
+        "startChar": 74,
+        "endLine": 527,
+        "endChar": 59
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "723459d9_51db1fbc",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T23:44:30Z",
+      "side": 1,
+      "message": "aim",
+      "range": {
+        "startLine": 536,
+        "startChar": 17,
+        "endLine": 536,
+        "endChar": 20
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69bd7928_d70ce069",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T23:44:30Z",
+      "side": 1,
+      "message": "commas are not needed",
+      "range": {
+        "startLine": 537,
+        "startChar": 21,
+        "endLine": 537,
+        "endChar": 48
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ea180a0_ad3505d1",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T23:44:30Z",
+      "side": 1,
+      "message": "Looks like the check for device port IDs not being the same is missing now, in the old version it was like this:\n\n```\n        if (auto it \u003d newConnections.find(mixPortConfigId);\n            it \u003d\u003d newConnections.end() || it-\u003esecond !\u003d connectionPair.second) {\n```\n\nSince we are missing this check, for this patch:\n\n```\n     * e : {N,O,P} -\u003e {N, P}\n```\n\nwe will not put `O` into `idsToConnectBackOnFailure`.\n\nI understand that in this step we aim not to disconnect device ports that will be connected back again during the connection step, but we still need to handle the fact that some of device ports get disconnected as a result of the connections change.",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 92
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
