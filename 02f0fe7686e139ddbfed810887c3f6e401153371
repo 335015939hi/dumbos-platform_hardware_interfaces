@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "814f10db_9c014582",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-05T19:17:16Z",
+      "side": 1,
+      "message": "Agreed. Removed the wrappers.",
+      "parentUuid": "95473dce_e67f916c",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 1
+      },
+      "revId": "02f0fe7686e139ddbfed810887c3f6e401153371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9df729f_94ef5eea",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d56044_16ae9178",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-05T19:17:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9df729f_94ef5eea",
+      "revId": "02f0fe7686e139ddbfed810887c3f6e401153371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0ff01a2_11f59a0a",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-11-04T22:30:53Z",
       "side": 1,
       "message": "Test registerCallback in a separate test",
+      "range": {
+        "startLine": 118,
+        "startChar": 25,
+        "endLine": 118,
+        "endChar": 41
+      },
+      "revId": "02f0fe7686e139ddbfed810887c3f6e401153371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ba51d50_5791a846",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-05T19:17:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0ff01a2_11f59a0a",
       "range": {
         "startLine": 118,
         "startChar": 25,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "591fd1e7_ff2877e7",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-05T19:17:16Z",
+      "side": 1,
+      "message": "That\u0027s great comments. Added test to check the asynchronous callback with timeout.",
+      "parentUuid": "c2a49bfa_da3c065c",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 29
+      },
+      "revId": "02f0fe7686e139ddbfed810887c3f6e401153371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8003ca13_d59eff24",
@@ -100,6 +190,30 @@
       "writtenOn": "2024-11-04T22:30:53Z",
       "side": 1,
       "message": "Same comment as the Opened test",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 29
+      },
+      "revId": "02f0fe7686e139ddbfed810887c3f6e401153371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d7041b0_fa5b4415",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 17
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-05T19:17:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8003ca13_d59eff24",
       "range": {
         "startLine": 125,
         "startChar": 0,
