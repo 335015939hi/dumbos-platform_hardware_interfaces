@@ -429,14 +429,15 @@ class EffectHelper {
         }
     }
 
-    // Generate multitone input between -1 to +1 using testFrequencies
-    void generateMultiTone(const std::vector<int>& testFrequencies, std::vector<float>& input,
-                           const int samplingFrequency) {
+    // Generate multitone input between -amplitude to +amplitude using testFrequencies
+    // All test frequencies are considered having the same amplitude
+    void generateSineWave(const std::vector<int>& testFrequencies, std::vector<float>& input,
+                          float amplitude = 1.0) {
         for (size_t i = 0; i < input.size(); i++) {
             input[i] = 0;
 
             for (size_t j = 0; j < testFrequencies.size(); j++) {
-                input[i] += sin(2 * M_PI * testFrequencies[j] * i / samplingFrequency);
+                input[i] += sin(2 * M_PI * testFrequencies[j] * i / kSamplingFrequency);
             }
             input[i] /= testFrequencies.size();
         }
