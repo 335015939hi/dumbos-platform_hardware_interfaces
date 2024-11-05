@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a0f3d26_f86686ff",
+        "filename": "bluetooth/socket/aidl/default/BluetoothSocket.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-05T00:13:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d66fdac6_5c4330e2",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 45
+      },
+      "revId": "d2b983acd2e9e4adfc48492aa350a3949d9371b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e67e44a_057ead06",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-04T22:34:56Z",
       "side": 1,
       "message": "Return an immediate failure, offloaded sockets are not actually supported.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 36
+      },
+      "revId": "d2b983acd2e9e4adfc48492aa350a3949d9371b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af2b99f7_fa45388e",
+        "filename": "bluetooth/socket/aidl/default/BluetoothSocket.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-05T00:13:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e67e44a_057ead06",
       "range": {
         "startLine": 46,
         "startChar": 0,
