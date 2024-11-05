@@ -16,6 +16,29 @@
       "message": "Shunkai, could you please review.",
       "revId": "802a1dab66c6b995bba47b6bfa0df29834d88b80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77f3f557_ddfb3fe2",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreConfigTargetTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-11-05T19:13:47Z",
+      "side": 1,
+      "message": "nit: do we want to pass the tag as a template parameter, and move this logic into `validateAudioHalCapRule`?",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 0
+      },
+      "revId": "802a1dab66c6b995bba47b6bfa0df29834d88b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
