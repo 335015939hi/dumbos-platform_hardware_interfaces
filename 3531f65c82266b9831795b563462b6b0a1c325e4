@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7e12f1f_8cc18fe8",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T01:57:19Z",
+      "side": 1,
+      "message": "Done, could you please  check description fits the expectation.",
+      "parentUuid": "0eef42ff_64352029",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 80
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6923e2d_349fdeff",
         "filename": "audio/aidl/default/Module.cpp",
         "patchSetId": 7
@@ -338,6 +362,30 @@
       "side": 1,
       "message": "Yes, looks good, just some minor comments.",
       "parentUuid": "af2daf63_5b1c6964",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 78
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2ff48a7_c54a377d",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T01:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ae50f84_891822e7",
       "range": {
         "startLine": 580,
         "startChar": 0,

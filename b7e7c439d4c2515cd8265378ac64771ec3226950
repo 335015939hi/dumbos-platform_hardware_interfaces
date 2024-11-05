@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2682a938_69ad0005",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T01:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f96e45_feefbe43",
+      "range": {
+        "startLine": 528,
+        "startChar": 16,
+        "endLine": 528,
+        "endChar": 70
+      },
+      "revId": "b7e7c439d4c2515cd8265378ac64771ec3226950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "450baafc_2a405349",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-05T01:11:09Z",
       "side": 1,
       "message": "No need to call `getDevicesFromDevicePortConfigIds` when there are no port configs. Also, why `d` is a reference?\n\n```\nconst std::vector\u003cAudioDevice\u003e d \u003d it !\u003d oldConnections.end() \n    ? getDevicesFromDevicePortConfigIds(it-\u003esecond) : std::vector\u003cAudioDevice\u003e();\n```",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 70
+      },
+      "revId": "b7e7c439d4c2515cd8265378ac64771ec3226950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07ef298e_d252b703",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T01:57:19Z",
+      "side": 1,
+      "message": "using \u0027\u0026\u0027 wherever possible keeping in mind about compiler returns with NRVO. Thus avoiding the copies. The compiler didn\u0027t give me warning or error for this.",
+      "parentUuid": "450baafc_2a405349",
       "range": {
         "startLine": 527,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc65ad2b_83d2c59c",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T01:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6ec03b1_32cff4bc",
+      "range": {
+        "startLine": 533,
+        "startChar": 47,
+        "endLine": 534,
+        "endChar": 94
+      },
+      "revId": "b7e7c439d4c2515cd8265378ac64771ec3226950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "deb9aa71_62c7b028",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-11-05T01:11:09Z",
       "side": 1,
       "message": "Add `/*continueWithEmptyDevices*/` to both calls.",
+      "range": {
+        "startLine": 578,
+        "startChar": 57,
+        "endLine": 578,
+        "endChar": 63
+      },
+      "revId": "b7e7c439d4c2515cd8265378ac64771ec3226950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff4c5bc_4cdebfeb",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T01:57:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "deb9aa71_62c7b028",
       "range": {
         "startLine": 578,
         "startChar": 57,
