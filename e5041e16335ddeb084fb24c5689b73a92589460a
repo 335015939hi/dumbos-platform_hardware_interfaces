@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "558562e4_f7fb9667",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-11-05T15:35:22Z",
+      "side": 1,
+      "message": "If we stop/reset the effect inside processAndWriteToOutput function, then captureSampleBuffer can\u0027t be fetched. Hence, we are resetting them on line 341, 342.",
+      "parentUuid": "c3605530_fc09dc22",
+      "range": {
+        "startLine": 297,
+        "startChar": 89,
+        "endLine": 297,
+        "endChar": 94
+      },
+      "revId": "e5041e16335ddeb084fb24c5689b73a92589460a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7d7476e_a6431425",
         "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
         "patchSetId": 12
@@ -119,6 +143,24 @@
       "side": 1,
       "message": "Agree with Harish. It would be better to avoid comparing against the previous value because this effect is not expected to have any state. To verify that with relative measurements, we would also have to test that on a decreasing sequence of input signal amplitudes the output from the effect is also decreasing. But it\u0027s more straightforward to check that the power/energy of the output signal matches the input\u0027s power/energy depending on the measurement mode.",
       "parentUuid": "e7d7476e_a6431425",
+      "revId": "e5041e16335ddeb084fb24c5689b73a92589460a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3eba482_def70903",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-11-05T15:35:22Z",
+      "side": 1,
+      "message": "csb: captureSampleBuffer\n\nFor randomly generated input, \namplitude  |   csb power and energy   |   (input/output) power and energy   | measurement values fetched from library\n \nAS_PLAYED:\n0.250000   |   -20.174196 1.229675   |\t-16.979744 10.263501         Measurement{rms: -1697, peak: -1204}\n0.500000   |   -14.195236 4.871765    |\t-10.944489 41.192787         Measurement{rms: -1298, peak: -605}\n0.750000   |   -10.386772 11.709351   |\t-7.309440 95.131859          Measurement{rms: -1020, peak: -249}\n1.000000   |   -7.545435 22.525085    |\t-4.385761 186.506454         Measurement{rms: -788, peak: -3}\n \nNORMALIZED:\n0.250000   |   -7.864865 20.927795   | \t-17.003744 10.206939         Measurement{rms: -1700, peak: -1204}\n0.500000   |   -7.438705 23.085510   | \t-10.682760 43.751602         Measurement{rms: -1278, peak: -602}\n0.750000   |   -6.887952 26.206848   |\t-7.097054 99.899765          Measurement{rms: -999, peak: -250}\n1.000000   |   -7.319260 23.729248   |\t-4.909956 165.300568         Measurement{rms: -807, peak: 0}",
+      "parentUuid": "37af14b7_55a9ed39",
       "revId": "e5041e16335ddeb084fb24c5689b73a92589460a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
