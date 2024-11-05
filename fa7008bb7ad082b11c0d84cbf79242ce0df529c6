@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a322d70d_ffcdedf4",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 545,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T01:11:09Z",
+      "side": 1,
+      "message": "Add `/*continueWithEmptyDevices*/` to the argument",
+      "range": {
+        "startLine": 545,
+        "startChar": 57,
+        "endLine": 545,
+        "endChar": 62
+      },
+      "revId": "fa7008bb7ad082b11c0d84cbf79242ce0df529c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

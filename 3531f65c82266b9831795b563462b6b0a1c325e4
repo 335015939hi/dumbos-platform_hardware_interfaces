@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0eef42ff_64352029",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T01:11:09Z",
+      "side": 1,
+      "message": "\u003e Thus, I would propose to have \u0027d\u0027 as: {G, H, I} -\u003e {H, I, J}\n\nIn the new version, I see `{H,I,J} -\u003e {G,H,I,J}`. That\u0027s really the same as `b`.\n\nIn general, let\u0027s systematize the example. We have cases when:\n\n- an entire row:\n  - is ignored in both steps (no connections change)\n  - handled only in disconnections\n  - handled only in connections\n- the row is handled both in connections and disconnections\n  - and all of its connections change\n  - some connections stay, but some gets disconnected\n  - some connections stay, new one(s) get connected\n  - a combination of the previous two.\n  \n```\n     * oldConnections {\n     * a : {A,B,C},\n     * b : {D},\n     * d : {H,I,J},\n     * e : {N,O,P},\n     * f : {Q,R},\n     * g : {T,U,V},\n     * }\n     *\n     * newConnections {\n     * a : {A,B,C},\n     * c : {E,F,G},\n     * d : {K,L,M},\n     * e : {N,P},\n     * f : {Q,R,S},\n     * g : {U,V,W},\n     * }\n```\n\n\u0027a\u0027 is ignored in both steps\n\u0027b\u0027 is handled only in disconnections\n\u0027c\u0027 is handled only in connections\n\u0027d\u0027 all connections change\n\u0027e\u0027 some are disconnected\n\u0027f\u0027 some are connected\n\u0027g\u0027 a combination of connected and disconnected",
+      "parentUuid": "49d4fe48_b65a5eef",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 80
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6923e2d_349fdeff",
         "filename": "audio/aidl/default/Module.cpp",
         "patchSetId": 7
@@ -290,6 +314,30 @@
       "side": 1,
       "message": "Made a lambda, please if it fits.",
       "parentUuid": "7aad3145_21e5c8fa",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 78
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ae50f84_891822e7",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T01:11:09Z",
+      "side": 1,
+      "message": "Yes, looks good, just some minor comments.",
+      "parentUuid": "af2daf63_5b1c6964",
       "range": {
         "startLine": 580,
         "startChar": 0,

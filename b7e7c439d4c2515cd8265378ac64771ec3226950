@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0f96e45_feefbe43",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T01:11:09Z",
+      "side": 1,
+      "message": "No need to check the `it` here if `continueWithEmptyDevices` is true\n\n```\ncontinueWithEmptyDevices || it !\u003d oldConnections.end()\n```",
+      "range": {
+        "startLine": 528,
+        "startChar": 16,
+        "endLine": 528,
+        "endChar": 70
+      },
+      "revId": "b7e7c439d4c2515cd8265378ac64771ec3226950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "450baafc_2a405349",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T01:11:09Z",
+      "side": 1,
+      "message": "No need to call `getDevicesFromDevicePortConfigIds` when there are no port configs. Also, why `d` is a reference?\n\n```\nconst std::vector\u003cAudioDevice\u003e d \u003d it !\u003d oldConnections.end() \n    ? getDevicesFromDevicePortConfigIds(it-\u003esecond) : std::vector\u003cAudioDevice\u003e();\n```",
+      "range": {
+        "startLine": 527,
+        "startChar": 0,
+        "endLine": 530,
+        "endChar": 70
+      },
+      "revId": "b7e7c439d4c2515cd8265378ac64771ec3226950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6ec03b1_32cff4bc",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T01:11:09Z",
+      "side": 1,
+      "message": "For clarity:\n\n```\n(d.empty() ? \"; not connected\" : std::string(\"; connected to \") + ::android::internal::ToString(d));\n```",
+      "range": {
+        "startLine": 533,
+        "startChar": 47,
+        "endLine": 534,
+        "endChar": 94
+      },
+      "revId": "b7e7c439d4c2515cd8265378ac64771ec3226950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deb9aa71_62c7b028",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-05T01:11:09Z",
+      "side": 1,
+      "message": "Add `/*continueWithEmptyDevices*/` to both calls.",
+      "range": {
+        "startLine": 578,
+        "startChar": 57,
+        "endLine": 578,
+        "endChar": 63
+      },
+      "revId": "b7e7c439d4c2515cd8265378ac64771ec3226950",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
