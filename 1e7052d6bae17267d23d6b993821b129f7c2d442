@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "191c162b_93cebc44",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-11-05T03:01:32Z",
+      "side": 1,
+      "message": "I discussed this with Bao offline, and I think the following steps yield in the error message above (Bao please correct me if I am wrong)\n\n```\n$ m installclean \u0026\u0026 m \u0026\u0026 vendor/google/tools/flashall -w\n$ adb shell ls /apex/com.android.hardware.audio/\n# no match\n```\n\nI believe `adb install` should make the tests pass\n```\n$ m installclean \u0026\u0026 m \u0026\u0026 vendor/google/tools/flashall -w\n$ adb install $PRODUCT_OUT/vendor/apex/com.android.hardware.audio.apex \u0026\u0026 adb reboot\n$ adb shell ls /apex/com.android.hardware.audio/\n# match found\n\n```\n\n@jooyung@google.com Could I please know if adb install is the recommended approach for such testing workflows? Is it possible to use go/flash instead?",
+      "parentUuid": "b9e8256a_ef246387",
+      "range": {
+        "startLine": 247,
+        "startChar": 9,
+        "endLine": 247,
+        "endChar": 62
+      },
+      "revId": "1e7052d6bae17267d23d6b993821b129f7c2d442",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67b6a948_bd67d00a",
         "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
         "patchSetId": 2
