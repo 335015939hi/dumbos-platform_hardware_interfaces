@@ -116,6 +116,30 @@
       },
       "revId": "d2b983acd2e9e4adfc48492aa350a3949d9371b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f272617e_584acdd2",
+        "filename": "bluetooth/socket/aidl/default/bluetooth-socket-service-default.rc",
+        "patchSetId": 19
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-05T07:44:58Z",
+      "side": 1,
+      "message": "Only if it\u0027s needed. If it works with less permissions, it should stay with less permissions.",
+      "parentUuid": "d2b4bb69_387db291",
+      "range": {
+        "startLine": 3,
+        "startChar": 9,
+        "endLine": 3,
+        "endChar": 15
+      },
+      "revId": "d2b983acd2e9e4adfc48492aa350a3949d9371b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
