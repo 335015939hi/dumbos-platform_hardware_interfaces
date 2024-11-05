@@ -107,6 +107,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eacad47_37a2e9a9",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-05T23:45:48Z",
+      "side": 1,
+      "message": "Even if we have currently no tools that extract documentation from aidl files, I would still prefer you use a consistent comment style. \n\n\u003e As an IDL, ALL comments are interface comments, and any comment parsing (if we ever add such tooling) would have to reflect all the comments.\n\nI don\u0027t think that is practical. Tools like kerneldoc have specific requirements for both the content and structure of the comments that it can parse and other tools are similar. Using comments that follow the rules of an existing tool would, for instance, allow cross references between aidl files and the code that uses them. It would also avoid creating a separate tool.",
+      "parentUuid": "071ad3e1_09fae87a",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7b034e3_ea99efbd",
@@ -460,6 +478,30 @@
       "side": 1,
       "message": "I think so, because in the first release, our goal is to support only the persistent pVMs. @arve@android.com Do you think there is a way or should we provide a way only for tests, in order to clear the storage without doing factory reset?",
       "parentUuid": "01ff0500_113c3b39",
+      "range": {
+        "startLine": 198,
+        "startChar": 85,
+        "endLine": 200,
+        "endChar": 66
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ec300ed_fbc2962e",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-05T23:45:48Z",
+      "side": 1,
+      "message": "We have other tests that need a factory reset, so I think it is fine for this one to also need that.",
+      "parentUuid": "7e8b0cba_d7b75051",
       "range": {
         "startLine": 198,
         "startChar": 85,
