@@ -37,6 +37,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8e7bf72_f4ad6af7",
+        "filename": "bluetooth/ranging/.idea/.gitignore",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-05T14:32:13Z",
+      "side": 1,
+      "message": "You probably want all IDE specific files of the .idea folder to be excluded from the commit.",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dc427d8_344f0e9a",
+        "filename": "bluetooth/ranging/aidl/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-05T14:32:13Z",
+      "side": 1,
+      "message": "I am unsure about this part, but i would expect af version number bump to indicate the changes? Maybe it is just an artefact of how you are currently developing the change, i see the old components are also only deprecated, and not removed, so it could be our understanding of how to update an AIDL that is skewed.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 18
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "109c41e2_c02cf253",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingProcedureData.aidl",
         "patchSetId": 6
@@ -100,6 +140,40 @@
         "endLine": 103,
         "endChar": 16
       },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "835f823e_4f7cb133",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSession.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-05T14:32:13Z",
+      "side": 1,
+      "message": "There are no need to start a session before both config and procedure enable have occured, so maybe the two methods can be combined? Previously the session configuration was delivered in the constructor of the session, is that intentionally different now?",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c58a01_99924344",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSession.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-05T14:32:13Z",
+      "side": 1,
+      "message": "What can the interval be assumed to be for the first call of writeProcedureData()?",
       "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -175,6 +249,63 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "25ec95ce_c0cc55a0",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeOneData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-05T14:32:13Z",
+      "side": 1,
+      "message": "The data type used for PCTs is a bit inconsistent. Sometimes it is a \"ComplexNumber\" composed of two doubles, other times it is 4 bytes. We would propose a third option for all cases, the IqSample composed of two signed 12bit integers, similar to the HCI format, avoiding conversions, but i am not sure if that can be expressed neatly in AIDL.\n\nSee also\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/3322440/6/bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeTwoData.aidl#39",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08366f28_986c20f1",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeThreeData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-05T14:32:13Z",
+      "side": 1,
+      "message": "It makes sense to compose mode 3 of mode 1 and mode 2, but it will be a bit weird when addressing the members as \"modeOneData\" when the reader expects to have a modeThreeData step. I wonder if it would be nice to manually expand the fields, even though it is a slight duplication, for a neater API.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ae4e7e8_ca05dea3",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeTwoData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-05T14:32:13Z",
+      "side": 1,
+      "message": "In the previous implementation the ordering of PCTs was based on antenna path, and not based on time. Is this now intented to be in time-order like HCI? Would it make sense to specify that in the comment?",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e4af477_242c79a6",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeTwoData.aidl",
         "patchSetId": 6
@@ -238,6 +369,40 @@
         "endLine": 40,
         "endChar": 27
       },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb955f92_49195237",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-05T14:32:13Z",
+      "side": 1,
+      "message": "An alternative to the timestamp in in abitrary precision would be the procedure count matching the result, that would be easier to map to input data, and should still allow for evaluation of some fitting timestamp by the upper layer. I am not sure what the lower layer would report for this field as it is now.",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e6db876_bcc64ae9",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RttToaTodData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-05T14:32:13Z",
+      "side": 1,
+      "message": "Why are these fields nullable? They should be mandatory fields. If not available the comment mentions 0x8000 as the value.",
       "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
