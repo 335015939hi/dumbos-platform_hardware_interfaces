@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2a4611d_d90a845a",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-05T11:03:44Z",
+      "side": 0,
+      "message": "[EC_KEY_check](https://commondatastorage.googleapis.com/chromium-boringssl-docs/ec_key.h.html#EC_KEY_check_key) returns `1` on success and `0` on failure.",
+      "revId": "d822603dd6be038485edbadb7cc00d1354d361d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
