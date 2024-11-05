@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8500ea48_1298f9d3",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-05T17:43:50Z",
+      "side": 1,
+      "message": "initialize allParamsValid to false at the start of the function.",
+      "revId": "74f96a35a238433c7ae8e243ab808c53f621ccf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2cd7496_3c414245",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-05T17:43:50Z",
+      "side": 1,
+      "message": "if (!isParamInRange()) {\n   return;\n}\nif (!isParamValid()) {\n   return;\n}",
+      "range": {
+        "startLine": 390,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 43
+      },
+      "revId": "74f96a35a238433c7ae8e243ab808c53f621ccf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9049a68_01bd40d5",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-05T17:43:50Z",
+      "side": 1,
+      "message": "set allParamsValid to true after the loop",
+      "revId": "74f96a35a238433c7ae8e243ab808c53f621ccf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d03b3303_f25c1b17",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-05T17:43:50Z",
+      "side": 1,
+      "message": "ASSERT_NO_FATAL_FAILURE()",
+      "revId": "74f96a35a238433c7ae8e243ab808c53f621ccf2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
