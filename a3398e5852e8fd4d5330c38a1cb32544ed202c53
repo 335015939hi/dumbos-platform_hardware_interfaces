@@ -782,6 +782,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "99b87208_697a49a9",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T20:21:15Z",
+      "side": 1,
+      "message": "correct, not removed. I thought this was comment in another place. we would like to keep this, as we don\u0027t want to cache it in BT stack to avoid inconsistency. you can get the timestamps from the subevent, and as the comment here, we expect the 1st subevent timestamps.",
+      "parentUuid": "b93254d2_59306d61",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e6db876_bcc64ae9",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RttToaTodData.aidl",
         "patchSetId": 6
