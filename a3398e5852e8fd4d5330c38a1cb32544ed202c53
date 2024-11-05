@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc69dbe3_4f1dac19",
+        "filename": "bluetooth/ranging/.idea/.gitignore",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "good catch, thanks.",
+      "parentUuid": "c8e7bf72_f4ad6af7",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5dc427d8_344f0e9a",
@@ -65,6 +83,30 @@
       "writtenOn": "2024-11-05T14:32:13Z",
       "side": 1,
       "message": "I am unsure about this part, but i would expect af version number bump to indicate the changes? Maybe it is just an artefact of how you are currently developing the change, i see the old components are also only deprecated, and not removed, so it could be our understanding of how to update an AIDL that is skewed.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 18
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98599ac8_4bbc94c3",
+        "filename": "bluetooth/ranging/aidl/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "no worry, this is the process, it will be bumped to 2 when it is frozen. and \u0027frozen: false\u0027 means the development of V2, and if you can use V2 before it is frozen. In a word, if the cl is submitted, you could think V2 is available.",
+      "parentUuid": "5dc427d8_344f0e9a",
       "range": {
         "startLine": 39,
         "startChar": 0,
@@ -98,6 +140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0384d97c_1188f687",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingProcedureData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "looks better, thanks. remove this.",
+      "parentUuid": "109c41e2_c02cf253",
+      "range": {
+        "startLine": 72,
+        "startChar": 39,
+        "endLine": 72,
+        "endChar": 60
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ef778dd_7061b78f",
@@ -111,6 +177,30 @@
       "writtenOn": "2024-11-01T23:59:17Z",
       "side": 1,
       "message": "always should be camelcase",
+      "range": {
+        "startLine": 74,
+        "startChar": 21,
+        "endLine": 74,
+        "endChar": 22
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "354968ac_628016b2",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingProcedureData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ef778dd_7061b78f",
       "range": {
         "startLine": 74,
         "startChar": 21,
@@ -144,6 +234,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1381b59c_73c69eb7",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/Config.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53fae160_44c1a07e",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 16
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "835f823e_4f7cb133",
@@ -157,6 +271,24 @@
       "writtenOn": "2024-11-05T14:32:13Z",
       "side": 1,
       "message": "There are no need to start a session before both config and procedure enable have occured, so maybe the two methods can be combined? Previously the session configuration was delivered in the constructor of the session, is that intentionally different now?",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "573186c5_aa56fac7",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSession.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "this is to make it flexible, if we want to support other feature in the future; and may change the config on the fly. and BT stack have no dependency on when the session was opened.",
+      "parentUuid": "835f823e_4f7cb133",
       "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -178,6 +310,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6e706ab_9cd66597",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSession.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "the default should be 0, I think I should add a comment in \u0027Config.aidl\u0027, make 0 as \u0027not available\u0027.\nnot writePocedureData(), it is part of \u0027Config\u0027, it depends one the implementation, if it is available it will use it, and if it is not available, it will be 0 initially, and update it once it is available, also, the interval may be changed for some special case. so I introduce this to make it flexible too. it is a future-proof API.",
+      "parentUuid": "32c58a01_99924344",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "707977d9_bdca4bd7",
@@ -191,6 +341,30 @@
       "writtenOn": "2024-11-01T23:59:17Z",
       "side": 1,
       "message": "noting:\n- ModeThreeData is ModeOneData + ModeTwoData\n- ModeOneData is {ModeZeroData - initiatorMeasuredFreqOffset + more things}\n\nI can\u0027t really think of a better way to arrange this honestly. What you have works.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 1
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "812e8d96_ac3bfea0",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "I use union is not just to save the bytes, but it is a convenient way to organize the whole data.\nI\u0027m debating if I should copy/paste the ModeOneData and ModeTwoData fields into the ModeThreeData, is that better?",
+      "parentUuid": "707977d9_bdca4bd7",
       "range": {
         "startLine": 30,
         "startChar": 0,
@@ -226,6 +400,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7cba26c5_c665cf8a",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeOneData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "Yes, this is how the BT spec defines them, if we change the name, it\u0027ll lose its context, and make others confused.",
+      "parentUuid": "a5e2ab5e_35c8763d",
+      "range": {
+        "startLine": 29,
+        "startChar": 15,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf86a8a3_87aebbaa",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeOneData.aidl",
         "patchSetId": 6
@@ -237,6 +435,30 @@
       "writtenOn": "2024-11-01T23:59:17Z",
       "side": 1,
       "message": "nit: define constants for this instead of mentioning here?\n\n```\nconst byte FLAG_CS_SUCCESS \u003d 0x0;\nconst byte FLAG_CS_ERRORS \u003d 0x1;\nconst byte FLAG_CS_ADDR_NOT_FOUND \u003d 0x2;\nconst byte FLAG_CS_MASK \u003d 0xF; // bit 3 is reserved\nconst byte QUALITY_ERROR_COUNT_SHIFT \u003d 4;\n```",
+      "range": {
+        "startLine": 31,
+        "startChar": 7,
+        "endLine": 39,
+        "endChar": 23
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bfd2bfc_eebe5217",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeOneData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf86a8a3_87aebbaa",
       "range": {
         "startLine": 31,
         "startChar": 7,
@@ -266,6 +488,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc7fc181_6db158f5",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeOneData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "1. nullable will be removed, it was here as an AIDL bug which can not set default value.\n2. I use the original 4 bytes as HCI. as the value is different from the mode 2. \nthe tonePct was 3 bytes, but the packetPct is 4 bytes with the definition of unavailable(0xFFFFFFFF). if we change it to the I/Q sample. it will lose the \u0027unavailable\u0027 definition.\nI\u0027m debating it too. should it be converted at BT host?\nwith AIDL, you can not have a 12bit integers, BT stack have to convert it.\none idea in my mind is to define a structure; and BT stack will do the conversion.\nPtcIQSample {\nint iSample;\nint qsample;\nbool isAvailable \u003d true;\n}\n\nAlso, I don\u0027t like the previous ComplexNumber(double) for tonePct. I\u0027m going to change them as \u0027interger\u0027, so it conforms to the spec; vendors can do normalize or get the dBm by themselves",
+      "parentUuid": "25ec95ce_c0cc55a0",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08366f28_986c20f1",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeThreeData.aidl",
         "patchSetId": 6
@@ -277,6 +517,30 @@
       "writtenOn": "2024-11-05T14:32:13Z",
       "side": 1,
       "message": "It makes sense to compose mode 3 of mode 1 and mode 2, but it will be a bit weird when addressing the members as \"modeOneData\" when the reader expects to have a modeThreeData step. I wonder if it would be nice to manually expand the fields, even though it is a slight duplication, for a neater API.",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50c84109_7e670b96",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeThreeData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "I think this conforms to the spec too. spec defines it as mode 1 + mode 2. I\u0027m debating, but I incline to keep this.",
+      "parentUuid": "08366f28_986c20f1",
       "range": {
         "startLine": 30,
         "startChar": 0,
@@ -306,6 +570,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ae71d00_03cbe4a8",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeTwoData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "I want to keep the HCI order, as vendors have all the parameters, they can do the matching by themselves as needed, and I will drop the ComplexNumber, which was converted by the stack in the middle; which may be confused.",
+      "parentUuid": "7ae4e7e8_ca05dea3",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e4af477_242c79a6",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeTwoData.aidl",
         "patchSetId": 6
@@ -317,6 +599,30 @@
       "writtenOn": "2024-11-01T23:59:17Z",
       "side": 1,
       "message": "same, nit: use constants for these instead of comments?",
+      "range": {
+        "startLine": 42,
+        "startChar": 6,
+        "endLine": 47,
+        "endChar": 19
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f95ac97_f4416d01",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeTwoData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e4af477_242c79a6",
       "range": {
         "startLine": 42,
         "startChar": 6,
@@ -350,6 +656,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8197157_bb55da52",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeZeroData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f27aa5f2_d877b808",
+      "range": {
+        "startLine": 29,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "563ab002_9505f483",
@@ -363,6 +693,30 @@
       "writtenOn": "2024-11-01T23:59:17Z",
       "side": 1,
       "message": "constants for these, same for all, same in all structures here?",
+      "range": {
+        "startLine": 37,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 27
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d137136_bff01aee",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeZeroData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "563ab002_9505f483",
       "range": {
         "startLine": 37,
         "startChar": 7,
@@ -392,6 +746,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b93254d2_59306d61",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "removed, we expect to send a relative timestamp to the app, see SubeventResultData#timestampNanos and RangingResult#timestampNanos, if the vendor will use the SubeventResultData#timestampNanos, it up to vendors;",
+      "parentUuid": "eb955f92_49195237",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7e6db876_bcc64ae9",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RttToaTodData.aidl",
         "patchSetId": 6
@@ -403,6 +775,24 @@
       "writtenOn": "2024-11-05T14:32:13Z",
       "side": 1,
       "message": "Why are these fields nullable? They should be mandatory fields. If not available the comment mentions 0x8000 as the value.",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47802ce1_1b0ada60",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RttToaTodData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "it was a work around, redefined.",
+      "parentUuid": "7e6db876_bcc64ae9",
       "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -420,6 +810,24 @@
       "writtenOn": "2024-11-01T15:27:48Z",
       "side": 1,
       "message": "it should be in nanos not ms.",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1691590_e94c87fb",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/SubeventResultData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-05T18:39:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38f68f81_5805a2db",
       "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
