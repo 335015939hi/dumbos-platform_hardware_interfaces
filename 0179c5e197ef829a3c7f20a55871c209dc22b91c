@@ -46,6 +46,30 @@
       },
       "revId": "0179c5e197ef829a3c7f20a55871c209dc22b91c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3d8af73_f806dccc",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-11-05T07:11:45Z",
+      "side": 1,
+      "message": "Once fixed, ok for me. test done on cuttlefish target, dumping the config read by AudioPolicyManager before and after cherry pick of these CLs!",
+      "parentUuid": "a053bc40_f7baf6e5",
+      "range": {
+        "startLine": 80,
+        "startChar": 40,
+        "endLine": 80,
+        "endChar": 65
+      },
+      "revId": "0179c5e197ef829a3c7f20a55871c209dc22b91c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
