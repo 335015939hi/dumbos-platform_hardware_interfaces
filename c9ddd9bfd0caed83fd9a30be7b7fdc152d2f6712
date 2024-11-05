@@ -39,6 +39,30 @@
       },
       "revId": "c9ddd9bfd0caed83fd9a30be7b7fdc152d2f6712",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ca28298_e8579a94",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedResponseForChallenge.cddl",
+        "patchSetId": 22
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-05T16:35:01Z",
+      "side": 1,
+      "message": "I will check with @arve@android.com if this can be any other size for other implementations. Thanks for pointing this out.",
+      "parentUuid": "7d1402da_4e4d355f",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 65
+      },
+      "revId": "c9ddd9bfd0caed83fd9a30be7b7fdc152d2f6712",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
