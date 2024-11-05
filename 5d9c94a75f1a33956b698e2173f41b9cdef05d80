@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c87c84dc_28ea066d",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-05T19:26:00Z",
+      "side": 1,
+      "message": "Please comment the test steps as well to clarify what behavior you are validating.",
+      "revId": "5d9c94a75f1a33956b698e2173f41b9cdef05d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ed0da2d_0c808886",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-05T19:26:00Z",
+      "side": 1,
+      "message": "That\u0027s out of the scope of this test I would say.\nSure the openedComplete timeout will not be called here; but it seems a stretch to test for every weird occurrence. \n\n@smoreland@google.com what is your thought on that ?",
+      "range": {
+        "startLine": 156,
+        "startChar": 1,
+        "endLine": 156,
+        "endChar": 75
+      },
+      "revId": "5d9c94a75f1a33956b698e2173f41b9cdef05d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
