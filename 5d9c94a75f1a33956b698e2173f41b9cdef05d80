@@ -39,6 +39,30 @@
       },
       "revId": "5d9c94a75f1a33956b698e2173f41b9cdef05d80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4d66c72_1b883cc6",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-05T19:38:40Z",
+      "side": 1,
+      "message": "`bluetooth_socket_-\u003eclosed()` doesn\u0027t cause any callback and we can\u0027t enforce a specific return value. Then, we may not need to test `bluetooth_socket_-\u003eclosed()`",
+      "parentUuid": "4ed0da2d_0c808886",
+      "range": {
+        "startLine": 156,
+        "startChar": 1,
+        "endLine": 156,
+        "endChar": 75
+      },
+      "revId": "5d9c94a75f1a33956b698e2173f41b9cdef05d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
