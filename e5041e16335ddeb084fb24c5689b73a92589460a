@@ -163,6 +163,24 @@
       "parentUuid": "37af14b7_55a9ed39",
       "revId": "e5041e16335ddeb084fb24c5689b73a92589460a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76e6db14_2ec3b55e",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-11-05T15:50:00Z",
+      "side": 1,
+      "message": "For sine wave input:\nNORMALIZED:\n0.250000  |    -3.175283 61.614319   |\t-15.084106 15.880319         Measurement{rms: -1508, peak: -1204}\n0.500000  |    -3.175283 61.614319   |\t-9.063507 63.521275          Measurement{rms: -1110, peak: -602}\n0.750000  |   -3.175283 61.614319    |\t-5.541683 142.922836         Measurement{rms: -839, peak: -249}\n1.000000  |   -3.175283 61.614319    |\t-3.042908 254.085098         Measurement{rms: -633, peak: 0}\n\nAS_PLAYED:\n0.250000  |    -15.153820 3.906860   |\t-15.084106 15.880319         Measurement{rms: -1508, peak: -1204}\n0.500000  |    -9.136547 15.615479   |\t-9.063507 63.521275          Measurement{rms: -1110, peak: -602}\n0.750000  |    -5.619953 35.092529   | \t-5.541682 142.922867         Measurement{rms: -839, peak: -249}\n1.000000  |    -3.124060 62.345337   |\t-3.042908 254.085098         Measurement{rms: -633, peak: 0}",
+      "parentUuid": "f3eba482_def70903",
+      "revId": "e5041e16335ddeb084fb24c5689b73a92589460a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
