@@ -287,8 +287,7 @@ TEST_P(VisualizerDataTest, testScalingModeParameters) {
         ASSERT_NO_FATAL_FAILURE(SetAndGetParameters(&allParamsValid));
 
         if (mScalingMode == Visualizer::ScalingMode::NORMALIZED) {
-            generateMultiTone(std::vector<int>{1000}, mInputBuffer, kSamplingFrequency,
-                              maxAudioSampleValue);
+            generateSineWave({1000}, mInputBuffer, maxAudioSampleValue);
         } else {
             generateInputBuffer(mInputBuffer, 0, true, mChannelCount, maxAudioSampleValue);
         }
