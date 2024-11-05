@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a67a6f8_13353ebb",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-05T14:57:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "defa9d63_b67455f9",
+      "range": {
+        "startLine": 116,
+        "startChar": 47,
+        "endLine": 116,
+        "endChar": 77
+      },
+      "revId": "921dbad0aa88139e1eae00b8ecbb234ce22ccb1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27361704_11ad7150",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93b628fc_b8078dab",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-05T14:57:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27361704_11ad7150",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 1
+      },
+      "revId": "921dbad0aa88139e1eae00b8ecbb234ce22ccb1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9995e802_bc5026dc",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-10-30T18:19:38Z",
       "side": 1,
       "message": "nit: why not just:\n```\nmLimiterConfigList.emplace_back(DynamicsProcessing::LimiterConfig {\n  .channel \u003d std::get\u003cLIMITER_CHANNEL\u003e(GetParam());\n  .enable \u003d true;\n  .linkGroup \u003d std::get\u003cLIMITER_LINK_GROUP\u003e(GetParam());\n  .attackTimeMs \u003d std::get\u003cLIMITER_ATTACK_TIME\u003e(GetParam());\n  .releaseTimeMs \u003d std::get\u003cLIMITER_RELEASE_TIME\u003e(GetParam());\n  .ratio \u003d std::get\u003cLIMITER_RATIO\u003e(GetParam());\n  .thresholdDb \u003d std::get\u003cLIMITER_THRESHOLD\u003e(GetParam());\n  .postGainDb \u003d std::get\u003cLIMITER_POST_GAIN\u003e(GetParam());\n});\n```\n\nthis way we can also remove these members if they are not used elsewhere:\n```\n    float mChannelIndex \u003d 0;\n    float mLinkerGroup \u003d 3;\n    float mAttackTime \u003d 0;\n    float mReleaseTime \u003d 0;\n    float mRatio \u003d 4;\n    float mThreshold \u003d 0;\n    float mPostGain \u003d 0;\n```",
+      "range": {
+        "startLine": 626,
+        "startChar": 8,
+        "endLine": 627,
+        "endChar": 84
+      },
+      "revId": "921dbad0aa88139e1eae00b8ecbb234ce22ccb1e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34b1946b_9dd32c6d",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-05T14:57:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9995e802_bc5026dc",
       "range": {
         "startLine": 626,
         "startChar": 8,
