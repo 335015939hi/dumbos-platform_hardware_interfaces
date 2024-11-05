@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8d15953_1e5c451c",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T00:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52d803ab_0b4cce68",
+      "range": {
+        "startLine": 492,
+        "startChar": 50,
+        "endLine": 492,
+        "endChar": 57
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc61208d_adf2e27d",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-11-04T21:31:24Z",
       "side": 1,
       "message": "Since it\u0027s almost the same as \u0027b\u0027, just with different number of sinks, can we leave only one of them? Or is the point of \u0027b\u0027 to include one of the sinks from \u0027a\u0027? Then we should emphasize why it\u0027s important.\n\nAlso, for completeness, there should be sinks that:\n\na) present both in \u0027old\u0027 and \u0027new\u0027 connections\nb) only present in \u0027old\u0027 connections\nc) only present in \u0027new\u0027 connections\n\nThus, I would propose to have \u0027d\u0027 as: `{G, H, I} -\u003e {H, I, J}`",
+      "range": {
+        "startLine": 497,
+        "startChar": 0,
+        "endLine": 497,
+        "endChar": 80
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49d4fe48_b65a5eef",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T00:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc61208d_adf2e27d",
       "range": {
         "startLine": 497,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d04a0b16_fc2dcc04",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T00:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6923e2d_349fdeff",
+      "range": {
+        "startLine": 509,
+        "startChar": 0,
+        "endLine": 509,
+        "endChar": 32
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de18d13b_08660f8b",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-11-04T21:31:24Z",
       "side": 1,
       "message": "Since we repeat the same code in case of the connection step failure, I would suggest defining it as a lambda and reuse.",
+      "range": {
+        "startLine": 525,
+        "startChar": 0,
+        "endLine": 536,
+        "endChar": 96
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21a166bc_4c72bb21",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T00:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de18d13b_08660f8b",
       "range": {
         "startLine": 525,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "793e5af5_46bb5bdb",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T00:22:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f090693_243772f0",
+      "range": {
+        "startLine": 552,
+        "startChar": 0,
+        "endLine": 552,
+        "endChar": 25
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7aad3145_21e5c8fa",
@@ -146,6 +266,30 @@
       "writtenOn": "2024-11-04T21:31:24Z",
       "side": 1,
       "message": "It appears to me that if we first build an intersection of `idsToConnectBackOnFailure` and the keys of `oldConnections`, and iterate over it instead of entire `idsToConnectBackOnFailure` then we can reuse the loop above.\n\nAlternatively, since we already plan to define a lambda for the restoration, it can take a boolean parameter whether it should `continue` when the port id is not found in the keys of `oldConnections`. And we call this lambda with `false` for `idsToRollbackOnFailure` and with `true` for `idsToConnectBackOnFailure`.",
+      "range": {
+        "startLine": 580,
+        "startChar": 0,
+        "endLine": 582,
+        "endChar": 78
+      },
+      "revId": "3531f65c82266b9831795b563462b6b0a1c325e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af2daf63_5b1c6964",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-05T00:22:18Z",
+      "side": 1,
+      "message": "Made a lambda, please if it fits.",
+      "parentUuid": "7aad3145_21e5c8fa",
       "range": {
         "startLine": 580,
         "startChar": 0,
