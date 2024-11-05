@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39c1d662_956c3470",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-05T21:34:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c87c84dc_28ea066d",
+      "revId": "5d9c94a75f1a33956b698e2173f41b9cdef05d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ed0da2d_0c808886",
@@ -103,6 +121,30 @@
       "side": 1,
       "message": "You can validate that it is implemented, that\u0027s all",
       "parentUuid": "d371540c_23e80c18",
+      "range": {
+        "startLine": 156,
+        "startChar": 1,
+        "endLine": 156,
+        "endChar": 75
+      },
+      "revId": "5d9c94a75f1a33956b698e2173f41b9cdef05d80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9936104b_545cf7cf",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-05T21:34:47Z",
+      "side": 1,
+      "message": "Removed the timeout check.",
+      "parentUuid": "035868f4_c62e414c",
       "range": {
         "startLine": 156,
         "startChar": 1,
