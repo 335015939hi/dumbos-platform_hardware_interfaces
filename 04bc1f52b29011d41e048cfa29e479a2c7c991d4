@@ -145,6 +145,30 @@
       },
       "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3491615f_5c0ca32a",
+        "filename": "broadcastradio/aidl/vts/src/VtsHalBroadcastradioAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 3691211
+      },
+      "writtenOn": "2024-11-06T21:39:01Z",
+      "side": 1,
+      "message": "The \u0027DAB_SID_EXT\u0027 would only exist in the primary Id. If the comment line above mentioning both primary and secondary is misleading, we can change it but iterating the IDs here would technically iterate both.\n\nShould we only check the primary Id for the \u0027DAB_SID_EXT\u0027?",
+      "parentUuid": "773f42a5_2b833383",
+      "range": {
+        "startLine": 755,
+        "startChar": 7,
+        "endLine": 755,
+        "endChar": 66
+      },
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
