@@ -281,6 +281,30 @@
       },
       "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe21f3e6_ce2586bc",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-06T18:04:12Z",
+      "side": 1,
+      "message": "OK, you are right. I forgot that we use the entire vector of device ports when rolling back.",
+      "parentUuid": "4a322858_f4db814b",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 92
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
