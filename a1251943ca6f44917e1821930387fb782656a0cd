@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b1ca02d_76a2121e",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-06T16:15:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e71a9aa_0993ca7f",
+      "range": {
+        "startLine": 519,
+        "startChar": 33,
+        "endLine": 519,
+        "endChar": 45
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0a4c451_1b4bdd23",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-05T23:44:30Z",
       "side": 1,
       "message": "\"connection\" or \"connect\"",
+      "range": {
+        "startLine": 521,
+        "startChar": 33,
+        "endLine": 521,
+        "endChar": 42
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ca34460_4d4243ab",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-06T16:15:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0a4c451_1b4bdd23",
       "range": {
         "startLine": 521,
         "startChar": 33,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1918f760_9bf96a32",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-06T16:15:24Z",
+      "side": 1,
+      "message": "typo, I mean there is no exclusive disconnection.",
+      "parentUuid": "bc6eecec_64be42ef",
+      "range": {
+        "startLine": 526,
+        "startChar": 74,
+        "endLine": 527,
+        "endChar": 59
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "723459d9_51db1fbc",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-11-05T23:44:30Z",
       "side": 1,
       "message": "aim",
+      "range": {
+        "startLine": 536,
+        "startChar": 17,
+        "endLine": 536,
+        "endChar": 20
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "913814eb_eb262de0",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 536,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-06T16:15:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "723459d9_51db1fbc",
       "range": {
         "startLine": 536,
         "startChar": 17,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ed70aeb_88b9a1c3",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-06T16:15:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69bd7928_d70ce069",
+      "range": {
+        "startLine": 537,
+        "startChar": 21,
+        "endLine": 537,
+        "endChar": 48
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ea180a0_ad3505d1",
@@ -129,6 +249,30 @@
       "writtenOn": "2024-11-05T23:44:30Z",
       "side": 1,
       "message": "Looks like the check for device port IDs not being the same is missing now, in the old version it was like this:\n\n```\n        if (auto it \u003d newConnections.find(mixPortConfigId);\n            it \u003d\u003d newConnections.end() || it-\u003esecond !\u003d connectionPair.second) {\n```\n\nSince we are missing this check, for this patch:\n\n```\n     * e : {N,O,P} -\u003e {N, P}\n```\n\nwe will not put `O` into `idsToConnectBackOnFailure`.\n\nI understand that in this step we aim not to disconnect device ports that will be connected back again during the connection step, but we still need to handle the fact that some of device ports get disconnected as a result of the connections change.",
+      "range": {
+        "startLine": 543,
+        "startChar": 0,
+        "endLine": 543,
+        "endChar": 92
+      },
+      "revId": "a1251943ca6f44917e1821930387fb782656a0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a322858_f4db814b",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-11-06T16:15:24Z",
+      "side": 1,
+      "message": "```it-\u003esecond !\u003d connectionPair.second)``` removed intentionally\n\nstreams already have the information about ```{N,O,P}``` in mConnectedDevices. we just connect the {N,P} in the connect step.\n\n\nwhen stream devices updated from ```{N,O,P}``` to ```{N,P}```, it can do the `{O}` disconnection.",
+      "parentUuid": "2ea180a0_ad3505d1",
       "range": {
         "startLine": 543,
         "startChar": 0,
