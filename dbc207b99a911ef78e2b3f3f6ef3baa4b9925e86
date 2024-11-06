@@ -26,6 +26,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a9b8576_e3d81b42",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-06T18:51:51Z",
+      "side": 1,
+      "message": "I\u0027m against hardcoding a number that we have obtained by running a test on a particular effect implementation. We should either hardcode `-3.0` which is the theoretical RMS for a sine wave with amplitude equaling the full digital scale, or we should apply `audio_utils_compute_power_mono` to an input sine wave with the amplitude `1.0` (not `kMaxAudioSampleValue`!), which should give us a close value.",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 47
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbbfbb15_91cd12a9",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-06T18:51:51Z",
+      "side": 1,
+      "message": "This looks inconsistent. We take `maxAudioSampleValue` from `testMaxAudioSampleValueList` where it can be scaled by `kMaxAudioSampleValue`. But the keys in `maxAudioSampleRms/PeakMap` do not have this scaling. Thus, this test currently only works when `kMaxAudioSampleValue \u003d\u003d 1`.\n\nI don\u0027t think we need to make these map lookups at all. We can just define a structure which contains the amplitude and the associated expected values.\n\nHowever, the overall approach of having these predefined expected values has a flaw because a change in `kMaxAudioSampleValue` will invalidate them. I would also recommend calculating them from the input, not taking from our measurements. In fact, I\u0027ve looked at the `-633` value for the RMS of the 1.0 input, and suspected that we had provided a wrong input to the effect, please see my comment below about stereo/mono discrepancy.",
+      "range": {
+        "startLine": 265,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 34
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4883330d_41993a44",
         "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
         "patchSetId": 13
@@ -72,6 +118,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e491a8cc_a083da2d",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-06T18:51:51Z",
+      "side": 1,
+      "message": "I just realized that we configure the effect to accept a stereo input:\n\n```\n    const size_t mChannelCount \u003d\n           getChannelCount(AudioChannelLayout::make\u003cAudioChannelLayout::layoutMask\u003e(AudioChannelLayout::LAYOUT_STEREO));\n```\n\nBut feeding it with a mono input. Thus it actually uses pairs of input values and does not get the sine waves we intend.",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 97
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f291958a_3e4e12a2",
         "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
         "patchSetId": 13
@@ -83,6 +152,29 @@
       "writtenOn": "2024-11-06T18:37:20Z",
       "side": 1,
       "message": "this may be too restrictive. \nchange this to 0.1 maybe to allow for some loss of precision in Visualizer?\n\nalso maybe define two constants one for normalized and one for a splayed as use those constants?",
+      "range": {
+        "startLine": 321,
+        "startChar": 58,
+        "endLine": 321,
+        "endChar": 64
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dae606a_295b2f4a",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-06T18:51:51Z",
+      "side": 1,
+      "message": "Please make this tolerance and the one on the line `325` named constants for better discoverability.",
       "range": {
         "startLine": 321,
         "startChar": 58,
