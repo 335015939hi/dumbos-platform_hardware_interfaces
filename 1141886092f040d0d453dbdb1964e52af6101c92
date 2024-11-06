@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d72c9585_26a493ab",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-06T19:11:53Z",
+      "side": 1,
+      "message": "From my understanding, we initialize `DynamicsProcessingTestHelper` with the default value of `channelLayout`, which is stereo. But here we are feeding it with a mono sine wave. Could you please check if this is correct?",
+      "range": {
+        "startLine": 730,
+        "startChar": 0,
+        "endLine": 731,
+        "endChar": 90
+      },
+      "revId": "1141886092f040d0d453dbdb1964e52af6101c92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
