@@ -169,6 +169,30 @@
       },
       "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d61bb3da_d3c4d668",
+        "filename": "broadcastradio/aidl/vts/src/VtsHalBroadcastradioAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2024-11-06T21:52:21Z",
+      "side": 1,
+      "message": "1. What will the identifier here look like (i.e. what are primary id and secondary ids) for DAB-DAB link case so far?\n2. Why frequency can be 0 as you mentioned in the commit message? It looks odd to me since `physicallyTunedTo` has to be frequency identifier specifying what the current frequency the DAB tuner is unted.",
+      "parentUuid": "3491615f_5c0ca32a",
+      "range": {
+        "startLine": 755,
+        "startChar": 7,
+        "endLine": 755,
+        "endChar": 66
+      },
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
