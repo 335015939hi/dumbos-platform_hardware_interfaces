@@ -74,6 +74,13 @@ aidl_interface {
                 "android.hardware.common-V2",
             ],
         },
+        {
+            version: "4",
+            imports: [
+                "android.hardware.graphics.common-V5",
+                "android.hardware.common-V2",
+            ],
+        },
 
     ],
 
