@@ -97,6 +97,30 @@
       ],
       "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dff2a729_9be85305",
+        "filename": "broadcastradio/aidl/vts/src/VtsHalBroadcastradioAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 3691211
+      },
+      "writtenOn": "2024-11-06T20:45:01Z",
+      "side": 1,
+      "message": "As per AOSP documentation, SID_EXT must be primary Id only. This iteration would check all the IDs in the selector to find it.\n\nplease let us know if there is any other comments or suggestions for this.",
+      "parentUuid": "92824e75_da525997",
+      "range": {
+        "startLine": 755,
+        "startChar": 7,
+        "endLine": 755,
+        "endChar": 66
+      },
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
