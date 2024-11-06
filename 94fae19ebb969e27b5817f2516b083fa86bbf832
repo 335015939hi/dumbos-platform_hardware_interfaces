@@ -16,6 +16,65 @@
       "message": "can you try overloading this function with one frequency as an argument and then in that function call the one with std::vector?\n\nThat way, when called with a single frequency, it will be simpler.",
       "revId": "94fae19ebb969e27b5817f2516b083fa86bbf832",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6530fab_b3c01ada",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-06T00:58:36Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "2fa96be2_e716ae7c",
+      "revId": "94fae19ebb969e27b5817f2516b083fa86bbf832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b1fa29f_2310d620",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-06T00:58:36Z",
+      "side": 1,
+      "message": "`input[i] *\u003d`",
+      "range": {
+        "startLine": 448,
+        "startChar": 12,
+        "endLine": 448,
+        "endChar": 33
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "7ff1adca_d80ff397",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 448,
+                "startChar": 0,
+                "endLine": 449,
+                "endChar": 0
+              },
+              "replacement": "            input[i] *\u003d amplitude / testFrequencies.size();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "94fae19ebb969e27b5817f2516b083fa86bbf832",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
