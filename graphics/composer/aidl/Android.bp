@@ -29,7 +29,7 @@ aidl_interface {
     host_supported: true,
     vendor_available: true,
     double_loadable: true,
-    frozen: true,
+    frozen: false,
     srcs: [
         "android/hardware/graphics/composer3/*.aidl",
     ],
