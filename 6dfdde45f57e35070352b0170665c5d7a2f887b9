@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cd542c5_d15e1dbc",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2024-11-06T18:28:41Z",
+      "side": 1,
+      "message": "this appears to be the same as the above method for P010, but renamed to P210.\n\nit\u0027s better to rename getAndroidYCbCr_P010 as getAndroidYCbCr_10bit()",
+      "range": {
+        "startLine": 554,
+        "startChar": 10,
+        "endLine": 554,
+        "endChar": 30
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "cb76a628_2c36274d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 462,
+                "startChar": 0,
+                "endLine": 553,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+              "range": {
+                "startLine": 1239,
+                "startChar": 0,
+                "endLine": 1240,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_NO_FATAL_FAILURE(yCbCr \u003d getAndroidYCbCr(*handle, data));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "6dfdde45f57e35070352b0170665c5d7a2f887b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
