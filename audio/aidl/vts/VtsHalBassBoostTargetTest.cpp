@@ -113,7 +113,6 @@ class BassBoostEffectHelper : public EffectHelper {
         }
     }
 
-    static constexpr int kSamplingFrequency = 44100;
     static constexpr int kDurationMilliSec = 720;
     static constexpr int kInputSize = kSamplingFrequency * kDurationMilliSec / 1000;
     long mInputFrameCount, mOutputFrameCount;

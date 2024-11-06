@@ -93,7 +93,6 @@ class VolumeControlHelper : public EffectHelper {
         }
     }
 
-    static constexpr int kSamplingFrequency = 44100;
     static constexpr int kDurationMilliSec = 720;
     static constexpr int kBufferSize = kSamplingFrequency * kDurationMilliSec / 1000;
     static constexpr int kMinLevel = -96;
