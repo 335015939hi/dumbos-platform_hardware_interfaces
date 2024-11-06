@@ -576,6 +576,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79a31058_db5f9bde",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeOneData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-06T15:30:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32b94681_37d81a6e",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08366f28_986c20f1",
@@ -637,6 +655,30 @@
       "side": 1,
       "message": "Okay, both are functionally okay.",
       "parentUuid": "50c84109_7e670b96",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd5c114_4b4f4691",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeThreeData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-06T15:30:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d0eabd0_b2aff10b",
       "range": {
         "startLine": 30,
         "startChar": 0,
