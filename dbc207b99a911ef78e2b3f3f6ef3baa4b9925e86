@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e6fa88b_5b6d6004",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-06T18:37:20Z",
+      "side": 1,
+      "message": "kExpectedPowerNormalized\n\nwould it be possible to compute this once using the other constexpr values rather than hard-coding?",
+      "range": {
+        "startLine": 264,
+        "startChar": 20,
+        "endLine": 264,
+        "endChar": 34
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4883330d_41993a44",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-06T18:37:20Z",
+      "side": 1,
+      "message": "any reason why get is needed in the variable name?",
+      "range": {
+        "startLine": 274,
+        "startChar": 14,
+        "endLine": 274,
+        "endChar": 22
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b25da7d_4a7ca460",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-06T18:37:20Z",
+      "side": 1,
+      "message": "what is M here and below?\n\ncan you please check if a better name is possible?",
+      "range": {
+        "startLine": 280,
+        "startChar": 18,
+        "endLine": 280,
+        "endChar": 21
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f291958a_3e4e12a2",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-06T18:37:20Z",
+      "side": 1,
+      "message": "this may be too restrictive. \nchange this to 0.1 maybe to allow for some loss of precision in Visualizer?\n\nalso maybe define two constants one for normalized and one for a splayed as use those constants?",
+      "range": {
+        "startLine": 321,
+        "startChar": 58,
+        "endLine": 321,
+        "endChar": 64
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "024c8afb_557d6144",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-06T18:37:20Z",
+      "side": 1,
+      "message": "move to lines above 317?\n\nAlso do we need any tolerance for these values?",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 89
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
