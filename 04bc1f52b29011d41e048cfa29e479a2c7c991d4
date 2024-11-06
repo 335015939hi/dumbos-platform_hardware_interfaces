@@ -121,6 +121,30 @@
       },
       "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "773f42a5_2b833383",
+        "filename": "broadcastradio/aidl/vts/src/VtsHalBroadcastradioAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2024-11-06T20:53:48Z",
+      "side": 1,
+      "message": "Why can `DAB_SID_EXT` exist in secondary ids? Do you use this as DAB-DAB linking? I think frequency and ensemble should appear in secondary ids.",
+      "parentUuid": "dff2a729_9be85305",
+      "range": {
+        "startLine": 755,
+        "startChar": 7,
+        "endLine": 755,
+        "endChar": 66
+      },
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
