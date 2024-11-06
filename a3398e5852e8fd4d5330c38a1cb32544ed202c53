@@ -311,6 +311,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eea80081_ef30a912",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSession.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-06T09:01:26Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "573186c5_aa56fac7",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32c58a01_99924344",
@@ -342,6 +360,24 @@
       "side": 1,
       "message": "the default should be 0, I think I should add a comment in \u0027Config.aidl\u0027, make 0 as \u0027not available\u0027.\nnot writePocedureData(), it is part of \u0027Config\u0027, it depends one the implementation, if it is available it will use it, and if it is not available, it will be 0 initially, and update it once it is available, also, the interval may be changed for some special case. so I introduce this to make it flexible too. it is a future-proof API.",
       "parentUuid": "32c58a01_99924344",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b55f3c4_314f2637",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSession.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-06T09:01:26Z",
+      "side": 1,
+      "message": "Without knowing the connection interval it is not possible to calculate the time of procedures, so the interval is required to be known before the first calculation. Time aware filters would be challenged without this.\n\nBased on your description, the service might encounter data processing requests before it know the connection interval in some implementations, is that correct?",
+      "parentUuid": "e6e706ab_9cd66597",
       "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -524,6 +560,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32b94681_37d81a6e",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeOneData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-06T09:01:26Z",
+      "side": 1,
+      "message": "My main gripe was that data of the same name was stored as two distinct types.\n\nThe PtcIQSample that you suggested and the one implemented in\nhttps://android-review.googlesource.com/c/platform/hardware/interfaces/+/3322440/9/bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/PctIQSample.aidl\nboth are better than previous.\n\nAs the unavailable state is only valid for PacketPcts of mode 1 + 3, maybe it would make more sense to have it nullable in the mode 1 definition, and non-nullable in the mode 2 definition. That enforces the implementation to consider both variants in mode 1 case, while allowing the mode 2 case to be neat, without relying on magical numbers to indicate validity.",
+      "parentUuid": "cc7fc181_6db158f5",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08366f28_986c20f1",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeThreeData.aidl",
         "patchSetId": 6
@@ -571,6 +625,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d0eabd0_b2aff10b",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeThreeData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-06T09:01:26Z",
+      "side": 1,
+      "message": "Okay, both are functionally okay.",
+      "parentUuid": "50c84109_7e670b96",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ae4e7e8_ca05dea3",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeTwoData.aidl",
         "patchSetId": 6
@@ -600,6 +678,24 @@
       "side": 1,
       "message": "I want to keep the HCI order, as vendors have all the parameters, they can do the matching by themselves as needed, and I will drop the ComplexNumber, which was converted by the stack in the middle; which may be confused.",
       "parentUuid": "7ae4e7e8_ca05dea3",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afe8a89e_98157999",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeTwoData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-06T09:01:26Z",
+      "side": 1,
+      "message": "Great!",
+      "parentUuid": "5ae71d00_03cbe4a8",
       "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -794,6 +890,24 @@
       "side": 1,
       "message": "correct, not removed. I thought this was comment in another place. we would like to keep this, as we don\u0027t want to cache it in BT stack to avoid inconsistency. you can get the timestamps from the subevent, and as the comment here, we expect the 1st subevent timestamps.",
       "parentUuid": "b93254d2_59306d61",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ce38c4d_a2fac4f9",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/RangingResult.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 3715897
+      },
+      "writtenOn": "2024-11-06T09:01:26Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "99b87208_697a49a9",
       "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
