@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94bec479_41e21ebd",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 27
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-07T21:14:19Z",
+      "side": 1,
+      "message": "Should this say ExternalAADForDICESignedConnectionRequest since this is defining ConnectionRequestSigStruct?",
+      "range": {
+        "startLine": 32,
+        "startChar": 29,
+        "endLine": 32,
+        "endChar": 53
+      },
+      "revId": "5ef59042bce67dc1407bb5df328ae8457749fc16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67bb37d9_91dcd392",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 27
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-07T21:14:19Z",
+      "side": 1,
+      "message": "This needs to change to match ExternalAADForDICESigned",
+      "revId": "5ef59042bce67dc1407bb5df328ae8457749fc16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1d0ebf6_c1d7a3c2",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 27
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-07T21:14:19Z",
+      "side": 1,
+      "message": "This needs to be wrapped in #6.37(...)",
+      "range": {
+        "startLine": 79,
+        "startChar": 28,
+        "endLine": 79,
+        "endChar": 49
+      },
+      "revId": "5ef59042bce67dc1407bb5df328ae8457749fc16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
