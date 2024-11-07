@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e67275f5_6749ef32",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 25
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-07T20:54:03Z",
+      "side": 1,
+      "message": "I am not sure CDDL provides a way to reference a byte string literal :( Perhaps one could use extended diagnostic notation, and write h\u002734c82916 9579 4d86 baef 592a066419e4\u0027",
+      "parentUuid": "e408455d_e76ec706",
+      "revId": "84041310961e8f6ceb47e92d82d307f8fc729c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c7393a03_3ac88dc7",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
         "patchSetId": 25
@@ -37,6 +55,47 @@
         "endLine": 64,
         "endChar": 61
       },
+      "revId": "84041310961e8f6ceb47e92d82d307f8fc729c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "259a7da9_de77fbd1",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 25
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-07T20:54:03Z",
+      "side": 1,
+      "message": "On a uint, the .size 2 control asserts that the value is at most 65535; it doesn\u0027t assert anything about how that\u0027s encoded. \n\nI think this isn\u0027t a problem any more since we now identify a transport type and so this is now FFA specific; we have room for other transport types to use other IDs with different ranges.",
+      "parentUuid": "c7393a03_3ac88dc7",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 61
+      },
+      "revId": "84041310961e8f6ceb47e92d82d307f8fc729c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee004eb4_1d3a48e6",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 25
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-07T20:54:03Z",
+      "side": 1,
+      "message": "This will have to use canonical encoding, so I\u0027d prefer to steer clear of maps I think. Can we make this an array with one item instead? That still gives us extensibility.",
       "revId": "84041310961e8f6ceb47e92d82d307f8fc729c2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
