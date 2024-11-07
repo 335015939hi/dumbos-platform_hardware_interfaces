@@ -301,6 +301,23 @@ parcelable Event {
 
         @FixedSize
         @VintfStability
+        parcelable MoistureIntrusion{
+            /**
+             * Indicates the level of water intrustion damage in the chassis
+             */
+            MoistureDamage damage;
+            @VintfStability
+            @Backing(type="int")
+            enum MoistureDamage { 
+                  LIGHT = 1,
+                  MODERATE = 2,
+                  SEVERE = 3
+            }
+        }
+
+
+        @FixedSize
+        @VintfStability
         parcelable Heading {
             /**
              * The direction in which the device is pointing relative to true
