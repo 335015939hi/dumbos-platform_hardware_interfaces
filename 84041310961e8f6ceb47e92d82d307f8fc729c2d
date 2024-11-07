@@ -83,6 +83,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1db871cc_1a642558",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 25
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-11-07T20:57:11Z",
+      "side": 1,
+      "message": "Got it, thanks!",
+      "parentUuid": "259a7da9_de77fbd1",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 61
+      },
+      "revId": "84041310961e8f6ceb47e92d82d307f8fc729c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee004eb4_1d3a48e6",
