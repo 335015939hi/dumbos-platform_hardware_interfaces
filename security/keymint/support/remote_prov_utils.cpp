@@ -53,7 +53,7 @@ using X509_Ptr = bssl::UniquePtr<X509>;
 using CRYPTO_BUFFER_Ptr = bssl::UniquePtr<CRYPTO_BUFFER>;
 
 std::string deviceSuffix(const std::string& name) {
-    size_t pos = name.rfind('/');
+    auto pos = name.rfind('/');
     if (pos == std::string::npos) {
         return name;
     }
