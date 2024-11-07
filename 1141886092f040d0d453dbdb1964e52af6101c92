@@ -1,6 +1,87 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f2b9206_0c02ba21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-07T18:49:06Z",
+      "side": 1,
+      "message": "Is this still WIP?",
+      "revId": "1141886092f040d0d453dbdb1964e52af6101c92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0534c571_5ba79963",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-07T18:49:06Z",
+      "side": 1,
+      "message": "Note that you can use `const auto\u0026 [tag, dp] : mTags`",
+      "range": {
+        "startLine": 384,
+        "startChar": 15,
+        "endLine": 384,
+        "endChar": 25
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d0f3acb8_f69e55fd",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 384,
+                "startChar": 0,
+                "endLine": 388,
+                "endChar": 0
+              },
+              "replacement": "    for (const auto\u0026 [tag, dp] : mTags) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1141886092f040d0d453dbdb1964e52af6101c92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df906250_8a7b7bdd",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-07T18:49:06Z",
+      "side": 1,
+      "message": "This is the same thing as on the lines 627–636, going from a test parameter to `LimiterConfig`. Can we extract it and reuse?",
+      "range": {
+        "startLine": 667,
+        "startChar": 0,
+        "endLine": 675,
+        "endChar": 69
+      },
+      "revId": "1141886092f040d0d453dbdb1964e52af6101c92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d72c9585_26a493ab",
@@ -38,6 +119,30 @@
       "side": 1,
       "message": "I\u0027m initializing the channel layout to mono in ```DynamicsProcessingLimiterConfigDataTest``` constructor.",
       "parentUuid": "d72c9585_26a493ab",
+      "range": {
+        "startLine": 730,
+        "startChar": 0,
+        "endLine": 731,
+        "endChar": 90
+      },
+      "revId": "1141886092f040d0d453dbdb1964e52af6101c92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47cf3410_673cf2fb",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-07T18:49:06Z",
+      "side": 1,
+      "message": "Oh, right, I did not notice that.",
+      "parentUuid": "af3bffea_10ba4414",
       "range": {
         "startLine": 730,
         "startChar": 0,
