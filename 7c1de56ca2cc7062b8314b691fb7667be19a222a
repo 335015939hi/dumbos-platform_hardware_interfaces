@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "943bd3f3_45a9663a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-11-07T18:34:32Z",
+      "side": 1,
+      "message": "Discussed /w wonsik@. stream processing information have to be bundled to IComponent::onWorkDone(). If any drop happens from InputSurface, infrequent config/query(s) could be sufficient.",
+      "revId": "7c1de56ca2cc7062b8314b691fb7667be19a222a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d3d148a_ac4c261a",
