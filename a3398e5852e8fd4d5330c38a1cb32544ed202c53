@@ -494,6 +494,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88782249_9dab8152",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeOneData.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-07T01:09:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cba26c5_c665cf8a",
+      "range": {
+        "startLine": 29,
+        "startChar": 15,
+        "endLine": 29,
+        "endChar": 18
+      },
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf86a8a3_87aebbaa",
