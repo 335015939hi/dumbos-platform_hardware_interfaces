@@ -623,12 +623,5 @@ TEST(RemoteProvUtilsTest, dontRequireUdsCertsWhenNotPresent) {
     ASSERT_TRUE(csr) << csr.message();
 }
 
-TEST(RemoteProvUtilsTest, parseFullyQualifiedInstanceNames) {
-    ASSERT_EQ(deviceSuffix(RKPVM_INSTANCE_NAME), "avf");
-    ASSERT_EQ(deviceSuffix(DEFAULT_INSTANCE_NAME), "default");
-    ASSERT_EQ(deviceSuffix("default"), "default");
-    ASSERT_EQ(deviceSuffix("//the/last/one"), "one");
-}
-
 }  // namespace
 }  // namespace aidl::android::hardware::security::keymint::remote_prov

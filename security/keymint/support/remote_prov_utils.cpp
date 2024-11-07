@@ -53,7 +53,7 @@ using X509_Ptr = bssl::UniquePtr<X509>;
 using CRYPTO_BUFFER_Ptr = bssl::UniquePtr<CRYPTO_BUFFER>;
 
 std::string deviceSuffix(const std::string& name) {
-    size_t pos = name.rfind('/');
+    auto pos = name.rfind('/');
     if (pos == std::string::npos) {
         return name;
     }
@@ -343,8 +343,7 @@ ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
         allowAnyMode = true;
     }
 
-    auto chain =
-            hwtrust::DiceChain::Verify(encodedBcc, kind, allowAnyMode, deviceSuffix(instanceName));
+    auto chain = hwtrust::DiceChain::Verify(encodedBcc, kind, allowAnyMode, instanceName);
     if (!chain.ok()) {
         return chain.error().message();
     }
@@ -1169,7 +1168,7 @@ ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr,
 
     auto encodedDiceChain = diceCertChain->encode();
     auto chain = hwtrust::DiceChain::Verify(encodedDiceChain, *diceChainKind,
-                                            /*allowAnyMode=*/false, deviceSuffix(instanceName));
+                                            /*allowAnyMode=*/false, instanceName);
     if (!chain.ok()) return chain.error().message();
     return chain->IsProper();
 }
