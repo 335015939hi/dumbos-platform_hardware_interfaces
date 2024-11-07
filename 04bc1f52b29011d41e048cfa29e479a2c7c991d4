@@ -193,6 +193,30 @@
       },
       "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f06122a3_b660e636",
+        "filename": "broadcastradio/aidl/vts/src/VtsHalBroadcastradioAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 3727256
+      },
+      "writtenOn": "2024-11-07T16:13:20Z",
+      "side": 1,
+      "message": "Dear, Mr. Xu:\n\nPlease find the update below:\n\n1. What will the identifier here look like (i.e. what are primary id and secondary ids) for DAB-DAB link case so far?\n\nSample tune-selector: { PrimaryId: DAB_SID_EXT (0xXXXXXXXXXX), SecondaryIds: { DAB_ENSEMBLE (0xXXXX), DAB_FREQUENCY (0xXXXX) }}.\n\ntune-selector after a successful tune without any linking: { PrimaryId: DAB_SID_EXT (0xXXXXXXXXXX), SecondaryIds: { DAB_ENSEMBLE (0xXXXX), DAB_FREQUENCY (0xXXXX) }}.\n\npotential tune-selector after a successful tune with DAB-DAB linking:\n\n{ PrimaryId: DAB_SID_EXT (0xXXXXXXXXXX), SecondaryIds: { DAB_ENSEMBLE (0xYYYY), DAB_FREQUENCY (0xXXXX) }}.\n\nOR\n\n{ PrimaryId: DAB_SID_EXT (0xXXXXXXXXXX), SecondaryIds: { DAB_ENSEMBLE (0xXXXX), DAB_FREQUENCY (0xYYYY) }}.\n\nOR\n\n{ PrimaryId: DAB_SID_EXT (0xXXXXXXXXXX), SecondaryIds: { DAB_ENSEMBLE (0xYYYY), DAB_FREQUENCY (0xYYYY) }}.\n\n\n2. Why frequency can be 0 as you mentioned in the commit message? It looks odd to me since physicallyTunedTo has to be frequency identifier specifying what the current frequency the DAB tuner is tuned.\n\nYes Mr. Xu, in a tune request, DAB_FREQUENCY indeed must not be 0 considering this is an implementation detail rather than a DAB feature detail. \n\nGM is discussing internally to understand if there are any external dependencies. At the moment, our understanding is that as DAB is a digital tune, the tune operation can take upto 4 seconds to complete and to avoid any delay from SW point-of-view HAL responds quickly with the same DAB_SID_EXT, and DAB_FREQUENCY and DAB_ENSEMBLE as 0 first, and then once tune is completed valid information is being updated.\n\nNOTE: GM believes that verifying DAB_SID_EXT to identify if tune is completed is a better approach than verifying DAB_FREQUENCY.\n\nPlease do let us know if we need to provide any further information.\n\nThank You.",
+      "parentUuid": "d61bb3da_d3c4d668",
+      "range": {
+        "startLine": 755,
+        "startChar": 7,
+        "endLine": 755,
+        "endChar": 66
+      },
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
