@@ -16,6 +16,24 @@
       "message": "http://ag/30198677 has to be merged first to resolve merge conflict.",
       "revId": "afbab0aa1094dd2048346915cc2ced51e7580457",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e618872_b9e3636c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-11-07T20:46:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8aa26d7_ee89a5f2",
+      "revId": "afbab0aa1094dd2048346915cc2ced51e7580457",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
