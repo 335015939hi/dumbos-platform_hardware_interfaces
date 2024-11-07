@@ -1,5 +1,15 @@
 <compatibility-matrix version="1.0" type="framework" level="202504">
     <hal format="aidl">
+        <name>android.hardware.security.see.hwcrypto</name>
+        <version>1</version>
+        <interface>
+            <name>IHwCryptoKey</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+
+
+    <hal format="aidl">
         <name>android.hardware.audio.core</name>
         <version>1-3</version>
         <interface>
