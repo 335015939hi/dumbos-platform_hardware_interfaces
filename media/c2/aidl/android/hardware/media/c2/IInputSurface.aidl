@@ -16,9 +16,13 @@
 
 package android.hardware.media.c2;
 
+import android.hardware.common.fmq.MQDescriptor;
+import android.hardware.common.fmq.UnsynchronizedWrite;
+
 import android.hardware.media.c2.IConfigurable;
 import android.hardware.media.c2.IInputSink;
 import android.hardware.media.c2.IInputSurfaceConnection;
+import android.hardware.media.c2.InputSurfaceMessage;
 import android.view.Surface;
 
 /**
@@ -65,4 +69,12 @@ interface IInputSurface {
      *   - `Status::CORRUPTED` - Some unknown error occurred.
      */
     IInputSurfaceConnection connect(in IInputSink sink);
+
+    /**
+     * Get the message queue for the input surface.
+     *
+     * The client can monitor the sream processing status of the input surface.
+     * This can be utilized to throttle the stream.
+     */
+    MQDescriptor<InputSurfaceMessage, UnsynchronizedWrite> getMessageQueue();
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,10 +32,16 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.media.c2;
-@VintfStability
-interface IInputSurface {
-  android.view.Surface getSurface();
-  android.hardware.media.c2.IConfigurable getConfigurable();
-  android.hardware.media.c2.IInputSurfaceConnection connect(in android.hardware.media.c2.IInputSink sink);
-  android.hardware.common.fmq.MQDescriptor<android.hardware.media.c2.InputSurfaceMessage,android.hardware.common.fmq.UnsynchronizedWrite> getMessageQueue();
+@FixedSize @VintfStability
+parcelable InputSurfaceMessage {
+  int messageType;
+  int frameSeqId;
+  int count;
+  int error;
+  long timestamp;
+  const int MESSAGE_ON_FRAME_AVAILABLE = 0;
+  const int MESSAGE_ON_FRAME_RECEIVED = 1;
+  const int MESSAGE_ON_FRAME_QUEUED = 2;
+  const int MESSAGE_ON_FRAME_DROPPED = 3;
+  const int MESSAGE_ON_EOS = 4;
 }
