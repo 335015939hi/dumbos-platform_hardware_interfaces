@@ -16,6 +16,29 @@
       "message": "Is this a valid cddl value?",
       "revId": "84041310961e8f6ceb47e92d82d307f8fc729c2d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7393a03_3ac88dc7",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 25
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1951225
+      },
+      "writtenOn": "2024-11-07T20:41:06Z",
+      "side": 1,
+      "message": "should we omit the size here or make it 8? I think this runs into the same issue as the bstr variant where it limits us to 16 bit transport ids.",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 61
+      },
+      "revId": "84041310961e8f6ceb47e92d82d307f8fc729c2d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
