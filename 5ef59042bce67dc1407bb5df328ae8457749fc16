@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a8ddc2_03c52ba3",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 27
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T21:53:30Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct. Thanks a lot for catching this.",
+      "parentUuid": "94bec479_41e21ebd",
+      "range": {
+        "startLine": 32,
+        "startChar": 29,
+        "endLine": 32,
+        "endChar": 53
+      },
+      "revId": "5ef59042bce67dc1407bb5df328ae8457749fc16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67bb37d9_91dcd392",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b076980_a90d4af4",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 27
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T21:53:30Z",
+      "side": 1,
+      "message": "Sorry, I totally missed it in the previous round. Thank you!",
+      "parentUuid": "67bb37d9_91dcd392",
+      "revId": "5ef59042bce67dc1407bb5df328ae8457749fc16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1d0ebf6_c1d7a3c2",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-11-07T21:14:19Z",
       "side": 1,
       "message": "This needs to be wrapped in #6.37(...)",
+      "range": {
+        "startLine": 79,
+        "startChar": 28,
+        "endLine": 79,
+        "endChar": 49
+      },
+      "revId": "5ef59042bce67dc1407bb5df328ae8457749fc16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0083138_fe514afe",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl",
+        "patchSetId": 27
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T21:53:30Z",
+      "side": 1,
+      "message": "Thanks! Done!",
+      "parentUuid": "b1d0ebf6_c1d7a3c2",
       "range": {
         "startLine": 79,
         "startChar": 28,
