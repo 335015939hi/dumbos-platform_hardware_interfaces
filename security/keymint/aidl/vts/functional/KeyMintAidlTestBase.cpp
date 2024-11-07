@@ -234,6 +234,102 @@ uint32_t KeyMintAidlTestBase::boot_patch_level() {
     return boot_patch_level(key_characteristics_);
 }
 
+std::optional<vector<uint8_t>> KeyMintAidlTestBase::module_hash() {
+    if (AidlVersion() < 4) {
+        // The `MODULE_HASH` tag was introduced in v4 of the HAL; earlier versions should never
+        // expect to encounter it.
+        return std::nullopt;
+    }
+
+    {
+        // TODO(b/369375199): temporary code, remove when apexd -> keystore2 -> KeyMint transmission
+        // of module info happens.
+        vector<uint8_t> fakeModuleHash = {
+                0xf3, 0xf1, 0x1f, 0xe5, 0x13, 0x05, 0xfe, 0xfa, 0xe9, 0xc3, 0x53,
+                0xef, 0x69, 0xdf, 0x9f, 0xd7, 0x0c, 0x1e, 0xcc, 0x2c, 0x2c, 0x62,
+                0x1f, 0x5e, 0x2c, 0x1d, 0x19, 0xa1, 0xfd, 0xac, 0xa1, 0xb4,
+        };
+        vector<KeyParameter> info = {Authorization(TAG_MODULE_HASH, fakeModuleHash)};
+        auto result = keymint_->setAdditionalAttestationInfo(info);
+        if (!result.isOk()) {
+            GTEST_LOG_(ERROR) << "Setting Tag::MODULE_HASH to fake value f3f11fe5.. failed";
+        }
+    }
+
+    if (!module_hash_.has_value()) {
+        // The KeyMint instance should already have been informed of the `MODULE_HASH` value for the
+        // currently running system. Generate a single attestation so we can find out what the value
+        // is.
+        auto challenge = "hello";
+        auto app_id = "foo";
+        vector<uint8_t> key_blob;
+        vector<KeyCharacteristics> key_characteristics;
+        vector<Certificate> chain;
+        auto result = GenerateKey(AuthorizationSetBuilder()
+                                          .EcdsaSigningKey(EcCurve::P_256)
+                                          .Digest(Digest::NONE)
+                                          .Authorization(TAG_NO_AUTH_REQUIRED)
+                                          .AttestationChallenge(challenge)
+                                          .AttestationApplicationId(app_id)
+                                          .SetDefaultValidity(),
+                                  &key_blob, &key_characteristics, &chain);
+        if (result != ErrorCode::OK) {
+            ADD_FAILURE() << "Failed to generate attestation:" << result;
+            return std::nullopt;
+        }
+        KeyBlobDeleter deleter(keymint_, key_blob);
+        if (chain.empty()) {
+            ADD_FAILURE() << "No attestation cert";
+            return std::nullopt;
+        }
+
+        // Parse the attestation record in the leaf cert.
+        X509_Ptr cert(parse_cert_blob(chain[0].encodedCertificate));
+        if (cert.get() == nullptr) {
+            ADD_FAILURE() << "Failed to parse attestation cert";
+            return std::nullopt;
+        }
+        ASN1_OCTET_STRING* attest_rec = get_attestation_record(cert.get());
+        if (attest_rec == nullptr) {
+            ADD_FAILURE() << "Failed to find attestation extension";
+            return std::nullopt;
+        }
+        AuthorizationSet att_sw_enforced;
+        AuthorizationSet att_hw_enforced;
+        uint32_t att_attestation_version;
+        uint32_t att_keymint_version;
+        SecurityLevel att_attestation_security_level;
+        SecurityLevel att_keymint_security_level;
+        vector<uint8_t> att_challenge;
+        vector<uint8_t> att_unique_id;
+        vector<uint8_t> att_app_id;
+
+        auto error = parse_attestation_record(attest_rec->data,                 //
+                                              attest_rec->length,               //
+                                              &att_attestation_version,         //
+                                              &att_attestation_security_level,  //
+                                              &att_keymint_version,             //
+                                              &att_keymint_security_level,      //
+                                              &att_challenge,                   //
+                                              &att_sw_enforced,                 //
+                                              &att_hw_enforced,                 //
+                                              &att_unique_id);
+        if (error != ErrorCode::OK) {
+            ADD_FAILURE() << "Failed to parse attestation extension";
+            return std::nullopt;
+        }
+
+        // The module hash should be present in the software-enforced list.
+        if (!att_sw_enforced.Contains(TAG_MODULE_HASH)) {
+            ADD_FAILURE() << "No TAG_MODULE_HASH in attestation extension";
+            return std::nullopt;
+        }
+        module_hash_ = att_sw_enforced.GetTagValue(TAG_MODULE_HASH);
+    }
+
+    return module_hash_;
+}
+
 /**
  * An API to determine device IDs attestation is required or not,
  * which is mandatory for KeyMint version 2 and first_api_level 33 or greater.
@@ -270,12 +366,7 @@ bool KeyMintAidlTestBase::Curve25519Supported() {
     }
 
     // Curve 25519 was included in version 2 of the KeyMint interface.
-    int32_t version = 0;
-    auto status = keymint_->getInterfaceVersion(&version);
-    if (!status.isOk()) {
-        ADD_FAILURE() << "Failed to determine interface version";
-    }
-    return version >= 2;
+    return AidlVersion() >= 2;
 }
 
 void KeyMintAidlTestBase::InitializeKeyMint(std::shared_ptr<IKeyMintDevice> keyMint) {
@@ -320,6 +411,13 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc) {
 ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
                                            vector<uint8_t>* key_blob,
                                            vector<KeyCharacteristics>* key_characteristics) {
+    return GenerateKey(key_desc, key_blob, key_characteristics, &cert_chain_);
+}
+
+ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
+                                           vector<uint8_t>* key_blob,
+                                           vector<KeyCharacteristics>* key_characteristics,
+                                           vector<Certificate>* cert_chain) {
     std::optional<AttestationKey> attest_key = std::nullopt;
     vector<Certificate> attest_cert_chain;
     // If an attestation is requested, but the system is RKP-only, we need to supply an explicit
@@ -340,11 +438,10 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
         attest_key.value().issuerSubjectName = make_name_from_str("Android Keystore Key");
     }
 
-    ErrorCode error =
-            GenerateKey(key_desc, attest_key, key_blob, key_characteristics, &cert_chain_);
+    ErrorCode error = GenerateKey(key_desc, attest_key, key_blob, key_characteristics, cert_chain);
 
     if (error == ErrorCode::OK && attest_cert_chain.size() > 0) {
-        cert_chain_.push_back(attest_cert_chain[0]);
+        cert_chain->push_back(attest_cert_chain[0]);
     }
 
     return error;
@@ -1844,14 +1941,27 @@ void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_
     }
 }
 
+bool KeyMintAidlTestBase::verify_attestation_record(int32_t aidl_version,                   //
+                                                    const string& challenge,                //
+                                                    const string& app_id,                   //
+                                                    AuthorizationSet expected_sw_enforced,  //
+                                                    AuthorizationSet expected_hw_enforced,  //
+                                                    SecurityLevel security_level,
+                                                    const vector<uint8_t>& attestation_cert,
+                                                    vector<uint8_t>* unique_id) {
+    return ::aidl::android::hardware::security::keymint::test::verify_attestation_record(
+            aidl_version, challenge, app_id, expected_sw_enforced, expected_hw_enforced,
+            security_level, attestation_cert, unique_id, module_hash());
+}
+
 bool verify_attestation_record(int32_t aidl_version,                   //
                                const string& challenge,                //
                                const string& app_id,                   //
                                AuthorizationSet expected_sw_enforced,  //
                                AuthorizationSet expected_hw_enforced,  //
                                SecurityLevel security_level,
-                               const vector<uint8_t>& attestation_cert,
-                               vector<uint8_t>* unique_id) {
+                               const vector<uint8_t>& attestation_cert, vector<uint8_t>* unique_id,
+                               std::optional<vector<uint8_t>> expected_mod_hash) {
     X509_Ptr cert(parse_cert_blob(attestation_cert));
     EXPECT_TRUE(!!cert.get());
     if (!cert.get()) return false;
@@ -1958,6 +2068,12 @@ bool verify_attestation_record(int32_t aidl_version,                   //
     EXPECT_EQ(ErrorCode::OK, error);
     verify_root_of_trust(verified_boot_key, device_locked, verified_boot_state, verified_boot_hash);
 
+    if (expected_mod_hash.has_value()) {
+        // We expect a MODULE_HASH value to be auto-populated in the software-enforced list (because
+        // the device is >=v4), but this tag is not in key characteristics and so won't be in the
+        // expected software-enforced list.
+        expected_sw_enforced.push_back(Authorization(TAG_MODULE_HASH, expected_mod_hash.value()));
+    }
     att_sw_enforced.Sort();
     expected_sw_enforced.Sort();
     EXPECT_EQ(filtered_tags(expected_sw_enforced), filtered_tags(att_sw_enforced));
@@ -2353,7 +2469,7 @@ std::string exec_command(const std::string& command) {
 
     FILE* pipe = popen(command.c_str(), "r");
     if (!pipe) {
-        LOG(ERROR) << "popen failed.";
+        GTEST_LOG_(ERROR) << "popen failed.";
         return result;
     }
 
@@ -2379,7 +2495,7 @@ std::string get_imei(int slot) {
     std::string output = exec_command(cmd);
 
     if (output.empty()) {
-        LOG(ERROR) << "Command failed. Cmd: " << cmd;
+        GTEST_LOG_(ERROR) << "Command failed. Cmd: " << cmd;
         return "";
     }
 
@@ -2387,13 +2503,14 @@ std::string get_imei(int slot) {
             ::android::base::Tokenize(::android::base::Trim(output), "Device IMEI:");
 
     if (out.size() != 1) {
-        LOG(ERROR) << "Error in parsing the command output. Cmd: " << cmd;
+        GTEST_LOG_(ERROR) << "Error in parsing the command output. Cmd: " << cmd;
         return "";
     }
 
     std::string imei = ::android::base::Trim(out[0]);
     if (imei.compare("null") == 0) {
-        LOG(WARNING) << "Failed to get IMEI from Telephony service: value is null. Cmd: " << cmd;
+        GTEST_LOG_(WARNING) << "Failed to get IMEI from Telephony service: value is null. Cmd: "
+                            << cmd;
         return "";
     }
 
