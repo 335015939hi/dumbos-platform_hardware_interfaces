@@ -35,6 +35,7 @@
 #include <remote_prov/remote_prov_utils.h>
 #include <optional>
 #include <set>
+#include <string_view>
 #include <vector>
 
 #include "KeyMintAidlTestBase.h"
@@ -150,22 +151,14 @@ ErrMsgOr<bytevec> corrupt_sig_chain(const bytevec& encodedEekChain, int which) {
     return corruptChain.encode();
 }
 
-string device_suffix(const string& name) {
-    size_t pos = name.find('/');
-    if (pos == string::npos) {
-        return name;
-    }
-    return name.substr(pos + 1);
-}
-
 bool matching_keymint_device(const string& rp_name, std::shared_ptr<IKeyMintDevice>* keyMint) {
-    string rp_suffix = device_suffix(rp_name);
+    auto rp_suffix = deviceSuffix(rp_name);
 
     vector<string> km_names = ::android::getAidlHalInstanceNames(IKeyMintDevice::descriptor);
     for (const string& km_name : km_names) {
         // If the suffix of the KeyMint instance equals the suffix of the
         // RemotelyProvisionedComponent instance, assume they match.
-        if (device_suffix(km_name) == rp_suffix && AServiceManager_isDeclared(km_name.c_str())) {
+        if (deviceSuffix(km_name) == rp_suffix && AServiceManager_isDeclared(km_name.c_str())) {
             ::ndk::SpAIBinder binder(AServiceManager_waitForService(km_name.c_str()));
             *keyMint = IKeyMintDevice::fromBinder(binder);
             return true;
@@ -1002,7 +995,7 @@ TEST_P(CertificateRequestV2Test, DeviceInfo) {
     ASSERT_TRUE(bootPatchLevel);
     ASSERT_TRUE(securityLevel);
 
-    auto kmDeviceName = device_suffix(GetParam());
+    auto kmDeviceName = deviceSuffix(GetParam());
 
     // Compare DeviceInfo against IDs attested by KeyMint.
     ASSERT_TRUE((securityLevel->value() == "tee" && kmDeviceName == "default") ||

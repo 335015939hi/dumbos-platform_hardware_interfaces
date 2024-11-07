@@ -52,8 +52,8 @@ using EVP_PKEY_CTX_Ptr = bssl::UniquePtr<EVP_PKEY_CTX>;
 using X509_Ptr = bssl::UniquePtr<X509>;
 using CRYPTO_BUFFER_Ptr = bssl::UniquePtr<CRYPTO_BUFFER>;
 
-std::string deviceSuffix(const std::string& name) {
-    size_t pos = name.rfind('/');
+std::string_view deviceSuffix(const std::string_view name) {
+    auto pos = name.rfind('/');
     if (pos == std::string::npos) {
         return name;
     }

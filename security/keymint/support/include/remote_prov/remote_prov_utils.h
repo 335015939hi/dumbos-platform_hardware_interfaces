@@ -99,7 +99,7 @@ const std::string RKPVM_INSTANCE_NAME =
  * e.g. for "android.hardware.security.keymint.IRemotelyProvisionedComponent/avf",
  * it returns "avf".
  */
-std::string deviceSuffix(const std::string& name);
+std::string_view deviceSuffix(const std::string_view name);
 
 struct EekChain {
     bytevec chain;
