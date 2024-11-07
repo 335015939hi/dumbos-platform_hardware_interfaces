@@ -115,6 +115,16 @@ parcelable Event {
       android.hardware.sensors.SensorStatus status;
     }
     @FixedSize @VintfStability
+    parcelable MoistureIntrusion {
+      android.hardware.sensors.Event.EventPayload.MoistureIntrusion.MoistureDamage damage;
+      @Backing(type="int") @VintfStability
+      enum MoistureDamage {
+        LIGHT = 1,
+        MODERATE = 2,
+        SEVERE = 3,
+      }
+    }
+    @FixedSize @VintfStability
     parcelable Heading {
       float heading;
       float accuracy;
