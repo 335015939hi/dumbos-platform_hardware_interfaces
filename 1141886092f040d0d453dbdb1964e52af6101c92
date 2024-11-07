@@ -22,6 +22,30 @@
       },
       "revId": "1141886092f040d0d453dbdb1964e52af6101c92",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af3bffea_10ba4414",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 731,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-07T12:12:51Z",
+      "side": 1,
+      "message": "I\u0027m initializing the channel layout to mono in ```DynamicsProcessingLimiterConfigDataTest``` constructor.",
+      "parentUuid": "d72c9585_26a493ab",
+      "range": {
+        "startLine": 730,
+        "startChar": 0,
+        "endLine": 731,
+        "endChar": 90
+      },
+      "revId": "1141886092f040d0d453dbdb1964e52af6101c92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
