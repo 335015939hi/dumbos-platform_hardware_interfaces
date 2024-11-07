@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd490fd9_eadc6a7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T20:27:15Z",
+      "side": 1,
+      "message": "We had two meetings [11/04 and 11/06] for the CBOR API review with Paul, Arve, Gil and me. Please find the meeting notes and the resulting summary of changes to the CL.\n\nMeeting Notes:\n1. We are using both root level CBOR structures (e.g. DicePolicy) and inner CBOR structures (e.g. DiceChainEntry) from external CDDLs (e.g. DicePolicy.cddl and generateCertificateRequestV2.cddl respectively). While the external root level CBOR structures have a version, their inner CBOR structures do not have a version. We concluded that this is fine, as long as we reference the correct version of the CDDL file from our AIDL files. For the CBOR structures that we introduce in this CL, we do not need to add a version explicitly, because if the CBOR structures need to change, the AIDL version needs to change along with that. Paul pointed out that there is now a draft spec defining how to import external CBOR structures in the CDDL definitions: https://cbor-wg.github.io/cddl-modules/draft-ietf-cbor-cddl-modules.html\n\n2. There are multiple CBOR structures signed by the DICE signing key of a pVM. We brainstormed how best to ensure that both the signer and the verifier refer to the same CBOR structure. Three potential approaches were: i) including the payload type in the protected header of the signature, ii) including the payload type in the external_aad field iii) using tagged CBOR structures to indicate the type. We concluded that the option #2 is desirable out of the three, because: i) it prevents the verifier blindly using the type that the signer sent, ii) it doesn\u0027t add on to the existing bytes sent from the signer to the verifier.\n\n3. While there are multiple ways to uniquely identify a CBOR structure, we decided to use UUID V4 (https://datatracker.ietf.org/doc/html/rfc9562#name-uuid-version-4) because it eliminates the requirement of maintaining a central file listing the integers assigned to different CBOR structures signed by the DICE signing key, while still ensuring collision resistance across the identifiers.\n\n4. We do not include protocol downgrade attacks in our threat model because the communication channels are integrity protected and we  detect any person-in-the-middle attacks via the transport IDs of the peers. \n\nSummary of changes to the CL:\n1. Introduced a common CBOR structure (`ExternalAADForDICESigned`) to be used for the external_aad field of any `Sig_structure` signed by the DICE signing key. This includes a mandatory field: `uuid_of_payload_struct`, which is required to ensure that both the signer and the verifier refer to the same payload structure, given that there are various payload structures signed by the DICE signing key in different protocols in Android today.\n\n\n2. Updated the CBOR structure for the signed payload to accommodate more than one transport type and renamed it for better clarity.\n\n@paulcrowley@google.com @arve@android.com @cukie@google.com can you please add anything I have missed? \n\n@paulcrowley@google.com can you please approve the CL for the things discussed in the review?\n\nThank you!",
+      "parentUuid": "5888e12e_c6dfafc1",
+      "revId": "bbdebca5d682ddd4bfb680c9c92f3ce3ef842ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5327c743_c588a0d6",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/DicePolicy.aidl",
         "patchSetId": 20

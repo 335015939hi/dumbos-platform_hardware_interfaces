@@ -160,6 +160,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a3391ea_7a231594",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T20:27:15Z",
+      "side": 1,
+      "message": "I am resolving this assuming that you are okay to have it as it is, given that we have other AIDL interfaces which distinguish OOM errors from InternalError type. Please feel free to reopen if you have further concerns.",
+      "parentUuid": "a4e3a546_d68f6377",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5ca3135_d9adcdae",
@@ -230,6 +248,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96417ac7_a2d7a95e",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T20:27:15Z",
+      "side": 1,
+      "message": "I am resolving this assuming that comment is addressed. Please feel free to reopen if you see any further issues.",
+      "parentUuid": "04b2e624_f0d44cae",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bca73b7_29bcb122",
@@ -265,6 +301,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c987b98a_d2952896",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T20:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f9e28da_197252d6",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbe8c5e9_e49170c6",
@@ -296,6 +350,24 @@
       "side": 1,
       "message": "@arve@android.com Shouldn\u0027t the AuthMgr FE be able to retrieve it from the transport?",
       "parentUuid": "dbe8c5e9_e49170c6",
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af815166_b837a5e1",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T20:27:15Z",
+      "side": 1,
+      "message": "This was resolved during the CBOR API review meeting.",
+      "parentUuid": "6dd63b44_33339563",
       "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -502,6 +574,30 @@
       "side": 1,
       "message": "We have other tests that need a factory reset, so I think it is fine for this one to also need that.",
       "parentUuid": "7e8b0cba_d7b75051",
+      "range": {
+        "startLine": 198,
+        "startChar": 85,
+        "endLine": 200,
+        "endChar": 66
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd749d1f_14389976",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T20:27:15Z",
+      "side": 1,
+      "message": "Thanks Arve!",
+      "parentUuid": "1ec300ed_fbc2962e",
       "range": {
         "startLine": 198,
         "startChar": 85,

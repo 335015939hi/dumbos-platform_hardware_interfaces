@@ -87,6 +87,30 @@
       },
       "revId": "c9ddd9bfd0caed83fd9a30be7b7fdc152d2f6712",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3ca2989_cda1f67a",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedResponseForChallenge.cddl",
+        "patchSetId": 22
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T20:27:15Z",
+      "side": 1,
+      "message": "As discussed in the CBOR API review, I have changed the `ConnectionRequest` structure https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3217176/25/security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.cddl#37 to accommodate transports other than FFA.",
+      "parentUuid": "8773f9e8_2c9d9446",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 65
+      },
+      "revId": "c9ddd9bfd0caed83fd9a30be7b7fdc152d2f6712",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
