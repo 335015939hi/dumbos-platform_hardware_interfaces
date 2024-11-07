@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "43c999cc_26ac2cc2",
+        "filename": "health/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-07T18:17:00Z",
+      "side": 1,
+      "message": "this should change to `frozen: false` with `update-api`.\n\nThe `health/aidl/default/` implementation will need to be bumped.\n\nAdd VTS tests to require the method to be implemented and return _something_ useful like `expectedFoldLifespan \u003e 0`",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 17
+      },
+      "revId": "697fbb14a4a5c498882941f1203c23fb2a818a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca2269f0_f2985f96",
         "filename": "health/aidl/android/hardware/health/FoldInfo.aidl",
         "patchSetId": 10
