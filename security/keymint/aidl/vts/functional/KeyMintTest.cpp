@@ -643,6 +643,7 @@ class NewKeyGenerationTest : public KeyMintAidlTestBase {
         // Verify that App data, ROT and auth timeout are NOT included.
         EXPECT_FALSE(auths.Contains(TAG_ROOT_OF_TRUST));
         EXPECT_FALSE(auths.Contains(TAG_APPLICATION_DATA));
+        EXPECT_FALSE(auths.Contains(TAG_MODULE_HASH));
         EXPECT_FALSE(auths.Contains(TAG_AUTH_TIMEOUT, 301U));
 
         // None of the tests specify CREATION_DATETIME so check that the KeyMint implementation
@@ -8892,6 +8893,49 @@ TEST_P(EarlyBootKeyTest, DISABLED_FullTest) {
 
 INSTANTIATE_KEYMINT_AIDL_TEST(EarlyBootKeyTest);
 
+using ModuleHashTest = KeyMintAidlTestBase;
+
+TEST_P(ModuleHashTest, SetSameValue) {
+    if (AidlVersion() < 4) {
+        GTEST_SKIP() << "Module hash only available for >= v4, this device is v" << AidlVersion();
+    }
+    auto module_hash = getModuleHash();
+    ASSERT_TRUE(module_hash.has_value());
+
+    // Setting the same value that's already there should work.
+    vector<KeyParameter> info = {Authorization(TAG_MODULE_HASH, module_hash.value())};
+    EXPECT_TRUE(keymint_->setAdditionalAttestationInfo(info).isOk());
+}
+
+TEST_P(ModuleHashTest, SetDifferentValue) {
+    if (AidlVersion() < 4) {
+        GTEST_SKIP() << "Module hash only available for >= v4, this device is v" << AidlVersion();
+    }
+    auto module_hash = getModuleHash();
+    ASSERT_TRUE(module_hash.has_value());
+    vector<uint8_t> wrong_hash = module_hash.value();
+    ASSERT_EQ(wrong_hash.size(), 32);
+
+    // Setting a slightly different value should fail.
+    wrong_hash[0] ^= 0x01;
+    vector<KeyParameter> info = {Authorization(TAG_MODULE_HASH, wrong_hash)};
+    EXPECT_EQ(GetReturnErrorCode(keymint_->setAdditionalAttestationInfo(info)),
+              ErrorCode::MODULE_HASH_ALREADY_SET);
+}
+
+TEST_P(ModuleHashTest, SetUnrelatedTag) {
+    if (AidlVersion() < 4) {
+        GTEST_SKIP() << "Module hash only available for >= v4, this device is v" << AidlVersion();
+    }
+
+    // Trying to set an unexpected tag should be silently ignored..
+    vector<uint8_t> data = {0, 1, 2, 3, 4};
+    vector<KeyParameter> info = {Authorization(TAG_ROOT_OF_TRUST, data)};
+    EXPECT_EQ(GetReturnErrorCode(keymint_->setAdditionalAttestationInfo(info)), ErrorCode::OK);
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(ModuleHashTest);
+
 using VsrRequirementTest = KeyMintAidlTestBase;
 
 // @VsrTest = VSR-3.10-008
@@ -8910,6 +8954,18 @@ TEST_P(VsrRequirementTest, Vsr14Test) {
         GTEST_SKIP() << "Applies only to VSR API level 34, this device is: " << vsr_api_level;
     }
     EXPECT_GE(AidlVersion(), 3) << "VSR 14+ requires KeyMint version 3";
+}
+
+// @VsrTest = GMS-VSR-3.10-019
+TEST_P(VsrRequirementTest, Vsr16Test) {
+    int vsr_api_level = get_vsr_api_level();
+    if (vsr_api_level <= __ANDROID_API_V__) {
+        GTEST_SKIP() << "Applies only to VSR API level > 35, this device is: " << vsr_api_level;
+    }
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Applies only to TEE KeyMint, not StrongBox KeyMint";
+    }
+    EXPECT_GE(AidlVersion(), 4) << "VSR 16+ requires KeyMint version 4 in TEE";
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(VsrRequirementTest);
