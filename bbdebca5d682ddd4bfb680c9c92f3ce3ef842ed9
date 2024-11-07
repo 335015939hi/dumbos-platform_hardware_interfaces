@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3d94cb9_7d541fdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-07T22:06:29Z",
+      "side": 1,
+      "message": "Resolving this based on +2 from Paul for the CBOR CDDL review.",
+      "parentUuid": "fd490fd9_eadc6a7e",
+      "revId": "bbdebca5d682ddd4bfb680c9c92f3ce3ef842ed9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5327c743_c588a0d6",
