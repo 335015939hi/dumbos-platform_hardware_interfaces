@@ -16,6 +16,121 @@
       "message": "I don\u0027t need to be here for this review 😊 It would be better to get a radio team member to review this.",
       "revId": "e4adf22126f1d8576e158a26c46ff657b3ada34a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bf5521f_3b4011cf",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-11-07T20:53:38Z",
+      "side": 1,
+      "message": "we should clarify which cellular indications\n\nex:\n`Cellular indications (cellularIdentifierDisclosed and securityAlgorithmsUpdated) must be sent...`\n\nOr just say `Changes to cellularIdentifierDisclosed must be sent...`",
+      "range": {
+        "startLine": 224,
+        "startChar": 7,
+        "endLine": 224,
+        "endChar": 27
+      },
+      "revId": "e4adf22126f1d8576e158a26c46ff657b3ada34a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fffe1711_ec2dd35c",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-11-07T20:53:38Z",
+      "side": 1,
+      "message": "same comment as above",
+      "range": {
+        "startLine": 266,
+        "startChar": 7,
+        "endLine": 266,
+        "endChar": 27
+      },
+      "revId": "e4adf22126f1d8576e158a26c46ff657b3ada34a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "830796d1_c217a87c",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-11-07T20:53:38Z",
+      "side": 1,
+      "message": "please clarify release 17 of what, or change to `5G Rel 17` for consistency with lines 279-286",
+      "range": {
+        "startLine": 303,
+        "startChar": 84,
+        "endLine": 303,
+        "endChar": 94
+      },
+      "revId": "e4adf22126f1d8576e158a26c46ff657b3ada34a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3b269dc_66b2d016",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-11-07T20:53:38Z",
+      "side": 1,
+      "message": "can we align all of these under `Note` for better readability? same for the 2 below",
+      "range": {
+        "startLine": 304,
+        "startChar": 5,
+        "endLine": 306,
+        "endChar": 7
+      },
+      "revId": "e4adf22126f1d8576e158a26c46ff657b3ada34a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91065bab_8c486c38",
+        "filename": "radio/aidl/android/hardware/radio/network/IRadioNetworkIndication.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2024-11-07T20:53:38Z",
+      "side": 1,
+      "message": "nit: space",
+      "range": {
+        "startLine": 307,
+        "startChar": 6,
+        "endLine": 307,
+        "endChar": 7
+      },
+      "revId": "e4adf22126f1d8576e158a26c46ff657b3ada34a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
