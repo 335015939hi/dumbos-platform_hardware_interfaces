@@ -103,16 +103,30 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t vendor_patch_level() { return vendor_patch_level_; }
     uint32_t boot_patch_level(const vector<KeyCharacteristics>& key_characteristics);
     uint32_t boot_patch_level();
+    std::optional<vector<uint8_t>> module_hash();
     bool isDeviceIdAttestationRequired();
     bool isSecondImeiIdAttestationRequired();
     std::optional<bool> isRkpOnly();
 
     bool Curve25519Supported();
 
+    bool verify_attestation_record(int aidl_version,                       //
+                                   const string& challenge,                //
+                                   const string& app_id,                   //
+                                   AuthorizationSet expected_sw_enforced,  //
+                                   AuthorizationSet expected_hw_enforced,  //
+                                   SecurityLevel security_level,
+                                   const vector<uint8_t>& attestation_cert,
+                                   vector<uint8_t>* unique_id = nullptr);
+
     ErrorCode GenerateKey(const AuthorizationSet& key_desc);
 
     ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
                           vector<KeyCharacteristics>* key_characteristics);
+
+    ErrorCode GenerateKey(const AuthorizationSet& key_desc, vector<uint8_t>* key_blob,
+                          vector<KeyCharacteristics>* key_characteristics,
+                          vector<Certificate>* cert_chain);
 
     ErrorCode GenerateKey(const AuthorizationSet& key_desc,
                           const optional<AttestationKey>& attest_key, vector<uint8_t>* key_blob,
@@ -373,6 +387,7 @@ class KeyMintAidlTestBase : public ::testing::TestWithParam<string> {
     uint32_t os_patch_level_;
     uint32_t vendor_patch_level_;
     bool timestamp_token_required_;
+    std::optional<vector<uint8_t>> module_hash_;
 
     SecurityLevel securityLevel_;
     string name_;
@@ -417,14 +432,6 @@ void verify_root_of_trust(const vector<uint8_t>& verified_boot_key,  //
                           bool device_locked,                        //
                           VerifiedBoot verified_boot_state,          //
                           const vector<uint8_t>& verified_boot_hash);
-bool verify_attestation_record(int aidl_version,                       //
-                               const string& challenge,                //
-                               const string& app_id,                   //
-                               AuthorizationSet expected_sw_enforced,  //
-                               AuthorizationSet expected_hw_enforced,  //
-                               SecurityLevel security_level,
-                               const vector<uint8_t>& attestation_cert,
-                               vector<uint8_t>* unique_id = nullptr);
 
 string bin2hex(const vector<uint8_t>& data);
 X509_Ptr parse_cert_blob(const vector<uint8_t>& blob);
