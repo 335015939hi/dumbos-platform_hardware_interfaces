@@ -402,6 +402,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "07757db3_486d694d",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/IBluetoothChannelSoundingSession.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-07T15:45:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6141bac5_4552ac1a",
+      "revId": "a3398e5852e8fd4d5330c38a1cb32544ed202c53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "707977d9_bdca4bd7",
         "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ModeData.aidl",
         "patchSetId": 6
