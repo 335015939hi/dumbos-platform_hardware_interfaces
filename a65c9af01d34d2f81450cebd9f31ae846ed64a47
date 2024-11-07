@@ -16,6 +16,23 @@
       "message": "Reviewed internally",
       "revId": "a65c9af01d34d2f81450cebd9f31ae846ed64a47",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4976247f_7bd7a214",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010050
+      },
+      "writtenOn": "2024-11-07T17:03:19Z",
+      "side": 1,
+      "message": "This is a cherry-pick of the already-merged ag/29922346 to AOSP to help with partner coordination.  Would appreciate owner votes for automotive, graphics, and  neural networks again!",
+      "revId": "a65c9af01d34d2f81450cebd9f31ae846ed64a47",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
