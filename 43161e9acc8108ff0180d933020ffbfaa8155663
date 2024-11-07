@@ -16,6 +16,24 @@
       "message": "If we add entries to this enum, does it count as a backwards-compatible change? The thing I like about a string or integer is that you can extend it without making anyone unhappy...",
       "revId": "43161e9acc8108ff0180d933020ffbfaa8155663",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "185bc55e_7bc7581b",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 63
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-07T23:48:14Z",
+      "side": 1,
+      "message": "Yes, adding enumerators is backwards-compatible.",
+      "parentUuid": "2479415a_04c53e55",
+      "revId": "43161e9acc8108ff0180d933020ffbfaa8155663",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
