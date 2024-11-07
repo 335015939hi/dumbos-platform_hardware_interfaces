@@ -718,6 +718,14 @@ enum SensorType {
     HEADING = 42,
 
     /**
+     * MOISTURE
+     * reporting-mode: continuous
+     *
+     * Detects moisture intrusion in the chassis of device.
+     */
+    MOISTURE = 43,
+
+    /**
      * Base for device manufacturers private sensor types.
      * These sensor types can't be exposed in the SDK.
      */
