@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8097d1e_8bc999d0",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/PctIQSample.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-07T01:06:07Z",
+      "side": 1,
+      "message": "nit: prefer Iq if this is one acronym typically used together.",
+      "range": {
+        "startLine": 30,
+        "startChar": 14,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "2bf83e5f0d621b7a1742fa3ba596765e7ada0fae",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
