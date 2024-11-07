@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6892bca0_49441eec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1153044
+      },
+      "writtenOn": "2024-11-07T14:14:29Z",
+      "side": 1,
+      "message": "Hello,\nInstead of changing the AIDL interface, could we notify upper layers of the NDEF-NFCEE support through the ANDROID GET_CAPS command?",
+      "revId": "05bd5efb795ce8a357bb2fe0da198bbe29fcc9b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
