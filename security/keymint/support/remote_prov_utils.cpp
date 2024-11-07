@@ -483,8 +483,7 @@ bool isTeeDeviceInfo(const cppbor::Map& devInfo) {
 }
 
 ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateDeviceInfo(
-        const std::vector<uint8_t>& deviceInfoBytes, IRemotelyProvisionedComponent* provisionable,
-        bool isFactory) {
+        const std::vector<uint8_t>& deviceInfoBytes, const RpcHardwareInfo& info, bool isFactory) {
     const cppbor::Array kValidVbStates = {"green", "yellow", "orange"};
     const cppbor::Array kValidBootloaderStates = {"locked", "unlocked"};
     const cppbor::Array kValidSecurityLevels = {"tee", "strongbox"};
@@ -530,8 +529,6 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateDeviceInfo(
         return "DeviceInfo ordering is non-canonical.";
     }
 
-    RpcHardwareInfo info;
-    provisionable->getHardwareInfo(&info);
     if (info.versionNumber < 3) {
         const std::unique_ptr<cppbor::Item>& version = parsed->get("version");
         if (!version) {
@@ -637,13 +634,13 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateDeviceInfo(
 }
 
 ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateFactoryDeviceInfo(
-        const std::vector<uint8_t>& deviceInfoBytes, IRemotelyProvisionedComponent* provisionable) {
-    return parseAndValidateDeviceInfo(deviceInfoBytes, provisionable, /*isFactory=*/true);
+        const std::vector<uint8_t>& deviceInfoBytes, const RpcHardwareInfo& info) {
+    return parseAndValidateDeviceInfo(deviceInfoBytes, info, /*isFactory=*/true);
 }
 
 ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateProductionDeviceInfo(
-        const std::vector<uint8_t>& deviceInfoBytes, IRemotelyProvisionedComponent* provisionable) {
-    return parseAndValidateDeviceInfo(deviceInfoBytes, provisionable, /*isFactory=*/false);
+        const std::vector<uint8_t>& deviceInfoBytes, const RpcHardwareInfo& info) {
+    return parseAndValidateDeviceInfo(deviceInfoBytes, info, /*isFactory=*/false);
 }
 
 ErrMsgOr<bytevec> getSessionKey(ErrMsgOr<std::pair<bytevec, bytevec>>& senderPubkey,
@@ -662,7 +659,7 @@ ErrMsgOr<std::vector<BccEntryData>> verifyProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
         const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
+        const RpcHardwareInfo& info, const std::string& instanceName,
         const std::vector<uint8_t>& challenge, bool isFactory, bool allowAnyMode = false) {
     auto [parsedProtectedData, _, protDataErrMsg] = cppbor::parse(protectedData.protectedData);
     if (!parsedProtectedData) {
@@ -725,8 +722,7 @@ ErrMsgOr<std::vector<BccEntryData>> verifyProtectedData(
         return bccContents.message() + "\n" + prettyPrint(bcc.get());
     }
 
-    auto deviceInfoResult =
-            parseAndValidateDeviceInfo(deviceInfo.deviceInfo, provisionable, isFactory);
+    auto deviceInfoResult = parseAndValidateDeviceInfo(deviceInfo.deviceInfo, info, isFactory);
     if (!deviceInfoResult) {
         return deviceInfoResult.message();
     }
@@ -763,10 +759,10 @@ ErrMsgOr<std::vector<BccEntryData>> verifyFactoryProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
         const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
+        const RpcHardwareInfo& info, const std::string& instanceName,
         const std::vector<uint8_t>& challenge) {
     return verifyProtectedData(deviceInfo, keysToSign, keysToSignMac, protectedData, eekChain,
-                               eekId, supportedEekCurve, provisionable, instanceName, challenge,
+                               eekId, supportedEekCurve, info, instanceName, challenge,
                                /*isFactory=*/true);
 }
 
@@ -774,10 +770,10 @@ ErrMsgOr<std::vector<BccEntryData>> verifyProductionProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
         const EekChain& eekChain, const std::vector<uint8_t>& eekId, int32_t supportedEekCurve,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
+        const RpcHardwareInfo& info, const std::string& instanceName,
         const std::vector<uint8_t>& challenge, bool allowAnyMode) {
     return verifyProtectedData(deviceInfo, keysToSign, keysToSignMac, protectedData, eekChain,
-                               eekId, supportedEekCurve, provisionable, instanceName, challenge,
+                               eekId, supportedEekCurve, info, instanceName, challenge,
                                /*isFactory=*/false, allowAnyMode);
 }
 
@@ -912,7 +908,7 @@ std::optional<std::string> validateUdsCerts(const cppbor::Map& udsCerts,
 
 ErrMsgOr<std::unique_ptr<cppbor::Array>> parseAndValidateCsrPayload(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csrPayload,
-        IRemotelyProvisionedComponent* provisionable, bool isFactory) {
+        const RpcHardwareInfo& info, bool isFactory) {
     auto [parsedCsrPayload, _, errMsg] = cppbor::parse(csrPayload);
     if (!parsedCsrPayload) {
         return errMsg;
@@ -949,7 +945,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> parseAndValidateCsrPayload(
         return "Keys must be an Array.";
     }
 
-    auto result = parseAndValidateDeviceInfo(signedDeviceInfo->encode(), provisionable, isFactory);
+    auto result = parseAndValidateDeviceInfo(signedDeviceInfo->encode(), info, isFactory);
     if (!result) {
         return result.message();
     }
@@ -1100,11 +1096,9 @@ ErrMsgOr<bytevec> parseAndValidateAuthenticatedRequest(const std::vector<uint8_t
 
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
+        const RpcHardwareInfo& info, const std::string& instanceName,
         const std::vector<uint8_t>& challenge, bool isFactory, bool allowAnyMode = false,
         bool allowDegenerate = true, bool requireUdsCerts = false) {
-    RpcHardwareInfo info;
-    provisionable->getHardwareInfo(&info);
     if (info.versionNumber != 3) {
         return "Remotely provisioned component version (" + std::to_string(info.versionNumber) +
                ") does not match expected version (3).";
@@ -1117,22 +1111,24 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyCsr(
         return csrPayload.message();
     }
 
-    return parseAndValidateCsrPayload(keysToSign, *csrPayload, provisionable, isFactory);
+    return parseAndValidateCsrPayload(keysToSign, *csrPayload, info, isFactory);
 }
 
 ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyFactoryCsr(
         const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
+        const RpcHardwareInfo& info, const std::string& instanceName,
         const std::vector<uint8_t>& challenge, bool allowDegenerate, bool requireUdsCerts) {
-    return verifyCsr(keysToSign, csr, provisionable, instanceName, challenge, /*isFactory=*/true,
+    return verifyCsr(keysToSign, csr, info, instanceName, challenge, /*isFactory=*/true,
                      /*allowAnyMode=*/false, allowDegenerate, requireUdsCerts);
 }
 
-ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(
-        const cppbor::Array& keysToSign, const std::vector<uint8_t>& csr,
-        IRemotelyProvisionedComponent* provisionable, const std::string& instanceName,
-        const std::vector<uint8_t>& challenge, bool allowAnyMode) {
-    return verifyCsr(keysToSign, csr, provisionable, instanceName, challenge, /*isFactory=*/false,
+ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(const cppbor::Array& keysToSign,
+                                                             const std::vector<uint8_t>& csr,
+                                                             const RpcHardwareInfo& info,
+                                                             const std::string& instanceName,
+                                                             const std::vector<uint8_t>& challenge,
+                                                             bool allowAnyMode) {
+    return verifyCsr(keysToSign, csr, info, instanceName, challenge, /*isFactory=*/false,
                      allowAnyMode);
 }
 

@@ -25,7 +25,6 @@
 #include <keymaster/logger.h>
 #include <keymaster/remote_provisioning_utils.h>
 #include <openssl/curve25519.h>
-#include <remote_prov/MockIRemotelyProvisionedComponent.h>
 #include <remote_prov/remote_prov_utils.h>
 
 #include <algorithm>
@@ -328,6 +327,8 @@ inline const std::vector<uint8_t> kCsrWithoutUdsCerts{
         0xa7, 0xb6, 0xc2, 0x40, 0x06, 0x65, 0xc5, 0xff, 0x19, 0xc5, 0xcd, 0x1c, 0xd5, 0x78, 0x01,
         0xd4, 0xb8};
 
+const RpcHardwareInfo kRpcHardwareInfo = {.versionNumber = 3};
+
 inline bool equal_byte_views(const byte_view& view1, const byte_view& view2) {
     return std::equal(view1.begin(), view1.end(), view2.begin(), view2.end());
 }
@@ -561,15 +562,10 @@ TEST(RemoteProvUtilsTest, requireUdsCertsWhenPresent) {
     auto [keysToSignPtr, _, errMsg] = cppbor::parse(kKeysToSignForCsrWithUdsCerts);
     ASSERT_TRUE(keysToSignPtr) << "Error: " << errMsg;
 
-    auto mockRpc = SharedRefBase::make<MockIRemotelyProvisionedComponent>();
-    EXPECT_CALL(*mockRpc, getHardwareInfo(NotNull())).WillRepeatedly([](RpcHardwareInfo* hwInfo) {
-        hwInfo->versionNumber = 3;
-        return ScopedAStatus::ok();
-    });
-
     const auto keysToSign = keysToSignPtr->asArray();
-    auto csr = verifyFactoryCsr(*keysToSign, kCsrWithUdsCerts, mockRpc.get(), "default", kChallenge,
-                                /*allowDegenerate=*/false, /*requireUdsCerts=*/true);
+    auto csr =
+            verifyFactoryCsr(*keysToSign, kCsrWithUdsCerts, kRpcHardwareInfo, "default", kChallenge,
+                             /*allowDegenerate=*/false, /*requireUdsCerts=*/true);
     ASSERT_TRUE(csr) << csr.message();
 }
 
@@ -577,27 +573,15 @@ TEST(RemoteProvUtilsTest, dontRequireUdsCertsWhenPresent) {
     auto [keysToSignPtr, _, errMsg] = cppbor::parse(kKeysToSignForCsrWithUdsCerts);
     ASSERT_TRUE(keysToSignPtr) << "Error: " << errMsg;
 
-    auto mockRpc = SharedRefBase::make<MockIRemotelyProvisionedComponent>();
-    EXPECT_CALL(*mockRpc, getHardwareInfo(NotNull())).WillRepeatedly([](RpcHardwareInfo* hwInfo) {
-        hwInfo->versionNumber = 3;
-        return ScopedAStatus::ok();
-    });
-
     const auto* keysToSign = keysToSignPtr->asArray();
-    auto csr = verifyFactoryCsr(*keysToSign, kCsrWithUdsCerts, mockRpc.get(), DEFAULT_INSTANCE_NAME,
-                                kChallenge,
+    auto csr = verifyFactoryCsr(*keysToSign, kCsrWithUdsCerts, kRpcHardwareInfo,
+                                DEFAULT_INSTANCE_NAME, kChallenge,
                                 /*allowDegenerate=*/false, /*requireUdsCerts=*/false);
     ASSERT_TRUE(csr) << csr.message();
 }
 
 TEST(RemoteProvUtilsTest, requireUdsCertsWhenNotPresent) {
-    auto mockRpc = SharedRefBase::make<MockIRemotelyProvisionedComponent>();
-    EXPECT_CALL(*mockRpc, getHardwareInfo(NotNull())).WillRepeatedly([](RpcHardwareInfo* hwInfo) {
-        hwInfo->versionNumber = 3;
-        return ScopedAStatus::ok();
-    });
-
-    auto csr = verifyFactoryCsr(/*keysToSign=*/Array(), kCsrWithoutUdsCerts, mockRpc.get(),
+    auto csr = verifyFactoryCsr(/*keysToSign=*/Array(), kCsrWithoutUdsCerts, kRpcHardwareInfo,
                                 DEFAULT_INSTANCE_NAME, kChallenge, /*allowDegenerate=*/false,
                                 /*requireUdsCerts=*/true);
     ASSERT_FALSE(csr);
@@ -610,14 +594,8 @@ TEST(RemoteProvUtilsTest, dontRequireUdsCertsWhenNotPresent) {
             kKeysToSignForCsrWithoutUdsCerts.data() + kKeysToSignForCsrWithoutUdsCerts.size());
     ASSERT_TRUE(keysToSignPtr) << "Error: " << errMsg;
 
-    auto mockRpc = SharedRefBase::make<MockIRemotelyProvisionedComponent>();
-    EXPECT_CALL(*mockRpc, getHardwareInfo(NotNull())).WillRepeatedly([](RpcHardwareInfo* hwInfo) {
-        hwInfo->versionNumber = 3;
-        return ScopedAStatus::ok();
-    });
-
     const auto* keysToSign = keysToSignPtr->asArray();
-    auto csr = verifyFactoryCsr(*keysToSign, kCsrWithoutUdsCerts, mockRpc.get(),
+    auto csr = verifyFactoryCsr(*keysToSign, kCsrWithoutUdsCerts, kRpcHardwareInfo,
                                 DEFAULT_INSTANCE_NAME, kChallenge,
                                 /*allowDegenerate=*/false, /*requireUdsCerts=*/false);
     ASSERT_TRUE(csr) << csr.message();
