@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81806e1c_ed6775b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-11-08T14:19:31Z",
+      "side": 1,
+      "message": "Thanks for the refactoring!",
+      "revId": "2469f7f784bd3e3b4021317b274f97613d1bcdb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "297377ee_885236a7",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-11-08T14:19:31Z",
+      "side": 1,
+      "message": "nit: It seems that all the callers of `verifyProductionProtectedData` simply extract `supportedEekCurve` from `rpcHardwareInfo` [1]. Could we extract the `supportedEekCurve` value directly from `rpcHardwareInfo` in this case?\n\n[1] https://cs.android.com/search?q\u003dverifyProductionProtectedData\u0026sq\u003d\u0026ss\u003dandroid%2Fplatform%2Fsuperproject%2Fmain",
+      "range": {
+        "startLine": 494,
+        "startChar": 16,
+        "endLine": 494,
+        "endChar": 66
+      },
+      "revId": "2469f7f784bd3e3b4021317b274f97613d1bcdb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
