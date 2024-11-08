@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "94f1f2d1_660352b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-11-08T10:17:19Z",
+      "side": 1,
+      "message": "We could also check `atest VtsHalRemotelyProvisionedComponentTargetTest` since most code here is invoked in that test target.",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "da4a30980bca99533dd69046889d574caba3c39c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2f7f0efe_90868fe6",
@@ -14,6 +37,46 @@
       "writtenOn": "2024-11-08T00:11:06Z",
       "side": 1,
       "message": "Round 2 of ???",
+      "revId": "da4a30980bca99533dd69046889d574caba3c39c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d3e17c3_b490fe59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-11-08T10:17:19Z",
+      "side": 1,
+      "message": "Thank you for keeping the cl concise; it’s a nice refactoring!",
+      "revId": "da4a30980bca99533dd69046889d574caba3c39c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aeb492f_d446ee25",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-11-08T10:17:19Z",
+      "side": 1,
+      "message": "Rename this to `hardwareInfo` to distinguish it from `deviceInfo` in front?",
+      "range": {
+        "startLine": 486,
+        "startChar": 76,
+        "endLine": 486,
+        "endChar": 80
+      },
       "revId": "da4a30980bca99533dd69046889d574caba3c39c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
