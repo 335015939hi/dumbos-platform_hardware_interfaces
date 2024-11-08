@@ -87,6 +87,24 @@
       "parentUuid": "649d3b89_8c3d5bc5",
       "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "696e54e1_22897b0d",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/ProtectionId.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-08T18:08:15Z",
+      "side": 1,
+      "message": "I have an additional question here. What happens when we want to update this list in the next stable version of this interface. Can we add values here and still use the setProtectionId we defined in this version of the API, or do we need to add a new setProtectionId function that takes the version 2 ProtectionId enum type as an argument?",
+      "parentUuid": "ba20140b_c5057804",
+      "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
