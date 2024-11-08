@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4c10bd8_e1320914",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-08T18:39:53Z",
+      "side": 1,
+      "message": "That link is to a keymaster specific interface. Is ISharedSecret also a keymaster(/keymint) interface? If so should this be KEYMINT_SHARED_HMAC_KEY, or is this a key that every client of IHwCryptoKey should have access to?",
+      "parentUuid": "4e63e115_60232380",
+      "revId": "6c7f6b1496342ef878dc73cffcd75a75c19623d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56440df6_1c9d77b2",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/HalErrorCode.aidl",
         "patchSetId": 64
