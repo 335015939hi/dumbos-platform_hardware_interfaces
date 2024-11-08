@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb695afd_5b8406d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-08T18:42:01Z",
+      "side": 1,
+      "message": "It\u0027s probably better to reference the bugs directly (which will auto-link the change to the bugs):\n\n```\nBug: 372843164\nBug: 376297620\n```\n\ngo/commit-change#footers-and-machine-parsable-text",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 38
+      },
+      "revId": "e68bcca5c3bce55d74a9d14f2f8a1a13f976d9c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
