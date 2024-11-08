@@ -112,6 +112,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4de4115a_653a8523",
+        "filename": "media/c2/aidl/android/hardware/media/c2/InputSurfaceMessage.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-08T03:00:30Z",
+      "side": 1,
+      "message": "Or it should say the file where they are defined.\n\nI\u0027m also wondering, could this type be a union, since this type is only defined sometimes?",
+      "parentUuid": "249453ee_731f4f60",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 14
+      },
+      "revId": "7c1de56ca2cc7062b8314b691fb7667be19a222a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3bf6d5d_4f012bea",
         "filename": "media/c2/aidl/android/hardware/media/c2/InputSurfaceMessage.aidl",
         "patchSetId": 2
