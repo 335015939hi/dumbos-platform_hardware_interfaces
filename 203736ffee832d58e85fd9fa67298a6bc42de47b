@@ -466,6 +466,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a3ff1ea_6de196f1",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-08T01:27:26Z",
+      "side": 1,
+      "message": "I discussed this with @arve@android.com. Accordingly, we can test this in qemu (we can have one qemu build which returns factory provisioning \u003d allowed and another build which returns factory provisioning \u003d not allowed). AFAIU, we can\u0027t run the unit tests on the device in the factory.",
+      "parentUuid": "e9938263_5b49db58",
+      "range": {
+        "startLine": 151,
+        "startChar": 81,
+        "endLine": 152,
+        "endChar": 14
+      },
+      "revId": "203736ffee832d58e85fd9fa67298a6bc42de47b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44eb52ad_7e06a31d",
