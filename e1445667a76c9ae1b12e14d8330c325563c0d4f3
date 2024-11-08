@@ -69,6 +69,24 @@
       "parentUuid": "97541183_4fcd09f4",
       "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba20140b_c5057804",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/ProtectionId.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-08T00:45:09Z",
+      "side": 1,
+      "message": "We have places where a 0 protection id value means unprotected. If this enum value is local to the API that sets a protection id, then I understand not wanting to allow an unprotected value, but if we want to use the same value in other APIs that return a protection ID, then having a way to represent unprotected buffers might be needed.\n\nRegarding the encoded/decoded case the flow I\u0027m referring to is:\nunprotected-encrypted-encoded-buffer \u003d\u003e protected-encoded-buffer \u003d\u003e protected-unencoded-buffer.\n\nhwcrypto does not need to touch the last one, but the decoder needs to read a buffer with the protection-id you defined here and write to the protected-unencoded-buffer. protected-encoded-buffer and protected-unencoded-buffer could use the same id and even decode in place, but if the these are separate buffers then it means the encoder will have write access to buffers it does not need to write to and hwcrypto will have write access to buffer it does not need access to at all.",
+      "parentUuid": "649d3b89_8c3d5bc5",
+      "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
