@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "74895a13_d5501079",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-08T18:35:59Z",
+      "side": 1,
+      "message": "nit: seems like this description is cut off?\n\n\"...to remove the need to mock IRPC\" maybe?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "546b5d1911c12ab82d3181952451e93c0adaf4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5dd07b51_9df1ecf7",
@@ -32,6 +55,29 @@
       "side": 1,
       "message": "Thanks for your patience :)",
       "parentUuid": "5dd07b51_9df1ecf7",
+      "revId": "546b5d1911c12ab82d3181952451e93c0adaf4cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77797a2f_a9b2427e",
+        "filename": "security/keymint/support/remote_prov_utils_test.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-08T18:35:59Z",
+      "side": 1,
+      "message": "super nit pick: this was not standard until C++20 (despite it being in C99)\n\nI think Android uses C++17 by default. To be super sure this compiles on all toolchains, I\u0027d recommend adding `cpp_std: c++20` to the bp file per go/android-cppstyle#cpp-version.",
+      "range": {
+        "startLine": 330,
+        "startChar": 41,
+        "endLine": 330,
+        "endChar": 62
+      },
       "revId": "546b5d1911c12ab82d3181952451e93c0adaf4cd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
