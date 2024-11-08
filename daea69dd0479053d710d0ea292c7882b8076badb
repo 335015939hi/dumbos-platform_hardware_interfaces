@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcbd902d_79c87d69",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-11-08T09:46:40Z",
+      "side": 1,
+      "message": "Are you sure this works? The instance name is passed to [rust::verify_dice_chain()](https://cs.android.com/android/platform/superproject/main/+/main:tools/security/remote_provisioning/hwtrust/cxxbridge/lib.rs;l\u003d59;drc\u003dd80118316fb3b87092d4128196884b11fa19e08c), which then converts the string with [RkpInstance::from_str](https://cs.android.com/android/platform/superproject/main/+/main:tools/security/remote_provisioning/hwtrust/src/session.rs;l\u003d44;drc\u003d5bc731150bb97840c1575d65dd17717893b16124). It doesn\u0027t support full name conversion.",
+      "range": {
+        "startLine": 346,
+        "startChar": 0,
+        "endLine": 346,
+        "endChar": 90
+      },
+      "revId": "daea69dd0479053d710d0ea292c7882b8076badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e03468d_966a93f5",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1171,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-11-08T09:46:40Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 1171,
+        "startChar": 68,
+        "endLine": 1171,
+        "endChar": 80
+      },
+      "revId": "daea69dd0479053d710d0ea292c7882b8076badb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
