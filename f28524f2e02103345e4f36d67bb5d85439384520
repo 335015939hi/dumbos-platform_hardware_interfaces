@@ -33,6 +33,24 @@
       "message": "Generally, the CL LGTM and increasing the expected bytes per pixel should be okay, but I do have a question:\n\n- What caused this to be discovered? 2 bytes to a pixel should be plenty for YUV422, YUV420, and MJPEG. (YUV422 taking exactly 2 bytes to a pixel, and others being a more compressed that that)\n\n- Another slightly odd thing is that the incoming buffer length is an odd number, which should really only be possible for MJPEG, but MJPEG taking up more space that YUV422 is unlikely :/\n\n----\n\nUnrelated to above, the HIDL implementation is now in maintenance mode only, which is to say while we will fix critical bugs, we won\u0027t be making any major fixes to it. If this is a new HAL bringup, I would highly recommend using the AIDL reference instead and we are already aware of a few stability bugs with it.\n\nThe AIDL reference can be found at `hardware/interfaces/camera/device/default/ExternalCameraDeviceSession.h` and should be better supported going forward.",
       "revId": "f28524f2e02103345e4f36d67bb5d85439384520",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "007692e7_934dfef9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3484945
+      },
+      "writtenOn": "2024-11-08T22:35:06Z",
+      "side": 1,
+      "message": "It was discovered with IMILAB webcam, model CMSXJ22A which seems to use MJPEG",
+      "parentUuid": "c31d16f8_189c3e2a",
+      "revId": "f28524f2e02103345e4f36d67bb5d85439384520",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
