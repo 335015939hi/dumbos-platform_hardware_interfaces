@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3ed259c3_975a77a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-08T13:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94f1f2d1_660352b7",
+      "range": {
+        "startLine": 9,
+        "startChar": 6,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "da4a30980bca99533dd69046889d574caba3c39c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2f7f0efe_90868fe6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2024-11-08T10:17:19Z",
       "side": 1,
       "message": "Rename this to `hardwareInfo` to distinguish it from `deviceInfo` in front?",
+      "range": {
+        "startLine": 486,
+        "startChar": 76,
+        "endLine": 486,
+        "endChar": 80
+      },
+      "revId": "da4a30980bca99533dd69046889d574caba3c39c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9428c5bc_a1bb11d4",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-08T13:37:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4aeb492f_d446ee25",
       "range": {
         "startLine": 486,
         "startChar": 76,
