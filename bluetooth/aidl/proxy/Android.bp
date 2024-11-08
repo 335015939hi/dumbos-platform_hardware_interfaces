@@ -1,0 +1,16 @@
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+rust_library {
+    name: "libbluetoothhcihalproxy",
+    srcs: ["lib.rs"],
+    crate_name: "bluetoothhcihalproxy",
+    vendor: true,
+    rustlibs: [
+        "android.hardware.bluetooth-V2-rust",
+        "libbinder_rs",
+        "liblogger",
+        "liblog_rust",
+    ],
+}
