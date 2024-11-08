@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b59244a_4f2bddca",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-08T14:40:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0534c571_5ba79963",
+      "range": {
+        "startLine": 384,
+        "startChar": 15,
+        "endLine": 384,
+        "endChar": 25
+      },
+      "revId": "1141886092f040d0d453dbdb1964e52af6101c92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df906250_8a7b7bdd",
@@ -72,6 +96,30 @@
       "writtenOn": "2024-11-07T18:49:06Z",
       "side": 1,
       "message": "This is the same thing as on the lines 627–636, going from a test parameter to `LimiterConfig`. Can we extract it and reuse?",
+      "range": {
+        "startLine": 667,
+        "startChar": 0,
+        "endLine": 675,
+        "endChar": 69
+      },
+      "revId": "1141886092f040d0d453dbdb1964e52af6101c92",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df9984df_ac3ffa1c",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 675,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-08T14:40:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df906250_8a7b7bdd",
       "range": {
         "startLine": 667,
         "startChar": 0,

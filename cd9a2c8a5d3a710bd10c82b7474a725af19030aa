@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fa5b588_8d630b6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-08T14:40:22Z",
+      "side": 1,
+      "message": "For data tests, the processing duration value used is 200 ms. All tests pass on cuttlefish and Pixel 9.\nBut according to the Pixel 9\u0027s other implementation (audio offload), since the maximum processing duration supported is 10 ms, the test will ideally not call effect process. But currently, the data tests are skipped on Pixel 9\u0027s audio offload implementation.\n \nChecked the ratio values for 10 ms processing duration by processing 2048 samples at a time. Observed that the error value for some parameters is greater than 10%. Should we consider changing the data test processing duration to 10 ms and validate that we observe increasing ratio and threshold pattern instead of comparing expected and calculated ratios?",
+      "revId": "cd9a2c8a5d3a710bd10c82b7474a725af19030aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
