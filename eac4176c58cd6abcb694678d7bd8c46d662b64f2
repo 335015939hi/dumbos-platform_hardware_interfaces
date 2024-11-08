@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b69a872c_ac29f48f",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 5
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-08T01:30:20Z",
+      "side": 1,
+      "message": "... `by the receiver`? The doc you have is clearer about who should call what than these comments. I think you should also mention somewhere that the receiver of the OpaqueKeyToken first has to share the sealingDicePolicy it got from getCurrentDicePolicy with sender so the sender can pass it to getShareableToken.",
+      "revId": "eac4176c58cd6abcb694678d7bd8c46d662b64f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
