@@ -3,4 +3,8 @@
         <name>android.hardware.bluetooth</name>
         <fqname>IBluetoothHci/default</fqname>
     </hal>
+    <hal format="aidl">
+        <name>android.hardware.bluetooth.offload.leaudio</name>
+        <fqname>IHciProxy/default</fqname>
+    </hal>
 </manifest>
