@@ -16,6 +16,24 @@
       "message": "Following external comments:\n\nYou should add a precision concerning the MPS negotiation, e.g.\n\n```\nThe value used by the Host stack for the local Maximum Packet Size\nshall be the value LE_ACL_Data_Packet_Length returned by the\ncontroller in response to the command HCI LE Read Buffer Size.\n```",
       "revId": "b6d6111106e863dc1f7d7a62d8ac8e6bc006e30c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c2dfc4f_9f666d8c",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/LeCocCapabilities.aidl",
+        "patchSetId": 23
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-09T07:35:29Z",
+      "side": 1,
+      "message": "Yes, it would be more clear. Added document about MPS configuration in BT stack and why we don\u0027t include MPS in HAL.",
+      "parentUuid": "dad774ae_41c18135",
+      "revId": "b6d6111106e863dc1f7d7a62d8ac8e6bc006e30c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
