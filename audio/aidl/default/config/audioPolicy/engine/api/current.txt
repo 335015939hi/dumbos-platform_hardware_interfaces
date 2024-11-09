@@ -148,6 +148,27 @@ package android.audio.policy.engine.configuration {
     method public void setValue(@Nullable java.util.List<android.audio.policy.engine.configuration.FlagType>);
   }
 
+  public enum ForcedConfigType {
+    method @NonNull public String getRawName();
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType ANALOG_DOCK;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType BT_A2DP;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType BT_BLE;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType BT_CAR_DOCK;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType BT_DESK_DOCK;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType BT_SCO;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType DIGITAL_DOCK;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType ENCODED_SURROUND_ALWAYS;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType ENCODED_SURROUND_MANUAL;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType ENCODED_SURROUND_NEVER;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType HDMI_SYSTEM_AUDIO_ENFORCED;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType HEADPHONES;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType NONE;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType NO_BT_A2DP;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType SPEAKER;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType SYSTEM_ENFORCED;
+    enum_constant public static final android.audio.policy.engine.configuration.ForcedConfigType WIRED_ACCESSORY;
+  }
+
   public enum PfwCriterionTypeEnum {
     method @NonNull public String getRawName();
     enum_constant public static final android.audio.policy.engine.configuration.PfwCriterionTypeEnum exclusive;

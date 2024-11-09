@@ -409,6 +409,28 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:simpleType name="forcedConfigType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NONE"/>
+            <xs:enumeration value="SPEAKER"/>
+            <xs:enumeration value="HEADPHONES"/>
+            <xs:enumeration value="BT_SCO"/>
+            <xs:enumeration value="BT_A2DP"/>
+            <xs:enumeration value="WIRED_ACCESSORY"/>
+            <xs:enumeration value="BT_CAR_DOCK"/>
+            <xs:enumeration value="BT_DESK_DOCK"/>
+            <xs:enumeration value="ANALOG_DOCK"/>
+            <xs:enumeration value="DIGITAL_DOCK"/>
+            <xs:enumeration value="NO_BT_A2DP"/>
+            <xs:enumeration value="SYSTEM_ENFORCED"/>
+            <xs:enumeration value="HDMI_SYSTEM_AUDIO_ENFORCED"/>
+            <xs:enumeration value="ENCODED_SURROUND_NEVER"/>
+            <xs:enumeration value="ENCODED_SURROUND_ALWAYS"/>
+            <xs:enumeration value="ENCODED_SURROUND_MANUAL"/>
+            <xs:enumeration value="BT_BLE"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:simpleType name="sourceEnumType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="AUDIO_SOURCE_DEFAULT"/>
