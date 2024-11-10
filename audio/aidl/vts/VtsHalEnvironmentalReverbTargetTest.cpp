@@ -226,7 +226,6 @@ class EnvironmentalReverbHelper : public EffectHelper {
 
     void generateSineWaveInput(std::vector<float>& input) {
         int frequency = 1000;
-        size_t kSamplingFrequency = 44100;
         for (size_t i = 0; i < input.size(); i++) {
             input[i] = sin(2 * M_PI * frequency * i / kSamplingFrequency);
         }
@@ -286,7 +285,6 @@ class EnvironmentalReverbHelper : public EffectHelper {
         }
     }
 
-    static constexpr int kSamplingFrequency = 44100;
     static constexpr int kDurationMilliSec = 500;
     static constexpr int kBufferSize = kSamplingFrequency * kDurationMilliSec / 1000;
 

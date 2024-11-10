@@ -81,7 +81,6 @@ class PresetReverbHelper : public EffectHelper {
                                            << "\ngetParam:" << getParam.toString();
     }
 
-    static constexpr int kSamplingFrequency = 44100;
     static constexpr int kDurationMilliSec = 500;
     static constexpr int kBufferSize = kSamplingFrequency * kDurationMilliSec / 1000;
     int mStereoChannelCount =

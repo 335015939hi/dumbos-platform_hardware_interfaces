@@ -84,6 +84,7 @@ static inline std::string getPrefix(Descriptor& descriptor) {
 }
 
 static constexpr float kMaxAudioSampleValue = 1;
+static constexpr int kSamplingFrequency = 44100;
 
 class EffectHelper {
   public:
