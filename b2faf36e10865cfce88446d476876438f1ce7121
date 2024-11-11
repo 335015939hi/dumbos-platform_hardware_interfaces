@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "286caf33_7d8e9032",
+        "filename": "media/omx/1.0/vts/functional/common/media_hidl_test_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2024-11-11T17:57:31Z",
+      "side": 1,
+      "message": "should be a range.\n\ni\u0027m ok with \u003e\u003d OMX_EventVendorStartUnused as the lower bound\nbut we should specify an upper bound too.",
+      "range": {
+        "startLine": 174,
+        "startChar": 24,
+        "endLine": 174,
+        "endChar": 80
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f83b1a14_7c4de92a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "media/omx/1.0/vts/functional/common/media_hidl_test_common.h",
+              "range": {
+                "startLine": 175,
+                "startChar": 0,
+                "endLine": 175,
+                "endChar": 0
+              },
+              "replacement": "                        if (msg-\u003edata.eventData.event \u003c\u003d OMX_EventVendorEndUnused)\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b2faf36e10865cfce88446d476876438f1ce7121",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
