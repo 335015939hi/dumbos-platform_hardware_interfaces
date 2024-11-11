@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "759faace_1c7586ae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-11T18:20:42Z",
+      "side": 1,
+      "message": "Please also run CtsMediaAudioTestCases on cuttlefish.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "0fc7c11d52e220efb94ccf3bffd739f7cdee601a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0d51fdd_5f7dabaf",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-11T18:20:42Z",
+      "side": 1,
+      "message": "We already do this in StreamPrimary, see here: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/primary/StreamPrimary.cpp;l\u003d61;drc\u003d214c86e5223920f1fa45e631c1291562645f6d50. For this change, you will need to remove that code.",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 28
+      },
+      "revId": "0fc7c11d52e220efb94ccf3bffd739f7cdee601a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
