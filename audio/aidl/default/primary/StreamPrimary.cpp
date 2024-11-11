@@ -56,9 +56,7 @@ StreamPrimary::StreamPrimary(StreamContext* context, const Metadata& metadata)
 }
 
 ::android::status_t StreamPrimary::flush() {
-    RETURN_STATUS_IF_ERROR(isStubStreamOnWorker() ? mStubDriver.flush() : StreamAlsa::flush());
-    // TODO(b/372951987): consider if this needs to be done from 'StreamInWorkerLogic::cycle'.
-    return mIsInput ? standby() : ::android::OK;
+    return isStubStreamOnWorker() ? mStubDriver.flush() : StreamAlsa::flush();
 }
 
 ::android::status_t StreamPrimary::pause() {
