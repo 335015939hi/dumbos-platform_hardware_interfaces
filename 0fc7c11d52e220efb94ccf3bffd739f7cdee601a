@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efab0d61_d54a5dd9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2024-11-12T03:49:22Z",
+      "side": 1,
+      "message": "Thank you. I will check how to set up cuttlefish environment.",
+      "parentUuid": "759faace_1c7586ae",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "0fc7c11d52e220efb94ccf3bffd739f7cdee601a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0d51fdd_5f7dabaf",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-11T18:20:42Z",
       "side": 1,
       "message": "We already do this in StreamPrimary, see here: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/primary/StreamPrimary.cpp;l\u003d61;drc\u003d214c86e5223920f1fa45e631c1291562645f6d50. For this change, you will need to remove that code.",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 28
+      },
+      "revId": "0fc7c11d52e220efb94ccf3bffd739f7cdee601a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "737dc69d_ec1e46ed",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2024-11-12T03:49:22Z",
+      "side": 1,
+      "message": "The issue also exists in usb stream, I met it when I tested some USB camera recording with different resolutions. So maybe we should implement this logic in StreamInWorkerLogic::cycle as the comments said.",
+      "parentUuid": "f0d51fdd_5f7dabaf",
       "range": {
         "startLine": 322,
         "startChar": 0,
