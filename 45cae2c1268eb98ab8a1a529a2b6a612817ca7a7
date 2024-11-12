@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a1b3495_af5177e8",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-12T19:11:02Z",
+      "side": 1,
+      "message": "\u003e Did you suggest to include something in addition to that?\n\nYes, right here for these specific function documents next the to `@param` and `@return` sections. It\u0027s a common pattern to have the `@throws` as well. So the expected errors for each method under each specific circumstance are clear.\n\nRight now, the reader needs to read the entire paragraph to understand what errors they might need to implement or handle as a client. \n\nThese are the same reasons we have the `@param` and `@return` here instead of only describing them in the main doc comment.",
+      "parentUuid": "b650f569_bdc91996",
+      "range": {
+        "startLine": 114,
+        "startChar": 8,
+        "endLine": 114,
+        "endChar": 38
+      },
+      "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f692daf_1cfa89fc",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
         "patchSetId": 28
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "It is the interface that should be implemented by any Trusted App that hosts a trusted service such as HWCrypto or SecureStorage. The interface is defined here: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3222485/23/security/see/authmgr/aidl/android/hardware/security/see/authmgr/ITrustedServicesCommonsConnect.aidl. It has a single method to allow the AuthMgr BE to handover an authorized connection to the trusted HAL service.\n\nWe do not intend to make this interface vendor stable, because it is only exposed within TEE for interaction between the AuthMgr BE TA and the TA(s) that hosts the trusted HAL services.",
       "parentUuid": "c36aa771_43e65558",
+      "range": {
+        "startLine": 230,
+        "startChar": 44,
+        "endLine": 230,
+        "endChar": 74
+      },
+      "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9d379fc_7a58a21b",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-12T19:11:02Z",
+      "side": 1,
+      "message": "Hmmmm, that sounds like an implementation detail of the AuthMgr BE and not directly relevant to this interface between AuthMgr FE and AuthMgr BE.\n\nShould we reword this to remove those internal details? It\u0027s helpful information for this implementation, but other implementations of this interface can choose to do something different. What we want to enforce is the behavior of interface - `CONNECTION_HANDOVER_FAILED` is thrown when the BE fails to get a connection to the trusted service.",
+      "parentUuid": "d14f558f_081fae06",
       "range": {
         "startLine": 230,
         "startChar": 44,
