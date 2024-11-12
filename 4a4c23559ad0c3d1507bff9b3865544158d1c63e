@@ -22,6 +22,30 @@
       },
       "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bc4f72d_a41ec012",
+        "filename": "nfc/aidl/android/hardware/nfc/ProtocolDiscoveryConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-12T18:20:02Z",
+      "side": 1,
+      "message": "Are these values in the NCI Spec as well? What guarantees do we have that they will never change (for backward compatibility requirements).",
+      "parentUuid": "e37a02fc_fa138dfc",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
