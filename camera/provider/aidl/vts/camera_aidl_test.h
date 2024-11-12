@@ -328,6 +328,9 @@ class CameraAidlTest : public ::testing::TestWithParam<std::string> {
     static Status getMaxOutputSizeForFormat(const camera_metadata_t* staticMeta, PixelFormat format,
                                             Size* size, bool maxResolution = false);
 
+    static Status getAllOutputSizesForFormat(const camera_metadata_t* staticMeta,
+                                             PixelFormat format, std::vector<Size>& out);
+
     static Status getMandatoryConcurrentStreams(const camera_metadata_t* staticMeta,
                                                 std::vector<AvailableStream>* outputStreams);
 
@@ -433,7 +436,11 @@ class CameraAidlTest : public ::testing::TestWithParam<std::string> {
     // Used by switchToOffline where a new result queue is created for offline reqs
     void updateInflightResultQueue(const std::shared_ptr<ResultMetadataQueue>& resultQueue);
 
-    static Size getMinSize(Size a, Size b);
+    // Returns maximum size from |sizes|, excluding sizes larger than |preferredMax|.
+    // |sizes| must not be empty.
+    // Motivation: Just because the ISP supports an output size larger than |preferredMax|,
+    //             it doesn't necessarily means the ISP also supports the |preferredMax|.
+    static Size getPreferredSize(Size preferredMax, const std::vector<Size>& sizes);
 
     void processColorSpaceRequest(RequestAvailableColorSpaceProfilesMap colorSpace,
                                   RequestAvailableDynamicRangeProfilesMap dynamicRangeProfile);
