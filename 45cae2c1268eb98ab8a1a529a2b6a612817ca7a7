@@ -114,6 +114,30 @@
       },
       "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9f29f28_da44bd3d",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-12T00:38:27Z",
+      "side": 1,
+      "message": "This is not required to be a globally unique ID. Each VM has a separate name-space. For a Linux based VM it could be a UID and for Trusty a UUID. Even in the trusty case where a UUID for different apps are globally unique, the same app could exists in multiple VMs.",
+      "parentUuid": "b25adf55_a73f1b6b",
+      "range": {
+        "startLine": 239,
+        "startChar": 14,
+        "endLine": 239,
+        "endChar": 22
+      },
+      "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
