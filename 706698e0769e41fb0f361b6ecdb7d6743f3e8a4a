@@ -22,6 +22,30 @@
       },
       "revId": "706698e0769e41fb0f361b6ecdb7d6743f3e8a4a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "845cd227_28e1fcf5",
+        "filename": "bluetooth/ranging/aidl/android/hardware/bluetooth/ranging/ChannelSoundingProcedureData.aidl",
+        "patchSetId": 12
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1583276
+      },
+      "writtenOn": "2024-11-12T22:35:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11e188f7_4d5c1e02",
+      "range": {
+        "startLine": 70,
+        "startChar": 25,
+        "endLine": 70,
+        "endChar": 33
+      },
+      "revId": "706698e0769e41fb0f361b6ecdb7d6743f3e8a4a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
