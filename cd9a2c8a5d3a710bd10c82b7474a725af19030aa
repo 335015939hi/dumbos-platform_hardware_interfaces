@@ -52,6 +52,24 @@
       "parentUuid": "68e24fc3_33236bb6",
       "revId": "cd9a2c8a5d3a710bd10c82b7474a725af19030aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ea2e136_4658ec56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-12T18:10:38Z",
+      "side": 1,
+      "message": "OK, now I think I understand your question. So, what you are saying is that since for the offload implementation we are observing a large discrepancy between expected values and actual values, maybe it does not make sense to use longer inputs (200 ms) and instead just use shorter input signals and check how the observed value is changing with input. Is that what you are asking?\n\nI agree that using large tolerances may eventually render the test to be useless. Checking the dynamic behavior in response to the changes of the input signal can be a good alternative. But please check this behavior in both directions: so that the observed property increases with parameter value increases, and vice versa.",
+      "parentUuid": "d5e62edb_944f1eee",
+      "revId": "cd9a2c8a5d3a710bd10c82b7474a725af19030aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
