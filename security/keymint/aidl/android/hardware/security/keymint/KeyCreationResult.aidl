@@ -158,6 +158,12 @@ parcelable KeyCreationResult {
      *     Failed                     (3),
      * }
      *
+     * Modules ::= SET OF Module
+     * Module ::= SEQUENCE {
+     *     packageName                OCTET_STRING,
+     *     version                    INTEGER,
+     * }
+     *
      * -- Note that the AuthorizationList SEQUENCE is also used in IKeyMintDevice::importWrappedKey
      * -- as a way of describing the authorizations associated with a key that is being securely
      * -- imported.  As such, it includes the ability to describe tags that are only relevant for
@@ -210,6 +216,8 @@ parcelable KeyCreationResult {
      *     bootPatchLevel             [719] EXPLICIT INTEGER OPTIONAL,
      *     deviceUniqueAttestation    [720] EXPLICIT NULL OPTIONAL,
      *     attestationIdSecondImei    [723] EXPLICIT OCTET_STRING OPTIONAL,
+     *     moduleHash                 [724] EXPLICIT OCTET_STRING OPTIONAL, -- SHA-256 hash of
+     *                                                                         DER-encoded `Modules`
      * }
      */
     Certificate[] certificateChain;
