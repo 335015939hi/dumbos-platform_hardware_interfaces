@@ -15,19 +15,12 @@
  */
 package android.hardware.security.see.storage;
 
-import android.hardware.security.see.storage.CreationMode;
-import android.hardware.security.see.storage.FileMode;
+/** Determines how early during the boot process file is able to be accessed. */
+@VintfStability
+enum Availability {
+    /** Available before userdata is mounted, but after android has booted. */
+    BEFORE_USERDATA,
 
-parcelable OpenOptions {
-    /** Controls creation behavior of the to-be-opened file. See `CreationMode` docs for details. */
-    CreationMode createMode = CreationMode.NO_CREATE;
-
-    /** Controls access behavior of the to-be-opened file. See `FileMode` docs for details. */
-    FileMode accessMode = FileMode.READ_WRITE;
-
-    /**
-     * If this file already exists, discard existing content and open
-     * it as a new file. No semantic change if the file does not exist.
-     */
-    boolean truncateOnOpen;
+    /** Available after userdata is mounted. */
+    AFTER_USERDATA,
 }

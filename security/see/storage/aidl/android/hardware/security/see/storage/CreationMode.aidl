@@ -15,6 +15,7 @@
  */
 package android.hardware.security.see.storage;
 
+@VintfStability
 enum CreationMode {
     /** Returns an error if the file does not already exist. */
     NO_CREATE,
