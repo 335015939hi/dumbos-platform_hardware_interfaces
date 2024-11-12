@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a2ae048_c292f00b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-12T22:26:27Z",
+      "side": 1,
+      "message": "We should finalize a plan for a VTS test for this before submitting.\n\nOnce this is in, even if people don\u0027t implement it in a VM, they can implement it on device. Ideally we can have a VTS test in Android that would run against binder services or TEE services serving the same instance.\n\nThough, I\u0027m not sure if we can get such a nice thing, if we can\u0027t get that, could we add a normal VTS test here which asserts that this interface is not implemented via binder, because we don\u0027t have test coverage for that?",
+      "revId": "7e1dcbe6c0dfb33f85f040e44868f20183d33612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
