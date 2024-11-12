@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c527fd6_80aac7f5",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-11-12T14:36:36Z",
+      "side": 1,
+      "message": "The numerical value shall have been removed also. I would not try to convert here. I would simply give the literal, since it will then be compared to toString AIDL value. \n\nWe can still have the xsd as the contract, but if the criterion literal is aligned on the aidl type...",
+      "range": {
+        "startLine": 677,
+        "startChar": 11,
+        "endLine": 679,
+        "endChar": 62
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b8497f5_6aa2f1e6",
         "filename": "audio/aidl/default/XsdcConversion.cpp",
         "patchSetId": 1
@@ -19,6 +42,29 @@
         "startChar": 39,
         "endLine": 695,
         "endChar": 83
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f4b7bdc_978ab52c",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-11-12T14:36:36Z",
+      "side": 1,
+      "message": "still have issue with UNSPECIFIED. I would prefer rely on new AIDL name having a dedicated Type in xsd",
+      "range": {
+        "startLine": 721,
+        "startChar": 37,
+        "endLine": 722,
+        "endChar": 74
       },
       "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
