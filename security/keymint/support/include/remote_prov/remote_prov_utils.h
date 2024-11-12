@@ -29,6 +29,11 @@ namespace aidl::android::hardware::security::keymint::remote_prov {
 using bytevec = std::vector<uint8_t>;
 using namespace cppcose;
 
+const std::string kErrorChallengeMismatch = "challenges do not match";
+const std::string kErrorUdsCertsAreRequired = "UdsCerts are required";
+const std::string kErrorKeysToSignMismatch = "KeysToSign do not match";
+const std::string kErrorDiceChainIsDegenerate = "DICE chain is degenerate";
+
 extern bytevec kTestMacKey;
 
 // The Google root key for the Endpoint Encryption Key chain, encoded as COSE_Sign1
