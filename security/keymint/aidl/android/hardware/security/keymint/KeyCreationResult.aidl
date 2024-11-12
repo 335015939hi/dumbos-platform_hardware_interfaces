@@ -125,9 +125,9 @@ parcelable KeyCreationResult {
      * straightforward translation of the KeyMint tag/value parameter lists to ASN.1.
      *
      * KeyDescription ::= SEQUENCE {
-     *     attestationVersion         INTEGER, # Value 300
+     *     attestationVersion         INTEGER, # Value 400
      *     attestationSecurityLevel   SecurityLevel, # See below
-     *     keyMintVersion             INTEGER, # Value 300
+     *     keyMintVersion             INTEGER, # Value 400
      *     keymintSecurityLevel       SecurityLevel, # See below
      *     attestationChallenge       OCTET_STRING, # Tag::ATTESTATION_CHALLENGE from attestParams
      *     uniqueId                   OCTET_STRING, # Empty unless key has Tag::INCLUDE_UNIQUE_ID
@@ -156,6 +156,15 @@ parcelable KeyCreationResult {
      *     SelfSigned                 (1),
      *     Unverified                 (2),
      *     Failed                     (3),
+     * }
+     *
+     * # Modules contains version info about APEX modules that have been updated after the last OTA.
+     * # Modules must have its Module entries ordered such that identical sets produce identical
+     * # encodings. (Therefore, the SHA-256 hash of the encodings will also be identical.)
+     * Modules ::= SET OF Module
+     * Module ::= SEQUENCE {
+     *     packageName                OCTET_STRING,
+     *     version                    INTEGER, # As determined at boot time
      * }
      *
      * -- Note that the AuthorizationList SEQUENCE is also used in IKeyMintDevice::importWrappedKey
@@ -210,6 +219,7 @@ parcelable KeyCreationResult {
      *     bootPatchLevel             [719] EXPLICIT INTEGER OPTIONAL,
      *     deviceUniqueAttestation    [720] EXPLICIT NULL OPTIONAL,
      *     attestationIdSecondImei    [723] EXPLICIT OCTET_STRING OPTIONAL,
+     *     moduleHash                 [724] EXPLICIT OCTET_STRING OPTIONAL, -- SHA-256 hash of DER-encoded `Modules`
      * }
      */
     Certificate[] certificateChain;
