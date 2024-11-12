@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7694617_d1c9bba8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-12T22:16:16Z",
+      "side": 1,
+      "message": "Love removing all this duped code!",
+      "revId": "1457adc704eb27caba51417a92979c63706b57e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdec8af5_a75f8589",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-12T22:16:16Z",
+      "side": 1,
+      "message": "`constexpr std::string_view` would be better, I think.\n\nUnless we\u0027re _always_ going to construct `std::string`s for these, let\u0027s use compile-time consts.",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "98e54c94_eea7702a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+              "range": {
+                "startLine": 32,
+                "startChar": 0,
+                "endLine": 36,
+                "endChar": 0
+              },
+              "replacement": "constexpr std::string_view kErrorChallengeMismatch \u003d \"challenges do not match\";\nconstexpr std::string_view kErrorUdsCertsAreRequired \u003d \"UdsCerts are required\";\nconstexpr std::string_view kErrorKeysToSignMismatch \u003d \"KeysToSign do not match\";\nconstexpr std::string_view kErrorDiceChainIsDegenerate \u003d \"DICE chain is degenerate\";\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1457adc704eb27caba51417a92979c63706b57e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a225b29f_40a42968",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-12T22:16:16Z",
+      "side": 1,
+      "message": "We should claim what is being overridden here.",
+      "range": {
+        "startLine": 303,
+        "startChar": 5,
+        "endLine": 303,
+        "endChar": 18
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a24d04ef_d1249f25",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 303,
+                "startChar": 0,
+                "endLine": 304,
+                "endChar": 0
+              },
+              "replacement": "bool maybeOverrideAllowAnyMode(bool allowAnyMode) {\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 318,
+                "startChar": 0,
+                "endLine": 319,
+                "endChar": 0
+              },
+              "replacement": "    allowAnyMode \u003d maybeOverrideAllowAnyMode(allowAnyMode);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 790,
+                "startChar": 0,
+                "endLine": 791,
+                "endChar": 0
+              },
+              "replacement": "    allowAnyMode \u003d maybeOverrideAllowAnyMode(allowAnyMode);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1457adc704eb27caba51417a92979c63706b57e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
