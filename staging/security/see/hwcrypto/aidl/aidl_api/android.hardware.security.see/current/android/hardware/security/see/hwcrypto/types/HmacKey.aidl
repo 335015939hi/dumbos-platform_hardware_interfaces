@@ -32,7 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.see.hwcrypto.types;
-union ExplicitKeyMaterial {
-  android.hardware.security.see.hwcrypto.types.AesKey aes;
-  android.hardware.security.see.hwcrypto.types.HmacKey hmac;
+union HmacKey {
+  byte[32] sha256 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+  byte[64] sha512;
 }
