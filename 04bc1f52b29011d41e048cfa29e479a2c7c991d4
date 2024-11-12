@@ -217,6 +217,30 @@
       },
       "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a140016b_1f8af605",
+        "filename": "broadcastradio/aidl/vts/src/VtsHalBroadcastradioAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2024-11-12T18:22:27Z",
+      "side": 1,
+      "message": "For \"quickly with the same DAB_SID_EXT, and DAB_FREQUENCY and DAB_ENSEMBLE as 0 first\", I don\u0027t think it is a desirable implementation. It compromises with API documentation by injecting invalid values into Android framework.\n\nI think this CL is more about DAB-DAB linking case. My concern is why `DAB_SID_EXT` can keep the same if the tuner is tuned to a linking station. For that linked station, why it contains the same `DAB_SID_EXT`? Probably it is worthwhile to file a feature request to clearly specify the behavior of program selector and info in DAB-DAB linking cases.",
+      "parentUuid": "f06122a3_b660e636",
+      "range": {
+        "startLine": 755,
+        "startChar": 7,
+        "endLine": 755,
+        "endChar": 66
+      },
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
