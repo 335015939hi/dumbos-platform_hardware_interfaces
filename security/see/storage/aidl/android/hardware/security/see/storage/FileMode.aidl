@@ -15,13 +15,14 @@
  */
 package android.hardware.security.see.storage;
 
-enum Integrity {
-    /** REE may prevent operations, but cannot alter data once written. */
-    TAMPER_PROOF_AT_REST,
+@VintfStability
+enum FileMode {
+    /** The file may only be read from. */
+    READ_ONLY,
 
-    /**
-     * REE may alter written data, but changes will be detected and reported as
-     * an error on read.
-     */
-    TAMPER_DETECT,
+    /** The file may only be written to. */
+    WRITE_ONLY,
+
+    /** The file may be both read from and written to. */
+    READ_WRITE,
 }

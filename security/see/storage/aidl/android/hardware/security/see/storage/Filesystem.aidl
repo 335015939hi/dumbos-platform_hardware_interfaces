@@ -21,6 +21,7 @@ import android.hardware.security.see.storage.Integrity;
 /**
  * Specifies minimum security requirements for a Secure Storage filesystem.
  */
+@VintfStability
 parcelable Filesystem {
     Integrity integrity = Integrity.TAMPER_PROOF_AT_REST;
     Availability availability = Availability.BEFORE_USERDATA;
