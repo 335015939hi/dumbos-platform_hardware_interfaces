@@ -15,13 +15,20 @@
  */
 package android.hardware.security.see.storage;
 
-enum FileMode {
-    /** The file may only be read from. */
-    READ_ONLY,
+import android.hardware.security.see.storage.CreationMode;
+import android.hardware.security.see.storage.FileMode;
 
-    /** The file may only be written to. */
-    WRITE_ONLY,
+@VintfStability
+parcelable OpenOptions {
+    /** Controls creation behavior of the to-be-opened file. See `CreationMode` docs for details. */
+    CreationMode createMode = CreationMode.NO_CREATE;
 
-    /** The file may be both read from and written to. */
-    READ_WRITE,
+    /** Controls access behavior of the to-be-opened file. See `FileMode` docs for details. */
+    FileMode accessMode = FileMode.READ_WRITE;
+
+    /**
+     * If this file already exists, discard existing content and open
+     * it as a new file. No semantic change if the file does not exist.
+     */
+    boolean truncateOnOpen;
 }
