@@ -52,7 +52,7 @@ aidl_interface {
         },
 
     ],
-    frozen: true,
+    frozen: false,
 
 }
 
@@ -101,6 +101,7 @@ java_library {
     name: "android.hardware.health-translate-java",
     srcs: ["android/hardware/health/Translate.java"],
     libs: [
+        "android.hardware.health-V3-java",
         "android.hardware.health-V3-java",
         "android.hardware.health-V2.0-java",
         "android.hardware.health-V2.1-java",
