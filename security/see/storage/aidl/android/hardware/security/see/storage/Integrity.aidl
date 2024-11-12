@@ -15,11 +15,14 @@
  */
 package android.hardware.security.see.storage;
 
-/** Determines how early during the boot process file is able to be accessed. */
-enum Availability {
-    /** Available before userdata is mounted, but after android has booted. */
-    BEFORE_USERDATA,
+@VintfStability
+enum Integrity {
+    /** REE may prevent operations, but cannot alter data once written. */
+    TAMPER_PROOF_AT_REST,
 
-    /** Available after userdata is mounted. */
-    AFTER_USERDATA,
+    /**
+     * REE may alter written data, but changes will be detected and reported as
+     * an error on read.
+     */
+    TAMPER_DETECT,
 }

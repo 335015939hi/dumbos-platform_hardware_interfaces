@@ -31,6 +31,7 @@ import android.hardware.security.see.storage.OpenOptions;
  *
  * Any changes still pending when the session is dropped will be abandoned.
  */
+@VintfStability
 interface IStorageSession {
     /**
      * Commits any pending changes made through this session to storage.

@@ -23,6 +23,7 @@ import android.hardware.security.see.storage.IStorageSession;
  *
  * Creates sessions which can be used to access storage.
  */
+@VintfStability
 interface ISecureStorage {
     const int ERR_UNSUPPORTED_PROPERTIES = 1;
     const int ERR_NOT_FOUND = 2;
