@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b650f569_bdc91996",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-12T18:54:00Z",
+      "side": 1,
+      "message": "We have a separate Error.aidl file (https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3217176/28/security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl) that lists all the errors the client can expect to see. \nDid you suggest to include something in addition to that?\nI updated the documentation here with `(see Error.aidl)` to refer to the error code definition file.",
+      "parentUuid": "6e5e6fba_ecb11947",
+      "range": {
+        "startLine": 114,
+        "startChar": 8,
+        "endLine": 114,
+        "endChar": 38
+      },
+      "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f692daf_1cfa89fc",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
         "patchSetId": 28
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-11T23:48:02Z",
       "side": 1,
       "message": "Were these renamed? I don\u0027t see them in this CL.",
+      "range": {
+        "startLine": 133,
+        "startChar": 37,
+        "endLine": 133,
+        "endChar": 63
+      },
+      "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff9ca815_85bf1a22",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-12T18:54:00Z",
+      "side": 1,
+      "message": "Sorry, yes, it was renamed and I have missed a couple of places in the documentation. Thanks!",
+      "parentUuid": "6f692daf_1cfa89fc",
       "range": {
         "startLine": 133,
         "startChar": 37,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2cb4fe6_c3bdc5ec",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-12T18:54:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4458b60c_2f867baa",
+      "range": {
+        "startLine": 217,
+        "startChar": 27,
+        "endLine": 217,
+        "endChar": 30
+      },
+      "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c36aa771_43e65558",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-11-11T23:48:02Z",
       "side": 1,
       "message": "What is this?",
+      "range": {
+        "startLine": 230,
+        "startChar": 44,
+        "endLine": 230,
+        "endChar": 74
+      },
+      "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d14f558f_081fae06",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-12T18:54:00Z",
+      "side": 1,
+      "message": "It is the interface that should be implemented by any Trusted App that hosts a trusted service such as HWCrypto or SecureStorage. The interface is defined here: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3222485/23/security/see/authmgr/aidl/android/hardware/security/see/authmgr/ITrustedServicesCommonsConnect.aidl. It has a single method to allow the AuthMgr BE to handover an authorized connection to the trusted HAL service.\n\nWe do not intend to make this interface vendor stable, because it is only exposed within TEE for interaction between the AuthMgr BE TA and the TA(s) that hosts the trusted HAL services.",
+      "parentUuid": "c36aa771_43e65558",
       "range": {
         "startLine": 230,
         "startChar": 44,
@@ -130,6 +226,30 @@
       "side": 1,
       "message": "This is not required to be a globally unique ID. Each VM has a separate name-space. For a Linux based VM it could be a UID and for Trusty a UUID. Even in the trusty case where a UUID for different apps are globally unique, the same app could exists in multiple VMs.",
       "parentUuid": "b25adf55_a73f1b6b",
+      "range": {
+        "startLine": 239,
+        "startChar": 14,
+        "endLine": 239,
+        "endChar": 22
+      },
+      "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2b5a5fc_9b9e6075",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-12T18:54:00Z",
+      "side": 1,
+      "message": "Thanks Arve! I updated the description to clarify that it is unique in the context of the pVM instance.",
+      "parentUuid": "b9f29f28_da44bd3d",
       "range": {
         "startLine": 239,
         "startChar": 14,
