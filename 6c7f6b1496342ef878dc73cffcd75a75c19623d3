@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5332403_31d5c312",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 64
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-12T23:34:56Z",
+      "side": 1,
+      "message": "I think one could pick nits about how Keymint is really only one of the consumers of what this enables, but as Arve points out, that\u0027s the AIDL file it\u0027s defined in, which I think is good enough to use that as the name. So I\u0027m in favour of this name change.",
+      "parentUuid": "6adb9b0d_307bd83e",
+      "revId": "6c7f6b1496342ef878dc73cffcd75a75c19623d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56440df6_1c9d77b2",
         "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/HalErrorCode.aidl",
         "patchSetId": 64
