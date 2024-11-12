@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e82456db_31343035",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-12T19:34:06Z",
+      "side": 1,
+      "message": "Sure, I agree. Actually I would consider it to be a bad idea to define any numeric values outside of AIDL. Here it used to work because we keep the values of AIDL enums in sync with C enums.\n\nIn AIDL, the XSD schema is a vendor implementation detail, and it is used for convenience of generating a parser.",
+      "parentUuid": "4c527fd6_80aac7f5",
+      "range": {
+        "startLine": 677,
+        "startChar": 11,
+        "endLine": 679,
+        "endChar": 62
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1552b6f5_74ac25df",
         "filename": "audio/aidl/default/XsdcConversion.cpp",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-12T15:09:33Z",
       "side": 1,
       "message": "I tried with xsdcValue.getLiteral() with updated xml example. If it is enough to rely on AIDL conversion to enforce configuration. (since XML is now becoming a detail of implementation of HAL provider)",
+      "range": {
+        "startLine": 684,
+        "startChar": 74,
+        "endLine": 684,
+        "endChar": 85
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d717531_318487fc",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-12T19:34:06Z",
+      "side": 1,
+      "message": "Do you mean the `toString` function/method for AIDL types? I think it is safe to assume that the generated code is straightforward and the name is printed as is.",
+      "parentUuid": "1552b6f5_74ac25df",
       "range": {
         "startLine": 684,
         "startChar": 74,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "475ad281_03b171e2",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-12T19:34:06Z",
+      "side": 1,
+      "message": "I\u0027m concerned that `ANALOG_DOCK` will then turn into `ANALOG`, which is not very descriptive. Maybe adding `_DOCK` suffix when matching for conversion is better.",
+      "parentUuid": "3b8497f5_6aa2f1e6",
+      "range": {
+        "startLine": 695,
+        "startChar": 39,
+        "endLine": 695,
+        "endChar": 83
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f4b7bdc_978ab52c",
         "filename": "audio/aidl/default/XsdcConversion.cpp",
         "patchSetId": 1
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "75b60fdc_5a539208",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-12T19:34:06Z",
+      "side": 1,
+      "message": "Do you mean, you can have an `UNSPECIFIED` value in XML?",
+      "parentUuid": "2f4b7bdc_978ab52c",
+      "range": {
+        "startLine": 721,
+        "startChar": 37,
+        "endLine": 722,
+        "endChar": 74
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c217d852_bed32127",
         "filename": "audio/aidl/default/config/audioPolicy/engine/audio_policy_engine_configuration.xsd",
         "patchSetId": 1
@@ -106,6 +202,30 @@
       "writtenOn": "2024-11-12T13:48:38Z",
       "side": 1,
       "message": "Cannot add DOCK suffic and compare with AIDL toString AudioPolicyForceUse.DockType.\nNothing prevent us to have the forcedDeviceConfigType, forceDockType...\nWe do not need here to rely on  legacy",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 50
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a84f1bc_885e2e8c",
+        "filename": "audio/aidl/default/config/audioPolicy/engine/audio_policy_engine_configuration.xsd",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-12T19:34:06Z",
+      "side": 1,
+      "message": "Good catch. We can add `_DOCK` suffix when comparing, or update the XSD/XML to match AIDL.",
+      "parentUuid": "c217d852_bed32127",
       "range": {
         "startLine": 420,
         "startChar": 0,
