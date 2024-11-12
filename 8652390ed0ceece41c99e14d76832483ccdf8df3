@@ -16,6 +16,47 @@
       "message": "Another one I forgot to add people on.",
       "revId": "8652390ed0ceece41c99e14d76832483ccdf8df3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "303a005a_b7fe8d48",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-12T00:20:00Z",
+      "side": 1,
+      "message": "nit: We should use `string_view` instead of coercing all parameters into a string.\n\nJust a suggestion -- take it or leave it.",
+      "range": {
+        "startLine": 55,
+        "startChar": 25,
+        "endLine": 55,
+        "endChar": 48
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5ead7b2d_c4a190ac",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 55,
+                "startChar": 0,
+                "endLine": 56,
+                "endChar": 0
+              },
+              "replacement": "std::string deviceSuffix(const std::string_view name) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8652390ed0ceece41c99e14d76832483ccdf8df3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
