@@ -355,6 +355,7 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
             const AudioHalCapRule& rule,
             const std::vector<std::optional<AudioHalCapCriterionV2>>& criteria) {
         const auto& compoundRule = rule.compoundRule;
+        using TypeTag = AudioHalCapCriterionV2::Type::Tag;
         if (rule.nestedRules.empty() && rule.criterionRules.empty()) {
             EXPECT_EQ(compoundRule, AudioHalCapRule::CompoundRule::ALL);
         }
@@ -364,8 +365,8 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
             ValidateAudioHalConfigurationRule(nestedRule, criteria);
         }
         for (const auto& criterionRule : rule.criterionRules) {
-            auto selectionCriterion = criterionRule.criterionAndValue;
-            auto criterionValue = criterionRule.criterionAndValue;
+            auto selectionCriterion = criterionRule.criterion;
+            auto criterionValue = criterionRule.criterionTypeValue;
             auto matchesWhen = criterionRule.matchingRule;
             auto criteriaIt = find_if(criteria.begin(), criteria.end(), [&](const auto& criterion) {
                 return criterion.has_value() &&
@@ -376,65 +377,50 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
             AudioHalCapCriterionV2 matchingCriterion = (*criteriaIt).value();
             switch (selectionCriterion.getTag()) {
                 case AudioHalCapCriterionV2::availableInputDevices: {
-                    const auto& values =
-                            criterionValue.get<AudioHalCapCriterionV2::availableInputDevices>()
-                                    .values;
-                    ASSERT_FALSE(values.empty());
+                    EXPECT_EQ(criterionValue.getTag(), TypeTag::availableDevicesType);
                     validateAudioHalCapRule(
                             matchingCriterion.get<AudioHalCapCriterionV2::availableInputDevices>(),
-                            values[0], matchesWhen);
+                            criterionValue.get<TypeTag::availableDevicesType>(), matchesWhen);
                     break;
                 }
                 case AudioHalCapCriterionV2::availableOutputDevices: {
-                    const auto& values =
-                            criterionValue.get<AudioHalCapCriterionV2::availableOutputDevices>()
-                                    .values;
-                    ASSERT_FALSE(values.empty());
+                    EXPECT_EQ(criterionValue.getTag(), TypeTag::availableDevicesType);
                     validateAudioHalCapRule(
                             matchingCriterion.get<AudioHalCapCriterionV2::availableOutputDevices>(),
-                            values[0], matchesWhen);
+                            criterionValue.get<TypeTag::availableDevicesType>(), matchesWhen);
                     break;
                 }
                 case AudioHalCapCriterionV2::availableInputDevicesAddresses: {
-                    const auto& values =
-                            criterionValue
-                                    .get<AudioHalCapCriterionV2::availableInputDevicesAddresses>()
-                                    .values;
-                    ASSERT_FALSE(values.empty());
+                    EXPECT_EQ(criterionValue.getTag(), TypeTag::availableDevicesAddressesType);
                     validateAudioHalCapRule(
                             matchingCriterion
                                     .get<AudioHalCapCriterionV2::availableInputDevicesAddresses>(),
-                            values[0], matchesWhen);
+                            criterionValue.get<TypeTag::availableDevicesAddressesType>(),
+                            matchesWhen);
                     break;
                 }
                 case AudioHalCapCriterionV2::availableOutputDevicesAddresses: {
-                    const auto& values =
-                            criterionValue
-                                    .get<AudioHalCapCriterionV2::availableOutputDevicesAddresses>()
-                                    .values;
-                    ASSERT_FALSE(values.empty());
+                    EXPECT_EQ(criterionValue.getTag(), TypeTag::availableDevicesAddressesType);
                     validateAudioHalCapRule(
                             matchingCriterion
                                     .get<AudioHalCapCriterionV2::availableOutputDevicesAddresses>(),
-                            values[0], matchesWhen);
+                            criterionValue.get<TypeTag::availableDevicesAddressesType>(),
+                            matchesWhen);
                     break;
                 }
                 case AudioHalCapCriterionV2::telephonyMode: {
-                    const auto& values =
-                            criterionValue.get<AudioHalCapCriterionV2::telephonyMode>().values;
-                    ASSERT_FALSE(values.empty());
+                    EXPECT_EQ(criterionValue.getTag(), TypeTag::telephonyModeType);
                     validateAudioHalCapRule(
                             matchingCriterion.get<AudioHalCapCriterionV2::telephonyMode>(),
-                            values[0], matchesWhen);
+                            criterionValue.get<TypeTag::telephonyModeType>(), matchesWhen);
                     break;
                 }
                 case AudioHalCapCriterionV2::forceConfigForUse: {
-                    const auto& values =
-                            criterionValue.get<AudioHalCapCriterionV2::forceConfigForUse>().values;
-                    ASSERT_FALSE(values.empty());
+                    EXPECT_EQ(criterionValue.getTag(), TypeTag::forcedConfigType);
                     validateAudioHalCapRule(
-                            matchingCriterion.get<AudioHalCapCriterionV2::forceConfigForUse>(),
-                            values[0], matchesWhen);
+                            matchingCriterion
+                                    .get<AudioHalCapCriterionV2::forceConfigForUse>(),
+                            criterionValue.get<TypeTag::forcedConfigType>(), matchesWhen);
                     break;
                 }
                 default:
