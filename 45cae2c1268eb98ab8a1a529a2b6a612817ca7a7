@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b130ba4_a0be94cd",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-12T21:55:54Z",
+      "side": 1,
+      "message": "Thanks for the clarification. I added a @throws section for each of the three methods.",
+      "parentUuid": "8a1b3495_af5177e8",
+      "range": {
+        "startLine": 114,
+        "startChar": 8,
+        "endLine": 114,
+        "endChar": 38
+      },
+      "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f692daf_1cfa89fc",
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "Hmmmm, that sounds like an implementation detail of the AuthMgr BE and not directly relevant to this interface between AuthMgr FE and AuthMgr BE.\n\nShould we reword this to remove those internal details? It\u0027s helpful information for this implementation, but other implementations of this interface can choose to do something different. What we want to enforce is the behavior of interface - `CONNECTION_HANDOVER_FAILED` is thrown when the BE fails to get a connection to the trusted service.",
       "parentUuid": "d14f558f_081fae06",
+      "range": {
+        "startLine": 230,
+        "startChar": 44,
+        "endLine": 230,
+        "endChar": 74
+      },
+      "revId": "45cae2c1268eb98ab8a1a529a2b6a612817ca7a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a13b3c30_c93c3d67",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 28
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-12T21:55:54Z",
+      "side": 1,
+      "message": "Yes, that is true. I reworded the paragraph to remove this implementation detail and only kept the description of the expected behavior.",
+      "parentUuid": "c9d379fc_7a58a21b",
       "range": {
         "startLine": 230,
         "startChar": 44,
