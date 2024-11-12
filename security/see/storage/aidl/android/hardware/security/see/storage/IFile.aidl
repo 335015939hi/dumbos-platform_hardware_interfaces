@@ -18,6 +18,7 @@ package android.hardware.security.see.storage;
 import android.hardware.security.see.storage.CreationMode;
 
 /** The interface for an open file */
+@VintfStability
 interface IFile {
     /**
      * Read bytes from this file.
