@@ -93,6 +93,30 @@
       },
       "revId": "0fc7c11d52e220efb94ccf3bffd739f7cdee601a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c39325b7_e0a06704",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-12T18:21:53Z",
+      "side": 1,
+      "message": "Hi Jindong, I agree that this logic can be implemented in `StreamInWorkerLogic::cycle` but in that case duplicating logic needs to be removed from `StreamPrimary`, and that should be done as part of this change.",
+      "parentUuid": "737dc69d_ec1e46ed",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 28
+      },
+      "revId": "0fc7c11d52e220efb94ccf3bffd739f7cdee601a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
