@@ -2035,9 +2035,9 @@ Status CameraAidlTest::getMandatoryConcurrentStreams(const camera_metadata_t* st
 
     if (isDepthOnly(staticMeta)) {
         Size y16MaxSize(640, 480);
-        Size maxAvailableY16Size;
-        getMaxOutputSizeForFormat(staticMeta, PixelFormat::Y16, &maxAvailableY16Size);
-        Size y16ChosenSize = getMinSize(y16MaxSize, maxAvailableY16Size);
+        std::vector<Size> availableY16Sizes;
+        getAllOutputSizesForFormat(staticMeta, PixelFormat::Y16, availableY16Sizes);
+        Size y16ChosenSize = getPreferredSize(y16MaxSize, availableY16Sizes);
         AvailableStream y16Stream = {.width = y16ChosenSize.width,
                                      .height = y16ChosenSize.height,
                                      .format = static_cast<int32_t>(PixelFormat::Y16)};
@@ -2047,12 +2047,12 @@ Status CameraAidlTest::getMandatoryConcurrentStreams(const camera_metadata_t* st
 
     Size yuvMaxSize(1280, 720);
     Size jpegMaxSize(1920, 1440);
-    Size maxAvailableYuvSize;
-    Size maxAvailableJpegSize;
-    getMaxOutputSizeForFormat(staticMeta, PixelFormat::YCBCR_420_888, &maxAvailableYuvSize);
-    getMaxOutputSizeForFormat(staticMeta, PixelFormat::BLOB, &maxAvailableJpegSize);
-    Size yuvChosenSize = getMinSize(yuvMaxSize, maxAvailableYuvSize);
-    Size jpegChosenSize = getMinSize(jpegMaxSize, maxAvailableJpegSize);
+    std::vector<Size> availableYuvSizes;
+    std::vector<Size> availableJpegSize;
+    getAllOutputSizesForFormat(staticMeta, PixelFormat::YCBCR_420_888, availableYuvSizes);
+    getAllOutputSizesForFormat(staticMeta, PixelFormat::BLOB, availableJpegSize);
+    Size yuvChosenSize = getPreferredSize(yuvMaxSize, availableYuvSizes);
+    Size jpegChosenSize = getPreferredSize(jpegMaxSize, availableJpegSize);
 
     AvailableStream yuvStream = {.width = yuvChosenSize.width,
                                  .height = yuvChosenSize.height,
@@ -2125,11 +2125,42 @@ Status CameraAidlTest::getMaxOutputSizeForFormat(const camera_metadata_t* static
     return Status::OK;
 }
 
-Size CameraAidlTest::getMinSize(Size a, Size b) {
-    if (a.width * a.height < b.width * b.height) {
-        return a;
+Status CameraAidlTest::getAllOutputSizesForFormat(const camera_metadata_t* staticMeta,
+                                                  PixelFormat format, std::vector<Size>& out) {
+    std::vector<AvailableStream> outputStreams;
+    if (getAvailableOutputStreams(staticMeta, outputStreams,
+                                  /*threshold*/ nullptr, false) != Status::OK) {
+        return Status::ILLEGAL_ARGUMENT;
     }
-    return b;
+    for (auto& outputStream : outputStreams) {
+        if (static_cast<int32_t>(format) == outputStream.format) {
+            out.emplace_back(outputStream.width, outputStream.height);
+        }
+    }
+
+    return Status::OK;
+}
+
+Size CameraAidlTest::getPreferredSize(Size preferredMax, const std::vector<Size>& sizes) {
+    Size chosen = sizes[0];
+    int chosenWh = chosen.width * chosen.height;
+    int preferredMaxWh = preferredMax.width * preferredMax.height;
+    for (int i = 1; i < sizes.size(); i++) {
+        int checkWh = sizes[i].width * sizes[i].height;
+        if (chosenWh < preferredMaxWh) {
+            if (checkWh > chosenWh && checkWh <= preferredMaxWh) {
+                chosen = sizes[i];
+                chosenWh = chosen.width * chosen.height;
+            }
+        } else {
+            if (checkWh < chosenWh) {
+                chosen = sizes[i];
+                chosenWh = chosen.width * chosen.height;
+            }
+        }
+    }
+
+    return chosen;
 }
 
 Status CameraAidlTest::getZSLInputOutputMap(camera_metadata_t* staticMeta,
