@@ -17,7 +17,6 @@
 #pragma once
 
 #include <memory>
-#include <optional>
 
 #include <aidl/android/hardware/health/IHealth.h>
 #include <health/HealthLoop.h>
@@ -33,7 +32,7 @@ class HalHealthLoopCallback {
     // Called by HalHealthLoop::Init
     virtual void OnInit(HalHealthLoop* hal_health_loop, struct healthd_config* config) = 0;
     // Called by HalHealthLoop::Heartbeat
-    virtual void OnHeartbeat(){};
+    virtual void OnHeartbeat() {};
     // Called by HalHealthLoop::PrepareToWait
     virtual int OnPrepareToWait() { return -1; }
     // Called by HalHealthLoop::ScheduleBatteryUpdate
