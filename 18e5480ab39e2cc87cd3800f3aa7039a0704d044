@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b8497f5_6aa2f1e6",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-11-12T13:48:38Z",
+      "side": 1,
+      "message": "this will fail. EIther we change the xsd you added to remove the suffix DOC (splitting / adding even a nice DockType in xsd) or we remove it here... I would prefer first solution",
+      "range": {
+        "startLine": 695,
+        "startChar": 39,
+        "endLine": 695,
+        "endChar": 83
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c217d852_bed32127",
+        "filename": "audio/aidl/default/config/audioPolicy/engine/audio_policy_engine_configuration.xsd",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-11-12T13:48:38Z",
+      "side": 1,
+      "message": "Cannot add DOCK suffic and compare with AIDL toString AudioPolicyForceUse.DockType.\nNothing prevent us to have the forcedDeviceConfigType, forceDockType...\nWe do not need here to rely on  legacy",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 50
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
