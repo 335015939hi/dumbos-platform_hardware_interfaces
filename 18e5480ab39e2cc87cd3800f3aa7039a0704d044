@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1552b6f5_74ac25df",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-11-12T15:09:33Z",
+      "side": 1,
+      "message": "I tried with xsdcValue.getLiteral() with updated xml example. If it is enough to rely on AIDL conversion to enforce configuration. (since XML is now becoming a detail of implementation of HAL provider)",
+      "range": {
+        "startLine": 684,
+        "startChar": 74,
+        "endLine": 684,
+        "endChar": 85
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b8497f5_6aa2f1e6",
         "filename": "audio/aidl/default/XsdcConversion.cpp",
         "patchSetId": 1
