@@ -4,7 +4,7 @@ package {
 
 aidl_interface {
     name: "android.hardware.security.see.storage",
-    unstable: true,
+    stability: "vintf",
     host_supported: true,
     srcs: [
         "android/hardware/security/see/storage/*.aidl",
@@ -23,4 +23,5 @@ aidl_interface {
             enabled: true,
         },
     },
+    frozen: false,
 }

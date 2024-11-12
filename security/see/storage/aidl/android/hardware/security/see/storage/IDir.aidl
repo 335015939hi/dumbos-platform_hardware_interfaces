@@ -16,6 +16,7 @@
 package android.hardware.security.see.storage;
 
 /** The interface for an open directory */
+@VintfStability
 interface IDir {
     /**
      * Gets the next batch of filenames in this directory.
