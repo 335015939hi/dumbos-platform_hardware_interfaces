@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,17 +31,14 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.radio.network;
-/* @hide */
-@JavaDerive(toString=true) @VintfStability
-parcelable NrSignalStrength {
-  int ssRsrp;
-  int ssRsrq;
-  int ssSinr;
-  int csiRsrp;
-  int csiRsrq;
-  int csiSinr;
-  int csiCqiTableIndex;
-  byte[] csiCqiReport;
-  int timingAdvance = android.hardware.radio.RadioConst.VALUE_UNAVAILABLE /* 2147483647 */;
+package android.hardware.contexthub;
+@VintfStability
+interface IEndpointCallback {
+  void onEndpointStarted(in android.hardware.contexthub.EndpointInfo[] endpointInfos);
+  void onEndpointStopped(in android.hardware.contexthub.EndpointId[] endpointIds, android.hardware.contexthub.Reason reason);
+  void onMessageReceived(int sessionId, in android.hardware.contexthub.Message msg);
+  void onMessageDeliveryStatusReceived(int sessionId, in android.hardware.contexthub.MessageDeliveryStatus msgStatus);
+  void onEndpointSessionOpenRequest(int sessionId, in android.hardware.contexthub.EndpointId destination, in android.hardware.contexthub.EndpointId initiator, in @nullable String serviceDescriptor);
+  void onCloseEndpointSession(int sessionId, in android.hardware.contexthub.Reason reason);
+  void onEndpointSessionOpenComplete(int sessionId);
 }
