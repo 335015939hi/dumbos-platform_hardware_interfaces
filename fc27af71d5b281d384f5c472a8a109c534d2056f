@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9021682_23074b4e",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 3570290
+      },
+      "writtenOn": "2024-11-13T06:35:38Z",
+      "side": 1,
+      "message": "1. Can |sizes| be null or have member.\n2. Do you make the assumption that there would at least be one candidate in |sizes| is smaller than the preferredMax?",
+      "range": {
+        "startLine": 2145,
+        "startChar": 9,
+        "endLine": 2145,
+        "endChar": 26
+      },
+      "revId": "fc27af71d5b281d384f5c472a8a109c534d2056f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
