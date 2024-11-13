@@ -101,4 +101,9 @@ interface ISecretkeeper {
      * Delete data of all clients.
      */
     void deleteAll();
+
+    /**
+     * Gets the public key of the (default) secret keeper instance.
+     */
+    PublicKey getSecretKeeperIdentity();
 }
