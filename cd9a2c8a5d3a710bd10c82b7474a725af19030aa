@@ -70,6 +70,24 @@
       "parentUuid": "d5e62edb_944f1eee",
       "revId": "cd9a2c8a5d3a710bd10c82b7474a725af19030aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "497c3ad2_a20bc2be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-13T12:36:56Z",
+      "side": 1,
+      "message": "As Google Pixel implementation uses audio offload, the data tests for this are currently being skipped. \n\nThe AOSP implementation outputs have error values greater than 10% for processing 2048 samples (for 10ms processing duration).\n\nProcessing duration parameter range for Google Pixel implementation(1-10 ms) is narrower as compared to AOSP (1-1000 ms). The current test uses 200 ms as processing duration and therefore, the data tests for Google Pixel implementation will not be executed.",
+      "parentUuid": "8ea2e136_4658ec56",
+      "revId": "cd9a2c8a5d3a710bd10c82b7474a725af19030aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
