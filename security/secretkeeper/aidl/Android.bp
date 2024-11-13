@@ -25,7 +25,7 @@ aidl_interface {
         "android.hardware.security.authgraph-V1",
     ],
     stability: "vintf",
-    frozen: true,
+    frozen: false,
     backend: {
         java: {
             enabled: true,

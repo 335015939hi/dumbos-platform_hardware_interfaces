@@ -17,6 +17,7 @@
 package android.hardware.security.secretkeeper;
 
 import android.hardware.security.authgraph.IAuthGraphKeyExchange;
+import android.hardware.security.secretkeeper.PublicKey;
 import android.hardware.security.secretkeeper.SecretId;
 
 @VintfStability
@@ -101,4 +102,9 @@ interface ISecretkeeper {
      * Delete data of all clients.
      */
     void deleteAll();
+
+    /**
+     * Gets the public key of the secret keeper instance to be passed (and used) by guest pVMs.
+     */
+    PublicKey getSecretKeeperIdentity();
 }
