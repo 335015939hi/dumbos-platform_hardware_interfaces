@@ -46,6 +46,30 @@
       },
       "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35b4c5be_e0fd0ace",
+        "filename": "nfc/aidl/android/hardware/nfc/ProtocolDiscoveryConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1153044
+      },
+      "writtenOn": "2024-11-13T10:36:27Z",
+      "side": 1,
+      "message": "This value should be handled as the values for MIFARE, Kovio or PollBPrime. Chinese Id tags are non-compliant with NFC_forum and there is no documentation explaining it. The value used for the Chinese Id protocol can be anything as long as it is on the range defined by the NCI specification for the proprietary values (0x80 - 0xFE)",
+      "parentUuid": "3bc4f72d_a41ec012",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
