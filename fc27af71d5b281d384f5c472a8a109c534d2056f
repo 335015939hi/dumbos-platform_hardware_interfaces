@@ -70,6 +70,30 @@
       },
       "revId": "fc27af71d5b281d384f5c472a8a109c534d2056f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f21bd92_92916637",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 3570290
+      },
+      "writtenOn": "2024-11-13T08:15:50Z",
+      "side": 1,
+      "message": "If want to do the check outside, it is better that we state the necessity of checking in the comment.",
+      "parentUuid": "902b7b88_2f5792da",
+      "range": {
+        "startLine": 2145,
+        "startChar": 9,
+        "endLine": 2145,
+        "endChar": 26
+      },
+      "revId": "fc27af71d5b281d384f5c472a8a109c534d2056f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
