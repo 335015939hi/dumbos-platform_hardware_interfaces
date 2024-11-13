@@ -16,6 +16,7 @@
 
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::ISecretkeeper::ISecretkeeper;
 use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::SecretId::SecretId;
+use android_hardware_security_secretkeeper::aidl::android::hardware::security::secretkeeper::PublicKey::PublicKey;
 use authgraph_vts_test as ag_vts;
 use authgraph_boringssl as boring;
 use authgraph_core::key;
@@ -38,13 +39,9 @@ use secretkeeper_test::{
     SUBCOMPONENT_DESCRIPTORS, SUBCOMPONENT_SECURITY_VERSION,
     dice_sample::{make_explicit_owned_dice_for_uds, make_explicit_owned_dice, make_large_explicit_owned_dice, CDI_SIZE}
 };
-use std::fs;
-use std::path::Path;
 
 const SECRETKEEPER_SERVICE: &str = "android.hardware.security.secretkeeper.ISecretkeeper";
 const CURRENT_VERSION: u64 = 1;
-const SECRETKEEPER_KEY_HOST_DT: &str =
-    "/proc/device-tree/avf/reference/avf/secretkeeper_public_key";
 
 // Random bytes (of ID_SIZE/SECRET_SIZE) generated for tests.
 const ID_EXAMPLE: Id = Id([
@@ -70,20 +67,13 @@ const SECRET_EXAMPLE: Secret = Secret([
     0x06, 0xAC, 0x36, 0x8B, 0x3C, 0x95, 0x50, 0x16, 0x67, 0x71, 0x65, 0x26, 0xEB, 0xD0, 0xC3, 0x98,
 ]);
 
-// Android expects the public key of Secretkeeper instance to be present in the Linux device tree.
+// Android expects the public key of Secretkeeper instance...TODO(mattgilbride@) - what now?
 // This allows clients to (cryptographically) verify that they are indeed talking to the real
 // secretkeeper.
 // Note that this is the identity of the `default` instance (and not `nonsecure`)!
-fn get_secretkeeper_identity() -> Option<CoseKey> {
-    let path = Path::new(SECRETKEEPER_KEY_HOST_DT);
-    if path.exists() {
-        let key = fs::read(path).unwrap();
-        let mut key = CoseKey::from_slice(&key).unwrap();
-        key.canonicalize(CborOrdering::Lexicographic);
-        Some(key)
-    } else {
-        None
-    }
+fn get_secretkeeper_identity(instance: &str) -> Option<CoseKey> {
+    let PublicKey { keyMaterial } = get_connection(instance).getSecretkeeperIdentity().expect("Could not getSecretkeeperIdentity in test");
+    Some(CoseKey::from_slice(&keyMaterial[..]).expect("Error constructing CoseKey from getSecretKeeperIdentity response"))
 }
 
 fn get_instances() -> Vec<(String, String)> {
@@ -764,7 +754,7 @@ fn secret_management_policy_gate(instance: String) {
 #[rdroidtest(get_instances())]
 #[ignore_if(|p| p != "default")]
 fn secretkeeper_check_identity(instance: String) {
-    let sk_key = get_secretkeeper_identity()
+    let sk_key = get_secretkeeper_identity(instance.as_str())
         .expect("Failed to extract identity of default instance from device tree");
     // Create a session with this expected identity. This succeeds only if the identity used by
     // Secretkeeper is sk_key.
