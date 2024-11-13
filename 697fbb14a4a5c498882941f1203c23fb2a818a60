@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f0b2c48_283334f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-11-13T19:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c83335fb_1f98b896",
+      "revId": "697fbb14a4a5c498882941f1203c23fb2a818a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebb64cb6_9dd942de",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-11-07T18:13:16Z",
       "side": 1,
       "message": "delete",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 10
+      },
+      "revId": "697fbb14a4a5c498882941f1203c23fb2a818a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db9db068_56960fdd",
+        "filename": "health/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-11-13T19:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebb64cb6_9dd942de",
       "range": {
         "startLine": 53,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "849708ab_95831c20",
+        "filename": "health/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-11-13T19:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43c999cc_26ac2cc2",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 17
+      },
+      "revId": "697fbb14a4a5c498882941f1203c23fb2a818a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca2269f0_f2985f96",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-11-07T18:13:16Z",
       "side": 1,
       "message": "delete this or justify it.",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 19
+      },
+      "revId": "697fbb14a4a5c498882941f1203c23fb2a818a60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d13361a1_250de7ea",
+        "filename": "health/aidl/android/hardware/health/FoldInfo.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-11-13T19:18:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca2269f0_f2985f96",
       "range": {
         "startLine": 37,
         "startChar": 0,
