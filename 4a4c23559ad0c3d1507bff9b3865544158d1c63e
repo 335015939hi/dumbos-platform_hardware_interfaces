@@ -70,6 +70,30 @@
       },
       "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfc362c3_6d920d8f",
+        "filename": "nfc/aidl/android/hardware/nfc/ProtocolDiscoveryConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-13T17:09:23Z",
+      "side": 1,
+      "message": "These values are passed through the Android framework code without it trying to interpret the values?\n\nSorry, I\u0027m not familiar with this part of the interface, but we generally can\u0027t accept unknown values in the Android framework if it needs to reference/interpret those values because the framework needs to remain backward compatible with all HAL implementations.",
+      "parentUuid": "35b4c5be_e0fd0ace",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
