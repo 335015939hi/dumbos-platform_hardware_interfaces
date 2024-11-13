@@ -641,6 +641,16 @@ ConversionResult<std::vector<AudioDeviceAddress>> convertDeviceAddressesToAidl(
     return aidlDeviceAddresses;
 }
 
+ConversionResult<AudioMode> convertAudioModeToAidl(const std::string& xsdcAudioModeType) {
+    const auto it = std::find_if(enum_range<AudioMode>().begin(), enum_range<AudioMode>().end(),
+                                 [&](const auto v) { return toString(v) == xsdcAudioModeType; });
+    if (it == enum_range<AudioMode>().end()) {
+        LOG(ERROR) << __func__ << " invalid audio mode " << xsdcAudioModeType;
+        return unexpected(BAD_VALUE);
+    }
+    return *it;
+}
+
 ConversionResult<std::vector<AudioMode>> convertTelephonyModesToAidl(
         const eng_xsd::CriterionTypeType& xsdcTelephonyModeCriterionType) {
     if (xsdcTelephonyModeCriterionType.getValues().empty()) {
@@ -651,12 +661,8 @@ ConversionResult<std::vector<AudioMode>> convertTelephonyModesToAidl(
     for (eng_xsd::ValuesType xsdcValues : xsdcTelephonyModeCriterionType.getValues()) {
         aidlAudioModes.reserve(xsdcValues.getValue().size());
         for (const eng_xsd::ValueType& xsdcValue : xsdcValues.getValue()) {
-            int integerValue = xsdcValue.getNumerical();
-            if (!isValidAudioMode(AudioMode(integerValue))) {
-                LOG(ERROR) << __func__ << " invalid audio mode " << integerValue;
-                return unexpected(BAD_VALUE);
-            }
-            aidlAudioModes.push_back(AudioMode(integerValue));
+            aidlAudioModes.push_back(VALUE_OR_RETURN(
+                    convertAudioModeToAidl(xsdcValue.getLiteral())));
         }
     }
     return aidlAudioModes;
@@ -673,15 +679,8 @@ ConversionResult<std::vector<AudioPolicyForceUse>> convertForceUseConfigsToAidl(
     for (eng_xsd::ValuesType xsdcValues : xsdcForcedConfigCriterionType.getValues()) {
         aidlForcedConfigs.reserve(xsdcValues.getValue().size());
         for (const eng_xsd::ValueType& xsdcValue : xsdcValues.getValue()) {
-            int integerValue = xsdcValue.getNumerical();
-            const std::string stringValue =
-                    eng_xsd::toString(static_cast<eng_xsd::ForcedConfigType>(integerValue));
-            if (stringValue == std::to_string(integerValue)) {
-                LOG(ERROR) << __func__ << " invalid forced config mode " << integerValue;
-                return unexpected(BAD_VALUE);
-            }
             aidlForcedConfigs.push_back(
-                    VALUE_OR_RETURN(convertForceUseToAidl(criterionValue, stringValue)));
+                    VALUE_OR_RETURN(convertForceUseToAidl(criterionValue, xsdcValue.getLiteral())));
         }
     }
     return aidlForcedConfigs;
@@ -718,8 +717,7 @@ ConversionResult<AudioPolicyForceUse::EncodedSurroundConfig> convertForceUseEnco
     const auto it = std::find_if(enum_range<AudioPolicyForceUse::EncodedSurroundConfig>().begin(),
                                  enum_range<AudioPolicyForceUse::EncodedSurroundConfig>().end(),
                                  [&](const auto v) {
-                                     return std::string("ENCODED_SURROUND_") + toString(v) ==
-                                            xsdcForcedConfigCriterionType;
+                                     return toString(v) == xsdcForcedConfigCriterionType;
                                  });
     if (it == enum_range<AudioPolicyForceUse::EncodedSurroundConfig>().end()) {
         LOG(ERROR) << __func__ << " invalid forced config " << xsdcForcedConfigCriterionType;
