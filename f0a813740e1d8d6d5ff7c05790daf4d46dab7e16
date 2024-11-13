@@ -1,0 +1,230 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a99bb13_e6a5efe5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-13T20:03:36Z",
+      "side": 1,
+      "message": "Great, now the test procedure makes sense to me! Please address comments.",
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6842714_156e88a7",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-13T20:03:36Z",
+      "side": 1,
+      "message": "Please add units to the name, is that dB?",
+      "range": {
+        "startLine": 262,
+        "startChar": 10,
+        "endLine": 262,
+        "endChar": 35
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "3c17916f_6d0a79f2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 262,
+                "startChar": 0,
+                "endLine": 264,
+                "endChar": 0
+              },
+              "replacement": "    float kPowerToleranceNormalizedDb \u003d 0.1;\n    float kPowerToleranceAsPlayedDb \u003d 0.5;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 322,
+                "startChar": 0,
+                "endLine": 323,
+                "endChar": 0
+              },
+              "replacement": "                EXPECT_NEAR(currPowerCsb, kExpectedPowerNormalized, kPowerToleranceNormalizedDb);\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 326,
+                "startChar": 0,
+                "endLine": 327,
+                "endChar": 0
+              },
+              "replacement": "                EXPECT_NEAR(currPowerCsb, powerI, kPowerToleranceAsPlayedDb);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af0e3281_6ea2d410",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-13T20:03:36Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to use two different tolerances, just use this one for both cases.",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 40
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ebfcfcd1_b8180a00",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 262,
+                "startChar": 0,
+                "endLine": 264,
+                "endChar": 0
+              },
+              "replacement": "    float kPowerTolerance \u003d 0.5;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 322,
+                "startChar": 0,
+                "endLine": 323,
+                "endChar": 0
+              },
+              "replacement": "                EXPECT_NEAR(currPowerCsb, kExpectedPowerNormalized, kPowerTolerance);\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 326,
+                "startChar": 0,
+                "endLine": 327,
+                "endChar": 0
+              },
+              "replacement": "                EXPECT_NEAR(currPowerCsb, powerI, kPowerTolerance);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "969f1652_24867870",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-13T20:03:36Z",
+      "side": 1,
+      "message": "Are these used?",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 44
+      },
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66313827_76a49d69",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-13T20:03:36Z",
+      "side": 1,
+      "message": "This seems to be not needed.",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 80
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c5bcb349_f0484b8f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+              "range": {
+                "startLine": 318,
+                "startChar": 0,
+                "endLine": 320,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00221da7_08435504",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-13T20:03:36Z",
+      "side": 1,
+      "message": "Please add a comment that it\u0027s capture size.",
+      "range": {
+        "startLine": 372,
+        "startChar": 35,
+        "endLine": 372,
+        "endChar": 37
+      },
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
