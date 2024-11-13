@@ -46,6 +46,30 @@
       },
       "revId": "fc27af71d5b281d384f5c472a8a109c534d2056f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "902b7b88_2f5792da",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1959970
+      },
+      "writtenOn": "2024-11-13T08:04:40Z",
+      "side": 1,
+      "message": "It cannot be null, because it\u0027s a reference not pointer. But it can be empty.  \n\nI\u0027m not sure if adding the check worth the troubles (must change the return type and add third parameter for output) because if the sizes is empty here, probably it\u0027s already in an invalid state prior to calling this function.\n\nMaybe we can do the check outside the function.",
+      "parentUuid": "990c8e32_8019e3a8",
+      "range": {
+        "startLine": 2145,
+        "startChar": 9,
+        "endLine": 2145,
+        "endChar": 26
+      },
+      "revId": "fc27af71d5b281d384f5c472a8a109c534d2056f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
