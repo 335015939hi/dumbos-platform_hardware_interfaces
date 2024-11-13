@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,14 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.security.secretkeeper;
+/* @hide */
 @VintfStability
-interface ISecretkeeper {
-  android.hardware.security.authgraph.IAuthGraphKeyExchange getAuthGraphKe();
-  byte[] processSecretManagementRequest(in byte[] request);
-  void deleteIds(in android.hardware.security.secretkeeper.SecretId[] ids);
-  void deleteAll();
-  android.hardware.security.secretkeeper.PublicKey getSecretkeeperIdentity();
-  const int ERROR_UNKNOWN_KEY_ID = 1;
-  const int ERROR_INTERNAL_ERROR = 2;
-  const int ERROR_REQUEST_MALFORMED = 3;
+parcelable PublicKey {
+  byte[] keyMaterial;
 }

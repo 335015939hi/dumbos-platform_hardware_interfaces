@@ -248,6 +248,10 @@ impl SkClient {
     fn delete_all(&self) {
         self.sk.deleteAll().unwrap();
     }
+
+    fn getSecretkeeperIdentity() {
+        self.sk.getSecretkeeperIdentity()
+    }
 }
 
 #[derive(Debug)]
