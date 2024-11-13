@@ -117,6 +117,30 @@
       },
       "revId": "0fc7c11d52e220efb94ccf3bffd739f7cdee601a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "808caacd_9b1b13ae",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2024-11-13T09:13:34Z",
+      "side": 1,
+      "message": "Got it. I have updated it. Could you please trigger the auto pretest on this patch? I haven\u0027t tested it on cuttlefish. Thank you.",
+      "parentUuid": "c39325b7_e0a06704",
+      "range": {
+        "startLine": 322,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 28
+      },
+      "revId": "0fc7c11d52e220efb94ccf3bffd739f7cdee601a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
