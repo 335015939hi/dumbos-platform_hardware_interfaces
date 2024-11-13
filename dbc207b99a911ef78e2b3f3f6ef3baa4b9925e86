@@ -47,6 +47,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b8bd691_543869f1",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-11-13T09:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a9b8576_e3d81b42",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 47
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ddb2a61_ed174c66",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-11-13T09:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e6fa88b_5b6d6004",
+      "range": {
+        "startLine": 264,
+        "startChar": 20,
+        "endLine": 264,
+        "endChar": 34
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbbfbb15_91cd12a9",
@@ -95,6 +143,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c17c8cb_b0e524a9",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-11-13T09:38:29Z",
+      "side": 1,
+      "message": "The same variable name was already being used in the current test and other vts tests, so used it as is.",
+      "parentUuid": "4883330d_41993a44",
+      "range": {
+        "startLine": 274,
+        "startChar": 14,
+        "endLine": 274,
+        "endChar": 22
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b25da7d_4a7ca460",
         "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
         "patchSetId": 13
@@ -106,6 +178,30 @@
       "writtenOn": "2024-11-06T18:37:20Z",
       "side": 1,
       "message": "what is M here and below?\n\ncan you please check if a better name is possible?",
+      "range": {
+        "startLine": 280,
+        "startChar": 18,
+        "endLine": 280,
+        "endChar": 21
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aacd297e_337283e5",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-11-13T09:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b25da7d_4a7ca460",
       "range": {
         "startLine": 280,
         "startChar": 18,
@@ -129,6 +225,30 @@
       "writtenOn": "2024-11-06T18:51:51Z",
       "side": 1,
       "message": "I just realized that we configure the effect to accept a stereo input:\n\n```\n    const size_t mChannelCount \u003d\n           getChannelCount(AudioChannelLayout::make\u003cAudioChannelLayout::layoutMask\u003e(AudioChannelLayout::LAYOUT_STEREO));\n```\n\nBut feeding it with a mono input. Thus it actually uses pairs of input values and does not get the sine waves we intend.",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 299,
+        "endChar": 97
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96bd2a67_57bffac5",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-11-13T09:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e491a8cc_a083da2d",
       "range": {
         "startLine": 298,
         "startChar": 0,
@@ -185,6 +305,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52c82c7f_c5f31906",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-11-13T09:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dae606a_295b2f4a",
+      "range": {
+        "startLine": 321,
+        "startChar": 58,
+        "endLine": 321,
+        "endChar": 64
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7089623f_08c4d013",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-11-13T09:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f291958a_3e4e12a2",
+      "range": {
+        "startLine": 321,
+        "startChar": 58,
+        "endLine": 321,
+        "endChar": 64
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "024c8afb_557d6144",
@@ -198,6 +366,30 @@
       "writtenOn": "2024-11-06T18:37:20Z",
       "side": 1,
       "message": "move to lines above 317?\n\nAlso do we need any tolerance for these values?",
+      "range": {
+        "startLine": 327,
+        "startChar": 0,
+        "endLine": 328,
+        "endChar": 89
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "554a3fd8_bea52229",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-11-13T09:38:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "024c8afb_557d6144",
       "range": {
         "startLine": 327,
         "startChar": 0,
