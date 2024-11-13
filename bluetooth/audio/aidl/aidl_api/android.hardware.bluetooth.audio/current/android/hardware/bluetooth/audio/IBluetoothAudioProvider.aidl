@@ -50,6 +50,8 @@ interface IBluetoothAudioProvider {
   void onSourceAseMetadataChanged(in android.hardware.bluetooth.audio.IBluetoothAudioProvider.AseState state, int cigId, int cisId, in @nullable android.hardware.bluetooth.audio.MetadataLtv[] metadata);
   android.hardware.bluetooth.audio.IBluetoothAudioProvider.LeAudioBroadcastConfigurationSetting getLeAudioBroadcastConfiguration(in @nullable android.hardware.bluetooth.audio.IBluetoothAudioProvider.LeAudioDeviceCapabilities[] remoteSinkAudioCapabilities, in android.hardware.bluetooth.audio.IBluetoothAudioProvider.LeAudioBroadcastConfigurationRequirement requirement);
   android.hardware.bluetooth.audio.IBluetoothAudioProvider.LeAudioDataPathConfiguration getLeAudioBroadcastDatapathConfiguration(in android.hardware.bluetooth.audio.AudioContext audioContext, in android.hardware.bluetooth.audio.LeAudioBroadcastConfiguration.BroadcastStreamMap[] streamMap);
+  void startIndication();
+  void suspendIndication();
   const int CODEC_PRIORITY_DISABLED = (-1) /* -1 */;
   const int CODEC_PRIORITY_NONE = 0;
   @VintfStability

@@ -828,4 +828,17 @@ interface IBluetoothAudioProvider {
      */
     LeAudioDataPathConfiguration getLeAudioBroadcastDatapathConfiguration(
             in AudioContext audioContext, in BroadcastStreamMap[] streamMap);
+
+    /**
+     * Called when Bluetooth stack receives the AVDTP start indication
+     * from remote device.
+     *
+     */
+    void startIndication();
+    /**
+     * Called when Bluetooth stack receives the AVDTP suspend indication
+     * from remote device.
+     *
+     */
+    void suspendIndication();
 }

@@ -304,6 +304,37 @@ BluetoothAudioProvider::getLeAudioBroadcastDatapathConfiguration(
   return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
+ndk::ScopedAStatus BluetoothAudioProvider::startIndication() {
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_);
+  if (session_type_ != SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+    LOG(INFO) << __func__ << " un-supported operation ";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+  }
+  if (stack_iface_ == nullptr) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " has NO session";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+  }
+  BluetoothAudioSessionReport::ReportStartIndication(session_type_);
+  return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus BluetoothAudioProvider::suspendIndication() {
+  LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_);
+  if (session_type_ != SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH) {
+    LOG(INFO) << __func__ << " un-supported operation ";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+  }
+
+  if (stack_iface_ == nullptr) {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " has NO session";
+    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+  }
+  BluetoothAudioSessionReport::ReportSuspendIndication(session_type_);
+  return ndk::ScopedAStatus::ok();
+}
+
 }  // namespace audio
 }  // namespace bluetooth
 }  // namespace hardware

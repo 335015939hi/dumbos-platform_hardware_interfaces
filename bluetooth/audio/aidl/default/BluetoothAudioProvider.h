@@ -136,6 +136,9 @@ class BluetoothAudioProvider : public BnBluetoothAudioProvider {
       const A2dpConfigurationHint& hint,
       std::optional<audio::A2dpConfiguration>* _aidl_return);
 
+  ndk::ScopedAStatus startIndication();
+  ndk::ScopedAStatus suspendIndication();
+
   virtual bool isValid(const SessionType& sessionType) = 0;
 
  protected:
