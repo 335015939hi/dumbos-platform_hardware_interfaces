@@ -76,16 +76,16 @@ class GnssHalTest : public android::hardware::gnss::common::GnssHalTestTemplate<
     void StartAndCheckLocations(const int count);
     void StartAndCheckLocations(const int count, const bool start_sv_status, const bool start_nmea);
 
-    android::hardware::gnss::GnssConstellationType startLocationAndGetBlockableConstellation(
+    android::hardware::gnss::GnssConstellationType startLocationAndGetNonGpsConstellation(
             const int locations_to_await, const int gnss_sv_info_list_timeout);
     std::list<std::vector<android::hardware::gnss::IGnssCallback::GnssSvInfo>> convertToAidl(
             const std::list<hidl_vec<android::hardware::gnss::V2_1::IGnssCallback::GnssSvInfo>>&
                     sv_info_list);
-    android::hardware::gnss::BlocklistedSource FindStrongFrequentBlockableSource(
+    android::hardware::gnss::BlocklistedSource FindStrongFrequentNonGpsSource(
             const std::list<hidl_vec<android::hardware::gnss::V2_1::IGnssCallback::GnssSvInfo>>
                     sv_info_list,
             const int min_observations);
-    android::hardware::gnss::BlocklistedSource FindStrongFrequentBlockableSource(
+    android::hardware::gnss::BlocklistedSource FindStrongFrequentNonGpsSource(
             const std::list<std::vector<android::hardware::gnss::IGnssCallback::GnssSvInfo>>
                     sv_info_list,
             const int min_observations);

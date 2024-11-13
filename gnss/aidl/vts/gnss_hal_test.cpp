@@ -276,35 +276,29 @@ std::list<std::vector<IGnssCallback::GnssSvInfo>> GnssHalTest::convertToAidl(
 }
 
 /*
- * FindStrongFrequentBlockableSource:
+ * FindStrongFrequentNonGpsSource:
  *
- * Search through a GnssSvStatus list for the strongest blockable satellite observed enough times
+ * Search through a GnssSvStatus list for the strongest non-GPS satellite observed enough times
  *
  * returns the strongest source,
  *         or a source with constellation == UNKNOWN if none are found sufficient times
  */
-BlocklistedSource GnssHalTest::FindStrongFrequentBlockableSource(
+BlocklistedSource GnssHalTest::FindStrongFrequentNonGpsSource(
         const std::list<hidl_vec<IGnssCallback_2_1::GnssSvInfo>> sv_info_list,
         const int min_observations) {
-    return FindStrongFrequentBlockableSource(convertToAidl(sv_info_list), min_observations);
+    return FindStrongFrequentNonGpsSource(convertToAidl(sv_info_list), min_observations);
 }
 
-BlocklistedSource GnssHalTest::FindStrongFrequentBlockableSource(
+BlocklistedSource GnssHalTest::FindStrongFrequentNonGpsSource(
         const std::list<std::vector<IGnssCallback::GnssSvInfo>> sv_info_list,
         const int min_observations) {
     std::map<ComparableBlocklistedSource, SignalCounts> mapSignals;
 
-    bool isCnBuild = Utils::isCnBuild();
-    ALOGD("isCnBuild: %s", isCnBuild ? "true" : "false");
     for (const auto& sv_info_vec : sv_info_list) {
         for (uint32_t iSv = 0; iSv < sv_info_vec.size(); iSv++) {
             const auto& gnss_sv = sv_info_vec[iSv];
             if ((gnss_sv.svFlag & (int)IGnssCallback::GnssSvFlags::USED_IN_FIX) &&
                 (gnss_sv.constellation != GnssConstellationType::GPS)) {
-                if (isCnBuild && (gnss_sv.constellation == GnssConstellationType::BEIDOU)) {
-                    // Do not blocklist BDS on CN builds
-                    continue;
-                }
                 ComparableBlocklistedSource source;
                 source.id.svid = gnss_sv.svid;
                 source.id.constellation = gnss_sv.constellation;
@@ -349,7 +343,7 @@ BlocklistedSource GnssHalTest::FindStrongFrequentBlockableSource(
     return source_to_blocklist.id;
 }
 
-GnssConstellationType GnssHalTest::startLocationAndGetBlockableConstellation(
+GnssConstellationType GnssHalTest::startLocationAndGetNonGpsConstellation(
         const int locations_to_await, const int gnss_sv_info_list_timeout) {
     if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
         return static_cast<GnssConstellationType>(
@@ -366,9 +360,7 @@ GnssConstellationType GnssHalTest::startLocationAndGetBlockableConstellation(
     ALOGD("Observed %d GnssSvInfo, while awaiting %d Locations (%d received)",
           sv_info_list_cbq_size, locations_to_await, location_called_count);
 
-    bool isCnBuild = Utils::isCnBuild();
-    ALOGD("isCnBuild: %s", isCnBuild ? "true" : "false");
-    // Find first blockable constellation to blocklist
+    // Find first non-GPS constellation to blocklist
     GnssConstellationType constellation_to_blocklist = GnssConstellationType::UNKNOWN;
     for (int i = 0; i < sv_info_list_cbq_size; ++i) {
         std::vector<IGnssCallback::GnssSvInfo> sv_info_vec;
@@ -378,11 +370,7 @@ GnssConstellationType GnssHalTest::startLocationAndGetBlockableConstellation(
             if ((gnss_sv.svFlag & (uint32_t)IGnssCallback::GnssSvFlags::USED_IN_FIX) &&
                 (gnss_sv.constellation != GnssConstellationType::UNKNOWN) &&
                 (gnss_sv.constellation != GnssConstellationType::GPS)) {
-                if (isCnBuild && (gnss_sv.constellation == GnssConstellationType::BEIDOU)) {
-                    // Do not blocklist BDS on CN builds
-                    continue;
-                }
-                // found a blockable constellation
+                // found a non-GPS constellation
                 constellation_to_blocklist = gnss_sv.constellation;
                 break;
             }
@@ -393,11 +381,11 @@ GnssConstellationType GnssHalTest::startLocationAndGetBlockableConstellation(
     }
 
     if (constellation_to_blocklist == GnssConstellationType::UNKNOWN) {
-        ALOGI("No blockable constellations found, constellation blocklist test less effective.");
+        ALOGI("No non-GPS constellations found, constellation blocklist test less effective.");
         // Proceed functionally to blocklist something.
         constellation_to_blocklist = GnssConstellationType::GLONASS;
     }
-    ALOGD("Constellation to blocklist: %d", constellation_to_blocklist);
+
     return constellation_to_blocklist;
 }
 
