@@ -142,6 +142,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7615bb2_598a1060",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-13T22:25:22Z",
+      "side": 1,
+      "message": "remove k prefix as that is generally used for constexpr.",
+      "range": {
+        "startLine": 266,
+        "startChar": 16,
+        "endLine": 266,
+        "endChar": 40
+      },
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c81ecd0_7cf026df",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-13T22:25:22Z",
+      "side": 1,
+      "message": "move this to line 300?",
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "969f1652_24867870",
         "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
         "patchSetId": 14

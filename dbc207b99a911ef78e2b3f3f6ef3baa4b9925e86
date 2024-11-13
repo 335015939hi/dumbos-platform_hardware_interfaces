@@ -189,6 +189,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea9dc97c_d57a1110",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 13
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1546599
+      },
+      "writtenOn": "2024-11-13T22:25:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1c17c8cb_b0e524a9",
+      "range": {
+        "startLine": 274,
+        "startChar": 14,
+        "endLine": 274,
+        "endChar": 22
+      },
+      "revId": "dbc207b99a911ef78e2b3f3f6ef3baa4b9925e86",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b25da7d_4a7ca460",
