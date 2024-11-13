@@ -16,6 +16,24 @@
       "message": "What do these zeroes mean? I see AesKey has the same thing.",
       "revId": "728b290c81f0e29e1b999c053eead57165b7844f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f45791d6_d37c2f3e",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/HmacKey.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-11-13T20:06:49Z",
+      "side": 1,
+      "message": "AIDL requires to provide a default value in some definitions.",
+      "parentUuid": "a158f118_07b95cae",
+      "revId": "728b290c81f0e29e1b999c053eead57165b7844f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
