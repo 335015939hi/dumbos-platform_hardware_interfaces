@@ -34,6 +34,24 @@
       "parentUuid": "a158f118_07b95cae",
       "revId": "728b290c81f0e29e1b999c053eead57165b7844f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97440a9f_27d61e5d",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/HmacKey.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-13T20:07:24Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f45791d6_d37c2f3e",
+      "revId": "728b290c81f0e29e1b999c053eead57165b7844f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
