@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08e5f749_ac0e63c4",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-13T13:31:03Z",
+      "side": 1,
+      "message": "Could/should this be `UTF8String` rather than `OCTET_STRING`?",
+      "range": {
+        "startLine": 164,
+        "startChar": 38,
+        "endLine": 164,
+        "endChar": 50
+      },
+      "revId": "1a397a0cdd1563655750736051cc6549a0a2f55e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67be969e_43fca7d0",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-13T13:31:03Z",
+      "side": 1,
+      "message": "super-nit: `--` comments end at the end of the line in ASN.1 schemas.",
+      "range": {
+        "startLine": 221,
+        "startChar": 79,
+        "endLine": 221,
+        "endChar": 100
+      },
+      "revId": "1a397a0cdd1563655750736051cc6549a0a2f55e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
