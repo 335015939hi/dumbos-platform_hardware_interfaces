@@ -94,6 +94,30 @@
       },
       "revId": "fc27af71d5b281d384f5c472a8a109c534d2056f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e6835e0_5a1ea9ae",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2145,
+      "author": {
+        "id": 1959970
+      },
+      "writtenOn": "2024-11-13T08:35:37Z",
+      "side": 1,
+      "message": "Done, added note in the headers\u0027 comment.",
+      "parentUuid": "5f21bd92_92916637",
+      "range": {
+        "startLine": 2145,
+        "startChar": 9,
+        "endLine": 2145,
+        "endChar": 26
+      },
+      "revId": "fc27af71d5b281d384f5c472a8a109c534d2056f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
