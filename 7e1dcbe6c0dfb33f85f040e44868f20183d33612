@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f05de28_3c7900c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-13T18:44:24Z",
+      "side": 1,
+      "message": "\u003e We should finalize a plan for a VTS test for this before submitting.\n\nThe current plan as discussed with @armellel@google.com is to run the trusty tests as VTS tests in a separate VM.\nI am in the process of writing trusty tests for the AuthMgr TA that implements this AIDL interface, to test the e2e protocol (WIP CL topic for the TA: https://android-review.git.corp.google.com/q/topic:%22authmgr-be-ta%22 which integrates the reference implementation in the CL topic: https://android-review.git.corp.google.com/q/topic:%22authmgr-core%22). \n\n\n\u003e  Ideally we can have a VTS test in Android that would run against binder services or TEE services serving the same instance\n\nAFAIU, writing a VTS test in Android requires adding a HAL service in Android that routes the requests to the TEE service. I am not sure if we want to add a HAL service in Android for this.\n\n\n\u003e could we add a normal VTS test here which asserts that this interface is not implemented via binder, because we don\u0027t have test coverage for that?\n\nSure, I will add a VTS test here which asserts that this interface is not implemented via binder. \n(I suppose that I need to call `check_interface` (https://cs.android.com/android/platform/superproject/main/+/main:frameworks/native/libs/binder/rust/src/service.rs;l\u003d185) and asset that it returns `StatusCode::NAME_NOT_FOUND`)",
+      "parentUuid": "3a2ae048_c292f00b",
+      "revId": "7e1dcbe6c0dfb33f85f040e44868f20183d33612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37a6c02b_a3c3756f",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.aidl",
         "patchSetId": 30
@@ -31,6 +49,30 @@
       "writtenOn": "2024-11-13T03:18:31Z",
       "side": 1,
       "message": ".",
+      "range": {
+        "startLine": 27,
+        "startChar": 51,
+        "endLine": 27,
+        "endChar": 52
+      },
+      "revId": "7e1dcbe6c0dfb33f85f040e44868f20183d33612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac0ce1da_9ae647d5",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.aidl",
+        "patchSetId": 30
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-13T18:44:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37a6c02b_a3c3756f",
       "range": {
         "startLine": 27,
         "startChar": 51,
