@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a158f118_07b95cae",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/HmacKey.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-13T19:49:58Z",
+      "side": 1,
+      "message": "What do these zeroes mean? I see AesKey has the same thing.",
+      "revId": "728b290c81f0e29e1b999c053eead57165b7844f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
