@@ -80,7 +80,8 @@ import android.hardware.security.secureclock.TimeStampToken;
  *
  *      - TRUSTED_ENVIRONMENT IKeyMintDevices must support 2048, 3072 and 4096-bit keys.
  *        STRONGBOX IKeyMintDevices must support 2048-bit keys.
- *      - Public exponent F4 (2^16+1)
+ *      - Public exponent F4 (2^16+1) and public exponent 3 (unless combined with a known-insecure
+ *        padding mode).
  *      - Unpadded, RSASSA-PSS and RSASSA-PKCS1-v1_5 padding modes for RSA signing
  *      - TRUSTED_ENVIRONMENT IKeyMintDevices must support MD5, SHA1, SHA-2 224, SHA-2 256, SHA-2
  *        384 and SHA-2 512 digest modes for RSA signing.  STRONGBOX IKeyMintDevices must support
@@ -280,8 +281,10 @@ interface IKeyMintDevice {
      *   must support 2048.
      *
      * o Tag::RSA_PUBLIC_EXPONENT specifies the RSA public exponent value.  If omitted, generateKey
-     *   must return ErrorCode::INVALID_ARGUMENT.  The values 3 and 65537 must be supported.  It is
-     *   recommended to support all prime values up to 2^64.
+     *   must return ErrorCode::INVALID_ARGUMENT.  The values 65537 must be supported.  The value
+     *   3 must be supported when combined with padding modes NONE, OAEP or PSS; however,
+     *   implementations may reject known-insecure combinations (such as PKCS_1_5 padding modes
+     *   with e=3).  It is recommended to support all prime values up to 2^64.
      *
      * o Tag::CERTIFICATE_NOT_BEFORE and Tag::CERTIFICATE_NOT_AFTER specify the valid date range for
      *   the returned X.509 certificate holding the public key. If omitted, generateKey must return
