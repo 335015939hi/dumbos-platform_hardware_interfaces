@@ -16,6 +16,23 @@
       "message": "Hi Eddie, Shuzhen,\n\nMy team is using this VTS to ensure stability in our recent projects.\nI think it\u0027s a bug, but in case it is not, let\u0027s discuss.\n\nPlease help review,\nthanks!",
       "revId": "3dd7e491f97352be34b93c2242ade9d5e354f1d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20be579e_6c91fbc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1959970
+      },
+      "writtenOn": "2024-11-14T17:41:56Z",
+      "side": 1,
+      "message": "+cc more camera framework team members\n\nIf you have time, I\u0027d like you to take a look at my CL,\nthanks",
+      "revId": "3dd7e491f97352be34b93c2242ade9d5e354f1d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
