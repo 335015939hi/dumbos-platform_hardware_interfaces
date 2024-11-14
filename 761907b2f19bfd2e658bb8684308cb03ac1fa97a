@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7387c979_a33331d0",
+        "filename": "sensors/aidl/android/hardware/sensors/Event.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-14T18:45:20Z",
+      "side": 1,
+      "message": "Are these persistant values? Is this is a moisture sensor or \"moisture damage\" sensor?",
+      "range": {
+        "startLine": 306,
+        "startChar": 15,
+        "endLine": 306,
+        "endChar": 76
+      },
+      "revId": "761907b2f19bfd2e658bb8684308cb03ac1fa97a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "926c2901_2967edbf",
         "filename": "sensors/aidl/android/hardware/sensors/Event.aidl",
         "patchSetId": 15
