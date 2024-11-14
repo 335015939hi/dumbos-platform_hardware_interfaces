@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a102c506_64694dcf",
+        "filename": "health/aidl/android/hardware/health/HealthInfo.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-14T18:40:38Z",
+      "side": 1,
+      "message": "HingeInfo?",
+      "range": {
+        "startLine": 27,
+        "startChar": 31,
+        "endLine": 27,
+        "endChar": 39
+      },
+      "revId": "cea6e8062064742ba45a5de8d3059ddf0c05712d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
