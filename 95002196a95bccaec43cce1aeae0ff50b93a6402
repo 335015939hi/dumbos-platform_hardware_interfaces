@@ -33,6 +33,29 @@
       "message": "readoutTimestamp is required for all AIDL HALs unless the HAL specify ANDROID_SENSOR_READOUT_TIMESTAMP to false.",
       "revId": "95002196a95bccaec43cce1aeae0ff50b93a6402",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7a8b0ab_64e56f5f",
+        "filename": "camera/provider/aidl/vts/camera_aidl_test.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2024-11-14T19:01:49Z",
+      "side": 1,
+      "message": "Its probably just good to add a clarifying comment here on why this returns true. Because for AIDL HALs unless the vendor specifies it, we assume readout timestamp support.",
+      "range": {
+        "startLine": 465,
+        "startChar": 4,
+        "endLine": 466,
+        "endChar": 21
+      },
+      "revId": "95002196a95bccaec43cce1aeae0ff50b93a6402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
