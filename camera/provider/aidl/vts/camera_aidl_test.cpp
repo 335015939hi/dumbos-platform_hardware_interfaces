@@ -463,7 +463,7 @@ bool CameraAidlTest::isReadoutTimestampSupported(const camera_metadata_t* static
                                            &readoutTimestampEntry);
     if (rc != 0) {
         ALOGI("%s: Failed to find ANDROID_SENSOR_READOUT_TIMESTAMP", __FUNCTION__);
-        return true;
+        return false;
     }
     if (readoutTimestampEntry.count == 1 && !readoutTimestampEntry.data.u8[0]) {
         ALOGI("%s: readout timestamp not supported", __FUNCTION__);
