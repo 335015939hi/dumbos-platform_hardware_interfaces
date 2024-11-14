@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5122bbc0_5df1e689",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-14T00:49:22Z",
+      "side": 1,
+      "message": "I have added a simple VTS test (VtsAidlAuthMgrNonExistentTest) to assert the non-existence of an instance of this interface here: https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3217176/32/security/see/authmgr/aidl/vts/test.rs\nPlease let me know if that is what you meant in the last sentence of your comment.\n\nI have also added this interface to fcm_exclude https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3217176/32/compatibility_matrices/exclude/fcm_exclude.cpp, because it shouldn\u0027t be included in the compatibility matrices, AFAIU.",
+      "parentUuid": "6f05de28_3c7900c3",
+      "revId": "7e1dcbe6c0dfb33f85f040e44868f20183d33612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37a6c02b_a3c3756f",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.aidl",
         "patchSetId": 30
