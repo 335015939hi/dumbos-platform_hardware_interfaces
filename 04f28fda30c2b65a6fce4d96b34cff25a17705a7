@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85722ed8_4b023de9",
+        "filename": "security/see/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-11-14T21:56:34Z",
+      "side": 1,
+      "message": "Could something like [this include](https://android.googlesource.com/platform/system/core/+/master/trusty/OWNERS) would work for the Trusty developers?",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 8
+      },
+      "revId": "04f28fda30c2b65a6fce4d96b34cff25a17705a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
