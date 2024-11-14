@@ -118,6 +118,30 @@
       },
       "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d77cc52_a31d1bab",
+        "filename": "nfc/aidl/android/hardware/nfc/ProtocolDiscoveryConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1306902
+      },
+      "writtenOn": "2024-11-14T08:31:35Z",
+      "side": 1,
+      "message": "Byte values listed in ProtocolDiscoveryConfig are all vendor proprietary.\nVendor HAL implementation need to fill in these values based on their definition.\nFor example:\nIn NXP impl, protocolMifare is 0x80, but in ST\u0027s impl is 0x90.",
+      "parentUuid": "5936a050_c1888e1d",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
