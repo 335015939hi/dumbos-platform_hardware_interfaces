@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4eab6ef4_55b70125",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-14T23:00:28Z",
+      "side": 1,
+      "message": "Sorry about the late reply. I was OOO.\n\n\u003e I think we should be able to merge this interface, for use in trunk*\n\nThanks Steven! Can you please clarify whether I need to add anything else to the CL for this?\n\n\u003e Please not, having a fully defined and tested vendor interface is the bar for releasing this HAL. We cannot commit to such APIs and support them without a well-defined interface. It puts too much cost on the Android upgrade process. Thank you!\n\nNoted. Thank you! The interface is fully defined in this CL and as mentioned in my first reply above with the links to the CLs, the e2e testing via the trusty tests against the Trusty TA that integrates the reference library should be complete by the API freeze.\n\n\u003e I guess on that note, how do we know that this isn\u0027t used on next until then? Since it\u0027s all custom, it is a risk, the same for any HAL sure, but this is the one that is planned to be used in a TEE.\n\nI am sorry, I didn\u0027t get this last question. Can you please elaborate on what you meant by: `how do we know that this isn\u0027t used on next until then`? Thanks!",
+      "parentUuid": "77e45036_fb5b2fb4",
+      "revId": "7e1dcbe6c0dfb33f85f040e44868f20183d33612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37a6c02b_a3c3756f",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.aidl",
         "patchSetId": 30
