@@ -16,6 +16,23 @@
       "message": "Hi Eddy and Camera Framework team,\n\nI have a minor bug fix, please help see if it make sense,\n\nthanks",
       "revId": "95002196a95bccaec43cce1aeae0ff50b93a6402",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d0eb58b_7e503ab3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1092583
+      },
+      "writtenOn": "2024-11-14T18:13:59Z",
+      "side": 1,
+      "message": "readoutTimestamp is required for all AIDL HALs unless the HAL specify ANDROID_SENSOR_READOUT_TIMESTAMP to false.",
+      "revId": "95002196a95bccaec43cce1aeae0ff50b93a6402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
