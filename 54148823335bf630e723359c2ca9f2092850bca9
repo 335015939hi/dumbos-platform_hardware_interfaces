@@ -16,6 +16,24 @@
       "message": "I disagree with this.  Keymaster/KeyMint have never made any attempt to block known-insecure key configurations, for two reasons.\n\nFirst, if we do want to prevent users from shooting themselves in the foot in this way, we should do it in the framework.  There\u0027s no reason to burden the TA with this.\n\nSecond, I think it\u0027s a bad idea to block some insecure configurations unless we take care to block them all... and there are too many to block, and it\u0027s almost certain that we\u0027d miss some.  And even if we could block them all, there are a thousand other ways that developers could misuse cryptography to produce an insecure result.  Using crypto correctly inherently requires extensive expertise, and we can\u0027t protect developers from doing dumb things.\n\nThe only way to make dumb things impossible is to provide a very limited toolset that only supports specific, selected use cases and nothing else.  That\u0027s a good idea, but it\u0027s something that should be done at a higher level, leaving Keystore as a general-purpose toolset with all of the power and all of the sharp edges that implies.",
       "revId": "54148823335bf630e723359c2ca9f2092850bca9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "690727ec_87ff7aa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-14T15:21:15Z",
+      "side": 1,
+      "message": "See b/370392012 for context - some vendors are saying that it\u0027s more difficult for them to get signoff from third-party evaluations of their KM implementations if the implementations support e\u003d3+PaddingMode::RSA_PKCS1_1_5_* so we\u0027re allowing them not to support that if they prefer. We are fine with implementations that support e\u003d3+PaddingMode::RSA_PKCS1_1_5_* too.",
+      "parentUuid": "359be3b9_cdb39849",
+      "revId": "54148823335bf630e723359c2ca9f2092850bca9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
