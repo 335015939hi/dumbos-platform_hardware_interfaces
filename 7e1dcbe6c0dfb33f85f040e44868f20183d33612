@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15fb3d01_d4d07831",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-14T01:11:13Z",
+      "side": 1,
+      "message": "I guess on that note, how do we know that this isn\u0027t used on next until then? Since it\u0027s all custom, it is a risk, the same for any HAL sure, but this is the one that is planned to be used in a TEE.",
+      "parentUuid": "77e45036_fb5b2fb4",
+      "revId": "7e1dcbe6c0dfb33f85f040e44868f20183d33612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37a6c02b_a3c3756f",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.aidl",
         "patchSetId": 30
