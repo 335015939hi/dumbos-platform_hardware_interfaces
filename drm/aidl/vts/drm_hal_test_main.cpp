@@ -77,6 +77,7 @@ int main(int argc, char** argv) {
         std::cerr << "WARNING: No vendor modules found in " << kModulePath
                   << ", all vendor tests will be skipped" << std::endl;
     }
+
     ABinderProcess_setThreadPoolMaxThreadCount(1);
     ABinderProcess_startThreadPool();
     ::testing::InitGoogleTest(&argc, argv);
