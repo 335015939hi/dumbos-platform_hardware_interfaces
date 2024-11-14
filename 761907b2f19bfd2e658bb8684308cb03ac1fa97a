@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84e57f4d_be70951c",
+        "filename": "sensors/aidl/android/hardware/sensors/Event.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1133857
+      },
+      "writtenOn": "2024-11-14T19:07:07Z",
+      "side": 1,
+      "message": "It should be persistent. Unlike USB moisture detection, it\u0027s more important to know whether the device has been detected with liquid as opposed to the state of the device at the time of inquiry.",
+      "parentUuid": "7387c979_a33331d0",
+      "range": {
+        "startLine": 306,
+        "startChar": 15,
+        "endLine": 306,
+        "endChar": 76
+      },
+      "revId": "761907b2f19bfd2e658bb8684308cb03ac1fa97a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "926c2901_2967edbf",
         "filename": "sensors/aidl/android/hardware/sensors/Event.aidl",
         "patchSetId": 15
