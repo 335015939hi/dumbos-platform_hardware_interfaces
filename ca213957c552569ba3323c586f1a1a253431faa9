@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eccd1bb_7b32e325",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-14T14:46:04Z",
+      "side": 1,
+      "message": "It\u0027s unclear what the \"unless\" modifies here - should it be something like \n\n```suggestion\n *      - Public exponent F4 (2^16+1) (for all padding modes) and public exponent 3 (unless combined with a known-insecure\n```\n\nOr maybe there\u0027s a way we can say this only once; the statement of it below is perfect.",
+      "range": {
+        "startLine": 83,
+        "startChar": 10,
+        "endLine": 83,
+        "endChar": 37
+      },
+      "revId": "ca213957c552569ba3323c586f1a1a253431faa9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
