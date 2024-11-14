@@ -142,6 +142,30 @@
       },
       "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "504f0a94_8f29e891",
+        "filename": "nfc/aidl/android/hardware/nfc/ProtocolDiscoveryConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-14T20:55:13Z",
+      "side": 1,
+      "message": "Since this is already the pattern used by the rest of the bytes here, and there haven\u0027t been issues with it, this is OK.",
+      "parentUuid": "3d77cc52_a31d1bab",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 27
+      },
+      "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
