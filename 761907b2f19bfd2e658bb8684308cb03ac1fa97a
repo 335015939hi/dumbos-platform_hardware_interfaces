@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "248ab20f_3aaed6b3",
+        "filename": "sensors/aidl/android/hardware/sensors/Event.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-11-14T22:12:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84e57f4d_be70951c",
+      "range": {
+        "startLine": 306,
+        "startChar": 15,
+        "endLine": 306,
+        "endChar": 76
+      },
+      "revId": "761907b2f19bfd2e658bb8684308cb03ac1fa97a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "926c2901_2967edbf",
@@ -61,6 +85,30 @@
       "writtenOn": "2024-11-14T18:43:34Z",
       "side": 1,
       "message": "Can we get this granular of info from these sensors?",
+      "range": {
+        "startLine": 312,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 28
+      },
+      "revId": "761907b2f19bfd2e658bb8684308cb03ac1fa97a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baba9816_bc462c96",
+        "filename": "sensors/aidl/android/hardware/sensors/Event.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1964171
+      },
+      "writtenOn": "2024-11-14T22:12:32Z",
+      "side": 1,
+      "message": "Gonna leave this as a boolean to be congruent to how I believe USB works (from my own phone) : )",
+      "parentUuid": "926c2901_2967edbf",
       "range": {
         "startLine": 312,
         "startChar": 0,
