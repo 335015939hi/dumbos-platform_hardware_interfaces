@@ -50,6 +50,24 @@
       "message": "Based on https://developer.android.com/reference/android/hardware/camera2/CameraDevice#concurrent-stream-guaranteed-configurations, 1440p is a mandatory stream size if concurrent camera streaming is supported.",
       "revId": "3dd7e491f97352be34b93c2242ade9d5e354f1d3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4ff97de_b31a5048",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1959970
+      },
+      "writtenOn": "2024-11-15T02:31:36Z",
+      "side": 1,
+      "message": "Thanks for pointing to the doc, I was only looking at the docs not mentioning that (CDD).\n\nNow you mention that, actually I can find that from public Google search.",
+      "parentUuid": "0b403b38_08325336",
+      "revId": "3dd7e491f97352be34b93c2242ade9d5e354f1d3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
