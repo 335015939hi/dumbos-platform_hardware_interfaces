@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e39ce792_517c827c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-15T17:27:31Z",
+      "side": 1,
+      "message": "Where is the implementation of this interface going to be?\n\n`hal_implementation_test` will fail without being able to find an implementation on Cuttlefish. If this is one of the services that are only going to be accessible by TAs in a VM, then we will need to add this interface exception to hal_implementation_test (always known missing with an explanation).",
+      "revId": "d80119d889133521e451bfee72d3c76e98d4f69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21b4802a_c5e05933",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-15T17:27:31Z",
+      "side": 1,
+      "message": "Is there some specific doc format that these files are following? I figured we could make sweeping doc changes now if we wanted to when we are moving this interface.\n\nTypical existing AIDL formats:\n\n1) Enumerators are documented individually like the fields in parcelables and unions in this file. (no need to have `DEVICE_BOUND_KEY` twice).\n2) Function parameters are documented `@param \u003cname\u003e \u003cdescription\u003e` instead of `@\u003cname\u003e`\n3.a) Returns are documented with `@return`\n3.b) Either no language specific syntax, or use Java-like syntax for AIDL files. Don\u0027t use `Ok(\u003ctype\u003e)` (this is currently inconsistent in this interface).\n4) `@throws` is used to describe which ServiceSpecificExceptions or built-in exceptions are used for errors.\n5) function names aren\u0027t added to the doc comments. It\u0027s assumed the comment directly preceding a function is for that function. This change would reducing the odd tabbing in these doc comments.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 49
+      },
+      "revId": "d80119d889133521e451bfee72d3c76e98d4f69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
