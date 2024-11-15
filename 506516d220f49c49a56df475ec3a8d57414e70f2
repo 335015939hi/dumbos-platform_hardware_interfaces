@@ -16,6 +16,23 @@
       "message": "Hi Mikhail, seems that I do not have \"Add Patch Set\" permission. So, I made a fixup CL",
       "revId": "506516d220f49c49a56df475ec3a8d57414e70f2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d24156a4_a5bc01ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T21:21:52Z",
+      "side": 1,
+      "message": "Thank you Francois! I\u0027ve incorporated it into my CL, this one can be abandoned.",
+      "revId": "506516d220f49c49a56df475ec3a8d57414e70f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
