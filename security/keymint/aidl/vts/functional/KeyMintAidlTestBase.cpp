@@ -1812,7 +1812,7 @@ void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_
         }
     }
 
-    // Verified boot key should be all 0's if the boot state is not verified or self signed
+    // Verified Boot key should be all zeroes if the boot state is "orange".
     std::string empty_boot_key(32, '\0');
     std::string verified_boot_key_str((const char*)verified_boot_key.data(),
                                       verified_boot_key.size());
