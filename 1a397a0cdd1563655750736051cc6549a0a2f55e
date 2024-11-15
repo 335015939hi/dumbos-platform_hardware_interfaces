@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef3699bf_14d678ef",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-15T13:24:39Z",
+      "side": 1,
+      "message": "Just noticed that `OCTET_STRING` makes this the same as `PackageInfoRecord` in the docs for `Tag::ATTESTATION_APPLICATION_ID`, so as-is probably makes sense.",
+      "parentUuid": "08e5f749_ac0e63c4",
+      "range": {
+        "startLine": 164,
+        "startChar": 38,
+        "endLine": 164,
+        "endChar": 50
+      },
+      "revId": "1a397a0cdd1563655750736051cc6549a0a2f55e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67be969e_43fca7d0",
