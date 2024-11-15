@@ -82,6 +82,7 @@ parcelable NfcConfig {
      */
     byte[] offHostRouteUicc;
     byte[] offHostRouteEse;
+
     /**
      * Default IsoDep route. 0x00 if there aren't any. Refer to NCI spec.
      */
@@ -90,4 +91,5 @@ parcelable NfcConfig {
      * Pipe IDs for UICC. Empty if not available
      */
     byte[] offHostSimPipeIds = {};
+    byte offHostRouteNdefNfcee;
 }
