@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23324d3c_05678df9",
+        "filename": "nfc/aidl/aidl_api/android.hardware.nfc/current/android/hardware/nfc/ProtocolDiscoveryConfig.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 3031218
+      },
+      "writtenOn": "2024-11-15T11:27:43Z",
+      "side": 1,
+      "message": "Can this be add as part of GET CAPS response. So it can be used for Android upgrades",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 24
+      },
+      "revId": "4a4c23559ad0c3d1507bff9b3865544158d1c63e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e37a02fc_fa138dfc",
         "filename": "nfc/aidl/android/hardware/nfc/ProtocolDiscoveryConfig.aidl",
         "patchSetId": 1
