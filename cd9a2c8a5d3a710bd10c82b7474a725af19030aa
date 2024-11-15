@@ -88,6 +88,24 @@
       "parentUuid": "8ea2e136_4658ec56",
       "revId": "cd9a2c8a5d3a710bd10c82b7474a725af19030aa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da7c17a8_9217dba8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-15T13:04:59Z",
+      "side": 1,
+      "message": "I\u0027ve updated the CL which validates increasing Threshold and Ratio pattern.",
+      "parentUuid": "497c3ad2_a20bc2be",
+      "revId": "cd9a2c8a5d3a710bd10c82b7474a725af19030aa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
