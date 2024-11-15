@@ -141,6 +141,24 @@
       "parentUuid": "c63349f3_88e5174b",
       "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d16afecb_fd3fe9c7",
+        "filename": "staging/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/types/ProtectionId.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-15T16:37:16Z",
+      "side": 1,
+      "message": "Yes, we can extend enums in future versions.",
+      "parentUuid": "ee540e00_c68ada0a",
+      "revId": "e1445667a76c9ae1b12e14d8330c325563c0d4f3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
