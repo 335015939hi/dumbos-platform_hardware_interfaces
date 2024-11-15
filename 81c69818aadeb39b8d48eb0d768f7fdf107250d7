@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9b7c8e3_2c68a6be",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IStorageSession.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-15T18:42:13Z",
+      "side": 1,
+      "message": "need to convey that the staging API returns successfully during AB Update, transaction is only staged for secure storage to automatically commit when AB Update completes.",
+      "revId": "81c69818aadeb39b8d48eb0d768f7fdf107250d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2afcd7b6_c2faabcd",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IStorageSession.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-15T18:42:13Z",
+      "side": 1,
+      "message": "Also mention that if the an A/B update is not currently in progress, then this API behaves the same as commitChanges.",
+      "revId": "81c69818aadeb39b8d48eb0d768f7fdf107250d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7304f770_167d937a",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IStorageSession.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-15T18:42:13Z",
+      "side": 1,
+      "message": "stageChangesForCommitOnAbUpdateComplete();",
+      "revId": "81c69818aadeb39b8d48eb0d768f7fdf107250d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
