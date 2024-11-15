@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4cdebcd_09dafb32",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 691,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T19:16:52Z",
+      "side": 1,
+      "message": "There is `audio_utils_compute_power_mono` which computes signal power relative to `0 dBFS`, I think that\u0027s what should be used here. Also note that `20 * log10(sqrt(...)) \u003d 10 * log10(...)` and that\u0027s what `audio_utils_compute_power_mono` does.",
+      "range": {
+        "startLine": 690,
+        "startChar": 0,
+        "endLine": 691,
+        "endChar": 75
+      },
+      "revId": "89534e9304737e849dca95b14b38d70d8ae4bf73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69640144_efd38845",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 704,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T19:16:52Z",
+      "side": 1,
+      "message": "Since we operate on calculated values, to avoid getting `NaN` values due to division by zero, we should add `ASSERT` or `EXPECT` checks. For that we need to make these functions to return `void` and provide the result as an output value.",
+      "range": {
+        "startLine": 696,
+        "startChar": 0,
+        "endLine": 704,
+        "endChar": 5
+      },
+      "revId": "89534e9304737e849dca95b14b38d70d8ae4bf73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf983144_43168ac3",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T19:16:52Z",
+      "side": 1,
+      "message": "We should ensure somewhere that this index does exceed the actual buffer size.",
+      "range": {
+        "startLine": 729,
+        "startChar": 39,
+        "endLine": 729,
+        "endChar": 84
+      },
+      "revId": "89534e9304737e849dca95b14b38d70d8ae4bf73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b06a70d_39b42307",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 754,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T19:16:52Z",
+      "side": 1,
+      "message": "Are we supposed to update `previousThreshold` on each iteration?",
+      "range": {
+        "startLine": 754,
+        "startChar": 65,
+        "endLine": 754,
+        "endChar": 82
+      },
+      "revId": "89534e9304737e849dca95b14b38d70d8ae4bf73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "675ff79e_badbba53",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T19:16:52Z",
+      "side": 1,
+      "message": "Same question here.",
+      "range": {
+        "startLine": 779,
+        "startChar": 57,
+        "endLine": 779,
+        "endChar": 70
+      },
+      "revId": "89534e9304737e849dca95b14b38d70d8ae4bf73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f46cb2b_650cb861",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T19:16:52Z",
+      "side": 1,
+      "message": "Please clarify that it\u0027s a \"band channel\", not signal channel.",
+      "range": {
+        "startLine": 1108,
+        "startChar": 59,
+        "endLine": 1108,
+        "endChar": 72
+      },
+      "revId": "89534e9304737e849dca95b14b38d70d8ae4bf73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
