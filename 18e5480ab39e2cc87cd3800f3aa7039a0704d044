@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12762648_097ecdcc",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T21:38:36Z",
+      "side": 1,
+      "message": "Thanks for correcting!",
+      "parentUuid": "e82456db_31343035",
+      "range": {
+        "startLine": 677,
+        "startChar": 11,
+        "endLine": 679,
+        "endChar": 62
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1552b6f5_74ac25df",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Do you mean the `toString` function/method for AIDL types? I think it is safe to assume that the generated code is straightforward and the name is printed as is.",
       "parentUuid": "1552b6f5_74ac25df",
+      "range": {
+        "startLine": 684,
+        "startChar": 74,
+        "endLine": 684,
+        "endChar": 85
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56dd7ba2_cd01bd8e",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 684,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T21:38:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6d717531_318487fc",
       "range": {
         "startLine": 684,
         "startChar": 74,
@@ -142,6 +190,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48b9e5c7_a865a777",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T21:38:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "475ad281_03b171e2",
+      "range": {
+        "startLine": 695,
+        "startChar": 39,
+        "endLine": 695,
+        "endChar": 83
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f4b7bdc_978ab52c",
@@ -189,6 +261,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ba00cd3_7dd39074",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T21:38:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75b60fdc_5a539208",
+      "range": {
+        "startLine": 721,
+        "startChar": 37,
+        "endLine": 722,
+        "endChar": 74
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c217d852_bed32127",
@@ -226,6 +322,30 @@
       "side": 1,
       "message": "Good catch. We can add `_DOCK` suffix when comparing, or update the XSD/XML to match AIDL.",
       "parentUuid": "c217d852_bed32127",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 423,
+        "endChar": 50
+      },
+      "revId": "18e5480ab39e2cc87cd3800f3aa7039a0704d044",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c88418e_6aabeae4",
+        "filename": "audio/aidl/default/config/audioPolicy/engine/audio_policy_engine_configuration.xsd",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-15T21:38:36Z",
+      "side": 1,
+      "message": "Added `_DOCK` suffix (unless the value is `NONE`) during comparison.",
+      "parentUuid": "5a84f1bc_885e2e8c",
       "range": {
         "startLine": 420,
         "startChar": 0,
