@@ -16,9 +16,11 @@ aidl_interface {
         "android/hardware/neuralnetworks/*.aidl",
     ],
     stability: "vintf",
+    defaults: [
+        "android.hardware.graphics.common-latest",
+    ],
     imports: [
         "android.hardware.common-V2",
-        "android.hardware.graphics.common-V5",
     ],
     backend: {
         java: {

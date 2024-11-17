@@ -162,7 +162,7 @@ class VolumeDataTest : public ::testing::TestWithParam<VolumeDataTestParam>,
         mInputMag.resize(mTestFrequencies.size());
         mBinOffsets.resize(mTestFrequencies.size());
         roundToFreqCenteredToFftBin(mTestFrequencies, mBinOffsets, kBinWidth);
-        generateMultiTone(mTestFrequencies, mInput, kSamplingFrequency);
+        generateSineWave(mTestFrequencies, mInput);
         mInputMag = calculateMagnitude(mInput, mBinOffsets, kNPointFFT);
     }
 
