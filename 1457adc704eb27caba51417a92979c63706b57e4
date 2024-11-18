@@ -61,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2926add4_13fccf6b",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-18T19:37:20Z",
+      "side": 1,
+      "message": "This did not work nicely with `ErrMsgOr`. It would require making a new constructor for `ErrMsgOr` or returning `\u003cstring\u003e.data()` when the `string_view` is returned to convert it into a `string`.",
+      "parentUuid": "fdec8af5_a75f8589",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "1457adc704eb27caba51417a92979c63706b57e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a225b29f_40a42968",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 1
@@ -116,6 +140,30 @@
           ]
         }
       ],
+      "revId": "1457adc704eb27caba51417a92979c63706b57e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aff826a7_43de227e",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-18T19:37:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a225b29f_40a42968",
+      "range": {
+        "startLine": 303,
+        "startChar": 5,
+        "endLine": 303,
+        "endChar": 18
+      },
       "revId": "1457adc704eb27caba51417a92979c63706b57e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
