@@ -142,6 +142,9 @@ parcelable KeyCreationResult {
      * }
      *
      * RootOfTrust ::= SEQUENCE {
+     *     # verifiedBootKey must contain a SHA-256 digest of the public key embedded in the
+     *     # "vbmeta" partition if the device's bootloader is locked, or 32 bytes of zeroes if the
+     *     # device's bootloader is unlocked.
      *     verifiedBootKey            OCTET_STRING,
      *     deviceLocked               BOOLEAN,
      *     verifiedBootState          VerifiedBootState,
