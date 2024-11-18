@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04c24a32_f89daf3f",
+        "filename": "audio/aidl/default/config/audioPolicy/engine/audio_policy_engine_configuration.xsd",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2024-11-18T07:44:32Z",
+      "side": 1,
+      "message": "To be perfectionist (even if xsd is a detail, kind of helper) would need to add _DOCK suffix (as added in the code)",
+      "range": {
+        "startLine": 426,
+        "startChar": 12,
+        "endLine": 429,
+        "endChar": 45
+      },
+      "revId": "166200de394bf6538e0547a9ec90edfd1b09a017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
