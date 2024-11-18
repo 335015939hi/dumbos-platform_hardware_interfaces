@@ -18,11 +18,14 @@
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
-#include <netinet/in.h>
-#include <net/if.h>
-#include <utils/Log.h>
 #include <cutils/properties.h>
+#include <ifaddrs.h>
+#include <net/if.h>
+#include <netinet/in.h>
+#include <sys/socket.h>
 #include <sys/stat.h>
+#include <sys/types.h>
+#include <utils/Log.h>
 
 #include "service.hpp"
 #include "thread_chip.hpp"
@@ -30,13 +33,36 @@
 using aidl::android::hardware::threadnetwork::IThreadChip;
 using aidl::android::hardware::threadnetwork::ThreadChip;
 
-#define THREADNETWORK_COPROCESSOR_SIMULATION_PATH "/apex/com.android.hardware.threadnetwork/bin/ot-rcp"
+#define THREADNETWORK_COPROCESSOR_SIMULATION_PATH \
+    "/apex/com.android.hardware.threadnetwork/bin/ot-rcp"
 
 namespace {
+
+bool interfaceExists(const char* interfaceName) {
+    struct ifaddrs *ifaddr, *ifa;
+    bool found = false;
+
+    if (getifaddrs(&ifaddr) == -1) {
+        return false;
+    }
+
+    for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
+        if (ifa->ifa_addr == NULL) continue;
+
+        if (ifa->ifa_addr->sa_family == AF_PACKET && !strcmp(ifa->ifa_name, interfaceName)) {
+            found = true;
+            break;
+        }
+    }
+
+    freeifaddrs(ifaddr);
+    return found;
+}
+
 void addThreadChip(int id, const char* url) {
     binder_status_t status;
     const std::string serviceName(std::string() + IThreadChip::descriptor + "/chip" +
-            std::to_string(id));
+                                  std::to_string(id));
 
     ALOGI("ServiceName: %s, Url: %s", serviceName.c_str(), url);
 
@@ -50,19 +76,26 @@ void addThreadChip(int id, const char* url) {
 
 void addSimulatedThreadChip() {
     char local_interface[PROP_VALUE_MAX];
+    std::string interface_params;
 
-    CHECK_GT(property_get("persist.vendor.otsim.local_interface",
-                local_interface, "eth1"), 0);
+    CHECK_GT(property_get("persist.vendor.otsim.local_interface", local_interface, "eth1"), 0);
 
     int node_id = property_get_int32("ro.boot.openthread_node_id", 0);
-    CHECK_GT(node_id,0);
+    CHECK_GT(node_id, 0);
 
-    std::string url = std::string("spinel+hdlc+forkpty://" \
-            THREADNETWORK_COPROCESSOR_SIMULATION_PATH "?forkpty-arg=-L") \
-                      + local_interface + "&forkpty-arg=" + std::to_string(node_id);
+    if (interfaceExists(local_interface)) {
+        interface_params = std::string("?forkpty-arg=-L") + local_interface;
+    } else {
+        ALOGI("Interface %s doesn't exist!", local_interface);
+    }
+
+    std::string url =
+            std::string("spinel+hdlc+forkpty://" THREADNETWORK_COPROCESSOR_SIMULATION_PATH) +
+            interface_params + "&forkpty-arg=" + std::to_string(node_id);
+
     addThreadChip(0, url.c_str());
 }
-}
+}  // namespace
 
 int main(int argc, char* argv[]) {
     aidl::android::hardware::threadnetwork::Service service;
