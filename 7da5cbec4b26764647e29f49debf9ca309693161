@@ -70,6 +70,30 @@
       },
       "revId": "7da5cbec4b26764647e29f49debf9ca309693161",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f8b8599_b1327983",
+        "filename": "media/omx/1.0/vts/functional/common/media_hidl_test_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1150374
+      },
+      "writtenOn": "2024-11-18T16:58:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "796168e1_e7b63ef5",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 44
+      },
+      "revId": "7da5cbec4b26764647e29f49debf9ca309693161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
