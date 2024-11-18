@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "deec230b_77e9af87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-18T03:55:19Z",
+      "side": 1,
+      "message": "@smoreland@google.com ack that until we have the \"tee\" flag in the compatibility matrix, the Trusted HALs have a risk to be non-tested ghost interfaces opening an attack surface.\nThis should be solved by b/377520831.\n\nHope this addresses your concern, lemme know in case I missed something.",
+      "parentUuid": "4eab6ef4_55b70125",
+      "revId": "7e1dcbe6c0dfb33f85f040e44868f20183d33612",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37a6c02b_a3c3756f",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/SignedConnectionRequest.aidl",
         "patchSetId": 30
