@@ -46,6 +46,30 @@
       },
       "revId": "7da5cbec4b26764647e29f49debf9ca309693161",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "796168e1_e7b63ef5",
+        "filename": "media/omx/1.0/vts/functional/common/media_hidl_test_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1108919
+      },
+      "writtenOn": "2024-11-18T16:00:10Z",
+      "side": 1,
+      "message": "i misread the numbering. that\u0027s my mistake.\n\nthis is still not appropriate for here.",
+      "parentUuid": "6808f87c_8a27277a",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 44
+      },
+      "revId": "7da5cbec4b26764647e29f49debf9ca309693161",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
