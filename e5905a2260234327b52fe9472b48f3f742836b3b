@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "902e2dc9_edc6c4f3",
+        "filename": "security/see/hwcrypto/aidl/Android.bp",
+        "patchSetId": 10
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-18T22:59:06Z",
+      "side": 1,
+      "message": "I think this change created duplicate `aidl_api` directories, so all of files in `security/see/hwcrypto/aidl/aidl_api/android.hardware.security.see/` can be deleted now? (I\u0027d rebuild after deleting them to verify locally - the build will fail and it will ask you to run *-update-api if they are needed).",
+      "range": {
+        "startLine": 11,
+        "startChar": 40,
+        "endLine": 11,
+        "endChar": 51
+      },
+      "revId": "e5905a2260234327b52fe9472b48f3f742836b3b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
