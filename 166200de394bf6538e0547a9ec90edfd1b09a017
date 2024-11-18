@@ -22,6 +22,30 @@
       },
       "revId": "166200de394bf6538e0547a9ec90edfd1b09a017",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3e90883_b08143ab",
+        "filename": "audio/aidl/default/config/audioPolicy/engine/audio_policy_engine_configuration.xsd",
+        "patchSetId": 2
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-18T22:27:34Z",
+      "side": 1,
+      "message": "OK, makes sense, especially as now we know that `WIRED_ACCESSORY` can also be used here.",
+      "parentUuid": "04c24a32_f89daf3f",
+      "range": {
+        "startLine": 426,
+        "startChar": 12,
+        "endLine": 429,
+        "endChar": 45
+      },
+      "revId": "166200de394bf6538e0547a9ec90edfd1b09a017",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
