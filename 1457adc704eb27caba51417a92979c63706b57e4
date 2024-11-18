@@ -85,6 +85,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3c32570_94d85b15",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2024-11-18T20:42:27Z",
+      "side": 1,
+      "message": "I would support a new constructor for ErrMsgOr if it isn\u0027t too much of a side quest. It feels worth updating the libraries to work with modern C++ features.",
+      "parentUuid": "2926add4_13fccf6b",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "1457adc704eb27caba51417a92979c63706b57e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a225b29f_40a42968",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 1
