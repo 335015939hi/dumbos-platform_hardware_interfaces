@@ -16,6 +16,24 @@
       "message": "don\u0027t you want to repeat as to make clear of all the staging API guarantees:\n     * The session will no longer have pending changes after this call returns. Files may then still\n     * be modified through this session to create another commit.",
       "revId": "8aa1e066de294a2bb8857728a89026865a031122",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc3785be_f7d07e34",
+        "filename": "staging/security/see/storage/aidl/android/hardware/security/see/storage/IStorageSession.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2024-11-18T22:17:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f48b4e60_26f74c47",
+      "revId": "8aa1e066de294a2bb8857728a89026865a031122",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
