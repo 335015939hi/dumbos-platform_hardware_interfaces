@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59be16a4_8076e54d",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1322530
+      },
+      "writtenOn": "2024-11-18T07:18:50Z",
+      "side": 1,
+      "message": "when will we fall into this case? looks like is kind of unknown?",
+      "range": {
+        "startLine": 144,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 65
+      },
+      "revId": "0b2f0edc01170db7e7dab7a5f9b83a65426fd449",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
