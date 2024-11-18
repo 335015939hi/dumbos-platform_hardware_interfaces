@@ -47,11 +47,9 @@ pub fn attestation_id_info() -> kmr_wire::AttestationIdInfo {
 
 /// Get boot information based on system properties.
 pub fn get_boot_info() -> kmr_wire::SetBootInfoRequest {
-    // No access to a verified boot key.
-    let verified_boot_key = vec![0; 32];
     let vbmeta_digest = get_property("ro.boot.vbmeta.digest").unwrap_or_else(|_| "00".repeat(32));
     let verified_boot_hash = hex::decode(&vbmeta_digest).unwrap_or_else(|_e| {
-        error!("failed to parse hex data in '{}'", vbmeta_digest);
+        error!("failed to parse VBMeta digest hex data in '{}'", vbmeta_digest);
         vec![0; 32]
     });
     let device_boot_locked = match get_property("ro.boot.vbmeta.device_state")
@@ -65,6 +63,14 @@ pub fn get_boot_info() -> kmr_wire::SetBootInfoRequest {
             false
         }
     };
+    let verified_boot_key_digest = match device_boot_locked {
+        true => get_property("ro.boot.vbmeta.public_key_digest").unwrap_or_else(|_| "00".repeat(32)),
+        false => vec![0; 32],
+    };
+    let verified_boot_key = hex::decode(&verified_boot_key_digest).unwrap_or_else(|_e| {
+        error!("Failed to parse Verified Boot key hex data in '{}'", verified_boot_key_digest);
+        vec![0; 32]
+    });
     let verified_boot_state = match get_property("ro.boot.verifiedbootstate")
         .unwrap_or_else(|_| "no-prop".to_string())
         .as_str()
