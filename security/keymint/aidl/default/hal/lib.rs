@@ -47,8 +47,8 @@ pub fn attestation_id_info() -> kmr_wire::AttestationIdInfo {
 
 /// Get boot information based on system properties.
 pub fn get_boot_info() -> kmr_wire::SetBootInfoRequest {
-    // No access to a verified boot key.
-    let verified_boot_key = vec![0; 32];
+    let verified_boot_key = get_property("ro.boot.vbmeta.public_key_digest")
+        .unwrap_or_else(|_| "00".repeat(32));
     let vbmeta_digest = get_property("ro.boot.vbmeta.digest").unwrap_or_else(|_| "00".repeat(32));
     let verified_boot_hash = hex::decode(&vbmeta_digest).unwrap_or_else(|_e| {
         error!("failed to parse hex data in '{}'", vbmeta_digest);
