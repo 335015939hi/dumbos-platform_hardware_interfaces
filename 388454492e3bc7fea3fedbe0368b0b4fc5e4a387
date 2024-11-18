@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d267b7_1b3ffbba",
+        "filename": "security/see/storage/aidl/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-18T20:39:22Z",
+      "side": 1,
+      "message": "There is no need to freeze this interface yet. We can wait until we freeze the rest of them after Jan 8th.\n\nSo, `frozen: false,`, remove the `versions_with_info` field, and `rm -rf security/see/storage/aidl/aidl_api/android.hardware.security.see.storage/1`",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 6
+      },
+      "revId": "388454492e3bc7fea3fedbe0368b0b4fc5e4a387",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
