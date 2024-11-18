@@ -22,6 +22,30 @@
       },
       "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5eb5441_64e5f508",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1139038
+      },
+      "writtenOn": "2024-11-18T15:32:51Z",
+      "side": 1,
+      "message": "Yes, while this is the trusted source of the value for the host, it isn\u0027t the trusted source for a VM and David wants that to be explicit in the docs.",
+      "parentUuid": "8e4df607_8c7c8fc5",
+      "range": {
+        "startLine": 106,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 7
+      },
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
