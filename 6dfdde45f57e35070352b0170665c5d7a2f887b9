@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4340cbee_8cf480e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975060
+      },
+      "writtenOn": "2024-11-18T13:57:28Z",
+      "side": 1,
+      "message": "r",
+      "revId": "6dfdde45f57e35070352b0170665c5d7a2f887b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cd542c5_d15e1dbc",
@@ -48,6 +65,30 @@
           ]
         }
       ],
+      "revId": "6dfdde45f57e35070352b0170665c5d7a2f887b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "583d9d09_b579669d",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 1975060
+      },
+      "writtenOn": "2024-11-18T13:57:28Z",
+      "side": 1,
+      "message": "I have uploaded the new patchset. Pls help review",
+      "parentUuid": "7cd542c5_d15e1dbc",
+      "range": {
+        "startLine": 554,
+        "startChar": 10,
+        "endLine": 554,
+        "endChar": 30
+      },
       "revId": "6dfdde45f57e35070352b0170665c5d7a2f887b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
