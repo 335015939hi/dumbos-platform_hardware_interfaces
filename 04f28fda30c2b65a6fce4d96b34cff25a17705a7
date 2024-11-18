@@ -22,6 +22,30 @@
       },
       "revId": "04f28fda30c2b65a6fce4d96b34cff25a17705a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e620d1e_a564c2a2",
+        "filename": "security/see/OWNERS",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-18T00:05:35Z",
+      "side": 1,
+      "message": "+1. Let\u0027s use:\n\n\n# include OWNERS from the top level trusty repo\ninclude trusty:main:/OWNERS\n\nswillden@google.com\npaulcrowley@google.com",
+      "parentUuid": "85722ed8_4b023de9",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 8
+      },
+      "revId": "04f28fda30c2b65a6fce4d96b34cff25a17705a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
