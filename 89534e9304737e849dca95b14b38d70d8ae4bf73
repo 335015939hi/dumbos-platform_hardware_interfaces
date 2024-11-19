@@ -281,6 +281,30 @@
       },
       "revId": "89534e9304737e849dca95b14b38d70d8ae4bf73",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5256f99_f1335805",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-19T22:09:12Z",
+      "side": 1,
+      "message": "OK, so we only actually check that these parameters can be set, we are not trying to run any processing. My concern was that if we set the channel index to 10, do we actually supply a 10 channel input test signal. However, since we don\u0027t actually supply any test signal, we can use any supported channel indexes. Is my understanding correct here?",
+      "parentUuid": "a642c864_c8a2183b",
+      "range": {
+        "startLine": 1108,
+        "startChar": 59,
+        "endLine": 1108,
+        "endChar": 72
+      },
+      "revId": "89534e9304737e849dca95b14b38d70d8ae4bf73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
