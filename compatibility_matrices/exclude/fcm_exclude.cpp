@@ -169,8 +169,6 @@ bool ShouldCheckMissingAidlHalsInFcm(const std::string& packageAndVersion) {
             // Deprecated HALs.
             "android.hardware.audio.sounddose@3",
             "android.hardware.bluetooth.audio@1",
-            // TODO(b/372223451) Remove once secretkeeper V2 is implemented
-            "android.hardware.security.secretkeeper@2",
     };
 
     auto package_has_prefix = [&](const std::string& prefix) {
