@@ -1,0 +1,49 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb6142e5_c8361ad2",
+        "filename": "threadnetwork/aidl/default/main.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2024-11-19T03:54:20Z",
+      "side": 1,
+      "message": "could you simplify this block to:\n\nurl \u003d std::string url \u003d std::string(\"spinel+hdlc+forkpty://\"  THREADNETWORK_COPROCESSOR_SIMULATION_PATH \"?forkpty-arg\u003d\"  + std::to_string(node_id);\n\nand then if the local interface exists, just append the interface parameter. We don\u0027t need an extra variable. Something like this:\n\nurl +\u003d \"forkpty-arg\u003d-L\";\nurl +\u003d local_interface;",
+      "fixSuggestions": [
+        {
+          "fixId": "17b2dd88_ad6161f7",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "threadnetwork/aidl/default/main.cpp",
+              "range": {
+                "startLine": 67,
+                "startChar": 0,
+                "endLine": 68,
+                "endChar": 0
+              },
+              "replacement": "        interface_params \u003d std::string(\"forkpty-arg\u003d-L\") + local_interface + \"\u0026forkpty-arg\u003d\";\n"
+            },
+            {
+              "path": "threadnetwork/aidl/default/main.cpp",
+              "range": {
+                "startLine": 73,
+                "startChar": 0,
+                "endLine": 75,
+                "endChar": 0
+              },
+              "replacement": "            std::string(\"spinel+hdlc+forkpty://\" THREADNETWORK_COPROCESSOR_SIMULATION_PATH) + \"?\" + interface_params + std::to_string(node_id);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "fbcb9d752ba6374e03cbbcefc9cdca55483e6a32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
