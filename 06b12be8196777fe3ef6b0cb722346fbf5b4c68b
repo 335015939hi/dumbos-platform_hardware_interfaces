@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa121b89_f812f829",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-19T23:33:08Z",
+      "side": 1,
+      "message": "Hi Devin @devinmoore@google.com and Steven @smoreland@google.com,\n\nAs per the pre-submit failures on this CL, the test here https://cs.android.com/android/platform/superproject/main/+/main:device/google/cuttlefish/tests/hal/hal_implementation_test.cpp;l\u003d476 is failing on this CL.\n\nI am trying to understand how this CL is flagged in the above test because I have not included this in the compatibility matrix file, rather I have included it in compatibility_matrices/exclude/fcm_exclude.cpp.\n\nThe default implementation of this AIDL is supposed to be in the Trusty code base (https://android-review.git.corp.google.com/c/trusty/app/authmgr/+/3342621/2/authmgr-be/lib/src/authorization_service.rs#96).\n\nIs there anything I need to do to get this test passing on this CL or will this be addressed with what is being done in b/379673733 or b/377520831?\n\nThank you!",
+      "revId": "06b12be8196777fe3ef6b0cb722346fbf5b4c68b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
