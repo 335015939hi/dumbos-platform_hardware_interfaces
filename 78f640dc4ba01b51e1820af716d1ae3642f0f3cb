@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d3dece2_d81921bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-19T01:42:40Z",
+      "side": 1,
+      "message": "I did not read all the long descriptions, but the API itself looks mostly OK",
+      "revId": "78f640dc4ba01b51e1820af716d1ae3642f0f3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aa6a9b4_01e2eaa5",
+        "filename": "security/see/authmgr/aidl/Android.bp",
+        "patchSetId": 33
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-19T01:42:40Z",
+      "side": 1,
+      "message": "Why does this need to be available to java?",
+      "revId": "78f640dc4ba01b51e1820af716d1ae3642f0f3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e20e482_ead6700c",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-19T01:42:40Z",
+      "side": 1,
+      "message": "Blank lines between constants and unrelated comments would make this easier to read. (And I still think you should use a consistent comment start blocks `/*` or `/**`, not both, to document the API)",
+      "revId": "78f640dc4ba01b51e1820af716d1ae3642f0f3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d2432b_2a89094d",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-19T01:42:40Z",
+      "side": 1,
+      "message": "... with a matching token?",
+      "revId": "78f640dc4ba01b51e1820af716d1ae3642f0f3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e838cb7_3b26f937",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000205
+      },
+      "writtenOn": "2024-11-19T01:42:40Z",
+      "side": 1,
+      "message": "does this needs to have a specific size?",
+      "range": {
+        "startLine": 135,
+        "startChar": 30,
+        "endLine": 135,
+        "endChar": 32
+      },
+      "revId": "78f640dc4ba01b51e1820af716d1ae3642f0f3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
