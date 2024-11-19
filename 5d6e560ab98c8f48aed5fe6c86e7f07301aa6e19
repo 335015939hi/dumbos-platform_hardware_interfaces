@@ -3,6 +3,64 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9125d506_7f77825d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-19T03:09:58Z",
+      "side": 1,
+      "message": "Needs VTS test, client code changes.",
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e275571e_baa11a49",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-19T03:09:58Z",
+      "side": 1,
+      "message": "this is for adding it to compatibility_matrix.202504.xml, which declares the framework can use it.\n\nPlease add an implementation now?",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 55
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "cde3074f_30bef674",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "compatibility_matrices/exclude/fcm_exclude.cpp",
+              "range": {
+                "startLine": 172,
+                "startChar": 0,
+                "endLine": 173,
+                "endChar": 0
+              },
+              "replacement": "            // TODO(b/372223451) Remove once secretkeeper V2 is implemented and\n            // compatibility_matrix.202504.xml is updated\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e4df607_8c7c8fc5",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
         "patchSetId": 6
@@ -43,6 +101,29 @@
         "startChar": 4,
         "endLine": 106,
         "endChar": 7
+      },
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "094bdd7f_6f8a9c7f",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/PublicKey.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-19T03:09:58Z",
+      "side": 1,
+      "message": "keyMaterial (AIDL always uses camel case in APIs today)",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 23
       },
       "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
