@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbc78795_50c46bae",
+        "filename": "threadnetwork/aidl/default/main.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2024-11-19T05:16:08Z",
+      "side": 1,
+      "message": "more efficient: std::string(\"spinel+hdlc+forkpty://\" THREADNETWORK_COPROCESSOR_SIMULATION_PATH \"?forkpty-arg\u003d\") + std::to_string(node_id);",
+      "fixSuggestions": [
+        {
+          "fixId": "14e5e582_c1faac1f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "threadnetwork/aidl/default/main.cpp",
+              "range": {
+                "startLine": 64,
+                "startChar": 0,
+                "endLine": 66,
+                "endChar": 0
+              },
+              "replacement": "            std::string(\"spinel+hdlc+forkpty://\" THREADNETWORK_COPROCESSOR_SIMULATION_PATH\n                        \"?forkpty-arg\u003d\") + std::to_string(node_id);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8dec34ee01ae8fa4bd3e4e345bed711f9f9887f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
