@@ -16,6 +16,29 @@
       "message": "David, you had mentioned earlier that I should specify that an ordering is needed -- added that as well.",
       "revId": "9034755f2a09812cf753b592b6a2762c25627a72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c08d5d2_d514e943",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyCreationResult.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-19T17:58:17Z",
+      "side": 1,
+      "message": "Probably worth pointing out that the ordering is implicitly specified by the combination of requiring DER-encoding and using `SET OF`.  Maybe something like:\n\n\u003e Note that the Modules information is DER-encoded before being hashed, which requires a specific ordering (lexicographic by encoded value) for the constituent Module entries.  This ensures that the ordering of Module entries is predictable and that the resulting SHA-256 hash value is identical for the same set of modules.\n\n\nhttps://letsencrypt.org/docs/a-warm-welcome-to-asn1-and-der/#set-of-encoding\n\nhttps://luca.ntop.org/Teaching/Appunti/asn1.html#:~:text\u003din%20any%20order.-,DER%20encoding.%20Constructed.%20Contents%20octets%20are%20the%20same%20as%20for,one%20with%20the%20smaller%2Dvalued%20octet%20at%20the%20point%20of%20difference.,-5.16%20T61String",
+      "range": {
+        "startLine": 162,
+        "startChar": 4,
+        "endLine": 163,
+        "endChar": 90
+      },
+      "revId": "9034755f2a09812cf753b592b6a2762c25627a72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
