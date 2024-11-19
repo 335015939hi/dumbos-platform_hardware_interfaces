@@ -109,6 +109,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "548ad371_f3d812a5",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-19T20:49:00Z",
+      "side": 1,
+      "message": "Thanks for the nudge. This has been done.",
+      "parentUuid": "f3c32570_94d85b15",
+      "range": {
+        "startLine": 32,
+        "startChar": 6,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "1457adc704eb27caba51417a92979c63706b57e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a225b29f_40a42968",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 1
