@@ -1,0 +1,49 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b46e535_d211a688",
+        "filename": "threadnetwork/aidl/default/main.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1501262
+      },
+      "writtenOn": "2024-11-19T02:08:11Z",
+      "side": 1,
+      "message": "is using `if_name2index()` a simpler solution?",
+      "fixSuggestions": [
+        {
+          "fixId": "b421aabb_a86829eb",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "threadnetwork/aidl/default/main.cpp",
+              "range": {
+                "startLine": 41,
+                "startChar": 0,
+                "endLine": 42,
+                "endChar": 0
+              },
+              "replacement": "bool isInterfaceExists(const char* interfaceName) {\n"
+            },
+            {
+              "path": "threadnetwork/aidl/default/main.cpp",
+              "range": {
+                "startLine": 87,
+                "startChar": 0,
+                "endLine": 88,
+                "endChar": 0
+              },
+              "replacement": "    if (isInterfaceExists(local_interface)) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4d66151327d0ed265207c4f8647d1b388ed6bfb1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
