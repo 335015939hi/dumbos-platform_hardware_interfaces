@@ -79,6 +79,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "887f01f7_991ca67e",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-11-19T15:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6842714_156e88a7",
+      "range": {
+        "startLine": 262,
+        "startChar": 10,
+        "endLine": 262,
+        "endChar": 35
+      },
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af0e3281_6ea2d410",
@@ -140,6 +164,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42739db4_8b495998",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-11-19T15:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af0e3281_6ea2d410",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 40
+      },
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7615bb2_598a1060",
@@ -153,6 +201,30 @@
       "writtenOn": "2024-11-13T22:25:22Z",
       "side": 1,
       "message": "remove k prefix as that is generally used for constexpr.",
+      "range": {
+        "startLine": 266,
+        "startChar": 16,
+        "endLine": 266,
+        "endChar": 40
+      },
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f1ee0b3_18b866b1",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-11-19T15:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7615bb2_598a1060",
       "range": {
         "startLine": 266,
         "startChar": 16,
@@ -180,6 +252,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c8792a1_353b1bd7",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-11-19T15:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c81ecd0_7cf026df",
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "969f1652_24867870",
@@ -193,6 +283,30 @@
       "writtenOn": "2024-11-13T20:03:36Z",
       "side": 1,
       "message": "Are these used?",
+      "range": {
+        "startLine": 313,
+        "startChar": 0,
+        "endLine": 314,
+        "endChar": 44
+      },
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "186a2e03_6f0d9b8f",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-11-19T15:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "969f1652_24867870",
       "range": {
         "startLine": 313,
         "startChar": 0,
@@ -244,6 +358,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d5c79f5_e52ea9d9",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-11-19T15:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66313827_76a49d69",
+      "range": {
+        "startLine": 318,
+        "startChar": 0,
+        "endLine": 319,
+        "endChar": 80
+      },
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00221da7_08435504",
@@ -257,6 +395,30 @@
       "writtenOn": "2024-11-13T20:03:36Z",
       "side": 1,
       "message": "Please add a comment that it\u0027s capture size.",
+      "range": {
+        "startLine": 372,
+        "startChar": 35,
+        "endLine": 372,
+        "endChar": 37
+      },
+      "revId": "f0a813740e1d8d6d5ff7c05790daf4d46dab7e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca670b11_4cf8dc25",
+        "filename": "audio/aidl/vts/VtsHalVisualizerTargetTest.cpp",
+        "patchSetId": 14
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-11-19T15:39:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00221da7_08435504",
       "range": {
         "startLine": 372,
         "startChar": 35,
