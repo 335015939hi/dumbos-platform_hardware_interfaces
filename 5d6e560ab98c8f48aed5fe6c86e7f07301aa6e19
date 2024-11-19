@@ -61,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7de77a14_fc07f366",
+        "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-11-19T23:14:44Z",
+      "side": 1,
+      "message": "What am I missing from [the change on top of this one](aosp/3366517) that is producing this error?\n\n```\nThe following HALs in device manifest are not declared in FCM \u003c\u003d level 202504:\n  android.hardware.security.secretkeeper.ISecretkeeper/nonsecure (@1)\nERROR: files are incompatible: android.hardware.security.secretkeeper@18446744073709551615.1::ISecretkeeper/nonsecure is deprecated; requires at least 18446744073709551615.2\n    because it matches android.hardware.security.secretkeeper.ISecretkeeper/nonsecure (@1) from /system/etc/vintf/compatibility_matrix.202404.xml\nThe following instances are in the device manifest but not specified in framework compatibility matrix:\n    android.hardware.security.secretkeeper.ISecretkeeper/nonsecure (@1)\nSuggested fix:\n1. Update deprecated HALs to the latest version.\n2. Check for any typos in device manifest or framework compatibility matrices with FCM version \u003e\u003d 202504.\n3. For new platform HALs, add them to any framework compatibility matrix with FCM version \u003e\u003d 202504 where applicable.\n4. For device-specific HALs, add to DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE or DEVICE_PRODUCT_COMPATIBILITY_MATRIX_FILE.: Success\nINCOMPATIBLE\n23:13:58 ninja failed with: exit status 1\n```",
+      "parentUuid": "e275571e_baa11a49",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 55
+      },
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8e4df607_8c7c8fc5",
         "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
         "patchSetId": 6
@@ -106,6 +130,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58a643c2_18f31dcf",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-11-19T23:14:44Z",
+      "side": 1,
+      "message": "Done (LMK WYT)",
+      "parentUuid": "e5eb5441_64e5f508",
+      "range": {
+        "startLine": 106,
+        "startChar": 4,
+        "endLine": 106,
+        "endChar": 7
+      },
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "094bdd7f_6f8a9c7f",
@@ -119,6 +167,30 @@
       "writtenOn": "2024-11-19T03:09:58Z",
       "side": 1,
       "message": "keyMaterial (AIDL always uses camel case in APIs today)",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a951e1b_af73c50f",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/PublicKey.aidl",
+        "patchSetId": 6
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-11-19T23:14:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "094bdd7f_6f8a9c7f",
       "range": {
         "startLine": 28,
         "startChar": 11,
