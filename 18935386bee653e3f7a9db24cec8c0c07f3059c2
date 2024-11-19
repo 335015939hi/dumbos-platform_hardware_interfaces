@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f757b35_98a5adb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557693
+      },
+      "writtenOn": "2024-11-19T16:30:59Z",
+      "side": 1,
+      "message": "This fix is doing what is says it does. However, is that the right thing to do? It seems reasonable to requires that OEMs use a locked bootloader when submitting VTS test results. If they are working on integration, they can just ignore this failure.\n\nIs there a reason why they cannot use a locked bootloader when running VTS tests before submitting results to APA?",
+      "revId": "18935386bee653e3f7a9db24cec8c0c07f3059c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
