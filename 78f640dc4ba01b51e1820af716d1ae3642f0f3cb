@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5a3e874c_9b1e445c",
+        "filename": "security/see/authmgr/aidl/Android.bp",
+        "patchSetId": 33
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-19T18:35:27Z",
+      "side": 1,
+      "message": "I made it available in all three languages. I can remove this if needed. But is there any harm in making it available in java?",
+      "parentUuid": "1aa6a9b4_01e2eaa5",
+      "revId": "78f640dc4ba01b51e1820af716d1ae3642f0f3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e20e482_ead6700c",
         "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
         "patchSetId": 33
@@ -48,6 +66,24 @@
       "writtenOn": "2024-11-19T01:42:40Z",
       "side": 1,
       "message": "Blank lines between constants and unrelated comments would make this easier to read. (And I still think you should use a consistent comment start blocks `/*` or `/**`, not both, to document the API)",
+      "revId": "78f640dc4ba01b51e1820af716d1ae3642f0f3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff64c7a8_3a0edd50",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-19T18:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e20e482_ead6700c",
       "revId": "78f640dc4ba01b51e1820af716d1ae3642f0f3cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -69,6 +105,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31409b60_1ab2754c",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/Error.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-19T18:35:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9d2432b_2a89094d",
+      "revId": "78f640dc4ba01b51e1820af716d1ae3642f0f3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e838cb7_3b26f937",
@@ -82,6 +136,30 @@
       "writtenOn": "2024-11-19T01:42:40Z",
       "side": 1,
       "message": "does this needs to have a specific size?",
+      "range": {
+        "startLine": 135,
+        "startChar": 30,
+        "endLine": 135,
+        "endChar": 32
+      },
+      "revId": "78f640dc4ba01b51e1820af716d1ae3642f0f3cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b91dd806_79ccd8e4",
+        "filename": "security/see/authmgr/aidl/android/hardware/security/see/authmgr/IAuthMgrAuthorization.aidl",
+        "patchSetId": 33
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-19T18:35:27Z",
+      "side": 1,
+      "message": "I made it 64 bytes because that is the size of the instance identifier in the DICE chain. But since this is the externally provided one, I guess we do not need to specify a size for it. Thanks!",
+      "parentUuid": "1e838cb7_3b26f937",
       "range": {
         "startLine": 135,
         "startChar": 30,
