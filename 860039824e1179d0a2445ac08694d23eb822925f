@@ -39,6 +39,30 @@
       },
       "revId": "860039824e1179d0a2445ac08694d23eb822925f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2c187f7_f6e33a2c",
+        "filename": "staging/security/see/storage/aidl/vts/functional/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-20T05:55:28Z",
+      "side": 1,
+      "message": "we now refer to the test target of the Trusty test_vm so there is no replication.",
+      "parentUuid": "4f1b3851_9ab43c2b",
+      "range": {
+        "startLine": 17,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "860039824e1179d0a2445ac08694d23eb822925f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

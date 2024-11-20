@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22740e46_0cf58adb",
+        "filename": "staging/security/see/storage/aidl/vts/functional/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-20T05:55:28Z",
+      "side": 1,
+      "message": "aosp/3366998\n(part of the hashtag thal-vts)",
+      "parentUuid": "da6ad154_0595caeb",
+      "range": {
+        "startLine": 18,
+        "startChar": 13,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "98130bc9044b123468acac3f7c7a698ff063eb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfb03399_87f6bf80",
@@ -55,6 +79,24 @@
       "side": 1,
       "message": "nit: The current approach LGTM. However, should we still check the `ro.hardware.security.trusty_vm.system` property that\u0027s exposed to vendors (as described in go/android-w-avf-trusty-vms \u003e Deployment)? This would allow us to avoid modifying this test when we introduce the secure Trusty VM.",
       "parentUuid": "dfb03399_87f6bf80",
+      "revId": "98130bc9044b123468acac3f7c7a698ff063eb82",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8da96281_8289ed4d",
+        "filename": "staging/security/see/storage/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-20T05:55:28Z",
+      "side": 1,
+      "message": "this problem does not exist anymore as we now package the test_vm with the test.",
+      "parentUuid": "fe101511_3cd01b01",
       "revId": "98130bc9044b123468acac3f7c7a698ff063eb82",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
