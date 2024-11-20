@@ -17,6 +17,7 @@
 package android.hardware.bluetooth.socket;
 
 import android.hardware.bluetooth.socket.LeCocChannelInfo;
+import android.hardware.bluetooth.socket.RfcommChannelInfo;
 
 /**
  * Used to specify the channel information of different protocol.
@@ -27,4 +28,9 @@ union ChannelInfo {
      * LE L2CAP COC channel information.
      */
     LeCocChannelInfo leCocChannelInfo;
+
+    /**
+     * RFCOMM channel information.
+     */
+    RfcommChannelInfo rfcommChannelInfo;
 }

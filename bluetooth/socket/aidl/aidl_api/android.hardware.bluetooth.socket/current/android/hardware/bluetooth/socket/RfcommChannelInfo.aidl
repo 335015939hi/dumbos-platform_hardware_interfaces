@@ -33,7 +33,14 @@
 
 package android.hardware.bluetooth.socket;
 @VintfStability
-parcelable SocketCapabilities {
-  android.hardware.bluetooth.socket.LeCocCapabilities leCocCapabilities;
-  android.hardware.bluetooth.socket.RfcommCapabilities rfcommCapabilities;
+parcelable RfcommChannelInfo {
+  int localCid;
+  int remoteCid;
+  int localMtu;
+  int remoteMtu;
+  int initialRxCredits;
+  int initialTxCredits;
+  int dlci;
+  int maxFrameSize;
+  boolean muxInitiator;
 }

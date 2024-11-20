@@ -16,21 +16,19 @@
 
 package android.hardware.bluetooth.socket;
 
-import android.hardware.bluetooth.socket.LeCocCapabilities;
-import android.hardware.bluetooth.socket.RfcommCapabilities;
-
 /**
- * Supported socket protocol capabilities.
+ * Capabilities for RFCOMM that the offload stack supports.
  */
 @VintfStability
-parcelable SocketCapabilities {
+parcelable RfcommCapabilities {
     /**
-     * Supported LE CoC protocol capabilities.
+     * Maximum number of RFCOMM sockets supported. If not supported, the value must be zero.
      */
-    LeCocCapabilities leCocCapabilities;
+    int numberOfSupportedSockets;
 
     /**
-     * Supported RFCOMM protocol capabilities.
+     * Maximum frame size in octets negotiated during DLCI establishment. The frame size must be
+     * in range 23 to 32767.
      */
-    RfcommCapabilities rfcommCapabilities;
+    int maxFrameSize;
 }
