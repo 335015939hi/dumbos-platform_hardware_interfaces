@@ -37,4 +37,5 @@ interface IInputSurface {
   android.view.Surface getSurface();
   android.hardware.media.c2.IConfigurable getConfigurable();
   android.hardware.media.c2.IInputSurfaceConnection connect(in android.hardware.media.c2.IInputSink sink);
+  void release();
 }
