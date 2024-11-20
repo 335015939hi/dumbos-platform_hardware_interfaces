@@ -241,6 +241,30 @@
       },
       "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bdb3a6f_f9454373",
+        "filename": "broadcastradio/aidl/vts/src/VtsHalBroadcastradioAidlTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 755,
+      "author": {
+        "id": 3727256
+      },
+      "writtenOn": "2024-11-20T19:54:03Z",
+      "side": 1,
+      "message": "Dear, Mr. Xu:\n\nDAB broadcasters signify DAB-DAB linking between two DAB services by having the same `DAB_SID_EXT`. There are other methods, and these can be found in PAGE-16 of the ETSI document : https://www.etsi.org/deliver/etsi_ts/103100_103199/103176/02.03.01_60/ts_103176v020301p.pdf.\n\nEven if `DAB_SID_EXT, DAB_FREQUENCY, and DAB_ENSEMBLE` are valid values in a tune response, GM Tuner team believes that comparing `DAB_SID_EXT` is a better approach compared to `DAB_FREQUENCY` check to ascertain if tune is successful or not as `DAB_SID_EXT` must not change for a specific DAB service and it covers all the possible scenarios including linking.\n\nPlease do let us know your suggestions/opinions.\n\nThank You.",
+      "parentUuid": "a140016b_1f8af605",
+      "range": {
+        "startLine": 755,
+        "startChar": 7,
+        "endLine": 755,
+        "endChar": 66
+      },
+      "revId": "04bc1f52b29011d41e048cfa29e479a2c7c991d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
