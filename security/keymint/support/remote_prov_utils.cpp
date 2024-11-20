@@ -878,4 +878,29 @@ ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& encodedCsr,
     return diceChain->IsProper();
 }
 
+ErrMsgOr<bool> verifyComponentNameInKeyMintDiceChain(const std::vector<uint8_t>& encodedCsr) {
+    auto diceChainKind = getDiceChainKind();
+    if (!diceChainKind) {
+        return diceChainKind.message();
+    }
+
+    auto csr = hwtrust::Csr::validate(encodedCsr, *diceChainKind, false /*isFactory*/,
+                                      false /*allowAnyMode*/, deviceSuffix(DEFAULT_INSTANCE_NAME));
+    if (!csr.ok()) {
+        return csr.error().message();
+    }
+
+    auto diceChain = csr->getDiceChain();
+    if (!diceChain.ok()) {
+        return diceChain.error().message();
+    }
+
+    auto satisfied = diceChain->componentNameContains("keymint");
+    if (!satisfied.ok()) {
+        return satisfied.error().message();
+    }
+
+    return *satisfied;
+}
+
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
