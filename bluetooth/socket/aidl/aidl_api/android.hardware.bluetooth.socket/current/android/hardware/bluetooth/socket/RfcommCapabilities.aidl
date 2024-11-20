@@ -33,7 +33,7 @@
 
 package android.hardware.bluetooth.socket;
 @VintfStability
-parcelable SocketCapabilities {
-  android.hardware.bluetooth.socket.LeCocCapabilities leCocCapabilities;
-  android.hardware.bluetooth.socket.RfcommCapabilities rfcommCapabilities;
+parcelable RfcommCapabilities {
+  int numberOfSupportedSockets;
+  int maxFrameSize;
 }

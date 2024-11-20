@@ -35,4 +35,5 @@ package android.hardware.bluetooth.socket;
 @VintfStability
 union ChannelInfo {
   android.hardware.bluetooth.socket.LeCocChannelInfo leCocChannelInfo;
+  android.hardware.bluetooth.socket.RfcommChannelInfo rfcommChannelInfo;
 }

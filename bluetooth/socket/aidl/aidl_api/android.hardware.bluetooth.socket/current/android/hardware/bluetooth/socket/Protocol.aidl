@@ -32,8 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.bluetooth.socket;
-@VintfStability
-parcelable SocketCapabilities {
-  android.hardware.bluetooth.socket.LeCocCapabilities leCocCapabilities;
-  android.hardware.bluetooth.socket.RfcommCapabilities rfcommCapabilities;
+@Backing(type="int") @VintfStability
+enum Protocol {
+  LE_COC,
+  RFCOMM,
 }
