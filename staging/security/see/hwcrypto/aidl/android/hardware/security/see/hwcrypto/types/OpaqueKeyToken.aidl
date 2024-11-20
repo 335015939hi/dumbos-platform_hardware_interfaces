@@ -15,13 +15,15 @@
  */
 package android.hardware.security.see.hwcrypto.types;
 
-import android.hardware.security.see.hwcrypto.types.AesKey;
-import android.hardware.security.see.hwcrypto.types.HmacKey;
-
 /*
- * Type encapsulating a clear key.
+ * Implementation defined structure that represents a key and its associated metadata. It is only
+ * valid on the current boot, and its reuse after a session is closed (or between sessions) is not
+ * guaranteed.
  */
-union ExplicitKeyMaterial {
-    AesKey aes;
-    HmacKey hmac;
+parcelable OpaqueKeyToken {
+    /*
+     * Opaque type used to send IOpaqueKeys keys to different clients. Its format is implementation
+     * dependant.
+     */
+    byte[] keyToken;
 }

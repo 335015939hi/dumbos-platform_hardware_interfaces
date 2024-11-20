@@ -15,13 +15,13 @@
  */
 package android.hardware.security.see.hwcrypto.types;
 
-import android.hardware.security.see.hwcrypto.types.AesKey;
-import android.hardware.security.see.hwcrypto.types.HmacKey;
-
+import android.hardware.security.see.hwcrypto.IOpaqueKey;
 /*
- * Type encapsulating a clear key.
+ * Data needed to perform HMAC operations.
  */
-union ExplicitKeyMaterial {
-    AesKey aes;
-    HmacKey hmac;
+parcelable HmacOperationParameters {
+    /*
+     * Key to be used for the HMAC operation.
+     */
+    IOpaqueKey key;
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright 2024 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,17 +31,8 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package android.hardware.nfc;
-@VintfStability
-parcelable ProtocolDiscoveryConfig {
-  byte protocol18092Active;
-  byte protocolBPrime;
-  byte protocolDual;
-  byte protocol15693;
-  byte protocolKovio;
-  byte protocolMifare;
-  byte discoveryPollKovio;
-  byte discoveryPollBPrime;
-  byte discoveryListenBPrime;
-  byte protocolChineseId;
+package android.hardware.security.see.hwcrypto.types;
+union HmacKey {
+  byte[32] sha256 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+  byte[64] sha512;
 }

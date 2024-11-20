@@ -15,13 +15,18 @@
  */
 package android.hardware.security.see.hwcrypto.types;
 
-import android.hardware.security.see.hwcrypto.types.AesKey;
-import android.hardware.security.see.hwcrypto.types.HmacKey;
-
 /*
- * Type encapsulating a clear key.
+ * Type that represents an Hmac key.
  */
-union ExplicitKeyMaterial {
-    AesKey aes;
-    HmacKey hmac;
+union HmacKey {
+    /*
+     * Raw Hmac key for use with sha256.
+     */
+    byte[32] sha256 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0};
+
+    /*
+     * Raw Hmac key for use with sha512.
+     */
+    byte[64] sha512;
 }

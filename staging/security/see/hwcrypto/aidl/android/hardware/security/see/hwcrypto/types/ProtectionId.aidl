@@ -15,13 +15,15 @@
  */
 package android.hardware.security.see.hwcrypto.types;
 
-import android.hardware.security.see.hwcrypto.types.AesKey;
-import android.hardware.security.see.hwcrypto.types.HmacKey;
-
 /*
- * Type encapsulating a clear key.
+ * Enum describing the different types of protected buffers. Protected buffers are named by its
+ * corresponding use case and its underlaying implementation is platform dependant.
  */
-union ExplicitKeyMaterial {
-    AesKey aes;
-    HmacKey hmac;
+enum ProtectionId {
+    /*
+     * ProtectionID used by HwCrypto to enable Keys that can be used for Widevine video buffers.
+     * These buffers should not be readable by non-trusted entities and HwCrypto should not allow
+     * any read access to them through its interface.
+     */
+    WIDEVINE_OUTPUT_BUFFER = 1,
 }
