@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b2d7972_3f338144",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-20T17:28:22Z",
+      "side": 1,
+      "message": "Need to bump the impl on Cuttlefish (`hal_implementation_test` failure in presubmits).",
+      "revId": "54332bc916f454be2086df3054e27fdeefadfb5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
