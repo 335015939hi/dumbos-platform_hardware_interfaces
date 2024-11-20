@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e926773a_9d5855c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-11-20T20:12:38Z",
+      "side": 1,
+      "message": "I can\u0027t change any of the existing values - they are frozen at V1/2/3 and can\u0027t be different in V4 for compatibility reasons. The default value for all these enums was 0, so it has to be whatever the first enum value is - this change is just making it explicit.",
+      "parentUuid": "7fd8e650_022ed3ab",
+      "revId": "e63166dc51b6ff44fe7f181d3b0aee4395d50593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad9304e7_b3a5ccb0",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-11-20T19:45:51Z",
       "side": 1,
       "message": "instead of setting to a value, this should probably be set to UNKNOWN/INVALID/NONE\n\nsame with the others in this file/CL",
+      "range": {
+        "startLine": 40,
+        "startChar": 101,
+        "endLine": 40,
+        "endChar": 103
+      },
+      "revId": "e63166dc51b6ff44fe7f181d3b0aee4395d50593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd42e71_4bdc063e",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.data/current/android/hardware/radio/data/DataProfileInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-11-20T20:12:38Z",
+      "side": 1,
+      "message": "It\u0027s already IP (\u003d0).",
+      "parentUuid": "ad9304e7_b3a5ccb0",
       "range": {
         "startLine": 40,
         "startChar": 101,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f4f5e19_b6eedd17",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.data/current/android/hardware/radio/data/RouteSelectionDescriptor.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-11-20T20:12:38Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "9197425e_03959ed9",
+      "range": {
+        "startLine": 39,
+        "startChar": 104,
+        "endLine": 39,
+        "endChar": 106
+      },
+      "revId": "e63166dc51b6ff44fe7f181d3b0aee4395d50593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae9bc07c_8638bdc0",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-11-20T19:45:51Z",
       "side": 1,
       "message": "unknown/invalid/none",
+      "range": {
+        "startLine": 42,
+        "startChar": 97,
+        "endLine": 42,
+        "endChar": 99
+      },
+      "revId": "e63166dc51b6ff44fe7f181d3b0aee4395d50593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39329e2b_6658d5a3",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.data/current/android/hardware/radio/data/SetupDataCallResult.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-11-20T20:12:38Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "ae9bc07c_8638bdc0",
       "range": {
         "startLine": 42,
         "startChar": 97,
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4234cf5d_7294688a",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.ims/current/android/hardware/radio/ims/ImsCall.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-11-20T20:12:38Z",
+      "side": 1,
+      "message": "It\u0027s already 0 (\u003dNORMAL).",
+      "parentUuid": "537ab653_5dc2fb78",
+      "range": {
+        "startLine": 39,
+        "startChar": 101,
+        "endLine": 39,
+        "endChar": 107
+      },
+      "revId": "e63166dc51b6ff44fe7f181d3b0aee4395d50593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b492ceb3_aaac5d25",
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0167ce16_65434228",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.ims/current/android/hardware/radio/ims/ImsRegistration.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-11-20T20:12:38Z",
+      "side": 1,
+      "message": "It\u0027s already 0 (\u003dNOT_REGISTERED).",
+      "parentUuid": "b492ceb3_aaac5d25",
+      "range": {
+        "startLine": 38,
+        "startChar": 109,
+        "endLine": 38,
+        "endChar": 123
+      },
+      "revId": "e63166dc51b6ff44fe7f181d3b0aee4395d50593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa082f3b_2397dfe8",
@@ -146,6 +284,30 @@
       "writtenOn": "2024-11-20T19:45:51Z",
       "side": 1,
       "message": "unknown/invalid/none",
+      "range": {
+        "startLine": 39,
+        "startChar": 105,
+        "endLine": 39,
+        "endChar": 111
+      },
+      "revId": "e63166dc51b6ff44fe7f181d3b0aee4395d50593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c73c31c_bf5d5c0a",
+        "filename": "radio/aidl/aidl_api/android.hardware.radio.ims/current/android/hardware/radio/ims/SrvccCall.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2024-11-20T20:12:38Z",
+      "side": 1,
+      "message": "Same.",
+      "parentUuid": "aa082f3b_2397dfe8",
       "range": {
         "startLine": 39,
         "startChar": 105,
