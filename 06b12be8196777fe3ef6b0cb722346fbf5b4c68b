@@ -34,6 +34,24 @@
       "parentUuid": "aa121b89_f812f829",
       "revId": "06b12be8196777fe3ef6b0cb722346fbf5b4c68b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e4f618e_26cc8ee2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-20T02:55:32Z",
+      "side": 1,
+      "message": "\u003e this service will not be accessible from the host device, and only accessible from the Trusty VM?\n\nYes. Thanks Devin! I updated  kKnownMissingAidl accordingly.",
+      "parentUuid": "ee65cd54_7271cdd7",
+      "revId": "06b12be8196777fe3ef6b0cb722346fbf5b4c68b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
