@@ -17,6 +17,7 @@
 package android.hardware.bluetooth.socket;
 
 import android.hardware.bluetooth.socket.ChannelInfo;
+import android.hardware.bluetooth.socket.Protocol;
 
 /**
  * Socket context.
@@ -41,6 +42,11 @@ parcelable SocketContext {
      * ACL connection handle for the socket.
      */
     int aclConnectionHandle;
+
+    /**
+     * Socket protocol type.
+     */
+    Protocol protocol;
 
     /**
      * Channel information of the socket protocol.
