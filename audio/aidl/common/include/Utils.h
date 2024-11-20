@@ -29,7 +29,6 @@
 #include <aidl/android/media/audio/common/AudioIoFlags.h>
 #include <aidl/android/media/audio/common/AudioMode.h>
 #include <aidl/android/media/audio/common/AudioOutputFlags.h>
-#include <aidl/android/media/audio/common/AudioPolicyForcedConfig.h>
 #include <aidl/android/media/audio/common/PcmType.h>
 #include <android/binder_auto_utils.h>
 #include <utils/FastStrcmp.h>
