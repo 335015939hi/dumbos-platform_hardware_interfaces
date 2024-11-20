@@ -16,6 +16,24 @@
       "message": "Need to bump the impl on Cuttlefish (`hal_implementation_test` failure in presubmits).",
       "revId": "54332bc916f454be2086df3054e27fdeefadfb5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f43f5f7f_706ba04b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1156740
+      },
+      "writtenOn": "2024-11-20T21:28:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2b2d7972_3f338144",
+      "revId": "54332bc916f454be2086df3054e27fdeefadfb5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
