@@ -30,7 +30,6 @@ cc_library {
         "-Wall",
         "-Wextra",
         "-Werror",
-        "-DKEYMINT_HAL_V4",
     ],
     srcs: [
         "attestation_record.cpp",
