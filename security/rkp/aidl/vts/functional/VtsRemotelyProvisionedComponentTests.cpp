@@ -237,6 +237,7 @@ TEST(NonParameterizedTests, eachRpcHasAUniqueId) {
  * on the device.
  */
 // @VsrTest = 3.10-015
+// @VsrTest = 3.10-018.001
 TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
     int vsr_api_level = get_vsr_api_level();
     if (vsr_api_level < 35) {
@@ -259,6 +260,40 @@ TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
     EXPECT_TRUE(status.isOk()) << status.getDescription();
 
     auto result = isCsrWithProperDiceChain(csr, DEFAULT_INSTANCE_NAME);
+    ASSERT_TRUE(result) << result.message();
+    ASSERT_TRUE(*result);
+}
+
+/**
+ * Suppose that there is a StrongBox KeyMint instance on the device.
+ *
+ * Then, this test verifies that "keymint" is a substring of the component name in the configuration
+ * descriptor in the leaf certificate of the DICE chain for the primary ("default") KeyMint
+ * instance.
+ */
+// @VsrTest = 3.10-018.003
+TEST(NonParameterizedTests, componentNameInConfigurationDescriptorForPrimaryKeyMintInstance) {
+    int vsr_api_level = get_vsr_api_level();
+    if (vsr_api_level < 202504) {
+        GTEST_SKIP() << "Applies only to VSR API level 202504 or newer, this device is: "
+                     << vsr_api_level;
+    }
+
+    if (!AServiceManager_isDeclared(KEYMINT_STRONGBOX_INSTANCE_NAME.c_str())) {
+        GTEST_SKIP() << "Strongbox is not present on this device.";
+    }
+
+    ::ndk::SpAIBinder binder(AServiceManager_waitForService(DEFAULT_INSTANCE_NAME.c_str()));
+    std::shared_ptr<IRemotelyProvisionedComponent> rpc =
+            IRemotelyProvisionedComponent::fromBinder(binder);
+    ASSERT_NE(rpc, nullptr);
+
+    bytevec challenge = randomBytes(64);
+    bytevec csr;
+    auto status = rpc->generateCertificateRequestV2({} /* keysToSign */, challenge, &csr);
+    EXPECT_TRUE(status.isOk()) << status.getDescription();
+
+    auto result = verifyComponentNameInKeyMintDiceChain(csr);
     ASSERT_TRUE(result) << result.message();
     ASSERT_TRUE(*result);
 }
