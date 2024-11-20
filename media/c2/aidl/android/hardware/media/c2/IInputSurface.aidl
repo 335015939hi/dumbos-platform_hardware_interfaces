@@ -65,4 +65,18 @@ interface IInputSurface {
      *   - `Status::CORRUPTED` - Some unknown error occurred.
      */
     IInputSurfaceConnection connect(in IInputSink sink);
+
+    /**
+     * Relase the input surface.
+     *
+     * The life cycle of the input surface ends. The input surface is no longer valid
+     * after calling this method. IInputSurfaceConnection(s) created from the input surface
+     * will also reclaimed and destroyed.
+     *
+     * @throws ServiceSpecificException with one of following values:
+     *   - `Status::BAD_STATUS` - release() was done already.
+     *   - `Status::CORRUPTED`  - Some unknown error occurred.
+     */
+     void release();
+
 }
