@@ -142,6 +142,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3da76c05_c5d7f999",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-20T17:44:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "70f15fca_d28b0037",
+      "range": {
+        "startLine": 729,
+        "startChar": 39,
+        "endLine": 729,
+        "endChar": 84
+      },
+      "revId": "89534e9304737e849dca95b14b38d70d8ae4bf73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b06a70d_39b42307",
@@ -321,6 +345,30 @@
       "side": 1,
       "message": "Yes.\nAlso, the correct way to understand the relation between band and channel is that \u0027Every channel has different bands\u0027 and \u0027Band is a subset of channel\u0027.\n\nI have shared the link to the documentation below which explains the same.\nhttps://developer.android.com/reference/android/media/audiofx/DynamicsProcessing#:~:text\u003dThe%20basic%20channel%20configuration%20is%3A",
       "parentUuid": "e5256f99_f1335805",
+      "range": {
+        "startLine": 1108,
+        "startChar": 59,
+        "endLine": 1108,
+        "endChar": 72
+      },
+      "revId": "89534e9304737e849dca95b14b38d70d8ae4bf73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c4a7ff1_4de397c5",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 1108,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-20T17:44:35Z",
+      "side": 1,
+      "message": "Thanks Aayush!",
+      "parentUuid": "6c1b8206_dd5aeaa9",
       "range": {
         "startLine": 1108,
         "startChar": 59,
