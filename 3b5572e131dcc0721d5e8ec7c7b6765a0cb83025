@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83d124eb_7190b07d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-20T17:51:53Z",
+      "side": 1,
+      "message": "Overriding `Lint` because it\u0027s not real API, we use schema and generators to facilitate XML parsing.",
+      "revId": "3b5572e131dcc0721d5e8ec7c7b6765a0cb83025",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
