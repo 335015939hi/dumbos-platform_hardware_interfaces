@@ -38,6 +38,8 @@ BluetoothSocket::~BluetoothSocket() {}
         _aidl_return) {
   _aidl_return->leCocCapabilities.numberOfSupportedSockets = 0;
   _aidl_return->leCocCapabilities.mtu = 0;
+  _aidl_return->rfcommCapabilities.numberOfSupportedSockets = 0;
+  _aidl_return->rfcommCapabilities.maxFrameSize = 0;
   return ::ndk::ScopedAStatus::ok();
 }
 ::ndk::ScopedAStatus BluetoothSocket::opened(
