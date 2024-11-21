@@ -577,7 +577,7 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
     void ValidateCapSpecificConfig(const AudioHalEngineConfig::CapSpecificConfig& capCfg) {
         EXPECT_TRUE(capCfg.criteriaV2.has_value());
         std::unordered_set<AudioHalCapCriterionV2::Tag> criterionTagSet;
-        std::unordered_set<AudioPolicyForceUse::Tag> forceUseCriterionUseSet;
+        std::unordered_set<AudioPolicyForceUse> forceUseCriterionUseSet;
         for (const auto& criterion : capCfg.criteriaV2.value()) {
             EXPECT_TRUE(criterion.has_value());
             if (criterion.value().getTag() != AudioHalCapCriterionV2::forceConfigForUse) {
@@ -585,9 +585,7 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
             } else {
                 auto forceUseCriterion =
                         criterion.value().get<AudioHalCapCriterionV2::forceConfigForUse>();
-                ASSERT_FALSE(forceUseCriterion.values.empty());
-                EXPECT_TRUE(forceUseCriterionUseSet.insert(forceUseCriterion.values[0].getTag())
-                                    .second);
+                EXPECT_TRUE(forceUseCriterionUseSet.insert(forceUseCriterion.forceUse).second);
             }
             EXPECT_NO_FATAL_FAILURE(ValidateAudioHalCapCriterion(criterion.value()));
         }
