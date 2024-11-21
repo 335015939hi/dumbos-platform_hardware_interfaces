@@ -503,7 +503,7 @@ oneway interface IRadioNetwork {
      *
      * This is available when android.hardware.telephony is defined.
      */
-    oneway void setUsageSetting(in int serial, in UsageSetting usageSetting);
+    void setUsageSetting(in int serial, in UsageSetting usageSetting);
 
     /**
      * Get the UE usage setting for data/voice centric usage.
@@ -514,7 +514,7 @@ oneway interface IRadioNetwork {
      *
      * This is available when android.hardware.telephony is defined.
      */
-    oneway void getUsageSetting(in int serial);
+    void getUsageSetting(in int serial);
 
     /**
      * Set the Emergency Mode

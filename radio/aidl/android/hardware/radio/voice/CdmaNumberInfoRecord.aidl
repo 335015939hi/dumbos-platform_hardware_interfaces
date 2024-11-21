@@ -24,6 +24,7 @@ package android.hardware.radio.voice;
  */
 @VintfStability
 @JavaDerive(toString=true)
+@SuppressWarnings(value={"redundant-name"})
 parcelable CdmaNumberInfoRecord {
     const int CDMA_NUMBER_INFO_BUFFER_LENGTH = 81;
     /**

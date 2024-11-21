@@ -19,6 +19,7 @@ package android.hardware.radio.messaging;
 /** @hide */
 @VintfStability
 @JavaDerive(toString=true)
+@SuppressWarnings(value={"redundant-name"})
 parcelable CdmaSmsSubaddress {
     /**
      * CCITT X.213 or ISO 8348 AD2
