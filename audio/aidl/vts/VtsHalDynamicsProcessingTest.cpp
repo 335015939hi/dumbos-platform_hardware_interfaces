@@ -46,8 +46,8 @@ using android::hardware::audio::common::testing::detail::TestExecutionTracer;
 class DynamicsProcessingTestHelper : public EffectHelper {
   public:
     DynamicsProcessingTestHelper(std::pair<std::shared_ptr<IFactory>, Descriptor> pair,
-                                 int32_t channelLayOut = AudioChannelLayout::LAYOUT_STEREO)
-        : mChannelLayout(channelLayOut),
+                                 int32_t channelLayout = kDefaultChannelLayout)
+        : mChannelLayout(channelLayout),
           mChannelCount(::aidl::android::hardware::audio::common::getChannelCount(
                   AudioChannelLayout::make<AudioChannelLayout::layoutMask>(mChannelLayout))) {
         std::tie(mFactory, mDescriptor) = pair;
@@ -162,11 +162,12 @@ class DynamicsProcessingTestHelper : public EffectHelper {
     static const std::set<std::vector<DynamicsProcessing::InputGain>> kInputGainTestSet;
 
   private:
-    const int32_t mChannelLayout;
     std::vector<std::pair<DynamicsProcessing::Tag, DynamicsProcessing>> mTags;
 
   protected:
+    const int32_t mChannelLayout;
     const int mChannelCount;
+
     void CleanUp() {
         mTags.clear();
         mPreEqChannelEnable.clear();
@@ -399,8 +400,25 @@ bool DynamicsProcessingTestHelper::isAllParamsValid() {
 
 float DynamicsProcessingTestHelper::calculateDb(const std::vector<float>& input,
                                                 size_t startSamplePos = 0) {
-    return audio_utils_compute_power_mono(input.data() + startSamplePos, AUDIO_FORMAT_PCM_FLOAT,
-                                          input.size() - startSamplePos);
+    float power;
+    if (mChannelLayout == AudioChannelLayout::LAYOUT_MONO) {
+        power = audio_utils_compute_power_mono(input.data() + startSamplePos,
+                                               AUDIO_FORMAT_PCM_FLOAT,
+                                               input.size() - startSamplePos);
+    } else {
+        std::vector<float> leftInput(input.size() / 2), rightInput(input.size() / 2);
+        for (size_t i = 0; i < input.size(); i += 2) {
+            leftInput[i / 2] = input[i];
+            rightInput[i / 2] = input[i + 1];
+        }
+        power = audio_utils_compute_power_mono(leftInput.data() + startSamplePos / 2,
+                                               AUDIO_FORMAT_PCM_FLOAT,
+                                               leftInput.size() - startSamplePos / 2);
+        power += audio_utils_compute_power_mono(rightInput.data() + startSamplePos / 2,
+                                                AUDIO_FORMAT_PCM_FLOAT,
+                                                rightInput.size() - startSamplePos / 2);
+    }
+    return power;
 }
 
 void DynamicsProcessingTestHelper::setParamsAndProcess(std::vector<float>& input,
@@ -623,13 +641,15 @@ class DynamicsProcessingInputGainDataTest
     DynamicsProcessingInputGainDataTest()
         : DynamicsProcessingTestHelper((GetParam()), AudioChannelLayout::LAYOUT_MONO) {
         mInput.resize(kFrameCount * mChannelCount);
-        generateSineWave(kInputFrequency /*Input Frequency*/, mInput);
-        mInputDb = calculateDb(mInput);
     }
 
     void SetUp() override {
         SetUpDynamicsProcessingEffect();
         SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        ASSERT_NO_FATAL_FAILURE(generateSineWave(
+                kInputFrequency /*Input Frequency*/, mInput, 1.0, kSamplingFrequency,
+                mChannelLayout == AudioChannelLayout::LAYOUT_STEREO));
+        mInputDb = calculateDb(mInput);
     }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
@@ -758,13 +778,15 @@ class DynamicsProcessingLimiterConfigDataTest
         : DynamicsProcessingTestHelper(GetParam(), AudioChannelLayout::LAYOUT_MONO) {
         mBufferSize = kFrameCount * mChannelCount;
         mInput.resize(mBufferSize);
-        generateSineWave(1000 /*Input Frequency*/, mInput);
-        mInputDb = calculateDb(mInput);
     }
 
     void SetUp() override {
         SetUpDynamicsProcessingEffect();
         SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        ASSERT_NO_FATAL_FAILURE(
+                generateSineWave(1000 /*Input Frequency*/, mInput, 1.0, kSamplingFrequency,
+                                 mChannelLayout == AudioChannelLayout::LAYOUT_STEREO));
+        mInputDb = calculateDb(mInput);
     }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
