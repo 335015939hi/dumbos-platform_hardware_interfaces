@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "687f74d9_924bc6cb",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1959878
+      },
+      "writtenOn": "2024-11-21T21:24:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e5cfa63_134741dc",
+      "range": {
+        "startLine": 25,
+        "startChar": 7,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "2cba29162baae0f4134745a4eb7339a94e06f009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3aaa04d5_0c59dde9",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-21T20:29:51Z",
       "side": 1,
       "message": "L2cap remote channel ID for RFCOMM.",
+      "range": {
+        "startLine": 30,
+        "startChar": 7,
+        "endLine": 30,
+        "endChar": 32
+      },
+      "revId": "2cba29162baae0f4134745a4eb7339a94e06f009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dd31990_1442f99b",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1959878
+      },
+      "writtenOn": "2024-11-21T21:24:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aaa04d5_0c59dde9",
       "range": {
         "startLine": 30,
         "startChar": 7,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbed2e47_69dd65d8",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1959878
+      },
+      "writtenOn": "2024-11-21T21:24:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54fc71ed_edd97ec7",
+      "range": {
+        "startLine": 35,
+        "startChar": 68,
+        "endLine": 35,
+        "endChar": 74
+      },
+      "revId": "2cba29162baae0f4134745a4eb7339a94e06f009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16abcc15_0c533ee2",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-11-21T20:29:51Z",
       "side": 1,
       "message": "L2CAP",
+      "range": {
+        "startLine": 40,
+        "startChar": 70,
+        "endLine": 40,
+        "endChar": 76
+      },
+      "revId": "2cba29162baae0f4134745a4eb7339a94e06f009",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75b80c93_fa0b5be2",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1959878
+      },
+      "writtenOn": "2024-11-21T21:24:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16abcc15_0c533ee2",
       "range": {
         "startLine": 40,
         "startChar": 70,
