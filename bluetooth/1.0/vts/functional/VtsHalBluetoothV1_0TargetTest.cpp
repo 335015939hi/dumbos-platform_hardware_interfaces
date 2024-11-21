@@ -535,6 +535,8 @@ void BluetoothHidlTest::sendAndCheckACL(int num_packets, size_t size,
     // Check the loopback of the ACL packet
     ASSERT_TRUE(bluetooth_cb->WaitForCallback(kCallbackNameAclEventReceived)
                     .no_timeout);
+    ASSERT_LT(static_cast<size_t>(0), acl_queue.size());
+
     hidl_vec<uint8_t> acl_loopback = acl_queue.front();
     acl_queue.pop();
 
