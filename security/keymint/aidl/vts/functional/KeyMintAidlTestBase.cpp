@@ -421,8 +421,8 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     // If the RKP-only value is undeterminable (i.e., when running on GSI), generate and use the
     // attest key anyways. In the case that using an attest key is not supported
     // (shouldSkipAttestKeyTest), assume the device has factory keys (so not RKP-only).
-    if (isRkpOnly().value_or(true) && key_desc.Contains(TAG_ATTESTATION_CHALLENGE) &&
-        !shouldSkipAttestKeyTest()) {
+    if ((isRkpOnly().has_value() && isRkpOnly().value()) &&
+        key_desc.Contains(TAG_ATTESTATION_CHALLENGE) && !shouldSkipAttestKeyTest()) {
         AuthorizationSet attest_key_desc =
                 AuthorizationSetBuilder().EcdsaKey(EcCurve::P_256).AttestKey().SetDefaultValidity();
         attest_key.emplace();
