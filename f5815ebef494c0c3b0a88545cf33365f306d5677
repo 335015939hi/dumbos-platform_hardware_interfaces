@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a4f4591_211b3eb2",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-21T06:20:05Z",
+      "side": 1,
+      "message": "In AIDL, we don\u0027t need to specify the type of union because it supports get(). Remove this field.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "f5815ebef494c0c3b0a88545cf33365f306d5677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
