@@ -16,6 +16,23 @@
       "message": "Updated to avoid build break which has caused the revert of the original submission.",
       "revId": "206ad4d1f3f38ab5d7f235ba217a958f88ded5ac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdf6a71e_53541861",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-21T01:14:21Z",
+      "side": 1,
+      "message": "Hi Shunkai, could you please approve this. It\u0027s the same as aosp/3341640, just removed 3 lines that were referencing the removed AIDL type and were causing build breakage.",
+      "revId": "206ad4d1f3f38ab5d7f235ba217a958f88ded5ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
