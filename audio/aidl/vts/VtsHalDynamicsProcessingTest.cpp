@@ -46,8 +46,8 @@ using android::hardware::audio::common::testing::detail::TestExecutionTracer;
 class DynamicsProcessingTestHelper : public EffectHelper {
   public:
     DynamicsProcessingTestHelper(std::pair<std::shared_ptr<IFactory>, Descriptor> pair,
-                                 int32_t channelLayOut = AudioChannelLayout::LAYOUT_STEREO)
-        : mChannelLayout(channelLayOut),
+                                 int32_t channelLayout = kDefaultChannelLayout)
+        : mChannelLayout(channelLayout),
           mChannelCount(::aidl::android::hardware::audio::common::getChannelCount(
                   AudioChannelLayout::make<AudioChannelLayout::layoutMask>(mChannelLayout))) {
         std::tie(mFactory, mDescriptor) = pair;
@@ -162,11 +162,12 @@ class DynamicsProcessingTestHelper : public EffectHelper {
     static const std::set<std::vector<DynamicsProcessing::InputGain>> kInputGainTestSet;
 
   private:
-    const int32_t mChannelLayout;
     std::vector<std::pair<DynamicsProcessing::Tag, DynamicsProcessing>> mTags;
 
   protected:
+    const int32_t mChannelLayout;
     const int mChannelCount;
+
     void CleanUp() {
         mTags.clear();
         mPreEqChannelEnable.clear();
@@ -623,13 +624,14 @@ class DynamicsProcessingInputGainDataTest
     DynamicsProcessingInputGainDataTest()
         : DynamicsProcessingTestHelper((GetParam()), AudioChannelLayout::LAYOUT_MONO) {
         mInput.resize(kFrameCount * mChannelCount);
-        generateSineWave(kInputFrequency /*Input Frequency*/, mInput);
-        mInputDb = calculateDb(mInput);
     }
 
     void SetUp() override {
         SetUpDynamicsProcessingEffect();
         SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        ASSERT_NO_FATAL_FAILURE(generateSineWave(kInputFrequency /*Input Frequency*/, mInput, 1.0,
+                                                 kSamplingFrequency, mChannelLayout));
+        mInputDb = calculateDb(mInput);
     }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
@@ -758,13 +760,14 @@ class DynamicsProcessingLimiterConfigDataTest
         : DynamicsProcessingTestHelper(GetParam(), AudioChannelLayout::LAYOUT_MONO) {
         mBufferSize = kFrameCount * mChannelCount;
         mInput.resize(mBufferSize);
-        generateSineWave(1000 /*Input Frequency*/, mInput);
-        mInputDb = calculateDb(mInput);
     }
 
     void SetUp() override {
         SetUpDynamicsProcessingEffect();
         SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        ASSERT_NO_FATAL_FAILURE(generateSineWave(1000 /*Input Frequency*/, mInput, 1.0,
+                                                 kSamplingFrequency, mChannelLayout));
+        mInputDb = calculateDb(mInput);
     }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
