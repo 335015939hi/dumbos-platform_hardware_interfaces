@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "974f1734_c52511e0",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-21T18:32:13Z",
+      "side": 1,
+      "message": "Because RFCOMM also uses L2CAP CID dynamically allocated instead of fixed CID, offload should know the L2CAP CID in use. \n\n```\nBluetooth L2CAP Protocol\n    Length: 8\n    CID: L2CAP Signaling Channel (0x0001)\n    Command: Connection Request\n        Command Code: Connection Request (0x02)\n        Command Identifier: 0x07\n        Command Length: 4\n        PSM: RFCOMM (0x0003)\n        Source CID: Dynamically Allocated Channel (0x0048)\n```\n\n```\nFrame 294: 21 bytes on wire (168 bits), 21 bytes captured (168 bits)\nBluetooth\nBluetooth HCI H4\nBluetooth HCI ACL Packet\nBluetooth L2CAP Protocol\n    Length: 12\n    CID: L2CAP Signaling Channel (0x0001)\n    Command: Connection Response\n        Command Code: Connection Response (0x03)\n        Command Identifier: 0x07\n        Command Length: 8\n        Destination CID: Dynamically Allocated Channel (0x0048)\n        Source CID: Dynamically Allocated Channel (0x0048)\n        Result: Successful (0x0000)\n        Status: No further information available (0x0000)\n```",
+      "parentUuid": "68d33e44_c8b89cff",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 18
+      },
+      "revId": "f5815ebef494c0c3b0a88545cf33365f306d5677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eca54711_8848ccde",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-21T18:15:38Z",
       "side": 1,
       "message": "This is LE COC specific information, this information is replaced by the maxFrameSize for RFCOMM",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 0
+      },
+      "revId": "f5815ebef494c0c3b0a88545cf33365f306d5677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35800499_414d0bf1",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-21T18:32:13Z",
+      "side": 1,
+      "message": "If RFCOMM `maxFrameSize` is not tightly coupled with L2CAP MTU, offload side have to know L2CAP MTU in generating L2CAP PDUs for a RFCOMM frame.",
+      "parentUuid": "eca54711_8848ccde",
       "range": {
         "startLine": 34,
         "startChar": 0,
