@@ -258,6 +258,30 @@
       },
       "revId": "0260475a860ddf20bec82533ac539d21ccf03a42",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "927bdfc2_b5f78930",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-21T21:30:10Z",
+      "side": 1,
+      "message": "Don\u0027t think so... We still need to check `getHardwareInfo` to make sure it works. This is because of reasons that Alice has explained to me before, yet I cannot recall 😊\n\nAlso, we should not explicitly carve out any products (e.g. cuttlefish). If AVF is in such a state on Cuttlefish that we cannot treat it like any other Android device, then we should fix that.",
+      "parentUuid": "6abb0a73_30e4b635",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 5
+      },
+      "revId": "0260475a860ddf20bec82533ac539d21ccf03a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
