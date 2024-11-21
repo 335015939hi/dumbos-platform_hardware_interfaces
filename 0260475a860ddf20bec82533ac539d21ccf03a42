@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1308cfb4_fc0d8933",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-21T17:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1adc1344_27a235f3",
+      "range": {
+        "startLine": 220,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 83
+      },
+      "revId": "0260475a860ddf20bec82533ac539d21ccf03a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a457c05e_032df624",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-21T08:42:46Z",
       "side": 1,
       "message": "The VSR index is `[VSR-7.1-003.001]` as per the VSR published in 2024 Oct.\n\nhttps://drive.google.com/file/d/1ZwaLkM2bO8_RJVQ0PCxeOLyHxFoqSzpe/view?resourcekey\u003d0-QFN_GjLGcPg9cwh0P4CO7A",
+      "range": {
+        "startLine": 270,
+        "startChar": 14,
+        "endLine": 270,
+        "endChar": 25
+      },
+      "revId": "0260475a860ddf20bec82533ac539d21ccf03a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cba6fefd_5c6a1e3b",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-21T17:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a457c05e_032df624",
       "range": {
         "startLine": 270,
         "startChar": 14,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ab519ff_51455d42",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-21T17:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a28c976_87c08bad",
+      "range": {
+        "startLine": 273,
+        "startChar": 19,
+        "endLine": 273,
+        "endChar": 36
+      },
+      "revId": "0260475a860ddf20bec82533ac539d21ccf03a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2264f728_074ac38d",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-11-21T08:42:46Z",
       "side": 1,
       "message": "From 202504, the AVF RKP instance must be present on the device. This is an error. We shouldn\u0027t skip here. I think we can group this skip in the version check, so it will look like\n\n```\nIf vsr version \u003c 202504 {\n Skip the test if AVF RKP is absent.\n} else {\n Assert that AVF RKP is present.\n}\n```",
+      "range": {
+        "startLine": 279,
+        "startChar": 8,
+        "endLine": 279,
+        "endChar": 18
+      },
+      "revId": "0260475a860ddf20bec82533ac539d21ccf03a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a10f446_f3a116ee",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-21T17:32:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2264f728_074ac38d",
       "range": {
         "startLine": 279,
         "startChar": 8,
@@ -130,6 +226,30 @@
       "side": 1,
       "message": "Currently, the HAL is unsupported on Cuttlefish, so we need to skip Cuttlefish in this test. Once cf is skipped, we can assert that if the HAL is declared, then `getHardwareInfo` does not throw any unsupported errors.",
       "parentUuid": "4dad385a_6de1aaac",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 5
+      },
+      "revId": "0260475a860ddf20bec82533ac539d21ccf03a42",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6abb0a73_30e4b635",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-21T17:32:33Z",
+      "side": 1,
+      "message": "Resolved?",
+      "parentUuid": "7672b862_5f75bfeb",
       "range": {
         "startLine": 278,
         "startChar": 0,
