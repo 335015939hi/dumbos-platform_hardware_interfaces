@@ -166,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb457e8a_01436a5c",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1959878
+      },
+      "writtenOn": "2024-11-21T20:02:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de352b26_1da91055",
+      "range": {
+        "startLine": 71,
+        "startChar": 17,
+        "endLine": 71,
+        "endChar": 27
+      },
+      "revId": "f5815ebef494c0c3b0a88545cf33365f306d5677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4833025_4e284613",
@@ -179,6 +203,30 @@
       "writtenOn": "2024-11-21T18:15:38Z",
       "side": 1,
       "message": "Unnecessary precision.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 43
+      },
+      "revId": "f5815ebef494c0c3b0a88545cf33365f306d5677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ef128b_50cc5857",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1959878
+      },
+      "writtenOn": "2024-11-21T20:02:07Z",
+      "side": 1,
+      "message": "I removed them since the field name and description are already self explanatory.",
+      "parentUuid": "d4833025_4e284613",
       "range": {
         "startLine": 72,
         "startChar": 0,
@@ -212,6 +260,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5fe3c55_ac66c7a4",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1959878
+      },
+      "writtenOn": "2024-11-21T20:02:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d02d1d7_5697174a",
+      "range": {
+        "startLine": 75,
+        "startChar": 4,
+        "endLine": 75,
+        "endChar": 24
+      },
+      "revId": "f5815ebef494c0c3b0a88545cf33365f306d5677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a4f4591_211b3eb2",
@@ -225,6 +297,30 @@
       "writtenOn": "2024-11-21T06:20:05Z",
       "side": 1,
       "message": "In AIDL, we don\u0027t need to specify the type of union because it supports get(). Remove this field.",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 22
+      },
+      "revId": "f5815ebef494c0c3b0a88545cf33365f306d5677",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9308087_3957f91e",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/SocketContext.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1959878
+      },
+      "writtenOn": "2024-11-21T20:02:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a4f4591_211b3eb2",
       "range": {
         "startLine": 46,
         "startChar": 0,
