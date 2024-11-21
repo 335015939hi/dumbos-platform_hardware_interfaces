@@ -521,6 +521,27 @@ void fillLimiterConfig(std::vector<DynamicsProcessing::LimiterConfig>& limiterCo
     limiterConfigList.push_back(cfg);
 }
 
+DynamicsProcessing::MbcBandConfig createMbcBandConfig(int channel, int band, float cutoffFreqHz,
+                                                      float attackTimeMs, float releaseTimeMs,
+                                                      float ratio, float thresholdDb,
+                                                      float kneeWidthDb, float noiseGate,
+                                                      float expanderRatio, float preGainDb,
+                                                      float postGainDb) {
+    return DynamicsProcessing::MbcBandConfig{.channel = channel,
+                                             .band = band,
+                                             .enable = true,
+                                             .cutoffFrequencyHz = cutoffFreqHz,
+                                             .attackTimeMs = attackTimeMs,
+                                             .releaseTimeMs = releaseTimeMs,
+                                             .ratio = ratio,
+                                             .thresholdDb = thresholdDb,
+                                             .kneeWidthDb = kneeWidthDb,
+                                             .noiseGateThresholdDb = noiseGate,
+                                             .expanderRatio = expanderRatio,
+                                             .preGainDb = preGainDb,
+                                             .postGainDb = postGainDb};
+}
+
 /**
  * Test DynamicsProcessing Engine Configuration
  */
@@ -673,7 +694,7 @@ TEST_P(DynamicsProcessingInputGainDataTest, SetAndGetInputGain) {
         }
         std::vector<float> output(mInput.size());
         EXPECT_NO_FATAL_FAILURE(addInputGain(mInputGain));
-        EXPECT_NO_FATAL_FAILURE(setParamsAndProcess(mInput, output));
+        ASSERT_NO_FATAL_FAILURE(setParamsAndProcess(mInput, output));
         if (!isAllParamsValid()) {
             continue;
         }
@@ -806,7 +827,7 @@ class DynamicsProcessingLimiterConfigDataTest
     void setLimiterParamsAndProcess(std::vector<float>& input, std::vector<float>& output) {
         EXPECT_NO_FATAL_FAILURE(addEngineConfig(mEngineConfigPreset));
         EXPECT_NO_FATAL_FAILURE(addLimiterConfig(mLimiterConfigList));
-        EXPECT_NO_FATAL_FAILURE(setParamsAndProcess(input, output));
+        ASSERT_NO_FATAL_FAILURE(setParamsAndProcess(input, output));
     }
 
     void cleanUpLimiterConfig() {
@@ -835,7 +856,7 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingThresholdDb) {
             fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
                               kDefaultReleaseTime, kDefaultRatio, threshold, kDefaultPostGain);
         }
-        EXPECT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
+        ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
         if (!isAllParamsValid()) {
             continue;
         }
@@ -844,7 +865,7 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingThresholdDb) {
             EXPECT_NEAR(mInputDb, outputDb, kToleranceDb);
         } else {
             float calculatedThreshold = 0;
-            EXPECT_NO_FATAL_FAILURE(computeThreshold(kDefaultRatio, outputDb, calculatedThreshold));
+            ASSERT_NO_FATAL_FAILURE(computeThreshold(kDefaultRatio, outputDb, calculatedThreshold));
             ASSERT_GT(calculatedThreshold, previousThreshold);
             previousThreshold = calculatedThreshold;
         }
@@ -861,7 +882,7 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingRatio) {
             fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
                               kDefaultReleaseTime, ratio, kDefaultThreshold, kDefaultPostGain);
         }
-        EXPECT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
+        ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
         if (!isAllParamsValid()) {
             continue;
         }
@@ -871,7 +892,7 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingRatio) {
             EXPECT_NEAR(mInputDb, outputDb, kToleranceDb);
         } else {
             float calculatedRatio = 0;
-            EXPECT_NO_FATAL_FAILURE(computeRatio(kDefaultThreshold, outputDb, calculatedRatio));
+            ASSERT_NO_FATAL_FAILURE(computeRatio(kDefaultThreshold, outputDb, calculatedRatio));
             ASSERT_GT(calculatedRatio, previousRatio);
             previousRatio = calculatedRatio;
         }
@@ -887,7 +908,7 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingPostGain) {
             fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
                               kDefaultReleaseTime, kDefaultRatio, -1, postGainDb);
         }
-        EXPECT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
+        ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
         if (!isAllParamsValid()) {
             continue;
         }
@@ -908,7 +929,7 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, LimiterEnableDisable) {
                               5 /*attack time*/, 5 /*release time*/, 10 /*ratio*/,
                               -10 /*threshold*/, 5 /*postgain*/);
         }
-        EXPECT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
+        ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
         if (!isAllParamsValid()) {
             continue;
         }
@@ -1167,25 +1188,21 @@ using TestParamsMbcBandConfig =
 
 void fillMbcBandConfig(std::vector<DynamicsProcessing::MbcBandConfig>& cfgs,
                        const TestParamsMbcBandConfig& params) {
-    const std::vector<std::pair<int, float>> cutOffFreqs = std::get<MBC_BAND_CUTOFF_FREQ>(params);
-    const std::array<float, MBC_ADD_MAX_NUM> additional = std::get<MBC_BAND_ADDITIONAL>(params);
-    int bandCount = cutOffFreqs.size();
-    cfgs.resize(bandCount);
-    for (int i = 0; i < bandCount; i++) {
-        cfgs[i] = DynamicsProcessing::MbcBandConfig{
-                .channel = std::get<MBC_BAND_CHANNEL>(params),
-                .band = cutOffFreqs[i].first,
-                .enable = true /*Mbc Band Enable*/,
-                .cutoffFrequencyHz = cutOffFreqs[i].second,
-                .attackTimeMs = additional[MBC_ADD_ATTACK_TIME],
-                .releaseTimeMs = additional[MBC_ADD_RELEASE_TIME],
-                .ratio = additional[MBC_ADD_RATIO],
-                .thresholdDb = additional[MBC_ADD_THRESHOLD],
-                .kneeWidthDb = additional[MBC_ADD_KNEE_WIDTH],
-                .noiseGateThresholdDb = additional[MBC_ADD_NOISE_GATE_THRESHOLD],
-                .expanderRatio = additional[MBC_ADD_EXPENDER_RATIO],
-                .preGainDb = additional[MBC_ADD_PRE_GAIN],
-                .postGainDb = additional[MBC_ADD_POST_GAIN]};
+    const auto& cutOffFreqs = std::get<MBC_BAND_CUTOFF_FREQ>(params);
+    const auto& additional = std::get<MBC_BAND_ADDITIONAL>(params);
+
+    cfgs.resize(cutOffFreqs.size());
+
+    for (size_t i = 0; i < cutOffFreqs.size(); ++i) {
+        cfgs[i] = createMbcBandConfig(std::get<MBC_BAND_CHANNEL>(params),
+                                      cutOffFreqs[i].first,   // band channel
+                                      cutOffFreqs[i].second,  // band cutoff frequency
+                                      additional[MBC_ADD_ATTACK_TIME],
+                                      additional[MBC_ADD_RELEASE_TIME], additional[MBC_ADD_RATIO],
+                                      additional[MBC_ADD_THRESHOLD], additional[MBC_ADD_KNEE_WIDTH],
+                                      additional[MBC_ADD_NOISE_GATE_THRESHOLD],
+                                      additional[MBC_ADD_EXPENDER_RATIO],
+                                      additional[MBC_ADD_PRE_GAIN], additional[MBC_ADD_POST_GAIN]);
     }
 }
 
@@ -1238,6 +1255,168 @@ INSTANTIATE_TEST_SUITE_P(
             return name;
         });
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(DynamicsProcessingTestMbcBandConfig);
+
+class DynamicsProcessingMbcBandConfigDataTest
+    : public ::testing::TestWithParam<std::pair<std::shared_ptr<IFactory>, Descriptor>>,
+      public DynamicsProcessingTestHelper {
+  public:
+    DynamicsProcessingMbcBandConfigDataTest()
+        : DynamicsProcessingTestHelper(GetParam(), AudioChannelLayout::LAYOUT_MONO) {
+        mInput.resize(kFrameCount * mChannelCount);
+        mBinOffsets.resize(mTestFrequencies.size());
+    }
+
+    void SetUp() override {
+        SetUpDynamicsProcessingEffect();
+        SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        ASSERT_NO_FATAL_FAILURE(
+                generateSineWave(mTestFrequencies, mInput, 1.0, kSamplingFrequency,
+                                 mChannelLayout == AudioChannelLayout::LAYOUT_STEREO));
+    }
+
+    void TearDown() override { TearDownDynamicsProcessingEffect(); }
+
+    void setMbcParamsAndProcess(std::vector<float>& output) {
+        for (int i = 0; i < mChannelCount; i++) {
+            mChannelConfig.push_back(DynamicsProcessing::ChannelConfig(i, true));
+        }
+        mEngineConfigPreset.mbcStage.bandCount = mCfgs.size();
+        EXPECT_NO_FATAL_FAILURE(addEngineConfig(mEngineConfigPreset));
+        EXPECT_NO_FATAL_FAILURE(addMbcChannelConfig(mChannelConfig));
+        EXPECT_NO_FATAL_FAILURE(addMbcBandConfigs(mCfgs));
+
+        if (isAllParamsValid()) {
+            ASSERT_NO_FATAL_FAILURE(SetAndGetDynamicsProcessingParameters());
+            ASSERT_NO_FATAL_FAILURE(
+                    processAndWriteToOutput(mInput, output, mEffect, &mOpenEffectReturn));
+        }
+    }
+
+    void fillMbcBandConfig(std::vector<DynamicsProcessing::MbcBandConfig>& cfgs, int channelIndex,
+                           float threshold, float ratio, float noiseGate, float expanderRatio,
+                           int bandIndex, int cutoffFreqHz) {
+        cfgs.push_back(createMbcBandConfig(
+                channelIndex, bandIndex, static_cast<float>(cutoffFreqHz), kDefaultAttackTime,
+                kDefaultReleaseTime, ratio, threshold, kDefaultKneeWidth, noiseGate, expanderRatio,
+                kDefaultPreGainDb, kDefaultPostGainDb));
+    }
+
+    std::vector<float> getMagnitudeValue(const std::vector<float>& output) {
+        std::vector<float> subOutput(output.begin() + kStartIndex, output.end());
+        return calculateMagnitudeMono(subOutput, mBinOffsets, kNPointFFT);
+    }
+
+    void validateOutput(const std::vector<float>& output, float threshold, float ratio,
+                        bool isFirstBandCompressed) {
+        float inputDb = calculateDb(mInput);
+        std::vector<float> outputMag = getMagnitudeValue(output);
+        if (threshold >= inputDb || ratio == 1) {
+            std::vector<float> inputMag = getMagnitudeValue(mInput);
+            for (size_t i = 0; i < inputMag.size(); i++) {
+                EXPECT_NEAR(inputMag[i], outputMag[i], 0.1 * inputMag[i]);
+            }
+        } else {
+            if (isFirstBandCompressed) {
+                EXPECT_LE(outputMag[0], outputMag[1]);
+            } else {
+                EXPECT_LE(outputMag[1], outputMag[0]);
+            }
+        }
+    }
+
+    void analyseMultiBandOutput(float threshold, float ratio) {
+        std::vector<float> output(mInput.size());
+        roundToFreqCenteredToFftBin(mTestFrequencies, mBinOffsets, kBinWidth);
+        // Compress 1st band
+        for (int i = 0; i < mChannelCount; i++) {
+            fillMbcBandConfig(mCfgs, i, threshold, ratio, kDefaultNoiseGateDb,
+                              kDefaultExpanderRatio, 0 /*1st band*/,
+                              200 /*1st band cutoffFrequency*/);
+            fillMbcBandConfig(mCfgs, i, kDefaultThresholdDb, kDefaultRatio, kDefaultNoiseGateDb,
+                              kDefaultExpanderRatio, 1 /*2nd band*/,
+                              2000 /*2nd band cutoffFrequency*/);
+        }
+        ASSERT_NO_FATAL_FAILURE(setMbcParamsAndProcess(output));
+
+        if (isAllParamsValid()) {
+            ASSERT_NO_FATAL_FAILURE(validateOutput(output, threshold, ratio, true));
+        }
+        cleanUpMbcConfig();
+
+        // Compress 2nd band
+        for (int i = 0; i < mChannelCount; i++) {
+            fillMbcBandConfig(mCfgs, i, kDefaultThresholdDb, kDefaultRatio, kDefaultNoiseGateDb,
+                              kDefaultExpanderRatio, 0 /*1st band*/,
+                              200 /*1st band cutoffFrequency*/);
+            fillMbcBandConfig(mCfgs, i, threshold, ratio, kDefaultNoiseGateDb,
+                              kDefaultExpanderRatio, 1 /*2nd band*/,
+                              2000 /*2nd band cutoffFrequency*/);
+        }
+        ASSERT_NO_FATAL_FAILURE(setMbcParamsAndProcess(output));
+
+        if (isAllParamsValid()) {
+            ASSERT_NO_FATAL_FAILURE(validateOutput(output, threshold, ratio, false));
+        }
+    }
+
+    void cleanUpMbcConfig() {
+        CleanUp();
+        mCfgs.clear();
+        mChannelConfig.clear();
+    }
+
+    static constexpr int kNPointFFT = 1024;
+    static constexpr float kDefaultPostGainDb = 0;
+    static constexpr float kDefaultPreGainDb = 0;
+    static constexpr float kDefaultAttackTime = 0;
+    static constexpr float kDefaultReleaseTime = 0;
+    static constexpr float kDefaultKneeWidth = 0;
+    static constexpr float kDefaultThresholdDb = 0;
+    static constexpr float kDefaultNoiseGateDb = -10;
+    static constexpr float kDefaultExpanderRatio = 1;
+    static constexpr float kDefaultRatio = 1;
+
+    static constexpr float kBinWidth = (float)kSamplingFrequency / kNPointFFT;
+    std::vector<int> mTestFrequencies = {100, 1000};
+    std::vector<DynamicsProcessing::MbcBandConfig> mCfgs;
+    std::vector<DynamicsProcessing::ChannelConfig> mChannelConfig;
+    std::vector<int> mBinOffsets;
+    std::vector<float> mInput;
+};
+
+TEST_P(DynamicsProcessingMbcBandConfigDataTest, IncreasingThreshold) {
+    float ratio = 20;
+    std::vector<float> thresholdValues = {-200, -100, 0, 100, 200};
+
+    for (float threshold : thresholdValues) {
+        cleanUpMbcConfig();
+        ASSERT_NO_FATAL_FAILURE(analyseMultiBandOutput(threshold, ratio));
+    }
+}
+
+TEST_P(DynamicsProcessingMbcBandConfigDataTest, IncreasingRatio) {
+    float threshold = -20;
+    std::vector<float> ratioValues = {1, 10, 20, 30, 40, 50};
+
+    for (float ratio : ratioValues) {
+        cleanUpMbcConfig();
+        ASSERT_NO_FATAL_FAILURE(analyseMultiBandOutput(threshold, ratio));
+    }
+}
+
+INSTANTIATE_TEST_SUITE_P(DynamicsProcessingTest, DynamicsProcessingMbcBandConfigDataTest,
+                         testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                 IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
+                         [](const auto& info) {
+                             auto descriptor = info.param;
+                             std::string name = getPrefix(descriptor.second);
+                             std::replace_if(
+                                     name.begin(), name.end(),
+                                     [](const char c) { return !std::isalnum(c); }, '_');
+                             return name;
+                         });
+
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(DynamicsProcessingMbcBandConfigDataTest);
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
