@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a59bd4a_35e4bd19",
+        "filename": "bluetooth/socket/aidl/vts/VtsHalBluetoothSocketTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-21T06:15:11Z",
+      "side": 1,
+      "message": "frame",
+      "range": {
+        "startLine": 118,
+        "startChar": 45,
+        "endLine": 118,
+        "endChar": 52
+      },
+      "revId": "761e2e864d64da234bd05e83d2016a37fc2629ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
