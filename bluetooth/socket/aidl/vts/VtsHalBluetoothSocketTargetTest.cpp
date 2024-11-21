@@ -112,6 +112,14 @@ TEST_P(BluetoothSocketTest, GetSocketCapabilities) {
     ASSERT_TRUE(socket_capabilities.leCocCapabilities.mtu >= 23 &&
                 socket_capabilities.leCocCapabilities.mtu <= 65535);
   }
+  ASSERT_TRUE(socket_capabilities.rfcommCapabilities.numberOfSupportedSockets >=
+              0);
+  if (socket_capabilities.rfcommCapabilities.numberOfSupportedSockets) {
+    // When RFCOMM is supported, the maximum frame size must be configured
+    // within the valid range defined in the RFCOMM specification.
+    ASSERT_TRUE(socket_capabilities.rfcommCapabilities.maxFrameSize >= 23 &&
+                socket_capabilities.rfcommCapabilities.maxFrameSize <= 32767);
+  }
 }
 
 TEST_P(BluetoothSocketTest, Opened) {
