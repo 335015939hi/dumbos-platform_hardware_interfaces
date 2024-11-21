@@ -84,7 +84,9 @@ static inline std::string getPrefix(Descriptor& descriptor) {
 }
 
 static constexpr float kMaxAudioSampleValue = 1;
+static constexpr int kNPointFFT = 16384;
 static constexpr int kSamplingFrequency = 44100;
+static constexpr int kDefaultChannelLayout = AudioChannelLayout::LAYOUT_STEREO;
 
 class EffectHelper {
   public:
@@ -255,13 +257,14 @@ class EffectHelper {
         EXPECT_TRUE(efState & kEventFlagDataMqUpdate);
     }
 
-    Parameter::Common createParamCommon(int session = 0, int ioHandle = -1, int iSampleRate = 48000,
-                                        int oSampleRate = 48000, long iFrameCount = 0x100,
-                                        long oFrameCount = 0x100) {
-        AudioChannelLayout inputLayout = AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
-                AudioChannelLayout::LAYOUT_STEREO);
-        AudioChannelLayout outputLayout = inputLayout;
-
+    Parameter::Common createParamCommon(
+            int session = 0, int ioHandle = -1, int iSampleRate = 48000, int oSampleRate = 48000,
+            long iFrameCount = 0x100, long oFrameCount = 0x100,
+            AudioChannelLayout inputChannelLayout =
+                    AudioChannelLayout::make<AudioChannelLayout::layoutMask>(kDefaultChannelLayout),
+            AudioChannelLayout outputChannelLayout =
+                    AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                            kDefaultChannelLayout)) {
         // query supported input layout and use it as the default parameter in common
         if (mIsSpatializer && isRangeValid<Range::spatializer>(Spatializer::supportedChannelLayout,
                                                                mDescriptor.capability)) {
@@ -271,18 +274,10 @@ class EffectHelper {
                 layoutRange &&
                 0 != (layouts = layoutRange->min.get<Spatializer::supportedChannelLayout>())
                                 .size()) {
-                inputLayout = layouts[0];
+                inputChannelLayout = layouts[0];
             }
         }
 
-        return createParamCommon(session, ioHandle, iSampleRate, oSampleRate, iFrameCount,
-                                 oFrameCount, inputLayout, outputLayout);
-    }
-
-    static Parameter::Common createParamCommon(int session, int ioHandle, int iSampleRate,
-                                               int oSampleRate, long iFrameCount, long oFrameCount,
-                                               AudioChannelLayout inputChannelLayout,
-                                               AudioChannelLayout outputChannelLayout) {
         Parameter::Common common;
         common.session = session;
         common.ioHandle = ioHandle;
@@ -461,28 +456,39 @@ class EffectHelper {
     // All test frequencies are considered having the same amplitude
     void generateSineWave(const std::vector<int>& testFrequencies, std::vector<float>& input,
                           const float amplitude = 1.0,
-                          const int samplingFrequency = kSamplingFrequency) {
-        for (size_t i = 0; i < input.size(); i++) {
+                          const int samplingFrequency = kSamplingFrequency, bool isStereo = true) {
+        if (isStereo) {
+            ASSERT_EQ(input.size() % 2, 0u)
+                    << "In case of stereo input, the input size value must be even";
+        }
+        for (size_t i = 0; i < input.size(); i += (isStereo ? 2 : 1)) {
             input[i] = 0;
 
             for (size_t j = 0; j < testFrequencies.size(); j++) {
-                input[i] += sin(2 * M_PI * testFrequencies[j] * i / samplingFrequency);
+                input[i] += sin(2 * M_PI * testFrequencies[j] * (i / (isStereo ? 2 : 1)) /
+                                samplingFrequency);
             }
             input[i] *= amplitude / testFrequencies.size();
+
+            if (isStereo) {
+                input[i + 1] = input[i];
+            }
         }
     }
 
     // Generate single tone input between -amplitude to +amplitude using testFrequency
     void generateSineWave(const int testFrequency, std::vector<float>& input,
                           const float amplitude = 1.0,
-                          const int samplingFrequency = kSamplingFrequency) {
-        generateSineWave(std::vector<int>{testFrequency}, input, amplitude, samplingFrequency);
+                          const int samplingFrequency = kSamplingFrequency, bool isStereo = true) {
+        ASSERT_NO_FATAL_FAILURE(generateSineWave(std::vector<int>{testFrequency}, input, amplitude,
+                                                 samplingFrequency, isStereo));
     }
 
     // Use FFT transform to convert the buffer to frequency domain
     // Compute its magnitude at binOffsets
-    std::vector<float> calculateMagnitude(const std::vector<float>& buffer,
-                                          const std::vector<int>& binOffsets, const int nPointFFT) {
+    std::vector<float> calculateMagnitudeMono(const std::vector<float>& buffer,
+                                              const std::vector<int>& binOffsets,
+                                              const int nPointFFT = kNPointFFT) {
         std::vector<float> fftInput(nPointFFT);
         PFFFT_Setup* inputHandle = pffft_new_setup(nPointFFT, PFFFT_REAL);
         pffft_transform_ordered(inputHandle, buffer.data(), fftInput.data(), nullptr,
@@ -496,6 +502,41 @@ class EffectHelper {
         }
 
         return bufferMag;
+    }
+
+    // Use FFT transform to convert the buffer to frequency domain
+    // Compute its magnitude at binOffsets
+    std::pair<std::vector<float>, std::vector<float>> calculateMagnitudeStereo(
+            const std::vector<float>& buffer, const std::vector<int>& binOffsets,
+            const int nPointFFT = kNPointFFT) {
+        std::vector<float> leftChannelBuffer(buffer.size() / 2),
+                rightChannelBuffer(buffer.size() / 2);
+        for (size_t i = 0; i < buffer.size(); i += 2) {
+            leftChannelBuffer[i / 2] = buffer[i];
+            rightChannelBuffer[i / 2] = buffer[i + 1];
+        }
+        std::vector<float> leftMagnitude =
+                calculateMagnitudeMono(leftChannelBuffer, binOffsets, nPointFFT);
+        std::vector<float> rightMagnitude =
+                calculateMagnitudeMono(rightChannelBuffer, binOffsets, nPointFFT);
+
+        return {leftMagnitude, rightMagnitude};
+    }
+
+    // Computes magnitude for mono and stereo inputs and verifies equal magnitude for left and right
+    // channel in case of stereo inputs
+    void calculateAndVerifyMagnitude(std::vector<float>& mag, bool isStereo,
+                                     const std::vector<float>& buffer,
+                                     const std::vector<int>& binOffsets,
+                                     const int nPointFFT = kNPointFFT) {
+        if (isStereo) {
+            auto magStereo = calculateMagnitudeStereo(buffer, binOffsets, nPointFFT);
+            ASSERT_EQ(magStereo.first, magStereo.second);
+
+            mag = magStereo.first;
+        } else {
+            mag = calculateMagnitudeMono(buffer, binOffsets, nPointFFT);
+        }
     }
 
     void updateFrameSize(const Parameter::Common& common) {
