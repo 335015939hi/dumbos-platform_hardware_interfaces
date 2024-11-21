@@ -1,0 +1,54 @@
+/*
+ * Copyright (C) 2024 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["Android-Apache-2.0"],
+    default_team: "trendy_team_trusty",
+}
+
+rust_library {
+    name: "libhdcp_auth_control",
+    crate_name: "hdcp_auth_control",
+    srcs: [
+        "src/lib.rs",
+    ],
+    vendor_available: true,
+    rustlibs: [
+        "android.hardware.security.see.hdcp-rust",
+        "libbinder_rs",
+        "liblog_rust",
+    ],
+}
+
+//rust_fuzz {
+//    name: "android.hardware.security.see.hdcp-service.fuzzer",
+//    rustlibs: [
+//        "libhdcp_auth_control",
+//        "libbinder_random_parcel_rs",
+//        "libbinder_rs",
+//    ],
+//    srcs: ["src/fuzzer.rs"],
+//    fuzz_config: {
+//        cc: [
+//            "g2.prod.trusty-team@google.com"
+//        ],
+//    },
+//}
