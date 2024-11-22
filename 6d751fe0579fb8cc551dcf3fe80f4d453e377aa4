@@ -271,6 +271,30 @@
       },
       "revId": "6d751fe0579fb8cc551dcf3fe80f4d453e377aa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55a701b2_6ed52a61",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-11-22T16:28:18Z",
+      "side": 1,
+      "message": "Yes, please add. Our strategy is that we avoid generating all combination of input parameters when processing is disabled, for the reason you have mentioned. But we still need to test that no processing actually happens when it is disabled.",
+      "parentUuid": "f17127fd_b2439356",
+      "range": {
+        "startLine": 910,
+        "startChar": 25,
+        "endLine": 910,
+        "endChar": 47
+      },
+      "revId": "6d751fe0579fb8cc551dcf3fe80f4d453e377aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
