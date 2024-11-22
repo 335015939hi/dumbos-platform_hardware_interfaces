@@ -878,4 +878,30 @@ ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& encodedCsr,
     return diceChain->IsProper();
 }
 
+ErrMsgOr<bool> isNormalModeDiceChain(const std::vector<uint8_t>& encodedCsr,
+                                     std::string_view instanceName) {
+    auto diceChainKind = getDiceChainKind();
+    if (!diceChainKind) {
+        return diceChainKind.message();
+    }
+
+    auto csr = hwtrust::Csr::validate(encodedCsr, *diceChainKind, false /*isFactory*/,
+                                      true /*allowAnyMode*/, deviceSuffix(instanceName));
+    if (!csr.ok()) {
+        return csr.error().message();
+    }
+
+    auto diceChain = csr->getDiceChain();
+    if (!diceChain.ok()) {
+        return diceChain.error().message();
+    }
+
+    auto isNormal = diceChain->isNormalMode();
+    if (!isNormal.ok()) {
+        return isNormal.error().message();
+    }
+
+    return *isNormal;
+}
+
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
