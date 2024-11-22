@@ -45,6 +45,30 @@
       },
       "revId": "dde33f2109c44206e2918231638781124aa520dd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ead0491_f28e514a",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-22T22:44:17Z",
+      "side": 1,
+      "message": "Currently, socket layer sets 990 bytes for RFCOMM max frame size.\n\n```\n#define BTA_JV_DEF_RFC_MTU (3 * 330)\n\n  if (RFCOMM_CreateConnectionWithSecurity(UUID_SERVCLASS_SERIAL_PORT, remote_scn, false, BTA_JV_DEF_RFC_MTU, peer_bd_addr, \u0026handle, bta_jv_port_mgmt_cl_cback, sec_mask)\n```\n\nThen, RFCOMM layer (port_api.cc) find minimum MTU between the input RFCOMM max frame size (3*330) and max L2CAP MTU (1691-1). The default socket RFCOMM max frame size is smaller so that 990 bytes has been used for RFCOMM socket for now.\n\nIn below code, `mtu` is 990 bytes socket layer configured. `rfcomm_mtu` is the calculated L2CAP MTU for RFCOMM based on hard-coded value.\n\n```\n  // Find MTU\n  // If the MTU is not specified (0), keep MTU decision until the PN frame has\n  // to be send at that time connection should be established and we will know\n  // for sure our prefered MTU\n  uint16_t rfcomm_mtu \u003d L2CAP_MTU_SIZE - RFCOMM_DATA_OVERHEAD;\n  if (mtu) {\n    p_port-\u003emtu \u003d (mtu \u003c rfcomm_mtu) ? mtu : rfcomm_mtu;\n  } else {\n    p_port-\u003emtu \u003d rfcomm_mtu;\n  }\n```\n\nSo, it sounds like RFCOMM max frame size will not larger than the calculated L2CAP MTU.",
+      "parentUuid": "04d6911a_866eec0b",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 20
+      },
+      "revId": "dde33f2109c44206e2918231638781124aa520dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
