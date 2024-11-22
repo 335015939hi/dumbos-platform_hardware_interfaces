@@ -214,6 +214,10 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(const cppbor::Array
 ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& csr,
                                         const std::string& instanceName);
 
+/** Checks whether the DICE chain in the CSR has a certificate with a non-normal mode. */
+ErrMsgOr<bool> hasNotNormalModeInDiceChain(const std::vector<uint8_t>& csr,
+                                           std::string_view instanceName);
+
 /** Verify the DICE chain. */
 ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
                                                 hwtrust::DiceChain::Kind kind, bool allowAnyMode,
