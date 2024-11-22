@@ -34,6 +34,29 @@
       "parentUuid": "2b2d7972_3f338144",
       "revId": "54332bc916f454be2086df3054e27fdeefadfb5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5eaf397_c31fb3f7",
+        "filename": "compatibility_matrices/compatibility_matrix.202504.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-22T23:46:03Z",
+      "side": 1,
+      "message": "given this is a small and useful API change, should it be required?",
+      "range": {
+        "startLine": 342,
+        "startChar": 17,
+        "endLine": 342,
+        "endChar": 19
+      },
+      "revId": "54332bc916f454be2086df3054e27fdeefadfb5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
