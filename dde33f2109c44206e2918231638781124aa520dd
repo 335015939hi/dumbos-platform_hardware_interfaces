@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9dad9454_a9c29374",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1959878
+      },
+      "writtenOn": "2024-11-22T23:06:02Z",
+      "side": 1,
+      "message": "Yes, I think it is the equivalent of the MTU for L2CAP COC. The naming here is to follow the RFCOMM specs. Is the suggestion here to just rename or use the common structure for the L2CAP COC and RFCOMM capabilities? @jaydenk@google.com any thoughts?",
+      "parentUuid": "68b3ec94_593f7768",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "dde33f2109c44206e2918231638781124aa520dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04d6911a_866eec0b",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
         "patchSetId": 4
