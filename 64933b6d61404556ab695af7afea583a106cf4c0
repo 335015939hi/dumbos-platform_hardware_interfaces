@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "798cd091_ab3d0bca",
+        "filename": "security/secretkeeper/aidl/aidl_api/android.hardware.security.secretkeeper/current/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 9
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-11-22T21:33:25Z",
+      "side": 1,
+      "message": "Updated this to `Secretekeeper` (lowercase `k`) per what I see elsewhere.",
+      "range": {
+        "startLine": 41,
+        "startChar": 54,
+        "endLine": 41,
+        "endChar": 66
+      },
+      "revId": "64933b6d61404556ab695af7afea583a106cf4c0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a396a108_6fbd75b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-11-22T21:33:25Z",
+      "side": 1,
+      "message": "\u003e The easiest would be to change the implementation of get_secretkeeper_identity() method to call the ISEcretkeeper::getSecretkeeperIdentity \u0026 secretkeeper_check_identity() VTS would take care of it.\n\nDone, but I\u0027m not sure I haven\u0027t just created a tautology in the test 😊\n\n\u003eBut we\u0027d like to continue testing older versions of HAL as well, so not sure how the test will need to be reconfigured.\n\nProbably need to chat about how to set this up.\n\n\u003eOn client code front: changes would required in virtmgr to really use this API from system\n\nThe proxy in `virtmgr` is throwing an exception on the `getSecretkeeperIdentity` operation (per your comment in that CL), but presumably you\u0027re referring to somewhere else here?",
+      "parentUuid": "4fe95ef7_2215d743",
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e275571e_baa11a49",
         "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
         "patchSetId": 6
