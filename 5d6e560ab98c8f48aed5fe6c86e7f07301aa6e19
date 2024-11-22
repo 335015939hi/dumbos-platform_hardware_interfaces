@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4fe95ef7_2215d743",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-11-22T11:16:18Z",
+      "side": 1,
+      "message": "On the VTS front: The easiest would be to change the implementation of `get_secretkeeper_identity()` method to call the `ISEcretkeeper::getSecretkeeperIdentity` \u0026 `secretkeeper_check_identity()` VTS would take care of it.\n\nBut we\u0027d like to continue testing older versions of HAL as well, so not sure how the test will need to be reconfigured.\n\n[1] https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:hardware/interfaces/security/secretkeeper/aidl/vts/secretkeeper_test_client.rs;l\u003d766?q\u003dsecretkeeper_test_client.rs\n\n\nOn client code front: changes would required in virtmgr to really use this API from system",
+      "parentUuid": "d0b2a2fe_5b80a75a",
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e275571e_baa11a49",
         "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
         "patchSetId": 6
