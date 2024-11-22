@@ -22,6 +22,30 @@
       },
       "revId": "0c59168fd1f817ca3cfb9d7f987c11786163856c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e34d751_74818a45",
+        "filename": "staging/security/see/hwcrypto/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-11-22T20:48:19Z",
+      "side": 1,
+      "message": "Thanks for pointing that out Hasini. Yeah, the port names are `com.android.trusty.rust.hwcryptohalserver.test`,\n`com.android.trusty.rust.hwcryptohal_common.test`,\n`com.android.trusty.rust.hwcryptokey_test.test`. I see also that `hwcryptokey_test ` has the rust portion on the name on line 46 but not on line 50.",
+      "parentUuid": "98aa78fb_1babb925",
+      "range": {
+        "startLine": 48,
+        "startChar": 148,
+        "endLine": 48,
+        "endChar": 189
+      },
+      "revId": "0c59168fd1f817ca3cfb9d7f987c11786163856c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
