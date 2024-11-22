@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a55cb72_0410f4ea",
+        "filename": "security/see/authmgr/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-22T01:01:23Z",
+      "side": 1,
+      "message": "I am not sure whether this is the correct port name. This is what I use to run unit tests in Trusty though.",
+      "revId": "2028215d03bfd4f07d956ac667311c646cfc0e44",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
