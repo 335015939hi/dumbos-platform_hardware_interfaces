@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68b3ec94_593f7768",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-22T22:10:36Z",
+      "side": 1,
+      "message": "Given that the same requirement exists for L2CAP COC, it might make sense to extract it as a common marker of socket capabilities.\n\nUltimately it represents the maximum size of PDUs handled by the offload stack right ?",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "dde33f2109c44206e2918231638781124aa520dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04d6911a_866eec0b",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-22T22:10:36Z",
+      "side": 1,
+      "message": "Do you know how the maximum frame size is currently configured for RFCOMM ?\nIs there a relation to the MTU for the L2CAP channel or is it independent ?",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 20
+      },
+      "revId": "dde33f2109c44206e2918231638781124aa520dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
