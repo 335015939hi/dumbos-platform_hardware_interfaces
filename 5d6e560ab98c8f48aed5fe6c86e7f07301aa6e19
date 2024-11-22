@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0b2a2fe_5b80a75a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1882526
+      },
+      "writtenOn": "2024-11-22T10:39:07Z",
+      "side": 1,
+      "message": "From our discussion yesterday, this will be achieve by updating `hardware/interfaces/security/secretkeeper/aidl/vts/secretkeeper_test_client.rs`, AFAIU?",
+      "parentUuid": "9125d506_7f77825d",
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e275571e_baa11a49",
         "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
         "patchSetId": 6
