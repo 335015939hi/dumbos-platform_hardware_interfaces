@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49d36313_bf876419",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2024-11-22T14:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7006467b_df7b92e7",
+      "revId": "28ded78f4ced00ec842dd7616ccab2980e8c55de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "860ddd84_7d546a72",
@@ -48,6 +66,42 @@
       "writtenOn": "2024-11-22T13:52:05Z",
       "side": 1,
       "message": "Is this just `isRkpOnly().value_or(false)` ?",
+      "revId": "28ded78f4ced00ec842dd7616ccab2980e8c55de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "828f8289_a3a21960",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2024-11-22T14:19:13Z",
+      "side": 1,
+      "message": "The comment is updated, we want to create an attestation key only in case the device is RkpOnly.",
+      "parentUuid": "860ddd84_7d546a72",
+      "revId": "28ded78f4ced00ec842dd7616ccab2980e8c55de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20142f15_07613085",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2024-11-22T14:19:13Z",
+      "side": 1,
+      "message": "We are expecting this condition `(isRkpOnly().has_value() \u0026\u0026 isRkpOnly().value()` to be true, to create an attestation key. We would be creating an attestation key only if the device is RkpOnly.",
+      "parentUuid": "6d34c73c_abb3fd4a",
       "revId": "28ded78f4ced00ec842dd7616ccab2980e8c55de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
