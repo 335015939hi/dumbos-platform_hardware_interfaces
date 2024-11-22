@@ -35,11 +35,11 @@ parcelable SecurityAlgorithmUpdate {
     /**
      * Encryption algorithm which was used
      */
-    SecurityAlgorithm encryption = SecurityAlgorithm.A50;
+    SecurityAlgorithm encryption = SecurityAlgorithm.UNKNOWN;
     /**
      * Integrity algorithm which was used
      */
-    SecurityAlgorithm integrity = SecurityAlgorithm.A50;
+    SecurityAlgorithm integrity = SecurityAlgorithm.UNKNOWN;
     /**
      * Whether or not this connection event is associated with an
      * unauthenticated / unencrypted emergency session
