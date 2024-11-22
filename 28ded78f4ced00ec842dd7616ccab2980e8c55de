@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7006467b_df7b92e7",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 422,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-22T13:52:05Z",
+      "side": 1,
+      "message": "Comment not updated to match code.",
+      "revId": "28ded78f4ced00ec842dd7616ccab2980e8c55de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "860ddd84_7d546a72",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-22T13:52:05Z",
+      "side": 1,
+      "message": "As per the comment, I think this will break all attestation tests on RKP-only devices where the test is being run under GSI.",
+      "revId": "28ded78f4ced00ec842dd7616ccab2980e8c55de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d34c73c_abb3fd4a",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-22T13:52:05Z",
+      "side": 1,
+      "message": "Is this just `isRkpOnly().value_or(false)` ?",
+      "revId": "28ded78f4ced00ec842dd7616ccab2980e8c55de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
