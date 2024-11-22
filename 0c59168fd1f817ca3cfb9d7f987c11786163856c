@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98aa78fb_1babb925",
+        "filename": "staging/security/see/hwcrypto/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-22T20:40:24Z",
+      "side": 1,
+      "message": "Is this the correct port name? Isn\u0027t the part \"rust\" missing? i.e. `com.android.trusty.rust.hwcryptohalserver.test`",
+      "range": {
+        "startLine": 48,
+        "startChar": 148,
+        "endLine": 48,
+        "endChar": 189
+      },
+      "revId": "0c59168fd1f817ca3cfb9d7f987c11786163856c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
