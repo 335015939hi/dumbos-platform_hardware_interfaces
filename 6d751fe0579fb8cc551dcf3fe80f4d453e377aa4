@@ -34,6 +34,171 @@
       "parentUuid": "07a84b11_1dea7667",
       "revId": "6d751fe0579fb8cc551dcf3fe80f4d453e377aa4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6275b5b0_b4b612c1",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-11-22T04:28:28Z",
+      "side": 1,
+      "message": "nit: why not just return bool?",
+      "range": {
+        "startLine": 117,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 8
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e0a34ddb_97e1efee",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 117,
+                "startChar": 0,
+                "endLine": 118,
+                "endChar": 0
+              },
+              "replacement": "    bool isAllParamsValid();\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 377,
+                "startChar": 0,
+                "endLine": 379,
+                "endChar": 0
+              },
+              "replacement": "bool DynamicsProcessingTestHelper::isAllParamsValid() {\n    bool allParamsValid \u003d false;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 384,
+                "startChar": 0,
+                "endLine": 385,
+                "endChar": 0
+              },
+              "replacement": "            return false;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 387,
+                "startChar": 0,
+                "endLine": 388,
+                "endChar": 0
+              },
+              "replacement": "            return false;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 390,
+                "startChar": 0,
+                "endLine": 391,
+                "endChar": 0
+              },
+              "replacement": "    return true;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 710,
+                "startChar": 0,
+                "endLine": 711,
+                "endChar": 0
+              },
+              "replacement": "        allParamsValid \u003d isAllParamsValid();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "6d751fe0579fb8cc551dcf3fe80f4d453e377aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a4c9b33_a6caddb1",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-11-22T04:28:28Z",
+      "side": 1,
+      "message": "is this enough, is `EXPECT_NO_FATAL_FAILURE` needed for `computeThreshold` call? same for line#702",
+      "range": {
+        "startLine": 695,
+        "startChar": 8,
+        "endLine": 695,
+        "endChar": 17
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "7959f6dc_c96810c2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 695,
+                "startChar": 0,
+                "endLine": 696,
+                "endChar": 0
+              },
+              "replacement": "        EXPECT_NO_FATAL_FAILURE(EXPECT_NE(ratio, 0));\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 702,
+                "startChar": 0,
+                "endLine": 703,
+                "endChar": 0
+              },
+              "replacement": "        EXPECT_NO_FATAL_FAILURE(EXPECT_NE(outputOverThreshold, 0));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "6d751fe0579fb8cc551dcf3fe80f4d453e377aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62b15755_633bd505",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-11-22T04:28:28Z",
+      "side": 1,
+      "message": "why do we remove this boolean parameter? I think we also want to test the case of bands disabled? same question for line#1068",
+      "range": {
+        "startLine": 910,
+        "startChar": 25,
+        "endLine": 910,
+        "endChar": 47
+      },
+      "revId": "6d751fe0579fb8cc551dcf3fe80f4d453e377aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
