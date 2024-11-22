@@ -127,6 +127,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4d0e76e_6864c0c4",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-22T12:38:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6275b5b0_b4b612c1",
+      "range": {
+        "startLine": 117,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 8
+      },
+      "revId": "6d751fe0579fb8cc551dcf3fe80f4d453e377aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a4c9b33_a6caddb1",
@@ -178,6 +202,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eaec30f_b6210476",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-22T12:38:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a4c9b33_a6caddb1",
+      "range": {
+        "startLine": 695,
+        "startChar": 8,
+        "endLine": 695,
+        "endChar": 17
+      },
+      "revId": "6d751fe0579fb8cc551dcf3fe80f4d453e377aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62b15755_633bd505",
@@ -191,6 +239,30 @@
       "writtenOn": "2024-11-22T04:28:28Z",
       "side": 1,
       "message": "why do we remove this boolean parameter? I think we also want to test the case of bands disabled? same question for line#1068",
+      "range": {
+        "startLine": 910,
+        "startChar": 25,
+        "endLine": 910,
+        "endChar": 47
+      },
+      "revId": "6d751fe0579fb8cc551dcf3fe80f4d453e377aa4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f17127fd_b2439356",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 22
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2024-11-22T12:38:22Z",
+      "side": 1,
+      "message": "We are setting ```enable``` to ```true``` to avoid generating too many unnecessary test cases.\n\nWe can add tests to validate the ```enable``` set to ```false``` functionality by checking that input is the same as output.",
+      "parentUuid": "62b15755_633bd505",
       "range": {
         "startLine": 910,
         "startChar": 25,
