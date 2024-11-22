@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ddfbf28_7626c514",
+        "filename": "staging/security/see/hwcrypto/aidl/vts/functional/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-22T09:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adbe7c79_08d7a025",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 18
+      },
+      "revId": "bf4d500181d6ef5b85e8fc35840f9ca80212421e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84e04c37_dca632e9",
@@ -59,6 +83,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eeca564a_da19b53c",
+        "filename": "staging/security/see/hwcrypto/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-22T09:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f39e0bc9_7763f043",
+      "revId": "bf4d500181d6ef5b85e8fc35840f9ca80212421e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8b0f92f_ef7c4037",
@@ -72,6 +114,30 @@
       "writtenOn": "2024-10-07T12:13:08Z",
       "side": 1,
       "message": "Hi @jdesprez@google.com, is there a mechanism in the config like [1] to conditionally execute the test only when a specific sysprop (e.g. `ro.hardware.security.trusty_vm.system`) is set to \"true\" and skip it otherwise? We don\u0027t want to execute this test in all environments for the W release.\n\n[1] https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Scheduling/tests/AndroidTest.xml;l\u003d32;drc\u003dc525da7006edd882bd18065af7b2ce5b72222edd",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 20
+      },
+      "revId": "bf4d500181d6ef5b85e8fc35840f9ca80212421e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "278bd6a4_0d6fa7c3",
+        "filename": "staging/security/see/hwcrypto/aidl/vts/functional/AndroidTest.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-22T09:11:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8b0f92f_ef7c4037",
       "range": {
         "startLine": 32,
         "startChar": 4,
