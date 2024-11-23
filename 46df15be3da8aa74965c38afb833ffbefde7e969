@@ -34,6 +34,23 @@
       "parentUuid": "1f328a2d_93dd8f8e",
       "revId": "46df15be3da8aa74965c38afb833ffbefde7e969",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6378c6b6_192a92e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-23T01:47:21Z",
+      "side": 1,
+      "message": "Hi Steven @smoreland@google.com or Devin @devinmoore@google.com,\n\nCan you please provide the code owners vote as well? Thank you!",
+      "revId": "46df15be3da8aa74965c38afb833ffbefde7e969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
