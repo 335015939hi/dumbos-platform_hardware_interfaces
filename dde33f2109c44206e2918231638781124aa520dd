@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a25e1427_cd84c012",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-23T19:20:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "febfe8bb_19e2023c",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "dde33f2109c44206e2918231638781124aa520dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04d6911a_866eec0b",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "In host stack implementation, there is relation to the hard-coded MTU of L2CAP as 1685 bytes (\u003d 1691 - 6). RFCOMM max frame size could be capped by the L2CAP MTU but socket layer already configured smaller 990 bytes so that 990 bytes has been used. Anyway, we need `maxFrameSize` field in RfcommChannelInfo.aidl",
       "parentUuid": "8ead0491_f28e514a",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 20
+      },
+      "revId": "dde33f2109c44206e2918231638781124aa520dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b42da88_1eff7a3b",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-23T19:20:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9ff57dd_a0c4f26e",
       "range": {
         "startLine": 66,
         "startChar": 8,
