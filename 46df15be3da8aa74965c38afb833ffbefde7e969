@@ -51,6 +51,23 @@
       "message": "Hi Steven @smoreland@google.com or Devin @devinmoore@google.com,\n\nCan you please provide the code owners vote as well? Thank you!",
       "revId": "46df15be3da8aa74965c38afb833ffbefde7e969",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "553c9291_80f5ca16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-23T03:15:05Z",
+      "side": 1,
+      "message": "Please add owners in the directory as well.",
+      "revId": "46df15be3da8aa74965c38afb833ffbefde7e969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
