@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad035c68_ca1ab3af",
+        "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/Status.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-23T21:43:05Z",
+      "side": 1,
+      "message": "Oh you\u0027re right that is confusing. LEVEL_NO_PENDING is actually not an error but rather a status.\n\nThe normal flow would be:\n- a successful trySetHdcpLevel\n- getPendingHdcpLevel returning STATUS_LEVEL_NO_PENDING\n- getHdcpLevel\n- verify that currentLevel \u003e\u003d previous trySetHdcpLevel request\n\nThe error case would be:\ncurrentLevel \u003c previous trySetHdcpLevel request\n\ndo you agree?\n\nI have updated the interface as to not conflate error and state. PTAL!",
+      "parentUuid": "f7c8aebf_1342de79",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 31
+      },
+      "revId": "66cf4e61fde08deadb003181ed043d0bcf574a1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "261413b1_2849a6db",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a7c3680_66cfb6c1",
+        "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/Status.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-23T21:43:05Z",
+      "side": 1,
+      "message": "good point, this case is now properly documented.\nusing same HalErrorCode approach than HWCrypto as it nicely support generic service errors.",
+      "parentUuid": "261413b1_2849a6db",
+      "range": {
+        "startLine": 34,
+        "startChar": 36,
+        "endLine": 34,
+        "endChar": 63
+      },
+      "revId": "66cf4e61fde08deadb003181ed043d0bcf574a1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f70f90cc_d2ae566a",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-11-22T20:19:26Z",
       "side": 1,
       "message": "Maybe change the error to ERROR_HDCP_SET_NOT_SUPPORTED or ERROR_HDCP_CHANGE_NOT_SUPPORTED? Just HDCP_NOT_SUPPORTED suggests that HDCP as an entirety is not supported.",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 41,
+        "endChar": 28
+      },
+      "revId": "66cf4e61fde08deadb003181ed043d0bcf574a1a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8e82058_628c5548",
+        "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/Status.aidl",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-11-23T21:43:05Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f70f90cc_d2ae566a",
       "range": {
         "startLine": 41,
         "startChar": 4,
