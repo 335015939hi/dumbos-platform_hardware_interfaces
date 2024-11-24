@@ -33,8 +33,9 @@
 
 package android.hardware.radio.voice;
 /* @hide */
-@Backing(type="int") @JavaDerive(toString=true) @VintfStability
+@Backing(type="int") @JavaDerive(toString=true) @SuppressWarnings(value={"redundant-name"}) @VintfStability
 enum LastCallFailCause {
+  INVALID = 0,
   UNOBTAINABLE_NUMBER = 1,
   NO_ROUTE_TO_DESTINATION = 3,
   CHANNEL_UNACCEPTABLE = 6,

@@ -30,6 +30,7 @@ import android.hardware.radio.voice.CdmaT53ClirInfoRecord;
  */
 @VintfStability
 @JavaDerive(toString=true)
+@SuppressWarnings(value={"redundant-name"})
 parcelable CdmaInformationRecord {
     const int CDMA_MAX_NUMBER_OF_INFO_RECS = 10;
     /**
