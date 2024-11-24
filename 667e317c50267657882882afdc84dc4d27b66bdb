@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f64fed28_50e5678f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-11-24T14:24:50Z",
+      "side": 1,
+      "message": "Anyone seen this error before? I\u0027m stumped:\n```\nerror: found crates (`binder` and `binder`) with colliding StableCrateId values\n```\nAnd AFAICT didn\u0027t actually change any dependencies other than the HAL dependency",
+      "revId": "667e317c50267657882882afdc84dc4d27b66bdb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
