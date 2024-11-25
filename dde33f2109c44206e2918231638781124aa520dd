@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73c4aaf8_4d6fc4f9",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-11-25T05:18:31Z",
+      "side": 1,
+      "message": "Yes, I agree that it may be affected by the same memory constraints of the offload stack, but since the usage of LE CoC and RFCOMM are different, we may want to set them differently for each protocol. BTW, the `MaximumPacketSize` of the newly added Android API (BluetoothSocketSettings::setMaximumPacketSize) also can be used to differentiate between different protocols on BluetoothSocket. Then, do we have to move the field into the SocketCapabilities and set the valid range as RFCOMM\u0027s one because RFCOMM\u0027s range is narrower than L2CAP COC? I\u0027m curious, if a new protocol like ATT has quite smaller range like 500 bytes in offload stack do we have to reduce the common packet size as well?",
+      "parentUuid": "36f70ba9_4fc9ae30",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "dde33f2109c44206e2918231638781124aa520dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "04d6911a_866eec0b",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommChannelInfo.aidl",
         "patchSetId": 4
