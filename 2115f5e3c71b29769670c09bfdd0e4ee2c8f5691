@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5bf4b5e_e6c76bcc",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-25T18:21:03Z",
+      "side": 1,
+      "message": "pwritev will let you pass an offset into the iov array; this helps simplify the logic for retries.\n\nhttps://linux.die.net/man/2/pwritev",
+      "range": {
+        "startLine": 57,
+        "startChar": 37,
+        "endLine": 57,
+        "endChar": 43
+      },
+      "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
