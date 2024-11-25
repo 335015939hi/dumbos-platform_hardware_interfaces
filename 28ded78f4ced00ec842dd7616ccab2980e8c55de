@@ -104,6 +104,42 @@
       "parentUuid": "6d34c73c_abb3fd4a",
       "revId": "28ded78f4ced00ec842dd7616ccab2980e8c55de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbbff97e_be6ad006",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-25T10:55:31Z",
+      "side": 1,
+      "message": "If a device is RKP-only, it will have the rkp-only property set; however, this property is cleared when running a test under GSI.  \n\nIn that configuration (RKP-only device being tested under GSI), the device has no batch keys and so cannot perform attestation without using an `ATTEST_KEY` to sign the leaf certificate.  So your change will make all attestation tests fail in that scenario.",
+      "parentUuid": "828f8289_a3a21960",
+      "revId": "28ded78f4ced00ec842dd7616ccab2980e8c55de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "889ac238_eb1338a8",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-25T10:55:31Z",
+      "side": 1,
+      "message": "My point is just that `value_or(xx)` is a more concise way of writing the same thing.",
+      "parentUuid": "20142f15_07613085",
+      "revId": "28ded78f4ced00ec842dd7616ccab2980e8c55de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
