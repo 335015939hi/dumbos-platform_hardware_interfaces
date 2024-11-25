@@ -34,6 +34,24 @@
       "parentUuid": "9f757b35_98a5adb4",
       "revId": "18935386bee653e3f7a9db24cec8c0c07f3059c2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "089a556b_534ac2b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1043093
+      },
+      "writtenOn": "2024-11-25T17:25:56Z",
+      "side": 1,
+      "message": "Some tests like GSI require or allow an unlocked device.\n\nThe test should still be on a locked device in other test configurations.",
+      "parentUuid": "c5ddd813_b4697373",
+      "revId": "18935386bee653e3f7a9db24cec8c0c07f3059c2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
