@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44fa9733_bed18bc7",
+        "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/HalErrorCode.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-25T19:06:46Z",
+      "side": 1,
+      "message": "If we expect this to only be used with `IHdcpAuthControl` we can define it in `IHdcpAuthControl.aidl` instead.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "6bcc4b232428277d580fc911631e757592c1ded7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "160b49a8_5febcfe1",
+        "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/HdcpAuthControl.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-25T19:06:46Z",
+      "side": 1,
+      "message": "Can we rename this file to `IHdcpAuthControl.aidl`?",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "6bcc4b232428277d580fc911631e757592c1ded7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ea75be6_5f3ccff2",
+        "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/HdcpAuthControl.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-25T19:06:46Z",
+      "side": 1,
+      "message": "Should the return value be `PendingHdcpLevelResult` like mentioned in the comments?",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 13
+      },
+      "revId": "6bcc4b232428277d580fc911631e757592c1ded7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
