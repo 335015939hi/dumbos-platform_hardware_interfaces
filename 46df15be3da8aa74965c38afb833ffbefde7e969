@@ -104,6 +104,24 @@
       "parentUuid": "fe39c68d_466e5d53",
       "revId": "46df15be3da8aa74965c38afb833ffbefde7e969",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b81a7432_e2eca038",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-25T17:58:16Z",
+      "side": 1,
+      "message": "Thanks Steven! The OWNERS file has been added in aosp/3344724 to hardware/interfaces/security/see.",
+      "parentUuid": "553c9291_80f5ca16",
+      "revId": "46df15be3da8aa74965c38afb833ffbefde7e969",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
