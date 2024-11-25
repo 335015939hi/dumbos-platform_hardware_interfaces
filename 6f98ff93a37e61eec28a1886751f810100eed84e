@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "233f62cc_59245673",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2024-11-25T19:37:21Z",
+      "side": 1,
+      "message": "Nit: Add a comment similar to other methods.",
+      "fixSuggestions": [
+        {
+          "fixId": "a9aec25e_1598565f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+              "range": {
+                "startLine": 217,
+                "startChar": 0,
+                "endLine": 217,
+                "endChar": 0
+              },
+              "replacement": "/** Checks whether the CSR has a proper DICE chain in normal mode. */\n"
+            }
+          ]
+        }
+      ],
+      "revId": "6f98ff93a37e61eec28a1886751f810100eed84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aa0ed36_68f9e869",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2024-11-25T19:37:21Z",
+      "side": 1,
+      "message": "Super nit: Getting slightly repetitive with other methods in this file. Feel free to extract into a private method for similar function additions in the future.",
+      "range": {
+        "startLine": 883,
+        "startChar": 0,
+        "endLine": 897,
+        "endChar": 5
+      },
+      "revId": "6f98ff93a37e61eec28a1886751f810100eed84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
