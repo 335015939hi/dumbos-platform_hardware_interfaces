@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc3b154_10e96cf0",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2024-11-25T23:49:06Z",
+      "side": 1,
+      "message": "Let\u0027s have this available globally. Might be too late to change the requirements at this point, but defined CBOR constant integer values are less likely to be misused.\n\nhttps://b.corp.google.com/issues/371000022",
+      "range": {
+        "startLine": 898,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 65
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2523768d_d36c0602",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 898,
+                "startChar": 0,
+                "endLine": 899,
+                "endChar": 0
+              },
+              "replacement": "    auto satisfied \u003d diceChain-\u003ecomponentNameContains(kBccPayloadIssuer);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "551b86d629f07ad6d051a5890980046ca47d0a6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
