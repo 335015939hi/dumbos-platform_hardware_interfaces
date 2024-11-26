@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ae591ae_41454040",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-11-26T15:46:56Z",
+      "side": 1,
+      "message": "\u003eVTS test is testing all the different implementations or we have coverage\n\nI beliive this to be true based on the latest patch of `get_secretkeeper_identity` in `secretkeeper_test_client.rs`. What I don\u0027t know how to confirm/set up is having the test `secretkeeper_check_identity` run twice - once for each version of the HAL. Hoping @shikhapanwar@google.com can help when she\u0027s back from OOO",
+      "parentUuid": "e7e35dd9_6ca0245e",
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e275571e_baa11a49",
         "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
         "patchSetId": 6
