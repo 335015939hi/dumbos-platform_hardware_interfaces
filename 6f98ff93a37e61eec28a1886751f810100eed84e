@@ -99,6 +99,30 @@
       },
       "revId": "6f98ff93a37e61eec28a1886751f810100eed84e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b4a325a_b6b35bbf",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2024-11-26T00:15:04Z",
+      "side": 1,
+      "message": "shared_ptr might work, but not sure if would trigger cascade of changes everywhere. In any case, I wouldn\u0027t sweat over it if terribly inconvenient.",
+      "parentUuid": "6f0e431e_1d1e307d",
+      "range": {
+        "startLine": 883,
+        "startChar": 0,
+        "endLine": 897,
+        "endChar": 5
+      },
+      "revId": "6f98ff93a37e61eec28a1886751f810100eed84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
