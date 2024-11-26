@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3482b8d_72427f22",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-26T18:24:15Z",
+      "side": 1,
+      "message": "The following line is leaky if we don\u0027t first verify the value is actually an array.",
+      "fixSuggestions": [
+        {
+          "fixId": "90abf80e_0693566f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 838,
+                "startChar": 0,
+                "endLine": 838,
+                "endChar": 0
+              },
+              "replacement": "    if (!csrPayloadDecoded-\u003easArray()) {\n        return \"CSR payload is not an array.\";\n    }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "70a8ec9573fae8a2b3e3d31963ffcb55955ed485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
