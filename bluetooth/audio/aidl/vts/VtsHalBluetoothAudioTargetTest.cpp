@@ -26,6 +26,7 @@
 #include <cutils/properties.h>
 #include <fmq/AidlMessageQueue.h>
 
+#include <algorithm>
 #include <cstdint>
 #include <future>
 #include <unordered_set>
@@ -2343,7 +2344,8 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
     return media_audio_context;
   }
 
-  LeAudioDeviceCapabilities GetDefaultRemoteSinkCapability() {
+  LeAudioDeviceCapabilities GetDefaultRemoteSinkCapability(
+      int32_t channel_count_bitmask = (1 | 2)) {
     // Create a capability
     LeAudioDeviceCapabilities capability;
 
@@ -2358,6 +2360,8 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
     auto sampling_rate =
         CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies();
     sampling_rate.bitmask =
+        CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ48000 |
+        CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ32000 |
         CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ16000 |
         CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ8000;
     auto frame_duration =
@@ -2367,11 +2371,17 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
         CodecSpecificCapabilitiesLtv::SupportedFrameDurations::US10000;
     auto octets = CodecSpecificCapabilitiesLtv::SupportedOctetsPerCodecFrame();
     octets.min = 0;
-    octets.max = 120;
+    octets.max = 620;
     auto frames = CodecSpecificCapabilitiesLtv::SupportedMaxCodecFramesPerSDU();
     frames.value = 2;
     capability.codecSpecificCapabilities = {sampling_rate, frame_duration,
                                             octets, frames};
+    if (channel_count_bitmask) {
+      auto channels =
+          CodecSpecificCapabilitiesLtv::SupportedAudioChannelCounts();
+      channels.bitmask = channel_count_bitmask;
+      capability.codecSpecificCapabilities.push_back(channels);
+    }
     return capability;
   }
 
@@ -2412,7 +2422,8 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
     return capability;
   }
 
-  LeAudioDeviceCapabilities GetDefaultRemoteSourceCapability() {
+  LeAudioDeviceCapabilities GetDefaultRemoteSourceCapability(
+      int32_t channel_count_bitmask = (1 | 2)) {
     // Create a capability
     LeAudioDeviceCapabilities capability;
 
@@ -2436,11 +2447,17 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
         CodecSpecificCapabilitiesLtv::SupportedFrameDurations::US10000;
     auto octets = CodecSpecificCapabilitiesLtv::SupportedOctetsPerCodecFrame();
     octets.min = 0;
-    octets.max = 120;
+    octets.max = 160;
     auto frames = CodecSpecificCapabilitiesLtv::SupportedMaxCodecFramesPerSDU();
     frames.value = 2;
     capability.codecSpecificCapabilities = {sampling_rate, frame_duration,
                                             octets, frames};
+    if (channel_count_bitmask) {
+      auto channels =
+          CodecSpecificCapabilitiesLtv::SupportedAudioChannelCounts();
+      channels.bitmask = channel_count_bitmask;
+      capability.codecSpecificCapabilities.push_back(channels);
+    }
     return capability;
   }
 
@@ -2817,6 +2834,35 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
     return requirement;
   }
 
+  LeAudioConfigurationRequirement GetUnicastDefaultRequirementMinimal(
+      int32_t context_bits, int32_t sink_allocation_bitmask,
+      int32_t source_allocation_bitmask) {
+    // Create a requirements
+    LeAudioConfigurationRequirement requirement;
+    requirement.audioContext = GetAudioContext(context_bits);
+
+    auto allocation = CodecSpecificConfigurationLtv::AudioChannelAllocation();
+    auto direction_ase_requriement = AseDirectionRequirement();
+    direction_ase_requriement.aseConfiguration.codecId = std::nullopt;
+    direction_ase_requriement.aseConfiguration.targetLatency =
+        LeAudioAseConfiguration::TargetLatency::UNDEFINED;
+
+    if (sink_allocation_bitmask) {
+      allocation.bitmask = sink_allocation_bitmask;
+      direction_ase_requriement.aseConfiguration.codecConfiguration = {
+          allocation};
+      requirement.sinkAseRequirement = {direction_ase_requriement};
+    }
+
+    if (source_allocation_bitmask) {
+      allocation.bitmask = source_allocation_bitmask;
+      direction_ase_requriement.aseConfiguration.codecConfiguration = {
+          allocation};
+      requirement.sourceAseRequirement = {direction_ase_requriement};
+    }
+
+    return requirement;
+  }
   LeAudioConfigurationRequirement GetUnicastGameRequirement(bool asymmetric) {
     // Create a requirements
     LeAudioConfigurationRequirement requirement;
@@ -3993,6 +4039,231 @@ TEST_P(BluetoothAudioProviderLeAudioInputHardwareAidl, GetAseConfiguration) {
       sink_capabilities, std::nullopt, sink_requirements, &configurations);
 
   ASSERT_FALSE(aidl_retval.isOk());
+}
+
+// ASE parameters verifier
+auto VerifyAseConfigMultiplexing =
+    [](const std::vector<std::optional<
+           ::aidl::android::hardware::bluetooth::audio::
+               IBluetoothAudioProvider::LeAudioAseConfigurationSetting::
+                   AseDirectionConfiguration>>& configurations,
+       size_t& num_ases, int32_t& out_multichan_locations,
+       int32_t& out_locations) {
+      for (auto const& sink_cfg : configurations) {
+        ++num_ases;
+        if (sink_cfg.has_value()) {
+          auto const& ccfg = sink_cfg->aseConfiguration.codecConfiguration;
+          auto ltv =
+              std::find_if(ccfg.begin(), ccfg.end(), [](auto const& param) {
+                return param.getTag() ==
+                       ::aidl::android::hardware::bluetooth::audio::
+                           CodecSpecificConfigurationLtv::Tag::
+                               audioChannelAllocation;
+              });
+          if (ltv != ccfg.end()) {
+            auto allocation_bitmask = static_cast<int32_t>(
+                ltv->get<::aidl::android::hardware::bluetooth::audio::
+                             CodecSpecificConfigurationLtv::Tag::
+                                 audioChannelAllocation>()
+                    .bitmask);
+            if (std::bitset<32>(allocation_bitmask).count() == 1) {
+              out_locations |= allocation_bitmask;
+            } else {
+              out_multichan_locations |= allocation_bitmask;
+            }
+          }
+        }
+      }
+    };
+
+TEST_P(
+    BluetoothAudioProviderLeAudioInputHardwareAidl,
+    GetAseConfiguration_Multidirectional_NoMultiplexing_StereoSink_StereoSource) {
+  if (GetProviderFactoryInterfaceVersion() <
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    GTEST_SKIP();
+  }
+
+  if (!IsMultidirectionalCapabilitiesEnabled()) {
+    GTEST_SKIP();
+  }
+
+  std::vector<std::optional<LeAudioDeviceCapabilities>> sink_capabilities = {
+      GetDefaultRemoteSinkCapability(1 /* channel cnt */)};
+  std::vector<std::optional<LeAudioDeviceCapabilities>> source_capabilities = {
+      GetDefaultRemoteSourceCapability(1 /* channel cnt */)};
+
+  std::vector<LeAudioAseConfigurationSetting> configurations;
+  std::vector<LeAudioConfigurationRequirement> requirements;
+
+  // Check CONVERSATIONAL configuration with Stereo MIC
+  requirements = {GetUnicastDefaultRequirementMinimal(
+      AudioContext::CONVERSATIONAL,
+      CodecSpecificConfigurationLtv::AudioChannelAllocation::FRONT_LEFT |
+          CodecSpecificConfigurationLtv::AudioChannelAllocation::
+              FRONT_RIGHT /* stereo sink */,
+      CodecSpecificConfigurationLtv::AudioChannelAllocation::FRONT_LEFT |
+          CodecSpecificConfigurationLtv::AudioChannelAllocation::
+              FRONT_RIGHT /* stereo source */)};
+  auto aidl_retval = audio_provider_->getLeAudioAseConfiguration(
+      sink_capabilities, source_capabilities, requirements, &configurations);
+  ASSERT_TRUE(aidl_retval.isOk());
+  ASSERT_FALSE(configurations.empty());
+
+  // Check CONVERSATIONAL for Two Sink ASEs
+  size_t num_ases = 0;
+  int32_t location_bitmask = 0;
+  int32_t multichan_location_bitmask = 0;
+  for (const auto& cfg : configurations) {
+    if (!cfg.sinkAseConfiguration.has_value()) continue;
+    if (cfg.sinkAseConfiguration->empty()) continue;
+    VerifyAseConfigMultiplexing(*cfg.sinkAseConfiguration, num_ases,
+                                multichan_location_bitmask, location_bitmask);
+  };
+  ASSERT_EQ(num_ases, 2);
+  ASSERT_EQ(location_bitmask, 3);
+  ASSERT_EQ(multichan_location_bitmask, 0);
+
+  // Check CONVERSATIONAL for Two Source ASEs
+  num_ases = 0;
+  location_bitmask = 0;
+  multichan_location_bitmask = 0;
+  for (const auto& cfg : configurations) {
+    if (!cfg.sourceAseConfiguration.has_value()) continue;
+    if (cfg.sourceAseConfiguration->empty()) continue;
+    VerifyAseConfigMultiplexing(*cfg.sourceAseConfiguration, num_ases,
+                                multichan_location_bitmask, location_bitmask);
+  };
+  ASSERT_EQ(num_ases, 2);
+  ASSERT_EQ(location_bitmask, 3);
+  ASSERT_EQ(multichan_location_bitmask, 0);
+}
+
+TEST_P(
+    BluetoothAudioProviderLeAudioInputHardwareAidl,
+    GetAseConfiguration_Multidirectional_NoMultiplexing_StereoSink_MonoSource) {
+  if (GetProviderFactoryInterfaceVersion() <
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    GTEST_SKIP();
+  }
+
+  if (!IsMultidirectionalCapabilitiesEnabled()) {
+    GTEST_SKIP();
+  }
+
+  std::vector<std::optional<LeAudioDeviceCapabilities>> sink_capabilities = {
+      GetDefaultRemoteSinkCapability(1 /* channel cnt */)};
+  std::vector<std::optional<LeAudioDeviceCapabilities>> source_capabilities = {
+      GetDefaultRemoteSourceCapability(1 /* channel cnt */)};
+
+  std::vector<LeAudioAseConfigurationSetting> configurations;
+  std::vector<LeAudioConfigurationRequirement> requirements;
+
+  // Check CONVERSATIONAL configuration with Mono MIC
+  requirements = {GetUnicastDefaultRequirementMinimal(
+      AudioContext::CONVERSATIONAL,
+      CodecSpecificConfigurationLtv::AudioChannelAllocation::FRONT_LEFT |
+          CodecSpecificConfigurationLtv::AudioChannelAllocation::
+              FRONT_RIGHT /* stereo sink */,
+      CodecSpecificConfigurationLtv::AudioChannelAllocation::
+          FRONT_LEFT /* mono source */)};
+  auto aidl_retval = audio_provider_->getLeAudioAseConfiguration(
+      sink_capabilities, source_capabilities, requirements, &configurations);
+  ASSERT_TRUE(aidl_retval.isOk());
+  ASSERT_FALSE(configurations.empty());
+
+  // Check CONVERSATIONAL for Two Sink ASEs
+  size_t num_ases = 0;
+  int32_t location_bitmask = 0;
+  int32_t multichan_location_bitmask = 0;
+  for (const auto& cfg : configurations) {
+    if (!cfg.sinkAseConfiguration.has_value()) continue;
+    if (cfg.sinkAseConfiguration->empty()) continue;
+    VerifyAseConfigMultiplexing(*cfg.sinkAseConfiguration, num_ases,
+                                multichan_location_bitmask, location_bitmask);
+  };
+  ASSERT_EQ(num_ases, 2);
+  ASSERT_EQ(location_bitmask, 3);
+  ASSERT_EQ(multichan_location_bitmask, 0);
+
+  // Check CONVERSATIONAL for One Source ASE
+  num_ases = 0;
+  location_bitmask = 0;
+  multichan_location_bitmask = 0;
+  for (const auto& cfg : configurations) {
+    if (!cfg.sourceAseConfiguration.has_value()) continue;
+    if (cfg.sourceAseConfiguration->empty()) continue;
+    VerifyAseConfigMultiplexing(*cfg.sourceAseConfiguration, num_ases,
+                                multichan_location_bitmask, location_bitmask);
+  };
+  ASSERT_EQ(num_ases, 1);
+  ASSERT_EQ(location_bitmask, 1);
+  ASSERT_EQ(multichan_location_bitmask, 0);
+}
+
+TEST_P(
+    BluetoothAudioProviderLeAudioInputHardwareAidl,
+    GetAseConfiguration_Multidirectional_NoMultiplexing_StereoSink_NoSource) {
+  if (GetProviderFactoryInterfaceVersion() <
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    GTEST_SKIP();
+  }
+
+  if (!IsMultidirectionalCapabilitiesEnabled()) {
+    GTEST_SKIP();
+  }
+
+  std::vector<std::optional<LeAudioDeviceCapabilities>> sink_capabilities = {
+      GetDefaultRemoteSinkCapability(1 /* channel cnt */)};
+  std::vector<std::optional<LeAudioDeviceCapabilities>> source_capabilities = {
+      GetDefaultRemoteSourceCapability(1 /* channel cnt */)};
+
+  std::vector<LeAudioAseConfigurationSetting> configurations;
+  std::vector<LeAudioConfigurationRequirement> requirements;
+
+  // Check MEDIA configuration
+  requirements = {GetUnicastDefaultRequirement(
+      AudioContext::MEDIA, true /* sink */, false /* source */)};
+  auto aidl_retval = audio_provider_->getLeAudioAseConfiguration(
+      sink_capabilities, source_capabilities, requirements, &configurations);
+  ASSERT_TRUE(aidl_retval.isOk());
+  ASSERT_FALSE(configurations.empty());
+
+  // Check MEDIA for Sink ASEs
+  size_t num_ases = 0;
+  int32_t location_bitmask = 0;
+  int32_t multichan_location_bitmask = 0;
+  for (const auto& cfg : configurations) {
+    if (!cfg.sinkAseConfiguration.has_value()) continue;
+    if (cfg.sinkAseConfiguration->empty()) continue;
+    VerifyAseConfigMultiplexing(*cfg.sinkAseConfiguration, num_ases,
+                                multichan_location_bitmask, location_bitmask);
+  };
+  ASSERT_EQ(num_ases, 2);
+  ASSERT_EQ(location_bitmask, 3);
+  ASSERT_EQ(multichan_location_bitmask, 0);
+
+  // Check UNSPECIFIED configuration
+  requirements = {GetUnicastDefaultRequirement(
+      AudioContext::UNSPECIFIED, true /* sink */, false /* source */)};
+  aidl_retval = audio_provider_->getLeAudioAseConfiguration(
+      sink_capabilities, source_capabilities, requirements, &configurations);
+  ASSERT_TRUE(aidl_retval.isOk());
+  ASSERT_FALSE(configurations.empty());
+
+  // Check UNSPECIFIED for Sink ASEs
+  num_ases = 0;
+  location_bitmask = 0;
+  multichan_location_bitmask = 0;
+  for (const auto& cfg : configurations) {
+    if (!cfg.sinkAseConfiguration.has_value()) continue;
+    if (cfg.sinkAseConfiguration->empty()) continue;
+    VerifyAseConfigMultiplexing(*cfg.sinkAseConfiguration, num_ases,
+                                multichan_location_bitmask, location_bitmask);
+  };
+  ASSERT_EQ(num_ases, 2);
+  ASSERT_EQ(location_bitmask, 3);
+  ASSERT_EQ(multichan_location_bitmask, 0);
 }
 
 TEST_P(BluetoothAudioProviderLeAudioInputHardwareAidl,
