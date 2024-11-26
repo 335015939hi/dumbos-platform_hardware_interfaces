@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2209de93_6fcfddcd",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-11-26T10:58:05Z",
+      "side": 1,
+      "message": "super-nit: s/./NonNormal to be consistent with the method doc above?",
+      "range": {
+        "startLine": 218,
+        "startChar": 18,
+        "endLine": 218,
+        "endChar": 27
+      },
+      "revId": "ca72fb6e3d8c54500fb33eb3a7e62b7ba3a4ce7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b07c2b0_85673e5c",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-11-26T10:58:05Z",
+      "side": 1,
+      "message": "Why \"leaf\"? if `*result \u003d false` here, does it mean that all the certificates in the DICE chain have normal mode?",
+      "range": {
+        "startLine": 771,
+        "startChar": 27,
+        "endLine": 771,
+        "endChar": 31
+      },
+      "revId": "ca72fb6e3d8c54500fb33eb3a7e62b7ba3a4ce7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
