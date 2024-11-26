@@ -2355,6 +2355,8 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
     auto sampling_rate =
         CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies();
     sampling_rate.bitmask =
+        CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ48000 |
+        CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ32000 |
         CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ16000 |
         CodecSpecificCapabilitiesLtv::SupportedSamplingFrequencies::HZ8000;
     auto frame_duration =
@@ -2364,7 +2366,7 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
         CodecSpecificCapabilitiesLtv::SupportedFrameDurations::US10000;
     auto octets = CodecSpecificCapabilitiesLtv::SupportedOctetsPerCodecFrame();
     octets.min = 0;
-    octets.max = 120;
+    octets.max = 620;
     auto frames = CodecSpecificCapabilitiesLtv::SupportedMaxCodecFramesPerSDU();
     frames.value = 2;
     capability.codecSpecificCapabilities = {sampling_rate, frame_duration,
@@ -2733,6 +2735,34 @@ class BluetoothAudioProviderLeAudioOutputHardwareAidl
         freq, CodecSpecificConfigurationLtv::FrameDuration::US10000, allocation
 
     };
+    if (is_sink_requirement)
+      requirement.sinkAseRequirement = {direction_ase_requriement};
+
+    if (is_source_requriement)
+      requirement.sourceAseRequirement = {direction_ase_requriement};
+
+    return requirement;
+  }
+
+  LeAudioConfigurationRequirement GetUnicastDefaultRequirementMinimal(
+      int32_t context_bits, bool is_sink_requirement,
+      bool is_source_requriement) {
+    // Create a requirements
+    LeAudioConfigurationRequirement requirement;
+    requirement.audioContext = GetAudioContext(context_bits);
+
+    auto allocation = CodecSpecificConfigurationLtv::AudioChannelAllocation();
+    allocation.bitmask =
+        CodecSpecificConfigurationLtv::AudioChannelAllocation::FRONT_LEFT |
+        CodecSpecificConfigurationLtv::AudioChannelAllocation::FRONT_RIGHT;
+
+    auto direction_ase_requriement = AseDirectionRequirement();
+    direction_ase_requriement.aseConfiguration.codecId = std::nullopt;
+    direction_ase_requriement.aseConfiguration.targetLatency =
+        LeAudioAseConfiguration::TargetLatency::UNDEFINED;
+
+    direction_ase_requriement.aseConfiguration.codecConfiguration = {
+        allocation};
     if (is_sink_requirement)
       requirement.sinkAseRequirement = {direction_ase_requriement};
 
@@ -3893,6 +3923,36 @@ TEST_P(BluetoothAudioProviderLeAudioInputHardwareAidl, GetAseConfiguration) {
       sink_capabilities, std::nullopt, sink_requirements, &configurations);
 
   ASSERT_FALSE(aidl_retval.isOk());
+}
+
+TEST_P(BluetoothAudioProviderLeAudioInputHardwareAidl,
+       GetAseConfiguration_Multidirectional_Min_6i) {
+  if (GetProviderFactoryInterfaceVersion() <
+      BluetoothAudioHalVersion::VERSION_AIDL_V4) {
+    GTEST_SKIP();
+  }
+
+  if (!IsMultidirectionalCapabilitiesEnabled()) {
+    GTEST_SKIP();
+  }
+
+  std::vector<std::optional<LeAudioDeviceCapabilities>> sink_capabilities = {
+      GetDefaultRemoteSinkCapability()};
+  std::vector<std::optional<LeAudioDeviceCapabilities>> source_capabilities = {
+      GetDefaultRemoteSourceCapability()};
+
+  // Check source configuration is received
+  std::vector<LeAudioAseConfigurationSetting> configurations;
+  std::vector<LeAudioConfigurationRequirement> sink_requirements = {
+      GetUnicastDefaultRequirementMinimal(AudioContext::UNSPECIFIED,
+                                          true /* sink */, false /* source */)};
+  auto aidl_retval = audio_provider_->getLeAudioAseConfiguration(
+      sink_capabilities, source_capabilities, sink_requirements,
+      &configurations);
+
+  ASSERT_TRUE(aidl_retval.isOk());
+  ASSERT_FALSE(configurations.empty());
+  ASSERT_EQ(configurations.size(), 1lu);
 }
 
 TEST_P(BluetoothAudioProviderLeAudioInputHardwareAidl,
