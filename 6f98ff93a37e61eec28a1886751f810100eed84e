@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b4cba42_c1bedd3b",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-26T00:05:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "233f62cc_59245673",
+      "revId": "6f98ff93a37e61eec28a1886751f810100eed84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4aa0ed36_68f9e869",
@@ -49,6 +67,30 @@
       "writtenOn": "2024-11-25T19:37:21Z",
       "side": 1,
       "message": "Super nit: Getting slightly repetitive with other methods in this file. Feel free to extract into a private method for similar function additions in the future.",
+      "range": {
+        "startLine": 883,
+        "startChar": 0,
+        "endLine": 897,
+        "endChar": 5
+      },
+      "revId": "6f98ff93a37e61eec28a1886751f810100eed84e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f0e431e_1d1e307d",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-26T00:05:59Z",
+      "side": 1,
+      "message": "Do you know how to return a `hwtrust::DiceChain` from a function? I tried to `std::move` it but that did not work. Do I need to define a non-default move constructor?",
+      "parentUuid": "4aa0ed36_68f9e869",
       "range": {
         "startLine": 883,
         "startChar": 0,
