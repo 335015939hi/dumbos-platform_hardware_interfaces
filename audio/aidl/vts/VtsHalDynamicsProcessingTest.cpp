@@ -703,11 +703,12 @@ class DynamicsProcessingLimiterConfigDataTest
         ratio = inputOverThreshold / outputOverThreshold;
     }
 
-    void setParamsAndProcess(std::vector<float>& output) {
+    void setParamsAndProcess(std::vector<float>& output, bool& allParamsValid) {
         EXPECT_NO_FATAL_FAILURE(addEngineConfig(mEngineConfigPreset));
         EXPECT_NO_FATAL_FAILURE(addLimiterConfig(mLimiterConfigList));
         ASSERT_NO_FATAL_FAILURE(SetAndGetDynamicsProcessingParameters());
-        if (isAllParamsValid()) {
+        allParamsValid = isAllParamsValid();
+        if (allParamsValid) {
             ASSERT_NO_FATAL_FAILURE(
                     processAndWriteToOutput(mInput, output, mEffect, &mOpenEffectReturn));
             EXPECT_GT(output.size(), kStartIndex);
@@ -723,7 +724,7 @@ class DynamicsProcessingLimiterConfigDataTest
     static constexpr float kDefaultAttackTime = 0;
     static constexpr float kDefaultReleaseTime = 0;
     static constexpr float kDefaultRatio = 4;
-    static constexpr float kDefaultThreshold = 0;
+    static constexpr float kDefaultThreshold = -10;
     static constexpr float kDefaultPostGain = 0;
     static constexpr int kInputFrequency = 1000;
     static constexpr size_t kStartIndex = 15 * kSamplingFrequency / 1000;  // skip 15ms
@@ -738,12 +739,13 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingThresholdDb) {
     std::vector<float> output(mInput.size());
     float previousThreshold = -FLT_MAX;
     for (float threshold : thresholdValues) {
+        bool allParamsValid = false;
         for (int i = 0; i < mChannelCount; i++) {
             fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
                               kDefaultReleaseTime, kDefaultRatio, threshold, kDefaultPostGain);
         }
-        EXPECT_NO_FATAL_FAILURE(setParamsAndProcess(output));
-        if (!isAllParamsValid()) {
+        EXPECT_NO_FATAL_FAILURE(setParamsAndProcess(output, allParamsValid));
+        if (!allParamsValid) {
             continue;
         }
         float outputDb = calculateDb(output, kStartIndex);
@@ -761,26 +763,52 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingThresholdDb) {
 TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingRatio) {
     std::vector<float> ratioValues = {1, 10, 20, 30, 40, 50};
     std::vector<float> output(mInput.size());
-    float threshold = -10;
     float previousRatio = 0;
     for (float ratio : ratioValues) {
+        bool allParamsValid = false;
         for (int i = 0; i < mChannelCount; i++) {
             fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
-                              kDefaultReleaseTime, ratio, threshold, kDefaultPostGain);
+                              kDefaultReleaseTime, ratio, kDefaultThreshold, kDefaultPostGain);
         }
-        EXPECT_NO_FATAL_FAILURE(setParamsAndProcess(output));
-        if (!isAllParamsValid()) {
+        EXPECT_NO_FATAL_FAILURE(setParamsAndProcess(output, allParamsValid));
+        if (!allParamsValid) {
             continue;
         }
         float outputDb = calculateDb(output, kStartIndex);
 
-        if (threshold >= mInputDb) {
+        if (kDefaultThreshold >= mInputDb) {
             EXPECT_EQ(std::round(mInputDb), std::round(outputDb));
         } else {
             float calculatedRatio = 0;
-            EXPECT_NO_FATAL_FAILURE(computeRatio(threshold, outputDb, calculatedRatio));
+            EXPECT_NO_FATAL_FAILURE(computeRatio(kDefaultThreshold, outputDb, calculatedRatio));
             ASSERT_GT(calculatedRatio, previousRatio);
             previousRatio = calculatedRatio;
+        }
+    }
+}
+
+TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingPostGain) {
+    std::vector<float> postGainValues = {-200, -100, 0, 100, 200};
+    std::vector<float> output(mInput.size());
+    float previousGain = -FLT_MAX;
+    for (float postGain : postGainValues) {
+        bool allParamsValid = false;
+        for (int i = 0; i < mChannelCount; i++) {
+            fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
+                              kDefaultReleaseTime, kDefaultRatio, kDefaultThreshold, postGain);
+        }
+        EXPECT_NO_FATAL_FAILURE(setParamsAndProcess(output, allParamsValid));
+        if (!allParamsValid) {
+            continue;
+        }
+        float outputDb = calculateDb(output, kStartIndex);
+
+        if (kDefaultThreshold >= mInputDb) {
+            EXPECT_EQ(std::round(mInputDb), std::round(outputDb));
+        } else {
+            float calculatedGain = outputDb - mInputDb;
+            ASSERT_GT(calculatedGain, previousGain);
+            previousGain = calculatedGain;
         }
     }
 }
@@ -789,14 +817,15 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, LimiterEnableDisable) {
     std::vector<bool> limiterEnableValues = {false, true};
     std::vector<float> output(mInput.size());
     for (bool isEnabled : limiterEnableValues) {
+        bool allParamsValid = false;
         for (int i = 0; i < mChannelCount; i++) {
             // Set non-default values
             fillLimiterConfig(mLimiterConfigList, i, isEnabled, kDefaultLinkerGroup,
                               5 /*attack time*/, 5 /*release time*/, 10 /*ratio*/,
                               -10 /*threshold*/, 5 /*postgain*/);
         }
-        EXPECT_NO_FATAL_FAILURE(setParamsAndProcess(output));
-        if (!isAllParamsValid()) {
+        EXPECT_NO_FATAL_FAILURE(setParamsAndProcess(output, allParamsValid));
+        if (allParamsValid) {
             continue;
         }
         if (isEnabled) {
