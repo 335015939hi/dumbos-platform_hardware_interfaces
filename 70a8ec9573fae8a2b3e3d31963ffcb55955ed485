@@ -34,6 +34,24 @@
       ],
       "revId": "70a8ec9573fae8a2b3e3d31963ffcb55955ed485",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e839776_cdc05a32",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 18
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-26T18:32:28Z",
+      "side": 1,
+      "message": "Thanks.",
+      "parentUuid": "d3482b8d_72427f22",
+      "revId": "70a8ec9573fae8a2b3e3d31963ffcb55955ed485",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
