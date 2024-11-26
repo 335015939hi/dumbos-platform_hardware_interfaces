@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1d801a6_44f697c0",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-26T18:08:03Z",
+      "side": 1,
+      "message": "Yes, good call.",
+      "parentUuid": "2209de93_6fcfddcd",
+      "range": {
+        "startLine": 218,
+        "startChar": 18,
+        "endLine": 218,
+        "endChar": 27
+      },
+      "revId": "ca72fb6e3d8c54500fb33eb3a7e62b7ba3a4ce7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b07c2b0_85673e5c",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-26T10:58:05Z",
       "side": 1,
       "message": "Why \"leaf\"? if `*result \u003d false` here, does it mean that all the certificates in the DICE chain have normal mode?",
+      "range": {
+        "startLine": 771,
+        "startChar": 27,
+        "endLine": 771,
+        "endChar": 31
+      },
+      "revId": "ca72fb6e3d8c54500fb33eb3a7e62b7ba3a4ce7f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24c9b3f6_f43f4b8c",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-26T18:08:03Z",
+      "side": 1,
+      "message": "Too much amending things then not updating \"comments\". Thank you.",
+      "parentUuid": "1b07c2b0_85673e5c",
       "range": {
         "startLine": 771,
         "startChar": 27,
