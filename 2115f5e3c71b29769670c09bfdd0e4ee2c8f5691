@@ -22,6 +22,30 @@
       },
       "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c16fc25_15203d87",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1704912
+      },
+      "writtenOn": "2024-11-26T14:18:39Z",
+      "side": 1,
+      "message": "As per my understanding, pwritev() is for seekable files/devices that allow specifying an offset for the write operation. It is not suitable for sequential devices like UART, which do not support seeking. Using pwritev() on UART resulted in an Illegal seek (ESPIPE) error",
+      "parentUuid": "e5bf4b5e_e6c76bcc",
+      "range": {
+        "startLine": 57,
+        "startChar": 37,
+        "endLine": 57,
+        "endChar": 43
+      },
+      "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
