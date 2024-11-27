@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6c460e8_0d28f2ff",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2235,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-27T23:02:56Z",
+      "side": 1,
+      "message": "Oooh! Good point.\n\nIt\u0027s possible, but ugly, we\u0027d have to:\n1. Create the key\n2. Call keymint HAL directly, passing the created keyblob as the attest_key parameter\n3. Verify that the resulting key attestation signature used the key correctly\n\nThere may already be some VTS tests that do this. If there aren\u0027t, I think it\u0027s worth adding cause this is a test gap.",
+      "parentUuid": "0cecd80d_271b71d7",
+      "range": {
+        "startLine": 2235,
+        "startChar": 27,
+        "endLine": 2235,
+        "endChar": 44
+      },
+      "revId": "95ffa6fbafa9ab1b5b2b2c1bcf2884577f8b1bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cf849e8_a789c9bf",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 4
