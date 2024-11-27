@@ -416,6 +416,23 @@ TEST_P(GenerateKeyTests, generateEcdsaP256Key_testMode) {
     check_maced_pubkey(macedPubKey, testMode, nullptr);
 }
 
+/**
+ * Generate and validate 2**8 production-mode keys. This aims to catch issues that do not
+ * deterministically show up.
+ */
+TEST_P(GenerateKeyTests, generateManyEcdsaP256KeysInProdMode) {
+    for (auto i = 0; i < 1 << 8; i++) {
+        MacedPublicKey macedPubKey;
+        bytevec privateKeyBlob;
+        bool testMode = false;
+        auto status =
+                provisionable_->generateEcdsaP256KeyPair(testMode, &macedPubKey, &privateKeyBlob);
+        ASSERT_TRUE(status.isOk());
+        vector<uint8_t> coseKeyData;
+        check_maced_pubkey(macedPubKey, testMode, &coseKeyData);
+    }
+}
+
 class CertificateRequestTestBase : public VtsRemotelyProvisionedComponentTests {
   protected:
     CertificateRequestTestBase()

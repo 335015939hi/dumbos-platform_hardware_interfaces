@@ -2232,6 +2232,33 @@ void KeyMintAidlTestBase::assert_mgf_digests_present_or_not_in_key_characteristi
 
 namespace {
 
+std::optional<std::string> validateP256Point(const std::vector<uint8_t>& x_buffer,
+                                             const std::vector<uint8_t>& y_buffer) {
+    auto group = EC_GROUP_Ptr(EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1));
+    if (group.get() == nullptr) {
+        return "Error creating EC group by curve name for prime256v1";
+    }
+
+    auto point = EC_POINT_Ptr(EC_POINT_new(group.get()));
+    BIGNUM_Ptr x(BN_bin2bn(x_buffer.data(), x_buffer.size(), nullptr));
+    BIGNUM_Ptr y(BN_bin2bn(y_buffer.data(), y_buffer.size(), nullptr));
+    if (!EC_POINT_set_affine_coordinates_GFp(group.get(), point.get(), x.get(), y.get(), nullptr)) {
+        return "Failed to set affine coordinates.";
+    }
+    if (!EC_POINT_is_on_curve(group.get(), point.get(), nullptr)) {
+        return "Point is not on curve.";
+    }
+    if (EC_POINT_is_at_infinity(group.get(), point.get())) {
+        return "Point is at infinity.";
+    }
+    const auto* generator = EC_GROUP_get0_generator(group.get());
+    if (!EC_POINT_cmp(group.get(), generator, point.get(), nullptr)) {
+        return "Point is equal to generator.";
+    }
+
+    return std::nullopt;
+}
+
 void check_cose_key(const vector<uint8_t>& data, bool testMode) {
     auto [parsedPayload, __, payloadParseErr] = cppbor::parse(data);
     ASSERT_TRUE(parsedPayload) << "Key parse failed: " << payloadParseErr;
@@ -2265,6 +2292,22 @@ void check_cose_key(const vector<uint8_t>& data, bool testMode) {
                              "  -3 : \\{(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}\\},\n"  // pub_y: data
                              "\\}"));
     }
+
+    ASSERT_TRUE(parsedPayload->asMap()) << "CBOR item was not a map";
+    ASSERT_TRUE(parsedPayload->asMap()->get(-2)) << "CBOR map did not contain a -2 key";
+    ASSERT_TRUE(parsedPayload->asMap()->get(-3)) << "CBOR map did not contain a -3 key";
+    ASSERT_TRUE(parsedPayload->asMap()->get(-2)->asBstr()) << "index -2 was not a bstr";
+    ASSERT_TRUE(parsedPayload->asMap()->get(-3)->asBstr()) << "index -3 was not a bstr";
+
+    const auto& x = parsedPayload->asMap()->get(-2)->asBstr()->value();
+    const auto& y = parsedPayload->asMap()->get(-3)->asBstr()->value();
+
+    ASSERT_TRUE(x.size() == 32);
+    ASSERT_TRUE(y.size() == 32);
+
+    auto errorMessage = validateP256Point(x, y);
+    EXPECT_EQ(errorMessage, std::nullopt)
+            << *errorMessage << " x: " << bin2hex(x) << " y: " << bin2hex(y);
 }
 
 }  // namespace
