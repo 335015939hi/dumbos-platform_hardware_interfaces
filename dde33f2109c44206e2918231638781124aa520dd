@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebb89ba4_5c13a622",
+        "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommCapabilities.aidl",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-11-27T01:02:33Z",
+      "side": 1,
+      "message": "Closing since this is not a strong requirement, but note that ATT is unlikely to use the same APIs, this is absolutely not a concern here.",
+      "parentUuid": "73c4aaf8_4d6fc4f9",
+      "range": {
+        "startLine": 33,
+        "startChar": 8,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "dde33f2109c44206e2918231638781124aa520dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04d6911a_866eec0b",
