@@ -16,6 +16,52 @@
       "message": "Please comment away.",
       "revId": "95ffa6fbafa9ab1b5b2b2c1bcf2884577f8b1bb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b07a2d9_70a8522b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2235,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-27T19:21:01Z",
+      "side": 1,
+      "message": "@paulcrowley@google.com, any additional sanity checks you think we should add for key correctness?",
+      "range": {
+        "startLine": 2235,
+        "startChar": 27,
+        "endLine": 2235,
+        "endChar": 44
+      },
+      "revId": "95ffa6fbafa9ab1b5b2b2c1bcf2884577f8b1bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cf849e8_a789c9bf",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2298,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-11-27T19:21:01Z",
+      "side": 1,
+      "message": "COSE constants please (I think we have some around here... somewhere!)",
+      "range": {
+        "startLine": 2298,
+        "startChar": 44,
+        "endLine": 2298,
+        "endChar": 46
+      },
+      "revId": "95ffa6fbafa9ab1b5b2b2c1bcf2884577f8b1bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
