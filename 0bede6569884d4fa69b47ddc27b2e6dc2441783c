@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61386ffc_386e70e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-11-27T01:17:46Z",
+      "side": 1,
+      "message": "Hey unblocking dev, since we want to land, but please keep in mind we need to do a bit more to freeze these interfaces.\n\nPlease make sure you can cover all the tests and implementations to fully implement and freeze this interface:\n\n- we\u0027ve got to test vts_treble_vint_vendor_test equivalent functionality from Trusty VM\n- we\u0027ve got to add VTS test to test all instances of this to Trusty VM\n\nIn longterm, we\u0027ve got to converge:\n\n- same vts_treble_vintf_vendor_test works in Trusty VM/Microdroid AND on host Android\n- same VTS test functional for this works in Trusty VM/Microdroid AND on host Android",
+      "revId": "0bede6569884d4fa69b47ddc27b2e6dc2441783c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
