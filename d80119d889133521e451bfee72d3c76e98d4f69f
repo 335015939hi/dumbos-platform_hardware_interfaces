@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb4514c_7e8e95b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-27T16:31:26Z",
+      "side": 1,
+      "message": "This will have a host accessible HAL that relies on services in the TEE/Trusty VM.\n\nWe will temporarily exempt it in hal_implementation_test, but standard host VTS tests will be written for this interface.",
+      "parentUuid": "e39ce792_517c827c",
+      "revId": "d80119d889133521e451bfee72d3c76e98d4f69f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21b4802a_c5e05933",
