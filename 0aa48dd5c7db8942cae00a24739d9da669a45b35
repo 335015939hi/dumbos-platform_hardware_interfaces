@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddc5f015_58c9d917",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1322530
+      },
+      "writtenOn": "2024-11-27T06:46:10Z",
+      "side": 1,
+      "message": "LGTM, extend the A2DP Opus config to be able to use in LE Audio",
+      "revId": "0aa48dd5c7db8942cae00a24739d9da669a45b35",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
