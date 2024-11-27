@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d9f3f54_5a82b399",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-27T23:08:44Z",
+      "side": 1,
+      "message": "Interface changes are due soon. Please check go/android-16-hal-release. Reach out to g/anapic-review if you foresee any issues.",
+      "revId": "dde33f2109c44206e2918231638781124aa520dd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68b3ec94_593f7768",
         "filename": "bluetooth/socket/aidl/android/hardware/bluetooth/socket/RfcommCapabilities.aidl",
         "patchSetId": 4
