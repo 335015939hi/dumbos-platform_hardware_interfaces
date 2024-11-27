@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fd3f3bb_641fe1af",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 15
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-27T13:28:45Z",
+      "side": 1,
+      "message": "Using `\u003e\u003d 2` is more likely to work for future HAL versions without needing a code change.",
+      "range": {
+        "startLine": 82,
+        "startChar": 96,
+        "endLine": 82,
+        "endChar": 98
+      },
+      "revId": "0ea139b3cbc52aff09e64d7c2156597b4aaf0b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b3e5355_a0580e6e",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 15
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-27T13:28:45Z",
+      "side": 1,
+      "message": "super-nit: aren\u0027t you parsing/deserializing?",
+      "range": {
+        "startLine": 96,
+        "startChar": 66,
+        "endLine": 96,
+        "endChar": 77
+      },
+      "revId": "0ea139b3cbc52aff09e64d7c2156597b4aaf0b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f9ca553_6758bf6c",
+        "filename": "security/secretkeeper/aidl/vts/secretkeeper_test_client.rs",
+        "patchSetId": 15
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-11-27T13:28:45Z",
+      "side": 1,
+      "message": "nit: would just `\u0026instance` (like other places) work here?",
+      "range": {
+        "startLine": 780,
+        "startChar": 43,
+        "endLine": 780,
+        "endChar": 60
+      },
+      "revId": "0ea139b3cbc52aff09e64d7c2156597b4aaf0b56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
