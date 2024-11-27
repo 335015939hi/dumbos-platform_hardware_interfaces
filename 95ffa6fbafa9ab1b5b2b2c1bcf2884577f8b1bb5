@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cecd80d_271b71d7",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2235,
+      "author": {
+        "id": 1060907
+      },
+      "writtenOn": "2024-11-27T22:46:03Z",
+      "side": 1,
+      "message": "This seems like everything worth testing to me! Are you able to test that they know the matching private key?",
+      "parentUuid": "2b07a2d9_70a8522b",
+      "range": {
+        "startLine": 2235,
+        "startChar": 27,
+        "endLine": 2235,
+        "endChar": 44
+      },
+      "revId": "95ffa6fbafa9ab1b5b2b2c1bcf2884577f8b1bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cf849e8_a789c9bf",
