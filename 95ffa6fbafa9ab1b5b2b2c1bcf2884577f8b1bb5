@@ -62,6 +62,30 @@
       },
       "revId": "95ffa6fbafa9ab1b5b2b2c1bcf2884577f8b1bb5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff93ed53_2d7453fb",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2298,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-27T19:45:59Z",
+      "side": 1,
+      "message": "Thanks for the nudge.",
+      "parentUuid": "6cf849e8_a789c9bf",
+      "range": {
+        "startLine": 2298,
+        "startChar": 44,
+        "endLine": 2298,
+        "endChar": 46
+      },
+      "revId": "95ffa6fbafa9ab1b5b2b2c1bcf2884577f8b1bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
