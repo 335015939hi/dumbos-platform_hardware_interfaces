@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d84fe2f3_0102397b",
+        "filename": "security/keymint/support/remote_prov_utils_test.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-27T10:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f4aeec8_e2c73e19",
+      "range": {
+        "startLine": 843,
+        "startChar": 31,
+        "endLine": 843,
+        "endChar": 51
+      },
+      "revId": "e9aef8cd41ff9637deab7338032914e5101fe3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1bdfee58_e69c08de",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-11-27T08:29:38Z",
       "side": 1,
       "message": "nit: It\u0027s sufficient for the test name to summarize the expected behavior [1]. \"ensure\" is often not needed.\n\n[1] go/unit-testing-practices?polyglot\u003dcpp#naming",
+      "range": {
+        "startLine": 749,
+        "startChar": 33,
+        "endLine": 749,
+        "endChar": 39
+      },
+      "revId": "e9aef8cd41ff9637deab7338032914e5101fe3a2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "191d78c9_fbc0cb22",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-11-27T10:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bdfee58_e69c08de",
       "range": {
         "startLine": 749,
         "startChar": 33,
