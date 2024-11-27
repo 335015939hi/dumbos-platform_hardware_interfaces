@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a44bb1e3_289a676d",
+        "filename": "tv/tuner/aidl/vts/functional/VtsHalTvTunerTargetTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1608690
+      },
+      "writtenOn": "2024-11-27T05:09:12Z",
+      "side": 1,
+      "message": "formate this code to match Android coding style (line length \u003c\u003d 100)",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 1
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e95b0573_82dd0bbf",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tv/tuner/aidl/vts/functional/VtsHalTvTunerTargetTest.h",
+              "range": {
+                "startLine": 98,
+                "startChar": 0,
+                "endLine": 99,
+                "endChar": 0
+              },
+              "replacement": "            auto avSettings \u003d tsFilterSettings.filterSettings.get\u003c\n                DemuxTsFilterSettingsFilterSettings::Tag::av\u003e();\n"
+            },
+            {
+              "path": "tv/tuner/aidl/vts/functional/VtsHalTvTunerTargetTest.h",
+              "range": {
+                "startLine": 105,
+                "startChar": 0,
+                "endLine": 106,
+                "endChar": 0
+              },
+              "replacement": "            auto avSettings \u003d mmtpFilterSettings.filterSettings.get\u003c\n                DemuxMmtpFilterSettingsFilterSettings::Tag::av\u003e();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "418be5dd81a9c89782930ee4c2fb6db016b9b7ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
