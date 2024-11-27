@@ -16,6 +16,24 @@
       "message": "Interface changes are due soon. Please check go/android-16-hal-release. Reach out to g/anapic-review if you foresee any issues.",
       "revId": "da2495e9acdd3f8f346ec67e4da637429e848ca0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db06a50a_6a4f7c27",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2024-11-27T23:09:18Z",
+      "side": 1,
+      "message": "Thanks Devin! This is not going to be a stable AIDL interface. This is only used internally in trusty. I have moved this to trusty/lib/interface in AOSP/3370987. I will abandon this change.",
+      "parentUuid": "499f5a95_c1979e1f",
+      "revId": "da2495e9acdd3f8f346ec67e4da637429e848ca0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
