@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4367743d_9e4a859b",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2386,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-11-27T12:03:47Z",
+      "side": 1,
+      "message": "maybe we should have some test cases where channel count LTV is not present in the codecSpecificCapabilities to verify that this also is properly handled by the offloader",
+      "revId": "e87c3f1429c5f4eae9a038e173fa9fb2134024b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4de03ab9_7760d907",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3994,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-11-27T12:03:47Z",
+      "side": 1,
+      "message": "nit : add /* channel cnt */",
+      "range": {
+        "startLine": 3994,
+        "startChar": 37,
+        "endLine": 3994,
+        "endChar": 38
+      },
+      "revId": "e87c3f1429c5f4eae9a038e173fa9fb2134024b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c07bf8f_750b0aa1",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4057,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-11-27T12:03:47Z",
+      "side": 1,
+      "message": "nit: /* channel cnt */",
+      "range": {
+        "startLine": 4057,
+        "startChar": 38,
+        "endLine": 4057,
+        "endChar": 39
+      },
+      "revId": "e87c3f1429c5f4eae9a038e173fa9fb2134024b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "301021cb_5c1edd47",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4071,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-11-27T12:03:47Z",
+      "side": 1,
+      "message": "that reminds me \"MONO case\"",
+      "revId": "e87c3f1429c5f4eae9a038e173fa9fb2134024b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
