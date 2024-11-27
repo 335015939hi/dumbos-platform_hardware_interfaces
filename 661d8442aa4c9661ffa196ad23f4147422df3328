@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea6070bd_8ae68f42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1899520
+      },
+      "writtenOn": "2024-11-27T22:54:19Z",
+      "side": 1,
+      "message": "It looks like b/378822459 was resolved by reverting a different culprit, so can this topic be abandoned?",
+      "revId": "661d8442aa4c9661ffa196ad23f4147422df3328",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
