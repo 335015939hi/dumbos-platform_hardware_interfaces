@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f016094_f1fd90cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-27T23:21:03Z",
+      "side": 1,
+      "message": "Interface changes are due soon, by HAL API Freeze. Please check go/android-16-hal-release. Reach out to g/anapic-review if you foresee any issues.",
+      "revId": "bd34eb32fd214f260aa262a6227917738418d678",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
