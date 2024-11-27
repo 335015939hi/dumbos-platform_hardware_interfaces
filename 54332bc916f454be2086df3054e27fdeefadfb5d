@@ -38,6 +38,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5808aa3_5ee8dc35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-27T23:01:32Z",
+      "side": 1,
+      "message": "Interface changes are due soon. Please check go/android-16-hal-release. Reach out to g/anapic-review if you foresee any issues.",
+      "revId": "54332bc916f454be2086df3054e27fdeefadfb5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5eaf397_c31fb3f7",
         "filename": "compatibility_matrices/compatibility_matrix.202504.xml",
         "patchSetId": 2
