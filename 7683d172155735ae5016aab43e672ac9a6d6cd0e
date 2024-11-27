@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98c13339_c1860b6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-27T23:01:23Z",
+      "side": 1,
+      "message": "Interface changes are due soon. Please check go/android-16-hal-release. Reach out to g/anapic-review if you foresee any issues.",
+      "revId": "7683d172155735ae5016aab43e672ac9a6d6cd0e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
