@@ -16,6 +16,24 @@
       "message": "nit: remove extra newlines.",
       "revId": "35bb5e0a0b1698555b5260cc14d3a76fd78a716e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "712c9325_78a6a0d3",
+        "filename": "compatibility_matrices/compatibility_matrix.202504.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-11-27T20:16:44Z",
+      "side": 1,
+      "message": "Done, also noticed that the file was ordered, so moved the entry",
+      "parentUuid": "78b0aabc_e7698805",
+      "revId": "35bb5e0a0b1698555b5260cc14d3a76fd78a716e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
