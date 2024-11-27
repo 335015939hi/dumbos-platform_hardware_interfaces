@@ -176,6 +176,23 @@
       "message": "See https://android-review.googlesource.com/c/platform/hardware/interfaces/+/2959146 for an alternative approach which doesn\u0027t introduce new mix port definitions, but simply adds 192kHz sample rate support.",
       "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7506a1e_3e816d64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2024-11-27T18:12:34Z",
+      "side": 1,
+      "message": "Hi Mikhail - can you abandon this review given https://android-review.googlesource.com/q/topic:%22e-ac3-joc+remote+submix+take2%22 is merged?",
+      "revId": "94b2bc8a2eac46f96bbb7da434d016681875cf6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
