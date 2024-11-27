@@ -158,7 +158,7 @@ parcelable KeyCreationResult {
      *     Failed                     (3),
      * }
      *
-     * # Modules contains version info about APEX modules that have been updated after the last OTA.
+     * # Modules contains version information for APEX modules.
      * # Note that the Modules information is DER-encoded before being hashed, which requires a
      * # specific ordering (lexicographic by encoded value) for the constituent Module entries. This
      * # ensures that the ordering of Module entries is predictable and that the resulting SHA-256
