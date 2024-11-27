@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c807b0ac_a7ec3458",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 2235,
+      "author": {
+        "id": 1905420
+      },
+      "writtenOn": "2024-11-27T23:13:33Z",
+      "side": 1,
+      "message": "Yeah, maybe pass the D bytes from the private key to check_maced_pubkey() -\u003e check_cose_key() -\u003e validateP256Point() and check that the private key is actually capable of signing some string, in addition to the above?",
+      "parentUuid": "0cecd80d_271b71d7",
+      "range": {
+        "startLine": 2235,
+        "startChar": 27,
+        "endLine": 2235,
+        "endChar": 44
+      },
+      "revId": "95ffa6fbafa9ab1b5b2b2c1bcf2884577f8b1bb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cf849e8_a789c9bf",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 4
