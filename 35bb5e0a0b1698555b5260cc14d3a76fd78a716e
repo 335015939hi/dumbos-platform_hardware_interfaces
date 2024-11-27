@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78b0aabc_e7698805",
+        "filename": "compatibility_matrices/compatibility_matrix.202504.xml",
+        "patchSetId": 13
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-11-27T19:18:56Z",
+      "side": 1,
+      "message": "nit: remove extra newlines.",
+      "revId": "35bb5e0a0b1698555b5260cc14d3a76fd78a716e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
