@@ -818,6 +818,7 @@ INSTANTIATE_TEST_SUITE_P(DynamicsProcessingTest, DynamicsProcessingLimiterConfig
                                      [](const char c) { return !std::isalnum(c); }, '_');
                              return name;
                          });
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(DynamicsProcessingLimiterConfigDataTest);
 
 /**
  * Test DynamicsProcessing ChannelConfig
