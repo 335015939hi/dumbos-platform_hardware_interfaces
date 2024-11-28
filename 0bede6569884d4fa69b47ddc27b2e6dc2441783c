@@ -16,6 +16,24 @@
       "message": "Hey unblocking dev, since we want to land, but please keep in mind we need to do a bit more to freeze these interfaces.\n\nPlease make sure you can cover all the tests and implementations to fully implement and freeze this interface:\n\n- we\u0027ve got to test vts_treble_vint_vendor_test equivalent functionality from Trusty VM\n- we\u0027ve got to add VTS test to test all instances of this to Trusty VM\n\nIn longterm, we\u0027ve got to converge:\n\n- same vts_treble_vintf_vendor_test works in Trusty VM/Microdroid AND on host Android\n- same VTS test functional for this works in Trusty VM/Microdroid AND on host Android",
       "revId": "0bede6569884d4fa69b47ddc27b2e6dc2441783c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fb47366_f452ba5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-11-28T17:55:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "61386ffc_386e70e9",
+      "revId": "0bede6569884d4fa69b47ddc27b2e6dc2441783c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
