@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a59baec_1af8cda9",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2382,
+      "author": {
+        "id": 1322530
+      },
+      "writtenOn": "2024-11-28T01:20:53Z",
+      "side": 1,
+      "message": "nit: rename to proper name. Probably vendor_codec which aligns the cpp coding style https://engdoc.corp.google.com/eng/doc/devguide/cpp/styleguide.md?cl\u003dhead#Variable_Names",
+      "range": {
+        "startLine": 2382,
+        "startChar": 9,
+        "endLine": 2382,
+        "endChar": 16
+      },
+      "revId": "f493a354a4c8a3a8f85028f83b12b767f1aae589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf3b2564_796449eb",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 2800,
+      "author": {
+        "id": 1322530
+      },
+      "writtenOn": "2024-11-28T01:20:53Z",
+      "side": 1,
+      "message": "dito",
+      "range": {
+        "startLine": 2800,
+        "startChar": 9,
+        "endLine": 2800,
+        "endChar": 16
+      },
+      "revId": "f493a354a4c8a3a8f85028f83b12b767f1aae589",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
