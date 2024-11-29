@@ -50,6 +50,30 @@
       ],
       "revId": "418be5dd81a9c89782930ee4c2fb6db016b9b7ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4039f3bb_0b9087bc",
+        "filename": "tv/tuner/aidl/vts/functional/VtsHalTvTunerTargetTest.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1947190
+      },
+      "writtenOn": "2024-11-29T02:56:13Z",
+      "side": 1,
+      "message": "Done. Thanks!",
+      "parentUuid": "a44bb1e3_289a676d",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 1
+      },
+      "revId": "418be5dd81a9c89782930ee4c2fb6db016b9b7ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
