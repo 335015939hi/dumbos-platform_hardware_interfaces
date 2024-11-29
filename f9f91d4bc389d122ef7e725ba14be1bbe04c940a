@@ -1,5 +1,52 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "778583b3_35bc0c12",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2024-11-29T14:51:49Z",
+      "side": 1,
+      "message": "I think the newly added US20000 is outside this specification.",
+      "range": {
+        "startLine": 21,
+        "startChar": 31,
+        "endLine": 22,
+        "endChar": 15
+      },
+      "revId": "f9f91d4bc389d122ef7e725ba14be1bbe04c940a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5273bf2_b85cb76d",
+        "filename": "bluetooth/audio/aidl/android/hardware/bluetooth/audio/CodecSpecificCapabilitiesLtv.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1928988
+      },
+      "writtenOn": "2024-11-29T14:51:49Z",
+      "side": 1,
+      "message": "I\u0027m wondering, if we have any plan on how to handle a case when Bluetooth SIG decides to extend the defined standard with lets say 15ms and they give it the same bit (0x04).",
+      "range": {
+        "startLine": 53,
+        "startChar": 8,
+        "endLine": 53,
+        "endChar": 33
+      },
+      "revId": "f9f91d4bc389d122ef7e725ba14be1bbe04c940a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
