@@ -1,4 +1,4 @@
-// Copyright (C) 2021 The Android Open Source Project
+// Copyright (C) 2024 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,7 +13,6 @@
 // limitations under the License.
 
 package {
-    default_team: "trendy_team_fwk_nfc",
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // all of the 'license_kinds' from "hardware_interfaces_license"
@@ -23,37 +22,36 @@ package {
 }
 
 aidl_interface {
-    name: "android.hardware.nfc",
+    name: "android.hardware.security.see.authmgr",
     vendor_available: true,
-    srcs: ["android/hardware/nfc/*.aidl"],
+    srcs: [
+        "android/hardware/security/see/authmgr/*.aidl",
+    ],
     stability: "vintf",
     frozen: false,
     backend: {
-        cpp: {
-            enabled: false,
-        },
         java: {
-            enabled: false,
-            sdk_version: "module_current",
-            min_sdk_version: "35",
+            platform_apis: true,
         },
         ndk: {
             enabled: true,
-            apex_available: [
-                "//apex_available:platform",
-                "com.android.nfcservices",
-            ],
-            min_sdk_version: "35",
         },
         rust: {
             enabled: true,
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.virt",
+            ],
         },
     },
-    versions_with_info: [
-        {
-            version: "1",
-            imports: [],
-        },
-    ],
+}
 
+// A rust_defaults that includes the latest authmgr AIDL library.
+// Modules that depend on authmgr directly can include this rust_defaults to avoid
+// managing dependency versions explicitly.
+rust_defaults {
+    name: "authmgr_use_latest_hal_aidl_rust",
+    rustlibs: [
+        "android.hardware.security.see.authmgr-V1-rust",
+    ],
 }

@@ -115,6 +115,9 @@ cc_test {
     defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     static_libs: ["libaudioaidlranges"],
     srcs: ["VtsHalDynamicsProcessingTest.cpp"],
+    shared_libs: [
+        "libaudioutils",
+    ],
 }
 
 cc_test {
