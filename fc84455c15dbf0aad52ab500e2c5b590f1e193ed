@@ -39,6 +39,30 @@
       },
       "revId": "fc84455c15dbf0aad52ab500e2c5b590f1e193ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "688b20b1_15794fb9",
+        "filename": "security/secretkeeper/default/Android.bp",
+        "patchSetId": 17
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-12-02T17:15:15Z",
+      "side": 1,
+      "message": "I was able to fix `MicrodroidHostTests` with [this fix](https://android-review.git.corp.google.com/c/platform/packages/modules/Virtualization/+/3306615/15..16/android/virtmgr/src/aidl.rs), but I am assuming you are referring to one of the other test failures?",
+      "parentUuid": "1f3e6625_89534a2c",
+      "range": {
+        "startLine": 53,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 48
+      },
+      "revId": "fc84455c15dbf0aad52ab500e2c5b590f1e193ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

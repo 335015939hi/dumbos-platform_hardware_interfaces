@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd5cf76d_9ebc3fb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-12-02T17:15:15Z",
+      "side": 1,
+      "message": "FWIW we\u0027re able to remove `#[ignore_if(|p| p !\u003d \"default\")]` from the test `secretkeeper_check_identity` with this change, as CF (which doesn\u0027t have a device tree - from which the value was fetched before) is now able to get the SK Public Key.",
+      "parentUuid": "1ae591ae_41454040",
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e275571e_baa11a49",
         "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
         "patchSetId": 6
