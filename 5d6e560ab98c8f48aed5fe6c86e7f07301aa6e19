@@ -146,6 +146,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fca9cf3c_ea3dc17a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-02T18:12:01Z",
+      "side": 1,
+      "message": "\u003e Question to HAL/AIDL teams: Would it make sense (and is it possible) to keep both version 1 \u0026 version 2 in CF to ensure both are tested. (say nonsecure_v1, nonsecure_v2) [I\u0027d think that would be addition in default/secretkeeper.xml]\n\nWe don\u0027t normally do that since we have(or at least used to before trunk stable) mixed build GSI testing that will handle it for us once we have different implementations on different branches.",
+      "parentUuid": "e4f0d47c_b39996fc",
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e275571e_baa11a49",
         "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
         "patchSetId": 6
