@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab4df97_7b61579c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1887805
+      },
+      "writtenOn": "2024-12-02T23:11:09Z",
+      "side": 1,
+      "message": "HDCP interface LGTM. Default implementation looks like it still has some commented out lines and TODOs",
+      "revId": "e0d35193b1901f0f26af7f5e0180f62f5e676822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
