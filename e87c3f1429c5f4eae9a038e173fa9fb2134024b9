@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef5b366d_6493347b",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 3994,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-12-02T08:15:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4de03ab9_7760d907",
+      "range": {
+        "startLine": 3994,
+        "startChar": 37,
+        "endLine": 3994,
+        "endChar": 38
+      },
+      "revId": "e87c3f1429c5f4eae9a038e173fa9fb2134024b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c07bf8f_750b0aa1",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-11-27T12:03:47Z",
       "side": 1,
       "message": "nit: /* channel cnt */",
+      "range": {
+        "startLine": 4057,
+        "startChar": 38,
+        "endLine": 4057,
+        "endChar": 39
+      },
+      "revId": "e87c3f1429c5f4eae9a038e173fa9fb2134024b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1935df97_fe5e3c22",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4057,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-12-02T08:15:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c07bf8f_750b0aa1",
       "range": {
         "startLine": 4057,
         "startChar": 38,
@@ -94,6 +142,30 @@
       "writtenOn": "2024-12-02T07:25:44Z",
       "side": 1,
       "message": "Either you forgot to add the `CodecSpecificConfigurationLtv::AudioChannelAllocation` here like in 4067, or meant to used the `GetUnicastDefaultRequirement`, as `allocation \u003d true` does not make a lot of sense here.",
+      "range": {
+        "startLine": 4128,
+        "startChar": 27,
+        "endLine": 4128,
+        "endChar": 31
+      },
+      "revId": "e87c3f1429c5f4eae9a038e173fa9fb2134024b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7d2805d_31912817",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4128,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-12-02T08:15:53Z",
+      "side": 1,
+      "message": "I took the liberty to change this as well as some nit and resolve conflict.",
+      "parentUuid": "9159c2a8_877e0b04",
       "range": {
         "startLine": 4128,
         "startChar": 27,
