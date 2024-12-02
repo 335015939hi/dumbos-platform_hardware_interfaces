@@ -51,6 +51,24 @@
       "parentUuid": "2f404ee1_b7cfe879",
       "revId": "54d7ba10ecef72085271df1df8d78eae66c1f55d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2531ed4c_5f8b9a4e",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-12-02T17:58:05Z",
+      "side": 1,
+      "message": "I\u0027d suggest keeping that in ISecretkeeper.aidl. This is a constraint on the returned PublicKey from getSecretKeeperIdentity.\n\nPublicKey itself looks generic, so not much point putting the constraint for that.",
+      "parentUuid": "6e82b881_4c055e8b",
+      "revId": "54d7ba10ecef72085271df1df8d78eae66c1f55d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

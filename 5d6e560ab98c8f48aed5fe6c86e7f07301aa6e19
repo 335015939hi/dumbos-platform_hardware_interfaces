@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4f0d47c_b39996fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-12-02T17:58:05Z",
+      "side": 1,
+      "message": "\u003e we\u0027re able to remove #[ignore_if(|p| p !\u003d \"default\")] from the test secretkeeper_check_identity with this change, as CF\n\nThanks Matt! That increases our test coverage!\n\nQuestion to HAL/AIDL teams: Would it make sense (and is it possible) to keep both version 1 \u0026 version 2 in CF to ensure both are tested. (say nonsecure_v1, nonsecure_v2) [I\u0027d think that would be addition in default/secretkeeper.xml]\n\nAnd if so, Matt, shall we (in `get_secretkeeper_identity` method in the VTS) check the HAL version \u0026 accordingly return value from DT or call getSecretkeeperIdentity if version\u003d2",
+      "parentUuid": "bd5cf76d_9ebc3fb4",
+      "revId": "5d6e560ab98c8f48aed5fe6c86e7f07301aa6e19",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e275571e_baa11a49",
         "filename": "compatibility_matrices/exclude/fcm_exclude.cpp",
         "patchSetId": 6

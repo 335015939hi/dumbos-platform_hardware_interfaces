@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69910903_b00a045a",
+        "filename": "security/secretkeeper/aidl/android/hardware/security/secretkeeper/ISecretkeeper.aidl",
+        "patchSetId": 19
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1897307
+      },
+      "writtenOn": "2024-12-02T17:58:05Z",
+      "side": 1,
+      "message": "The HAL should not be concerned about who the client is (FWIW it could be a different security realm). We have (tried to) avoid referring to pVM in this AIDL.\n\n\n\n```suggestion\n     * Retrieve the identity of this Secretkeeper instance (expressed as a public key).\n     * Clients must have a trusted way of ensuring this key is valid. While it is the source of\n\n     Note that this should be same as the Identiy assumed by Secretkeeper instance during the AuthGraph key exchange protocol.\n```",
+      "range": {
+        "startLine": 107,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 81
+      },
+      "revId": "9647e309e2fc657c4d53401d1a6f179e8c01e1a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
