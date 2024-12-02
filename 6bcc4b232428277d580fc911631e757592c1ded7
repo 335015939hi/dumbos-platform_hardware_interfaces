@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd395f76_0abcae61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-12-02T18:33:46Z",
+      "side": 1,
+      "message": "Ack.\n\nI have used this rather simple AIDL to attempt at:\n- creating a common VTS test for Trusty pVM and Microdroid pVM; let\u0027s discuss whether the proposed tree makes sense. We need to align on the notion of a microdroid_test_vm and converge on how to enable multi-tenancy of VTS tests.\n\n- embedding the Trusty mock reference implementation under the default folder to make it more straightforward for OEMs to review and adopt. Food for thoughts, ok to backtrack and follow the typical `system/core` and `trusty/user/sample` location\n\n- proposing a android white-box fuzzing of the mock implementation\u0027s core logic, mostly as a pattern for OEMs to follow, even for TEE reference implementations.\n\nI would like to have an early feedback on this taxonomy.",
+      "parentUuid": "0f28fc7c_ed421cad",
+      "revId": "6bcc4b232428277d580fc911631e757592c1ded7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44fa9733_bed18bc7",
         "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/HalErrorCode.aidl",
         "patchSetId": 8
@@ -31,6 +49,30 @@
       "writtenOn": "2024-11-25T19:06:46Z",
       "side": 1,
       "message": "If we expect this to only be used with `IHdcpAuthControl` we can define it in `IHdcpAuthControl.aidl` instead.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "6bcc4b232428277d580fc911631e757592c1ded7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56641267_2acec28f",
+        "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/HalErrorCode.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-12-02T18:33:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44fa9733_bed18bc7",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d72538a5_a9435cbb",
+        "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/HdcpAuthControl.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-12-02T18:33:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "160b49a8_5febcfe1",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "6bcc4b232428277d580fc911631e757592c1ded7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ea75be6_5f3ccff2",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-11-25T19:06:46Z",
       "side": 1,
       "message": "Should the return value be `PendingHdcpLevelResult` like mentioned in the comments?",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 13
+      },
+      "revId": "6bcc4b232428277d580fc911631e757592c1ded7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66292a6a_df7d7088",
+        "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/HdcpAuthControl.aidl",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-12-02T18:33:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ea75be6_5f3ccff2",
       "range": {
         "startLine": 98,
         "startChar": 4,
