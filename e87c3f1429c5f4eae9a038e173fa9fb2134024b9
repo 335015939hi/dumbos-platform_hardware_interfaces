@@ -79,6 +79,29 @@
       "message": "that reminds me \"MONO case\"",
       "revId": "e87c3f1429c5f4eae9a038e173fa9fb2134024b9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9159c2a8_877e0b04",
+        "filename": "bluetooth/audio/aidl/vts/VtsHalBluetoothAudioTargetTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 4128,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-12-02T07:25:44Z",
+      "side": 1,
+      "message": "Either you forgot to add the `CodecSpecificConfigurationLtv::AudioChannelAllocation` here like in 4067, or meant to used the `GetUnicastDefaultRequirement`, as `allocation \u003d true` does not make a lot of sense here.",
+      "range": {
+        "startLine": 4128,
+        "startChar": 27,
+        "endLine": 4128,
+        "endChar": 31
+      },
+      "revId": "e87c3f1429c5f4eae9a038e173fa9fb2134024b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
