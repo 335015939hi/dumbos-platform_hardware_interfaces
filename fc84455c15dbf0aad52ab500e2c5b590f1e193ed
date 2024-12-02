@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46615019_ae6b10c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-12-02T22:22:28Z",
+      "side": 1,
+      "message": "We are dangerously close to the deadline.  Assuming we solve the remaining [presubmit failure](https://android-build.corp.google.com/test_investigate/invocation/I38800010341194190/test/TR13429535850262935/?blocking\u003dblocking\u0026status\u003dnone), and the main point of [discussion](https://android-review.git.corp.google.com/c/platform/packages/modules/Virtualization/+/3306615/comments/7c1826f8_daabb571), tomorrow, is there anything missing from the changes in this topic to land them? Does your team have capacity to finish the HAL review for Wednesday?",
+      "parentUuid": "e3c1cdd3_b1f50e8a",
+      "revId": "fc84455c15dbf0aad52ab500e2c5b590f1e193ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1f3e6625_89534a2c",
         "filename": "security/secretkeeper/default/Android.bp",
         "patchSetId": 17
