@@ -52,6 +52,24 @@
       "parentUuid": "72dc0fa2_7b030de7",
       "revId": "33e6bc22a7413b9b91f97992013be095c4fa6cc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2667640a_382532d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-12-03T14:58:02Z",
+      "side": 1,
+      "message": "I meant the phone. Capabilities are taken from the XML file, and from my perspective the phone should be able to say that it support asymmetrical configs or not.",
+      "parentUuid": "d6b1d7b1_ec8ccfbe",
+      "revId": "33e6bc22a7413b9b91f97992013be095c4fa6cc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
