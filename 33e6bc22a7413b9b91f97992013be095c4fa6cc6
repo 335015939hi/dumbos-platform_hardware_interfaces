@@ -34,6 +34,24 @@
       "parentUuid": "fdd72cc5_a470163f",
       "revId": "33e6bc22a7413b9b91f97992013be095c4fa6cc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6b1d7b1_ec8ccfbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-12-03T13:35:50Z",
+      "side": 1,
+      "message": "when you say \"device capabilities\" you mean different phones or remote devices?",
+      "parentUuid": "72dc0fa2_7b030de7",
+      "revId": "33e6bc22a7413b9b91f97992013be095c4fa6cc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
