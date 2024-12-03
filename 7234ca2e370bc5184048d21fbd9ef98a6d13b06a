@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d31dfd0b_e7fd69b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-12-03T23:15:37Z",
+      "side": 1,
+      "message": "The implementation can ever return not supported, or not allow any interfaces. The goal of this on CF is for mixed build testing - so that we can continue to test old versions of this interface on old vendor images.",
+      "parentUuid": "0768db18_50683a03",
+      "revId": "7234ca2e370bc5184048d21fbd9ef98a6d13b06a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b99b801_978ee067",
         "filename": "virtualization/vm_vendor_exts/aidl/android/virtualization/vm_vendor_exts/IVendorSpecificVmCapabilitiesService.aidl",
         "patchSetId": 2
