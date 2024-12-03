@@ -16,6 +16,75 @@
       "message": "HDCP interface LGTM. Default implementation looks like it still has some commented out lines and TODOs",
       "revId": "e0d35193b1901f0f26af7f5e0180f62f5e676822",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07a5816c_a5927316",
+        "filename": "security/see/hdcp/aidl/trusty/drm/rust/rules.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-03T00:12:44Z",
+      "side": 1,
+      "message": "Not related to this particular CL but I\u0027ve been curious.\n\nWhat does trusty build do about trunk stable build flags like `RELEASE_AIDL_USE_UNFROZEN` and the rest of the `system/tool/aidl/build/.*go` logic that creates the modules to be built.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "e0d35193b1901f0f26af7f5e0180f62f5e676822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32046c85_693fdf4a",
+        "filename": "security/see/hdcp/aidl/vts/rules.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-03T00:12:44Z",
+      "side": 1,
+      "message": "This `hdcpauthcontrol_test` is what\u0027s run in Trusty VM?\n\nIs this instance connected to `test_suites: [\"vts\"]` somehow? I don\u0027t see this `hdcpauthcontrol_test` name used in the Android.bp.",
+      "range": {
+        "startLine": 25,
+        "startChar": 21,
+        "endLine": 25,
+        "endChar": 41
+      },
+      "revId": "e0d35193b1901f0f26af7f5e0180f62f5e676822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1363eb2_84903832",
+        "filename": "security/see/hdcp/aidl/vts/src/host_test.rs",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-03T00:12:44Z",
+      "side": 1,
+      "message": "This is fine for now, but with the libvintf changes (https://r.android.com/3368814) we can make this enforcement interface-independent and put it in `test/vts-testcase/hal/treble/vintf/` because we can get the interface names from the manifest files.",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 39
+      },
+      "revId": "e0d35193b1901f0f26af7f5e0180f62f5e676822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

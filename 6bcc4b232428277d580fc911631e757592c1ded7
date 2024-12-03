@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d423226_d1ab2c83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-03T00:12:44Z",
+      "side": 1,
+      "message": "\u003e let\u0027s discuss whether the proposed tree makes sense.\n\nI\u0027m not following how the Trusty VM test instance gets installed and run on the Trusty VM from this CL, but I think it generally looks good to me. (maybe an answer to my other question in `rules.mk` will clarify)\n\n\u003e embedding the Trusty mock reference implementation under the default folder to make it more straightforward for OEMs to review and adopt.\n\n+1 - I like the example implementation of the service here, next to the service.\n\n\u003e proposing a android white-box fuzzing of the mock implementation\u0027s core logic\n\n+1 - fuzzing the implementation library with `fuzz_service` is the way to go.\n\n\n-------- \n\nI think my main question as a reviewer is: how do I know that this test will be run in a Trusty VM during VTS to check the partner\u0027s implementation in the TEE?\n\nIs that somewhere in the rules.mk, or something to do with `TRUSTY_RUST_USER_TESTS`?",
+      "parentUuid": "bd395f76_0abcae61",
+      "revId": "6bcc4b232428277d580fc911631e757592c1ded7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44fa9733_bed18bc7",
         "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/HalErrorCode.aidl",
         "patchSetId": 8
