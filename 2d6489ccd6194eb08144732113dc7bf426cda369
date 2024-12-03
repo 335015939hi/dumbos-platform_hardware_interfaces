@@ -39,6 +39,76 @@
       },
       "revId": "2d6489ccd6194eb08144732113dc7bf426cda369",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a63249_edeea97a",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-03T16:59:00Z",
+      "side": 1,
+      "message": "Agree with Harish. Either don\u0027t attempt to cache the result of `isAllParamsValid` and leave the old code, or make an `std::optional\u003cbool\u003e` field in the `DynamicsProcessingTestHelper` to cache the result, implementing caching within the logic of `isAllParamsValid` itself. And setting of new parameter values must invalidate the cache.",
+      "parentUuid": "6795db58_f36a1f66",
+      "range": {
+        "startLine": 747,
+        "startChar": 0,
+        "endLine": 748,
+        "endChar": 30
+      },
+      "revId": "2d6489ccd6194eb08144732113dc7bf426cda369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c02d8c1_d7931ead",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-03T16:59:00Z",
+      "side": 1,
+      "message": "I would prefer something like `EXPECT_NEAR(mInputDb, outputDb, 1.0f)` so that we can see actual values when the expectation fails.",
+      "range": {
+        "startLine": 807,
+        "startChar": 12,
+        "endLine": 807,
+        "endChar": 66
+      },
+      "revId": "2d6489ccd6194eb08144732113dc7bf426cda369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80d64317_2a0d5db6",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-03T16:59:00Z",
+      "side": 1,
+      "message": "Again, would prefer comparing `outputDb` and `mInputDb` directly so that their actual values will be printed in case of failure.",
+      "range": {
+        "startLine": 810,
+        "startChar": 12,
+        "endLine": 810,
+        "endChar": 52
+      },
+      "revId": "2d6489ccd6194eb08144732113dc7bf426cda369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
