@@ -16,6 +16,24 @@
       "message": "shouldn\u0027t we have change in https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/bluetooth/audio/aidl/default/BluetoothAudioProviderFactory.cpp  where asymetric flag is set?\n\nI believe it would trigger the VTS test cases for asymetric usecases",
       "revId": "33e6bc22a7413b9b91f97992013be095c4fa6cc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72dc0fa2_7b030de7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-12-03T06:09:13Z",
+      "side": 1,
+      "message": "Asymmetric flag is detected in the VTS via `ConfigurationFlags::ALLOW_ASYMMETRIC_CONFIGURATIONS` in the `codec_info`.\n\nI only detect and set this flag when the capabilities support it. I don\u0027t think we should set it directly in `BluetoothAudioProviderFactory` since it\u0027s based on each device\u0027s capabilities.",
+      "parentUuid": "fdd72cc5_a470163f",
+      "revId": "33e6bc22a7413b9b91f97992013be095c4fa6cc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
