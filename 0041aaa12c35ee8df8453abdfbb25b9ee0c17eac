@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "051f0b83_e67ecaac",
+        "filename": "bluetooth/audio/utils/le_audio_codec_capabilities/le_audio_codec_capabilities.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-12-03T12:20:52Z",
+      "side": 1,
+      "message": "is it working when codec extensibility is disabled?",
+      "revId": "0041aaa12c35ee8df8453abdfbb25b9ee0c17eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
