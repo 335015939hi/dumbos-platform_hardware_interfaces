@@ -70,6 +70,24 @@
       "parentUuid": "d6b1d7b1_ec8ccfbe",
       "revId": "33e6bc22a7413b9b91f97992013be095c4fa6cc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f15b73c2_780048ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1929540
+      },
+      "writtenOn": "2024-12-03T15:30:52Z",
+      "side": 1,
+      "message": "alright, if this is device, can this xml be read by the BluetoothAudioProviderFactory so BT stack can read device capabilities?",
+      "parentUuid": "2667640a_382532d9",
+      "revId": "33e6bc22a7413b9b91f97992013be095c4fa6cc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
