@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0768db18_50683a03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-12-03T23:14:48Z",
+      "side": 1,
+      "message": "Please also add a VTS test for this interface. I understand you said the implementation would be later. Please add a mock implementation on CF for testing purposes and explain plan for full implementation.\n\nYou will also need to add this interface to compatibility_matrix.202504.xml in order to use it and need sepolicy as well. That doesn\u0027t have to hit the deadline, but good to get done to unblock a real implementation.",
+      "revId": "7234ca2e370bc5184048d21fbd9ef98a6d13b06a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b99b801_978ee067",
+        "filename": "virtualization/vm_vendor_exts/aidl/android/virtualization/vm_vendor_exts/IVendorSpecificVmCapabilitiesService.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-12-03T23:14:48Z",
+      "side": 1,
+      "message": "all HALs here are vendor extensions, in a sense, \u0027hardware\u0027 implies this. How about \u0027android.hardware.virtualization.ICapabilities\u0027?",
+      "range": {
+        "startLine": 17,
+        "startChar": 31,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "7234ca2e370bc5184048d21fbd9ef98a6d13b06a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af62dc76_02447311",
+        "filename": "virtualization/vm_vendor_exts/aidl/android/virtualization/vm_vendor_exts/IVendorSpecificVmCapabilitiesService.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-12-03T23:14:48Z",
+      "side": 1,
+      "message": "use \u0027android.hardware.\u0027 prefix for hardware/interfaces.",
+      "range": {
+        "startLine": 17,
+        "startChar": 16,
+        "endLine": 17,
+        "endChar": 30
+      },
+      "revId": "7234ca2e370bc5184048d21fbd9ef98a6d13b06a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "907b3a6c_abd35914",
+        "filename": "virtualization/vm_vendor_exts/aidl/android/virtualization/vm_vendor_exts/IVendorSpecificVmCapabilitiesService.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-12-03T23:14:48Z",
+      "side": 1,
+      "message": "are these the same instance names, as they would appear in the VINTF manifest?",
+      "range": {
+        "startLine": 25,
+        "startChar": 75,
+        "endLine": 25,
+        "endChar": 86
+      },
+      "revId": "7234ca2e370bc5184048d21fbd9ef98a6d13b06a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f016a11_fa9a0b49",
+        "filename": "virtualization/vm_vendor_exts/aidl/android/virtualization/vm_vendor_exts/IVendorSpecificVmCapabilitiesService.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-12-03T23:14:48Z",
+      "side": 1,
+      "message": "can you reference where in the VM APIs this is? for /dev/kvm, which iotcl this would be? I\u0027m not familiar with how these work across devices.",
+      "range": {
+        "startLine": 25,
+        "startChar": 31,
+        "endLine": 25,
+        "endChar": 61
+      },
+      "revId": "7234ca2e370bc5184048d21fbd9ef98a6d13b06a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48aafff5_5e80ea92",
+        "filename": "virtualization/vm_vendor_exts/aidl/android/virtualization/vm_vendor_exts/IVendorSpecificVmCapabilitiesService.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-12-03T23:14:48Z",
+      "side": 1,
+      "message": "camel case on these:\nhttps://source.android.com/docs/core/architecture/aidl/stable-aidl-apis#2_casing",
+      "range": {
+        "startLine": 29,
+        "startChar": 36,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "7234ca2e370bc5184048d21fbd9ef98a6d13b06a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
