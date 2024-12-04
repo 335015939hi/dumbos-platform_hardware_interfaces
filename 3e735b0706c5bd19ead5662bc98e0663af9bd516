@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c78cf94_5bc2eedc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-12-04T17:31:37Z",
+      "side": 1,
+      "message": "Merging for testing. VTS/default implementation/sepolicy still need to be merged ASAP before freezing.",
+      "revId": "3e735b0706c5bd19ead5662bc98e0663af9bd516",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a0dcec7_139826c2",
         "filename": "compatibility_matrices/compatibility_matrix.202504.xml",
         "patchSetId": 3
