@@ -16,6 +16,24 @@
       "message": "is it working when codec extensibility is disabled?",
       "revId": "0041aaa12c35ee8df8453abdfbb25b9ee0c17eac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c651d368_e18d2586",
+        "filename": "bluetooth/audio/utils/le_audio_codec_capabilities/le_audio_codec_capabilities.xml",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-12-04T02:26:36Z",
+      "side": 1,
+      "message": "this only affect the new API `getProviderInfo`. AFAIK `BluetoothAudioClientInterface::GetProviderInfo` in bt stack would work without codec extensibility.",
+      "parentUuid": "051f0b83_e67ecaac",
+      "revId": "0041aaa12c35ee8df8453abdfbb25b9ee0c17eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
