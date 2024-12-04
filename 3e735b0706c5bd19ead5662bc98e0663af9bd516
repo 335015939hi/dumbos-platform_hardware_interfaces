@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a0dcec7_139826c2",
+        "filename": "compatibility_matrices/compatibility_matrix.202504.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-12-04T17:31:02Z",
+      "side": 1,
+      "message": "do we need this? what\u0027s it for?",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 37
+      },
+      "revId": "3e735b0706c5bd19ead5662bc98e0663af9bd516",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
