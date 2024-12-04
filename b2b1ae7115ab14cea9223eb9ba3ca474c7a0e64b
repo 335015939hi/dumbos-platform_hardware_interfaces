@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e361027e_f86c2e5f",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-12-04T11:57:07Z",
+      "side": 1,
+      "message": "compares whether update patch request is equal to the existing one.",
+      "revId": "b2b1ae7115ab14cea9223eb9ba3ca474c7a0e64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
