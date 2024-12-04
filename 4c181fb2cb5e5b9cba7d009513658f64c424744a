@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef8fd53_d749bde0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-04T23:42:06Z",
+      "side": 1,
+      "message": "This needs `Merged-In: e5e76c734e622c3bc671ea600f0025008999205f`",
+      "range": {
+        "startLine": 18,
+        "startChar": 67,
+        "endLine": 18,
+        "endChar": 68
+      },
+      "revId": "4c181fb2cb5e5b9cba7d009513658f64c424744a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
