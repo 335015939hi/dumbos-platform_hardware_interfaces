@@ -16,6 +16,24 @@
       "message": "nit: comment is slightly confusing because there\u0027s no check on lock state nor tests for zeroes.",
       "revId": "815791df94c1fe397b5702170da0ccab8224bafc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7af7f90_42039e2e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1913,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2024-12-04T14:46:11Z",
+      "side": 1,
+      "message": "Thanks, updated to make it clearer.",
+      "parentUuid": "3bf8cd45_b7996bde",
+      "revId": "815791df94c1fe397b5702170da0ccab8224bafc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
