@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d84e6493_6ddc6c5b",
+        "filename": "security/see/hdcp/aidl/trusty/drm/rust/rules.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-12-04T15:54:50Z",
+      "side": 1,
+      "message": "got it, indeed we need to support feeding the Trusty build system with the AIDL/Trunk stable soong build variables. Tracking this at b/382248666",
+      "parentUuid": "07a5816c_a5927316",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 16
+      },
+      "revId": "e0d35193b1901f0f26af7f5e0180f62f5e676822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32046c85_693fdf4a",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "580d9245_74c7db87",
+        "filename": "security/see/hdcp/aidl/vts/rules.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-12-04T15:54:50Z",
+      "side": 1,
+      "message": "this is the Trusty Applet implementing the VTS test.\nThis applet is integrated in the test_vm as soon as the path to the rules.mk is included in the `security/see/usertests-rust-inc.mk` file.",
+      "parentUuid": "32046c85_693fdf4a",
+      "range": {
+        "startLine": 25,
+        "startChar": 21,
+        "endLine": 25,
+        "endChar": 41
+      },
+      "revId": "e0d35193b1901f0f26af7f5e0180f62f5e676822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1363eb2_84903832",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-12-03T00:12:44Z",
       "side": 1,
       "message": "This is fine for now, but with the libvintf changes (https://r.android.com/3368814) we can make this enforcement interface-independent and put it in `test/vts-testcase/hal/treble/vintf/` because we can get the interface names from the manifest files.",
+      "range": {
+        "startLine": 26,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 39
+      },
+      "revId": "e0d35193b1901f0f26af7f5e0180f62f5e676822",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41533b65_526d1d5f",
+        "filename": "security/see/hdcp/aidl/vts/src/host_test.rs",
+        "patchSetId": 9
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-12-04T15:54:50Z",
+      "side": 1,
+      "message": "got it - b/382248872 to track the deprecation of these tests when vintf is available.",
+      "parentUuid": "f1363eb2_84903832",
       "range": {
         "startLine": 26,
         "startChar": 3,

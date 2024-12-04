@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a029f62e_33b984d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-12-04T15:54:50Z",
+      "side": 1,
+      "message": "yes the test ought to be added to `security/see/usertests-rust-inc.mk`.\nThe readme.md describes this with some other details.",
+      "parentUuid": "4d423226_d1ab2c83",
+      "revId": "6bcc4b232428277d580fc911631e757592c1ded7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44fa9733_bed18bc7",
