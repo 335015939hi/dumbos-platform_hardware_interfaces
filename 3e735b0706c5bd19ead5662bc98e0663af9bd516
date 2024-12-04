@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aa5b09b_fb0973a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-12-04T23:15:42Z",
+      "side": 1,
+      "message": "thanks! i will work on it asap",
+      "parentUuid": "0c78cf94_5bc2eedc",
+      "revId": "3e735b0706c5bd19ead5662bc98e0663af9bd516",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a0dcec7_139826c2",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-12-04T17:31:02Z",
       "side": 1,
       "message": "do we need this? what\u0027s it for?",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 37
+      },
+      "revId": "3e735b0706c5bd19ead5662bc98e0663af9bd516",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d66b571_09d98fef",
+        "filename": "compatibility_matrices/compatibility_matrix.202504.xml",
+        "patchSetId": 3
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2024-12-04T23:15:42Z",
+      "side": 1,
+      "message": "this will be the implementation on cuttlefish, as the default one won\u0027t work there",
+      "parentUuid": "7a0dcec7_139826c2",
       "range": {
         "startLine": 661,
         "startChar": 0,
