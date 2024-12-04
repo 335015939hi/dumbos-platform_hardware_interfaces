@@ -46,6 +46,30 @@
       },
       "revId": "c823233a19aa43a8dd4c5b594bd3752966800111",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae411f5b_75a3ca48",
+        "filename": "security/secretkeeper/aidl/Android.bp",
+        "patchSetId": 22
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-04T17:34:34Z",
+      "side": 1,
+      "message": "Makes sense to me. If aosp/3306615 gets everything to build, then that might be easier than modifying `android.system.virtualmachineservice` users to use V1 explicitly.",
+      "parentUuid": "b3a6b5de_1f17cf2d",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 48
+      },
+      "revId": "c823233a19aa43a8dd4c5b594bd3752966800111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
