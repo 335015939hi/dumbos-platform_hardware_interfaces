@@ -16,6 +16,24 @@
       "message": "compares whether update patch request is equal to the existing one.",
       "revId": "b2b1ae7115ab14cea9223eb9ba3ca474c7a0e64b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b6c2db3_a992c180",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2024-12-04T12:00:05Z",
+      "side": 1,
+      "message": "is this allowed as per Interface contract?\n\nbecause we are seeing the duplicate setAudioPatch updates.\n\n```\nLine  11082:\n12-04 09:41:43.062  1637  3911 I AHAL_Module_QTI: setAudioPatch: updated from \n[spatial_out  -\u003e bt_ble_headset  ] AudioPatch{id: 43, sourcePortConfigIds: [112], \nsinkPortConfigIds: [111], minimumStreamBufferSizeFrames: 480, latenciesMs: [10]} to \n[spatial_out  -\u003e bt_ble_headset  ] AudioPatch{id: 43, sourcePortConfigIds: [112], \nsinkPortConfigIds: [111], minimumStreamBufferSizeFrames: 0, latenciesMs: []}\n```",
+      "parentUuid": "e361027e_f86c2e5f",
+      "revId": "b2b1ae7115ab14cea9223eb9ba3ca474c7a0e64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
