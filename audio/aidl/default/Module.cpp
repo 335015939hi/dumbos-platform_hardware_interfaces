@@ -1049,6 +1049,28 @@ ndk::ScopedAStatus Module::setAudioPatch(const AudioPatch& in_requested, AudioPa
         return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
 
+    auto& patches = getConfig().patches;
+    auto existing = patches.end();
+    std::optional<decltype(mPatches)> patchesBackup;
+    if (in_requested.id != 0) {
+        existing = findById<AudioPatch>(patches, in_requested.id);
+        if (existing != patches.end()) {
+            if (in_requested == *existing) {
+                LOG(WARNING)
+                        << __func__ << ": " << mType
+                        << ": requested patch id has no changes compared to already existing one "
+                        << in_requested.toString();
+                return ndk::ScopedAStatus::ok();
+            }
+            patchesBackup = mPatches;
+            cleanUpPatch(existing->id);
+        } else {
+            LOG(ERROR) << __func__ << ": " << mType << ": not found existing patch id "
+                       << in_requested.id;
+            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+        }
+    }
+
     auto& configs = getConfig().portConfigs;
     std::vector<int32_t> missingIds;
     auto sources =
@@ -1088,20 +1110,6 @@ ndk::ScopedAStatus Module::setAudioPatch(const AudioPatch& in_requested, AudioPa
     }
     RETURN_STATUS_IF_ERROR(checkAudioPatchEndpointsMatch(sources, sinks));
 
-    auto& patches = getConfig().patches;
-    auto existing = patches.end();
-    std::optional<decltype(mPatches)> patchesBackup;
-    if (in_requested.id != 0) {
-        existing = findById<AudioPatch>(patches, in_requested.id);
-        if (existing != patches.end()) {
-            patchesBackup = mPatches;
-            cleanUpPatch(existing->id);
-        } else {
-            LOG(ERROR) << __func__ << ": " << mType << ": not found existing patch id "
-                       << in_requested.id;
-            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
-        }
-    }
     // Validate the requested patch.
     for (const auto& [sinkPortId, nonExclusive] : allowedSinkPorts) {
         if (!nonExclusive && mPatches.count(sinkPortId) != 0) {
