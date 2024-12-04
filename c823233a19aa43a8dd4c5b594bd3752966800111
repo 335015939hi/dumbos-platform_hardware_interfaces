@@ -22,6 +22,30 @@
       },
       "revId": "c823233a19aa43a8dd4c5b594bd3752966800111",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3a6b5de_1f17cf2d",
+        "filename": "security/secretkeeper/aidl/Android.bp",
+        "patchSetId": 22
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1944206
+      },
+      "writtenOn": "2024-12-04T17:16:04Z",
+      "side": 1,
+      "message": "Ah wait - we actually got presubmit +2 last night, but then got -2 a few hours later because of b/382235536. \n\nThen - this morning - @shikhapanwar@google.com, @ptosi@google.com, @drysdale@google.com and I decided to remove aosp/3306615 from the topic, thinking it wasn\u0027t necessary, and this CL is the one we really want in by the deadline.\n\nI\u0027ve added it back - it was necessary AFAICT.\n\nWould be much obliged if others could take a look - and close this comment if you agree.",
+      "parentUuid": "eb650591_1ea28d27",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 48
+      },
+      "revId": "c823233a19aa43a8dd4c5b594bd3752966800111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
