@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc9aa962_703cc9c8",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioCodecsProvider.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2024-12-04T13:08:22Z",
+      "side": 1,
+      "message": "When `bit` is `31`, we\u0027ll do `(1 \u003c\u003c 31)`, which is implementation defined behavior, shifting a signed value (1) out of its range.  We could fix that by using `(1U \u003c\u003c bit)`, although our usage of the signed `audio_channel_allocation` here with bit operations isn\u0027t great.\n\nAt the risk of making this code harder to understand, we could use the \"Sparse Ones\" method of counting here, which is much more efficient for our expected cases.\n\nUsing `unsigned int` for `audio_channel_allocation`, we could have:\n\n```\nwhile (audio_channel_allocation !\u003d 0) {\n  ++count;\n  // Strip off least significant bit\n  audio_channel_allocation \u0026\u003d (audio_channel_allocation - 1);\n}\n```\n\nThat loop will iterate for as many bits as we have set.  So at most 2 iterations for our non-error input, versus 32 iterations with our current approach.\n\nOne last naive question/comment: Do we want to verify `count` is non-zero in this function, or is 0 a valid `count` for Mono?",
+      "range": {
+        "startLine": 623,
+        "startChar": 0,
+        "endLine": 624,
+        "endChar": 55
+      },
+      "revId": "0041aaa12c35ee8df8453abdfbb25b9ee0c17eac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "051f0b83_e67ecaac",
         "filename": "bluetooth/audio/utils/le_audio_codec_capabilities/le_audio_codec_capabilities.xml",
         "patchSetId": 10
