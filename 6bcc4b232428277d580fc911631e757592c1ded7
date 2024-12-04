@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a936f44f_8f75a198",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-04T16:51:37Z",
+      "side": 1,
+      "message": "it is `TRUSTY_RUST_USER_TESTS` - details in the readme",
+      "parentUuid": "4d423226_d1ab2c83",
+      "revId": "6bcc4b232428277d580fc911631e757592c1ded7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44fa9733_bed18bc7",
