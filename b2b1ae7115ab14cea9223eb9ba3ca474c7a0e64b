@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eec4c7df_57aaf1f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-04T21:06:18Z",
+      "side": 1,
+      "message": "Please add `Bug:` and `Test:` fields.",
+      "revId": "b2b1ae7115ab14cea9223eb9ba3ca474c7a0e64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f868f52f_d1e1b3a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-04T21:06:18Z",
+      "side": 1,
+      "message": "Thanks for the contribution! Looks fine overall, please address comments.",
+      "revId": "b2b1ae7115ab14cea9223eb9ba3ca474c7a0e64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e361027e_f86c2e5f",
         "filename": "audio/aidl/default/Module.cpp",
         "patchSetId": 1
@@ -50,6 +84,129 @@
       "side": 1,
       "message": "@mnaganov@google.com\nplease review",
       "parentUuid": "2b6c2db3_a992c180",
+      "revId": "b2b1ae7115ab14cea9223eb9ba3ca474c7a0e64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "314d66dd_6fbd304e",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1058,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-04T21:06:18Z",
+      "side": 1,
+      "message": "Yes, there is no requirement that an \"update\" of the patch must actually change it.",
+      "parentUuid": "8363d5a0_855963cb",
+      "revId": "b2b1ae7115ab14cea9223eb9ba3ca474c7a0e64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a1fe505_d5080c9b",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-04T21:06:18Z",
+      "side": 1,
+      "message": "I think, `INFO` is more appropriate here as it\u0027s not really a problem.",
+      "range": {
+        "startLine": 1059,
+        "startChar": 20,
+        "endLine": 1059,
+        "endChar": 27
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f6e1214b_9afc99d1",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Module.cpp",
+              "range": {
+                "startLine": 1059,
+                "startChar": 0,
+                "endLine": 1060,
+                "endChar": 0
+              },
+              "replacement": "                LOG(INFO)\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b2b1ae7115ab14cea9223eb9ba3ca474c7a0e64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efafb934_bb53e0fa",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-04T21:06:18Z",
+      "side": 1,
+      "message": "There is no need to log the entire patch, it was already done in the beginning. This will suffice:\n\n```\n\": requested patch has no changes compared to already existing one, id \" \u003c\u003c in_requested.id;\n```",
+      "range": {
+        "startLine": 1061,
+        "startChar": 49,
+        "endLine": 1062,
+        "endChar": 51
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ff680f97_78f7982a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Module.cpp",
+              "range": {
+                "startLine": 1061,
+                "startChar": 0,
+                "endLine": 1063,
+                "endChar": 0
+              },
+              "replacement": "                        \u003c\u003c \": requested patch has no changes compared to already existing one, id \"\n                        \u003c\u003c in_requested.id;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b2b1ae7115ab14cea9223eb9ba3ca474c7a0e64b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18dbaa94_665483b4",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-04T21:06:18Z",
+      "side": 1,
+      "message": "Since errors can still be detected in the requested patch on the following lines, we should postpone making any changes to the data structures until the patch verification is complete. Thus, these two lines should be placed where they were, still guarded by `existing !\u003d patches.end()` condition.",
+      "range": {
+        "startLine": 1065,
+        "startChar": 0,
+        "endLine": 1066,
+        "endChar": 39
+      },
       "revId": "b2b1ae7115ab14cea9223eb9ba3ca474c7a0e64b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
