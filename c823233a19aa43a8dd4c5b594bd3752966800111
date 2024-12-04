@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb650591_1ea28d27",
+        "filename": "security/secretkeeper/aidl/Android.bp",
+        "patchSetId": 22
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-04T17:01:49Z",
+      "side": 1,
+      "message": "There are other places using this that are causing the presubmit build failures.\n\nThe current failure is due to `microdroid_manager` depending on `android.system.virtualmachineservice` which depends on secretkeeper V1.\n\nMaybe you can get away with using V1 for `microdroid_manager` and fix it up later?\n\nThere may be further build failures after fixing that one. Maybe check all of the modules that use this default: https://cs.android.com/search?q\u003dsecretkeeper_use_latest_hal_aidl_rust%5C%22%20\u0026sq\u003d",
+      "range": {
+        "startLine": 89,
+        "startChar": 11,
+        "endLine": 89,
+        "endChar": 48
+      },
+      "revId": "c823233a19aa43a8dd4c5b594bd3752966800111",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
