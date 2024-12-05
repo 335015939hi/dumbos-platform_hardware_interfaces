@@ -38,7 +38,6 @@ rust_test {
     srcs: ["secretkeeper_test_client.rs"],
     defaults: [
         "rdroidtest.defaults",
-        "secretkeeper_use_latest_hal_aidl_rust",
     ],
     test_suites: [
         "general-tests",
@@ -46,6 +45,7 @@ rust_test {
     ],
     test_config: "AndroidTest.xml",
     rustlibs: [
+        "android.hardware.security.secretkeeper-V1-rust",
         "libauthgraph_boringssl",
         "libauthgraph_core",
         "libauthgraph_wire",
@@ -66,10 +66,9 @@ rust_test {
 rust_binary {
     name: "secretkeeper_cli",
     srcs: ["secretkeeper_cli.rs"],
-    defaults: ["secretkeeper_use_latest_hal_aidl_rust"],
     lints: "android",
-    prefer_rlib: true,
-    rustlibs: [
+    rlibs: [
+        "android.hardware.security.secretkeeper-V1-rust",
         "libanyhow",
         "libauthgraph_boringssl",
         "libauthgraph_core",
