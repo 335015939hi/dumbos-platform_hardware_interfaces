@@ -312,7 +312,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.security.secretkeeper</name>
-        <version>1</version>
+        <version>1-2</version>
         <interface>
             <name>ISecretkeeper</name>
             <instance>default</instance>
@@ -650,6 +650,15 @@
         <interface>
             <name>IVibratorManager</name>
             <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl">
+      <name>android.hardware.virtualization.capabilities</name>
+        <version>1</version>
+        <interface>
+            <name>IVmCapabilitiesService</name>
+            <instance>default</instance>
+            <instance>noop</instance>
         </interface>
     </hal>
     <hal format="aidl">
