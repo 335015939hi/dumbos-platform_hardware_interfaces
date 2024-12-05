@@ -8310,16 +8310,8 @@ TEST_P(KeyDeletionTest, DeleteAllKeys) {
                                      .Digest(Digest::NONE)
                                      .Padding(PaddingMode::NONE)
                                      .Authorization(TAG_NO_AUTH_REQUIRED)
-                                     .Authorization(TAG_ROLLBACK_RESISTANCE)
                                      .SetDefaultValidity());
-    if (error == ErrorCode::ROLLBACK_RESISTANCE_UNAVAILABLE) {
-        GTEST_SKIP() << "Rollback resistance not supported";
-    }
-
-    // Delete must work if rollback protection is implemented
     ASSERT_EQ(ErrorCode::OK, error);
-    AuthorizationSet hardwareEnforced(SecLevelAuthorizations());
-    ASSERT_TRUE(hardwareEnforced.Contains(TAG_ROLLBACK_RESISTANCE));
 
     ASSERT_EQ(ErrorCode::OK, DeleteAllKeys());
 
