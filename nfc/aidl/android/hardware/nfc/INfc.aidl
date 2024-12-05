@@ -149,4 +149,11 @@ interface INfc {
      * @return NfcStatus::OK on success and NfcStatus::FAILED on error.
      */
     NfcStatus controlGranted();
+
+    /**
+     * Allows vendors to configure the HAL as needed.
+     * This API can be called before the HAL is opened.
+     * @return true if the configurationw as properly set, false if not.
+     */
+      boolean setVendorConfig(in byte config, in byte value);
 }
