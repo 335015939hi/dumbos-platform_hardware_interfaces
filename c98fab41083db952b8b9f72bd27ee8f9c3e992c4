@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54c575ca_e866f3b9",
+        "filename": "graphics/mapper/stable-c/vts/VtsHalGraphicsMapperStableC_TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1132,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2024-12-06T20:24:44Z",
+      "side": 1,
+      "message": "indentation needs to be adjusted for this test",
+      "range": {
+        "startLine": 1132,
+        "startChar": 2,
+        "endLine": 1132,
+        "endChar": 28
+      },
+      "revId": "c98fab41083db952b8b9f72bd27ee8f9c3e992c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
