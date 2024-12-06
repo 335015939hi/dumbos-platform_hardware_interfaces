@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ffe7e44_aacc9f49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2024-12-06T18:08:42Z",
+      "side": 1,
+      "message": "Can we just use the existing sendVendorNciCommand for this?  Adding new HAL API\u0027s forces vendors to update their vendor image for this. Using proprietary NCI commands would help you to achieve the same without needing a HAL update.",
+      "revId": "0181921351b2a3f2f54292a8658d21b92bc83623",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
