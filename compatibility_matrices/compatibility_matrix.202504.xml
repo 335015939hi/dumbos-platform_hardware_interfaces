@@ -345,6 +345,14 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" exclusive-to="virtual-machine">
+        <name>android.hardware.light</name>
+        <version>2</version>
+        <interface>
+            <name>ILights</name>
+            <instance>default2</instance>
+        </interface>
+    </hal>
     <hal format="aidl">
         <name>android.hardware.media.c2</name>
         <version>1</version>
