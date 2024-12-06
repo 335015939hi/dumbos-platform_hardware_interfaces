@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6b8c654_f92958f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1010050
+      },
+      "writtenOn": "2024-12-06T19:23:34Z",
+      "side": 1,
+      "message": "(bypassing presubmit since this is a topic split between aosp main and aosp-main-with-phones)",
+      "revId": "ca31d800199bd0624bc5196bb69d5d4c97e2f8e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
