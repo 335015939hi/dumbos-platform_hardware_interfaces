@@ -22,6 +22,30 @@
       },
       "revId": "3e50f1595df75bd7612b69d73aa7fa58c024af90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ad727ff_87483975",
+        "filename": "bluetooth/socket/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1959861
+      },
+      "writtenOn": "2024-12-06T00:08:53Z",
+      "side": 1,
+      "message": "`module_current` was required because contexthub hal used `module_current`. Let me check if we can use a specific SDK version.",
+      "parentUuid": "b039946b_7cb60c54",
+      "range": {
+        "startLine": 35,
+        "startChar": 12,
+        "endLine": 35,
+        "endChar": 42
+      },
+      "revId": "3e50f1595df75bd7612b69d73aa7fa58c024af90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
