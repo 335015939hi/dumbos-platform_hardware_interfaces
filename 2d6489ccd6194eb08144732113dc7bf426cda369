@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0882c67_3863bde7",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-06T11:45:25Z",
+      "side": 1,
+      "message": "Using ```isAllParamsValid``` in test.\nMoved ```cleanUpLimiterConfig``` to tests so that ```mTags``` are not cleared before processing.",
+      "parentUuid": "14a63249_edeea97a",
+      "range": {
+        "startLine": 747,
+        "startChar": 0,
+        "endLine": 748,
+        "endChar": 30
+      },
+      "revId": "2d6489ccd6194eb08144732113dc7bf426cda369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c02d8c1_d7931ead",
@@ -88,6 +112,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3c0bf51_ba393d2d",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-06T11:45:25Z",
+      "side": 1,
+      "message": "This check is not required for Post Gain parameter.\nMade these changes in ```IncreasingRatio``` and ```IncreasingThresholdDb``` test.",
+      "parentUuid": "2c02d8c1_d7931ead",
+      "range": {
+        "startLine": 807,
+        "startChar": 12,
+        "endLine": 807,
+        "endChar": 66
+      },
+      "revId": "2d6489ccd6194eb08144732113dc7bf426cda369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80d64317_2a0d5db6",
@@ -101,6 +149,30 @@
       "writtenOn": "2024-12-03T16:59:00Z",
       "side": 1,
       "message": "Again, would prefer comparing `outputDb` and `mInputDb` directly so that their actual values will be printed in case of failure.",
+      "range": {
+        "startLine": 810,
+        "startChar": 12,
+        "endLine": 810,
+        "endChar": 52
+      },
+      "revId": "2d6489ccd6194eb08144732113dc7bf426cda369",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40c90d64_3efce7b7",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 810,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-06T11:45:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80d64317_2a0d5db6",
       "range": {
         "startLine": 810,
         "startChar": 12,
