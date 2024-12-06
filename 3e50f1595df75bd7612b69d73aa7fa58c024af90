@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b039946b_7cb60c54",
+        "filename": "bluetooth/socket/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-12-06T00:06:02Z",
+      "side": 1,
+      "message": "Do you need the sdk_version if the backend is disabled?",
+      "range": {
+        "startLine": 35,
+        "startChar": 12,
+        "endLine": 35,
+        "endChar": 42
+      },
+      "revId": "3e50f1595df75bd7612b69d73aa7fa58c024af90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
