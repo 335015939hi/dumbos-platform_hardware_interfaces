@@ -1,0 +1,114 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42013caf_c59623f0",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-06T17:47:02Z",
+      "side": 1,
+      "message": "Please make sure that all calls into this function are wrapped into `EXPECT|ASSERT_NO_FATAL_FAILURE`, I can see a lot of instances of plain calls, and that means the test will continue executing even if the assumptions are violated.",
+      "range": {
+        "startLine": 404,
+        "startChar": 35,
+        "endLine": 404,
+        "endChar": 54
+      },
+      "revId": "366f8152b26ac33d17a19751487888f6048e139e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1db122a0_78096245",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-06T17:47:02Z",
+      "side": 1,
+      "message": "Should this be an `ASSERT`? Because if this is violated, then the attempt to retrieve an element by `kStartIndex` will be a wild read.",
+      "range": {
+        "startLine": 410,
+        "startChar": 8,
+        "endLine": 410,
+        "endChar": 17
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a0d809a0_72ee66ef",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 410,
+                "startChar": 0,
+                "endLine": 411,
+                "endChar": 0
+              },
+              "replacement": "        ASSERT_GT(output.size(), kStartIndex);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "366f8152b26ac33d17a19751487888f6048e139e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d65af87_b24c2399",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-06T17:47:02Z",
+      "side": 1,
+      "message": "Is there any expectation about the relations between the value of the gain and delta in the power of the signal after processing? What is the reason for using values `100` and `200` for the gain if the test expectation for them ends up to be the same?",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 42
+      },
+      "revId": "366f8152b26ac33d17a19751487888f6048e139e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b86a39b_c7ae5fce",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-06T17:47:02Z",
+      "side": 1,
+      "message": "I think it\u0027s more reasonable to do this in the beginning of the test sequence to ensure that each test iteration starts with clear conditions.",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 666,
+        "endChar": 33
+      },
+      "revId": "366f8152b26ac33d17a19751487888f6048e139e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
