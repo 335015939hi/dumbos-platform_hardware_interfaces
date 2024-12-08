@@ -139,6 +139,14 @@
         </interface>
     </hal>
     <hal format="aidl">
+        <name>android.hardware.bluetooth.socket</name>
+        <version>1</version>
+        <interface>
+            <name>IBluetoothSocket</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl">
         <name>android.hardware.bluetooth.finder</name>
         <version>1</version>
         <interface>
@@ -304,7 +312,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.security.secretkeeper</name>
-        <version>1</version>
+        <version>1-2</version>
         <interface>
             <name>ISecretkeeper</name>
             <instance>default</instance>
@@ -507,6 +515,14 @@
             <instance>nonsecure</instance>
         </interface>
     </hal>
+    <hal format="aidl">
+        <name>android.hardware.security.see.hwcrypto</name>
+        <version>1</version>
+        <interface>
+            <name>IHwCryptoKey</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="aidl" updatable-via-apex="true">
         <name>android.hardware.security.secureclock</name>
         <version>1</version>
@@ -634,6 +650,15 @@
         <interface>
             <name>IVibratorManager</name>
             <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl">
+      <name>android.hardware.virtualization.capabilities</name>
+        <version>1</version>
+        <interface>
+            <name>IVmCapabilitiesService</name>
+            <instance>default</instance>
+            <instance>noop</instance>
         </interface>
     </hal>
     <hal format="aidl">

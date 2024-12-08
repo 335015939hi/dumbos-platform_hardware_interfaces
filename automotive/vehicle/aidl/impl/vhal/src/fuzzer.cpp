@@ -25,6 +25,8 @@ using ::android::hardware::automotive::vehicle::fake::FakeVehicleHardware;
 using ::ndk::SharedRefBase;
 
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, size_t size) {
+    // TODO(b/183141167): need to rewrite 'dump' to avoid SIGPIPE.
+    signal(SIGPIPE, SIG_IGN);
     std::unique_ptr<FakeVehicleHardware> hardware = std::make_unique<FakeVehicleHardware>();
     std::shared_ptr<DefaultVehicleHal> vhal =
             ::ndk::SharedRefBase::make<DefaultVehicleHal>(std::move(hardware));
