@@ -1465,9 +1465,9 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
                 "VtsHalGraphicsComposer3_TargetTest");
     }
 
-    sp<GraphicBuffer> allocate(::android::PixelFormat pixelFormat) {
-        return allocate(static_cast<uint32_t>(getPrimaryDisplay().getDisplayWidth()),
-                        static_cast<uint32_t>(getPrimaryDisplay().getDisplayHeight()), pixelFormat);
+    sp<GraphicBuffer> allocate(const VtsDisplay& display, ::android::PixelFormat pixelFormat) {
+        return allocate(static_cast<uint32_t>(display.getDisplayWidth()),
+                        static_cast<uint32_t>(display.getDisplayHeight()), pixelFormat);
     }
 
     void sendRefreshFrame(const VtsDisplay& display, const VsyncPeriodChangeTimeline* timeline) {
@@ -1489,7 +1489,7 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
                 mComposerClient->createLayer(display.getDisplayId(), kBufferSlotCount, &writer);
         EXPECT_TRUE(status.isOk());
         {
-            const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+            const auto buffer = allocate(display, ::android::PIXEL_FORMAT_RGBA_8888);
             ASSERT_NE(nullptr, buffer);
             ASSERT_EQ(::android::OK, buffer->initCheck());
             ASSERT_NE(nullptr, buffer->handle);
@@ -1511,7 +1511,7 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
         }
 
         {
-            const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+            const auto buffer = allocate(display, ::android::PIXEL_FORMAT_RGBA_8888);
             ASSERT_NE(nullptr, buffer->handle);
 
             writer.setLayerBuffer(display.getDisplayId(), layer, /*slot*/ 0, buffer->handle,
@@ -1578,7 +1578,7 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
     }
 
     void sendBufferUpdate(int64_t layer) {
-        const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        const auto buffer = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
         ASSERT_NE(nullptr, buffer->handle);
 
         auto& writer = getWriter(getPrimaryDisplayId());
@@ -1686,8 +1686,8 @@ class GraphicsComposerAidlCommandTest : public GraphicsComposerAidlTest {
 
         const auto vsyncPeriod = getVsyncPeriod();
 
-        const auto buffer1 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
-        const auto buffer2 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        const auto buffer1 = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
+        const auto buffer2 = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
         ASSERT_NE(nullptr, buffer1);
         ASSERT_NE(nullptr, buffer2);
 
@@ -1908,7 +1908,7 @@ TEST_P(GraphicsComposerAidlCommandTest, SetOutputBuffer) {
             kBufferSlotCount);
     EXPECT_TRUE(displayStatus.isOk());
 
-    const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer = allocate(/*width*/ 64, /*height*/ 64, ::android::PIXEL_FORMAT_RGBA_8888);
     const auto handle = buffer->handle;
     auto& writer = getWriter(display.display);
     writer.setOutputBuffer(display.display, /*slot*/ 0, handle, /*releaseFence*/ -1);
@@ -1956,7 +1956,7 @@ TEST_P(GraphicsComposerAidlCommandTest, PresentDisplayNoLayerStateChanges) {
         EXPECT_TRUE(mComposerClient->setColorMode(getPrimaryDisplayId(), ColorMode::NATIVE, intent)
                             .isOk());
 
-        const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        const auto buffer = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
         const auto handle = buffer->handle;
         ASSERT_NE(nullptr, handle);
 
@@ -1985,7 +1985,7 @@ TEST_P(GraphicsComposerAidlCommandTest, PresentDisplayNoLayerStateChanges) {
         execute();
         ASSERT_TRUE(mReader.takeErrors().empty());
 
-        const auto buffer2 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        const auto buffer2 = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
         const auto handle2 = buffer2->handle;
         ASSERT_NE(nullptr, handle2);
         writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 0, handle2,
@@ -2003,7 +2003,7 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerCursorPosition) {
             mComposerClient->createLayer(getPrimaryDisplayId(), kBufferSlotCount, &writer);
     EXPECT_TRUE(layerStatus.isOk());
 
-    const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
     const auto handle = buffer->handle;
     ASSERT_NE(nullptr, handle);
 
@@ -2038,7 +2038,7 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerCursorPosition) {
 }
 
 TEST_P(GraphicsComposerAidlCommandTest, SetLayerBuffer) {
-    const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
     const auto handle = buffer->handle;
     ASSERT_NE(nullptr, handle);
 
@@ -2062,21 +2062,21 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerBufferMultipleTimes) {
 
     // This is used on HALs that don't support setLayerBufferSlotsToClear (version <= 3.1).
 
-    const auto buffer1 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer1 = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
     ASSERT_NE(nullptr, buffer1);
     const auto handle1 = buffer1->handle;
     writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 0, handle1, /*acquireFence*/ -1);
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
 
-    const auto buffer2 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer2 = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
     ASSERT_NE(nullptr, buffer2);
     const auto handle2 = buffer2->handle;
     writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 1, handle2, /*acquireFence*/ -1);
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
 
-    const auto buffer3 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer3 = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
     ASSERT_NE(nullptr, buffer3);
     const auto handle3 = buffer3->handle;
     writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 2, handle3, /*acquireFence*/ -1);
@@ -2213,7 +2213,7 @@ TEST_P(GraphicsComposerAidlCommandTest, DisplayDecoration) {
 
         const auto format = (error.isOk() && support) ? support->format
                         : aidl::android::hardware::graphics::common::PixelFormat::RGBA_8888;
-        const auto decorBuffer = allocate(static_cast<::android::PixelFormat>(format));
+        const auto decorBuffer = allocate(display, static_cast<::android::PixelFormat>(format));
         ASSERT_NE(nullptr, decorBuffer);
         if (::android::OK != decorBuffer->initCheck()) {
             if (support) {
@@ -2286,7 +2286,7 @@ TEST_P(GraphicsComposerAidlCommandTest, SetLayerSidebandStream) {
         return;
     }
 
-    const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
     const auto handle = buffer->handle;
     ASSERT_NE(nullptr, handle);
 
@@ -2621,7 +2621,7 @@ TEST_P(GraphicsComposerAidlCommandTest, SetIdleTimerEnabled_Timeout_2) {
     EXPECT_TRUE(mComposerClient->setPowerMode(getPrimaryDisplayId(), PowerMode::ON).isOk());
     EXPECT_TRUE(mComposerClient->setIdleTimerEnabled(getPrimaryDisplayId(), /*timeout*/ 0).isOk());
 
-    const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
     ASSERT_NE(nullptr, buffer->handle);
 
     const auto layer = createOnScreenLayer(getPrimaryDisplay());
@@ -2678,21 +2678,21 @@ TEST_P(GraphicsComposerAidlCommandV2Test, SetLayerBufferSlotsToClear) {
     // setup 3 buffers in the buffer cache, with the last buffer being active
     // then emulate the Android platform code that clears all 3 buffer slots
 
-    const auto buffer1 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer1 = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
     ASSERT_NE(nullptr, buffer1);
     const auto handle1 = buffer1->handle;
     writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 0, handle1, /*acquireFence*/ -1);
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
 
-    const auto buffer2 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer2 = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
     ASSERT_NE(nullptr, buffer2);
     const auto handle2 = buffer2->handle;
     writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 1, handle2, /*acquireFence*/ -1);
     execute();
     ASSERT_TRUE(mReader.takeErrors().empty());
 
-    const auto buffer3 = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+    const auto buffer3 = allocate(getPrimaryDisplay(), ::android::PIXEL_FORMAT_RGBA_8888);
     ASSERT_NE(nullptr, buffer3);
     const auto handle3 = buffer3->handle;
     writer.setLayerBuffer(getPrimaryDisplayId(), layer, /*slot*/ 2, handle3, /*acquireFence*/ -1);
@@ -2933,7 +2933,7 @@ TEST_P(GraphicsComposerAidlCommandTest, MultiThreadedPresent) {
 
         const auto& [status, layer] =
                 mComposerClient->createLayer(displayId, kBufferSlotCount, &writer);
-        const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        const auto buffer = allocate(*display, ::android::PIXEL_FORMAT_RGBA_8888);
         ASSERT_NE(nullptr, buffer);
         ASSERT_EQ(::android::OK, buffer->initCheck());
         ASSERT_NE(nullptr, buffer->handle);
@@ -3095,7 +3095,7 @@ TEST_P(GraphicsComposerAidlCommandV3Test, notifyExpectedPresentTimeout) {
         auto minFrameIntervalNs = config.vrrConfig->minFrameIntervalNs;
         const auto timeoutNs = config.vrrConfig->notifyExpectedPresentConfig->timeoutNs;
 
-        const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        const auto buffer = allocate(display, ::android::PIXEL_FORMAT_RGBA_8888);
         ASSERT_NE(nullptr, buffer);
         const auto layer = createOnScreenLayer(display);
         auto& writer = getWriter(displayId);
@@ -3132,7 +3132,7 @@ TEST_P(GraphicsComposerAidlCommandV3Test, notifyExpectedPresentFrameIntervalChan
     forEachNotifyExpectedPresentConfig([&](VtsDisplay& display,
                                            const DisplayConfiguration& config) {
         const auto displayId = display.getDisplayId();
-        const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        const auto buffer = allocate(display, ::android::PIXEL_FORMAT_RGBA_8888);
         ASSERT_NE(nullptr, buffer);
         const auto layer = createOnScreenLayer(display);
         auto& writer = getWriter(displayId);
@@ -3179,7 +3179,7 @@ TEST_P(GraphicsComposerAidlCommandV3Test, frameIntervalChangeAtPresentFrame) {
     forEachNotifyExpectedPresentConfig([&](VtsDisplay& display,
                                            const DisplayConfiguration& config) {
         const auto displayId = display.getDisplayId();
-        const auto buffer = allocate(::android::PIXEL_FORMAT_RGBA_8888);
+        const auto buffer = allocate(display, ::android::PIXEL_FORMAT_RGBA_8888);
         ASSERT_NE(nullptr, buffer);
         const auto layer = createOnScreenLayer(display);
         auto& writer = getWriter(displayId);
