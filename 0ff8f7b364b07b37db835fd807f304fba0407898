@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c973c48_d6af5993",
+        "filename": "security/keymint/aidl/default/hal/lib.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-09T15:13:17Z",
+      "side": 1,
+      "message": "nit: might as well include the error in the log; also, I\u0027m generally shifting towards format strings with inline parameters where possible:\n\n```\n error!(\"Failed to parse Verified Boot key hex data in \u0027{verified_boot_key_digest}\u0027: {e:?}\");\n```",
+      "revId": "0ff8f7b364b07b37db835fd807f304fba0407898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "941c5416_a6d4d9a6",
+        "filename": "security/keymint/aidl/default/hal/lib.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-09T15:13:17Z",
+      "side": 1,
+      "message": "nit: be nice to have a comment reminding the reader why this gets zeroed out.",
+      "revId": "0ff8f7b364b07b37db835fd807f304fba0407898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
