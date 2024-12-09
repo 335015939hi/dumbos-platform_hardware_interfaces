@@ -38,5 +38,6 @@ parcelable SocketContext {
   String name;
   int aclConnectionHandle;
   android.hardware.bluetooth.socket.ChannelInfo channelInfo;
-  android.hardware.contexthub.EndpointId endpointId;
+  long hubId;
+  long endpointId;
 }

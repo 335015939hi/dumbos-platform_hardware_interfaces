@@ -33,12 +33,7 @@ aidl_interface {
             sdk_version: "module_current",
         },
         ndk: {
-            apex_available: [
-                "//apex_available:platform",
-                "com.android.btservices",
-            ],
-            min_sdk_version: "33",
-            apps_enabled: true,
+            apps_enabled: false,
         },
         rust: {
             enabled: true,

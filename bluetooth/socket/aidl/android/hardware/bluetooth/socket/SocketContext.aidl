@@ -17,7 +17,6 @@
 package android.hardware.bluetooth.socket;
 
 import android.hardware.bluetooth.socket.ChannelInfo;
-import android.hardware.contexthub.EndpointId;
 
 /**
  * Socket context.
@@ -49,7 +48,12 @@ parcelable SocketContext {
     ChannelInfo channelInfo;
 
     /**
-     * Unique identifier for an endpoint at the hardware offload data path.
+     * The ID of the Hub to which the end point belongs for hardware offload data path.
      */
-    EndpointId endpointId;
+    long hubId;
+
+    /**
+     * The ID of the Hub endpoint for hardware offload data path.
+     */
+    long endpointId;
 }
