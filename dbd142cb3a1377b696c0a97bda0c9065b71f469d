@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c3f765c_ac934692",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2024-12-09T18:27:13Z",
+      "side": 1,
+      "message": "Do you have a bug describing the test issue you are trying to solve?\n\nA layer\u0027s buffer can be arbitrary dimensions, they don\u0027t have to correspond to the display resolution. So I\u0027m not sure what the purpose of these changes is.",
+      "revId": "dbd142cb3a1377b696c0a97bda0c9065b71f469d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
