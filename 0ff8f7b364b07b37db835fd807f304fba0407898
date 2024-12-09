@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58816ab3_46a99960",
+        "filename": "security/keymint/aidl/default/hal/lib.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2024-12-09T16:55:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c973c48_d6af5993",
+      "revId": "0ff8f7b364b07b37db835fd807f304fba0407898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "941c5416_a6d4d9a6",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-12-09T15:13:17Z",
       "side": 1,
       "message": "nit: be nice to have a comment reminding the reader why this gets zeroed out.",
+      "revId": "0ff8f7b364b07b37db835fd807f304fba0407898",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec752450_6890592e",
+        "filename": "security/keymint/aidl/default/hal/lib.rs",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2024-12-09T16:55:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "941c5416_a6d4d9a6",
       "revId": "0ff8f7b364b07b37db835fd807f304fba0407898",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
