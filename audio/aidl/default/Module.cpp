@@ -182,14 +182,17 @@ ndk::ScopedAStatus Module::createStreamContext(
     auto& configs = getConfig().portConfigs;
     auto portConfigIt = findById<AudioPortConfig>(configs, in_portConfigId);
     const int32_t nominalLatencyMs = getNominalLatencyMs(*portConfigIt);
-    // Since this is a private method, it is assumed that
-    // validity of the portConfigId has already been checked.
-    const int32_t minimumStreamBufferSizeFrames =
-            calculateBufferSizeFrames(nominalLatencyMs, portConfigIt->sampleRate.value().value);
-    if (in_bufferSizeFrames < minimumStreamBufferSizeFrames) {
-        LOG(ERROR) << __func__ << ": " << mType << ": insufficient buffer size "
-                   << in_bufferSizeFrames << ", must be at least " << minimumStreamBufferSizeFrames;
-        return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+    if (portConfigIt->format.value().type == AudioFormatType::PCM) {
+        // Since this is a private method, it is assumed that
+        // validity of the portConfigId has already been checked.
+        const int32_t minimumStreamBufferSizeFrames =
+                calculateBufferSizeFrames(nominalLatencyMs, portConfigIt->sampleRate.value().value);
+        if (in_bufferSizeFrames < minimumStreamBufferSizeFrames) {
+            LOG(ERROR) << __func__ << ": " << mType << ": insufficient buffer size "
+                       << in_bufferSizeFrames << ", must be at least "
+                       << minimumStreamBufferSizeFrames;
+            return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+        }
     }
     const size_t frameSize =
             getFrameSizeInBytes(portConfigIt->format.value(), portConfigIt->channelMask.value());
