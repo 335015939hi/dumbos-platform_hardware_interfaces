@@ -16,6 +16,24 @@
       "message": "The strengthening of this test should be gated on KeyMint 4.  Maybe not a big deal because no one runs it any way, but just for correctness.",
       "revId": "a5ad8db5180e60cf101e7351845d56293869504f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc644ffd_60ee5202",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 8303,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2024-12-09T23:51:14Z",
+      "side": 0,
+      "message": "I had a version check but even Pixel 9 can\u0027t pass that version check, so I replaced it with a comment (which I accidentally dropped).  WDYT?",
+      "parentUuid": "e130d8fd_82b004f2",
+      "revId": "a5ad8db5180e60cf101e7351845d56293869504f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
