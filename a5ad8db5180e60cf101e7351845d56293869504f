@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e130d8fd_82b004f2",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 8303,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-12-09T23:13:35Z",
+      "side": 0,
+      "message": "The strengthening of this test should be gated on KeyMint 4.  Maybe not a big deal because no one runs it any way, but just for correctness.",
+      "revId": "a5ad8db5180e60cf101e7351845d56293869504f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
