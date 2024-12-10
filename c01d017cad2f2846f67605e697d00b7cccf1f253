@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3109ecb_2794c4b6",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-10T17:25:41Z",
+      "side": 1,
+      "message": "When the client opens a stream, it may use the minimum buffer size suggested by the HAL within the returned `AudioPatch`, see here: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/Module.cpp;l\u003d1126;drc\u003dbe5b10f9022f6e4aeab9c39f50c1e6ac27e19eae.\n\nAs I understand it, for non-PCM cases that value can also end up being too large. So I think we need to address the minimum buffer size calculation in `Module::setAudioPatch` as well.\n\nIt might also make sense to rename `calculateBufferSizeFrames` to `calculateBufferSizeFramesForPcm` to emphasize the fact that it should not be used for non-PCM streams.",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 65
+      },
+      "revId": "c01d017cad2f2846f67605e697d00b7cccf1f253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
