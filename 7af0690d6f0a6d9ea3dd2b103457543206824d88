@@ -16,6 +16,23 @@
       "message": "More out-dated code review votes.",
       "revId": "7af0690d6f0a6d9ea3dd2b103457543206824d88",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0245e0ad_a2625063",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-12-10T19:55:13Z",
+      "side": 1,
+      "message": "Could someone post the error that was posted? I do not have access to [this](https://android-build.googleplex.com/presubmit-status?change_id\u003dplatform/hardware/interfaces~3370009\u0026revision_id\u003d13\u0026host\u003dandroid\u0026id\u003d5304929700118528).",
+      "revId": "7af0690d6f0a6d9ea3dd2b103457543206824d88",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
