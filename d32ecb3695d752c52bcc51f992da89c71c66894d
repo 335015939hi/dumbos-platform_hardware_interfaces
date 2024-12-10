@@ -16,6 +16,24 @@
       "message": "CL:1300180 @bbadour@google.com you added this file in this change. Please review if the removal is correct.",
       "revId": "d32ecb3695d752c52bcc51f992da89c71c66894d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04defe24_1451b857",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1318142
+      },
+      "writtenOn": "2024-12-10T23:00:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a384614e_fa665ca1",
+      "revId": "d32ecb3695d752c52bcc51f992da89c71c66894d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
