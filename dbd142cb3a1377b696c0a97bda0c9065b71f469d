@@ -16,6 +16,24 @@
       "message": "Do you have a bug describing the test issue you are trying to solve?\n\nA layer\u0027s buffer can be arbitrary dimensions, they don\u0027t have to correspond to the display resolution. So I\u0027m not sure what the purpose of these changes is.",
       "revId": "dbd142cb3a1377b696c0a97bda0c9065b71f469d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d80a7c21_fd4589c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1165870
+      },
+      "writtenOn": "2024-12-10T01:59:07Z",
+      "side": 1,
+      "message": "If we connect two or more displays with different resolution(needed in MultiThreadPresent test), below VTS cases will fail because kernel driver DRM function drm_atomic_plane_check() failed with error log like:\n\"[PLANE:60:plane-4] invalid source coordinates 1920.000000x1080.000000+0.000000+0.000000 (fb 640x480)\"\nIt\u0027s because the size of layer buffer is mismatched with layer source crop. So we need to make sure buffer width/height are aligned with layer configuration.\n\nPerInstance/GraphicsComposerAidlCommandTest#SetActiveConfigWithConstraints/0_android_hardware_graphics_composer3_IComposer_default\t\nPerInstance/GraphicsComposerAidlCommandTest#SetActiveConfigWithConstraints_Delayed/0_android_hardware_graphics_composer3_IComposer_default\t\nPerInstance/GraphicsComposerAidlCommandTest#SetActiveConfigWithConstraints_MissRefresh/0_android_hardware_graphics_composer3_IComposer_default\t\nPerInstance/GraphicsComposerAidlCommandTest#SetActiveConfigWithConstraints_SeamlessNotAllowed/0_android_hardware_graphics_composer3_IComposer_default",
+      "parentUuid": "2c3f765c_ac934692",
+      "revId": "dbd142cb3a1377b696c0a97bda0c9065b71f469d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
