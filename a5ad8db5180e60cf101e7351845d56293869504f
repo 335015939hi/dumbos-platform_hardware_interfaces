@@ -34,6 +34,24 @@
       "parentUuid": "e130d8fd_82b004f2",
       "revId": "a5ad8db5180e60cf101e7351845d56293869504f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57535a69_f5f6c41c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 8303,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2024-12-10T00:04:09Z",
+      "side": 0,
+      "message": "A little weird, but okay.",
+      "parentUuid": "fc644ffd_60ee5202",
+      "revId": "a5ad8db5180e60cf101e7351845d56293869504f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
