@@ -35,6 +35,7 @@ cc_test {
     static_libs: [
         "libcppbor",
         "libgmock_ndk",
+        "libgsi",
         "libkeymint_vts_test_utils",
     ],
     test_config: "VtsRemotelyProvisionedComponentTests.xml",

@@ -29,6 +29,7 @@
 #include <keymaster/cppcose/cppcose.h>
 #include <keymaster/keymaster_configuration.h>
 #include <keymint_support/authorization_set.h>
+#include <libgsi/libgsi.h>
 #include <openssl/ec.h>
 #include <openssl/ec_key.h>
 #include <openssl/x509.h>
@@ -187,6 +188,9 @@ class VtsRemotelyProvisionedComponentTests : public testing::TestWithParam<std::
             if (apiLevel < __ANDROID_API_V__) {
                 GTEST_SKIP() << "The RKP VM is supported only on V+ devices. Vendor API level: "
                              << apiLevel;
+            }
+            if (::android::gsi::IsGsiRunning()) {
+                GTEST_SKIP() << "The RKP VM is not supported on GSI.";
             }
         }
         ASSERT_TRUE(status.isOk());
