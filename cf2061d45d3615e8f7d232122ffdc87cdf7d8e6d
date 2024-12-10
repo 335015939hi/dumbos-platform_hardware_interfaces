@@ -50,6 +50,23 @@
       "message": "32956889: Remove unused configstore hal | https://android-review.googlesource.com/c/platform/hardware/interfaces/+/32956889",
       "revId": "cf2061d45d3615e8f7d232122ffdc87cdf7d8e6d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab41823_badb59d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-12-10T11:07:17Z",
+      "side": 1,
+      "message": "@smoreland@google.com\n@devinmoore@google.com\n\nHi Steven and Devin,\n\nI am back to do the clean up CL but seems there\u0027s some extra dependencies in `surfaceflinger` (ag/5790095) need to be removed and the original owner lpy@ was leaving google which may take more time to do that.\n\nBecause we want to clean up those Android.mk to unblock image package in soong , I just add aosp/3399863 to convert the rest Android.mk first and I can base on this CL to do the clean up, is that OK to you?\n\nThanks.",
+      "revId": "cf2061d45d3615e8f7d232122ffdc87cdf7d8e6d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
