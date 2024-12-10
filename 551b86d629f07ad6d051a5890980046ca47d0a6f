@@ -64,6 +64,30 @@
       },
       "revId": "551b86d629f07ad6d051a5890980046ca47d0a6f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9381f896_89284c6d",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 898,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-12-10T18:58:01Z",
+      "side": 1,
+      "message": "I have mixed feelings on string constants, but no strong opinions either way.\n\nIf you do create a constant, please make it very explicit this is for component name. e.g. `kKeyMintComponentName`.",
+      "parentUuid": "48813db1_6a6d3cbf",
+      "range": {
+        "startLine": 898,
+        "startChar": 0,
+        "endLine": 898,
+        "endChar": 65
+      },
+      "revId": "551b86d629f07ad6d051a5890980046ca47d0a6f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
