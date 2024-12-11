@@ -16,6 +16,87 @@
       "message": "And outdated here as well after resolving merge conflicts.",
       "revId": "bf3c2789e3bb392a7947f9b16a9a06ee62ec1f4c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "790ed6c7_d1127fe0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-12-11T00:15:37Z",
+      "side": 1,
+      "message": "Just nits. Feel free to fix or let me know if I should just mark it autosubmit.",
+      "revId": "bf3c2789e3bb392a7947f9b16a9a06ee62ec1f4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24362dd1_dcb35523",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-12-11T00:15:37Z",
+      "side": 1,
+      "message": "nit: we tend to use `uint8_t`",
+      "range": {
+        "startLine": 886,
+        "startChar": 38,
+        "endLine": 886,
+        "endChar": 51
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e1062898_8fe9cbb4",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 886,
+                "startChar": 0,
+                "endLine": 887,
+                "endChar": 0
+              },
+              "replacement": "std::string hexlify(const std::vector\u003cuint8_t\u003e\u0026 bytes) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "bf3c2789e3bb392a7947f9b16a9a06ee62ec1f4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22a89b0d_1191dcd1",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-12-11T00:15:37Z",
+      "side": 1,
+      "message": "Maybe this is subjective, but I think it\u0027s more clear (and less error prone long term) to have each condition just once:\n\n```suggestion    \n    if (!AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str())) {\n        if (apiLevel \u003c 202504) {\n            GTEST_SKIP() \u003c\u003c \"The RKP VM (\" \u003c\u003c RKPVM_INSTANCE_NAME\n                         \u003c\u003c \") is not present on this device.\";\n        } else {\n            GTEST_SKIP() \u003c\u003c \"Missing required RKP VM (\" \u003c\u003c RKPVM_INSTANCE_NAME\n                         \u003c\u003c \") HAL instance.\";\n        }\n    }\n```",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 5
+      },
+      "revId": "bf3c2789e3bb392a7947f9b16a9a06ee62ec1f4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
