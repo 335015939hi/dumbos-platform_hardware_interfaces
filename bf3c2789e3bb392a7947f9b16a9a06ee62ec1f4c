@@ -76,6 +76,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbcaf8d4_e100ada9",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-12-11T10:52:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24362dd1_dcb35523",
+      "range": {
+        "startLine": 886,
+        "startChar": 38,
+        "endLine": 886,
+        "endChar": 51
+      },
+      "revId": "bf3c2789e3bb392a7947f9b16a9a06ee62ec1f4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22a89b0d_1191dcd1",
@@ -89,6 +113,30 @@
       "writtenOn": "2024-12-11T00:15:37Z",
       "side": 1,
       "message": "Maybe this is subjective, but I think it\u0027s more clear (and less error prone long term) to have each condition just once:\n\n```suggestion    \n    if (!AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str())) {\n        if (apiLevel \u003c 202504) {\n            GTEST_SKIP() \u003c\u003c \"The RKP VM (\" \u003c\u003c RKPVM_INSTANCE_NAME\n                         \u003c\u003c \") is not present on this device.\";\n        } else {\n            GTEST_SKIP() \u003c\u003c \"Missing required RKP VM (\" \u003c\u003c RKPVM_INSTANCE_NAME\n                         \u003c\u003c \") HAL instance.\";\n        }\n    }\n```",
+      "range": {
+        "startLine": 274,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 5
+      },
+      "revId": "bf3c2789e3bb392a7947f9b16a9a06ee62ec1f4c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1884ef7c_ac9bc100",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-12-11T10:52:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22a89b0d_1191dcd1",
       "range": {
         "startLine": 274,
         "startChar": 0,
