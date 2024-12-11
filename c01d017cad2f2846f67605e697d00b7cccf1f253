@@ -22,6 +22,30 @@
       },
       "revId": "c01d017cad2f2846f67605e697d00b7cccf1f253",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "712dff47_63d2b947",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2024-12-11T01:35:52Z",
+      "side": 1,
+      "message": "\u003e As I understand it, for non-PCM cases that value can also end up being too large. So I think we need to address the minimum buffer size calculation in Module::setAudioPatch as well.\n\nYes, I have overrided `Module::setAudioPatch` and updated the minimum buffer size in it. However, since it\u0027s more experiment like value on different device, it seems doesn\u0027t have a good method to assign a default value in example or make sure vender will update it in their implementation. Maybe adding a new virtual method like `Module::getNominalLatencyMs` do? Do you have better idea?",
+      "parentUuid": "c3109ecb_2794c4b6",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 65
+      },
+      "revId": "c01d017cad2f2846f67605e697d00b7cccf1f253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
