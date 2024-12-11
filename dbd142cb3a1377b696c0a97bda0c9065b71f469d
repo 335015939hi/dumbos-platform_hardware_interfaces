@@ -52,6 +52,24 @@
       "parentUuid": "d80a7c21_fd4589c0",
       "revId": "dbd142cb3a1377b696c0a97bda0c9065b71f469d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c08c91d8_46739159",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1165870
+      },
+      "writtenOn": "2024-12-11T10:52:56Z",
+      "side": 1,
+      "message": "\u003e As there is not composition stage in this VTS test, the layer buffer will be flush to DRM driver directly.",
+      "parentUuid": "5c6ac072_7ad7100b",
+      "revId": "dbd142cb3a1377b696c0a97bda0c9065b71f469d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
