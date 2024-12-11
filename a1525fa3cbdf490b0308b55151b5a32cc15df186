@@ -51,6 +51,24 @@
       "message": "Wait, this has happened once before. Can we delete this?\n\nPlease delete it everywhere? b/308446411 No need to convert this and any related configstore code?",
       "revId": "a1525fa3cbdf490b0308b55151b5a32cc15df186",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5ee9810_56499dfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-11T01:36:11Z",
+      "side": 1,
+      "message": "Bill gave the reasoning in the comment https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3399863/comments/11265b82_e0875bd1",
+      "parentUuid": "73d511f4_3ad822a0",
+      "revId": "a1525fa3cbdf490b0308b55151b5a32cc15df186",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
