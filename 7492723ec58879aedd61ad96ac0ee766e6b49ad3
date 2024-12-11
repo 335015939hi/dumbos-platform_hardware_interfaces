@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb1a9dd4_c4e45629",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2024-12-11T02:36:53Z",
+      "side": 1,
+      "message": "can you please combine with the other hardware/interfaces CL\n\nhttps://android-review.git.corp.google.com/c/platform/system/hardware/interfaces/+/2579913\n\nthanks!",
+      "revId": "7492723ec58879aedd61ad96ac0ee766e6b49ad3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
