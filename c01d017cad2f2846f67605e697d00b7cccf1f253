@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69229f30_7f6dbfb1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-11T18:30:23Z",
+      "side": 1,
+      "message": "typo: constraint",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "c01d017cad2f2846f67605e697d00b7cccf1f253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3109ecb_2794c4b6",
         "filename": "audio/aidl/default/Module.cpp",
         "patchSetId": 2
@@ -38,6 +61,30 @@
       "side": 1,
       "message": "\u003e As I understand it, for non-PCM cases that value can also end up being too large. So I think we need to address the minimum buffer size calculation in Module::setAudioPatch as well.\n\nYes, I have overrided `Module::setAudioPatch` and updated the minimum buffer size in it. However, since it\u0027s more experiment like value on different device, it seems doesn\u0027t have a good method to assign a default value in example or make sure vender will update it in their implementation. Maybe adding a new virtual method like `Module::getNominalLatencyMs` do? Do you have better idea?",
       "parentUuid": "c3109ecb_2794c4b6",
+      "range": {
+        "startLine": 185,
+        "startChar": 8,
+        "endLine": 185,
+        "endChar": 65
+      },
+      "revId": "c01d017cad2f2846f67605e697d00b7cccf1f253",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89f1f9ad_6f8b544e",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-11T18:30:23Z",
+      "side": 1,
+      "message": "Yes, we can provide a virtual method `Module::calculateBufferSizeFrames` with a default implementation like this:\n\n```\nndk::ScopedAStatus calculateBufferSizeFrames(AudioFormatDescription format, sampleRate, latencyMs, bufferSizeFrames*) {\n    if (format.type \u003d\u003d AudioFormatType::PCM) {\n        *bufferSizeFrames \u003d calculateBufferSizeFramesForPcm(latencyMs, sampleRate);\n        return ndk::ScopedAStatus::ok;\n    }\n    LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \": format \" \u003c\u003c format \u003c\u003c \" is not supported\";\n    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);\n}\n```\n\nand then use it both here and in `setAudioPatch`. In the latter, if we can\u0027t calculate the minimum latency, that\u0027s a problem and the error code from `calculateBufferSizeFrames` should be propagated. \n\nHere, in `createStreamContext` if we can\u0027t calculate the minimum latency, that\u0027s also a problem but since `openInput|Output` stream can\u0027t return `EX_UNSUPPORTED_OPERATION`, we should probably just return `EX_ILLEGAL_STATE`.\n\nIn your vendor implementation, I suppose you can provide an implementation of `calculateBufferSizeFrames` which works correctly for all supported formats, and thus the errors outlined above will not be encountered.",
+      "parentUuid": "712dff47_63d2b947",
       "range": {
         "startLine": 185,
         "startChar": 8,
