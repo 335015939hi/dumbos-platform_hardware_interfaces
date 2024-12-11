@@ -98,6 +98,30 @@
       },
       "revId": "307e086a398d06aae515e9134182cc8ab5d3c448",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "308b7ab3_27a0fddf",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2024-12-11T08:07:04Z",
+      "side": 1,
+      "message": "I realized that this is VTS. We should skip it on avf rather than on GSI. b/376363989#comment22",
+      "parentUuid": "ca2affe5_b87295c6",
+      "range": {
+        "startLine": 192,
+        "startChar": 32,
+        "endLine": 192,
+        "endChar": 44
+      },
+      "revId": "307e086a398d06aae515e9134182cc8ab5d3c448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
