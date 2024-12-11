@@ -16,6 +16,24 @@
       "message": "Let me know how you feel about that separation of error conditions.",
       "revId": "08cda5d46be217d705f3ad3b9ba0024eb5183c75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3b43675_9cd67fcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-12-11T21:47:50Z",
+      "side": 1,
+      "message": "My main concern was two calls to `AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str())`. But I\u0027ve got a very strong (maybe bordering on irrational) dislike of duplication 😊",
+      "parentUuid": "850bbacd_7054a048",
+      "revId": "08cda5d46be217d705f3ad3b9ba0024eb5183c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
