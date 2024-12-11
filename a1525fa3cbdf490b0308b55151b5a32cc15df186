@@ -16,6 +16,24 @@
       "message": "Hi Steven and Devin,\n\nWould you mind to approve this conversion first due to there\u0027s more work need to do including update logic in `surfaceflinger` as I describe in https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3268554/comments/3ab41823_badb59d9\n\nBecause there\u0027s other task depending on this conversion so I want to merge this conversion first to unblock them and I will base on this CL to remove all of configstore hal.",
       "revId": "a1525fa3cbdf490b0308b55151b5a32cc15df186",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27a47814_5994d81b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-11T01:19:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11265b82_e0875bd1",
+      "revId": "a1525fa3cbdf490b0308b55151b5a32cc15df186",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
