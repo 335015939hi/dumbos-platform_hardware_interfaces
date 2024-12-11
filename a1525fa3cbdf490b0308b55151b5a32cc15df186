@@ -87,6 +87,24 @@
       "parentUuid": "a5ee9810_56499dfe",
       "revId": "a1525fa3cbdf490b0308b55151b5a32cc15df186",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a194029f_f7b9a3a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1308044
+      },
+      "writtenOn": "2024-12-11T03:01:19Z",
+      "side": 1,
+      "message": "Yes, there\u0027s already bug about that and I check with Sundong@ due to ag/5790095 which introduce that dependencies.",
+      "parentUuid": "0c132ff5_28d685c3",
+      "revId": "a1525fa3cbdf490b0308b55151b5a32cc15df186",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
