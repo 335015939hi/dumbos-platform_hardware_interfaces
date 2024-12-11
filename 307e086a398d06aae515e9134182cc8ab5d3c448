@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7bec15d_de3d82b2",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1061057
+      },
+      "writtenOn": "2024-12-11T03:00:44Z",
+      "side": 1,
+      "message": "IsGsiRunning() is not precisely",
+      "range": {
+        "startLine": 192,
+        "startChar": 32,
+        "endLine": 192,
+        "endChar": 44
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f11b9743_6eacb4af",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+              "range": {
+                "startLine": 32,
+                "startChar": 0,
+                "endLine": 33,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+              "range": {
+                "startLine": 192,
+                "startChar": 0,
+                "endLine": 193,
+                "endChar": 0
+              },
+              "replacement": "            if (::android::gsi::IsGsiBuild()) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "307e086a398d06aae515e9134182cc8ab5d3c448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
