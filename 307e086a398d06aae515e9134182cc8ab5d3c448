@@ -74,6 +74,30 @@
       },
       "revId": "307e086a398d06aae515e9134182cc8ab5d3c448",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca2affe5_b87295c6",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-12-11T07:27:28Z",
+      "side": 1,
+      "message": "Thanks, then which other function would you recommend to use in this case?",
+      "parentUuid": "dc93d851_cc5b871c",
+      "range": {
+        "startLine": 192,
+        "startChar": 32,
+        "endLine": 192,
+        "endChar": 44
+      },
+      "revId": "307e086a398d06aae515e9134182cc8ab5d3c448",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
