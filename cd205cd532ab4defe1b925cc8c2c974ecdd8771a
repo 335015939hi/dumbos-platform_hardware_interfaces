@@ -94,6 +94,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e4d522c_814fd2b0",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 858,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-12-12T23:50:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bb6bde5_2f55ccce",
+      "range": {
+        "startLine": 858,
+        "startChar": 53,
+        "endLine": 858,
+        "endChar": 64
+      },
+      "revId": "cd205cd532ab4defe1b925cc8c2c974ecdd8771a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9aaa9a3d_ab89100c",
@@ -107,6 +131,30 @@
       "writtenOn": "2024-12-12T22:29:31Z",
       "side": 1,
       "message": "We shouldn\u0027t skip the test. We should, instead, verify that the DICE mode matches the boot state.\n\n```suggestion\n    auto challenge \u003d randomBytes(MAX_CHALLENGE_SIZE);\n    bytevec csr;\n    auto status \u003d\n            provisionable_-\u003egenerateCertificateRequestV2({} /* keysToSign */, challenge, \u0026csr);\n    ASSERT_TRUE(status.isOk()) \u003c\u003c status.getDescription();\n\n    auto isProper \u003d isCsrWithProperDiceChain(csr, GetParam());\n    ASSERT_TRUE(isProper) \u003c\u003c isProper.message();\n    if (!*isProper) {\n        GTEST_SKIP() \u003c\u003c \"Skipping test: Only a proper DICE chain has a mode set.\";\n    }\n\n    auto result \u003d hasNonNormalModeInDiceChain(csr, GetParam());\n    ASSERT_TRUE(result) \u003c\u003c result.message();\n    \n    ASSERT_EQ(deviceState \u003d\u003d \"locked\" \u0026\u0026 verifiedBootState \u003d\u003d \"green\", *result)\n            \u003c\u003c \"Every DICE chain certificate has a normal mode, but ro.boot.vbmeta.device_state \"\n            \u003c\u003c \"is set to \" \u003c\u003c deviceState \u003c\u003c \" and \"\n            \u003c\u003c \" ro.boot.verifiedbootstate is set to \" \u003c\u003c verifiedBootState;\n```",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 879,
+        "endChar": 76
+      },
+      "revId": "cd205cd532ab4defe1b925cc8c2c974ecdd8771a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7dd3e07_da45fffa",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-12-12T23:50:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9aaa9a3d_ab89100c",
       "range": {
         "startLine": 858,
         "startChar": 0,
