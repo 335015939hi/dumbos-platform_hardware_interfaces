@@ -163,6 +163,30 @@
       },
       "revId": "cd205cd532ab4defe1b925cc8c2c974ecdd8771a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adf3a001_2e02e8ac",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-12-12T23:53:30Z",
+      "side": 1,
+      "message": "Oops, I inverted the check in my suggestion. LGTM!",
+      "parentUuid": "f7dd3e07_da45fffa",
+      "range": {
+        "startLine": 858,
+        "startChar": 0,
+        "endLine": 879,
+        "endChar": 76
+      },
+      "revId": "cd205cd532ab4defe1b925cc8c2c974ecdd8771a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
