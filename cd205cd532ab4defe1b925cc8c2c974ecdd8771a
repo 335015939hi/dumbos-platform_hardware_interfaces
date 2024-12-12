@@ -16,6 +16,23 @@
       "message": "And, more outdated votes. Take a look when you get a chance.",
       "revId": "cd205cd532ab4defe1b925cc8c2c974ecdd8771a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b82410c6_1302f86c",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 15
+      },
+      "lineNbr": 855,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2024-12-12T17:33:46Z",
+      "side": 1,
+      "message": "I just want to make sure that people are satisfied with what properties are being checked in order to perform this test.",
+      "revId": "cd205cd532ab4defe1b925cc8c2c974ecdd8771a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
