@@ -111,6 +111,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac332a83_79631cbd",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1704912
+      },
+      "writtenOn": "2024-12-13T15:02:20Z",
+      "side": 1,
+      "message": "Yes,I understand from where your point is coming from; if iov was being used only in writev()then I agree with you. But in the later part of the code, we need to increment/using iov to traverse the array and for other purpose. Therefore,a separate pointer is used for better usage.",
+      "parentUuid": "4fc43f57_194fa898",
+      "range": {
+        "startLine": 48,
+        "startChar": 15,
+        "endLine": 48,
+        "endChar": 24
+      },
+      "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5bf4b5e_e6c76bcc",
@@ -181,6 +205,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "856d0b27_e756a373",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1704912
+      },
+      "writtenOn": "2024-12-13T15:02:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdf4f5e0_9ecc739d",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 39
+      },
+      "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "726dc425_0eadfc8a",
@@ -218,6 +266,30 @@
           ]
         }
       ],
+      "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b522701_317b1aca",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1704912
+      },
+      "writtenOn": "2024-12-13T15:02:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "726dc425_0eadfc8a",
+      "range": {
+        "startLine": 92,
+        "startChar": 9,
+        "endLine": 92,
+        "endChar": 22
+      },
       "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
