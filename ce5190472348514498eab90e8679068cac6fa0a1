@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "748694eb_f3b90fe7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2024-12-13T16:10:28Z",
+      "side": 1,
+      "message": "Some unrelated changes prevent VtsAidlKeyMintTargetTest from building, but since this only renames a function and updates comments, you can already take a look before I fully test it.",
+      "revId": "ce5190472348514498eab90e8679068cac6fa0a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
