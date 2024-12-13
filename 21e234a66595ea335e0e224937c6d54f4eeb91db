@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5268e5a7_99cea638",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-13T17:02:21Z",
+      "side": 1,
+      "message": "It seems like \"VSR API level\" is somewhat used as a shorthand for \"vendor API level for the VSR requirement\", and it does see a fair amount of use (including by folk who aren\u0027t us), so I\u0027m not (yet) convinced.",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ba8543b_c5bc4d98",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-13T17:02:21Z",
+      "side": 1,
+      "message": "super-nit: close parenthesis",
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e350ab9d_3f5224ee",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-13T17:02:21Z",
+      "side": 1,
+      "message": "\"contradicts\" is maybe a little strong -- maybe \"This is technically weaker than VSR-12 requirements...\" ?",
+      "range": {
+        "startLine": 1437,
+        "startChar": 24,
+        "endLine": 1437,
+        "endChar": 35
+      },
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f32678d_c73a10f2",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-13T17:02:21Z",
+      "side": 1,
+      "message": "The current name is consistent with `com.android.compatibility.common.util.PropertyUtil.getVsrApiLevel` so I wonder if we should leave it as-is?  (It\u0027s also doing more than just reading `vendor.api_level`)",
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c347d646_39622829",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-13T17:02:21Z",
+      "side": 1,
+      "message": "The comments here are a bit improvement, thank you.",
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

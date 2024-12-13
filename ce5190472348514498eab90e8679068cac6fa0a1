@@ -16,6 +16,24 @@
       "message": "Some unrelated changes prevent VtsAidlKeyMintTargetTest from building, but since this only renames a function and updates comments, you can already take a look before I fully test it.",
       "revId": "ce5190472348514498eab90e8679068cac6fa0a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df39397_548b5040",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-13T17:02:21Z",
+      "side": 1,
+      "message": "BTW the RKP tests also re-use this helper and would need updating too.",
+      "parentUuid": "748694eb_f3b90fe7",
+      "revId": "ce5190472348514498eab90e8679068cac6fa0a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
