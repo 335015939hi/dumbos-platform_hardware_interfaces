@@ -37,6 +37,64 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc2121d0_ef8f66d6",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-12-13T00:08:01Z",
+      "side": 1,
+      "message": "Can you please run clang-format to fix the formatting ?",
+      "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fc43f57_194fa898",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-12-13T00:08:01Z",
+      "side": 1,
+      "message": "Ressagning to iov later should not be necessary, iovec[] is implicitely converted to iovec*.",
+      "range": {
+        "startLine": 48,
+        "startChar": 15,
+        "endLine": 48,
+        "endChar": 24
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "efe9e58f_46de7881",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/hci/h4_protocol.cc",
+              "range": {
+                "startLine": 48,
+                "startChar": 0,
+                "endLine": 52,
+                "endChar": 0
+              },
+              "replacement": "  struct iovec iov[] \u003d {{ \u0026type, sizeof(type) },\n                         { const_cast\u003cuint8_t*\u003e(data), length } };\n  size_t iovcnt \u003d sizeof(iov) / sizeof(iov[0]);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e5bf4b5e_e6c76bcc",
         "filename": "bluetooth/hci/h4_protocol.cc",
         "patchSetId": 1
@@ -78,6 +136,70 @@
         "endLine": 57,
         "endChar": 43
       },
+      "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdf4f5e0_9ecc739d",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-12-13T00:08:01Z",
+      "side": 1,
+      "message": "Please use %zu formatter to avoid int casts.",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 78,
+        "endChar": 39
+      },
+      "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "726dc425_0eadfc8a",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2024-12-13T00:08:01Z",
+      "side": 1,
+      "message": "total_bytes - remaining_bytes",
+      "range": {
+        "startLine": 92,
+        "startChar": 9,
+        "endLine": 92,
+        "endChar": 22
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "568b0bdd_31909c34",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/hci/h4_protocol.cc",
+              "range": {
+                "startLine": 92,
+                "startChar": 0,
+                "endLine": 93,
+                "endChar": 0
+              },
+              "replacement": "  return total_bytes - remaining_bytes;\n"
+            }
+          ]
+        }
+      ],
       "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
