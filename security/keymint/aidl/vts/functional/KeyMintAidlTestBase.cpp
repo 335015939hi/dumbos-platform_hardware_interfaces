@@ -35,6 +35,7 @@
 #include <openssl/evp.h>
 #include <openssl/mem.h>
 #include <remote_prov/remote_prov_utils.h>
+#include <vendorsupport/api_level.h>
 
 #include <keymaster/cppcose/cppcose.h>
 #include <keymint_support/key_param_output.h>
@@ -1434,12 +1435,11 @@ std::pair<ErrorCode, vector<uint8_t>> KeyMintAidlTestBase::UpgradeKey(
 }
 
 bool KeyMintAidlTestBase::IsRkpSupportRequired() const {
-    // This is technically not a match to the requirements for S chipsets,
-    // however when S shipped there was a bug in the test that skipped the
-    // tests if KeyMint 2 was not on the system. So we allowed many chipests
-    // to ship without RKP support. In T we hardened the requirements around
-    // support for RKP, so relax the test to match.
-    return get_vsr_api_level() >= __ANDROID_API_T__;
+    // This is technically weaker than the VSR-12 requirements, but when
+    // Android 12 shipped, there was a bug that skipped the tests if KeyMint
+    // 2 was not present. As a result, many chipsets were allowed to ship
+    // without RKP support. The RKP requirements were hardened in VSR-13.
+    return get_vendor_api_level() >= __ANDROID_API_T__;
 }
 
 vector<uint32_t> KeyMintAidlTestBase::ValidKeySizes(Algorithm algorithm) {
@@ -1690,11 +1690,11 @@ ErrorCode KeyMintAidlTestBase::GenerateAttestKey(const AuthorizationSet& key_des
                                                  vector<uint8_t>* key_blob,
                                                  vector<KeyCharacteristics>* key_characteristics,
                                                  vector<Certificate>* cert_chain) {
-    // The original specification for KeyMint v1 required ATTEST_KEY not be combined
-    // with any other key purpose, but the original VTS tests incorrectly did exactly that.
-    // This means that a device that launched prior to Android T (API level 33) may
-    // accept or even require KeyPurpose::SIGN too.
-    if (get_vsr_api_level() < __ANDROID_API_T__) {
+    // The original specification for KeyMint v1 (introduced in Android 12) required ATTEST_KEY not
+    // be combined with any other key purpose, but the original VTS-12 tests incorrectly did exactly
+    // that. The tests were fixed in VTS-13 (vendor API level 33). This means that devices with
+    // vendor API level < 33 may accept or even require KeyPurpose::SIGN too.
+    if (get_vendor_api_level() < __ANDROID_API_T__) {
         AuthorizationSet key_desc_plus_sign = key_desc;
         key_desc_plus_sign.push_back(TAG_PURPOSE, KeyPurpose::SIGN);
 
@@ -1908,13 +1908,13 @@ void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_
         }
     }
 
-    if (get_vsr_api_level() > __ANDROID_API_V__) {
+    if (get_vsr_api_level() > AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
         // The Verified Boot key field should be exactly 32 bytes since it
         // contains the SHA-256 hash of the key on locked devices or 32 bytes
         // of zeroes on unlocked devices. This wasn't checked for earlier
         // versions of the KeyMint HAL, so only only be strict for VSR-16+.
         EXPECT_EQ(verified_boot_key.size(), 32);
-    } else if (get_vsr_api_level() == __ANDROID_API_V__) {
+    } else if (get_vsr_api_level() == AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
         // The Verified Boot key field should be:
         //   - Exactly 32 bytes on locked devices since it should contain
         //     the SHA-256 hash of the key, or
