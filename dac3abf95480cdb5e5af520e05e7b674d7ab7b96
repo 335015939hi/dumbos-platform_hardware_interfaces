@@ -16,6 +16,47 @@
       "message": "Shunkai, please provide the second review.",
       "revId": "dac3abf95480cdb5e5af520e05e7b674d7ab7b96",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0844fdb1_7d7c14d1",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-13T01:36:44Z",
+      "side": 1,
+      "message": "quic_ajender@quicinc.com@ Ajender, I can see the problem here. This code is missing assignment to `_aidl_return`. Without it, the framework receives an empty patch, and stores it with a zero id, while leads to problems down the line.",
+      "range": {
+        "startLine": 1065,
+        "startChar": 0,
+        "endLine": 1065,
+        "endChar": 44
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5b84523d_f2c6371c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Module.cpp",
+              "range": {
+                "startLine": 1065,
+                "startChar": 0,
+                "endLine": 1065,
+                "endChar": 0
+              },
+              "replacement": "            *_aidl_return \u003d *existing;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "dac3abf95480cdb5e5af520e05e7b674d7ab7b96",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
