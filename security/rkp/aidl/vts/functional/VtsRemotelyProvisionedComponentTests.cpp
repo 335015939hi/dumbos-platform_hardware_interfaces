@@ -192,10 +192,10 @@ class VtsRemotelyProvisionedComponentTests : public testing::TestWithParam<std::
             if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
                 GTEST_SKIP() << "The RKP VM is not supported on this system.";
             }
-            int apiLevel = get_vsr_api_level();
-            if (apiLevel < __ANDROID_API_V__) {
-                GTEST_SKIP() << "The RKP VM is supported only on V+ devices. Vendor API level: "
-                             << apiLevel;
+            int vendorApiLevel = get_vendor_api_level();
+            if (vendorApiLevel < __ANDROID_API_V__) {
+                GTEST_SKIP() << "The RKP VM is supported only on vendor API level >= 202404. This "
+                             << "device has vendor API level: " << vendorApiLevel;
             }
         }
         ASSERT_TRUE(status.isOk());
@@ -246,9 +246,90 @@ TEST(NonParameterizedTests, eachRpcHasAUniqueId) {
  */
 // @VsrTest = 3.10-015
 TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
+    int vendor_api_level = get_vendor_api_level();
+    if (vendor_api_level < __ANDROID_API_V__) {
+        GTEST_SKIP() << "Applies only to vendor API level >= 202404, but this device is: "
+                     << vendor_api_level;
+    }
+
+    if (!AServiceManager_isDeclared(KEYMINT_STRONGBOX_INSTANCE_NAME.c_str())) {
+        GTEST_SKIP() << "Strongbox is not present on this device.";
+    }
+
+<<<<<<< HEAD   (b012c3 Don't send OID and size in NFA_SendVsCommand())
+||||||| BASE
+    auto rpc = getHandle<IRemotelyProvisionedComponent>(DEFAULT_INSTANCE_NAME);
+    ASSERT_NE(rpc, nullptr);
+
+    bytevec challenge = randomBytes(64);
+    bytevec csr;
+    auto status = rpc->generateCertificateRequestV2({} /* keysToSign */, challenge, &csr);
+    EXPECT_TRUE(status.isOk()) << status.getDescription();
+
+    auto result = isCsrWithProperDiceChain(csr, DEFAULT_INSTANCE_NAME);
+    ASSERT_TRUE(result) << result.message();
+    ASSERT_TRUE(*result);
+}
+
+/**
+ * Verify that if a protected VM (also called `avf` or RKP VM) implementation exists, then the
+ * protected VM and the primary KeyMint (also called 'default') implementation's DICE certificate
+ * chain has the same root public key, i.e., the same UDS public key
+ */
+// @VsrTest = 7.1-003.001
+TEST(NonParameterizedTests, equalUdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintInstances) {
+    int apiLevel = get_vsr_api_level();
+    if (apiLevel < 202504 && !AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str())) {
+        GTEST_SKIP() << "The RKP VM (" << RKPVM_INSTANCE_NAME << ") is not present on this device.";
+    }
+    if (apiLevel >= 202504) {
+        ASSERT_TRUE(AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str()));
+    }
+
+    auto rkpVmRpc = getHandle<IRemotelyProvisionedComponent>(RKPVM_INSTANCE_NAME);
+    ASSERT_NE(rkpVmRpc, nullptr) << "The RKP VM (" << RKPVM_INSTANCE_NAME
+                                 << ") RPC is unavailable.";
+
+    RpcHardwareInfo hardwareInfo;
+    auto status = rkpVmRpc->getHardwareInfo(&hardwareInfo);
+    if (!status.isOk()) {
+        GTEST_SKIP() << "The RKP VM is not supported on this system.";
+    }
+
+    bytevec rkpVmChallenge = randomBytes(MAX_CHALLENGE_SIZE);
+    bytevec rkpVmCsr;
+    auto rkpVmStatus =
+            rkpVmRpc->generateCertificateRequestV2({} /* keysToSign */, rkpVmChallenge, &rkpVmCsr);
+    ASSERT_TRUE(rkpVmStatus.isOk()) << rkpVmStatus.getDescription();
+
+    auto primaryKeyMintRpc = getHandle<IRemotelyProvisionedComponent>(DEFAULT_INSTANCE_NAME);
+    ASSERT_NE(primaryKeyMintRpc, nullptr)
+            << "The Primary KeyMint (" << DEFAULT_INSTANCE_NAME << ") RPC is unavailable.";
+
+    bytevec primaryKeyMintChallenge = randomBytes(MAX_CHALLENGE_SIZE);
+    bytevec primaryKeyMintCsr;
+    auto primaryKeyMintStatus = primaryKeyMintRpc->generateCertificateRequestV2(
+            {} /* keysToSign */, primaryKeyMintChallenge, &primaryKeyMintCsr);
+    ASSERT_TRUE(primaryKeyMintStatus.isOk()) << primaryKeyMintStatus.getDescription();
+
+    auto equal = compareRootPublicKeysInDiceChains(rkpVmCsr, RKPVM_INSTANCE_NAME, primaryKeyMintCsr,
+                                                   DEFAULT_INSTANCE_NAME);
+    ASSERT_TRUE(equal) << equal.message();
+    ASSERT_TRUE(*equal) << "Primary KeyMint and RKP VM RPCs have different UDS public keys";
+}
+
+/**
+ * Suppose that there is a StrongBox KeyMint instance on the device.
+ *
+ * Then, this test verifies that "keymint" is a substring of the component name in the configuration
+ * descriptor in the leaf certificate of the DICE chain for the primary ("default") KeyMint
+ * instance.
+ */
+// @VsrTest = 3.10-018.003
+TEST(NonParameterizedTests, componentNameInConfigurationDescriptorForPrimaryKeyMintInstance) {
     int vsr_api_level = get_vsr_api_level();
-    if (vsr_api_level < 35) {
-        GTEST_SKIP() << "Applies only to VSR API level 35 or newer, this device is: "
+    if (vsr_api_level < 202504) {
+        GTEST_SKIP() << "Applies only to VSR API level 202504 or newer, this device is: "
                      << vsr_api_level;
     }
 
@@ -256,6 +337,87 @@ TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
         GTEST_SKIP() << "Strongbox is not present on this device.";
     }
 
+=======
+    auto rpc = getHandle<IRemotelyProvisionedComponent>(DEFAULT_INSTANCE_NAME);
+    ASSERT_NE(rpc, nullptr);
+
+    bytevec challenge = randomBytes(64);
+    bytevec csr;
+    auto status = rpc->generateCertificateRequestV2({} /* keysToSign */, challenge, &csr);
+    EXPECT_TRUE(status.isOk()) << status.getDescription();
+
+    auto result = isCsrWithProperDiceChain(csr, DEFAULT_INSTANCE_NAME);
+    ASSERT_TRUE(result) << result.message();
+    ASSERT_TRUE(*result);
+}
+
+/**
+ * Verify that if a protected VM (also called `avf` or RKP VM) implementation exists, then the
+ * protected VM and the primary KeyMint (also called 'default') implementation's DICE certificate
+ * chain has the same root public key, i.e., the same UDS public key
+ */
+// @VsrTest = 7.1-003.001
+TEST(NonParameterizedTests, equalUdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintInstances) {
+    int vendorApiLevel = get_vendor_api_level();
+    if (vendorApiLevel < 202504 && !AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str())) {
+        GTEST_SKIP() << "The RKP VM (" << RKPVM_INSTANCE_NAME << ") is not present on this device.";
+    }
+    if (vendorApiLevel >= 202504) {
+        ASSERT_TRUE(AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str()));
+    }
+
+    auto rkpVmRpc = getHandle<IRemotelyProvisionedComponent>(RKPVM_INSTANCE_NAME);
+    ASSERT_NE(rkpVmRpc, nullptr) << "The RKP VM (" << RKPVM_INSTANCE_NAME
+                                 << ") RPC is unavailable.";
+
+    RpcHardwareInfo hardwareInfo;
+    auto status = rkpVmRpc->getHardwareInfo(&hardwareInfo);
+    if (!status.isOk()) {
+        GTEST_SKIP() << "The RKP VM is not supported on this system.";
+    }
+
+    bytevec rkpVmChallenge = randomBytes(MAX_CHALLENGE_SIZE);
+    bytevec rkpVmCsr;
+    auto rkpVmStatus =
+            rkpVmRpc->generateCertificateRequestV2({} /* keysToSign */, rkpVmChallenge, &rkpVmCsr);
+    ASSERT_TRUE(rkpVmStatus.isOk()) << rkpVmStatus.getDescription();
+
+    auto primaryKeyMintRpc = getHandle<IRemotelyProvisionedComponent>(DEFAULT_INSTANCE_NAME);
+    ASSERT_NE(primaryKeyMintRpc, nullptr)
+            << "The Primary KeyMint (" << DEFAULT_INSTANCE_NAME << ") RPC is unavailable.";
+
+    bytevec primaryKeyMintChallenge = randomBytes(MAX_CHALLENGE_SIZE);
+    bytevec primaryKeyMintCsr;
+    auto primaryKeyMintStatus = primaryKeyMintRpc->generateCertificateRequestV2(
+            {} /* keysToSign */, primaryKeyMintChallenge, &primaryKeyMintCsr);
+    ASSERT_TRUE(primaryKeyMintStatus.isOk()) << primaryKeyMintStatus.getDescription();
+
+    auto equal = compareRootPublicKeysInDiceChains(rkpVmCsr, RKPVM_INSTANCE_NAME, primaryKeyMintCsr,
+                                                   DEFAULT_INSTANCE_NAME);
+    ASSERT_TRUE(equal) << equal.message();
+    ASSERT_TRUE(*equal) << "Primary KeyMint and RKP VM RPCs have different UDS public keys";
+}
+
+/**
+ * Suppose that there is a StrongBox KeyMint instance on the device.
+ *
+ * Then, this test verifies that "keymint" is a substring of the component name in the configuration
+ * descriptor in the leaf certificate of the DICE chain for the primary ("default") KeyMint
+ * instance.
+ */
+// @VsrTest = 3.10-018.003
+TEST(NonParameterizedTests, componentNameInConfigurationDescriptorForPrimaryKeyMintInstance) {
+    int vendor_api_level = get_vendor_api_level();
+    if (vendor_api_level < 202504) {
+        GTEST_SKIP() << "Applies only to vendor API level >= 202504, but this device is: "
+                     << vendor_api_level;
+    }
+
+    if (!AServiceManager_isDeclared(KEYMINT_STRONGBOX_INSTANCE_NAME.c_str())) {
+        GTEST_SKIP() << "Strongbox is not present on this device.";
+    }
+
+>>>>>>> CHANGE (6d94e9 Use consistent, correct terminology for vendor API levels in)
     ::ndk::SpAIBinder binder(AServiceManager_waitForService(DEFAULT_INSTANCE_NAME.c_str()));
     std::shared_ptr<IRemotelyProvisionedComponent> rpc =
             IRemotelyProvisionedComponent::fromBinder(binder);
@@ -1020,10 +1182,10 @@ INSTANTIATE_REM_PROV_AIDL_TEST(VsrRequirementTest);
 TEST_P(VsrRequirementTest, VsrEnforcementTest) {
     RpcHardwareInfo hwInfo;
     ASSERT_TRUE(provisionable_->getHardwareInfo(&hwInfo).isOk());
-    int vsr_api_level = get_vsr_api_level();
-    if (vsr_api_level < 34) {
-        GTEST_SKIP() << "Applies only to VSR API level 34 or newer, this device is: "
-                     << vsr_api_level;
+    int vendor_api_level = get_vendor_api_level();
+    if (vendor_api_level < __ANDROID_API_U__) {
+        GTEST_SKIP() << "Applies only to vendor API level >= 34, but this device is: "
+                     << vendor_api_level;
     }
     EXPECT_GE(hwInfo.versionNumber, 3)
             << "VSR 14+ requires IRemotelyProvisionedComponent v3 or newer.";
