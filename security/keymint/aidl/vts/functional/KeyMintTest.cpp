@@ -42,6 +42,8 @@
 #include <keymint_support/key_param_output.h>
 #include <keymint_support/openssl_utils.h>
 
+#include <vendorsupport/api_level.h>
+
 #include "KeyMintAidlTestBase.h"
 
 using aidl::android::hardware::security::keymint::AuthorizationSet;
@@ -4157,7 +4159,7 @@ TEST_P(ImportKeyTest, EcdsaSuccess) {
  */
 TEST_P(ImportKeyTest, EcdsaSuccessCurveNotSpecified) {
     int vendor_api_level = get_vendor_api_level();
-    if (vendor_api_level < __ANDROID_API_V__) {
+    if (vendor_api_level < AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
         /*
          * The KeyMint spec was previously not clear as to whether EC_CURVE was optional on import
          * of EC keys. However, this was not checked at the time, so we version-gate the strict
@@ -5317,7 +5319,7 @@ auto wrapping_key_for_asym_keys = hex2str(
 
 TEST_P(ImportWrappedKeyTest, RsaKey) {
     int vendor_api_level = get_vendor_api_level();
-    if (vendor_api_level < __ANDROID_API_V__) {
+    if (vendor_api_level < AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
         /*
          * The Keymaster v4 spec introduced `importWrappedKey()` and did not restrict it to
          * just symmetric keys.  However, the import of asymmetric wrapped keys was not tested
@@ -5348,7 +5350,7 @@ TEST_P(ImportWrappedKeyTest, RsaKey) {
 
 TEST_P(ImportWrappedKeyTest, EcKey) {
     int vendor_api_level = get_vendor_api_level();
-    if (vendor_api_level < __ANDROID_API_V__) {
+    if (vendor_api_level < AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
         /*
          * The Keymaster v4 spec introduced `importWrappedKey()` and did not restrict it to
          * just symmetric keys.  However, the import of asymmetric wrapped keys was not tested
@@ -8966,7 +8968,7 @@ TEST_P(VsrRequirementTest, Vsr14Test) {
 // @VsrTest = GMS-VSR-3.10-019
 TEST_P(VsrRequirementTest, Vsr16Test) {
     int vendor_api_level = get_vendor_api_level();
-    if (vendor_api_level <= __ANDROID_API_V__) {
+    if (vendor_api_level <= AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
         GTEST_SKIP() << "Applies only to vendor API level > 202404, but this device is: "
                      << vendor_api_level;
     }
