@@ -17,7 +17,6 @@
 package android.hardware.bluetooth.socket;
 
 import android.hardware.bluetooth.socket.LeCocCapabilities;
-import android.hardware.bluetooth.socket.RfcommCapabilities;
 
 /**
  * Supported socket protocol capabilities.
@@ -28,9 +27,4 @@ parcelable SocketCapabilities {
      * Supported LE CoC protocol capabilities.
      */
     LeCocCapabilities leCocCapabilities;
-
-    /**
-     * Supported RFCOMM protocol capabilities.
-     */
-    RfcommCapabilities rfcommCapabilities;
 }

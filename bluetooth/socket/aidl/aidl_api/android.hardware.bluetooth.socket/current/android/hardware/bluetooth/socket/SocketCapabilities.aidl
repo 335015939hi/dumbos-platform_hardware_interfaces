@@ -35,5 +35,4 @@ package android.hardware.bluetooth.socket;
 @VintfStability
 parcelable SocketCapabilities {
   android.hardware.bluetooth.socket.LeCocCapabilities leCocCapabilities;
-  android.hardware.bluetooth.socket.RfcommCapabilities rfcommCapabilities;
 }
