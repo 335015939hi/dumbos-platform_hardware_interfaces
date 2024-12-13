@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07519370_6d824dce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2024-12-13T18:41:59Z",
+      "side": 1,
+      "message": "The public SAC docs and all official documentation I could find only refer to the \"vendor API level\" (the best reference is this: https://source.android.com/docs/core/architecture/api-flags). As I wrote in the commit description, I also think that \"VSR API level\" doesn\u0027t even make sense if you think about it 😄 Happy to run this by someone more familiar with the topic, but I personally think this is clearer and more precise.",
+      "parentUuid": "5268e5a7_99cea638",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ba8543b_c5bc4d98",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -37,6 +61,24 @@
       "writtenOn": "2024-12-13T17:02:21Z",
       "side": 1,
       "message": "super-nit: close parenthesis",
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d288981_c6330aff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2024-12-13T18:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba8543b_c5bc4d98",
       "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b4beaeb_3c837a1b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2024-12-13T18:41:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e350ab9d_3f5224ee",
+      "range": {
+        "startLine": 1437,
+        "startChar": 24,
+        "endLine": 1437,
+        "endChar": 35
+      },
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f32678d_c73a10f2",
@@ -77,6 +143,24 @@
       "writtenOn": "2024-12-13T17:02:21Z",
       "side": 1,
       "message": "The current name is consistent with `com.android.compatibility.common.util.PropertyUtil.getVsrApiLevel` so I wonder if we should leave it as-is?  (It\u0027s also doing more than just reading `vendor.api_level`)",
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36832933_7993240c",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2024-12-13T18:41:59Z",
+      "side": 1,
+      "message": "(see reply above) I agree that consistency is worth something, but especially for VTS tests I think it\u0027s worth being technically precise even if it means diverging from some other helper function used in other contexts (e.g. CTS tests). If anything, I\u0027d argue that other function should be renamed.",
+      "parentUuid": "5f32678d_c73a10f2",
       "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

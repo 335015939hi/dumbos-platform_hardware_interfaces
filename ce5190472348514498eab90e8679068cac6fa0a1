@@ -34,6 +34,24 @@
       "parentUuid": "748694eb_f3b90fe7",
       "revId": "ce5190472348514498eab90e8679068cac6fa0a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f928f6d7_0225bba7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2024-12-13T18:41:59Z",
+      "side": 1,
+      "message": "Yeah presubmits caught those (my code search query was unintionally scoped just to the KM directory). There were also other failures that seem to have gone away now. In any case, it should all be up to date now.",
+      "parentUuid": "0df39397_548b5040",
+      "revId": "ce5190472348514498eab90e8679068cac6fa0a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
