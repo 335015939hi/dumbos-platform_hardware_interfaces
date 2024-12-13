@@ -1,4 +1,0 @@
-service vendor.bluetooth.socket-default /vendor/bin/hw/android.hardware.bluetooth.socket-service.default
-    class hal
-    user nobody
-    group nobody
