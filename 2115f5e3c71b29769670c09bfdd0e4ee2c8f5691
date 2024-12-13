@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79dd0e8b_6fb6a724",
+        "filename": "bluetooth/hci/h4_protocol.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1704912
+      },
+      "writtenOn": "2024-12-13T14:53:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc2121d0_ef8f66d6",
+      "revId": "2115f5e3c71b29769670c09bfdd0e4ee2c8f5691",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fc43f57_194fa898",
