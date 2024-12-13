@@ -22,25 +22,6 @@ cc_binary {
     ],
 }
 
-cc_fuzz {
-    name: "android.hardware.bluetooth.socket-service_fuzzer",
-    team: "trendy_team_bluetooth",
-    defaults: ["service_fuzzer_defaults"],
-    srcs: [
-        "fuzzer.cpp",
-        "BluetoothSocket.cpp",
-    ],
-    static_libs: [
-        "android.hardware.bluetooth.socket-V1-ndk",
-        "liblog",
-    ],
-    fuzz_config: {
-        cc: [
-            "jaydenk@google.com",
-        ],
-    },
-}
-
 filegroup {
     name: "manifest_android.hardware.bluetooth.socket-service.default.xml",
     srcs: ["bluetooth-socket-service-default.xml"],
