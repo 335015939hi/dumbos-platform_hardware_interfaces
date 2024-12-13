@@ -64,6 +64,12 @@ cc_test {
         "system/nfc/src/nfa/include",
         "system/nfc/src/nfc/include",
         "system/nfc/utils/include",
+        "packages/modules/Nfc/libnfc-nci/src/nfa/include",
+        "packages/modules/Nfc/libnfc-nci/src/nfc/include",
+        "packages/modules/Nfc/libnfc-nci/src/include",
+        "packages/modules/Nfc/libnfc-nci/src/gki/ulinux",
+        "packages/modules/Nfc/libnfc-nci/src/gki/common",
+        "packages/modules/Nfc/libnfc-nci/utils/include",
     ],
     shared_libs: [
         "liblog",
