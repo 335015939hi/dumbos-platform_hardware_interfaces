@@ -35,6 +35,7 @@
 #include <openssl/evp.h>
 #include <openssl/mem.h>
 #include <remote_prov/remote_prov_utils.h>
+#include <vendorsupport/api_level.h>
 
 #include <keymaster/cppcose/cppcose.h>
 #include <keymint_support/key_param_output.h>
@@ -1816,7 +1817,51 @@ void verify_root_of_trust(const vector<uint8_t>& verified_boot_key, bool device_
         }
     }
 
+<<<<<<< HEAD   (b012c3 Don't send OID and size in NFA_SendVsCommand())
     // Verified boot key should be all 0's if the boot state is not verified or self signed
+||||||| BASE
+    if (get_vsr_api_level() > __ANDROID_API_V__) {
+        // The Verified Boot key field should be exactly 32 bytes since it
+        // contains the SHA-256 hash of the key on locked devices or 32 bytes
+        // of zeroes on unlocked devices. This wasn't checked for earlier
+        // versions of the KeyMint HAL, so only only be strict for VSR-16+.
+        EXPECT_EQ(verified_boot_key.size(), 32);
+    } else if (get_vsr_api_level() == __ANDROID_API_V__) {
+        // The Verified Boot key field should be:
+        //   - Exactly 32 bytes on locked devices since it should contain
+        //     the SHA-256 hash of the key, or
+        //   - Up to 32 bytes of zeroes on unlocked devices (behaviour on
+        //     unlocked devices isn't specified in the HAL interface
+        //     specification).
+        // Thus, we can't check for strict equality in case unlocked devices
+        // report values with less than 32 bytes. This wasn't checked for
+        // earlier versions of the KeyMint HAL, so only check on VSR-15.
+        EXPECT_LE(verified_boot_key.size(), 32);
+    }
+
+    // Verified Boot key should be all zeroes if the boot state is "orange".
+=======
+    if (get_vsr_api_level() > AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
+        // The Verified Boot key field should be exactly 32 bytes since it
+        // contains the SHA-256 hash of the key on locked devices or 32 bytes
+        // of zeroes on unlocked devices. This wasn't checked for earlier
+        // versions of the KeyMint HAL, so only only be strict for VSR-16+.
+        EXPECT_EQ(verified_boot_key.size(), 32);
+    } else if (get_vsr_api_level() == AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
+        // The Verified Boot key field should be:
+        //   - Exactly 32 bytes on locked devices since it should contain
+        //     the SHA-256 hash of the key, or
+        //   - Up to 32 bytes of zeroes on unlocked devices (behaviour on
+        //     unlocked devices isn't specified in the HAL interface
+        //     specification).
+        // Thus, we can't check for strict equality in case unlocked devices
+        // report values with less than 32 bytes. This wasn't checked for
+        // earlier versions of the KeyMint HAL, so only check on VSR-15.
+        EXPECT_LE(verified_boot_key.size(), 32);
+    }
+
+    // Verified Boot key should be all zeroes if the boot state is "orange".
+>>>>>>> CHANGE (f16bd4 Convert SDK API level to vendor API level for Android 15+ in)
     std::string empty_boot_key(32, '\0');
     std::string verified_boot_key_str((const char*)verified_boot_key.data(),
                                       verified_boot_key.size());
