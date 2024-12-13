@@ -199,6 +199,8 @@ class DefaultVehicleHal final : public aidlvhal::BnVehicle {
 
     bool checkDumpPermission();
 
+    bool isConfigSupportedForCurrentVhalVersion(const aidlvhal::VehiclePropConfig& config) const;
+
     bool getAllPropConfigsFromHardwareLocked() const EXCLUDES(mConfigLock);
 
     // The looping handler function to process all onBinderDied or onBinderUnlinked events in

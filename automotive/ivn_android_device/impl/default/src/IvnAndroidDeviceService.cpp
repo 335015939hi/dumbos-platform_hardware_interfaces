@@ -24,6 +24,7 @@
 #include <json/json.h>
 
 #include <fstream>
+#include <string>
 
 namespace android {
 namespace hardware {

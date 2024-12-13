@@ -340,32 +340,37 @@ int32_t DefaultVehicleHal::getVhalInterfaceVersion() const {
     return myVersion;
 }
 
+bool DefaultVehicleHal::isConfigSupportedForCurrentVhalVersion(
+        const VehiclePropConfig& config) const {
+    int32_t myVersion = getVhalInterfaceVersion();
+    if (!isSystemProp(config.prop)) {
+        return true;
+    }
+    VehicleProperty property = static_cast<VehicleProperty>(config.prop);
+    std::string propertyName = aidl::android::hardware::automotive::vehicle::toString(property);
+    auto it = VersionForVehicleProperty.find(property);
+    if (it == VersionForVehicleProperty.end()) {
+        ALOGE("The property: %s is not a supported system property, ignore", propertyName.c_str());
+        return false;
+    }
+    int requiredVersion = it->second;
+    if (myVersion < requiredVersion) {
+        ALOGE("The property: %s is not supported for current client VHAL version, "
+              "require %d, current version: %d, ignore",
+              propertyName.c_str(), requiredVersion, myVersion);
+        return false;
+    }
+    return true;
+}
+
 bool DefaultVehicleHal::getAllPropConfigsFromHardwareLocked() const {
     ALOGD("Get all property configs from hardware");
     auto configs = mVehicleHardware->getAllPropertyConfigs();
     std::vector<VehiclePropConfig> filteredConfigs;
-    int32_t myVersion = getVhalInterfaceVersion();
-    for (auto& config : configs) {
-        if (!isSystemProp(config.prop)) {
+    for (const auto& config : configs) {
+        if (isConfigSupportedForCurrentVhalVersion(config)) {
             filteredConfigs.push_back(std::move(config));
-            continue;
         }
-        VehicleProperty property = static_cast<VehicleProperty>(config.prop);
-        std::string propertyName = aidl::android::hardware::automotive::vehicle::toString(property);
-        auto it = VersionForVehicleProperty.find(property);
-        if (it == VersionForVehicleProperty.end()) {
-            ALOGE("The property: %s is not a supported system property, ignore",
-                  propertyName.c_str());
-            continue;
-        }
-        int requiredVersion = it->second;
-        if (myVersion < requiredVersion) {
-            ALOGE("The property: %s is not supported for current client VHAL version, "
-                  "require %d, current version: %d, ignore",
-                  propertyName.c_str(), requiredVersion, myVersion);
-            continue;
-        }
-        filteredConfigs.push_back(std::move(config));
     }
 
     {
@@ -431,6 +436,19 @@ ScopedAStatus DefaultVehicleHal::getAllPropConfigs(VehiclePropConfigs* output) {
 
 Result<VehiclePropConfig> DefaultVehicleHal::getConfig(int32_t propId) const {
     Result<VehiclePropConfig> result;
+
+    if (!mConfigInit) {
+        std::optional<VehiclePropConfig> config = mVehicleHardware->getPropertyConfig(propId);
+        if (!config.has_value()) {
+            return Error() << "no config for property, ID: " << propId;
+        }
+        if (!isConfigSupportedForCurrentVhalVersion(config.value())) {
+            return Error() << "property not supported for current VHAL interface, ID: " << propId;
+        }
+
+        return config.value();
+    }
+
     getConfigsByPropId([this, &result, propId](const auto& configsByPropId) {
         SharedScopedLockAssertion lockAssertion(mConfigLock);
 
@@ -685,6 +703,22 @@ ScopedAStatus DefaultVehicleHal::setValues(const CallbackType& callback,
 ScopedAStatus DefaultVehicleHal::getPropConfigs(const std::vector<int32_t>& props,
                                                 VehiclePropConfigs* output) {
     std::vector<VehiclePropConfig> configs;
+
+    if (!mConfigInit) {
+        for (int32_t prop : props) {
+            auto maybeConfig = mVehicleHardware->getPropertyConfig(prop);
+            if (!maybeConfig.has_value() ||
+                !isConfigSupportedForCurrentVhalVersion(maybeConfig.value())) {
+                return ScopedAStatus::fromServiceSpecificErrorWithMessage(
+                        toInt(StatusCode::INVALID_ARG),
+                        StringPrintf("no config for property, ID: %" PRId32, prop).c_str());
+            }
+            configs.push_back(maybeConfig.value());
+        }
+
+        return vectorToStableLargeParcelable(std::move(configs), output);
+    }
+
     ScopedAStatus status = ScopedAStatus::ok();
     getConfigsByPropId([this, &configs, &status, &props](const auto& configsByPropId) {
         SharedScopedLockAssertion lockAssertion(mConfigLock);
