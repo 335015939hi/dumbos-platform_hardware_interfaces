@@ -753,7 +753,8 @@ TEST_P(GraphicsMapperStableCTests, LockUnlockBasic) {
  * Test IMapper::lock and IMapper::unlock with no CPU usage requested.
  */
 TEST_P(GraphicsMapperStableCTests, LockUnlockNoCPUUsage) {
-    constexpr auto usage = BufferUsage::CPU_READ_NEVER | BufferUsage::CPU_WRITE_NEVER;
+    constexpr auto usage =
+            BufferUsage::CPU_READ_NEVER | BufferUsage::CPU_WRITE_NEVER | BufferUsage::GPU_TEXTURE;
     auto buffer = allocate({
             .name = {"VTS_TEMP"},
             .width = 64,
