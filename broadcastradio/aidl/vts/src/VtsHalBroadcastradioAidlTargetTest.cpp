@@ -735,7 +735,7 @@ TEST_P(BroadcastRadioHalTest, DabTune) {
     }
 
     // try tuning
-
+    mCallback->reset();
     auto result = mModule->tune(sel);
 
     // expect a failure if it's not supported
