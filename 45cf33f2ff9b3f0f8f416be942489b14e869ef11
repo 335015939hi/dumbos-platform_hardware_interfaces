@@ -33,6 +33,24 @@
       "message": "Note that\n\n```\n    } else if (vendor_api_level \u003e 202404) {\n        return hwtrust::DiceChain::Kind::kVsr16;\n    } else {\n```\nwas removed since presumably `hwtrust::DiceChain::Kind::kVsr16` does not make sense to have in the `android15-tests-dev` repo?",
       "revId": "45cf33f2ff9b3f0f8f416be942489b14e869ef11",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d624b397_0a3a0671",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-12-16T18:29:50Z",
+      "side": 1,
+      "message": "Yeah, can\u0027t reference a VSR _from the future_.",
+      "parentUuid": "0b1e982b_8506bf7c",
+      "revId": "45cf33f2ff9b3f0f8f416be942489b14e869ef11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
