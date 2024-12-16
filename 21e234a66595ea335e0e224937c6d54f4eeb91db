@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da01ce41_e30c86a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-16T12:22:07Z",
+      "side": 1,
+      "message": "The helpers you found for aosp/3413560 make your case fairly convincingly...",
+      "parentUuid": "07519370_6d824dce",
+      "range": {
+        "startLine": 9,
+        "startChar": 31,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ba8543b_c5bc4d98",
@@ -167,6 +191,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8ac8330e_738e166f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1821,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-16T12:22:07Z",
+      "side": 1,
+      "message": "Ack.\n\n(One observation though - this will make cherry-picks/back-ports more likely to have merge conflicts.  Hopefully we\u0027ve got through most of the tweaks to `android15-tests-dev` so this won\u0027t matter.)",
+      "parentUuid": "36832933_7993240c",
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c347d646_39622829",
         "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
         "patchSetId": 3
@@ -178,6 +220,24 @@
       "writtenOn": "2024-12-13T17:02:21Z",
       "side": 1,
       "message": "The comments here are a bit improvement, thank you.",
+      "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3bdeb65_19224d10",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-16T12:22:07Z",
+      "side": 1,
+      "message": "oops, s/bit/big/",
+      "parentUuid": "c347d646_39622829",
       "revId": "21e234a66595ea335e0e224937c6d54f4eeb91db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
