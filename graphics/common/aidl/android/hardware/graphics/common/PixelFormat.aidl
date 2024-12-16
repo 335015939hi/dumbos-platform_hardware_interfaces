@@ -553,4 +553,57 @@ enum PixelFormat {
      * or with IMapper::lock.
      */
     YCBCR_P210 = 0x3c,
+
+    /**
+     * 12 bit format with a single 12-bit component.
+     *
+     * The component values are unsigned integers, whose interpretation is
+     * defined by the dataspace.
+     */
+    R_12_UINT = 0x3d,
+
+    /**
+     * 14 bit format with a single 14-bit component.
+     *
+     * The component values are unsigned integers, whose interpretation is
+     * defined by the dataspace.
+     */
+    R_14_UINT = 0x3e,
+
+    /**
+     * 24-bit format that has 12-bit R and G components, in that order,
+     * from the lowest memory address to the highest memory address.
+     *
+     * The component values are unsigned integers, whose interpretation is
+     * defined by the dataspace.
+     */
+    RG_1212_UINT = 0x3f,
+
+    /**
+     * 28-bit format that has 14-bit R and G components, in that order,
+     * from the lowest memory address to the highest memory address.
+     *
+     * The component values are unsigned integers, whose interpretation is
+     * defined by the dataspace.
+     */
+    RG_1414_UINT = 0x40,
+
+    /**
+     * 48-bit format that has 12-bit R, G, B, and A components, in that order,
+     * from the lowest memory address to the highest memory address.
+     *
+     * The component values are unsigned integers, whose interpretation is
+     * defined by the dataspace.
+     */
+    RGBA_12121212_UINT = 0x41,
+
+    /**
+     * 56-bit format that has 14-bit R, G, B, and A components, in that order,
+     * from the lowest memory address to the highest memory address.
+     *
+     * The component values are unsigned integers, whose interpretation is
+     * defined by the dataspace.
+     */
+    RGBA_14141414_UINT = 0x42,
+
 }
