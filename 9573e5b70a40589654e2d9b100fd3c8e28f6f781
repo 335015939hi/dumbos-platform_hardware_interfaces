@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "319d33e3_64c95dad",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2024-12-17T17:01:52Z",
+      "side": 1,
+      "message": "I think `GMS-VSR-7.1-001.004` is actually correct:\n\n_[GMS-VSR-7.1-001.004] Are STRONGLY RECOMMENDED to implement Open Profile for DICE support for protected VMs, providing a DICE handover with the same root key as that provided to the primary KeyMint instance._",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 25
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d623f1ec_7063ea7c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+              "range": {
+                "startLine": 271,
+                "startChar": 0,
+                "endLine": 272,
+                "endChar": 0
+              },
+              "replacement": "// @VsrTest \u003d GMS-VSR-7.1-001.004\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9573e5b70a40589654e2d9b100fd3c8e28f6f781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
