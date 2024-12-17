@@ -194,18 +194,8 @@ StreamPrimary::AlsaDeviceId StreamPrimary::getCardAndDeviceId(
 
 // static
 bool StreamPrimary::useStubStream(
-        bool isInput, const ::aidl::android::media::audio::common::AudioDevice& device) {
-    static const bool kSimulateInput =
-            GetBoolProperty("ro.boot.audio.tinyalsa.simulate_input", false);
-    static const bool kSimulateOutput =
-            GetBoolProperty("ro.boot.audio.tinyalsa.ignore_output", false);
-    if (isInput) {
-        return kSimulateInput || device.type.type == AudioDeviceType::IN_TELEPHONY_RX ||
-               device.type.type == AudioDeviceType::IN_FM_TUNER ||
-               device.type.connection == AudioDeviceDescription::CONNECTION_BUS /*deprecated */;
-    }
-    return kSimulateOutput || device.type.type == AudioDeviceType::OUT_TELEPHONY_TX ||
-           device.type.connection == AudioDeviceDescription::CONNECTION_BUS /*deprecated*/;
+        bool /*isInput*/, const ::aidl::android::media::audio::common::AudioDevice& /*device*/) {
+    return true;
 }
 
 StreamInPrimary::StreamInPrimary(StreamContext&& context, const SinkMetadata& sinkMetadata,
