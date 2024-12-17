@@ -34,6 +34,24 @@
       "parentUuid": "8c0a5f25_9e0776e7",
       "revId": "7a80a544a34a62684056531a8a202612f917df6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edfab82a_5d33ea92",
+        "filename": "drm/common/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-17T16:30:46Z",
+      "side": 0,
+      "message": "It also looks like this is the only change in the CL now, so I think it can be abandoned.",
+      "parentUuid": "b1bad530_1df0063d",
+      "revId": "7a80a544a34a62684056531a8a202612f917df6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
