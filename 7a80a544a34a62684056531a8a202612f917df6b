@@ -16,6 +16,24 @@
       "message": "@huisinro@google.com ag version didn\u0027t specify host_supported, was it intended?",
       "revId": "7a80a544a34a62684056531a8a202612f917df6b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1bad530_1df0063d",
+        "filename": "drm/common/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-17T16:27:33Z",
+      "side": 0,
+      "message": "I think this change is causing the build failure in presubmits.\n```\nhardware/interfaces/graphics/composer/aidl/Android.bp:27:1: dependency \"android.hardware.drm.common-V1-rust\" of \"android.hardware.graphics.composer3-V4-rust\" missing variant:\n  os:linux_glibc,rust_libraries:rlib,rust_stdlinkage:rlib-std\n```",
+      "parentUuid": "8c0a5f25_9e0776e7",
+      "revId": "7a80a544a34a62684056531a8a202612f917df6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
