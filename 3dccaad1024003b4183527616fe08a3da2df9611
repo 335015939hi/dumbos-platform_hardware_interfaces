@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1d65804_e2b54cb8",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-12-17T17:26:15Z",
+      "side": 1,
+      "message": "`startSamplePos`?",
+      "range": {
+        "startLine": 400,
+        "startChar": 81,
+        "endLine": 400,
+        "endChar": 86
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d88dc429_3b9a7100",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 121,
+                "startChar": 0,
+                "endLine": 122,
+                "endChar": 0
+              },
+              "replacement": "    float calculateDb(std::vector\u003cfloat\u003e input, size_t startSamplePos);\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 400,
+                "startChar": 0,
+                "endLine": 403,
+                "endChar": 0
+              },
+              "replacement": "float DynamicsProcessingTestHelper::calculateDb(std::vector\u003cfloat\u003e input, size_t startSamplePos \u003d 0) {\n    return audio_utils_compute_power_mono(input.data() + startSamplePos, AUDIO_FORMAT_PCM_FLOAT,\n                                          input.size() - startSamplePos);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6bbb762_cbefdbbe",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-12-17T17:26:15Z",
+      "side": 1,
+      "message": "not used?",
+      "range": {
+        "startLine": 651,
+        "startChar": 42,
+        "endLine": 651,
+        "endChar": 51
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "6ca0b1f6_e35cd009",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 651,
+                "startChar": 0,
+                "endLine": 652,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "728d3b9e_e10113bf",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2024-12-17T17:26:15Z",
+      "side": 1,
+      "message": "might be helpful to print the outputDb and postGain values in the error message?",
+      "range": {
+        "startLine": 872,
+        "startChar": 8,
+        "endLine": 872,
+        "endChar": 19
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
