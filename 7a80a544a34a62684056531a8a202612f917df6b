@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c0a5f25_9e0776e7",
+        "filename": "drm/common/aidl/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-12-17T16:22:57Z",
+      "side": 0,
+      "message": "@huisinro@google.com ag version didn\u0027t specify host_supported, was it intended?",
+      "revId": "7a80a544a34a62684056531a8a202612f917df6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
