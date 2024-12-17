@@ -3,6 +3,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e8b3674_98c360c9",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-17T18:14:11Z",
+      "side": 1,
+      "message": "Please use `const \u0026` to avoid copying.",
+      "range": {
+        "startLine": 121,
+        "startChar": 22,
+        "endLine": 121,
+        "endChar": 40
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "305b63e2_a06f502c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 121,
+                "startChar": 0,
+                "endLine": 122,
+                "endChar": 0
+              },
+              "replacement": "    float calculateDb(const std::vector\u003cfloat\u003e\u0026 input, size_t start);\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 400,
+                "startChar": 0,
+                "endLine": 401,
+                "endChar": 0
+              },
+              "replacement": "float DynamicsProcessingTestHelper::calculateDb(const std::vector\u003cfloat\u003e\u0026 input, size_t start \u003d 0) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1d65804_e2b54cb8",
         "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
         "patchSetId": 5
@@ -54,6 +105,128 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "580c0b66_0d841d58",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-17T18:14:11Z",
+      "side": 1,
+      "message": "Please add `Db` suffix for clarity. This also makes me wonder if the value are reasonable because even 100 dB of gain is a lot. I\u0027m not sure that hardware implementations, especially if they use fixed point samples representation internally, can cope with these ranges. I would limit the upper bound for gain to 96 dB (the theoretical dynamic range of 16-bit representation), or maybe even 90 dB to have some headroom. And use some values in between 0 and 90. I would also suggest making the negative range symmetrical to the positive range.",
+      "range": {
+        "startLine": 647,
+        "startChar": 23,
+        "endLine": 647,
+        "endChar": 33
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "730ebdf1_93ad442e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 647,
+                "startChar": 0,
+                "endLine": 649,
+                "endChar": 0
+              },
+              "replacement": "    std::vector\u003cfloat\u003e gainDbValues \u003d {-85, 0, 100, 200};\n    for (float gainDb : gainDbValues) {\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 652,
+                "startChar": 0,
+                "endLine": 653,
+                "endChar": 0
+              },
+              "replacement": "            mInputGain.push_back(DynamicsProcessing::InputGain(i, gainDb));\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 661,
+                "startChar": 0,
+                "endLine": 662,
+                "endChar": 0
+              },
+              "replacement": "        EXPECT_NEAR(outputDb - gainDb, mInputDb, kToleranceDb);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eabcedf_fc05a959",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-17T18:14:11Z",
+      "side": 1,
+      "message": "gainDb",
+      "range": {
+        "startLine": 648,
+        "startChar": 15,
+        "endLine": 648,
+        "endChar": 19
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "b6823f3c_945bc200",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 648,
+                "startChar": 0,
+                "endLine": 649,
+                "endChar": 0
+              },
+              "replacement": "    for (float gainDb : gainValues) {\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 652,
+                "startChar": 0,
+                "endLine": 653,
+                "endChar": 0
+              },
+              "replacement": "            mInputGain.push_back(DynamicsProcessing::InputGain(i, gainDb));\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 661,
+                "startChar": 0,
+                "endLine": 662,
+                "endChar": 0
+              },
+              "replacement": "        EXPECT_NEAR(outputDb - gainDb, mInputDb, kToleranceDb);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6bbb762_cbefdbbe",
         "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
         "patchSetId": 5
@@ -95,6 +268,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8019a5f5_31f2c31d",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-17T18:14:11Z",
+      "side": 1,
+      "message": "For better robustness, I would write this as `EXPECT_NEAR(outputDb, mInputDb + gainDb, kToleranceDb) \u003c\u003c \"Gain: \" \u003c\u003c gainDb`;",
+      "range": {
+        "startLine": 661,
+        "startChar": 19,
+        "endLine": 661,
+        "endChar": 60
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a3d0e1b_fb53525c",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-17T18:14:11Z",
+      "side": 1,
+      "message": "Same note for the array name and values as for the input gain.",
+      "range": {
+        "startLine": 859,
+        "startChar": 23,
+        "endLine": 859,
+        "endChar": 58
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "728d3b9e_e10113bf",
         "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
         "patchSetId": 5
@@ -111,6 +330,29 @@
         "startChar": 8,
         "endLine": 872,
         "endChar": 19
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83097edf_505224ac",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-17T18:14:11Z",
+      "side": 1,
+      "message": "Same note for the expectation form.",
+      "range": {
+        "startLine": 872,
+        "startChar": 0,
+        "endLine": 872,
+        "endChar": 65
       },
       "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
