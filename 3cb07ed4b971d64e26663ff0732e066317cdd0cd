@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d948600c_fd43af6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-17T17:59:16Z",
+      "side": 1,
+      "message": "Just one comment, otherwise looks good.",
+      "revId": "3cb07ed4b971d64e26663ff0732e066317cdd0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2deb11ab_a9299741",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-17T17:59:16Z",
+      "side": 1,
+      "message": "At this point, we also need to restore `mPatches` from `patchesBackup` if it was set. Basically, we need to copy the lines 1126–1128 here. And in order to be able to execute the restoring code we need to use an explicit `if` instead of `RETURN_STATUS_IF_ERROR` here.",
+      "range": {
+        "startLine": 1142,
+        "startChar": 0,
+        "endLine": 1145,
+        "endChar": 63
+      },
+      "revId": "3cb07ed4b971d64e26663ff0732e066317cdd0cd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
