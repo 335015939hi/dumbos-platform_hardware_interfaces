@@ -184,7 +184,7 @@ def main():
                         help="Letter of the API level of the current version (e.g. v)")
     parser.add_argument("next_letter",
                         type=str,
-                        help="Letter of the API level of the next version (e.g. w)")
+                        help="Letter of the API level of the next version (e.g. b)")
     parser.add_argument("platform_version",
                         type=str,
                         nargs="?",
