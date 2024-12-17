@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1457431_25d53c6f",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-17T16:15:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42013caf_c59623f0",
+      "range": {
+        "startLine": 404,
+        "startChar": 35,
+        "endLine": 404,
+        "endChar": 54
+      },
+      "revId": "366f8152b26ac33d17a19751487888f6048e139e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1db122a0_78096245",
@@ -65,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f173f4aa_0e086e58",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-17T16:15:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1db122a0_78096245",
+      "range": {
+        "startLine": 410,
+        "startChar": 8,
+        "endLine": 410,
+        "endChar": 17
+      },
+      "revId": "366f8152b26ac33d17a19751487888f6048e139e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d65af87_b24c2399",
@@ -78,6 +126,30 @@
       "writtenOn": "2024-12-06T17:47:02Z",
       "side": 1,
       "message": "Is there any expectation about the relations between the value of the gain and delta in the power of the signal after processing? What is the reason for using values `100` and `200` for the gain if the test expectation for them ends up to be the same?",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 42
+      },
+      "revId": "366f8152b26ac33d17a19751487888f6048e139e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efa5095b_44c8ab72",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-17T16:15:02Z",
+      "side": 1,
+      "message": "The relation between input dB and output dB is ```outputDb \u003d inputDb + gain```.\nModified the check to compute the input dB using output dB then gain and compare it with the  actual test input dB value.",
+      "parentUuid": "6d65af87_b24c2399",
       "range": {
         "startLine": 659,
         "startChar": 0,
@@ -111,6 +183,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83080d66_a544ba17",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 666,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-17T16:15:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b86a39b_c7ae5fce",
+      "range": {
+        "startLine": 666,
+        "startChar": 0,
+        "endLine": 666,
+        "endChar": 33
+      },
+      "revId": "366f8152b26ac33d17a19751487888f6048e139e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d3b878e_b85346cb",
@@ -124,6 +220,24 @@
       "writtenOn": "2024-12-06T17:58:55Z",
       "side": 1,
       "message": "Sneha,\nFrom next time onwards, please upload new CLs when adding new tests.\nPatchset 4 should have just responded to prior review comments and that way we could have landed this CL sooner.",
+      "revId": "366f8152b26ac33d17a19751487888f6048e139e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8902e55_d9853632",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 670,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-17T16:15:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0d3b878e_b85346cb",
       "revId": "366f8152b26ac33d17a19751487888f6048e139e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
