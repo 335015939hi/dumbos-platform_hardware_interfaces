@@ -268,7 +268,7 @@ TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
  * protected VM and the primary KeyMint (also called 'default') implementation's DICE certificate
  * chain has the same root public key, i.e., the same UDS public key
  */
-// @VsrTest = 7.1-003.001
+// @VsrTest = 7.1-004.001
 TEST(NonParameterizedTests, equalUdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintInstances) {
     int apiLevel = get_vsr_api_level();
     if (apiLevel < 202504 && !AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str())) {
