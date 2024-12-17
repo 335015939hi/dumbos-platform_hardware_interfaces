@@ -70,6 +70,30 @@
       },
       "revId": "4c181fb2cb5e5b9cba7d009513658f64c424744a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7899111a_73a0ff82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2024-12-17T16:16:39Z",
+      "side": 1,
+      "message": "yeah makes sense, it needs to be the ag ChangeId",
+      "parentUuid": "e56d0b7a_60d3ce45",
+      "range": {
+        "startLine": 18,
+        "startChar": 67,
+        "endLine": 18,
+        "endChar": 68
+      },
+      "revId": "4c181fb2cb5e5b9cba7d009513658f64c424744a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
