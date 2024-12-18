@@ -16,6 +16,47 @@
       "message": "Eric, could you please provide a second review.",
       "revId": "10a768a03dae55d8c9eae25c126bc24412cb31be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2267a9db_9e38c78a",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2024-12-18T20:10:10Z",
+      "side": 1,
+      "message": "So it is not a problem to systematically fail createStreamContext() on the default implementaiton for compressed formats? For instance Cuttlefish has no support for compressed playback?",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 75
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f79c2f68_2ce77b1b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Module.cpp",
+              "range": {
+                "startLine": 394,
+                "startChar": 0,
+                "endLine": 395,
+                "endChar": 0
+              },
+              "replacement": "    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "10a768a03dae55d8c9eae25c126bc24412cb31be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
