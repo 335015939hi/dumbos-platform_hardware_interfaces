@@ -22,6 +22,30 @@
       },
       "revId": "930ffdb2253bd576ffb4a147c54b64da2d4fe878",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "345dcce0_ee30b04a",
+        "filename": "radio/1.6/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1081638
+      },
+      "writtenOn": "2024-12-18T22:52:58Z",
+      "side": 1,
+      "message": "Done. Looks like a bug in clang-format fixup.",
+      "parentUuid": "109b50b5_5646980f",
+      "range": {
+        "startLine": 245,
+        "startChar": 59,
+        "endLine": 245,
+        "endChar": 92
+      },
+      "revId": "930ffdb2253bd576ffb4a147c54b64da2d4fe878",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
