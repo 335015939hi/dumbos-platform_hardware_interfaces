@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d0b1d34_59f51e70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2024-12-18T07:02:20Z",
+      "side": 1,
+      "message": "ebiggers@: FYI the ANAPIC review asked us to use `@deprecated` for the device locked entrypoint change.",
+      "revId": "82a6b0ece7b1f1646cf98d7ae79b3e4ad90c5282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ea3f4b0_c442d3d1",
