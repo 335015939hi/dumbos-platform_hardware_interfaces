@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63e2c05b_1c568bf1",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3967,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2024-12-18T21:35:45Z",
+      "side": 1,
+      "message": "nit: i suppose you could also test negative values, nan, inf?  up to you.",
+      "range": {
+        "startLine": 3967,
+        "startChar": 0,
+        "endLine": 3967,
+        "endChar": 49
+      },
+      "revId": "7fc8e1c1ca6fb9fb003546dbb818b207e76b1eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
