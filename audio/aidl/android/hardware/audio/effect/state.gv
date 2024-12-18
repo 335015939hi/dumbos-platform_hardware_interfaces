@@ -13,26 +13,56 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 // To render: "dot -Tpng state.gv -o state.png"
+
 digraph effect_state_machine {
-    node[shape = point style = filled fillcolor = black width = 0.5] I;
-    node[shape = doublecircle] F;
-    node[shape = oval width = 1];
-    node[fillcolor = lightgreen] INIT;
-    node[fillcolor = lightblue] IDLE;
-    node[fillcolor = lightyellow] PROCESSING;
 
-    I -> INIT[label = "IFactory.createEffect" labelfontcolor = "navy"];
-    INIT -> F[label = "IFactory.destroyEffect"];
-    INIT -> IDLE[label = "IEffect.open()" labelfontcolor = "lime"];
-    IDLE -> PROCESSING[label = "IEffect.command(START"];
-    PROCESSING -> IDLE[label = "IEffect.command(STOP)\nIEffect.command(RESET)"];
-    IDLE -> INIT[label = "IEffect.close()"];
+    rankdir=LR; // Left to Right layout
 
-    INIT -> INIT[label = "IEffect.getState\nIEffect.getDescriptor"];
-    IDLE -> IDLE[label = "IEffect.getParameter\nIEffect.setParameter\nIEffect.getDescriptor\nIEffect.command(RESET)\nIEffect.reopen"];
-    PROCESSING
-            -> PROCESSING
-                    [label = "IEffect.getParameter\nIEffect.setParameter\nIEffect.getDescriptor\nIEffect.reopen"];
+    label="Effect State Machine";
+    fontsize=20;
+    labelloc=top;
+
+    node [fontname="Helvetica", fontsize=12, style=filled];
+
+    // Initial state node
+    I [shape=point, fillcolor=black, width=0.2];
+
+    // Final state node
+    F [shape=doublecircle, fillcolor=white, width=0.2];
+
+    // Define other nodes with colors
+    INIT [shape=ellipse, fillcolor=lightgreen];
+    IDLE [shape=ellipse, fillcolor=lightblue];
+    PROCESSING [shape=ellipse, fillcolor=lightyellow];
+    DRAINING [shape=ellipse, fillcolor=lightgrey];
+
+    // Transitions
+    I -> INIT [label="IFactory.createEffect", fontcolor="navy"];
+
+    INIT -> F [label="IFactory.destroyEffect"];
+
+    INIT -> IDLE [label="IEffect.open()", fontcolor="lime"];
+
+    IDLE -> PROCESSING [label="IEffect.command(START)"];
+
+    PROCESSING -> IDLE [label="IEffect.command(STOP)\nIEffect.command(RESET)"];
+
+    PROCESSING -> DRAINING [label="IEffect.command(STOP)", fontcolor="orange"];
+
+    DRAINING -> IDLE [label="Draining complete\n(IEffect.command(RESET)\nautomatic)"];
+
+    DRAINING -> PROCESSING [label="IEffect.command(START)\n(Interrupt draining)"];
+
+    IDLE -> INIT [label="IEffect.close()"];
+
+    // Self-loops
+    INIT -> INIT [label="IEffect.getState\nIEffect.getDescriptor"];
+
+    IDLE -> IDLE [label="IEffect.getParameter\nIEffect.setParameter\nIEffect.getDescriptor\nIEffect.command(RESET)\nIEffect.reopen"];
+
+    PROCESSING -> PROCESSING [label="IEffect.getParameter\nIEffect.setParameter\nIEffect.getDescriptor\nIEffect.reopen"];
+
+    DRAINING -> DRAINING [label="IEffect.getParameter\nIEffect.setParameter\nIEffect.getDescriptor\nIEffect.reopen\nFading"];
+
 }

@@ -52,6 +52,7 @@
 #include <android/hardware/camera/provider/2.7/ICameraProvider.h>
 #include <android/hidl/manager/1.0/IServiceManager.h>
 #include <binder/MemoryHeapBase.h>
+#include <com_android_graphics_libgui_flags.h>
 #include <cutils/properties.h>
 #include <fmq/MessageQueue.h>
 #include <grallocusage/GrallocUsageConversion.h>
@@ -8140,7 +8141,7 @@ void CameraHidlTest::verifyCameraCharacteristics(Status status, const CameraMeta
             ANDROID_LENS_POSE_REFERENCE, &entry);
     if (0 == retcode && entry.count > 0) {
         uint8_t poseReference = entry.data.u8[0];
-        ASSERT_TRUE(poseReference <= ANDROID_LENS_POSE_REFERENCE_UNDEFINED &&
+        ASSERT_TRUE(poseReference <= ANDROID_LENS_POSE_REFERENCE_AUTOMOTIVE &&
                 poseReference >= ANDROID_LENS_POSE_REFERENCE_PRIMARY_CAMERA);
     }
 
@@ -8714,16 +8715,25 @@ void CameraHidlTest::setupPreviewWindow(
     ASSERT_NE(nullptr, bufferItemConsumer);
     ASSERT_NE(nullptr, bufferHandler);
 
+#if COM_ANDROID_GRAPHICS_LIBGUI_FLAGS(WB_CONSUMER_BASE_OWNS_BQ)
+    *bufferItemConsumer = new BufferItemConsumer(
+            GraphicBuffer::USAGE_HW_TEXTURE);  // Use GLConsumer default usage flags
+#else
     sp<IGraphicBufferProducer> producer;
     sp<IGraphicBufferConsumer> consumer;
     BufferQueue::createBufferQueue(&producer, &consumer);
     *bufferItemConsumer = new BufferItemConsumer(consumer,
             GraphicBuffer::USAGE_HW_TEXTURE); //Use GLConsumer default usage flags
+#endif  // COM_ANDROID_GRAPHICS_LIBGUI_FLAGS(WB_CONSUMER_BASE_OWNS_BQ)
     ASSERT_NE(nullptr, (*bufferItemConsumer).get());
     *bufferHandler = new BufferItemHander(*bufferItemConsumer);
     ASSERT_NE(nullptr, (*bufferHandler).get());
     (*bufferItemConsumer)->setFrameAvailableListener(*bufferHandler);
+#if COM_ANDROID_GRAPHICS_LIBGUI_FLAGS(WB_CONSUMER_BASE_OWNS_BQ)
+    sp<Surface> surface = (*bufferItemConsumer)->getSurface();
+#else
     sp<Surface> surface = new Surface(producer);
+#endif  // COM_ANDROID_GRAPHICS_LIBGUI_FLAGS(WB_CONSUMER_BASE_OWNS_BQ)
     sp<PreviewWindowCb> previewCb = new PreviewWindowCb(surface);
 
     auto rc = device->setPreviewWindow(previewCb);

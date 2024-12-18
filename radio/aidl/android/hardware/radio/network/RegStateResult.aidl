@@ -32,7 +32,7 @@ parcelable RegStateResult {
      * EUTRAN, NGRAN, or another technology that does not support circuit-switched services, this
      * value reports registration in the Packet-switched domain.
      */
-    RegState regState;
+    RegState regState = RegState.NOT_REG_MT_NOT_SEARCHING_OP;
     /**
      * Indicates the radio technology, which must not be UNKNOWN if regState is REG_HOME,
      * REG_ROAMING, NOT_REG_MT_NOT_SEARCHING_OP_EM, NOT_REG_MT_SEARCHING_OP_EM, REG_DENIED_EM,
@@ -40,12 +40,12 @@ parcelable RegStateResult {
      * When the device is on carrier aggregation, vendor RIL service must properly report multiple
      * PhysicalChannelConfig elements through IRadioNetwork::currentPhysicalChannelConfigs.
      */
-    RadioTechnology rat;
+    RadioTechnology rat = RadioTechnology.UNKNOWN;
     /**
      * Cause code reported by the network in case registration fails. This will be a mobility
      * management cause code defined for MM, GMM, MME or equivalent as appropriate for the RAT.
      */
-    RegistrationFailCause reasonForDenial;
+    RegistrationFailCause reasonForDenial = RegistrationFailCause.NONE;
     /**
      * CellIdentity
      */

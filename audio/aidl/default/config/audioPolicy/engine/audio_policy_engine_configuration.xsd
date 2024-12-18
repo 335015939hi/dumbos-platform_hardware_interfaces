@@ -105,6 +105,7 @@
                         <xs:element name="AttributesGroup" type="AttributesGroup" minOccurs="1" maxOccurs="unbounded"/>
                     </xs:sequence>
                     <xs:attribute name="name" type="xs:string" use="required"/>
+                    <xs:attribute name="id" type="xs:int" use="required"/>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
@@ -188,8 +189,19 @@
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="valueType">
+        <xs:annotation>
+            <xs:documentation xml:lang="en">
+                Criterion type is provided as a pair of 'human readable' string (referred as the
+                literal part, that will allow to express 'human readable' rules and an optional
+                android type.
+                This android type is reserved for device type mapping with parameter framework
+                representation on a bitfield (Only one bit is expected to represent a device) and
+                android representation of a type that may use several bits.
+                The lookup table will allow wrap android device type to parameter framework device
+                types data model.
+            </xs:documentation>
+        </xs:annotation>
         <xs:attribute name="literal" type="xs:string" use="required"/>
-        <xs:attribute name="numerical" type="xs:long" use="required"/>
         <xs:attribute name="android_type" type="longDecimalOrHexType" use="optional"/>
     </xs:complexType>
 
@@ -392,6 +404,49 @@
             <xs:enumeration value="AUDIO_FLAG_MUTE_HAPTIC"/>
             <xs:enumeration value="AUDIO_FLAG_NO_SYSTEM_CAPTURE"/>
             <xs:enumeration value="AUDIO_FLAG_CAPTURE_PRIVATE"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="forcedConfigCommunicationDeviceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NONE"/>
+            <xs:enumeration value="SPEAKER"/>
+            <xs:enumeration value="BT_SCO"/>
+            <xs:enumeration value="BT_BLE"/>
+            <xs:enumeration value="WIRED_ACCESSORY"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="forcedConfigMediaDeviceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NONE"/>
+            <xs:enumeration value="SPEAKER"/>
+            <xs:enumeration value="HEADPHONES"/>
+            <xs:enumeration value="BT_A2DP"/>
+            <xs:enumeration value="ANALOG_DOCK"/>
+            <xs:enumeration value="DIGITAL_DOCK"/>
+            <xs:enumeration value="WIRED_ACCESSORY"/>
+            <xs:enumeration value="NO_BT_A2DP"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="forcedConfigDockType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="NONE"/>
+            <xs:enumeration value="BT_CAR_DOCK"/>
+            <xs:enumeration value="BT_DESK_DOCK"/>
+            <xs:enumeration value="ANALOG_DOCK"/>
+            <xs:enumeration value="DIGITAL_DOCK"/>
+            <xs:enumeration value="WIRED_ACCESSORY"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="forcedEncodingSourroundConfigType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="UNSPECIFIED"/>
+            <xs:enumeration value="NEVER"/>
+            <xs:enumeration value="ALWAYS"/>
+            <xs:enumeration value="MANUAL"/>
         </xs:restriction>
     </xs:simpleType>
 

@@ -58,7 +58,6 @@ class Bump(object):
         self.bump_kernel_configs()
         self.copy_matrix()
         self.edit_android_bp()
-        self.edit_android_mk()
         self.bump_libvintf()
 
     def bump_kernel_configs(self):
@@ -111,23 +110,20 @@ class Bump(object):
             "kernel_configs", "-a", " ".join(next_kernel_configs), android_bp
         ])
 
-    def edit_android_mk(self):
-        android_mk = self.interfaces_dir / "compatibility_matrices/Android.mk"
+        # update the SYSTEM_MATRIX_DEPS variable and the phony module's
+        # product_variables entry.
         lines = []
-        with open(android_mk) as f:
-            if self.next_module_name in f.read():
-                return
-            f.seek(0)
+        with open(android_bp) as f:
             for line in f:
-              if f"    {self.device_module_name} \\\n" in line:
-                  lines.append(f"    {self.current_module_name} \\\n")
+              if f"    \"{self.device_module_name}\",\n" in line:
+                  lines.append(f"    \"{self.current_module_name}\",\n")
 
-              if self.current_module_name in line:
-                  lines.append(f"    {self.next_module_name} \\\n")
+              if f"                \"{self.current_module_name}\",\n" in line:
+                  lines.append(f"                \"{self.next_module_name}\",\n")
               else:
                   lines.append(line)
 
-        with open(android_mk, "w") as f:
+        with open(android_bp, "w") as f:
             f.write("".join(lines))
 
     def bump_libvintf(self):

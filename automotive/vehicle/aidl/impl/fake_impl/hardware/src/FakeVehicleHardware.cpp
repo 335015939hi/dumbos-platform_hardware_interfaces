@@ -348,6 +348,13 @@ FakeVehicleHardware::FakeVehicleHardware()
 
 FakeVehicleHardware::FakeVehicleHardware(std::string defaultConfigDir,
                                          std::string overrideConfigDir, bool forceOverride)
+    : FakeVehicleHardware(defaultConfigDir, overrideConfigDir, forceOverride,
+                          /*s2rS2dConfig=*/
+                          GetIntProperty(POWER_STATE_REQ_CONFIG_PROPERTY, /*default_value=*/0)) {}
+
+FakeVehicleHardware::FakeVehicleHardware(std::string defaultConfigDir,
+                                         std::string overrideConfigDir, bool forceOverride,
+                                         int32_t s2rS2dConfig)
     : mValuePool(std::make_unique<VehiclePropValuePool>()),
       mServerSidePropStore(new VehiclePropertyStore(mValuePool)),
       mDefaultConfigDir(defaultConfigDir),
@@ -360,7 +367,7 @@ FakeVehicleHardware::FakeVehicleHardware(std::string defaultConfigDir,
       mPendingGetValueRequests(this),
       mPendingSetValueRequests(this),
       mForceOverride(forceOverride) {
-    init();
+    init(s2rS2dConfig);
 }
 
 FakeVehicleHardware::~FakeVehicleHardware() {
@@ -388,7 +395,7 @@ std::unordered_map<int32_t, ConfigDeclaration> FakeVehicleHardware::loadConfigDe
     return configsByPropId;
 }
 
-void FakeVehicleHardware::init() {
+void FakeVehicleHardware::init(int32_t s2rS2dConfig) {
     maybeGetGrpcServiceInfo(&mPowerControllerServiceAddress);
 
     for (auto& [_, configDeclaration] : loadConfigDeclarations()) {
@@ -396,8 +403,7 @@ void FakeVehicleHardware::init() {
         VehiclePropertyStore::TokenFunction tokenFunction = nullptr;
 
         if (cfg.prop == toInt(VehicleProperty::AP_POWER_STATE_REQ)) {
-            int config = GetIntProperty(POWER_STATE_REQ_CONFIG_PROPERTY, /*default_value=*/0);
-            cfg.configArray[0] = config;
+            cfg.configArray[0] = s2rS2dConfig;
         } else if (cfg.prop == OBD2_FREEZE_FRAME) {
             tokenFunction = [](const VehiclePropValue& propValue) { return propValue.timestamp; };
         }
@@ -531,6 +537,9 @@ VhalResult<void> FakeVehicleHardware::setApPowerStateReport(const VehiclePropVal
                        << "failed to write AP_POWER_STATE_REQ into property store, error: "
                        << getErrorMsg(writeResult);
             }
+            break;
+        case toInt(VehicleApPowerStateReport::ON):
+            ALOGI("Received VehicleApPowerStateReport::ON, entering normal operating state");
             break;
         default:
             ALOGE("Unknown VehicleApPowerStateReport: %d", state);
@@ -1047,6 +1056,10 @@ VhalResult<void> FakeVehicleHardware::maybeSetSpecialValue(const VehiclePropValu
     VhalResult<void> isAdasPropertyAvailableResult;
     VhalResult<bool> isCruiseControlTypeStandardResult;
     switch (propId) {
+        case toInt(VehicleProperty::DISPLAY_BRIGHTNESS):
+        case toInt(VehicleProperty::PER_DISPLAY_BRIGHTNESS):
+            ALOGD("DISPLAY_BRIGHTNESS: %s", value.toString().c_str());
+            return {};
         case toInt(VehicleProperty::AP_POWER_STATE_REPORT):
             *isSpecialValue = true;
             return setApPowerStateReport(value);
@@ -1875,7 +1888,7 @@ std::string FakeVehicleHardware::dumpListProperties() {
         for (const auto& areaConfig : config.areaConfigs) {
             areaIds.push_back(areaConfig.areaId);
         }
-        ss << rowNumber++ << ": " << propIdToString(config.prop) << ", propID: " << std::showbase
+        ss << rowNumber++ << ": " << PROP_ID_TO_CSTR(config.prop) << ", propID: " << std::showbase
            << std::hex << config.prop << std::noshowbase << std::dec
            << ", areaIDs: " << vecToStringOfHexValues(areaIds) << std::endl;
     }

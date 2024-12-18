@@ -525,6 +525,7 @@ bool convertLegacyGscanCapabilitiesToAidl(const legacy_hal::wifi_gscan_capabilit
     return true;
 }
 
+// Only use to prepare parameters for Gscan.
 legacy_hal::wifi_band convertAidlWifiBandToLegacy(WifiBand band) {
     switch (band) {
         case WifiBand::BAND_UNSPECIFIED:
@@ -541,6 +542,15 @@ legacy_hal::wifi_band convertAidlWifiBandToLegacy(WifiBand band) {
             return legacy_hal::WIFI_BAND_ABG;
         case WifiBand::BAND_24GHZ_5GHZ_WITH_DFS:
             return legacy_hal::WIFI_BAND_ABG_WITH_DFS;
+        case WifiBand::BAND_6GHZ:
+        case WifiBand::BAND_60GHZ:
+        case WifiBand::BAND_5GHZ_6GHZ:
+        case WifiBand::BAND_24GHZ_5GHZ_6GHZ:
+        case WifiBand::BAND_24GHZ_5GHZ_6GHZ_60GHZ:
+        case WifiBand::BAND_24GHZ_5GHZ_WITH_DFS_6GHZ:
+        case WifiBand::BAND_24GHZ_5GHZ_WITH_DFS_6GHZ_60GHZ:
+            LOG(INFO) << "WifiBand mapping may be incorrect, since 6GHz is not supported by legacy";
+            return legacy_hal::WIFI_BAND_UNSPECIFIED;
         default:
             CHECK(false);
             return {};
@@ -3384,6 +3394,7 @@ bool convertAidlNanBootstrappingIndicationResponseToLegacy(
     *legacy_request = {};
 
     legacy_request->service_instance_id = aidl_request.bootstrappingInstanceId;
+    legacy_request->bootstrapping_instance_id = aidl_request.bootstrappingInstanceId;
     legacy_request->rsp_code = aidl_request.acceptRequest ? NAN_BOOTSTRAPPING_REQUEST_ACCEPT
                                                           : NAN_BOOTSTRAPPING_REQUEST_REJECT;
     legacy_request->publish_subscribe_id = static_cast<uint8_t>(aidl_request.discoverySessionId);

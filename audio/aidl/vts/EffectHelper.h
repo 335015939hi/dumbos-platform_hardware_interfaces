@@ -83,6 +83,9 @@ static inline std::string getPrefix(Descriptor& descriptor) {
     return prefix;
 }
 
+static constexpr float kMaxAudioSampleValue = 1;
+static constexpr int kSamplingFrequency = 44100;
+
 class EffectHelper {
   public:
     void create(std::shared_ptr<IFactory> factory, std::shared_ptr<IEffect>& effect,
@@ -121,7 +124,7 @@ class EffectHelper {
             return;
         }
 
-        ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
+        ASSERT_TRUE(expectState(effect, State::IDLE));
         updateFrameSize(common);
     }
 
@@ -152,7 +155,7 @@ class EffectHelper {
         if (effect) {
             ASSERT_STATUS(status, effect->close());
             if (status == EX_NONE) {
-                ASSERT_NO_FATAL_FAILURE(expectState(effect, State::INIT));
+                ASSERT_TRUE(expectState(effect, State::INIT));
             }
         }
     }
@@ -163,12 +166,14 @@ class EffectHelper {
         ASSERT_STATUS(status, effect->getDescriptor(&desc));
     }
 
-    static void expectState(std::shared_ptr<IEffect> effect, State expectState,
-                            binder_status_t status = EX_NONE) {
-        ASSERT_NE(effect, nullptr);
-        State state;
-        ASSERT_STATUS(status, effect->getState(&state));
-        ASSERT_EQ(expectState, state);
+    static bool expectState(std::shared_ptr<IEffect> effect, State expectState) {
+        if (effect == nullptr) return false;
+
+        if (State state; EX_NONE != effect->getState(&state).getStatus() || expectState != state) {
+            return false;
+        }
+
+        return true;
     }
 
     static void commandIgnoreRet(std::shared_ptr<IEffect> effect, CommandId command) {
@@ -187,12 +192,14 @@ class EffectHelper {
 
         switch (command) {
             case CommandId::START:
-                ASSERT_NO_FATAL_FAILURE(expectState(effect, State::PROCESSING));
+                ASSERT_TRUE(expectState(effect, State::PROCESSING));
                 break;
             case CommandId::STOP:
-                FALLTHROUGH_INTENDED;
+                ASSERT_TRUE(expectState(effect, State::IDLE) ||
+                            expectState(effect, State::DRAINING));
+                break;
             case CommandId::RESET:
-                ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
+                ASSERT_TRUE(expectState(effect, State::IDLE));
                 break;
             default:
                 return;
@@ -368,11 +375,30 @@ class EffectHelper {
         return functor(result);
     }
 
+    // keep writing data to the FMQ until effect transit from DRAINING to IDLE
+    static void waitForDrain(std::vector<float>& inputBuffer, std::vector<float>& outputBuffer,
+                             const std::shared_ptr<IEffect>& effect,
+                             std::unique_ptr<EffectHelper::StatusMQ>& statusMQ,
+                             std::unique_ptr<EffectHelper::DataMQ>& inputMQ,
+                             std::unique_ptr<EffectHelper::DataMQ>& outputMQ, int version) {
+        State state;
+        while (effect->getState(&state).getStatus() == EX_NONE && state == State::DRAINING) {
+            EXPECT_NO_FATAL_FAILURE(
+                    EffectHelper::writeToFmq(statusMQ, inputMQ, inputBuffer, version));
+            EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(
+                    statusMQ, 1, outputMQ, outputBuffer.size(), outputBuffer, std::nullopt));
+        }
+        ASSERT_TRUE(State::IDLE == state);
+        EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(statusMQ, 0, outputMQ, 0, outputBuffer));
+        return;
+    }
+
     static void processAndWriteToOutput(std::vector<float>& inputBuffer,
                                         std::vector<float>& outputBuffer,
                                         const std::shared_ptr<IEffect>& effect,
                                         IEffect::OpenEffectReturn* openEffectReturn,
-                                        int version = -1, int times = 1) {
+                                        int version = -1, int times = 1,
+                                        bool callStopReset = true) {
         // Initialize AidlMessagequeues
         auto statusMQ = std::make_unique<EffectHelper::StatusMQ>(openEffectReturn->statusMQ);
         ASSERT_TRUE(statusMQ->isValid());
@@ -398,10 +424,15 @@ class EffectHelper {
         }
 
         // Disable the process
-        ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::STOP));
-        EXPECT_NO_FATAL_FAILURE(EffectHelper::readFromFmq(statusMQ, 0, outputMQ, 0, outputBuffer));
+        if (callStopReset) {
+            ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::STOP));
+            EXPECT_NO_FATAL_FAILURE(waitForDrain(inputBuffer, outputBuffer, effect, statusMQ,
+                                                 inputMQ, outputMQ, version));
+        }
 
-        ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::RESET));
+        if (callStopReset) {
+            ASSERT_NO_FATAL_FAILURE(command(effect, CommandId::RESET));
+        }
     }
 
     // Find FFT bin indices for testFrequencies and get bin center frequencies
@@ -413,17 +444,39 @@ class EffectHelper {
         }
     }
 
-    // Generate multitone input between -1 to +1 using testFrequencies
-    void generateMultiTone(const std::vector<int>& testFrequencies, std::vector<float>& input,
-                           const int samplingFrequency) {
+    // Fill inputBuffer with random values between -maxAudioSampleValue to maxAudioSampleValue
+    void generateInputBuffer(std::vector<float>& inputBuffer, size_t startPosition, bool isStrip,
+                             size_t channelCount,
+                             float maxAudioSampleValue = kMaxAudioSampleValue) {
+        size_t increment = isStrip ? 1 /*Fill input at all the channels*/
+                                   : channelCount /*Fill input at only one channel*/;
+
+        for (size_t i = startPosition; i < inputBuffer.size(); i += increment) {
+            inputBuffer[i] =
+                    ((static_cast<float>(std::rand()) / RAND_MAX) * 2 - 1) * maxAudioSampleValue;
+        }
+    }
+
+    // Generate multitone input between -amplitude to +amplitude using testFrequencies
+    // All test frequencies are considered having the same amplitude
+    void generateSineWave(const std::vector<int>& testFrequencies, std::vector<float>& input,
+                          const float amplitude = 1.0,
+                          const int samplingFrequency = kSamplingFrequency) {
         for (size_t i = 0; i < input.size(); i++) {
             input[i] = 0;
 
             for (size_t j = 0; j < testFrequencies.size(); j++) {
                 input[i] += sin(2 * M_PI * testFrequencies[j] * i / samplingFrequency);
             }
-            input[i] /= testFrequencies.size();
+            input[i] *= amplitude / testFrequencies.size();
         }
+    }
+
+    // Generate single tone input between -amplitude to +amplitude using testFrequency
+    void generateSineWave(const int testFrequency, std::vector<float>& input,
+                          const float amplitude = 1.0,
+                          const int samplingFrequency = kSamplingFrequency) {
+        generateSineWave(std::vector<int>{testFrequency}, input, amplitude, samplingFrequency);
     }
 
     // Use FFT transform to convert the buffer to frequency domain
@@ -452,6 +505,17 @@ class EffectHelper {
         mOutputFrameSize = ::aidl::android::hardware::audio::common::getFrameSizeInBytes(
                 common.output.base.format, common.output.base.channelMask);
         mOutputSamples = common.output.frameCount * mOutputFrameSize / sizeof(float);
+    }
+
+    void generateInput(std::vector<float>& input, float inputFrequency, float samplingFrequency,
+                       size_t inputSize = 0) {
+        if (inputSize == 0 || inputSize > input.size()) {
+            inputSize = input.size();
+        }
+
+        for (size_t i = 0; i < inputSize; i++) {
+            input[i] = sin(2 * M_PI * inputFrequency * i / samplingFrequency);
+        }
     }
 
     bool mIsSpatializer;

@@ -278,7 +278,7 @@ oneway interface IRadioNetwork {
     /**
      * Sets the minimum time between when unsolicited cellInfoList() must be invoked.
      * A value of 0, means invoke cellInfoList() when any of the reported information changes.
-     * Setting the value to INT_MAX(0x7fffffff) means never issue a unsolicited cellInfoList().
+     * Value of RadioConst:VALUE_UNAVAILABLE means never issue a unsolicited cellInfoList().
      *
      * @param serial Serial number of request.
      * @param rate minimum time in milliseconds to indicate time between unsolicited cellInfoList()
@@ -503,7 +503,7 @@ oneway interface IRadioNetwork {
      *
      * This is available when android.hardware.telephony is defined.
      */
-    oneway void setUsageSetting(in int serial, in UsageSetting usageSetting);
+    void setUsageSetting(in int serial, in UsageSetting usageSetting);
 
     /**
      * Get the UE usage setting for data/voice centric usage.
@@ -514,7 +514,7 @@ oneway interface IRadioNetwork {
      *
      * This is available when android.hardware.telephony is defined.
      */
-    oneway void getUsageSetting(in int serial);
+    void getUsageSetting(in int serial);
 
     /**
      * Set the Emergency Mode

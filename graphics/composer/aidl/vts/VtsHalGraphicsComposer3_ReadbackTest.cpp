@@ -59,10 +59,12 @@ class GraphicsCompositionTestBase : public ::testing::Test {
 
         EXPECT_TRUE(mComposerClient->setPowerMode(getPrimaryDisplayId(), PowerMode::ON).isOk());
 
+        const auto format = getHasReadbackBuffer() ? mPixelFormat : common::PixelFormat::RGBA_8888;
+
         ASSERT_NO_FATAL_FAILURE(
                 mTestRenderEngine = std::unique_ptr<TestRenderEngine>(new TestRenderEngine(
                         ::android::renderengine::RenderEngineCreationArgs::Builder()
-                                .setPixelFormat(static_cast<int>(common::PixelFormat::RGBA_8888))
+                                .setPixelFormat(static_cast<int>(format))
                                 .setImageCacheSize(TestRenderEngine::sMaxFrameBufferAcquireBuffers)
                                 .setEnableProtectedContext(false)
                                 .setPrecacheToneMapperShaderOnly(false)
@@ -494,11 +496,14 @@ TEST_P(GraphicsCompositionTest, ClientComposition) {
             const auto& buffer = graphicBuffer->handle;
             void* clientBufData;
             const auto stride = static_cast<uint32_t>(graphicBuffer->stride);
-            graphicBuffer->lock(clientUsage, layer->getAccessRegion(), &clientBufData);
+            int bytesPerPixel = -1;
+            int bytesPerStride = -1;
+            graphicBuffer->lock(clientUsage, layer->getAccessRegion(), &clientBufData,
+                                &bytesPerPixel, &bytesPerStride);
 
-            ASSERT_NO_FATAL_FAILURE(
-                    ReadbackHelper::fillBuffer(layer->getWidth(), layer->getHeight(), stride,
-                                               clientBufData, clientFormat, expectedColors));
+            ASSERT_NO_FATAL_FAILURE(ReadbackHelper::fillBuffer(
+                    layer->getWidth(), layer->getHeight(), stride, bytesPerPixel, clientBufData,
+                    clientFormat, expectedColors));
             int32_t clientFence;
             const auto unlockStatus = graphicBuffer->unlockAsync(&clientFence);
             ASSERT_EQ(::android::OK, unlockStatus);
@@ -675,15 +680,18 @@ TEST_P(GraphicsCompositionTest, DeviceAndClientComposition) {
         const auto& buffer = graphicBuffer->handle;
 
         void* clientBufData;
+        int bytesPerPixel = -1;
+        int bytesPerStride = -1;
         graphicBuffer->lock(clientUsage, {0, 0, getDisplayWidth(), getDisplayHeight()},
-                            &clientBufData);
+                            &clientBufData, &bytesPerPixel, &bytesPerStride);
 
         std::vector<Color> clientColors(
                 static_cast<size_t>(getDisplayWidth() * getDisplayHeight()));
         ReadbackHelper::fillColorsArea(clientColors, getDisplayWidth(), clientFrame, RED);
         ASSERT_NO_FATAL_FAILURE(ReadbackHelper::fillBuffer(
                 static_cast<uint32_t>(getDisplayWidth()), static_cast<uint32_t>(getDisplayHeight()),
-                graphicBuffer->getStride(), clientBufData, clientFormat, clientColors));
+                graphicBuffer->getStride(), bytesPerPixel, clientBufData, clientFormat,
+                clientColors));
         int32_t clientFence;
         const auto unlockStatus = graphicBuffer->unlockAsync(&clientFence);
         ASSERT_EQ(::android::OK, unlockStatus);

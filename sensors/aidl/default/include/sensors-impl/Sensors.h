@@ -97,9 +97,13 @@ class Sensors : public BnSensors, public ISensorsEventCallback {
             return;
         }
         if (mEventQueue->write(&events.front(), events.size())) {
+            if (mEventQueueFlag == nullptr) {
+                // Don't take the wake lock if we can't wake the receiver to avoid holding it
+                // indefinitely.
+                return;
+            }
             mEventQueueFlag->wake(
                     static_cast<uint32_t>(BnSensors::EVENT_QUEUE_FLAG_BITS_READ_AND_PROCESS));
-
             if (wakeup) {
                 // Keep track of the number of outstanding WAKE_UP events in order to properly hold
                 // a wake lock until the framework has secured a wake lock
@@ -119,6 +123,8 @@ class Sensors : public BnSensors, public ISensorsEventCallback {
 
     // Utility function to delete the Event Flag
     void deleteEventFlag() {
+        // Hold the lock to ensure we don't delete the flag while it's being used in postEvents()
+        std::lock_guard<std::mutex> lock(mWriteLock);
         if (mEventQueueFlag != nullptr) {
             status_t status = EventFlag::deleteEventFlag(&mEventQueueFlag);
             if (status != OK) {

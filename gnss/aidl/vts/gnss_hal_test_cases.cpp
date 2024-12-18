@@ -419,6 +419,10 @@ TEST_P(GnssHalTest, TestGnssMeasurementExtensionAndSatellitePvt) {
         ASSERT_TRUE(callback->gnss_data_cbq_.retrieve(lastMeasurement,
                                                       kFirstGnssMeasurementTimeoutSeconds));
         EXPECT_EQ(callback->gnss_data_cbq_.calledCount(), i + 1);
+        if (i <= 2 && lastMeasurement.measurements.size() == 0) {
+            // Allow 3 seconds tolerance for empty measurement
+            continue;
+        }
         ASSERT_TRUE(lastMeasurement.measurements.size() > 0);
 
         // Validity check GnssData fields
@@ -479,6 +483,10 @@ TEST_P(GnssHalTest, TestCorrelationVector) {
         ASSERT_TRUE(callback->gnss_data_cbq_.retrieve(lastMeasurement,
                                                       kFirstGnssMeasurementTimeoutSeconds));
         EXPECT_EQ(callback->gnss_data_cbq_.calledCount(), i + 1);
+        if (i <= 2 && lastMeasurement.measurements.size() == 0) {
+            // Allow 3 seconds tolerance for empty measurement
+            continue;
+        }
         ASSERT_TRUE(lastMeasurement.measurements.size() > 0);
 
         // Validity check GnssData fields
@@ -657,19 +665,19 @@ TEST_P(GnssHalTest, BlocklistIndividualSatellites) {
                                                          kGnssSvInfoListTimeout);
         ASSERT_EQ(count, sv_info_list_cbq_size);
         source_to_blocklist =
-                FindStrongFrequentNonGpsSource(sv_info_vec_list, kLocationsToAwait - 1);
+                FindStrongFrequentBlockableSource(sv_info_vec_list, kLocationsToAwait - 1);
     } else {
         std::list<std::vector<IGnssCallback::GnssSvInfo>> sv_info_vec_list;
         int count = aidl_gnss_cb_->sv_info_list_cbq_.retrieve(
                 sv_info_vec_list, sv_info_list_cbq_size, kGnssSvInfoListTimeout);
         ASSERT_EQ(count, sv_info_list_cbq_size);
         source_to_blocklist =
-                FindStrongFrequentNonGpsSource(sv_info_vec_list, kLocationsToAwait - 1);
+                FindStrongFrequentBlockableSource(sv_info_vec_list, kLocationsToAwait - 1);
     }
 
     if (source_to_blocklist.constellation == GnssConstellationType::UNKNOWN) {
-        // Cannot find a non-GPS satellite. Let the test pass.
-        ALOGD("Cannot find a non-GPS satellite. Letting the test pass.");
+        // Cannot find a blockable satellite. Let the test pass.
+        ALOGD("Cannot find a blockable satellite. Letting the test pass.");
         return;
     }
 
@@ -816,8 +824,8 @@ TEST_P(GnssHalTest, BlocklistIndividualSatellites) {
  * BlocklistConstellationLocationOff:
  *
  * 1) Turns on location, waits for 3 locations, ensuring they are valid, and checks corresponding
- * GnssStatus for any non-GPS constellations.
- * 2a & b) Turns off location, and blocklist first non-GPS constellations.
+ * GnssStatus for any blockable constellations.
+ * 2a & b) Turns off location, and blocklist first blockable constellations.
  * 3) Restart location, wait for 3 locations, ensuring they are valid, and checks corresponding
  * GnssStatus does not use any constellation but GPS.
  * 4a & b) Clean up by turning off location, and send in empty blocklist.
@@ -833,9 +841,9 @@ TEST_P(GnssHalTest, BlocklistConstellationLocationOff) {
     const int kLocationsToAwait = 3;
     const int kGnssSvInfoListTimeout = 2;
 
-    // Find first non-GPS constellation to blocklist
+    // Find first blockable constellation to blocklist
     GnssConstellationType constellation_to_blocklist = static_cast<GnssConstellationType>(
-            startLocationAndGetNonGpsConstellation(kLocationsToAwait, kGnssSvInfoListTimeout));
+            startLocationAndGetBlockableConstellation(kLocationsToAwait, kGnssSvInfoListTimeout));
 
     // Turns off location
     StopAndClearLocations();
@@ -919,8 +927,8 @@ TEST_P(GnssHalTest, BlocklistConstellationLocationOff) {
  * BlocklistConstellationLocationOn:
  *
  * 1) Turns on location, waits for 3 locations, ensuring they are valid, and checks corresponding
- * GnssStatus for any non-GPS constellations.
- * 2a & b) Blocklist first non-GPS constellation, and turn off location.
+ * GnssStatus for any blockable constellations.
+ * 2a & b) Blocklist first blockable constellation, and turn off location.
  * 3) Restart location, wait for 3 locations, ensuring they are valid, and checks corresponding
  * GnssStatus does not use any constellation but GPS.
  * 4a & b) Clean up by turning off location, and send in empty blocklist.
@@ -936,9 +944,9 @@ TEST_P(GnssHalTest, BlocklistConstellationLocationOn) {
     const int kLocationsToAwait = 3;
     const int kGnssSvInfoListTimeout = 2;
 
-    // Find first non-GPS constellation to blocklist
+    // Find first blockable constellation to blocklist
     GnssConstellationType constellation_to_blocklist = static_cast<GnssConstellationType>(
-            startLocationAndGetNonGpsConstellation(kLocationsToAwait, kGnssSvInfoListTimeout));
+            startLocationAndGetBlockableConstellation(kLocationsToAwait, kGnssSvInfoListTimeout));
 
     BlocklistedSource source_to_blocklist_1;
     source_to_blocklist_1.constellation = constellation_to_blocklist;
@@ -1149,40 +1157,139 @@ TEST_P(GnssHalTest, GnssDebugValuesSanityTest) {
     sp<IGnssDebug> iGnssDebug;
     auto status = aidl_gnss_hal_->getExtensionGnssDebug(&iGnssDebug);
     ASSERT_TRUE(status.isOk());
-
-    if (!IsAutomotiveDevice()) {
-        ASSERT_TRUE(iGnssDebug != nullptr);
-
-        IGnssDebug::DebugData data;
-        auto status = iGnssDebug->getDebugData(&data);
-        ASSERT_TRUE(status.isOk());
-
-        if (data.position.valid) {
-            ASSERT_TRUE(data.position.latitudeDegrees >= -90 &&
-                        data.position.latitudeDegrees <= 90);
-            ASSERT_TRUE(data.position.longitudeDegrees >= -180 &&
-                        data.position.longitudeDegrees <= 180);
-            ASSERT_TRUE(data.position.altitudeMeters >= -1000 &&  // Dead Sea: -414m
-                        data.position.altitudeMeters <= 20000);   // Mount Everest: 8850m
-            ASSERT_TRUE(data.position.speedMetersPerSec >= 0 &&
-                        data.position.speedMetersPerSec <= 600);
-            ASSERT_TRUE(data.position.bearingDegrees >= -360 &&
-                        data.position.bearingDegrees <= 360);
-            ASSERT_TRUE(data.position.horizontalAccuracyMeters > 0 &&
-                        data.position.horizontalAccuracyMeters <= 20000000);
-            ASSERT_TRUE(data.position.verticalAccuracyMeters > 0 &&
-                        data.position.verticalAccuracyMeters <= 20000);
-            ASSERT_TRUE(data.position.speedAccuracyMetersPerSecond > 0 &&
-                        data.position.speedAccuracyMetersPerSecond <= 500);
-            ASSERT_TRUE(data.position.bearingAccuracyDegrees > 0 &&
-                        data.position.bearingAccuracyDegrees <= 180);
-            ASSERT_TRUE(data.position.ageSeconds >= 0);
-        }
-        ASSERT_TRUE(data.time.timeEstimateMs >= 1483228800000);  // Jan 01 2017 00:00:00 GMT.
-        ASSERT_TRUE(data.time.timeUncertaintyNs > 0);
-        ASSERT_TRUE(data.time.frequencyUncertaintyNsPerSec > 0 &&
-                    data.time.frequencyUncertaintyNsPerSec <= 2.0e5);  // 200 ppm
+    if (IsAutomotiveDevice()) {
+        return;
     }
+    ASSERT_TRUE(iGnssDebug != nullptr);
+
+    IGnssDebug::DebugData data;
+    status = iGnssDebug->getDebugData(&data);
+    ASSERT_TRUE(status.isOk());
+    Utils::checkPositionDebug(data);
+
+    // Additional GnssDebug tests for AIDL version >= 4 (launched in Android 15(V)+)
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 3) {
+        return;
+    }
+
+    // Start location and check the consistency between SvStatus and DebugData
+    aidl_gnss_cb_->location_cbq_.reset();
+    aidl_gnss_cb_->sv_info_list_cbq_.reset();
+    StartAndCheckLocations(/* count= */ 2);
+    int location_called_count = aidl_gnss_cb_->location_cbq_.calledCount();
+    ALOGD("Observed %d GnssSvStatus, while awaiting 2 locations (%d received)",
+          aidl_gnss_cb_->sv_info_list_cbq_.size(), location_called_count);
+
+    // Wait for up to kNumSvInfoLists events for kTimeoutSeconds for each event.
+    int kTimeoutSeconds = 2;
+    int kNumSvInfoLists = 4;
+    std::list<std::vector<IGnssCallback::GnssSvInfo>> sv_info_lists;
+    std::vector<IGnssCallback::GnssSvInfo> last_sv_info_list;
+
+    do {
+        EXPECT_GT(aidl_gnss_cb_->sv_info_list_cbq_.retrieve(sv_info_lists, kNumSvInfoLists,
+                                                            kTimeoutSeconds),
+                  0);
+        if (!sv_info_lists.empty()) {
+            last_sv_info_list = sv_info_lists.back();
+            ALOGD("last_sv_info size = %d", (int)last_sv_info_list.size());
+        }
+    } while (!sv_info_lists.empty() && last_sv_info_list.size() == 0);
+
+    StopAndClearLocations();
+
+    status = iGnssDebug->getDebugData(&data);
+    Utils::checkPositionDebug(data);
+
+    // Validate SatelliteEphemerisType, SatelliteEphemerisSource, SatelliteEphemerisHealth
+    for (auto sv_info : last_sv_info_list) {
+        if ((sv_info.svFlag & static_cast<int>(IGnssCallback::GnssSvFlags::USED_IN_FIX)) == 0) {
+            continue;
+        }
+        ALOGD("Found usedInFix const: %d, svid: %d", static_cast<int>(sv_info.constellation),
+              sv_info.svid);
+        bool foundDebugData = false;
+        for (auto satelliteData : data.satelliteDataArray) {
+            if (satelliteData.constellation == sv_info.constellation &&
+                satelliteData.svid == sv_info.svid) {
+                foundDebugData = true;
+                ALOGD("Found GnssDebug data for this sv.");
+                EXPECT_TRUE(satelliteData.serverPredictionIsAvailable ||
+                            satelliteData.ephemerisType ==
+                                    IGnssDebug::SatelliteEphemerisType::EPHEMERIS);
+                // for satellites with ephType=0, they need ephHealth=0 if used-in-fix
+                if (satelliteData.ephemerisType == IGnssDebug::SatelliteEphemerisType::EPHEMERIS) {
+                    EXPECT_TRUE(satelliteData.ephemerisHealth ==
+                                IGnssDebug::SatelliteEphemerisHealth::GOOD);
+                }
+                break;
+            }
+        }
+        // Every Satellite where GnssStatus says it is used-in-fix has a valid ephemeris - i.e. it's
+        // it shows either a serverPredAvail: 1, or a ephType=0
+        EXPECT_TRUE(foundDebugData);
+    }
+
+    bool hasServerPredictionAvailable = false;
+    bool hasNoneZeroServerPredictionAgeSeconds = false;
+    bool hasNoneDemodEphSource = false;
+    for (auto satelliteData : data.satelliteDataArray) {
+        // for satellites with serverPredAvail: 1, the serverPredAgeSec: is not 0 for all
+        // satellites (at least not on 2 fixes in a row - it could get lucky once)
+        if (satelliteData.serverPredictionIsAvailable) {
+            hasServerPredictionAvailable = true;
+            if (satelliteData.serverPredictionAgeSeconds != 0) {
+                hasNoneZeroServerPredictionAgeSeconds = true;
+            }
+        }
+        // for satellites with ephType=0, they need ephSource 0-3
+        if (satelliteData.ephemerisType == IGnssDebug::SatelliteEphemerisType::EPHEMERIS) {
+            EXPECT_TRUE(satelliteData.ephemerisSource >=
+                                SatellitePvt::SatelliteEphemerisSource::DEMODULATED &&
+                        satelliteData.ephemerisSource <=
+                                SatellitePvt::SatelliteEphemerisSource::OTHER);
+            if (satelliteData.ephemerisSource !=
+                SatellitePvt::SatelliteEphemerisSource::DEMODULATED) {
+                hasNoneDemodEphSource = true;
+            }
+        }
+    }
+    if (hasNoneDemodEphSource && hasServerPredictionAvailable) {
+        EXPECT_TRUE(hasNoneZeroServerPredictionAgeSeconds);
+    }
+
+    /**
+    - Gnss Location Data:: should show some valid information, ideally reasonably close (+/-1km) to
+        the Location output - at least after the 2nd valid location output (maybe in general, wait
+        for 2 good Location outputs before checking this, in case they don't update the assistance
+        until after they output the Location)
+    */
+    double distanceM =
+            Utils::distanceMeters(data.position.latitudeDegrees, data.position.longitudeDegrees,
+                                  aidl_gnss_cb_->last_location_.latitudeDegrees,
+                                  aidl_gnss_cb_->last_location_.longitudeDegrees);
+    ALOGD("distance between debug position and last position: %.2lf", distanceM);
+    EXPECT_LT(distanceM, 1000.0);  // 1km
+
+    /**
+    - Gnss Time Data:: timeEstimate should be reasonably close to the current GPS time.
+    - Gnss Time Data:: timeUncertaintyNs should always be > 0 and < 5e9 (could be large due
+        to solve-for-time type solutions)
+    - Gnss Time Data:: frequencyUncertaintyNsPerSec: should always be > 0 and < 1000 (1000 ns/s
+        corresponds to roughly a 300 m/s speed error, which should be pretty rare)
+    */
+    ALOGD("debug time: %" PRId64 ", position time: %" PRId64, data.time.timeEstimateMs,
+          aidl_gnss_cb_->last_location_.timestampMillis);
+    // Allowing 5s between the last location time and the current GPS time
+    EXPECT_LT(abs(data.time.timeEstimateMs - aidl_gnss_cb_->last_location_.timestampMillis), 5000);
+
+    ALOGD("debug time uncertainty: %f ns", data.time.timeUncertaintyNs);
+    EXPECT_GT(data.time.timeUncertaintyNs, 0);
+    EXPECT_LT(data.time.timeUncertaintyNs, 5e9);
+
+    ALOGD("debug freq uncertainty: %f ns/s", data.time.frequencyUncertaintyNsPerSec);
+    EXPECT_GT(data.time.frequencyUncertaintyNsPerSec, 0);
+    EXPECT_LT(data.time.frequencyUncertaintyNsPerSec, 1000);
 }
 
 /*
@@ -1236,7 +1343,10 @@ TEST_P(GnssHalTest, TestGnssAgcInGnssMeasurement) {
         ASSERT_TRUE(callback->gnss_data_cbq_.retrieve(lastMeasurement,
                                                       kFirstGnssMeasurementTimeoutSeconds));
         EXPECT_EQ(callback->gnss_data_cbq_.calledCount(), i + 1);
-        ASSERT_TRUE(lastMeasurement.measurements.size() > 0);
+        if (i > 2) {
+            // Allow 3 seconds tolerance for empty measurement
+            ASSERT_TRUE(lastMeasurement.measurements.size() > 0);
+        }
 
         // Validity check GnssData fields
         checkGnssMeasurementClockFields(lastMeasurement);
@@ -1691,6 +1801,10 @@ TEST_P(GnssHalTest, TestAccumulatedDeltaRange) {
         GnssData lastGnssData;
         ASSERT_TRUE(callback->gnss_data_cbq_.retrieve(lastGnssData, 10));
         EXPECT_EQ(callback->gnss_data_cbq_.calledCount(), i + 1);
+        if (i <= 2 && lastGnssData.measurements.size() == 0) {
+            // Allow 3 seconds tolerance to report empty measurement
+            continue;
+        }
         ASSERT_TRUE(lastGnssData.measurements.size() > 0);
 
         // Validity check GnssData fields
@@ -1714,7 +1828,8 @@ TEST_P(GnssHalTest, TestAccumulatedDeltaRange) {
  * 2. verify the SvStatus are received at expected interval
  */
 TEST_P(GnssHalTest, TestSvStatusIntervals) {
-    if (aidl_gnss_hal_->getInterfaceVersion() <= 2) {
+    // Only runs on devices launched in Android 15+
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 3) {
         return;
     }
     ALOGD("TestSvStatusIntervals");

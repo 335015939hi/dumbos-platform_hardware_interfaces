@@ -14,6 +14,7 @@ cc_defaults {
         "latest_android_hardware_audio_common_ndk_static",
         "latest_android_hardware_audio_effect_ndk_static",
         "latest_android_media_audio_common_types_ndk_static",
+        "latest_android_media_audio_eraser_types_ndk_static",
         "use_libaidlvintf_gtest_helper_static",
         "VtsHalTargetTestDefaults",
     ],
@@ -115,6 +116,9 @@ cc_test {
     defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     static_libs: ["libaudioaidlranges"],
     srcs: ["VtsHalDynamicsProcessingTest.cpp"],
+    shared_libs: [
+        "libaudioutils",
+    ],
 }
 
 cc_test {
@@ -136,6 +140,9 @@ cc_test {
     name: "VtsHalHapticGeneratorTargetTest",
     defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalHapticGeneratorTargetTest.cpp"],
+    shared_libs: [
+        "libaudioutils",
+    ],
 }
 
 cc_test {
@@ -166,6 +173,9 @@ cc_test {
     name: "VtsHalVisualizerTargetTest",
     defaults: ["VtsHalAudioEffectTargetTestDefaults"],
     srcs: ["VtsHalVisualizerTargetTest.cpp"],
+    shared_libs: [
+        "libaudioutils",
+    ],
 }
 
 cc_test {

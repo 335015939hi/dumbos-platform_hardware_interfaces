@@ -28,9 +28,11 @@ aidl_interface {
         "android/hardware/automotive/evs/*.aidl",
     ],
     stability: "vintf",
+    defaults: [
+        "android.hardware.graphics.common-latest",
+    ],
     imports: [
         "android.hardware.common-V2",
-        "android.hardware.graphics.common-V5",
     ],
     backend: {
         java: {
@@ -44,20 +46,23 @@ aidl_interface {
         ndk: {
             min_sdk_version: "29",
         },
+        rust: {
+            enabled: true,
+        },
     },
     versions_with_info: [
         {
             version: "1",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "2",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
 

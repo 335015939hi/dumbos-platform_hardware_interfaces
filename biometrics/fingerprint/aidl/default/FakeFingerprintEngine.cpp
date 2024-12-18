@@ -389,10 +389,10 @@ void FakeFingerprintEngine::resetLockoutImpl(ISessionCallback* cb,
     if (isLockoutTimerStarted) isLockoutTimerAborted = true;
 }
 
-void FakeFingerprintEngine::clearLockout(ISessionCallback* cb) {
+void FakeFingerprintEngine::clearLockout(ISessionCallback* cb, bool dueToTimeout) {
     Fingerprint::cfg().set<bool>("lockout", false);
     cb->onLockoutCleared();
-    mLockoutTracker.reset();
+    mLockoutTracker.reset(dueToTimeout);
 }
 
 ndk::ScopedAStatus FakeFingerprintEngine::onPointerDownImpl(int32_t /*pointerId*/, int32_t /*x*/,
@@ -536,7 +536,7 @@ void FakeFingerprintEngine::startLockoutTimer(int64_t timeout, ISessionCallback*
 void FakeFingerprintEngine::lockoutTimerExpired(ISessionCallback* cb) {
     BEGIN_OP(0);
     if (!isLockoutTimerAborted) {
-        clearLockout(cb);
+        clearLockout(cb, true);
     }
     isLockoutTimerStarted = false;
     isLockoutTimerAborted = false;
@@ -544,6 +544,10 @@ void FakeFingerprintEngine::lockoutTimerExpired(ISessionCallback* cb) {
 
 void FakeFingerprintEngine::waitForFingerDown(ISessionCallback* cb,
                                               const std::future<void>& cancel) {
+    if (mFingerIsDown) {
+        LOG(WARNING) << "waitForFingerDown: mFingerIsDown==true already!";
+    }
+
     while (!mFingerIsDown) {
         if (shouldCancel(cancel)) {
             LOG(ERROR) << "waitForFingerDown, Fail: cancel";

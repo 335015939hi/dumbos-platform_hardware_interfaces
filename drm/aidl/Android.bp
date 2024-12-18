@@ -12,8 +12,10 @@ aidl_interface {
     vendor_available: true,
     srcs: ["android/hardware/drm/*.aidl"],
     stability: "vintf",
+    frozen: true,
     imports: [
         "android.hardware.common-V2",
+        "android.hardware.drm.common-V1",
     ],
     backend: {
         cpp: {
@@ -25,12 +27,18 @@ aidl_interface {
         ndk: {
             min_sdk_version: "34",
         },
+        rust: {
+            enabled: true,
+        },
     },
     double_loadable: true,
     versions_with_info: [
         {
             version: "1",
-            imports: ["android.hardware.common-V2"],
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.drm.common-V1",
+            ],
         },
     ],
 

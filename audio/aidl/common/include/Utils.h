@@ -31,6 +31,7 @@
 #include <aidl/android/media/audio/common/AudioOutputFlags.h>
 #include <aidl/android/media/audio/common/PcmType.h>
 #include <android/binder_auto_utils.h>
+#include <utils/FastStrcmp.h>
 
 namespace ndk {
 
@@ -48,6 +49,9 @@ inline std::string errorToString(const ScopedAStatus& s) {
 
 namespace aidl::android::hardware::audio::common {
 
+// TODO: b/275135031 - move this string to AIDL interfaces.
+static constexpr char kDumpFromAudioServerArgument[] = "dump_from_audioserver";
+
 // Some values are reserved for use by the system code only.
 // HALs must not accept or emit values outside from the provided list.
 constexpr std::array<::aidl::android::media::audio::common::AudioMode, 5> kValidAudioModes = {
@@ -57,6 +61,11 @@ constexpr std::array<::aidl::android::media::audio::common::AudioMode, 5> kValid
         ::aidl::android::media::audio::common::AudioMode::IN_COMMUNICATION,
         ::aidl::android::media::audio::common::AudioMode::CALL_SCREEN,
 };
+
+constexpr bool iequals(const std::string& str1, const std::string& str2) {
+    return str1.length() == str2.length() &&
+           !fasticmp<strncmp>(str1.c_str(), str2.c_str(), str1.length());
+}
 
 constexpr size_t getPcmSampleSizeInBytes(::aidl::android::media::audio::common::PcmType pcm) {
     using ::aidl::android::media::audio::common::PcmType;

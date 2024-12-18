@@ -79,7 +79,6 @@ ndk::ScopedAStatus EffectImpl::reopen(OpenEffectReturn* ret) {
     std::lock_guard lg(mImplMutex);
     RETURN_IF(mState == State::INIT, EX_ILLEGAL_STATE, "alreadyClosed");
 
-    // TODO: b/302036943 add reopen implementation
     RETURN_IF(!mImplContext, EX_NULL_POINTER, "nullContext");
     mImplContext->dupeFmqWithReopen(ret);
     return ndk::ScopedAStatus::ok();
@@ -347,7 +346,7 @@ void EffectImpl::process() {
 
     {
         std::lock_guard lg(mImplMutex);
-        if (mState != State::PROCESSING) {
+        if (mState != State::PROCESSING && mState != State::DRAINING) {
             LOG(DEBUG) << getEffectNameWithVersion()
                        << " skip process in state: " << toString(mState);
             return;

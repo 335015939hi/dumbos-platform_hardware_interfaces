@@ -15,6 +15,7 @@
 //
 
 package {
+    default_team: "trendy_team_bluetooth",
     // See: http://go/android-license-faq
     // A large-scale-change added 'default_applicable_licenses' to import
     // all of the 'license_kinds' from "hardware_interfaces_license"
@@ -30,7 +31,6 @@ cc_test {
     static_libs: [
         "android.hardware.bluetooth@1.1",
         "android.hardware.bluetooth@1.0",
-        "libbluetooth-types",
     ],
     test_config: "VtsHalBluetoothV1_1TargetTest.xml",
     test_suites: ["general-tests", "vts"],

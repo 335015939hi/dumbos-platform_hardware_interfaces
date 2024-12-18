@@ -48,7 +48,7 @@ parcelable CardStatus {
     /**
      * Applicable to USIM and CSIM
      */
-    PinState universalPinState;
+    PinState universalPinState = PinState.UNKNOWN;
     /**
      * Value < RadioConst:CARD_MAX_APPS, -1 if none
      */

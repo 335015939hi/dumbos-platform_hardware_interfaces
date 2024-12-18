@@ -33,7 +33,7 @@
 
 package android.hardware.radio.data;
 /* @hide */
-@Backing(type="int") @JavaDerive(toString=true) @VintfStability
+@Backing(type="int") @JavaDerive(toString=true) @SuppressWarnings(value={"redundant-name"}) @VintfStability
 enum DataCallFailCause {
   NONE = 0,
   OPERATOR_BARRED = 0x08,

@@ -50,6 +50,10 @@ class GRPCVehicleHardware : public IVehicleHardware {
     // Get all the property configs.
     std::vector<aidlvhal::VehiclePropConfig> getAllPropertyConfigs() const override;
 
+    // Get the config for the specified propId.
+    std::optional<aidl::android::hardware::automotive::vehicle::VehiclePropConfig>
+    getPropertyConfig(int32_t propId) const override;
+
     // Set property values asynchronously. Server could return before the property set requests
     // are sent to vehicle bus or before property set confirmation is received. The callback is
     // safe to be called after the function returns and is safe to be called in a different thread.

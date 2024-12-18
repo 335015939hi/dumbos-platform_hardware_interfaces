@@ -24,6 +24,7 @@ import android.hardware.radio.AccessNetwork;
  */
 @VintfStability
 @JavaDerive(toString=true)
+@SuppressWarnings(value={"redundant-name"})
 parcelable SignalThresholdInfo {
     /**
      * Received Signal Strength Indication.
@@ -121,5 +122,5 @@ parcelable SignalThresholdInfo {
     /**
      * The Radio Access Network for current threshold info.
      */
-    AccessNetwork ran;
+    AccessNetwork ran = AccessNetwork.UNKNOWN;
 }

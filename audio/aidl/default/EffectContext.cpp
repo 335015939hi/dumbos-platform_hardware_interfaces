@@ -63,13 +63,18 @@ void EffectContext::resetBuffer() {
 }
 
 void EffectContext::dupeFmqWithReopen(IEffect::OpenEffectReturn* effectRet) {
+    const size_t inBufferSizeInFloat = mCommon.input.frameCount * mInputFrameSize / sizeof(float);
+    const size_t outBufferSizeInFloat =
+            mCommon.output.frameCount * mOutputFrameSize / sizeof(float);
+    const size_t bufferSize = std::max(inBufferSizeInFloat, outBufferSizeInFloat);
     if (!mInputMQ) {
-        mInputMQ = std::make_shared<DataMQ>(mCommon.input.frameCount * mInputFrameSize /
-                                            sizeof(float));
+        mInputMQ = std::make_shared<DataMQ>(inBufferSizeInFloat);
     }
     if (!mOutputMQ) {
-        mOutputMQ = std::make_shared<DataMQ>(mCommon.output.frameCount * mOutputFrameSize /
-                                             sizeof(float));
+        mOutputMQ = std::make_shared<DataMQ>(outBufferSizeInFloat);
+    }
+    if (mWorkBuffer.size() != bufferSize) {
+        mWorkBuffer.resize(bufferSize);
     }
     dupeFmq(effectRet);
 }
@@ -222,8 +227,6 @@ RetCode EffectContext::updateIOFrameSize(const Parameter::Common& common) {
     }
 
     if (needUpdateMq) {
-        mWorkBuffer.resize(std::max(common.input.frameCount * mInputFrameSize / sizeof(float),
-                                    common.output.frameCount * mOutputFrameSize / sizeof(float)));
         return notifyDataMqUpdate();
     }
     return RetCode::SUCCESS;
@@ -253,6 +256,20 @@ RetCode EffectContext::disable() {
 
 RetCode EffectContext::reset() {
     return RetCode::SUCCESS;
+}
+
+RetCode EffectContext::startDraining() {
+    mIsDraining = true;
+    return RetCode::SUCCESS;
+}
+
+RetCode EffectContext::finishDraining() {
+    mIsDraining = false;
+    return RetCode::SUCCESS;
+}
+
+bool EffectContext::isDraining() {
+    return mIsDraining;
 }
 
 }  // namespace aidl::android::hardware::audio::effect
