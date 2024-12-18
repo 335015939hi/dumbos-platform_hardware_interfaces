@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f979954_6431e7be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-18T16:33:36Z",
+      "side": 1,
+      "message": "Looks like this has to go internal first due to merge conflict in build/",
+      "revId": "bf6560272a0088ef6ec37e80eb3d66d6e3133ed5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

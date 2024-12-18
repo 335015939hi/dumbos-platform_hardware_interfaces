@@ -50,6 +50,30 @@
       ],
       "revId": "81a3ba6837ec69ef8e9d75e4ea44971b1bfd26ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5301ba06_e96faf90",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-18T16:33:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4746e772_7db848db",
+      "range": {
+        "startLine": 184,
+        "startChar": 83,
+        "endLine": 184,
+        "endChar": 84
+      },
+      "revId": "81a3ba6837ec69ef8e9d75e4ea44971b1bfd26ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
