@@ -160,6 +160,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f396b1c_392777c8",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-18T17:44:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "efa5095b_44c8ab72",
+      "range": {
+        "startLine": 659,
+        "startChar": 0,
+        "endLine": 662,
+        "endChar": 42
+      },
+      "revId": "366f8152b26ac33d17a19751487888f6048e139e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b86a39b_c7ae5fce",
