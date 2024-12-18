@@ -52,6 +52,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f4b8cb8_d8d286e1",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-18T13:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e8b3674_98c360c9",
+      "range": {
+        "startLine": 121,
+        "startChar": 22,
+        "endLine": 121,
+        "endChar": 40
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1d65804_e2b54cb8",
@@ -99,6 +123,30 @@
           ]
         }
       ],
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00bd7cdd_999a70a6",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-18T13:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1d65804_e2b54cb8",
+      "range": {
+        "startLine": 400,
+        "startChar": 81,
+        "endLine": 400,
+        "endChar": 86
+      },
       "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -164,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5850658_f01722e5",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-18T13:18:17Z",
+      "side": 1,
+      "message": "Using gain values in the range of -85 to 85.",
+      "parentUuid": "580c0b66_0d841d58",
+      "range": {
+        "startLine": 647,
+        "startChar": 23,
+        "endLine": 647,
+        "endChar": 33
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4eabcedf_fc05a959",
@@ -225,6 +297,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0538061b_e6a802fa",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-18T13:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4eabcedf_fc05a959",
+      "range": {
+        "startLine": 648,
+        "startChar": 15,
+        "endLine": 648,
+        "endChar": 19
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6bbb762_cbefdbbe",
@@ -266,6 +362,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42a93811_4f27f126",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-18T13:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6bbb762_cbefdbbe",
+      "range": {
+        "startLine": 651,
+        "startChar": 42,
+        "endLine": 651,
+        "endChar": 51
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8019a5f5_31f2c31d",
@@ -289,6 +409,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff252bb9_a5f8ab80",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-18T13:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8019a5f5_31f2c31d",
+      "range": {
+        "startLine": 661,
+        "startChar": 19,
+        "endLine": 661,
+        "endChar": 60
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a3d0e1b_fb53525c",
@@ -302,6 +446,30 @@
       "writtenOn": "2024-12-17T18:14:11Z",
       "side": 1,
       "message": "Same note for the array name and values as for the input gain.",
+      "range": {
+        "startLine": 859,
+        "startChar": 23,
+        "endLine": 859,
+        "endChar": 58
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e046e88b_50039505",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 859,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-18T13:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a3d0e1b_fb53525c",
       "range": {
         "startLine": 859,
         "startChar": 23,
@@ -353,6 +521,54 @@
         "startChar": 0,
         "endLine": 872,
         "endChar": 65
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "766738ca_08575565",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-18T13:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83097edf_505224ac",
+      "range": {
+        "startLine": 872,
+        "startChar": 0,
+        "endLine": 872,
+        "endChar": 65
+      },
+      "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c37a593_7d9e9a24",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 872,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-18T13:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "728d3b9e_e10113bf",
+      "range": {
+        "startLine": 872,
+        "startChar": 8,
+        "endLine": 872,
+        "endChar": 19
       },
       "revId": "3dccaad1024003b4183527616fe08a3da2df9611",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
