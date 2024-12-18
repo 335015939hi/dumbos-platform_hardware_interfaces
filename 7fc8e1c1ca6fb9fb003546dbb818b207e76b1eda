@@ -22,6 +22,30 @@
       },
       "revId": "7fc8e1c1ca6fb9fb003546dbb818b207e76b1eda",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46584eb9_8f4a3f97",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 3967,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-18T22:00:49Z",
+      "side": 1,
+      "message": "Good point, but better leave for a separate CL because adding these may cause new failures while currently we are trying to fix the existing ones :)",
+      "parentUuid": "63e2c05b_1c568bf1",
+      "range": {
+        "startLine": 3967,
+        "startChar": 0,
+        "endLine": 3967,
+        "endChar": 49
+      },
+      "revId": "7fc8e1c1ca6fb9fb003546dbb818b207e76b1eda",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
