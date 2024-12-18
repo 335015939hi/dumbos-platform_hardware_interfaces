@@ -226,6 +226,7 @@ GrpcVehicleProxyServer::GrpcVehicleProxyServer(std::vector<std::string> serverAd
     auto dumpResult = mHardware->dump(dumpOptionStrings);
     result->set_caller_should_dump_state(dumpResult.callerShouldDumpState);
     result->set_buffer(dumpResult.buffer);
+    result->set_refresh_property_configs(dumpResult.refreshPropertyConfigs);
     return ::grpc::Status::OK;
 }
 
