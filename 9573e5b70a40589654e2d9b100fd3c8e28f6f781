@@ -40,6 +40,30 @@
       ],
       "revId": "9573e5b70a40589654e2d9b100fd3c8e28f6f781",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c78ebe04_dd7d84e3",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2024-12-18T09:33:23Z",
+      "side": 1,
+      "message": "I was following the VSR, which separates VM DICE support and the \"same DICE root\" requirement into two distinct requirements:\n\n- VM DICE: http://screen/T2YuHc9ZXnBymZo\n- Same DICE root: http://screen/8xnAc739QNYajwK\n\n@robertchou@google.com, we\u0027ve encountered an inconsistency between the chip-level VSR and the device-level GMS-VSR. Could you please advise on which index we should use for test annotation in this scenario?",
+      "parentUuid": "319d33e3_64c95dad",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 271,
+        "endChar": 25
+      },
+      "revId": "9573e5b70a40589654e2d9b100fd3c8e28f6f781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
