@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4746e772_7db848db",
+        "filename": "compatibility_matrices/bump.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-12-18T00:48:46Z",
+      "side": 1,
+      "message": "This example is from the `v` finalization. Now we are preparing for `b`.\nSo either current\u003dv, next\u003dw or current\u003db, next\u003dc looks a better example here.",
+      "range": {
+        "startLine": 184,
+        "startChar": 83,
+        "endLine": 184,
+        "endChar": 84
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "3cdb20b4_f74b31f3",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "compatibility_matrices/bump.py",
+              "range": {
+                "startLine": 184,
+                "startChar": 0,
+                "endLine": 185,
+                "endChar": 0
+              },
+              "replacement": "                        help\u003d\"Letter of the API level of the current version (e.g. b)\")\n"
+            },
+            {
+              "path": "compatibility_matrices/bump.py",
+              "range": {
+                "startLine": 187,
+                "startChar": 0,
+                "endLine": 188,
+                "endChar": 0
+              },
+              "replacement": "                        help\u003d\"Letter of the API level of the next version (e.g. c)\")\n"
+            }
+          ]
+        }
+      ],
+      "revId": "81a3ba6837ec69ef8e9d75e4ea44971b1bfd26ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
