@@ -57,6 +57,30 @@
       ],
       "revId": "10a768a03dae55d8c9eae25c126bc24412cb31be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5feef98f_eac02661",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-18T20:37:22Z",
+      "side": 1,
+      "message": "Correct, Cuttlefish does not support compressed playback. Below are the configurations for the 3 modules that it has:\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:device/google/cuttlefish/shared/config/audio/policy/primary_audio_policy_configuration.xml\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/services/audiopolicy/config/bluetooth_audio_policy_configuration_7_0.xml\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/Configuration.cpp;l\u003d326;drc\u003d488ea4ea02af994c6b8f02af1c2b140391994bb2\n\nUSB is not supported.\n\nPartners who use the AOSP default implementation as a base directly might need to update their implementation. But it\u0027s for good, as the calculation of the minimum buffer size for non-PCM in the same way as it\u0027s done for PCM might simply be incorrect as Kuowei has found.",
+      "parentUuid": "2267a9db_9e38c78a",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 75
+      },
+      "revId": "10a768a03dae55d8c9eae25c126bc24412cb31be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
