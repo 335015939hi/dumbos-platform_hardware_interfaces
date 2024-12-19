@@ -34,6 +34,190 @@
       "parentUuid": "1c5ead88_c9706079",
       "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32dff47b_d3ca1020",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-19T19:06:01Z",
+      "side": 1,
+      "message": "nit: `clearKeyPolicy`",
+      "range": {
+        "startLine": 114,
+        "startChar": 23,
+        "endLine": 114,
+        "endChar": 31
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e1b67e0_f04057f4",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-19T19:06:01Z",
+      "side": 1,
+      "message": "Can we link the cddl file and describe the cbor?",
+      "range": {
+        "startLine": 117,
+        "startChar": 11,
+        "endLine": 117,
+        "endChar": 97
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aec6afc_8cee5515",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-19T19:06:01Z",
+      "side": 1,
+      "message": "nit: containing",
+      "range": {
+        "startLine": 161,
+        "startChar": 39,
+        "endLine": 161,
+        "endChar": 49
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15b0ccb4_6832c193",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-19T19:06:01Z",
+      "side": 1,
+      "message": "Can we add more specific error codes for errors in this file? It\u0027s easier to understand thatn flipping back and forthe between files",
+      "range": {
+        "startLine": 191,
+        "startChar": 12,
+        "endLine": 191,
+        "endChar": 92
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7bbb295_2f6d1459",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-19T19:06:01Z",
+      "side": 1,
+      "message": "Is this type different now? `DerivedKey`?",
+      "range": {
+        "startLine": 204,
+        "startChar": 14,
+        "endLine": 204,
+        "endChar": 33
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64e16a6f_bf2ea04f",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-19T19:06:01Z",
+      "side": 1,
+      "message": "link to the cddl?",
+      "range": {
+        "startLine": 254,
+        "startChar": 7,
+        "endLine": 255,
+        "endChar": 73
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4265ec44_e67fd8fb",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-19T19:06:01Z",
+      "side": 1,
+      "message": "does this need to be `inout`? Can we describe why that\u0027s required?",
+      "range": {
+        "startLine": 47,
+        "startChar": 47,
+        "endLine": 47,
+        "endChar": 52
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52f89257_4ef1ddbe",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-19T19:06:01Z",
+      "side": 1,
+      "message": "can this be a part of the CryptoOperationResult?",
+      "range": {
+        "startLine": 48,
+        "startChar": 16,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
