@@ -88,6 +88,24 @@
       "parentUuid": "2667640a_382532d9",
       "revId": "33e6bc22a7413b9b91f97992013be095c4fa6cc6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b2af7aa_a66fec59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2021142
+      },
+      "writtenOn": "2024-12-19T01:56:06Z",
+      "side": 1,
+      "message": "Per discussion on `ALLOW_ASYMMETRIC_CONFIGURATIONS` in the `codec_info`, resolve this.",
+      "parentUuid": "f15b73c2_780048ca",
+      "revId": "33e6bc22a7413b9b91f97992013be095c4fa6cc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
