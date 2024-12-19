@@ -33,6 +33,24 @@
       "message": "Where does the text after `@deprecated` appear?  If it might show up in a build warning and confuse people, maybe we need more text here?  (E.g. something like \"Method has never been used due to design limitations.\")",
       "revId": "82a6b0ece7b1f1646cf98d7ae79b3e4ad90c5282",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b66b9447_6f137092",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 829,
+      "author": {
+        "id": 1954750
+      },
+      "writtenOn": "2024-12-19T09:45:02Z",
+      "side": 1,
+      "message": "Good point, done.",
+      "parentUuid": "1ea3f4b0_c442d3d1",
+      "revId": "82a6b0ece7b1f1646cf98d7ae79b3e4ad90c5282",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
