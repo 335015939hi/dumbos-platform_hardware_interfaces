@@ -16,6 +16,23 @@
       "message": "Same as ag/24554944. Needed for b/381797246.",
       "revId": "6a115820f625bd33bbfe34c38714dcbe412bde25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9f59a94_98bd3bf0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-19T02:24:37Z",
+      "side": 1,
+      "message": "Hung-ying, could you please consider providing Dr-No approval. This is to fix an xTS bug b/381797246",
+      "revId": "6a115820f625bd33bbfe34c38714dcbe412bde25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
