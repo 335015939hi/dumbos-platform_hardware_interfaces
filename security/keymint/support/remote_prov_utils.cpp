@@ -762,8 +762,13 @@ ErrMsgOr<hwtrust::DiceChain::Kind> getDiceChainKind() {
         return hwtrust::DiceChain::Kind::kVsr14;
     } else if (vendor_api_level == 202404) {
         return hwtrust::DiceChain::Kind::kVsr15;
+<<<<<<< HEAD   (563bca [automerger skipped] Use DAB_SID_EXT instead in DAB radio VT)
     } else if (vendor_api_level > 202404) {
         return hwtrust::DiceChain::Kind::kVsr16;
+||||||| BASE
+            return hwtrust::DiceChain::Kind::kVsr15;
+=======
+>>>>>>> BRANCH (45cf33 Relax restrictions on supported API levels)
     } else {
         return "Unsupported vendor API level: " + std::to_string(vendor_api_level);
     }
