@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1a26e06_6379222b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-19T00:18:40Z",
+      "side": 1,
+      "message": "Same as ag/24554944. Needed for b/381797246.",
+      "revId": "6a115820f625bd33bbfe34c38714dcbe412bde25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
