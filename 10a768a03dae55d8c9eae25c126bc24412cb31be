@@ -81,6 +81,30 @@
       },
       "revId": "10a768a03dae55d8c9eae25c126bc24412cb31be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6a0bf2d_fea8df8d",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2024-12-19T09:11:32Z",
+      "side": 1,
+      "message": "\"Partners who use the AOSP default implementation as a base directly might need to update their implementation. \". Can you organize outreach via APE to key SoC vendors and OEMs?",
+      "parentUuid": "5feef98f_eac02661",
+      "range": {
+        "startLine": 394,
+        "startChar": 0,
+        "endLine": 394,
+        "endChar": 75
+      },
+      "revId": "10a768a03dae55d8c9eae25c126bc24412cb31be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
