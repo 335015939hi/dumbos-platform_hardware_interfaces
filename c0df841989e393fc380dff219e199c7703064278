@@ -1,5 +1,52 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c97417b_1099d05b",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-19T18:35:06Z",
+      "side": 1,
+      "message": "Do we have another error value if the size is invalid? Too large, too small (negative?).",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 42
+      },
+      "revId": "c0df841989e393fc380dff219e199c7703064278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb724d35_6c3e187c",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IStorageSession.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-19T18:35:06Z",
+      "side": 1,
+      "message": "can we add a comment describing what happens in this case? Which error is returned",
+      "range": {
+        "startLine": 106,
+        "startChar": 7,
+        "endLine": 106,
+        "endChar": 42
+      },
+      "revId": "c0df841989e393fc380dff219e199c7703064278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
