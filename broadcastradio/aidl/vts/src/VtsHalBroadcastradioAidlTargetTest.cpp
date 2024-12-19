@@ -704,12 +704,13 @@ TEST_P(BroadcastRadioHalTest, DabTune) {
     }
 
     ProgramSelector sel = {};
-    uint64_t freq = 0;
+    uint64_t dabSidExt = 0;
     bool dabStationPresent = false;
     for (auto&& programInfo : *programList) {
         if (!utils::hasId(programInfo.selector, IdentifierType::DAB_FREQUENCY_KHZ)) {
             continue;
         }
+        uint64_t freq = 0;
         for (auto&& config_entry : config) {
             if (config_entry.frequencyKhz ==
                 utils::getId(programInfo.selector, IdentifierType::DAB_FREQUENCY_KHZ, 0)) {
@@ -722,7 +723,7 @@ TEST_P(BroadcastRadioHalTest, DabTune) {
         if (freq == 0) {
             continue;
         }
-        int64_t dabSidExt = utils::getId(programInfo.selector, IdentifierType::DAB_SID_EXT, 0);
+        dabSidExt = utils::getId(programInfo.selector, IdentifierType::DAB_SID_EXT, 0);
         int64_t dabEns = utils::getId(programInfo.selector, IdentifierType::DAB_ENSEMBLE, 0);
         sel = makeSelectorDab(dabSidExt, (int32_t)dabEns, freq);
         dabStationPresent = true;
@@ -752,9 +753,9 @@ TEST_P(BroadcastRadioHalTest, DabTune) {
     LOG(DEBUG) << "Current program info: " << infoCb.toString();
 
     // it should tune exactly to what was requested
-    vector<int> freqs = bcutils::getAllIds(infoCb.selector, IdentifierType::DAB_FREQUENCY_KHZ);
-    EXPECT_NE(freqs.end(), find(freqs.begin(), freqs.end(), freq))
-            << "DAB freq " << freq << " kHz is not sent back by callback.";
+    vector<int> sidExts = bcutils::getAllIds(infoCb.selector, IdentifierType::DAB_SID_EXT);
+    EXPECT_NE(sidExts.end(), find(sidExts.begin(), sidExts.end(), dabSidExt))
+            << "DAB SID ext " << std::hex << dabSidExt << " is not sent back by callback.";
 }
 
 /**
