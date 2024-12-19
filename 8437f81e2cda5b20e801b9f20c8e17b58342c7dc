@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "3696b20a_3864e7ed",
         "filename": "/PATCHSET_LEVEL",
@@ -14,8 +15,24 @@
       "side": 1,
       "message": "Uploaded only as an example",
       "revId": "8437f81e2cda5b20e801b9f20c8e17b58342c7dc",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": false
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "028d2355_8950e61b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3787353
+      },
+      "writtenOn": "2024-12-19T07:28:32Z",
+      "side": 1,
+      "message": "dumpstate/1.1/default/main.cpp",
+      "revId": "8437f81e2cda5b20e801b9f20c8e17b58342c7dc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
