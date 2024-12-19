@@ -176,6 +176,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2039c230_b7c9f9ef",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1944405
+      },
+      "writtenOn": "2024-12-19T19:06:20Z",
+      "side": 1,
+      "message": "nit: extra `be`",
+      "range": {
+        "startLine": 273,
+        "startChar": 47,
+        "endLine": 273,
+        "endChar": 50
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4265ec44_e67fd8fb",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl",
         "patchSetId": 14
