@@ -831,7 +831,13 @@ TEST_P(BroadcastRadioHalTest, DabTune) {
     LOG(DEBUG) << "Current program info: " << infoCb.toString();
 
     // it should tune exactly to what was requested
+<<<<<<< HEAD   (ae2991 Merge "Allow getSlicingConfig to be supported" into android1)
     vector<int64_t> sidExts = bcutils::getAllIds(infoCb.selector, IdentifierType::DAB_SID_EXT);
+||||||| BASE
+    vector<int> freqs = bcutils::getAllIds(infoCb.selector, IdentifierType::DAB_FREQUENCY_KHZ);
+=======
+    vector<int> sidExts = bcutils::getAllIds(infoCb.selector, IdentifierType::DAB_SID_EXT);
+>>>>>>> BRANCH (ffd124 Use DAB_SID_EXT instead in DAB radio VTS)
     EXPECT_NE(sidExts.end(), find(sidExts.begin(), sidExts.end(), dabSidExt))
             << "DAB SID ext " << std::hex << dabSidExt << " is not sent back by callback.";
 }
