@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac5daab3_892d1759",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2024-12-20T17:23:31Z",
+      "side": 1,
+      "message": "It should be good if you at least stay me posted in CC, when you say that you are going to causes merge conflict on other work.",
+      "revId": "00035204dcecf153640e12f9e0bef190633e9138",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
