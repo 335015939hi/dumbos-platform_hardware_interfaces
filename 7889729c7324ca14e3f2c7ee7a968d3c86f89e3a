@@ -673,6 +673,30 @@
       },
       "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dd24901_7b0c792d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-12-20T23:59:10Z",
+      "side": 1,
+      "message": "fixed in [cl 3428892](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3428892/3..4/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl#50)",
+      "parentUuid": "a6640163_fbf8410e",
+      "range": {
+        "startLine": 48,
+        "startChar": 16,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
