@@ -63,6 +63,30 @@
       },
       "revId": "6f9971f07484d7da28233f58b8edf4255e5ae8a4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3b0a4e1_93477f38",
+        "filename": "security/see/hdcp/aidl/android/hardware/security/see/hdcp/IHdcpAuthControl.aidl",
+        "patchSetId": 16
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-20T23:15:22Z",
+      "side": 1,
+      "message": "Exactly!",
+      "parentUuid": "8b210af0_5b9022ab",
+      "range": {
+        "startLine": 28,
+        "startChar": 4,
+        "endLine": 28,
+        "endChar": 29
+      },
+      "revId": "6f9971f07484d7da28233f58b8edf4255e5ae8a4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
