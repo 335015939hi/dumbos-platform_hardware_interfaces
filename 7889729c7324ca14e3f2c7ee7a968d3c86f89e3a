@@ -83,6 +83,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36eb251b_793e0993",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-20T23:13:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dbd3076d_2c227cd4",
+      "range": {
+        "startLine": 114,
+        "startChar": 23,
+        "endLine": 114,
+        "endChar": 31
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e1b67e0_f04057f4",
@@ -120,6 +144,30 @@
       "side": 1,
       "message": "Fixed in [cl 3428892](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3428892/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl#114)",
       "parentUuid": "5e1b67e0_f04057f4",
+      "range": {
+        "startLine": 117,
+        "startChar": 11,
+        "endLine": 117,
+        "endChar": 97
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0769215_917a3671",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-20T23:13:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6168a806_4e672f1f",
       "range": {
         "startLine": 117,
         "startChar": 11,
@@ -177,6 +225,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4864d04e_346e27c2",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-20T23:13:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "018102a3_f5b69d36",
+      "range": {
+        "startLine": 161,
+        "startChar": 39,
+        "endLine": 161,
+        "endChar": 49
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15b0ccb4_6832c193",
@@ -214,6 +286,30 @@
       "side": 1,
       "message": "Fixed in aosp/3428892",
       "parentUuid": "15b0ccb4_6832c193",
+      "range": {
+        "startLine": 191,
+        "startChar": 12,
+        "endLine": 191,
+        "endChar": 92
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b89e1130_6917cd15",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-20T23:13:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3a7155f2_76df596d",
       "range": {
         "startLine": 191,
         "startChar": 12,
@@ -271,6 +367,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc44020e_44b46042",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-20T23:13:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a638befa_3d068b9a",
+      "range": {
+        "startLine": 204,
+        "startChar": 14,
+        "endLine": 204,
+        "endChar": 33
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64e16a6f_bf2ea04f",
@@ -308,6 +428,30 @@
       "side": 1,
       "message": "Fixed in [cl 3428892](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3428892/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl#270)",
       "parentUuid": "64e16a6f_bf2ea04f",
+      "range": {
+        "startLine": 254,
+        "startChar": 7,
+        "endLine": 255,
+        "endChar": 73
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03d3bf59_acbff8a9",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-20T23:13:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4df0584a_b0ce1f5a",
       "range": {
         "startLine": 254,
         "startChar": 7,
@@ -365,6 +509,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "796ba932_0c65f3a0",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-20T23:13:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fd7e60b0_32562ce1",
+      "range": {
+        "startLine": 273,
+        "startChar": 47,
+        "endLine": 273,
+        "endChar": 50
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4265ec44_e67fd8fb",
@@ -412,6 +580,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d91a84e3_8f9489be",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-20T23:13:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e9d0a7fd_f06fe8bb",
+      "range": {
+        "startLine": 47,
+        "startChar": 47,
+        "endLine": 47,
+        "endChar": 52
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52f89257_4ef1ddbe",
@@ -449,6 +641,30 @@
       "side": 1,
       "message": "After thinking a little bit more about it and remembering the original intention I\u0027d prefer to have it as a separate parameter instead. The reason being that the intention of this parameter is to provide extra information if the operation call fails (on which case we will not have a result type, only a system specific exception). The reason for that is that becuase operation can bequite complex, this can give the caller an indication of which of the steps failed and in teh future we can privide even more debug information.",
       "parentUuid": "52f89257_4ef1ddbe",
+      "range": {
+        "startLine": 48,
+        "startChar": 16,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6640163_fbf8410e",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2024-12-20T23:13:41Z",
+      "side": 1,
+      "message": "\u003e The reason being that the intention of this parameter is to provide extra information if the operation call fails (on which case we will not have a result type, only a system specific exception)\n\nWe will also not have this out parcelable filled out in that case. The client code doesn\u0027t read any of the data from the service if there is a transaction failure.\n\nWe would need either a callback to get the results after a failure, or to not throw an execption, and always return the Result.",
+      "parentUuid": "a5ae9fb8_fdc110b0",
       "range": {
         "startLine": 48,
         "startChar": 16,
