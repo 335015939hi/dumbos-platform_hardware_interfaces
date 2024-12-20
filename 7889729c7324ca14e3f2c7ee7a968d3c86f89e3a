@@ -61,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbd3076d_2c227cd4",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-12-20T23:04:32Z",
+      "side": 1,
+      "message": "Fixed in [cl 3428892](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3428892/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl#110)",
+      "parentUuid": "32dff47b_d3ca1020",
+      "range": {
+        "startLine": 114,
+        "startChar": 23,
+        "endLine": 114,
+        "endChar": 31
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5e1b67e0_f04057f4",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
         "patchSetId": 14
@@ -72,6 +96,30 @@
       "writtenOn": "2024-12-19T19:06:01Z",
       "side": 1,
       "message": "Can we link the cddl file and describe the cbor?",
+      "range": {
+        "startLine": 117,
+        "startChar": 11,
+        "endLine": 117,
+        "endChar": 97
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6168a806_4e672f1f",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-12-20T23:04:32Z",
+      "side": 1,
+      "message": "Fixed in [cl 3428892](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3428892/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl#114)",
+      "parentUuid": "5e1b67e0_f04057f4",
       "range": {
         "startLine": 117,
         "startChar": 11,
@@ -107,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "018102a3_f5b69d36",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-12-20T23:04:32Z",
+      "side": 1,
+      "message": "Fixed in [cl 3428892](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3428892/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl#159)",
+      "parentUuid": "3aec6afc_8cee5515",
+      "range": {
+        "startLine": 161,
+        "startChar": 39,
+        "endLine": 161,
+        "endChar": 49
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "15b0ccb4_6832c193",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
         "patchSetId": 14
@@ -118,6 +190,30 @@
       "writtenOn": "2024-12-19T19:06:01Z",
       "side": 1,
       "message": "Can we add more specific error codes for errors in this file? It\u0027s easier to understand thatn flipping back and forthe between files",
+      "range": {
+        "startLine": 191,
+        "startChar": 12,
+        "endLine": 191,
+        "endChar": 92
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a7155f2_76df596d",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-12-20T23:04:32Z",
+      "side": 1,
+      "message": "Fixed in aosp/3428892",
+      "parentUuid": "15b0ccb4_6832c193",
       "range": {
         "startLine": 191,
         "startChar": 12,
@@ -153,6 +249,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a638befa_3d068b9a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-12-20T23:04:32Z",
+      "side": 1,
+      "message": "Fixed in [cl 3428892](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3428892/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl#209)",
+      "parentUuid": "f7bbb295_2f6d1459",
+      "range": {
+        "startLine": 204,
+        "startChar": 14,
+        "endLine": 204,
+        "endChar": 33
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "64e16a6f_bf2ea04f",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
         "patchSetId": 14
@@ -164,6 +284,30 @@
       "writtenOn": "2024-12-19T19:06:01Z",
       "side": 1,
       "message": "link to the cddl?",
+      "range": {
+        "startLine": 254,
+        "startChar": 7,
+        "endLine": 255,
+        "endChar": 73
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4df0584a_b0ce1f5a",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-12-20T23:04:32Z",
+      "side": 1,
+      "message": "Fixed in [cl 3428892](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3428892/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl#270)",
+      "parentUuid": "64e16a6f_bf2ea04f",
       "range": {
         "startLine": 254,
         "startChar": 7,
@@ -199,6 +343,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd7e60b0_32562ce1",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-12-20T23:04:32Z",
+      "side": 1,
+      "message": "Fixed in [cl 3428892](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3428892/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.aidl#289)",
+      "parentUuid": "2039c230_b7c9f9ef",
+      "range": {
+        "startLine": 273,
+        "startChar": 47,
+        "endLine": 273,
+        "endChar": 50
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4265ec44_e67fd8fb",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl",
         "patchSetId": 14
@@ -222,6 +390,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9d0a7fd_f06fe8bb",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-12-20T23:04:32Z",
+      "side": 1,
+      "message": "Fixed in [cl 3428892](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3428892/2/security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl#35)",
+      "parentUuid": "4265ec44_e67fd8fb",
+      "range": {
+        "startLine": 47,
+        "startChar": 47,
+        "endLine": 47,
+        "endChar": 52
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52f89257_4ef1ddbe",
         "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl",
         "patchSetId": 14
@@ -233,6 +425,30 @@
       "writtenOn": "2024-12-19T19:06:01Z",
       "side": 1,
       "message": "can this be a part of the CryptoOperationResult?",
+      "range": {
+        "startLine": 48,
+        "startChar": 16,
+        "endLine": 48,
+        "endChar": 50
+      },
+      "revId": "7889729c7324ca14e3f2c7ee7a968d3c86f89e3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5ae9fb8_fdc110b0",
+        "filename": "security/see/hwcrypto/aidl/android/hardware/security/see/hwcrypto/IHwCryptoOperations.aidl",
+        "patchSetId": 14
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2024-12-20T23:04:32Z",
+      "side": 1,
+      "message": "After thinking a little bit more about it and remembering the original intention I\u0027d prefer to have it as a separate parameter instead. The reason being that the intention of this parameter is to provide extra information if the operation call fails (on which case we will not have a result type, only a system specific exception). The reason for that is that becuase operation can bequite complex, this can give the caller an indication of which of the steps failed and in teh future we can privide even more debug information.",
+      "parentUuid": "52f89257_4ef1ddbe",
       "range": {
         "startLine": 48,
         "startChar": 16,
