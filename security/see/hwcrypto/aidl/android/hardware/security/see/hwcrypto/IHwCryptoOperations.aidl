@@ -31,7 +31,8 @@ interface IHwCryptoOperations {
      *
      * @param operations:
      *      Parameter containing 1 or more set of commands to execute. Additionally, each set can
-     *      also contain a context on which the commands will be executed.
+     *      also contain a context on which the commands will be executed. The parameter has type
+     *      inout becuase it can contain buffers used to write the output of the operation.
      *
      * @param additionalErrorInfo:
      *      Structure containing additional info when errors are encountered. Only valid if the
@@ -42,7 +43,13 @@ interface IHwCryptoOperations {
      *      each of the provided operations sets.
      *
      * @throws:
-     *      ServiceSpecificException based on <code>HalErrorCode</code> if any error occurs.
+     *      ServiceSpecificException based on <code>HalErrorCode</code> if any error occurs,
+     *      in particular:
+     *          - INVALID_KEY if the provided key is not compatible with the operation requested.
+     *          - BAD_STATE if the provided <code>CryptoOperationSet</code> contains operations that
+     *            cannot be carried out in the current server state.
+     *          - UNSUPPORTED if the requested operation is not supported by the server.
+     *          - ALLOCATION_ERROR if the system runs out of memory while carring out the operation.
      */
     CryptoOperationResult[] processCommandList(inout CryptoOperationSet[] operations,
             out CryptoOperationErrorAdditionalInfo additionalErrorInfo);
