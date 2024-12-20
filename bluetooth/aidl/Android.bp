@@ -16,6 +16,27 @@ aidl_interface {
     srcs: ["android/hardware/bluetooth/*.aidl"],
     stability: "vintf",
     backend: {
+<<<<<<< HEAD   (546201 HCI HAL: HCI Proxy Audio Software offload integration)
+||||||| BASE
+        cpp: {
+            // FIXME should this be disabled?
+            // prefer NDK backend which can be used anywhere
+            // If you disable this, you also need to delete the C++
+            // translate code.
+            enabled: true,
+        },
+=======
+        cpp: {
+            // FIXME should this be disabled?
+            // prefer NDK backend which can be used anywhere
+            // If you disable this, you also need to delete the C++
+            // translate code.
+            enabled: true,
+        },
+        rust: {
+            enabled: true,
+        },
+>>>>>>> BRANCH (ec0854 Merge "audio: add calculateBufferSizeFrames for vendor imple)
         java: {
             sdk_version: "module_current",
         },
