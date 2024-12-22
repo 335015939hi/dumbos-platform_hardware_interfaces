@@ -186,10 +186,10 @@ class VtsRemotelyProvisionedComponentTests : public testing::TestWithParam<std::
             if (status.getExceptionCode() == EX_UNSUPPORTED_OPERATION) {
                 GTEST_SKIP() << "The RKP VM is not supported on this system.";
             }
-            int apiLevel = get_vsr_api_level();
-            if (apiLevel < __ANDROID_API_V__) {
-                GTEST_SKIP() << "The RKP VM is supported only on V+ devices. Vendor API level: "
-                             << apiLevel;
+            int vendorApiLevel = get_vendor_api_level();
+            if (vendorApiLevel < __ANDROID_API_V__) {
+                GTEST_SKIP() << "The RKP VM is supported only on vendor API level >= 202404. This "
+                             << "device has vendor API level: " << vendorApiLevel;
             }
         }
         ASSERT_TRUE(status.isOk());
@@ -240,10 +240,10 @@ TEST(NonParameterizedTests, eachRpcHasAUniqueId) {
 // @VsrTest = 3.10-015
 // @VsrTest = 3.10-018.001
 TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
-    int vsr_api_level = get_vsr_api_level();
-    if (vsr_api_level < 35) {
-        GTEST_SKIP() << "Applies only to VSR API level 35 or newer, this device is: "
-                     << vsr_api_level;
+    int vendor_api_level = get_vendor_api_level();
+    if (vendor_api_level < __ANDROID_API_V__) {
+        GTEST_SKIP() << "Applies only to vendor API level >= 202404, but this device is: "
+                     << vendor_api_level;
     }
 
     if (!AServiceManager_isDeclared(KEYMINT_STRONGBOX_INSTANCE_NAME.c_str())) {
@@ -270,11 +270,11 @@ TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
  */
 // @VsrTest = 7.1-003.001
 TEST(NonParameterizedTests, equalUdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintInstances) {
-    int apiLevel = get_vsr_api_level();
-    if (apiLevel < 202504 && !AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str())) {
+    int vendorApiLevel = get_vendor_api_level();
+    if (vendorApiLevel < 202504 && !AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str())) {
         GTEST_SKIP() << "The RKP VM (" << RKPVM_INSTANCE_NAME << ") is not present on this device.";
     }
-    if (apiLevel >= 202504) {
+    if (vendorApiLevel >= 202504) {
         ASSERT_TRUE(AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str()));
     }
 
@@ -319,10 +319,10 @@ TEST(NonParameterizedTests, equalUdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintI
  */
 // @VsrTest = 3.10-018.003
 TEST(NonParameterizedTests, componentNameInConfigurationDescriptorForPrimaryKeyMintInstance) {
-    int vsr_api_level = get_vsr_api_level();
-    if (vsr_api_level < 202504) {
-        GTEST_SKIP() << "Applies only to VSR API level 202504 or newer, this device is: "
-                     << vsr_api_level;
+    int vendor_api_level = get_vendor_api_level();
+    if (vendor_api_level < 202504) {
+        GTEST_SKIP() << "Applies only to vendor API level >= 202504, but this device is: "
+                     << vendor_api_level;
     }
 
     if (!AServiceManager_isDeclared(KEYMINT_STRONGBOX_INSTANCE_NAME.c_str())) {
@@ -849,6 +849,37 @@ class CertificateRequestV2Test : public CertificateRequestTestBase {
 };
 
 /**
+ * Check that ro.boot.vbmeta.device_state is not "locked" or ro.boot.verifiedbootstate
+ * is not "green" if and only if the mode on at least one certificate in the DICE chain
+ * is non-normal.
+ */
+TEST_P(CertificateRequestV2Test, unlockedBootloaderStatesImpliesNonnormalDiceChain) {
+    auto challenge = randomBytes(MAX_CHALLENGE_SIZE);
+    bytevec csr;
+    auto status =
+            provisionable_->generateCertificateRequestV2({} /* keysToSign */, challenge, &csr);
+    ASSERT_TRUE(status.isOk()) << status.getDescription();
+
+    auto isProper = isCsrWithProperDiceChain(csr, GetParam());
+    ASSERT_TRUE(isProper) << isProper.message();
+    if (!*isProper) {
+        GTEST_SKIP() << "Skipping test: Only a proper DICE chain has a mode set.";
+    }
+
+    auto nonNormalMode = hasNonNormalModeInDiceChain(csr, GetParam());
+    ASSERT_TRUE(nonNormalMode) << nonNormalMode.message();
+
+    auto deviceState = ::android::base::GetProperty("ro.boot.vbmeta.device_state", "");
+    auto verifiedBootState = ::android::base::GetProperty("ro.boot.verifiedbootstate", "");
+
+    ASSERT_EQ(deviceState != "locked" || verifiedBootState != "green", *nonNormalMode)
+            << "ro.boot.vbmeta.device_state = '" << deviceState
+            << "' and ro.boot.verifiedbootstate = '" << verifiedBootState << "', but it is "
+            << *nonNormalMode
+            << " that the DICE chain has a certificate with a non-normal mode set.";
+}
+
+/**
  * Generate an empty certificate request with all possible length of challenge, and decrypt and
  * verify the structure and content.
  */
@@ -1124,10 +1155,10 @@ INSTANTIATE_REM_PROV_AIDL_TEST(VsrRequirementTest);
 TEST_P(VsrRequirementTest, VsrEnforcementTest) {
     RpcHardwareInfo hwInfo;
     ASSERT_TRUE(provisionable_->getHardwareInfo(&hwInfo).isOk());
-    int vsr_api_level = get_vsr_api_level();
-    if (vsr_api_level < 34) {
-        GTEST_SKIP() << "Applies only to VSR API level 34 or newer, this device is: "
-                     << vsr_api_level;
+    int vendor_api_level = get_vendor_api_level();
+    if (vendor_api_level < __ANDROID_API_U__) {
+        GTEST_SKIP() << "Applies only to vendor API level >= 34, but this device is: "
+                     << vendor_api_level;
     }
     EXPECT_GE(hwInfo.versionNumber, 3)
             << "VSR 14+ requires IRemotelyProvisionedComponent v3 or newer.";

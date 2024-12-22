@@ -83,6 +83,17 @@ std::vector<aidlvhal::VehiclePropConfig> GRPCVehicleHardware::getAllPropertyConf
     return configs;
 }
 
+std::optional<aidlvhal::VehiclePropConfig> GRPCVehicleHardware::getPropertyConfig(
+        int32_t propId) const {
+    // TODO(b/354055835): Use GRPC call to get one config instead of getting all the configs.
+    for (const auto& config : getAllPropertyConfigs()) {
+        if (config.prop == propId) {
+            return config;
+        }
+    }
+    return std::nullopt;
+}
+
 aidlvhal::StatusCode GRPCVehicleHardware::setValues(
         std::shared_ptr<const SetValuesCallback> callback,
         const std::vector<aidlvhal::SetValueRequest>& requests) {
@@ -265,6 +276,7 @@ DumpResult GRPCVehicleHardware::dump(const std::vector<std::string>& options) {
     return {
             .callerShouldDumpState = protoDumpResult.caller_should_dump_state(),
             .buffer = protoDumpResult.buffer(),
+            .refreshPropertyConfigs = protoDumpResult.refresh_property_configs(),
     };
 }
 
