@@ -30,12 +30,12 @@ pub fn attestation_id_info() -> kmr_wire::AttestationIdInfo {
             .to_vec()
     };
     kmr_wire::AttestationIdInfo {
-        brand: prop("ro.product.brand"),
-        device: prop("ro.product.device"),
-        product: prop("ro.product.name"),
+        brand: prop("ro.product.vendor.brand"),
+        device: prop("ro.product.vendor.device"),
+        product: prop("ro.product.vendor.name"),
         serial: prop("ro.serialno"),
-        manufacturer: prop("ro.product.manufacturer"),
-        model: prop("ro.product.model"),
+        manufacturer: prop("ro.product.vendor.manufacturer"),
+        model: prop("ro.product.vendor.model"),
         // Currently modem_simulator always returns one fixed value. See `handleGetIMEI` in
         // device/google/cuttlefish/host/commands/modem_simulator/misc_service.cpp for more details.
         // TODO(b/263188546): Use device-specific IMEI values when available.
