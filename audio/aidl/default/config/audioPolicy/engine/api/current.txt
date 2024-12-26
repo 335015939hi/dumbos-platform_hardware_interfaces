@@ -37,7 +37,7 @@ package android.audio.policy.engine.configuration {
     ctor public AttributesType();
     method @Nullable public String getAttributesRef();
     method @Nullable public android.audio.policy.engine.configuration.BundleType getBundle();
-    method @Nullable public android.audio.policy.engine.configuration.ContentTypeType getContentType();
+    method @Nullable public android.class.policy.engine.configuration.ContentTypeType getContentType();
     method @Nullable public android.audio.policy.engine.configuration.FlagsType getFlags();
     method @Nullable public android.audio.policy.engine.configuration.SourceType getSource();
     method @Nullable public android.audio.policy.engine.configuration.UsageType getUsage();
