@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "506cfc1c_93218ff8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-26T18:26:10Z",
+      "side": 1,
+      "message": "Thank you Aayush for this effort!",
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ccdbce9_a7df0c3e",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-26T18:26:10Z",
+      "side": 1,
+      "message": "Perhaps, it makes sense to pass the channel layout to `generateSineWave` in order to avoid repeating this comparison everywhere else?",
+      "range": {
+        "startLine": 224,
+        "startChar": 45,
+        "endLine": 224,
+        "endChar": 96
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68c6c56b_8ccebfff",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-26T18:26:10Z",
+      "side": 1,
+      "message": "We don\u0027t have to calculate power for each channel separately if we intend just to return the combined power for all channels. This is because energy and power calculation is sample-based and does not depend on the values of previous samples (see the implementation here: https://cs.android.com/android/platform/superproject/main/+/main:system/media/audio_utils/include/audio_utils/power.h;l\u003d45;drc\u003d6386d8fa0d25d78b9239baa221f64cca84e8f36c). In other words, it\u0027s a linear operation. Thus, running `audio_utils_compute_power_mono` over an interleaved stereo input will produce the same result as running for each channel and then summing the result.",
+      "range": {
+        "startLine": 409,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 88
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "455126e1_35cb0948",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-26T18:26:10Z",
+      "side": 1,
+      "message": "Same note about energy calculation.",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 1
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
