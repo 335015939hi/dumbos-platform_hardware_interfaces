@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a90f0727_72e8c181",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2024-12-27T12:26:35Z",
+      "side": 1,
+      "message": "Yes, then is it a good idea to change the function name audio_utils_compute_power_mono() to audio_utils_compute_power() and do the same for energy function?",
+      "parentUuid": "68c6c56b_8ccebfff",
+      "range": {
+        "startLine": 409,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 88
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "455126e1_35cb0948",
         "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
         "patchSetId": 1
