@@ -805,7 +805,19 @@ ndk::ScopedAStatus StreamCommonImpl::removeEffect(
 ndk::ScopedAStatus StreamCommonImpl::close() {
     LOG(DEBUG) << __func__;
     if (!isClosed()) {
+<<<<<<< HEAD   (617bbc Merge "nfc(vts): Move NFC codebase to packages/modules/Nfc" )
         stopAndJoinWorker();
+||||||| BASE
+        stopWorker();
+        LOG(DEBUG) << __func__ << ": joining the worker thread...";
+        mWorker->stop();
+        LOG(DEBUG) << __func__ << ": worker thread joined";
+=======
+        stopWorker();
+        LOG(DEBUG) << __func__ << ": joining the worker thread...";
+        mWorker->join();
+        LOG(DEBUG) << __func__ << ": worker thread joined";
+>>>>>>> BRANCH (7a31a0 audio: Use 'join' instead of 'stop' for stream workers)
         onClose(mWorker->setClosed());
         return ndk::ScopedAStatus::ok();
     } else {
