@@ -194,6 +194,7 @@ struct Effect : public IEffect {
     static const char* sContextCallFunction;
 
     const bool mIsInput;
+    std::mutex mLock GUARDED_BY(mLock);
     effect_handle_t mHandle;
     sp<AudioBufferWrapper> mInBuffer;
     sp<AudioBufferWrapper> mOutBuffer;
