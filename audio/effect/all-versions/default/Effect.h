@@ -195,6 +195,7 @@ struct Effect : public IEffect {
 
     const bool mIsInput;
     effect_handle_t mHandle;
+    std::mutex mLock;
     sp<AudioBufferWrapper> mInBuffer;
     sp<AudioBufferWrapper> mOutBuffer;
     std::atomic<audio_buffer_t*> mHalInBufferPtr;
