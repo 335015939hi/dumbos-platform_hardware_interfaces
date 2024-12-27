@@ -22,6 +22,30 @@
       },
       "revId": "47c12f040d9396af38fb54dd14d53955bac5f90d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac25d5f5_afdcbb96",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-27T18:36:30Z",
+      "side": 1,
+      "message": "For helper functions that do not contain `EXPECT` or `ASSERT` checks this is not needed. The main purpose to use the `ASSERT_NO_FATAL_FAILURE` wrapper is to ensure that the test does not proceed further if a helper function has encountered a problem because proceeding may lead to a crash, for example. This is similar in action to how exceptions get propagated.\n\nThe role of `EXPECT_NO_FATAL_FAILURE` is less clear to me because it does not return from the test, and it does not add much more information because the helper function has already registered a failure. I suspect that `EXPECT_NO_FATAL_FAILURE` only exists for symmetry with `ASSERT_NO_FATAL_FAILURE` similar to other check macros.",
+      "parentUuid": "084dad78_d4ea2ae1",
+      "range": {
+        "startLine": 696,
+        "startChar": 8,
+        "endLine": 696,
+        "endChar": 31
+      },
+      "revId": "47c12f040d9396af38fb54dd14d53955bac5f90d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

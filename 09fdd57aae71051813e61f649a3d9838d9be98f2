@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62c757dd_4bc247f1",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-27T18:36:30Z",
+      "side": 1,
+      "message": "We need to ensure that the length of `subOutput` is `kNPointFFT`. That\u0027s because the FFT transforms N-sample time-domain input into N-bin frequency domain output. I have asked Aayush on aosp/3432040 to check that. Otherwise the underlying PFFFT function can start reading out of bounds data.",
+      "range": {
+        "startLine": 1305,
+        "startChar": 0,
+        "endLine": 1305,
+        "endChar": 81
+      },
+      "revId": "09fdd57aae71051813e61f649a3d9838d9be98f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62500061_158042eb",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-27T18:36:30Z",
+      "side": 1,
+      "message": "It would be more generic to just pass the index of the band here. And we can use a loop in `analyseMultiBandOutput` instead of duplicated code.",
+      "range": {
+        "startLine": 1310,
+        "startChar": 24,
+        "endLine": 1310,
+        "endChar": 50
+      },
+      "revId": "09fdd57aae71051813e61f649a3d9838d9be98f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4564f9ae_15be16d9",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-27T18:36:30Z",
+      "side": 1,
+      "message": "Why the error has to be proportional to the value of the input?",
+      "range": {
+        "startLine": 1316,
+        "startChar": 55,
+        "endLine": 1316,
+        "endChar": 72
+      },
+      "revId": "09fdd57aae71051813e61f649a3d9838d9be98f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
