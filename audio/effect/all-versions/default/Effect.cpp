@@ -321,8 +321,8 @@ Effect::~Effect() {
         status_t status = mProcessThread->join();
         ALOGE_IF(status, "processing thread exit error: %s", strerror(-status));
     }
-    if (mEfGroup) {
-        status_t status = EventFlag::deleteEventFlag(&mEfGroup);
+    if (EventFlag* evFlag = mEfGroup.load(std::memory_order_aquire)) {
+        status_t status = EventFlag::deleteEventFlag(&evFlag);
         ALOGE_IF(status, "processing MQ event flag deletion error: %s", strerror(-status));
     }
     mInBuffer.clear();
@@ -470,11 +470,14 @@ Result Effect::analyzeStatus(const char* funcName, const char* subFuncName,
 
 Return<void> Effect::getConfigImpl(int commandCode, const char* commandName,
                                    GetConfigCallback _hidl_cb) {
-    RETURN_RESULT_IF_EFFECT_CLOSED(EffectConfig());
     uint32_t halResultSize = sizeof(effect_config_t);
     effect_config_t halConfig{};
-    status_t status =
-        (*mHandle)->command(mHandle, commandCode, 0, NULL, &halResultSize, &halConfig);
+    status_t status = OK;
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        RETURN_RESULT_IF_EFFECT_CLOSED(EffectConfig());
+        status = (*mHandle)->command(mHandle, commandCode, 0, NULL, &halResultSize, &halConfig);
+    }
     EffectConfig config;
     if (status == OK) {
         status = EffectUtils::effectConfigFromHal(halConfig, mIsInput, &config);
@@ -542,7 +545,10 @@ Result Effect::getSupportedConfigsImpl(uint32_t featureId, uint32_t maxConfigs, 
 }
 
 Return<void> Effect::prepareForProcessing(prepareForProcessing_cb _hidl_cb) {
-    RETURN_RESULT_IF_EFFECT_CLOSED(StatusMQ::Descriptor());
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        RETURN_RESULT_IF_EFFECT_CLOSED(StatusMQ::Descriptor());
+    }
     status_t status;
     // Create message queue.
     if (mStatusMQ) {
@@ -556,16 +562,18 @@ Return<void> Effect::prepareForProcessing(prepareForProcessing_cb _hidl_cb) {
         _hidl_cb(Result::INVALID_ARGUMENTS, StatusMQ::Descriptor());
         return Void();
     }
-    status = EventFlag::createEventFlag(tempStatusMQ->getEventFlagWord(), &mEfGroup);
-    if (status != OK || !mEfGroup) {
+    EventFlag* evFlag = nullptr;
+    status = EventFlag::createEventFlag(tempStatusMQ->getEventFlagWord(), &evFlag);
+    if (status != OK || !evFlag) {
         ALOGE("failed creating event flag for status MQ: %s", strerror(-status));
         _hidl_cb(Result::INVALID_ARGUMENTS, StatusMQ::Descriptor());
         return Void();
     }
+    mEfGroup.store(evFlag, std::memory_order_release);
 
     // Create and launch the thread.
     mProcessThread = new ProcessThread(&mStopProcessThread, mHandle, &mHalInBufferPtr,
-                                       &mHalOutBufferPtr, tempStatusMQ.get(), mEfGroup, this);
+                                       &mHalOutBufferPtr, tempStatusMQ.get(), evFlag, this);
     status = mProcessThread->run("effect", PRIORITY_URGENT_AUDIO);
     if (status != OK) {
         ALOGW("failed to start effect processing thread: %s", strerror(-status));
@@ -575,11 +583,15 @@ Return<void> Effect::prepareForProcessing(prepareForProcessing_cb _hidl_cb) {
 
     // For a spatializer effect, we perform scheduler adjustments to reduce glitches and power.
     // We do it here instead of the ProcessThread::threadLoop to ensure that mHandle is valid.
-    if (effect_descriptor_t halDescriptor{};
-        (*mHandle)->get_descriptor(mHandle, &halDescriptor) == NO_ERROR &&
-        memcmp(&halDescriptor.type, FX_IID_SPATIALIZER, sizeof(effect_uuid_t)) == 0) {
-        const status_t status = scheduler::updateSpatializerPriority(mProcessThread->getTid());
-        ALOGW_IF(status != OK, "Failed to update Spatializer priority");
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        RETURN_RESULT_IF_EFFECT_CLOSED(StatusMQ::Descriptor());
+        if (effect_descriptor_t halDescriptor{};
+            (*mHandle)->get_descriptor(mHandle, &halDescriptor) == NO_ERROR &&
+            memcmp(&halDescriptor.type, FX_IID_SPATIALIZER, sizeof(effect_uuid_t)) == 0) {
+            const status_t status = scheduler::updateSpatializerPriority(mProcessThread->getTid());
+            ALOGW_IF(status != OK, "Failed to update Spatializer priority");
+        }
     }
 
     mStatusMQ = std::move(tempStatusMQ);
@@ -589,7 +601,10 @@ Return<void> Effect::prepareForProcessing(prepareForProcessing_cb _hidl_cb) {
 
 Return<Result> Effect::setProcessBuffers(const AudioBuffer& inBuffer,
                                          const AudioBuffer& outBuffer) {
-    RETURN_IF_EFFECT_CLOSED();
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        RETURN_IF_EFFECT_CLOSED();
+    }
     AudioBufferManager& manager = AudioBufferManager::getInstance();
     sp<AudioBufferWrapper> tempInBuffer, tempOutBuffer;
     if (!manager.wrap(inBuffer, &tempInBuffer)) {
@@ -614,8 +629,11 @@ Result Effect::sendCommand(int commandCode, const char* commandName) {
 }
 
 Result Effect::sendCommand(int commandCode, const char* commandName, uint32_t size, void* data) {
-    RETURN_IF_EFFECT_CLOSED();
-    status_t status = (*mHandle)->command(mHandle, commandCode, size, data, 0, NULL);
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        RETURN_IF_EFFECT_CLOSED();
+        status_t status = (*mHandle)->command(mHandle, commandCode, size, data, 0, NULL);
+    }
     return analyzeCommandStatus(commandName, sContextCallToCommand, status);
 }
 
@@ -626,9 +644,13 @@ Result Effect::sendCommandReturningData(int commandCode, const char* commandName
 
 Result Effect::sendCommandReturningData(int commandCode, const char* commandName, uint32_t size,
                                         void* data, uint32_t* replySize, void* replyData) {
-    RETURN_IF_EFFECT_CLOSED();
     uint32_t expectedReplySize = *replySize;
-    status_t status = (*mHandle)->command(mHandle, commandCode, size, data, replySize, replyData);
+    status_t status = OK;
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        RETURN_IF_EFFECT_CLOSED();
+        status = (*mHandle)->command(mHandle, commandCode, size, data, replySize, replyData);
+    }
     if (status == OK && *replySize != expectedReplySize) {
         status = -ENODATA;
     }
@@ -651,8 +673,12 @@ Result Effect::sendCommandReturningStatusAndData(int commandCode, const char* co
                                                  uint32_t size, void* data, uint32_t* replySize,
                                                  void* replyData, uint32_t minReplySize,
                                                  CommandSuccessCallback onSuccess) {
-    RETURN_IF_EFFECT_CLOSED();
-    status_t status = (*mHandle)->command(mHandle, commandCode, size, data, replySize, replyData);
+    status_t status = OK;
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        RETURN_IF_EFFECT_CLOSED();
+        status = (*mHandle)->command(mHandle, commandCode, size, data, replySize, replyData);
+    }
     Result retval;
     if (status == OK && minReplySize >= sizeof(uint32_t) && *replySize >= minReplySize) {
         uint32_t commandStatus = *reinterpret_cast<uint32_t*>(replyData);
@@ -860,10 +886,14 @@ Return<Result> Effect::offload(const EffectOffloadParameter& param) {
 }
 
 Return<void> Effect::getDescriptor(getDescriptor_cb _hidl_cb) {
-    RETURN_RESULT_IF_EFFECT_CLOSED(EffectDescriptor());
     effect_descriptor_t halDescriptor;
     memset(&halDescriptor, 0, sizeof(effect_descriptor_t));
-    status_t status = (*mHandle)->get_descriptor(mHandle, &halDescriptor);
+    status_t status = OK;
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        RETURN_RESULT_IF_EFFECT_CLOSED(EffectDescriptor());
+        status = (*mHandle)->get_descriptor(mHandle, &halDescriptor);
+    }
     EffectDescriptor descriptor;
     if (status == OK) {
         status = EffectUtils::effectDescriptorFromHal(halDescriptor, &descriptor);
@@ -874,10 +904,6 @@ Return<void> Effect::getDescriptor(getDescriptor_cb _hidl_cb) {
 
 Return<void> Effect::command(uint32_t commandId, const hidl_vec<uint8_t>& data,
                              uint32_t resultMaxSize, command_cb _hidl_cb) {
-    if (mHandle == kInvalidEffectHandle) {
-        _hidl_cb(-ENODATA, hidl_vec<uint8_t>());
-        return Void();
-    }
     uint32_t halDataSize;
     std::unique_ptr<uint8_t[]> halData = hidlVecToHal(data, &halDataSize);
     uint32_t halResultSize = resultMaxSize;
@@ -897,8 +923,15 @@ Return<void> Effect::command(uint32_t commandId, const hidl_vec<uint8_t>& data,
             }
             [[fallthrough]];  // allow 'gtid' overload (checked halDataSize and resultMaxSize).
         default:
-            status = (*mHandle)->command(mHandle, commandId, halDataSize, dataPtr, &halResultSize,
-                                         resultPtr);
+            {
+                std::lock_guard<std::mutex> lock(mLock);
+                if (mHandle == kInvalidEffectHandle) {
+                    _hidl_cb(-ENODATA, hidl_vec<uint8_t>());
+                    return Void();
+                }
+                status = (*mHandle)->command(mHandle, commandId, halDataSize, dataPtr,
+                                            &halResultSize, resultPtr);
+            }
             break;
     }
     hidl_vec<uint8_t> result;
@@ -967,11 +1000,16 @@ std::tuple<Result, effect_handle_t> Effect::closeImpl() {
         return {Result::INVALID_STATE, kInvalidEffectHandle};
     }
     mStopProcessThread.store(true, std::memory_order_release);
-    if (mEfGroup) {
-        mEfGroup->wake(static_cast<uint32_t>(MessageQueueFlagBits::REQUEST_QUIT));
+    if (mEfGroup.load(std::memory_order_aquire)) {
+        mEfGroup.load(std::memory_order_aquire)->wake(static_cast<uint32_t>(
+            MessageQueueFlagBits::REQUEST_QUIT));
     }
-    effect_handle_t handle = mHandle;
-    mHandle = kInvalidEffectHandle;
+    effect_handle_t handle;
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        handle = mHandle;
+        mHandle = kInvalidEffectHandle;
+    }
 #if MAJOR_VERSION <= 5
     return {Result::OK, handle};
 #elif MAJOR_VERSION >= 6
@@ -984,7 +1022,10 @@ std::tuple<Result, effect_handle_t> Effect::closeImpl() {
 }
 
 Return<Result> Effect::close() {
-    RETURN_IF_EFFECT_CLOSED();
+    {
+        std::lock_guard<std::mutex> lock(mLock);
+        RETURN_IF_EFFECT_CLOSED();
+    }
     auto [result, _] = closeImpl();
     return result;
 }

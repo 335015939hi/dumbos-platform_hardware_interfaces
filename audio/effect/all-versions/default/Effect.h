@@ -194,13 +194,14 @@ struct Effect : public IEffect {
     static const char* sContextCallFunction;
 
     const bool mIsInput;
-    effect_handle_t mHandle;
+    std::mutex mLock;
+    effect_handle_t mHandle GUARDED_BY(mLock);
     sp<AudioBufferWrapper> mInBuffer;
     sp<AudioBufferWrapper> mOutBuffer;
     std::atomic<audio_buffer_t*> mHalInBufferPtr;
     std::atomic<audio_buffer_t*> mHalOutBufferPtr;
     std::unique_ptr<StatusMQ> mStatusMQ;
-    EventFlag* mEfGroup;
+    std::atomic<EventFlag*> mEfGroup;
     std::atomic<bool> mStopProcessThread;
     sp<Thread> mProcessThread;
 
