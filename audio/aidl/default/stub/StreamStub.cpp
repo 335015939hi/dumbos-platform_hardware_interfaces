@@ -38,6 +38,188 @@ StreamStub::~StreamStub() {
     cleanupWorker();
 }
 
+<<<<<<< HEAD   (03650f [automerger skipped] audio: Fix stream cleanup sequence am: )
+||||||| BASE
+::android::status_t StreamStub::init() {
+    mIsInitialized = true;
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::drain(StreamDescriptor::DrainMode) {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    if (!mIsInput) {
+        if (!mIsAsynchronous) {
+            static constexpr float kMicrosPerSecond = MICROS_PER_SECOND;
+            const size_t delayUs = static_cast<size_t>(
+                    std::roundf(mBufferSizeFrames * kMicrosPerSecond / mSampleRate));
+            usleep(delayUs);
+        } else {
+            usleep(500);
+        }
+    }
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::flush() {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::pause() {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::standby() {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    usleep(500);
+    mIsStandby = true;
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::start() {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    usleep(500);
+    mIsStandby = false;
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::transfer(void* buffer, size_t frameCount, size_t* actualFrameCount,
+                                         int32_t*) {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    if (mIsStandby) {
+        LOG(FATAL) << __func__ << ": must not happen while in standby";
+    }
+    static constexpr float kMicrosPerSecond = MICROS_PER_SECOND;
+    static constexpr float kScaleFactor = .8f;
+    if (mIsAsynchronous) {
+        usleep(500);
+    } else {
+        const size_t delayUs = static_cast<size_t>(
+                std::roundf(kScaleFactor * frameCount * kMicrosPerSecond / mSampleRate));
+        usleep(delayUs);
+    }
+    if (mIsInput) {
+        uint8_t* byteBuffer = static_cast<uint8_t*>(buffer);
+        for (size_t i = 0; i < frameCount * mFrameSizeBytes; ++i) {
+            byteBuffer[i] = std::rand() % 255;
+        }
+    }
+    *actualFrameCount = frameCount;
+    return ::android::OK;
+}
+
+void StreamStub::shutdown() {
+    mIsInitialized = false;
+}
+
+=======
+::android::status_t StreamStub::init() {
+    mIsInitialized = true;
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::drain(StreamDescriptor::DrainMode) {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    if (!mIsInput) {
+        if (!mIsAsynchronous) {
+            static constexpr float kMicrosPerSecond = MICROS_PER_SECOND;
+            const size_t delayUs = static_cast<size_t>(
+                    std::roundf(mBufferSizeFrames * kMicrosPerSecond / mSampleRate));
+            usleep(delayUs);
+        } else {
+            usleep(500);
+        }
+    }
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::flush() {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::pause() {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::standby() {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    mIsStandby = true;
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::start() {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    mIsStandby = false;
+    mStartTimeNs = ::android::uptimeNanos();
+    mFramesSinceStart = 0;
+    return ::android::OK;
+}
+
+::android::status_t StreamStub::transfer(void* buffer, size_t frameCount, size_t* actualFrameCount,
+                                         int32_t*) {
+    if (!mIsInitialized) {
+        LOG(FATAL) << __func__ << ": must not happen for an uninitialized driver";
+    }
+    if (mIsStandby) {
+        LOG(FATAL) << __func__ << ": must not happen while in standby";
+    }
+    *actualFrameCount = frameCount;
+    if (mIsAsynchronous) {
+        usleep(500);
+    } else {
+        mFramesSinceStart += *actualFrameCount;
+        const long bufferDurationUs =
+                (*actualFrameCount) * MICROS_PER_SECOND / mContext.getSampleRate();
+        const auto totalDurationUs =
+                (::android::uptimeNanos() - mStartTimeNs) / NANOS_PER_MICROSECOND;
+        const long totalOffsetUs =
+                mFramesSinceStart * MICROS_PER_SECOND / mContext.getSampleRate() - totalDurationUs;
+        LOG(VERBOSE) << __func__ << ": totalOffsetUs " << totalOffsetUs;
+        if (totalOffsetUs > 0) {
+            const long sleepTimeUs = std::min(totalOffsetUs, bufferDurationUs);
+            LOG(VERBOSE) << __func__ << ": sleeping for " << sleepTimeUs << " us";
+            usleep(sleepTimeUs);
+        }
+    }
+    if (mIsInput) {
+        uint8_t* byteBuffer = static_cast<uint8_t*>(buffer);
+        for (size_t i = 0; i < frameCount * mFrameSizeBytes; ++i) {
+            byteBuffer[i] = std::rand() % 255;
+        }
+    }
+    return ::android::OK;
+}
+
+void StreamStub::shutdown() {
+    mIsInitialized = false;
+}
+
+>>>>>>> BRANCH (e4b497 audio: Implement more accurate timing for the stub stream)
 StreamInStub::StreamInStub(StreamContext&& context, const SinkMetadata& sinkMetadata,
                            const std::vector<MicrophoneInfo>& microphones)
     : StreamIn(std::move(context), microphones), StreamStub(&mContextInstance, sinkMetadata) {}
