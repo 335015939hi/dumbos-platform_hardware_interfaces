@@ -56,9 +56,14 @@ StreamPrimary::StreamPrimary(StreamContext* context, const Metadata& metadata)
 }
 
 ::android::status_t StreamPrimary::flush() {
+<<<<<<< HEAD   (b8a196 [automerger skipped] audio: Implement more accurate timing f)
     RETURN_STATUS_IF_ERROR(isStubStreamOnWorker() ? mStubDriver.flush() : StreamAlsa::flush());
     // TODO(b/372951987): consider if this needs to be done from 'StreamInWorkerLogic::cycle'.
     return mIsInput ? standby() : ::android::OK;
+||||||| BASE
+=======
+    return isStubStreamOnWorker() ? mStubDriver.flush() : StreamAlsa::flush();
+>>>>>>> BRANCH (9085c2 audio: Do not use StreamSwitcher for StreamPrimary)
 }
 
 ::android::status_t StreamPrimary::pause() {
@@ -174,6 +179,7 @@ bool StreamPrimary::isStubStream() {
 }
 
 // static
+<<<<<<< HEAD   (b8a196 [automerger skipped] audio: Implement more accurate timing f)
 StreamPrimary::AlsaDeviceId StreamPrimary::getCardAndDeviceId(
         const std::vector<AudioDevice>& devices) {
     if (devices.empty() || devices[0].address.getTag() != AudioDeviceAddress::id) {
@@ -206,6 +212,29 @@ bool StreamPrimary::useStubStream(
     }
     return kSimulateOutput || device.type.type == AudioDeviceType::OUT_TELEPHONY_TX ||
            device.type.connection == AudioDeviceDescription::CONNECTION_BUS /*deprecated*/;
+||||||| BASE
+=======
+StreamPrimary::AlsaDeviceId StreamPrimary::getCardAndDeviceId(const std::vector<AudioDevice>&) {
+    return kDefaultCardAndDeviceId;
+}
+
+// static
+bool StreamPrimary::useStubStream(
+        bool isInput, const ::aidl::android::media::audio::common::AudioDevice& device) {
+    static const bool kSimulateInput =
+            GetBoolProperty("ro.boot.audio.tinyalsa.simulate_input", false);
+    static const bool kSimulateOutput =
+            GetBoolProperty("ro.boot.audio.tinyalsa.ignore_output", false);
+    if (isInput) {
+        return kSimulateInput || device.type.type == AudioDeviceType::IN_TELEPHONY_RX ||
+               device.type.type == AudioDeviceType::IN_FM_TUNER ||
+               device.type.connection == AudioDeviceDescription::CONNECTION_BUS /*deprecated */ ||
+               (device.type.type == AudioDeviceType::IN_BUS && device.type.connection.empty());
+    }
+    return kSimulateOutput || device.type.type == AudioDeviceType::OUT_TELEPHONY_TX ||
+           device.type.connection == AudioDeviceDescription::CONNECTION_BUS /*deprecated*/ ||
+           (device.type.type == AudioDeviceType::OUT_BUS && device.type.connection.empty());
+>>>>>>> BRANCH (9085c2 audio: Do not use StreamSwitcher for StreamPrimary)
 }
 
 StreamInPrimary::StreamInPrimary(StreamContext&& context, const SinkMetadata& sinkMetadata,
@@ -283,6 +312,7 @@ ndk::ScopedAStatus StreamOutPrimary::setHwVolume(const std::vector<float>& in_ch
         mHwVolumes = currentVolumes;
         return status;
     }
+<<<<<<< HEAD   (b8a196 [automerger skipped] audio: Implement more accurate timing f)
     std::vector<float> volumes;
     RETURN_STATUS_IF_ERROR(primary::PrimaryMixer::getInstance().getVolumes(&volumes));
     // Due to rounding errors, round trip conversions between percents and indexed values may not
@@ -292,6 +322,20 @@ ndk::ScopedAStatus StreamOutPrimary::setHwVolume(const std::vector<float>& in_ch
                      << ::android::internal::ToString(in_channelVolumes)
                      << ", from mixer: " << ::android::internal::ToString(volumes);
     }
+||||||| BASE
+    return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus StreamOutPrimary::setConnectedDevices(
+        const std::vector<::aidl::android::media::audio::common::AudioDevice>& devices) {
+    if (!devices.empty()) {
+        auto streamDataProcessor = mContextInstance.getStreamDataProcessor().lock();
+        if (streamDataProcessor != nullptr) {
+            streamDataProcessor->setAudioDevice(devices[0]);
+        }
+    }
+=======
+>>>>>>> BRANCH (9085c2 audio: Do not use StreamSwitcher for StreamPrimary)
     return ndk::ScopedAStatus::ok();
 }
 
