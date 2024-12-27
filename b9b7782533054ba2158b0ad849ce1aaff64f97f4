@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cb2b42d_fa9e02c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-27T18:44:28Z",
+      "side": 1,
+      "message": "This example should be posted into a bug, not into a commit message. Could you please create a bug describing the situation when this problem has occured? Normally AudioFlinger ensures locking around calls into effects. Maybe we are missing something on the system side.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 31
+      },
+      "revId": "b9b7782533054ba2158b0ad849ce1aaff64f97f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "541c08e9_9837cdad",
+        "filename": "audio/effect/all-versions/default/Effect.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-27T18:44:28Z",
+      "side": 1,
+      "message": "If we really need locking, then every field that has to be protected should be annotated with `GUARDED_BY(mLock)` to ensure that **all** uses of that field are under a lock. And in the corresponding module in `Android.bp` there should be `\"-Wthread-safety\"` in the `cflags` section.",
+      "range": {
+        "startLine": 198,
+        "startChar": 15,
+        "endLine": 198,
+        "endChar": 21
+      },
+      "revId": "b9b7782533054ba2158b0ad849ce1aaff64f97f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
