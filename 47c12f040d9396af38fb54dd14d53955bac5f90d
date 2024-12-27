@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "084dad78_d4ea2ae1",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 1859273
+      },
+      "writtenOn": "2024-12-27T12:38:04Z",
+      "side": 1,
+      "message": "Do we need EXPECT_NO_FATAL_FAILURE() calls for such functions?",
+      "range": {
+        "startLine": 696,
+        "startChar": 8,
+        "endLine": 696,
+        "endChar": 31
+      },
+      "revId": "47c12f040d9396af38fb54dd14d53955bac5f90d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
