@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d29a2d72_ed03d212",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-27T18:27:34Z",
+      "side": 1,
+      "message": "From the docs of of PFFFT, the size of the input (`buffer`) must be the same as the size of the output (https://cs.android.com/android/platform/superproject/main/+/main:external/pffft/pffft.h;l\u003d62;drc\u003deeb17fc8a08078372de542647841750136e1cf85). We need to enforce that with checks, otherwise a call to `pffft_transform` may end up reading out of bounds.",
+      "range": {
+        "startLine": 494,
+        "startChar": 45,
+        "endLine": 494,
+        "endChar": 58
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ccdbce9_a7df0c3e",
         "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
         "patchSetId": 1
@@ -78,6 +101,30 @@
       "side": 1,
       "message": "Yes, then is it a good idea to change the function name audio_utils_compute_power_mono() to audio_utils_compute_power() and do the same for energy function?",
       "parentUuid": "68c6c56b_8ccebfff",
+      "range": {
+        "startLine": 409,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 88
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d44c004_510c00ad",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2024-12-27T18:27:34Z",
+      "side": 1,
+      "message": "There exist `audio_utils_accumulate_energy` which calculates energy per channel: https://cs.android.com/android/platform/superproject/main/+/main:system/media/audio_utils/include/audio_utils/power.h;l\u003d84;drc\u003d6386d8fa0d25d78b9239baa221f64cca84e8f36c. There is no similar `audio_utils_compute_power` for the moment, but if it were added I would expect it to be similar in action to `audio_utils_accumulate_energy`.\n\nAlso, technically `audio_utils_compute_power_mono` does calculate power for a single channel. It\u0027s just our understanding that due to how multichannel audio is represented and how energy calculation is defined, it is also possible to use it for non-mono layouts.",
+      "parentUuid": "a90f0727_72e8c181",
       "range": {
         "startLine": 409,
         "startChar": 0,
