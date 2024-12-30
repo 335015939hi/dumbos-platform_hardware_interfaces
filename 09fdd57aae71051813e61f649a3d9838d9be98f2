@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "491e2caa_adc18a63",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1310,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-30T17:09:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62500061_158042eb",
+      "range": {
+        "startLine": 1310,
+        "startChar": 24,
+        "endLine": 1310,
+        "endChar": 50
+      },
+      "revId": "09fdd57aae71051813e61f649a3d9838d9be98f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4564f9ae_15be16d9",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-12-27T18:36:30Z",
       "side": 1,
       "message": "Why the error has to be proportional to the value of the input?",
+      "range": {
+        "startLine": 1316,
+        "startChar": 55,
+        "endLine": 1316,
+        "endChar": 72
+      },
+      "revId": "09fdd57aae71051813e61f649a3d9838d9be98f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab5761c_c86b7872",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-30T17:09:42Z",
+      "side": 1,
+      "message": "Defined a constant value for tolerance.",
+      "parentUuid": "4564f9ae_15be16d9",
       "range": {
         "startLine": 1316,
         "startChar": 55,

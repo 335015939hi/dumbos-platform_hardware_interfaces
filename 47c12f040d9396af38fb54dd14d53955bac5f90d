@@ -46,6 +46,30 @@
       },
       "revId": "47c12f040d9396af38fb54dd14d53955bac5f90d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "651d12dc_dc33f2ba",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 696,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2024-12-30T17:09:42Z",
+      "side": 1,
+      "message": "In MBC data test, I\u0027ve removed EXPECT_NO_FATAL_FAILURE wrapper for the helper methods which dont have ASSERT/EXPECT.\nWill make the same change for all tests and upload another CL.",
+      "parentUuid": "ac25d5f5_afdcbb96",
+      "range": {
+        "startLine": 696,
+        "startChar": 8,
+        "endLine": 696,
+        "endChar": 31
+      },
+      "revId": "47c12f040d9396af38fb54dd14d53955bac5f90d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
