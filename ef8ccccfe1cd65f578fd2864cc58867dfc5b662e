@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d55c2864_8ed2d278",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-02T20:47:54Z",
+      "side": 1,
+      "message": "Here are other instances where `allowOnlyMode` was set to `false`. There are other instances in `verifyProductionCsr` and `verifyFactoryCsr`. `verifyProductionCsr` has `allowAnyMode` set to `true` if the instance is the RKP VM with tests in `VtsRemotelyProvisionedComponentTests`. `verifyFactoryCsr` is used in `rkp_factory_extraction_tool`. Let me know about thoughts in those two places as well.",
+      "revId": "ef8ccccfe1cd65f578fd2864cc58867dfc5b662e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
