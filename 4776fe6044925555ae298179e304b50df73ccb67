@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fb4f860_ef39eecb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-02T20:17:07Z",
+      "side": 1,
+      "message": "This change does affect more than the linked Bug issue, but it is OK that any mode is allowed for that test as well.",
+      "revId": "4776fe6044925555ae298179e304b50df73ccb67",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
