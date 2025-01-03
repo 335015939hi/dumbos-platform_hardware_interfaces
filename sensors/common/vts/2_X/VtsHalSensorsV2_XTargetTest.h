@@ -632,8 +632,14 @@ void SensorsHidlTest::runFlushTest(const std::vector<SensorInfoType>& sensors, b
         }
 
         // Wait up to one second for the flush events
+<<<<<<< HEAD   (74cc5a Merge "Correctly parse Command Complete and Status events wi)
         callback.waitForFlushEvents(sensorGroup, flushCalls,
                                     std::chrono::milliseconds(1000) /* timeout */);
+||||||| BASE
+        callback.waitForFlushEvents(sensorGroup, flushCalls, milliseconds(1000) /* timeout */);
+=======
+        callback.waitForFlushEvents(sensorGroup, flushCalls, std::chrono::milliseconds(1000) /* timeout */);
+>>>>>>> BRANCH (02b1d7 Migrate sensors VTS to use libui)
 
         // Deactivate all sensors after waiting for flush events so pending flush events are not
         // abandoned by the HAL.
@@ -827,7 +833,13 @@ TEST_P(SensorsHidlTest, NoStaleEvents) {
 
         // Ensure that the first event received is not stale by ensuring that its timestamp is
         // sufficiently different from the previous event
+<<<<<<< HEAD   (74cc5a Merge "Correctly parse Command Complete and Status events wi)
         const EventType newEvent = events.front();
+||||||| BASE
+        const EventType newEvent = callback.getEvents(sensor.sensorHandle).front();
+=======
+        const EventType newEvent = callback.getEvents(sensor.sensorHandle).front();
+>>>>>>> BRANCH (02b1d7 Migrate sensors VTS to use libui)
         std::chrono::milliseconds delta = duration_cast<std::chrono::milliseconds>(
                 nanoseconds(newEvent.timestamp - lastEventTimestampMap[sensor.sensorHandle]));
         std::chrono::milliseconds sensorMinDelay = duration_cast<std::chrono::milliseconds>(
