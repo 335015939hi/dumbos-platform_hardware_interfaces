@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ffefcc0_cc02fb36",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-03T21:34:24Z",
+      "side": 1,
+      "message": "Should it be `cutoffFreqHz.size()`?",
+      "range": {
+        "startLine": 1329,
+        "startChar": 31,
+        "endLine": 1329,
+        "endChar": 41
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "41bfab9b_5beb879b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1329,
+                "startChar": 0,
+                "endLine": 1330,
+                "endChar": 0
+              },
+              "replacement": "        for (size_t i \u003d 0; i \u003c cutoffFreqHz.size(); i++) {\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1353,
+                "startChar": 0,
+                "endLine": 1354,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "f6b28af7ff3948267b8719c36139f42dbc8dec2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9373f496_2ba29b86",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-03T21:34:24Z",
+      "side": 1,
+      "message": "Please add units suffix. Is that in dB? And if it\u0027s in dB, why such a large tolerance?",
+      "range": {
+        "startLine": 1354,
+        "startChar": 25,
+        "endLine": 1354,
+        "endChar": 44
+      },
+      "revId": "f6b28af7ff3948267b8719c36139f42dbc8dec2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
