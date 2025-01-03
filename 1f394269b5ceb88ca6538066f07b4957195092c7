@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "150a22ca_4736f98f",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-03T16:13:37Z",
+      "side": 1,
+      "message": "I went through the PFFFT documentation but could not find a specific statement indicating that the size of the input must match the size of the output.\n\nFrom my understanding, the size of the input(buffer) should be greater than or equal to the size of the output in our case. The library requires only one size parameter, which in our case is nPointFFT. As long as the nPointFFT size of the input accurately captures the characteristics of the input signal, we should get expected results. In case when the input is greater than the mentioned size, we expect some input data to get ignored. In case, when the input is less than mentioned size, we see segmentation fault errors in some cases.\n\nBased on the documentation, I have implemented some checks. Please let me know if my understanding is correct or if any further changes are required.",
+      "parentUuid": "d29a2d72_ed03d212",
+      "range": {
+        "startLine": 494,
+        "startChar": 45,
+        "endLine": 494,
+        "endChar": 58
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ccdbce9_a7df0c3e",
         "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2024-12-26T18:26:10Z",
       "side": 1,
       "message": "Perhaps, it makes sense to pass the channel layout to `generateSineWave` in order to avoid repeating this comparison everywhere else?",
+      "range": {
+        "startLine": 224,
+        "startChar": 45,
+        "endLine": 224,
+        "endChar": 96
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "933c35af_4dc5fa17",
+        "filename": "audio/aidl/vts/VtsHalBassBoostTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-03T16:13:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ccdbce9_a7df0c3e",
       "range": {
         "startLine": 224,
         "startChar": 45,
@@ -135,6 +183,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0993cff3_5160ed43",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-03T16:13:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d44c004_510c00ad",
+      "range": {
+        "startLine": 409,
+        "startChar": 0,
+        "endLine": 419,
+        "endChar": 88
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "455126e1_35cb0948",
@@ -148,6 +220,30 @@
       "writtenOn": "2024-12-26T18:26:10Z",
       "side": 1,
       "message": "Same note about energy calculation.",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 1
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55a613be_ef348b97",
+        "filename": "audio/aidl/vts/VtsHalEnvironmentalReverbTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-03T16:13:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "455126e1_35cb0948",
       "range": {
         "startLine": 229,
         "startChar": 0,
