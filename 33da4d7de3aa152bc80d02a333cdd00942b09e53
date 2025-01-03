@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf242758_befae6e6",
+        "filename": "audio/aidl/default/r_submix/SubmixRoute.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-03T17:42:08Z",
+      "side": 1,
+      "message": "Compare to https://cs.android.com/android/platform/superproject/main/+/main:hardware/libhardware/modules/audio_remote_submix/audio_hw.cpp;l\u003d786;drc\u003d0e4eace1075a79f295ae59cc4fb0f59fee643fe0. The original expression was:\n\n```\n dont_block \u003d (in \u003d\u003d NULL)\n       || (in-\u003einput_standby \u0026\u0026 (in-\u003eread_counter_frames_since_standby !\u003d 0))\n```\n\nThis function—`shouldBlockWrite`—returns an inversion of that condition:\n\n```\n!dont_block \u003d in !\u003d NULL\n       \u0026\u0026 (!in-\u003einput_standby || in-\u003eread_counter_frames_since_standby \u003d\u003d 0)\n```",
+      "range": {
+        "startLine": 140,
+        "startChar": 11,
+        "endLine": 140,
+        "endChar": 74
+      },
+      "revId": "33da4d7de3aa152bc80d02a333cdd00942b09e53",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
