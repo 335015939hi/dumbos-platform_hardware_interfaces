@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ae722ef_854d3e8a",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-03T21:58:26Z",
+      "side": 1,
+      "message": "Agree, technically the input should be at least the specified size, not exactly equal to it. Thanks for addressing this comment!",
+      "parentUuid": "150a22ca_4736f98f",
+      "range": {
+        "startLine": 494,
+        "startChar": 45,
+        "endLine": 494,
+        "endChar": 58
+      },
+      "revId": "1f394269b5ceb88ca6538066f07b4957195092c7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ccdbce9_a7df0c3e",
