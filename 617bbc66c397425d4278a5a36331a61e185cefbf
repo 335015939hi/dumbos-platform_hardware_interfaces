@@ -22,6 +22,30 @@
       },
       "revId": "617bbc66c397425d4278a5a36331a61e185cefbf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f127314_a537bfd9",
+        "filename": "bluetooth/aidl/default/Android.bp",
+        "patchSetId": 20
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2025-01-06T22:44:05Z",
+      "side": 0,
+      "message": "I removed it, as it\u0027s not enabled.\nMoreover, now the service is binded with safe Rust (also removed the C++ AIDL backend (https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3343023/20/bluetooth/aidl/Android.bp)).\nI am not sure it\u0027s still useful.",
+      "parentUuid": "966e615e_093629b1",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 6
+      },
+      "revId": "617bbc66c397425d4278a5a36331a61e185cefbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
