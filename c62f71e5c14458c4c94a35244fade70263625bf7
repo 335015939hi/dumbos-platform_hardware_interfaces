@@ -16,6 +16,52 @@
       "message": "Shunkai, could you please review.",
       "revId": "c62f71e5c14458c4c94a35244fade70263625bf7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bea84463_c020699b",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-01-06T17:51:02Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we want these asserts, seems  a little overly detailed checks of every detail in test setup not the HAL effect implementation.\nDoes it make more sense to assert on the generated sinewave instead? Same comment for the `calculate*` methods in this cl.",
+      "range": {
+        "startLine": 461,
+        "startChar": 8,
+        "endLine": 462,
+        "endChar": 74
+      },
+      "revId": "c62f71e5c14458c4c94a35244fade70263625bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "085d327f_bc1cc594",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-01-06T17:51:02Z",
+      "side": 1,
+      "message": "nit: seems not obvious to me what\u0027s the method input and output, does it helps to have the method return `bufferMag` instead? Technically these asserts in this method should not happen, but we can always return an empty vector in the case of invalid input parameters and skip the test.\nSame for `calculateMagnitudeStereo` below.",
+      "range": {
+        "startLine": 512,
+        "startChar": 9,
+        "endLine": 512,
+        "endChar": 31
+      },
+      "revId": "c62f71e5c14458c4c94a35244fade70263625bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
