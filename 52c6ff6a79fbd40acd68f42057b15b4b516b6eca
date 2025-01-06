@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60933c6e_87c1c4fa",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-01-06T22:51:53Z",
+      "side": 1,
+      "message": "I don\u0027t understand it though, as you are making significant changes to this file and keeping it. If you are converting to Rust, can you convert the whole thing to Rust? Any chance we can keep fuzzing coverage for the implementation here?",
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
