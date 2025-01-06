@@ -34,6 +34,24 @@
       "parentUuid": "60933c6e_87c1c4fa",
       "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "275cb6e9_572fd66d",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-01-06T23:39:41Z",
+      "side": 1,
+      "message": "\u003e I can work on reenabling it on the \"C part\", but I think it should be part of another CL.\n\nWould be great, yes, but wdyt of keeping the existing C++ service -\u003e vendor hook as an example of how to keep on fuzzing it with C++?",
+      "parentUuid": "a49a2dec_58e84bb7",
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
