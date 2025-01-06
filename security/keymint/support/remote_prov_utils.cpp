@@ -870,7 +870,7 @@ ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& encodedCsr,
     }
 
     auto csr = hwtrust::Csr::validate(encodedCsr, *diceChainKind, false /*isFactory*/,
-                                      true /*allowAnyMode*/, deviceSuffix(instanceName));
+                                      false /*allowAnyMode*/, deviceSuffix(instanceName));
     if (!csr.ok()) {
         return csr.error().message();
     }
