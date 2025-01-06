@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f7821f4_c1b7154f",
+        "filename": "security/keymint/aidl/default/hal/lib.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-06T13:32:46Z",
+      "side": 1,
+      "message": "nit: shorter to just put `\u0026` before `format!` (x3)",
+      "range": {
+        "startLine": 28,
+        "startChar": 71,
+        "endLine": 28,
+        "endChar": 80
+      },
+      "revId": "e82cfbffaaf0481d4155e710fc7ecb597a8966f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "884fc565_41c1e74d",
+        "filename": "security/keymint/aidl/default/hal/lib.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-06T13:32:46Z",
+      "side": 1,
+      "message": "nit: this could be `.unwrap_or_default()` (+1 more below)",
+      "range": {
+        "startLine": 29,
+        "startChar": 13,
+        "endLine": 29,
+        "endChar": 47
+      },
+      "revId": "e82cfbffaaf0481d4155e710fc7ecb597a8966f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a94e1dc3_28f89335",
+        "filename": "security/keymint/aidl/default/hal/lib.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-06T13:32:46Z",
+      "side": 1,
+      "message": "nit: the 3 copies of `.as_bytes().to_vec()` could be moved to a single invocation after the last `}`.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 29
+      },
+      "revId": "e82cfbffaaf0481d4155e710fc7ecb597a8966f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "934547ee_a6328ac9",
+        "filename": "security/keymint/aidl/default/hal/lib.rs",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-06T13:32:46Z",
+      "side": 1,
+      "message": "nit: this closure is now sufficiently complex that I think it\u0027s worth making into a function with a name and a comment, e.g.:\n\n```\n/// Retrieve the most significant attestation property for `name`.\nfn attestation_property(name: \u0026str) -\u003e Vec\u003cu8\u003e {\n    let prop_val \u003d\n        get_property(\u0026format!(\"ro.product.{}_for_attestation\", name)).unwrap_or_default();\n    if !prop_val.is_empty() {\n        prop_val\n    } else {\n        let prop_val \u003d get_property(\u0026format!(\"ro.product.vendor.{}\", name)).unwrap_or_default();\n        if !prop_val.is_empty() {\n            prop_val\n        } else {\n            get_property(\u0026format!(\"ro.product.{}\", name))\n                .unwrap_or_else(|prop_name| format!(\"{} unavailable\", prop_name))\n        }\n    }\n    .as_bytes()\n    .to_vec()\n}\n```",
+      "revId": "e82cfbffaaf0481d4155e710fc7ecb597a8966f5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
