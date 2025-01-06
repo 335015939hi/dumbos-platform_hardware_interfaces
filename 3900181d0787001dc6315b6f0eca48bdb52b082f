@@ -1,5 +1,57 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d246a021_c8cce9cf",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2025-01-06T15:40:11Z",
+      "side": 1,
+      "message": "At a naive look at the logic, I don\u0027t think we wanted to indent this line further.  I think we wanted one more \"}\" line before this, to keep this `else` at the same indentation level as it was before.\n\nAs it is now...",
+      "revId": "3900181d0787001dc6315b6f0eca48bdb52b082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1093eff_1ffc6296",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 678,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2025-01-06T15:40:11Z",
+      "side": 1,
+      "message": "...this `codec_cfg` check is within the block of `if (codec_cfg !\u003d nullptr \u0026\u0026 codec_cfg-\u003esubconfigurations()) {`, so this is always `false`...",
+      "revId": "3900181d0787001dc6315b6f0eca48bdb52b082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd1ea111_71e84fc6",
+        "filename": "bluetooth/audio/utils/aidl_session/BluetoothLeAudioAseConfigurationSettingProvider.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1096713
+      },
+      "writtenOn": "2025-01-06T15:40:11Z",
+      "side": 1,
+      "message": "...and if we get in here, we\u0027ll incorrectly report this error.\n\nWe need the `else` on line 677 to match up with the `if` from line 641.  Not the `if` from line 655, as it does now.",
+      "revId": "3900181d0787001dc6315b6f0eca48bdb52b082f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
