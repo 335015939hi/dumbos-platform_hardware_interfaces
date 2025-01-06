@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "966e615e_093629b1",
+        "filename": "bluetooth/aidl/default/Android.bp",
+        "patchSetId": 20
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-01-06T22:30:20Z",
+      "side": 0,
+      "message": "can you keep the fuzzer for BluetoothHci.cpp?",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 6
+      },
+      "revId": "617bbc66c397425d4278a5a36331a61e185cefbf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
