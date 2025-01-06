@@ -16,6 +16,24 @@
       "message": "I don\u0027t understand it though, as you are making significant changes to this file and keeping it. If you are converting to Rust, can you convert the whole thing to Rust? Any chance we can keep fuzzing coverage for the implementation here?",
       "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a49a2dec_58e84bb7",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2025-01-06T23:20:58Z",
+      "side": 1,
+      "message": "There is no \"logical change\", it\u0027s like a copy/paste of what was here. The main difference is that it no longer exposes the service; it now uses the \"Rust FFI\", which is a mirror of the AIDL interface (https://android-review.git.corp.google.com/c/platform/packages/modules/Bluetooth/+/3407740/16/offload/hal/ffi.h).\n\nIt looks like there are significant changes, because of formatting, but definitely there is not. Just move to the interface:\n```\nextern \"C\" {\n\nusing namespace aidl::android::hardware::bluetooth::impl;\n\nstruct hal_interface hal_new() {\n  return (struct hal_interface){\n      .handle \u003d new Hal(),\n      .initialize \u003d \u0026Hal::Initialize,\n      .close \u003d \u0026Hal::Close,\n      .send_command \u003d \u0026Hal::SendCommand,\n      .send_acl \u003d \u0026Hal::SendAcl,\n      .send_sco \u003d \u0026Hal::SendSco,\n      .send_iso \u003d \u0026Hal::SendIso,\n  };\n}\n}\n```\n\nFrom my understanding of this code, it\u0027s just enabled on \"Cuttefish\", henrichataing@google.com is currently working on Cuttlefish port in Rust.\n\nI kept this with an FFI, as vendors are not ready to move to Rust; it\u0027s to simplify the integration\u0027s work (fallback to C).\n\nAbout fuzzing, I don\u0027t know how easily porting it, as the C++ binder interface is no more used. But from my understanding, it was not enabled, or has been disabled, I don\u0027t know. If disabled, there is probably reason for that...\nFor this reason, I didn\u0027t feel like I changed anything.\nIt\u0027s not a refactor / cleanup but integration of the HCI part of LE Audio Software offload.\n\nI can work on reenabling it on the \"C part\", but I think it should be part of another CL.\n\nWhat do you think?",
+      "parentUuid": "60933c6e_87c1c4fa",
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
