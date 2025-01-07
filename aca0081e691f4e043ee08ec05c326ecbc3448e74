@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15a1a9fe_abfdf2b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-07T17:43:55Z",
+      "side": 1,
+      "message": "Thank you Aayush! Some corrections.",
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09bb976c_e41cd2ab",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-07T17:43:55Z",
+      "side": 1,
+      "message": "add: \"in order to normalize it to the unsigned 8 bit sample range.\"",
+      "range": {
+        "startLine": 55,
+        "startChar": 24,
+        "endLine": 55,
+        "endChar": 25
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee786584_368e1acc",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-07T17:43:55Z",
+      "side": 1,
+      "message": "I think, if we add the proposed clarification above, then this paragraph is not needed. The example is useful.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 40
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69d52213_3dbab4fb",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-07T17:43:55Z",
+      "side": 1,
+      "message": "I think, we can remove this paragraph because your version below states the same thing in a more clear way.",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a06ff0e_4f882143",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-07T17:43:55Z",
+      "side": 1,
+      "message": "\"and\" -\u003e \", thus\"",
+      "range": {
+        "startLine": 73,
+        "startChar": 65,
+        "endLine": 73,
+        "endChar": 68
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a25c76c3_2e0bcbd9",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-07T17:43:55Z",
+      "side": 1,
+      "message": "the input",
+      "range": {
+        "startLine": 74,
+        "startChar": 35,
+        "endLine": 74,
+        "endChar": 67
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07b04244_bb937755",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-07T17:43:55Z",
+      "side": 1,
+      "message": "I think, we need to add a clarification is that the capture is intended for passing to applications, and it contains the same audio data as the input, but with intentionally lower sample resolution, and optionally normalized, depending on the scalingMode.",
+      "range": {
+        "startLine": 117,
+        "startChar": 40,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
