@@ -16,6 +16,23 @@
       "message": "Hi\nJohn Reck, I added you accrding to gerrit suggestion for file owner.",
       "revId": "8cded691ae6d9271c70c790484845ab4501def72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d95edb3e_ac7060ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3790621
+      },
+      "writtenOn": "2025-01-07T19:29:20Z",
+      "side": 1,
+      "message": "ping",
+      "revId": "8cded691ae6d9271c70c790484845ab4501def72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
