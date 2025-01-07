@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65206bfb_07cefce0",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1305,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2025-01-07T11:53:02Z",
+      "side": 1,
+      "message": "aosp/3432040 checks that the subOutput size \u003e\u003d kNPointFFT",
+      "parentUuid": "62c757dd_4bc247f1",
+      "range": {
+        "startLine": 1305,
+        "startChar": 0,
+        "endLine": 1305,
+        "endChar": 81
+      },
+      "revId": "09fdd57aae71051813e61f649a3d9838d9be98f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62500061_158042eb",

@@ -52,6 +52,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb56e620_2bcbd9f5",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2025-01-07T11:53:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ffefcc0_cc02fb36",
+      "range": {
+        "startLine": 1329,
+        "startChar": 31,
+        "endLine": 1329,
+        "endChar": 41
+      },
+      "revId": "f6b28af7ff3948267b8719c36139f42dbc8dec2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9373f496_2ba29b86",
@@ -65,6 +89,30 @@
       "writtenOn": "2025-01-03T21:34:24Z",
       "side": 1,
       "message": "Please add units suffix. Is that in dB? And if it\u0027s in dB, why such a large tolerance?",
+      "range": {
+        "startLine": 1354,
+        "startChar": 25,
+        "endLine": 1354,
+        "endChar": 44
+      },
+      "revId": "f6b28af7ff3948267b8719c36139f42dbc8dec2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2301656_a4e62dfa",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 2051456
+      },
+      "writtenOn": "2025-01-07T11:53:02Z",
+      "side": 1,
+      "message": "This is the magnitude of the complex number after FFT and does not have any units.\nThe input magnitude for two frequencies (100Hz and 1000Hz) is between 208 to 240. Hence, we are using this tolerance value (which is less than 10%) to check the equality of input and output magnitude.",
+      "parentUuid": "9373f496_2ba29b86",
       "range": {
         "startLine": 1354,
         "startChar": 25,
