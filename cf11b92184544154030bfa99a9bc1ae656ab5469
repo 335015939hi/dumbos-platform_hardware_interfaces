@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fcf53aa_cf0a0707",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1951990
+      },
+      "writtenOn": "2025-01-07T14:12:02Z",
+      "side": 1,
+      "message": "Thanks for the fix: Could you run this test before submit?  \natest BiometricsE2eTests:BiometricPromptAuthSuccessTest",
+      "revId": "cf11b92184544154030bfa99a9bc1ae656ab5469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
