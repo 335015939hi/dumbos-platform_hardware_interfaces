@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10854317_86d7f6d7",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-07T12:56:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bea84463_c020699b",
+      "range": {
+        "startLine": 461,
+        "startChar": 8,
+        "endLine": 462,
+        "endChar": 74
+      },
+      "revId": "c62f71e5c14458c4c94a35244fade70263625bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "085d327f_bc1cc594",
@@ -54,6 +78,30 @@
       "writtenOn": "2025-01-06T17:51:02Z",
       "side": 1,
       "message": "nit: seems not obvious to me what\u0027s the method input and output, does it helps to have the method return `bufferMag` instead? Technically these asserts in this method should not happen, but we can always return an empty vector in the case of invalid input parameters and skip the test.\nSame for `calculateMagnitudeStereo` below.",
+      "range": {
+        "startLine": 512,
+        "startChar": 9,
+        "endLine": 512,
+        "endChar": 31
+      },
+      "revId": "c62f71e5c14458c4c94a35244fade70263625bf7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15e7bdf0_fb2d213c",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-07T12:56:31Z",
+      "side": 1,
+      "message": "Having ASSERT_() checks here help in signalling the cause of failures. Also, it reduces the need for multiple bufferMag empty checks inside calculate* functions as well as test functions.\nI have added comments to clearly identify input and output parameters in the latest CL.",
+      "parentUuid": "085d327f_bc1cc594",
       "range": {
         "startLine": 512,
         "startChar": 9,
