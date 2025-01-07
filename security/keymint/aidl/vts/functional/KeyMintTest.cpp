@@ -9134,5 +9134,13 @@ int main(int argc, char** argv) {
             }
         }
     }
+    // Some tests rely on information about the state of the system having been
+    // received by KeyMint.  Some of this is triggered after apexd is activated,
+    // so ensure that has happened before running tests.
+    using namespace std::chrono_literals;
+    if (!android::base::WaitForProperty("apexd.status", "ready", 30s)) {
+        std::cerr << "Warning: running test before apexd.status is ready\n";
+    }
+
     return RUN_ALL_TESTS();
 }
