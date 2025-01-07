@@ -47,6 +47,7 @@ using aidl::android::hardware::audio::effect::getEffectTypeUuidSpatializer;
 using aidl::android::hardware::audio::effect::getRange;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::isRangeValid;
+using aidl::android::hardware::audio::effect::kDrainSupportedVersion;
 using aidl::android::hardware::audio::effect::kEffectTypeUuidSpatializer;
 using aidl::android::hardware::audio::effect::kEventFlagDataMqNotEmpty;
 using aidl::android::hardware::audio::effect::kEventFlagDataMqUpdate;
@@ -190,7 +191,11 @@ class EffectHelper {
                 ASSERT_NO_FATAL_FAILURE(expectState(effect, State::PROCESSING));
                 break;
             case CommandId::STOP:
-                FALLTHROUGH_INTENDED;
+                // Enforce the state checking after kDrainSupportedVersion
+                if (getHalVersion(effect) >= kDrainSupportedVersion) {
+                    ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
+                }
+                break;
             case CommandId::RESET:
                 ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
                 break;
