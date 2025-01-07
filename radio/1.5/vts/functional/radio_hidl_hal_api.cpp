@@ -521,6 +521,8 @@ TEST_P(RadioHidlTest_v1_5, setSystemSelectionChannels_1_5) {
 
     ::android::hardware::radio::V1_5::RadioAccessSpecifier::Bands band3;
     band3.eutranBands({::android::hardware::radio::V1_5::EutranBands::BAND_3});
+    ::android::hardware::radio::V1_5::RadioAccessSpecifier::Bands band5;
+    band5.eutranBands({::android::hardware::radio::V1_5::EutranBands::BAND_5});
     ::android::hardware::radio::V1_5::RadioAccessSpecifier::Bands band17;
     band17.eutranBands({::android::hardware::radio::V1_5::EutranBands::BAND_17});
     ::android::hardware::radio::V1_5::RadioAccessSpecifier::Bands band20;
@@ -530,6 +532,10 @@ TEST_P(RadioHidlTest_v1_5, setSystemSelectionChannels_1_5) {
     ::android::hardware::radio::V1_5::RadioAccessSpecifier specifier3 = {
             .radioAccessNetwork = ::android::hardware::radio::V1_5::RadioAccessNetworks::EUTRAN,
             .bands = band3,
+            .channels = {1, 2}};
+    ::android::hardware::radio::V1_5::RadioAccessSpecifier specifier5 = {
+            .radioAccessNetwork = ::android::hardware::radio::V1_5::RadioAccessNetworks::EUTRAN,
+            .bands = band5,
             .channels = {1, 2}};
     ::android::hardware::radio::V1_5::RadioAccessSpecifier specifier17 = {
             .radioAccessNetwork = ::android::hardware::radio::V1_5::RadioAccessNetworks::EUTRAN,
@@ -545,7 +551,7 @@ TEST_P(RadioHidlTest_v1_5, setSystemSelectionChannels_1_5) {
             .channels = {128, 129}};
 
     Return<void> res = radio_v1_5->setSystemSelectionChannels_1_5(
-            serial, true, {specifier3, specifier17, specifier20, specifier40});
+            serial, true, {specifier3, specifier5, specifier17, specifier20, specifier40});
     ASSERT_OK(res);
     EXPECT_EQ(std::cv_status::no_timeout, wait());
     EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_5->rspInfo.type);
@@ -559,7 +565,7 @@ TEST_P(RadioHidlTest_v1_5, setSystemSelectionChannels_1_5) {
     if (radioRsp_v1_5->rspInfo.error == RadioError::NONE) {
         serial = GetRandomSerialNumber();
         Return<void> res = radio_v1_5->setSystemSelectionChannels_1_5(
-                serial, false, {specifier3, specifier17, specifier20, specifier40});
+                serial, false, {specifier3, specifier5, specifier17, specifier20, specifier40});
         ASSERT_OK(res);
         EXPECT_EQ(std::cv_status::no_timeout, wait());
         EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_v1_5->rspInfo.type);
@@ -576,10 +582,16 @@ TEST_P(RadioHidlTest_v1_5, setSystemSelectionChannels_1_5) {
 TEST_P(RadioHidlTest_v1_5, startNetworkScan) {
     serial = GetRandomSerialNumber();
 
+    ::android::hardware::radio::V1_5::RadioAccessSpecifier::Bands band5;
+    band5.eutranBands({::android::hardware::radio::V1_5::EutranBands::BAND_5});
     ::android::hardware::radio::V1_5::RadioAccessSpecifier::Bands band17;
     band17.eutranBands({::android::hardware::radio::V1_5::EutranBands::BAND_17});
     ::android::hardware::radio::V1_5::RadioAccessSpecifier::Bands band20;
     band20.eutranBands({::android::hardware::radio::V1_5::EutranBands::BAND_20});
+    ::android::hardware::radio::V1_5::RadioAccessSpecifier specifier5 = {
+            .radioAccessNetwork = ::android::hardware::radio::V1_5::RadioAccessNetworks::EUTRAN,
+            .bands = band5,
+            .channels = {1, 2}};
     ::android::hardware::radio::V1_5::RadioAccessSpecifier specifier17 = {
             .radioAccessNetwork = ::android::hardware::radio::V1_5::RadioAccessNetworks::EUTRAN,
             .bands = band17,
@@ -592,7 +604,7 @@ TEST_P(RadioHidlTest_v1_5, startNetworkScan) {
     ::android::hardware::radio::V1_5::NetworkScanRequest request = {
             .type = ScanType::ONE_SHOT,
             .interval = 60,
-            .specifiers = {specifier17, specifier20},
+            .specifiers = {specifier5, specifier17, specifier20},
             .maxSearchTime = 60,
             .incrementalResults = false,
             .incrementalResultsPeriodicity = 1};
