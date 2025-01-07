@@ -47,6 +47,7 @@ using aidl::android::hardware::audio::effect::getEffectTypeUuidSpatializer;
 using aidl::android::hardware::audio::effect::getRange;
 using aidl::android::hardware::audio::effect::IEffect;
 using aidl::android::hardware::audio::effect::isRangeValid;
+using aidl::android::hardware::audio::effect::kDrainSupportedVersion;
 using aidl::android::hardware::audio::effect::kEffectTypeUuidSpatializer;
 using aidl::android::hardware::audio::effect::kEventFlagDataMqNotEmpty;
 using aidl::android::hardware::audio::effect::kEventFlagDataMqUpdate;
@@ -190,7 +191,20 @@ class EffectHelper {
                 ASSERT_NO_FATAL_FAILURE(expectState(effect, State::PROCESSING));
                 break;
             case CommandId::STOP:
+<<<<<<< HEAD   (f023db Merge "Bypass share memory handle test for passthrough filte)
                 FALLTHROUGH_INTENDED;
+||||||| BASE
+                ASSERT_TRUE(expectState(effect, State::IDLE) ||
+                            expectState(effect, State::DRAINING));
+                break;
+=======
+                // Enforce the state checking after kDrainSupportedVersion
+                if (getHalVersion(effect) >= kDrainSupportedVersion) {
+                    ASSERT_TRUE(expectState(effect, State::IDLE) ||
+                                expectState(effect, State::DRAINING));
+                }
+                break;
+>>>>>>> CHANGE (eeda2b Effect AIDL VTS: skip state check after STOP if draining is )
             case CommandId::RESET:
                 ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
                 break;
@@ -454,6 +468,37 @@ class EffectHelper {
         mOutputSamples = common.output.frameCount * mOutputFrameSize / sizeof(float);
     }
 
+<<<<<<< HEAD   (f023db Merge "Bypass share memory handle test for passthrough filte)
+||||||| BASE
+    void generateInput(std::vector<float>& input, float inputFrequency, float samplingFrequency,
+                       size_t inputSize = 0) {
+        if (inputSize == 0 || inputSize > input.size()) {
+            inputSize = input.size();
+        }
+
+        for (size_t i = 0; i < inputSize; i++) {
+            input[i] = sin(2 * M_PI * inputFrequency * i / samplingFrequency);
+        }
+    }
+
+=======
+    void generateInput(std::vector<float>& input, float inputFrequency, float samplingFrequency,
+                       size_t inputSize = 0) {
+        if (inputSize == 0 || inputSize > input.size()) {
+            inputSize = input.size();
+        }
+
+        for (size_t i = 0; i < inputSize; i++) {
+            input[i] = sin(2 * M_PI * inputFrequency * i / samplingFrequency);
+        }
+    }
+
+    static int getHalVersion(const std::shared_ptr<IEffect>& effect) {
+        int version = 0;
+        return (effect && effect->getInterfaceVersion(&version).isOk()) ? version : 0;
+    }
+
+>>>>>>> CHANGE (eeda2b Effect AIDL VTS: skip state check after STOP if draining is )
     bool mIsSpatializer;
     Descriptor mDescriptor;
     size_t mInputFrameSize, mOutputFrameSize;
