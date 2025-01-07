@@ -121,6 +121,30 @@
       },
       "revId": "f6b28af7ff3948267b8719c36139f42dbc8dec2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e965698_c158b563",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 1354,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-07T17:26:06Z",
+      "side": 1,
+      "message": "Agree that output from the FFT is dimensionless. However, once we convert the output of the FFT into magnitude, we can make one more step and convert the magnitude into dB units which will make more meaningful both the tolerance specification and the test message in the case of expectation failure. Can we do that, please?",
+      "parentUuid": "f2301656_a4e62dfa",
+      "range": {
+        "startLine": 1354,
+        "startChar": 25,
+        "endLine": 1354,
+        "endChar": 44
+      },
+      "revId": "f6b28af7ff3948267b8719c36139f42dbc8dec2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
