@@ -227,9 +227,13 @@ ErrMsgOr<bool> compareRootPublicKeysInDiceChains(const std::vector<uint8_t>& csr
  */
 ErrMsgOr<bool> verifyComponentNameInKeyMintDiceChain(const std::vector<uint8_t>& csr);
 
-/** Checks whether the DICE chain in the CSR has a certificate with a non-normal mode. */
-ErrMsgOr<bool> hasNonNormalModeInDiceChain(const std::vector<uint8_t>& csr,
-                                           std::string_view instanceName);
+/** Checks whether there is a certificate in the DICE Chain that contains an RKP VM marker **/
+ErrMsgOr<bool> hasRkpVmMarkerInDiceChain(const std::vector<uint8_t>& csr,
+                                         std::string_view instanceName);
+
+/** Checks whether first certificate in DICE chain with RKP VM marker has a non-normal mode. */
+ErrMsgOr<bool> firstCertificateWithRkpVmMarkerIsNonNormalInDiceChain(
+        const std::vector<uint8_t>& csr, std::string_view instanceName);
 
 /** Verify the DICE chain. */
 ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,

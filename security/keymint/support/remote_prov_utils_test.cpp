@@ -1061,17 +1061,6 @@ TEST(RemoteProvUtilsTest, componentNameInLeafCertificateOfDiceChainContainsKeyMi
     ASSERT_FALSE(*result2) << "Leaf Certificate in CSR contains 'keymint' in component name";
 }
 
-TEST(RemoteProvUtilsTest, checkModeOnCertificatesInDiceChain) {
-    auto hasNonNormalMode = hasNonNormalModeInDiceChain(kCsrWithDebugMode, DEFAULT_INSTANCE_NAME);
-    ASSERT_TRUE(hasNonNormalMode) << hasNonNormalMode.message();
-    ASSERT_TRUE(*hasNonNormalMode);
-
-    auto hasNonNormalModeInDiceChain2 =
-            hasNonNormalModeInDiceChain(kCsrWithUdsCerts, DEFAULT_INSTANCE_NAME);
-    ASSERT_TRUE(hasNonNormalModeInDiceChain2) << hasNonNormalModeInDiceChain2.message();
-    ASSERT_FALSE(*hasNonNormalModeInDiceChain2);
-}
-
 TEST(RemoteProvUtilsTest, parseFullyQualifiedInstanceNames) {
     ASSERT_EQ(deviceSuffix(RKPVM_INSTANCE_NAME), "avf");
     ASSERT_EQ(deviceSuffix(DEFAULT_INSTANCE_NAME), "default");

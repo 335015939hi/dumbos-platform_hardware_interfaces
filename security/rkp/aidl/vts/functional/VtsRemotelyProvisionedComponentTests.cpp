@@ -849,9 +849,12 @@ class CertificateRequestV2Test : public CertificateRequestTestBase {
 };
 
 /**
- * Check that ro.boot.vbmeta.device_state is not "locked" or ro.boot.verifiedbootstate
- * is not "green" if and only if the mode on at least one certificate in the DICE chain
- * is non-normal.
+ * If the DICE chain for a remotely provisioned component contains a certificate with
+ * an RKP VM marker, then check the following equivalence holds.
+ *
+ * ro.boot.vbmeta.device_state is not "locked" or ro.boot.verifiedbootstate
+ * is not "green" if and only if the mode on the first certificate with an RKP VM marker
+ * has a non-normal mode.
  */
 TEST_P(CertificateRequestV2Test, unlockedBootloaderStatesImpliesNonnormalDiceChain) {
     auto challenge = randomBytes(MAX_CHALLENGE_SIZE);
@@ -866,7 +869,13 @@ TEST_P(CertificateRequestV2Test, unlockedBootloaderStatesImpliesNonnormalDiceCha
         GTEST_SKIP() << "Skipping test: Only a proper DICE chain has a mode set.";
     }
 
-    auto nonNormalMode = hasNonNormalModeInDiceChain(csr, GetParam());
+    auto hasRkpVmMarker = hasRkpVmMarkerInDiceChain(csr, GetParam());
+    ASSERT_TRUE(hasRkpVmMarker) << hasRkpVmMarker.message();
+    if (!*hasRkpVmMarker) {
+        GTEST_SKIP() << "Skipping test: Only a DICE chain has a mode set.";
+    }
+
+    auto nonNormalMode = firstCertificateWithRkpVmMarkerIsNonNormalInDiceChain(csr, GetParam());
     ASSERT_TRUE(nonNormalMode) << nonNormalMode.message();
 
     auto deviceState = ::android::base::GetProperty("ro.boot.vbmeta.device_state", "");
