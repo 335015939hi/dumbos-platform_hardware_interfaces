@@ -16,6 +16,24 @@
       "message": "Discussing internally, but I think needing this points to a broken GL/EGL implementation that returns from glFinish/eglClientWaitSync too early.",
       "revId": "0696cf69bc127984528436d7c239ea68db121d5d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb7973b_db0416d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3718912
+      },
+      "writtenOn": "2025-01-08T05:59:22Z",
+      "side": 1,
+      "message": "Updated the behavior and results in https://partnerissuetracker.corp.google.com/u/1/issues/371109128 also.\n\nGoogle has added sleep(1) for glFlush() as FlushMethod, so the testcase is for GraphicsFrontBufferTests#FrontBufferGpuToCpu  is passing.\nRemoving sleep(1) for glFlsuh() also will make the testcase to fail",
+      "parentUuid": "0a3aa947_d87fcbac",
+      "revId": "0696cf69bc127984528436d7c239ea68db121d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
