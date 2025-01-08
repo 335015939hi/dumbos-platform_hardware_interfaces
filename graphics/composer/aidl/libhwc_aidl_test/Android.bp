@@ -21,21 +21,22 @@ package {
     // all of the 'license_kinds' from "hardware_interfaces_license"
     // to get the below license kinds:
     // SPDX-license-identifier-Apache-2.0
-    default_applicable_licenses: ["hardware_interfaces_license"],
 }
 
-cc_test {
-    name: "VtsHalGraphicsComposer3_TargetTest",
+cc_library_static {
+    name: "libhwc_aidl_test",
+    export_include_dirs: ["include"],
     defaults: [
-        "VtsHalTargetTestDefaults",
         "use_libaidlvintf_gtest_helper_static",
         "librenderengine_deps",
         "android.hardware.graphics.common-ndk_static",
         "android.hardware.graphics.composer3-ndk_static",
     ],
     srcs: [
-        "VtsHalGraphicsComposer3_TargetTest.cpp",
-        "VtsHalGraphicsComposer3_ReadbackTest.cpp",
+        "ComposerClientWrapper.cpp",
+        "GraphicsComposerCallback.cpp",
+        "Readback.cpp",
+        "RenderEngine.cpp",
     ],
     shared_libs: [
         "libEGL",
@@ -52,7 +53,6 @@ cc_test {
         "libprocessgroup",
         "libvndksupport",
         "server_configurable_flags",
-        "libtracing_perfetto",
     ],
     header_libs: [
         "android.hardware.graphics.composer3-command-buffer",
@@ -67,7 +67,6 @@ cc_test {
         "libbase",
         "libfmq",
         "libgtest",
-        "libhwc_aidl_test",
         "libmath",
         "librenderengine",
         "libshaders",
@@ -77,9 +76,5 @@ cc_test {
     ],
     cflags: [
         "-Wconversion",
-    ],
-    test_suites: [
-        "general-tests",
-        "vts",
     ],
 }
