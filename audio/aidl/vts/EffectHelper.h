@@ -198,8 +198,13 @@ class EffectHelper {
             case CommandId::STOP:
                 // Enforce the state checking after kDrainSupportedVersion
                 if (getHalVersion(effect) >= kDrainSupportedVersion) {
+<<<<<<< HEAD   (eb181a Merge "Disable unlocked boot & non-normal DICE test" into ma)
                     ASSERT_TRUE(expectState(effect, State::IDLE) ||
                                 expectState(effect, State::DRAINING));
+||||||| BASE
+=======
+                    ASSERT_NO_FATAL_FAILURE(expectState(effect, State::IDLE));
+>>>>>>> BRANCH (d8b602 [RESTRICT AUTOMERGE] Effect AIDL VTS: skip state check after)
                 }
                 break;
             case CommandId::RESET:
@@ -511,6 +516,7 @@ class EffectHelper {
         mOutputSamples = common.output.frameCount * mOutputFrameSize / sizeof(float);
     }
 
+<<<<<<< HEAD   (eb181a Merge "Disable unlocked boot & non-normal DICE test" into ma)
     void generateInput(std::vector<float>& input, float inputFrequency, float samplingFrequency,
                        size_t inputSize = 0) {
         if (inputSize == 0 || inputSize > input.size()) {
@@ -522,6 +528,9 @@ class EffectHelper {
         }
     }
 
+||||||| BASE
+=======
+>>>>>>> BRANCH (d8b602 [RESTRICT AUTOMERGE] Effect AIDL VTS: skip state check after)
     static int getHalVersion(const std::shared_ptr<IEffect>& effect) {
         int version = 0;
         return (effect && effect->getInterfaceVersion(&version).isOk()) ? version : 0;
