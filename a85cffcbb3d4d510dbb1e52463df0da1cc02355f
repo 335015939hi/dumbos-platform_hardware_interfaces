@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba4d3ade_1c9ca2e9",
+        "filename": "virtualization/capabilities_service/noop/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2025-01-08T23:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50d97342_d6ee333b",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 3
+      },
+      "revId": "a85cffcbb3d4d510dbb1e52463df0da1cc02355f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e82c44b_e602c6af",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-01-08T15:20:20Z",
       "side": 1,
       "message": "This references the file directly, not the prebuilt_etc module. Can you install the prebuilt_etc module via the `required` property instead (and add `sub_dir: \"init\"`)?",
+      "range": {
+        "startLine": 39,
+        "startChar": 9,
+        "endLine": 39,
+        "endChar": 86
+      },
+      "revId": "a85cffcbb3d4d510dbb1e52463df0da1cc02355f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36200519_92a0d9a5",
+        "filename": "virtualization/capabilities_service/noop/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2025-01-08T23:41:47Z",
+      "side": 1,
+      "message": "it didn\u0027t work, so i just removed the prebuilt_etc module.",
+      "parentUuid": "7e82c44b_e602c6af",
       "range": {
         "startLine": 39,
         "startChar": 9,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72c2c026_1e9b5021",
+        "filename": "virtualization/capabilities_service/noop/android.hardware.virtualization.capabilities.no_op_vm_capabilities_service.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2025-01-08T23:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9ed4a24_ab0b1abd",
+      "range": {
+        "startLine": 4,
+        "startChar": 13,
+        "endLine": 4,
+        "endChar": 17
+      },
+      "revId": "a85cffcbb3d4d510dbb1e52463df0da1cc02355f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a679a707_36b70b40",
@@ -83,6 +155,30 @@
       "writtenOn": "2025-01-08T15:20:20Z",
       "side": 1,
       "message": "nit: 2025",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "a85cffcbb3d4d510dbb1e52463df0da1cc02355f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "102f9fad_a187436d",
+        "filename": "virtualization/capabilities_service/noop/src/aidl.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2025-01-08T23:41:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a679a707_36b70b40",
       "range": {
         "startLine": 2,
         "startChar": 17,
