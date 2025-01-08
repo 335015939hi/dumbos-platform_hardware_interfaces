@@ -455,7 +455,8 @@ INSTANTIATE_TEST_CASE_P(PerInstance, GraphicsAllocatorAidlTests,
                         PrintInstanceNameToString);
 
 const auto FlushMethodsValues = testing::Values(
-        FlushMethod{"glFinish", [](EglManager&) { glFinish(); }},
+        FlushMethod{"glFinish", [](EglManager&) { glFinish();
+                                                  sleep(1); }},
         FlushMethod{"glFlush",
                     [](EglManager&) {
                         glFlush();
@@ -470,6 +471,7 @@ const auto FlushMethodsValues = testing::Values(
                         eglClientWaitSyncKHR(display, fence, EGL_SYNC_FLUSH_COMMANDS_BIT_KHR,
                                              EGL_FOREVER_KHR);
                         eglDestroySyncKHR(display, fence);
+                        sleep(1);
                     }});
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(GraphicsFrontBufferTests);
 INSTANTIATE_TEST_CASE_P(
