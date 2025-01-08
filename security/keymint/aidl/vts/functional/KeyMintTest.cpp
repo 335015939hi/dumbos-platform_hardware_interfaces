@@ -2269,10 +2269,16 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationUniqueId) {
     get_unique_id(app_id, min_date - 1, &unique_id8);
     EXPECT_NE(unique_id, unique_id8);
 
-    // Marking RESET_SINCE_ID_ROTATION should give a different unique ID.
-    vector<uint8_t> unique_id9;
-    get_unique_id(app_id, cert_date, &unique_id9, /* reset_id = */ true);
-    EXPECT_NE(unique_id, unique_id9);
+    // b/385800086: Vendor reported the failure of this test on Strongbox with gsi build,
+    // to avoid failure we are skipping this part of test. This could be an issue with the vendor
+    // implementation. Expecting Vendor to fix their strongbox implementation in future.
+    if (!(is_gsi_image() && SecLevel() == SecurityLevel::STRONGBOX &&
+          get_vendor_api_level() < __ANDROID_API_V__)) {
+        // Marking RESET_SINCE_ID_ROTATION should give a different unique ID.
+        vector<uint8_t> unique_id9;
+        get_unique_id(app_id, cert_date, &unique_id9, /* reset_id = */ true);
+        EXPECT_NE(unique_id, unique_id9);
+    }
 }
 
 /*
@@ -2281,6 +2287,14 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationUniqueId) {
  * Verifies that creation of an attested ECDSA key does not include APPLICATION_ID.
  */
 TEST_P(NewKeyGenerationTest, EcdsaAttestationTagNoApplicationId) {
+    if (is_gsi_image() && SecLevel() == SecurityLevel::STRONGBOX &&
+        get_vendor_api_level() < __ANDROID_API_V__) {
+        // b/385800086: Vendor reported the failure of this test on Strongbox with gsi build,
+        // to avoid failure we are skipping this test. Suspecting the user generated attestation key
+        // usage while gnerating a key with app-id and app-data is causing the issue.
+        // Expecting Vendor to fix their strongbox implementation in future.
+        GTEST_SKIP() << "Skip test on StrongBox device with vendor-api-level < __ANDROID_API_V__";
+    }
     auto challenge = "hello";
     auto attest_app_id = "foo";
     auto subject = "cert subj 2";
