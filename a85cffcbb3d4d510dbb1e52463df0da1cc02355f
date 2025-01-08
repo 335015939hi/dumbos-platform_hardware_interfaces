@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50d97342_d6ee333b",
+        "filename": "virtualization/capabilities_service/noop/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2025-01-08T15:20:20Z",
+      "side": 1,
+      "message": "Nit: we usually don\u0027t add the copyright header to bp files.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 3
+      },
+      "revId": "a85cffcbb3d4d510dbb1e52463df0da1cc02355f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e82c44b_e602c6af",
+        "filename": "virtualization/capabilities_service/noop/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2025-01-08T15:20:20Z",
+      "side": 1,
+      "message": "This references the file directly, not the prebuilt_etc module. Can you install the prebuilt_etc module via the `required` property instead (and add `sub_dir: \"init\"`)?",
+      "range": {
+        "startLine": 39,
+        "startChar": 9,
+        "endLine": 39,
+        "endChar": 86
+      },
+      "revId": "a85cffcbb3d4d510dbb1e52463df0da1cc02355f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ed4a24_ab0b1abd",
+        "filename": "virtualization/capabilities_service/noop/android.hardware.virtualization.capabilities.no_op_vm_capabilities_service.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2025-01-08T15:20:20Z",
+      "side": 1,
+      "message": "nit: 2025\n\nand we don\u0027t seem to add a license header to the vintf manifest fragment either.",
+      "range": {
+        "startLine": 4,
+        "startChar": 13,
+        "endLine": 4,
+        "endChar": 17
+      },
+      "revId": "a85cffcbb3d4d510dbb1e52463df0da1cc02355f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a679a707_36b70b40",
+        "filename": "virtualization/capabilities_service/noop/src/aidl.rs",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2025-01-08T15:20:20Z",
+      "side": 1,
+      "message": "nit: 2025",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "a85cffcbb3d4d510dbb1e52463df0da1cc02355f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
