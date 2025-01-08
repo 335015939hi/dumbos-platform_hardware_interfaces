@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a3aa947_d87fcbac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1097853
+      },
+      "writtenOn": "2025-01-08T05:40:59Z",
+      "side": 1,
+      "message": "Discussing internally, but I think needing this points to a broken GL/EGL implementation that returns from glFinish/eglClientWaitSync too early.",
+      "revId": "0696cf69bc127984528436d7c239ea68db121d5d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
