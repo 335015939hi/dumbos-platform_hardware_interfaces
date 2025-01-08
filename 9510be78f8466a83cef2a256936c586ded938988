@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e30ff30_466d8209",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2025-01-08T23:22:31Z",
+      "side": 1,
+      "message": "please include: `Bug: 386163825`",
+      "revId": "9510be78f8466a83cef2a256936c586ded938988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fba51411_e38c9499",
@@ -14,6 +31,47 @@
       "writtenOn": "2025-01-08T17:09:11Z",
       "side": 1,
       "message": "I\u0027d love something more comprehensive, but this works for me as an incremental improvement if it helps the reporter pass the test.",
+      "revId": "9510be78f8466a83cef2a256936c586ded938988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93794929_cb5997b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2025-01-08T23:22:31Z",
+      "side": 1,
+      "message": "Returning `REQUEST_NOT_SUPPORTED` for these tests when the API is supported seems like incorrect modem behavior. This CL shouldn\u0027t be necessary to pass this test if it returns `INVALID_ARGUMENTS` instead.",
+      "parentUuid": "fba51411_e38c9499",
+      "revId": "9510be78f8466a83cef2a256936c586ded938988",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "736a63f5_097aff65",
+        "filename": "radio/1.5/vts/functional/radio_hidl_hal_api.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1542950
+      },
+      "writtenOn": "2025-01-08T23:22:31Z",
+      "side": 1,
+      "message": "Is band 5/specifier 5 more commonly supported than the other bands in this test? Ok to include this change if it makes it the test more robust, but please update the modem implementation to return the correct error in case of unsupported bands/specifiers.",
+      "range": {
+        "startLine": 525,
+        "startChar": 70,
+        "endLine": 525,
+        "endChar": 76
+      },
       "revId": "9510be78f8466a83cef2a256936c586ded938988",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
