@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05b8a65f_e92c5e01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3492259
+      },
+      "writtenOn": "2025-01-09T14:05:15Z",
+      "side": 1,
+      "message": "I created ag/31223905 due to auto merge conflict. not sure if the other one should be reviewed and merged then this gets merged after.",
+      "revId": "615cac34e6b630d3ee318264a47ae68184c26897",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
