@@ -16,6 +16,24 @@
       "message": "Just to check: no SELinux denials with this version?",
       "revId": "2bb328e84c45b55f07363000ddc7c42e6efaec46",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19d007bb_31a62356",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2025-01-09T11:01:14Z",
+      "side": 1,
+      "message": "No, there are no SELinux denial related to attestation properties.",
+      "parentUuid": "74a9f236_7215e4fc",
+      "revId": "2bb328e84c45b55f07363000ddc7c42e6efaec46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
