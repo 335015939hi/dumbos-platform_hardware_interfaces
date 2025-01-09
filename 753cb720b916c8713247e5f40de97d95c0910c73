@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eee5b4e_d11b5a0d",
+        "filename": "audio/effect/all-versions/default/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-09T21:39:07Z",
+      "side": 1,
+      "message": "I\u0027m surprised that after adding this some unlocked uses of `mHandle` still remain. As I recall, the thread safety violations are reported as warnings, so you probably need to also add `\"-Werror\"` here to treat them as errors.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 26
+      },
+      "revId": "753cb720b916c8713247e5f40de97d95c0910c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21b60e84_8115d4ab",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-09T21:39:07Z",
+      "side": 1,
+      "message": "This accesses `mHandle`, should be locked.",
+      "range": {
+        "startLine": 598,
+        "startChar": 0,
+        "endLine": 598,
+        "endChar": 30
+      },
+      "revId": "753cb720b916c8713247e5f40de97d95c0910c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04ac680c_c8d299cb",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-09T21:39:07Z",
+      "side": 1,
+      "message": "Please wrap to 100 chars.",
+      "range": {
+        "startLine": 923,
+        "startChar": 16,
+        "endLine": 923,
+        "endChar": 102
+      },
+      "revId": "753cb720b916c8713247e5f40de97d95c0910c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d08e660f_dbfe3dd7",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-09T21:39:07Z",
+      "side": 1,
+      "message": "Here we access `mHandle` w/o lock.",
+      "range": {
+        "startLine": 997,
+        "startChar": 29,
+        "endLine": 997,
+        "endChar": 36
+      },
+      "revId": "753cb720b916c8713247e5f40de97d95c0910c73",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
