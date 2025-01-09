@@ -16,6 +16,23 @@
       "message": "clean cp",
       "revId": "ed6ea2891c5472813b19792113d1e165841cf0e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bb959cf_e711010e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1141048
+      },
+      "writtenOn": "2025-01-09T17:19:59Z",
+      "side": 1,
+      "message": "+ Samip for Dr. No approval",
+      "revId": "ed6ea2891c5472813b19792113d1e165841cf0e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
