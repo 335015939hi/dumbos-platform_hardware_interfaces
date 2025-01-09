@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df5060ec_c131e320",
+        "filename": "virtualization/capabilities_service/noop/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1132673
+      },
+      "writtenOn": "2025-01-09T03:24:28Z",
+      "side": 1,
+      "message": "Ok. Let me invite @kiyoungkim@google.com for further investigation. You can keep this for now.",
+      "parentUuid": "36200519_92a0d9a5",
+      "range": {
+        "startLine": 39,
+        "startChar": 9,
+        "endLine": 39,
+        "endChar": 86
+      },
+      "revId": "a85cffcbb3d4d510dbb1e52463df0da1cc02355f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9ed4a24_ab0b1abd",
