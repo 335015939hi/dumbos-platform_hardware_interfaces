@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e1aacd6_fe20d7ac",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IFile.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-01-09T22:30:17Z",
+      "side": 1,
+      "message": "Not a service-specific value; it should return `Status::EX_ILLEGAL_ARGUMENT` if the size is out-of-bounds.\n\nOur impl is actually handling this incorrectly atm. Fix is in aosp/3445949.",
+      "parentUuid": "6c97417b_1099d05b",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 42
+      },
+      "revId": "c0df841989e393fc380dff219e199c7703064278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb724d35_6c3e187c",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-12-19T18:35:06Z",
       "side": 1,
       "message": "can we add a comment describing what happens in this case? Which error is returned",
+      "range": {
+        "startLine": 106,
+        "startChar": 7,
+        "endLine": 106,
+        "endChar": 42
+      },
+      "revId": "c0df841989e393fc380dff219e199c7703064278",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3794d572_dd4c01f1",
+        "filename": "security/see/storage/aidl/android/hardware/security/see/storage/IStorageSession.aidl",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-01-09T22:30:17Z",
+      "side": 1,
+      "message": "Adding in aosp/3445003.",
+      "parentUuid": "bb724d35_6c3e187c",
       "range": {
         "startLine": 106,
         "startChar": 7,
