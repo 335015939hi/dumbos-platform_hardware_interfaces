@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad1a834_0af30bef",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-01-09T19:00:47Z",
+      "side": 1,
+      "message": "nit `isFftInputSizeValid`",
+      "range": {
+        "startLine": 494,
+        "startChar": 9,
+        "endLine": 494,
+        "endChar": 28
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e2eb6603_4d106ea7",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 494,
+                "startChar": 0,
+                "endLine": 495,
+                "endChar": 0
+              },
+              "replacement": "    bool isFftInputSizeValid(size_t n) {\n"
+            },
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 516,
+                "startChar": 0,
+                "endLine": 517,
+                "endChar": 0
+              },
+              "replacement": "        ASSERT_TRUE(isFftInputSizeValid(nPointFFT))\n"
+            }
+          ]
+        }
+      ],
+      "revId": "30909f1c279ccdffaac3c5ce29bfeae94eb3c972",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd80a5b_02a9206e",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-01-09T19:00:47Z",
+      "side": 1,
+      "message": "I think we can also add checks like `n \u0026 0b11111` for early return",
+      "range": {
+        "startLine": 495,
+        "startChar": 12,
+        "endLine": 495,
+        "endChar": 18
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "bbe415c0_5ce10433",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/EffectHelper.h",
+              "range": {
+                "startLine": 495,
+                "startChar": 0,
+                "endLine": 496,
+                "endChar": 0
+              },
+              "replacement": "        if (n \u003d\u003d 0 || (n \u0026 0b11111)) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "30909f1c279ccdffaac3c5ce29bfeae94eb3c972",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98a0109a_317ea050",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-01-09T19:00:47Z",
+      "side": 1,
+      "message": "If we return false if `n \u0026 0b11111` is not zero, then I think we can simplify the code like:\n```\nbool IsFftInputSizeValid(size_t n) {\n    if (n \u003d\u003d 0 || n \u0026 0b11111)\n        return false;\n\n    for (const int factor : {3, 5})\n        while (n % factor \u003d\u003d 0)\n            n /\u003d factor;\n\n    return n \u003d\u003d 1;\n}\n```\n\nAlso if the input param `n` is known at compile time, we can make the entire method constexpr: `constexpr bool IsFftInputSizeValid(size_t n)`.",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 0
+      },
+      "revId": "30909f1c279ccdffaac3c5ce29bfeae94eb3c972",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a5b6877_f839abe7",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-01-09T19:00:47Z",
+      "side": 1,
+      "message": "if this is a common pattern, maybe consider adding this logic in the helper?",
+      "range": {
+        "startLine": 170,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 12
+      },
+      "revId": "30909f1c279ccdffaac3c5ce29bfeae94eb3c972",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
