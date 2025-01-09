@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74a9f236_7215e4fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-09T07:01:03Z",
+      "side": 1,
+      "message": "Just to check: no SELinux denials with this version?",
+      "revId": "2bb328e84c45b55f07363000ddc7c42e6efaec46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
