@@ -24,6 +24,8 @@ package android.hardware.audio.effect;
  * it should transfer to IDLE state after handle the command successfully. Effect instance should
  * consume minimal resource and transfer to INIT state after it was close().
  *
+ * An effect instance can be destroyed from any state using `IFactory.destroyEffect()`.
+ *
  * Refer to the state machine diagram `state.gv` for a detailed state diagram.
  */
 @VintfStability
@@ -66,6 +68,7 @@ enum State {
      * - Transitions to **INIT** on `IEffect.close()`.
      * - Remains in **IDLE** on `IEffect.getParameter()`, `IEffect.setParameter()`,
      *   `IEffect.getDescriptor()`, `IEffect.command(CommandId.RESET)`, and `IEffect.reopen()`.
+     * - Transitions to the final state on `IFactory.destroyEffect()`.
      */
     IDLE,
 
@@ -98,6 +101,7 @@ enum State {
      *   stop processing with `CommandId.STOP` before closing.
      * - If `IEffect.close()` is called in this state, the effect instance should stop processing,
      *   transition to **IDLE**, and then close.
+     * - Transitions to the final state on `IFactory.destroyEffect()`.
      */
     PROCESSING,
 
@@ -123,6 +127,7 @@ enum State {
      * - If not implemented, the effect instance may transition directly from **PROCESSING** to
      *   **IDLE** without this intermediate state.
      * - Any `CommandId.STOP` commands received during **DRAINING** should be ignored.
+     * - Transitions to the final state on `IFactory.destroyEffect()`.
      */
     DRAINING,
 }
