@@ -16,6 +16,24 @@
       "message": "I created ag/31223905 due to auto merge conflict. not sure if the other one should be reviewed and merged then this gets merged after.",
       "revId": "615cac34e6b630d3ee318264a47ae68184c26897",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f494c16c_7bf816a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2025-01-09T15:14:22Z",
+      "side": 1,
+      "message": "I\u0027ll reply internally -- generally the source of truth for these tests is internal main, so you\u0027d most certainly run into merge conflicts if you try merging to aosp first.",
+      "parentUuid": "05b8a65f_e92c5e01",
+      "revId": "615cac34e6b630d3ee318264a47ae68184c26897",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
