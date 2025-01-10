@@ -93,6 +93,30 @@
       },
       "revId": "650eebab4bd72cb8dd06d3b98af393d5ec5bbc0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02f7d433_b4da662b",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2025-01-10T18:01:22Z",
+      "side": 1,
+      "message": "I\u0027m not sure what makes sense, but something like...\n\n- For key agreement, TRUSTED_ENVIRONMENT IKeyMintDevices must support .... STRONGBOX IKeyMintDevices must support ...\n\nor\n\n- For signing \u003cadd\u003eand key agreement\u003c/add\u003e, ... ?\n\nor remove \"For signing\" ?",
+      "parentUuid": "f5db0797_dabd6075",
+      "range": {
+        "startLine": 96,
+        "startChar": 11,
+        "endLine": 96,
+        "endChar": 21
+      },
+      "revId": "650eebab4bd72cb8dd06d3b98af393d5ec5bbc0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
