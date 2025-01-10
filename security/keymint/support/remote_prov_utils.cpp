@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <format>
 #include <iomanip>
 #include <iterator>
 #include <memory>
@@ -535,7 +536,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateDeviceInfo(
     switch (rpcHardwareInfo.versionNumber) {
         case 3:
             if (isTeeDeviceInfo(*parsed) && parsed->size() != kNumTeeDeviceInfoEntries) {
-                error += fmt::format(
+                error += std::format(
                         "Err: Incorrect number of device info entries. Expected {} but got "
                         "{}\n",
                         kNumTeeDeviceInfoEntries, parsed->size());
@@ -544,7 +545,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateDeviceInfo(
             // may omit `os_version`
             if (!isTeeDeviceInfo(*parsed) && (parsed->size() != kNumTeeDeviceInfoEntries &&
                                               parsed->size() != kNumTeeDeviceInfoEntries - 1)) {
-                error += fmt::format(
+                error += std::format(
                         "Err: Incorrect number of device info entries. Expected {} or {} but got "
                         "{}\n",
                         kNumTeeDeviceInfoEntries - 1, kNumTeeDeviceInfoEntries, parsed->size());
@@ -870,7 +871,7 @@ ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& encodedCsr,
     }
 
     auto csr = hwtrust::Csr::validate(encodedCsr, *diceChainKind, false /*isFactory*/,
-                                      false /*allowAnyMode*/, deviceSuffix(instanceName));
+                                      true /*allowAnyMode*/, deviceSuffix(instanceName));
     if (!csr.ok()) {
         return csr.error().message();
     }
@@ -904,7 +905,7 @@ ErrMsgOr<bool> compareRootPublicKeysInDiceChains(const std::vector<uint8_t>& enc
     }
 
     auto csr1 = hwtrust::Csr::validate(encodedCsr1, *diceChainKind, false /*isFactory*/,
-                                       false /*allowAnyMode*/, deviceSuffix(instanceName1));
+                                       true /*allowAnyMode*/, deviceSuffix(instanceName1));
     if (!csr1.ok()) {
         return csr1.error().message();
     }
@@ -921,7 +922,7 @@ ErrMsgOr<bool> compareRootPublicKeysInDiceChains(const std::vector<uint8_t>& enc
     }
 
     auto csr2 = hwtrust::Csr::validate(encodedCsr2, *diceChainKind, false /*isFactory*/,
-                                       false /*allowAnyMode*/, deviceSuffix(instanceName2));
+                                       true /*allowAnyMode*/, deviceSuffix(instanceName2));
     if (!csr2.ok()) {
         return csr2.error().message();
     }
@@ -952,7 +953,7 @@ ErrMsgOr<bool> verifyComponentNameInKeyMintDiceChain(const std::vector<uint8_t>&
     }
 
     auto csr = hwtrust::Csr::validate(encodedCsr, *diceChainKind, false /*isFactory*/,
-                                      false /*allowAnyMode*/, deviceSuffix(DEFAULT_INSTANCE_NAME));
+                                      true /*allowAnyMode*/, deviceSuffix(DEFAULT_INSTANCE_NAME));
     if (!csr.ok()) {
         return csr.error().message();
     }

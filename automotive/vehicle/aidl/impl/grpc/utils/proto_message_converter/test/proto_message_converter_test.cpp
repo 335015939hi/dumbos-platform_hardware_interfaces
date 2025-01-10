@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <format>
 #include <vector>
 
 #include <JsonConfigLoader.h>
@@ -21,7 +22,6 @@
 #include <VehicleHalTypes.h>
 
 #include <android-base/file.h>
-#include <android-base/format.h>
 #include <android/hardware/automotive/vehicle/SubscribeOptions.pb.h>
 #include <android/hardware/automotive/vehicle/VehiclePropConfig.pb.h>
 #include <android/hardware/automotive/vehicle/VehiclePropValue.pb.h>
@@ -106,13 +106,13 @@ TEST_P(PropValueConversionTest, testConversion) {
 INSTANTIATE_TEST_SUITE_P(DefaultConfigs, PropConfigConversionTest,
                          ::testing::ValuesIn(prepareTestConfigs()),
                          [](const ::testing::TestParamInfo<aidl_vehicle::VehiclePropConfig>& info) {
-                             return ::fmt::format("property_{:d}", info.param.prop);
+                             return ::std::format("property_{:d}", info.param.prop);
                          });
 
 INSTANTIATE_TEST_SUITE_P(TestValues, PropValueConversionTest,
                          ::testing::ValuesIn(prepareTestValues()),
                          [](const ::testing::TestParamInfo<aidl_vehicle::VehiclePropValue>& info) {
-                             return ::fmt::format("property_{:d}", info.param.prop);
+                             return ::std::format("property_{:d}", info.param.prop);
                          });
 
 TEST_F(PropValueConversionTest, testConvertSubscribeOption) {
