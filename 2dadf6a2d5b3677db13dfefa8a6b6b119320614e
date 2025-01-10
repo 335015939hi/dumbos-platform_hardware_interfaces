@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccf7682c_5f77431f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2274,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-10T17:58:04Z",
+      "side": 1,
+      "message": "Could we reword this to something like: \n\nSome StrongBox implementations did not correctly handle RESET_SINCE_ID_ROTATION when combined with use of an ATTEST_KEY, but this was not previously tested.  Tests under GSI were updated to implicitly use ATTEST_KEYS (because rkp-only status cannot be determined), uncovering the problem.  Skip this test for older implementations in that situation (cf. b/385800086).",
+      "revId": "2dadf6a2d5b3677db13dfefa8a6b6b119320614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7f19da2_3f9a384f",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2276,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-10T17:58:04Z",
+      "side": 1,
+      "message": "The code for checking vendor API levels has changed recently -- we now need to map the Android API level to a corresponding vendor API level (which can now have a different value).\n\nSo this now needs `AVendorSupport_getVendorApiLevelOf()` -- see aosp/3412361.\n\n(Also below)",
+      "revId": "2dadf6a2d5b3677db13dfefa8a6b6b119320614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76923340_94cf297b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 2295,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-10T17:58:04Z",
+      "side": 1,
+      "message": "Could we reword to something like: \n\nSome StrongBox implementations did not correctly handle missing APPLICATION_ID when combined with use of an ATTEST_KEY, but this was not previously tested.  Tests under GSI were updated to implicitly use ATTEST_KEYS (because rkp-only status cannot be determined), uncovering the problem.  Skip this test for older implementations in that situation (cf. b/385800086).",
+      "revId": "2dadf6a2d5b3677db13dfefa8a6b6b119320614e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
