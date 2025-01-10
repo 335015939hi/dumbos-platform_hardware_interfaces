@@ -52,6 +52,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b8c7bca_73a270a1",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-10T12:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ad1a834_0af30bef",
+      "range": {
+        "startLine": 494,
+        "startChar": 9,
+        "endLine": 494,
+        "endChar": 28
+      },
+      "revId": "30909f1c279ccdffaac3c5ce29bfeae94eb3c972",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dd80a5b_02a9206e",
@@ -93,6 +117,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de745769_1bef3104",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-10T12:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dd80a5b_02a9206e",
+      "range": {
+        "startLine": 495,
+        "startChar": 12,
+        "endLine": 495,
+        "endChar": 18
+      },
+      "revId": "30909f1c279ccdffaac3c5ce29bfeae94eb3c972",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98a0109a_317ea050",
@@ -116,6 +164,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dcfc527_f7673195",
+        "filename": "audio/aidl/vts/EffectHelper.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-10T12:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98a0109a_317ea050",
+      "range": {
+        "startLine": 498,
+        "startChar": 0,
+        "endLine": 508,
+        "endChar": 0
+      },
+      "revId": "30909f1c279ccdffaac3c5ce29bfeae94eb3c972",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a5b6877_f839abe7",
@@ -129,6 +201,30 @@
       "writtenOn": "2025-01-09T19:00:47Z",
       "side": 1,
       "message": "if this is a common pattern, maybe consider adding this logic in the helper?",
+      "range": {
+        "startLine": 170,
+        "startChar": 4,
+        "endLine": 172,
+        "endChar": 12
+      },
+      "revId": "30909f1c279ccdffaac3c5ce29bfeae94eb3c972",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6472bbf6_3fc78839",
+        "filename": "audio/aidl/vts/VtsHalVirtualizerTargetTest.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-10T12:53:29Z",
+      "side": 1,
+      "message": "This zero input code is only used at one place, hence, I have made this change.",
+      "parentUuid": "0a5b6877_f839abe7",
       "range": {
         "startLine": 170,
         "startChar": 4,
