@@ -16,6 +16,24 @@
       "message": "Actually, not sure this makes sense in this branch -- the KeyMint HAL service in the configuration under test doesn\u0027t come from `android15-tests-dev`, does it?",
       "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52cc8e38_60259404",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2025-01-10T12:26:00Z",
+      "side": 1,
+      "message": "Test do not use this HAL service but the cuttlefish builds are also created from this branch, so I think this fix is required here as well.",
+      "parentUuid": "e6e030a0_a8e53ba3",
+      "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
