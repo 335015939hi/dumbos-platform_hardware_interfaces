@@ -16,6 +16,24 @@
       "message": "This was created in git_main and cherry-picked to AOSP.",
       "revId": "ff35d6dcde5d94ac9dc86b920e379ba60f3ba011",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71e0e8f4_a4313409",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2025-01-13T21:55:38Z",
+      "side": 1,
+      "message": "Updated this patchset to reflect what exists in compatibility_matrix.202504.xml in aosp so this compatibility_matrix.202604.xml and version that is in `git_main` are diverged.\nNeed to wait for the internal CL to be merged before starting presubmits on this one.",
+      "parentUuid": "7b867909_25db5d1d",
+      "revId": "ff35d6dcde5d94ac9dc86b920e379ba60f3ba011",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
