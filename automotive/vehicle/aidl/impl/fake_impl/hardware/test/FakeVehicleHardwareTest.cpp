@@ -223,7 +223,9 @@ class FakeVehicleHardwareTest : public ::testing::Test {
             return status;
         }
 
+        acquireLock();
         const SetValueResult& result = getSetValueResults().back();
+        releaseLock();
 
         if (result.requestId != 0) {
             ALOGE("request ID mismatch, got %" PRId64 ", expect 0", result.requestId);
@@ -245,7 +247,9 @@ class FakeVehicleHardwareTest : public ::testing::Test {
             return unexpected(status);
         }
 
+        acquireLock();
         const GetValueResult& result = getGetValueResults().back();
+        releaseLock();
         if (result.requestId != 0) {
             ALOGE("request ID mismatch, got %" PRId64 ", expect 0", result.requestId);
             return unexpected(StatusCode::INTERNAL_ERROR);
@@ -277,8 +281,7 @@ class FakeVehicleHardwareTest : public ::testing::Test {
         mCv.notify_all();
     }
 
-    const std::vector<SetValueResult>& getSetValueResults() {
-        std::scoped_lock<std::mutex> lockGuard(mLock);
+    const std::vector<SetValueResult>& getSetValueResults() REQUIRES(mLock) {
         return mSetValueResults;
     }
 
@@ -291,8 +294,7 @@ class FakeVehicleHardwareTest : public ::testing::Test {
         mCv.notify_all();
     }
 
-    const std::vector<GetValueResult>& getGetValueResults() {
-        std::scoped_lock<std::mutex> lockGuard(mLock);
+    const std::vector<GetValueResult>& getGetValueResults() REQUIRES(mLock) {
         return mGetValueResults;
     }
 
@@ -309,8 +311,7 @@ class FakeVehicleHardwareTest : public ::testing::Test {
         mCv.notify_all();
     }
 
-    const std::vector<VehiclePropValue>& getChangedProperties() {
-        std::scoped_lock<std::mutex> lockGuard(mLock);
+    const std::vector<VehiclePropValue>& getChangedProperties() REQUIRES(mLock) {
         return mChangedProperties;
     }
 
@@ -437,6 +438,10 @@ class FakeVehicleHardwareTest : public ::testing::Test {
         return std::unique_ptr<VehiclePropConfig>(nullptr);
     }
 
+    void acquireLock() ACQUIRE(mLock) { mLock.lock(); }
+
+    void releaseLock() RELEASE(mLock) { mLock.unlock(); }
+
   private:
     std::unique_ptr<FakeVehicleHardware> mHardware;
     std::shared_ptr<IVehicleHardware::SetValuesCallback> mSetValuesCallback;
@@ -558,7 +563,10 @@ TEST_F(FakeVehicleHardwareTest, testGetDefaultValues) {
     ASSERT_EQ(status, StatusCode::OK);
 
     std::vector<GetValueResult> getValueResultsWithNoTimestamp;
-    for (auto& result : getGetValueResults()) {
+    acquireLock();
+    const std::vector<GetValueResult>& resultVector = getGetValueResults();
+    releaseLock();
+    for (auto& result : resultVector) {
         GetValueResult resultCopy = result;
         resultCopy.prop->timestamp = 0;
         getValueResultsWithNoTimestamp.push_back(std::move(resultCopy));
@@ -581,7 +589,10 @@ TEST_F(FakeVehicleHardwareTest, testSetValues) {
 
     // Although callback might be called asynchronously, in our implementation, the callback would
     // be called before setValues returns.
-    ASSERT_THAT(getSetValueResults(), ContainerEq(expectedResults));
+    acquireLock();
+    const std::vector<SetValueResult>& resultVector = getSetValueResults();
+    releaseLock();
+    ASSERT_THAT(resultVector, ContainerEq(expectedResults));
 }
 
 TEST_F(FakeVehicleHardwareTest, testSetValuesError) {
@@ -606,7 +617,10 @@ TEST_F(FakeVehicleHardwareTest, testSetValuesError) {
 
     // Although callback might be called asynchronously, in our implementation, the callback would
     // be called before setValues returns.
-    ASSERT_THAT(getSetValueResults(), ContainerEq(expectedResults));
+    acquireLock();
+    const std::vector<SetValueResult>& resultVector = getSetValueResults();
+    releaseLock();
+    ASSERT_THAT(resultVector, ContainerEq(expectedResults));
 }
 
 TEST_F(FakeVehicleHardwareTest, testSetValues_getUpdateEvents) {
@@ -624,7 +638,9 @@ TEST_F(FakeVehicleHardwareTest, testSetValues_getUpdateEvents) {
 
     ASSERT_EQ(status, StatusCode::OK);
 
+    acquireLock();
     auto updatedValues = getChangedProperties();
+    releaseLock();
     std::vector<VehiclePropValue> updatedValuesWithNoTimestamp;
     for (auto& value : updatedValues) {
         ASSERT_GE(value.timestamp, timestamp);
@@ -665,7 +681,10 @@ TEST_F(FakeVehicleHardwareTest, testReadValues) {
     ASSERT_EQ(status, StatusCode::OK);
 
     std::vector<GetValueResult> getValueResultsWithNoTimestamp;
-    for (auto& result : getGetValueResults()) {
+    acquireLock();
+    const std::vector<GetValueResult>& resultVector = getGetValueResults();
+    releaseLock();
+    for (auto& result : resultVector) {
         ASSERT_GE(result.prop->timestamp, timestamp);
         GetValueResult resultCopy = result;
         resultCopy.prop->timestamp = 0;
@@ -701,7 +720,10 @@ TEST_F(FakeVehicleHardwareTest, testReadValuesErrorInvalidProp) {
     status = getValues(getValueRequests);
 
     ASSERT_EQ(status, StatusCode::OK);
-    ASSERT_THAT(getGetValueResults(), ContainerEq(expectedGetValueResults));
+    acquireLock();
+    const std::vector<GetValueResult>& resultVector = getGetValueResults();
+    releaseLock();
+    ASSERT_THAT(resultVector, ContainerEq(expectedGetValueResults));
 }
 
 TEST_F(FakeVehicleHardwareTest, testReadValuesErrorNotAvailable) {
@@ -719,7 +741,10 @@ TEST_F(FakeVehicleHardwareTest, testReadValuesErrorNotAvailable) {
     StatusCode status = getValues(getValueRequests);
 
     ASSERT_EQ(status, StatusCode::OK);
-    ASSERT_THAT(getGetValueResults(), ContainerEq(expectedGetValueResults));
+    acquireLock();
+    const std::vector<GetValueResult>& resultVector = getGetValueResults();
+    releaseLock();
+    ASSERT_THAT(resultVector, ContainerEq(expectedGetValueResults));
 }
 
 TEST_F(FakeVehicleHardwareTest, testSetStatusMustIgnore) {
@@ -737,7 +762,10 @@ TEST_F(FakeVehicleHardwareTest, testSetStatusMustIgnore) {
     StatusCode status = setValues(setValueRequests);
 
     ASSERT_EQ(status, StatusCode::OK);
-    ASSERT_THAT(getSetValueResults(), ContainerEq(expectedSetValueResults));
+    acquireLock();
+    const std::vector<SetValueResult>& resultVector = getSetValueResults();
+    releaseLock();
+    ASSERT_THAT(resultVector, ContainerEq(expectedSetValueResults));
 
     std::vector<GetValueRequest> getValueRequests;
     getValueRequests.push_back(GetValueRequest{
@@ -749,10 +777,13 @@ TEST_F(FakeVehicleHardwareTest, testSetStatusMustIgnore) {
     status = getValues(getValueRequests);
 
     ASSERT_EQ(status, StatusCode::OK);
-    ASSERT_EQ(getGetValueResults().size(), static_cast<size_t>(1));
-    ASSERT_EQ(getGetValueResults()[0].status, StatusCode::OK);
+    acquireLock();
+    const std::vector<GetValueResult>& resultGetVector = getGetValueResults();
+    releaseLock();
+    ASSERT_EQ(resultGetVector.size(), static_cast<size_t>(1));
+    ASSERT_EQ(resultGetVector[0].status, StatusCode::OK);
     // The status should be by-default AVAILABLE for new status.
-    ASSERT_EQ(getGetValueResults()[0].prop->status, VehiclePropertyStatus::AVAILABLE);
+    ASSERT_EQ(resultGetVector[0].prop->status, VehiclePropertyStatus::AVAILABLE);
 
     // Try to set the property again. The status should not be overwritten.
     status = setValues(setValueRequests);
@@ -762,9 +793,12 @@ TEST_F(FakeVehicleHardwareTest, testSetStatusMustIgnore) {
     status = getValues(getValueRequests);
 
     ASSERT_EQ(status, StatusCode::OK);
-    ASSERT_EQ(getGetValueResults().size(), static_cast<size_t>(2));
-    ASSERT_EQ(getGetValueResults()[1].status, StatusCode::OK);
-    ASSERT_EQ(getGetValueResults()[1].prop->status, VehiclePropertyStatus::AVAILABLE);
+    acquireLock();
+    const std::vector<GetValueResult>& resultGetVector2 = getGetValueResults();
+    releaseLock();
+    ASSERT_EQ(resultGetVector2.size(), static_cast<size_t>(2));
+    ASSERT_EQ(resultGetVector2[1].status, StatusCode::OK);
+    ASSERT_EQ(resultGetVector2[1].prop->status, VehiclePropertyStatus::AVAILABLE);
 }
 
 TEST_F(FakeVehicleHardwareTest, testVendorOverrideProperties) {
@@ -1770,7 +1804,10 @@ TEST_P(FakeVehicleHardwareSpecialValuesTest, testSetSpecialProperties) {
     // Some of the updated properties might be the same as default config, thus not causing
     // a property change event. So the changed properties should be a subset of all the updated
     // properties.
-    ASSERT_THAT(getChangedProperties(), IsSubsetOf(gotValues));
+    acquireLock();
+    const std::vector<VehiclePropValue>& resultVector = getChangedProperties();
+    releaseLock();
+    ASSERT_THAT(resultVector, IsSubsetOf(gotValues));
 }
 
 INSTANTIATE_TEST_SUITE_P(
@@ -1797,7 +1834,9 @@ TEST_F(FakeVehicleHardwareTest, testSetWaitForVhal_alwaysTriggerEvents) {
     // Simulate a Car Service crash, Car Service would restart and send the message again.
     ASSERT_EQ(setValue(request), StatusCode::OK) << "failed to set property " << powerReport;
 
+    acquireLock();
     std::vector<VehiclePropValue> events = getChangedProperties();
+    releaseLock();
     // Even though the state is already ON, we should receive another ON event.
     ASSERT_EQ(events.size(), 1u) << "failed to receive on-change events AP_POWER_STATE_REQ ON";
     // Erase the timestamp for comparison.
@@ -1978,7 +2017,9 @@ TEST_F(FakeVehicleHardwareTest, testHvacPowerOnSendCurrentHvacPropValues) {
                                                       .areaId = hvacPowerAreaId,
                                                       .value.int32Values = {0}});
         EXPECT_EQ(status, StatusCode::OK);
+        acquireLock();
         auto events = getChangedProperties();
+        releaseLock();
         for (const auto& event : events) {
             // Ignore HVAC_POWER_ON event
             if (event.prop == toInt(VehicleProperty::HVAC_POWER_ON)) {
@@ -1994,7 +2035,9 @@ TEST_F(FakeVehicleHardwareTest, testHvacPowerOnSendCurrentHvacPropValues) {
                                            .areaId = hvacPowerAreaId,
                                            .value.int32Values = {1}});
         EXPECT_EQ(status, StatusCode::OK);
+        acquireLock();
         events = getChangedProperties();
+        releaseLock();
         for (const auto& event : events) {
             // Ignore HVAC_POWER_ON event
             if (event.prop == toInt(VehicleProperty::HVAC_POWER_ON)) {
@@ -2029,7 +2072,9 @@ TEST_F(FakeVehicleHardwareTest, testHvacDualOnSynchronizesTemp) {
 
         // Verify there's an event for all HVAC_TEMPERATURE_SET
         // area IDs covered by the HVAC_DUAL_ON area ID
+        acquireLock();
         auto events = getChangedProperties();
+        releaseLock();
         std::unordered_set<float> temperatureValues;
         for (const auto& event : events) {
             // Ignore HVAC_DUAL_ON event
@@ -2058,7 +2103,9 @@ TEST_F(FakeVehicleHardwareTest, testHvacDualOnSynchronizesTemp) {
                                                .areaId = hvacTemperatureSetAreaId,
                                                .value.floatValues = {expectedValue}});
             EXPECT_EQ(status, StatusCode::OK);
+            acquireLock();
             events = getChangedProperties();
+            releaseLock();
             for (const auto& event : events) {
                 EXPECT_EQ(event.prop, toInt(VehicleProperty::HVAC_TEMPERATURE_SET));
                 EXPECT_EQ(1u, event.value.floatValues.size());
@@ -2074,7 +2121,9 @@ TEST_F(FakeVehicleHardwareTest, testHvacDualOnSynchronizesTemp) {
 
         // When HVAC_DUAL_ON is disabled, there should be no events created
         // for HVAC_TEMPERATURE_SET ie no temperature synchronization.
+        acquireLock();
         events = getChangedProperties();
+        releaseLock();
         EXPECT_EQ(1u, events.size());
         EXPECT_EQ(events[0].prop, toInt(VehicleProperty::HVAC_DUAL_ON));
         EXPECT_EQ(events[0].areaId, hvacDualOnAreaId);
@@ -2092,7 +2141,9 @@ TEST_F(FakeVehicleHardwareTest, testHvacDualOnSynchronizesTemp) {
                                                .areaId = hvacTemperatureSetAreaId,
                                                .value.floatValues = {expectedValue}});
             EXPECT_EQ(status, StatusCode::OK);
+            acquireLock();
             events = getChangedProperties();
+            releaseLock();
             EXPECT_EQ(1u, events.size());
             EXPECT_EQ(events[0].prop, toInt(VehicleProperty::HVAC_TEMPERATURE_SET));
             EXPECT_EQ(events[0].areaId, hvacTemperatureSetAreaId);
@@ -2317,7 +2368,9 @@ TEST_F(FakeVehicleHardwareTest, testSendAdasPropertiesState) {
         expectedChangedPropIds.insert(adasEnabledPropertyId);
 
         std::unordered_set<int32_t> changedPropIds;
+        acquireLock();
         auto events = getChangedProperties();
+        releaseLock();
         for (const auto& event : events) {
             changedPropIds.insert(event.prop);
         }
@@ -2411,7 +2464,9 @@ TEST_F(FakeVehicleHardwareTest, testSwitchUser) {
     ASSERT_EQ(status, StatusCode::OK);
 
     // Should generate an event for user hal response.
+    acquireLock();
     auto events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(events.size(), static_cast<size_t>(1));
 
     events[0].timestamp = 0;
@@ -2424,7 +2479,9 @@ TEST_F(FakeVehicleHardwareTest, testSwitchUser) {
     status = setValue(switchUserRequest);
     ASSERT_EQ(status, StatusCode::OK);
 
+    acquireLock();
     events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(events.size(), static_cast<size_t>(1));
     events[0].timestamp = 0;
     auto expectedValue = VehiclePropValue{
@@ -2476,7 +2533,9 @@ TEST_F(FakeVehicleHardwareTest, testCreateUser) {
     ASSERT_EQ(status, StatusCode::OK);
 
     // Should generate an event for user hal response.
+    acquireLock();
     auto events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(events.size(), static_cast<size_t>(1));
     events[0].timestamp = 0;
     // The returned event will have area ID 0.
@@ -2488,7 +2547,9 @@ TEST_F(FakeVehicleHardwareTest, testCreateUser) {
     status = setValue(createUserRequest);
     ASSERT_EQ(status, StatusCode::OK);
 
+    acquireLock();
     events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(events.size(), static_cast<size_t>(1));
     events[0].timestamp = 0;
     auto expectedValue = VehiclePropValue{
@@ -2538,7 +2599,9 @@ TEST_F(FakeVehicleHardwareTest, testInitialUserInfo) {
     ASSERT_EQ(status, StatusCode::OK);
 
     // Should generate an event for user hal response.
+    acquireLock();
     auto events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(events.size(), static_cast<size_t>(1));
     events[0].timestamp = 0;
     auto expectedValue = VehiclePropValue{
@@ -2553,7 +2616,9 @@ TEST_F(FakeVehicleHardwareTest, testInitialUserInfo) {
     status = setValue(initialUserInfoRequest);
     ASSERT_EQ(status, StatusCode::OK);
 
+    acquireLock();
     events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(events.size(), static_cast<size_t>(1));
     events[0].timestamp = 0;
     expectedValue = VehiclePropValue{
@@ -2730,7 +2795,9 @@ TEST_F(FakeVehicleHardwareTest, testDumpInjectEvent) {
     ASSERT_THAT(result.buffer, ContainsRegex("Event for property: ENGINE_OIL_LEVEL injected"));
     ASSERT_TRUE(waitForChangedProperties(prop, 0, /*count=*/1, milliseconds(1000)))
             << "No changed event received for injected event from vehicle bus";
+    acquireLock();
     auto events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(events.size(), 1u);
     auto event = events[0];
     ASSERT_EQ(event.timestamp, timestamp);
@@ -3188,7 +3255,9 @@ TEST_F(FakeVehicleHardwareTest, testDebugGenFakeDataLinear) {
             << "not enough events generated for linear data generator";
 
     int32_t value = 30;
+    acquireLock();
     auto events = getChangedProperties();
+    releaseLock();
     for (size_t i = 0; i < 5; i++) {
         ASSERT_EQ(1u, events[i].value.int32Values.size());
         EXPECT_EQ(value, events[i].value.int32Values[0]);
@@ -3229,7 +3298,9 @@ TEST_F(FakeVehicleHardwareTest, testDebugGenFakeDataJson) {
     ASSERT_TRUE(waitForChangedProperties(/*count=*/8, milliseconds(1000)))
             << "not enough events generated for JSON data generator";
 
+    acquireLock();
     auto events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(8u, events.size());
     // First set of events, we test 1st and the last.
     EXPECT_EQ(1u, events[0].value.int32Values.size());
@@ -3258,7 +3329,9 @@ TEST_F(FakeVehicleHardwareTest, testDebugGenFakeDataJsonByContent) {
     ASSERT_TRUE(waitForChangedProperties(/*count=*/1, milliseconds(1000)))
             << "not enough events generated for JSON data generator";
 
+    acquireLock();
     auto events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(1u, events.size());
     EXPECT_EQ(1u, events[0].value.int32Values.size());
     EXPECT_EQ(8, events[0].value.int32Values[0]);
@@ -3330,7 +3403,9 @@ TEST_F(FakeVehicleHardwareTest, testDebugGenFakeDataKeyPress) {
     ASSERT_FALSE(result.callerShouldDumpState);
     ASSERT_THAT(result.buffer, HasSubstr("successfully"));
 
+    acquireLock();
     auto events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(2u, events.size());
     EXPECT_EQ(propHwKeyInput, events[0].prop);
     EXPECT_EQ(propHwKeyInput, events[1].prop);
@@ -3355,7 +3430,9 @@ TEST_F(FakeVehicleHardwareTest, testDebugGenFakeDataKeyInputV2) {
     ASSERT_FALSE(result.callerShouldDumpState);
     ASSERT_THAT(result.buffer, HasSubstr("successfully"));
 
+    acquireLock();
     auto events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(1u, events.size());
     EXPECT_EQ(toInt(VehicleProperty::HW_KEY_INPUT_V2), events[0].prop);
     ASSERT_EQ(4u, events[0].value.int32Values.size());
@@ -3397,7 +3474,9 @@ TEST_F(FakeVehicleHardwareTest, testDebugGenFakeDataMotionInput) {
     ASSERT_FALSE(result.callerShouldDumpState);
     ASSERT_THAT(result.buffer, HasSubstr("successfully"));
 
+    acquireLock();
     auto events = getChangedProperties();
+    releaseLock();
     ASSERT_EQ(1u, events.size());
     EXPECT_EQ(propHwMotionInput, events[0].prop);
     ASSERT_EQ(9u, events[0].value.int32Values.size());
@@ -3465,7 +3544,9 @@ TEST_F(FakeVehicleHardwareTest, testSubscribeUnsubscribe_continuous) {
 
     ASSERT_TRUE(waitForChangedProperties(propSteering, areaId, /*count=*/5, milliseconds(1500)))
             << "should still receive steering events after disable polling for speed";
+    acquireLock();
     auto updatedValues = getChangedProperties();
+    releaseLock();
     for (auto& value : updatedValues) {
         ASSERT_GE(value.timestamp, timestamp);
         ASSERT_EQ(value.prop, propSteering);
@@ -3502,7 +3583,9 @@ TEST_F(FakeVehicleHardwareTest, testSubscribe_enableVUR) {
 
     ASSERT_TRUE(waitForChangedProperties(propSpeed, areaId, /*count=*/2, milliseconds(100)))
             << "not enough events generated for speed";
+    acquireLock();
     auto updatedValues = getChangedProperties();
+    releaseLock();
     std::unordered_set<float> gotValues;
     for (auto& value : updatedValues) {
         EXPECT_GE(value.timestamp, timestamp) << "timestamp must be updated";
@@ -3856,7 +3939,9 @@ TEST_F(FakeVehicleHardwareTest, testSetHvacTemperatureValueSuggestion) {
         StatusCode status = setValue(tc.valuesToSet[0]);
         EXPECT_EQ(status, StatusCode::OK);
 
+        acquireLock();
         auto events = getChangedProperties();
+        releaseLock();
         EXPECT_EQ(events.size(), static_cast<size_t>(1));
         events[0].timestamp = 0;
 
