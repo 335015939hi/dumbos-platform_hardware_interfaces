@@ -141,6 +141,30 @@
       },
       "revId": "650eebab4bd72cb8dd06d3b98af393d5ec5bbc0f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a7c2b9_c5f07b97",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2025-01-13T17:16:31Z",
+      "side": 1,
+      "message": "Ah, of course!\n\n(FWIW, I find this section hard to follow. From L98, there seems to be some duplicated information.)",
+      "parentUuid": "98c83385_fc037861",
+      "range": {
+        "startLine": 96,
+        "startChar": 11,
+        "endLine": 96,
+        "endChar": 21
+      },
+      "revId": "650eebab4bd72cb8dd06d3b98af393d5ec5bbc0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
