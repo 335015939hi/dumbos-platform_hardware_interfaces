@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39935901_25deac12",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-13T09:59:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09bb976c_e41cd2ab",
+      "range": {
+        "startLine": 55,
+        "startChar": 24,
+        "endLine": 55,
+        "endChar": 25
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee786584_368e1acc",
@@ -54,6 +78,30 @@
       "writtenOn": "2025-01-07T17:43:55Z",
       "side": 1,
       "message": "I think, if we add the proposed clarification above, then this paragraph is not needed. The example is useful.",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 40
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e37dd26_c725c041",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-13T09:59:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee786584_368e1acc",
       "range": {
         "startLine": 58,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d4882af_80333118",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-13T09:59:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69d52213_3dbab4fb",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 22
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a06ff0e_4f882143",
@@ -100,6 +172,30 @@
       "writtenOn": "2025-01-07T17:43:55Z",
       "side": 1,
       "message": "\"and\" -\u003e \", thus\"",
+      "range": {
+        "startLine": 73,
+        "startChar": 65,
+        "endLine": 73,
+        "endChar": 68
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3fae422_259dda60",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-13T09:59:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a06ff0e_4f882143",
       "range": {
         "startLine": 73,
         "startChar": 65,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a071f20_68d41c17",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-13T09:59:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a25c76c3_2e0bcbd9",
+      "range": {
+        "startLine": 74,
+        "startChar": 35,
+        "endLine": 74,
+        "endChar": 67
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07b04244_bb937755",
@@ -146,6 +266,30 @@
       "writtenOn": "2025-01-07T17:43:55Z",
       "side": 1,
       "message": "I think, we need to add a clarification is that the capture is intended for passing to applications, and it contains the same audio data as the input, but with intentionally lower sample resolution, and optionally normalized, depending on the scalingMode.",
+      "range": {
+        "startLine": 117,
+        "startChar": 40,
+        "endLine": 117,
+        "endChar": 41
+      },
+      "revId": "aca0081e691f4e043ee08ec05c326ecbc3448e74",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c99830e_fe67a1e7",
+        "filename": "audio/aidl/android/hardware/audio/effect/Visualizer.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-01-13T09:59:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07b04244_bb937755",
       "range": {
         "startLine": 117,
         "startChar": 40,
