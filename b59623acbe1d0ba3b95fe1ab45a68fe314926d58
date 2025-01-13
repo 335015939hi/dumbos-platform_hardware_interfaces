@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c772217_0a384277",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-13T21:11:12Z",
+      "side": 1,
+      "message": "Please add `Bug: 388307205`",
+      "revId": "b59623acbe1d0ba3b95fe1ab45a68fe314926d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bff661b_087fd835",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-13T21:11:12Z",
+      "side": 1,
+      "message": "We need to retain a check here. A lot of stuff is being created below, and it does not make sense to do all that if the effect has been closed. Then we need to make another check before calling `get_descriptor`.\n\nActually, that\u0027s an interesting point. If we think that `closeImpl` may be called in parallel with `prepareForProcessing`, then we also need to protect `mEfGroup` with the same lock because it is being modified here (line `561`), and used in `closeImpl` (line `997`).",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 548,
+        "endChar": 4
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "8027a912_40d296fc",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/effect/all-versions/default/Effect.cpp",
+              "range": {
+                "startLine": 548,
+                "startChar": 0,
+                "endLine": 548,
+                "endChar": 0
+              },
+              "replacement": "    {\n        std::lock_guard\u003cstd::mutex\u003e lock(mLock);\n        RETURN_RESULT_IF_EFFECT_CLOSED(StatusMQ::Descriptor());\n    }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b59623acbe1d0ba3b95fe1ab45a68fe314926d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
