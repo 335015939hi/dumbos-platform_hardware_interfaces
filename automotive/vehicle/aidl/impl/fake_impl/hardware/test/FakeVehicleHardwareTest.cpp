@@ -277,7 +277,7 @@ class FakeVehicleHardwareTest : public ::testing::Test {
         mCv.notify_all();
     }
 
-    const std::vector<SetValueResult>& getSetValueResults() {
+    const std::vector<SetValueResult>& getSetValueResults() REQUIRES(mLock) {
         std::scoped_lock<std::mutex> lockGuard(mLock);
         return mSetValueResults;
     }
@@ -291,7 +291,7 @@ class FakeVehicleHardwareTest : public ::testing::Test {
         mCv.notify_all();
     }
 
-    const std::vector<GetValueResult>& getGetValueResults() {
+    const std::vector<GetValueResult>& getGetValueResults() REQUIRES(mLock) {
         std::scoped_lock<std::mutex> lockGuard(mLock);
         return mGetValueResults;
     }
@@ -309,7 +309,7 @@ class FakeVehicleHardwareTest : public ::testing::Test {
         mCv.notify_all();
     }
 
-    const std::vector<VehiclePropValue>& getChangedProperties() {
+    const std::vector<VehiclePropValue>& getChangedProperties() REQUIRES(mLock) {
         std::scoped_lock<std::mutex> lockGuard(mLock);
         return mChangedProperties;
     }
