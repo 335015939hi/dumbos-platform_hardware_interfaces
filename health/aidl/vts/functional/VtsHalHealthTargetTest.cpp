@@ -360,6 +360,44 @@ TEST_P(HealthAidl, getStorageInfo) {
 }
 
 /*
+<<<<<<< HEAD   (5e0588 Disable NFC before running VtsHalSecureElement test cases)
+||||||| BASE
+ * Tests the values returned by getHingeInfo() from interface IHealth.
+ */
+TEST_P(HealthAidl, getHingeInfo) {
+    std::vector<HingeInfo> value;
+    auto status = health->getHingeInfo(&value);
+    ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
+    if (!status.isOk()) return;
+    for (auto& hinge : value) {
+        ASSERT_TRUE(hinge.expectedHingeLifespan >= 0);
+        ASSERT_TRUE(hinge.numTimesFolded >= 0);
+    }
+}
+
+/*
+=======
+ * Tests the values returned by getHingeInfo() from interface IHealth.
+ */
+TEST_P(HealthAidl, getHingeInfo) {
+    int32_t version{};
+    auto status = health->getInterfaceVersion(&version);
+    ASSERT_TRUE(status.isOk()) << status;
+    if (version < 4) {
+        GTEST_SKIP() << "Support for hinge health hal is added in v4";
+    }
+    std::vector<HingeInfo> value;
+    status = health->getHingeInfo(&value);
+    ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
+    if (!status.isOk()) return;
+    for (auto& hinge : value) {
+        ASSERT_TRUE(hinge.expectedHingeLifespan >= 0);
+        ASSERT_TRUE(hinge.numTimesFolded >= 0);
+    }
+}
+
+/*
+>>>>>>> CHANGE (73a3ef health v4 vts test add guard)
  * Tests the values returned by getDiskStats() from interface IHealth.
  */
 TEST_P(HealthAidl, getDiskStats) {
