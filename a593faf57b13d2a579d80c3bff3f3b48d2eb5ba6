@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3e505be_17464aee",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-14T21:09:46Z",
+      "side": 1,
+      "message": "Gotcha.\n\nWe should just extract that check into a seaprate test. Small, targeted tests are best. You mind doing that in a follow-up CL?",
+      "parentUuid": "1dd37ec6_0e75b9eb",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 5
+      },
+      "revId": "a593faf57b13d2a579d80c3bff3f3b48d2eb5ba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cff0c3e_cad49f26",
