@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dd37ec6_0e75b9eb",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-14T20:25:42Z",
+      "side": 1,
+      "message": "This does exist [elsewhere](https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp;l\u003d273). Is it a problem that it is bundles together with a different test: `equalUdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintInstances`? Maybe that is a conversation for a different venue.",
+      "parentUuid": "878018f1_4d2426cf",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 5
+      },
+      "revId": "a593faf57b13d2a579d80c3bff3f3b48d2eb5ba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cff0c3e_cad49f26",
@@ -54,6 +78,30 @@
       "writtenOn": "2025-01-14T18:50:32Z",
       "side": 1,
       "message": "Let\u0027s be a little more explicit about what when wrong and why.\n\n```suggestion\n            \u003c\u003c \"\u0027 and ro.boot.verifiedbootstate \u003d \u0027\" \u003c\u003c verifiedBootState \u003c\u003c \"\u0027, but the DICE \"\n            \u003c\u003c \" chain has a \" \u003c\u003c (*nonNormalMode ? \"non-NORMAL\": \"NORMAL\") \u003c\u003c \" DICE mode.\"\n            \u003c\u003c \" Locked devices must report NORMAL, and unlocked devices must report \"\n            \u003c\u003c \" non-NORMAL.\";\n```",
+      "range": {
+        "startLine": 392,
+        "startChar": 80,
+        "endLine": 394,
+        "endChar": 91
+      },
+      "revId": "a593faf57b13d2a579d80c3bff3f3b48d2eb5ba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64b595f5_2a13ec69",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-14T20:25:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cff0c3e_cad49f26",
       "range": {
         "startLine": 392,
         "startChar": 80,
