@@ -264,18 +264,27 @@ TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
 }
 
 /**
+ * Verify that a protected VM implementation exists if the API level is high enough.
+ */
+TEST(NonParameterizedTests, rkpVmExists) {
+    int vendorApiLevel = get_vendor_api_level();
+    if (vendorApiLevel < 202504) {
+        GTEST_SKIP() << "The RKP VM (" << RKPVM_INSTANCE_NAME
+                     << ") does not need to be present on this device.";
+    }
+    ASSERT_TRUE(AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str()))
+            << "The RKP VM (" << RKPVM_INSTANCE_NAME << ") must be present on this device.";
+}
+
+/**
  * Verify that if a protected VM (also called `avf` or RKP VM) implementation exists, then the
  * protected VM and the primary KeyMint (also called 'default') implementation's DICE certificate
  * chain has the same root public key, i.e., the same UDS public key
  */
 // @VsrTest = 7.1-003.001
 TEST(NonParameterizedTests, equalUdsPubInDiceCertChainForRkpVmAndPrimaryKeyMintInstances) {
-    int vendorApiLevel = get_vendor_api_level();
-    if (vendorApiLevel < 202504 && !AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str())) {
+    if (!AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str())) {
         GTEST_SKIP() << "The RKP VM (" << RKPVM_INSTANCE_NAME << ") is not present on this device.";
-    }
-    if (vendorApiLevel >= 202504) {
-        ASSERT_TRUE(AServiceManager_isDeclared(RKPVM_INSTANCE_NAME.c_str()));
     }
 
     auto rkpVmRpc = getHandle<IRemotelyProvisionedComponent>(RKPVM_INSTANCE_NAME);
