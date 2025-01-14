@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "955b1f79_50dcc1ce",
+        "filename": "bluetooth/aidl/default/Android.bp",
+        "patchSetId": 20
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2025-01-14T01:10:22Z",
+      "side": 1,
+      "message": "instead of including a remote folder, please consider using a cc_library_header:\n```\nheader_libs: [\n  \"bluetooth_hal_offload\", // → To be created in the other CL\n]\n```",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 5
+      },
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "237a0967_4fc0032e",
+        "filename": "bluetooth/aidl/default/Android.bp",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2025-01-14T01:10:22Z",
+      "side": 1,
+      "message": "without the -Werror this may not bring any value, no ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 6
+      },
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60933c6e_87c1c4fa",
         "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
         "patchSetId": 20
@@ -68,6 +114,29 @@
       "side": 1,
       "message": "b/389779314\nWill do it on C interface.",
       "parentUuid": "275cb6e9_572fd66d",
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ef81e07_d4b123f3",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1881060
+      },
+      "writtenOn": "2025-01-14T01:10:22Z",
+      "side": 1,
+      "message": "Including ffi.h like this let think that this is a local include, while it is provided by the p/m/Bluetooth folder.\n\nCan you add a subfolder in the include path ?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 16
+      },
       "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
