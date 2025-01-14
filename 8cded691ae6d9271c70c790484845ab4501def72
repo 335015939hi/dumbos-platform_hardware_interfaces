@@ -33,6 +33,29 @@
       "message": "ping",
       "revId": "8cded691ae6d9271c70c790484845ab4501def72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd1818a2_2c9c5c06",
+        "filename": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1010103
+      },
+      "writtenOn": "2025-01-14T22:02:21Z",
+      "side": 1,
+      "message": "include a bit more detail on this (and the other) formats on any packing or pixel stride when created with CPU_USAGE.",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 558,
+        "endChar": 52
+      },
+      "revId": "8cded691ae6d9271c70c790484845ab4501def72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
