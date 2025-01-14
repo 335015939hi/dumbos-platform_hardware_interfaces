@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c213e5c7_663dfacd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-14T18:36:25Z",
+      "side": 1,
+      "message": "Keep the old check, just apply it to RKP VM only.",
+      "revId": "a593faf57b13d2a579d80c3bff3f3b48d2eb5ba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
