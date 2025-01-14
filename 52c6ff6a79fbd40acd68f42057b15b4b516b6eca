@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c5096f5_3e1084b3",
+        "filename": "bluetooth/aidl/default/Android.bp",
+        "patchSetId": 20
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2025-01-14T19:42:52Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "955b1f79_50dcc1ce",
+      "range": {
+        "startLine": 13,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 5
+      },
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "237a0967_4fc0032e",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-01-14T01:10:22Z",
       "side": 1,
       "message": "without the -Werror this may not bring any value, no ?",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 19,
+        "endChar": 6
+      },
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f3080a6_9c7eebd1",
+        "filename": "bluetooth/aidl/default/Android.bp",
+        "patchSetId": 20
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2025-01-14T19:42:52Z",
+      "side": 1,
+      "message": "I think that prints warning.\nThat was here before, no change from the previous the previous rules.",
+      "parentUuid": "237a0967_4fc0032e",
       "range": {
         "startLine": 16,
         "startChar": 4,
@@ -141,6 +189,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "129f9f1d_42709f80",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2025-01-14T19:42:52Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7ef81e07_d4b123f3",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5416a46f_bbc8d3d6",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2025-01-14T19:42:52Z",
+      "side": 1,
+      "message": "Sure I don\u0027t know the rule here.\nUsually, the usage \"\" is for local includes, not in the include path (it gives priority on relative path). But it\u0027s not done like this anywhere. The other includes are not relative too.\nBut I agree, it\u0027s not either in the same repository. Do you prefer I use \"\u003c\u003e\" instead?",
+      "parentUuid": "7ef81e07_d4b123f3",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3f3c391_831466e6",
@@ -178,6 +274,30 @@
       "side": 1,
       "message": "It\u0027s initialized by the constructor `Hal(const std::string\u0026 dev_path \u003d \"/dev/hvc5\")`.\nWe can have different UART for different BT Controller, I think it\u0027s ok.",
       "parentUuid": "a3f3c391_831466e6",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 23
+      },
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb649a16_6f34eed6",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2025-01-14T19:42:52Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5a52dd06_7dd1d763",
       "range": {
         "startLine": 326,
         "startChar": 0,
