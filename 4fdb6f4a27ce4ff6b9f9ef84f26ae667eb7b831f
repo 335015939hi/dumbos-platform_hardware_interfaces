@@ -52,6 +52,24 @@
       "parentUuid": "52cc8e38_60259404",
       "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4027ccc_3dd49913",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2025-01-14T13:17:35Z",
+      "side": 1,
+      "message": "I saw you ABTD build detail, I think you built GSI build only. This fix should be included in base build rather than GSI.",
+      "parentUuid": "e6f57267_b247cf94",
+      "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
