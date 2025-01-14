@@ -16,6 +16,52 @@
       "message": "Keep the old check, just apply it to RKP VM only.",
       "revId": "a593faf57b13d2a579d80c3bff3f3b48d2eb5ba6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "878018f1_4d2426cf",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-14T18:50:32Z",
+      "side": 1,
+      "message": "I feel like this should be covered already in some other test that specifically ensures the AVF HAL instances is there when it should be. If it\u0027s not tested, then we should add that test (and annotate it with the VTS requirement).\n\nThis test should just try to get AVF, and if it\u0027s not there bail out.\n\nIOW, this test is checking the normality of the DICE mode, not the correct existence of AVF HAL instance.",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 359,
+        "endChar": 5
+      },
+      "revId": "a593faf57b13d2a579d80c3bff3f3b48d2eb5ba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cff0c3e_cad49f26",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-14T18:50:32Z",
+      "side": 1,
+      "message": "Let\u0027s be a little more explicit about what when wrong and why.\n\n```suggestion\n            \u003c\u003c \"\u0027 and ro.boot.verifiedbootstate \u003d \u0027\" \u003c\u003c verifiedBootState \u003c\u003c \"\u0027, but the DICE \"\n            \u003c\u003c \" chain has a \" \u003c\u003c (*nonNormalMode ? \"non-NORMAL\": \"NORMAL\") \u003c\u003c \" DICE mode.\"\n            \u003c\u003c \" Locked devices must report NORMAL, and unlocked devices must report \"\n            \u003c\u003c \" non-NORMAL.\";\n```",
+      "range": {
+        "startLine": 392,
+        "startChar": 80,
+        "endLine": 394,
+        "endChar": 91
+      },
+      "revId": "a593faf57b13d2a579d80c3bff3f3b48d2eb5ba6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
