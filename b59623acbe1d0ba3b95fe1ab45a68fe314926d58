@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aad0fdd_cb94f58f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 3388692
+      },
+      "writtenOn": "2025-01-14T03:14:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c772217_0a384277",
+      "revId": "b59623acbe1d0ba3b95fe1ab45a68fe314926d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bff661b_087fd835",
@@ -55,6 +73,30 @@
           ]
         }
       ],
+      "revId": "b59623acbe1d0ba3b95fe1ab45a68fe314926d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2517573_d5cafba1",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 3388692
+      },
+      "writtenOn": "2025-01-14T03:14:23Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "8bff661b_087fd835",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 548,
+        "endChar": 4
+      },
       "revId": "b59623acbe1d0ba3b95fe1ab45a68fe314926d58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
