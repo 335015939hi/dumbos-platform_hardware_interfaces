@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f77eb6bf_78068c05",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2025-01-14T00:51:28Z",
+      "side": 1,
+      "message": "b/389779314\nWill do it on C interface.",
+      "parentUuid": "275cb6e9_572fd66d",
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3f3c391_831466e6",
@@ -67,6 +85,30 @@
       "writtenOn": "2025-01-13T18:33:39Z",
       "side": 1,
       "message": "const ?",
+      "range": {
+        "startLine": 326,
+        "startChar": 0,
+        "endLine": 326,
+        "endChar": 23
+      },
+      "revId": "52c6ff6a79fbd40acd68f42057b15b4b516b6eca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a52dd06_7dd1d763",
+        "filename": "bluetooth/aidl/default/BluetoothHci.cpp",
+        "patchSetId": 20
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1899057
+      },
+      "writtenOn": "2025-01-14T00:51:28Z",
+      "side": 1,
+      "message": "It\u0027s initialized by the constructor `Hal(const std::string\u0026 dev_path \u003d \"/dev/hvc5\")`.\nWe can have different UART for different BT Controller, I think it\u0027s ok.",
+      "parentUuid": "a3f3c391_831466e6",
       "range": {
         "startLine": 326,
         "startChar": 0,
