@@ -16,6 +16,29 @@
       "message": "See [this discussion](https://android-review.git.corp.google.com/c/platform/hardware/interfaces/+/3452703/comment/878018f1_4d2426cf/) for context.",
       "revId": "fc7c8355df3c83a78b4bb3beaf1b0dda1c2a366a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5423ecac_b26ebc98",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-14T21:51:59Z",
+      "side": 1,
+      "message": "@aliceywang@google.com, do you know the requirement we sould be using here? We should annotate the test appropariately, but I cannot find the requirement this is enforcing.\n\nThe closest I can find is just a strong recommendation, not a MUST: _\"[GMS-VSR-7.1-001.005] Are STRONGLY RECOMMENDED to support Remote Attestation for protected VMs.\"_",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 4
+      },
+      "revId": "fc7c8355df3c83a78b4bb3beaf1b0dda1c2a366a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
