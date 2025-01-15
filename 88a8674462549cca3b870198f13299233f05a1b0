@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0e0a6bf_c0118ee1",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-15T12:32:13Z",
+      "side": 1,
+      "message": "Maybe now is a good time to ask whether `isFactory` should be false in these cases.",
+      "revId": "88a8674462549cca3b870198f13299233f05a1b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
