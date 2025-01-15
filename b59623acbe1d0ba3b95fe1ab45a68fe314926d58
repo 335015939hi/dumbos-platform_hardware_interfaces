@@ -99,6 +99,30 @@
       },
       "revId": "b59623acbe1d0ba3b95fe1ab45a68fe314926d58",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3462f7a7_8759129d",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-15T19:16:26Z",
+      "side": 1,
+      "message": "The note about `mEfGroup` was not addressed. Note that instead of protecting `mEfGroup` with a lock we could just make the pointer to be atomic:\n\n```\nstd::atomic\u003cEventFlag*\u003e mEfGroup;\n```",
+      "parentUuid": "c2517573_d5cafba1",
+      "range": {
+        "startLine": 548,
+        "startChar": 0,
+        "endLine": 548,
+        "endChar": 4
+      },
+      "revId": "b59623acbe1d0ba3b95fe1ab45a68fe314926d58",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

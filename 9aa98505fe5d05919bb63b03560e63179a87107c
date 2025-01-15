@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f392f3_b31e8414",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-15T19:16:26Z",
+      "side": 1,
+      "message": "Since this accesses `mHandle` without a lock, how can this build?",
+      "range": {
+        "startLine": 1022,
+        "startChar": 0,
+        "endLine": 1022,
+        "endChar": 30
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0ca96d48_fb7b0dbe",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/effect/all-versions/default/Effect.cpp",
+              "range": {
+                "startLine": 1022,
+                "startChar": 0,
+                "endLine": 1023,
+                "endChar": 0
+              },
+              "replacement": "    {\n        std::lock_guard\u003cstd::mutex\u003e lock(mLock);\n        RETURN_IF_EFFECT_CLOSED();\n    }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9aa98505fe5d05919bb63b03560e63179a87107c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
