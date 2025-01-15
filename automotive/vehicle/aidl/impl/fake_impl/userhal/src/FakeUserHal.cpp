@@ -19,6 +19,8 @@
 
 #include "UserHalHelper.h"
 
+#include <format>
+
 #include <VehicleUtils.h>
 #include <utils/Log.h>
 #include <utils/SystemClock.h>
@@ -336,7 +338,7 @@ FakeUserHal::ValueResultType FakeUserHal::sendUserHalResponse(
 }
 
 std::string FakeUserHal::showDumpHelp() const {
-    return fmt::format("{}: dumps state used for user management\n", kUserHalDumpOption);
+    return std::format("{}: dumps state used for user management\n", kUserHalDumpOption);
 }
 
 std::string FakeUserHal::dump() const {
@@ -344,23 +346,23 @@ std::string FakeUserHal::dump() const {
 
     std::string info;
     if (mInitialUserResponseFromCmd != nullptr) {
-        info += fmt::format("InitialUserInfo response: {}\n",
+        info += std::format("InitialUserInfo response: {}\n",
                             mInitialUserResponseFromCmd->toString());
     } else {
         info += "No InitialUserInfo response\n";
     }
     if (mSwitchUserResponseFromCmd != nullptr) {
-        info += fmt::format("SwitchUser response: {}\n", mSwitchUserResponseFromCmd->toString());
+        info += std::format("SwitchUser response: {}\n", mSwitchUserResponseFromCmd->toString());
     } else {
         info += "No SwitchUser response\n";
     }
     if (mCreateUserResponseFromCmd != nullptr) {
-        info += fmt::format("CreateUser response: {}\n", mCreateUserResponseFromCmd->toString());
+        info += std::format("CreateUser response: {}\n", mCreateUserResponseFromCmd->toString());
     } else {
         info += "No CreateUser response\n";
     }
     if (mSetUserIdentificationAssociationResponseFromCmd != nullptr) {
-        info += fmt::format("SetUserIdentificationAssociation response: {}\n",
+        info += std::format("SetUserIdentificationAssociation response: {}\n",
                             mSetUserIdentificationAssociationResponseFromCmd->toString());
     } else {
         info += "No SetUserIdentificationAssociation response\n";
