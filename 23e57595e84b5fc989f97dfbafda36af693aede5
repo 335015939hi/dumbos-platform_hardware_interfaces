@@ -22,6 +22,30 @@
       },
       "revId": "23e57595e84b5fc989f97dfbafda36af693aede5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04ced949_6780f286",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2025-01-15T15:56:22Z",
+      "side": 1,
+      "message": "I think you\u0027re right. Either we finalize AOSP and have folks unfreeze the interfaces, before cherry-picking the internal CLs and refreezing, or we modify this line directly here to get builds to pass and handle the interfaces on a case-by-case basis.",
+      "parentUuid": "f6981550_a9018900",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 48
+      },
+      "revId": "23e57595e84b5fc989f97dfbafda36af693aede5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
