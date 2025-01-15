@@ -51,6 +51,24 @@
       "parentUuid": "c0e0a6bf_c0118ee1",
       "revId": "88a8674462549cca3b870198f13299233f05a1b0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb21ead2_c282108a",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 889,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-15T17:45:43Z",
+      "side": 1,
+      "message": "To be clear: \"I think so\" was intended to mean \"I think isFactory should be false\"",
+      "parentUuid": "ed9a3f24_dedb602a",
+      "revId": "88a8674462549cca3b870198f13299233f05a1b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
