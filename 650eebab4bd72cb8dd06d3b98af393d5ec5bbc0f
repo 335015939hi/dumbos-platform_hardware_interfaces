@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dc42e6d_4dc59c0a",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-15T11:27:25Z",
+      "side": 1,
+      "message": "Leaving as-is for now, we can revisit later if there\u0027s better/more precise terminology.",
+      "parentUuid": "8da48af0_0dc1aa73",
+      "range": {
+        "startLine": 90,
+        "startChar": 17,
+        "endLine": 90,
+        "endChar": 21
+      },
+      "revId": "650eebab4bd72cb8dd06d3b98af393d5ec5bbc0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8421b744_f1f47572",
