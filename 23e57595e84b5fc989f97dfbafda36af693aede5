@@ -46,6 +46,30 @@
       },
       "revId": "23e57595e84b5fc989f97dfbafda36af693aede5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad049c7_c2f5e12f",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-01-15T22:50:02Z",
+      "side": 1,
+      "message": "In HIDL days, I cherry-picked to make sure the interfaces were the same across branches, but we can unfreeze for this case on aosp/main only.",
+      "parentUuid": "04ced949_6780f286",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 48
+      },
+      "revId": "23e57595e84b5fc989f97dfbafda36af693aede5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
