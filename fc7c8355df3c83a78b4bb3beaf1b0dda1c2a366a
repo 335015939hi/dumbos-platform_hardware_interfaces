@@ -39,6 +39,30 @@
       },
       "revId": "fc7c8355df3c83a78b4bb3beaf1b0dda1c2a366a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "833e4c58_7120c7c7",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2025-01-16T14:09:02Z",
+      "side": 1,
+      "message": "Apologies for the delayed response, I was OOO yesterday and am just now catching up on backlog...\n\nYou can annotate this with `VSR-7.1-001.006`\n\n\u003e [VSR-7.1-001.006] MUST support Remote Attestation for protected VMs with a Microdroid OS.\n\nIt is in the Dec 2, 2024 update of https://drive.google.com/file/d/1ZwaLkM2bO8_RJVQ0PCxeOLyHxFoqSzpe/view?usp\u003dsharing\u0026resourcekey\u003d0-QFN_GjLGcPg9cwh0P4CO7A\n\nOtherwise, we already have xTS that check this:\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:packages/modules/Virtualization/tests/helper/src/java/com/android/microdroid/test/device/MicrodroidDeviceTestBase.java;l\u003d288;drc\u003d5b7b49452ef0ad6bd7922b0353cd9ddab7498c6e",
+      "parentUuid": "5423ecac_b26ebc98",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 4
+      },
+      "revId": "fc7c8355df3c83a78b4bb3beaf1b0dda1c2a366a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
