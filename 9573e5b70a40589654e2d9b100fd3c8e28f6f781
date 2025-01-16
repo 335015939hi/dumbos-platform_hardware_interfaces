@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39fa838d_6aeb3cde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2025-01-16T14:10:58Z",
+      "side": 1,
+      "message": "Abandon this change as the incoherent index issue has been fixed in the latest VSR.",
+      "revId": "9573e5b70a40589654e2d9b100fd3c8e28f6f781",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "319d33e3_64c95dad",
