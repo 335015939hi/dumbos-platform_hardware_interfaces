@@ -40,6 +40,30 @@
       ],
       "revId": "9aa98505fe5d05919bb63b03560e63179a87107c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc7d0962_60f57021",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 11
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 3388692
+      },
+      "writtenOn": "2025-01-16T01:40:39Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "d0f392f3_b31e8414",
+      "range": {
+        "startLine": 1022,
+        "startChar": 0,
+        "endLine": 1022,
+        "endChar": 30
+      },
+      "revId": "9aa98505fe5d05919bb63b03560e63179a87107c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
