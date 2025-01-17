@@ -50,7 +50,6 @@ cc_test {
         "libfmq",
         "libgui",
         "libhidlbase",
-        "libprocessgroup",
         "libsync",
         "libui",
         "android.hardware.common-V2-ndk",
