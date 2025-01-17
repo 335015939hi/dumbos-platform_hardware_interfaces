@@ -54,7 +54,6 @@ cc_test {
         "libui",
         "libgui",
         "libhidlbase",
-        "libprocessgroup",
         "libvndksupport",
         "server_configurable_flags",
         "libtracing_perfetto",
