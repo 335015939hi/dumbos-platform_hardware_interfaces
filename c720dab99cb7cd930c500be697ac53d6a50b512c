@@ -16,6 +16,23 @@
       "message": "Thank you for working on these changes! We need to test them for stability internally before submitting.\n\nAndy, could you please do a second review.",
       "revId": "c720dab99cb7cd930c500be697ac53d6a50b512c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b930f1b0_9b7de811",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-17T05:03:30Z",
+      "side": 1,
+      "message": "Sorry, there are build errors. Did you try building the `android.hardware.audio.effect@7.0-impl` target?\n\n```\n...diates/hardware/interfaces/audio/effect/all-versions/default/android.hardware.audio.effect@7.0-impl/android_vendor_arm_armv8-a_shared/obj/hardware/interfaces/audio/effect/all-versions/default/Effect.o\n...id.hardware.audio.effect@7.0-impl/android_vendor_arm_armv8-a_shared/obj/hardware/interfaces/audio/effect/all-versions/default/Effect.o\u0027 hardware/interfaces/audio/effect/all-versions/default/Effect.cpp\nhardware/interfaces/audio/effect/all-versions/default/Effect.cpp:440:41: error: reading variable \u0027mHandle\u0027 requires holding mutex \u0027mLock\u0027 [-Werror,-Wthread-safety-analysis]\n  440 |         ALOGW(\"Effect %p %s %s %s: %s\", mHandle, funcName, subFuncName, contextDescription,\n      |                                         ^\nhardware/interfaces/audio/effect/all-versions/default/Effect.cpp:575:61: error: reading variable \u0027mHandle\u0027 requires holding mutex \u0027mLock\u0027 [-Werror,-Wthread-safety-analysis]\n  575 |     mProcessThread \u003d new ProcessThread(\u0026mStopProcessThread, mHandle, \u0026mHalInBufferPtr,\n      |                                                             ^\nhardware/interfaces/audio/effect/all-versions/default/Effect.cpp:637:69: error: use of undeclared identifier \u0027status\u0027\n  637 |     return analyzeCommandStatus(commandName, sContextCallToCommand, status);\n      |                                                                     ^\n3 errors generated.\n```",
+      "revId": "c720dab99cb7cd930c500be697ac53d6a50b512c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
