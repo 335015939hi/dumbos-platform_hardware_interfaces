@@ -1,0 +1,207 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f87ec0e_dc382f72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-17T01:21:04Z",
+      "side": 1,
+      "message": "Coming close. Need to correct use of the atomic field.",
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae4b3e0d_19257f4f",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-17T01:21:04Z",
+      "side": 1,
+      "message": "We should use `memory_order_aquire` because we don\u0027t really know which other thread could have modified it. Applies to all `load` cases.",
+      "range": {
+        "startLine": 324,
+        "startChar": 42,
+        "endLine": 324,
+        "endChar": 67
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "6e656c52_24f31c3a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/effect/all-versions/default/Effect.cpp",
+              "range": {
+                "startLine": 324,
+                "startChar": 0,
+                "endLine": 325,
+                "endChar": 0
+              },
+              "replacement": "    if (EventFlag* evFlag \u003d mEfGroup.load(std::memory_order_acquire)) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfc31075_42490828",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-17T01:21:04Z",
+      "side": 1,
+      "message": "No need to load the current value because we are going to overwrite it.",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 565,
+        "endChar": 65
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5abe331a_7819ca87",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/effect/all-versions/default/Effect.cpp",
+              "range": {
+                "startLine": 565,
+                "startChar": 0,
+                "endLine": 566,
+                "endChar": 0
+              },
+              "replacement": "    EventFlag* evFlag \u003d nullptr;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b636a87d_24ed2f28",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-17T01:21:04Z",
+      "side": 1,
+      "message": "`evFlag` because this is the output from `createEventFlag`.",
+      "range": {
+        "startLine": 567,
+        "startChar": 24,
+        "endLine": 567,
+        "endChar": 65
+      },
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ff1fd8e_3a5ab0ad",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-17T01:21:04Z",
+      "side": 1,
+      "message": "Missing storing of `evFlag` into `mEfGroup`.",
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68495ec2_249473c1",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-17T01:21:04Z",
+      "side": 1,
+      "message": "Use `evFlag`.",
+      "range": {
+        "startLine": 576,
+        "startChar": 39,
+        "endLine": 576,
+        "endChar": 79
+      },
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2e9b25e_3a308340",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-17T01:21:04Z",
+      "side": 1,
+      "message": "We must make a local copy of the current value, as potentially the value can change between these two `loads` and become a `nullptr`.",
+      "range": {
+        "startLine": 1003,
+        "startChar": 0,
+        "endLine": 1005,
+        "endChar": 0
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "3c955eb3_f6186271",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/effect/all-versions/default/Effect.cpp",
+              "range": {
+                "startLine": 1003,
+                "startChar": 0,
+                "endLine": 1006,
+                "endChar": 0
+              },
+              "replacement": "    if (EventFlag* efGroup \u003d mEfGroup.load(std::memory_order_relaxed)) {\n        efGroup-\u003ewake(static_cast\u003cuint32_t\u003e(MessageQueueFlagBits::REQUEST_QUIT));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
