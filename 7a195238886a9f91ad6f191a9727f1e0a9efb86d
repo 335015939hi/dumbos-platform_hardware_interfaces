@@ -16,6 +16,24 @@
       "message": "Devin, please help with API-Review, I verified the .hash matches the one on git_main after this CP, thanks",
       "revId": "7a195238886a9f91ad6f191a9727f1e0a9efb86d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b171e3e4_69fff807",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2025-01-17T17:44:30Z",
+      "side": 1,
+      "message": "BTW - this CL is fine because it\u0027s not freezing the interface (it still can\u0027t be worked on in AOSP yet).\n\nI think when we freeze this interface it will fail presubmits because it\u0027s using an unfrozen version of android.hardware.audio.common.\n\nI think they will all need to be frozen at the same time (with `android.media.audio.common.types`).",
+      "parentUuid": "d8b3f7ed_327191c0",
+      "revId": "7a195238886a9f91ad6f191a9727f1e0a9efb86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
