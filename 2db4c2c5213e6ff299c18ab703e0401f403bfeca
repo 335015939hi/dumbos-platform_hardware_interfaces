@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e9f9ea_39265c59",
+        "filename": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-17T17:15:16Z",
+      "side": 1,
+      "message": "Since it\u0027s a map, use `find`?",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 171,
+        "endChar": 13
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "7176ffbd_39f99cb5",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/CapEngineConfigXmlConverter.cpp",
+              "range": {
+                "startLine": 167,
+                "startChar": 0,
+                "endLine": 171,
+                "endChar": 0
+              },
+              "replacement": "            const auto strategy \u003d legacyStrategy.find(legacyStrategyIdLiteral);\n            if (strategy !\u003d legacyStrategy.end()) {\n                return strategy-\u003esecond;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "2db4c2c5213e6ff299c18ab703e0401f403bfeca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
