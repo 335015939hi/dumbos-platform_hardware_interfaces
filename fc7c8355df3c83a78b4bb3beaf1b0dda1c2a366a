@@ -87,6 +87,30 @@
       },
       "revId": "fc7c8355df3c83a78b4bb3beaf1b0dda1c2a366a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d627b744_7dc69715",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-17T17:44:53Z",
+      "side": 1,
+      "message": "Yeah, looks like the virtualization tests already have this covered. No need to duplicate the testing.",
+      "parentUuid": "025832ef_f8af28cc",
+      "range": {
+        "startLine": 270,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 4
+      },
+      "revId": "fc7c8355df3c83a78b4bb3beaf1b0dda1c2a366a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
