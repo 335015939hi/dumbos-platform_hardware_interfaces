@@ -34,6 +34,24 @@
       "parentUuid": "d8b3f7ed_327191c0",
       "revId": "7a195238886a9f91ad6f191a9727f1e0a9efb86d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "711c3b69_431a6ae1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-01-17T18:16:21Z",
+      "side": 1,
+      "message": "Ack, freezing will be another CL after dependencies upstream finished",
+      "parentUuid": "b171e3e4_69fff807",
+      "revId": "7a195238886a9f91ad6f191a9727f1e0a9efb86d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
