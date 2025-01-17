@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf1dd71e_8cfe2b2e",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 3388692
+      },
+      "writtenOn": "2025-01-17T03:04:16Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "ae4b3e0d_19257f4f",
+      "range": {
+        "startLine": 324,
+        "startChar": 42,
+        "endLine": 324,
+        "endChar": 67
+      },
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfc31075_42490828",
@@ -100,6 +124,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa02493c_5054805f",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 3388692
+      },
+      "writtenOn": "2025-01-17T03:04:16Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "cfc31075_42490828",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 565,
+        "endChar": 65
+      },
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b636a87d_24ed2f28",
@@ -113,6 +161,30 @@
       "writtenOn": "2025-01-17T01:21:04Z",
       "side": 1,
       "message": "`evFlag` because this is the output from `createEventFlag`.",
+      "range": {
+        "startLine": 567,
+        "startChar": 24,
+        "endLine": 567,
+        "endChar": 65
+      },
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4f3232a_b8d2587b",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 3388692
+      },
+      "writtenOn": "2025-01-17T03:04:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b636a87d_24ed2f28",
       "range": {
         "startLine": 567,
         "startChar": 24,
@@ -140,6 +212,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b5047bf_5bd07b5c",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 3388692
+      },
+      "writtenOn": "2025-01-17T03:04:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ff1fd8e_3a5ab0ad",
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68495ec2_249473c1",
@@ -153,6 +243,30 @@
       "writtenOn": "2025-01-17T01:21:04Z",
       "side": 1,
       "message": "Use `evFlag`.",
+      "range": {
+        "startLine": 576,
+        "startChar": 39,
+        "endLine": 576,
+        "endChar": 79
+      },
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81651c80_95394861",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 3388692
+      },
+      "writtenOn": "2025-01-17T03:04:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68495ec2_249473c1",
       "range": {
         "startLine": 576,
         "startChar": 39,
@@ -200,6 +314,30 @@
           ]
         }
       ],
+      "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3625da22_a716bb7a",
+        "filename": "audio/effect/all-versions/default/Effect.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1005,
+      "author": {
+        "id": 3388692
+      },
+      "writtenOn": "2025-01-17T03:04:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2e9b25e_3a308340",
+      "range": {
+        "startLine": 1003,
+        "startChar": 0,
+        "endLine": 1005,
+        "endChar": 0
+      },
       "revId": "10f25653f1b19683481d98b910d41d0ceb007475",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
