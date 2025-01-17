@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cdb689d_1c58e8d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2025-01-17T19:20:46Z",
+      "side": 1,
+      "message": "It builds fine locally, I see 202504 in `SYSTEM_MATRIX_DEPS` here in this CL after rebasing, but the presubmit must still be choosing an old base build without https://r.android.com/c/3454362/2 which was submitted 2hrs ago.",
+      "revId": "a609d8d72a6385958d1aaa783980687cac1c3cc9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
