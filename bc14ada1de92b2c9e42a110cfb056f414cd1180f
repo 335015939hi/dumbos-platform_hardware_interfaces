@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "234ac124_c1394f6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2025-01-18T01:24:11Z",
+      "side": 1,
+      "message": "Made below changes to avoid presubmit failure on this branch -\n1. replace `AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)` with `202404`\n2. replace `get_vendor_api_level` with `get_vsr_api_level`\n\nPresubmit is passed now.",
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
