@@ -227,7 +227,7 @@ aidl_interface {
         java: {
             apex_available: [
                 "//apex_available:platform",
-                "com.android.btservices",
+                "com.android.bt",
             ],
             sdk_version: "module_current",
             min_sdk_version: "Tiramisu",

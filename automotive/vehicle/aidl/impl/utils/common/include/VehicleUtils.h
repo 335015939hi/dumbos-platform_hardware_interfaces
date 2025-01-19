@@ -17,9 +17,10 @@
 #ifndef android_hardware_automotive_vehicle_aidl_impl_utils_common_include_VehicleUtils_H_
 #define android_hardware_automotive_vehicle_aidl_impl_utils_common_include_VehicleUtils_H_
 
+#include <format>
+
 #include <VehicleHalTypes.h>
 
-#include <android-base/format.h>
 #include <android-base/result.h>
 #include <math/HashCombine.h>
 #include <utils/Log.h>
@@ -289,7 +290,7 @@ ndk::ScopedAStatus toScopedAStatus(const android::base::Result<T, E>& result,
     }
     return ndk::ScopedAStatus::fromServiceSpecificErrorWithMessage(
             toInt(status),
-            fmt::format("{}, error: {}", additionalErrorMsg, getErrorMsg(result)).c_str());
+            std::format("{}, error: {}", additionalErrorMsg, getErrorMsg(result)).c_str());
 }
 
 template <class T, class E>

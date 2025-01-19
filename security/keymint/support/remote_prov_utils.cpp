@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <format>
 #include <iomanip>
 #include <iterator>
 #include <memory>
@@ -535,7 +536,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateDeviceInfo(
     switch (rpcHardwareInfo.versionNumber) {
         case 3:
             if (isTeeDeviceInfo(*parsed) && parsed->size() != kNumTeeDeviceInfoEntries) {
-                error += fmt::format(
+                error += std::format(
                         "Err: Incorrect number of device info entries. Expected {} but got "
                         "{}\n",
                         kNumTeeDeviceInfoEntries, parsed->size());
@@ -544,7 +545,7 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateDeviceInfo(
             // may omit `os_version`
             if (!isTeeDeviceInfo(*parsed) && (parsed->size() != kNumTeeDeviceInfoEntries &&
                                               parsed->size() != kNumTeeDeviceInfoEntries - 1)) {
-                error += fmt::format(
+                error += std::format(
                         "Err: Incorrect number of device info entries. Expected {} or {} but got "
                         "{}\n",
                         kNumTeeDeviceInfoEntries - 1, kNumTeeDeviceInfoEntries, parsed->size());
@@ -862,15 +863,15 @@ ErrMsgOr<std::unique_ptr<cppbor::Array>> verifyProductionCsr(const cppbor::Array
                      allowAnyMode);
 }
 
-ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& encodedCsr,
-                                        const std::string& instanceName) {
+ErrMsgOr<hwtrust::DiceChain> getDiceChain(const std::vector<uint8_t>& encodedCsr, bool isFactory,
+                                          bool allowAnyMode, std::string_view instanceName) {
     auto diceChainKind = getDiceChainKind();
     if (!diceChainKind) {
         return diceChainKind.message();
     }
 
-    auto csr = hwtrust::Csr::validate(encodedCsr, *diceChainKind, false /*isFactory*/,
-                                      true /*allowAnyMode*/, deviceSuffix(instanceName));
+    auto csr = hwtrust::Csr::validate(encodedCsr, *diceChainKind, isFactory, allowAnyMode,
+                                      deviceSuffix(instanceName));
     if (!csr.ok()) {
         return csr.error().message();
     }
@@ -880,6 +881,16 @@ ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& encodedCsr,
         return diceChain.error().message();
     }
 
+    return std::move(*diceChain);
+}
+
+ErrMsgOr<bool> isCsrWithProperDiceChain(const std::vector<uint8_t>& encodedCsr,
+                                        const std::string& instanceName) {
+    auto diceChain =
+            getDiceChain(encodedCsr, /*isFactory=*/false, /*allowAnyMode=*/true, instanceName);
+    if (!diceChain) {
+        return diceChain.message();
+    }
     return diceChain->IsProper();
 }
 
@@ -898,20 +909,10 @@ ErrMsgOr<bool> compareRootPublicKeysInDiceChains(const std::vector<uint8_t>& enc
                                                  std::string_view instanceName1,
                                                  const std::vector<uint8_t>& encodedCsr2,
                                                  std::string_view instanceName2) {
-    auto diceChainKind = getDiceChainKind();
-    if (!diceChainKind) {
-        return diceChainKind.message();
-    }
-
-    auto csr1 = hwtrust::Csr::validate(encodedCsr1, *diceChainKind, false /*isFactory*/,
-                                       true /*allowAnyMode*/, deviceSuffix(instanceName1));
-    if (!csr1.ok()) {
-        return csr1.error().message();
-    }
-
-    auto diceChain1 = csr1->getDiceChain();
-    if (!diceChain1.ok()) {
-        return diceChain1.error().message();
+    auto diceChain1 =
+            getDiceChain(encodedCsr1, /*isFactory=*/false, /*allowAnyMode=*/true, instanceName1);
+    if (!diceChain1) {
+        return diceChain1.message();
     }
 
     auto proper1 = diceChain1->IsProper();
@@ -920,15 +921,10 @@ ErrMsgOr<bool> compareRootPublicKeysInDiceChains(const std::vector<uint8_t>& enc
                hexlify(encodedCsr1);
     }
 
-    auto csr2 = hwtrust::Csr::validate(encodedCsr2, *diceChainKind, false /*isFactory*/,
-                                       true /*allowAnyMode*/, deviceSuffix(instanceName2));
-    if (!csr2.ok()) {
-        return csr2.error().message();
-    }
-
-    auto diceChain2 = csr2->getDiceChain();
-    if (!diceChain2.ok()) {
-        return diceChain2.error().message();
+    auto diceChain2 =
+            getDiceChain(encodedCsr2, /*isFactory=*/false, /*allowAnyMode=*/true, instanceName2);
+    if (!diceChain2) {
+        return diceChain2.message();
     }
 
     auto proper2 = diceChain2->IsProper();
@@ -946,20 +942,10 @@ ErrMsgOr<bool> compareRootPublicKeysInDiceChains(const std::vector<uint8_t>& enc
 }
 
 ErrMsgOr<bool> verifyComponentNameInKeyMintDiceChain(const std::vector<uint8_t>& encodedCsr) {
-    auto diceChainKind = getDiceChainKind();
-    if (!diceChainKind) {
-        return diceChainKind.message();
-    }
-
-    auto csr = hwtrust::Csr::validate(encodedCsr, *diceChainKind, false /*isFactory*/,
-                                      true /*allowAnyMode*/, deviceSuffix(DEFAULT_INSTANCE_NAME));
-    if (!csr.ok()) {
-        return csr.error().message();
-    }
-
-    auto diceChain = csr->getDiceChain();
-    if (!diceChain.ok()) {
-        return diceChain.error().message();
+    auto diceChain = getDiceChain(encodedCsr, /*isFactory=*/false, /*allowAnyMode=*/true,
+                                  DEFAULT_INSTANCE_NAME);
+    if (!diceChain) {
+        return diceChain.message();
     }
 
     auto satisfied = diceChain->componentNameContains(kKeyMintComponentName);
@@ -972,20 +958,10 @@ ErrMsgOr<bool> verifyComponentNameInKeyMintDiceChain(const std::vector<uint8_t>&
 
 ErrMsgOr<bool> hasNonNormalModeInDiceChain(const std::vector<uint8_t>& encodedCsr,
                                            std::string_view instanceName) {
-    auto diceChainKind = getDiceChainKind();
-    if (!diceChainKind) {
-        return diceChainKind.message();
-    }
-
-    auto csr = hwtrust::Csr::validate(encodedCsr, *diceChainKind, false /*isFactory*/,
-                                      true /*allowAnyMode*/, deviceSuffix(instanceName));
-    if (!csr.ok()) {
-        return csr.error().message();
-    }
-
-    auto diceChain = csr->getDiceChain();
-    if (!diceChain.ok()) {
-        return diceChain.error().message();
+    auto diceChain =
+            getDiceChain(encodedCsr, /*isFactory=*/false, /*allowAnyMode=*/true, instanceName);
+    if (!diceChain) {
+        return diceChain.message();
     }
 
     auto hasNonNormalModeInDiceChain = diceChain->hasNonNormalMode();

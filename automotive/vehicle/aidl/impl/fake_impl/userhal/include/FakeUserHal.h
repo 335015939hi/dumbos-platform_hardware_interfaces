@@ -17,7 +17,6 @@
 #ifndef android_hardware_automotive_vehicle_aidl_impl_fake_impl_userhal_include_FakeUserHal_H_
 #define android_hardware_automotive_vehicle_aidl_impl_fake_impl_userhal_include_FakeUserHal_H_
 
-#include <android-base/format.h>
 #include <android-base/result.h>
 #include <android-base/thread_annotations.h>
 
