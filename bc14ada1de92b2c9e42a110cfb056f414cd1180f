@@ -109,6 +109,48 @@
       "message": "Can you also print the actual vendor API level (returned from `get_vsr_api_level`)?",
       "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5789401b_ff6da3c5",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2296,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-20T11:36:12Z",
+      "side": 1,
+      "message": "This is a cherry-pick, so it probably makes sense to keep it as close to the upstream code as possible (merge conflicts allowing)",
+      "parentUuid": "7ee07d14_478b1630",
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ef442ad_0a56a936",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2296,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-20T11:36:12Z",
+      "side": 1,
+      "message": "As above",
+      "parentUuid": "995fc40b_8125fccf",
+      "range": {
+        "startLine": 2296,
+        "startChar": 79,
+        "endLine": 2296,
+        "endChar": 96
+      },
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
