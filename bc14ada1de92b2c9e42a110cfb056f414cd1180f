@@ -151,6 +151,48 @@
       },
       "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e095700d_f0803b14",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2296,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-01-20T12:27:42Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "0ef442ad_0a56a936",
+      "range": {
+        "startLine": 2296,
+        "startChar": 79,
+        "endLine": 2296,
+        "endChar": 96
+      },
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b50f9e8_60c7023e",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2296,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-01-20T12:27:42Z",
+      "side": 1,
+      "message": "Ah of course, nevermind then!",
+      "parentUuid": "5789401b_ff6da3c5",
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
