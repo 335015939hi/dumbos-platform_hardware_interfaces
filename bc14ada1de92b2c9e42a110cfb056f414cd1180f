@@ -34,6 +34,23 @@
       "parentUuid": "234ac124_c1394f6c",
       "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d94302dd_25b9871c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-01-20T07:37:31Z",
+      "side": 1,
+      "message": "cvlasov@: Could you double check that the version gating here is going to work (even if it\u0027s not the new correct numbering system).  \n\nIIUC a VSR-V device will return 202404 from `get_vsr_api_level()` and that\u0027s \u003e\u003d 35 so the check will execute...",
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
