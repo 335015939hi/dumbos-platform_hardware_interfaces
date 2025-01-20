@@ -51,6 +51,64 @@
       "message": "cvlasov@: Could you double check that the version gating here is going to work (even if it\u0027s not the new correct numbering system).  \n\nIIUC a VSR-V device will return 202404 from `get_vsr_api_level()` and that\u0027s \u003e\u003d 35 so the check will execute...",
       "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b41b8efb_b66c2735",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-01-20T11:13:54Z",
+      "side": 1,
+      "message": "@drysdale@google.com Yeah it looks right. But why not just replace `__ANDROID_API_V__` with `202404`?",
+      "parentUuid": "d94302dd_25b9871c",
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "995fc40b_8125fccf",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2296,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-01-20T11:13:54Z",
+      "side": 1,
+      "message": "Can you print the actual value of this constant instead of the variable\u0027s name?",
+      "range": {
+        "startLine": 2296,
+        "startChar": 79,
+        "endLine": 2296,
+        "endChar": 96
+      },
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ee07d14_478b1630",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 2296,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-01-20T11:13:54Z",
+      "side": 1,
+      "message": "Can you also print the actual vendor API level (returned from `get_vsr_api_level`)?",
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
