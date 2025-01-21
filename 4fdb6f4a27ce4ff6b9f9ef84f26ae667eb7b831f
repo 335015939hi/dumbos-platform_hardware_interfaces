@@ -70,6 +70,23 @@
       "parentUuid": "e6f57267_b247cf94",
       "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71b7d309_dcb72243",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2025-01-21T13:55:01Z",
+      "side": 1,
+      "message": "Its decided in meeting with David, that this change will be on hold till we don\u0027t receive issue on android15-tests-release/dev brnach\u0027s base build.",
+      "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
