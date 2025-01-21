@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "681e0a30_f9255579",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-01-21T16:30:40Z",
+      "side": 1,
+      "message": "Yes, but the vendor API level (aka \"VSR API level\") format changed starting in Android 14 QPR3. So for Android 15, the vendor API level is actually `202404`. I wrote up some more details in b/384021501.",
+      "parentUuid": "ca26f3c8_2cdac8b5",
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "995fc40b_8125fccf",
         "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
         "patchSetId": 2
