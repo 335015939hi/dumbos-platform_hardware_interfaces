@@ -16,6 +16,24 @@
       "message": "Let\u0027s just change the function to return std::vector(SetValueResult\u003e instead?\n\nSame for the other functions?",
       "revId": "5f3b10707dea203f4626d64f4f35583c9c80a5d8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed6b92d4_fdf5f5a4",
+        "filename": "automotive/vehicle/aidl/impl/fake_impl/hardware/test/FakeVehicleHardwareTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 2015671
+      },
+      "writtenOn": "2025-01-21T21:12:37Z",
+      "side": 0,
+      "message": "I changed it to return std::vector\u003cSetValueResult\u003e now rather than the locking and unlocking thing.",
+      "parentUuid": "1a0e001c_fce3e8e3",
+      "revId": "5f3b10707dea203f4626d64f4f35583c9c80a5d8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
