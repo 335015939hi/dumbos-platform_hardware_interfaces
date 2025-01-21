@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca26f3c8_2cdac8b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2025-01-21T16:06:36Z",
+      "side": 1,
+      "message": "`__ANDROID_API_V__` value is not `202404`, actually it is API-level `35` and `get_vsr_api_level` method returns api-level, so I didn\u0027t use `202404`.",
+      "parentUuid": "b41b8efb_b66c2735",
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "995fc40b_8125fccf",
