@@ -87,6 +87,24 @@
       "message": "Its decided in meeting with David, that this change will be on hold till we don\u0027t receive issue on android15-tests-release/dev brnach\u0027s base build.",
       "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdac0757_479d5762",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1973455
+      },
+      "writtenOn": "2025-01-22T00:46:03Z",
+      "side": 1,
+      "message": "Please down vote the CL to avoid any auto submit, until it is cleared for submission.",
+      "parentUuid": "71b7d309_dcb72243",
+      "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
