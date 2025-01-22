@@ -2274,9 +2274,15 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationUniqueId) {
     // were updated to implicitly use ATTEST_KEYS (because rkp-only status cannot be determined),
     // uncovering the problem. Skip this test for older implementations in that situation
     // (cf. b/385800086).
+<<<<<<< HEAD   (7fd842 Merge "VtsHalAudioEffectTargetTest: Fix crash issue" into ma)
     int vendor_api_level = get_vendor_api_level();
     if (!(is_gsi_image() && SecLevel() == SecurityLevel::STRONGBOX &&
           vendor_api_level < AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__))) {
+||||||| BASE
+=======
+    if (!(is_gsi_image() && SecLevel() == SecurityLevel::STRONGBOX &&
+          get_vsr_api_level() < __ANDROID_API_V__)) {
+>>>>>>> BRANCH (bc14ad Skip tests on Strongbox with GSI build on devices with vendo)
         // Marking RESET_SINCE_ID_ROTATION should give a different unique ID.
         vector<uint8_t> unique_id9;
         get_unique_id(app_id, cert_date, &unique_id9, /* reset_id = */ true);
@@ -2290,9 +2296,15 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationUniqueId) {
  * Verifies that creation of an attested ECDSA key does not include APPLICATION_ID.
  */
 TEST_P(NewKeyGenerationTest, EcdsaAttestationTagNoApplicationId) {
+<<<<<<< HEAD   (7fd842 Merge "VtsHalAudioEffectTargetTest: Fix crash issue" into ma)
     int vendor_api_level = get_vendor_api_level();
     if (is_gsi_image() && SecLevel() == SecurityLevel::STRONGBOX &&
         vendor_api_level < AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
+||||||| BASE
+=======
+    if (is_gsi_image() && SecLevel() == SecurityLevel::STRONGBOX &&
+        get_vsr_api_level() < __ANDROID_API_V__) {
+>>>>>>> BRANCH (bc14ad Skip tests on Strongbox with GSI build on devices with vendo)
         // Some StrongBox implementations did not correctly handle missing APPLICATION_ID when
         // combined with use of an ATTEST_KEY, but this was not previously tested. Tests under
         // GSI were updated to implicitly use ATTEST_KEYS (because rkp-only status cannot be
