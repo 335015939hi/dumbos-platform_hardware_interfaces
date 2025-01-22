@@ -169,6 +169,13 @@ ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateFactoryDeviceInfo(
 ErrMsgOr<std::unique_ptr<cppbor::Map>> parseAndValidateProductionDeviceInfo(
         const std::vector<uint8_t>& deviceInfoBytes, const RpcHardwareInfo& info);
 
+ErrMsgOr<cppbor::Array> composeCertificateRequestV1(const ProtectedData& protectedData,
+                                                    const DeviceInfo& verifiedDeviceInfo,
+                                                    const std::vector<uint8_t>& challenge,
+                                                    const cppbor::Array& keysToSign,
+                                                    const std::vector<uint8_t>& keysToSignMac,
+                                                    const RpcHardwareInfo& rpcHardwareInfo);
+
 /**
  * Verify the protected data as if the device is still early in the factory process and may not
  * have all device identifiers provisioned yet.
@@ -230,11 +237,5 @@ ErrMsgOr<bool> verifyComponentNameInKeyMintDiceChain(const std::vector<uint8_t>&
 /** Checks whether the DICE chain in the CSR has a certificate with a non-normal mode. */
 ErrMsgOr<bool> hasNonNormalModeInDiceChain(const std::vector<uint8_t>& csr,
                                            std::string_view instanceName);
-
-/** Verify the DICE chain. */
-ErrMsgOr<std::vector<BccEntryData>> validateBcc(const cppbor::Array* bcc,
-                                                hwtrust::DiceChain::Kind kind, bool allowAnyMode,
-                                                bool allowDegenerate,
-                                                const std::string& instanceName);
 
 }  // namespace aidl::android::hardware::security::keymint::remote_prov
