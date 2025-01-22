@@ -60,6 +60,10 @@ constexpr uint8_t MAX_CHALLENGE_SIZE = 64;
 const string KEYMINT_STRONGBOX_INSTANCE_NAME =
         "android.hardware.security.keymint.IKeyMintDevice/strongbox";
 
+const string kVerifiedBootState = "ro.boot.verifiedbootstate";
+const string kDeviceState = "ro.boot.vbmeta.device_state";
+const string kDefaultValue = "";
+
 #define INSTANTIATE_REM_PROV_AIDL_TEST(name)                                         \
     GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(name);                             \
     INSTANTIATE_TEST_SUITE_P(                                                        \
@@ -373,15 +377,67 @@ TEST(NonParameterizedTests, unlockedBootloaderStatesImpliesNonnormalRkpVmDiceCha
     auto nonNormalMode = hasNonNormalModeInDiceChain(csr, RKPVM_INSTANCE_NAME);
     ASSERT_TRUE(nonNormalMode) << nonNormalMode.message();
 
-    auto deviceState = ::android::base::GetProperty("ro.boot.vbmeta.device_state", "");
-    auto verifiedBootState = ::android::base::GetProperty("ro.boot.verifiedbootstate", "");
+    auto deviceState = ::android::base::GetProperty(kDeviceState, kDefaultValue);
+    auto verifiedBootState = ::android::base::GetProperty(kVerifiedBootState, kDefaultValue);
 
     ASSERT_TRUE(!deviceState.empty());
     ASSERT_TRUE(!verifiedBootState.empty());
 
     ASSERT_EQ(deviceState != "locked" || verifiedBootState != "green", *nonNormalMode)
-            << "ro.boot.vbmeta.device_state = '" << deviceState
-            << "' and ro.boot.verifiedbootstate = '" << verifiedBootState << "', but the DICE "
+            << kDeviceState << " = '" << deviceState << "' and " << kVerifiedBootState << " = '"
+            << verifiedBootState << "', but the DICE "
+            << " chain has a " << (*nonNormalMode ? "non-normal" : "normal") << " DICE mode."
+            << " Locked devices must report normal, and unlocked devices must report "
+            << " non-normal.";
+}
+
+/**
+ * If trusty.security_vm.keymint.enabled is set to "true", then do the following.
+ *
+ * Check that ro.boot.vbmeta.device_state is not "locked" or ro.boot.verifiedbootstate
+ * is not "green" if and only if the mode on at least one certificate in the DICE chain
+ * is non-normal.
+ */
+TEST(NonParameterizedTests, unlockedBootloaderStatesImpliesNonnormalKeyMintInAVmDiceChain) {
+    auto keyMintInAVmEnabled =
+            ::android::base::GetProperty("trusty.security_vm.keymint.enabled", kDefaultValue);
+    if (keyMintInAVmEnabled != "true") {
+        GTEST_SKIP() << "The KeyMint (" << DEFAULT_INSTANCE_NAME
+                     << ") instance is not inside a VM.";
+    }
+
+    auto rpc = getHandle<IRemotelyProvisionedComponent>(DEFAULT_INSTANCE_NAME);
+    ASSERT_NE(rpc, nullptr) << "The KeyMint (" << DEFAULT_INSTANCE_NAME
+                            << ") instance RPC is unavailable.";
+
+    RpcHardwareInfo hardwareInfo;
+    auto status = rpc->getHardwareInfo(&hardwareInfo);
+    ASSERT_TRUE(status.isOk()) << status.getDescription();
+
+    auto challenge = randomBytes(MAX_CHALLENGE_SIZE);
+    bytevec csr;
+    auto keyMintInAVmStatus =
+            rpc->generateCertificateRequestV2({} /* keysToSign */, challenge, &csr);
+    ASSERT_TRUE(keyMintInAVmStatus.isOk()) << status.getDescription();
+
+    auto isProper = isCsrWithProperDiceChain(csr, DEFAULT_INSTANCE_NAME);
+    ASSERT_TRUE(isProper) << isProper.message();
+    if (!*isProper) {
+        GTEST_SKIP() << "Skipping test: Only a proper DICE chain has a mode set.";
+    }
+
+    auto nonNormalMode = hasNonNormalModeInDiceChain(csr, DEFAULT_INSTANCE_NAME);
+    ASSERT_TRUE(nonNormalMode) << nonNormalMode.message();
+
+    auto deviceState = ::android::base::GetProperty(kDeviceState, kDefaultValue);
+    auto verifiedBootState = ::android::base::GetProperty(kVerifiedBootState, kDefaultValue);
+
+    ASSERT_TRUE(!deviceState.empty());
+    ASSERT_TRUE(!verifiedBootState.empty());
+
+    ASSERT_EQ(deviceState != "locked" || verifiedBootState != "green", *nonNormalMode)
+            << kDeviceState << " = '" << deviceState << "' and " << kVerifiedBootState << " = '"
+            << verifiedBootState << "', but the DICE "
             << " chain has a " << (*nonNormalMode ? "non-normal" : "normal") << " DICE mode."
             << " Locked devices must report normal, and unlocked devices must report "
             << " non-normal.";
