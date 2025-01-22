@@ -107,6 +107,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb0d2d31_2dd540af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-01-22T09:52:14Z",
+      "side": 1,
+      "message": "Discussed offline - since (1) `__ANDROID_API_V__` is used elsewhere in the file and (2) the comparison will still work because it\u0027s a strict inequality (it wouldn\u0027t work if it were `\u003c\u003d __ANDROID_API_V__`), I\u0027m fine leaving this as is.",
+      "parentUuid": "681e0a30_f9255579",
+      "revId": "bc14ada1de92b2c9e42a110cfb056f414cd1180f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "995fc40b_8125fccf",
