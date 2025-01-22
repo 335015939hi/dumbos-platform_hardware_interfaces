@@ -34,6 +34,23 @@
       "parentUuid": "724111a7_3f56d6f4",
       "revId": "0e01f4f8b0bdcf059061c454b859f5423a8c19e9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9697180d_c75d06a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-22T17:17:29Z",
+      "side": 1,
+      "message": "@snpatil@google.com Please rebase, there is a merge conflict.",
+      "revId": "0e01f4f8b0bdcf059061c454b859f5423a8c19e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
