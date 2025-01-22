@@ -632,6 +632,41 @@ ErrMsgOr<bytevec> getSessionKey(ErrMsgOr<std::pair<bytevec, bytevec>>& senderPub
     }
 }
 
+ErrMsgOr<cppbor::Array> composeCertificateRequestV1(const ProtectedData& protectedData,
+                                                    const DeviceInfo& verifiedDeviceInfo,
+                                                    const std::vector<uint8_t>& challenge,
+                                                    const std::vector<uint8_t>& keysToSignMac,
+                                                    const RpcHardwareInfo& rpcHardwareInfo) {
+    cppbor::Array macedKeysToSign =
+            cppbor::Array()
+                    .add(cppbor::Map().add(1, 5).encode())  // alg: hmac-sha256
+                    .add(cppbor::Map())                     // empty unprotected headers
+                    .add(cppbor::Null())                    // nil for the payload
+                    .add(keysToSignMac);                    // MAC as returned from the HAL
+
+    ErrMsgOr<std::unique_ptr<cppbor::Map>> parsedVerifiedDeviceInfo =
+            parseAndValidateFactoryDeviceInfo(verifiedDeviceInfo.deviceInfo, rpcHardwareInfo);
+    if (!parsedVerifiedDeviceInfo) {
+        return parsedVerifiedDeviceInfo.moveMessage();
+    }
+
+    auto [parsedProtectedData, ignore2, errMsg] = cppbor::parse(protectedData.protectedData);
+    if (!parsedProtectedData) {
+        std::cerr << "Error parsing protected data: '" << errMsg << "'" << std::endl;
+        return errMsg;
+    }
+
+    cppbor::Array deviceInfo =
+            cppbor::Array().add(parsedVerifiedDeviceInfo.moveValue()).add(cppbor::Map());
+
+    auto certificateRequest = cppbor::Array()
+                                      .add(std::move(deviceInfo))
+                                      .add(challenge)
+                                      .add(std::move(parsedProtectedData))
+                                      .add(std::move(macedKeysToSign));
+    return certificateRequest;
+}
+
 ErrMsgOr<std::vector<BccEntryData>> verifyProtectedData(
         const DeviceInfo& deviceInfo, const cppbor::Array& keysToSign,
         const std::vector<uint8_t>& keysToSignMac, const ProtectedData& protectedData,
