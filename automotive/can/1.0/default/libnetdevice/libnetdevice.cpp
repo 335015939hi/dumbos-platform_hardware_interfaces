@@ -124,7 +124,7 @@ bool add(std::string_view dev, std::string_view type) {
 
     {
         auto linkinfo = req.addNested(IFLA_LINKINFO);
-        req.addBuffer(IFLA_INFO_KIND, type);
+        req.add(IFLA_INFO_KIND, type);
     }
 
     nl::Socket sock(NETLINK_ROUTE);
