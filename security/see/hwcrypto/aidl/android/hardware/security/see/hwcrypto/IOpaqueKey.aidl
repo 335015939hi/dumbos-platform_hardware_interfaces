@@ -96,4 +96,19 @@ interface IOpaqueKey {
      *      ServiceSpecificException based on <code>HalErrorCode</code> if any error occurs.
      */
     void setProtectionId(in ProtectionId protectionId, in OperationType[] allowedOperations);
+
+    /*
+     * Sets the period of time this key should be valid. This parameter is not part of the policy
+     * because Key policies are fixed on creation and this parameter can be modified after the key
+     * has been created.has been created.
+     *
+     * @param validityPeriodSeconds:
+     *      how long should the key be valid in seconds.
+     *
+     * @throws:
+     *      ServiceSpecificException based on <code>HalErrorCode</code> if any error occurs,
+     *      in particular:
+     *          - BAD_PARAMETER if validityPeriodSeconds is nto a valid value.
+     */
+    void setKeyValidity(long validityPeriodSeconds);
 }
