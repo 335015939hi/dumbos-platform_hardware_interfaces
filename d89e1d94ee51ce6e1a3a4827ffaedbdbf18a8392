@@ -16,6 +16,46 @@
       "message": "Please check this out when you have a moment.",
       "revId": "d89e1d94ee51ce6e1a3a4827ffaedbdbf18a8392",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3279b601_797b4450",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2025-01-23T08:30:02Z",
+      "side": 1,
+      "message": "Hi Sean, thanks for taking care of this!",
+      "revId": "d89e1d94ee51ce6e1a3a4827ffaedbdbf18a8392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8efe654e_70bf92ae",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2025-01-23T08:30:02Z",
+      "side": 1,
+      "message": "This section seems to repeat the logic from the AVF test. Could we create a shared function to avoid duplication?",
+      "range": {
+        "startLine": 409,
+        "startChar": 4,
+        "endLine": 443,
+        "endChar": 30
+      },
+      "revId": "d89e1d94ee51ce6e1a3a4827ffaedbdbf18a8392",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
