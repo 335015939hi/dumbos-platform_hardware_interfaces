@@ -38,6 +38,8 @@ enum UwbVendorSessionAppConfigTlvTypes {
     CCC_HOP_MODE_KEY = 0xA0,
     /** 8 byte data */
     CCC_UWB_TIME0 = 0xA1,
+    /** 1 byte data */
+    CCC_RESPONDER_SLOT_INDEX = 0xA2,
     /** 2 byte data */
     CCC_RANGING_PROTOCOL_VER = 0xA3,
     /** 2 byte data */
@@ -46,6 +48,8 @@ enum UwbVendorSessionAppConfigTlvTypes {
     CCC_PULSESHAPE_COMBO = 0xA5,
     /** 2 byte data */
     CCC_URSK_TTL = 0xA6,
+    /** 1 byte data */
+    CCC_RESPONDER_PARTICIPATION_CONFIG = 0xA7,
     /** 4 byte data */
     CCC_LAST_INDEX_USED = 0xA8,
 
