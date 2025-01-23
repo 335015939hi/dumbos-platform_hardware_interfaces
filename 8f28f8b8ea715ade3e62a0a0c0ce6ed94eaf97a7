@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19fe2816_246fbca2",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1883619
+      },
+      "writtenOn": "2025-01-23T19:47:05Z",
+      "side": 0,
+      "message": "Hi @mnaganov@google.com\n\nThis deviates from interface contract.\n```\n     * This method is used to inform the HAL module that an external device has\n     * been connected to a device port selected using the \u0027id\u0027 field of the\n     * input AudioPort parameter. This device port must have dynamic profiles\n     * (an empty list of profiles). This port is further referenced to as \"port\n     * template\" because it acts as a template for creating a new instance of a\n     * \"connected\" device port which gets returned from this method.\n```\n\nAlthough, template port for the external devices only shows the targets has capability to connect.\n\nComing to the change, as BT device being a external device, if doesn\u0027t have dynamic profiles, the module can fill some profiles.\n\nIf you feel the template port can have some static profiles too (as a default), can you please change the interface document.",
+      "revId": "8f28f8b8ea715ade3e62a0a0c0ce6ed94eaf97a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
