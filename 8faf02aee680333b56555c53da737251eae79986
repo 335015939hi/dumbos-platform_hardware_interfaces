@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0441621_fc94f558",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-23T18:31:21Z",
+      "side": 1,
+      "message": "If we generate a sine wave of a full scale (`1.0`) already what happens to it when we apply post gain? Amplifying by 30 dB is equivalent to scaling by about 31 times, and amplifying by 55 dB is equivalent to scaling by 562!\n\nAn effect operating in floats may actually produce a signal with such amplitude, because for it that\u0027s just numbers, but this amplitude does not make any practical sense. Also, I can imagine effect implementations that would apply limiting on the output.\n\nI think, we need to use signal amplitude which allows it to be scaled back to unity amplitude with positive post gain applied. That means, we likely want to generate the input for this particular test case right inside it, not in `SetUp`.",
+      "range": {
+        "startLine": 1255,
+        "startChar": 75,
+        "endLine": 1255,
+        "endChar": 78
+      },
+      "revId": "8faf02aee680333b56555c53da737251eae79986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26fdb4b3_c40131d4",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-23T18:31:21Z",
+      "side": 1,
+      "message": "It would also be useful to assert that the gain is what we expect to avoid failures later.",
+      "range": {
+        "startLine": 1257,
+        "startChar": 8,
+        "endLine": 1257,
+        "endChar": 16
+      },
+      "revId": "8faf02aee680333b56555c53da737251eae79986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
