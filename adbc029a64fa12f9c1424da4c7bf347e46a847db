@@ -16,6 +16,70 @@
       "message": "Et voilà!",
       "revId": "adbc029a64fa12f9c1424da4c7bf347e46a847db",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eca15c0_38eb27b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2025-01-23T11:54:32Z",
+      "side": 1,
+      "message": "Merci beaucoup :)",
+      "parentUuid": "727e7026_2132c4e0",
+      "revId": "adbc029a64fa12f9c1424da4c7bf347e46a847db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8238efbe_32e18930",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2025-01-23T11:54:32Z",
+      "side": 1,
+      "message": "I don\u0027t think there is \"RpcDiceChain\", it probably would be more clear to drop \"Rpc\" here.",
+      "range": {
+        "startLine": 178,
+        "startChar": 45,
+        "endLine": 178,
+        "endChar": 48
+      },
+      "revId": "adbc029a64fa12f9c1424da4c7bf347e46a847db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0498102e_f5dcffcb",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2025-01-23T11:54:32Z",
+      "side": 1,
+      "message": "You could check the boolean property directly as in [1]\n\n[1] https://cs.android.com/android/platform/superproject/main/+/main:test/vts-testcase/hal/treble/vintf/SingleManifestTest.cpp;l\u003d658;drc\u003d62c2bdea378560de426885652ea192bc2ee0a0ba",
+      "range": {
+        "startLine": 409,
+        "startChar": 4,
+        "endLine": 409,
+        "endChar": 40
+      },
+      "revId": "adbc029a64fa12f9c1424da4c7bf347e46a847db",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
