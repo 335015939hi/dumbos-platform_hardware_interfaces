@@ -105,6 +105,59 @@
       "parentUuid": "71b7d309_dcb72243",
       "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3c60aa2_8821452a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2025-01-24T15:47:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fdac0757_479d5762",
+      "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ab1c0e2_7b7c9724",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2025-01-24T15:47:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4027ccc_3dd49913",
+      "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfe306b2_02eca4b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1896276
+      },
+      "writtenOn": "2025-01-24T15:47:07Z",
+      "side": 1,
+      "message": "A CTS failure (b/392010019) is reported on android15-tests-release branch base build for cuttlefish, so we need to merge this change to android15-tests-dev branch.",
+      "revId": "4fdb6f4a27ce4ff6b9f9ef84f26ae667eb7b831f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
