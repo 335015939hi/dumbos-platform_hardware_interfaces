@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c70b9df_360d3aaf",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-01-24T13:22:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0441621_fc94f558",
+      "range": {
+        "startLine": 1255,
+        "startChar": 75,
+        "endLine": 1255,
+        "endChar": 78
+      },
+      "revId": "8faf02aee680333b56555c53da737251eae79986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26fdb4b3_c40131d4",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-01-23T18:31:21Z",
       "side": 1,
       "message": "It would also be useful to assert that the gain is what we expect to avoid failures later.",
+      "range": {
+        "startLine": 1257,
+        "startChar": 8,
+        "endLine": 1257,
+        "endChar": 16
+      },
+      "revId": "8faf02aee680333b56555c53da737251eae79986",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a9d2428_132536ff",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1257,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-01-24T13:22:51Z",
+      "side": 1,
+      "message": "Updating the input based on the post gain values.\nAdded a check on line 1394 to validate that the fullScale db - postGainDb is same as the new input dB value.",
+      "parentUuid": "26fdb4b3_c40131d4",
       "range": {
         "startLine": 1257,
         "startChar": 8,
