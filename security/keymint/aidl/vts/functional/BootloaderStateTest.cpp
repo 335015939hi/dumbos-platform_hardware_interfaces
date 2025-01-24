@@ -139,7 +139,7 @@ TEST_P(BootloaderStateTest, VbmetaDigest) {
     ASSERT_TRUE(avb_slot_data_loaded(result)) << "Failed to load avb slot data";
 
     vector<uint8_t> sha256Digest(AVB_SHA256_DIGEST_SIZE);
-    avb_slot_verify_data_calculate_vbmeta_digest(avbSlotData, AVB_DIGEST_TYPE_SHA256,
+    avb_slot_verify_data_calculate_vbmeta_digest(NULL, avbSlotData, AVB_DIGEST_TYPE_SHA256,
                                                  sha256Digest.data());
 
     if (get_vendor_api_level() >= AVendorSupport_getVendorApiLevelOf(__ANDROID_API_V__)) {
@@ -152,7 +152,7 @@ TEST_P(BootloaderStateTest, VbmetaDigest) {
         // to calculate the VBMeta digest. However, the only two supported options are SHA-256 and
         // SHA-512, so we expect the attested VBMeta digest to match one of these.
         vector<uint8_t> sha512Digest(AVB_SHA512_DIGEST_SIZE);
-        avb_slot_verify_data_calculate_vbmeta_digest(avbSlotData, AVB_DIGEST_TYPE_SHA512,
+        avb_slot_verify_data_calculate_vbmeta_digest(NULL, avbSlotData, AVB_DIGEST_TYPE_SHA512,
                                                      sha512Digest.data());
 
         ASSERT_TRUE((attestedVbmetaDigest_ == sha256Digest) ||

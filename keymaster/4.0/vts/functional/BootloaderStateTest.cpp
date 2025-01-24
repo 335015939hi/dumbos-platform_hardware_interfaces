@@ -128,9 +128,9 @@ TEST_P(BootloaderStateTest, VbmetaDigest) {
     vector<uint8_t> digest256(AVB_SHA256_DIGEST_SIZE);
     vector<uint8_t> digest512(AVB_SHA512_DIGEST_SIZE);
 
-    avb_slot_verify_data_calculate_vbmeta_digest(avbSlotData, AVB_DIGEST_TYPE_SHA256,
+    avb_slot_verify_data_calculate_vbmeta_digest(NULL, avbSlotData, AVB_DIGEST_TYPE_SHA256,
                                                  digest256.data());
-    avb_slot_verify_data_calculate_vbmeta_digest(avbSlotData, AVB_DIGEST_TYPE_SHA512,
+    avb_slot_verify_data_calculate_vbmeta_digest(NULL, avbSlotData, AVB_DIGEST_TYPE_SHA512,
                                                  digest512.data());
 
     ASSERT_TRUE((attestedVbmetaDigest_ == digest256) || (attestedVbmetaDigest_ == digest512))
