@@ -52,6 +52,24 @@
       "parentUuid": "7ed1945a_9a8d5028",
       "revId": "8f28f8b8ea715ade3e62a0a0c0ce6ed94eaf97a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "484a054b_38dc32d3",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-24T19:21:20Z",
+      "side": 0,
+      "message": "I think, 3 cases are possible.\n\n- If we consider a 3.5mm analog headset, the list of profiles is naturally fixed because it is detemined by the capabilities of the SoC DAC/DSP, not by device capabilities.\n\n- For USB, even if it\u0027s connected via SoC DSP, the list of supported profiles may be limited by the connected device. For example, the SoC DSP may support more than 2 channels, but the connected USB device only supports 2, thus the list of profiles needs to be trimmed. Same situation for \"hi-res\" BT codecs—the SoC DSP may support wider range of SRs than the actual connected device.\n\n- And for HDMI, or for USB which is handled by the kernel directly, the list of profiles is fully determined by the capabilities of the connected device. In this case, the template port does not have any profiles.",
+      "parentUuid": "71555ec7_a0429b2e",
+      "revId": "8f28f8b8ea715ade3e62a0a0c0ce6ed94eaf97a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
