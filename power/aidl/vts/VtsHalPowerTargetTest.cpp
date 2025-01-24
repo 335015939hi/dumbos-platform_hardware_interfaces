@@ -29,16 +29,19 @@
 namespace aidl::android::hardware::power {
 namespace {
 
-using ::android::base::GetUintProperty;
 using android::hardware::power::Boost;
 using android::hardware::power::IPower;
 using android::hardware::power::IPowerHintSession;
 using android::hardware::power::Mode;
+using android::hardware::power::SessionHint;
 using android::hardware::power::WorkDuration;
 
 const std::vector<Boost> kBoosts{ndk::enum_range<Boost>().begin(), ndk::enum_range<Boost>().end()};
 
 const std::vector<Mode> kModes{ndk::enum_range<Mode>().begin(), ndk::enum_range<Mode>().end()};
+
+const std::vector<SessionHint> kSessionHints{ndk::enum_range<SessionHint>().begin(),
+                                             ndk::enum_range<SessionHint>().end()};
 
 const std::vector<Boost> kInvalidBoosts = {
         static_cast<Boost>(static_cast<int32_t>(kBoosts.front()) - 1),
@@ -48,6 +51,11 @@ const std::vector<Boost> kInvalidBoosts = {
 const std::vector<Mode> kInvalidModes = {
         static_cast<Mode>(static_cast<int32_t>(kModes.front()) - 1),
         static_cast<Mode>(static_cast<int32_t>(kModes.back()) + 1),
+};
+
+const std::vector<SessionHint> kInvalidSessionHints = {
+        static_cast<SessionHint>(static_cast<int32_t>(kSessionHints.front()) - 1),
+        static_cast<SessionHint>(static_cast<int32_t>(kSessionHints.back()) + 1),
 };
 
 class DurationWrapper : public WorkDuration {
@@ -63,8 +71,6 @@ const std::vector<int32_t> kSelfTids = {
 };
 
 const std::vector<int32_t> kEmptyTids = {};
-
-const std::vector<WorkDuration> kNoDurations = {};
 
 const std::vector<WorkDuration> kDurationsWithZero = {
         DurationWrapper(1000L, 1L),
@@ -83,20 +89,38 @@ const std::vector<WorkDuration> kDurations = {
         DurationWrapper(1000000000L, 4L),
 };
 
-inline bool isUnknownOrUnsupported(const ndk::ScopedAStatus& status) {
-    return status.getStatus() == STATUS_UNKNOWN_TRANSACTION ||
-           status.getExceptionCode() == EX_UNSUPPORTED_OPERATION;
-}
-
 class PowerAidl : public testing::TestWithParam<std::string> {
   public:
     virtual void SetUp() override {
         AIBinder* binder = AServiceManager_waitForService(GetParam().c_str());
         ASSERT_NE(binder, nullptr);
         power = IPower::fromBinder(ndk::SpAIBinder(binder));
+        auto status = power->getInterfaceVersion(&mServiceVersion);
+        ASSERT_TRUE(status.isOk());
+        if (mServiceVersion >= 2) {
+            status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &mSession);
+            mSessionSupport = status.isOk();
+        }
     }
 
     std::shared_ptr<IPower> power;
+    int32_t mServiceVersion;
+    std::shared_ptr<IPowerHintSession> mSession;
+    bool mSessionSupport = false;
+};
+
+class HintSessionAidl : public PowerAidl {
+  public:
+    virtual void SetUp() override {
+        PowerAidl::SetUp();
+        if (mServiceVersion < 2) {
+            GTEST_SKIP() << "DEVICE not launching with Power V2 and beyond.";
+        }
+        if (!mSessionSupport) {
+            GTEST_SKIP() << "DEVICE not support Hint Session.";
+        }
+        ASSERT_NE(nullptr, mSession);
+    }
 };
 
 TEST_P(PowerAidl, setMode) {
@@ -150,57 +174,85 @@ TEST_P(PowerAidl, isBoostSupported) {
 }
 
 TEST_P(PowerAidl, getHintSessionPreferredRate) {
-    int64_t rate = -1;
-    auto status = power->getHintSessionPreferredRate(&rate);
-    if (!status.isOk()) {
-        EXPECT_TRUE(isUnknownOrUnsupported(status));
-        return;
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+    if (mServiceVersion < 2) {
+        GTEST_SKIP() << "DEVICE not launching with Power V2 and beyond.";
     }
 
+    int64_t rate = -1;
+    ASSERT_TRUE(power->getHintSessionPreferredRate(&rate).isOk());
     // At least 1ms rate limit from HAL
     ASSERT_GE(rate, 1000000);
 }
 
-TEST_P(PowerAidl, createAndCloseHintSession) {
-    std::shared_ptr<IPowerHintSession> session;
-    auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &session);
-    if (!status.isOk()) {
-        EXPECT_TRUE(isUnknownOrUnsupported(status));
-        return;
+TEST_P(HintSessionAidl, createAndCloseHintSession) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
     }
-    ASSERT_NE(nullptr, session);
-    ASSERT_TRUE(session->pause().isOk());
-    ASSERT_TRUE(session->resume().isOk());
+    ASSERT_TRUE(mSession->pause().isOk());
+    ASSERT_TRUE(mSession->resume().isOk());
     // Test normal destroy operation
-    ASSERT_TRUE(session->close().isOk());
-    session.reset();
+    ASSERT_TRUE(mSession->close().isOk());
+    mSession.reset();
 }
-TEST_P(PowerAidl, createHintSessionFailed) {
+
+TEST_P(HintSessionAidl, createHintSessionFailed) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
     std::shared_ptr<IPowerHintSession> session;
     auto status = power->createHintSession(getpid(), getuid(), kEmptyTids, 16666666L, &session);
+
+    // Regardless of whether V2 and beyond is supported, the status is always not STATUS_OK.
     ASSERT_FALSE(status.isOk());
-    if (isUnknownOrUnsupported(status)) {
-        return;
-    }
     ASSERT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode());
 }
 
-TEST_P(PowerAidl, updateAndReportDurations) {
-    std::shared_ptr<IPowerHintSession> session;
-    auto status = power->createHintSession(getpid(), getuid(), kSelfTids, 16666666L, &session);
-    if (!status.isOk()) {
-        EXPECT_TRUE(isUnknownOrUnsupported(status));
-        return;
+TEST_P(HintSessionAidl, updateAndReportDurations) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
     }
-    ASSERT_NE(nullptr, session);
+    ASSERT_TRUE(mSession->updateTargetWorkDuration(16666667LL).isOk());
+    ASSERT_TRUE(mSession->reportActualWorkDuration(kDurations).isOk());
+}
 
-    ASSERT_TRUE(session->updateTargetWorkDuration(16666667LL).isOk());
-    ASSERT_TRUE(session->reportActualWorkDuration(kDurations).isOk());
+TEST_P(HintSessionAidl, sendSessionHint) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+    if (mServiceVersion < 4) {
+        GTEST_SKIP() << "DEVICE not launching with Power V4 and beyond.";
+    }
+
+    for (const auto& sessionHint : kSessionHints) {
+        ASSERT_TRUE(mSession->sendHint(sessionHint).isOk());
+    }
+    for (const auto& sessionHint : kInvalidSessionHints) {
+        ASSERT_TRUE(mSession->sendHint(sessionHint).isOk());
+    }
+}
+
+TEST_P(HintSessionAidl, setThreads) {
+    if (!mSessionSupport) {
+        GTEST_SKIP() << "DEVICE not support Hint Session.";
+    }
+    if (mServiceVersion < 4) {
+        GTEST_SKIP() << "DEVICE not launching with Power V4 and beyond.";
+    }
+
+    auto status = mSession->setThreads(kEmptyTids);
+    ASSERT_FALSE(status.isOk());
+    ASSERT_EQ(EX_ILLEGAL_ARGUMENT, status.getExceptionCode());
+
+    ASSERT_TRUE(mSession->setThreads(kSelfTids).isOk());
 }
 
 // FIXED_PERFORMANCE mode is required for all devices which ship on Android 11
 // or later
 TEST_P(PowerAidl, hasFixedPerformance) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     auto apiLevel = GetUintProperty<uint64_t>("ro.product.first_api_level", 0);
     if (apiLevel == 0) {
         apiLevel = GetUintProperty<uint64_t>("ro.build.version.sdk", 0);
@@ -212,14 +264,34 @@ TEST_P(PowerAidl, hasFixedPerformance) {
         ASSERT_TRUE(power->isModeSupported(Mode::FIXED_PERFORMANCE, &supported).isOk());
         ASSERT_TRUE(supported);
     }
+||||||| BASE
+    auto apiLevel = GetUintProperty<uint64_t>("ro.vendor.api_level", 0);
+    ASSERT_NE(apiLevel, 0);
+
+    if (apiLevel >= 30) {
+        bool supported;
+        ASSERT_TRUE(power->isModeSupported(Mode::FIXED_PERFORMANCE, &supported).isOk());
+        ASSERT_TRUE(supported);
+    }
+=======
+    bool supported;
+    ASSERT_TRUE(power->isModeSupported(Mode::FIXED_PERFORMANCE, &supported).isOk());
+    ASSERT_TRUE(supported);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(PowerAidl);
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(HintSessionAidl);
+
 INSTANTIATE_TEST_SUITE_P(Power, PowerAidl,
+                         testing::ValuesIn(::android::getAidlHalInstanceNames(IPower::descriptor)),
+                         ::android::PrintInstanceNameToString);
+INSTANTIATE_TEST_SUITE_P(Power, HintSessionAidl,
                          testing::ValuesIn(::android::getAidlHalInstanceNames(IPower::descriptor)),
                          ::android::PrintInstanceNameToString);
 
 }  // namespace
+}  // namespace aidl::android::hardware::power
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
@@ -227,5 +299,3 @@ int main(int argc, char** argv) {
     ABinderProcess_startThreadPool();
     return RUN_ALL_TESTS();
 }
-
-}  // namespace aidl::android::hardware::power

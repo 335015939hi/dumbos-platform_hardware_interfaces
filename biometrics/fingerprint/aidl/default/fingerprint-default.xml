@@ -1,6 +1,17 @@
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
 <manifest version="1.0" type="device">
     <hal format="aidl">
         <name>android.hardware.biometrics.fingerprint</name>
         <fqname>IFingerprint/default</fqname>
     </hal>
 </manifest>
+||||||| BASE
+<manifest version="1.0" type="device">
+    <hal format="aidl">
+        <name>android.hardware.biometrics.fingerprint</name>
+        <version>2</version>
+        <fqname>IFingerprint/default</fqname>
+    </hal>
+</manifest>
+=======
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

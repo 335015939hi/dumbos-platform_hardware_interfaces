@@ -1,0 +1,85 @@
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+{
+  "presubmit": [
+    {
+      "name": "VehicleHalAidlHidlCompatibilityTest"
+    },
+    {
+      "name": "VehicleHalDefaultConfigTest"
+    },
+    {
+      "name": "VehicleHalVehicleUtilsTest"
+    },
+    {
+      "name": "FakeVehicleHardwareTest"
+    },
+    {
+      "name": "FakeVehicleHalValueGeneratorsTest"
+    },
+    {
+      "name": "FakeObd2FrameTest"
+    },
+    {
+      "name": "FakeUserHalTest"
+    },
+    {
+      "name": "DefaultVehicleHalTest"
+    }
+  ],
+  "auto-presubmit": [
+    {
+      "name": "VtsHalAutomotiveVehicle_TargetTest"
+    }
+  ]
+}
+=======
+{
+  "presubmit": [
+    {
+      "name": "VehicleHalAidlHidlCompatibilityTest"
+    },
+    {
+      "name": "VehicleHalDefaultConfigTest"
+    },
+    {
+      "name": "VehicleHalDefaultConfigTestEnableTestProperties"
+    },
+    {
+      "name": "JsonConfigLoaderUnitTest"
+    },
+    {
+      "name": "JsonConfigLoaderUnitTestEnableTestProperties"
+    },
+    {
+      "name": "VehicleHalVehicleUtilsTest"
+    },
+    {
+      "name": "VehiclePropertyAnnotationCppTest"
+    },
+    {
+      "name": "VehiclePropertyAnnotationJavaTest"
+    },
+    {
+      "name": "FakeVehicleHardwareTest"
+    },
+    {
+      "name": "FakeVehicleHalValueGeneratorsTest"
+    },
+    {
+      "name": "FakeObd2FrameTest"
+    },
+    {
+      "name": "FakeUserHalTest"
+    },
+    {
+      "name": "DefaultVehicleHalTest"
+    }
+  ],
+  "auto-presubmit": [
+    {
+      "name": "VtsHalAutomotiveVehicle_TargetTest"
+    }
+  ]
+}
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

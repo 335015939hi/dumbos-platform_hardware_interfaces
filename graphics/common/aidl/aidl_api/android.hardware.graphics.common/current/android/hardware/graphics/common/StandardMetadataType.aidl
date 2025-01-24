@@ -40,4 +40,11 @@ enum StandardMetadataType {
   SMPTE2086 = 19,
   CTA861_3 = 20,
   SMPTE2094_40 = 21,
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+  SMPTE2094_10 = 22,
+=======
+  SMPTE2094_10 = 22,
+  STRIDE = 23,
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }

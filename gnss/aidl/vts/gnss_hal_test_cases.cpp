@@ -52,6 +52,451 @@ using GnssConstellationTypeAidl = android::hardware::gnss::GnssConstellationType
 TEST_P(GnssHalTest, SetupTeardownCreateCleanup) {}
 
 /*
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+ * GetLocation:
+ * Turns on location, waits 75 second for at least 5 locations,
+ * and checks them for reasonable validity.
+ */
+TEST_P(GnssHalTest, GetLocations) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    const int kMinIntervalMsec = 500;
+    const int kLocationsToCheck = 5;
+
+    SetPositionMode(kMinIntervalMsec, /* low_power_mode= */ false);
+    StartAndCheckLocations(kLocationsToCheck);
+    StopAndClearLocations();
+}
+
+/*
+ * InjectDelete:
+ * Ensures that calls to inject and/or delete information state are handled.
+ */
+TEST_P(GnssHalTest, InjectDelete) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    // Confidently, well north of Alaska
+    auto status = aidl_gnss_hal_->injectLocation(Utils::getMockLocation(80.0, -170.0, 150.0));
+    ASSERT_TRUE(status.isOk());
+
+    // Fake time, but generally reasonable values (time in Aug. 2018)
+    status =
+            aidl_gnss_hal_->injectTime(/* timeMs= */ 1534567890123L,
+                                       /* timeReferenceMs= */ 123456L, /* uncertaintyMs= */ 10000L);
+    ASSERT_TRUE(status.isOk());
+
+    status = aidl_gnss_hal_->deleteAidingData(IGnss::GnssAidingData::POSITION);
+    ASSERT_TRUE(status.isOk());
+
+    status = aidl_gnss_hal_->deleteAidingData(IGnss::GnssAidingData::TIME);
+    ASSERT_TRUE(status.isOk());
+
+    // Ensure we can get a good location after a bad injection has been deleted
+    StartAndCheckFirstLocation(/* min_interval_msec= */ 1000, /* low_power_mode= */ false);
+    StopAndClearLocations();
+}
+
+/*
+ * InjectSeedLocation:
+ * Injects a seed location and ensures the injected seed location is not fused in the resulting
+ * GNSS location.
+ */
+TEST_P(GnssHalTest, InjectSeedLocation) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    // An arbitrary position in North Pacific Ocean (where no VTS labs will ever likely be located).
+    const double seedLatDegrees = 32.312894;
+    const double seedLngDegrees = -172.954117;
+    const float seedAccuracyMeters = 150.0;
+
+    auto status = aidl_gnss_hal_->injectLocation(
+            Utils::getMockLocation(seedLatDegrees, seedLngDegrees, seedAccuracyMeters));
+    ASSERT_TRUE(status.isOk());
+
+    StartAndCheckFirstLocation(/* min_interval_msec= */ 1000, /* low_power_mode= */ false);
+
+    // Ensure we don't get a location anywhere within 111km (1 degree of lat or lng) of the seed
+    // location.
+    EXPECT_TRUE(std::abs(aidl_gnss_cb_->last_location_.latitudeDegrees - seedLatDegrees) > 1.0 ||
+                std::abs(aidl_gnss_cb_->last_location_.longitudeDegrees - seedLngDegrees) > 1.0);
+
+    StopAndClearLocations();
+
+    status = aidl_gnss_hal_->deleteAidingData(IGnss::GnssAidingData::POSITION);
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * GnssCapabilities:
+ * 1. Verifies that GNSS hardware supports measurement capabilities.
+ * 2. Verifies that GNSS hardware supports Scheduling capabilities.
+ */
+TEST_P(GnssHalTest, GnssCapabilites) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    if (!IsAutomotiveDevice()) {
+        EXPECT_TRUE(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_MEASUREMENTS);
+    }
+    EXPECT_TRUE(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_SCHEDULING);
+}
+
+/*
+ * GetLocationLowPower:
+ * Turns on location, waits for at least 5 locations allowing max of LOCATION_TIMEOUT_SUBSEQUENT_SEC
+ * between one location and the next. Also ensure that MIN_INTERVAL_MSEC is respected by waiting
+ * NO_LOCATION_PERIOD_SEC and verfiy that no location is received. Also perform validity checks on
+ * each received location.
+ */
+TEST_P(GnssHalTest, GetLocationLowPower) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    const int kMinIntervalMsec = 5000;
+    const int kLocationTimeoutSubsequentSec = (kMinIntervalMsec / 1000) * 2;
+    const int kNoLocationPeriodSec = (kMinIntervalMsec / 1000) / 2;
+    const int kLocationsToCheck = 5;
+    const bool kLowPowerMode = true;
+
+    // Warmup period - VTS doesn't have AGPS access via GnssLocationProvider
+    aidl_gnss_cb_->location_cbq_.reset();
+    StartAndCheckLocations(kLocationsToCheck);
+    StopAndClearLocations();
+    aidl_gnss_cb_->location_cbq_.reset();
+
+    // Start of Low Power Mode test
+    // Don't expect true - as without AGPS access
+    if (!StartAndCheckFirstLocation(kMinIntervalMsec, kLowPowerMode)) {
+        ALOGW("GetLocationLowPower test - no first low power location received.");
+    }
+
+    for (int i = 1; i < kLocationsToCheck; i++) {
+        // Verify that kMinIntervalMsec is respected by waiting kNoLocationPeriodSec and
+        // ensure that no location is received yet
+
+        aidl_gnss_cb_->location_cbq_.retrieve(aidl_gnss_cb_->last_location_, kNoLocationPeriodSec);
+        const int location_called_count = aidl_gnss_cb_->location_cbq_.calledCount();
+        // Tolerate (ignore) one extra location right after the first one
+        // to handle startup edge case scheduling limitations in some implementations
+        if ((i == 1) && (location_called_count == 2)) {
+            CheckLocation(aidl_gnss_cb_->last_location_, true);
+            continue;  // restart the quiet wait period after this too-fast location
+        }
+        EXPECT_LE(location_called_count, i);
+        if (location_called_count != i) {
+            ALOGW("GetLocationLowPower test - not enough locations received. %d vs. %d expected ",
+                  location_called_count, i);
+        }
+
+        if (!aidl_gnss_cb_->location_cbq_.retrieve(
+                    aidl_gnss_cb_->last_location_,
+                    kLocationTimeoutSubsequentSec - kNoLocationPeriodSec)) {
+            ALOGW("GetLocationLowPower test - timeout awaiting location %d", i);
+        } else {
+            CheckLocation(aidl_gnss_cb_->last_location_, true);
+        }
+    }
+
+    StopAndClearLocations();
+}
+
+/*
+ * InjectBestLocation
+ *
+ * Ensure successfully injecting a location.
+ */
+TEST_P(GnssHalTest, InjectBestLocation) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    StartAndCheckLocations(1);
+    GnssLocation gnssLocation = aidl_gnss_cb_->last_location_;
+    CheckLocation(gnssLocation, true);
+
+    auto status = aidl_gnss_hal_->injectBestLocation(gnssLocation);
+
+    ASSERT_TRUE(status.isOk());
+
+    status = aidl_gnss_hal_->deleteAidingData(IGnss::GnssAidingData::POSITION);
+
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestGnssSvInfoFields:
+ * Gets 1 location and a (non-empty) GnssSvInfo, and verifies basebandCN0DbHz is valid.
+ */
+TEST_P(GnssHalTest, TestGnssSvInfoFields) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    aidl_gnss_cb_->location_cbq_.reset();
+    aidl_gnss_cb_->sv_info_list_cbq_.reset();
+    StartAndCheckFirstLocation(/* min_interval_msec= */ 1000, /* low_power_mode= */ false);
+    int location_called_count = aidl_gnss_cb_->location_cbq_.calledCount();
+    ALOGD("Observed %d GnssSvStatus, while awaiting one location (%d received)",
+          aidl_gnss_cb_->sv_info_list_cbq_.size(), location_called_count);
+
+    // Wait for up to kNumSvInfoLists events for kTimeoutSeconds for each event.
+    int kTimeoutSeconds = 2;
+    int kNumSvInfoLists = 4;
+    std::list<std::vector<IGnssCallback::GnssSvInfo>> sv_info_lists;
+    std::vector<IGnssCallback::GnssSvInfo> last_sv_info_list;
+
+    do {
+        EXPECT_GT(aidl_gnss_cb_->sv_info_list_cbq_.retrieve(sv_info_lists, kNumSvInfoLists,
+                                                            kTimeoutSeconds),
+                  0);
+        if (!sv_info_lists.empty()) {
+            last_sv_info_list = sv_info_lists.back();
+            ALOGD("last_sv_info size = %d", (int)last_sv_info_list.size());
+        }
+    } while (!sv_info_lists.empty() && last_sv_info_list.size() == 0);
+
+    bool nonZeroCn0Found = false;
+    for (auto sv_info : last_sv_info_list) {
+        EXPECT_TRUE(sv_info.basebandCN0DbHz >= 0.0 && sv_info.basebandCN0DbHz <= 65.0);
+        if (sv_info.basebandCN0DbHz > 0.0) {
+            nonZeroCn0Found = true;
+        }
+    }
+    // Assert at least one value is non-zero. Zero is ok in status as it's possibly
+    // reporting a searched but not found satellite.
+    EXPECT_TRUE(nonZeroCn0Found);
+    StopAndClearLocations();
+}
+
+/*
+=======
+ * GetLocation:
+ * Turns on location, waits 75 second for at least 5 locations,
+ * and checks them for reasonable validity.
+ */
+TEST_P(GnssHalTest, GetLocations) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    const int kMinIntervalMsec = 500;
+    const int kLocationsToCheck = 5;
+
+    SetPositionMode(kMinIntervalMsec, /* low_power_mode= */ false);
+    StartAndCheckLocations(kLocationsToCheck);
+    StopAndClearLocations();
+}
+
+/*
+ * InjectDelete:
+ * Ensures that calls to inject and/or delete information state are handled.
+ */
+TEST_P(GnssHalTest, InjectDelete) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    // Confidently, well north of Alaska
+    auto status = aidl_gnss_hal_->injectLocation(Utils::getMockLocation(80.0, -170.0, 150.0));
+    ASSERT_TRUE(status.isOk());
+
+    // Fake time, but generally reasonable values (time in Aug. 2018)
+    status =
+            aidl_gnss_hal_->injectTime(/* timeMs= */ 1534567890123L,
+                                       /* timeReferenceMs= */ 123456L, /* uncertaintyMs= */ 10000L);
+    ASSERT_TRUE(status.isOk());
+
+    status = aidl_gnss_hal_->deleteAidingData(IGnss::GnssAidingData::POSITION);
+    ASSERT_TRUE(status.isOk());
+
+    status = aidl_gnss_hal_->deleteAidingData(IGnss::GnssAidingData::TIME);
+    ASSERT_TRUE(status.isOk());
+
+    // Ensure we can get a good location after a bad injection has been deleted
+    StartAndCheckFirstLocation(/* min_interval_msec= */ 1000, /* low_power_mode= */ false);
+    StopAndClearLocations();
+}
+
+/*
+ * InjectSeedLocation:
+ * Injects a seed location and ensures the injected seed location is not fused in the resulting
+ * GNSS location.
+ */
+TEST_P(GnssHalTest, InjectSeedLocation) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    // An arbitrary position in North Pacific Ocean (where no VTS labs will ever likely be located).
+    const double seedLatDegrees = 32.312894;
+    const double seedLngDegrees = -172.954117;
+    const float seedAccuracyMeters = 150.0;
+
+    auto status = aidl_gnss_hal_->injectLocation(
+            Utils::getMockLocation(seedLatDegrees, seedLngDegrees, seedAccuracyMeters));
+    ASSERT_TRUE(status.isOk());
+
+    StartAndCheckFirstLocation(/* min_interval_msec= */ 1000, /* low_power_mode= */ false);
+
+    // Ensure we don't get a location anywhere within 111km (1 degree of lat or lng) of the seed
+    // location.
+    EXPECT_TRUE(std::abs(aidl_gnss_cb_->last_location_.latitudeDegrees - seedLatDegrees) > 1.0 ||
+                std::abs(aidl_gnss_cb_->last_location_.longitudeDegrees - seedLngDegrees) > 1.0);
+
+    StopAndClearLocations();
+
+    status = aidl_gnss_hal_->deleteAidingData(IGnss::GnssAidingData::POSITION);
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * GnssCapabilities:
+ * 1. Verifies that GNSS hardware supports measurement capabilities.
+ * 2. Verifies that GNSS hardware supports Scheduling capabilities.
+ * 3. Verifies that GNSS hardware supports non-empty signal type capabilities.
+ */
+TEST_P(GnssHalTest, GnssCapabilites) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    if (!IsAutomotiveDevice()) {
+        EXPECT_TRUE(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_MEASUREMENTS);
+    }
+    EXPECT_TRUE(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_SCHEDULING);
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 2) {
+        return;
+    }
+    EXPECT_FALSE(aidl_gnss_cb_->last_signal_type_capabilities.empty());
+}
+
+/*
+ * GetLocationLowPower:
+ * Turns on location, waits for at least 5 locations allowing max of LOCATION_TIMEOUT_SUBSEQUENT_SEC
+ * between one location and the next. Also ensure that MIN_INTERVAL_MSEC is respected by waiting
+ * NO_LOCATION_PERIOD_SEC and verfiy that no location is received. Also perform validity checks on
+ * each received location.
+ */
+TEST_P(GnssHalTest, GetLocationLowPower) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    const int kMinIntervalMsec = 5000;
+    const int kLocationTimeoutSubsequentSec = (kMinIntervalMsec / 1000) * 2;
+    const int kNoLocationPeriodSec = (kMinIntervalMsec / 1000) / 2;
+    const int kLocationsToCheck = 5;
+    const bool kLowPowerMode = true;
+
+    // Warmup period - VTS doesn't have AGPS access via GnssLocationProvider
+    aidl_gnss_cb_->location_cbq_.reset();
+    StartAndCheckLocations(kLocationsToCheck);
+    StopAndClearLocations();
+    aidl_gnss_cb_->location_cbq_.reset();
+
+    // Start of Low Power Mode test
+    // Don't expect true - as without AGPS access
+    if (!StartAndCheckFirstLocation(kMinIntervalMsec, kLowPowerMode)) {
+        ALOGW("GetLocationLowPower test - no first low power location received.");
+    }
+
+    for (int i = 1; i < kLocationsToCheck; i++) {
+        // Verify that kMinIntervalMsec is respected by waiting kNoLocationPeriodSec and
+        // ensure that no location is received yet
+
+        aidl_gnss_cb_->location_cbq_.retrieve(aidl_gnss_cb_->last_location_, kNoLocationPeriodSec);
+        const int location_called_count = aidl_gnss_cb_->location_cbq_.calledCount();
+        // Tolerate (ignore) one extra location right after the first one
+        // to handle startup edge case scheduling limitations in some implementations
+        if ((i == 1) && (location_called_count == 2)) {
+            CheckLocation(aidl_gnss_cb_->last_location_, true);
+            continue;  // restart the quiet wait period after this too-fast location
+        }
+        EXPECT_LE(location_called_count, i);
+        if (location_called_count != i) {
+            ALOGW("GetLocationLowPower test - not enough locations received. %d vs. %d expected ",
+                  location_called_count, i);
+        }
+
+        if (!aidl_gnss_cb_->location_cbq_.retrieve(
+                    aidl_gnss_cb_->last_location_,
+                    kLocationTimeoutSubsequentSec - kNoLocationPeriodSec)) {
+            ALOGW("GetLocationLowPower test - timeout awaiting location %d", i);
+        } else {
+            CheckLocation(aidl_gnss_cb_->last_location_, true);
+        }
+    }
+
+    StopAndClearLocations();
+}
+
+/*
+ * InjectBestLocation
+ *
+ * Ensure successfully injecting a location.
+ */
+TEST_P(GnssHalTest, InjectBestLocation) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    StartAndCheckLocations(1);
+    GnssLocation gnssLocation = aidl_gnss_cb_->last_location_;
+    CheckLocation(gnssLocation, true);
+
+    auto status = aidl_gnss_hal_->injectBestLocation(gnssLocation);
+
+    ASSERT_TRUE(status.isOk());
+
+    status = aidl_gnss_hal_->deleteAidingData(IGnss::GnssAidingData::POSITION);
+
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestGnssSvInfoFields:
+ * Gets 1 location and a (non-empty) GnssSvInfo, and verifies basebandCN0DbHz is valid.
+ */
+TEST_P(GnssHalTest, TestGnssSvInfoFields) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    aidl_gnss_cb_->location_cbq_.reset();
+    aidl_gnss_cb_->sv_info_list_cbq_.reset();
+    StartAndCheckFirstLocation(/* min_interval_msec= */ 1000, /* low_power_mode= */ false);
+    int location_called_count = aidl_gnss_cb_->location_cbq_.calledCount();
+    ALOGD("Observed %d GnssSvStatus, while awaiting one location (%d received)",
+          aidl_gnss_cb_->sv_info_list_cbq_.size(), location_called_count);
+
+    // Wait for up to kNumSvInfoLists events for kTimeoutSeconds for each event.
+    int kTimeoutSeconds = 2;
+    int kNumSvInfoLists = 4;
+    std::list<std::vector<IGnssCallback::GnssSvInfo>> sv_info_lists;
+    std::vector<IGnssCallback::GnssSvInfo> last_sv_info_list;
+
+    do {
+        EXPECT_GT(aidl_gnss_cb_->sv_info_list_cbq_.retrieve(sv_info_lists, kNumSvInfoLists,
+                                                            kTimeoutSeconds),
+                  0);
+        if (!sv_info_lists.empty()) {
+            last_sv_info_list = sv_info_lists.back();
+            ALOGD("last_sv_info size = %d", (int)last_sv_info_list.size());
+        }
+    } while (!sv_info_lists.empty() && last_sv_info_list.size() == 0);
+
+    bool nonZeroCn0Found = false;
+    for (auto sv_info : last_sv_info_list) {
+        EXPECT_TRUE(sv_info.basebandCN0DbHz >= 0.0 && sv_info.basebandCN0DbHz <= 65.0);
+        if (sv_info.basebandCN0DbHz > 0.0) {
+            nonZeroCn0Found = true;
+        }
+    }
+    // Assert at least one value is non-zero. Zero is ok in status as it's possibly
+    // reporting a searched but not found satellite.
+    EXPECT_TRUE(nonZeroCn0Found);
+    StopAndClearLocations();
+}
+
+/*
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
  * TestPsdsExtension:
  * 1. Gets the PsdsExtension
  * 2. Injects empty PSDS data and verifies that it returns an error.
@@ -749,3 +1194,1153 @@ TEST_P(GnssHalTest, BlocklistConstellationLocationOn) {
     status = gnss_configuration_hal->setBlocklist(sources);
     ASSERT_TRUE(status.isOk());
 }
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+
+/*
+ * TestAllExtensions.
+ */
+TEST_P(GnssHalTest, TestAllExtensions) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    sp<IGnssBatching> iGnssBatching;
+    auto status = aidl_gnss_hal_->getExtensionGnssBatching(&iGnssBatching);
+    if (status.isOk() && iGnssBatching != nullptr) {
+        auto gnssBatchingCallback = sp<GnssBatchingCallback>::make();
+        status = iGnssBatching->init(gnssBatchingCallback);
+        ASSERT_TRUE(status.isOk());
+
+        status = iGnssBatching->cleanup();
+        ASSERT_TRUE(status.isOk());
+    }
+
+    sp<IGnssGeofence> iGnssGeofence;
+    status = aidl_gnss_hal_->getExtensionGnssGeofence(&iGnssGeofence);
+    if (status.isOk() && iGnssGeofence != nullptr) {
+        auto gnssGeofenceCallback = sp<GnssGeofenceCallback>::make();
+        status = iGnssGeofence->setCallback(gnssGeofenceCallback);
+        ASSERT_TRUE(status.isOk());
+    }
+
+    sp<IGnssNavigationMessageInterface> iGnssNavMsgIface;
+    status = aidl_gnss_hal_->getExtensionGnssNavigationMessage(&iGnssNavMsgIface);
+    if (status.isOk() && iGnssNavMsgIface != nullptr) {
+        auto gnssNavMsgCallback = sp<GnssNavigationMessageCallback>::make();
+        status = iGnssNavMsgIface->setCallback(gnssNavMsgCallback);
+        ASSERT_TRUE(status.isOk());
+
+        status = iGnssNavMsgIface->close();
+        ASSERT_TRUE(status.isOk());
+    }
+}
+
+/*
+ * TestAGnssExtension:
+ * 1. Gets the IAGnss extension.
+ * 2. Sets AGnssCallback.
+ * 3. Sets SUPL server host/port.
+ */
+TEST_P(GnssHalTest, TestAGnssExtension) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    sp<IAGnss> iAGnss;
+    auto status = aidl_gnss_hal_->getExtensionAGnss(&iAGnss);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iAGnss != nullptr);
+
+    auto agnssCallback = sp<AGnssCallbackAidl>::make();
+    status = iAGnss->setCallback(agnssCallback);
+    ASSERT_TRUE(status.isOk());
+
+    // Set SUPL server host/port
+    status = iAGnss->setServer(AGnssType::SUPL, std::string("supl.google.com"), 7275);
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestAGnssRilExtension:
+ * 1. Gets the IAGnssRil extension.
+ * 2. Sets AGnssRilCallback.
+ * 3. Update network state to connected and then disconnected.
+ * 4. Sets reference location.
+ */
+TEST_P(GnssHalTest, TestAGnssRilExtension) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    sp<IAGnssRil> iAGnssRil;
+    auto status = aidl_gnss_hal_->getExtensionAGnssRil(&iAGnssRil);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iAGnssRil != nullptr);
+
+    auto agnssRilCallback = sp<AGnssRilCallbackAidl>::make();
+    status = iAGnssRil->setCallback(agnssRilCallback);
+    ASSERT_TRUE(status.isOk());
+
+    // Update GNSS HAL that a network has connected.
+    IAGnssRil::NetworkAttributes networkAttributes;
+    networkAttributes.networkHandle = 7700664333L;
+    networkAttributes.isConnected = true;
+    networkAttributes.capabilities = IAGnssRil::NETWORK_CAPABILITY_NOT_ROAMING;
+    networkAttributes.apn = "placeholder-apn";
+    status = iAGnssRil->updateNetworkState(networkAttributes);
+    ASSERT_TRUE(status.isOk());
+
+    // Update GNSS HAL that network has disconnected.
+    networkAttributes.isConnected = false;
+    status = iAGnssRil->updateNetworkState(networkAttributes);
+    ASSERT_TRUE(status.isOk());
+
+    // Set RefLocation
+    IAGnssRil::AGnssRefLocationCellID agnssReflocationCellId;
+    agnssReflocationCellId.type = IAGnssRil::AGnssRefLocationType::LTE_CELLID;
+    agnssReflocationCellId.mcc = 466;
+    agnssReflocationCellId.mnc = 97;
+    agnssReflocationCellId.lac = 46697;
+    agnssReflocationCellId.cid = 59168142;
+    agnssReflocationCellId.pcid = 420;
+    agnssReflocationCellId.tac = 11460;
+    IAGnssRil::AGnssRefLocation agnssReflocation;
+    agnssReflocation.type = IAGnssRil::AGnssRefLocationType::LTE_CELLID;
+    agnssReflocation.cellID = agnssReflocationCellId;
+
+    status = iAGnssRil->setRefLocation(agnssReflocation);
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * GnssDebugValuesSanityTest:
+ * Ensures that GnssDebug values make sense.
+ */
+TEST_P(GnssHalTest, GnssDebugValuesSanityTest) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    sp<IGnssDebug> iGnssDebug;
+    auto status = aidl_gnss_hal_->getExtensionGnssDebug(&iGnssDebug);
+    ASSERT_TRUE(status.isOk());
+
+    if (!IsAutomotiveDevice()) {
+        ASSERT_TRUE(iGnssDebug != nullptr);
+
+        IGnssDebug::DebugData data;
+        auto status = iGnssDebug->getDebugData(&data);
+        ASSERT_TRUE(status.isOk());
+
+        if (data.position.valid) {
+            ASSERT_TRUE(data.position.latitudeDegrees >= -90 &&
+                        data.position.latitudeDegrees <= 90);
+            ASSERT_TRUE(data.position.longitudeDegrees >= -180 &&
+                        data.position.longitudeDegrees <= 180);
+            ASSERT_TRUE(data.position.altitudeMeters >= -1000 &&  // Dead Sea: -414m
+                        data.position.altitudeMeters <= 20000);   // Mount Everest: 8850m
+            ASSERT_TRUE(data.position.speedMetersPerSec >= 0 &&
+                        data.position.speedMetersPerSec <= 600);
+            ASSERT_TRUE(data.position.bearingDegrees >= -360 &&
+                        data.position.bearingDegrees <= 360);
+            ASSERT_TRUE(data.position.horizontalAccuracyMeters > 0 &&
+                        data.position.horizontalAccuracyMeters <= 20000000);
+            ASSERT_TRUE(data.position.verticalAccuracyMeters > 0 &&
+                        data.position.verticalAccuracyMeters <= 20000);
+            ASSERT_TRUE(data.position.speedAccuracyMetersPerSecond > 0 &&
+                        data.position.speedAccuracyMetersPerSecond <= 500);
+            ASSERT_TRUE(data.position.bearingAccuracyDegrees > 0 &&
+                        data.position.bearingAccuracyDegrees <= 180);
+            ASSERT_TRUE(data.position.ageSeconds >= 0);
+        }
+        ASSERT_TRUE(data.time.timeEstimateMs >= 1483228800000);  // Jan 01 2017 00:00:00 GMT.
+        ASSERT_TRUE(data.time.timeUncertaintyNs > 0);
+        ASSERT_TRUE(data.time.frequencyUncertaintyNsPerSec > 0 &&
+                    data.time.frequencyUncertaintyNsPerSec <= 2.0e5);  // 200 ppm
+    }
+}
+
+/*
+ * TestGnssVisibilityControlExtension:
+ * 1. Gets the IGnssVisibilityControl extension.
+ * 2. Sets GnssVisibilityControlCallback
+ * 3. Sets proxy apps
+ */
+TEST_P(GnssHalTest, TestGnssVisibilityControlExtension) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    sp<IGnssVisibilityControl> iGnssVisibilityControl;
+    auto status = aidl_gnss_hal_->getExtensionGnssVisibilityControl(&iGnssVisibilityControl);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssVisibilityControl != nullptr);
+    auto gnssVisibilityControlCallback = sp<GnssVisibilityControlCallback>::make();
+    status = iGnssVisibilityControl->setCallback(gnssVisibilityControlCallback);
+    ASSERT_TRUE(status.isOk());
+
+    std::vector<std::string> proxyApps{std::string("com.example.ims"),
+                                       std::string("com.example.mdt")};
+    status = iGnssVisibilityControl->enableNfwLocationAccess(proxyApps);
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestGnssAgcInGnssMeasurement:
+ * 1. Gets the GnssMeasurementExtension and verifies that it returns a non-null extension.
+ * 2. Sets a GnssMeasurementCallback, waits for a measurement.
+ */
+TEST_P(GnssHalTest, TestGnssAgcInGnssMeasurement) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    const int kFirstGnssMeasurementTimeoutSeconds = 10;
+    const int kNumMeasurementEvents = 5;
+
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    auto callback = sp<GnssMeasurementCallbackAidl>::make();
+    status = iGnssMeasurement->setCallback(callback, /* enableFullTracking= */ false,
+                                           /* enableCorrVecOutputs */ false);
+    ASSERT_TRUE(status.isOk());
+
+    for (int i = 0; i < kNumMeasurementEvents; i++) {
+        GnssData lastMeasurement;
+        ASSERT_TRUE(callback->gnss_data_cbq_.retrieve(lastMeasurement,
+                                                      kFirstGnssMeasurementTimeoutSeconds));
+        EXPECT_EQ(callback->gnss_data_cbq_.calledCount(), i + 1);
+        ASSERT_TRUE(lastMeasurement.measurements.size() > 0);
+
+        // Validity check GnssData fields
+        checkGnssMeasurementClockFields(lastMeasurement);
+
+        ASSERT_TRUE(lastMeasurement.gnssAgcs.size() > 0);
+        for (const auto& gnssAgc : lastMeasurement.gnssAgcs) {
+            ASSERT_TRUE(gnssAgc.carrierFrequencyHz >= 0);
+        }
+    }
+
+    status = iGnssMeasurement->close();
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestGnssAntennaInfo:
+ * Sets a GnssAntennaInfoCallback, waits for report, and verifies
+ * 1. phaseCenterOffsetCoordinateMillimeters is valid
+ * 2. phaseCenterOffsetCoordinateUncertaintyMillimeters is valid.
+ * PhaseCenterVariationCorrections and SignalGainCorrections are optional.
+ */
+TEST_P(GnssHalTest, TestGnssAntennaInfo) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    const int kAntennaInfoTimeoutSeconds = 2;
+    sp<IGnssAntennaInfo> iGnssAntennaInfo;
+    auto status = aidl_gnss_hal_->getExtensionGnssAntennaInfo(&iGnssAntennaInfo);
+    ASSERT_TRUE(status.isOk());
+
+    if (!(aidl_gnss_cb_->last_capabilities_ & (int)GnssCallbackAidl::CAPABILITY_ANTENNA_INFO) ||
+        iGnssAntennaInfo == nullptr) {
+        ALOGD("GnssAntennaInfo AIDL is not supported.");
+        return;
+    }
+
+    auto callback = sp<GnssAntennaInfoCallbackAidl>::make();
+    status = iGnssAntennaInfo->setCallback(callback);
+    ASSERT_TRUE(status.isOk());
+
+    std::vector<IGnssAntennaInfoCallback::GnssAntennaInfo> antennaInfos;
+    ASSERT_TRUE(callback->antenna_info_cbq_.retrieve(antennaInfos, kAntennaInfoTimeoutSeconds));
+    EXPECT_EQ(callback->antenna_info_cbq_.calledCount(), 1);
+    ASSERT_TRUE(antennaInfos.size() > 0);
+
+    for (auto antennaInfo : antennaInfos) {
+        // Remaining fields are optional
+        if (!antennaInfo.phaseCenterVariationCorrectionMillimeters.empty()) {
+            int numRows = antennaInfo.phaseCenterVariationCorrectionMillimeters.size();
+            int numColumns = antennaInfo.phaseCenterVariationCorrectionMillimeters[0].row.size();
+            // Must have at least 1 row and 2 columns
+            ASSERT_TRUE(numRows >= 1 && numColumns >= 2);
+
+            // Corrections and uncertainties must have same dimensions
+            ASSERT_TRUE(antennaInfo.phaseCenterVariationCorrectionMillimeters.size() ==
+                        antennaInfo.phaseCenterVariationCorrectionUncertaintyMillimeters.size());
+            ASSERT_TRUE(
+                    antennaInfo.phaseCenterVariationCorrectionMillimeters[0].row.size() ==
+                    antennaInfo.phaseCenterVariationCorrectionUncertaintyMillimeters[0].row.size());
+
+            // Must be rectangular
+            for (auto row : antennaInfo.phaseCenterVariationCorrectionMillimeters) {
+                ASSERT_TRUE(row.row.size() == numColumns);
+            }
+            for (auto row : antennaInfo.phaseCenterVariationCorrectionUncertaintyMillimeters) {
+                ASSERT_TRUE(row.row.size() == numColumns);
+            }
+        }
+        if (!antennaInfo.signalGainCorrectionDbi.empty()) {
+            int numRows = antennaInfo.signalGainCorrectionDbi.size();
+            int numColumns = antennaInfo.signalGainCorrectionUncertaintyDbi[0].row.size();
+            // Must have at least 1 row and 2 columns
+            ASSERT_TRUE(numRows >= 1 && numColumns >= 2);
+
+            // Corrections and uncertainties must have same dimensions
+            ASSERT_TRUE(antennaInfo.signalGainCorrectionDbi.size() ==
+                        antennaInfo.signalGainCorrectionUncertaintyDbi.size());
+            ASSERT_TRUE(antennaInfo.signalGainCorrectionDbi[0].row.size() ==
+                        antennaInfo.signalGainCorrectionUncertaintyDbi[0].row.size());
+
+            // Must be rectangular
+            for (auto row : antennaInfo.signalGainCorrectionDbi) {
+                ASSERT_TRUE(row.row.size() == numColumns);
+            }
+            for (auto row : antennaInfo.signalGainCorrectionUncertaintyDbi) {
+                ASSERT_TRUE(row.row.size() == numColumns);
+            }
+        }
+    }
+
+    iGnssAntennaInfo->close();
+}
+
+/*
+ * TestGnssMeasurementCorrections:
+ * If measurement corrections capability is supported, verifies that the measurement corrections
+ * capabilities are reported and the mandatory LOS_SATS or the EXCESS_PATH_LENGTH
+ * capability flag is set.
+ */
+TEST_P(GnssHalTest, TestGnssMeasurementCorrections) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    if (!(aidl_gnss_cb_->last_capabilities_ &
+          (int)GnssCallbackAidl::CAPABILITY_MEASUREMENT_CORRECTIONS)) {
+        return;
+    }
+
+    sp<IMeasurementCorrectionsInterface> iMeasurementCorrectionsAidl;
+    auto status = aidl_gnss_hal_->getExtensionMeasurementCorrections(&iMeasurementCorrectionsAidl);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iMeasurementCorrectionsAidl != nullptr);
+
+    // Setup measurement corrections callback.
+    auto gnssMeasurementCorrectionsCallback = sp<MeasurementCorrectionsCallback>::make();
+    status = iMeasurementCorrectionsAidl->setCallback(gnssMeasurementCorrectionsCallback);
+    ASSERT_TRUE(status.isOk());
+
+    const int kTimeoutSec = 5;
+    EXPECT_TRUE(gnssMeasurementCorrectionsCallback->capabilities_cbq_.retrieve(
+            gnssMeasurementCorrectionsCallback->last_capabilities_, kTimeoutSec));
+    ASSERT_TRUE(gnssMeasurementCorrectionsCallback->capabilities_cbq_.calledCount() > 0);
+
+    ASSERT_TRUE((gnssMeasurementCorrectionsCallback->last_capabilities_ &
+                 (MeasurementCorrectionsCallback::CAPABILITY_LOS_SATS |
+                  MeasurementCorrectionsCallback::CAPABILITY_EXCESS_PATH_LENGTH)) != 0);
+
+    // Set a mock MeasurementCorrections.
+    status = iMeasurementCorrectionsAidl->setCorrections(
+            Utils::getMockMeasurementCorrections_aidl());
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestStopSvStatusAndNmea:
+ * 1. Call stopSvStatus and stopNmea.
+ * 2. Start location and verify that
+ *    - no SvStatus is received.
+ *    - no Nmea is received.
+ */
+TEST_P(GnssHalTest, TestStopSvStatusAndNmea) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    auto status = aidl_gnss_hal_->stopSvStatus();
+    EXPECT_TRUE(status.isOk());
+    status = aidl_gnss_hal_->stopNmea();
+    EXPECT_TRUE(status.isOk());
+
+    int kLocationsToAwait = 5;
+    aidl_gnss_cb_->location_cbq_.reset();
+    aidl_gnss_cb_->sv_info_list_cbq_.reset();
+    aidl_gnss_cb_->nmea_cbq_.reset();
+    StartAndCheckLocations(/* count= */ kLocationsToAwait,
+                           /* start_sv_status= */ false, /* start_nmea= */ false);
+    int location_called_count = aidl_gnss_cb_->location_cbq_.calledCount();
+    ALOGD("Observed %d GnssSvStatus, and %d Nmea while awaiting %d locations (%d received)",
+          aidl_gnss_cb_->sv_info_list_cbq_.size(), aidl_gnss_cb_->nmea_cbq_.size(),
+          kLocationsToAwait, location_called_count);
+
+    // Ensure that no SvStatus & no Nmea is received.
+    EXPECT_EQ(aidl_gnss_cb_->sv_info_list_cbq_.size(), 0);
+    EXPECT_EQ(aidl_gnss_cb_->nmea_cbq_.size(), 0);
+
+    StopAndClearLocations();
+}
+
+/*
+ * TestGnssMeasurementIntervals_WithoutLocation:
+ * 1. start measurement with interval
+ * 2. verify that the received measurement intervals have expected mean and stdev
+ */
+TEST_P(GnssHalTest, TestGnssMeasurementIntervals_WithoutLocation) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    std::vector<int> intervals({2000, 4000});
+    std::vector<int> numEvents({10, 5});
+
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    ALOGD("TestGnssMeasurementIntervals_WithoutLocation");
+    for (int i = 0; i < intervals.size(); i++) {
+        auto callback = sp<GnssMeasurementCallbackAidl>::make();
+        startMeasurementWithInterval(intervals[i], iGnssMeasurement, callback);
+
+        std::vector<int> deltas;
+        collectMeasurementIntervals(callback, numEvents[i], /* timeoutSeconds= */ 10, deltas);
+
+        status = iGnssMeasurement->close();
+        ASSERT_TRUE(status.isOk());
+
+        assertMeanAndStdev(intervals[i], deltas);
+    }
+}
+
+/*
+ * TestGnssMeasurementIntervals_LocationOnBeforeMeasurement:
+ * 1. start measurement with interval
+ * 2. verify that the received measurement intervals have expected mean and stdev
+ */
+TEST_P(GnssHalTest, TestGnssMeasurementIntervals_LocationOnBeforeMeasurement) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    std::vector<int> intervals({2000});
+
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    int locationIntervalMs = 1000;
+
+    // Start location first and then start measurement
+    ALOGD("TestGnssMeasurementIntervals_LocationOnBeforeMeasurement");
+    StartAndCheckFirstLocation(locationIntervalMs, /* lowPowerMode= */ false);
+    for (auto& intervalMs : intervals) {
+        auto callback = sp<GnssMeasurementCallbackAidl>::make();
+        startMeasurementWithInterval(intervalMs, iGnssMeasurement, callback);
+
+        std::vector<int> deltas;
+        collectMeasurementIntervals(callback, /*numEvents=*/10, /*timeoutSeconds=*/10, deltas);
+
+        status = iGnssMeasurement->close();
+        ASSERT_TRUE(status.isOk());
+
+        assertMeanAndStdev(locationIntervalMs, deltas);
+    }
+    StopAndClearLocations();
+}
+
+/*
+ * TestGnssMeasurementIntervals:
+ * 1. start measurement with interval
+ * 2. verify that the received measurement intervals have expected mean and stdev
+ */
+TEST_P(GnssHalTest, TestGnssMeasurementIntervals_LocationOnAfterMeasurement) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    std::vector<int> intervals({2000});
+
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    int locationIntervalMs = 1000;
+    // Start location first and then start measurement
+    ALOGD("TestGnssMeasurementIntervals_LocationOnAfterMeasurement");
+    for (auto& intervalMs : intervals) {
+        auto callback = sp<GnssMeasurementCallbackAidl>::make();
+        startMeasurementWithInterval(intervalMs, iGnssMeasurement, callback);
+
+        StartAndCheckFirstLocation(locationIntervalMs, /* lowPowerMode= */ false);
+        std::vector<int> deltas;
+        collectMeasurementIntervals(callback, /*numEvents=*/10, /*timeoutSeconds=*/10, deltas);
+
+        StopAndClearLocations();
+        status = iGnssMeasurement->close();
+        ASSERT_TRUE(status.isOk());
+
+        assertMeanAndStdev(locationIntervalMs, deltas);
+    }
+}
+=======
+
+/*
+ * TestAllExtensions.
+ */
+TEST_P(GnssHalTest, TestAllExtensions) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    sp<IGnssBatching> iGnssBatching;
+    auto status = aidl_gnss_hal_->getExtensionGnssBatching(&iGnssBatching);
+    if (status.isOk() && iGnssBatching != nullptr) {
+        auto gnssBatchingCallback = sp<GnssBatchingCallback>::make();
+        status = iGnssBatching->init(gnssBatchingCallback);
+        ASSERT_TRUE(status.isOk());
+
+        status = iGnssBatching->cleanup();
+        ASSERT_TRUE(status.isOk());
+    }
+
+    sp<IGnssGeofence> iGnssGeofence;
+    status = aidl_gnss_hal_->getExtensionGnssGeofence(&iGnssGeofence);
+    if (status.isOk() && iGnssGeofence != nullptr) {
+        auto gnssGeofenceCallback = sp<GnssGeofenceCallback>::make();
+        status = iGnssGeofence->setCallback(gnssGeofenceCallback);
+        ASSERT_TRUE(status.isOk());
+    }
+
+    sp<IGnssNavigationMessageInterface> iGnssNavMsgIface;
+    status = aidl_gnss_hal_->getExtensionGnssNavigationMessage(&iGnssNavMsgIface);
+    if (status.isOk() && iGnssNavMsgIface != nullptr) {
+        auto gnssNavMsgCallback = sp<GnssNavigationMessageCallback>::make();
+        status = iGnssNavMsgIface->setCallback(gnssNavMsgCallback);
+        ASSERT_TRUE(status.isOk());
+
+        status = iGnssNavMsgIface->close();
+        ASSERT_TRUE(status.isOk());
+    }
+}
+
+/*
+ * TestAGnssExtension:
+ * 1. Gets the IAGnss extension.
+ * 2. Sets AGnssCallback.
+ * 3. Sets SUPL server host/port.
+ */
+TEST_P(GnssHalTest, TestAGnssExtension) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    sp<IAGnss> iAGnss;
+    auto status = aidl_gnss_hal_->getExtensionAGnss(&iAGnss);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iAGnss != nullptr);
+
+    auto agnssCallback = sp<AGnssCallbackAidl>::make();
+    status = iAGnss->setCallback(agnssCallback);
+    ASSERT_TRUE(status.isOk());
+
+    // Set SUPL server host/port
+    status = iAGnss->setServer(AGnssType::SUPL, std::string("supl.google.com"), 7275);
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestAGnssRilExtension:
+ * 1. Gets the IAGnssRil extension.
+ * 2. Sets AGnssRilCallback.
+ * 3. Update network state to connected and then disconnected.
+ * 4. Sets reference location.
+ * 5. Injects empty NI message data and verifies that it returns an error.
+ */
+TEST_P(GnssHalTest, TestAGnssRilExtension) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    sp<IAGnssRil> iAGnssRil;
+    auto status = aidl_gnss_hal_->getExtensionAGnssRil(&iAGnssRil);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iAGnssRil != nullptr);
+
+    auto agnssRilCallback = sp<AGnssRilCallbackAidl>::make();
+    status = iAGnssRil->setCallback(agnssRilCallback);
+    ASSERT_TRUE(status.isOk());
+
+    // Update GNSS HAL that a network has connected.
+    IAGnssRil::NetworkAttributes networkAttributes;
+    networkAttributes.networkHandle = 7700664333L;
+    networkAttributes.isConnected = true;
+    networkAttributes.capabilities = IAGnssRil::NETWORK_CAPABILITY_NOT_ROAMING;
+    networkAttributes.apn = "placeholder-apn";
+    status = iAGnssRil->updateNetworkState(networkAttributes);
+    ASSERT_TRUE(status.isOk());
+
+    // Update GNSS HAL that network has disconnected.
+    networkAttributes.isConnected = false;
+    status = iAGnssRil->updateNetworkState(networkAttributes);
+    ASSERT_TRUE(status.isOk());
+
+    // Set RefLocation
+    IAGnssRil::AGnssRefLocationCellID agnssReflocationCellId;
+    agnssReflocationCellId.type = IAGnssRil::AGnssRefLocationType::LTE_CELLID;
+    agnssReflocationCellId.mcc = 466;
+    agnssReflocationCellId.mnc = 97;
+    agnssReflocationCellId.lac = 46697;
+    agnssReflocationCellId.cid = 59168142;
+    agnssReflocationCellId.pcid = 420;
+    agnssReflocationCellId.tac = 11460;
+    IAGnssRil::AGnssRefLocation agnssReflocation;
+    agnssReflocation.type = IAGnssRil::AGnssRefLocationType::LTE_CELLID;
+    agnssReflocation.cellID = agnssReflocationCellId;
+
+    status = iAGnssRil->setRefLocation(agnssReflocation);
+    ASSERT_TRUE(status.isOk());
+
+    if (aidl_gnss_hal_->getInterfaceVersion() >= 3) {
+        status = iAGnssRil->injectNiSuplMessageData(std::vector<uint8_t>(), 0);
+        ASSERT_FALSE(status.isOk());
+    }
+}
+
+/*
+ * GnssDebugValuesSanityTest:
+ * Ensures that GnssDebug values make sense.
+ */
+TEST_P(GnssHalTest, GnssDebugValuesSanityTest) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    sp<IGnssDebug> iGnssDebug;
+    auto status = aidl_gnss_hal_->getExtensionGnssDebug(&iGnssDebug);
+    ASSERT_TRUE(status.isOk());
+
+    if (!IsAutomotiveDevice()) {
+        ASSERT_TRUE(iGnssDebug != nullptr);
+
+        IGnssDebug::DebugData data;
+        auto status = iGnssDebug->getDebugData(&data);
+        ASSERT_TRUE(status.isOk());
+
+        if (data.position.valid) {
+            ASSERT_TRUE(data.position.latitudeDegrees >= -90 &&
+                        data.position.latitudeDegrees <= 90);
+            ASSERT_TRUE(data.position.longitudeDegrees >= -180 &&
+                        data.position.longitudeDegrees <= 180);
+            ASSERT_TRUE(data.position.altitudeMeters >= -1000 &&  // Dead Sea: -414m
+                        data.position.altitudeMeters <= 20000);   // Mount Everest: 8850m
+            ASSERT_TRUE(data.position.speedMetersPerSec >= 0 &&
+                        data.position.speedMetersPerSec <= 600);
+            ASSERT_TRUE(data.position.bearingDegrees >= -360 &&
+                        data.position.bearingDegrees <= 360);
+            ASSERT_TRUE(data.position.horizontalAccuracyMeters > 0 &&
+                        data.position.horizontalAccuracyMeters <= 20000000);
+            ASSERT_TRUE(data.position.verticalAccuracyMeters > 0 &&
+                        data.position.verticalAccuracyMeters <= 20000);
+            ASSERT_TRUE(data.position.speedAccuracyMetersPerSecond > 0 &&
+                        data.position.speedAccuracyMetersPerSecond <= 500);
+            ASSERT_TRUE(data.position.bearingAccuracyDegrees > 0 &&
+                        data.position.bearingAccuracyDegrees <= 180);
+            ASSERT_TRUE(data.position.ageSeconds >= 0);
+        }
+        ASSERT_TRUE(data.time.timeEstimateMs >= 1483228800000);  // Jan 01 2017 00:00:00 GMT.
+        ASSERT_TRUE(data.time.timeUncertaintyNs > 0);
+        ASSERT_TRUE(data.time.frequencyUncertaintyNsPerSec > 0 &&
+                    data.time.frequencyUncertaintyNsPerSec <= 2.0e5);  // 200 ppm
+    }
+}
+
+/*
+ * TestGnssVisibilityControlExtension:
+ * 1. Gets the IGnssVisibilityControl extension.
+ * 2. Sets GnssVisibilityControlCallback
+ * 3. Sets proxy apps
+ */
+TEST_P(GnssHalTest, TestGnssVisibilityControlExtension) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    sp<IGnssVisibilityControl> iGnssVisibilityControl;
+    auto status = aidl_gnss_hal_->getExtensionGnssVisibilityControl(&iGnssVisibilityControl);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssVisibilityControl != nullptr);
+    auto gnssVisibilityControlCallback = sp<GnssVisibilityControlCallback>::make();
+    status = iGnssVisibilityControl->setCallback(gnssVisibilityControlCallback);
+    ASSERT_TRUE(status.isOk());
+
+    std::vector<std::string> proxyApps{std::string("com.example.ims"),
+                                       std::string("com.example.mdt")};
+    status = iGnssVisibilityControl->enableNfwLocationAccess(proxyApps);
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestGnssAgcInGnssMeasurement:
+ * 1. Gets the GnssMeasurementExtension and verifies that it returns a non-null extension.
+ * 2. Sets a GnssMeasurementCallback, waits for a measurement.
+ */
+TEST_P(GnssHalTest, TestGnssAgcInGnssMeasurement) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    const int kFirstGnssMeasurementTimeoutSeconds = 10;
+    const int kNumMeasurementEvents = 5;
+
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    auto callback = sp<GnssMeasurementCallbackAidl>::make();
+    status = iGnssMeasurement->setCallback(callback, /* enableFullTracking= */ false,
+                                           /* enableCorrVecOutputs */ false);
+    ASSERT_TRUE(status.isOk());
+
+    for (int i = 0; i < kNumMeasurementEvents; i++) {
+        GnssData lastMeasurement;
+        ASSERT_TRUE(callback->gnss_data_cbq_.retrieve(lastMeasurement,
+                                                      kFirstGnssMeasurementTimeoutSeconds));
+        EXPECT_EQ(callback->gnss_data_cbq_.calledCount(), i + 1);
+        ASSERT_TRUE(lastMeasurement.measurements.size() > 0);
+
+        // Validity check GnssData fields
+        checkGnssMeasurementClockFields(lastMeasurement);
+
+        ASSERT_TRUE(lastMeasurement.gnssAgcs.size() > 0);
+        for (const auto& gnssAgc : lastMeasurement.gnssAgcs) {
+            ASSERT_TRUE(gnssAgc.carrierFrequencyHz >= 0);
+        }
+    }
+
+    status = iGnssMeasurement->close();
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestGnssAntennaInfo:
+ * Sets a GnssAntennaInfoCallback, waits for report, and verifies
+ * 1. phaseCenterOffsetCoordinateMillimeters is valid
+ * 2. phaseCenterOffsetCoordinateUncertaintyMillimeters is valid.
+ * PhaseCenterVariationCorrections and SignalGainCorrections are optional.
+ */
+TEST_P(GnssHalTest, TestGnssAntennaInfo) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    const int kAntennaInfoTimeoutSeconds = 2;
+    sp<IGnssAntennaInfo> iGnssAntennaInfo;
+    auto status = aidl_gnss_hal_->getExtensionGnssAntennaInfo(&iGnssAntennaInfo);
+    ASSERT_TRUE(status.isOk());
+
+    if (!(aidl_gnss_cb_->last_capabilities_ & (int)GnssCallbackAidl::CAPABILITY_ANTENNA_INFO) ||
+        iGnssAntennaInfo == nullptr) {
+        ALOGD("GnssAntennaInfo AIDL is not supported.");
+        return;
+    }
+
+    auto callback = sp<GnssAntennaInfoCallbackAidl>::make();
+    status = iGnssAntennaInfo->setCallback(callback);
+    ASSERT_TRUE(status.isOk());
+
+    std::vector<IGnssAntennaInfoCallback::GnssAntennaInfo> antennaInfos;
+    ASSERT_TRUE(callback->antenna_info_cbq_.retrieve(antennaInfos, kAntennaInfoTimeoutSeconds));
+    EXPECT_EQ(callback->antenna_info_cbq_.calledCount(), 1);
+    ASSERT_TRUE(antennaInfos.size() > 0);
+
+    for (auto antennaInfo : antennaInfos) {
+        // Remaining fields are optional
+        if (!antennaInfo.phaseCenterVariationCorrectionMillimeters.empty()) {
+            int numRows = antennaInfo.phaseCenterVariationCorrectionMillimeters.size();
+            int numColumns = antennaInfo.phaseCenterVariationCorrectionMillimeters[0].row.size();
+            // Must have at least 1 row and 2 columns
+            ASSERT_TRUE(numRows >= 1 && numColumns >= 2);
+
+            // Corrections and uncertainties must have same dimensions
+            ASSERT_TRUE(antennaInfo.phaseCenterVariationCorrectionMillimeters.size() ==
+                        antennaInfo.phaseCenterVariationCorrectionUncertaintyMillimeters.size());
+            ASSERT_TRUE(
+                    antennaInfo.phaseCenterVariationCorrectionMillimeters[0].row.size() ==
+                    antennaInfo.phaseCenterVariationCorrectionUncertaintyMillimeters[0].row.size());
+
+            // Must be rectangular
+            for (auto row : antennaInfo.phaseCenterVariationCorrectionMillimeters) {
+                ASSERT_TRUE(row.row.size() == numColumns);
+            }
+            for (auto row : antennaInfo.phaseCenterVariationCorrectionUncertaintyMillimeters) {
+                ASSERT_TRUE(row.row.size() == numColumns);
+            }
+        }
+        if (!antennaInfo.signalGainCorrectionDbi.empty()) {
+            int numRows = antennaInfo.signalGainCorrectionDbi.size();
+            int numColumns = antennaInfo.signalGainCorrectionUncertaintyDbi[0].row.size();
+            // Must have at least 1 row and 2 columns
+            ASSERT_TRUE(numRows >= 1 && numColumns >= 2);
+
+            // Corrections and uncertainties must have same dimensions
+            ASSERT_TRUE(antennaInfo.signalGainCorrectionDbi.size() ==
+                        antennaInfo.signalGainCorrectionUncertaintyDbi.size());
+            ASSERT_TRUE(antennaInfo.signalGainCorrectionDbi[0].row.size() ==
+                        antennaInfo.signalGainCorrectionUncertaintyDbi[0].row.size());
+
+            // Must be rectangular
+            for (auto row : antennaInfo.signalGainCorrectionDbi) {
+                ASSERT_TRUE(row.row.size() == numColumns);
+            }
+            for (auto row : antennaInfo.signalGainCorrectionUncertaintyDbi) {
+                ASSERT_TRUE(row.row.size() == numColumns);
+            }
+        }
+    }
+
+    iGnssAntennaInfo->close();
+}
+
+/*
+ * TestGnssMeasurementCorrections:
+ * If measurement corrections capability is supported, verifies that the measurement corrections
+ * capabilities are reported and the mandatory LOS_SATS or the EXCESS_PATH_LENGTH
+ * capability flag is set.
+ */
+TEST_P(GnssHalTest, TestGnssMeasurementCorrections) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    if (!(aidl_gnss_cb_->last_capabilities_ &
+          (int)GnssCallbackAidl::CAPABILITY_MEASUREMENT_CORRECTIONS)) {
+        return;
+    }
+
+    sp<IMeasurementCorrectionsInterface> iMeasurementCorrectionsAidl;
+    auto status = aidl_gnss_hal_->getExtensionMeasurementCorrections(&iMeasurementCorrectionsAidl);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iMeasurementCorrectionsAidl != nullptr);
+
+    // Setup measurement corrections callback.
+    auto gnssMeasurementCorrectionsCallback = sp<MeasurementCorrectionsCallback>::make();
+    status = iMeasurementCorrectionsAidl->setCallback(gnssMeasurementCorrectionsCallback);
+    ASSERT_TRUE(status.isOk());
+
+    const int kTimeoutSec = 5;
+    EXPECT_TRUE(gnssMeasurementCorrectionsCallback->capabilities_cbq_.retrieve(
+            gnssMeasurementCorrectionsCallback->last_capabilities_, kTimeoutSec));
+    ASSERT_TRUE(gnssMeasurementCorrectionsCallback->capabilities_cbq_.calledCount() > 0);
+
+    ASSERT_TRUE((gnssMeasurementCorrectionsCallback->last_capabilities_ &
+                 (MeasurementCorrectionsCallback::CAPABILITY_LOS_SATS |
+                  MeasurementCorrectionsCallback::CAPABILITY_EXCESS_PATH_LENGTH)) != 0);
+
+    // Set a mock MeasurementCorrections.
+    status = iMeasurementCorrectionsAidl->setCorrections(
+            Utils::getMockMeasurementCorrections_aidl());
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestStopSvStatusAndNmea:
+ * 1. Call stopSvStatus and stopNmea.
+ * 2. Start location and verify that
+ *    - no SvStatus is received.
+ *    - no Nmea is received.
+ */
+TEST_P(GnssHalTest, TestStopSvStatusAndNmea) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    auto status = aidl_gnss_hal_->stopSvStatus();
+    EXPECT_TRUE(status.isOk());
+    status = aidl_gnss_hal_->stopNmea();
+    EXPECT_TRUE(status.isOk());
+
+    int kLocationsToAwait = 5;
+    aidl_gnss_cb_->location_cbq_.reset();
+    aidl_gnss_cb_->sv_info_list_cbq_.reset();
+    aidl_gnss_cb_->nmea_cbq_.reset();
+    StartAndCheckLocations(/* count= */ kLocationsToAwait,
+                           /* start_sv_status= */ false, /* start_nmea= */ false);
+    int location_called_count = aidl_gnss_cb_->location_cbq_.calledCount();
+    ALOGD("Observed %d GnssSvStatus, and %d Nmea while awaiting %d locations (%d received)",
+          aidl_gnss_cb_->sv_info_list_cbq_.size(), aidl_gnss_cb_->nmea_cbq_.size(),
+          kLocationsToAwait, location_called_count);
+
+    // Ensure that no SvStatus & no Nmea is received.
+    EXPECT_EQ(aidl_gnss_cb_->sv_info_list_cbq_.size(), 0);
+    EXPECT_EQ(aidl_gnss_cb_->nmea_cbq_.size(), 0);
+
+    StopAndClearLocations();
+}
+
+/*
+ * TestGnssMeasurementIntervals_WithoutLocation:
+ * 1. Start measurement at intervals
+ * 2. Verify measurement are received at expected intervals
+ * 3. Verify status are reported at expected intervals
+ */
+TEST_P(GnssHalTest, TestGnssMeasurementIntervals_WithoutLocation) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    std::vector<int> intervals({2000, 4000});
+    std::vector<int> numEvents({10, 5});
+
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    ALOGD("TestGnssMeasurementIntervals_WithoutLocation");
+    for (int i = 0; i < intervals.size(); i++) {
+        auto callback = sp<GnssMeasurementCallbackAidl>::make();
+        startMeasurementWithInterval(intervals[i], iGnssMeasurement, callback);
+
+        std::vector<int> measurementDeltas;
+        std::vector<int> svInfoListTimestampsDeltas;
+
+        collectMeasurementIntervals(callback, numEvents[i], /* timeoutSeconds= */ 10,
+                                    measurementDeltas);
+        if (aidl_gnss_hal_->getInterfaceVersion() >= 3) {
+            collectSvInfoListTimestamps(numEvents[i], /* timeoutSeconds= */ 10,
+                                        svInfoListTimestampsDeltas);
+        }
+        status = iGnssMeasurement->close();
+        ASSERT_TRUE(status.isOk());
+
+        assertMeanAndStdev(intervals[i], measurementDeltas);
+
+        if (aidl_gnss_hal_->getInterfaceVersion() >= 3) {
+            assertMeanAndStdev(intervals[i], svInfoListTimestampsDeltas);
+            EXPECT_TRUE(aidl_gnss_cb_->sv_info_list_cbq_.size() > 0);
+        }
+    }
+}
+
+/*
+ * TestGnssMeasurementIntervals_LocationOnBeforeMeasurement:
+ * 1. Start location at 1s.
+ * 2. Start measurement at 2s. Verify measurements are received at 1s.
+ * 3. Stop measurement. Stop location.
+ */
+TEST_P(GnssHalTest, TestGnssMeasurementIntervals_LocationOnBeforeMeasurement) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+
+    std::vector<int> intervals({2000});
+
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    int locationIntervalMs = 1000;
+
+    // Start location first and then start measurement
+    ALOGD("TestGnssMeasurementIntervals_LocationOnBeforeMeasurement");
+    StartAndCheckFirstLocation(locationIntervalMs, /* lowPowerMode= */ false);
+    for (auto& intervalMs : intervals) {
+        auto callback = sp<GnssMeasurementCallbackAidl>::make();
+        startMeasurementWithInterval(intervalMs, iGnssMeasurement, callback);
+
+        std::vector<int> deltas;
+        collectMeasurementIntervals(callback, /*numEvents=*/10, /*timeoutSeconds=*/10, deltas);
+
+        status = iGnssMeasurement->close();
+        ASSERT_TRUE(status.isOk());
+
+        assertMeanAndStdev(locationIntervalMs, deltas);
+    }
+    StopAndClearLocations();
+}
+
+/*
+ * TestGnssMeasurementIntervals_LocationOnAfterMeasurement:
+ * 1. Start measurement at 2s
+ * 2. Start location at 1s. Verify measurements are received at 1s
+ * 3. Stop location. Verify measurements are received at 2s
+ * 4. Stop measurement
+ */
+TEST_P(GnssHalTest, TestGnssMeasurementIntervals_LocationOnAfterMeasurement) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
+        return;
+    }
+    const int kFirstMeasTimeoutSec = 10;
+    std::vector<int> intervals({2000});
+
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    int locationIntervalMs = 1000;
+    // Start measurement first and then start location
+    ALOGD("TestGnssMeasurementIntervals_LocationOnAfterMeasurement");
+    for (auto& intervalMs : intervals) {
+        auto callback = sp<GnssMeasurementCallbackAidl>::make();
+        startMeasurementWithInterval(intervalMs, iGnssMeasurement, callback);
+
+        // Start location and verify the measurements are received at 1Hz
+        StartAndCheckFirstLocation(locationIntervalMs, /* lowPowerMode= */ false);
+        std::vector<int> deltas;
+        collectMeasurementIntervals(callback, /*numEvents=*/10, kFirstMeasTimeoutSec, deltas);
+        assertMeanAndStdev(locationIntervalMs, deltas);
+
+        // Stop location request and verify the measurements are received at 2s intervals
+        StopAndClearLocations();
+        callback->gnss_data_cbq_.reset();
+        deltas.clear();
+        collectMeasurementIntervals(callback, /*numEvents=*/5, kFirstMeasTimeoutSec, deltas);
+        assertMeanAndStdev(intervalMs, deltas);
+
+        status = iGnssMeasurement->close();
+        ASSERT_TRUE(status.isOk());
+    }
+}
+
+/*
+ * TestGnssMeasurementIntervals_changeIntervals:
+ * This test ensures setCallback() can be called consecutively without close().
+ * 1. Start measurement with 20s interval and wait for 1 measurement.
+ * 2. Start measurement with 1s interval and wait for 5 measurements.
+ *    Verify the measurements were received at 1Hz.
+ * 3. Start measurement with 2s interval and wait for 5 measurements.
+ *    Verify the measurements were received at 2s intervals.
+ */
+TEST_P(GnssHalTest, TestGnssMeasurementIntervals_changeIntervals) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 2) {
+        return;
+    }
+    const int kFirstGnssMeasurementTimeoutSeconds = 10;
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    auto callback = sp<GnssMeasurementCallbackAidl>::make();
+    std::vector<int> deltas;
+
+    // setCallback at 20s interval and wait for 1 measurement
+    startMeasurementWithInterval(20000, iGnssMeasurement, callback);
+    collectMeasurementIntervals(callback, /* numEvents= */ 1, kFirstGnssMeasurementTimeoutSeconds,
+                                deltas);
+
+    // setCallback at 1s interval and wait for 5 measurements
+    callback->gnss_data_cbq_.reset();
+    deltas.clear();
+    startMeasurementWithInterval(1000, iGnssMeasurement, callback);
+    collectMeasurementIntervals(callback, /* numEvents= */ 5, kFirstGnssMeasurementTimeoutSeconds,
+                                deltas);
+
+    // verify the measurements were received at 1Hz
+    assertMeanAndStdev(1000, deltas);
+
+    // setCallback at 2s interval and wait for 5 measurements
+    callback->gnss_data_cbq_.reset();
+    deltas.clear();
+    startMeasurementWithInterval(2000, iGnssMeasurement, callback);
+    collectMeasurementIntervals(callback, /* numEvents= */ 5, kFirstGnssMeasurementTimeoutSeconds,
+                                deltas);
+
+    // verify the measurements were received at 2s intervals
+    assertMeanAndStdev(2000, deltas);
+
+    status = iGnssMeasurement->close();
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestGnssMeasurementIsFullTracking
+ * 1. Start measurement with enableFullTracking=true. Verify the received measurements have
+ *    isFullTracking=true.
+ * 2. Start measurement with enableFullTracking = false. Verify the received measurements have
+ *    isFullTracking=false.
+ * 3. Do step 1 again.
+ */
+TEST_P(GnssHalTest, TestGnssMeasurementIsFullTracking) {
+    // GnssData.isFullTracking is added in the interface version 3
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 2) {
+        return;
+    }
+    const int kFirstGnssMeasurementTimeoutSeconds = 10;
+    const int kNumMeasurementEvents = 5;
+    std::vector<bool> isFullTrackingList({true, false, true});
+
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    ALOGD("TestGnssMeasurementIsFullTracking");
+    auto callback = sp<GnssMeasurementCallbackAidl>::make();
+    IGnssMeasurementInterface::Options options;
+    options.intervalMs = 1000;
+
+    for (auto isFullTracking : isFullTrackingList) {
+        options.enableFullTracking = isFullTracking;
+
+        callback->gnss_data_cbq_.reset();
+        auto status = iGnssMeasurement->setCallbackWithOptions(callback, options);
+        checkGnssDataFields(callback, kNumMeasurementEvents, kFirstGnssMeasurementTimeoutSeconds,
+                            isFullTracking);
+    }
+
+    status = iGnssMeasurement->close();
+    ASSERT_TRUE(status.isOk());
+}
+
+/*
+ * TestAccumulatedDeltaRange:
+ * 1. Gets the GnssMeasurementExtension and verifies that it returns a non-null extension.
+ * 2. Start measurement with 1s interval and wait for up to 15 measurements.
+ * 3. Verify at least one measurement has a valid AccumulatedDeltaRange state.
+ */
+TEST_P(GnssHalTest, TestAccumulatedDeltaRange) {
+    if (aidl_gnss_hal_->getInterfaceVersion() <= 2) {
+        return;
+    }
+    if ((aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_ACCUMULATED_DELTA_RANGE) ==
+        0) {
+        return;
+    }
+
+    ALOGD("TestAccumulatedDeltaRange");
+
+    auto callback = sp<GnssMeasurementCallbackAidl>::make();
+    sp<IGnssMeasurementInterface> iGnssMeasurement;
+    auto status = aidl_gnss_hal_->getExtensionGnssMeasurement(&iGnssMeasurement);
+    ASSERT_TRUE(status.isOk());
+    ASSERT_TRUE(iGnssMeasurement != nullptr);
+
+    IGnssMeasurementInterface::Options options;
+    options.intervalMs = 1000;
+    options.enableFullTracking = true;
+    status = iGnssMeasurement->setCallbackWithOptions(callback, options);
+    ASSERT_TRUE(status.isOk());
+
+    bool accumulatedDeltaRangeFound = false;
+    const int kNumMeasurementEvents = 15;
+
+    // setCallback at 1s interval and wait for 15 measurements
+    for (int i = 0; i < kNumMeasurementEvents; i++) {
+        GnssData lastGnssData;
+        ASSERT_TRUE(callback->gnss_data_cbq_.retrieve(lastGnssData, 10));
+        EXPECT_EQ(callback->gnss_data_cbq_.calledCount(), i + 1);
+        ASSERT_TRUE(lastGnssData.measurements.size() > 0);
+
+        // Validity check GnssData fields
+        checkGnssMeasurementClockFields(lastGnssData);
+        for (const auto& measurement : lastGnssData.measurements) {
+            if ((measurement.accumulatedDeltaRangeState & measurement.ADR_STATE_VALID) > 0) {
+                accumulatedDeltaRangeFound = true;
+                break;
+            }
+        }
+        if (accumulatedDeltaRangeFound) break;
+    }
+    ASSERT_TRUE(accumulatedDeltaRangeFound);
+    status = iGnssMeasurement->close();
+    ASSERT_TRUE(status.isOk());
+}
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

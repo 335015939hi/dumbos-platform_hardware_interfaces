@@ -30,12 +30,22 @@ aidl_interface {
         ndk: {
             apex_available: [
                 "//apex_available:platform",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+                "com.android.bluetooth",
+=======
+                "com.android.btservices",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
                 "com.android.media.swcodec",
                 "com.android.neuralnetworks",
             ],
             min_sdk_version: "29",
         },
+        rust: {
+            enabled: true,
+        }
     },
+    frozen: true,
     versions: [
         "1",
         "2",

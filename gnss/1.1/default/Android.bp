@@ -27,7 +27,13 @@ cc_binary {
         "android.hardware.gnss@2.0",
         "android.hardware.gnss@1.1",
         "android.hardware.gnss@1.0",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "android.hardware.gnss-V1-ndk_platform",
+||||||| BASE
+        "android.hardware.gnss-V2-ndk",
+=======
+        "android.hardware.gnss-V3-ndk",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
     static_libs: [
         "android.hardware.gnss@common-default-lib",

@@ -1,0 +1,26 @@
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+[
+  {
+    "timestamp": 1000000,
+    "areaId": 0,
+    "value": 8,
+    // GEAR_SELECTION
+    "prop": 289408000
+  }
+]
+=======
+{
+    "apiVersion": 1,
+    "properties": [
+        {
+            "property": "VehicleProperty::GEAR_SELECTION",
+            "defaultValue": {
+                "int32Values": [
+                    8
+                ]
+            }
+        }
+    ]
+}
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

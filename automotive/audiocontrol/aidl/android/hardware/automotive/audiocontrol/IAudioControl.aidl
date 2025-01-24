@@ -18,6 +18,15 @@ package android.hardware.automotive.audiocontrol;
 
 import android.hardware.automotive.audiocontrol.AudioFocusChange;
 import android.hardware.automotive.audiocontrol.DuckingInfo;
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+import android.hardware.automotive.audiocontrol.IAudioGainCallback;
+import android.hardware.automotive.audiocontrol.IFocusListener;
+=======
+import android.hardware.automotive.audiocontrol.IAudioGainCallback;
+import android.hardware.automotive.audiocontrol.IFocusListener;
+import android.hardware.automotive.audiocontrol.IModuleChangeCallback;
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 import android.hardware.automotive.audiocontrol.MutingInfo;
 import android.hardware.automotive.audiocontrol.IFocusListener;
 
@@ -99,4 +108,126 @@ interface IAudioControl {
      * range.
      */
     oneway void setFadeTowardFront(in float value);
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
 }
+||||||| BASE
+
+    /**
+     * Notifies HAL of changes in audio focus status for focuses requested or abandoned by the HAL.
+     *
+     * This will be called in response to IFocusListener's requestAudioFocus and
+     * abandonAudioFocus, as well as part of any change in focus being held by the HAL due focus
+     * request from other activities or services.
+     *
+     * The HAL is not required to wait for an callback of AUDIOFOCUS_GAIN before playing audio, nor
+     * is it required to stop playing audio in the event of a AUDIOFOCUS_LOSS callback is received.
+     *
+     * @param playbackMetaData The output stream metadata associated with the focus request
+     * @param zoneId The identifier for the audio zone that the HAL is playing the stream in
+     * @param focusChange the AudioFocusChange that has occurred.
+     */
+    oneway void onAudioFocusChangeWithMetaData(in PlaybackTrackMetadata playbackMetaData,
+            in int zoneId, in AudioFocusChange focusChange);
+
+    /**
+     * Notifies HAL of changes in output devices that the HAL should apply gain change to
+     * and the reason(s) why
+     *
+     * This may be called in response to changes in audio focus, and will include a list of
+     * {@link android.hardware.automotive.audiocontrol.AudioGainConfigInfo} objects per audio zone
+     * that experienced a change in audo focus.
+     *
+     * @param reasons List of reasons that triggered the given gains changed.
+     *                This must be one or more of the
+     *                {@link android.hardware.automotive.audiocontrol.Reasons} constants.
+     *
+     * @param gains List of gains the change is intended to.
+     */
+    oneway void setAudioDeviceGainsChanged(in Reasons[] reasons, in AudioGainConfigInfo[] gains);
+
+    /**
+     * Registers callback to be used by HAL for reporting unexpected gain(s) changed and the
+     * reason(s) why.
+     *
+     * It is expected that there will only ever be a single callback registered. If the
+     * observer dies, the HAL implementation must unregister observer automatically. If called when
+     * a listener is already registered, the existing one should be unregistered and replaced with
+     * the new callback.
+     *
+     * @param callback The {@link android.hardware.automotive.audiocontrol.IAudioGainCallback}
+     *                 interface.
+     */
+    oneway void registerGainCallback(in IAudioGainCallback callback);
+}
+=======
+
+    /**
+     * Notifies HAL of changes in audio focus status for focuses requested or abandoned by the HAL.
+     *
+     * This will be called in response to IFocusListener's requestAudioFocus and
+     * abandonAudioFocus, as well as part of any change in focus being held by the HAL due focus
+     * request from other activities or services.
+     *
+     * The HAL is not required to wait for an callback of AUDIOFOCUS_GAIN before playing audio, nor
+     * is it required to stop playing audio in the event of a AUDIOFOCUS_LOSS callback is received.
+     *
+     * @param playbackMetaData The output stream metadata associated with the focus request
+     * @param zoneId The identifier for the audio zone that the HAL is playing the stream in
+     * @param focusChange the AudioFocusChange that has occurred.
+     */
+    oneway void onAudioFocusChangeWithMetaData(in PlaybackTrackMetadata playbackMetaData,
+            in int zoneId, in AudioFocusChange focusChange);
+
+    /**
+     * Notifies HAL of changes in output devices that the HAL should apply gain change to
+     * and the reason(s) why
+     *
+     * This may be called in response to changes in audio focus, and will include a list of
+     * {@link android.hardware.automotive.audiocontrol.AudioGainConfigInfo} objects per audio zone
+     * that experienced a change in audo focus.
+     *
+     * @param reasons List of reasons that triggered the given gains changed.
+     *                This must be one or more of the
+     *                {@link android.hardware.automotive.audiocontrol.Reasons} constants.
+     *
+     * @param gains List of gains the change is intended to.
+     */
+    oneway void setAudioDeviceGainsChanged(in Reasons[] reasons, in AudioGainConfigInfo[] gains);
+
+    /**
+     * Registers callback to be used by HAL for reporting unexpected gain(s) changed and the
+     * reason(s) why.
+     *
+     * It is expected that there will only ever be a single callback registered. If the
+     * observer dies, the HAL implementation must unregister observer automatically. If called when
+     * a listener is already registered, the existing one should be unregistered and replaced with
+     * the new callback.
+     *
+     * @param callback The {@link android.hardware.automotive.audiocontrol.IAudioGainCallback}
+     *                 interface.
+     */
+    oneway void registerGainCallback(in IAudioGainCallback callback);
+
+    /**
+     * Sets callback with HAL for notifying changes to hardware module (that is:
+     * {@link android.hardware.audio.core.IModule}) configurations.
+     *
+     * @param callback The {@link android.hardware.automotive.audiocontrol.IModuleChangeCallback}
+     *                 interface to use use when new updates are available for
+     *                 {@link android.hardware.audio.core.IModule} configs
+     * @throws EX_UNSUPPORTED_OPERATION if dynamic audio configs are not supported.
+     * @throws EX_ILLEGAL_STATE if a callback already exists
+     * @throws EX_ILLEGAL_ARGUMENT if the passed callback is (@code null}
+     */
+    void setModuleChangeCallback(in IModuleChangeCallback callback);
+
+    /**
+     * Clears module change callback
+     *
+     * If no callback is registered previously, then this call should be a no-op.
+     *
+     * @throws EX_UNSUPPORTED_OPERATION if dynamic audio configs are not supported.
+     */
+    void clearModuleChangeCallback();
+}
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

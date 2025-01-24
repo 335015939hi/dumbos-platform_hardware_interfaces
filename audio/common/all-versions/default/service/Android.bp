@@ -13,11 +13,21 @@ cc_binary {
     init_rc: ["android.hardware.audio.service.rc"],
     relative_install_path: "hw",
     vendor: true,
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     // Prefer 32 bit as the binary must always be installed at the same
     // location for init to start it and the build system does not support
     // having two binaries installable to the same location even if they are
     // not installed in the same build.
     compile_multilib: "prefer32",
+||||||| BASE
+
+=======
+
+    defaults: [
+        "android_hardware_audio_config_defaults",
+    ],
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     srcs: ["service.cpp"],
 
     cflags: [

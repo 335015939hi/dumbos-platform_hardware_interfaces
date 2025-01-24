@@ -69,6 +69,7 @@ void TestRenderEngine::drawLayers() {
                    [](renderengine::LayerSettings& settings) -> renderengine::LayerSettings* {
                        return &settings;
                    });
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     auto texture = std::make_shared<renderengine::ExternalTexture>(
             mGraphicBuffer, *mRenderEngine, renderengine::ExternalTexture::Usage::WRITEABLE);
     mRenderEngine->drawLayers(mDisplaySettings, compositionLayerPointers, texture, true,
@@ -77,6 +78,27 @@ void TestRenderEngine::drawLayers() {
     if (fd != -1) {
         ASSERT_EQ(0, sync_wait(fd, -1));
         ASSERT_EQ(0, close(fd));
+||||||| BASE
+    auto texture = std::make_shared<renderengine::impl::ExternalTexture>(
+            mGraphicBuffer, *mRenderEngine, renderengine::impl::ExternalTexture::Usage::WRITEABLE);
+    auto [status, readyFence] = mRenderEngine
+                                        ->drawLayers(mDisplaySettings, compositionLayers, texture,
+                                                     true, std::move(bufferFence))
+                                        .get();
+    int fd = readyFence.release();
+    if (fd != -1) {
+        ASSERT_EQ(0, sync_wait(fd, -1));
+        ASSERT_EQ(0, close(fd));
+=======
+    auto texture = std::make_shared<renderengine::impl::ExternalTexture>(
+            mGraphicBuffer, *mRenderEngine, renderengine::impl::ExternalTexture::Usage::WRITEABLE);
+    auto result = mRenderEngine
+                          ->drawLayers(mDisplaySettings, compositionLayers, texture, true,
+                                       std::move(bufferFence))
+                          .get();
+    if (result.ok()) {
+        result.value()->waitForever(LOG_TAG);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     }
 }
 

@@ -42,3 +42,62 @@ cc_binary {
     ],
     srcs: ["main.cpp"],
 }
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+
+cc_fuzz {
+    name: "android.hardware.vibrator-service.example_fuzzer",
+    host_supported: true,
+    static_libs: [
+        "android.hardware.vibrator-V2-ndk",
+        "libbase",
+        "libbinder_random_parcel",
+        "libcutils",
+        "liblog",
+        "libvibratorexampleimpl",
+    ],
+    target: {
+        android: {
+            shared_libs: [
+                "libbinder_ndk",
+                "libbinder",
+                "libutils",
+            ],
+        },
+        host: {
+            static_libs: [
+                "libbinder_ndk",
+                "libbinder",
+                "libutils",
+            ],
+        },
+        darwin: {
+            enabled: false,
+        },
+    },
+    srcs: ["fuzzer.cpp"],
+    fuzz_config: {
+        cc: [
+            "smoreland@google.com",
+        ],
+    },
+}
+=======
+
+cc_fuzz {
+    name: "android.hardware.vibrator-service.example_fuzzer",
+    host_supported: true,
+    defaults: ["service_fuzzer_defaults"],
+    static_libs: [
+        "android.hardware.vibrator-V2-ndk",
+        "liblog",
+        "libvibratorexampleimpl",
+    ],
+    srcs: ["fuzzer.cpp"],
+    fuzz_config: {
+        cc: [
+            "smoreland@google.com",
+        ],
+    },
+}
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

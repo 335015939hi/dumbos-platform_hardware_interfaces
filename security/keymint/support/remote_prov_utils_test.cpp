@@ -92,7 +92,14 @@ TEST(RemoteProvUtilsTest, JsonEncodeCsr) {
 
     std::string expected = R"({"build_fingerprint":")" +
                            ::android::base::GetProperty("ro.build.fingerprint", /*default=*/"") +
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
                            R"(","csr":"gQE="})";
+||||||| BASE
+                           R"(","csr":"gQE=","name":"test"})";
+=======
+                           R"(","csr":"gQE=","name":"test","serialno":")" +
+                           ::android::base::GetProperty("ro.serialno", /*default=*/"") + R"("})";
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
     ASSERT_EQ(json, expected);
 }

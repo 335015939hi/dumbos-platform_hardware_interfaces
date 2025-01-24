@@ -20,7 +20,7 @@
 #include <aidl/android/hardware/biometrics/fingerprint/ISessionCallback.h>
 
 #include "FakeFingerprintEngine.h"
-#include "WorkerThread.h"
+#include "thread/WorkerThread.h"
 
 namespace aidl::android::hardware::biometrics::fingerprint {
 
@@ -41,6 +41,8 @@ enum class SessionState {
     INVALIDATING_AUTHENTICATOR_ID,
     RESETTING_LOCKOUT,
 };
+
+void onClientDeath(void* cookie);
 
 class Session : public BnSession {
   public:
@@ -79,6 +81,52 @@ class Session : public BnSession {
 
     ndk::ScopedAStatus onUiReady() override;
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+    ndk::ScopedAStatus authenticateWithContext(
+            int64_t operationId, const common::OperationContext& context,
+            std::shared_ptr<common::ICancellationSignal>* out) override;
+
+    ndk::ScopedAStatus enrollWithContext(
+            const keymaster::HardwareAuthToken& hat, const common::OperationContext& context,
+            std::shared_ptr<common::ICancellationSignal>* out) override;
+
+    ndk::ScopedAStatus detectInteractionWithContext(
+            const common::OperationContext& context,
+            std::shared_ptr<common::ICancellationSignal>* out) override;
+
+    ndk::ScopedAStatus onPointerDownWithContext(const PointerContext& context) override;
+
+    ndk::ScopedAStatus onPointerUpWithContext(const PointerContext& context) override;
+
+    ndk::ScopedAStatus onContextChanged(const common::OperationContext& context) override;
+
+=======
+    ndk::ScopedAStatus authenticateWithContext(
+            int64_t operationId, const common::OperationContext& context,
+            std::shared_ptr<common::ICancellationSignal>* out) override;
+
+    ndk::ScopedAStatus enrollWithContext(
+            const keymaster::HardwareAuthToken& hat, const common::OperationContext& context,
+            std::shared_ptr<common::ICancellationSignal>* out) override;
+
+    ndk::ScopedAStatus detectInteractionWithContext(
+            const common::OperationContext& context,
+            std::shared_ptr<common::ICancellationSignal>* out) override;
+
+    ndk::ScopedAStatus onPointerDownWithContext(const PointerContext& context) override;
+
+    ndk::ScopedAStatus onPointerUpWithContext(const PointerContext& context) override;
+
+    ndk::ScopedAStatus onContextChanged(const common::OperationContext& context) override;
+
+    ndk::ScopedAStatus onPointerCancelWithContext(const PointerContext& context) override;
+
+    ndk::ScopedAStatus setIgnoreDisplayTouches(bool shouldIgnore) override;
+
+    binder_status_t linkToDeath(AIBinder* binder);
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     bool isClosed();
 
   private:
@@ -117,6 +165,9 @@ class Session : public BnSession {
     // modified from both the main and the worker threads.
     std::atomic<SessionState> mScheduledState;
     std::atomic<SessionState> mCurrentState;
+
+    // Binder death handler.
+    AIBinder_DeathRecipient* mDeathRecipient;
 };
 
 }  // namespace aidl::android::hardware::biometrics::fingerprint

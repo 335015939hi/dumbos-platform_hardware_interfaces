@@ -25,6 +25,7 @@ package {
 
 cc_defaults {
     name: "neuralnetworks_vts_functional_defaults",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     defaults: ["VtsHalTargetTestDefaults"],
     arch: {
         x86: {
@@ -38,6 +39,16 @@ cc_defaults {
                       "-Xclang", "-fallow-half-arguments-and-returns" ],
         },
     },
+||||||| BASE
+    defaults: [
+        "VtsHalTargetTestDefaults",
+        "neuralnetworks_float16",
+    ],
+=======
+    defaults: [
+        "VtsHalTargetTestDefaults",
+    ],
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }
 
 cc_library_static {
@@ -98,5 +109,16 @@ cc_test {
     header_libs: [
         "libneuralnetworks_headers",
     ],
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     test_suites: ["general-tests", "vts"],
+||||||| BASE
+    test_suites: [
+        "general-tests",
+        "vts",
+    ],
+=======
+    test_suites: [
+        "vts",
+    ],
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }

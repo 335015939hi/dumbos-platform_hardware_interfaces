@@ -28,7 +28,15 @@ cc_binary {
     shared_libs: [
         "libbase",
         "libbinder_ndk",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "android.hardware.vibrator-V2-ndk_platform",
         "android.hardware.tests.extension.vibrator-V2-ndk_platform",
+||||||| BASE
+        "android.hardware.vibrator-V2-ndk",
+        "android.hardware.tests.extension.vibrator-V2-ndk",
+=======
+        "android.hardware.vibrator-V2-ndk",
+        "android.hardware.tests.extension.vibrator-V1-ndk",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
 }

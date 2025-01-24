@@ -65,6 +65,7 @@ cc_test {
     ],
     test_suites: ["general-tests"],
 }
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
 
 // --
 
@@ -113,3 +114,60 @@ cc_test_host {
     ],
     test_suites: ["general-tests"],
 }
+||||||| BASE
+
+// --
+
+cc_library {
+    name: "libcppbor",
+    vendor_available: true,
+    host_supported: true,
+    srcs: [
+        "src/cppbor.cpp",
+        "src/cppbor_parse.cpp",
+    ],
+    export_include_dirs: [
+        "include/cppbor",
+    ],
+    shared_libs: [
+        "libbase",
+    ],
+}
+
+cc_test {
+    name: "cppbor_test",
+    tidy_timeout_srcs: [
+        "tests/cppbor_test.cpp",
+    ],
+    srcs: [
+        "tests/cppbor_test.cpp",
+    ],
+    shared_libs: [
+        "libcppbor_external",
+        "libbase",
+    ],
+    static_libs: [
+        "libgmock",
+    ],
+    test_suites: ["general-tests"],
+}
+
+cc_test_host {
+    name: "cppbor_host_test",
+    tidy_timeout_srcs: [
+        "tests/cppbor_test.cpp",
+    ],
+    srcs: [
+        "tests/cppbor_test.cpp",
+    ],
+    shared_libs: [
+        "libcppbor_external",
+        "libbase",
+    ],
+    static_libs: [
+        "libgmock",
+    ],
+    test_suites: ["general-tests"],
+}
+=======
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

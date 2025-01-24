@@ -32,6 +32,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.biometrics.fingerprint;
+/* @hide */
 @VintfStability
 interface ISession {
   void generateChallenge();
@@ -45,7 +46,31 @@ interface ISession {
   void invalidateAuthenticatorId();
   void resetLockout(in android.hardware.keymaster.HardwareAuthToken hat);
   void close();
+  /**
+   * @deprecated use onPointerDownWithContext instead.
+   */
   void onPointerDown(in int pointerId, in int x, in int y, in float minor, in float major);
+  /**
+   * @deprecated use onPointerUpWithContext instead.
+   */
   void onPointerUp(in int pointerId);
   void onUiReady();
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+  android.hardware.biometrics.common.ICancellationSignal authenticateWithContext(in long operationId, in android.hardware.biometrics.common.OperationContext context);
+  android.hardware.biometrics.common.ICancellationSignal enrollWithContext(in android.hardware.keymaster.HardwareAuthToken hat, in android.hardware.biometrics.common.OperationContext context);
+  android.hardware.biometrics.common.ICancellationSignal detectInteractionWithContext(in android.hardware.biometrics.common.OperationContext context);
+  void onPointerDownWithContext(in android.hardware.biometrics.fingerprint.PointerContext context);
+  void onPointerUpWithContext(in android.hardware.biometrics.fingerprint.PointerContext context);
+  void onContextChanged(in android.hardware.biometrics.common.OperationContext context);
+=======
+  android.hardware.biometrics.common.ICancellationSignal authenticateWithContext(in long operationId, in android.hardware.biometrics.common.OperationContext context);
+  android.hardware.biometrics.common.ICancellationSignal enrollWithContext(in android.hardware.keymaster.HardwareAuthToken hat, in android.hardware.biometrics.common.OperationContext context);
+  android.hardware.biometrics.common.ICancellationSignal detectInteractionWithContext(in android.hardware.biometrics.common.OperationContext context);
+  void onPointerDownWithContext(in android.hardware.biometrics.fingerprint.PointerContext context);
+  void onPointerUpWithContext(in android.hardware.biometrics.fingerprint.PointerContext context);
+  void onContextChanged(in android.hardware.biometrics.common.OperationContext context);
+  void onPointerCancelWithContext(in android.hardware.biometrics.fingerprint.PointerContext context);
+  void setIgnoreDisplayTouches(in boolean shouldIgnore);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }

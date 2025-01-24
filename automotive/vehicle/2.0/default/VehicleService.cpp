@@ -31,11 +31,21 @@ using namespace android::hardware::automotive::vehicle::V2_0;
 
 int main(int /* argc */, char* /* argv */ []) {
     auto store = std::make_unique<VehiclePropertyStore>();
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     auto connector = std::make_unique<impl::EmulatedVehicleConnector>();
     auto userHal = connector->getEmulatedUserHal();
     auto hal = std::make_unique<impl::EmulatedVehicleHal>(store.get(), connector.get(), userHal);
     auto emulator = std::make_unique<impl::VehicleEmulator>(hal.get());
     auto service = std::make_unique<VehicleHalManager>(hal.get());
+||||||| BASE
+    auto connector = std::make_unique<DefaultVehicleConnector>();
+    auto hal = std::make_unique<DefaultVehicleHal>(store.get(), connector.get());
+    auto service = std::make_unique<VehicleHalManager>(hal.get());
+=======
+    auto connector = std::make_unique<DefaultVehicleConnector>();
+    auto hal = std::make_unique<DefaultVehicleHal>(store.get(), connector.get());
+    auto service = android::sp<VehicleHalManager>::make(hal.get());
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     connector->setValuePool(hal->getValuePool());
 
     configureRpcThreadpool(4, true /* callerWillJoin */);

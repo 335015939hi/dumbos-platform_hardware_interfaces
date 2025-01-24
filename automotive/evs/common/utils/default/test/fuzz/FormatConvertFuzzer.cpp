@@ -25,10 +25,25 @@ extern "C" int LLVMFuzzerTestOneInput(const uint8_t* data, std::size_t size) {
         return 0;
     }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     std::srand(std::time(nullptr));  // use current time as seed for random generator
     int random_variable = std::rand() % 10;
     int width = (int)sqrt(size);
     int height = width * ((float)random_variable / 10.0);
+||||||| BASE
+    // API have a requirement that width must be divied by 16 except yuyvtorgb
+    int min_height = 2;
+    int max_height = (image_pixel_size / 16) & ~(1);  // must be even number
+    int height = fdp.ConsumeIntegralInRange<uint32_t>(min_height, max_height);
+    int width = (image_pixel_size / height) & ~(16);  // must be divisible by 16
+=======
+    // API have a requirement that width must be divied by 16 except yuyvtorgb
+    int min_height = 2;
+    int max_height = (image_pixel_size / 16);
+    int height = fdp.ConsumeIntegralInRange<uint32_t>(min_height, max_height);
+    height &= ~(1);  // must be even number
+    int width = (image_pixel_size / height) & ~(0xF);  // must be divisible by 16
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
     uint8_t* src = (uint8_t*)malloc(sizeof(uint8_t) * size);
     memcpy(src, data, sizeof(uint8_t) * (size));

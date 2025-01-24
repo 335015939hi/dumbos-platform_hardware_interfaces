@@ -1,0 +1,19 @@
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+service vendor.tuner-default /vendor/bin/hw/android.hardware.tv.tuner-service.example
+    class hal
+    user media
+    group mediadrm drmrpc
+    ioprio rt 4
+    writepid /dev/cpuset/foreground/tasks
+    onrestart restart media.tuner
+=======
+service vendor.tuner-default /vendor/bin/hw/android.hardware.tv.tuner-service.example
+    class hal
+    user media
+    group mediadrm drmrpc
+    ioprio rt 4
+    task_profiles ProcessCapacityHigh
+    onrestart restart media.tuner
+    interface aidl android.hardware.tv.tuner.ITuner/default
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

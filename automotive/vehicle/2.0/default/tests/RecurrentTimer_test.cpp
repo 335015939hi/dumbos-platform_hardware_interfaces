@@ -66,8 +66,18 @@ TEST(RecurrentTimerTest, multipleIntervals) {
     timer.registerRecurrentEvent(milliseconds(5), 0xbeef);
 
     std::this_thread::sleep_for(milliseconds(100));
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     ASSERT_EQ_WITH_TOLERANCE(100, counter1ms.load(), 20);
     ASSERT_EQ_WITH_TOLERANCE(20, counter5ms.load(), 5);
+||||||| BASE
+    // This test is unstable, so set the tolerance to 50.
+    ASSERT_EQ_WITH_TOLERANCE(100, counter1ms.load(), 50);
+    ASSERT_EQ_WITH_TOLERANCE(20, counter5ms.load(), 5);
+=======
+    // This test is unstable, so set the tolerance to 50.
+    ASSERT_EQ_WITH_TOLERANCE(100, counter1ms.load(), 50);
+    ASSERT_EQ_WITH_TOLERANCE(20, counter5ms.load(), 10);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }
 
 }  // anonymous namespace

@@ -10,6 +10,10 @@ package {
 cc_library_static {
     name: "android.hardware.identity-libeic-hal-common",
     vendor_available: true,
+    defaults: [
+        "identity_use_latest_hal_aidl_ndk_static",
+        "keymint_use_latest_hal_aidl_ndk_static",
+    ],
     srcs: [
         "common/IdentityCredential.cpp",
         "common/IdentityCredentialStore.cpp",
@@ -39,8 +43,17 @@ cc_library_static {
         "libsoft_attestation_cert",
         "libpuresoftkeymasterdevice",
         "android.hardware.identity-support-lib",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "android.hardware.identity-V3-ndk_platform",
         "android.hardware.keymaster-V3-ndk_platform",
+||||||| BASE
+        "android.hardware.identity-V4-ndk",
+        "android.hardware.keymaster-V3-ndk",
+        "android.hardware.security.keymint-V2-ndk",
+=======
+        "android.hardware.keymaster-V3-ndk",
+        "android.hardware.security.rkp-V3-ndk",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
 }
 
@@ -79,6 +92,17 @@ cc_binary {
     init_rc: ["identity-default.rc"],
     vintf_fragments: ["identity-default.xml"],
     vendor: true,
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+    defaults: [
+        "keymint_use_latest_hal_aidl_ndk_static",
+    ],
+=======
+    defaults: [
+        "identity_use_latest_hal_aidl_ndk_static",
+        "keymint_use_latest_hal_aidl_ndk_static",
+    ],
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     cflags: [
         "-Wall",
         "-Wextra",
@@ -100,10 +124,18 @@ cc_binary {
         "libsoft_attestation_cert",
         "libpuresoftkeymasterdevice",
         "android.hardware.identity-support-lib",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "android.hardware.identity-V3-ndk_platform",
         "android.hardware.keymaster-V3-ndk_platform",
+||||||| BASE
+        "android.hardware.identity-V4-ndk",
+        "android.hardware.keymaster-V3-ndk",
+=======
+        "android.hardware.keymaster-V3-ndk",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         "android.hardware.identity-libeic-hal-common",
         "android.hardware.identity-libeic-library",
+        "android.hardware.security.rkp-V3-ndk",
     ],
     srcs: [
         "service.cpp",

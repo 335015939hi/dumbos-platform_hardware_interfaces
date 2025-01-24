@@ -40,6 +40,12 @@ cc_test {
         "android.hardware.gnss@2.0",
         "android.hardware.gnss@2.1",
         "android.hardware.gnss@common-vts-lib",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+        "android.hardware.gnss-V2-cpp",
+=======
+        "android.hardware.gnss-V3-cpp",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
     shared_libs: [
         "libvintf",

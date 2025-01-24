@@ -30,6 +30,15 @@
 #include <algorithm>
 
 #include <android/log.h>
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+#include <mediautils/MemoryLeakTrackUtil.h>
+#include <memunreachable/memunreachable.h>
+=======
+#include <hidl/HidlTransportSupport.h>
+#include <mediautils/MemoryLeakTrackUtil.h>
+#include <memunreachable/memunreachable.h>
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
 #include <HidlUtils.h>
 
@@ -178,6 +187,7 @@ std::tuple<Result, sp<IStreamOut>> Device::openOutputStreamImpl(int32_t ioHandle
     if (status == OK) {
         streamOut = new StreamOut(this, halStream);
         ++mOpenedStreamsCount;
+        android::hardware::setMinSchedulerPolicy(streamOut, SCHED_NORMAL, ANDROID_PRIORITY_AUDIO);
     }
     status_t convertStatus =
             HidlUtils::audioConfigFromHal(halConfig, false /*isInput*/, suggestedConfig);
@@ -215,6 +225,7 @@ std::tuple<Result, sp<IStreamIn>> Device::openInputStreamImpl(
     if (status == OK) {
         streamIn = new StreamIn(this, halStream);
         ++mOpenedStreamsCount;
+        android::hardware::setMinSchedulerPolicy(streamIn, SCHED_NORMAL, ANDROID_PRIORITY_AUDIO);
     }
     status_t convertStatus =
             HidlUtils::audioConfigFromHal(halConfig, true /*isInput*/, suggestedConfig);

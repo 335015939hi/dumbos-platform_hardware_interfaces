@@ -97,12 +97,31 @@ bool KeyCharacteristicsBasicallyValid(SecurityLevel secLevel,
     return true;
 }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
 // Extract attestation record from cert. Returned object is still part of cert; don't free it
 // separately.
 ASN1_OCTET_STRING* get_attestation_record(X509* certificate) {
     ASN1_OBJECT_Ptr oid(OBJ_txt2obj(kAttestionRecordOid, 1 /* dotted string format */));
     EXPECT_TRUE(!!oid.get());
     if (!oid.get()) return nullptr;
+||||||| BASE
+void check_attestation_version(uint32_t attestation_version, int32_t aidl_version) {
+    // Version numbers in attestation extensions should be a multiple of 100.
+    EXPECT_EQ(attestation_version % 100, 0);
+=======
+void check_crl_distribution_points_extension_not_present(X509* certificate) {
+    ASN1_OBJECT_Ptr crl_dp_oid(OBJ_txt2obj(kCrlDPOid, 1 /* dotted string format */));
+    ASSERT_TRUE(crl_dp_oid.get());
+
+    int location =
+            X509_get_ext_by_OBJ(certificate, crl_dp_oid.get(), -1 /* search from beginning */);
+    ASSERT_EQ(location, -1);
+}
+
+void check_attestation_version(uint32_t attestation_version, int32_t aidl_version) {
+    // Version numbers in attestation extensions should be a multiple of 100.
+    EXPECT_EQ(attestation_version % 100, 0);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
     int location = X509_get_ext_by_OBJ(certificate, oid.get(), -1 /* search from beginning */);
     EXPECT_NE(-1, location) << "Attestation extension not found in certificate";
@@ -164,6 +183,7 @@ string x509NameToStr(X509_NAME* name) {
 
 bool KeyMintAidlTestBase::arm_deleteAllKeys = false;
 bool KeyMintAidlTestBase::dump_Attestations = false;
+std::string KeyMintAidlTestBase::keyblob_dir;
 
 uint32_t KeyMintAidlTestBase::boot_patch_level(
         const vector<KeyCharacteristics>& key_characteristics) {
@@ -187,6 +207,64 @@ uint32_t KeyMintAidlTestBase::boot_patch_level() {
     return boot_patch_level(key_characteristics_);
 }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+/**
+ * An API to determine device IDs attestation is required or not,
+ * which is mandatory for KeyMint version 2 or first_api_level 33 or greater.
+ */
+bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
+    return AidlVersion() >= 2 || property_get_int32("ro.vendor.api_level", 0) >= 33;
+}
+
+bool KeyMintAidlTestBase::Curve25519Supported() {
+    // Strongbox never supports curve 25519.
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        return false;
+    }
+
+    // Curve 25519 was included in version 2 of the KeyMint interface.
+    int32_t version = 0;
+    auto status = keymint_->getInterfaceVersion(&version);
+    if (!status.isOk()) {
+        ADD_FAILURE() << "Failed to determine interface version";
+    }
+    return version >= 2;
+}
+
+=======
+/**
+ * An API to determine device IDs attestation is required or not,
+ * which is mandatory for KeyMint version 2 and first_api_level 33 or greater.
+ */
+bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
+    return AidlVersion() >= 2 && property_get_int32("ro.vendor.api_level", 0) >= __ANDROID_API_T__;
+}
+
+/**
+ * An API to determine second IMEI ID attestation is required or not,
+ * which is supported for KeyMint version 3 or first_api_level greater than 33.
+ */
+bool KeyMintAidlTestBase::isSecondImeiIdAttestationRequired() {
+    return AidlVersion() >= 3 && property_get_int32("ro.vendor.api_level", 0) > __ANDROID_API_T__;
+}
+
+bool KeyMintAidlTestBase::Curve25519Supported() {
+    // Strongbox never supports curve 25519.
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        return false;
+    }
+
+    // Curve 25519 was included in version 2 of the KeyMint interface.
+    int32_t version = 0;
+    auto status = keymint_->getInterfaceVersion(&version);
+    if (!status.isOk()) {
+        ADD_FAILURE() << "Failed to determine interface version";
+    }
+    return version >= 2;
+}
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 ErrorCode KeyMintAidlTestBase::GetReturnErrorCode(const Status& result) {
     if (result.isOk()) return ErrorCode::OK;
 
@@ -268,6 +346,59 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     return GenerateKey(key_desc, attest_key, &key_blob_, &key_characteristics_, &cert_chain_);
 }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+ErrorCode KeyMintAidlTestBase::GenerateKeyWithSelfSignedAttestKey(
+        const AuthorizationSet& attest_key_desc, const AuthorizationSet& key_desc,
+        vector<uint8_t>* key_blob, vector<KeyCharacteristics>* key_characteristics,
+        vector<Certificate>* cert_chain) {
+    AttestationKey attest_key;
+    vector<Certificate> attest_cert_chain;
+    vector<KeyCharacteristics> attest_key_characteristics;
+    // Generate a key with self signed attestation.
+    auto error = GenerateKey(attest_key_desc, std::nullopt, &attest_key.keyBlob,
+                             &attest_key_characteristics, &attest_cert_chain);
+    if (error != ErrorCode::OK) {
+        return error;
+    }
+
+    attest_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
+    // Generate a key, by passing the above self signed attestation key as attest key.
+    error = GenerateKey(key_desc, attest_key, key_blob, key_characteristics, cert_chain);
+    if (error == ErrorCode::OK) {
+        // Append the attest_cert_chain to the attested cert_chain to yield a valid cert chain.
+        cert_chain->push_back(attest_cert_chain[0]);
+    }
+    return error;
+}
+
+=======
+ErrorCode KeyMintAidlTestBase::GenerateKeyWithSelfSignedAttestKey(
+        const AuthorizationSet& attest_key_desc, const AuthorizationSet& key_desc,
+        vector<uint8_t>* key_blob, vector<KeyCharacteristics>* key_characteristics,
+        vector<Certificate>* cert_chain) {
+    skipAttestKeyTest();
+    AttestationKey attest_key;
+    vector<Certificate> attest_cert_chain;
+    vector<KeyCharacteristics> attest_key_characteristics;
+    // Generate a key with self signed attestation.
+    auto error = GenerateAttestKey(attest_key_desc, std::nullopt, &attest_key.keyBlob,
+                                   &attest_key_characteristics, &attest_cert_chain);
+    if (error != ErrorCode::OK) {
+        return error;
+    }
+
+    attest_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
+    // Generate a key, by passing the above self signed attestation key as attest key.
+    error = GenerateKey(key_desc, attest_key, key_blob, key_characteristics, cert_chain);
+    if (error == ErrorCode::OK) {
+        // Append the attest_cert_chain to the attested cert_chain to yield a valid cert chain.
+        cert_chain->push_back(attest_cert_chain[0]);
+    }
+    return error;
+}
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 ErrorCode KeyMintAidlTestBase::ImportKey(const AuthorizationSet& key_desc, KeyFormat format,
                                          const string& key_material, vector<uint8_t>* key_blob,
                                          vector<KeyCharacteristics>* key_characteristics) {
@@ -466,12 +597,13 @@ ErrorCode KeyMintAidlTestBase::Begin(KeyPurpose purpose, const vector<uint8_t>& 
 
 ErrorCode KeyMintAidlTestBase::Begin(KeyPurpose purpose, const vector<uint8_t>& key_blob,
                                      const AuthorizationSet& in_params,
-                                     AuthorizationSet* out_params) {
+                                     AuthorizationSet* out_params,
+                                     std::optional<HardwareAuthToken> hat) {
     SCOPED_TRACE("Begin");
     Status result;
     BeginResult out;
 
-    result = keymint_->begin(purpose, key_blob, in_params.vector_data(), std::nullopt, &out);
+    result = keymint_->begin(purpose, key_blob, in_params.vector_data(), hat, &out);
 
     if (result.isOk()) {
         *out_params = out.params;
@@ -517,8 +649,9 @@ ErrorCode KeyMintAidlTestBase::Update(const string& input, string* output) {
     return GetReturnErrorCode(result);
 }
 
-ErrorCode KeyMintAidlTestBase::Finish(const string& input, const string& signature,
-                                      string* output) {
+ErrorCode KeyMintAidlTestBase::Finish(const string& input, const string& signature, string* output,
+                                      std::optional<HardwareAuthToken> hat,
+                                      std::optional<secureclock::TimeStampToken> time_token) {
     SCOPED_TRACE("Finish");
     Status result;
 
@@ -527,8 +660,8 @@ ErrorCode KeyMintAidlTestBase::Finish(const string& input, const string& signatu
 
     vector<uint8_t> oPut;
     result = op_->finish(vector<uint8_t>(input.begin(), input.end()),
-                         vector<uint8_t>(signature.begin(), signature.end()), {} /* authToken */,
-                         {} /* timestampToken */, {} /* confirmationToken */, &oPut);
+                         vector<uint8_t>(signature.begin(), signature.end()), hat, time_token,
+                         {} /* confirmationToken */, &oPut);
 
     if (result.isOk()) output->append(oPut.begin(), oPut.end());
 
@@ -613,6 +746,254 @@ string KeyMintAidlTestBase::MacMessage(const string& message, Digest digest, siz
             AuthorizationSetBuilder().Digest(digest).Authorization(TAG_MAC_LENGTH, mac_length));
 }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+void KeyMintAidlTestBase::CheckAesIncrementalEncryptOperation(BlockMode block_mode,
+                                                              int message_size) {
+    auto builder = AuthorizationSetBuilder()
+                           .Authorization(TAG_NO_AUTH_REQUIRED)
+                           .AesEncryptionKey(128)
+                           .BlockMode(block_mode)
+                           .Padding(PaddingMode::NONE);
+    if (block_mode == BlockMode::GCM) {
+        builder.Authorization(TAG_MIN_MAC_LENGTH, 128);
+    }
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(builder));
+
+    for (int increment = 1; increment <= message_size; ++increment) {
+        string message(message_size, 'a');
+        auto params = AuthorizationSetBuilder().BlockMode(block_mode).Padding(PaddingMode::NONE);
+        if (block_mode == BlockMode::GCM) {
+            params.Authorization(TAG_MAC_LENGTH, 128) /* for GCM */;
+        }
+
+        AuthorizationSet output_params;
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &output_params));
+
+        string ciphertext;
+        string to_send;
+        for (size_t i = 0; i < message.size(); i += increment) {
+            EXPECT_EQ(ErrorCode::OK, Update(message.substr(i, increment), &ciphertext));
+        }
+        EXPECT_EQ(ErrorCode::OK, Finish(to_send, &ciphertext))
+                << "Error sending " << to_send << " with block mode " << block_mode;
+
+        switch (block_mode) {
+            case BlockMode::GCM:
+                EXPECT_EQ(message.size() + 16, ciphertext.size());
+                break;
+            case BlockMode::CTR:
+                EXPECT_EQ(message.size(), ciphertext.size());
+                break;
+            case BlockMode::CBC:
+            case BlockMode::ECB:
+                EXPECT_EQ(message.size() + message.size() % 16, ciphertext.size());
+                break;
+        }
+
+        auto iv = output_params.GetTagValue(TAG_NONCE);
+        switch (block_mode) {
+            case BlockMode::CBC:
+            case BlockMode::GCM:
+            case BlockMode::CTR:
+                ASSERT_TRUE(iv) << "No IV for block mode " << block_mode;
+                EXPECT_EQ(block_mode == BlockMode::GCM ? 12U : 16U, iv->get().size());
+                params.push_back(TAG_NONCE, iv->get());
+                break;
+
+            case BlockMode::ECB:
+                EXPECT_FALSE(iv) << "ECB mode should not generate IV";
+                break;
+        }
+
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params))
+                << "Decrypt begin() failed for block mode " << block_mode;
+
+        string plaintext;
+        for (size_t i = 0; i < ciphertext.size(); i += increment) {
+            EXPECT_EQ(ErrorCode::OK, Update(ciphertext.substr(i, increment), &plaintext));
+        }
+        ErrorCode error = Finish(to_send, &plaintext);
+        ASSERT_EQ(ErrorCode::OK, error) << "Decryption failed for block mode " << block_mode
+                                        << " and increment " << increment;
+        if (error == ErrorCode::OK) {
+            ASSERT_EQ(message, plaintext) << "Decryption didn't match for block mode " << block_mode
+                                          << " and increment " << increment;
+        }
+    }
+}
+
+=======
+void KeyMintAidlTestBase::CheckAesIncrementalEncryptOperation(BlockMode block_mode,
+                                                              int message_size) {
+    auto builder = AuthorizationSetBuilder()
+                           .Authorization(TAG_NO_AUTH_REQUIRED)
+                           .AesEncryptionKey(128)
+                           .BlockMode(block_mode)
+                           .Padding(PaddingMode::NONE);
+    if (block_mode == BlockMode::GCM) {
+        builder.Authorization(TAG_MIN_MAC_LENGTH, 128);
+    }
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(builder));
+
+    for (int increment = 1; increment <= message_size; ++increment) {
+        string message(message_size, 'a');
+        auto params = AuthorizationSetBuilder().BlockMode(block_mode).Padding(PaddingMode::NONE);
+        if (block_mode == BlockMode::GCM) {
+            params.Authorization(TAG_MAC_LENGTH, 128) /* for GCM */;
+        }
+
+        AuthorizationSet output_params;
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &output_params));
+
+        string ciphertext;
+        string to_send;
+        for (size_t i = 0; i < message.size(); i += increment) {
+            EXPECT_EQ(ErrorCode::OK, Update(message.substr(i, increment), &ciphertext));
+        }
+        EXPECT_EQ(ErrorCode::OK, Finish(to_send, &ciphertext))
+                << "Error sending " << to_send << " with block mode " << block_mode;
+
+        switch (block_mode) {
+            case BlockMode::GCM:
+                EXPECT_EQ(message.size() + 16, ciphertext.size());
+                break;
+            case BlockMode::CTR:
+                EXPECT_EQ(message.size(), ciphertext.size());
+                break;
+            case BlockMode::CBC:
+            case BlockMode::ECB:
+                EXPECT_EQ(message.size() + message.size() % 16, ciphertext.size());
+                break;
+        }
+
+        auto iv = output_params.GetTagValue(TAG_NONCE);
+        switch (block_mode) {
+            case BlockMode::CBC:
+            case BlockMode::GCM:
+            case BlockMode::CTR:
+                ASSERT_TRUE(iv) << "No IV for block mode " << block_mode;
+                EXPECT_EQ(block_mode == BlockMode::GCM ? 12U : 16U, iv->get().size());
+                params.push_back(TAG_NONCE, iv->get());
+                break;
+
+            case BlockMode::ECB:
+                EXPECT_FALSE(iv) << "ECB mode should not generate IV";
+                break;
+        }
+
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params))
+                << "Decrypt begin() failed for block mode " << block_mode;
+
+        string plaintext;
+        for (size_t i = 0; i < ciphertext.size(); i += increment) {
+            EXPECT_EQ(ErrorCode::OK, Update(ciphertext.substr(i, increment), &plaintext));
+        }
+        ErrorCode error = Finish(to_send, &plaintext);
+        ASSERT_EQ(ErrorCode::OK, error) << "Decryption failed for block mode " << block_mode
+                                        << " and increment " << increment;
+        if (error == ErrorCode::OK) {
+            ASSERT_EQ(message, plaintext) << "Decryption didn't match for block mode " << block_mode
+                                          << " and increment " << increment;
+        }
+    }
+}
+
+void KeyMintAidlTestBase::AesCheckEncryptOneByteAtATime(const string& key, BlockMode block_mode,
+                                                        PaddingMode padding_mode, const string& iv,
+                                                        const string& plaintext,
+                                                        const string& exp_cipher_text) {
+    bool is_authenticated_cipher = (block_mode == BlockMode::GCM);
+    auto auth_set = AuthorizationSetBuilder()
+                            .Authorization(TAG_NO_AUTH_REQUIRED)
+                            .AesEncryptionKey(key.size() * 8)
+                            .BlockMode(block_mode)
+                            .Padding(padding_mode);
+    if (iv.size() > 0) auth_set.Authorization(TAG_CALLER_NONCE);
+    if (is_authenticated_cipher) auth_set.Authorization(TAG_MIN_MAC_LENGTH, 128);
+    ASSERT_EQ(ErrorCode::OK, ImportKey(auth_set, KeyFormat::RAW, key));
+
+    CheckEncryptOneByteAtATime(block_mode, 16 /*block_size*/, padding_mode, iv, plaintext,
+                               exp_cipher_text);
+}
+
+void KeyMintAidlTestBase::CheckEncryptOneByteAtATime(BlockMode block_mode, const int block_size,
+                                                     PaddingMode padding_mode, const string& iv,
+                                                     const string& plaintext,
+                                                     const string& exp_cipher_text) {
+    bool is_stream_cipher = (block_mode == BlockMode::CTR || block_mode == BlockMode::GCM);
+    bool is_authenticated_cipher = (block_mode == BlockMode::GCM);
+    auto params = AuthorizationSetBuilder().BlockMode(block_mode).Padding(padding_mode);
+    if (iv.size() > 0) params.Authorization(TAG_NONCE, iv.data(), iv.size());
+    if (is_authenticated_cipher) params.Authorization(TAG_MAC_LENGTH, 128);
+
+    AuthorizationSet output_params;
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &output_params));
+
+    string actual_ciphertext;
+    if (is_stream_cipher) {
+        // Assert that a 1 byte of output is produced for 1 byte of input.
+        // Every input byte produces an output byte.
+        for (int plaintext_index = 0; plaintext_index < plaintext.size(); plaintext_index++) {
+            string ciphertext;
+            EXPECT_EQ(ErrorCode::OK, Update(plaintext.substr(plaintext_index, 1), &ciphertext));
+            // Some StrongBox implementations cannot support 1:1 input:output lengths, so
+            // we relax this API restriction for them.
+            if (SecLevel() != SecurityLevel::STRONGBOX) {
+                EXPECT_EQ(1, ciphertext.size()) << "plaintext index: " << plaintext_index;
+            }
+            actual_ciphertext.append(ciphertext);
+        }
+        string ciphertext;
+        EXPECT_EQ(ErrorCode::OK, Finish(&ciphertext));
+        if (SecLevel() != SecurityLevel::STRONGBOX) {
+            string expected_final_output;
+            if (is_authenticated_cipher) {
+                expected_final_output = exp_cipher_text.substr(plaintext.size());
+            }
+            EXPECT_EQ(expected_final_output, ciphertext);
+        }
+        actual_ciphertext.append(ciphertext);
+    } else {
+        // Assert that a block of output is produced once a full block of input is provided.
+        // Every input block produces an output block.
+        bool compare_output = true;
+        string additional_information;
+        int vendor_api_level = property_get_int32("ro.vendor.api_level", 0);
+        if (SecLevel() == SecurityLevel::STRONGBOX) {
+            // This is known to be broken on older vendor implementations.
+            if (vendor_api_level < __ANDROID_API_T__) {
+                compare_output = false;
+            } else {
+                additional_information = " (b/194134359) ";
+            }
+        }
+        for (int plaintext_index = 0; plaintext_index < plaintext.size(); plaintext_index++) {
+            string ciphertext;
+            EXPECT_EQ(ErrorCode::OK, Update(plaintext.substr(plaintext_index, 1), &ciphertext));
+            if (compare_output) {
+                if ((plaintext_index % block_size) == block_size - 1) {
+                    // Update is expected to have output a new block
+                    EXPECT_EQ(block_size, ciphertext.size())
+                            << "plaintext index: " << plaintext_index << additional_information;
+                } else {
+                    // Update is expected to have produced no output
+                    EXPECT_EQ(0, ciphertext.size())
+                            << "plaintext index: " << plaintext_index << additional_information;
+                }
+            }
+            actual_ciphertext.append(ciphertext);
+        }
+        string ciphertext;
+        EXPECT_EQ(ErrorCode::OK, Finish(&ciphertext));
+        actual_ciphertext.append(ciphertext);
+    }
+    // Regardless of how the completed ciphertext got accumulated, it should match the expected
+    // ciphertext.
+    EXPECT_EQ(exp_cipher_text, actual_ciphertext);
+}
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 void KeyMintAidlTestBase::CheckHmacTestVector(const string& key, const string& message,
                                               Digest digest, const string& expected_mac) {
     SCOPED_TRACE("CheckHmacTestVector");
@@ -693,9 +1074,15 @@ void KeyMintAidlTestBase::LocalVerifyMessage(const string& message, const string
                                              const AuthorizationSet& params) {
     SCOPED_TRACE("LocalVerifyMessage");
 
-    // Retrieve the public key from the leaf certificate.
     ASSERT_GT(cert_chain_.size(), 0);
-    X509_Ptr key_cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+    LocalVerifyMessage(cert_chain_[0].encodedCertificate, message, signature, params);
+}
+
+void KeyMintAidlTestBase::LocalVerifyMessage(const vector<uint8_t>& der_cert, const string& message,
+                                             const string& signature,
+                                             const AuthorizationSet& params) {
+    // Retrieve the public key from the leaf certificate.
+    X509_Ptr key_cert(parse_cert_blob(der_cert));
     ASSERT_TRUE(key_cert.get());
     EVP_PKEY_Ptr pub_key(X509_get_pubkey(key_cert.get()));
     ASSERT_TRUE(pub_key.get());
@@ -803,12 +1190,24 @@ string KeyMintAidlTestBase::LocalRsaEncryptMessage(const string& message,
         return "Failure";
     }
     X509_Ptr key_cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+    if (key_cert.get() == nullptr) {
+        ADD_FAILURE() << "Failed to parse cert";
+        return "Failure";
+    }
     EVP_PKEY_Ptr pub_key(X509_get_pubkey(key_cert.get()));
+    if (pub_key.get() == nullptr) {
+        ADD_FAILURE() << "Failed to retrieve public key";
+        return "Failure";
+    }
     RSA_Ptr rsa(EVP_PKEY_get1_RSA(const_cast<EVP_PKEY*>(pub_key.get())));
+    if (rsa.get() == nullptr) {
+        ADD_FAILURE() << "Failed to retrieve RSA public key";
+        return "Failure";
+    }
 
     // Retrieve relevant tags.
     Digest digest = Digest::NONE;
-    Digest mgf_digest = Digest::NONE;
+    Digest mgf_digest = Digest::SHA1;
     PaddingMode padding = PaddingMode::NONE;
 
     auto digest_tag = params.GetTagValue(TAG_DIGEST);
@@ -1007,6 +1406,16 @@ std::pair<ErrorCode, vector<uint8_t>> KeyMintAidlTestBase::UpgradeKey(
 
     return retval;
 }
+
+bool KeyMintAidlTestBase::IsRkpSupportRequired() const {
+    // This is technically not a match to the requirements for S chipsets,
+    // however when S shipped there was a bug in the test that skipped the
+    // tests if KeyMint 2 was not on the system. So we allowed many chipests
+    // to ship without RKP support. In T we hardened the requirements around
+    // support for RKP, so relax the test to match.
+    return get_vsr_api_level() >= __ANDROID_API_T__;
+}
+
 vector<uint32_t> KeyMintAidlTestBase::ValidKeySizes(Algorithm algorithm) {
     switch (algorithm) {
         case Algorithm::RSA:
@@ -1223,6 +1632,110 @@ ErrorCode KeyMintAidlTestBase::UseEcdsaKey(const vector<uint8_t>& ecdsaKeyBlob) 
     auto [result, signature] = ProcessMessage(ecdsaKeyBlob, KeyPurpose::SIGN, "a",
                                               AuthorizationSetBuilder().Digest(Digest::SHA_2_256));
     return result;
+}
+
+ErrorCode KeyMintAidlTestBase::GenerateAttestKey(const AuthorizationSet& key_desc,
+                                                 const optional<AttestationKey>& attest_key,
+                                                 vector<uint8_t>* key_blob,
+                                                 vector<KeyCharacteristics>* key_characteristics,
+                                                 vector<Certificate>* cert_chain) {
+    // The original specification for KeyMint v1 required ATTEST_KEY not be combined
+    // with any other key purpose, but the original VTS tests incorrectly did exactly that.
+    // This means that a device that launched prior to Android T (API level 33) may
+    // accept or even require KeyPurpose::SIGN too.
+    if (property_get_int32("ro.board.first_api_level", 0) < __ANDROID_API_T__) {
+        AuthorizationSet key_desc_plus_sign = key_desc;
+        key_desc_plus_sign.push_back(TAG_PURPOSE, KeyPurpose::SIGN);
+
+        auto result = GenerateKey(key_desc_plus_sign, attest_key, key_blob, key_characteristics,
+                                  cert_chain);
+        if (result == ErrorCode::OK) {
+            return result;
+        }
+        // If the key generation failed, it may be because the device is (correctly)
+        // rejecting the combination of ATTEST_KEY+SIGN.  Fall through to try again with
+        // just ATTEST_KEY.
+    }
+    return GenerateKey(key_desc, attest_key, key_blob, key_characteristics, cert_chain);
+}
+
+// Check if ATTEST_KEY feature is disabled
+bool KeyMintAidlTestBase::is_attest_key_feature_disabled(void) const {
+    if (!check_feature(FEATURE_KEYSTORE_APP_ATTEST_KEY)) {
+        GTEST_LOG_(INFO) << "Feature " + FEATURE_KEYSTORE_APP_ATTEST_KEY + " is disabled";
+        return true;
+    }
+
+    return false;
+}
+
+// Check if StrongBox KeyStore is enabled
+bool KeyMintAidlTestBase::is_strongbox_enabled(void) const {
+    if (check_feature(FEATURE_STRONGBOX_KEYSTORE)) {
+        GTEST_LOG_(INFO) << "Feature " + FEATURE_STRONGBOX_KEYSTORE + " is enabled";
+        return true;
+    }
+
+    return false;
+}
+
+// Check if chipset has received a waiver allowing it to be launched with Android S or T with
+// Keymaster 4.0 in StrongBox.
+bool KeyMintAidlTestBase::is_chipset_allowed_km4_strongbox(void) const {
+    std::array<char, PROPERTY_VALUE_MAX> buffer;
+
+    const int32_t first_api_level = property_get_int32("ro.board.first_api_level", 0);
+    if (first_api_level <= 0 || first_api_level > __ANDROID_API_T__) return false;
+
+    auto res = property_get("ro.vendor.qti.soc_model", buffer.data(), nullptr);
+    if (res <= 0) return false;
+
+    const string allowed_soc_models[] = {"SM8450", "SM8475", "SM8550", "SXR2230P"};
+
+    for (const string model : allowed_soc_models) {
+        if (model.compare(buffer.data()) == 0) {
+            GTEST_LOG_(INFO) << "QTI SOC Model " + model + " is allowed SB KM 4.0";
+            return true;
+        }
+    }
+
+    return false;
+}
+
+// Indicate whether a test that involves use of the ATTEST_KEY feature should be
+// skipped.
+//
+// In general, every KeyMint implementation should support ATTEST_KEY;
+// however, there is a waiver for some specific devices that ship with a
+// combination of Keymaster/StrongBox and KeyMint/TEE.  On these devices, the
+// ATTEST_KEY feature is disabled in the KeyMint/TEE implementation so that
+// the device has consistent ATTEST_KEY behavior (ie. UNIMPLEMENTED) across both
+// HAL implementations.
+//
+// This means that a test involving ATTEST_KEY test should be skipped if all of
+// the following conditions hold:
+// 1. The device is running one of the chipsets that have received a waiver
+//     allowing it to be launched with Android S or T with Keymaster 4.0
+//     in StrongBox
+// 2. The device has a STRONGBOX implementation present.
+// 3. ATTEST_KEY feature is advertised as disabled.
+//
+// Note that in this scenario, ATTEST_KEY tests should be skipped for both
+// the StrongBox implementation (which is Keymaster, therefore not tested here)
+// and for the TEE implementation (which is adjusted to return UNIMPLEMENTED
+// specifically for this waiver).
+bool KeyMintAidlTestBase::shouldSkipAttestKeyTest(void) const {
+    // Check the chipset first as that doesn't require a round-trip to Package Manager.
+    return (is_chipset_allowed_km4_strongbox() && is_strongbox_enabled() &&
+            is_attest_key_feature_disabled());
+}
+
+// Skip a test that involves use of the ATTEST_KEY feature in specific configurations
+// where ATTEST_KEY is not supported (for either StrongBox or TEE).
+void KeyMintAidlTestBase::skipAttestKeyTest(void) const {
+    if (shouldSkipAttestKeyTest()) {
+        GTEST_SKIP() << "Test using ATTEST_KEY is not applicable on waivered device";
+    }
 }
 
 void verify_serial(X509* cert, const uint64_t expected_serial) {
@@ -1449,6 +1962,241 @@ bool verify_attestation_record(const string& challenge,                //
         EXPECT_NE(0, memcmp(verified_boot_key.data(), empty_boot_key.data(),
                             verified_boot_key.size()));
     }
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+}
+
+bool verify_attestation_record(int32_t aidl_version,                   //
+                               const string& challenge,                //
+                               const string& app_id,                   //
+                               AuthorizationSet expected_sw_enforced,  //
+                               AuthorizationSet expected_hw_enforced,  //
+                               SecurityLevel security_level,
+                               const vector<uint8_t>& attestation_cert,
+                               vector<uint8_t>* unique_id) {
+    X509_Ptr cert(parse_cert_blob(attestation_cert));
+    EXPECT_TRUE(!!cert.get());
+    if (!cert.get()) return false;
+
+    ASN1_OCTET_STRING* attest_rec = get_attestation_record(cert.get());
+    EXPECT_TRUE(!!attest_rec);
+    if (!attest_rec) return false;
+
+    AuthorizationSet att_sw_enforced;
+    AuthorizationSet att_hw_enforced;
+    uint32_t att_attestation_version;
+    uint32_t att_keymint_version;
+    SecurityLevel att_attestation_security_level;
+    SecurityLevel att_keymint_security_level;
+    vector<uint8_t> att_challenge;
+    vector<uint8_t> att_unique_id;
+    vector<uint8_t> att_app_id;
+
+    auto error = parse_attestation_record(attest_rec->data,                 //
+                                          attest_rec->length,               //
+                                          &att_attestation_version,         //
+                                          &att_attestation_security_level,  //
+                                          &att_keymint_version,             //
+                                          &att_keymint_security_level,      //
+                                          &att_challenge,                   //
+                                          &att_sw_enforced,                 //
+                                          &att_hw_enforced,                 //
+                                          &att_unique_id);
+    EXPECT_EQ(ErrorCode::OK, error);
+    if (error != ErrorCode::OK) return false;
+
+    check_attestation_version(att_attestation_version, aidl_version);
+    vector<uint8_t> appId(app_id.begin(), app_id.end());
+
+    // check challenge and app id only if we expects a non-fake certificate
+    if (challenge.length() > 0) {
+        EXPECT_EQ(challenge.length(), att_challenge.size());
+        EXPECT_EQ(0, memcmp(challenge.data(), att_challenge.data(), challenge.length()));
+
+        expected_sw_enforced.push_back(TAG_ATTESTATION_APPLICATION_ID, appId);
+    }
+
+    check_attestation_version(att_keymint_version, aidl_version);
+    EXPECT_EQ(security_level, att_keymint_security_level);
+    EXPECT_EQ(security_level, att_attestation_security_level);
+
+    // TODO(b/136282179): When running under VTS-on-GSI the TEE-backed
+    // keymint implementation will report YYYYMM dates instead of YYYYMMDD
+    // for the BOOT_PATCH_LEVEL.
+    if (avb_verification_enabled()) {
+        for (int i = 0; i < att_hw_enforced.size(); i++) {
+            if (att_hw_enforced[i].tag == TAG_BOOT_PATCHLEVEL ||
+                att_hw_enforced[i].tag == TAG_VENDOR_PATCHLEVEL) {
+                std::string date =
+                        std::to_string(att_hw_enforced[i].value.get<KeyParameterValue::integer>());
+
+                // strptime seems to require delimiters, but the tag value will
+                // be YYYYMMDD
+                if (date.size() != 8) {
+                    ADD_FAILURE() << "Tag " << att_hw_enforced[i].tag
+                                  << " with invalid format (not YYYYMMDD): " << date;
+                    return false;
+                }
+                date.insert(6, "-");
+                date.insert(4, "-");
+                struct tm time;
+                strptime(date.c_str(), "%Y-%m-%d", &time);
+
+                // Day of the month (0-31)
+                EXPECT_GE(time.tm_mday, 0);
+                EXPECT_LT(time.tm_mday, 32);
+                // Months since Jan (0-11)
+                EXPECT_GE(time.tm_mon, 0);
+                EXPECT_LT(time.tm_mon, 12);
+                // Years since 1900
+                EXPECT_GT(time.tm_year, 110);
+                EXPECT_LT(time.tm_year, 200);
+            }
+        }
+    }
+
+    // Check to make sure boolean values are properly encoded. Presence of a boolean tag
+    // indicates true. A provided boolean tag that can be pulled back out of the certificate
+    // indicates correct encoding. No need to check if it's in both lists, since the
+    // AuthorizationSet compare below will handle mismatches of tags.
+    if (security_level == SecurityLevel::SOFTWARE) {
+        EXPECT_TRUE(expected_sw_enforced.Contains(TAG_NO_AUTH_REQUIRED));
+    } else {
+        EXPECT_TRUE(expected_hw_enforced.Contains(TAG_NO_AUTH_REQUIRED));
+    }
+
+    if (att_hw_enforced.Contains(TAG_ALGORITHM, Algorithm::EC)) {
+        // For ECDSA keys, either an EC_CURVE or a KEY_SIZE can be specified, but one must be.
+        EXPECT_TRUE(att_hw_enforced.Contains(TAG_EC_CURVE) ||
+                    att_hw_enforced.Contains(TAG_KEY_SIZE));
+    }
+
+    // Test root of trust elements
+    vector<uint8_t> verified_boot_key;
+    VerifiedBoot verified_boot_state;
+    bool device_locked;
+    vector<uint8_t> verified_boot_hash;
+    error = parse_root_of_trust(attest_rec->data, attest_rec->length, &verified_boot_key,
+                                &verified_boot_state, &device_locked, &verified_boot_hash);
+    EXPECT_EQ(ErrorCode::OK, error);
+    verify_root_of_trust(verified_boot_key, device_locked, verified_boot_state, verified_boot_hash);
+=======
+}
+
+bool verify_attestation_record(int32_t aidl_version,                   //
+                               const string& challenge,                //
+                               const string& app_id,                   //
+                               AuthorizationSet expected_sw_enforced,  //
+                               AuthorizationSet expected_hw_enforced,  //
+                               SecurityLevel security_level,
+                               const vector<uint8_t>& attestation_cert,
+                               vector<uint8_t>* unique_id) {
+    X509_Ptr cert(parse_cert_blob(attestation_cert));
+    EXPECT_TRUE(!!cert.get());
+    if (!cert.get()) return false;
+
+    // Make sure CRL Distribution Points extension is not present in a certificate
+    // containing attestation record.
+    check_crl_distribution_points_extension_not_present(cert.get());
+
+    ASN1_OCTET_STRING* attest_rec = get_attestation_record(cert.get());
+    EXPECT_TRUE(!!attest_rec);
+    if (!attest_rec) return false;
+
+    AuthorizationSet att_sw_enforced;
+    AuthorizationSet att_hw_enforced;
+    uint32_t att_attestation_version;
+    uint32_t att_keymint_version;
+    SecurityLevel att_attestation_security_level;
+    SecurityLevel att_keymint_security_level;
+    vector<uint8_t> att_challenge;
+    vector<uint8_t> att_unique_id;
+    vector<uint8_t> att_app_id;
+
+    auto error = parse_attestation_record(attest_rec->data,                 //
+                                          attest_rec->length,               //
+                                          &att_attestation_version,         //
+                                          &att_attestation_security_level,  //
+                                          &att_keymint_version,             //
+                                          &att_keymint_security_level,      //
+                                          &att_challenge,                   //
+                                          &att_sw_enforced,                 //
+                                          &att_hw_enforced,                 //
+                                          &att_unique_id);
+    EXPECT_EQ(ErrorCode::OK, error);
+    if (error != ErrorCode::OK) return false;
+
+    check_attestation_version(att_attestation_version, aidl_version);
+    vector<uint8_t> appId(app_id.begin(), app_id.end());
+
+    // check challenge and app id only if we expects a non-fake certificate
+    if (challenge.length() > 0) {
+        EXPECT_EQ(challenge.length(), att_challenge.size());
+        EXPECT_EQ(0, memcmp(challenge.data(), att_challenge.data(), challenge.length()));
+
+        expected_sw_enforced.push_back(TAG_ATTESTATION_APPLICATION_ID, appId);
+    }
+
+    check_attestation_version(att_keymint_version, aidl_version);
+    EXPECT_EQ(security_level, att_keymint_security_level);
+    EXPECT_EQ(security_level, att_attestation_security_level);
+
+    for (int i = 0; i < att_hw_enforced.size(); i++) {
+        if (att_hw_enforced[i].tag == TAG_BOOT_PATCHLEVEL ||
+            att_hw_enforced[i].tag == TAG_VENDOR_PATCHLEVEL) {
+            std::string date =
+                    std::to_string(att_hw_enforced[i].value.get<KeyParameterValue::integer>());
+
+            // strptime seems to require delimiters, but the tag value will
+            // be YYYYMMDD
+            if (date.size() != 8) {
+                ADD_FAILURE() << "Tag " << att_hw_enforced[i].tag
+                              << " with invalid format (not YYYYMMDD): " << date;
+                return false;
+            }
+            date.insert(6, "-");
+            date.insert(4, "-");
+            struct tm time;
+            strptime(date.c_str(), "%Y-%m-%d", &time);
+
+            // Day of the month (0-31)
+            EXPECT_GE(time.tm_mday, 0);
+            EXPECT_LT(time.tm_mday, 32);
+            // Months since Jan (0-11)
+            EXPECT_GE(time.tm_mon, 0);
+            EXPECT_LT(time.tm_mon, 12);
+            // Years since 1900
+            EXPECT_GT(time.tm_year, 110);
+            EXPECT_LT(time.tm_year, 200);
+        }
+    }
+
+    // Check to make sure boolean values are properly encoded. Presence of a boolean tag
+    // indicates true. A provided boolean tag that can be pulled back out of the certificate
+    // indicates correct encoding. No need to check if it's in both lists, since the
+    // AuthorizationSet compare below will handle mismatches of tags.
+    if (security_level == SecurityLevel::SOFTWARE) {
+        EXPECT_TRUE(expected_sw_enforced.Contains(TAG_NO_AUTH_REQUIRED));
+    } else {
+        EXPECT_TRUE(expected_hw_enforced.Contains(TAG_NO_AUTH_REQUIRED));
+    }
+
+    if (att_hw_enforced.Contains(TAG_ALGORITHM, Algorithm::EC)) {
+        // For ECDSA keys, either an EC_CURVE or a KEY_SIZE can be specified, but one must be.
+        EXPECT_TRUE(att_hw_enforced.Contains(TAG_EC_CURVE) ||
+                    att_hw_enforced.Contains(TAG_KEY_SIZE));
+    }
+
+    // Test root of trust elements
+    vector<uint8_t> verified_boot_key;
+    VerifiedBoot verified_boot_state;
+    bool device_locked;
+    vector<uint8_t> verified_boot_hash;
+    error = parse_root_of_trust(attest_rec->data, attest_rec->length, &verified_boot_key,
+                                &verified_boot_state, &device_locked, &verified_boot_hash);
+    EXPECT_EQ(ErrorCode::OK, error);
+    verify_root_of_trust(verified_boot_key, device_locked, verified_boot_state, verified_boot_hash);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
     att_sw_enforced.Sort();
     expected_sw_enforced.Sort();
@@ -1569,30 +2317,32 @@ void check_cose_key(const vector<uint8_t>& data, bool testMode) {
 
     // The following check assumes that canonical CBOR encoding is used for the COSE_Key.
     if (testMode) {
-        EXPECT_THAT(cppbor::prettyPrint(parsedPayload.get()),
-                    MatchesRegex("{\n"
-                                 "  1 : 2,\n"   // kty: EC2
-                                 "  3 : -7,\n"  // alg: ES256
-                                 "  -1 : 1,\n"  // EC id: P256
-                                 // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a
-                                 // sequence of 32 hexadecimal bytes, enclosed in braces and
-                                 // separated by commas. In this case, some Ed25519 public key.
-                                 "  -2 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_x: data
-                                 "  -3 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_y: data
-                                 "  -70000 : null,\n"                              // test marker
-                                 "}"));
+        EXPECT_THAT(
+                cppbor::prettyPrint(parsedPayload.get()),
+                MatchesRegex("\\{\n"
+                             "  1 : 2,\n"   // kty: EC2
+                             "  3 : -7,\n"  // alg: ES256
+                             "  -1 : 1,\n"  // EC id: P256
+                             // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a
+                             // sequence of 32 hexadecimal bytes, enclosed in braces and
+                             // separated by commas. In this case, some Ed25519 public key.
+                             "  -2 : \\{(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}\\},\n"  // pub_x: data
+                             "  -3 : \\{(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}\\},\n"  // pub_y: data
+                             "  -70000 : null,\n"                                  // test marker
+                             "\\}"));
     } else {
-        EXPECT_THAT(cppbor::prettyPrint(parsedPayload.get()),
-                    MatchesRegex("{\n"
-                                 "  1 : 2,\n"   // kty: EC2
-                                 "  3 : -7,\n"  // alg: ES256
-                                 "  -1 : 1,\n"  // EC id: P256
-                                 // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a
-                                 // sequence of 32 hexadecimal bytes, enclosed in braces and
-                                 // separated by commas. In this case, some Ed25519 public key.
-                                 "  -2 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_x: data
-                                 "  -3 : {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}},\n"  // pub_y: data
-                                 "}"));
+        EXPECT_THAT(
+                cppbor::prettyPrint(parsedPayload.get()),
+                MatchesRegex("\\{\n"
+                             "  1 : 2,\n"   // kty: EC2
+                             "  3 : -7,\n"  // alg: ES256
+                             "  -1 : 1,\n"  // EC id: P256
+                             // The regex {(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}} matches a
+                             // sequence of 32 hexadecimal bytes, enclosed in braces and
+                             // separated by commas. In this case, some Ed25519 public key.
+                             "  -2 : \\{(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}\\},\n"  // pub_x: data
+                             "  -3 : \\{(0x[0-9a-f]{2}, ){31}0x[0-9a-f]{2}\\},\n"  // pub_y: data
+                             "\\}"));
     }
 }
 
@@ -1679,6 +2429,99 @@ void p256_pub_key(const vector<uint8_t>& coseKeyData, EVP_PKEY_Ptr* signingKey) 
     *signingKey = std::move(pubKey);
 }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+// Check the error code from an attempt to perform device ID attestation with an invalid value.
+void device_id_attestation_check_acceptable_error(Tag tag, const ErrorCode& result) {
+    if (result == ErrorCode::CANNOT_ATTEST_IDS) {
+        // Standard/default error code for ID mismatch.
+    } else if (result == ErrorCode::INVALID_TAG) {
+        // Depending on the situation, other error codes may be acceptable.  First, allow older
+        // implementations to use INVALID_TAG.
+    } else if (result == ErrorCode::ATTESTATION_IDS_NOT_PROVISIONED) {
+        // If the device is not a phone, it will not have IMEI/MEID values available.  Allow
+        // ATTESTATION_IDS_NOT_PROVISIONED in this case.
+        ASSERT_TRUE((tag == TAG_ATTESTATION_ID_IMEI || tag == TAG_ATTESTATION_ID_MEID))
+                << "incorrect error code on attestation ID mismatch";
+    } else {
+        ADD_FAILURE() << "Error code " << result
+                      << " returned on attestation ID mismatch, should be CANNOT_ATTEST_IDS";
+    }
+}
+
+// Check whether the given named feature is available.
+bool check_feature(const std::string& name) {
+    ::android::sp<::android::IServiceManager> sm(::android::defaultServiceManager());
+    ::android::sp<::android::IBinder> binder(sm->getService(::android::String16("package_native")));
+    if (binder == nullptr) {
+        GTEST_LOG_(ERROR) << "getService package_native failed";
+        return false;
+    }
+    ::android::sp<::android::content::pm::IPackageManagerNative> packageMgr =
+            ::android::interface_cast<::android::content::pm::IPackageManagerNative>(binder);
+    if (packageMgr == nullptr) {
+        GTEST_LOG_(ERROR) << "Cannot find package manager";
+        return false;
+    }
+    bool hasFeature = false;
+    auto status = packageMgr->hasSystemFeature(::android::String16(name.c_str()), 0, &hasFeature);
+    if (!status.isOk()) {
+        GTEST_LOG_(ERROR) << "hasSystemFeature('" << name << "') failed: " << status;
+        return false;
+    }
+    return hasFeature;
+}
+
+=======
+// Check the error code from an attempt to perform device ID attestation with an invalid value.
+void device_id_attestation_check_acceptable_error(Tag tag, const ErrorCode& result) {
+    if (result == ErrorCode::CANNOT_ATTEST_IDS) {
+        // Standard/default error code for ID mismatch.
+    } else if (result == ErrorCode::INVALID_TAG) {
+        // Depending on the situation, other error codes may be acceptable.  First, allow older
+        // implementations to use INVALID_TAG.
+        ASSERT_FALSE(get_vsr_api_level() > __ANDROID_API_T__)
+                << "It is a specification violation for INVALID_TAG to be returned due to ID "
+                << "mismatch in a Device ID Attestation call. INVALID_TAG is only intended to "
+                << "be used for a case where updateAad() is called after update(). As of "
+                << "VSR-14, this is now enforced as an error.";
+    } else if (result == ErrorCode::ATTESTATION_IDS_NOT_PROVISIONED) {
+        // If the device is not a phone, it will not have IMEI/MEID values available.  Allow
+        // ATTESTATION_IDS_NOT_PROVISIONED in this case.
+        ASSERT_TRUE((tag == TAG_ATTESTATION_ID_IMEI || tag == TAG_ATTESTATION_ID_MEID ||
+                     tag == TAG_ATTESTATION_ID_SECOND_IMEI))
+                << "incorrect error code on attestation ID mismatch";
+    } else {
+        ADD_FAILURE() << "Error code " << result
+                      << " returned on attestation ID mismatch, should be CANNOT_ATTEST_IDS";
+    }
+}
+
+// Check whether the given named feature is available.
+bool check_feature(const std::string& name) {
+    ::android::sp<::android::IServiceManager> sm(::android::defaultServiceManager());
+    ::android::sp<::android::IBinder> binder(
+        sm->waitForService(::android::String16("package_native")));
+    if (binder == nullptr) {
+        GTEST_LOG_(ERROR) << "waitForService package_native failed";
+        return false;
+    }
+    ::android::sp<::android::content::pm::IPackageManagerNative> packageMgr =
+            ::android::interface_cast<::android::content::pm::IPackageManagerNative>(binder);
+    if (packageMgr == nullptr) {
+        GTEST_LOG_(ERROR) << "Cannot find package manager";
+        return false;
+    }
+    bool hasFeature = false;
+    auto status = packageMgr->hasSystemFeature(::android::String16(name.c_str()), 0, &hasFeature);
+    if (!status.isOk()) {
+        GTEST_LOG_(ERROR) << "hasSystemFeature('" << name << "') failed: " << status;
+        return false;
+    }
+    return hasFeature;
+}
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }  // namespace test
 
 }  // namespace aidl::android::hardware::security::keymint

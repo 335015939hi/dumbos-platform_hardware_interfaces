@@ -45,9 +45,24 @@ static bool registerPassthroughServiceImplementations(Iter first, Iter last) {
 }
 
 int main(int /* argc */, char* /* argv */ []) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     ::android::ProcessState::initWithDriver("/dev/vndbinder");
     // start a threadpool for vndbinder interactions
     ::android::ProcessState::self()->startThreadPool();
+||||||| BASE
+    signal(SIGPIPE, SIG_IGN);
+
+    ::android::ProcessState::initWithDriver("/dev/vndbinder");
+    // start a threadpool for vndbinder interactions
+    ::android::ProcessState::self()->startThreadPool();
+=======
+    signal(SIGPIPE, SIG_IGN);
+
+    if (::android::ProcessState::isVndservicemanagerEnabled()) {
+        ::android::ProcessState::initWithDriver("/dev/vndbinder");
+        ::android::ProcessState::self()->startThreadPool();
+    }
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
     const int32_t defaultValue = -1;
     int32_t value =
@@ -96,6 +111,28 @@ int main(int /* argc */, char* /* argv */ []) {
             "android.hardware.bluetooth.a2dp@1.0::IBluetoothAudioOffload"
         }
     };
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+
+    const std::vector<std::pair<std::string,std::string>> optionalInterfaceSharedLibs = {
+        {
+            "android.hardware.bluetooth.audio-impl",
+            "createIBluetoothAudioProviderFactory",
+        },
+    };
+=======
+
+    const std::vector<std::pair<std::string,std::string>> optionalInterfaceSharedLibs = {
+        {
+            "android.hardware.bluetooth.audio-impl",
+            "createIBluetoothAudioProviderFactory",
+        },
+        {
+            "android.hardware.audio.sounddose-vendor-impl",
+            "createISoundDoseFactory",
+        },
+    };
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     // clang-format on
 
     for (const auto& listIter : mandatoryInterfaces) {

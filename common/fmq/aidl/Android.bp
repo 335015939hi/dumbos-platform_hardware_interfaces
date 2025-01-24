@@ -24,11 +24,51 @@ aidl_interface {
     stability: "vintf",
     backend: {
         java: {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
             enabled: false,
+||||||| BASE
+            sdk_version: "module_current",
+=======
+            // There is no Java FMQ library, but we support the AIDL type
+            // to allow subsets of interfaces that include it to be used in Java
+            enabled: true,
+            sdk_version: "module_current",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         },
         cpp: {
+            // FMQ will not be supported in the cpp backend because the parcelables
+            // are not stable enough for use in shared memory
             enabled: false,
         },
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+        ndk: {
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.bluetooth",
+            ],
+            min_sdk_version: "29",
+        },
+=======
+        ndk: {
+            apex_available: [
+                "//apex_available:platform",
+                "com.android.btservices",
+                "com.android.media.swcodec",
+            ],
+            min_sdk_version: "29",
+        },
+        rust: {
+            // FMQ is not supported in the rust backend
+            enabled: false,
+        },
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     },
-    versions: ["1"],
+    frozen: true,
+    versions_with_info: [
+        {
+            version: "1",
+            imports: ["android.hardware.common-V2"],
+        },
+    ],
 }

@@ -14,9 +14,19 @@ aidl_interface {
         "android/hardware/biometrics/face/**/*.aidl",
     ],
     imports: [
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "android.hardware.biometrics.common",
         "android.hardware.common",
         "android.hardware.keymaster",
+||||||| BASE
+        "android.hardware.biometrics.common",
+        "android.hardware.common-V2",
+        "android.hardware.keymaster-V3",
+=======
+        "android.hardware.biometrics.common-V3",
+        "android.hardware.common-V2",
+        "android.hardware.keymaster-V4",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
     stability: "vintf",
     backend: {
@@ -27,5 +37,58 @@ aidl_interface {
             enabled: false,
         },
     },
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     versions: ["1"],
+||||||| BASE
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [
+                "android.hardware.biometrics.common-V1",
+                "android.hardware.common-V2",
+                "android.hardware.keymaster-V3",
+            ],
+        },
+        {
+            version: "2",
+            imports: [
+                "android.hardware.biometrics.common-V2",
+                "android.hardware.common-V2",
+                "android.hardware.keymaster-V3",
+            ],
+        },
+
+    ],
+
+=======
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [
+                "android.hardware.biometrics.common-V1",
+                "android.hardware.common-V2",
+                "android.hardware.keymaster-V3",
+            ],
+        },
+        {
+            version: "2",
+            imports: [
+                "android.hardware.biometrics.common-V2",
+                "android.hardware.common-V2",
+                "android.hardware.keymaster-V3",
+            ],
+        },
+        {
+            version: "3",
+            imports: [
+                "android.hardware.biometrics.common-V3",
+                "android.hardware.common-V2",
+                "android.hardware.keymaster-V4",
+            ],
+        },
+
+    ],
+    frozen: true,
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }

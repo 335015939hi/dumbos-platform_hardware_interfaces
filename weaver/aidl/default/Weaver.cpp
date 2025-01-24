@@ -29,9 +29,40 @@ namespace weaver {
 }
 
 ::ndk::ScopedAStatus Weaver::read(int32_t in_slotId, const std::vector<uint8_t>& in_key, WeaverReadResponse* out_response) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     (void)in_slotId;
     (void)in_key;
     (void)out_response;
+||||||| BASE
+
+    if (in_slotId > 15 || in_key.size() > 16) {
+        *out_response = {0, {}};
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificError(Weaver::STATUS_FAILED));
+    }
+
+    if (slot_array[in_slotId].key != in_key) {
+        *out_response = {0, {}};
+        return ndk::ScopedAStatus(AStatus_fromServiceSpecificError(Weaver::STATUS_INCORRECT_KEY));
+    }
+
+    *out_response = {0, slot_array[in_slotId].value};
+
+=======
+    using ::aidl::android::hardware::weaver::WeaverReadStatus;
+
+    if (in_slotId > 15 || in_key.size() > 16) {
+        *out_response = {0, {}, WeaverReadStatus::FAILED};
+        return ndk::ScopedAStatus::ok();
+    }
+
+    if (slot_array[in_slotId].key != in_key) {
+        *out_response = {0, {}, WeaverReadStatus::INCORRECT_KEY};
+        return ndk::ScopedAStatus::ok();
+    }
+
+    *out_response = {0, slot_array[in_slotId].value, WeaverReadStatus::OK};
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     return ::ndk::ScopedAStatus::ok();
 }
 

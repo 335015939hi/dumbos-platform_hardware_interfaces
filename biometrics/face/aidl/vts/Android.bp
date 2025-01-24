@@ -15,10 +15,22 @@ cc_test {
     ],
     srcs: ["VtsHalBiometricsFaceTargetTest.cpp"],
     static_libs: [
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "android.hardware.biometrics.common-V1-ndk_platform",
         "android.hardware.biometrics.face-V1-ndk_platform",
         "android.hardware.common-V2-ndk_platform",
         "android.hardware.keymaster-V3-ndk_platform",
+||||||| BASE
+        "android.hardware.biometrics.common-V2-ndk",
+        "android.hardware.biometrics.face-V2-ndk",
+        "android.hardware.common-V2-ndk",
+        "android.hardware.keymaster-V3-ndk",
+=======
+        "android.hardware.biometrics.common-V3-ndk",
+        "android.hardware.biometrics.face-V3-ndk",
+        "android.hardware.common-V2-ndk",
+        "android.hardware.keymaster-V4-ndk",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
     shared_libs: [
         "libbinder_ndk",

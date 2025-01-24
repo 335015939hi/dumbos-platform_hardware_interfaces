@@ -23,6 +23,7 @@
 #include <thread>
 
 namespace aidl::android::hardware::gnss {
+class Gnss;
 
 struct GnssMeasurementInterface : public BnGnssMeasurementInterface {
   public:
@@ -32,9 +33,24 @@ struct GnssMeasurementInterface : public BnGnssMeasurementInterface {
                                    const bool enableFullTracking,
                                    const bool enableCorrVecOutputs) override;
     ndk::ScopedAStatus close() override;
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+    ndk::ScopedAStatus setCallbackWithOptions(
+            const std::shared_ptr<IGnssMeasurementCallback>& callback,
+            const Options& options) override;
+    void setLocationInterval(const int intervalMs);
+    void setLocationEnabled(const bool enabled);
+=======
+    ndk::ScopedAStatus setCallbackWithOptions(
+            const std::shared_ptr<IGnssMeasurementCallback>& callback,
+            const Options& options) override;
+    void setLocationInterval(const int intervalMs);
+    void setLocationEnabled(const bool enabled);
+    void setGnssInterface(const std::shared_ptr<Gnss>& gnss);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
   private:
-    void start(const bool enableCorrVecOutputs);
+    void start(const bool enableCorrVecOutputs, const bool enableFullTracking);
     void stop();
     void reportMeasurement(const GnssData&);
 
@@ -47,6 +63,8 @@ struct GnssMeasurementInterface : public BnGnssMeasurementInterface {
 
     // Synchronization lock for sCallback
     mutable std::mutex mMutex;
+
+    std::shared_ptr<Gnss> mGnss;
 };
 
 }  // namespace aidl::android::hardware::gnss

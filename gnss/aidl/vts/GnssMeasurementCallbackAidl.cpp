@@ -24,12 +24,28 @@ using android::hardware::gnss::GnssData;
 
 android::binder::Status GnssMeasurementCallbackAidl::gnssMeasurementCb(const GnssData& gnssData) {
     ALOGI("gnssMeasurementCb");
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     ALOGI("elapsedRealtime: flags = %d, timestampNs: %" PRId64 ", timeUncertaintyNs=%lf",
+||||||| BASE
+    ALOGV("elapsedRealtime: flags = 0x%X, timestampNs: %" PRId64 ", timeUncertaintyNs=%lf",
+=======
+    ALOGV("elapsedRealtime: flags = 0x%X, timestampNs: %" PRId64
+          ", timeUncertaintyNs=%lf"
+          " isFullTracking=%s",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
           gnssData.elapsedRealtime.flags, gnssData.elapsedRealtime.timestampNs,
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
           gnssData.elapsedRealtime.timeUncertaintyNs);
     for (const auto& measurement : gnssData.measurements) {
         ALOGI("measurement.receivedSvTimeInNs=%" PRId64, measurement.receivedSvTimeInNs);
     }
+||||||| BASE
+          gnssData.elapsedRealtime.timeUncertaintyNs);
+
+=======
+          gnssData.elapsedRealtime.timeUncertaintyNs, gnssData.isFullTracking ? "true" : "false");
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     gnss_data_cbq_.store(gnssData);
     return android::binder::Status::ok();
 }

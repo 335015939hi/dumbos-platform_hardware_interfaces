@@ -13,6 +13,7 @@ cc_binary {
     proprietary: true,
     relative_install_path: "hw",
     srcs: [
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "service.cpp",
         "EvsCamera.cpp",
         "EvsEnumerator.cpp",
@@ -20,6 +21,12 @@ cc_binary {
         "ConfigManager.cpp",
         "ConfigManagerUtil.cpp",
         "EvsUltrasonicsArray.cpp",
+||||||| BASE
+        "*.cpp",
+=======
+        ":libgui_frame_event_aidl",
+        "*.cpp",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
     init_rc: ["android.hardware.automotive.evs@1.1-service.rc"],
 

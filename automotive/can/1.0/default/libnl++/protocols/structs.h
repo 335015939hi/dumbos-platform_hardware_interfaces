@@ -30,4 +30,19 @@ void arrayToStream(std::stringstream& ss, const Buffer<nlattr> attr) {
     ss << '}';
 }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+typedef std::map<uint64_t, std::string> FlagsMap;
+AttributeDefinition::ToStream flagsToStream(FlagsMap flags);
+
+void hwaddrToStream(std::stringstream& ss, const Buffer<nlattr> attr);
+
+=======
+typedef std::map<uint64_t, std::string> FlagsMap;
+AttributeDefinition::ToStream flagsToStream(FlagsMap flags);
+void flagsToStream(std::stringstream& ss, const FlagsMap& flags, uint64_t value);
+
+void hwaddrToStream(std::stringstream& ss, const Buffer<nlattr> attr);
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }  // namespace android::nl::protocols

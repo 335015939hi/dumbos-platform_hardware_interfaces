@@ -38,10 +38,32 @@ class Gnss : public BnGnss {
     ndk::ScopedAStatus getExtensionGnssMeasurement(
             std::shared_ptr<IGnssMeasurementInterface>* iGnssMeasurement) override;
 
+    void reportSvStatus() const;
     std::shared_ptr<GnssConfiguration> mGnssConfiguration;
     std::shared_ptr<GnssPowerIndication> mGnssPowerIndication;
 
   private:
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+    void reportLocation(const GnssLocation&) const;
+    void reportSvStatus() const;
+    void reportSvStatus(const std::vector<IGnssCallback::GnssSvInfo>& svInfoList) const;
+    std::vector<IGnssCallback::GnssSvInfo> filterBlocklistedSatellites(
+            std::vector<IGnssCallback::GnssSvInfo> gnssSvInfoList) const;
+    void reportGnssStatusValue(const IGnssCallback::GnssStatusValue gnssStatusValue) const;
+    std::unique_ptr<GnssLocation> getLocationFromHW();
+    void reportNmea() const;
+
+=======
+    void reportLocation(const GnssLocation&) const;
+    void reportSvStatus(const std::vector<IGnssCallback::GnssSvInfo>& svInfoList) const;
+    std::vector<IGnssCallback::GnssSvInfo> filterBlocklistedSatellites(
+            std::vector<IGnssCallback::GnssSvInfo> gnssSvInfoList) const;
+    void reportGnssStatusValue(const IGnssCallback::GnssStatusValue gnssStatusValue) const;
+    std::unique_ptr<GnssLocation> getLocationFromHW();
+    void reportNmea() const;
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     static std::shared_ptr<IGnssCallback> sGnssCallback;
 };
 

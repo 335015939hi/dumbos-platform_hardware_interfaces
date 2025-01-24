@@ -15,7 +15,13 @@ aidl_interface {
         enabled: true,
         support_system_process: true,
     },
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     vndk_use_version: "2",
+||||||| BASE
+    vndk_use_version: "3",
+=======
+    vndk_use_version: "4",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     srcs: [
         "android/hardware/graphics/common/*.aidl",
     ],
@@ -38,9 +44,60 @@ aidl_interface {
             ],
             min_sdk_version: "29",
         },
+        rust: {
+            enabled: true,
+        },
     },
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     versions: [
         "1",
         "2",
+||||||| BASE
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [
+                "android.hardware.common-V2",
+            ],
+        },
+        {
+            version: "2",
+            imports: [
+                "android.hardware.common-V2",
+            ],
+        },
+        {
+            version: "3",
+            imports: [
+                "android.hardware.common-V2",
+            ],
+        },
+=======
+    frozen: true,
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [
+                "android.hardware.common-V2",
+            ],
+        },
+        {
+            version: "2",
+            imports: [
+                "android.hardware.common-V2",
+            ],
+        },
+        {
+            version: "3",
+            imports: [
+                "android.hardware.common-V2",
+            ],
+        },
+        {
+            version: "4",
+            imports: ["android.hardware.common-V2"],
+        },
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
 }

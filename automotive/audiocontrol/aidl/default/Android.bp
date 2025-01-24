@@ -29,8 +29,18 @@ cc_binary {
     vendor: true,
     shared_libs: [
         "android.hardware.audio.common@7.0-enums",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "android.frameworks.automotive.powerpolicy-V1-ndk_platform",
         "android.hardware.automotive.audiocontrol-V1-ndk_platform",
+||||||| BASE
+        "android.hardware.audio.common-V1-ndk",
+        "android.frameworks.automotive.powerpolicy-V1-ndk",
+        "android.hardware.automotive.audiocontrol-V2-ndk",
+=======
+        "android.hardware.audio.common-V1-ndk",
+        "android.frameworks.automotive.powerpolicy-V2-ndk",
+        "android.hardware.automotive.audiocontrol-V3-ndk",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         "libbase",
         "libbinder_ndk",
         "libcutils",

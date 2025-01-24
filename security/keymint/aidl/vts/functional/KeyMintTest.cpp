@@ -25,6 +25,7 @@
 #include <openssl/ec.h>
 #include <openssl/evp.h>
 #include <openssl/mem.h>
+#include <openssl/x509.h>
 #include <openssl/x509v3.h>
 
 #include <cutils/properties.h>
@@ -459,8 +460,7 @@ string device_suffix(const string& name) {
     return name.substr(pos + 1);
 }
 
-bool matching_rp_instance(const string& km_name,
-                          std::shared_ptr<IRemotelyProvisionedComponent>* rp) {
+std::shared_ptr<IRemotelyProvisionedComponent> matching_rp_instance(const std::string& km_name) {
     string km_suffix = device_suffix(km_name);
 
     vector<string> rp_names =
@@ -470,11 +470,10 @@ bool matching_rp_instance(const string& km_name,
         // KeyMint instance, assume they match.
         if (device_suffix(rp_name) == km_suffix && AServiceManager_isDeclared(rp_name.c_str())) {
             ::ndk::SpAIBinder binder(AServiceManager_waitForService(rp_name.c_str()));
-            *rp = IRemotelyProvisionedComponent::fromBinder(binder);
-            return true;
+            return IRemotelyProvisionedComponent::fromBinder(binder);
         }
     }
-    return false;
+    return nullptr;
 }
 
 }  // namespace
@@ -482,7 +481,7 @@ bool matching_rp_instance(const string& km_name,
 class NewKeyGenerationTest : public KeyMintAidlTestBase {
   protected:
     void CheckBaseParams(const vector<KeyCharacteristics>& keyCharacteristics) {
-        AuthorizationSet auths = CheckCommonParams(keyCharacteristics);
+        AuthorizationSet auths = CheckCommonParams(keyCharacteristics, KeyOrigin::GENERATED);
         EXPECT_TRUE(auths.Contains(TAG_PURPOSE, KeyPurpose::SIGN));
 
         // Check that some unexpected tags/values are NOT present.
@@ -491,20 +490,21 @@ class NewKeyGenerationTest : public KeyMintAidlTestBase {
     }
 
     void CheckSymmetricParams(const vector<KeyCharacteristics>& keyCharacteristics) {
-        AuthorizationSet auths = CheckCommonParams(keyCharacteristics);
+        AuthorizationSet auths = CheckCommonParams(keyCharacteristics, KeyOrigin::GENERATED);
         EXPECT_TRUE(auths.Contains(TAG_PURPOSE, KeyPurpose::ENCRYPT));
         EXPECT_TRUE(auths.Contains(TAG_PURPOSE, KeyPurpose::DECRYPT));
 
         EXPECT_FALSE(auths.Contains(TAG_PURPOSE, KeyPurpose::SIGN));
     }
 
-    AuthorizationSet CheckCommonParams(const vector<KeyCharacteristics>& keyCharacteristics) {
+    AuthorizationSet CheckCommonParams(const vector<KeyCharacteristics>& keyCharacteristics,
+                                       const KeyOrigin expectedKeyOrigin) {
         // TODO(swillden): Distinguish which params should be in which auth list.
         AuthorizationSet auths;
         for (auto& entry : keyCharacteristics) {
             auths.push_back(AuthorizationSet(entry.authorizations));
         }
-        EXPECT_TRUE(auths.Contains(TAG_ORIGIN, KeyOrigin::GENERATED));
+        EXPECT_TRUE(auths.Contains(TAG_ORIGIN, expectedKeyOrigin));
 
         // Verify that App data, ROT and auth timeout are NOT included.
         EXPECT_FALSE(auths.Contains(TAG_ROOT_OF_TRUST));
@@ -606,6 +606,7 @@ TEST_P(NewKeyGenerationTest, AesInvalidSize) {
 
     for (auto block_mode : ValidBlockModes(Algorithm::AES)) {
         for (auto padding_mode : ValidPaddingModes(Algorithm::AES, block_mode)) {
+            SCOPED_TRACE(testing::Message() << "AES-unknown-" << block_mode << "-" << padding_mode);
             vector<uint8_t> key_blob;
             vector<KeyCharacteristics> key_characteristics;
             // No key size specified
@@ -859,6 +860,7 @@ TEST_P(NewKeyGenerationTest, TripleDesInvalidSize) {
  */
 TEST_P(NewKeyGenerationTest, Rsa) {
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -884,6 +886,117 @@ TEST_P(NewKeyGenerationTest, Rsa) {
 }
 
 /*
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+ * NewKeyGenerationTest.RsaWithMissingValidity
+ *
+ * Verifies that keymint returns an error while generating asymmetric key
+ * without providing NOT_BEFORE and NOT_AFTER parameters.
+ */
+TEST_P(NewKeyGenerationTest, RsaWithMissingValidity) {
+    // Per RFC 5280 4.1.2.5, an undefined expiration (not-after) field should be set to
+    // GeneralizedTime 999912312359559, which is 253402300799000 ms from Jan 1, 1970.
+    constexpr uint64_t kUndefinedExpirationDateTime = 253402300799000;
+
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(ErrorCode::MISSING_NOT_BEFORE,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::NONE)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_AFTER,
+                                                 kUndefinedExpirationDateTime),
+                          &key_blob, &key_characteristics));
+
+    ASSERT_EQ(ErrorCode::MISSING_NOT_AFTER,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::NONE)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_BEFORE, 0),
+                          &key_blob, &key_characteristics));
+}
+
+/*
+=======
+ * NewKeyGenerationTest.RsaWithMissingValidity
+ *
+ * Verifies that keymint returns an error while generating asymmetric key
+ * without providing NOT_BEFORE and NOT_AFTER parameters.
+ */
+TEST_P(NewKeyGenerationTest, RsaWithMissingValidity) {
+    if (AidlVersion() < 3) {
+        /*
+         * The KeyMint V1 spec required that CERTIFICATE_NOT_{BEFORE,AFTER} be
+         * specified for asymmetric key generation. However, this was not
+         * checked at the time so we can only be strict about checking this for
+         * implementations of KeyMint version 2 and above.
+         */
+        GTEST_SKIP() << "Validity strict since KeyMint v2";
+    }
+    // Per RFC 5280 4.1.2.5, an undefined expiration (not-after) field should be set to
+    // GeneralizedTime 999912312359559, which is 253402300799000 ms from Jan 1, 1970.
+    constexpr uint64_t kUndefinedExpirationDateTime = 253402300799000;
+
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(ErrorCode::MISSING_NOT_BEFORE,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::NONE)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_AFTER,
+                                                 kUndefinedExpirationDateTime),
+                          &key_blob, &key_characteristics));
+
+    ASSERT_EQ(ErrorCode::MISSING_NOT_AFTER,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::NONE)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_BEFORE, 0),
+                          &key_blob, &key_characteristics));
+}
+
+/*
+ * NewKeyGenerationTest.RsaWithSpecifiedValidity
+ *
+ * Verifies that KeyMint respects specified NOT_BEFORE and NOT_AFTER certificate dates.
+ */
+TEST_P(NewKeyGenerationTest, RsaWithSpecifiedValidity) {
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .RsaSigningKey(2048, 65537)
+                                  .Digest(Digest::NONE)
+                                  .Padding(PaddingMode::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_BEFORE,
+                                                 1183806000000 /* 2007-07-07T11:00:00Z */)
+                                  .Authorization(TAG_CERTIFICATE_NOT_AFTER,
+                                                 1916049600000 /* 2030-09-19T12:00:00Z */),
+                          &key_blob, &key_characteristics));
+    ASSERT_GT(cert_chain_.size(), 0);
+
+    X509_Ptr cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+    ASSERT_TRUE(!!cert.get());
+
+    const ASN1_TIME* not_before = X509_get0_notBefore(cert.get());
+    ASSERT_NE(not_before, nullptr);
+    time_t not_before_time;
+    ASSERT_EQ(ASN1_TIME_to_time_t(not_before, &not_before_time), 1);
+    EXPECT_EQ(not_before_time, 1183806000);
+
+    const ASN1_TIME* not_after = X509_get0_notAfter(cert.get());
+    ASSERT_NE(not_after, nullptr);
+    time_t not_after_time;
+    ASSERT_EQ(ASN1_TIME_to_time_t(not_after, &not_after_time), 1);
+    EXPECT_EQ(not_after_time, 1916049600);
+}
+
+/*
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
  * NewKeyGenerationTest.RsaWithAttestation
  *
  * Verifies that keymint can generate all required RSA key sizes with attestation, and that the
@@ -900,6 +1013,7 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK,
@@ -926,9 +1040,9 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
                 << "Key size " << key_size << "missing";
         EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
 
+        ASSERT_GT(cert_chain_.size(), 0);
         verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
-        ASSERT_GT(cert_chain_.size(), 0);
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
@@ -941,21 +1055,24 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestation) {
 }
 
 /*
- * NewKeyGenerationTest.RsaWithRpkAttestation
+ * NewKeyGenerationTest.RsaWithRkpAttestation
  *
- * Verifies that keymint can generate all required RSA key sizes, using an attestation key
+ * Verifies that keymint can generate all required RSA key sizes using an attestation key
  * that has been generated using an associate IRemotelyProvisionedComponent.
- *
- * This test is disabled because the KeyMint specification does not require that implementations
- * of the first version of KeyMint have to also implement IRemotelyProvisionedComponent.
- * However, the test is kept in the code because KeyMint v2 will impose this requirement.
  */
-TEST_P(NewKeyGenerationTest, DISABLED_RsaWithRpkAttestation) {
-    // There should be an IRemotelyProvisionedComponent instance associated with the KeyMint
-    // instance.
-    std::shared_ptr<IRemotelyProvisionedComponent> rp;
-    ASSERT_TRUE(matching_rp_instance(GetParam(), &rp))
-            << "No IRemotelyProvisionedComponent found that matches KeyMint device " << GetParam();
+TEST_P(NewKeyGenerationTest, RsaWithRkpAttestation) {
+    if (!IsRkpSupportRequired()) {
+        GTEST_SKIP() << "RKP support is not required on this platform";
+    }
+
+    // Check for an IRemotelyProvisionedComponent instance associated with the
+    // KeyMint instance.
+    std::shared_ptr<IRemotelyProvisionedComponent> rp = matching_rp_instance(GetParam());
+    if (rp == nullptr && SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Encountered StrongBox implementation that does not support RKP";
+    }
+    ASSERT_NE(rp, nullptr) << "No IRemotelyProvisionedComponent found that matches KeyMint device "
+                           << GetParam();
 
     // Generate a P-256 keypair to use as an attestation key.
     MacedPublicKey macedPubKey;
@@ -971,6 +1088,7 @@ TEST_P(NewKeyGenerationTest, DISABLED_RsaWithRpkAttestation) {
     attestation_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
 
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         auto challenge = "hello";
         auto app_id = "foo";
 
@@ -1002,6 +1120,85 @@ TEST_P(NewKeyGenerationTest, DISABLED_RsaWithRpkAttestation) {
         EXPECT_FALSE(ChainSignaturesAreValid(cert_chain_));
 
         // The signature over the attested key should correspond to the P256 public key.
+        ASSERT_GT(cert_chain_.size(), 0);
+        X509_Ptr key_cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+        ASSERT_TRUE(key_cert.get());
+        EVP_PKEY_Ptr signing_pubkey;
+        p256_pub_key(coseKeyData, &signing_pubkey);
+        ASSERT_TRUE(signing_pubkey.get());
+
+        ASSERT_TRUE(X509_verify(key_cert.get(), signing_pubkey.get()))
+                << "Verification of attested certificate failed "
+                << "OpenSSL error string: " << ERR_error_string(ERR_get_error(), NULL);
+
+        CheckedDeleteKey(&key_blob);
+    }
+}
+
+/*
+ * NewKeyGenerationTest.EcdsaWithRkpAttestation
+ *
+ * Verifies that keymint can generate all required ECDSA key sizes using an attestation key
+ * that has been generated using an associate IRemotelyProvisionedComponent.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaWithRkpAttestation) {
+    if (!IsRkpSupportRequired()) {
+        GTEST_SKIP() << "RKP support is not required on this platform";
+    }
+
+    // Check for an IRemotelyProvisionedComponent instance associated with the
+    // KeyMint instance.
+    std::shared_ptr<IRemotelyProvisionedComponent> rp = matching_rp_instance(GetParam());
+    if (rp == nullptr && SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Encountered StrongBox implementation that does not support RKP";
+    }
+    ASSERT_NE(rp, nullptr) << "No IRemotelyProvisionedComponent found that matches KeyMint device "
+                           << GetParam();
+
+    // Generate a P-256 keypair to use as an attestation key.
+    MacedPublicKey macedPubKey;
+    std::vector<uint8_t> privateKeyBlob;
+    auto status =
+            rp->generateEcdsaP256KeyPair(/* testMode= */ false, &macedPubKey, &privateKeyBlob);
+    ASSERT_TRUE(status.isOk());
+    vector<uint8_t> coseKeyData;
+    check_maced_pubkey(macedPubKey, /* testMode= */ false, &coseKeyData);
+
+    AttestationKey attestation_key;
+    attestation_key.keyBlob = std::move(privateKeyBlob);
+    attestation_key.issuerSubjectName = make_name_from_str("Android Keystore Key");
+
+    for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
+        auto challenge = "hello";
+        auto app_id = "foo";
+
+        vector<uint8_t> key_blob;
+        vector<KeyCharacteristics> key_characteristics;
+        ASSERT_EQ(ErrorCode::OK,
+                  GenerateKey(AuthorizationSetBuilder()
+                                      .EcdsaSigningKey(curve)
+                                      .Digest(Digest::NONE)
+                                      .AttestationChallenge(challenge)
+                                      .AttestationApplicationId(app_id)
+                                      .Authorization(TAG_NO_AUTH_REQUIRED)
+                                      .SetDefaultValidity(),
+                              attestation_key, &key_blob, &key_characteristics, &cert_chain_));
+
+        ASSERT_GT(key_blob.size(), 0U);
+        CheckBaseParams(key_characteristics);
+        CheckCharacteristics(key_blob, key_characteristics);
+
+        AuthorizationSet crypto_params = SecLevelAuthorizations(key_characteristics);
+
+        EXPECT_TRUE(crypto_params.Contains(TAG_ALGORITHM, Algorithm::EC));
+        EXPECT_TRUE(crypto_params.Contains(TAG_EC_CURVE, curve)) << "Curve " << curve << "missing";
+
+        // Attestation by itself is not valid (last entry is not self-signed).
+        EXPECT_FALSE(ChainSignaturesAreValid(cert_chain_));
+
+        // The signature over the attested key should correspond to the P256 public key.
+        ASSERT_GT(cert_chain_.size(), 0);
         X509_Ptr key_cert(parse_cert_blob(cert_chain_[0].encodedCertificate));
         ASSERT_TRUE(key_cert.get());
         EVP_PKEY_Ptr signing_pubkey;
@@ -1077,9 +1274,9 @@ TEST_P(NewKeyGenerationTest, RsaEncryptionWithAttestation) {
             << "Key size " << key_size << "missing";
     EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
 
+    ASSERT_GT(cert_chain_.size(), 0);
     verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
     EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
-    ASSERT_GT(cert_chain_.size(), 0);
 
     AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
     AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
@@ -1105,6 +1302,7 @@ TEST_P(NewKeyGenerationTest, RsaWithSelfSign) {
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK,
@@ -1129,9 +1327,9 @@ TEST_P(NewKeyGenerationTest, RsaWithSelfSign) {
                 << "Key size " << key_size << "missing";
         EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
 
+        ASSERT_EQ(cert_chain_.size(), 1);
         verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
-        ASSERT_EQ(cert_chain_.size(), 1);
 
         CheckedDeleteKey(&key_blob);
     }
@@ -1198,6 +1396,7 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestationAppIdIgnored) {
             << "Key size " << key_size << "missing";
     EXPECT_TRUE(crypto_params.Contains(TAG_RSA_PUBLIC_EXPONENT, 65537U));
 
+    ASSERT_GT(cert_chain_.size(), 0);
     verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
     EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
     ASSERT_EQ(cert_chain_.size(), 1);
@@ -1213,6 +1412,7 @@ TEST_P(NewKeyGenerationTest, RsaWithAttestationAppIdIgnored) {
  */
 TEST_P(NewKeyGenerationTest, LimitedUsageRsa) {
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -1263,6 +1463,7 @@ TEST_P(NewKeyGenerationTest, LimitedUsageRsaWithAttestation) {
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK,
@@ -1320,6 +1521,7 @@ TEST_P(NewKeyGenerationTest, LimitedUsageRsaWithAttestation) {
  */
 TEST_P(NewKeyGenerationTest, NoInvalidRsaSizes) {
     for (auto key_size : InvalidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE,
@@ -1354,6 +1556,7 @@ TEST_P(NewKeyGenerationTest, RsaNoDefaultSize) {
  */
 TEST_P(NewKeyGenerationTest, RsaMissingParams) {
     for (auto key_size : ValidKeySizes(Algorithm::RSA)) {
+        SCOPED_TRACE(testing::Message() << "RSA-" << key_size);
         ASSERT_EQ(ErrorCode::OK,
                   GenerateKey(
                           AuthorizationSetBuilder().RsaKey(key_size, 65537).SetDefaultValidity()));
@@ -1369,6 +1572,7 @@ TEST_P(NewKeyGenerationTest, RsaMissingParams) {
  */
 TEST_P(NewKeyGenerationTest, Ecdsa) {
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -1390,6 +1594,195 @@ TEST_P(NewKeyGenerationTest, Ecdsa) {
 }
 
 /*
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+ * NewKeyGenerationTest.EcdsaCurve25519
+ *
+ * Verifies that keymint can generate a curve25519 key, and that the resulting key
+ * has correct characteristics.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaCurve25519) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    EcCurve curve = EcCurve::CURVE_25519;
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ErrorCode result = GenerateKey(AuthorizationSetBuilder()
+                                           .EcdsaSigningKey(curve)
+                                           .Digest(Digest::NONE)
+                                           .SetDefaultValidity(),
+                                   &key_blob, &key_characteristics);
+    ASSERT_EQ(result, ErrorCode::OK);
+    ASSERT_GT(key_blob.size(), 0U);
+
+    EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
+    ASSERT_GT(cert_chain_.size(), 0);
+
+    CheckBaseParams(key_characteristics);
+    CheckCharacteristics(key_blob, key_characteristics);
+
+    AuthorizationSet crypto_params = SecLevelAuthorizations(key_characteristics);
+
+    EXPECT_TRUE(crypto_params.Contains(TAG_ALGORITHM, Algorithm::EC));
+    EXPECT_TRUE(crypto_params.Contains(TAG_EC_CURVE, curve)) << "Curve " << curve << "missing";
+
+    CheckedDeleteKey(&key_blob);
+}
+
+/*
+ * NewKeyGenerationTest.EcCurve25519MultiPurposeFail
+ *
+ * Verifies that KeyMint rejects an attempt to generate a curve 25519 key for both
+ * SIGN and AGREE_KEY.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaCurve25519MultiPurposeFail) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    EcCurve curve = EcCurve::CURVE_25519;
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ErrorCode result = GenerateKey(AuthorizationSetBuilder()
+                                           .Authorization(TAG_PURPOSE, KeyPurpose::AGREE_KEY)
+                                           .EcdsaSigningKey(curve)
+                                           .Digest(Digest::NONE)
+                                           .SetDefaultValidity(),
+                                   &key_blob, &key_characteristics);
+    ASSERT_EQ(result, ErrorCode::INCOMPATIBLE_PURPOSE);
+}
+
+/*
+ * NewKeyGenerationTest.EcdsaWithMissingValidity
+ *
+ * Verifies that keymint returns an error while generating asymmetric key
+ * without providing NOT_BEFORE and NOT_AFTER parameters.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaWithMissingValidity) {
+    // Per RFC 5280 4.1.2.5, an undefined expiration (not-after) field should be set to
+    // GeneralizedTime 999912312359559, which is 253402300799000 ms from Jan 1, 1970.
+    constexpr uint64_t kUndefinedExpirationDateTime = 253402300799000;
+
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(ErrorCode::MISSING_NOT_BEFORE,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_AFTER,
+                                                 kUndefinedExpirationDateTime),
+                          &key_blob, &key_characteristics));
+
+    ASSERT_EQ(ErrorCode::MISSING_NOT_AFTER,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_BEFORE, 0),
+                          &key_blob, &key_characteristics));
+}
+
+/*
+=======
+ * NewKeyGenerationTest.EcdsaCurve25519
+ *
+ * Verifies that keymint can generate a curve25519 key, and that the resulting key
+ * has correct characteristics.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaCurve25519) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    EcCurve curve = EcCurve::CURVE_25519;
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ErrorCode result = GenerateKey(AuthorizationSetBuilder()
+                                           .EcdsaSigningKey(curve)
+                                           .Digest(Digest::NONE)
+                                           .SetDefaultValidity(),
+                                   &key_blob, &key_characteristics);
+    ASSERT_EQ(result, ErrorCode::OK);
+    ASSERT_GT(key_blob.size(), 0U);
+
+    EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
+    ASSERT_GT(cert_chain_.size(), 0);
+
+    CheckBaseParams(key_characteristics);
+    CheckCharacteristics(key_blob, key_characteristics);
+
+    AuthorizationSet crypto_params = SecLevelAuthorizations(key_characteristics);
+
+    EXPECT_TRUE(crypto_params.Contains(TAG_ALGORITHM, Algorithm::EC));
+    EXPECT_TRUE(crypto_params.Contains(TAG_EC_CURVE, curve)) << "Curve " << curve << "missing";
+
+    CheckedDeleteKey(&key_blob);
+}
+
+/*
+ * NewKeyGenerationTest.EcCurve25519MultiPurposeFail
+ *
+ * Verifies that KeyMint rejects an attempt to generate a curve 25519 key for both
+ * SIGN and AGREE_KEY.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaCurve25519MultiPurposeFail) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    EcCurve curve = EcCurve::CURVE_25519;
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ErrorCode result = GenerateKey(AuthorizationSetBuilder()
+                                           .Authorization(TAG_PURPOSE, KeyPurpose::AGREE_KEY)
+                                           .EcdsaSigningKey(curve)
+                                           .Digest(Digest::NONE)
+                                           .SetDefaultValidity(),
+                                   &key_blob, &key_characteristics);
+    ASSERT_EQ(result, ErrorCode::INCOMPATIBLE_PURPOSE);
+}
+
+/*
+ * NewKeyGenerationTest.EcdsaWithMissingValidity
+ *
+ * Verifies that keymint returns an error while generating asymmetric key
+ * without providing NOT_BEFORE and NOT_AFTER parameters.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaWithMissingValidity) {
+    if (AidlVersion() < 2) {
+        /*
+         * The KeyMint V1 spec required that CERTIFICATE_NOT_{BEFORE,AFTER} be
+         * specified for asymmetric key generation. However, this was not
+         * checked at the time so we can only be strict about checking this for
+         * implementations of KeyMint version 2 and above.
+         */
+        GTEST_SKIP() << "Validity strict since KeyMint v2";
+    }
+    // Per RFC 5280 4.1.2.5, an undefined expiration (not-after) field should be set to
+    // GeneralizedTime 999912312359559, which is 253402300799000 ms from Jan 1, 1970.
+    constexpr uint64_t kUndefinedExpirationDateTime = 253402300799000;
+
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    ASSERT_EQ(ErrorCode::MISSING_NOT_BEFORE,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_AFTER,
+                                                 kUndefinedExpirationDateTime),
+                          &key_blob, &key_characteristics));
+
+    ASSERT_EQ(ErrorCode::MISSING_NOT_AFTER,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .EcdsaSigningKey(EcCurve::P_256)
+                                  .Digest(Digest::NONE)
+                                  .Authorization(TAG_CERTIFICATE_NOT_BEFORE, 0),
+                          &key_blob, &key_characteristics));
+}
+
+/*
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
  * NewKeyGenerationTest.EcdsaAttestation
  *
  * Verifies that for all Ecdsa key sizes, if challenge and app id is provided,
@@ -1406,6 +1799,7 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestation) {
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK,
@@ -1530,6 +1924,178 @@ TEST_P(NewKeyGenerationTest, EcdsaAttestationTags) {
                                 .Authorization(TAG_ATTESTATION_ID_MANUFACTURER, "manufacturer")
                                 .Authorization(TAG_ATTESTATION_ID_MODEL, "model");
     for (const KeyParameter& tag : invalid_tags) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+        SCOPED_TRACE(testing::Message() << "-incorrect-tag-" << tag);
+        vector<uint8_t> key_blob;
+        vector<KeyCharacteristics> key_characteristics;
+        AuthorizationSetBuilder builder =
+                AuthorizationSetBuilder()
+                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                        .EcdsaSigningKey(EcCurve::P_256)
+                        .Digest(Digest::NONE)
+                        .AttestationChallenge(challenge)
+                        .AttestationApplicationId(app_id)
+                        .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                        .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                        .SetDefaultValidity();
+        builder.push_back(tag);
+
+        auto error = GenerateKey(builder, &key_blob, &key_characteristics);
+        // Strongbox may not support factory provisioned attestation key.
+        if (SecLevel() == SecurityLevel::STRONGBOX) {
+            if (error == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+                error = GenerateKeyWithSelfSignedAttestKey(
+                        AuthorizationSetBuilder()
+                                .EcdsaKey(EcCurve::P_256)
+                                .AttestKey()
+                                .SetDefaultValidity(), /* attest key params */
+                        builder, &key_blob, &key_characteristics);
+            }
+        }
+
+        device_id_attestation_check_acceptable_error(tag.tag, error);
+    }
+}
+
+/*
+ * NewKeyGenerationTest.EcdsaAttestationIdTags
+ *
+ * Verifies that creation of an attested ECDSA key includes various ID tags in the
+ * attestation extension.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
+    if (is_gsi_image()) {
+        // GSI sets up a standard set of device identifiers that may not match
+        // the device identifiers held by the device.
+        GTEST_SKIP() << "Test not applicable under GSI";
+    }
+    auto challenge = "hello";
+    auto app_id = "foo";
+    auto subject = "cert subj 2";
+    vector<uint8_t> subject_der(make_name_from_str(subject));
+    uint64_t serial_int = 0x1010;
+    vector<uint8_t> serial_blob(build_serial_blob(serial_int));
+    const AuthorizationSetBuilder base_builder =
+            AuthorizationSetBuilder()
+                    .Authorization(TAG_NO_AUTH_REQUIRED)
+                    .EcdsaSigningKey(EcCurve::P_256)
+                    .Digest(Digest::NONE)
+                    .AttestationChallenge(challenge)
+                    .AttestationApplicationId(app_id)
+                    .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                    .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                    .SetDefaultValidity();
+
+    // Various ATTESTATION_ID_* tags that map to fields in the attestation extension ASN.1 schema.
+    auto extra_tags = AuthorizationSetBuilder();
+    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
+    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_DEVICE, "ro.product.device");
+    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
+    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_SERIAL, "ro.serial");
+    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MANUFACTURER, "ro.product.manufacturer");
+    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
+
+    for (const KeyParameter& tag : extra_tags) {
+=======
+        SCOPED_TRACE(testing::Message() << "-incorrect-tag-" << tag);
+        vector<uint8_t> key_blob;
+        vector<KeyCharacteristics> key_characteristics;
+        AuthorizationSetBuilder builder =
+                AuthorizationSetBuilder()
+                        .Authorization(TAG_NO_AUTH_REQUIRED)
+                        .EcdsaSigningKey(EcCurve::P_256)
+                        .Digest(Digest::NONE)
+                        .AttestationChallenge(challenge)
+                        .AttestationApplicationId(app_id)
+                        .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                        .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                        .SetDefaultValidity();
+        builder.push_back(tag);
+
+        auto error = GenerateKey(builder, &key_blob, &key_characteristics);
+        // Strongbox may not support factory provisioned attestation key.
+        if (SecLevel() == SecurityLevel::STRONGBOX) {
+            if (error == ErrorCode::ATTESTATION_KEYS_NOT_PROVISIONED) {
+                error = GenerateKeyWithSelfSignedAttestKey(
+                        AuthorizationSetBuilder()
+                                .EcdsaKey(EcCurve::P_256)
+                                .AttestKey()
+                                .SetDefaultValidity(), /* attest key params */
+                        builder, &key_blob, &key_characteristics);
+            }
+        }
+
+        device_id_attestation_check_acceptable_error(tag.tag, error);
+    }
+}
+
+/*
+ * NewKeyGenerationTest.EcdsaAttestationIdTags
+ *
+ * Verifies that creation of an attested ECDSA key includes various ID tags in the
+ * attestation extension.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaAttestationIdTags) {
+    if (is_gsi_image()) {
+        // GSI sets up a standard set of device identifiers that may not match
+        // the device identifiers held by the device.
+        GTEST_SKIP() << "Test not applicable under GSI";
+    }
+    auto challenge = "hello";
+    auto app_id = "foo";
+    auto subject = "cert subj 2";
+    vector<uint8_t> subject_der(make_name_from_str(subject));
+    uint64_t serial_int = 0x1010;
+    vector<uint8_t> serial_blob(build_serial_blob(serial_int));
+    const AuthorizationSetBuilder base_builder =
+            AuthorizationSetBuilder()
+                    .Authorization(TAG_NO_AUTH_REQUIRED)
+                    .EcdsaSigningKey(EcCurve::P_256)
+                    .Digest(Digest::NONE)
+                    .AttestationChallenge(challenge)
+                    .AttestationApplicationId(app_id)
+                    .Authorization(TAG_CERTIFICATE_SERIAL, serial_blob)
+                    .Authorization(TAG_CERTIFICATE_SUBJECT, subject_der)
+                    .SetDefaultValidity();
+
+    // Various ATTESTATION_ID_* tags that map to fields in the attestation extension ASN.1 schema.
+    auto extra_tags = AuthorizationSetBuilder();
+    // Use ro.product.brand_for_attestation property for attestation if it is present else fallback
+    // to ro.product.brand
+    std::string prop_value =
+            ::android::base::GetProperty("ro.product.brand_for_attestation", /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_BRAND,
+                          "ro.product.brand_for_attestation");
+    } else {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_BRAND, "ro.product.brand");
+    }
+    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_DEVICE, "ro.product.device");
+    // Use ro.product.name_for_attestation property for attestation if it is present else fallback
+    // to ro.product.name
+    prop_value = ::android::base::GetProperty("ro.product.name_for_attestation", /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_PRODUCT,
+                          "ro.product.name_for_attestation");
+    } else {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_PRODUCT, "ro.product.name");
+    }
+    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_SERIAL, "ro.serialno");
+    add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MANUFACTURER, "ro.product.manufacturer");
+    // Use ro.product.model_for_attestation property for attestation if it is present else fallback
+    // to ro.product.model
+    prop_value =
+            ::android::base::GetProperty("ro.product.model_for_attestation", /* default= */ "");
+    if (!prop_value.empty()) {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MODEL,
+                          "ro.product.model_for_attestation");
+    } else {
+        add_tag_from_prop(&extra_tags, TAG_ATTESTATION_ID_MODEL, "ro.product.model");
+    }
+
+    for (const KeyParameter& tag : extra_tags) {
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         SCOPED_TRACE(testing::Message() << "tag-" << tag);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
@@ -1618,6 +2184,7 @@ TEST_P(NewKeyGenerationTest, EcdsaSelfSignAttestation) {
     vector<uint8_t> serial_blob(build_serial_blob(serial_int));
 
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK,
@@ -1638,8 +2205,8 @@ TEST_P(NewKeyGenerationTest, EcdsaSelfSignAttestation) {
         EXPECT_TRUE(crypto_params.Contains(TAG_EC_CURVE, curve)) << "Curve " << curve << "missing";
 
         EXPECT_TRUE(ChainSignaturesAreValid(cert_chain_));
-        verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
         ASSERT_EQ(cert_chain_.size(), 1);
+        verify_subject_and_serial(cert_chain_[0], serial_int, subject, false);
 
         AuthorizationSet hw_enforced = HwEnforcedAuthorizations(key_characteristics);
         AuthorizationSet sw_enforced = SwEnforcedAuthorizations(key_characteristics);
@@ -1678,6 +2245,7 @@ TEST_P(NewKeyGenerationTest, EcdsaIgnoreAppId) {
     auto app_id = "foo";
 
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -1719,6 +2287,7 @@ TEST_P(NewKeyGenerationTest, AttestationApplicationIDLengthProperlyEncoded) {
     std::vector<uint32_t> app_id_lengths{143, 258};
 
     for (uint32_t length : app_id_lengths) {
+        SCOPED_TRACE(testing::Message() << "app_id_len=" << length);
         const string app_id(length, 'a');
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
@@ -1760,6 +2329,7 @@ TEST_P(NewKeyGenerationTest, AttestationApplicationIDLengthProperlyEncoded) {
  */
 TEST_P(NewKeyGenerationTest, LimitedUsageEcdsa) {
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
@@ -1813,6 +2383,7 @@ TEST_P(NewKeyGenerationTest, EcdsaDefaultSize) {
  */
 TEST_P(NewKeyGenerationTest, EcdsaInvalidSize) {
     for (auto curve : InvalidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         ASSERT_EQ(ErrorCode::UNSUPPORTED_KEY_SIZE, GenerateKey(AuthorizationSetBuilder()
@@ -1829,6 +2400,29 @@ TEST_P(NewKeyGenerationTest, EcdsaInvalidSize) {
                                   .SigningKey()
                                   .Digest(Digest::NONE)
                                   .SetDefaultValidity()));
+}
+
+/*
+ * NewKeyGenerationTest.EcdsaMissingCurve
+ *
+ * Verifies that EC key generation fails if EC_CURVE not specified after KeyMint V3.
+ */
+TEST_P(NewKeyGenerationTest, EcdsaMissingCurve) {
+    if (AidlVersion() < 3) {
+        /*
+         * The KeyMint V1 spec required that EC_CURVE be specified for EC keys.
+         * However, this was not checked at the time so we can only be strict about checking this
+         * for implementations of KeyMint version 3 and above.
+         */
+        GTEST_SKIP() << "Requiring EC_CURVE only strict since KeyMint v3";
+    }
+    /* If EC_CURVE not provided, generateKey
+     * must return ErrorCode::UNSUPPORTED_KEY_SIZE or ErrorCode::UNSUPPORTED_EC_CURVE.
+     */
+    auto result = GenerateKey(
+            AuthorizationSetBuilder().EcdsaKey(256).Digest(Digest::NONE).SetDefaultValidity());
+    ASSERT_TRUE(result == ErrorCode::UNSUPPORTED_KEY_SIZE ||
+                result == ErrorCode::UNSUPPORTED_EC_CURVE);
 }
 
 /*
@@ -1863,6 +2457,7 @@ TEST_P(NewKeyGenerationTest, EcdsaAllValidCurves) {
         digest = Digest::SHA_2_512;
     }
     for (auto curve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "Curve::" << curve);
         EXPECT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .EcdsaSigningKey(curve)
                                                      .Digest(digest)
@@ -1880,6 +2475,7 @@ TEST_P(NewKeyGenerationTest, EcdsaAllValidCurves) {
  */
 TEST_P(NewKeyGenerationTest, Hmac) {
     for (auto digest : ValidDigests(false /* withNone */, true /* withMD5 */)) {
+        SCOPED_TRACE(testing::Message() << "Digest::" << digest);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         constexpr size_t key_size = 128;
@@ -1913,6 +2509,7 @@ TEST_P(NewKeyGenerationTest, HmacNoAttestation) {
     auto app_id = "foo";
 
     for (auto digest : ValidDigests(false /* withNone */, true /* withMD5 */)) {
+        SCOPED_TRACE(testing::Message() << "Digest::" << digest);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         constexpr size_t key_size = 128;
@@ -1946,6 +2543,7 @@ TEST_P(NewKeyGenerationTest, HmacNoAttestation) {
  */
 TEST_P(NewKeyGenerationTest, LimitedUsageHmac) {
     for (auto digest : ValidDigests(false /* withNone */, true /* withMD5 */)) {
+        SCOPED_TRACE(testing::Message() << "Digest::" << digest);
         vector<uint8_t> key_blob;
         vector<KeyCharacteristics> key_characteristics;
         constexpr size_t key_size = 128;
@@ -1984,6 +2582,7 @@ TEST_P(NewKeyGenerationTest, LimitedUsageHmac) {
  */
 TEST_P(NewKeyGenerationTest, HmacCheckKeySizes) {
     for (size_t key_size = 0; key_size <= 512; ++key_size) {
+        SCOPED_TRACE(testing::Message() << "HMAC-" << key_size);
         if (key_size < 64 || key_size % 8 != 0) {
             // To keep this test from being very slow, we only test a random fraction of
             // non-byte key sizes.  We test only ~10% of such cases. Since there are 392 of
@@ -2026,6 +2625,7 @@ TEST_P(NewKeyGenerationTest, HmacCheckKeySizes) {
  */
 TEST_P(NewKeyGenerationTest, HmacCheckMinMacLengths) {
     for (size_t min_mac_length = 0; min_mac_length <= 256; ++min_mac_length) {
+        SCOPED_TRACE(testing::Message() << "MIN_MAC_LENGTH=" << min_mac_length);
         if (min_mac_length < 64 || min_mac_length % 8 != 0) {
             // To keep this test from being very long, we only test a random fraction of
             // non-byte lengths.  We test only ~10% of such cases. Since there are 172 of them,
@@ -2180,6 +2780,7 @@ TEST_P(SigningOperationsTest, RsaAllPaddingsAndDigests) {
     for (auto padding :
          {PaddingMode::NONE, PaddingMode::RSA_PSS, PaddingMode::RSA_PKCS1_1_5_SIGN}) {
         for (auto digest : ValidDigests(true /* withNone */, true /* withMD5 */)) {
+            SCOPED_TRACE(testing::Message() << "RSA padding=" << padding << " digest=" << digest);
             if (padding == PaddingMode::NONE && digest != Digest::NONE) {
                 // Digesting only makes sense with padding.
                 continue;
@@ -2289,9 +2890,16 @@ TEST_P(SigningOperationsTest, RsaPaddingNoneDoesNotAllowOther) {
  * presented.
  */
 TEST_P(SigningOperationsTest, NoUserConfirmation) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     if (SecLevel() == SecurityLevel::STRONGBOX) return;
+||||||| BASE
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Test not applicable to StrongBox device";
+    }
+=======
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
-                                                 .RsaSigningKey(1024, 65537)
+                                                 .RsaSigningKey(2048, 65537)
                                                  .Digest(Digest::NONE)
                                                  .Padding(PaddingMode::NONE)
                                                  .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -2771,6 +3379,7 @@ TEST_P(SigningOperationsTest, AesEcbSign) {
  */
 TEST_P(SigningOperationsTest, HmacAllDigests) {
     for (auto digest : ValidDigests(false /* withNone */, false /* withMD5 */)) {
+        SCOPED_TRACE(testing::Message() << "Digest::" << digest);
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .Authorization(TAG_NO_AUTH_REQUIRED)
                                                      .HmacKey(128)
@@ -2980,7 +3589,7 @@ typedef KeyMintAidlTestBase ExportKeyTest;
 // TODO(seleneh) add ExportKey to GenerateKey
 // check result
 
-class ImportKeyTest : public KeyMintAidlTestBase {
+class ImportKeyTest : public NewKeyGenerationTest {
   public:
     template <TagType tag_type, Tag tag, typename ValueT>
     void CheckCryptoParam(TypedTag<tag_type, tag> ttag, ValueT expected) {
@@ -3268,6 +3877,7 @@ TEST_P(ImportKeyTest, AesFailure) {
     string key = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     uint32_t bitlen = key.size() * 8;
     for (uint32_t key_size : {bitlen - 1, bitlen + 1, bitlen - 8, bitlen + 8}) {
+        SCOPED_TRACE(testing::Message() << "import-key-size=" << key_size);
         // Explicit key size doesn't match that of the provided key.
         auto result = ImportKey(AuthorizationSetBuilder()
                                     .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -3335,6 +3945,7 @@ TEST_P(ImportKeyTest, TripleDesFailure) {
     string key = hex2str("a49d7564199e97cb529d2c9d97bf2f98d35edf57ba1f7358");
     uint32_t bitlen = key.size() * 7;
     for (uint32_t key_size : {bitlen - 1, bitlen + 1, bitlen - 8, bitlen + 8}) {
+        SCOPED_TRACE(testing::Message() << "import-key-size=" << key_size);
         // Explicit key size doesn't match that of the provided key.
         auto result = ImportKey(AuthorizationSetBuilder()
                                     .Authorization(TAG_NO_AUTH_REQUIRED)
@@ -3387,6 +3998,65 @@ TEST_P(ImportKeyTest, HmacKeySuccess) {
     string message = "Hello World!";
     string signature = MacMessage(message, Digest::SHA_2_256, 256);
     VerifyMessage(message, signature, AuthorizationSetBuilder().Digest(Digest::SHA_2_256));
+}
+
+/*
+ * ImportKeyTest.GetKeyCharacteristics
+ *
+ * Verifies that imported keys have the correct characteristics.
+ */
+TEST_P(ImportKeyTest, GetKeyCharacteristics) {
+    vector<uint8_t> key_blob;
+    vector<KeyCharacteristics> key_characteristics;
+    auto base_builder = AuthorizationSetBuilder()
+                                .Padding(PaddingMode::NONE)
+                                .Authorization(TAG_NO_AUTH_REQUIRED)
+                                .SetDefaultValidity();
+    vector<Algorithm> algorithms = {Algorithm::RSA, Algorithm::EC, Algorithm::HMAC, Algorithm::AES,
+                                    Algorithm::TRIPLE_DES};
+    ErrorCode result;
+    string symKey = hex2str("a49d7564199e97cb529d2c9d97bf2f98");                   // 128 bits
+    string tdesKey = hex2str("a49d7564199e97cb529d2c9d97bf2f98d35edf57ba1f7358");  // 192 bits
+    for (auto alg : algorithms) {
+        SCOPED_TRACE(testing::Message() << "Algorithm-" << alg);
+        AuthorizationSetBuilder builder(base_builder);
+        switch (alg) {
+            case Algorithm::RSA:
+                builder.RsaSigningKey(2048, 65537).Digest(Digest::NONE);
+
+                result = ImportKey(builder, KeyFormat::PKCS8, rsa_2048_key, &key_blob,
+                                   &key_characteristics);
+                break;
+            case Algorithm::EC:
+                builder.EcdsaSigningKey(EcCurve::P_256).Digest(Digest::NONE);
+                result = ImportKey(builder, KeyFormat::PKCS8, ec_256_key, &key_blob,
+                                   &key_characteristics);
+                break;
+            case Algorithm::HMAC:
+                builder.HmacKey(128)
+                        .Digest(Digest::SHA_2_256)
+                        .Authorization(TAG_MIN_MAC_LENGTH, 128);
+                result =
+                        ImportKey(builder, KeyFormat::RAW, symKey, &key_blob, &key_characteristics);
+                break;
+            case Algorithm::AES:
+                builder.AesEncryptionKey(128).BlockMode(BlockMode::ECB);
+                result =
+                        ImportKey(builder, KeyFormat::RAW, symKey, &key_blob, &key_characteristics);
+                break;
+            case Algorithm::TRIPLE_DES:
+                builder.TripleDesEncryptionKey(168).BlockMode(BlockMode::ECB);
+                result = ImportKey(builder, KeyFormat::RAW, tdesKey, &key_blob,
+                                   &key_characteristics);
+                break;
+            default:
+                ADD_FAILURE() << "Invalid Algorithm " << uint32_t(alg);
+                continue;
+        }
+        ASSERT_EQ(ErrorCode::OK, result);
+        CheckCharacteristics(key_blob, key_characteristics);
+        CheckCommonParams(key_characteristics, KeyOrigin::IMPORTED);
+    }
 }
 
 INSTANTIATE_KEYMINT_AIDL_TEST(ImportKeyTest);
@@ -3738,15 +4408,15 @@ TEST_P(ImportWrappedKeyTest, WrongPaddingMode) {
 TEST_P(ImportWrappedKeyTest, WrongDigest) {
     auto wrapping_key_desc = AuthorizationSetBuilder()
                                      .RsaEncryptionKey(2048, 65537)
-                                     .Digest(Digest::SHA_2_512)
                                      .Padding(PaddingMode::RSA_OAEP)
+                                     .Digest(Digest::SHA_2_256)
                                      .Authorization(TAG_PURPOSE, KeyPurpose::WRAP_KEY)
                                      .SetDefaultValidity();
 
     ASSERT_EQ(ErrorCode::INCOMPATIBLE_DIGEST,
               ImportWrappedKey(wrapped_key, wrapping_key, wrapping_key_desc, zero_masking_key,
                                AuthorizationSetBuilder()
-                                       .Digest(Digest::SHA_2_256)
+                                       .Digest(Digest::SHA_2_512)
                                        .Padding(PaddingMode::RSA_OAEP)));
 }
 
@@ -3760,7 +4430,14 @@ typedef KeyMintAidlTestBase EncryptionOperationsTest;
  * Verifies that raw RSA decryption works.
  */
 TEST_P(EncryptionOperationsTest, RsaNoPaddingSuccess) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     for (uint64_t exponent : {3, 65537}) {
+||||||| BASE
+    for (uint64_t exponent : ValidExponents()) {
+=======
+    for (uint64_t exponent : ValidExponents()) {
+        SCOPED_TRACE(testing::Message() << "RSA exponent=" << exponent);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .Authorization(TAG_NO_AUTH_REQUIRED)
                                                      .RsaEncryptionKey(2048, exponent)
@@ -3949,6 +4626,7 @@ TEST_P(EncryptionOperationsTest, RsaOaepWithMGFDigestSuccess) {
     string message = "Hello";
 
     for (auto digest : digests) {
+        SCOPED_TRACE(testing::Message() << "digest-" << digest);
         auto params = AuthorizationSetBuilder()
                               .Authorization(TAG_RSA_OAEP_MGF_DIGEST, digest)
                               .Digest(Digest::SHA_2_256)
@@ -3982,6 +4660,79 @@ TEST_P(EncryptionOperationsTest, RsaOaepWithMGFDigestSuccess) {
         EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext1, &result));
         EXPECT_EQ(0U, result.size());
     }
+}
+
+/*
+ * EncryptionOperationsTest.RsaOaepMGFDigestDefaultSuccess
+ *
+ * Verifies that RSA-OAEP decryption operations work when no MGF digest is
+ * specified, defaulting to SHA-1.
+ */
+TEST_P(EncryptionOperationsTest, RsaOaepMGFDigestDefaultSuccess) {
+    size_t key_size = 2048;
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .RsaEncryptionKey(key_size, 65537)
+                                                 .Padding(PaddingMode::RSA_OAEP)
+                                                 .Digest(Digest::SHA_2_256)
+                                                 .SetDefaultValidity()));
+
+    // Do local RSA encryption using the default MGF digest of SHA-1.
+    string message = "Hello";
+    auto params =
+            AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP);
+    string ciphertext = LocalRsaEncryptMessage(message, params);
+    EXPECT_EQ(key_size / 8, ciphertext.size());
+
+    // Do KeyMint RSA decryption also using the default MGF digest of SHA-1.
+    string plaintext = DecryptMessage(ciphertext, params);
+    EXPECT_EQ(message, plaintext) << "RSA-OAEP failed with default digest";
+
+    // Decrypting corrupted ciphertext should fail.
+    size_t offset_to_corrupt = random() % ciphertext.size();
+    char corrupt_byte;
+    do {
+        corrupt_byte = static_cast<char>(random() % 256);
+    } while (corrupt_byte == ciphertext[offset_to_corrupt]);
+    ciphertext[offset_to_corrupt] = corrupt_byte;
+
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
+    string result;
+    EXPECT_EQ(ErrorCode::UNKNOWN_ERROR, Finish(ciphertext, &result));
+    EXPECT_EQ(0U, result.size());
+}
+
+/*
+ * EncryptionOperationsTest.RsaOaepMGFDigestDefaultFail
+ *
+ * Verifies that RSA-OAEP decryption operations fail when no MGF digest is
+ * specified on begin (thus defaulting to SHA-1), but the key characteristics
+ * has an explicit set of values for MGF_DIGEST that do not contain SHA-1.
+ */
+TEST_P(EncryptionOperationsTest, RsaOaepMGFDigestDefaultFail) {
+    size_t key_size = 2048;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(AuthorizationSetBuilder()
+                                  .Authorization(TAG_NO_AUTH_REQUIRED)
+                                  .Authorization(TAG_RSA_OAEP_MGF_DIGEST, Digest::SHA_2_256)
+                                  .RsaEncryptionKey(key_size, 65537)
+                                  .Padding(PaddingMode::RSA_OAEP)
+                                  .Digest(Digest::SHA_2_256)
+                                  .SetDefaultValidity()));
+
+    // Do local RSA encryption using the default MGF digest of SHA-1.
+    string message = "Hello";
+    auto params =
+            AuthorizationSetBuilder().Digest(Digest::SHA_2_256).Padding(PaddingMode::RSA_OAEP);
+    string ciphertext = LocalRsaEncryptMessage(message, params);
+    EXPECT_EQ(key_size / 8, ciphertext.size());
+
+    // begin() params do not include MGF_DIGEST, so a default of SHA1 is assumed.
+    // Key characteristics *do* include values for MGF_DIGEST, so the SHA1 value
+    // is checked against those values, and found absent.
+    auto result = Begin(KeyPurpose::DECRYPT, params);
+    EXPECT_TRUE(result == ErrorCode::UNSUPPORTED_MGF_DIGEST ||
+                result == ErrorCode::INCOMPATIBLE_MGF_DIGEST);
 }
 
 /*
@@ -4296,6 +5047,7 @@ TEST_P(EncryptionOperationsTest, AesWrongPurpose) {
  */
 TEST_P(EncryptionOperationsTest, AesEcbCbcNoPaddingWrongInputSize) {
     for (BlockMode blockMode : {BlockMode::ECB, BlockMode::CBC}) {
+        SCOPED_TRACE(testing::Message() << "AES-" << blockMode);
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .Authorization(TAG_NO_AUTH_REQUIRED)
                                                      .AesEncryptionKey(128)
@@ -4525,6 +5277,328 @@ TEST_P(EncryptionOperationsTest, AesIncremental) {
     }
 }
 
+/*
+ * EncryptionOperationsTest.Aes128CBCNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128CBCNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("7E3D723C09A9852B24F584F9D916F6A8");
+    string kat_iv = hex2str("944AE274D983892EADE422274858A96A");
+    string kat_plaintext =
+            hex2str("044E15899A080AADEB6778F64323B64D2CBCBADB338DF93B9AC459D4F41029"
+                    "809FFF37081C22EF278F896AB213A2A631");
+    string kat_ciphertext =
+            hex2str("B419293FCBD686F2913D1CF947E510D42FAFEDE5593C98AFD6AEE272596A"
+                    "56FE42C22F2A5E3B6A02BA9D8D0DE1E9A810");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes128CBCPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128CBCPKCS7PaddingOneByteAtATime) {
+    string kat_key = hex2str("F16E698472578E919D92806262C5169F");
+    string kat_iv = hex2str("EF743540F8421ACA128A3247521F3E7D");
+    string kat_plaintext =
+            hex2str("5BEBF33569D90BF5E853814E12E7C7AA5758013F755773E29F4A25EC26EEB7"
+                    "65F7F2DC251F7DC62AEFCA1E8A5A11A1DCD44F0BD8FB593A5AE3");
+    string kat_ciphertext =
+            hex2str("3197CF6DB9466188B5FED375329324EE7D6092A8C0E41DFAF49E3724271427"
+                    "896D56A6243C0D59D6639722AF93CD53449BDDABF9C5F153EBDBFED9ED98C8CC37");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::PKCS7, kat_iv,
+                                  kat_plaintext, kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes128CTRNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CTR/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128CTRNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("4713a7b2f93efe809b42ecc45213ef9f");
+    string kat_iv = hex2str("ebfa19b0ebf3d57feabd4c4bd04bea01");
+    string kat_plaintext =
+            hex2str("6d2c07e1fc86f99c6e2a8f6567828b4262a9c23d0f3ed8ab32482283c79796"
+                    "f0adba1bcd3736084996452a917fae98005aebe61f9e91c3");
+    string kat_ciphertext =
+            hex2str("345deb1d67b95e600e05cad4c32ec381aadb3e2c1ec7e0fb956dc38e6860cf"
+                    "0553535566e1b12fa9f87d29266ca26df427233df035df28");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CTR, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes128ECBNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128ECBNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("7DA2467F068854B3CB36E5C333A16619");
+    string kat_plaintext =
+            hex2str("9A07C9575AD9CE209DF9F3953965CEBE8208587C7AE575A1904BF25048946D"
+                    "7B6168A9A27BCE554BEA94EF26E6C742A0");
+    string kat_ciphertext =
+            hex2str("8C47E49420FC92AC4CA2C601BC3F8AC31D01B260B7B849F2B8EEDFFFED8F36"
+                    "C31CBDA0D22F95C9C2A48C347E8C77AC82");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::NONE, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes128ECBPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128ECBPKCS7PaddingOneByteAtATime) {
+    string kat_key = hex2str("C3BE04BCCB3D99B85290F113FE7AF194");
+    string kat_plaintext =
+            hex2str("348C213FD8DF3F990C20C5ACBF07B34B6264AE245784A5A6176DBFB1C2E7DD"
+                    "27E52CC92B8EEE40614F05B507B355F6354A2705BD86");
+    string kat_ciphertext =
+            hex2str("07CD05C41FEDEDDC5DB4B3E35E676153184A119AA4DFDDC290616F1FA60093"
+                    "1DE6BEA9BDB90D1D733899946F8C8E5C0C4383F99F5D88E27F3EBC0C6E52759ED3");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::PKCS7, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes128GCMNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/GCM/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes128GCMNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("ba76354f0aed6e8d91f45c4ff5a062db");
+    string kat_iv = hex2str("b79437ae08ff355d7d8a4d0f");
+    string kat_plaintext =
+            hex2str("6d7596a8fd56ceaec61de7940984b7736fec44f572afc3c8952e4dc6541e2b"
+                    "c6a702c440a37610989543f63fedb047ca2173bc18581944");
+    string kat_ciphertext =
+            hex2str("b3f6799e8f9326f2df1e80fcd2cb16d78c9dc7cc14bb677862dc6c639b3a63"
+                    "38d24b312d3989e5920b5dbfc976765efbfe57bb385940a7a43bdf05bddae3c9d6a2fb"
+                    "bdfcc0cba0");
+
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::GCM, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192CBCNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192CBCNoPaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("be8cc4e25cce46e5d55725e2391f7d3cf59ed60062f5a43b");
+    string kat_iv = hex2str("80a199aab0eee77e7762ddf3b3a32f40");
+    string kat_plaintext =
+            hex2str("064f9200e0df37d4711af4a69d11addf9e1c345d9d8195f9f1f715019ce96a"
+                    "167f2497c994bd496eb80bfb2ba2c9d5af");
+    string kat_ciphertext =
+            hex2str("859b90becaa85e95a71e104efbd7a3b723bcbf4eb39865544a05d9e90b6fe5"
+                    "72c134552f3a138e726fbe493b3a839598");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192CBCPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192CBCPKCS7PaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("68969215ec41e4df7d23de0e806f458f52aff492bd7c5263");
+    string kat_iv = hex2str("e61d13dfbf0533289f0e7950209da418");
+    string kat_plaintext =
+            hex2str("8d4c1cac27511ee2d82409a7f378e7e402b0eb189c1eaa5c506eb72a9074"
+                    "b170");
+    string kat_ciphertext =
+            hex2str("e70bcd62c595dc1b2b8c197bb91a7447e1be2cbcf3fdc69e7e991faf0f57cf"
+                    "4e3884138ff403a41fd99818708ada301c");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::PKCS7, kat_iv,
+                                  kat_plaintext, kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192CTRNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CTR/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192CTRNoPaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("5e2036e790d38815c90beb67a1c9e5aa0e167ef082927317");
+    string kat_iv = hex2str("df0694959b89054156962d68a226965c");
+    string kat_plaintext =
+            hex2str("6ed2781c99e03e45314d6019932220c2c98130c53f9f67ad10ac519adf50e9"
+                    "28091e09cdbbd3b42b");
+    string kat_ciphertext =
+            hex2str("e427b6666502e05b82d0b20ae50e862b1936d71266fc49178ac984e71571f2"
+                    "2ae0f90f0c19f42b4a");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CTR, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192ECBNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192ECBNoPaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("3cab83fb338ba985fbfe74c5e9d2e900adb570b1d67faf92");
+    string kat_plaintext =
+            hex2str("2cc64c335a13fb838f3c6aad0a6b47297ca90bb886ddb059200f0b41740c"
+                    "44ab");
+    string kat_ciphertext =
+            hex2str("9c5c825328f5ee0aa24947e374d3f9165f484b39dd808c790d7a12964810"
+                    "2453");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::NONE, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192ECBPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192ECBPKCS7PaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("d57f4e5446f736c16476ec4db5decc7b1bf3936e4f7e4618");
+    string kat_plaintext =
+            hex2str("b115777f1ee7a43a07daa6401e59c46b7a98213a8747eabfbe3ca4ec93524d"
+                    "e2c7");
+    string kat_ciphertext =
+            hex2str("1e92cd20da08bb5fa174a7a69879d4fc25a155e6af06d75b26c5b450d273c8"
+                    "bb7e3a889dd4a9589098b44acf1056e7aa");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::PKCS7, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes192GCMNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/GCM/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes192GCMNoPaddingOneByteAtATime) {
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Key size 192 is not supported by Strongbox.";
+    }
+    string kat_key = hex2str("21339fc1d011abca65d50ce2365230603fd47d07e8830f6e");
+    string kat_iv = hex2str("d5fb1469a8d81dd75286a418");
+    string kat_plaintext =
+            hex2str("cf776dedf53a828d51a0073db3ef0dd1ee19e2e9e243ce97e95841bb9ad4e3"
+                    "ff52");
+    string kat_ciphertext =
+            hex2str("3a0d48278111d3296bc663df8a5dbeb2474ea47fd85b608f8d9375d9dcf7de"
+                    "1413ad70fb0e1970669095ad77ebb5974ae8");
+
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::GCM, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256CBCNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256CBCNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("dd2f20dc6b98c100bac919120ff95eb5d96003f8229987b283a1e777b0cd5c30");
+    string kat_iv = hex2str("23b4d85239fb90db93b07a981e90a170");
+    string kat_plaintext =
+            hex2str("2fbe5d46dca5cea433e550d8b291740ab9551c2a2d37680d7fb7b993225f58"
+                    "494cb53caca353e4b637ba05687be20f8d");
+    string kat_ciphertext =
+            hex2str("5aba24fc316936c8369061ee8fe463e4faed04288e204456626b988c0e376b"
+                    "6047da1e4fd7c4e1cf2656097f75ae8685");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256CBCPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CBC/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256CBCPKCS7PaddingOneByteAtATime) {
+    string kat_key = hex2str("03ab2510520f5cfebfab0a17a7f8324c9634911f6fc59e586f85346bb38ac88a");
+    string kat_iv = hex2str("9af96967195bb0184f129beffa8241ae");
+    string kat_plaintext =
+            hex2str("2d6944653ac14988a772a2730b7c5bfa99a21732ae26f40cdc5b3a2874c794"
+                    "2545a82b73c48078b9dae62261c65909");
+    string kat_ciphertext =
+            hex2str("26b308f7e1668b55705a79c8b3ad10e244655f705f027f390a5c34e4536f51"
+                    "9403a71987b95124073d69f2a3cb95b0ab");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CBC, PaddingMode::PKCS7, kat_iv,
+                                  kat_plaintext, kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256CTRNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/CTR/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256CTRNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("928b380a8fed4b4b4cfeb56e0c66a4cb0f9ff58d61ac68bcfd0e3fbd910a684f");
+    string kat_iv = hex2str("0b678a5249e6eeda461dfb4776b6c58e");
+    string kat_plaintext =
+            hex2str("f358de57543b297e997cba46fb9100553d6abd65377e55b9aac3006400ead1"
+                    "1f6db3c884");
+    string kat_ciphertext =
+            hex2str("a07a35fbd1776ad81462e1935f542337add60962bf289249476817b6ddd532"
+                    "a7be30d4c3");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::CTR, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256ECBNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256ECBNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("fa4622d9cf6485075daedd33d2c4fffdf859e2edb7f7df4f04603f7e647fae90");
+    string kat_plaintext =
+            hex2str("96ccabbe0c68970d8cdee2b30ab43c2d61cc50ee68271e77571e72478d713a"
+                    "31a476d6806b8116089c6ec50bb543200f");
+    string kat_ciphertext =
+            hex2str("0e81839e9dfbfe3b503d619e676abe5ac80fac3f245d8f09b9134b1b32a67d"
+                    "c83e377faf246288931136bef2a07c0be4");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::NONE, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256ECBPKCS7PaddingOneByteAtATime
+ * Verifies input and output sizes of AES/ECB/PKCS7Padding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256ECBPKCS7PaddingOneByteAtATime) {
+    string kat_key = hex2str("bf3f07c68467fead0ca8e2754500ab514258abf02eb7e615a493bcaaa45d5ee1");
+    string kat_plaintext =
+            hex2str("af0757e49018dad628f16998628a407db5f28291bef3bc2e4d8a5a31fb238e"
+                    "6f");
+    string kat_ciphertext =
+            hex2str("21ec3011074bf1ef140643d47130326c5e183f61237c69bc77551ca207d71f"
+                    "c2b90cfac6c8d2d125e5cd9ff353dee0df");
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::ECB, PaddingMode::PKCS7, "", kat_plaintext,
+                                  kat_ciphertext);
+}
+
+/*
+ * EncryptionOperationsTest.Aes256GCMNoPaddingOneByteAtATime
+ * Verifies input and output sizes of AES/GCM/NoPadding Algorithm.
+ */
+TEST_P(EncryptionOperationsTest, Aes256GCMNoPaddingOneByteAtATime) {
+    string kat_key = hex2str("7972140d831eedac75d5ea515c9a4c3bb124499a90b5f317ac1a685e88fae395");
+    string kat_iv = hex2str("a66c5252808d823dd4151fed");
+    string kat_plaintext =
+            hex2str("c2b9dabf3a55adaa94e8c0d1e77a84a3435aee23b2c3c4abb587b09a9c2afb"
+                    "f0");
+    string kat_ciphertext =
+            hex2str("a960619314657b2afb96b93bebb372bffd09e19d53e351f17d1ba2611f9dc3"
+                    "3c9c92d563e8fd381254ac262aa2a4ea0d");
+
+    AesCheckEncryptOneByteAtATime(kat_key, BlockMode::GCM, PaddingMode::NONE, kat_iv, kat_plaintext,
+                                  kat_ciphertext);
+}
+
 struct AesCtrSp80038aTestVector {
     const char* key;
     const char* nonce;
@@ -4665,6 +5739,97 @@ TEST_P(EncryptionOperationsTest, AesCbcRoundTripSuccess) {
 }
 
 /*
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+ * EncryptionOperationsTest.AesCbcZeroInputSuccessb
+ *
+ * Verifies that keymaster generates correct output on zero-input with
+ * NonePadding mode
+ */
+TEST_P(EncryptionOperationsTest, AesCbcZeroInputSuccess) {
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .AesEncryptionKey(128)
+                                                 .BlockMode(BlockMode::CBC)
+                                                 .Padding(PaddingMode::NONE, PaddingMode::PKCS7)));
+
+    // Zero input message
+    string message = "";
+    for (auto padding : {PaddingMode::NONE, PaddingMode::PKCS7}) {
+        auto params = AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(padding);
+        AuthorizationSet out_params;
+        string ciphertext1 = EncryptMessage(message, params, &out_params);
+        vector<uint8_t> iv1 = CopyIv(out_params);
+        if (padding == PaddingMode::NONE)
+            EXPECT_EQ(message.size(), ciphertext1.size()) << "PaddingMode: " << padding;
+        else
+            EXPECT_EQ(message.size(), ciphertext1.size() - 16) << "PaddingMode: " << padding;
+
+        out_params.Clear();
+
+        string ciphertext2 = EncryptMessage(message, params, &out_params);
+        vector<uint8_t> iv2 = CopyIv(out_params);
+        if (padding == PaddingMode::NONE)
+            EXPECT_EQ(message.size(), ciphertext2.size()) << "PaddingMode: " << padding;
+        else
+            EXPECT_EQ(message.size(), ciphertext2.size() - 16) << "PaddingMode: " << padding;
+
+        // IVs should be random
+        EXPECT_NE(iv1, iv2) << "PaddingMode: " << padding;
+
+        params.push_back(TAG_NONCE, iv1);
+        string plaintext = DecryptMessage(ciphertext1, params);
+        EXPECT_EQ(message, plaintext) << "PaddingMode: " << padding;
+    }
+}
+
+/*
+=======
+ * EncryptionOperationsTest.AesCbcZeroInputSuccessb
+ *
+ * Verifies that keymaster generates correct output on zero-input with
+ * NonePadding mode
+ */
+TEST_P(EncryptionOperationsTest, AesCbcZeroInputSuccess) {
+    ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
+                                                 .Authorization(TAG_NO_AUTH_REQUIRED)
+                                                 .AesEncryptionKey(128)
+                                                 .BlockMode(BlockMode::CBC)
+                                                 .Padding(PaddingMode::NONE, PaddingMode::PKCS7)));
+
+    // Zero input message
+    string message = "";
+    for (auto padding : {PaddingMode::NONE, PaddingMode::PKCS7}) {
+        SCOPED_TRACE(testing::Message() << "AES padding=" << padding);
+        auto params = AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(padding);
+        AuthorizationSet out_params;
+        string ciphertext1 = EncryptMessage(message, params, &out_params);
+        vector<uint8_t> iv1 = CopyIv(out_params);
+        if (padding == PaddingMode::NONE)
+            EXPECT_EQ(message.size(), ciphertext1.size()) << "PaddingMode: " << padding;
+        else
+            EXPECT_EQ(message.size(), ciphertext1.size() - 16) << "PaddingMode: " << padding;
+
+        out_params.Clear();
+
+        string ciphertext2 = EncryptMessage(message, params, &out_params);
+        vector<uint8_t> iv2 = CopyIv(out_params);
+        if (padding == PaddingMode::NONE)
+            EXPECT_EQ(message.size(), ciphertext2.size()) << "PaddingMode: " << padding;
+        else
+            EXPECT_EQ(message.size(), ciphertext2.size() - 16) << "PaddingMode: " << padding;
+
+        // IVs should be random
+        EXPECT_NE(iv1, iv2) << "PaddingMode: " << padding;
+
+        params.push_back(TAG_NONCE, iv1);
+        string plaintext = DecryptMessage(ciphertext1, params);
+        EXPECT_EQ(message, plaintext) << "PaddingMode: " << padding;
+    }
+}
+
+/*
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
  * EncryptionOperationsTest.AesCallerNonce
  *
  * Verifies that AES caller-provided nonces work correctly.
@@ -5031,7 +6196,7 @@ TEST_P(EncryptionOperationsTest, AesGcmAadNoData) {
 
     // Encrypt
     AuthorizationSet begin_out_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &begin_out_params));
     string ciphertext;
     AuthorizationSet finish_out_params;
     ASSERT_EQ(ErrorCode::OK, UpdateAad(aad));
@@ -5074,7 +6239,7 @@ TEST_P(EncryptionOperationsTest, AesGcmMultiPartAad) {
                                 .Authorization(TAG_MAC_LENGTH, tag_bits);
     AuthorizationSet begin_out_params;
 
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
 
     // No data, AAD only.
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foo"));
@@ -5090,7 +6255,7 @@ TEST_P(EncryptionOperationsTest, AesGcmMultiPartAad) {
     begin_params.push_back(begin_out_params);
 
     // Decrypt
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foofoo"));
     string plaintext;
     EXPECT_EQ(ErrorCode::OK, Finish(ciphertext, &plaintext));
@@ -5117,7 +6282,7 @@ TEST_P(EncryptionOperationsTest, AesGcmAadOutOfOrder) {
                                 .Authorization(TAG_MAC_LENGTH, 128);
     AuthorizationSet begin_out_params;
 
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
 
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foo"));
     string ciphertext;
@@ -5151,7 +6316,7 @@ TEST_P(EncryptionOperationsTest, AesGcmBadAad) {
 
     // Encrypt
     AuthorizationSet begin_out_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foobar"));
     string ciphertext;
     EXPECT_EQ(ErrorCode::OK, Finish(message, &ciphertext));
@@ -5160,7 +6325,7 @@ TEST_P(EncryptionOperationsTest, AesGcmBadAad) {
     begin_params.push_back(begin_out_params);
 
     // Decrypt.
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params, &begin_out_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad("barfoo"));
     string plaintext;
     EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(ciphertext, &plaintext));
@@ -5187,7 +6352,7 @@ TEST_P(EncryptionOperationsTest, AesGcmWrongNonce) {
 
     // Encrypt
     AuthorizationSet begin_out_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &begin_out_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foobar"));
     string ciphertext;
     AuthorizationSet finish_out_params;
@@ -5197,7 +6362,7 @@ TEST_P(EncryptionOperationsTest, AesGcmWrongNonce) {
     begin_params.push_back(TAG_NONCE, AidlBuf("123456789012"));
 
     // Decrypt.
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params, &begin_out_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad("foobar"));
     string plaintext;
     EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(ciphertext, &plaintext));
@@ -5229,7 +6394,7 @@ TEST_P(EncryptionOperationsTest, AesGcmCorruptTag) {
 
     // Encrypt
     AuthorizationSet begin_out_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &begin_out_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params, &begin_out_params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad(aad));
     string ciphertext;
     EXPECT_EQ(ErrorCode::OK, Finish(message, &ciphertext));
@@ -5241,7 +6406,7 @@ TEST_P(EncryptionOperationsTest, AesGcmCorruptTag) {
     params.push_back(begin_out_params);
 
     // Decrypt.
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, params));
     EXPECT_EQ(ErrorCode::OK, UpdateAad(aad));
     string plaintext;
     EXPECT_EQ(ErrorCode::VERIFICATION_FAILED, Finish(ciphertext, &plaintext));
@@ -5305,6 +6470,7 @@ TEST_P(EncryptionOperationsTest, TripleDesEcbPkcs7Padding) {
                                                  .Padding(PaddingMode::PKCS7)));
 
     for (size_t i = 0; i < 32; ++i) {
+        SCOPED_TRACE(testing::Message() << "msg size=" << i);
         string message(i, 'a');
         auto inParams =
                 AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::PKCS7);
@@ -5351,10 +6517,48 @@ TEST_P(EncryptionOperationsTest, TripleDesEcbPkcs7PaddingCorrupted) {
     AuthorizationSetBuilder begin_params;
     begin_params.push_back(TAG_BLOCK_MODE, BlockMode::ECB);
     begin_params.push_back(TAG_PADDING, PaddingMode::PKCS7);
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
     string plaintext;
     EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext));
     EXPECT_EQ(ErrorCode::INVALID_ARGUMENT, Finish(&plaintext));
+||||||| BASE
+
+    for (size_t i = 0; i < kMaxPaddingCorruptionRetries; ++i) {
+        ++ciphertext[ciphertext.size() / 2];
+
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
+        string plaintext;
+        EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext));
+        ErrorCode error = Finish(&plaintext);
+        if (error == ErrorCode::INVALID_ARGUMENT) {
+            // This is the expected error, we can exit the test now.
+            return;
+        } else {
+            // Very small chance we got valid decryption, so try again.
+            ASSERT_EQ(error, ErrorCode::OK);
+        }
+    }
+    FAIL() << "Corrupt ciphertext should have failed to decrypt by now.";
+=======
+
+    for (size_t i = 0; i < kMaxPaddingCorruptionRetries; ++i) {
+        ++ciphertext[ciphertext.size() / 2];
+
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
+        string plaintext;
+        EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext));
+        ErrorCode error = Finish(&plaintext);
+        if (error == ErrorCode::INVALID_ARGUMENT) {
+            // This is the expected error, we can exit the test now.
+            return;
+        } else {
+            // Very small chance we got valid decryption, so try again.
+            ASSERT_EQ(error, ErrorCode::OK);
+        }
+    }
+    FAIL() << "Corrupt ciphertext should have failed to decrypt by now.";
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }
 
 struct TripleDesTestVector {
@@ -5603,6 +6807,7 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcNotAuthorized) {
  */
 TEST_P(EncryptionOperationsTest, TripleDesEcbCbcNoPaddingWrongInputSize) {
     for (BlockMode blockMode : {BlockMode::ECB, BlockMode::CBC}) {
+        SCOPED_TRACE(testing::Message() << "BlockMode::" << blockMode);
         ASSERT_EQ(ErrorCode::OK, GenerateKey(AuthorizationSetBuilder()
                                                      .TripleDesEncryptionKey(168)
                                                      .BlockMode(blockMode)
@@ -5614,7 +6819,7 @@ TEST_P(EncryptionOperationsTest, TripleDesEcbCbcNoPaddingWrongInputSize) {
         auto begin_params =
                 AuthorizationSetBuilder().BlockMode(blockMode).Padding(PaddingMode::NONE);
         AuthorizationSet output_params;
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &output_params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, begin_params, &output_params));
         string ciphertext;
         EXPECT_EQ(ErrorCode::INVALID_INPUT_LENGTH, Finish(message, "", &ciphertext));
 
@@ -5658,7 +6863,14 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcNoPaddingKeyWithPkcs7Padding) {
                                                  .Padding(PaddingMode::NONE)));
 
     // Try various message lengths; all should fail.
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     for (size_t i = 0; i < 32; ++i) {
+||||||| BASE
+    for (size_t i = 0; i <= 32; i++) {
+=======
+    for (size_t i = 0; i <= 32; i++) {
+        SCOPED_TRACE(testing::Message() << "i = " << i);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         auto begin_params =
                 AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(PaddingMode::PKCS7);
         EXPECT_EQ(ErrorCode::INCOMPATIBLE_PADDING_MODE, Begin(KeyPurpose::ENCRYPT, begin_params));
@@ -5688,10 +6900,48 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcPkcs7PaddingCorrupted) {
                                 .BlockMode(BlockMode::CBC)
                                 .Padding(PaddingMode::PKCS7)
                                 .Authorization(TAG_NONCE, iv);
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
     string plaintext;
     EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext));
     EXPECT_EQ(ErrorCode::INVALID_ARGUMENT, Finish(&plaintext));
+||||||| BASE
+
+    for (size_t i = 0; i < kMaxPaddingCorruptionRetries; ++i) {
+        SCOPED_TRACE(testing::Message() << "i = " << i);
+        ++ciphertext[ciphertext.size() / 2];
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
+        string plaintext;
+        EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext));
+        ErrorCode error = Finish(&plaintext);
+        if (error == ErrorCode::INVALID_ARGUMENT) {
+            // This is the expected error, we can exit the test now.
+            return;
+        } else {
+            // Very small chance we got valid decryption, so try again.
+            ASSERT_EQ(error, ErrorCode::OK);
+        }
+    }
+    FAIL() << "Corrupt ciphertext should have failed to decrypt by now.";
+=======
+
+    for (size_t i = 0; i < kMaxPaddingCorruptionRetries; ++i) {
+        SCOPED_TRACE(testing::Message() << "i = " << i);
+        ++ciphertext[ciphertext.size() / 2];
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, begin_params));
+        string plaintext;
+        EXPECT_EQ(ErrorCode::OK, Update(ciphertext, &plaintext));
+        ErrorCode error = Finish(&plaintext);
+        if (error == ErrorCode::INVALID_ARGUMENT) {
+            // This is the expected error, we can exit the test now.
+            return;
+        } else {
+            // Very small chance we got valid decryption, so try again.
+            ASSERT_EQ(error, ErrorCode::OK);
+        }
+    }
+    FAIL() << "Corrupt ciphertext should have failed to decrypt by now.";
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }
 
 /*
@@ -5711,7 +6961,7 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcIncrementalNoPadding) {
     AuthorizationSet input_params =
             AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(PaddingMode::NONE);
     AuthorizationSet output_params;
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, input_params, &output_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, input_params, &output_params));
 
     string ciphertext;
     for (size_t i = 0; i < message.size(); i += increment)
@@ -5725,7 +6975,7 @@ TEST_P(EncryptionOperationsTest, TripleDesCbcIncrementalNoPadding) {
     input_params.push_back(TAG_PADDING, PaddingMode::NONE);
     output_params.Clear();
 
-    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, input_params, &output_params));
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, input_params, &output_params));
     string plaintext;
     for (size_t i = 0; i < ciphertext.size(); i += increment)
         EXPECT_EQ(ErrorCode::OK, Update(ciphertext.substr(i, increment), &plaintext));
@@ -5836,7 +7086,7 @@ TEST_P(UsageCountLimitTest, TestSingleUseAes) {
     } else {
         // Usage count limit tag is enforced by keystore, keymint does nothing.
         EXPECT_TRUE(keystore_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U));
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
     }
 }
 
@@ -5881,7 +7131,7 @@ TEST_P(UsageCountLimitTest, TestLimitedUseAes) {
     } else {
         // Usage count limit tag is enforced by keystore, keymint does nothing.
         EXPECT_TRUE(keystore_auths.Contains(TAG_USAGE_COUNT_LIMIT, 3U));
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, params));
     }
 }
 
@@ -5925,7 +7175,7 @@ TEST_P(UsageCountLimitTest, TestSingleUseRsa) {
     } else {
         // Usage count limit tag is enforced by keystore, keymint does nothing.
         EXPECT_TRUE(keystore_auths.Contains(TAG_USAGE_COUNT_LIMIT, 1U));
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
     }
 }
 
@@ -5970,7 +7220,7 @@ TEST_P(UsageCountLimitTest, TestLimitUseRsa) {
     } else {
         // Usage count limit tag is enforced by keystore, keymint does nothing.
         EXPECT_TRUE(keystore_auths.Contains(TAG_USAGE_COUNT_LIMIT, 3U));
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::SIGN, params));
     }
 }
 
@@ -5982,8 +7232,16 @@ TEST_P(UsageCountLimitTest, TestLimitUseRsa) {
  * in hardware.
  */
 TEST_P(UsageCountLimitTest, TestSingleUseKeyAndRollbackResistance) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     if (SecLevel() == SecurityLevel::STRONGBOX) return;
 
+||||||| BASE
+    if (SecLevel() == SecurityLevel::STRONGBOX) {
+        GTEST_SKIP() << "Test not applicable to StrongBox device";
+    }
+
+=======
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     auto error = GenerateKey(AuthorizationSetBuilder()
                                      .RsaSigningKey(2048, 65537)
                                      .Digest(Digest::NONE)
@@ -6273,7 +7531,13 @@ TEST_P(ClearOperationsTest, TooManyOperations) {
         EXPECT_EQ(ErrorCode::OK, Abort(op_handles[j]))
                 << "Aboort failed for i = " << j << std::endl;
     }
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, key_blob_, params, &out_params));
+||||||| BASE
+    EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, key_blob_, params, &out_params));
+=======
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, key_blob_, params, &out_params));
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     AbortIfNeeded();
 }
 
@@ -6294,11 +7558,12 @@ TEST_P(TransportLimitTest, LargeFinishInput) {
                                                  .Padding(PaddingMode::NONE)));
 
     for (int msg_size = 8 /* 256 bytes */; msg_size <= 11 /* 2 KiB */; msg_size++) {
+        SCOPED_TRACE(testing::Message() << "msg_size = " << msg_size);
         auto cipher_params =
                 AuthorizationSetBuilder().BlockMode(BlockMode::ECB).Padding(PaddingMode::NONE);
 
         AuthorizationSet out_params;
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, cipher_params, &out_params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, cipher_params, &out_params));
 
         string plain_message = std::string(1 << msg_size, 'x');
         string encrypted_message;
@@ -6309,7 +7574,7 @@ TEST_P(TransportLimitTest, LargeFinishInput) {
                 << "Encrypt finish returned OK, but did not consume all of the given input";
         cipher_params.push_back(out_params);
 
-        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, cipher_params));
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, cipher_params));
 
         string decrypted_message;
         rc = Finish(encrypted_message, &decrypted_message);
@@ -6401,7 +7666,7 @@ TEST_P(KeyAgreementTest, Ecdh) {
             if (curve != localCurve) {
                 // If the keys are using different curves KeyMint should fail with
                 // ErrorCode:INVALID_ARGUMENT. Check that.
-                EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
+                ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
                 string ZabFromKeyMintStr;
                 EXPECT_EQ(ErrorCode::INVALID_ARGUMENT,
                           Finish(string(encodedPublicKey.begin(), encodedPublicKey.end()),
@@ -6435,6 +7700,279 @@ TEST_P(KeyAgreementTest, Ecdh) {
     }
 }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+/*
+ * KeyAgreementTest.EcdhCurve25519
+ *
+ * Verifies that ECDH works for curve25519. This is also covered by the general
+ * KeyAgreementTest.Ecdh case, but is pulled out separately here because this curve was added after
+ * KeyMint 1.0.
+ */
+TEST_P(KeyAgreementTest, EcdhCurve25519) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    // Generate EC key in KeyMint (only access to public key material)
+    EcCurve curve = EcCurve::CURVE_25519;
+    EVP_PKEY_Ptr kmPubKey = nullptr;
+    GenerateKeyMintEcKey(curve, &kmPubKey);
+
+    // Generate EC key on same curve locally (with access to private key material).
+    EVP_PKEY_Ptr privKey;
+    vector<uint8_t> encodedPublicKey;
+    GenerateLocalEcKey(curve, &privKey, &encodedPublicKey);
+
+    // Agree on a key between local and KeyMint and check it.
+    CheckAgreement(std::move(kmPubKey), std::move(privKey), encodedPublicKey);
+
+    CheckedDeleteKey();
+}
+
+/*
+ * KeyAgreementTest.EcdhCurve25519Imported
+ *
+ * Verifies that ECDH works for an imported curve25519 key.
+ */
+TEST_P(KeyAgreementTest, EcdhCurve25519Imported) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    // Import x25519 key into KeyMint.
+    EcCurve curve = EcCurve::CURVE_25519;
+    ASSERT_EQ(ErrorCode::OK, ImportKey(AuthorizationSetBuilder()
+                                               .Authorization(TAG_NO_AUTH_REQUIRED)
+                                               .EcdsaKey(EcCurve::CURVE_25519)
+                                               .Authorization(TAG_PURPOSE, KeyPurpose::AGREE_KEY)
+                                               .SetDefaultValidity(),
+                                       KeyFormat::PKCS8, x25519_pkcs8_key));
+    ASSERT_GT(cert_chain_.size(), 0);
+    X509_Ptr kmKeyCert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+    ASSERT_NE(kmKeyCert, nullptr);
+    EVP_PKEY_Ptr kmPubKey(X509_get_pubkey(kmKeyCert.get()));
+    ASSERT_NE(kmPubKey.get(), nullptr);
+
+    // Expect the import to emit corresponding public key data.
+    size_t kmPubKeySize = 32;
+    uint8_t kmPubKeyData[32];
+    ASSERT_EQ(1, EVP_PKEY_get_raw_public_key(kmPubKey.get(), kmPubKeyData, &kmPubKeySize));
+    ASSERT_EQ(kmPubKeySize, 32);
+    EXPECT_EQ(bin2hex(std::vector<uint8_t>(kmPubKeyData, kmPubKeyData + 32)),
+              bin2hex(std::vector<uint8_t>(x25519_pubkey.begin(), x25519_pubkey.end())));
+
+    // Generate EC key on same curve locally (with access to private key material).
+    EVP_PKEY_Ptr privKey;
+    vector<uint8_t> encodedPublicKey;
+    GenerateLocalEcKey(curve, &privKey, &encodedPublicKey);
+
+    // Agree on a key between local and KeyMint and check it.
+    CheckAgreement(std::move(kmPubKey), std::move(privKey), encodedPublicKey);
+
+    CheckedDeleteKey();
+}
+
+/*
+ * KeyAgreementTest.EcdhCurve25519InvalidSize
+ *
+ * Verifies that ECDH fails for curve25519 if the wrong size of public key is provided.
+ */
+TEST_P(KeyAgreementTest, EcdhCurve25519InvalidSize) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    // Generate EC key in KeyMint (only access to public key material)
+    EcCurve curve = EcCurve::CURVE_25519;
+    EVP_PKEY_Ptr kmPubKey = nullptr;
+    GenerateKeyMintEcKey(curve, &kmPubKey);
+
+    // Generate EC key on same curve locally (with access to private key material).
+    EVP_PKEY_Ptr privKey;
+    vector<uint8_t> encodedPublicKey;
+    GenerateLocalEcKey(curve, &privKey, &encodedPublicKey);
+
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
+    string ZabFromKeyMintStr;
+    // Send in an incomplete public key.
+    ASSERT_NE(ErrorCode::OK, Finish(string(encodedPublicKey.begin(), encodedPublicKey.end() - 1),
+                                    &ZabFromKeyMintStr));
+
+    CheckedDeleteKey();
+}
+
+/*
+ * KeyAgreementTest.EcdhCurve25519Mismatch
+ *
+ * Verifies that ECDH fails between curve25519 and other curves.
+ */
+TEST_P(KeyAgreementTest, EcdhCurve25519Mismatch) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    // Generate EC key in KeyMint (only access to public key material)
+    EcCurve curve = EcCurve::CURVE_25519;
+    EVP_PKEY_Ptr kmPubKey = nullptr;
+    GenerateKeyMintEcKey(curve, &kmPubKey);
+
+    for (auto localCurve : ValidCurves()) {
+        if (localCurve == curve) {
+            continue;
+        }
+        // Generate EC key on a different curve locally (with access to private key material).
+        EVP_PKEY_Ptr privKey;
+        vector<uint8_t> encodedPublicKey;
+        GenerateLocalEcKey(localCurve, &privKey, &encodedPublicKey);
+
+        EXPECT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
+        string ZabFromKeyMintStr;
+        EXPECT_EQ(ErrorCode::INVALID_ARGUMENT,
+                  Finish(string(encodedPublicKey.begin(), encodedPublicKey.end()),
+                         &ZabFromKeyMintStr));
+    }
+
+    CheckedDeleteKey();
+}
+
+=======
+/*
+ * KeyAgreementTest.EcdhCurve25519
+ *
+ * Verifies that ECDH works for curve25519. This is also covered by the general
+ * KeyAgreementTest.Ecdh case, but is pulled out separately here because this curve was added after
+ * KeyMint 1.0.
+ */
+TEST_P(KeyAgreementTest, EcdhCurve25519) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    // Generate EC key in KeyMint (only access to public key material)
+    EcCurve curve = EcCurve::CURVE_25519;
+    EVP_PKEY_Ptr kmPubKey = nullptr;
+    GenerateKeyMintEcKey(curve, &kmPubKey);
+
+    // Generate EC key on same curve locally (with access to private key material).
+    EVP_PKEY_Ptr privKey;
+    vector<uint8_t> encodedPublicKey;
+    GenerateLocalEcKey(curve, &privKey, &encodedPublicKey);
+
+    // Agree on a key between local and KeyMint and check it.
+    CheckAgreement(std::move(kmPubKey), std::move(privKey), encodedPublicKey);
+
+    CheckedDeleteKey();
+}
+
+/*
+ * KeyAgreementTest.EcdhCurve25519Imported
+ *
+ * Verifies that ECDH works for an imported curve25519 key.
+ */
+TEST_P(KeyAgreementTest, EcdhCurve25519Imported) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    // Import x25519 key into KeyMint.
+    EcCurve curve = EcCurve::CURVE_25519;
+    ASSERT_EQ(ErrorCode::OK, ImportKey(AuthorizationSetBuilder()
+                                               .Authorization(TAG_NO_AUTH_REQUIRED)
+                                               .EcdsaKey(EcCurve::CURVE_25519)
+                                               .Authorization(TAG_PURPOSE, KeyPurpose::AGREE_KEY)
+                                               .SetDefaultValidity(),
+                                       KeyFormat::PKCS8, x25519_pkcs8_key));
+    ASSERT_GT(cert_chain_.size(), 0);
+    X509_Ptr kmKeyCert(parse_cert_blob(cert_chain_[0].encodedCertificate));
+    ASSERT_NE(kmKeyCert, nullptr);
+    EVP_PKEY_Ptr kmPubKey(X509_get_pubkey(kmKeyCert.get()));
+    ASSERT_NE(kmPubKey.get(), nullptr);
+
+    // Expect the import to emit corresponding public key data.
+    size_t kmPubKeySize = 32;
+    uint8_t kmPubKeyData[32];
+    ASSERT_EQ(1, EVP_PKEY_get_raw_public_key(kmPubKey.get(), kmPubKeyData, &kmPubKeySize));
+    ASSERT_EQ(kmPubKeySize, 32);
+    EXPECT_EQ(bin2hex(std::vector<uint8_t>(kmPubKeyData, kmPubKeyData + 32)),
+              bin2hex(std::vector<uint8_t>(x25519_pubkey.begin(), x25519_pubkey.end())));
+
+    // Generate EC key on same curve locally (with access to private key material).
+    EVP_PKEY_Ptr privKey;
+    vector<uint8_t> encodedPublicKey;
+    GenerateLocalEcKey(curve, &privKey, &encodedPublicKey);
+
+    // Agree on a key between local and KeyMint and check it.
+    CheckAgreement(std::move(kmPubKey), std::move(privKey), encodedPublicKey);
+
+    CheckedDeleteKey();
+}
+
+/*
+ * KeyAgreementTest.EcdhCurve25519InvalidSize
+ *
+ * Verifies that ECDH fails for curve25519 if the wrong size of public key is provided.
+ */
+TEST_P(KeyAgreementTest, EcdhCurve25519InvalidSize) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    // Generate EC key in KeyMint (only access to public key material)
+    EcCurve curve = EcCurve::CURVE_25519;
+    EVP_PKEY_Ptr kmPubKey = nullptr;
+    GenerateKeyMintEcKey(curve, &kmPubKey);
+
+    // Generate EC key on same curve locally (with access to private key material).
+    EVP_PKEY_Ptr privKey;
+    vector<uint8_t> encodedPublicKey;
+    GenerateLocalEcKey(curve, &privKey, &encodedPublicKey);
+
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
+    string ZabFromKeyMintStr;
+    // Send in an incomplete public key.
+    ASSERT_NE(ErrorCode::OK, Finish(string(encodedPublicKey.begin(), encodedPublicKey.end() - 1),
+                                    &ZabFromKeyMintStr));
+
+    CheckedDeleteKey();
+}
+
+/*
+ * KeyAgreementTest.EcdhCurve25519Mismatch
+ *
+ * Verifies that ECDH fails between curve25519 and other curves.
+ */
+TEST_P(KeyAgreementTest, EcdhCurve25519Mismatch) {
+    if (!Curve25519Supported()) {
+        GTEST_SKIP() << "Test not applicable to device that is not expected to support curve 25519";
+    }
+
+    // Generate EC key in KeyMint (only access to public key material)
+    EcCurve curve = EcCurve::CURVE_25519;
+    EVP_PKEY_Ptr kmPubKey = nullptr;
+    GenerateKeyMintEcKey(curve, &kmPubKey);
+
+    for (auto localCurve : ValidCurves()) {
+        SCOPED_TRACE(testing::Message() << "local-curve-" << localCurve);
+        if (localCurve == curve) {
+            continue;
+        }
+        // Generate EC key on a different curve locally (with access to private key material).
+        EVP_PKEY_Ptr privKey;
+        vector<uint8_t> encodedPublicKey;
+        GenerateLocalEcKey(localCurve, &privKey, &encodedPublicKey);
+
+        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::AGREE_KEY, AuthorizationSetBuilder()));
+        string ZabFromKeyMintStr;
+        EXPECT_EQ(ErrorCode::INVALID_ARGUMENT,
+                  Finish(string(encodedPublicKey.begin(), encodedPublicKey.end()),
+                         &ZabFromKeyMintStr));
+    }
+
+    CheckedDeleteKey();
+}
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 INSTANTIATE_KEYMINT_AIDL_TEST(KeyAgreementTest);
 
 using DestroyAttestationIdsTest = KeyMintAidlTestBase;
@@ -6612,17 +8150,45 @@ TEST_P(UnlockedDeviceRequiredTest, DISABLED_KeysBecomeUnusable) {
 
 INSTANTIATE_KEYMINT_AIDL_TEST(UnlockedDeviceRequiredTest);
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+using VsrRequirementTest = KeyMintAidlTestBase;
+
+TEST_P(VsrRequirementTest, Vsr13Test) {
+    int vsr_api_level = get_vsr_api_level();
+    if (vsr_api_level < 33) {
+        GTEST_SKIP() << "Applies only to VSR API level 33, this device is: " << vsr_api_level;
+    }
+    EXPECT_GE(AidlVersion(), 2) << "VSR 13+ requires KeyMint version 2";
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(VsrRequirementTest);
+
+=======
+using VsrRequirementTest = KeyMintAidlTestBase;
+
+TEST_P(VsrRequirementTest, Vsr13Test) {
+    int vsr_api_level = get_vsr_api_level();
+    if (vsr_api_level < __ANDROID_API_T__) {
+        GTEST_SKIP() << "Applies only to VSR API level 33, this device is: " << vsr_api_level;
+    }
+    EXPECT_GE(AidlVersion(), 2) << "VSR 13+ requires KeyMint version 2";
+}
+
+TEST_P(VsrRequirementTest, Vsr14Test) {
+    int vsr_api_level = get_vsr_api_level();
+    if (vsr_api_level < __ANDROID_API_U__) {
+        GTEST_SKIP() << "Applies only to VSR API level 34, this device is: " << vsr_api_level;
+    }
+    EXPECT_GE(AidlVersion(), 3) << "VSR 14+ requires KeyMint version 3";
+}
+
+INSTANTIATE_KEYMINT_AIDL_TEST(VsrRequirementTest);
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }  // namespace aidl::android::hardware::security::keymint::test
 
 int main(int argc, char** argv) {
-    std::cout << "Testing ";
-    auto halInstances =
-            aidl::android::hardware::security::keymint::test::KeyMintAidlTestBase::build_params();
-    std::cout << "HAL instances:\n";
-    for (auto& entry : halInstances) {
-        std::cout << "    " << entry << '\n';
-    }
-
     ::testing::InitGoogleTest(&argc, argv);
     for (int i = 1; i < argc; ++i) {
         if (argv[i][0] == '-') {
@@ -6639,6 +8205,15 @@ int main(int argc, char** argv) {
             // TODO(drysdale): Remove this flag when available KeyMint devices comply with spec
             if (std::string(argv[i]) == "--check_patchLevels") {
                 aidl::android::hardware::security::keymint::test::check_patchLevels = true;
+            }
+            if (std::string(argv[i]) == "--keyblob_dir") {
+                if (i + 1 >= argc) {
+                    std::cerr << "Missing argument for --keyblob_dir\n";
+                    return 1;
+                }
+                aidl::android::hardware::security::keymint::test::KeyMintAidlTestBase::keyblob_dir =
+                        std::string(argv[i + 1]);
+                ++i;
             }
         }
     }

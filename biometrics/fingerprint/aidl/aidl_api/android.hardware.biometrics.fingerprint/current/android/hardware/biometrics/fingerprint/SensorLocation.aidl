@@ -32,10 +32,21 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package android.hardware.biometrics.fingerprint;
+/* @hide */
 @VintfStability
 parcelable SensorLocation {
+  /**
+   * @deprecated use the display field instead. This field was never used.
+   */
   int displayId;
   int sensorLocationX;
   int sensorLocationY;
   int sensorRadius;
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+  String display = "";
+=======
+  String display = "";
+  android.hardware.biometrics.fingerprint.SensorShape sensorShape = android.hardware.biometrics.fingerprint.SensorShape.CIRCLE;
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }

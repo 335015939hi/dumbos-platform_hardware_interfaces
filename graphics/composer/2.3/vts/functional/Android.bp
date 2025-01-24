@@ -25,7 +25,18 @@ package {
 
 cc_test {
     name: "VtsHalGraphicsComposerV2_3TargetTest",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     defaults: ["VtsHalTargetTestDefaults"],
+||||||| BASE
+    defaults: ["VtsHalTargetTestDefaults"],
+    tidy_timeout_srcs: ["VtsHalGraphicsComposerV2_3TargetTest.cpp"],
+=======
+    defaults: [
+        "VtsHalTargetTestDefaults",
+        "android.hardware.graphics.allocator-ndk_static",
+    ],
+    tidy_timeout_srcs: ["VtsHalGraphicsComposerV2_3TargetTest.cpp"],
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     srcs: ["VtsHalGraphicsComposerV2_3TargetTest.cpp"],
 
     // TODO(b/64437680): Assume these libs are always available on the device.

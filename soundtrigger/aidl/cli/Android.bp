@@ -1,0 +1,38 @@
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+java_binary {
+    name: "sthal_cli_3",
+    wrapper: "sthal_cli_3",
+    srcs: ["java/**/*.java"],
+    static_libs: [
+        "android.hardware.soundtrigger3-V1-java",
+    ],
+}
+=======
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+java_binary {
+    name: "sthal_cli_3",
+    wrapper: "sthal_cli_3.sh",
+    srcs: ["java/**/*.java"],
+    static_libs: [
+        "android.hardware.soundtrigger3-V1-java",
+    ],
+}
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

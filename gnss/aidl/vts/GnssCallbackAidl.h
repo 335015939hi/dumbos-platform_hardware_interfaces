@@ -22,11 +22,97 @@
 /* Callback class for data & Event. */
 class GnssCallbackAidl : public android::hardware::gnss::BnGnssCallback {
   public:
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     GnssCallbackAidl() : capabilities_cbq_("capabilities"){};
+||||||| BASE
+    GnssCallbackAidl()
+        : capabilities_cbq_("capabilities"),
+          info_cbq_("system_info"),
+          location_cbq_("location"),
+          sv_info_list_cbq_("sv_info"),
+          nmea_cbq_("nmea"){};
+=======
+    GnssCallbackAidl()
+        : capabilities_cbq_("capabilities"),
+          signal_type_capabilities_cbq_("signal_type_capabilities"),
+          info_cbq_("system_info"),
+          location_cbq_("location"),
+          sv_info_list_cbq_("sv_info"),
+          sv_info_list_timestamps_millis_cbq_("sv_info_timestamps"),
+          nmea_cbq_("nmea"){};
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ~GnssCallbackAidl(){};
 
     android::binder::Status gnssSetCapabilitiesCb(const int capabilities) override;
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+    android::binder::Status gnssStatusCb(const GnssStatusValue status) override;
+    android::binder::Status gnssSvStatusCb(const std::vector<GnssSvInfo>& svInfoList) override;
+    android::binder::Status gnssLocationCb(
+            const android::hardware::gnss::GnssLocation& location) override;
+    android::binder::Status gnssNmeaCb(const int64_t timestamp, const std::string& nmea) override;
+    android::binder::Status gnssAcquireWakelockCb() override;
+    android::binder::Status gnssReleaseWakelockCb() override;
+    android::binder::Status gnssSetSystemInfoCb(const GnssSystemInfo& info) override;
+    android::binder::Status gnssRequestTimeCb() override;
+    android::binder::Status gnssRequestLocationCb(const bool independentFromGnss,
+                                                  const bool isUserEmergency) override;
+=======
+    android::binder::Status gnssSetSignalTypeCapabilitiesCb(
+            const std::vector<android::hardware::gnss::GnssSignalType>& signalTypes) override;
+    android::binder::Status gnssStatusCb(const GnssStatusValue status) override;
+    android::binder::Status gnssSvStatusCb(const std::vector<GnssSvInfo>& svInfoList) override;
+    android::binder::Status gnssLocationCb(
+            const android::hardware::gnss::GnssLocation& location) override;
+    android::binder::Status gnssNmeaCb(const int64_t timestamp, const std::string& nmea) override;
+    android::binder::Status gnssAcquireWakelockCb() override;
+    android::binder::Status gnssReleaseWakelockCb() override;
+    android::binder::Status gnssSetSystemInfoCb(const GnssSystemInfo& info) override;
+    android::binder::Status gnssRequestTimeCb() override;
+    android::binder::Status gnssRequestLocationCb(const bool independentFromGnss,
+                                                  const bool isUserEmergency) override;
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
     int last_capabilities_;
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+    android::hardware::gnss::IGnssCallback::GnssSystemInfo last_info_;
+    android::hardware::gnss::GnssLocation last_location_;
+
+=======
+    std::vector<android::hardware::gnss::GnssSignalType> last_signal_type_capabilities;
+    android::hardware::gnss::IGnssCallback::GnssSystemInfo last_info_;
+    android::hardware::gnss::GnssLocation last_location_;
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     android::hardware::gnss::common::GnssCallbackEventQueue<int> capabilities_cbq_;
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+    android::hardware::gnss::common::GnssCallbackEventQueue<
+            android::hardware::gnss::IGnssCallback::GnssSystemInfo>
+            info_cbq_;
+    android::hardware::gnss::common::GnssCallbackEventQueue<android::hardware::gnss::GnssLocation>
+            location_cbq_;
+    android::hardware::gnss::common::GnssCallbackEventQueue<
+            std::vector<android::hardware::gnss::IGnssCallback::GnssSvInfo>>
+            sv_info_list_cbq_;
+    android::hardware::gnss::common::GnssCallbackEventQueue<std::pair<int64_t, std::string>>
+            nmea_cbq_;
+=======
+    android::hardware::gnss::common::GnssCallbackEventQueue<
+            std::vector<android::hardware::gnss::GnssSignalType>>
+            signal_type_capabilities_cbq_;
+    android::hardware::gnss::common::GnssCallbackEventQueue<
+            android::hardware::gnss::IGnssCallback::GnssSystemInfo>
+            info_cbq_;
+    android::hardware::gnss::common::GnssCallbackEventQueue<android::hardware::gnss::GnssLocation>
+            location_cbq_;
+    android::hardware::gnss::common::GnssCallbackEventQueue<
+            std::vector<android::hardware::gnss::IGnssCallback::GnssSvInfo>>
+            sv_info_list_cbq_;
+    android::hardware::gnss::common::GnssCallbackEventQueue<long>
+            sv_info_list_timestamps_millis_cbq_;
+    android::hardware::gnss::common::GnssCallbackEventQueue<std::pair<int64_t, std::string>>
+            nmea_cbq_;
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 };

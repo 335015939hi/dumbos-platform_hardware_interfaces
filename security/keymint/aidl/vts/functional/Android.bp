@@ -32,10 +32,31 @@ cc_defaults {
     shared_libs: [
         "libbinder_ndk",
         "libcrypto",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+        "packagemanager_aidl-cpp",
+=======
+        "libbase",
+        "libgatekeeper",
+        "packagemanager_aidl-cpp",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
     static_libs: [
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "android.hardware.security.keymint-V1-ndk_platform",
         "android.hardware.security.secureclock-V1-ndk_platform",
+||||||| BASE
+        "android.hardware.security.secureclock-V1-ndk",
+        "libavb_user",
+        "libavb",
+=======
+        "android.hardware.gatekeeper@1.0",
+        "android.hardware.gatekeeper-V1-ndk",
+        "android.hardware.security.rkp-V3-ndk",
+        "android.hardware.security.secureclock-V1-ndk",
+        "libavb_user",
+        "libavb",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         "libcppbor_external",
         "libcppcose_rkp",
         "libjsoncpp",
@@ -52,7 +73,15 @@ cc_test {
     ],
     srcs: [
         "AttestKeyTest.cpp",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+        "BootloaderStateTest.cpp",
+=======
+        "AuthTest.cpp",
+        "BootloaderStateTest.cpp",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         "DeviceUniqueAttestationTest.cpp",
+        "KeyBlobUpgradeTest.cpp",
         "KeyMintTest.cpp",
     ],
     static_libs: [
@@ -77,26 +106,5 @@ cc_test_library {
     ],
     static_libs: [
         "libgmock_ndk",
-    ],
-}
-
-cc_test {
-    name: "VtsHalRemotelyProvisionedComponentTargetTest",
-    defaults: [
-        "keymint_vts_defaults",
-    ],
-    srcs: [
-        "VtsRemotelyProvisionedComponentTests.cpp",
-    ],
-    static_libs: [
-        "libgmock_ndk",
-        "libkeymaster_portable",
-        "libkeymint_vts_test_utils",
-        "libpuresoftkeymasterdevice",
-    ],
-    test_config: "VtsRemotelyProvisionedComponentTests.xml",
-    test_suites: [
-        "general-tests",
-        "vts",
     ],
 }

@@ -24,6 +24,7 @@ package {
 cc_test {
     name: "VtsAidlHalAudioControlTest",
     defaults: [
+        "latest_android_media_audio_common_types_cpp_static",
         "VtsHalTargetTestDefaults",
         "use_libaidlvintf_gtest_helper_static",
     ],
@@ -37,7 +38,16 @@ cc_test {
         "libxml2",
     ],
     static_libs: [
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "android.hardware.automotive.audiocontrol-V1-cpp",
+||||||| BASE
+        "android.hardware.automotive.audiocontrol-V2-cpp",
+        "android.hardware.audio.common-V1-cpp",
+        "android.media.audio.common.types-V1-cpp",
+=======
+        "android.hardware.automotive.audiocontrol-V3-cpp",
+        "android.hardware.audio.common-V1-cpp",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         "libgmock",
     ],
     test_suites: [

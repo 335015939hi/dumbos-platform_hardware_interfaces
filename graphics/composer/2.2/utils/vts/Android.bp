@@ -25,7 +25,12 @@ package {
 
 cc_library_static {
     name: "android.hardware.graphics.composer@2.2-vts",
-    defaults: ["hidl_defaults"],
+    defaults: [
+        "android.hardware.graphics.allocator-ndk_static",
+        "android.hardware.graphics.composer3-ndk_static",
+        "hidl_defaults",
+        "librenderengine_deps",
+    ],
     srcs: [
         "ComposerVts.cpp",
         "ReadbackVts.cpp",

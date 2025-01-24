@@ -627,8 +627,124 @@ void EvaluatePreparedModel(const std::shared_ptr<IDevice>& device,
                 ret = burst->releaseMemoryResource(slot);
                 ASSERT_TRUE(ret.isOk()) << ret.getDescription();
             }
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
 
             break;
+||||||| BASE
+            case Executor::FENCED: {
+                SCOPED_TRACE("fenced");
+                ErrorStatus result = ErrorStatus::NONE;
+                FencedExecutionResult executionResult;
+                ::ndk::ScopedAStatus ret;
+                if (testConfig.reusable) {
+                    ret = execution->executeFenced({}, kNoDeadline, kNoDuration, &executionResult);
+                } else if (testConfig.useConfig) {
+                    ret = preparedModel->executeFencedWithConfig(
+                            request, {}, {testConfig.measureTiming, loopTimeoutDurationNs, {}, {}},
+                            kNoDeadline, kNoDuration, &executionResult);
+                } else {
+                    ret = preparedModel->executeFenced(request, {}, testConfig.measureTiming,
+                                                       kNoDeadline, loopTimeoutDurationNs,
+                                                       kNoDuration, &executionResult);
+                }
+                ASSERT_TRUE(ret.isOk() || ret.getExceptionCode() == EX_SERVICE_SPECIFIC)
+                        << ret.getDescription();
+                if (!ret.isOk()) {
+                    result = static_cast<ErrorStatus>(ret.getServiceSpecificError());
+                    executionStatus = result;
+                } else if (executionResult.syncFence.get() != -1) {
+                    std::vector<ndk::ScopedFileDescriptor> waitFor;
+                    auto dupFd = dup(executionResult.syncFence.get());
+                    ASSERT_NE(dupFd, -1);
+                    waitFor.emplace_back(dupFd);
+                    // If a sync fence is returned, try start another run waiting for the sync
+                    // fence.
+                    if (testConfig.reusable) {
+                        ret = execution->executeFenced(waitFor, kNoDeadline, kNoDuration,
+                                                       &executionResult);
+                    } else if (testConfig.useConfig) {
+                        ret = preparedModel->executeFencedWithConfig(
+                                request, waitFor,
+                                {testConfig.measureTiming, loopTimeoutDurationNs, {}, {}},
+                                kNoDeadline, kNoDuration, &executionResult);
+                    } else {
+                        ret = preparedModel->executeFenced(
+                                request, waitFor, testConfig.measureTiming, kNoDeadline,
+                                loopTimeoutDurationNs, kNoDuration, &executionResult);
+                    }
+                    ASSERT_TRUE(ret.isOk());
+                    waitForSyncFence(executionResult.syncFence.get());
+                }
+                if (result == ErrorStatus::NONE) {
+                    ASSERT_NE(executionResult.callback, nullptr);
+                    Timing timingFenced;
+                    auto ret = executionResult.callback->getExecutionInfo(&timing, &timingFenced,
+                                                                          &executionStatus);
+                    ASSERT_TRUE(ret.isOk());
+                }
+                break;
+            }
+            default: {
+                FAIL() << "Unsupported execution mode for AIDL interface.";
+            }
+=======
+            case Executor::FENCED: {
+                SCOPED_TRACE("fenced");
+                ErrorStatus result = ErrorStatus::NONE;
+                FencedExecutionResult executionResult;
+                ::ndk::ScopedAStatus ret;
+                if (testConfig.reusable) {
+                    ret = execution->executeFenced({}, kNoDeadline, kNoDuration, &executionResult);
+                } else if (testConfig.useConfig) {
+                    ret = preparedModel->executeFencedWithConfig(
+                            request, {}, {testConfig.measureTiming, loopTimeoutDurationNs, {}, {}},
+                            kNoDeadline, kNoDuration, &executionResult);
+                } else {
+                    ret = preparedModel->executeFenced(request, {}, testConfig.measureTiming,
+                                                       kNoDeadline, loopTimeoutDurationNs,
+                                                       kNoDuration, &executionResult);
+                }
+                ASSERT_TRUE(ret.isOk() || ret.getExceptionCode() == EX_SERVICE_SPECIFIC)
+                        << ret.getDescription();
+                if (!ret.isOk()) {
+                    result = static_cast<ErrorStatus>(ret.getServiceSpecificError());
+                    executionStatus = result;
+                } else if (executionResult.syncFence.get() != -1) {
+                    std::vector<ndk::ScopedFileDescriptor> waitFor;
+                    auto dupFd = dup(executionResult.syncFence.get());
+                    ASSERT_NE(dupFd, -1);
+                    waitFor.emplace_back(dupFd);
+                    // If a sync fence is returned, try start another run waiting for the sync
+                    // fence.
+                    if (testConfig.reusable) {
+                        // Nothing to do because at most one execution may occur on a reusable
+                        // execution object at any given time.
+                    } else if (testConfig.useConfig) {
+                        ret = preparedModel->executeFencedWithConfig(
+                                request, waitFor,
+                                {testConfig.measureTiming, loopTimeoutDurationNs, {}, {}},
+                                kNoDeadline, kNoDuration, &executionResult);
+                    } else {
+                        ret = preparedModel->executeFenced(
+                                request, waitFor, testConfig.measureTiming, kNoDeadline,
+                                loopTimeoutDurationNs, kNoDuration, &executionResult);
+                    }
+                    ASSERT_TRUE(ret.isOk());
+                    waitForSyncFence(executionResult.syncFence.get());
+                }
+                if (result == ErrorStatus::NONE) {
+                    ASSERT_NE(executionResult.callback, nullptr);
+                    Timing timingFenced;
+                    auto ret = executionResult.callback->getExecutionInfo(&timing, &timingFenced,
+                                                                          &executionStatus);
+                    ASSERT_TRUE(ret.isOk());
+                }
+                break;
+            }
+            default: {
+                FAIL() << "Unsupported execution mode for AIDL interface.";
+            }
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         }
         case Executor::FENCED: {
             SCOPED_TRACE("fenced");

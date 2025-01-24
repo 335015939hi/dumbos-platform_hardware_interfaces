@@ -1,0 +1,71 @@
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+cc_binary {
+    name: "android.hardware.uwb-service",
+    relative_install_path: "hw",
+    init_rc: ["uwb-service.rc"],
+    vintf_fragments: ["uwb-service.xml"],
+    vendor: true,
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-g",
+    ],
+    shared_libs: [
+        "liblog",
+        "libbinder_ndk",
+    ],
+    static_libs: [
+        "libbase",
+        "libutils",
+        "android.hardware.uwb-V1-ndk",
+    ],
+    srcs: [
+        "service.cpp",
+        "uwb.cpp",
+        "uwb_chip.cpp",
+    ],
+}
+=======
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+rust_binary {
+    name: "android.hardware.uwb-service",
+    crate_name: "uwb_default_hal",
+    relative_install_path: "hw",
+    vintf_fragments: ["uwb-service.xml"],
+    vendor: true,
+    rustlibs: [
+        "android.hardware.uwb-V1-rust",
+        "liblogger",
+        "liblog_rust",
+        "libbinder_rs",
+        "libbinder_tokio_rs",
+        "libtokio",
+        "libnix",
+        "libanyhow",
+    ],
+    proc_macros: [
+        "libasync_trait",
+    ],
+    srcs: [
+        "src/service.rs",
+    ],
+}
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

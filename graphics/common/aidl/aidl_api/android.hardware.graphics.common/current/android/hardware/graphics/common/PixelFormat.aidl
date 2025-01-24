@@ -47,4 +47,13 @@ enum PixelFormat {
   STENCIL_8 = 53,
   YCBCR_P010 = 54,
   HSV_888 = 55,
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+  R_8 = 56,
+=======
+  R_8 = 56,
+  R_16_UINT = 57,
+  RG_1616_UINT = 58,
+  RGBA_10101010 = 59,
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }

@@ -1,4 +1,12 @@
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
 chasewu@google.com
 leungv@google.com
 lsandrade@google.com
 michaelwr@google.com
+||||||| BASE
+# Bug component: 345036
+include platform/frameworks/base:/services/core/java/com/android/server/vibrator/OWNERS
+chasewu@google.com
+taikuo@google.com
+=======
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

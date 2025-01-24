@@ -1,6 +1,12 @@
 <manifest version="1.0" type="device">
     <hal format="aidl">
         <name>android.hardware.gnss</name>
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+        <version>2</version>
+=======
+        <version>3</version>
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         <interface>
             <name>IGnss</name>
             <instance>default</instance>

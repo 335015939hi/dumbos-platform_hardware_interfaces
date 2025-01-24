@@ -27,9 +27,21 @@ int main() {
     ABinderProcess_setThreadPoolMaxThreadCount(0);
     std::shared_ptr<Fingerprint> hal = ndk::SharedRefBase::make<Fingerprint>();
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     const std::string instance = std::string(Fingerprint::descriptor) + "/default";
     binder_status_t status = AServiceManager_addService(hal->asBinder().get(), instance.c_str());
     CHECK(status == STATUS_OK);
+||||||| BASE
+    const std::string instance = std::string(Fingerprint::descriptor) + "/default";
+    binder_status_t status = AServiceManager_addService(hal->asBinder().get(), instance.c_str());
+    CHECK_EQ(status, STATUS_OK);
+=======
+    const std::string instance = std::string(Fingerprint::descriptor) + "/virtual";
+    binder_status_t status =
+            AServiceManager_registerLazyService(hal->asBinder().get(), instance.c_str());
+    CHECK_EQ(status, STATUS_OK);
+    AServiceManager_forceLazyServicesPersist(true);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
     ABinderProcess_joinThreadPool();
     return EXIT_FAILURE;  // should not reach

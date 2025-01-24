@@ -57,8 +57,19 @@ ndk::ScopedAStatus Vibrator::on(int32_t timeoutMs,
                                 const std::shared_ptr<IVibratorCallback>& callback) {
     LOG(INFO) << "Vibrator on for timeoutMs: " << timeoutMs;
     if (callback != nullptr) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         std::thread([=] {
             LOG(INFO) << "Starting on on another thread";
+||||||| BASE
+        std::thread([=] {
+            LOG(VERBOSE) << "Starting on on another thread";
+=======
+        // Note that thread lambdas aren't using implicit capture [=], to avoid capturing "this",
+        // which may be asynchronously destructed.
+        // If "this" is needed, use [sharedThis = this->ref<Vibrator>()].
+        std::thread([timeoutMs, callback] {
+            LOG(VERBOSE) << "Starting on on another thread";
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
             usleep(timeoutMs * 1000);
             LOG(INFO) << "Notifying on complete";
             if (!callback->onComplete().isOk()) {
@@ -85,8 +96,16 @@ ndk::ScopedAStatus Vibrator::perform(Effect effect, EffectStrength strength,
     constexpr size_t kEffectMillis = 100;
 
     if (callback != nullptr) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         std::thread([=] {
             LOG(INFO) << "Starting perform on another thread";
+||||||| BASE
+        std::thread([=] {
+            LOG(VERBOSE) << "Starting perform on another thread";
+=======
+        std::thread([callback] {
+            LOG(VERBOSE) << "Starting perform on another thread";
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
             usleep(kEffectMillis * 1000);
             LOG(INFO) << "Notifying perform complete";
             callback->onComplete();
@@ -172,8 +191,17 @@ ndk::ScopedAStatus Vibrator::compose(const std::vector<CompositeEffect>& composi
         }
     }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     std::thread([=] {
         LOG(INFO) << "Starting compose on another thread";
+||||||| BASE
+    std::thread([=] {
+        LOG(VERBOSE) << "Starting compose on another thread";
+=======
+    // The thread may theoretically outlive the vibrator, so take a proper reference to it.
+    std::thread([sharedThis = this->ref<Vibrator>(), composite, callback] {
+        LOG(VERBOSE) << "Starting compose on another thread";
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
         for (auto& e : composite) {
             if (e.delayMs) {
@@ -183,7 +211,7 @@ ndk::ScopedAStatus Vibrator::compose(const std::vector<CompositeEffect>& composi
                       << e.scale;
 
             int32_t durationMs;
-            getPrimitiveDuration(e.primitive, &durationMs);
+            sharedThis->getPrimitiveDuration(e.primitive, &durationMs);
             usleep(durationMs * 1000);
         }
 
@@ -379,8 +407,16 @@ ndk::ScopedAStatus Vibrator::composePwle(const std::vector<PrimitivePwle> &compo
         }
     }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     std::thread([=] {
         LOG(INFO) << "Starting composePwle on another thread";
+||||||| BASE
+    std::thread([=] {
+        LOG(VERBOSE) << "Starting composePwle on another thread";
+=======
+    std::thread([totalDuration, callback] {
+        LOG(VERBOSE) << "Starting composePwle on another thread";
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         usleep(totalDuration * 1000);
         if (callback != nullptr) {
             LOG(INFO) << "Notifying compose PWLE complete";

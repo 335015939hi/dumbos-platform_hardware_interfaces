@@ -66,6 +66,7 @@ typedef struct {
     // aren't.
     bool requestMessageValidated;
     bool buildCbor;
+    bool buildCborEcdsa;
 
     // Set to true initialized as a test credential.
     bool testCredential;
@@ -91,6 +92,12 @@ typedef struct {
 
     size_t expectedCborSizeAtEnd;
     EicCbor cbor;
+
+    // The selected DeviceKey / AuthKey
+    uint8_t deviceKeyPriv[EIC_P256_PRIV_KEY_SIZE];
+
+    EicCbor cborEcdsa;
+    size_t expectedCborEcdsaSizeAtEnd;
 } EicPresentation;
 
 bool eicPresentationInit(EicPresentation* ctx, bool testCredential, const char* docType,
@@ -190,14 +197,29 @@ typedef enum {
     EIC_ACCESS_CHECK_RESULT_READER_AUTHENTICATION_FAILED,
 } EicAccessCheckResult;
 
-// Passes enough information to calculate the MACing key
+// Passes enough information to calculate the MACing key and/or prepare ECDSA signing
 //
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
 bool eicPresentationCalcMacKey(EicPresentation* ctx, const uint8_t* sessionTranscript,
                                size_t sessionTranscriptSize,
                                const uint8_t readerEphemeralPublicKey[EIC_P256_PUB_KEY_SIZE],
                                const uint8_t signingKeyBlob[60], const char* docType,
                                unsigned int numNamespacesWithValues,
                                size_t expectedDeviceNamespacesSize);
+||||||| BASE
+bool eicPresentationCalcMacKey(EicPresentation* ctx, const uint8_t* sessionTranscript,
+                               size_t sessionTranscriptSize,
+                               const uint8_t readerEphemeralPublicKey[EIC_P256_PUB_KEY_SIZE],
+                               const uint8_t signingKeyBlob[60], const char* docType,
+                               size_t docTypeLength, unsigned int numNamespacesWithValues,
+                               size_t expectedDeviceNamespacesSize);
+=======
+bool eicPresentationPrepareDeviceAuthentication(
+        EicPresentation* ctx, const uint8_t* sessionTranscript, size_t sessionTranscriptSize,
+        const uint8_t* readerEphemeralPublicKey, size_t readerEphemeralPublicKeySize,
+        const uint8_t signingKeyBlob[60], const char* docType, size_t docTypeLength,
+        unsigned int numNamespacesWithValues, size_t expectedDeviceNamespacesSize);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
 // The scratchSpace should be set to a buffer at least 512 bytes (ideally 1024
 // bytes, the bigger the better). It's done this way to avoid allocating stack
@@ -224,6 +246,13 @@ bool eicPresentationRetrieveEntryValue(EicPresentation* ctx, const uint8_t* encr
 // and Verify a MAC".
 bool eicPresentationFinishRetrieval(EicPresentation* ctx, uint8_t* digestToBeMaced,
                                     size_t* digestToBeMacedSize);
+
+// Like eicPresentationFinishRetrieval() but also returns an ECDSA signature.
+//
+bool eicPresentationFinishRetrievalWithSignature(EicPresentation* ctx, uint8_t* digestToBeMaced,
+                                                 size_t* digestToBeMacedSize,
+                                                 uint8_t* signatureOfToBeSigned,
+                                                 size_t* signatureOfToBeSignedSize);
 
 // The data returned in |signatureOfToBeSigned| contains the ECDSA signature of
 // the ToBeSigned CBOR from RFC 8051 "4.4. Signing and Verification Process"

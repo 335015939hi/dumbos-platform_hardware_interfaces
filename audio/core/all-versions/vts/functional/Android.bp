@@ -30,6 +30,13 @@ cc_defaults {
         "android.hardware.audio.common.test.utility",
         "audioclient-types-aidl-cpp",
         "libaudioclient_aidl_conversion",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+        "libstagefright_foundation",
+=======
+        "libaudio_aidl_conversion_common_cpp",
+        "libstagefright_foundation",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
     shared_libs: [
         "libbinder",
@@ -47,7 +54,22 @@ cc_defaults {
 
 cc_test {
     name: "VtsHalAudioV2_0TargetTest",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     defaults: ["VtsHalAudioTargetTest_defaults"],
+||||||| BASE
+    defaults: ["VtsHalAudioTargetTest_defaults"],
+    tidy_timeout_srcs: [
+        "2.0/AudioPrimaryHidlHalTest.cpp",
+    ],
+=======
+    defaults: [
+        "VtsHalAudioTargetTest_defaults",
+        "latest_android_media_audio_common_types_cpp_static",
+    ],
+    tidy_timeout_srcs: [
+        "2.0/AudioPrimaryHidlHalTest.cpp",
+    ],
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     srcs: [
         "2.0/AudioPrimaryHidlHalTest.cpp",
     ],
@@ -73,7 +95,22 @@ cc_test {
 
 cc_test {
     name: "VtsHalAudioV4_0TargetTest",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     defaults: ["VtsHalAudioTargetTest_defaults"],
+||||||| BASE
+    defaults: ["VtsHalAudioTargetTest_defaults"],
+    tidy_timeout_srcs: [
+        "4.0/AudioPrimaryHidlHalTest.cpp",
+    ],
+=======
+    defaults: [
+        "VtsHalAudioTargetTest_defaults",
+        "latest_android_media_audio_common_types_cpp_static",
+    ],
+    tidy_timeout_srcs: [
+        "4.0/AudioPrimaryHidlHalTest.cpp",
+    ],
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     srcs: [
         "4.0/AudioPrimaryHidlHalTest.cpp",
     ],
@@ -99,7 +136,10 @@ cc_test {
 
 cc_test {
     name: "VtsHalAudioV5_0TargetTest",
-    defaults: ["VtsHalAudioTargetTest_defaults"],
+    defaults: [
+        "VtsHalAudioTargetTest_defaults",
+        "latest_android_media_audio_common_types_cpp_static",
+    ],
     srcs: [
         "5.0/AudioPrimaryHidlHalTest.cpp",
     ],
@@ -125,7 +165,22 @@ cc_test {
 
 cc_test {
     name: "VtsHalAudioV6_0TargetTest",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     defaults: ["VtsHalAudioTargetTest_defaults"],
+||||||| BASE
+    defaults: ["VtsHalAudioTargetTest_defaults"],
+    tidy_timeout_srcs: [
+        "6.0/AudioPrimaryHidlHalTest.cpp",
+    ],
+=======
+    defaults: [
+        "VtsHalAudioTargetTest_defaults",
+        "latest_android_media_audio_common_types_cpp_static",
+    ],
+    tidy_timeout_srcs: [
+        "6.0/AudioPrimaryHidlHalTest.cpp",
+    ],
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     srcs: [
         "6.0/AudioPrimaryHidlHalTest.cpp",
         "6.0/Generators.cpp",
@@ -191,7 +246,10 @@ cc_test {
 
 cc_test {
     name: "HalAudioV6_0GeneratorTest",
-    defaults: ["VtsHalAudioTargetTest_defaults"],
+    defaults: [
+        "VtsHalAudioTargetTest_defaults",
+        "latest_android_media_audio_common_types_cpp_static",
+    ],
     srcs: [
         "6.0/Generators.cpp",
         "tests/generators_tests.cpp",

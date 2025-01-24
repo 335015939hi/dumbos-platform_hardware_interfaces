@@ -1,3 +1,4 @@
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
 # Sensors team
 arthuri@google.com
 bduddie@google.com
@@ -6,3 +7,8 @@ stange@google.com
 # VTS team
 trong@google.com
 yim@google.com
+||||||| BASE
+# Bug component: 62965
+include ../../../common/vts/OWNERS
+=======
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

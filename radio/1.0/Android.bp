@@ -23,5 +23,17 @@ hidl_interface {
     interfaces: [
         "android.hidl.base@1.0",
     ],
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.bluetooth",
+    ],
+=======
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.btservices",
+    ],
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     gen_java: true,
 }

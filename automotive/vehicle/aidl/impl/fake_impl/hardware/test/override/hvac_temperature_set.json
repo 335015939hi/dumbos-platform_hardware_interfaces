@@ -1,0 +1,34 @@
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+[
+  {
+    "timestamp": 1000000,
+    // HVAC_LEFT
+    "areaId": 49,
+    "value": 30,
+    // HVAC_TEMPERATURE_SET
+    "prop": 358614275
+  }
+]
+=======
+{
+    "apiVersion": 1,
+    "properties": [
+        {
+            "property": "VehicleProperty::HVAC_TEMPERATURE_SET",
+            "areas": [
+                {
+                    "defaultValue": {
+                        "floatValues": [
+                            30.0
+                        ]
+                    },
+                    "areaId": 49,
+                    "minFloatValue": 16.0,
+                    "maxFloatValue": 32.0
+                }
+            ]
+        }
+    ]
+}
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)

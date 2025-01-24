@@ -16,9 +16,15 @@
 
 package android.hardware.biometrics.fingerprint;
 
+import android.hardware.biometrics.fingerprint.SensorShape;
+
+/**
+ * @hide
+ */
 @VintfStability
 parcelable SensorLocation {
     /**
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
      * The display to which the following measurements are relative to. This must correspond to the
      * android.hardware.DisplayManager#getDisplay Android API.
      *
@@ -28,6 +34,11 @@ parcelable SensorLocation {
      *      located.
      *   3) A foldable device would specify multiple locations and have a SensorLocation entry
      *      for each display from which the sensor is accessible from.
+||||||| BASE
+     * Deprecated use the display field instead. This field was never used.
+=======
+     * @deprecated use the display field instead. This field was never used.
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
      */
     int displayId;
 
@@ -51,4 +62,42 @@ parcelable SensorLocation {
      * in pixels.
      */
     int sensorRadius;
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+
+    /**
+     * The display to which all of the measurements are relative to. This must correspond to the
+     * android.view.Display#getUniqueId Android API. The default display is used if this field is
+     * empty.
+     *
+     * A few examples:
+     *   1) A capacitive rear fingerprint sensor would specify the display to which it is behind.
+     *   2) An under-display fingerprint sensor would specify the display on which the sensor is
+     *      located.
+     *   3) A foldable device would specify multiple locations and have a SensorLocation entry
+     *      for each display from which the sensor is accessible from.
+     */
+    String display = "";
+=======
+
+    /**
+     * The display to which all of the measurements are relative to. This must correspond to the
+     * android.view.Display#getUniqueId Android API. The default display is used if this field is
+     * empty.
+     *
+     * A few examples:
+     *   1) A capacitive rear fingerprint sensor would specify the display to which it is behind.
+     *   2) An under-display fingerprint sensor would specify the display on which the sensor is
+     *      located.
+     *   3) A foldable device would specify multiple locations and have a SensorLocation entry
+     *      for each display from which the sensor is accessible from.
+     */
+    String display = "";
+
+    /**
+     * The shape of the sensor if applicable. Most useful for the sensor of type
+     * SensorType::UNDER_DISPLAY_*.
+     */
+    SensorShape sensorShape = SensorShape.CIRCLE;
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }

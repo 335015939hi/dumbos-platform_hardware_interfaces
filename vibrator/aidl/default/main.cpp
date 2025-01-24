@@ -29,16 +29,36 @@ int main() {
 
     // make a default vibrator service
     auto vib = ndk::SharedRefBase::make<Vibrator>();
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     const std::string vibName = std::string() + Vibrator::descriptor + "/default";
     binder_status_t status = AServiceManager_addService(vib->asBinder().get(), vibName.c_str());
     CHECK(status == STATUS_OK);
+||||||| BASE
+    const std::string vibName = std::string() + Vibrator::descriptor + "/default";
+    binder_status_t status = AServiceManager_addService(vib->asBinder().get(), vibName.c_str());
+    CHECK_EQ(status, STATUS_OK);
+=======
+    binder_status_t status = AServiceManager_addService(
+            vib->asBinder().get(), Vibrator::makeServiceName("default").c_str());
+    CHECK_EQ(status, STATUS_OK);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
     // make the vibrator manager service with a different vibrator
     auto managedVib = ndk::SharedRefBase::make<Vibrator>();
     auto vibManager = ndk::SharedRefBase::make<VibratorManager>(std::move(managedVib));
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     const std::string vibManagerName = std::string() + VibratorManager::descriptor + "/default";
     status = AServiceManager_addService(vibManager->asBinder().get(), vibManagerName.c_str());
     CHECK(status == STATUS_OK);
+||||||| BASE
+    const std::string vibManagerName = std::string() + VibratorManager::descriptor + "/default";
+    status = AServiceManager_addService(vibManager->asBinder().get(), vibManagerName.c_str());
+    CHECK_EQ(status, STATUS_OK);
+=======
+    status = AServiceManager_addService(vibManager->asBinder().get(),
+                                        VibratorManager::makeServiceName("default").c_str());
+    CHECK_EQ(status, STATUS_OK);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
     ABinderProcess_joinThreadPool();
     return EXIT_FAILURE;  // should not reach

@@ -257,18 +257,44 @@ bool FakeSecureHardwarePresentationProxy::startRetrieveEntries() {
     return eicPresentationStartRetrieveEntries(&ctx_);
 }
 
-bool FakeSecureHardwarePresentationProxy::calcMacKey(
+bool FakeSecureHardwarePresentationProxy::prepareDeviceAuthentication(
         const vector<uint8_t>& sessionTranscript, const vector<uint8_t>& readerEphemeralPublicKey,
         const vector<uint8_t>& signingKeyBlob, const string& docType,
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         unsigned int numNamespacesWithValues, size_t expectedProofOfProvisioningSize) {
+||||||| BASE
+        unsigned int numNamespacesWithValues, size_t expectedProofOfProvisioningSize) {
+    if (!validateId(__func__)) {
+        return false;
+    }
+
+=======
+        unsigned int numNamespacesWithValues, size_t expectedDeviceNamespacesSize) {
+    if (!validateId(__func__)) {
+        return false;
+    }
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     if (signingKeyBlob.size() != 60) {
         eicDebug("Unexpected size %zd of signingKeyBlob, expected 60", signingKeyBlob.size());
         return false;
     }
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     return eicPresentationCalcMacKey(&ctx_, sessionTranscript.data(), sessionTranscript.size(),
                                      readerEphemeralPublicKey.data(), signingKeyBlob.data(),
                                      docType.c_str(), numNamespacesWithValues,
                                      expectedProofOfProvisioningSize);
+||||||| BASE
+    return eicPresentationCalcMacKey(&ctx_, sessionTranscript.data(), sessionTranscript.size(),
+                                     readerEphemeralPublicKey.data(), signingKeyBlob.data(),
+                                     docType.c_str(), docType.size(), numNamespacesWithValues,
+                                     expectedProofOfProvisioningSize);
+=======
+    return eicPresentationPrepareDeviceAuthentication(
+            &ctx_, sessionTranscript.data(), sessionTranscript.size(),
+            readerEphemeralPublicKey.data(), readerEphemeralPublicKey.size(), signingKeyBlob.data(),
+            docType.c_str(), docType.size(), numNamespacesWithValues, expectedDeviceNamespacesSize);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }
 
 AccessCheckResult FakeSecureHardwarePresentationProxy::startRetrieveEntryValue(
@@ -308,6 +334,25 @@ optional<vector<uint8_t>> FakeSecureHardwarePresentationProxy::retrieveEntryValu
         return {};
     }
     return content;
+}
+
+optional<pair<vector<uint8_t>, vector<uint8_t>>>
+FakeSecureHardwarePresentationProxy::finishRetrievalWithSignature() {
+    if (!validateId(__func__)) {
+        return std::nullopt;
+    }
+
+    vector<uint8_t> mac(32);
+    size_t macSize = 32;
+    vector<uint8_t> ecdsaSignature(EIC_ECDSA_P256_SIGNATURE_SIZE);
+    size_t ecdsaSignatureSize = EIC_ECDSA_P256_SIGNATURE_SIZE;
+    if (!eicPresentationFinishRetrievalWithSignature(&ctx_, mac.data(), &macSize,
+                                                     ecdsaSignature.data(), &ecdsaSignatureSize)) {
+        return std::nullopt;
+    }
+    mac.resize(macSize);
+    ecdsaSignature.resize(ecdsaSignatureSize);
+    return std::make_pair(mac, ecdsaSignature);
 }
 
 optional<vector<uint8_t>> FakeSecureHardwarePresentationProxy::finishRetrieval() {

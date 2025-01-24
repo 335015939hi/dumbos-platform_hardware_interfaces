@@ -16,12 +16,53 @@ cc_binary {
     shared_libs: [
         "libbase",
         "libbinder_ndk",
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         "android.hardware.biometrics.face-V1-ndk_platform",
         "android.hardware.biometrics.common-V1-ndk_platform",
+||||||| BASE
+        "android.hardware.biometrics.face-V2-ndk",
+        "android.hardware.biometrics.common-V2-ndk",
+=======
+        "android.hardware.biometrics.face-V3-ndk",
+        "android.hardware.biometrics.common-V3-ndk",
+        "android.hardware.biometrics.common.thread",
+        "android.hardware.biometrics.common.util",
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     ],
     srcs: [
         "main.cpp",
         "Face.cpp",
+        "FakeFaceEngine.cpp",
         "Session.cpp",
     ],
+    static_libs: ["libandroid.hardware.biometrics.face.VirtualProps"],
+}
+
+sysprop_library {
+    name: "android.hardware.biometrics.face.VirtualProps",
+    srcs: ["face.sysprop"],
+    property_owner: "Vendor",
+    vendor: true,
+}
+
+cc_test {
+    name: "android.hardware.biometrics.face.FakeFaceEngineTest",
+    srcs: [
+        "tests/FakeFaceEngineTest.cpp",
+        "FakeFaceEngine.cpp",
+    ],
+    shared_libs: [
+        "libbase",
+        "libbinder_ndk",
+    ],
+    static_libs: [
+        "libandroid.hardware.biometrics.face.VirtualProps",
+        "android.hardware.biometrics.face-V3-ndk",
+        "android.hardware.biometrics.common-V3-ndk",
+        "android.hardware.keymaster-V4-ndk",
+        "android.hardware.biometrics.common.util",
+    ],
+    vendor: true,
+    test_suites: ["general-tests"],
+    require_root: true,
 }

@@ -2002,6 +2002,25 @@ TEST_P(EvsHidlTest, CameraUseStreamConfigToDisplay) {
 
     // Test each reported camera
     for (auto&& cam: cameraInfo) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+        // Request exclusive access to the EVS display
+        sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
+        ASSERT_NE(pDisplay, nullptr);
+
+=======
+        bool isLogicalCam = false;
+        getPhysicalCameraIds(cam.v1.cameraId, isLogicalCam);
+        if (isLogicalCam) {
+            LOG(INFO) << "Skip a logical device " << cam.v1.cameraId;
+            continue;
+        }
+
+        // Request exclusive access to the EVS display
+        sp<IEvsDisplay_1_0> pDisplay = pEnumerator->openDisplay();
+        ASSERT_NE(pDisplay, nullptr);
+
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         // choose a configuration that has a frame rate faster than minReqFps.
         Stream targetCfg = {};
         const int32_t minReqFps = 15;

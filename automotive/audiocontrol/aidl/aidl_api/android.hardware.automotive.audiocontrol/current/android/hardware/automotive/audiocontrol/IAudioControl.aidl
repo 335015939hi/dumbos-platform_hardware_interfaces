@@ -24,4 +24,16 @@ interface IAudioControl {
   oneway void registerFocusListener(in android.hardware.automotive.audiocontrol.IFocusListener listener);
   oneway void setBalanceTowardRight(in float value);
   oneway void setFadeTowardFront(in float value);
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+  oneway void onAudioFocusChangeWithMetaData(in android.hardware.audio.common.PlaybackTrackMetadata playbackMetaData, in int zoneId, in android.hardware.automotive.audiocontrol.AudioFocusChange focusChange);
+  oneway void setAudioDeviceGainsChanged(in android.hardware.automotive.audiocontrol.Reasons[] reasons, in android.hardware.automotive.audiocontrol.AudioGainConfigInfo[] gains);
+  oneway void registerGainCallback(in android.hardware.automotive.audiocontrol.IAudioGainCallback callback);
+=======
+  oneway void onAudioFocusChangeWithMetaData(in android.hardware.audio.common.PlaybackTrackMetadata playbackMetaData, in int zoneId, in android.hardware.automotive.audiocontrol.AudioFocusChange focusChange);
+  oneway void setAudioDeviceGainsChanged(in android.hardware.automotive.audiocontrol.Reasons[] reasons, in android.hardware.automotive.audiocontrol.AudioGainConfigInfo[] gains);
+  oneway void registerGainCallback(in android.hardware.automotive.audiocontrol.IAudioGainCallback callback);
+  void setModuleChangeCallback(in android.hardware.automotive.audiocontrol.IModuleChangeCallback callback);
+  void clearModuleChangeCallback();
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }

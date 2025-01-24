@@ -19,11 +19,6 @@ aidl_interface {
             platform_apis: true,
             srcs_available: true,
         },
-        ndk: {
-            vndk: {
-                enabled: true,
-            },
-        },
         rust: {
             enabled: true,
         },

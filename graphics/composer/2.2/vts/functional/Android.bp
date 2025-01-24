@@ -27,8 +27,9 @@ cc_test {
     name: "VtsHalGraphicsComposerV2_2TargetTest",
     defaults: [
         "VtsHalTargetTestDefaults",
-        // Needed for librenderengine
-        "skia_deps",
+        "android.hardware.graphics.allocator-ndk_static",
+        "android.hardware.graphics.composer3-ndk_static",
+        "librenderengine_deps",
     ],
     srcs: [
         "VtsHalGraphicsComposerV2_2ReadbackTest.cpp",

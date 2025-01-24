@@ -37,4 +37,23 @@ parcelable GnssData {
   android.hardware.gnss.GnssMeasurement[] measurements;
   android.hardware.gnss.GnssClock clock;
   android.hardware.gnss.ElapsedRealtime elapsedRealtime;
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
+||||||| BASE
+  android.hardware.gnss.GnssData.GnssAgc[] gnssAgcs = {};
+  @VintfStability
+  parcelable GnssAgc {
+    double agcLevelDb;
+    android.hardware.gnss.GnssConstellationType constellation = android.hardware.gnss.GnssConstellationType.UNKNOWN;
+    long carrierFrequencyHz;
+  }
+=======
+  android.hardware.gnss.GnssData.GnssAgc[] gnssAgcs = {};
+  boolean isFullTracking;
+  @VintfStability
+  parcelable GnssAgc {
+    double agcLevelDb;
+    android.hardware.gnss.GnssConstellationType constellation = android.hardware.gnss.GnssConstellationType.UNKNOWN;
+    long carrierFrequencyHz;
+  }
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 }

@@ -482,6 +482,7 @@ bool eicPresentationValidateAccessControlProfile(EicPresentation* ctx, int id,
     return true;
 }
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
 bool eicPresentationCalcMacKey(EicPresentation* ctx, const uint8_t* sessionTranscript,
                                size_t sessionTranscriptSize,
                                const uint8_t readerEphemeralPublicKey[EIC_P256_PUB_KEY_SIZE],
@@ -544,6 +545,95 @@ bool eicPresentationCalcMacKey(EicPresentation* ctx, const uint8_t* sessionTrans
     static const uint8_t externalAad[0] = {};
     eicCborAppendByteString(&ctx->cbor, externalAad, sizeof(externalAad));
 
+||||||| BASE
+bool eicPresentationCalcMacKey(EicPresentation* ctx, const uint8_t* sessionTranscript,
+                               size_t sessionTranscriptSize,
+                               const uint8_t readerEphemeralPublicKey[EIC_P256_PUB_KEY_SIZE],
+                               const uint8_t signingKeyBlob[60], const char* docType,
+                               size_t docTypeLength, unsigned int numNamespacesWithValues,
+                               size_t expectedDeviceNamespacesSize) {
+    if (ctx->sessionId != 0) {
+        EicSession* session = eicSessionGetForId(ctx->sessionId);
+        if (session == NULL) {
+            eicDebug("Error looking up session for sessionId %" PRIu32, ctx->sessionId);
+            return false;
+        }
+        EicSha256Ctx sha256;
+        uint8_t sessionTranscriptSha256[EIC_SHA256_DIGEST_SIZE];
+        eicOpsSha256Init(&sha256);
+        eicOpsSha256Update(&sha256, sessionTranscript, sessionTranscriptSize);
+        eicOpsSha256Final(&sha256, sessionTranscriptSha256);
+        if (eicCryptoMemCmp(sessionTranscriptSha256, session->sessionTranscriptSha256,
+                            EIC_SHA256_DIGEST_SIZE) != 0) {
+            eicDebug("SessionTranscript mismatch");
+            return false;
+        }
+        readerEphemeralPublicKey = session->readerEphemeralPublicKey;
+    }
+
+    uint8_t signingKeyPriv[EIC_P256_PRIV_KEY_SIZE];
+    if (!eicOpsDecryptAes128Gcm(ctx->storageKey, signingKeyBlob, 60, (const uint8_t*)docType,
+                                docTypeLength, signingKeyPriv)) {
+        eicDebug("Error decrypting signingKeyBlob");
+        return false;
+    }
+
+    uint8_t sharedSecret[EIC_P256_COORDINATE_SIZE];
+    if (!eicOpsEcdh(readerEphemeralPublicKey, signingKeyPriv, sharedSecret)) {
+        eicDebug("ECDH failed");
+        return false;
+    }
+
+    EicCbor cbor;
+    eicCborInit(&cbor, NULL, 0);
+    eicCborAppendSemantic(&cbor, EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR);
+    eicCborAppendByteString(&cbor, sessionTranscript, sessionTranscriptSize);
+    uint8_t salt[EIC_SHA256_DIGEST_SIZE];
+    eicCborFinal(&cbor, salt);
+
+    const uint8_t info[7] = {'E', 'M', 'a', 'c', 'K', 'e', 'y'};
+    uint8_t derivedKey[32];
+    if (!eicOpsHkdf(sharedSecret, EIC_P256_COORDINATE_SIZE, salt, sizeof(salt), info, sizeof(info),
+                    derivedKey, sizeof(derivedKey))) {
+        eicDebug("HKDF failed");
+        return false;
+    }
+
+    eicCborInitHmacSha256(&ctx->cbor, NULL, 0, derivedKey, sizeof(derivedKey));
+    ctx->buildCbor = true;
+
+    // What we're going to calculate the HMAC-SHA256 is the COSE ToBeMaced
+    // structure which looks like the following:
+    //
+    // MAC_structure = [
+    //   context : "MAC" / "MAC0",
+    //   protected : empty_or_serialized_map,
+    //   external_aad : bstr,
+    //   payload : bstr
+    // ]
+    //
+    eicCborAppendArray(&ctx->cbor, 4);
+    eicCborAppendStringZ(&ctx->cbor, "MAC0");
+
+    // The COSE Encoded protected headers is just a single field with
+    // COSE_LABEL_ALG (1) -> COSE_ALG_HMAC_256_256 (5). For simplicitly we just
+    // hard-code the CBOR encoding:
+    static const uint8_t coseEncodedProtectedHeaders[] = {0xa1, 0x01, 0x05};
+    eicCborAppendByteString(&ctx->cbor, coseEncodedProtectedHeaders,
+                            sizeof(coseEncodedProtectedHeaders));
+
+    // We currently don't support Externally Supplied Data (RFC 8152 section 4.3)
+    // so external_aad is the empty bstr
+    static const uint8_t externalAad[0] = {};
+    eicCborAppendByteString(&ctx->cbor, externalAad, sizeof(externalAad));
+
+=======
+// Helper used to append the DeviceAuthencation prelude, used for both MACing and ECDSA signing.
+static size_t appendDeviceAuthentication(EicCbor* cbor, const uint8_t* sessionTranscript,
+                                         size_t sessionTranscriptSize, const char* docType,
+                                         size_t docTypeLength,
+                                         size_t expectedDeviceNamespacesSize) {
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
     // For the payload, the _encoded_ form follows here. We handle this by simply
     // opening a bstr, and then writing the CBOR. This requires us to know the
     // size of said bstr, ahead of time... the CBOR to be written is
@@ -581,26 +671,160 @@ bool eicPresentationCalcMacKey(EicPresentation* ctx, const uint8_t* sessionTrans
     dabCalculatedSize += calculatedSize;
 
     // Begin the bytestring for DeviceAuthenticationBytes;
-    eicCborBegin(&ctx->cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, dabCalculatedSize);
+    eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, dabCalculatedSize);
 
-    eicCborAppendSemantic(&ctx->cbor, EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR);
+    eicCborAppendSemantic(cbor, EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR);
 
     // Begins the bytestring for DeviceAuthentication;
-    eicCborBegin(&ctx->cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, calculatedSize);
+    eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, calculatedSize);
 
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
     eicCborAppendArray(&ctx->cbor, 4);
     eicCborAppendString(&ctx->cbor, "DeviceAuthentication");
     eicCborAppend(&ctx->cbor, sessionTranscript, sessionTranscriptSize);
     eicCborAppendString(&ctx->cbor, docType);
+||||||| BASE
+    eicCborAppendArray(&ctx->cbor, 4);
+    eicCborAppendStringZ(&ctx->cbor, "DeviceAuthentication");
+    eicCborAppend(&ctx->cbor, sessionTranscript, sessionTranscriptSize);
+    eicCborAppendString(&ctx->cbor, docType, docTypeLength);
+=======
+    eicCborAppendArray(cbor, 4);
+    eicCborAppendStringZ(cbor, "DeviceAuthentication");
+    eicCborAppend(cbor, sessionTranscript, sessionTranscriptSize);
+    eicCborAppendString(cbor, docType, docTypeLength);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
 
     // For the payload, the _encoded_ form follows here. We handle this by simply
     // opening a bstr, and then writing the CBOR. This requires us to know the
     // size of said bstr, ahead of time.
-    eicCborAppendSemantic(&ctx->cbor, EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR);
-    eicCborBegin(&ctx->cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, expectedDeviceNamespacesSize);
-    ctx->expectedCborSizeAtEnd = expectedDeviceNamespacesSize + ctx->cbor.size;
+    eicCborAppendSemantic(cbor, EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR);
+    eicCborBegin(cbor, EIC_CBOR_MAJOR_TYPE_BYTE_STRING, expectedDeviceNamespacesSize);
+    size_t expectedCborSizeAtEnd = expectedDeviceNamespacesSize + cbor->size;
 
-    eicCborAppendMap(&ctx->cbor, numNamespacesWithValues);
+    return expectedCborSizeAtEnd;
+}
+
+bool eicPresentationPrepareDeviceAuthentication(
+        EicPresentation* ctx, const uint8_t* sessionTranscript, size_t sessionTranscriptSize,
+        const uint8_t* readerEphemeralPublicKey, size_t readerEphemeralPublicKeySize,
+        const uint8_t signingKeyBlob[60], const char* docType, size_t docTypeLength,
+        unsigned int numNamespacesWithValues, size_t expectedDeviceNamespacesSize) {
+    if (ctx->sessionId != 0) {
+        if (readerEphemeralPublicKeySize != 0) {
+            eicDebug("In a session but readerEphemeralPublicKeySize is non-zero");
+            return false;
+        }
+        EicSession* session = eicSessionGetForId(ctx->sessionId);
+        if (session == NULL) {
+            eicDebug("Error looking up session for sessionId %" PRIu32, ctx->sessionId);
+            return false;
+        }
+        EicSha256Ctx sha256;
+        uint8_t sessionTranscriptSha256[EIC_SHA256_DIGEST_SIZE];
+        eicOpsSha256Init(&sha256);
+        eicOpsSha256Update(&sha256, sessionTranscript, sessionTranscriptSize);
+        eicOpsSha256Final(&sha256, sessionTranscriptSha256);
+        if (eicCryptoMemCmp(sessionTranscriptSha256, session->sessionTranscriptSha256,
+                            EIC_SHA256_DIGEST_SIZE) != 0) {
+            eicDebug("SessionTranscript mismatch");
+            return false;
+        }
+        readerEphemeralPublicKey = session->readerEphemeralPublicKey;
+        readerEphemeralPublicKeySize = session->readerEphemeralPublicKeySize;
+    }
+
+    // Stash the decrypted DeviceKey in context since we'll need it later in
+    // eicPresentationFinishRetrievalWithSignature()
+    if (!eicOpsDecryptAes128Gcm(ctx->storageKey, signingKeyBlob, 60, (const uint8_t*)docType,
+                                docTypeLength, ctx->deviceKeyPriv)) {
+        eicDebug("Error decrypting signingKeyBlob");
+        return false;
+    }
+
+    // We can only do MACing if EReaderKey has been set... it might not have been set if for
+    // example mdoc session encryption isn't in use. In that case we can still do ECDSA
+    if (readerEphemeralPublicKeySize > 0) {
+        if (readerEphemeralPublicKeySize != EIC_P256_PUB_KEY_SIZE) {
+            eicDebug("Unexpected size %zd for readerEphemeralPublicKeySize",
+                     readerEphemeralPublicKeySize);
+            return false;
+        }
+
+        uint8_t sharedSecret[EIC_P256_COORDINATE_SIZE];
+        if (!eicOpsEcdh(readerEphemeralPublicKey, ctx->deviceKeyPriv, sharedSecret)) {
+            eicDebug("ECDH failed");
+            return false;
+        }
+
+        EicCbor cbor;
+        eicCborInit(&cbor, NULL, 0);
+        eicCborAppendSemantic(&cbor, EIC_CBOR_SEMANTIC_TAG_ENCODED_CBOR);
+        eicCborAppendByteString(&cbor, sessionTranscript, sessionTranscriptSize);
+        uint8_t salt[EIC_SHA256_DIGEST_SIZE];
+        eicCborFinal(&cbor, salt);
+
+        const uint8_t info[7] = {'E', 'M', 'a', 'c', 'K', 'e', 'y'};
+        uint8_t derivedKey[32];
+        if (!eicOpsHkdf(sharedSecret, EIC_P256_COORDINATE_SIZE, salt, sizeof(salt), info,
+                        sizeof(info), derivedKey, sizeof(derivedKey))) {
+            eicDebug("HKDF failed");
+            return false;
+        }
+
+        eicCborInitHmacSha256(&ctx->cbor, NULL, 0, derivedKey, sizeof(derivedKey));
+
+        // What we're going to calculate the HMAC-SHA256 is the COSE ToBeMaced
+        // structure which looks like the following:
+        //
+        // MAC_structure = [
+        //   context : "MAC" / "MAC0",
+        //   protected : empty_or_serialized_map,
+        //   external_aad : bstr,
+        //   payload : bstr
+        // ]
+        //
+        eicCborAppendArray(&ctx->cbor, 4);
+        eicCborAppendStringZ(&ctx->cbor, "MAC0");
+
+        // The COSE Encoded protected headers is just a single field with
+        // COSE_LABEL_ALG (1) -> COSE_ALG_HMAC_256_256 (5). For simplicitly we just
+        // hard-code the CBOR encoding:
+        static const uint8_t coseEncodedProtectedHeaders[] = {0xa1, 0x01, 0x05};
+        eicCborAppendByteString(&ctx->cbor, coseEncodedProtectedHeaders,
+                                sizeof(coseEncodedProtectedHeaders));
+
+        // We currently don't support Externally Supplied Data (RFC 8152 section 4.3)
+        // so external_aad is the empty bstr
+        static const uint8_t externalAad[0] = {};
+        eicCborAppendByteString(&ctx->cbor, externalAad, sizeof(externalAad));
+
+        // Append DeviceAuthentication prelude and open the DeviceSigned map...
+        ctx->expectedCborSizeAtEnd =
+                appendDeviceAuthentication(&ctx->cbor, sessionTranscript, sessionTranscriptSize,
+                                           docType, docTypeLength, expectedDeviceNamespacesSize);
+        eicCborAppendMap(&ctx->cbor, numNamespacesWithValues);
+        ctx->buildCbor = true;
+    }
+
+    // Now do the same for ECDSA signatures...
+    //
+    eicCborInit(&ctx->cborEcdsa, NULL, 0);
+    eicCborAppendArray(&ctx->cborEcdsa, 4);
+    eicCborAppendStringZ(&ctx->cborEcdsa, "Signature1");
+    static const uint8_t coseEncodedProtectedHeadersEcdsa[] = {0xa1, 0x01, 0x26};
+    eicCborAppendByteString(&ctx->cborEcdsa, coseEncodedProtectedHeadersEcdsa,
+                            sizeof(coseEncodedProtectedHeadersEcdsa));
+    static const uint8_t externalAadEcdsa[0] = {};
+    eicCborAppendByteString(&ctx->cborEcdsa, externalAadEcdsa, sizeof(externalAadEcdsa));
+
+    // Append DeviceAuthentication prelude and open the DeviceSigned map...
+    ctx->expectedCborEcdsaSizeAtEnd =
+            appendDeviceAuthentication(&ctx->cborEcdsa, sessionTranscript, sessionTranscriptSize,
+                                       docType, docTypeLength, expectedDeviceNamespacesSize);
+    eicCborAppendMap(&ctx->cborEcdsa, numNamespacesWithValues);
+    ctx->buildCborEcdsa = true;
+
     return true;
 }
 
@@ -609,6 +833,7 @@ bool eicPresentationStartRetrieveEntries(EicPresentation* ctx) {
     // state objects here.
     ctx->requestMessageValidated = false;
     ctx->buildCbor = false;
+    ctx->buildCborEcdsa = false;
     ctx->accessControlProfileMaskValidated = 0;
     ctx->accessControlProfileMaskUsesReaderAuth = 0;
     ctx->accessControlProfileMaskFailedReaderAuth = 0;
@@ -629,6 +854,9 @@ EicAccessCheckResult eicPresentationStartRetrieveEntryValue(
     if (newNamespaceNumEntries > 0) {
         eicCborAppendString(&ctx->cbor, nameSpace);
         eicCborAppendMap(&ctx->cbor, newNamespaceNumEntries);
+
+        eicCborAppendString(&ctx->cborEcdsa, nameSpace, nameSpaceLength);
+        eicCborAppendMap(&ctx->cborEcdsa, newNamespaceNumEntries);
     }
 
     // We'll need to calc and store a digest of additionalData to check that it's the same
@@ -681,7 +909,14 @@ EicAccessCheckResult eicPresentationStartRetrieveEntryValue(
     eicDebug("Result %d for name %s", result, name);
 
     if (result == EIC_ACCESS_CHECK_RESULT_OK) {
+<<<<<<< HEAD   (e5b74f Merge empty history for sparse-11111303-L90100030000647828)
         eicCborAppendString(&ctx->cbor, name);
+||||||| BASE
+        eicCborAppendString(&ctx->cbor, name, nameLength);
+=======
+        eicCborAppendString(&ctx->cbor, name, nameLength);
+        eicCborAppendString(&ctx->cborEcdsa, name, nameLength);
+>>>>>>> BRANCH (ec4e12 Merge cherrypicks of ['android-review.googlesource.com/34619)
         ctx->accessCheckOk = true;
     }
     return result;
@@ -722,6 +957,7 @@ bool eicPresentationRetrieveEntryValue(EicPresentation* ctx, const uint8_t* encr
     }
 
     eicCborAppend(&ctx->cbor, content, encryptedContentSize - 28);
+    eicCborAppend(&ctx->cborEcdsa, content, encryptedContentSize - 28);
 
     return true;
 }
@@ -743,6 +979,40 @@ bool eicPresentationFinishRetrieval(EicPresentation* ctx, uint8_t* digestToBeMac
         return false;
     }
     eicCborFinal(&ctx->cbor, digestToBeMaced);
+
+    return true;
+}
+
+bool eicPresentationFinishRetrievalWithSignature(EicPresentation* ctx, uint8_t* digestToBeMaced,
+                                                 size_t* digestToBeMacedSize,
+                                                 uint8_t* signatureOfToBeSigned,
+                                                 size_t* signatureOfToBeSignedSize) {
+    if (!eicPresentationFinishRetrieval(ctx, digestToBeMaced, digestToBeMacedSize)) {
+        return false;
+    }
+
+    if (!ctx->buildCborEcdsa) {
+        *signatureOfToBeSignedSize = 0;
+        return true;
+    }
+    if (*signatureOfToBeSignedSize != EIC_ECDSA_P256_SIGNATURE_SIZE) {
+        return false;
+    }
+
+    // This verifies that the correct expectedDeviceNamespacesSize value was
+    // passed in at eicPresentationCalcMacKey() time.
+    if (ctx->cborEcdsa.size != ctx->expectedCborEcdsaSizeAtEnd) {
+        eicDebug("CBOR ECDSA size is %zd, was expecting %zd", ctx->cborEcdsa.size,
+                 ctx->expectedCborEcdsaSizeAtEnd);
+        return false;
+    }
+    uint8_t cborSha256[EIC_SHA256_DIGEST_SIZE];
+    eicCborFinal(&ctx->cborEcdsa, cborSha256);
+    if (!eicOpsEcDsa(ctx->deviceKeyPriv, cborSha256, signatureOfToBeSigned)) {
+        eicDebug("Error signing DeviceAuthentication");
+        return false;
+    }
+    eicDebug("set the signature");
     return true;
 }
 
