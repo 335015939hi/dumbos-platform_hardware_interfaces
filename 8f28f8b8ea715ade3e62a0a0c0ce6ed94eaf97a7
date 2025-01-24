@@ -34,6 +34,24 @@
       "parentUuid": "19fe2816_246fbca2",
       "revId": "8f28f8b8ea715ade3e62a0a0c0ce6ed94eaf97a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71555ec7_a0429b2e",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1883619
+      },
+      "writtenOn": "2025-01-24T08:23:57Z",
+      "side": 0,
+      "message": "does it mean, an external device like USB or 3.5mm headset too have some default profiles where HAL supports.\n\nwhen actually connected, the HAL can check for dynamic profiles supported from the actual device and update or replace the profiles.\n\ncan you please elaborate on this?",
+      "parentUuid": "7ed1945a_9a8d5028",
+      "revId": "8f28f8b8ea715ade3e62a0a0c0ce6ed94eaf97a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
