@@ -56,6 +56,30 @@
       },
       "revId": "8cded691ae6d9271c70c790484845ab4501def72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deaa58c4_71eeb205",
+        "filename": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 3790621
+      },
+      "writtenOn": "2025-01-26T10:44:26Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fd1818a2_2c9c5c06",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 558,
+        "endChar": 52
+      },
+      "revId": "8cded691ae6d9271c70c790484845ab4501def72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
