@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09f591c4_7023da12",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-28T20:11:20Z",
+      "side": 1,
+      "message": "Does the check above need to happen with the EEK Id? I wanted to get confirmation before I continued.",
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
