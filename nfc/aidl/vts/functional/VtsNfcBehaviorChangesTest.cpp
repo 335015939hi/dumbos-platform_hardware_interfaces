@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include "nfc_api.h"
 #define LOG_TAG "nfc_behavior_changes_test"
 
 #include <aidl/Gtest.h>
@@ -21,6 +22,7 @@
 #include <aidl/android/hardware/nfc/BnNfc.h>
 #include <aidl/android/hardware/nfc/INfc.h>
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <android-base/stringprintf.h>
 #include <android/binder_process.h>
 #include <gtest/gtest.h>
@@ -43,8 +45,24 @@ static SyncEvent sNfaEnableEvent;  // event for NFA_Enable()
 static SyncEvent sNfaVsCommand;    // event for VS commands
 static SyncEvent sNfaEnableDisablePollingEvent;
 static SyncEvent sNfaPowerChangeEvent;
+static std::vector<uint8_t> sCaps(0);
 static bool sIsNfaEnabled;
 static tNFA_STATUS sVSCmdStatus;
+
+static int get_board_api_level() {
+  int board_api_level =
+      ::android::base::GetIntProperty("ro.board.api_level", -1);
+  if (board_api_level != -1) {
+    return board_api_level;
+  }
+
+  board_api_level =
+        ::android::base::GetIntProperty("ro.board.first_api_level", -1);
+    EXPECT_NE(board_api_level, -1) << "Could not find ro.build.version.sdk";
+
+  return board_api_level;
+
+}
 
 static void nfaDeviceManagementCallback(uint8_t dmEvent, tNFA_DM_CBACK_DATA* eventData) {
     LOG(DEBUG) << StringPrintf("%s: enter; event=0x%X", __func__, dmEvent);
@@ -138,6 +156,12 @@ void static nfaVSCallback(uint8_t event, uint16_t param_len, uint8_t* p_param) {
                 case NCI_ANDROID_POLLING_FRAME_NTF: {
                     // TODO
                 } break;
+                case NCI_ANDROID_GET_CAPS: {
+                    sVSCmdStatus = p_param[4];
+                    SyncEventGuard guard(sNfaVsCommand);
+                    sCaps.assign(p_param + 8, p_param + param_len);
+                    sNfaVsCommand.notifyOne();
+                } break;
                 default:
                     LOG(WARNING) << StringPrintf("Unknown Android sub opcode %x",
                                                  android_sub_opcode);
@@ -171,6 +195,22 @@ tNFA_STATUS static nfaObserveModeEnable(bool enable) {
     if (status == NFA_STATUS_OK) {
         if (!sNfaVsCommand.wait(1000)) {
             LOG(WARNING) << "Timeout waiting for NFA VS command response";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    return status;
+}
+
+tNFA_STATUS static nfaGetCaps() {
+    tNFA_STATUS status = NFA_STATUS_FAILED;
+
+    uint8_t cmd[] = {NCI_ANDROID_GET_CAPS};
+    status = NFA_SendVsCommand(NCI_MSG_PROP_ANDROID, sizeof(cmd), cmd, nfaVSCallback);
+
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaVsCommand.wait(1000)) {
+            LOG(WARNING) << "Timeout waiting for GET_CAPS response";
             return NFA_STATUS_TIMEOUT;
         }
     }
@@ -219,11 +259,27 @@ class NfcBehaviorChanges : public testing::TestWithParam<std::string> {
  * @VsrTest = GMS-VSR-3.2.8-001
  */
 TEST_P(NfcBehaviorChanges, ObserveModeEnableDisable) {
+    if (get_board_api_level() < 202404) {
+        GTEST_SKIP() << "Skipping test for board API level < 202404";
+    }
     tNFA_STATUS status = nfaObserveModeEnable(true);
     ASSERT_EQ(status, NFA_STATUS_OK);
 
     status = nfaObserveModeEnable(false);
     ASSERT_EQ(status, NFA_STATUS_OK);
+}
+
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech) {
+    if (get_board_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202404";
+    }
+
+    tNFC_STATUS stats = nfaGetCaps();
+    ASSERT_EQ(stats, NFC_STATUS_OK);
+    for (auto cap : sCaps) {
+        LOG(ERROR) << "cap: " << cap;
+    }
+    // TODO set passive observer tech
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(NfcBehaviorChanges);
