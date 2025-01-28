@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c934958_39010f1e",
+        "filename": "audio/aidl/default/spatializer/SpatializerSw.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1133568
+      },
+      "writtenOn": "2025-01-28T02:39:36Z",
+      "side": 1,
+      "message": "there\u0027s some duplication here with SpatializerSwContext::getParam",
+      "range": {
+        "startLine": 129,
+        "startChar": 16,
+        "endLine": 133,
+        "endChar": 74
+      },
+      "revId": "b25c0df28d49ef013c7d7abbada7d5e6294fe5e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
