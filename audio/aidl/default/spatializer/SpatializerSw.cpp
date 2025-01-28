@@ -111,7 +111,7 @@ ndk::ScopedAStatus SpatializerSw::setParameterSpecific(const Parameter::Specific
 
 ndk::ScopedAStatus SpatializerSw::getParameterSpecific(const Parameter::Id& id,
                                                        Parameter::Specific* specific) {
-    RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+    LOG(DEBUG) << __func__ << " dwhea getParameterSpecific";
 
     auto tag = id.getTag();
     RETURN_IF(Parameter::Id::spatializerTag != tag, EX_ILLEGAL_ARGUMENT, "wrongIdTag");
@@ -120,15 +120,30 @@ ndk::ScopedAStatus SpatializerSw::getParameterSpecific(const Parameter::Id& id,
     switch (spatializerTag) {
         case Spatializer::Id::commonTag: {
             auto specificTag = spatializerId.get<Spatializer::Id::commonTag>();
-            std::optional<Spatializer> param = mContext->getParam(specificTag);
-            if (!param.has_value()) {
-                return ndk::ScopedAStatus::fromExceptionCodeWithMessage(
-                        EX_ILLEGAL_ARGUMENT, "SpatializerTagNotSupported");
+            //RETURN_IF(!mContext, EX_NULL_POINTER, "nullContext");
+            std::optional<Spatializer> param;
+            if (mContext != nullptr) {
+                param = mContext->getParam(specificTag);
+                if (!param.has_value()) {
+                    LOG(DEBUG) << __func__ << " dwhea commonTag no param value";
+                    return ndk::ScopedAStatus::fromExceptionCodeWithMessage(
+                            EX_ILLEGAL_ARGUMENT, "SpatializerTagNotSupported");
+                }
+            } else {
+                LOG(DEBUG) << __func__ << " dwhea handle getParam without context";
+                param = std::nullopt;
+                if (specificTag == Spatializer::supportedChannelLayout) {
+                    param = Spatializer::make<Spatializer::supportedChannelLayout>(
+                            {AudioChannelLayout::make<AudioChannelLayout::layoutMask>(
+                                    AudioChannelLayout::LAYOUT_5POINT1)});
+                }
             }
-            specific->set<Parameter::Specific::spatializer>(param.value());
-            break;
+            if (param != std::nullopt) {
+                specific->set<Parameter::Specific::spatializer>(param.value());
+                break;
+            }
         }
-        default: {
+        FALLTHROUGH_INTENDED; default: {
             LOG(ERROR) << __func__ << " unsupported tag: " << toString(tag);
             return ndk::ScopedAStatus::fromExceptionCodeWithMessage(EX_ILLEGAL_ARGUMENT,
                                                                     "SpatializerTagNotSupported");
