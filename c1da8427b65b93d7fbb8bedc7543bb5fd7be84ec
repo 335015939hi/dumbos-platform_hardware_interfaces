@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "948cdafa_d5e708e1",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T00:28:08Z",
+      "side": 1,
+      "message": "nm, I just saw the next CL 😊",
+      "parentUuid": "d6d2e0ac_6b8a0b22",
+      "range": {
+        "startLine": 176,
+        "startChar": 24,
+        "endLine": 176,
+        "endChar": 51
+      },
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27db3915_1f56ad8d",
