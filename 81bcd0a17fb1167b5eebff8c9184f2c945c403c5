@@ -16,6 +16,184 @@
       "message": "This is to fix the TimeCheck problem occurring on CF.",
       "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f52d909_bdbc1555",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2025-01-29T01:16:42Z",
+      "side": 1,
+      "message": "lgtm, would prefer to avoid the monopipe even for CF, but understand if this is the simplest way.",
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "265302be_6240a732",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2025-01-29T01:16:42Z",
+      "side": 1,
+      "message": "nit: wondering if we could make this a static function?",
+      "range": {
+        "startLine": 796,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 64
+      },
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97d0ea35_1d0b5a7b",
+        "filename": "audio/aidl/default/alsa/StreamAlsa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2025-01-29T01:16:42Z",
+      "side": 1,
+      "message": "just a question here - i know you thought about avoiding the monopipe - can the FMQ be modified to allow peeking ahead (i.e. read ahead, without committing the actual read pointer?), or other out-of-band strategies?",
+      "range": {
+        "startLine": 56,
+        "startChar": 57,
+        "endLine": 56,
+        "endChar": 74
+      },
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "359c028b_c7136b99",
+        "filename": "audio/aidl/default/alsa/StreamAlsa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2025-01-29T01:16:42Z",
+      "side": 1,
+      "message": "missing cleanup?",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 38
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "69631a21_ff12b655",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/alsa/StreamAlsa.cpp",
+              "range": {
+                "startLine": 140,
+                "startChar": 0,
+                "endLine": 140,
+                "endChar": 0
+              },
+              "replacement": "            // Cleanup the sinks and proxies that have been opened.\n            for (auto\u0026 sink : sinks) {\n                sink-\u003eshutdown(true);\n            }\n            for (auto\u0026 proxy : alsaDeviceProxies) {\n                proxy_stop(proxy.get());\n            }\n            alsaDeviceProxies.clear();\n            sinks.clear();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbe27bbb_107467ba",
+        "filename": "audio/aidl/default/alsa/StreamAlsa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2025-01-29T01:16:42Z",
+      "side": 1,
+      "message": "error checking?",
+      "range": {
+        "startLine": 250,
+        "startChar": 12,
+        "endLine": 250,
+        "endChar": 35
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "fd37c103_bba50127",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/alsa/StreamAlsa.cpp",
+              "range": {
+                "startLine": 250,
+                "startChar": 0,
+                "endLine": 252,
+                "endChar": 0
+              },
+              "replacement": "        if (int ret \u003d proxy_read_with_retries(mAlsaDeviceProxies[idx].get(), \u0026buffer[0], bufferSize,\n                                              mReadWriteRetries);\n            ret \u003d\u003d 0) {\n"
+            },
+            {
+              "path": "audio/aidl/default/alsa/StreamAlsa.cpp",
+              "range": {
+                "startLine": 263,
+                "startChar": 0,
+                "endLine": 263,
+                "endChar": 0
+              },
+              "replacement": "        } else {\n            LOG(WARNING) \u003c\u003c \"Error while reading from the pipe: \" \u003c\u003c ret;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cefbc3c_4b44a2d7",
+        "filename": "audio/aidl/default/alsa/StreamAlsa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1040213
+      },
+      "writtenOn": "2025-01-29T01:16:42Z",
+      "side": 1,
+      "message": "log errors?",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 9
+      },
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
