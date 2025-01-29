@@ -16,6 +16,443 @@
       "message": "Check it out.",
       "revId": "b8fdb354a2adf2ef762c2b32ed2907a783d8ed28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "181ca51b_a00d24c2",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T23:05:22Z",
+      "side": 1,
+      "message": "I have a nit to pick:\n\n```suggestion\n    return cppbor::Array()\n        .add(cppbor::Map()\n            .add(cppcose::Label::ALGORITHM,\n                 cppcose::CoseKeyAlgorithm::HMAC_256)\n            .encode())\n        .add(cppbor::Map())  // empty unprotected headers\n        .add(keysToSign.encode())\n        .add(mac);  // MAC as returned from the HAL\n```",
+      "range": {
+        "startLine": 608,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 27
+      },
+      "revId": "b8fdb354a2adf2ef762c2b32ed2907a783d8ed28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6c6f7c7_bcd2c18b",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T23:05:22Z",
+      "side": 1,
+      "message": "Please swap these back to the explicit types. Auto makes it harder to understand what is going on, cause the type is not as obvious.\n\ngo/totw/232",
+      "range": {
+        "startLine": 625,
+        "startChar": 4,
+        "endLine": 625,
+        "endChar": 8
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0e6caeec_3c0b155a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 625,
+                "startChar": 0,
+                "endLine": 626,
+                "endChar": 0
+              },
+              "replacement": "    cppbor::Array macedKeysToSign \u003d composeMacedKeysToSign(keysToSign, keysToSignMac);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 627,
+                "startChar": 0,
+                "endLine": 628,
+                "endChar": 0
+              },
+              "replacement": "    std::unique_ptr\u003ccppbor::Item\u003e parsedDeviceInfo;\n    std::tie(parsedDeviceInfo, std::ignore, errMsg1) \u003d cppbor::parse(verifiedDeviceInfo.deviceInfo);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 632,
+                "startChar": 0,
+                "endLine": 633,
+                "endChar": 0
+              },
+              "replacement": "    std::unique_ptr\u003ccppbor::Item\u003e parsedProtectedData;\n    std::tie(parsedProtectedData, std::ignore, errMsg2) \u003d cppbor::parse(protectedData.protectedData);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 637,
+                "startChar": 0,
+                "endLine": 638,
+                "endChar": 0
+              },
+              "replacement": "    cppbor::Array deviceInfo \u003d cppbor::Array().add(std::move(parsedDeviceInfo)).add(cppbor::Map());\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 639,
+                "startChar": 0,
+                "endLine": 640,
+                "endChar": 0
+              },
+              "replacement": "    cppbor::Array certificateRequest \u003d cppbor::Array()\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 659,
+                "startChar": 0,
+                "endLine": 660,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003ccppbor::Array\u003e csrBundle \u003d composeCertificateRequestV1(protectedData, deviceInfo, challenge, keysToSign,\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 665,
+                "startChar": 0,
+                "endLine": 666,
+                "endChar": 0
+              },
+              "replacement": "    bytevec csrEncoded \u003d csrBundle-\u003eencode();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 669,
+                "startChar": 0,
+                "endLine": 670,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::Csr\u003e csr \u003d hwtrust::Csr::validate(csrEncoded, hwtrust::DiceChain::Kind::kVsr13, isFactory,\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 676,
+                "startChar": 0,
+                "endLine": 677,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003cstd::vector\u003cuint8_t\u003e\u003e eekIdFromCsr \u003d csr-\u003egetEekId();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 686,
+                "startChar": 0,
+                "endLine": 687,
+                "endChar": 0
+              },
+              "replacement": "    cppbor::Array macedKeysToSign \u003d composeMacedKeysToSign(keysToSign, keysToSignMac);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 688,
+                "startChar": 0,
+                "endLine": 689,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003cstd::vector\u003cuint8_t\u003e\u003e macKey \u003d csr-\u003egetKeysToSignMac();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 693,
+                "startChar": 0,
+                "endLine": 694,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003ccppbor::Array\u003e macPayload \u003d verifyAndParseCoseMac0(\u0026macedKeysToSign, *macKey);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 698,
+                "startChar": 0,
+                "endLine": 699,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::DiceChain\u003e diceChain \u003d csr-\u003egetDiceChain();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 703,
+                "startChar": 0,
+                "endLine": 704,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003cstd::vector\u003ccppbor::Array\u003e\u003e keys \u003d diceChain-\u003eCosePublicKeys();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 708,
+                "startChar": 0,
+                "endLine": 709,
+                "endChar": 0
+              },
+              "replacement": "    for (cppbor::Array\u0026 key : *keys) {\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 712,
+                "startChar": 0,
+                "endLine": 713,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003cstd::unique_ptr\u003ccppbor::Map\u003e\u003e deviceInfoResult \u003d\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 769,
+                "startChar": 0,
+                "endLine": 770,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::DiceChain::Kind\u003e diceChainKind \u003d getDiceChainKind();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 776,
+                "startChar": 0,
+                "endLine": 777,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::Csr\u003e csr \u003d hwtrust::Csr::validate(encodedCsr, *diceChainKind, isFactory, allowAnyMode,\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 784,
+                "startChar": 0,
+                "endLine": 785,
+                "endChar": 0
+              },
+              "replacement": "        ErrMsgOr\u003chwtrust::DiceChain\u003e diceChain \u003d csr-\u003egetDiceChain();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 798,
+                "startChar": 0,
+                "endLine": 799,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003cbool\u003e equalChallenges \u003d csr-\u003ecompareChallenge(challenge);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 807,
+                "startChar": 0,
+                "endLine": 808,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003cbool\u003e equalKeysToSign \u003d csr-\u003ecompareKeysToSign(keysToSign.encode());\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 816,
+                "startChar": 0,
+                "endLine": 817,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003cstd::vector\u003cuint8_t\u003e\u003e csrPayload \u003d csr-\u003egetCsrPayload();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 821,
+                "startChar": 0,
+                "endLine": 822,
+                "endChar": 0
+              },
+              "replacement": "    std::unique_ptr\u003ccppbor::Item\u003e csrPayloadDecoded;\n    std::tie(csrPayloadDecoded, std::ignore, errMsg) \u003d cppbor::parse(*csrPayload);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 853,
+                "startChar": 0,
+                "endLine": 854,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::DiceChain::Kind\u003e diceChainKind \u003d getDiceChainKind();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 858,
+                "startChar": 0,
+                "endLine": 859,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::Csr\u003e csr \u003d hwtrust::Csr::validate(encodedCsr, *diceChainKind, isFactory, allowAnyMode,\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 864,
+                "startChar": 0,
+                "endLine": 865,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::DiceChain\u003e diceChain \u003d csr-\u003egetDiceChain();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 874,
+                "startChar": 0,
+                "endLine": 875,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::DiceChain\u003e diceChain \u003d\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 886,
+                "startChar": 0,
+                "endLine": 887,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::DiceChain\u003e diceChain1 \u003d\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 892,
+                "startChar": 0,
+                "endLine": 893,
+                "endChar": 0
+              },
+              "replacement": "    bool proper1 \u003d diceChain1-\u003eIsProper();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 898,
+                "startChar": 0,
+                "endLine": 899,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::DiceChain\u003e diceChain2 \u003d\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 904,
+                "startChar": 0,
+                "endLine": 905,
+                "endChar": 0
+              },
+              "replacement": "    bool proper2 \u003d diceChain2-\u003eIsProper();\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 910,
+                "startChar": 0,
+                "endLine": 911,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003cbool\u003e result \u003d diceChain1-\u003ecompareRootPublicKey(*diceChain2);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 919,
+                "startChar": 0,
+                "endLine": 920,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::DiceChain\u003e diceChain \u003d getDiceChain(encodedCsr, /*isFactory\u003d*/false, /*allowAnyMode\u003d*/true,\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 925,
+                "startChar": 0,
+                "endLine": 926,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003cbool\u003e satisfied \u003d diceChain-\u003ecomponentNameContains(kKeyMintComponentName);\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 935,
+                "startChar": 0,
+                "endLine": 936,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003chwtrust::DiceChain\u003e diceChain \u003d\n"
+            },
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 941,
+                "startChar": 0,
+                "endLine": 942,
+                "endChar": 0
+              },
+              "replacement": "    ErrMsgOr\u003cbool\u003e hasNonNormalModeInDiceChain \u003d diceChain-\u003ehasNonNormalMode();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b8fdb354a2adf2ef762c2b32ed2907a783d8ed28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3d5fd2c_e6c714ed",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T23:05:22Z",
+      "side": 1,
+      "message": "```suggestion\n    return cppbor::Array()\n            .add(std::move(deviceInfo))\n            .add(challenge)\n            .add(std::move(parsedProtectedData))\n            .add(std::move(macedKeysToSign));\n```",
+      "range": {
+        "startLine": 639,
+        "startChar": 0,
+        "endLine": 644,
+        "endChar": 30
+      },
+      "revId": "b8fdb354a2adf2ef762c2b32ed2907a783d8ed28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
