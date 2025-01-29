@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1aba68d_b109409a",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-29T22:54:26Z",
+      "side": 1,
+      "message": "Good catch.",
+      "parentUuid": "27db3915_1f56ad8d",
+      "range": {
+        "startLine": 601,
+        "startChar": 18,
+        "endLine": 601,
+        "endChar": 33
+      },
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7fd5291_75e84d18",
@@ -108,6 +132,30 @@
           ]
         }
       ],
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b281db7_03762079",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-29T22:54:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7fd5291_75e84d18",
+      "range": {
+        "startLine": 607,
+        "startChar": 49,
+        "endLine": 607,
+        "endChar": 67
+      },
       "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -153,6 +201,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a478a13_9edbb297",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-29T22:54:26Z",
+      "side": 1,
+      "message": "That was a holdover from the previous logic. I kept this one and removed another. However, good point, I will remove this one and keep the other one that was removed.",
+      "parentUuid": "ecfe2dbe_11110e7f",
+      "range": {
+        "startLine": 611,
+        "startChar": 12,
+        "endLine": 611,
+        "endChar": 45
+      },
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "09f591c4_7023da12",
@@ -188,6 +260,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "404b27c6_13f0ea3f",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-29T22:54:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d504396_5ed922c7",
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d700e3b_c6edd5b7",
@@ -211,6 +301,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb0217aa_a9833c1a",
+        "filename": "security/keymint/support/remote_prov_utils_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-29T22:54:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d700e3b_c6edd5b7",
+      "range": {
+        "startLine": 984,
+        "startChar": 22,
+        "endLine": 984,
+        "endChar": 48
+      },
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9465688a_8166dadd",
@@ -224,6 +338,24 @@
       "writtenOn": "2025-01-29T00:27:16Z",
       "side": 1,
       "message": "We should verify the bcc entries here.",
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e5a2cae_53f7204c",
+        "filename": "security/keymint/support/remote_prov_utils_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-29T22:54:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9465688a_8166dadd",
       "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
