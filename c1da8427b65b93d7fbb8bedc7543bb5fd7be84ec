@@ -3,6 +3,134 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6d2e0ac_6b8a0b22",
+        "filename": "security/keymint/support/include/remote_prov/remote_prov_utils.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T00:27:16Z",
+      "side": 1,
+      "message": "Whoe needs this other than remote_prov_utils.cpp?\n\nDo we even need to make this function extern?",
+      "range": {
+        "startLine": 176,
+        "startChar": 24,
+        "endLine": 176,
+        "endChar": 51
+      },
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27db3915_1f56ad8d",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T00:27:16Z",
+      "side": 1,
+      "message": "This should probably be in a helper function, since it\u0027s now in this file at least twice.",
+      "range": {
+        "startLine": 601,
+        "startChar": 18,
+        "endLine": 601,
+        "endChar": 33
+      },
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7fd5291_75e84d18",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 607,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T00:27:16Z",
+      "side": 1,
+      "message": "Why the clone? `Array::encode()` is const, so it should be non-mutating and safe to call on the const-ref.",
+      "range": {
+        "startLine": 607,
+        "startChar": 49,
+        "endLine": 607,
+        "endChar": 67
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "8acf29b1_44fba906",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 607,
+                "startChar": 0,
+                "endLine": 608,
+                "endChar": 0
+              },
+              "replacement": "                                            .add(keysToSign.encode())\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecfe2dbe_11110e7f",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 611,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T00:27:16Z",
+      "side": 1,
+      "message": "Do we really need to validate here? Seems like we should just compose based on the input DeviceInfo.",
+      "range": {
+        "startLine": 611,
+        "startChar": 12,
+        "endLine": 611,
+        "endChar": 45
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "46040397_5d546554",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/support/remote_prov_utils.cpp",
+              "range": {
+                "startLine": 611,
+                "startChar": 0,
+                "endLine": 612,
+                "endChar": 0
+              },
+              "replacement": "            parseAndValidateDeviceInfo(verifiedDeviceInfo.deviceInfo, rpcHardwareInfo, /*isFactory\u003d*/true);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "09f591c4_7023da12",
         "filename": "security/keymint/support/remote_prov_utils.cpp",
         "patchSetId": 7
@@ -14,6 +142,64 @@
       "writtenOn": "2025-01-28T20:11:20Z",
       "side": 1,
       "message": "Does the check above need to happen with the EEK Id? I wanted to get confirmation before I continued.",
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d504396_5ed922c7",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 664,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T00:27:16Z",
+      "side": 1,
+      "message": "This makes ense to me, EEK ID is required.",
+      "parentUuid": "09f591c4_7023da12",
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d700e3b_c6edd5b7",
+        "filename": "security/keymint/support/remote_prov_utils_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T00:27:16Z",
+      "side": 1,
+      "message": "Mind adding a negative test (unless there\u0027s already coverage).\n\nIt could be as simpler as copying this test and leaving out one of the keys to sign.",
+      "range": {
+        "startLine": 984,
+        "startChar": 22,
+        "endLine": 984,
+        "endChar": 48
+      },
+      "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9465688a_8166dadd",
+        "filename": "security/keymint/support/remote_prov_utils_test.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 997,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-01-29T00:27:16Z",
+      "side": 1,
+      "message": "We should verify the bcc entries here.",
       "revId": "c1da8427b65b93d7fbb8bedc7543bb5fd7be84ec",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
