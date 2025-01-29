@@ -60,6 +60,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f08db215_5083da2a",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 796,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-29T19:39:06Z",
+      "side": 1,
+      "message": "It uses `getContext()` to obtain flags. So if we make it static, we would need to pass something in: either the flags, or the context, or `this`.",
+      "parentUuid": "265302be_6240a732",
+      "range": {
+        "startLine": 796,
+        "startChar": 0,
+        "endLine": 796,
+        "endChar": 64
+      },
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "97d0ea35_1d0b5a7b",
         "filename": "audio/aidl/default/alsa/StreamAlsa.cpp",
         "patchSetId": 1
@@ -71,6 +95,30 @@
       "writtenOn": "2025-01-29T01:16:42Z",
       "side": 1,
       "message": "just a question here - i know you thought about avoiding the monopipe - can the FMQ be modified to allow peeking ahead (i.e. read ahead, without committing the actual read pointer?), or other out-of-band strategies?",
+      "range": {
+        "startLine": 56,
+        "startChar": 57,
+        "endLine": 56,
+        "endChar": 74
+      },
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdcb95a2_62a000a2",
+        "filename": "audio/aidl/default/alsa/StreamAlsa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-29T19:39:06Z",
+      "side": 1,
+      "message": "Agree, having another thread for I/O which needs some kind of a ring buffer to get data to/from the worker thread is not the perfect way to solve this problem. There can be other approaches, I\u0027m sure. The current one is actually close to what the HIDL version of the CF HAL implementation was using, so at least this solution is a consistent one.\n\nI\u0027m not sure allowing peeking ahead in FMQ would solve this problem easily, see below. Actually, I\u0027m pretty sure that with the non-blocking flavor of FMQ which allows multiple readers, something like that is already possible. But a non-blocking FMQ is a different AIDL \"type\", so we will have to change the interface.\n\nAnyway, to recap—the problem we are working around is that the code performing I/O with ALSA can get stuck. There are two things that we need to solve:\n\n - when we have received a read/write command from the framework, how to return the control back to it in the case when I/O get stuck? If we don\u0027t return control, then the AudioFlinger thread gets blocked and we are getting that TimeCheck error;\n\n - in order to unstuck the I/O, we need to issue `pcm_stop` from another thread, because the thread performing I/O is stuck.\n \nIf we don\u0027t solve the first thing, then audio flinger will not be able to send the next command, and thus being able to peek the next command will not help. We could solve the stuckness problem by having a \"watchdog\" thread on the HAL side which somehow monitors the I/O thread state and unblocks it, but this may introduce issues on its own.",
+      "parentUuid": "97d0ea35_1d0b5a7b",
       "range": {
         "startLine": 56,
         "startChar": 57,
@@ -118,6 +166,30 @@
           ]
         }
       ],
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f68f2ed7_8155e85b",
+        "filename": "audio/aidl/default/alsa/StreamAlsa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-29T19:39:06Z",
+      "side": 1,
+      "message": "The idea is that we have these temporary vectors: `alsaDeviceProxies`, `sources`, `sinks` on the stack, so if anything fails they will be destroyed on return, cleaning everything up. And if we succeed, the contents of these temporary vectors get moved into the class fields (see the code below).",
+      "parentUuid": "359c028b_c7136b99",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 38
+      },
       "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -173,6 +245,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "243daa2f_860e0663",
+        "filename": "audio/aidl/default/alsa/StreamAlsa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-29T19:39:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbe27bbb_107467ba",
+      "range": {
+        "startLine": 250,
+        "startChar": 12,
+        "endLine": 250,
+        "endChar": 35
+      },
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cefbc3c_4b44a2d7",
@@ -186,6 +282,30 @@
       "writtenOn": "2025-01-29T01:16:42Z",
       "side": 1,
       "message": "log errors?",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 9
+      },
+      "revId": "81bcd0a17fb1167b5eebff8c9184f2c945c403c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13ba0d55_1b9573c0",
+        "filename": "audio/aidl/default/alsa/StreamAlsa.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-29T19:39:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cefbc3c_4b44a2d7",
       "range": {
         "startLine": 280,
         "startChar": 0,
