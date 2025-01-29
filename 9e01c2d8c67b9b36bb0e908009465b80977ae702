@@ -40,6 +40,30 @@
       ],
       "revId": "9e01c2d8c67b9b36bb0e908009465b80977ae702",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fc17f2b_a6963fa8",
+        "filename": "nfc/aidl/vts/functional/VtsNfcBehaviorChangesTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1949311
+      },
+      "writtenOn": "2025-01-29T16:43:06Z",
+      "side": 1,
+      "message": "Yes, the VSR level is the same as this helper, added ro. vendor.api_level to match the implementation in test/suite_harness/common/host-side/util/src/com/android/compatibility/common/util/PropertyUtil.java\n\nWe don\u0027t explicitly need it on this test but I thought it was better to be clear in each test which VSR level it should pass on.",
+      "parentUuid": "a716d868_74bf0cf7",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 5
+      },
+      "revId": "9e01c2d8c67b9b36bb0e908009465b80977ae702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
