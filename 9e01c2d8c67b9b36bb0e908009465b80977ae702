@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a716d868_74bf0cf7",
+        "filename": "nfc/aidl/vts/functional/VtsNfcBehaviorChangesTest.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1074459
+      },
+      "writtenOn": "2025-01-29T14:53:40Z",
+      "side": 1,
+      "message": "We don\u0027t need this since that is already covered by [this](https://source.corp.google.com/h/android/platform/superproject/main/+/main:hardware/interfaces/nfc/aidl/vts/functional/Android.bp;drc\u003d56a088615969d7cbebb70d374f08d683858ad124;l\u003d89) line in Android.bp file.\n\nEdit: Is the VSR level the same as the board_level helper your are using above?",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 5
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "8ad4a992_2624c010",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "nfc/aidl/vts/functional/VtsNfcBehaviorChangesTest.cpp",
+              "range": {
+                "startLine": 290,
+                "startChar": 0,
+                "endLine": 294,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "9e01c2d8c67b9b36bb0e908009465b80977ae702",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
