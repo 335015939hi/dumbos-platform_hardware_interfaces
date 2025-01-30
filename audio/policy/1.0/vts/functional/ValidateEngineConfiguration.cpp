@@ -16,6 +16,9 @@
 
 #include <EngineConfig.h>
 #include <ParameterManagerWrapper.h>
+#include <aidl/Vintf.h>
+#include <aidl/android/hardware/audio/core/IConfig.h>
+#include <android/binder_manager.h>
 
 #include <gtest/gtest.h>
 
@@ -48,11 +51,28 @@ TEST(ValidateConfiguration, audioPolicyEngineConfiguration) {
 }
 
 /**
- * @brief deviceUsesConfigurableEngine checks if the configuration file for
- * the engine presents on the device AND
- * for the configurable engine (aka Parameter-Framework top configuration file) presents.
+ * @brief deviceUsesHidlConfigurableEngine checks if there is no AIDL CAP,
+ * AND the configuration file for the engine presents on the device
+ * AND for the configurable engine (aka Parameter-Framework top configuration file) presents.
  */
-static bool deviceUsesConfigurableEngine() {
+static bool deviceUsesHidlConfigurableEngine() {
+    using aidl::android::hardware::audio::core::IConfig;
+    using aidl::android::media::audio::common::AudioHalEngineConfig;
+
+    const auto configName = android::getAidlHalInstanceNames(IConfig::descriptor);
+    if (!configName.empty()) {
+        ndk::SpAIBinder binder =
+                ndk::SpAIBinder(AServiceManager_waitForService(configName[0].c_str()));
+        if (binder != nullptr) {
+            std::shared_ptr<IConfig> configItf = IConfig::fromBinder(binder);
+            if (configItf != nullptr) {
+                AudioHalEngineConfig config;
+                if (configItf->getEngineConfig(&config).isOk()) {
+                    if (config.capSpecificConfig.has_value()) return false;
+                }
+            }
+        }
+    }
     return android::hardware::audio::common::test::utility::validateXmlMultipleLocations<true>(
                    "", "", "", config.c_str(), android::audio_get_configuration_paths(),
                    schema.c_str()) &&
@@ -62,8 +82,8 @@ static bool deviceUsesConfigurableEngine() {
 }
 
 TEST(ValidateConfiguration, audioPolicyEngineConfigurable) {
-    if (!deviceUsesConfigurableEngine()) {
-        GTEST_SKIP() << "Device using legacy engine without parameter-framework, n-op.";
+    if (!deviceUsesHidlConfigurableEngine()) {
+        GTEST_SKIP() << "Device uses AIDL CAP or legacy engine without parameter-framework, n-op.";
     }
     RecordProperty("description",
                    "Verify that the audio policy engine PFW configuration files "
@@ -78,7 +98,8 @@ TEST(ValidateConfiguration, audioPolicyEngineConfigurable) {
         ASSERT_EQ(result.nbSkippedElement, 0) << "skipped %zu elements " << result.nbSkippedElement;
 
         std::unique_ptr<android::audio_policy::ParameterManagerWrapper> policyParameterMgr(
-                new android::audio_policy::ParameterManagerWrapper(validateSchema, schemasUri));
+                new android::audio_policy::ParameterManagerWrapper(
+                        true /*useLegacyConfigurationFile*/, validateSchema, schemasUri));
         ASSERT_NE(nullptr, policyParameterMgr) << "failed to create Audio Policy Engine PFW";
 
         // Load the criterion types and criteria
