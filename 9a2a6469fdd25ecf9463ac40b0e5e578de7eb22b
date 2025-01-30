@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bb50eb7_ce41e214",
+        "filename": "audio/policy/1.0/vts/functional/ValidateEngineConfiguration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1491204
+      },
+      "writtenOn": "2025-01-30T08:43:31Z",
+      "side": 1,
+      "message": "shall we check also that DISABLE_CAP_AIDL is set (or RELEASE_HARDWARE_AUDIO_USE_CAP_AIDL is false / not defined)\nand also align with the hybrid condition (where only half of the config could have been provided)\naidl.engineConfig.capSpecificConfig.value().domains.has_value()",
+      "range": {
+        "startLine": 71,
+        "startChar": 20,
+        "endLine": 71,
+        "endChar": 75
+      },
+      "revId": "9a2a6469fdd25ecf9463ac40b0e5e578de7eb22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
