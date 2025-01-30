@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52f5cdd6_bdfd99a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-30T13:32:30Z",
+      "side": 1,
+      "message": "Removed alllll the `auto`s that that fix suggested.",
+      "revId": "b8fdb354a2adf2ef762c2b32ed2907a783d8ed28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "181ca51b_a00d24c2",
@@ -31,6 +48,30 @@
       "writtenOn": "2025-01-29T23:05:22Z",
       "side": 1,
       "message": "I have a nit to pick:\n\n```suggestion\n    return cppbor::Array()\n        .add(cppbor::Map()\n            .add(cppcose::Label::ALGORITHM,\n                 cppcose::CoseKeyAlgorithm::HMAC_256)\n            .encode())\n        .add(cppbor::Map())  // empty unprotected headers\n        .add(keysToSign.encode())\n        .add(mac);  // MAC as returned from the HAL\n```",
+      "range": {
+        "startLine": 608,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 27
+      },
+      "revId": "b8fdb354a2adf2ef762c2b32ed2907a783d8ed28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0caf775a_5a221764",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-30T13:32:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "181ca51b_a00d24c2",
       "range": {
         "startLine": 608,
         "startChar": 0,
@@ -432,6 +473,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a584055_7e9351d4",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-30T13:32:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6c6f7c7_bcd2c18b",
+      "range": {
+        "startLine": 625,
+        "startChar": 4,
+        "endLine": 625,
+        "endChar": 8
+      },
+      "revId": "b8fdb354a2adf2ef762c2b32ed2907a783d8ed28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3d5fd2c_e6c714ed",
@@ -445,6 +510,30 @@
       "writtenOn": "2025-01-29T23:05:22Z",
       "side": 1,
       "message": "```suggestion\n    return cppbor::Array()\n            .add(std::move(deviceInfo))\n            .add(challenge)\n            .add(std::move(parsedProtectedData))\n            .add(std::move(macedKeysToSign));\n```",
+      "range": {
+        "startLine": 639,
+        "startChar": 0,
+        "endLine": 644,
+        "endChar": 30
+      },
+      "revId": "b8fdb354a2adf2ef762c2b32ed2907a783d8ed28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "003fe5dc_58a9996f",
+        "filename": "security/keymint/support/remote_prov_utils.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 3662355
+      },
+      "writtenOn": "2025-01-30T13:32:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3d5fd2c_e6c714ed",
       "range": {
         "startLine": 639,
         "startChar": 0,
