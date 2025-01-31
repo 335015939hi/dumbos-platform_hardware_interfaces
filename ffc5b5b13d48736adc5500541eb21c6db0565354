@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd0cbe9e_bb2f0902",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-31T18:00:01Z",
+      "side": 1,
+      "message": "Should we assert here `ASSERT_EQ(mInputDb, kSineFullScaleDb)` (or `ASSERT_NEAR`)",
+      "range": {
+        "startLine": 794,
+        "startChar": 0,
+        "endLine": 794,
+        "endChar": 5
+      },
+      "revId": "ffc5b5b13d48736adc5500541eb21c6db0565354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05c4daeb_3c56d154",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-31T18:00:01Z",
+      "side": 1,
+      "message": "To disambiguate, should this be called `kSineFullScaleDb`?",
+      "range": {
+        "startLine": 828,
+        "startChar": 27,
+        "endLine": 828,
+        "endChar": 39
+      },
+      "revId": "ffc5b5b13d48736adc5500541eb21c6db0565354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
