@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1cd2cd1_45e4852b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1512908
+      },
+      "writtenOn": "2025-01-31T01:20:01Z",
+      "side": 1,
+      "message": "Nit: consider adding the explanation about the HIDL vs AILD requirement with regards to vendor/xsd.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 57
+      },
+      "revId": "4fbcc84e934425dc73243f26884aa59dece8c33a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
