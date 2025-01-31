@@ -34,6 +34,24 @@
       "parentUuid": "49e56c87_af39246a",
       "revId": "68202c6344afe78fd7fe131c4bd56c5ad7433ce8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d0dc2ea_4f0f9a97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1953015
+      },
+      "writtenOn": "2025-01-31T22:06:47Z",
+      "side": 1,
+      "message": "Here is the failure log \n```\nVTS LOG:\n[ RUN      ] PerInstance/VtsHalAutomotiveVehicleTargetTest.testPropConfigs_onlyDefinedSystemPropertyIdsReturned/aidl_android_hardware_automotive_vehicle_IVehicle_default\nhardware/interfaces/automotive/vehicle/vts/src/VtsHalAutomotiveVehicle_TargetTest.cpp:266: Failure\nValue of: found\n  Actual: false\nExpected: true\nSystem Property: 289476430 is not defined in VHAL property interface\n[  FAILED  ] PerInstance/VtsHalAutomotiveVehicleTargetTest.testPropConfigs_onlyDefinedSystemPropertyIdsReturned/aidl_android_hardware_automotive_vehicle_IVehicle_default, where GetParam() \u003d 32-byte object \u003c39-00 00-00 00-00 00-00 34-00 00-00 00-00 00-00 20-97 12-ED E2-73 00-00 01-00 00-00 00-00 00-00\u003e (0 ms)\n```",
+      "parentUuid": "efe2fa9c_09fb7f95",
+      "revId": "68202c6344afe78fd7fe131c4bd56c5ad7433ce8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
