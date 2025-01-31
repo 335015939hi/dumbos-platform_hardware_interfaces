@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49e56c87_af39246a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2025-01-31T19:59:34Z",
+      "side": 1,
+      "message": "VHAL only supports V3 in Android 15, why do you want this?",
+      "revId": "68202c6344afe78fd7fe131c4bd56c5ad7433ce8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
