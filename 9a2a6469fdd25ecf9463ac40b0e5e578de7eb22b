@@ -22,6 +22,30 @@
       },
       "revId": "9a2a6469fdd25ecf9463ac40b0e5e578de7eb22b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c65e3bf4_46851a66",
+        "filename": "audio/policy/1.0/vts/functional/ValidateEngineConfiguration.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-01-31T01:07:51Z",
+      "side": 1,
+      "message": "This test is intended to verify HIDL-based vendor partitions. The purpose of the modification is to avoid failures on AIDL-based vendor partitions. The hybrid case is still counted as AIDL. We need to have a separate test for it.\n\nBut actually thanks to your comment I have realized that this test does not even need to peek into `capSpecificConfig` and check it. It\u0027s enough to skip testing if there is AIDL IConfig instance present.",
+      "parentUuid": "1bb50eb7_ce41e214",
+      "range": {
+        "startLine": 71,
+        "startChar": 20,
+        "endLine": 71,
+        "endChar": 75
+      },
+      "revId": "9a2a6469fdd25ecf9463ac40b0e5e578de7eb22b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
