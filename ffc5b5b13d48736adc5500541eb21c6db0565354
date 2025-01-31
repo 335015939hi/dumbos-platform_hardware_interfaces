@@ -45,6 +45,29 @@
       },
       "revId": "ffc5b5b13d48736adc5500541eb21c6db0565354",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c52510_aad4cf62",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 893,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-01-31T19:58:09Z",
+      "side": 1,
+      "message": "I think this can be a helper?\n```\nconstexpr float dBToAmplitude(float dB) {\n    return 1.0f / std::pow(10.0f, dB / 20.0f);\n}\n```\nor even better:\n```\nconstexpr float kLn10Div20 \u003d 0.11512925f; // ln(10)/20\nconstexpr float dBToAmplitude(float dB) {\n    return std::exp(dB * kLn10Div20);\n}\n```",
+      "range": {
+        "startLine": 893,
+        "startChar": 0,
+        "endLine": 893,
+        "endChar": 59
+      },
+      "revId": "ffc5b5b13d48736adc5500541eb21c6db0565354",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
