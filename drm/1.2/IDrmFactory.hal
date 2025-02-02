@@ -46,6 +46,6 @@ interface IDrmFactory extends @1.1::IDrmFactory {
      * @param securityLevel specifies the security level required
      * @return isSupported must be true only if the scheme is supported
      */
-    isCryptoSchemeSupported_1_2(uint8_t[16] uuid, string mimeType,
+    isCryptoSchemeSupported_1_2(uint8_t[32] uuid, string mimeType,
             @1.1::SecurityLevel securityLevel) generates(bool isSupported);
 };
