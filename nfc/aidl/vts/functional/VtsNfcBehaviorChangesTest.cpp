@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include "nfc_api.h"
 #define LOG_TAG "nfc_behavior_changes_test"
 
 #include <aidl/Gtest.h>
@@ -21,6 +22,7 @@
 #include <aidl/android/hardware/nfc/BnNfc.h>
 #include <aidl/android/hardware/nfc/INfc.h>
 #include <android-base/logging.h>
+#include <android-base/properties.h>
 #include <android-base/stringprintf.h>
 #include <android/binder_process.h>
 #include <gtest/gtest.h>
@@ -43,8 +45,32 @@ static SyncEvent sNfaEnableEvent;  // event for NFA_Enable()
 static SyncEvent sNfaVsCommand;    // event for VS commands
 static SyncEvent sNfaEnableDisablePollingEvent;
 static SyncEvent sNfaPowerChangeEvent;
+static std::vector<uint8_t> sCaps(0);
 static bool sIsNfaEnabled;
 static tNFA_STATUS sVSCmdStatus;
+
+static const int SET_PASSIVE_OBSERVER_TECH_TIMEOUT_MS = 15;
+
+static int get_vsr_api_level() {
+    int api_level =
+            ::android::base::GetIntProperty("ro.vendor.api_level", -1);
+    if (api_level != -1) {
+        return api_level;
+    }
+
+    api_level =
+            ::android::base::GetIntProperty("ro.board.api_level", -1);
+    if (api_level != -1) {
+        return api_level;
+    }
+
+    api_level =
+            ::android::base::GetIntProperty("ro.board.first_api_level", -1);
+    EXPECT_NE(api_level, -1) << "Could not find VSR API level.";
+
+    return api_level;
+
+}
 
 static void nfaDeviceManagementCallback(uint8_t dmEvent, tNFA_DM_CBACK_DATA* eventData) {
     LOG(DEBUG) << StringPrintf("%s: enter; event=0x%X", __func__, dmEvent);
@@ -119,6 +145,7 @@ void static nfaVSCallback(uint8_t event, uint16_t param_len, uint8_t* p_param) {
         case NCI_MSG_PROP_ANDROID: {
             uint8_t android_sub_opcode = p_param[3];
             switch (android_sub_opcode) {
+                case NCI_ANDROID_SET_PASSIVE_OBSERVER_TECH:
                 case NCI_ANDROID_PASSIVE_OBSERVE: {
                     if (param_len == 5) {
                         if ((p_param[0] & NCI_MT_MASK) == (NCI_MT_RSP << NCI_MT_SHIFT)) {
@@ -137,6 +164,12 @@ void static nfaVSCallback(uint8_t event, uint16_t param_len, uint8_t* p_param) {
                 } break;
                 case NCI_ANDROID_POLLING_FRAME_NTF: {
                     // TODO
+                } break;
+                case NCI_ANDROID_GET_CAPS: {
+                    sVSCmdStatus = p_param[4];
+                    SyncEventGuard guard(sNfaVsCommand);
+                    sCaps.assign(p_param + 8, p_param + param_len);
+                    sNfaVsCommand.notifyOne();
                 } break;
                 default:
                     LOG(WARNING) << StringPrintf("Unknown Android sub opcode %x",
@@ -170,7 +203,7 @@ tNFA_STATUS static nfaObserveModeEnable(bool enable) {
 
     if (status == NFA_STATUS_OK) {
         if (!sNfaVsCommand.wait(1000)) {
-            LOG(WARNING) << "Timeout waiting for NFA VS command response";
+            LOG(WARNING) << "Timeout waiting for set observe mode command response";
             return NFA_STATUS_TIMEOUT;
         }
     }
@@ -178,9 +211,63 @@ tNFA_STATUS static nfaObserveModeEnable(bool enable) {
     return status;
 }
 
+/*
+ * Enable per-technology observe mode.
+ */
+tNFA_STATUS static nfaSetPassiveObserverTech(uint8_t tech_mask) {
+    tNFA_STATUS status = NFA_STATUS_FAILED;
+
+    uint8_t cmd[] = {NCI_ANDROID_SET_PASSIVE_OBSERVER_TECH, tech_mask};
+
+    status = NFA_SendVsCommand(NCI_MSG_PROP_ANDROID, sizeof(cmd), cmd, nfaVSCallback);
+
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaVsCommand.wait(SET_PASSIVE_OBSERVER_TECH_TIMEOUT_MS)) {
+            LOG(WARNING) << "Timeout waiting for set observer tech command response";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    return status;
+}
+
+/*
+ * Get chipset capabilities.
+ */
+tNFA_STATUS static nfaGetCaps() {
+    LOG(ERROR) << "getting caps";
+    tNFA_STATUS status = NFA_STATUS_FAILED;
+
+    uint8_t cmd[] = {NCI_ANDROID_GET_CAPS};
+    status = NFA_SendVsCommand(NCI_MSG_PROP_ANDROID, sizeof(cmd), cmd, nfaVSCallback);
+
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaVsCommand.wait(1000)) {
+            LOG(WARNING) << "Timeout waiting for GET_CAPS response";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    return status;
+}
+
+/*
+ * Get observe mode capabilities.
+ */
+uint8_t static getCapsPassiveObserverModeValue() {
+    return sCaps[2];
+}
+
 class NfcBehaviorChanges : public testing::TestWithParam<std::string> {
-  protected:
+protected:
     void SetUp() override {
+        tNFA_STATUS status = NFA_STATUS_OK;
+        status = NFA_StartRfDiscovery();
+        ASSERT_EQ(status, NFA_STATUS_OK);
+        ASSERT_TRUE(sNfaEnableDisablePollingEvent.wait(1000)) << "Timeout starting RF discovery";
+    }
+
+    static void SetUpTestSuite() {
         tNFA_STATUS status = NFA_STATUS_OK;
 
         sIsNfaEnabled = false;
@@ -204,21 +291,21 @@ class NfcBehaviorChanges : public testing::TestWithParam<std::string> {
         }
 
         ASSERT_TRUE(sIsNfaEnabled) << "Could not initialize NFC controller";
-
-        status = NFA_StartRfDiscovery();
-        ASSERT_EQ(status, NFA_STATUS_OK);
-        ASSERT_TRUE(sNfaEnableDisablePollingEvent.wait(1000)) << "Timeout starting RF discovery";
     }
 };
 
 /*
- * ObserveModeEnable:
+ * ObserveModeEnableDisable:
  * Attempts to enable observe mode. Does not test Observe Mode functionality,
  * but simply verifies that the enable command responds successfully.
  *
  * @VsrTest = GMS-VSR-3.2.8-001
  */
 TEST_P(NfcBehaviorChanges, ObserveModeEnableDisable) {
+    if (get_vsr_api_level() < 202404) {
+        GTEST_SKIP() << "Skipping test for board API level < 202404";
+    }
+
     tNFA_STATUS status = nfaObserveModeEnable(true);
     ASSERT_EQ(status, NFA_STATUS_OK);
 
@@ -226,12 +313,78 @@ TEST_P(NfcBehaviorChanges, ObserveModeEnableDisable) {
     ASSERT_EQ(status, NFA_STATUS_OK);
 }
 
+/*
+ * SetPassiveObserverTech_individualTechnologies:
+ * Verifies per-technology observe mode is supported as a capability. Then sets observe mode
+ * for each individual technology and verifies the command succeeds.
+ *
+ * @VsrTest = GMS-VSR-3.2.8-002
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_individualTechnologies) {
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    tNFC_STATUS status = nfaGetCaps();
+    ASSERT_EQ(status, NFC_STATUS_OK);
+    ASSERT_EQ(getCapsPassiveObserverModeValue(), 0x2);
+
+    status = nfaSetPassiveObserverTech(NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_A);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+
+    status = nfaSetPassiveObserverTech(NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_B);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+
+    status = nfaSetPassiveObserverTech(NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_V);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+
+    status = nfaSetPassiveObserverTech(NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_F);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+}
+
+/*
+ * SetPassiveObserverTech_allExceptF:
+ * Verifies observe mode can be enabled for NFC-A, NFC-B, NFC-V, and disable for NFC-F.
+ *
+ * @VsrTest = GMS-VSR-3.2.8-002
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_allExceptF) {
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    tNFC_STATUS status = nfaSetPassiveObserverTech(NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_A |
+                                       NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_B |
+                                       NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_V);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+}
+
+/*
+ * SetPassiveObserverTech_allOnAndOff:
+ * Verifies observe mode can be enabled and disabled for all technologies.
+ *
+ * @VsrTest = GMS-VSR-3.2.8-002
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_allOnAndOff) {
+    LOG(ERROR) << "starting new test";
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    tNFC_STATUS status = nfaSetPassiveObserverTech(0x0F);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+
+    status = nfaSetPassiveObserverTech(0x00);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+}
+
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(NfcBehaviorChanges);
 INSTANTIATE_TEST_SUITE_P(Nfc, NfcBehaviorChanges,
-                         testing::ValuesIn(::android::getAidlHalInstanceNames(INfc::descriptor)),
-                         ::android::PrintInstanceNameToString);
+        testing::ValuesIn(::android::getAidlHalInstanceNames(INfc::descriptor)),
+        ::android::PrintInstanceNameToString
+);
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     ABinderProcess_startThreadPool();
     std::system("/system/bin/svc nfc disable"); /* Turn off NFC service */
