@@ -16,6 +16,24 @@
       "message": "I wanted to ask, should we update the current test with these changes or add them as a new test?",
       "revId": "db53d0a5609c9c19f1a70e69a774473c18ce06cf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81edd057_059b66c8",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-03T19:20:54Z",
+      "side": 0,
+      "message": "Could you please clarify which changes are you referring to? Looking at the changes in this CL, they are minimal, so I don\u0027t see why a new test is needed.",
+      "parentUuid": "e5ecc623_5e1ed383",
+      "revId": "db53d0a5609c9c19f1a70e69a774473c18ce06cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
