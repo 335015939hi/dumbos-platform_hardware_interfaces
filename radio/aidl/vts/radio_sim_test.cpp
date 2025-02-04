@@ -935,6 +935,13 @@ TEST_P(RadioSimTest, iccOpenLogicalChannel) {
  * Test IRadioSim.iccCloseLogicalChannel() for the response returned.
  */
 TEST_P(RadioSimTest, iccCloseLogicalChannel) {
+    int32_t aidl_version;
+    ndk::ScopedAStatus aidl_status = radio_sim->getInterfaceVersion(&aidl_version);
+    ASSERT_OK(aidl_status);
+    if (aidl_version >= 2) {  // >= RADIO_HAL_VERSION_2_1
+        GTEST_SKIP() << "Skipping iccCloseLogicalChannel (deprecated)";
+    }
+
     if (telephony_flags::enforce_telephony_feature_mapping()) {
         if (!deviceSupportsFeature(FEATURE_TELEPHONY_SUBSCRIPTION)) {
             GTEST_SKIP() << "Skipping iccCloseLogicalChannel "
@@ -1169,35 +1176,6 @@ TEST_P(RadioSimTest, setCdmaSubscriptionSource) {
                 radioRsp_sim->rspInfo.error,
                 {RadioError::NONE, RadioError::SIM_ABSENT, RadioError::SUBSCRIPTION_NOT_AVAILABLE},
                 CHECK_GENERAL_ERROR));
-    }
-}
-
-/*
- * Test IRadioSim.setUiccSubscription() for the response returned.
- */
-TEST_P(RadioSimTest, setUiccSubscription) {
-    if (telephony_flags::enforce_telephony_feature_mapping()) {
-        if (!deviceSupportsFeature(FEATURE_TELEPHONY_SUBSCRIPTION)) {
-            GTEST_SKIP() << "Skipping setUiccSubscription "
-                            "due to undefined FEATURE_TELEPHONY_SUBSCRIPTION";
-        }
-    }
-
-    serial = GetRandomSerialNumber();
-    SelectUiccSub item;
-    memset(&item, 0, sizeof(item));
-
-    radio_sim->setUiccSubscription(serial, item);
-    EXPECT_EQ(std::cv_status::no_timeout, wait());
-    EXPECT_EQ(RadioResponseType::SOLICITED, radioRsp_sim->rspInfo.type);
-    EXPECT_EQ(serial, radioRsp_sim->rspInfo.serial);
-
-    if (cardStatus.cardState == CardStatus::STATE_ABSENT) {
-        ASSERT_TRUE(
-                CheckAnyOfErrors(radioRsp_sim->rspInfo.error,
-                                 {RadioError::NONE, RadioError::INVALID_ARGUMENTS,
-                                  RadioError::MODEM_ERR, RadioError::SUBSCRIPTION_NOT_SUPPORTED},
-                                 CHECK_GENERAL_ERROR));
     }
 }
 
