@@ -28,7 +28,7 @@
         <option name="push-file" key="wait_hw_crypto" value="/data/local/tmp/trusty_test_vm/wait_hw_crypto" />
         <option name="push-file" key="trusty-test_vm-config.json" value="/data/local/tmp/trusty_test_vm/trusty-test_vm-config.json" />
         <option name="push-file" key="trusty_test_vm_elf" value="/data/local/tmp/trusty_test_vm/trusty_test_vm_elf" />
-        <option name="push-file" key="VtsAidlHwCryptoConnTest" value="/data/local/tmp/VtsAidlHwCryptoConnTest" />
+        <option name="push-file" key="VtsAidlHwCryptoTests" value="/data/local/tmp/VtsAidlHwCryptoTests" />
     </target_preparer>
     <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
         <option name="throw-if-cmd-fail" value="true" />
