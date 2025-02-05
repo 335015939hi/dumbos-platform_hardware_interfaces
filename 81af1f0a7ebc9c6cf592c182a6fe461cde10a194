@@ -46,6 +46,30 @@
       },
       "revId": "81af1f0a7ebc9c6cf592c182a6fe461cde10a194",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2b0dccb_80e22a13",
+        "filename": "audio/aidl/android/hardware/audio/core/stream-out-async-sm.gv",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2025-02-05T11:46:26Z",
+      "side": 1,
+      "message": "```DRAINING_en``` and ```DRAINING_en_sent``` are still reported as ```DRAINING```?\n```DRAIN_PAUSED_en``` and ```DRAIN_PAUSED_en_sent``` are still reported as ```DRAIN_PAUSED```?",
+      "parentUuid": "4c807911_2c03339d",
+      "range": {
+        "startLine": 36,
+        "startChar": 14,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "81af1f0a7ebc9c6cf592c182a6fe461cde10a194",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
