@@ -22,6 +22,30 @@
       },
       "revId": "81af1f0a7ebc9c6cf592c182a6fe461cde10a194",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c807911_2c03339d",
+        "filename": "audio/aidl/android/hardware/audio/core/stream-out-async-sm.gv",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2025-02-05T10:32:36Z",
+      "side": 1,
+      "message": "I mean when ```Command::getStatus``` called, what state should be reporting by HAL?\n\nSorry, i cannot deduce this information.",
+      "parentUuid": "c8854932_35d2e3c1",
+      "range": {
+        "startLine": 36,
+        "startChar": 14,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "81af1f0a7ebc9c6cf592c182a6fe461cde10a194",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
