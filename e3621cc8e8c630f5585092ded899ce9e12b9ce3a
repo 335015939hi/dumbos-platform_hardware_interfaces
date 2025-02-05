@@ -46,6 +46,30 @@
       },
       "revId": "e3621cc8e8c630f5585092ded899ce9e12b9ce3a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89ccfdb3_ceef81f6",
+        "filename": "compatibility_matrices/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2025-02-05T18:32:58Z",
+      "side": 1,
+      "message": "Ah, I got confused because clearly when we bump for the next year, we are adding new modules below this line. But I guess it really means \"do not add more modules below this line BY HAND\"",
+      "parentUuid": "111b9ace_4c1ea926",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 44
+      },
+      "revId": "e3621cc8e8c630f5585092ded899ce9e12b9ce3a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
