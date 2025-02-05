@@ -84,3 +84,23 @@ rust_test {
     ],
     system_ext_specific: true,
 }
+
+rust_test {
+    name: "VtsAidlHwCryptoOperationsTests",
+    srcs: ["hwcrypto_operations_tests.rs"],
+    require_root: true,
+    defaults: [
+        "hw_crypto_hal_aidl_rust_defaults",
+    ],
+    rustlibs: [
+        "libhwcryptohal_vts_test",
+    ],
+    data: [
+        ":trusty_test_vm_signed",
+        ":trusty_test_vm_config",
+        ":trusty_vm_launcher_sh",
+        ":trusty_wait_ready_sh",
+        ":wait_hw_crypto",
+    ],
+    system_ext_specific: true,
+}
