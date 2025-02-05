@@ -24,6 +24,7 @@
     <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
         <option name="cleanup" value="true" />
         <option name="push-file" key="VtsAidlHwCryptoTests" value="/data/local/tmp/VtsAidlHwCryptoTests" />
+        <option name="push-file" key="VtsAidlHwCryptoOperationsTests" value="/data/local/tmp/VtsAidlHwCryptoOperationsTests" />
         <option name="push-file" key="wait_hw_crypto" value="/data/local/tmp/trusty_test_vm/wait_hw_crypto" />
     </target_preparer>
     <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
@@ -36,6 +37,14 @@
     <test class="com.android.tradefed.testtype.rust.RustBinaryTest" >
         <option name="test-device-path" value="/data/local/tmp" />
         <option name="module-name" value="VtsAidlHwCryptoTests" />
+        <!-- Rust tests are run in parallel by default. Run these ones
+            single-threaded, so that one test's secrets don't affect
+            the behaviour of a different test. -->
+        <option name="native-test-flag" value="--test-threads=1" />
+    </test>
+    <test class="com.android.tradefed.testtype.rust.RustBinaryTest" >
+        <option name="test-device-path" value="/data/local/tmp" />
+        <option name="module-name" value="VtsAidlHwCryptoOperationsTests" />
         <!-- Rust tests are run in parallel by default. Run these ones
             single-threaded, so that one test's secrets don't affect
             the behaviour of a different test. -->
