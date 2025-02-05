@@ -388,14 +388,13 @@ void insertWrappedContextIntoMap(
     *ndkContext = operationsContext;
 }
 
-// TODO: Check refactoring opportunities like returning a Result<cpp_hwcrypto::types::OperationData>
-//       once we add the code that uses this function.
-Result<void> setOperationData(const ndk_hwcrypto::types::OperationData& ndkOperationData,
-                              cpp_hwcrypto::types::OperationData* cppOperationData) {
+std::optional<cpp_hwcrypto::types::OperationData> convertOperationData(
+        const ndk_hwcrypto::types::OperationData& ndkOperationData) {
+    cpp_hwcrypto::types::OperationData cppOperationData = cpp_hwcrypto::types::OperationData();
     cpp_hwcrypto::types::MemoryBufferReference cppMemBuffRef;
     switch (ndkOperationData.getTag()) {
         case ndk_hwcrypto::types::OperationData::dataBuffer:
-            cppOperationData->set<cpp_hwcrypto::types::OperationData::dataBuffer>(
+            cppOperationData.set<cpp_hwcrypto::types::OperationData::dataBuffer>(
                     ndkOperationData.get<ndk_hwcrypto::types::OperationData::dataBuffer>());
             break;
         case ndk_hwcrypto::types::OperationData::memoryBufferReference:
@@ -407,14 +406,14 @@ Result<void> setOperationData(const ndk_hwcrypto::types::OperationData& ndkOpera
                     ndkOperationData
                             .get<ndk_hwcrypto::types::OperationData::memoryBufferReference>()
                             .sizeBytes;
-            cppOperationData->set<cpp_hwcrypto::types::OperationData::memoryBufferReference>(
+            cppOperationData.set<cpp_hwcrypto::types::OperationData::memoryBufferReference>(
                     std::move(cppMemBuffRef));
             break;
         default:
-            // This shouldn't happen with the current definitions
-            return ErrnoError() << "received unknown operation data type";
+            LOG(ERROR) << "received unknown operation data type";
+            return std::nullopt;
     }
-    return {};
+    return cppOperationData;
 }
 
 std::optional<cpp_hwcrypto::PatternParameters> convertPatternParameters(
@@ -463,6 +462,37 @@ cpp_hwcrypto::types::AesGcmMode::AesGcmModeParameters convertSymmetricModeParame
             cpp_hwcrypto::types::AesGcmMode::AesGcmModeParameters();
     gcmModeParameters.nonce = ndkgcmModeParameters.nonce;
     return gcmModeParameters;
+}
+
+// TODO: check correctness of the following function
+std::optional<cpp_hwcrypto::MemoryBufferParameter> convertMemoryBufferParameters(
+        const ndk_hwcrypto::MemoryBufferParameter& ndkMemBuffParams) {
+    cpp_hwcrypto::MemoryBufferParameter memBuffParams = cpp_hwcrypto::MemoryBufferParameter();
+    memBuffParams.sizeBytes = ndkMemBuffParams.sizeBytes;
+    android::os::ParcelFileDescriptor pfd;
+    ndk::ScopedFileDescriptor ndkFd;
+    switch (ndkMemBuffParams.bufferHandle.getTag()) {
+        case ndk_hwcrypto::MemoryBufferParameter::MemoryBuffer::input:
+            ndkFd = ndkMemBuffParams.bufferHandle
+                            .get<ndk_hwcrypto::MemoryBufferParameter::MemoryBuffer::input>()
+                            .dup();
+            pfd = android::os::ParcelFileDescriptor(binder::unique_fd(ndkFd.release()));
+            memBuffParams.bufferHandle
+                    .set<cpp_hwcrypto::MemoryBufferParameter::MemoryBuffer::input>(std::move(pfd));
+            break;
+        case ndk_hwcrypto::MemoryBufferParameter::MemoryBuffer::output:
+            ndkFd = ndkMemBuffParams.bufferHandle
+                            .get<ndk_hwcrypto::MemoryBufferParameter::MemoryBuffer::output>()
+                            .dup();
+            pfd = android::os::ParcelFileDescriptor(binder::unique_fd(ndkFd.release()));
+            memBuffParams.bufferHandle
+                    .set<cpp_hwcrypto::MemoryBufferParameter::MemoryBuffer::output>(std::move(pfd));
+            break;
+        default:
+            LOG(ERROR) << "unknown bufferHandle type";
+            return std::nullopt;
+    }
+    return memBuffParams;
 }
 
 std::optional<cpp_hwcrypto::OperationParameters> convertOperationParameters(
@@ -650,8 +680,8 @@ class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
             std::vector<ndk_hwcrypto::CryptoOperationSet>* operationSets,
             std::vector<ndk_hwcrypto::CryptoOperationResult>* aidl_return) {
         Status status = Status::fromExceptionCode(Status::EX_ILLEGAL_ARGUMENT);
-        // TODO check parameters
         if (operationSets == nullptr) {
+            LOG(ERROR) << "received a null operation set";
             return convertStatus(status);
         }
         std::vector<cpp_hwcrypto::CryptoOperationResult> binderResult;
@@ -663,7 +693,7 @@ class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
             for (ndk_hwcrypto::CryptoOperation& operation : operationSet.operations) {
                 cpp_hwcrypto::CryptoOperation cppOperation;
                 cpp_hwcrypto::types::Void voidObj;
-                cpp_hwcrypto::types::OperationData cppOperationData;
+                std::optional<cpp_hwcrypto::types::OperationData> cppOperationData;
                 std::optional<cpp_hwcrypto::PatternParameters> cppPatternParameters;
                 std::optional<cpp_hwcrypto::OperationParameters> cppOperationParameters;
                 switch (operation.getTag()) {
@@ -679,6 +709,7 @@ class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
                             cppOperation.set<cpp_hwcrypto::CryptoOperation::setOperationParameters>(
                                     std::move(cppOperationParameters.value()));
                         } else {
+                            LOG(ERROR) << "couldn't convert operation parameters";
                             return convertStatus(status);
                         }
                         break;
@@ -689,48 +720,53 @@ class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
                             cppOperation.set<cpp_hwcrypto::CryptoOperation::setPattern>(
                                     std::move(cppPatternParameters.value()));
                         } else {
+                            LOG(ERROR) << "couldn't convert pattern parameters";
                             return convertStatus(status);
                         }
                         break;
                     case ndk_hwcrypto::CryptoOperation::copyData:
-                        if (!setOperationData(
-                                     operation.get<ndk_hwcrypto::CryptoOperation::copyData>(),
-                                     &cppOperationData)
-                                     .ok()) {
+                        cppOperationData = convertOperationData(
+                                operation.get<ndk_hwcrypto::CryptoOperation::copyData>());
+                        if (cppOperationData.has_value()) {
+                            cppOperation.set<cpp_hwcrypto::CryptoOperation::copyData>(
+                                    std::move(cppOperationData.value()));
+                        } else {
+                            LOG(ERROR) << "couldn't convert CryptoOperation::copyData";
                             return convertStatus(status);
                         }
-                        cppOperation.set<cpp_hwcrypto::CryptoOperation::copyData>(
-                                std::move(cppOperationData));
                         break;
                     case ndk_hwcrypto::CryptoOperation::aadInput:
-                        if (!setOperationData(
-                                     operation.get<ndk_hwcrypto::CryptoOperation::aadInput>(),
-                                     &cppOperationData)
-                                     .ok()) {
+                        cppOperationData = convertOperationData(
+                                operation.get<ndk_hwcrypto::CryptoOperation::aadInput>());
+                        if (cppOperationData.has_value()) {
+                            cppOperation.set<cpp_hwcrypto::CryptoOperation::aadInput>(
+                                    std::move(cppOperationData.value()));
+                        } else {
+                            LOG(ERROR) << "couldn't convert CryptoOperation::aadInput";
                             return convertStatus(status);
                         }
-                        cppOperation.set<cpp_hwcrypto::CryptoOperation::aadInput>(
-                                std::move(cppOperationData));
                         break;
                     case ndk_hwcrypto::CryptoOperation::dataInput:
-                        if (!setOperationData(
-                                     operation.get<ndk_hwcrypto::CryptoOperation::dataInput>(),
-                                     &cppOperationData)
-                                     .ok()) {
+                        cppOperationData = convertOperationData(
+                                operation.get<ndk_hwcrypto::CryptoOperation::dataInput>());
+                        if (cppOperationData.has_value()) {
+                            cppOperation.set<cpp_hwcrypto::CryptoOperation::dataInput>(
+                                    std::move(cppOperationData.value()));
+                        } else {
+                            LOG(ERROR) << "couldn't convert CryptoOperation::dataInput";
                             return convertStatus(status);
                         }
-                        cppOperation.set<cpp_hwcrypto::CryptoOperation::dataInput>(
-                                std::move(cppOperationData));
                         break;
                     case ndk_hwcrypto::CryptoOperation::dataOutput:
-                        if (!setOperationData(
-                                     operation.get<ndk_hwcrypto::CryptoOperation::dataOutput>(),
-                                     &cppOperationData)
-                                     .ok()) {
+                        cppOperationData = convertOperationData(
+                                operation.get<ndk_hwcrypto::CryptoOperation::dataOutput>());
+                        if (cppOperationData.has_value()) {
+                            cppOperation.set<cpp_hwcrypto::CryptoOperation::dataOutput>(
+                                    std::move(cppOperationData.value()));
+                        } else {
+                            LOG(ERROR) << "couldn't convert CryptoOperation::dataOutput";
                             return convertStatus(status);
                         }
-                        cppOperation.set<cpp_hwcrypto::CryptoOperation::dataOutput>(
-                                std::move(cppOperationData));
                         break;
                     case ndk_hwcrypto::CryptoOperation::destroyContext:
                         cppOperation.set<cpp_hwcrypto::CryptoOperation::destroyContext>(
@@ -741,6 +777,7 @@ class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
                         break;
                     default:
                         // This shouldn't happen
+                        LOG(ERROR) << "received unknown crypto operation";
                         return convertStatus(status);
                 }
                 cppSingleOperation.operations.push_back(std::move(cppOperation));
@@ -758,6 +795,7 @@ class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
             }
         } else {
             // No reason to copy back the data output vectors if this failed
+            LOG(ERROR) << "couldn't process command list";
             return convertStatus(status);
         }
         // We need to copy the vectors from the cpp operations back to the ndk one
@@ -861,6 +899,7 @@ class OpaqueKeyNdk : public ndk_hwcrypto::BnOpaqueKey {
             if (ndkPolicy.has_value()) {
                 *aidl_return = std::move(ndkPolicy.value());
             } else {
+                LOG(ERROR) << "couldn't convert key policy";
                 return ndk::ScopedAStatus::fromServiceSpecificError(
                         ndk_hwcrypto::types::HalErrorCode::BAD_PARAMETER);
             }
@@ -882,7 +921,6 @@ class OpaqueKeyNdk : public ndk_hwcrypto::BnOpaqueKey {
             aidl_return->keyToken = std::move(binder_return.keyToken);
         }
         return convertStatus(status);
-        return ndk::ScopedAStatus::ok();
     }
 
     ndk::ScopedAStatus setProtectionId(
@@ -974,10 +1012,12 @@ ndk::ScopedAStatus HwCryptoKey::importClearKey(
     Status status = Status::fromExceptionCode(Status::EX_ILLEGAL_ARGUMENT);
     auto cppKeyPolicy = convertKeyPolicy(newKeyPolicy);
     if (!cppKeyPolicy.has_value()) {
+        LOG(ERROR) << "couldn't convert key policy";
         return convertStatus(status);
     }
     auto explicitKeyCpp = convertExplicitKeyMaterial(keyMaterial);
     if (!explicitKeyCpp.has_value()) {
+        LOG(ERROR) << "couldn't convert key material";
         return convertStatus(status);
     }
     status = mHwCryptoServer->importClearKey(explicitKeyCpp.value(), cppKeyPolicy.value(),
