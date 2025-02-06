@@ -39,6 +39,8 @@ using aidl::android::hardware::audio::effect::IFactory;
 using aidl::android::hardware::audio::effect::Parameter;
 using android::hardware::audio::common::testing::detail::TestExecutionTracer;
 
+constexpr int32_t kMinDataTestHalVersion = 2;
+
 /**
  * Here we focus on specific parameter checking, general IEffect interfaces testing performed in
  * VtsAudioEffectTargetTest.
@@ -130,6 +132,8 @@ class DynamicsProcessingTestHelper : public EffectHelper {
     void addMbcBandConfigs(const std::vector<DynamicsProcessing::MbcBandConfig>& cfgs);
     void addLimiterConfig(const std::vector<DynamicsProcessing::LimiterConfig>& cfg);
     void addInputGain(const std::vector<DynamicsProcessing::InputGain>& inputGain);
+
+    void checkHalVersion();
 
     static constexpr float kPreferredProcessingDurationMs = 10.0f;
     static constexpr int kBandCount = 5;
@@ -491,6 +495,13 @@ void DynamicsProcessingTestHelper::addInputGain(
     mTags.push_back({DynamicsProcessing::inputGain, dp});
 }
 
+void DynamicsProcessingTestHelper::checkHalVersion() {
+    if (int32_t version;
+        mEffect->getInterfaceVersion(&version).isOk() && version < kMinDataTestHalVersion) {
+        GTEST_SKIP() << "Skipping the data test for version: " << version << "\n";
+    }
+}
+
 void fillLimiterConfig(std::vector<DynamicsProcessing::LimiterConfig>& limiterConfigList,
                        int channelIndex, bool enable, int linkGroup, float attackTime,
                        float releaseTime, float ratio, float threshold, float postGain) {
@@ -652,6 +663,7 @@ class DynamicsProcessingInputGainDataTest
     void SetUp() override {
         SetUpDynamicsProcessingEffect();
         SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        checkHalVersion();
         ASSERT_NO_FATAL_FAILURE(generateSineWave(kInputFrequency /*Input Frequency*/, mInput, 1.0,
                                                  kSamplingFrequency, mChannelLayout));
         mInputDb = calculateDb(mInput);
@@ -788,6 +800,7 @@ class DynamicsProcessingLimiterConfigDataTest
     void SetUp() override {
         SetUpDynamicsProcessingEffect();
         SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        checkHalVersion();
         ASSERT_NO_FATAL_FAILURE(
                 generateSineWave(kInputFrequency, mInput, 1.0, kSamplingFrequency, mChannelLayout));
         mInputDb = calculateDb(mInput);
@@ -1265,6 +1278,7 @@ class DynamicsProcessingMbcBandConfigDataTest
     void SetUp() override {
         SetUpDynamicsProcessingEffect();
         SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+        checkHalVersion();
         ASSERT_NO_FATAL_FAILURE(generateSineWave(mTestFrequencies, mInput, 1.0, kSamplingFrequency,
                                                  mChannelLayout));
         mInputDb = calculateDb(mInput);
@@ -1414,6 +1428,42 @@ TEST_P(DynamicsProcessingMbcBandConfigDataTest, IncreasingPostGain) {
         float outputDb = calculateDb(output, kStartIndex);
         EXPECT_NEAR(outputDb, mInputDb + postGainDb, kToleranceDb)
                 << "PostGain: " << postGainDb << ", OutputDb: " << outputDb;
+    }
+}
+
+TEST_P(DynamicsProcessingMbcBandConfigDataTest, IncreasingPreGain) {
+    std::vector<float> preGainDbValues = {-60, -34, -10, -1, 10, 34, 60};
+    std::vector<float> output(mInput.size());
+    float thresholdDb = -7;
+    float noiseGateDb = -40;
+    std::vector<float> ratioValues = {1, 1.5, 2, 2.5, 3};
+    for (float ratio : ratioValues) {
+        for (float preGainDb : preGainDbValues) {
+            float expectedOutputDb;
+            float inputWithPreGain = mInputDb + preGainDb;
+            if (inputWithPreGain > thresholdDb) {
+                expectedOutputDb =
+                        (inputWithPreGain - thresholdDb) / ratio + thresholdDb - preGainDb;
+            } else if (inputWithPreGain < noiseGateDb) {
+                expectedOutputDb =
+                        (inputWithPreGain - noiseGateDb) * ratio + noiseGateDb - preGainDb;
+            } else {
+                expectedOutputDb = mInputDb;
+            }
+            cleanUpMbcConfig();
+            for (int i = 0; i < mChannelCount; i++) {
+                fillMbcBandConfig(mCfgs, i, thresholdDb, ratio /*compressor ratio*/, noiseGateDb,
+                                  ratio /*expander ratio*/, 0 /*band index*/,
+                                  2000 /*cutoffFrequency*/, preGainDb, kDefaultPostGainDb);
+            }
+            EXPECT_NO_FATAL_FAILURE(setMbcParamsAndProcess(output));
+            if (!isAllParamsValid()) {
+                continue;
+            }
+            float outputDb = calculateDb(output, kStartIndex);
+            EXPECT_NEAR(outputDb, expectedOutputDb, kToleranceDb)
+                    << "PreGain: " << preGainDb << ", OutputDb: " << outputDb;
+        }
     }
 }
 
