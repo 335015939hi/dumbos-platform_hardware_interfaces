@@ -1412,6 +1412,41 @@ TEST_P(DynamicsProcessingMbcBandConfigDataTest, IncreasingPostGain) {
     }
 }
 
+TEST_P(DynamicsProcessingMbcBandConfigDataTest, IncreasingPreGain) {
+    std::vector<float> preGainDbValues = {-60, -24, -10, -1, 0, 1, 10, 24, 60};
+    std::vector<float> output(mInput.size());
+    float thresholdDb = -7;
+    float compressorRatio = 2;
+    float noiseGateDb = -30;
+    float expanderRatio = 2;
+    for (float preGainDb : preGainDbValues) {
+        float expectedOutputDb;
+        float inputWithPreGain = mInputDb + preGainDb;
+        if (inputWithPreGain > thresholdDb) {
+            expectedOutputDb =
+                    (inputWithPreGain - thresholdDb) / compressorRatio + thresholdDb - preGainDb;
+        } else if (inputWithPreGain < noiseGateDb) {
+            expectedOutputDb =
+                    (inputWithPreGain - noiseGateDb) * expanderRatio + noiseGateDb - preGainDb;
+        } else {
+            expectedOutputDb = mInputDb;
+        }
+        cleanUpMbcConfig();
+        for (int i = 0; i < mChannelCount; i++) {
+            fillMbcBandConfig(mCfgs, i, thresholdDb, compressorRatio, noiseGateDb, expanderRatio,
+                              0 /*band index*/, 2000 /*cutoffFrequency*/, preGainDb,
+                              kDefaultPostGainDb);
+        }
+        EXPECT_NO_FATAL_FAILURE(setMbcParamsAndProcess(output));
+        if (!isAllParamsValid()) {
+            continue;
+        }
+        float outputDb = calculateDb(output, kStartIndex);
+        EXPECT_NEAR(outputDb, expectedOutputDb, kToleranceDb)
+                << "PreGain: " << preGainDb << ", OutputDb: " << outputDb;
+    }
+}
+
 INSTANTIATE_TEST_SUITE_P(DynamicsProcessingTest, DynamicsProcessingMbcBandConfigDataTest,
                          testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
                                  IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
