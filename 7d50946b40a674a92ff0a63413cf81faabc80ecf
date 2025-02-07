@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ec7932_3840ca1a",
+        "filename": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 538,
+      "author": {
+        "id": 1884477
+      },
+      "writtenOn": "2025-02-07T23:34:16Z",
+      "side": 1,
+      "message": "`ASSERT_FALSE(acl_queue.empty());`",
+      "range": {
+        "startLine": 538,
+        "startChar": 4,
+        "endLine": 538,
+        "endChar": 56
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "12c9fe27_23d37e0e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/1.0/vts/functional/VtsHalBluetoothV1_0TargetTest.cpp",
+              "range": {
+                "startLine": 538,
+                "startChar": 0,
+                "endLine": 539,
+                "endChar": 0
+              },
+              "replacement": "    ASSERT_FALSE(acl_queue.empty());\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7d50946b40a674a92ff0a63413cf81faabc80ecf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
