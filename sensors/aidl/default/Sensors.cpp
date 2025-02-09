@@ -84,9 +84,6 @@ ScopedAStatus Sensors::initialize(
                 in_sensorsCallback) {
     ScopedAStatus result = ScopedAStatus::ok();
 
-    mEventQueue = std::make_unique<AidlMessageQueue<Event, SynchronizedReadWrite>>(
-            in_eventQueueDescriptor, true /* resetPointers */);
-
     // Ensure that all sensors are disabled.
     for (auto sensor : mSensors) {
         sensor.second->activate(false);
@@ -104,11 +101,22 @@ ScopedAStatus Sensors::initialize(
     // Ensure that any existing EventFlag is properly deleted
     deleteEventFlag();
 
+<<<<<<< HEAD   (30f798 [automerger skipped] Merge "DO NOT MERGE: Improve OpenAfterO)
     // Create the EventFlag that is used to signal to the framework that sensor events have been
     // written to the Event FMQ
     if (EventFlag::createEventFlag(mEventQueue->getEventFlagWord(), &mEventQueueFlag) != OK) {
         result = ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
     }
+||||||| BASE
+        // Ensure that any existing EventFlag is properly deleted
+        deleteEventFlagLocked();
+=======
+        mEventQueue = std::make_unique<AidlMessageQueue<Event, SynchronizedReadWrite>>(
+                in_eventQueueDescriptor, true /* resetPointers */);
+
+        // Ensure that any existing EventFlag is properly deleted
+        deleteEventFlagLocked();
+>>>>>>> CHANGE (960022 Add synchronization when EventFlagQueue is created in sensor)
 
     // Create the Wake Lock FMQ that is used by the framework to communicate whenever WAKE_UP
     // events have been successfully read and handled by the framework.
