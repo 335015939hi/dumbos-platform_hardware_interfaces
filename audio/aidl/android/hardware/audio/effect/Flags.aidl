@@ -158,4 +158,9 @@ parcelable Flags {
      * is a change in sourceMetadata.
      */
     boolean sourceMetadataIndication;
+
+    /**
+     * Set to true if the effect instance is not eligible for suspend.
+     */
+    boolean notEligibleForSuspend;
 }
