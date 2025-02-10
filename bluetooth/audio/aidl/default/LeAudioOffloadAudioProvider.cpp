@@ -123,40 +123,6 @@ bool LeAudioOffloadAudioProvider::isValid(const SessionType& sessionType) {
   return (sessionType == session_type_);
 }
 
-std::string getSettingOutputString(
-    IBluetoothAudioProvider::LeAudioAseConfigurationSetting& setting) {
-  std::stringstream ss;
-  std::string name = "";
-  if (!setting.sinkAseConfiguration.has_value() &&
-      !setting.sourceAseConfiguration.has_value())
-    return "";
-  std::vector<
-      std::optional<LeAudioAseConfigurationSetting::AseDirectionConfiguration>>*
-      directionAseConfiguration;
-  if (setting.sinkAseConfiguration.has_value() &&
-      !setting.sinkAseConfiguration.value().empty())
-    directionAseConfiguration = &setting.sinkAseConfiguration.value();
-  else
-    directionAseConfiguration = &setting.sourceAseConfiguration.value();
-  for (auto& aseConfiguration : *directionAseConfiguration) {
-    if (aseConfiguration.has_value() &&
-        aseConfiguration.value().aseConfiguration.metadata.has_value()) {
-      for (auto& meta :
-           aseConfiguration.value().aseConfiguration.metadata.value()) {
-        if (meta.has_value() &&
-            meta.value().getTag() == MetadataLtv::vendorSpecific) {
-          auto k = meta.value().get<MetadataLtv::vendorSpecific>().opaqueValue;
-          name = std::string(k.begin(), k.end());
-          break;
-        }
-      }
-    }
-  }
-
-  ss << "setting name: " << name << ", setting: " << setting.toString();
-  return ss.str();
-}
-
 ndk::ScopedAStatus LeAudioOffloadAudioProvider::startSession(
     const std::shared_ptr<IBluetoothAudioPort>& host_if,
     const AudioConfiguration& audio_config,
@@ -764,8 +730,8 @@ LeAudioOffloadAudioProvider::matchWithRequirement(
       if ((setting.audioContext.bitmask & requirement.audioContext.bitmask) !=
           requirement.audioContext.bitmask)
         continue;
-      LOG(DEBUG) << __func__ << ": Setting with matched context: "
-                 << getSettingOutputString(setting);
+      LOG(DEBUG) << __func__
+                 << ": Setting with matched context: " << setting.toString();
     }
 
     // Try to match configuration flags
@@ -774,8 +740,8 @@ LeAudioOffloadAudioProvider::matchWithRequirement(
       if ((setting.flags.value().bitmask & requirement_flags_bitmask) !=
           requirement_flags_bitmask)
         continue;
-      LOG(DEBUG) << __func__ << ": Setting with matched flags: "
-                 << getSettingOutputString(setting);
+      LOG(DEBUG) << __func__
+                 << ": Setting with matched flags: " << setting.toString();
     }
 
     auto filtered_ase_configuration_setting =
@@ -783,8 +749,7 @@ LeAudioOffloadAudioProvider::matchWithRequirement(
                                                       isExact);
     if (filtered_ase_configuration_setting.has_value()) {
       LOG(INFO) << __func__ << ": Result found: "
-                << getSettingOutputString(
-                       filtered_ase_configuration_setting.value());
+                << filtered_ase_configuration_setting.value().toString();
       // Found a matched setting, ignore other settings
       return filtered_ase_configuration_setting;
     }
@@ -905,7 +870,7 @@ ndk::ScopedAStatus LeAudioOffloadAudioProvider::getLeAudioAseConfiguration(
   LOG(INFO) << __func__
             << ": Found matches for all requirements, chosen settings:";
   for (auto& setting : result) {
-    LOG(INFO) << __func__ << ": " << getSettingOutputString(setting);
+    LOG(INFO) << __func__ << ": " << setting.toString();
   }
   *_aidl_return = result;
   return ndk::ScopedAStatus::ok();
@@ -960,8 +925,8 @@ LeAudioOffloadAudioProvider::getDirectionQosConfiguration(
     if ((setting.audioContext.bitmask & qosRequirement.audioContext.bitmask) !=
         qosRequirement.audioContext.bitmask)
       continue;
-    LOG(DEBUG) << __func__ << ": Setting with matched context: "
-               << getSettingOutputString(setting);
+    LOG(DEBUG) << __func__
+               << ": Setting with matched context: " << setting.toString();
 
     // Match configuration flags
     if (isMatchFlags) {
@@ -969,8 +934,8 @@ LeAudioOffloadAudioProvider::getDirectionQosConfiguration(
       if ((setting.flags.value().bitmask & requirement_flags_bitmask) !=
           requirement_flags_bitmask)
         continue;
-      LOG(DEBUG) << __func__ << ": Setting with matched flags: "
-                 << getSettingOutputString(setting);
+      LOG(DEBUG) << __func__
+                 << ": Setting with matched flags: " << setting.toString();
     }
 
     // Get a list of all matched AseDirectionConfiguration

@@ -396,6 +396,8 @@ void AudioSetConfigurationProviderJson::populateAseConfiguration(
     const le_audio::AudioSetSubConfiguration* flat_subconfig,
     const le_audio::QosConfiguration* qos_cfg,
     ConfigurationFlags& configurationFlags) {
+  (void)
+      name;  // Unused right now, should add back to some additional structure.
   // Target latency
   switch (qos_cfg->target_latency()) {
     case le_audio::AudioSetConfigurationTargetLatency::
@@ -431,12 +433,6 @@ void AudioSetConfigurationProviderJson::populateAseConfiguration(
   }
   // Codec configuration data
   populateConfigurationData(ase, flat_subconfig->codec_configuration());
-  // Populate the config name for easier debug
-  auto meta = std::vector<std::optional<MetadataLtv>>();
-  MetadataLtv::VendorSpecific cfg_name;
-  cfg_name.opaqueValue = std::vector<uint8_t>(name.begin(), name.end());
-  meta.push_back(cfg_name);
-  ase.metadata = meta;
 }
 
 void AudioSetConfigurationProviderJson::populateAseQosConfiguration(
