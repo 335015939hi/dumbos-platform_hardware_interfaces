@@ -51,6 +51,24 @@
       "message": "I think it\u0027s a good practice to `#include \u003cmutex\u003e` here to reduce coupling",
       "revId": "ebfb405137136b2a919fc431b75d257e2ae03083",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f20d772e_ff502d3b",
+        "filename": "audio/effect/all-versions/default/Effect.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 3388692
+      },
+      "writtenOn": "2025-02-11T01:34:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a919bb26_3fd9f172",
+      "revId": "ebfb405137136b2a919fc431b75d257e2ae03083",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
