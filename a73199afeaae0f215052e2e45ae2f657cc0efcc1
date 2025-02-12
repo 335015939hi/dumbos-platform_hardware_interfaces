@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a788a65_7dd65e90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1322530
+      },
+      "writtenOn": "2025-02-12T07:46:36Z",
+      "side": 1,
+      "message": "LGTM, restructuring change only, no logic change for the configuration matching.",
+      "revId": "a73199afeaae0f215052e2e45ae2f657cc0efcc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
