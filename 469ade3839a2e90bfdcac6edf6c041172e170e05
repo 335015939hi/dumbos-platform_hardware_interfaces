@@ -1,0 +1,127 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4b177fa_10784aca",
+        "filename": "security/see/authmgr/aidl/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2025-02-12T17:34:48Z",
+      "side": 1,
+      "message": "Nit: formatting? (same below)",
+      "range": {
+        "startLine": 3,
+        "startChar": 93,
+        "endLine": 3,
+        "endChar": 102
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "41deae2f_dbba24bf",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/authmgr/aidl/README.md",
+              "range": {
+                "startLine": 3,
+                "startChar": 0,
+                "endLine": 4,
+                "endChar": 0
+              },
+              "replacement": "The AuthMgr protocol allows clients to access trusted hals, AIDL-defined services in trusted execution environments. Version 1 was designed to allow applications running in a protected virtual machine (pVM) to access services running in a TEE in ARM TrustZone. An implementation of `IAuthMgrAuthorization` is referred to as an AuthMgr Backend. An implementation of a client of the AuthMgr Backend is referred to as an AuthMgr Frontend.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "469ade3839a2e90bfdcac6edf6c041172e170e05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2365e075_a94d531b",
+        "filename": "security/see/authmgr/aidl/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2025-02-12T17:34:48Z",
+      "side": 1,
+      "message": "Nit: delete?",
+      "range": {
+        "startLine": 3,
+        "startChar": 126,
+        "endLine": 3,
+        "endChar": 127
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5a17378a_2f2b9a47",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/authmgr/aidl/README.md",
+              "range": {
+                "startLine": 3,
+                "startChar": 0,
+                "endLine": 4,
+                "endChar": 0
+              },
+              "replacement": "The AuthMgr protocol allows clients to access trusted hals, AIDL-defined services in trusted execution environments. Version 1 was designed to allow applications running in a protected virtual machine (pVM) to access services running in a TEE in ARM TrustZone. An implementation of `IAuthMgrAuthorization` is referred to as an AuthMgr Backend. An implementation of a client of the AuthMgr Backend is referred to as an AuthMgr Frontend.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "469ade3839a2e90bfdcac6edf6c041172e170e05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a37102c3_b43bfd29",
+        "filename": "security/see/authmgr/aidl/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1678423
+      },
+      "writtenOn": "2025-02-12T17:34:48Z",
+      "side": 1,
+      "message": "Nit: authenticates and authorizes clients before they can access trusted HALs,",
+      "range": {
+        "startLine": 3,
+        "startChar": 21,
+        "endLine": 3,
+        "endChar": 27
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "9291120e_25357dbe",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/authmgr/aidl/README.md",
+              "range": {
+                "startLine": 3,
+                "startChar": 0,
+                "endLine": 4,
+                "endChar": 0
+              },
+              "replacement": "The AuthMgr protocol authenticates and authorizes clients before they can access trusted HALs, AIDL-defined services in trusted execution environments. Version 1, was designed to allow applications running in a protected virtual machine (pVM) to access services running in a TEE in ARM TrustZone. An implementation of `IAuthMgrAuthorization` is referred to as an AuthMgr Backend. An implementation of a client of the AuthMgr Backend is referred to as an AuthMgr Frontend.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "469ade3839a2e90bfdcac6edf6c041172e170e05",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
