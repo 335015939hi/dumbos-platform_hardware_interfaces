@@ -136,6 +136,26 @@ const SurroundSoundConfig& AudioPolicyConfigXmlConverter::getDefaultSurroundSoun
                                             ENCODED_FORMAT(MEDIA_MIMETYPE_AUDIO_AAC_XHE),
                                     }},
                     SIMPLE_FORMAT(MEDIA_MIMETYPE_AUDIO_AC4),
+                    SurroundSoundConfig::SurroundFormatFamily{
+                            .primaryFormat = AudioFormatDescription {
+                                    .encoding = std::string(::android::MEDIA_MIMETYPE_AUDIO_AC4)
+                                            + ";version=02.01.04",
+                                        }},
+                    SurroundSoundConfig::SurroundFormatFamily{
+                            .primaryFormat = AudioFormatDescription {
+                                    .encoding = std::string(::android::MEDIA_MIMETYPE_AUDIO_AC4)
+                                            + ";version=02.01.05",
+                                        }},
+                    SurroundSoundConfig::SurroundFormatFamily{
+                            .primaryFormat = AudioFormatDescription {
+                                    .encoding = std::string(::android::MEDIA_MIMETYPE_AUDIO_AC4)
+                                            + ";version=02.01.06",
+                                        }},
+                    SurroundSoundConfig::SurroundFormatFamily{
+                            .primaryFormat = AudioFormatDescription {
+                                    .encoding = std::string(::android::MEDIA_MIMETYPE_AUDIO_AC4)
+                                            + ";version=02.01.07",
+                                        }},
             }};
 #undef SIMPLE_FORMAT
 #undef ENCODED_FORMAT
