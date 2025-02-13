@@ -27,6 +27,8 @@
 #include <binder/ProcessState.h>
 #include <cutils/properties.h>
 
+#include <android-base/logging.h>
+
 #include "wifi_aidl_test_utils.h"
 
 using aidl::android::hardware::wifi::CachedScanData;
@@ -50,13 +52,20 @@ using aidl::android::hardware::wifi::WifiStatusCode;
 class WifiStaIfaceAidlTest : public testing::TestWithParam<std::string> {
   public:
     void SetUp() override {
+        LOG(INFO) << "Stopping wifi service in setup";
         stopWifiService(getInstanceName());
+        LOG(INFO) << "Retrieving STA iface";
         wifi_sta_iface_ = getWifiStaIface(getInstanceName());
         ASSERT_NE(nullptr, wifi_sta_iface_.get());
         ASSERT_TRUE(wifi_sta_iface_->getInterfaceVersion(&interface_version_).isOk());
+        LOG(INFO) << "Setup complete";
     }
 
-    void TearDown() override { stopWifiService(getInstanceName()); }
+    void TearDown() override {
+        LOG(INFO) << "Test teardown started";
+        stopWifiService(getInstanceName());
+        LOG(INFO) << "Test teardown complete";
+    }
 
   protected:
     bool isFeatureSupported(IWifiStaIface::FeatureSetMask expected) {
@@ -150,8 +159,16 @@ TEST_P(WifiStaIfaceAidlTest, GetFeatureSet) {
  */
 // @VsrTest = VSR-5.3.12-001|VSR-5.3.12-003|VSR-5.3.12-004|VSR-5.3.12-009
 TEST_P(WifiStaIfaceAidlTest, CheckApfIsSupported) {
+    LOG(INFO) << "Starting test CheckApfIsSupported";
+
+    LOG(INFO) << "Starting delay period";
+    sleep(5 /* sec */);
+    LOG(INFO) << "Stopping delay period";
+
     const std::string oem_key1 = getPropertyString("ro.oem.key1");
-    if (isTvDevice()) {
+    bool isTv = isTvDevice();
+    LOG(INFO) << "isTvDevice=" << isTv;
+    if (isTv) {
         // Flat panel TV devices that support MDNS offload do not have to implement APF if the WiFi
         // chipset does not have sufficient RAM to do so.
         if (isPanelTvDevice() && isMdnsOffloadPresentInNIC()) {
@@ -169,6 +186,7 @@ TEST_P(WifiStaIfaceAidlTest, CheckApfIsSupported) {
         }
     }
     int vendor_api_level = property_get_int32("ro.vendor.api_level", 0);
+    LOG(INFO) << "apiLevel=" << vendor_api_level;
     // Before VSR 14, APF support is optional.
     if (vendor_api_level < __ANDROID_API_U__) {
         if (!isFeatureSupported(IWifiStaIface::FeatureSetMask::APF)) {
@@ -181,6 +199,7 @@ TEST_P(WifiStaIfaceAidlTest, CheckApfIsSupported) {
 
     EXPECT_TRUE(isFeatureSupported(IWifiStaIface::FeatureSetMask::APF));
     StaApfPacketFilterCapabilities apf_caps = {};
+    LOG(INFO) << "Calling getApfPacketFilterCapabilities in the HAL";
     EXPECT_TRUE(wifi_sta_iface_->getApfPacketFilterCapabilities(&apf_caps).isOk());
     EXPECT_GE(apf_caps.version, 4);
     // Based on VSR-14 the usable memory must be at least 1024 bytes.
