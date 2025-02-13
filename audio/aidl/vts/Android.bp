@@ -77,6 +77,10 @@ cc_test {
         "VtsHalAudioCoreConfigTargetTest.cpp",
         "VtsHalAudioCoreModuleTargetTest.cpp",
     ],
+    data: [
+        "data/sine882hz_44100_3s.ape",
+        "data/sine960hz_48000_3s.ape",
+    ],
 }
 
 cc_test {

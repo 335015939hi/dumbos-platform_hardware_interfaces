@@ -28,6 +28,8 @@
     <target_preparer class="com.android.tradefed.targetprep.PushFilePreparer">
         <option name="cleanup" value="true" />
         <option name="push" value="{MODULE}->/data/local/tmp/{MODULE}" />
+        <option name="push" value="sine882hz_44100_3s.ape->/data/local/tmp/sine882hz_44100_3s.ape" />
+        <option name="push" value="sine960hz_48000_3s.ape->/data/local/tmp/sine960hz_48000_3s.ape" />
     </target_preparer>
 
     <test class="com.android.tradefed.testtype.GTest" >
