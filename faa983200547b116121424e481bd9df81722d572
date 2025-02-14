@@ -1,0 +1,86 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71aca3f3_98617b66",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2025-02-14T20:05:25Z",
+      "side": 1,
+      "message": "exceeding line limit.",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 103
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "00190d51_158e00a6",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+              "range": {
+                "startLine": 332,
+                "startChar": 0,
+                "endLine": 333,
+                "endChar": 0
+              },
+              "replacement": "        return AidlVersion() \u003e\u003d 2 \u0026\u0026\n               property_get_int32(\"ro.vendor.api_level\", 0) \u003e\u003d __ANDROID_API_T__;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "faa983200547b116121424e481bd9df81722d572",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d97564d_610762e8",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2025-02-14T20:05:25Z",
+      "side": 1,
+      "message": "replace it with `get_vendor_api_level`, function `get_vsr_api_level` is renamed.",
+      "range": {
+        "startLine": 335,
+        "startChar": 37,
+        "endLine": 335,
+        "endChar": 54
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "6ab8ef4d_83d7789d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+              "range": {
+                "startLine": 335,
+                "startChar": 0,
+                "endLine": 336,
+                "endChar": 0
+              },
+              "replacement": "        return AidlVersion() \u003e\u003d 2 \u0026\u0026 get_vendor_api_level() \u003e\u003d __ANDROID_API_U__;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "faa983200547b116121424e481bd9df81722d572",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
