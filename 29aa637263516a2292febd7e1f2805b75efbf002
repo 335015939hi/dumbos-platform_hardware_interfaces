@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9c4618b_db13b62b",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2025-02-14T20:05:34Z",
+      "side": 1,
+      "message": "exceeding line limit",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 103
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "404baac5_758228ea",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+              "range": {
+                "startLine": 253,
+                "startChar": 0,
+                "endLine": 254,
+                "endChar": 0
+              },
+              "replacement": "        return AidlVersion() \u003e\u003d 2 \u0026\u0026\n               property_get_int32(\"ro.vendor.api_level\", 0) \u003e\u003d __ANDROID_API_T__;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "29aa637263516a2292febd7e1f2805b75efbf002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69da948b_f690989d",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2025-02-14T20:05:34Z",
+      "side": 1,
+      "message": "keep using `get_vsr_api_level`.",
+      "range": {
+        "startLine": 256,
+        "startChar": 37,
+        "endLine": 256,
+        "endChar": 54
+      },
+      "revId": "29aa637263516a2292febd7e1f2805b75efbf002",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
