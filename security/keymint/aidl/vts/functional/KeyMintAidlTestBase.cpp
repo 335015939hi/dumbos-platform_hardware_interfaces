@@ -328,7 +328,13 @@ std::optional<vector<uint8_t>> KeyMintAidlTestBase::getModuleHash() {
  * which is mandatory for KeyMint version 2 and first_api_level 33 or greater.
  */
 bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
-    return AidlVersion() >= 2 && property_get_int32("ro.vendor.api_level", 0) >= __ANDROID_API_T__;
+    if (!is_gsi_image()) {
+        return AidlVersion() >= 2 &&
+               property_get_int32("ro.vendor.api_level", 0) >= __ANDROID_API_T__;
+    }
+    else {
+        return AidlVersion() >= 2 && get_vendor_api_level() >= __ANDROID_API_U__;
+    }
 }
 
 /**
