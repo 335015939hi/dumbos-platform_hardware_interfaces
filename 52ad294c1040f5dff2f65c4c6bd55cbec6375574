@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80100834_5c9b8bc5",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1415,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-17T12:13:36Z",
+      "side": 1,
+      "message": "Verified the logic used in the test.\n\nIn the DPFrequency library:\n\nLine 564 : https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/libeffects/dynamicsproc/dsp/DPFrequency.cpp;l\u003d510;drc\u003db4d6320e2ae398b36f0aaafb2ecd83609d2d99af#:~:text\u003d%3D%20dBtoLinear(-,newLevelDb%20%2D%20envDb,-)%3B\n\nComputes linear value of :\n```compressor or expander outputdB - ( inputDb + pregainDb)```\n\nLater on line 571:\nhttps://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/libeffects/dynamicsproc/dsp/DPFrequency.cpp;l\u003d510;drc\u003db4d6320e2ae398b36f0aaafb2ecd83609d2d99af#:~:text\u003dcb.complexTemp%5Bk%5D%20*%3D%20newFactor%3B\nThe linear value is multiplied with input frequency bins.\n\nIn terms of logarithms, it results into:\n```compressor or expander outputdB - ( inputDb + pregainDb) + inputDb```\n-\u003e ```compressor or expander outputdB - pregainDb```",
+      "fixSuggestions": [
+        {
+          "fixId": "d038a641_5e794aec",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1292,
+                "startChar": 0,
+                "endLine": 1293,
+                "endChar": 0
+              },
+              "replacement": "        std::vector\u003cfloat\u003e subOutput(output.begin() + kStartIndex, output.begin() + output.size());\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1317,
+                "startChar": 0,
+                "endLine": 1318,
+                "endChar": 0
+              },
+              "replacement": "        std::vector\u003cint\u003e cutoffFreqHz \u003d {200 /*0th band cutoff*/, 2000 /*1st band cutoff*/,\n                                         10000 /*2nd band cutoff*/, 16000 /*3rd band cutoff*/};\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1344,
+                "startChar": 0,
+                "endLine": 1345,
+                "endChar": 0
+              },
+              "replacement": "    static constexpr float kToleranceDb \u003d 0.1;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1355,
+                "startChar": 0,
+                "endLine": 1358,
+                "endChar": 0
+              },
+              "replacement": "    // Full scale sine wave with 100 Hz, 1000 Hz, 10000 Hz, 16000 Hz frequency is -6 dB\n    static constexpr float kFullScaleDb \u003d -6.0206;\n    std::vector\u003cint\u003e mTestFrequencies \u003d {100, 1000, 10000, 16000};\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1371,
+                "startChar": 0,
+                "endLine": 1373,
+                "endChar": 0
+              },
+              "replacement": "    float ratio \u003d 10;\n    std::vector\u003cfloat\u003e thresholdValues \u003d {-200, -150, -100, -50, -5, 0, 5, 50, 100, 150, 200};\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1381,
+                "startChar": 0,
+                "endLine": 1383,
+                "endChar": 0
+              },
+              "replacement": "    float threshold \u003d -10;\n    std::vector\u003cfloat\u003e ratioValues \u003d {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1391,
+                "startChar": 0,
+                "endLine": 1392,
+                "endChar": 0
+              },
+              "replacement": "    std::vector\u003cfloat\u003e postGainDbValues \u003d {-85, -40, 0, 40, 85};\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1416,
+                "startChar": 0,
+                "endLine": 1417,
+                "endChar": 0
+              },
+              "replacement": "    std::vector\u003cfloat\u003e preGainDbValues \u003d {-85, -40, 0, 40, 85};\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1419,
+                "startChar": 0,
+                "endLine": 1423,
+                "endChar": 0
+              },
+              "replacement": "    float thresholdDb \u003d -10;\n    float ratio \u003d 10;\n    float noiseGateDb \u003d -10;\n    float expanderRatio \u003d 10;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
