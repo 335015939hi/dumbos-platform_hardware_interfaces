@@ -153,6 +153,30 @@
       },
       "revId": "faa983200547b116121424e481bd9df81722d572",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d4932eb_c73cb5d3",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2025-02-18T13:54:30Z",
+      "side": 1,
+      "message": "looks like the fix suggested by David  is not addressed. With the current patchset-5 it fails to build.",
+      "parentUuid": "2ee409da_06d5b2d1",
+      "range": {
+        "startLine": 335,
+        "startChar": 37,
+        "endLine": 335,
+        "endChar": 54
+      },
+      "revId": "faa983200547b116121424e481bd9df81722d572",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
