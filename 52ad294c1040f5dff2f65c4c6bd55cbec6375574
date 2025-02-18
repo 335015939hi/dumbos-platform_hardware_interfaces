@@ -114,6 +114,253 @@
       ],
       "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a25fadf_2c989a14",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-18T16:58:16Z",
+      "side": 1,
+      "message": "This should be a loop variable.",
+      "range": {
+        "startLine": 1418,
+        "startChar": 0,
+        "endLine": 1418,
+        "endChar": 27
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "89227085_8b100e84",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1418,
+                "startChar": 0,
+                "endLine": 1419,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1424,
+                "startChar": 0,
+                "endLine": 1424,
+                "endChar": 0
+              },
+              "replacement": "        float expectedOutputDb;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e316b22_30177795",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-18T16:58:16Z",
+      "side": 1,
+      "message": "Can we also test with other ratios (both for expander and compressor): `2`, `3`, `4`. Just to make sure that our formulas work correctly.",
+      "range": {
+        "startLine": 1420,
+        "startChar": 18,
+        "endLine": 1420,
+        "endChar": 19
+      },
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd61ed91_808d2d7f",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-18T16:58:16Z",
+      "side": 1,
+      "message": "Please rename to `compressorRatio` for clarity.",
+      "range": {
+        "startLine": 1420,
+        "startChar": 10,
+        "endLine": 1420,
+        "endChar": 15
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "49b4dd70_a7606924",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1420,
+                "startChar": 0,
+                "endLine": 1421,
+                "endChar": 0
+              },
+              "replacement": "    float compressorRatio \u003d 2;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1426,
+                "startChar": 0,
+                "endLine": 1427,
+                "endChar": 0
+              },
+              "replacement": "            expectedOutputDb \u003d (inputWithPreGain - thresholdDb) / compressorRatio + thresholdDb - preGainDb;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1434,
+                "startChar": 0,
+                "endLine": 1435,
+                "endChar": 0
+              },
+              "replacement": "            fillMbcBandConfig(mCfgs, i, thresholdDb, compressorRatio, noiseGateDb, expanderRatio,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35620f97_7013e9e7",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-18T16:58:16Z",
+      "side": 1,
+      "message": "Please add curly brackets around the code of all branches.",
+      "range": {
+        "startLine": 1425,
+        "startChar": 42,
+        "endLine": 1425,
+        "endChar": 43
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "42190a3b_cb0bb019",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1425,
+                "startChar": 0,
+                "endLine": 1426,
+                "endChar": 0
+              },
+              "replacement": "        if (inputWithPreGain \u003e thresholdDb) {\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1427,
+                "startChar": 0,
+                "endLine": 1428,
+                "endChar": 0
+              },
+              "replacement": "        } else if (inputWithPreGain \u003c noiseGateDb) {\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1430,
+                "startChar": 0,
+                "endLine": 1431,
+                "endChar": 0
+              },
+              "replacement": "        } else {\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1432,
+                "startChar": 0,
+                "endLine": 1432,
+                "endChar": 0
+              },
+              "replacement": "        }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14c2697a_c5766deb",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1445,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-18T16:58:16Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 1445,
+        "startChar": 0,
+        "endLine": 1445,
+        "endChar": 9
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "65956b0e_e20a1d7f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1445,
+                "startChar": 0,
+                "endLine": 1446,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
