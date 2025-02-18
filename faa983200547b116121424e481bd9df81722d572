@@ -177,6 +177,30 @@
       },
       "revId": "faa983200547b116121424e481bd9df81722d572",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbccb52a_fa926f28",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1282799
+      },
+      "writtenOn": "2025-02-18T14:23:07Z",
+      "side": 1,
+      "message": "not sure why it was not applied, but this time it should be okay now, please check again.",
+      "parentUuid": "8d4932eb_c73cb5d3",
+      "range": {
+        "startLine": 335,
+        "startChar": 37,
+        "endLine": 335,
+        "endChar": 54
+      },
+      "revId": "faa983200547b116121424e481bd9df81722d572",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
