@@ -87,6 +87,24 @@
       "parentUuid": "33041093_3d6377d8",
       "revId": "6634a1cd5e03ace59ffc8459d6a0f78feda205b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb202865_10b4f6b2",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1611900
+      },
+      "writtenOn": "2025-02-19T15:51:48Z",
+      "side": 1,
+      "message": "Please apply above suggested changes to avoid presubmit failures on this branch.",
+      "parentUuid": "6ec9fa87_e62adda0",
+      "revId": "6634a1cd5e03ace59ffc8459d6a0f78feda205b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
