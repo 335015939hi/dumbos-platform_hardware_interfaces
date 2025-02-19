@@ -33,6 +33,24 @@
       "message": "I suspect this will need to be tweaked for the back-port to `android15-tests-dev` I\u0027m afraid.  We\u0027ll see what presubmit says, but will probably need to\n- use the previous name `get_vsr_api_level()` for `get_vendor_api_level()`\n- skip the call to `AVendorSupport_getVendorApiLevelOf()` which isn\u0027t available in this branch.\n\n(The behaviour should be the same because the vendor API level only diverges for \u003e\u003d V)",
       "revId": "6634a1cd5e03ace59ffc8459d6a0f78feda205b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eef1f9a9_d88fc855",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-19T12:21:53Z",
+      "side": 1,
+      "message": "As suspected:\n```\nhardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp:254:13: error: use of undeclared identifier \u0027get_vendor_api_level\u0027; did you mean \u0027get_vsr_api_level\u0027?\n  254 |             get_vendor_api_level() \u003e\u003d AVendorSupport_getVendorApiLevelOf(__ANDROID_API_T__);\n      |             ^~~~~~~~~~~~~~~~~~~~\n      |             get_vsr_api_level\nhardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h:398:5: note: \u0027get_vsr_api_level\u0027 declared here\n  398 | int get_vsr_api_level();\n      |     ^\nhardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp:254:39: error: use of undeclared identifier \u0027AVendorSupport_getVendorApiLevelOf\u0027\n  254 |             get_vendor_api_level() \u003e\u003d AVendorSupport_getVendorApiLevelOf(__ANDROID_API_T__);\n      |                                       ^\nhardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp:260:13: error: use of undeclared identifier \u0027get_vendor_api_level\u0027; did you mean \u0027get_vsr_api_level\u0027?\n  260 |             get_vendor_api_level() \u003e\u003d AVendorSupport_getVendorApiLevelOf(__ANDROID_API_U__);\n      |             ^~~~~~~~~~~~~~~~~~~~\n      |             get_vsr_api_level\nhardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.h:398:5: note: \u0027get_vsr_api_level\u0027 declared here\n  398 | int get_vsr_api_level();\n      |     ^\nhardware/interfaces/security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp:260:39: error: use of undeclared identifier \u0027AVendorSupport_getVendorApiLevelOf\u0027\n  260 |             get_vendor_api_level() \u003e\u003d AVendorSupport_getVendorApiLevelOf(__ANDROID_API_U__);\n```",
+      "parentUuid": "3049eb50_dbf8b068",
+      "revId": "6634a1cd5e03ace59ffc8459d6a0f78feda205b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
