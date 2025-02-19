@@ -69,6 +69,24 @@
       "parentUuid": "eef1f9a9_d88fc855",
       "revId": "6634a1cd5e03ace59ffc8459d6a0f78feda205b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ec9fa87_e62adda0",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-19T14:18:31Z",
+      "side": 1,
+      "message": "Could we keep the comments and the use of `get_vsr_api_level()` please, like so:\n\n```\n    if (!is_gsi_image()) {\n        return AidlVersion() \u003e\u003d 2 \u0026\u0026 get_vsr_api_level() \u003e\u003d __ANDROID_API_T__;\n    } else {\n        // The device ID properties may not be set properly when testing earlier implementations\n        // under GSI, e.g. `ro.product.\u003cid\u003e` is overridden by the GSI image, but the\n        // `ro.product.vendor.\u003cid\u003e` value (which does survive GSI installation) was not set.\n        return AidlVersion() \u003e\u003d 2 \u0026\u0026 get_vsr_api_level() \u003e\u003d __ANDROID_API_U__;\n    }\n}\n```\n\n(Sorry for the awkwardness in the back-port)",
+      "parentUuid": "33041093_3d6377d8",
+      "revId": "6634a1cd5e03ace59ffc8459d6a0f78feda205b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
