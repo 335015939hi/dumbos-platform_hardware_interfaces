@@ -16,6 +16,23 @@
       "message": "Hi, David, Rajesh\nplease also help to review the same change in android15-tests-dev",
       "revId": "6634a1cd5e03ace59ffc8459d6a0f78feda205b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3049eb50_dbf8b068",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-19T11:41:28Z",
+      "side": 1,
+      "message": "I suspect this will need to be tweaked for the back-port to `android15-tests-dev` I\u0027m afraid.  We\u0027ll see what presubmit says, but will probably need to\n- use the previous name `get_vsr_api_level()` for `get_vendor_api_level()`\n- skip the call to `AVendorSupport_getVendorApiLevelOf()` which isn\u0027t available in this branch.\n\n(The behaviour should be the same because the vendor API level only diverges for \u003e\u003d V)",
+      "revId": "6634a1cd5e03ace59ffc8459d6a0f78feda205b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
