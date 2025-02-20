@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8148e60_daa42ffb",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintAidlTestBase.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-20T14:22:15Z",
+      "side": 1,
+      "message": "(It took me way too long to notice the errant extra brace...)",
+      "revId": "4a7d3940f2bdc9f7ec95cf9983cc24876dde7d90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
