@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4adefe95_929e9d5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1965084
+      },
+      "writtenOn": "2025-02-20T18:19:45Z",
+      "side": 1,
+      "message": "This config file is for HIDL VHAL was which is deprecated. Is there a reason AIDL VHAL is not being used because that one contains the correct config.",
+      "revId": "b2a874edfc8f25bac4c8092f3eb9f9120eff3f1b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
