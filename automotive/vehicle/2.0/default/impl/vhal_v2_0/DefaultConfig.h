@@ -547,6 +547,7 @@ const ConfigDeclaration kVehicleProperties[]{
                                     VehicleAreaConfig{
                                             .areaId = SEAT_1_RIGHT,
                                             .minInt32Value = -2,
+<<<<<<< HEAD
                                             .maxInt32Value = 2,
                                     }}},
          .initialValue = {.int32Values = {0}}},  // +ve values for heating and -ve for cooling
@@ -554,6 +555,15 @@ const ConfigDeclaration kVehicleProperties[]{
         {.config = {.prop = toInt(VehicleProperty::HVAC_TEMPERATURE_SET),
                     .access = VehiclePropertyAccess::READ_WRITE,
                     .changeMode = VehiclePropertyChangeMode::ON_CHANGE,
+=======
+        {.config = {.prop = toInt(VehicleProperty::HVAC_TEMPERATURE_SET),
+                    .access = VehiclePropertyAccess::READ_WRITE,
+                    .changeMode = VehiclePropertyChangeMode::ON_CHANGE,
+                    .configArray = {160, 320, 5, 608, 896, 9},
+                    .areaConfigs = {VehicleAreaConfig{
+                                            .areaId = HVAC_LEFT,
+                                            .minFloatValue = 16,
+>>>>>>> PATCH
                     .configArray = {160, 280, 5, 605, 825, 10},
                     .areaConfigs = {VehicleAreaConfig{
                                             .areaId = HVAC_LEFT,
