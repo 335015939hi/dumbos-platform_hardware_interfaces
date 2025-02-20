@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06544a91_b584061b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1887805
+      },
+      "writtenOn": "2025-02-20T19:55:37Z",
+      "side": 1,
+      "message": "One nit, otherwise LTGM",
+      "revId": "5cf567d36a6a6fcf7eb3bae74baaa4ccffbedb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f79468de_9a92887d",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/hwcryptokey_tests.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1887805
+      },
+      "writtenOn": "2025-02-20T19:55:37Z",
+      "side": 1,
+      "message": "nit: spelling",
+      "range": {
+        "startLine": 189,
+        "startChar": 37,
+        "endLine": 189,
+        "endChar": 44
+      },
+      "revId": "5cf567d36a6a6fcf7eb3bae74baaa4ccffbedb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
