@@ -1,0 +1,344 @@
+/*
+ * Copyright (C) 2025 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#include <aidl/android/hardware/security/see/hwcrypto/BnCryptoOperationContext.h>
+#include <aidl/android/hardware/security/see/hwcrypto/BnHwCryptoKey.h>
+#include <aidl/android/hardware/security/see/hwcrypto/BnHwCryptoOperations.h>
+#include <aidl/android/hardware/security/see/hwcrypto/BnOpaqueKey.h>
+#include <aidl/android/hardware/security/see/hwcrypto/IHwCryptoKey.h>
+#include <aidl/android/hardware/security/see/hwcrypto/IOpaqueKey.h>
+#include <android-base/logging.h>
+#include <android-base/result.h>
+#include <android/binder_ibinder.h>
+#include <android/binder_manager.h>
+#include <android/binder_process.h>
+#include <android/hardware/security/see/hwcrypto/BnHwCryptoKey.h>
+#include <android/hardware/security/see/hwcrypto/IHwCryptoKey.h>
+#include <binder/RpcServer.h>
+#include <binder/RpcSession.h>
+#include <binder/RpcTransportRaw.h>
+#include <binder/RpcTransportTipcAndroid.h>
+#include <binder/RpcTrusty.h>
+#include <getopt.h>
+#include <poll.h>
+#include <trusty/tipc.h>
+#include <memory>
+#include <optional>
+#include <string>
+#include "hwcryptokeyimpl.h"
+
+// We use cpp interfaces to talk to Trusty, and ndk interfaces for the platform
+namespace cpp_hwcrypto = android::hardware::security::see::hwcrypto;
+namespace ndk_hwcrypto = aidl::android::hardware::security::see::hwcrypto;
+
+using android::IBinder;
+using android::IInterface;
+using android::RpcSession;
+using android::RpcTrustyConnectWithSessionInitializer;
+using android::sp;
+using android::wp;
+using android::base::ErrnoError;
+using android::base::Error;
+using android::base::Result;
+using android::binder::Status;
+
+namespace android {
+namespace trusty {
+namespace hwcryptohalservice {
+
+#define HWCRYPTO_KEY_PORT "com.android.trusty.rust.hwcryptohal.V1"
+
+std::map<std::weak_ptr<ndk_hwcrypto::IOpaqueKey>, wp<cpp_hwcrypto::IOpaqueKey>, std::owner_less<>>
+        keyMapping;
+std::map<std::weak_ptr<ndk_hwcrypto::ICryptoOperationContext>,
+         wp<cpp_hwcrypto::ICryptoOperationContext>, std::owner_less<>>
+        contextMapping;
+
+sp<cpp_hwcrypto::IOpaqueKey> convertKeyPointer(
+        const std::shared_ptr<ndk_hwcrypto::IOpaqueKey>& opaqueKey) {
+    if (opaqueKey == nullptr) {
+        return nullptr;
+    }
+    if (keyMapping.find(opaqueKey) == keyMapping.end()) {
+        LOG(ERROR) << "couldn't find wrapped key";
+        return nullptr;
+    }
+    auto opaqueKeyCpp = keyMapping[opaqueKey];
+    return opaqueKeyCpp.promote();
+}
+
+sp<cpp_hwcrypto::ICryptoOperationContext> convertOperationsContext(
+        const std::shared_ptr<ndk_hwcrypto::ICryptoOperationContext>& context) {
+    if (context == nullptr) {
+        return nullptr;
+    }
+    if (contextMapping.find(context) == contextMapping.end()) {
+        LOG(ERROR) << "couldn't find wrapped key";
+        return nullptr;
+    }
+    auto contextCpp = contextMapping[context];
+    return contextCpp.promote();
+}
+
+static ndk::ScopedAStatus convertStatus(Status status) {
+    if (status.isOk()) {
+        return ndk::ScopedAStatus::ok();
+    } else {
+        return ndk::ScopedAStatus::fromExceptionCodeWithMessage(status.exceptionCode(),
+                                                                status.exceptionMessage());
+    }
+}
+
+class HwCryptoOperationContextNdk : public ndk_hwcrypto::BnCryptoOperationContext {
+  private:
+    sp<cpp_hwcrypto::ICryptoOperationContext> mContext;
+
+  public:
+    HwCryptoOperationContextNdk(sp<cpp_hwcrypto::ICryptoOperationContext> operations)
+        : mContext(std::move(operations)) {}
+
+    static std::shared_ptr<HwCryptoOperationContextNdk> Create(
+            sp<cpp_hwcrypto::ICryptoOperationContext> operations) {
+        if (operations == nullptr) {
+            return nullptr;
+        }
+        std::shared_ptr<HwCryptoOperationContextNdk> contextNdk =
+                ndk::SharedRefBase::make<HwCryptoOperationContextNdk>(std::move(operations));
+
+        if (!contextNdk) {
+            LOG(ERROR) << "failed to allocate HwCryptoOperationContext";
+            return nullptr;
+        }
+        return contextNdk;
+    }
+};
+
+void insertWrappedContextIntoMap(
+        sp<cpp_hwcrypto::ICryptoOperationContext> cppContext,
+        std::shared_ptr<ndk_hwcrypto::ICryptoOperationContext>* ndkContext) {
+    std::shared_ptr<ndk_hwcrypto::ICryptoOperationContext> operationsContext =
+            HwCryptoOperationContextNdk::Create(cppContext);
+    std::weak_ptr<ndk_hwcrypto::ICryptoOperationContext> weakContextNdk = operationsContext;
+    wp<cpp_hwcrypto::ICryptoOperationContext> weakContextCpp = cppContext;
+    contextMapping.insert({weakContextNdk, weakContextCpp});
+    *ndkContext = operationsContext;
+}
+
+// TODO: Check refactoring opportunities like returning a Result<cpp_hwcrypto::types::OperationData>
+//       once we add the code that uses this function.
+Result<void> setOperationData(const ndk_hwcrypto::types::OperationData& ndkOperationData,
+                              cpp_hwcrypto::types::OperationData* cppOperationData) {
+    cpp_hwcrypto::types::MemoryBufferReference cppMemBuffRef;
+    switch (ndkOperationData.getTag()) {
+        case ndk_hwcrypto::types::OperationData::dataBuffer:
+            cppOperationData->set<cpp_hwcrypto::types::OperationData::dataBuffer>(
+                    ndkOperationData.get<ndk_hwcrypto::types::OperationData::dataBuffer>());
+            break;
+        case ndk_hwcrypto::types::OperationData::memoryBufferReference:
+            cppMemBuffRef.startOffset =
+                    ndkOperationData
+                            .get<ndk_hwcrypto::types::OperationData::memoryBufferReference>()
+                            .startOffset;
+            cppMemBuffRef.sizeBytes =
+                    ndkOperationData
+                            .get<ndk_hwcrypto::types::OperationData::memoryBufferReference>()
+                            .sizeBytes;
+            cppOperationData->set<cpp_hwcrypto::types::OperationData::memoryBufferReference>(
+                    std::move(cppMemBuffRef));
+            break;
+        default:
+            // This shouldn't happen with the current definitions
+            return ErrnoError() << "received unknown operation data type";
+    }
+    return {};
+}
+
+class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
+  private:
+    sp<cpp_hwcrypto::IHwCryptoOperations> mHwCryptoOperations;
+
+  public:
+    HwCryptoOperationsNdk(sp<cpp_hwcrypto::IHwCryptoOperations> operations)
+        : mHwCryptoOperations(std::move(operations)) {}
+
+    static std::shared_ptr<HwCryptoOperationsNdk> Create(
+            sp<cpp_hwcrypto::IHwCryptoOperations> operations) {
+        if (operations == nullptr) {
+            return nullptr;
+        }
+        std::shared_ptr<HwCryptoOperationsNdk> operationsNdk =
+                ndk::SharedRefBase::make<HwCryptoOperationsNdk>(std::move(operations));
+
+        if (!operationsNdk) {
+            LOG(ERROR) << "failed to allocate HwCryptoOperations";
+            return nullptr;
+        }
+        return operationsNdk;
+    }
+
+    ndk::ScopedAStatus processCommandList(
+            std::vector<ndk_hwcrypto::CryptoOperationSet>* /*operationSets*/,
+            std::vector<ndk_hwcrypto::CryptoOperationResult>* /*aidl_return*/) {
+        return ndk::ScopedAStatus::ok();
+    }
+};
+
+class OpaqueKeyNdk : public ndk_hwcrypto::BnOpaqueKey {
+  private:
+    sp<cpp_hwcrypto::IOpaqueKey> mOpaqueKey;
+
+  public:
+    OpaqueKeyNdk(sp<cpp_hwcrypto::IOpaqueKey> opaqueKey) : mOpaqueKey(std::move(opaqueKey)) {}
+
+    static std::shared_ptr<OpaqueKeyNdk> Create(sp<cpp_hwcrypto::IOpaqueKey> opaqueKey) {
+        if (opaqueKey == nullptr) {
+            return nullptr;
+        }
+        std::shared_ptr<OpaqueKeyNdk> opaqueKeyNdk =
+                ndk::SharedRefBase::make<OpaqueKeyNdk>(std::move(opaqueKey));
+
+        if (!opaqueKeyNdk) {
+            LOG(ERROR) << "failed to allocate HwCryptoKey";
+            return nullptr;
+        }
+        return opaqueKeyNdk;
+    }
+
+    ndk::ScopedAStatus exportWrappedKey(
+            const std::shared_ptr<ndk_hwcrypto::IOpaqueKey>& wrappingKey,
+            ::std::vector<uint8_t>* aidl_return) {
+        Status status = Status::fromExceptionCode(Status::EX_ILLEGAL_ARGUMENT);
+        auto wrappingKeyNdk = convertKeyPointer(wrappingKey);
+        if (wrappingKeyNdk == nullptr) {
+            LOG(ERROR) << "couldn't get wrapped key";
+            return convertStatus(status);
+        }
+        status = mOpaqueKey->exportWrappedKey(wrappingKeyNdk, aidl_return);
+        return convertStatus(status);
+    }
+
+    ndk::ScopedAStatus getKeyPolicy(ndk_hwcrypto::KeyPolicy* aidl_return) {
+        Status status = Status::fromExceptionCode(Status::EX_ILLEGAL_ARGUMENT);
+        cpp_hwcrypto::KeyPolicy cppPolicy = cpp_hwcrypto::KeyPolicy();
+
+        status = mOpaqueKey->getKeyPolicy(&cppPolicy);
+        if (status.isOk()) {
+            auto ndkPolicy = convertKeyPolicy(cppPolicy);
+            if (ndkPolicy.has_value()) {
+                *aidl_return = std::move(ndkPolicy.value());
+            } else {
+                return ndk::ScopedAStatus::fromServiceSpecificError(
+                        ndk_hwcrypto::types::HalErrorCode::BAD_PARAMETER);
+            }
+        }
+        return convertStatus(status);
+    }
+
+    ndk::ScopedAStatus getPublicKey(::std::vector<uint8_t>* aidl_return) {
+        auto status = mOpaqueKey->getPublicKey(aidl_return);
+        return convertStatus(status);
+    }
+
+    ndk::ScopedAStatus getShareableToken(const ::std::vector<uint8_t>& sealingDicePolicy,
+                                         ndk_hwcrypto::types::OpaqueKeyToken* aidl_return) {
+        cpp_hwcrypto::types::OpaqueKeyToken binder_return;
+        auto status = mOpaqueKey->getShareableToken(sealingDicePolicy, &binder_return);
+        if (status.isOk()) {
+            // TOO: check correctness
+            aidl_return->keyToken = std::move(binder_return.keyToken);
+        }
+        return convertStatus(status);
+        return ndk::ScopedAStatus::ok();
+    }
+
+    ndk::ScopedAStatus setProtectionId(
+            const ndk_hwcrypto::types::ProtectionId /*protectionId*/,
+            const ::std::vector<ndk_hwcrypto::types::OperationType>& /*allowedOperations*/) {
+        return ndk::ScopedAStatus::ok();
+    }
+};
+
+void insertWrappedKeyIntoMap(sp<cpp_hwcrypto::IOpaqueKey> cppOpaqueKey,
+                             std::shared_ptr<ndk_hwcrypto::IOpaqueKey>* ndkOpaqueKey) {
+    std::shared_ptr<ndk_hwcrypto::IOpaqueKey> opaqueKey = OpaqueKeyNdk::Create(cppOpaqueKey);
+    std::weak_ptr<ndk_hwcrypto::IOpaqueKey> weakKeyNdk = opaqueKey;
+    wp<cpp_hwcrypto::IOpaqueKey> weakKeyCpp = cppOpaqueKey;
+    keyMapping.insert({weakKeyNdk, weakKeyCpp});
+    *ndkOpaqueKey = opaqueKey;
+}
+
+}  // namespace hwcryptohalservice
+}  // namespace trusty
+}  // namespace android
+
+static void showUsageAndExit(int code) {
+    LOG(ERROR) << "usage: android.hardware.trusty.hwcryptohal-service -d <trusty_dev>";
+    exit(code);
+}
+
+static void parseDeviceName(int argc, char* argv[], char*& device_name) {
+    static const char* _sopts = "h:d:";
+    static const struct option _lopts[] = {{"help", no_argument, nullptr, 'h'},
+                                           {"trusty_dev", required_argument, nullptr, 'd'},
+                                           {0, 0, 0, 0}};
+    int opt;
+    int oidx = 0;
+
+    while ((opt = getopt_long(argc, argv, _sopts, _lopts, &oidx)) != -1) {
+        switch (opt) {
+            case 'd':
+                device_name = strdup(optarg);
+                break;
+            case 'h':
+                showUsageAndExit(EXIT_SUCCESS);
+                break;
+            default:
+                LOG(ERROR) << "unrecognized option: " << opt;
+                showUsageAndExit(EXIT_FAILURE);
+        }
+    }
+
+    if (device_name == nullptr) {
+        LOG(ERROR) << "missing required argument(s)";
+        showUsageAndExit(EXIT_FAILURE);
+    }
+
+    LOG(INFO) << "starting android.hardware.trusty.hwcryptohal-service";
+    LOG(INFO) << "trusty dev: " << device_name;
+}
+
+int main(int argc, char* argv[]) {
+    char* device_name;
+    parseDeviceName(argc, argv, device_name);
+
+    auto hwCryptoServer = android::trusty::hwcryptohalservice::HwCryptoKey::Create(device_name);
+    if (hwCryptoServer == nullptr) {
+        LOG(ERROR) << "couldn't create hwcrypto service";
+        exit(EXIT_FAILURE);
+    }
+    ABinderProcess_setThreadPoolMaxThreadCount(0);
+    const std::string instance =
+            std::string() + ndk_hwcrypto::IHwCryptoKey::descriptor + "/default";
+    binder_status_t status =
+            AServiceManager_addService(hwCryptoServer->asBinder().get(), instance.c_str());
+    if (status != STATUS_OK) {
+        LOG(ERROR) << "couldn't register hwcrypto service";
+    }
+    CHECK_EQ(status, STATUS_OK);
+    ABinderProcess_joinThreadPool();
+
+    return 0;
+}
