@@ -554,7 +554,7 @@ const ConfigDeclaration kVehicleProperties[]{
         {.config = {.prop = toInt(VehicleProperty::HVAC_TEMPERATURE_SET),
                     .access = VehiclePropertyAccess::READ_WRITE,
                     .changeMode = VehiclePropertyChangeMode::ON_CHANGE,
-                    .configArray = {160, 280, 5, 605, 825, 10},
+                    .configArray = {160, 320, 5, 608, 896, 9},
                     .areaConfigs = {VehicleAreaConfig{
                                             .areaId = HVAC_LEFT,
                                             .minFloatValue = 16,
