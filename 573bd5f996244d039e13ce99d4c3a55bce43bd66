@@ -379,6 +379,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "992abfc4_2127c1fc",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-20T22:25:57Z",
+      "side": 1,
+      "message": "added case",
+      "parentUuid": "2adf7657_b8e9ebd9",
+      "range": {
+        "startLine": 564,
+        "startChar": 12,
+        "endLine": 564,
+        "endChar": 21
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7099b352_2f370738",
         "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
         "patchSetId": 3
