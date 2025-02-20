@@ -1,0 +1,277 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb1418a5_3e5ee1d9",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-20T18:46:22Z",
+      "side": 1,
+      "message": "This IOpaqueKey has to be one we created previously with `HwCryptoKey::importClearKey`, right? Instead of using this map, can we cast back to `OpaqueKeyNdk` and get `OpaqueKeyNdk::mOpaqueKey`?\n\nLikewise for the `ICryptoOperationContext`s",
+      "range": {
+        "startLine": 70,
+        "startChar": 8,
+        "endLine": 70,
+        "endChar": 66
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db5f0748_2ced9819",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-20T18:46:22Z",
+      "side": 1,
+      "message": "Is there a reason you\u0027re not using `Result\u003ccpp_hwcrypto::types::OperationData\u003e` here?",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 12
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "96daee91_46d6b515",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+              "range": {
+                "startLine": 249,
+                "startChar": 0,
+                "endLine": 251,
+                "endChar": 0
+              },
+              "replacement": "Result\u003ccpp_hwcrypto::types::OperationData\u003e setOperationData(\n        const ndk_hwcrypto::types::OperationData\u0026 ndkOperationData) {\n    cpp_hwcrypto::types::OperationData cppOperationData;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+              "range": {
+                "startLine": 254,
+                "startChar": 0,
+                "endLine": 255,
+                "endChar": 0
+              },
+              "replacement": "            cppOperationData.set\u003ccpp_hwcrypto::types::OperationData::dataBuffer\u003e(\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+              "range": {
+                "startLine": 266,
+                "startChar": 0,
+                "endLine": 267,
+                "endChar": 0
+              },
+              "replacement": "            cppOperationData.set\u003ccpp_hwcrypto::types::OperationData::memoryBufferReference\u003e(\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+              "range": {
+                "startLine": 273,
+                "startChar": 0,
+                "endLine": 274,
+                "endChar": 0
+              },
+              "replacement": "    return cppOperationData;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf907c47_cbfd9617",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-20T18:46:22Z",
+      "side": 1,
+      "message": "Why is this a member? Looks like `Create` and `connectToTrusty` can just take a cstr as an argument.",
+      "range": {
+        "startLine": 378,
+        "startChar": 4,
+        "endLine": 378,
+        "endChar": 28
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6649c627_445560c3",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-20T18:46:22Z",
+      "side": 1,
+      "message": "```suggestion\n    sp\u003cRpcSession\u003e mSession;\n```",
+      "range": {
+        "startLine": 381,
+        "startChar": 4,
+        "endLine": 381,
+        "endChar": 15
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ce30392_52d950de",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-20T18:46:22Z",
+      "side": 1,
+      "message": "Nit: I think it\u0027s normally clearer to handle the error case in the if-statement",
+      "range": {
+        "startLine": 446,
+        "startChar": 8,
+        "endLine": 446,
+        "endChar": 28
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19704fa4_6cb43f20",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-20T18:46:22Z",
+      "side": 1,
+      "message": "Unused?",
+      "range": {
+        "startLine": 458,
+        "startChar": 8,
+        "endLine": 458,
+        "endChar": 72
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49a62a93_f73a782c",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-20T18:46:22Z",
+      "side": 1,
+      "message": "All this is essentially\n```\ncpp_hwcrypto::types::ExplicitKeyMaterial explicitKeyCpp \u003d keyMaterialNdk;\n```\nright?\n\nCan you pull that out into it\u0027s own function so it\u0027s clearer what parts of this function are doing important work?\n\nIf you\u0027re doing these conversions a lot, it might be helpful to pull out a whole bunch of these conversions into a different file that just has a big overloaded function:\n\n```\ncpp_hwcrypto::types::ExplicitKeyMaterial convertToCpp(ndk_hwcrypto::types::ExplicitKeyMaterial);\ncpp_hwcrypto::IHwCryptoKey::KeySlot convertToCpp(ndk_hwcrypto::IHwCryptoKey::KeySlot);\n// etc.\n```",
+      "range": {
+        "startLine": 465,
+        "startChar": 0,
+        "endLine": 495,
+        "endChar": 9
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2adf7657_b8e9ebd9",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-20T18:46:22Z",
+      "side": 1,
+      "message": "Is the `-h` handled by the `getopt_long`, or is it going to hit the default case here?",
+      "range": {
+        "startLine": 564,
+        "startChar": 12,
+        "endLine": 564,
+        "endChar": 21
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7099b352_2f370738",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-20T18:46:22Z",
+      "side": 1,
+      "message": "`ndk_hwcrypto::IHwCryptoKey::descriptor` is a `const char*`? I\u0027d probably do `std::string(ndk_hwcrypto::IHwCryptoKey::descriptor) + ...`, but this works too.",
+      "range": {
+        "startLine": 594,
+        "startChar": 12,
+        "endLine": 594,
+        "endChar": 80
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "250bdfad_c8484006",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+              "range": {
+                "startLine": 594,
+                "startChar": 0,
+                "endLine": 595,
+                "endChar": 0
+              },
+              "replacement": "            std::string(ndk_hwcrypto::IHwCryptoKey::descriptor) + \"/default\";\n"
+            }
+          ]
+        }
+      ],
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
