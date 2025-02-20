@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d9be7188_c529b815",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-20T22:25:41Z",
+      "side": 1,
+      "message": "Originally I had that code but after a discussion with Steve Moreland, he pointed out that it wouldn\u0027t work reliably and that this approach needs to be used for now (until more API support is added).",
+      "parentUuid": "cb1418a5_3e5ee1d9",
+      "range": {
+        "startLine": 70,
+        "startChar": 8,
+        "endLine": 70,
+        "endChar": 66
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db5f0748_2ced9819",
         "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
         "patchSetId": 3
@@ -97,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f8835bd_d9765c5b",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-20T22:25:41Z",
+      "side": 1,
+      "message": "I didn\u0027t add the code that uses that function yet. It includes some nested switches, so I found out that it was easier to define `cpp_hwcrypto::types::OperationData` and populated on this helper function. I am leaving a comment to refactor once that code is up.",
+      "parentUuid": "db5f0748_2ced9819",
+      "range": {
+        "startLine": 249,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 12
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf907c47_cbfd9617",
         "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
         "patchSetId": 3
@@ -108,6 +156,30 @@
       "writtenOn": "2025-02-20T18:46:22Z",
       "side": 1,
       "message": "Why is this a member? Looks like `Create` and `connectToTrusty` can just take a cstr as an argument.",
+      "range": {
+        "startLine": 378,
+        "startChar": 4,
+        "endLine": 378,
+        "endChar": 28
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cb08c4b_449053f1",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-20T22:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf907c47_cbfd9617",
       "range": {
         "startLine": 378,
         "startChar": 4,
@@ -131,6 +203,30 @@
       "writtenOn": "2025-02-20T18:46:22Z",
       "side": 1,
       "message": "```suggestion\n    sp\u003cRpcSession\u003e mSession;\n```",
+      "range": {
+        "startLine": 381,
+        "startChar": 4,
+        "endLine": 381,
+        "endChar": 15
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2563b9b_86d239b7",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-20T22:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6649c627_445560c3",
       "range": {
         "startLine": 381,
         "startChar": 4,
@@ -187,6 +283,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "458a2394_d0f41c70",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-20T22:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19704fa4_6cb43f20",
+      "range": {
+        "startLine": 458,
+        "startChar": 8,
+        "endLine": 458,
+        "endChar": 72
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49a62a93_f73a782c",
@@ -200,6 +320,30 @@
       "writtenOn": "2025-02-20T18:46:22Z",
       "side": 1,
       "message": "All this is essentially\n```\ncpp_hwcrypto::types::ExplicitKeyMaterial explicitKeyCpp \u003d keyMaterialNdk;\n```\nright?\n\nCan you pull that out into it\u0027s own function so it\u0027s clearer what parts of this function are doing important work?\n\nIf you\u0027re doing these conversions a lot, it might be helpful to pull out a whole bunch of these conversions into a different file that just has a big overloaded function:\n\n```\ncpp_hwcrypto::types::ExplicitKeyMaterial convertToCpp(ndk_hwcrypto::types::ExplicitKeyMaterial);\ncpp_hwcrypto::IHwCryptoKey::KeySlot convertToCpp(ndk_hwcrypto::IHwCryptoKey::KeySlot);\n// etc.\n```",
+      "range": {
+        "startLine": 465,
+        "startChar": 0,
+        "endLine": 495,
+        "endChar": 9
+      },
+      "revId": "573bd5f996244d039e13ce99d4c3a55bce43bd66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de098bf1_53cf65a4",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-20T22:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49a62a93_f73a782c",
       "range": {
         "startLine": 465,
         "startChar": 0,
