@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aa987c2_743e5317",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-02-21T18:20:44Z",
+      "side": 1,
+      "message": "I think we should scope new test cases to new HALs (for example, IEffect interface version \u003e\u003d 3).\nSimilar to what we did for the Downmixer data testing:\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/vts/VtsHalDownmixTargetTest.cpp;l\u003d221",
+      "range": {
+        "startLine": 1260,
+        "startChar": 9,
+        "endLine": 1260,
+        "endChar": 16
+      },
+      "revId": "66376d7098e3eb1ec725f620ccbda09a879ba866",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
