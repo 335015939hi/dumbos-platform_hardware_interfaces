@@ -167,6 +167,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d38e691a_ea2f30c3",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-21T15:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a25fadf_2c989a14",
+      "range": {
+        "startLine": 1418,
+        "startChar": 0,
+        "endLine": 1418,
+        "endChar": 27
+      },
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e316b22_30177795",
@@ -251,6 +275,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b84d380b_e7b78aff",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-21T15:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd61ed91_808d2d7f",
+      "range": {
+        "startLine": 1420,
+        "startChar": 10,
+        "endLine": 1420,
+        "endChar": 15
+      },
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35620f97_7013e9e7",
@@ -322,6 +370,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b231064_24331088",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1425,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-21T15:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35620f97_7013e9e7",
+      "range": {
+        "startLine": 1425,
+        "startChar": 42,
+        "endLine": 1425,
+        "endChar": 43
+      },
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14c2697a_c5766deb",
@@ -359,6 +431,30 @@
           ]
         }
       ],
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bc0f069_4a8a5830",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1445,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-21T15:47:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14c2697a_c5766deb",
+      "range": {
+        "startLine": 1445,
+        "startChar": 0,
+        "endLine": 1445,
+        "endChar": 9
+      },
       "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
