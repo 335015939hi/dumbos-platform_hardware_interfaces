@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cc79b0e_a18e0658",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-21T21:20:32Z",
+      "side": 1,
+      "message": "Agree, it seems that I need to check and update other HAL implementations since I\u0027m changing the internal interface.",
+      "revId": "2ca7fd48c34c23236c81387f340f7a470d793883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d943e54d_5b0890b6",
@@ -65,6 +82,30 @@
           ]
         }
       ],
+      "revId": "2ca7fd48c34c23236c81387f340f7a470d793883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd94e9c4_818d5028",
+        "filename": "audio/aidl/vts/VtsHalAudioCoreModuleTargetTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-21T21:20:32Z",
+      "side": 1,
+      "message": "I haven\u0027t found any actual devices that support offloading of APE. But maybe that\u0027s a good thing because we know that no device will fail this test for now. Later we can start adding more formats (AAC, MP3, ...) to the test and simultaneosly verify that they work on actual devices.",
+      "parentUuid": "d943e54d_5b0890b6",
+      "range": {
+        "startLine": 234,
+        "startChar": 38,
+        "endLine": 234,
+        "endChar": 57
+      },
       "revId": "2ca7fd48c34c23236c81387f340f7a470d793883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
