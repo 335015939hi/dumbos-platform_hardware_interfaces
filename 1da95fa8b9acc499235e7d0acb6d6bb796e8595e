@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c7fc328_8439a797",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-23T18:54:14Z",
+      "side": 1,
+      "message": "Thanks I removed the initializer and I am using the default now",
+      "parentUuid": "8210313e_246467c2",
+      "revId": "1da95fa8b9acc499235e7d0acb6d6bb796e8595e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b6f606f_5c60a686",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-02-23T10:17:21Z",
       "side": 1,
       "message": "```suggestion\n        LOG(ERROR) \u003c\u003c \"couldn\u0027t create hwcrypto service\";\n```",
+      "revId": "1da95fa8b9acc499235e7d0acb6d6bb796e8595e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07cf2354_7e4e0407",
+        "filename": "security/see/hwcrypto/default/hwcrypto_delegator.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-23T18:54:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b6f606f_5c60a686",
       "revId": "1da95fa8b9acc499235e7d0acb6d6bb796e8595e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
