@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb1323b_48b8a022",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-02-24T04:16:56Z",
+      "side": 1,
+      "message": "Are these input params fine? I have a hunch I\u0027m either missing something or there are more combos that should be tested.",
+      "range": {
+        "startLine": 588,
+        "startChar": 58,
+        "endLine": 588,
+        "endChar": 66
+      },
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
