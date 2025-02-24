@@ -329,6 +329,7 @@ std::optional<vector<uint8_t>> KeyMintAidlTestBase::getModuleHash() {
  */
 bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
     if (!is_gsi_image()) {
+<<<<<<< HEAD   (b1fb11 VtsHalHapticGeneratorTargetTest: skip data path testing for )
         return AidlVersion() >= 2 &&
             get_vendor_api_level() >= AVendorSupport_getVendorApiLevelOf(__ANDROID_API_T__);
     } else {
@@ -337,6 +338,15 @@ bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
         // `ro.product.vendor.<id>` value (which does survive GSI installation) was not set.
         return AidlVersion() >= 2 &&
             get_vendor_api_level() >= AVendorSupport_getVendorApiLevelOf(__ANDROID_API_U__);
+||||||| BASE
+=======
+        return AidlVersion() >= 2 && get_vsr_api_level() >= __ANDROID_API_T__;
+    } else {
+        // The device ID properties may not be set properly when testing earlier implementations
+        // under GSI, e.g. `ro.product.<id>` is overridden by the GSI image, but the
+        // `ro.product.vendor.<id>` value (which does survive GSI installation) was not set.
+        return AidlVersion() >= 2 && get_vsr_api_level() >= __ANDROID_API_U__;
+>>>>>>> BRANCH (c2c19d Skipping test on GSI + first_api_level < U)
     }
 }
 
