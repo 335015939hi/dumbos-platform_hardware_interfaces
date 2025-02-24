@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8f715b8c_e6add006",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-02-24T16:08:17Z",
+      "side": 1,
+      "message": "I think this was vscode doing what it felt was best. I can clean all that up once we agree the test is actually doing what we want it to do.",
+      "parentUuid": "3e68e711_430c78c3",
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b034885_c5aea721",
         "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2025-02-24T15:12:33Z",
       "side": 1,
       "message": "There is no `return` here, so this function will always return `nullptr`.",
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b06d2d09_e777e8f5",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-02-24T16:08:17Z",
+      "side": 1,
+      "message": "wow, some of these tests have been broken all along",
+      "parentUuid": "5b034885_c5aea721",
       "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -152,6 +188,24 @@
       "writtenOn": "2025-02-24T15:12:33Z",
       "side": 1,
       "message": "In an ideal world the failure code should probably be `UNSUPPORTED_PURPOSE` or `INCOMPATIBLE_PURPOSE`.  However, if we put that in I suspect we\u0027ll have to loosen it in future to allow other plausible error codes.",
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed50d495_3b8a4a9a",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-02-24T16:08:17Z",
+      "side": 1,
+      "message": "Yup, that\u0027s exactly what I was thinking.",
+      "parentUuid": "95f3a266_b679413d",
       "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
