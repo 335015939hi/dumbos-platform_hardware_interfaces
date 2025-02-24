@@ -3,6 +3,97 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e68e711_430c78c3",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-24T15:12:33Z",
+      "side": 1,
+      "message": "nit: why the mix of \u003c\u003e and \"\" includes?",
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b034885_c5aea721",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-24T15:12:33Z",
+      "side": 1,
+      "message": "There is no `return` here, so this function will always return `nullptr`.",
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b69eaa5c_5e251aa0",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-24T15:12:33Z",
+      "side": 1,
+      "message": "super-nit: \"KeyMint\"",
+      "range": {
+        "startLine": 563,
+        "startChar": 65,
+        "endLine": 563,
+        "endChar": 72
+      },
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "127473e2_19e0b3bb",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 581,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-24T15:12:33Z",
+      "side": 1,
+      "message": "Note that StrongBox instances can fail most of these for a different reason (that they don\u0027t support digests other than SHA-256)",
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede14a3e_a5e9e655",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-24T15:12:33Z",
+      "side": 1,
+      "message": "It would be nice to have a `SCOPED_TRACE` for the loop",
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cb1323b_48b8a022",
         "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
         "patchSetId": 2
@@ -20,6 +111,47 @@
         "endLine": 588,
         "endChar": 66
       },
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "910c6b95_5fbf85dd",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-24T15:12:33Z",
+      "side": 1,
+      "message": "I think so -- probably worth testing with a deliberately broken KeyMint, e.g. by changing here: https://cs.android.com/android/platform/superproject/main/+/main:system/keymint/ta/src/rkp.rs;l\u003d48?q\u003dKeyParam::Purpose",
+      "parentUuid": "6cb1323b_48b8a022",
+      "range": {
+        "startLine": 588,
+        "startChar": 58,
+        "endLine": 588,
+        "endChar": 66
+      },
+      "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95f3a266_b679413d",
+        "filename": "security/rkp/aidl/vts/functional/VtsRemotelyProvisionedComponentTests.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-02-24T15:12:33Z",
+      "side": 1,
+      "message": "In an ideal world the failure code should probably be `UNSUPPORTED_PURPOSE` or `INCOMPATIBLE_PURPOSE`.  However, if we put that in I suspect we\u0027ll have to loosen it in future to allow other plausible error codes.",
       "revId": "c67c423200ad2dbbaef44545ba8bc8e89728263a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
