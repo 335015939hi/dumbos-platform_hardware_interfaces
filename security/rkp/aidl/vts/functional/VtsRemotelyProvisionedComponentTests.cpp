@@ -16,6 +16,9 @@
 
 #include <memory>
 #include <string>
+#include "aidl/android/hardware/security/keymint/HardwareAuthToken.h"
+#include "aidl/android/hardware/security/keymint/KeyPurpose.h"
+#undef LOG_TAG
 #define LOG_TAG "VtsRemotelyProvisionableComponentTests"
 
 #include <aidl/android/hardware/security/keymint/BnRemotelyProvisionedComponent.h>
@@ -552,6 +555,31 @@ TEST_P(GenerateKeyTests, generateAndUseEcdsaP256Key_prodMode) {
     ASSERT_TRUE(X509_verify(key_cert.get(), signing_pubkey.get()))
             << "Verification of attested certificate failed "
             << "OpenSSL error string: " << ERR_error_string(ERR_get_error(), NULL);
+}
+
+/**
+ * Generate an RKP key, then attempt to use it as a signing key. Keymint must reject this as
+ * RKP keys are only suitable for signing attestations.
+ */
+TEST_P(GenerateKeyTests, verifyRkpKeysCannotBeUsedAsSigningKeys) {
+    // See if there is a matching IKeyMintDevice for this IRemotelyProvisionedComponent.
+    auto keyMint = matchingKeyMintDevice(GetParam());
+    if (!keyMint) {
+        GTEST_SKIP() << "Skipping key use test as no matching KeyMint device found";
+        return;
+    }
+
+    MacedPublicKey macedPubKey;
+    bytevec keyBlob;
+    constexpr bool testMode = false;
+    auto status = provisionable_->generateEcdsaP256KeyPair(testMode, &macedPubKey, &keyBlob);
+    ASSERT_TRUE(status.isOk());
+
+    const AuthorizationSet inParams;
+    const std::optional<HardwareAuthToken> hat;
+    BeginResult out;
+    Status result = keyMint->begin(KeyPurpose::SIGN, keyBlob, inParams.vector_data(), hat, &out);
+    ASSERT_FALSE(result.isOk());
 }
 
 /**
