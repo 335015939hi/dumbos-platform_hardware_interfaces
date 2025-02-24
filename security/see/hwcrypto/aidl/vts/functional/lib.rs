@@ -25,7 +25,7 @@ use std::os::fd::{FromRawFd, IntoRawFd};
 use std::fs::File;
 use std::io::Read;
 use rustutils::system_properties;
-use android_hardware_security_see_hwcrypto::aidl::android::hardware::security::see::hwcrypto::IHwCryptoKey::IHwCryptoKey;
+use android_hardware_security_see_hwcrypto::aidl::android::hardware::security::see::hwcrypto::IHwCryptoKey::{BpHwCryptoKey, IHwCryptoKey};
 
 const HWCRYPTO_SERVICE_PORT: u32 = 4;
 
@@ -44,8 +44,8 @@ pub fn connect_service<T: FromIBinder + ?Sized>(
     })
 }
 
-/// Get a HwCryptoKey binder service object
-pub fn get_hwcryptokey() -> Result<binder::Strong<dyn IHwCryptoKey>, binder::Status> {
+/// Get a HwCryptoKey binder service object using a direct vsock connection
+pub fn get_hwcryptokey_system() -> Result<binder::Strong<dyn IHwCryptoKey>, binder::Status> {
     let cid = system_properties::read("trusty.test_vm.vm_cid")
         .context("couldn't get vm cid")
         .or_binder_exception(ExceptionCode::ILLEGAL_STATE)?
@@ -54,4 +54,16 @@ pub fn get_hwcryptokey() -> Result<binder::Strong<dyn IHwCryptoKey>, binder::Sta
         .context("couldn't parse vm cid")
         .or_binder_exception(ExceptionCode::ILLEGAL_ARGUMENT)?;
     Ok(connect_service(cid, HWCRYPTO_SERVICE_PORT)?)
+}
+
+/// Get a HwCryptoKey binder service object from either `get_hwcryptokey_system` or the
+/// service manager depending on the property `trusty.test_infrastructure.use_vm_for_tests`
+pub fn get_hwcryptokey() -> Result<binder::Strong<dyn IHwCryptoKey>, binder::Status> {
+    let retrieval_method = system_properties::read("trusty.test_infrastructure.use_vm_for_tests").unwrap_or(None).unwrap_or("false".to_string());
+    if retrieval_method == "true" {
+        get_hwcryptokey_system()
+    } else {
+        let interface_name = <BpHwCryptoKey as IHwCryptoKey>::get_descriptor().to_owned() + "/default";
+        Ok(binder::get_interface(&interface_name)?)
+    }
 }
