@@ -19,6 +19,8 @@ package {
 rust_defaults {
     name: "hw_crypto_hal_aidl_rust_defaults",
     enabled: false,
+    prefer_rlib: true,
+    vendor_available: true,
     rustlibs: [
         "libbinder_rs",
         "android.hardware.security.see.hwcrypto-V1-rust",
@@ -30,7 +32,7 @@ rust_defaults {
         "librustutils",
     ],
     arch: {
-        x86_64: {
+        arm64: {
             enabled: true,
         },
     },
@@ -49,7 +51,6 @@ rust_library {
 
 rust_binary {
     name: "wait_hw_crypto",
-    prefer_rlib: true,
     defaults: [
         "hw_crypto_hal_aidl_rust_defaults",
     ],
@@ -74,10 +75,27 @@ rust_test {
         "libhwcryptohal_vts_test",
     ],
     data: [
+        ":wait_hw_crypto",
+    ],
+    test_config: "AndroidTestVendor.xml",
+}
+
+rust_test {
+    name: "VtsAidlHwCryptoConnTestSystem",
+    srcs: ["connection_test.rs"],
+    require_root: true,
+    defaults: [
+        "hw_crypto_hal_aidl_rust_defaults",
+    ],
+    rustlibs: [
+        "libhwcryptohal_vts_test",
+    ],
+    data: [
         ":trusty_test_vm_elf",
         ":trusty_test_vm_config",
         ":trusty_vm_launcher_sh",
         ":trusty_wait_ready_sh",
         ":wait_hw_crypto",
     ],
+    test_config: "AndroidTestSystem.xml",
 }
