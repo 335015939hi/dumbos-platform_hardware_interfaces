@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a2ce0fd_eda9f9e8",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-25T21:38:49Z",
+      "side": 1,
+      "message": "From what I have looked over it doesn\u0027t seem to work (only on shared_ptr). Compilation also breaks if I try to use an unordered_map",
+      "parentUuid": "0f9626d0_1e42fa26",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 8
+      },
+      "revId": "93e53011949cd89107ce2d6dfbf3a928ff416824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b899c8b_ba321dfb",
         "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
         "patchSetId": 9
@@ -37,6 +61,30 @@
       "writtenOn": "2025-02-25T20:06:48Z",
       "side": 1,
       "message": "IIUC, these maps are going to grow as the program runs; is there a reasonable time to go through these maps and remove any weak pointers that no longer point to a live object? Maybe in the `OpaqueKeyNdk` and `HwCryptoOperationContextNdk` destructors?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 23
+      },
+      "revId": "93e53011949cd89107ce2d6dfbf3a928ff416824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30a4fa8c_6c254bb1",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-25T21:38:49Z",
+      "side": 1,
+      "message": "Yes, the maps will grow and could cause a memory issue. I\u0027ve been thinking about when to do the clean up and I think the destructors were probably a good point to do it (the oriignal suggestion I received was to wait until the table got too big to do the deletion). I wanted to have more tests set up first to figure out where is the best place to reduce the map. I have added a TODO for now.",
+      "parentUuid": "7b899c8b_ba321dfb",
       "range": {
         "startLine": 51,
         "startChar": 0,
