@@ -299,6 +299,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f3d0265_07c36dd1",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-25T12:08:47Z",
+      "side": 1,
+      "message": "For ratio values greater than 3, the error between test output dB and calculated output dB exceeds 0.5.\nTesting upto the ratio value 3.",
+      "parentUuid": "7e316b22_30177795",
+      "range": {
+        "startLine": 1420,
+        "startChar": 18,
+        "endLine": 1420,
+        "endChar": 19
+      },
+      "revId": "52ad294c1040f5dff2f65c4c6bd55cbec6375574",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35620f97_7013e9e7",
