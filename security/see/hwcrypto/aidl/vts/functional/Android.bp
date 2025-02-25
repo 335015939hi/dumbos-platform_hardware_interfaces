@@ -79,6 +79,10 @@ rust_test {
         ":wait_hw_crypto",
     ],
     test_config: "AndroidTestVendor.xml",
+    test_suites: [
+        "general-tests",
+        "vts",
+    ],
 }
 
 rust_test {
