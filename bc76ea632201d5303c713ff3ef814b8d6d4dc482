@@ -1,0 +1,91 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90e19b14_b04377f0",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-25T16:55:16Z",
+      "side": 1,
+      "message": "`2` is what was released with Android 15. I think we need to use `3` for new tests.",
+      "range": {
+        "startLine": 42,
+        "startChar": 43,
+        "endLine": 42,
+        "endChar": 44
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5c87d0dd_d6d0ee8d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 42,
+                "startChar": 0,
+                "endLine": 43,
+                "endChar": 0
+              },
+              "replacement": "constexpr int32_t kMinDataTestHalVersion \u003d 3;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "bc76ea632201d5303c713ff3ef814b8d6d4dc482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "195b11a8_b9587e0e",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-25T16:55:16Z",
+      "side": 1,
+      "message": "Please add `SCOPED_TRACE(\"ratio: \" + ratio)` (using `to_string` as needed) so that any failure messages will include the value that was used.",
+      "range": {
+        "startLine": 1440,
+        "startChar": 36,
+        "endLine": 1440,
+        "endChar": 37
+      },
+      "revId": "bc76ea632201d5303c713ff3ef814b8d6d4dc482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d480ac8_488dacad",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-25T16:55:16Z",
+      "side": 1,
+      "message": "I\u0027m not sure we should be enganing both the compressor and the expander at the same time. What I meant in my comment is that we test these compressor and expander ratios separately. Sorry if that was unclear.",
+      "range": {
+        "startLine": 1455,
+        "startChar": 57,
+        "endLine": 1456,
+        "endChar": 58
+      },
+      "revId": "bc76ea632201d5303c713ff3ef814b8d6d4dc482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
