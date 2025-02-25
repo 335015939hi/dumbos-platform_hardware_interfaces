@@ -249,7 +249,14 @@ uint32_t KeyMintAidlTestBase::boot_patch_level() {
  * which is mandatory for KeyMint version 2 and first_api_level 33 or greater.
  */
 bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
-    return AidlVersion() >= 2 && property_get_int32("ro.vendor.api_level", 0) >= __ANDROID_API_T__;
+    if (!is_gsi_image()) {
+        return AidlVersion() >= 2 && get_vsr_api_level() >= __ANDROID_API_T__;
+    } else {
+        // The device ID properties may not be set properly when testing earlier implementations
+        // under GSI, e.g. `ro.product.<id>` is overridden by the GSI image, but the
+        // `ro.product.vendor.<id>` value (which does survive GSI installation) was not set.
+        return AidlVersion() >= 2 && get_vsr_api_level() >= __ANDROID_API_U__;
+    }
 }
 
 /**
