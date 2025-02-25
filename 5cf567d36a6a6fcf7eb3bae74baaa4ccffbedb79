@@ -39,6 +39,30 @@
       },
       "revId": "5cf567d36a6a6fcf7eb3bae74baaa4ccffbedb79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f1d10aa_b8104dae",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/hwcryptokey_tests.rs",
+        "patchSetId": 6
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-25T04:29:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f79468de_9a92887d",
+      "range": {
+        "startLine": 189,
+        "startChar": 37,
+        "endLine": 189,
+        "endChar": 44
+      },
+      "revId": "5cf567d36a6a6fcf7eb3bae74baaa4ccffbedb79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
