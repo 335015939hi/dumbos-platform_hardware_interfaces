@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f9626d0_1e42fa26",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-25T20:06:48Z",
+      "side": 1,
+      "message": "Can you not use `unordered_map` with `weak_ptr`?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 8
+      },
+      "revId": "93e53011949cd89107ce2d6dfbf3a928ff416824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b899c8b_ba321dfb",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-25T20:06:48Z",
+      "side": 1,
+      "message": "IIUC, these maps are going to grow as the program runs; is there a reasonable time to go through these maps and remove any weak pointers that no longer point to a live object? Maybe in the `OpaqueKeyNdk` and `HwCryptoOperationContextNdk` destructors?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 23
+      },
+      "revId": "93e53011949cd89107ce2d6dfbf3a928ff416824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
