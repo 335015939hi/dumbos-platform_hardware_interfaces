@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "425de1f2_35fdf652",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-02-26T19:41:52Z",
+      "side": 1,
+      "message": "You\u0027d have to use `unordered_map\u003cweak_ptr\u003cFoo\u003e, Bar, owner_hash\u003cFoo\u003e, owner_eq\u003cFoo\u003e\u003e`, but `owner_hash` and `owner_eq` are from C++26.\nhttps://en.cppreference.com/w/cpp/memory/owner_hash",
+      "parentUuid": "6a2ce0fd_eda9f9e8",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 8
+      },
+      "revId": "93e53011949cd89107ce2d6dfbf3a928ff416824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b899c8b_ba321dfb",
