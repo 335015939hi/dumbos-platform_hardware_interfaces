@@ -119,7 +119,28 @@ void static nfaVSCallback(uint8_t event, uint16_t param_len, uint8_t* p_param) {
         case NCI_MSG_PROP_ANDROID: {
             uint8_t android_sub_opcode = p_param[3];
             switch (android_sub_opcode) {
+<<<<<<< HEAD   (78a057 Skip TWT VTS tests which has interop issues)
                 case NCI_ANDROID_PASSIVE_OBSERVE: {
+||||||| BASE
+                case NCI_QUERY_ANDROID_PASSIVE_OBSERVE: {
+                    sObserveModeState = p_param[5];
+                    LOG(INFO) << StringPrintf("Query observe mode state response is %x",
+                                              sObserveModeState);
+                    SyncEventGuard guard(sNfaVsCommand);
+                    sNfaVsCommand.notifyOne();
+                } break;
+                case NCI_ANDROID_SET_PASSIVE_OBSERVER_TECH:
+                case NCI_ANDROID_PASSIVE_OBSERVE: {
+=======
+                case NCI_QUERY_ANDROID_PASSIVE_OBSERVE: {
+                    sObserveModeState = p_param[5];
+                    LOG(INFO) << StringPrintf("Query observe mode state response is %x",
+                                              sObserveModeState);
+                    SyncEventGuard guard(sNfaVsCommand);
+                    sNfaVsCommand.notifyOne();
+                } break;
+                case NCI_ANDROID_SET_PASSIVE_OBSERVER_TECH: {
+>>>>>>> CHANGE (87ee43 nfc(vts): Remove VTS tests for the old observe mode command)
                     if (param_len == 5) {
                         if ((p_param[0] & NCI_MT_MASK) == (NCI_MT_RSP << NCI_MT_SHIFT)) {
                             sVSCmdStatus = p_param[4];
@@ -149,6 +170,7 @@ void static nfaVSCallback(uint8_t event, uint16_t param_len, uint8_t* p_param) {
 }
 
 /*
+<<<<<<< HEAD   (78a057 Skip TWT VTS tests which has interop issues)
  * Enable passive observe mode.
  */
 tNFA_STATUS static nfaObserveModeEnable(bool enable) {
@@ -176,6 +198,165 @@ tNFA_STATUS static nfaObserveModeEnable(bool enable) {
     }
 
     return status;
+||||||| BASE
+ * Enable passive observe mode.
+ */
+tNFA_STATUS static nfaObserveModeEnable(bool enable) {
+    tNFA_STATUS status = NFA_STATUS_FAILED;
+
+    status = NFA_StopRfDiscovery();
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaEnableDisablePollingEvent.wait(1000)) {
+            LOG(WARNING) << "Timeout waiting to disable NFC RF discovery";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    uint8_t cmd[] = {NCI_ANDROID_PASSIVE_OBSERVE,
+                     static_cast<uint8_t>(enable ? NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE
+                                                 : NCI_ANDROID_PASSIVE_OBSERVE_PARAM_DISABLE)};
+
+    status = NFA_SendVsCommand(NCI_MSG_PROP_ANDROID, sizeof(cmd), cmd, nfaVSCallback);
+
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaVsCommand.wait(1000)) {
+            LOG(WARNING) << "Timeout waiting for set observe mode command response";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    return status;
+}
+
+/*
+ * Get observe mode state.
+ */
+tNFA_STATUS static nfaQueryObserveModeState() {
+    tNFA_STATUS status = NFA_STATUS_FAILED;
+
+    uint8_t cmd[] = {NCI_QUERY_ANDROID_PASSIVE_OBSERVE};
+
+    status = NFA_SendVsCommand(NCI_MSG_PROP_ANDROID, sizeof(cmd), cmd, nfaVSCallback);
+
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaVsCommand.wait(1000)) {
+            LOG(WARNING) << "Timeout waiting for query observe mode response";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    return status;
+}
+
+/*
+ * Enable per-technology observe mode.
+ */
+tNFA_STATUS static nfaSetPassiveObserverTech(uint8_t tech_mask) {
+    tNFA_STATUS status = NFA_STATUS_FAILED;
+
+    uint8_t cmd[] = {NCI_ANDROID_SET_PASSIVE_OBSERVER_TECH, tech_mask};
+
+    status = NFA_SendVsCommand(NCI_MSG_PROP_ANDROID, sizeof(cmd), cmd, nfaVSCallback);
+
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaVsCommand.wait(SET_PASSIVE_OBSERVER_TECH_TIMEOUT_MS)) {
+            LOG(WARNING) << "Timeout waiting for set observer tech response";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    return status;
+}
+
+/*
+ * Get chipset capabilities.
+ */
+tNFA_STATUS static nfaGetCaps() {
+    tNFA_STATUS status = NFA_STATUS_FAILED;
+
+    uint8_t cmd[] = {NCI_ANDROID_GET_CAPS};
+    status = NFA_SendVsCommand(NCI_MSG_PROP_ANDROID, sizeof(cmd), cmd, nfaVSCallback);
+
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaVsCommand.wait(1000)) {
+            LOG(WARNING) << "Timeout waiting for GET_CAPS response";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    return status;
+}
+
+/*
+ * Get observe mode capabilities.
+ */
+uint8_t static getCapsPassiveObserverModeValue() {
+    return sCaps[2];
+=======
+ * Get observe mode state.
+ */
+tNFA_STATUS static nfaQueryObserveModeState() {
+    tNFA_STATUS status = NFA_STATUS_FAILED;
+
+    uint8_t cmd[] = {NCI_QUERY_ANDROID_PASSIVE_OBSERVE};
+
+    status = NFA_SendVsCommand(NCI_MSG_PROP_ANDROID, sizeof(cmd), cmd, nfaVSCallback);
+
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaVsCommand.wait(1000)) {
+            LOG(WARNING) << "Timeout waiting for query observe mode response";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    return status;
+}
+
+/*
+ * Enable per-technology observe mode.
+ */
+tNFA_STATUS static nfaSetPassiveObserverTech(uint8_t tech_mask) {
+    tNFA_STATUS status = NFA_STATUS_FAILED;
+
+    uint8_t cmd[] = {NCI_ANDROID_SET_PASSIVE_OBSERVER_TECH, tech_mask};
+
+    status = NFA_SendVsCommand(NCI_MSG_PROP_ANDROID, sizeof(cmd), cmd, nfaVSCallback);
+
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaVsCommand.wait(SET_PASSIVE_OBSERVER_TECH_TIMEOUT_MS)) {
+            LOG(WARNING) << "Timeout waiting for set observer tech response";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    return status;
+}
+
+/*
+ * Get chipset capabilities.
+ */
+tNFA_STATUS static nfaGetCaps() {
+    tNFA_STATUS status = NFA_STATUS_FAILED;
+
+    uint8_t cmd[] = {NCI_ANDROID_GET_CAPS};
+    status = NFA_SendVsCommand(NCI_MSG_PROP_ANDROID, sizeof(cmd), cmd, nfaVSCallback);
+
+    if (status == NFA_STATUS_OK) {
+        if (!sNfaVsCommand.wait(1000)) {
+            LOG(WARNING) << "Timeout waiting for GET_CAPS response";
+            return NFA_STATUS_TIMEOUT;
+        }
+    }
+
+    return status;
+}
+
+/*
+ * Get observe mode capabilities.
+ */
+uint8_t static getCapsPassiveObserverModeValue() {
+    return sCaps[2];
+>>>>>>> CHANGE (87ee43 nfc(vts): Remove VTS tests for the old observe mode command)
 }
 
 class NfcBehaviorChanges : public testing::TestWithParam<std::string> {
@@ -212,6 +393,7 @@ class NfcBehaviorChanges : public testing::TestWithParam<std::string> {
 };
 
 /*
+<<<<<<< HEAD   (78a057 Skip TWT VTS tests which has interop issues)
  * ObserveModeEnable:
  * Attempts to enable observe mode. Does not test Observe Mode functionality,
  * but simply verifies that the enable command responds successfully.
@@ -224,6 +406,192 @@ TEST_P(NfcBehaviorChanges, ObserveModeEnableDisable) {
 
     status = nfaObserveModeEnable(false);
     ASSERT_EQ(status, NFA_STATUS_OK);
+||||||| BASE
+ * ObserveModeEnableDisable:
+ * Attempts to enable observe mode. Does not test Observe Mode functionality,
+ * but simply verifies that the enable command responds successfully.
+ *
+ * @VsrTest = GMS-VSR-3.2.8-001
+ */
+TEST_P(NfcBehaviorChanges, ObserveModeEnableDisable) {
+    if (get_vsr_api_level() < 202404) {
+        GTEST_SKIP() << "Skipping test for board API level < 202404";
+    }
+
+    tNFA_STATUS status = nfaObserveModeEnable(true);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+
+    status = nfaQueryObserveModeState();
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    ASSERT_NE(sObserveModeState, 0);
+
+    status = nfaObserveModeEnable(false);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+
+    status = nfaQueryObserveModeState();
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    ASSERT_EQ(sObserveModeState, 0);
+}
+
+/*
+ * SetPassiveObserverTech_getCaps:
+ * Verifies GET_CAPS returns get correct value for observe mode capabilities.
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_getCaps) {
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    tNFC_STATUS status = nfaGetCaps();
+
+    ASSERT_EQ(status, NFC_STATUS_OK);
+    ASSERT_EQ(getCapsPassiveObserverModeValue(), 0x2);
+}
+
+/*
+ * SetPassiveObserverTech_allExceptF:
+ * Verifies observe mode can be enabled for NFC-A, NFC-B, NFC-V, and disable for NFC-F.
+ *
+ * @VsrTest = GMS-VSR-3.2.8-002
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_allExceptF) {
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    tNFC_STATUS status = nfaSetPassiveObserverTech(NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_A |
+                                       NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_B |
+                                       NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_V);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    status = nfaQueryObserveModeState();
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    ASSERT_EQ(sObserveModeState, NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_A |
+                        NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_B |
+                        NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_V);
+}
+
+/*
+ * SetPassiveObserverTech_allOnAndOff:
+ * Verifies observe mode can be enabled and disabled for all technologies.
+ *
+ * @VsrTest = GMS-VSR-3.2.8-002
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_allOnAndOff) {
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    tNFC_STATUS status = nfaSetPassiveObserverTech(0x0F);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    status = nfaQueryObserveModeState();
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    ASSERT_EQ(sObserveModeState, 0x0F);
+
+    status = nfaSetPassiveObserverTech(0x00);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    status = nfaQueryObserveModeState();
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    ASSERT_EQ(sObserveModeState, 0x00);
+}
+
+/*
+ * SetPassiveObserverTech_testThroughput:
+ * Verifies observe mode can be enabled and disabled repeatedly without timing out or erroring.
+ *
+ * @VsrTest = GMS-VSR-3.2.8-002
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_testThroughput) {
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    for (int i = 0; i < 100; ++i) {
+        tNFC_STATUS status = nfaSetPassiveObserverTech(0x0F);
+        ASSERT_EQ(status, NFA_STATUS_OK);
+
+        status = nfaSetPassiveObserverTech(0x00);
+        ASSERT_EQ(status, NFA_STATUS_OK);
+    }
+=======
+ * SetPassiveObserverTech_getCaps:
+ * Verifies GET_CAPS returns get correct value for observe mode capabilities.
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_getCaps) {
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    tNFC_STATUS status = nfaGetCaps();
+
+    ASSERT_EQ(status, NFC_STATUS_OK);
+    ASSERT_EQ(getCapsPassiveObserverModeValue(), 0x2);
+}
+
+/*
+ * SetPassiveObserverTech_allExceptF:
+ * Verifies observe mode can be enabled for NFC-A, NFC-B, NFC-V, and disable for NFC-F.
+ *
+ * @VsrTest = GMS-VSR-3.2.8-002
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_allExceptF) {
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    tNFC_STATUS status = nfaSetPassiveObserverTech(NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_A |
+                                       NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_B |
+                                       NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_V);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    status = nfaQueryObserveModeState();
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    ASSERT_EQ(sObserveModeState, NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_A |
+                        NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_B |
+                        NCI_ANDROID_PASSIVE_OBSERVE_PARAM_ENABLE_V);
+}
+
+/*
+ * SetPassiveObserverTech_allOnAndOff:
+ * Verifies observe mode can be enabled and disabled for all technologies.
+ *
+ * @VsrTest = GMS-VSR-3.2.8-002
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_allOnAndOff) {
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    tNFC_STATUS status = nfaSetPassiveObserverTech(0x0F);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    status = nfaQueryObserveModeState();
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    ASSERT_EQ(sObserveModeState, 0x0F);
+
+    status = nfaSetPassiveObserverTech(0x00);
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    status = nfaQueryObserveModeState();
+    ASSERT_EQ(status, NFA_STATUS_OK);
+    ASSERT_EQ(sObserveModeState, 0x00);
+}
+
+/*
+ * SetPassiveObserverTech_testThroughput:
+ * Verifies observe mode can be enabled and disabled repeatedly without timing out or erroring.
+ *
+ * @VsrTest = GMS-VSR-3.2.8-002
+ */
+TEST_P(NfcBehaviorChanges, SetPassiveObserverTech_testThroughput) {
+    if (get_vsr_api_level() < 202504) {
+        GTEST_SKIP() << "Skipping test for board API level < 202504";
+    }
+
+    for (int i = 0; i < 100; ++i) {
+        tNFC_STATUS status = nfaSetPassiveObserverTech(0x0F);
+        ASSERT_EQ(status, NFA_STATUS_OK);
+
+        status = nfaSetPassiveObserverTech(0x00);
+        ASSERT_EQ(status, NFA_STATUS_OK);
+    }
+>>>>>>> CHANGE (87ee43 nfc(vts): Remove VTS tests for the old observe mode command)
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(NfcBehaviorChanges);
