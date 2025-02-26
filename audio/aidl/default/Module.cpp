@@ -612,6 +612,19 @@ ndk::ScopedAStatus Module::updateStreamsConnectedState(const AudioPatch& oldPatc
     return ndk::ScopedAStatus::ok();
 }
 
+binder_status_t Module::dump(int fd, const char** args, uint32_t numArgs) {
+    for (const auto& port : getConfig().ports) {
+        switch (port.ext.getTag()) {
+        case AudioPortExt::Tag::mix:
+            getStreams().dump(port.id, fd, args, numArgs);
+            break;
+        default:
+            break;
+        }
+    }
+    return STATUS_OK;
+}
+
 ndk::ScopedAStatus Module::setModuleDebug(
         const ::aidl::android::hardware::audio::core::ModuleDebug& in_debug) {
     LOG(DEBUG) << __func__ << ": " << mType << ": old flags:" << mDebug.toString()
