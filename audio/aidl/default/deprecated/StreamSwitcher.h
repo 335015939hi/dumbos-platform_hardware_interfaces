@@ -139,6 +139,8 @@ class StreamSwitcher : virtual public StreamCommonInterface {
     ndk::ScopedAStatus bluetoothParametersUpdated() override;
     ndk::ScopedAStatus setGain(float gain) override;
 
+    binder_status_t dump(int fd, const char** args, uint32_t numArgs) override;
+
   protected:
     // Since switching a stream requires closing down the current stream, StreamSwitcher
     // asks the extending class its intent on the connected devices change.

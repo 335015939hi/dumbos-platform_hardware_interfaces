@@ -376,6 +376,8 @@ struct StreamCommonInterface {
             const std::vector<::aidl::android::media::audio::common::AudioDevice>& devices) = 0;
     virtual ndk::ScopedAStatus bluetoothParametersUpdated() = 0;
     virtual ndk::ScopedAStatus setGain(float gain) = 0;
+
+    virtual binder_status_t dump(int fd, const char** args, uint32_t numArgs) = 0;
 };
 
 // This is equivalent to automatically generated 'IStreamCommonDelegator' but uses
@@ -430,6 +432,10 @@ class StreamCommonDelegator : public BnStreamCommon {
         return delegate != nullptr ? delegate->removeEffect(in_effect)
                                    : ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_STATE);
     }
+    binder_status_t dump(int fd, const char** args, uint32_t numArgs) override {
+        auto delegate = mDelegate.lock();
+        return delegate != nullptr ? delegate->dump(fd, args, numArgs) : STATUS_OK;
+    };
     // It is possible that on the client side the proxy for IStreamCommon will outlive
     // the IStream* instance, and the server side IStream* instance will get destroyed
     // while this IStreamCommon instance is still alive.
@@ -478,6 +484,8 @@ class StreamCommonImpl : virtual public StreamCommonInterface, virtual public Dr
             override;
     ndk::ScopedAStatus bluetoothParametersUpdated() override;
     ndk::ScopedAStatus setGain(float gain) override;
+
+    binder_status_t dump(int fd, const char** args, uint32_t numArgs) override;
 
   protected:
     static StreamWorkerInterface::CreateInstance getDefaultInWorkerCreator() {
@@ -651,6 +659,12 @@ class StreamWrapper {
         return ndk::ScopedAStatus::ok();
     }
 
+    void dump(int fd, const char** args, uint32_t numArgs) const {
+        auto s = mStream.lock();
+        if (s) s->dump(fd, args, numArgs);
+        return;
+    }
+
   private:
     std::weak_ptr<StreamCommonInterface> mStream;
     ndk::SpAIBinder mStreamBinder;
@@ -691,6 +705,12 @@ class Streams {
             return it->second.setGain(gain);
         }
         return ndk::ScopedAStatus::ok();
+    }
+    void dump(int32_t portId, int fd, const char** args, uint32_t numArgs) const {
+        if (auto it = mStreams.find(portId); it != mStreams.end()) {
+            it->second.dump(fd, args, numArgs);
+        }
+        return;
     }
 
   private:
