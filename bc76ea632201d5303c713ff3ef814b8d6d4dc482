@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8219d2f0_292b193b",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-26T12:11:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90e19b14_b04377f0",
+      "range": {
+        "startLine": 42,
+        "startChar": 43,
+        "endLine": 42,
+        "endChar": 44
+      },
+      "revId": "bc76ea632201d5303c713ff3ef814b8d6d4dc482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "195b11a8_b9587e0e",
@@ -65,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a39dead8_7e7fed8a",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1440,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-26T12:11:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "195b11a8_b9587e0e",
+      "range": {
+        "startLine": 1440,
+        "startChar": 36,
+        "endLine": 1440,
+        "endChar": 37
+      },
+      "revId": "bc76ea632201d5303c713ff3ef814b8d6d4dc482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d480ac8_488dacad",
@@ -78,6 +126,30 @@
       "writtenOn": "2025-02-25T16:55:16Z",
       "side": 1,
       "message": "I\u0027m not sure we should be enganing both the compressor and the expander at the same time. What I meant in my comment is that we test these compressor and expander ratios separately. Sorry if that was unclear.",
+      "range": {
+        "startLine": 1455,
+        "startChar": 57,
+        "endLine": 1456,
+        "endChar": 58
+      },
+      "revId": "bc76ea632201d5303c713ff3ef814b8d6d4dc482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10a6afab_81e1b351",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-26T12:11:38Z",
+      "side": 1,
+      "message": "The compressor and expander are not used at the same time. Depending on the pregain values, they undergo either the compression or expansion process. So, even though we configure both the ratios but only one is used at a time.\n\nPlease let me know if this change is fine, or I should move the compressor and expander to separate tests.",
+      "parentUuid": "6d480ac8_488dacad",
       "range": {
         "startLine": 1455,
         "startChar": 57,
