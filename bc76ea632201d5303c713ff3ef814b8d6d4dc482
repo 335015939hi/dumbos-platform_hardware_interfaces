@@ -158,6 +158,30 @@
       },
       "revId": "bc76ea632201d5303c713ff3ef814b8d6d4dc482",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f24dc4d8_3de9b96a",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1456,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-26T18:15:12Z",
+      "side": 1,
+      "message": "Thanks for clarifying! No need to test separately in this case. Could you please add a comment with this explanation, also specifying at which pregain values we are expecting either the compressor or the expander to be engaged.",
+      "parentUuid": "10a6afab_81e1b351",
+      "range": {
+        "startLine": 1455,
+        "startChar": 57,
+        "endLine": 1456,
+        "endChar": 58
+      },
+      "revId": "bc76ea632201d5303c713ff3ef814b8d6d4dc482",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
