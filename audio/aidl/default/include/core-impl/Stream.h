@@ -625,9 +625,9 @@ ndk::ScopedAStatus createStreamInstance(std::shared_ptr<StreamInOrOut>* result, 
 class StreamWrapper {
   public:
     explicit StreamWrapper(const std::shared_ptr<StreamIn>& streamIn)
-        : mStream(streamIn), mStreamBinder(streamIn->asBinder()) {}
+        : mStream(streamIn), mStreamBinder(streamIn->asBinder()), mIsInput(true) {}
     explicit StreamWrapper(const std::shared_ptr<StreamOut>& streamOut)
-        : mStream(streamOut), mStreamBinder(streamOut->asBinder()) {}
+        : mStream(streamOut), mStreamBinder(streamOut->asBinder()), mIsInput(false) {}
     ndk::SpAIBinder getBinder() const { return mStreamBinder; }
     bool isStreamOpen() const {
         auto s = mStream.lock();
@@ -651,9 +651,20 @@ class StreamWrapper {
         return ndk::ScopedAStatus::ok();
     }
 
+    void dump(int fd, const char** args, uint32_t numArgs) const {
+        auto s = ::ndk::ICInterface::asInterface(mStreamBinder.get());
+        if (mIsInput) {
+            if (s) std::static_pointer_cast<StreamIn>(s)->dump(fd, args, numArgs);
+        } else {
+            if (s) std::static_pointer_cast<StreamOut>(s)->dump(fd, args, numArgs);
+        }
+        return;
+    }
+
   private:
     std::weak_ptr<StreamCommonInterface> mStream;
     ndk::SpAIBinder mStreamBinder;
+    bool mIsInput;
 };
 
 class Streams {
@@ -691,6 +702,12 @@ class Streams {
             return it->second.setGain(gain);
         }
         return ndk::ScopedAStatus::ok();
+    }
+    void dump(int32_t portId, int fd, const char** args, uint32_t numArgs) const {
+        if (auto it = mStreams.find(portId); it != mStreams.end()) {
+            it->second.dump(fd, args, numArgs);
+        }
+        return;
     }
 
   private:
