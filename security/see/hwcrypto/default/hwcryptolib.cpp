@@ -82,6 +82,7 @@ sp<cpp_hwcrypto::ICryptoOperationContext> convertOperationsContext(
     return contextCpp.promote();
 }
 
+// TODO: Fix this function to also include the service specific exceptions
 static ndk::ScopedAStatus convertStatus(Status status) {
     if (status.isOk()) {
         return ndk::ScopedAStatus::ok();
@@ -416,6 +417,212 @@ Result<void> setOperationData(const ndk_hwcrypto::types::OperationData& ndkOpera
     return {};
 }
 
+std::optional<cpp_hwcrypto::PatternParameters> convertPatternParameters(
+        const ndk_hwcrypto::PatternParameters& ndkpatternParameters) {
+    int64_t numberBlocksProcess = ndkpatternParameters.numberBlocksProcess;
+    int64_t numberBlocksCopy = ndkpatternParameters.numberBlocksCopy;
+    if ((numberBlocksProcess < 0) || (numberBlocksCopy < 0)) {
+        LOG(ERROR) << "received invalid pattern parameters";
+        return std::nullopt;
+    }
+    cpp_hwcrypto::PatternParameters patternParameters = cpp_hwcrypto::PatternParameters();
+    patternParameters.numberBlocksProcess = numberBlocksProcess;
+    patternParameters.numberBlocksCopy = numberBlocksCopy;
+    return patternParameters;
+}
+
+std::optional<cpp_hwcrypto::types::SymmetricOperation> convertSymmetricOperation(
+        const ndk_hwcrypto::types::SymmetricOperation& ndkSymmetricOperation) {
+    cpp_hwcrypto::types::SymmetricOperation symmetricOperation =
+            cpp_hwcrypto::types::SymmetricOperation();
+    switch (ndkSymmetricOperation) {
+        case ndk_hwcrypto::types::SymmetricOperation::ENCRYPT:
+            symmetricOperation = cpp_hwcrypto::types::SymmetricOperation::ENCRYPT;
+            break;
+        case ndk_hwcrypto::types::SymmetricOperation::DECRYPT:
+            symmetricOperation = cpp_hwcrypto::types::SymmetricOperation::DECRYPT;
+            break;
+        default:
+            LOG(ERROR) << "invalid symmetric operation type";
+            return std::nullopt;
+    }
+    return symmetricOperation;
+}
+
+cpp_hwcrypto::types::CipherModeParameters convertSymmetricModeParameters(
+        const ndk_hwcrypto::types::CipherModeParameters& ndkcipherModeParameters) {
+    cpp_hwcrypto::types::CipherModeParameters cipherModeParameters =
+            cpp_hwcrypto::types::CipherModeParameters();
+    cipherModeParameters.nonce = ndkcipherModeParameters.nonce;
+    return cipherModeParameters;
+}
+
+cpp_hwcrypto::types::AesGcmMode::AesGcmModeParameters convertSymmetricModeParameters(
+        const ndk_hwcrypto::types::AesGcmMode::AesGcmModeParameters& ndkgcmModeParameters) {
+    cpp_hwcrypto::types::AesGcmMode::AesGcmModeParameters gcmModeParameters =
+            cpp_hwcrypto::types::AesGcmMode::AesGcmModeParameters();
+    gcmModeParameters.nonce = ndkgcmModeParameters.nonce;
+    return gcmModeParameters;
+}
+
+std::optional<cpp_hwcrypto::OperationParameters> convertOperationParameters(
+        const ndk_hwcrypto::OperationParameters& ndkOperationParameters) {
+    cpp_hwcrypto::OperationParameters operationParameters = cpp_hwcrypto::OperationParameters();
+    sp<cpp_hwcrypto::IOpaqueKey> opaqueKey;
+    cpp_hwcrypto::types::HmacOperationParameters hmacParameters =
+            cpp_hwcrypto::types::HmacOperationParameters();
+    std::optional<cpp_hwcrypto::types::SymmetricOperation> cppSymmetricOperation;
+    cpp_hwcrypto::types::CipherModeParameters cipherModeParameters;
+    cpp_hwcrypto::types::AesCipherMode cppAesCipherMode = cpp_hwcrypto::types::AesCipherMode();
+    cpp_hwcrypto::types::SymmetricOperationParameters cppSymmetricOperationParameters =
+            cpp_hwcrypto::types::SymmetricOperationParameters();
+    cpp_hwcrypto::types::SymmetricAuthOperationParameters cppSymmetricAuthOperationParameters =
+            cpp_hwcrypto::types::SymmetricAuthOperationParameters();
+    cpp_hwcrypto::types::AesGcmMode::AesGcmModeParameters cppAesGcmModeParameters =
+            cpp_hwcrypto::types::AesGcmMode::AesGcmModeParameters();
+    cpp_hwcrypto::types::AesGcmMode cppAesGcmMode = cpp_hwcrypto::types::AesGcmMode();
+    switch (ndkOperationParameters.getTag()) {
+        case ndk_hwcrypto::OperationParameters::symmetricAuthCrypto:
+            opaqueKey = convertKeyPointer(
+                    ndkOperationParameters
+                            .get<ndk_hwcrypto::OperationParameters::symmetricAuthCrypto>()
+                            .key);
+            if (!opaqueKey) {
+                LOG(ERROR) << "couldn't get aes key";
+                return std::nullopt;
+            }
+            cppSymmetricAuthOperationParameters.key = std::move(opaqueKey);
+            cppSymmetricOperation = convertSymmetricOperation(
+                    ndkOperationParameters
+                            .get<ndk_hwcrypto::OperationParameters::symmetricAuthCrypto>()
+                            .direction);
+            if (!cppSymmetricOperation.has_value()) {
+                LOG(ERROR) << "couldn't get aes direction";
+                return std::nullopt;
+            }
+            cppSymmetricAuthOperationParameters.direction =
+                    std::move(cppSymmetricOperation.value());
+            switch (ndkOperationParameters
+                            .get<ndk_hwcrypto::OperationParameters::symmetricAuthCrypto>()
+                            .parameters.getTag()) {
+                case ndk_hwcrypto::types::SymmetricAuthCryptoParameters::aes:
+                    switch (ndkOperationParameters
+                                    .get<ndk_hwcrypto::OperationParameters::symmetricAuthCrypto>()
+                                    .parameters
+                                    .get<ndk_hwcrypto::types::SymmetricAuthCryptoParameters::aes>()
+                                    .getTag()) {
+                        case ndk_hwcrypto::types::AesGcmMode::gcmTag16:
+                            cppAesGcmModeParameters = convertSymmetricModeParameters(
+                                    ndkOperationParameters
+                                            .get<ndk_hwcrypto::OperationParameters::
+                                                         symmetricAuthCrypto>()
+                                            .parameters
+                                            .get<ndk_hwcrypto::types::
+                                                         SymmetricAuthCryptoParameters::aes>()
+                                            .get<ndk_hwcrypto::types::AesGcmMode::gcmTag16>());
+                            cppAesGcmMode.set<cpp_hwcrypto::types::AesGcmMode::gcmTag16>(
+                                    std::move(cppAesGcmModeParameters));
+                            cppSymmetricAuthOperationParameters.parameters
+                                    .set<cpp_hwcrypto::types::SymmetricAuthCryptoParameters::aes>(
+                                            std::move(cppAesGcmMode));
+                            break;
+                        default:
+                            LOG(ERROR) << "received invalid aes gcm parameters";
+                            return std::nullopt;
+                    }
+                    break;
+                default:
+                    LOG(ERROR) << "received invalid symmetric auth crypto parameters";
+                    return std::nullopt;
+            }
+            operationParameters.set<cpp_hwcrypto::OperationParameters::symmetricAuthCrypto>(
+                    std::move(cppSymmetricAuthOperationParameters));
+            break;
+        case ndk_hwcrypto::OperationParameters::symmetricCrypto:
+            opaqueKey = convertKeyPointer(
+                    ndkOperationParameters.get<ndk_hwcrypto::OperationParameters::symmetricCrypto>()
+                            .key);
+            if (!opaqueKey) {
+                LOG(ERROR) << "couldn't get aes key";
+                return std::nullopt;
+            }
+            cppSymmetricOperationParameters.key = std::move(opaqueKey);
+            cppSymmetricOperation = convertSymmetricOperation(
+                    ndkOperationParameters.get<ndk_hwcrypto::OperationParameters::symmetricCrypto>()
+                            .direction);
+            if (!cppSymmetricOperation.has_value()) {
+                LOG(ERROR) << "couldn't get aes direction";
+                return std::nullopt;
+            }
+            cppSymmetricOperationParameters.direction = std::move(cppSymmetricOperation.value());
+            switch (ndkOperationParameters.get<ndk_hwcrypto::OperationParameters::symmetricCrypto>()
+                            .parameters.getTag()) {
+                case ndk_hwcrypto::types::SymmetricCryptoParameters::aes:
+                    switch (ndkOperationParameters
+                                    .get<ndk_hwcrypto::OperationParameters::symmetricCrypto>()
+                                    .parameters
+                                    .get<ndk_hwcrypto::types::SymmetricCryptoParameters::aes>()
+                                    .getTag()) {
+                        case ndk_hwcrypto::types::AesCipherMode::cbc:
+                            cipherModeParameters = convertSymmetricModeParameters(
+                                    ndkOperationParameters
+                                            .get<ndk_hwcrypto::OperationParameters::
+                                                         symmetricCrypto>()
+                                            .parameters
+                                            .get<ndk_hwcrypto::types::SymmetricCryptoParameters::
+                                                         aes>()
+                                            .get<ndk_hwcrypto::types::AesCipherMode::cbc>());
+                            cppAesCipherMode.set<cpp_hwcrypto::types::AesCipherMode::cbc>(
+                                    std::move(cipherModeParameters));
+                            cppSymmetricOperationParameters.parameters
+                                    .set<cpp_hwcrypto::types::SymmetricCryptoParameters::aes>(
+                                            std::move(cppAesCipherMode));
+                            break;
+                        case ndk_hwcrypto::types::AesCipherMode::ctr:
+                            cipherModeParameters = convertSymmetricModeParameters(
+                                    ndkOperationParameters
+                                            .get<ndk_hwcrypto::OperationParameters::
+                                                         symmetricCrypto>()
+                                            .parameters
+                                            .get<ndk_hwcrypto::types::SymmetricCryptoParameters::
+                                                         aes>()
+                                            .get<ndk_hwcrypto::types::AesCipherMode::ctr>());
+                            cppAesCipherMode.set<cpp_hwcrypto::types::AesCipherMode::ctr>(
+                                    std::move(cipherModeParameters));
+                            cppSymmetricOperationParameters.parameters
+                                    .set<cpp_hwcrypto::types::SymmetricCryptoParameters::aes>(
+                                            std::move(cppAesCipherMode));
+                            break;
+                        default:
+                            LOG(ERROR) << "received invalid aes parameters";
+                            return std::nullopt;
+                    }
+                    break;
+                default:
+                    LOG(ERROR) << "received invalid symmetric crypto parameters";
+                    return std::nullopt;
+            }
+            operationParameters.set<cpp_hwcrypto::OperationParameters::symmetricCrypto>(
+                    std::move(cppSymmetricOperationParameters));
+            break;
+        case ndk_hwcrypto::OperationParameters::hmac:
+            opaqueKey = convertKeyPointer(
+                    ndkOperationParameters.get<ndk_hwcrypto::OperationParameters::hmac>().key);
+            if (!opaqueKey) {
+                LOG(ERROR) << "couldn't get hmac key";
+                return std::nullopt;
+            }
+            hmacParameters.key = opaqueKey;
+            operationParameters.set<cpp_hwcrypto::OperationParameters::hmac>(
+                    std::move(hmacParameters));
+            break;
+        default:
+            LOG(ERROR) << "received invalid operation parameters";
+            return std::nullopt;
+    }
+    return operationParameters;
+}
+
 class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
   private:
     sp<cpp_hwcrypto::IHwCryptoOperations> mHwCryptoOperations;
@@ -440,9 +647,108 @@ class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
     }
 
     ndk::ScopedAStatus processCommandList(
-            std::vector<ndk_hwcrypto::CryptoOperationSet>* /*operationSets*/,
+            std::vector<ndk_hwcrypto::CryptoOperationSet>* operationSets,
             std::vector<ndk_hwcrypto::CryptoOperationResult>* /*aidl_return*/) {
-        return ndk::ScopedAStatus::ok();
+        Status status = Status::fromExceptionCode(Status::EX_ILLEGAL_ARGUMENT);
+        // TODO check parameters
+        if (operationSets == nullptr) {
+            return convertStatus(status);
+        }
+        std::vector<cpp_hwcrypto::CryptoOperationResult> binderResult;
+        std::vector<cpp_hwcrypto::CryptoOperationSet> cppOperationSets(operationSets->size());
+
+        for (ndk_hwcrypto::CryptoOperationSet& operationSet : *operationSets) {
+            std::vector<cpp_hwcrypto::CryptoOperation> cppOperations(
+                    operationSet.operations.size());
+            for (ndk_hwcrypto::CryptoOperation& operation : operationSet.operations) {
+                cpp_hwcrypto::CryptoOperation cppOperation;
+                cpp_hwcrypto::types::Void voidObj;
+                cpp_hwcrypto::types::OperationData cppOperationData;
+                std::optional<cpp_hwcrypto::PatternParameters> cppPatternParameters;
+                std::optional<cpp_hwcrypto::OperationParameters> cppOperationParameters;
+                switch (operation.getTag()) {
+                    case ndk_hwcrypto::CryptoOperation::setMemoryBuffer:
+                        // TODO: finish this case
+                        exit(1);
+                        break;
+                    case ndk_hwcrypto::CryptoOperation::setOperationParameters:
+                        cppOperationParameters = convertOperationParameters(
+                                operation.get<
+                                        ndk_hwcrypto::CryptoOperation::setOperationParameters>());
+                        if (cppOperationParameters.has_value()) {
+                            cppOperation.set<cpp_hwcrypto::CryptoOperation::setOperationParameters>(
+                                    std::move(cppOperationParameters.value()));
+                        } else {
+                            return convertStatus(status);
+                        }
+                        break;
+                    case ndk_hwcrypto::CryptoOperation::setPattern:
+                        cppPatternParameters = convertPatternParameters(
+                                operation.get<ndk_hwcrypto::CryptoOperation::setPattern>());
+                        if (cppPatternParameters.has_value()) {
+                            cppOperation.set<cpp_hwcrypto::CryptoOperation::setPattern>(
+                                    std::move(cppPatternParameters.value()));
+                        } else {
+                            return convertStatus(status);
+                        }
+                        break;
+                    case ndk_hwcrypto::CryptoOperation::copyData:
+                        if (!setOperationData(
+                                     operation.get<ndk_hwcrypto::CryptoOperation::copyData>(),
+                                     &cppOperationData)
+                                     .ok()) {
+                            return convertStatus(status);
+                        }
+                        cppOperation.set<cpp_hwcrypto::CryptoOperation::copyData>(
+                                std::move(cppOperationData));
+                        break;
+                    case ndk_hwcrypto::CryptoOperation::aadInput:
+                        if (!setOperationData(
+                                     operation.get<ndk_hwcrypto::CryptoOperation::aadInput>(),
+                                     &cppOperationData)
+                                     .ok()) {
+                            return convertStatus(status);
+                        }
+                        cppOperation.set<cpp_hwcrypto::CryptoOperation::aadInput>(
+                                std::move(cppOperationData));
+                        break;
+                    case ndk_hwcrypto::CryptoOperation::dataInput:
+                        if (!setOperationData(
+                                     operation.get<ndk_hwcrypto::CryptoOperation::dataInput>(),
+                                     &cppOperationData)
+                                     .ok()) {
+                            return convertStatus(status);
+                        }
+                        cppOperation.set<cpp_hwcrypto::CryptoOperation::dataInput>(
+                                std::move(cppOperationData));
+                        break;
+                    case ndk_hwcrypto::CryptoOperation::dataOutput:
+                        if (!setOperationData(
+                                     operation.get<ndk_hwcrypto::CryptoOperation::dataOutput>(),
+                                     &cppOperationData)
+                                     .ok()) {
+                            return convertStatus(status);
+                        }
+                        cppOperation.set<cpp_hwcrypto::CryptoOperation::dataOutput>(
+                                std::move(cppOperationData));
+                        break;
+                    case ndk_hwcrypto::CryptoOperation::destroyContext:
+                        cppOperation.set<cpp_hwcrypto::CryptoOperation::destroyContext>(
+                                std::move(voidObj));
+                        break;
+                    case ndk_hwcrypto::CryptoOperation::finish:
+                        cppOperation.set<cpp_hwcrypto::CryptoOperation::finish>(std::move(voidObj));
+                        break;
+                    default:
+                        // This shouldn't happen
+                        return convertStatus(status);
+                }
+                cppOperations.push_back(std::move(cppOperation));
+            }
+        }
+        // TODO: Finish the wrapping code for the binder result
+        status = mHwCryptoOperations->processCommandList(&cppOperationSets, &binderResult);
+        return convertStatus(status);
     }
 };
 
