@@ -268,4 +268,9 @@ ndk::ScopedAStatus StreamSwitcher::setGain(float gain) {
     return mStream->setGain(gain);
 }
 
+binder_status_t StreamSwitcher::dump(
+        int fd __unused, const char** args __unused, uint32_t numArgs __unused) {
+    return STATUS_OK;
+}
+
 }  // namespace aidl::android::hardware::audio::core::deprecated
