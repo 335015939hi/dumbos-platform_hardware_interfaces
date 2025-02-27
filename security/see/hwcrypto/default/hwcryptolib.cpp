@@ -696,10 +696,17 @@ class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
                 std::optional<cpp_hwcrypto::types::OperationData> cppOperationData;
                 std::optional<cpp_hwcrypto::PatternParameters> cppPatternParameters;
                 std::optional<cpp_hwcrypto::OperationParameters> cppOperationParameters;
+                std::optional<cpp_hwcrypto::MemoryBufferParameter> cppMemBuffParams;
                 switch (operation.getTag()) {
                     case ndk_hwcrypto::CryptoOperation::setMemoryBuffer:
-                        // TODO: finish this case
-                        exit(1);
+                        cppMemBuffParams = convertMemoryBufferParameters(
+                                operation.get<ndk_hwcrypto::CryptoOperation::setMemoryBuffer>());
+                        if (cppMemBuffParams.has_value()) {
+                            cppOperation.set<cpp_hwcrypto::CryptoOperation::setMemoryBuffer>(
+                                    std::move(cppMemBuffParams.value()));
+                        } else {
+                            return convertStatus(status);
+                        }
                         break;
                     case ndk_hwcrypto::CryptoOperation::setOperationParameters:
                         cppOperationParameters = convertOperationParameters(
