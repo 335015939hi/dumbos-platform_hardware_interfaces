@@ -548,6 +548,14 @@
         </interface>
     </hal>
     <hal format="aidl" updatable-via-apex="true">
+        <name>android.hardware.security.gateweaver</name>
+        <version>1</version>
+        <interface>
+            <name>IGateWeaver</name>
+            <instance>nonsecure</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" updatable-via-apex="true">
         <name>android.hardware.security.secureclock</name>
         <version>1</version>
         <interface>
