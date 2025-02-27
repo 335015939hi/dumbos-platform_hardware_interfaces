@@ -15,7 +15,7 @@
  */
 
 //! Common functionality for non-secure/testing instance of AuthGraph.
-
+extern crate alloc;
 use authgraph_boringssl as boring;
 use authgraph_core::{
     error, keyexchange, keymanagement,
@@ -26,6 +26,8 @@ use log::error;
 use std::cell::RefCell;
 use std::rc::Rc;
 use std::sync::{mpsc, Mutex, Arc};
+use boring::test_device::AgDevice;
+use authgraph_test_ids;
 
 /// Implementation of the AuthGraph TA that runs locally
 pub struct LocalTa {
@@ -48,11 +50,23 @@ impl LocalTa {
         // Create a pair of channels to communicate with the TA thread.
         let (in_tx, in_rx) = mpsc::channel();
         let (out_tx, out_rx) = mpsc::channel();
-        let dev = boring::test_device::AgDevice::default_managed_device()
-                  .expect("failed to create default managed device");
         // The TA code expects to run single threaded, so spawn a thread to run it in.
         std::thread::spawn(move || {
-            let dev = Rc::new(RefCell::new(dev));
+        let (self_pvt_sign_key,
+         self_identity,
+         src_identity,
+         sink_identity,
+         rotation_src_identity,
+         rotation_sink_identity) = authgraph_test_ids::test_ids_for_default_device()
+                                   .expect("failed to create identities");
+        let dev = Rc::new(RefCell::new(AgDevice::default_managed_device(
+                    self_pvt_sign_key,
+                    self_identity,
+                    src_identity,
+                    sink_identity,
+                    rotation_src_identity,
+                    rotation_sink_identity)
+                   .expect("failed to create default managed device")));
             let mut ta = AuthGraphTa::new_managed_ta(
                   keyexchange::AuthGraphParticipant::new(
                                   boring::crypto_trait_impls(),
