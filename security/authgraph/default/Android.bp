@@ -57,6 +57,7 @@ rust_library {
         "libbinder_rs",
         "liblibc",
         "liblog_rust",
+        "libauthgraph_test_ids",
     ],
     srcs: ["src/km_lib.rs"],
 

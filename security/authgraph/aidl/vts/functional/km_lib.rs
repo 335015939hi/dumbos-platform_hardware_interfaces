@@ -24,12 +24,13 @@ use android_hardware_security_authgraph::aidl::android::hardware::security::auth
     IAuthGraphKeyExchange::IAuthGraphKeyExchange, SessionIdSignature::SessionIdSignature,
     Identity::Identity, PlainPubKey::PlainPubKey, PubKey::PubKey,
 };
-use coset::{iana,};
-use authgraph_boringssl as boring;
-use authgraph_core::{arc, key, error::Error as AgError, keyexchange as ke, keymanagement as km};
+use coset::{iana, AsCborValue, CborSerializable};
+use authgraph_boringssl::{self, test_device::AgDevice, crypto_trait_impls};
+use authgraph_core::{dice_policy::DicePolicy, arc, key, error::Error as AgError,
+                     keyexchange as ke, keymanagement as km};
 use std::{cell::RefCell, rc::Rc};
-use authgraph_boringssl::test_device::{self, AgDevice};
-use authgraph_test_ids;
+use authgraph_test_ids as test_ids;
+
 //use coset::CborSerializable;
 pub mod km_sink;
 pub mod km_source;
@@ -56,41 +57,42 @@ pub struct AgkmTestContext{
 
 /// Return an AuthGraphParticipant suitable for testing.
 pub fn test_agkm_participant(source: bool) -> Result<AgkmTestContext, AgError> {
-    let dev = boring::test_device::AgDevice::default_managed_device()?;
-    let (self_id, src_id, sink_id, rotation_src_dentity, rotation_sink_identity) = get_ids(&dev);
-    // The auth bound caps are used to test the source.
-    let mut authbound_arc_caps = test_device::create_caps(None,
-                             sink_id.policy.clone(),
-                             arc::UIDPolicy::Single);
-    // The credential arc used to test the source.
-    let mut cred_arc = dev.get_cred_arc().expect("Default managed device should have credential arc");
+    let dev = default_test_device().expect("failed to create default device");
+    let (_, self_id) = test_ids::test_id_for_source()
+                       .expect("self identity should be created");
     // Get the source and sink identity for this instance which will be
     // same as src_id and sink_id. But function invocations given below also returns
     // the private signing keys.
-    let (src_pvt_key, cbor_identity) = authgraph_test_ids::create_identity(2, 2)
+    let (src_pvt_key, src_id) = test_ids::test_id_for_source()
         .expect("src identity should be created");
-    let src_identity = authgraph_test_ids::create_identity_with_policy(&cbor_identity);
-    let (sink_pvt_key, cbor_identity) = authgraph_test_ids::create_identity(3, 2)
+    let (sink_pvt_key, sink_id) = test_ids::test_id_for_sink()
         .expect("sink identity should be created");
-    let sink_identity = authgraph_test_ids::create_identity_with_policy(&cbor_identity);
+    let mut cred_arc = dev.get_cred_arc().expect("Default managed device should have credential arc");
+
+    // The auth bound caps are used to test the source.
+    let mut authbound_arc_caps = create_caps(None,
+                             Some(sink_id.policy.as_ref().unwrap().to_dice_policy()?),
+                             arc::UIDPolicy::Single);
     // If local test participant is source
     if source {
+      // change the credential arc to use local src identity.
+      dev.create_default_cred_arc(src_id.clone())?;
+      // The credential arc used to test the source.
+      cred_arc = dev.get_cred_arc().expect("Default managed device should have credential arc");
       // change the local test device identity to src
       dev.set_identity((src_pvt_key, src_identity.clone()), iana::Algorithm::EdDSA);
       // change the authbound arc caps to the self identity policy because
-      // remote test device uses self identity.
-      authbound_arc_caps = test_device::create_caps(None,
-                                   self_id.policy.clone(),
+      // remote test device uses self identity as it supports both roles.
+      authbound_arc_caps = create_caps(None,
+                                   Some(self_id.policy.as_ref().unwrap().to_dice_policy()?),
                                    arc::UIDPolicy::Single);
-      // change the credential arc to use local src identity.
-      cred_arc = test_device::create_default_cred_arc(src_identity, &dev)?;
     }else{
       // Use the sink identity for local sink.
       dev.set_identity((sink_pvt_key, sink_identity), iana::Algorithm::EdDSA);
     }
 
     let agkm = km::AuthGraphParticipant::new(
-                       boring::crypto_trait_impls(),
+                       crypto_trait_impls(),
                        Rc::new(RefCell::new(dev)),
                    )?;
     Ok(AgkmTestContext{
@@ -98,32 +100,16 @@ pub fn test_agkm_participant(source: bool) -> Result<AgkmTestContext, AgError> {
     })
 }
 
-fn get_ids(dev: &AgDevice) -> (key::Identity, key::Identity, key::Identity, key::Identity, key::Identity){
-  let src_ids = dev.get_allowed_src_ids();
-  let sink_ids = dev.get_allowed_sink_ids();
-  assert!((src_ids.is_some() && sink_ids.is_some()), "allowed identities is missing from default device");
-  let mut src_ids = src_ids.unwrap();
-  let mut sink_ids = sink_ids.unwrap();
-  // default device must have 3 sink ids and 3 src ids.
-  assert!((src_ids.len() == 3 && sink_ids.len() == 3), "Wrong number of identities");
-  src_ids.reverse();
-  sink_ids.reverse();
-  let _ = sink_ids.pop();
-  (src_ids.pop().unwrap(), src_ids.pop().unwrap(), sink_ids.pop().unwrap(), src_ids.pop().unwrap(), sink_ids.pop().unwrap())
-}
-
 /// Return an AuthGraphParticipant suitable for testing.
 pub fn test_agke_participant(source: bool) -> Result<ke::AuthGraphParticipant, AgError> {
     // Get the source and sink identity for this instance which will be
     // same as src_id and sink_id. But function invocations given below also returns
     // the private signing keys.
-    let dev = boring::test_device::AgDevice::default_managed_device()?;
-    let (src_pvt_key, cbor_identity) = authgraph_test_ids::create_identity(2, 2)
+    let dev = default_test_device().expect("failed to create default device");
+    let (src_pvt_key, src_identity) = test_ids::test_id_for_source()
         .expect("src identity should be created");
-    let src_identity = authgraph_test_ids::create_identity_with_policy(&cbor_identity);
-    let (sink_pvt_key, cbor_identity) = authgraph_test_ids::create_identity(3, 2)
+    let (sink_pvt_key, sink_identity) = test_ids::test_id_for_sink()
         .expect("sink identity should be created");
-    let sink_identity = authgraph_test_ids::create_identity_with_policy(&cbor_identity);
     // For source use the src identity else the sink identity
     if source {
       dev.set_identity((src_pvt_key, src_identity), iana::Algorithm::EdDSA);
@@ -131,7 +117,7 @@ pub fn test_agke_participant(source: bool) -> Result<ke::AuthGraphParticipant, A
       dev.set_identity((sink_pvt_key, sink_identity), iana::Algorithm::EdDSA);
     }
     Ok(ke::AuthGraphParticipant::new(
-        boring::crypto_trait_impls(),
+        crypto_trait_impls(),
         Rc::new(RefCell::new(dev)),
         ke::MAX_OPENED_SESSIONS,
     )?)
@@ -161,4 +147,36 @@ fn vec_to_identity(data: &[u8]) -> Identity {
     Identity {
         identity: data.to_vec(),
     }
+}
+
+fn create_caps(
+    source_ids: Option<Vec<DicePolicy>>,
+    sink_id: Option<DicePolicy>,
+    uid_policy: arc::UIDPolicy,
+) -> Vec<u8> {
+    let mint_perm = arc::MintingAllowed { source_ids, sink_id, uid_policy };
+    let caps = authgraph_core::keymanagement::CapabilitySet {
+        permissions: Some(arc::Permissions {
+            minting_allowed: Some(mint_perm.clone()),
+            ..Default::default()
+        }),
+        ..Default::default()
+    };
+    caps.to_cbor_value().unwrap().to_vec().unwrap()
+}
+
+fn default_test_device() -> Result<AgDevice, AgError>{
+  let (self_pvt_sign_key,
+   self_identity,
+   src_identity,
+   sink_identity,
+   rotation_src_identity,
+   rotation_sink_identity) = authgraph_test_ids::test_ids_for_default_device()?;
+  AgDevice::default_managed_device
+          (self_pvt_sign_key,
+           self_identity,
+           src_identity,
+           sink_identity,
+           rotation_src_identity,
+           rotation_sink_identity)
 }
