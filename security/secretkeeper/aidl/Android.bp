@@ -22,7 +22,7 @@ aidl_interface {
     vendor_available: true,
     srcs: ["android/hardware/security/secretkeeper/*.aidl"],
     imports: [
-        "android.hardware.security.authgraph-V1",
+        "android.hardware.security.authgraph-V2",
     ],
     stability: "vintf",
     frozen: true,
@@ -45,11 +45,11 @@ aidl_interface {
     versions_with_info: [
         {
             version: "1",
-            imports: ["android.hardware.security.authgraph-V1"],
+            imports: ["android.hardware.security.authgraph-V2"],
         },
         {
             version: "2",
-            imports: ["android.hardware.security.authgraph-V1"],
+            imports: ["android.hardware.security.authgraph-V2"],
         },
 
     ],
