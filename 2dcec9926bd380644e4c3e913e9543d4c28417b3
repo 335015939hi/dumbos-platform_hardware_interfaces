@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cae7850a_3365922f",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-27T16:43:34Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t understand why it\u0027s needed. The purpose of `StreamCommonInterface` is to describe operations that are common between input and output streams, and can be implemented in one place (in `StreamCommonImpl`). I can\u0027t see how `dump` can be implemented in `StreamCommonImpl`.\n\nSince `dump` is a virtual method of `ICInterface` (https://cs.android.com/android/platform/superproject/main/+/main:frameworks/native/libs/binder/ndk/include_cpp/android/binder_interface_utils.h;l\u003d153;drc\u003d98797c2e6739910998c05a4ec0bc835690dcc76f) which is a common ancestor for all generated AIDL interface classes, any concrete implementation of the `IStreamIn|Out` may override and implement it. And AudioFlinger will call `dump` when doing a dump of each stream. So there should be no need to pipe a call to `dump` via the common stream implementation framework, at least I don\u0027t see that need.\n\nLooking at the bug (b/399383436), I would suggest just overriding and implementing `dump` in your classes that inherit from `StreamIn|Out` classes because these in turn inherit from `BnStreamIn|Out` and thus already have direct access to the `dump` method of the interface.",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 82
+      },
+      "revId": "2dcec9926bd380644e4c3e913e9543d4c28417b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
