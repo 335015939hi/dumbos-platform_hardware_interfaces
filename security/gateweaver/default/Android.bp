@@ -1,0 +1,102 @@
+/*
+ * Copyright (C) 2023 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package {
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "hardware_interfaces_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["hardware_interfaces_license"],
+}
+
+rust_library {
+    name: "libgateweaver_nonsecure",
+    crate_name: "gateweaver_nonsecure",
+    srcs: [
+        "src/lib.rs",
+    ],
+    vendor_available: true,
+    defaults: [
+        "authgraph_use_latest_km_hal_aidl_rust",
+        "gateweaver_use_latest_hal_aidl_rust",
+    ],
+    rustlibs: [
+        "libbinder_rs",
+        "libcoset",
+        "liblog_rust",
+        "libauthgraph_boringssl",
+        "libauthgraph_core",
+        "libauthgraph_km_hal",
+        "libgateweaver_ta",
+        "libgateweaver_hal",
+        "libauthgraph_test_ids",
+    ],
+}
+
+rust_binary {
+    name: "android.hardware.security.gateweaver-service.nonsecure",
+    relative_install_path: "hw",
+    vendor: true,
+    installable: false, // install APEX
+    prefer_rlib: true,
+    defaults: [
+        "authgraph_use_latest_km_hal_aidl_rust",
+        "gateweaver_use_latest_hal_aidl_rust",
+    ],
+    rustlibs: [
+        "libandroid_logger",
+        "libbinder_rs",
+        "liblog_rust",
+        "libgateweaver_nonsecure",
+        "libgateweaver_hal",
+        "libauthgraph_km_hal",
+    ],
+    srcs: [
+        "src/main.rs",
+    ],
+}
+
+prebuilt_etc {
+    name: "gateweaver.xml",
+    src: "gateweaver.xml",
+    sub_dir: "vintf",
+    installable: false,
+}
+
+prebuilt_etc {
+    name: "gateweaver.rc",
+    src: "gateweaver.rc",
+    installable: false,
+}
+
+apex {
+    name: "com.android.hardware.security.gateweaver",
+    manifest: "apex_manifest.json",
+    file_contexts: "apex_file_contexts",
+    key: "com.android.hardware.key",
+    certificate: ":com.android.hardware.certificate",
+    vendor: true,
+    updatable: false,
+
+    binaries: [
+        "android.hardware.security.gateweaver-service.nonsecure",
+    ],
+    prebuilts: [
+        "gateweaver.rc",
+        "gateweaver.xml",
+    ],
+}

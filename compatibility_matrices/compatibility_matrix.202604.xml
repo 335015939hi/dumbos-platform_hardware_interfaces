@@ -509,10 +509,34 @@
     </hal>
     <hal format="aidl" updatable-via-apex="true">
         <name>android.hardware.security.authgraph</name>
-        <version>1</version>
+        <version>1-2</version>
         <interface>
             <name>IAuthGraphKeyExchange</name>
             <instance>nonsecure</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" updatable-via-apex="true">
+        <name>android.hardware.security.authgraph</name>
+        <version>2</version>
+        <interface>
+            <name>IAuthGraphKeyExchange</name>
+            <instance>gateweaver</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" updatable-via-apex="true">
+        <name>android.hardware.security.authgraph</name>
+        <version>2</version>
+        <interface>
+            <name>IAuthGraphKeyManagement</name>
+            <instance>nonsecure</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" updatable-via-apex="true">
+        <name>android.hardware.security.authgraph</name>
+        <version>2</version>
+        <interface>
+            <name>IAuthGraphKeyManagement</name>
+            <instance>gateweaver</instance>
         </interface>
     </hal>
     <hal format="aidl">
@@ -540,10 +564,10 @@
         </interface>
     </hal>
     <hal format="aidl" updatable-via-apex="true">
-        <name>android.hardware.security.authgraph</name>
-        <version>2</version>
+        <name>android.hardware.security.gateweaver</name>
+        <version>1</version>
         <interface>
-            <name>IAuthGraphKeyManagement</name>
+            <name>IGateWeaver</name>
             <instance>nonsecure</instance>
         </interface>
     </hal>

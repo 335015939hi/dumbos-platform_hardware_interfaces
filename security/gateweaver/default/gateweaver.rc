@@ -1,0 +1,5 @@
+service vendor.gateweaver /apex/com.android.hardware.security.gateweaver/bin/hw/android.hardware.security.gateweaver-service.nonsecure /data/vendor/gateweaver
+    interface aidl android.hardware.security.gateweaver.IGateWeaver/nonsecure
+    class hal
+    user nobody
+    group nobody

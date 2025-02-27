@@ -90,7 +90,7 @@ cc_defaults {
 rust_defaults {
     name: "authgraph_use_latest_hal_aidl_rust",
     rustlibs: [
-        "android.hardware.security.authgraph-V1-rust",
+        "android.hardware.security.authgraph-V2-rust",
     ],
 }
 
