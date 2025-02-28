@@ -34,6 +34,24 @@
       "parentUuid": "bafab62a_7faa1316",
       "revId": "36f540a91ba3eae4151a3d0d039271a1f4c59fd1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52a6596a_1d652516",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2025-02-28T21:55:34Z",
+      "side": 1,
+      "message": "I\u0027ll take OWNER for it. I was the one who created the AIDL interface https://android-review.git.corp.google.com/q/topic:%22ir_aidl%22\n\nI don\u0027t know if anyone actually uses this anymore. It\u0027s probably work looking into and possibly deprecating. b/399929649",
+      "parentUuid": "bafab62a_7faa1316",
+      "revId": "36f540a91ba3eae4151a3d0d039271a1f4c59fd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
