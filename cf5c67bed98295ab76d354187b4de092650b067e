@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "cf5c67bed98295ab76d354187b4de092650b067e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb7e26a8_cccbb262",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2025-02-28T20:16:55Z",
+      "side": 1,
+      "message": "There\u0027s no tag to indicate whether deleteAllKeys() will permanently disable key blobs.  Keys with Tag::ROLLBACK_RESISTANCE must be disabled with deleteAllKeys(), but other keys may also be disabled.  The tag really serves to describes the behavior of individual key deletion, i.e. deleteKey().\n\nFor example, the TEE KeyMint reference implementations (C++ and Rust) will disable all keys when deleteAllKeys() is called (by rotating a secret that is mixed into all key encryption keys), but deleteKey() will only disable keys with Tag::ROLLBACK_RESISTANCE (by deleting a secret that is mixed into the key encryption key for that specific blob).",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 560,
+        "endChar": 75
+      },
+      "revId": "cf5c67bed98295ab76d354187b4de092650b067e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
