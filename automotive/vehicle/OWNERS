@@ -2,6 +2,7 @@ ericjeong@google.com
 shanyu@google.com
 
 # GRPC VHAL
+per-file aidl/impl/grpc/** =egranata@google.com
 
 # Property definition
 per-file aidl_property/** = tylertrephan@google.com
