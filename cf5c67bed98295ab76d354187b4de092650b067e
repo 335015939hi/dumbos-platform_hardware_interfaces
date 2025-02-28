@@ -39,6 +39,30 @@
       },
       "revId": "cf5c67bed98295ab76d354187b4de092650b067e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6582ef4_ae398ce5",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2025-02-28T23:50:45Z",
+      "side": 1,
+      "message": "Which is in line with the comment?  The comment (after \"For TEE KeyMint:\") is the original before I changed anything.\n\nNote that this is an [optional feature](https://cs.android.com/android/platform/superproject/main/+/main:system/keymint/README.md;l\u003d182;drc\u003debc8afa57fb4fb3a77d709e77f3e18222404af89\n) in the TEE KM reference implementation in Rust.  TEE vendors need to implement the `SecureDeletionSecretManager` trait, and even so, it only works if the OEM provides the RPMB (IIUC).",
+      "parentUuid": "fb7e26a8_cccbb262",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 560,
+        "endChar": 75
+      },
+      "revId": "cf5c67bed98295ab76d354187b4de092650b067e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
