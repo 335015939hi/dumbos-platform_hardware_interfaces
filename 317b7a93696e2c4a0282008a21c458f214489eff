@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "349e74f3_ebbb50b3",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2025-02-28T10:47:10Z",
+      "side": 1,
+      "message": "should be enabled only on x86, correct? so maybe split this cl in two, and add the connection test as a CL on the top alongside x86 mode?",
+      "revId": "317b7a93696e2c4a0282008a21c458f214489eff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
