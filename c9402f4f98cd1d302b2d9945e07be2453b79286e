@@ -50,6 +50,24 @@
       "message": "do you need careful review from Matt on these tests or are they a repeat of the ones already reviewed in Trusty?",
       "revId": "c9402f4f98cd1d302b2d9945e07be2453b79286e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd6f4f6c_09269525",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/hwcryptokey_tests.rs",
+        "patchSetId": 14
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-28T17:29:24Z",
+      "side": 1,
+      "message": "they are a repeat",
+      "parentUuid": "8a740ba7_ea91bc3f",
+      "revId": "c9402f4f98cd1d302b2d9945e07be2453b79286e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
