@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e50fccf_16f69d62",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-02-28T17:41:50Z",
+      "side": 1,
+      "message": "Overall, I\u0027d recommend avoid using conversion functions with different names. Prefer something like `ndk2cpp` with overloads.\n\nE.g. then you can do things like this:\n\n\n```\ntemplate \u003ctypename NDK, typename CPP\u003e\nstd::optional\u003cNDK\u003e ndk2cpp(const std::optional\u003cCPP\u003e\u0026 cpp) {\n    if (cpp \u003d\u003d std::nullopt) return std::nullopt;\n    return ndk2cpp(cpp.get());\n}\n```\n\nThen, that logic only has to be written once. Same with other functions - take advantage of algebraic type system.",
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "578577ce_f07988dd",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-02-28T17:41:50Z",
+      "side": 1,
+      "message": "if it\u0027s a service-specific error, you would want to construct the service specific error (there are two types). (fromServiceSpecificError).",
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6938466_92d500c6",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-02-28T17:41:50Z",
+      "side": 1,
+      "message": "nit: conversion of a union type for any cpp\u003c-\u003endk type could be done once with template metaprogramming, so if there are a lot of these, lemino, myself or if I\u0027m out actually jooyung@ can help.",
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "464d48db_beafd633",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-02-28T17:41:50Z",
+      "side": 1,
+      "message": "For an enum using the same AIDL interface and version, you can static/reinterpret cast. This is as safe as sending something over the NDK backend and reading it on the other side, and we have extensive tests for these over the years.\n\n(same for many below)\n\nAlso - you can make \u0027optional\u0027 separate.",
+      "range": {
+        "startLine": 135,
+        "startChar": 39,
+        "endLine": 135,
+        "endChar": 55
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b572303_a266312b",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-02-28T17:41:50Z",
+      "side": 1,
+      "message": "Once you use the same name for everything, you could also combine these error cases w/ a single template function (though it can be hairy) or #define. If you have the #define for a few of these, can help share the template function.",
+      "range": {
+        "startLine": 474,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 9
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6676ec1f_34a3cde5",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-02-28T17:41:50Z",
+      "side": 1,
+      "message": "delete (maybe turn on warning for unreachable code)",
+      "range": {
+        "startLine": 522,
+        "startChar": 0,
+        "endLine": 522,
+        "endChar": 40
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3350a98e_9c1dea62",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-02-28T17:41:50Z",
+      "side": 1,
+      "message": "`const sp\u003c...\u003e\u0026`",
+      "range": {
+        "startLine": 532,
+        "startChar": 29,
+        "endLine": 532,
+        "endChar": 57
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f90d2de0_a8327937",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-02-28T17:41:50Z",
+      "side": 1,
+      "message": "what if it is already in the map?",
+      "range": {
+        "startLine": 537,
+        "startChar": 4,
+        "endLine": 537,
+        "endChar": 14
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
