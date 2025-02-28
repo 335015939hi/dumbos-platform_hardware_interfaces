@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bafab62a_7faa1316",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121838
+      },
+      "writtenOn": "2025-02-28T21:42:38Z",
+      "side": 1,
+      "message": "@devinmoore@google.com Looks like we won\u0027t have an OWNER for IR any more. This will just use OWNERS from hardware/interfaces. Is that okay?",
+      "revId": "36f540a91ba3eae4151a3d0d039271a1f4c59fd1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
