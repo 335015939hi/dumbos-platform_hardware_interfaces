@@ -52,6 +52,24 @@
       "parentUuid": "b980bb70_d946a7a0",
       "revId": "317b7a93696e2c4a0282008a21c458f214489eff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5a5d0cb_0b78539b",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-28T17:28:30Z",
+      "side": 1,
+      "message": "Abandoning change because I squashed with the next commit.",
+      "parentUuid": "82df2327_ef831507",
+      "revId": "317b7a93696e2c4a0282008a21c458f214489eff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
