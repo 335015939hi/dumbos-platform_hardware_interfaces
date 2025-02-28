@@ -34,6 +34,24 @@
       "parentUuid": "349e74f3_ebbb50b3",
       "revId": "317b7a93696e2c4a0282008a21c458f214489eff",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82df2327_ef831507",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/Android.bp",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-02-28T16:15:48Z",
+      "side": 1,
+      "message": "I have the wait becuiase I am not autostarting the service yet.",
+      "parentUuid": "b980bb70_d946a7a0",
+      "revId": "317b7a93696e2c4a0282008a21c458f214489eff",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
