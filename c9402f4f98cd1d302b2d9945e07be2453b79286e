@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c50755a2_0511947a",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/AndroidTestVendor.xml",
+        "patchSetId": 14
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2025-02-28T10:52:36Z",
+      "side": 1,
+      "message": "we don\u0027t need the test_vm for these tests on vendor, correct?\nso the wait_hw_crypto is not necessary.",
+      "revId": "c9402f4f98cd1d302b2d9945e07be2453b79286e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31623f1f_9e5c133e",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/AndroidTestVendor.xml",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2025-02-28T10:52:36Z",
+      "side": 1,
+      "message": "target preparer not needed in vendor, correct?",
+      "revId": "c9402f4f98cd1d302b2d9945e07be2453b79286e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a740ba7_ea91bc3f",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/hwcryptokey_tests.rs",
+        "patchSetId": 14
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2025-02-28T10:52:36Z",
+      "side": 1,
+      "message": "do you need careful review from Matt on these tests or are they a repeat of the ones already reviewed in Trusty?",
+      "revId": "c9402f4f98cd1d302b2d9945e07be2453b79286e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
