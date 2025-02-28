@@ -52,6 +52,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18a393ef_c8b1122a",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-28T12:20:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d929c999_49192b6b",
+      "range": {
+        "startLine": 127,
+        "startChar": 23,
+        "endLine": 127,
+        "endChar": 39
+      },
+      "revId": "b3dd8b2f2356c36fc46a5d51de52be1979e4331a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3052a2ae_64127ffd",
@@ -65,6 +89,30 @@
       "writtenOn": "2025-02-27T17:24:17Z",
       "side": 1,
       "message": "I see similar code on the lines starting from `1451`. Could you please combine common code as much as possible?",
+      "range": {
+        "startLine": 1232,
+        "startChar": 0,
+        "endLine": 1232,
+        "endChar": 91
+      },
+      "revId": "b3dd8b2f2356c36fc46a5d51de52be1979e4331a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baa5c7e4_1a96c4f0",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-02-28T12:20:33Z",
+      "side": 1,
+      "message": "The Equalizer and Multi-Band Compressor (MBC) have different conditions for comparing output magnitudes in the ```validateOutput``` method. ```Gain dB``` is used for the equalizer, while ```ratio``` and ```threshold``` are used for the MBC.\n\nAdditionally, the ```analyseMultiBandOutput``` method accepts different parameters for setting the band configurations of the Equalizer and MBC.\n\nWe couldn\u0027t find a good way to combine the code. If you have any suggestions, please let us know.",
+      "parentUuid": "3052a2ae_64127ffd",
       "range": {
         "startLine": 1232,
         "startChar": 0,
