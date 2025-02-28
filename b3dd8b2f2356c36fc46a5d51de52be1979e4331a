@@ -121,6 +121,30 @@
       },
       "revId": "b3dd8b2f2356c36fc46a5d51de52be1979e4331a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dce7cae9_0c39e9f8",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1232,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-02-28T17:19:09Z",
+      "side": 1,
+      "message": "OK, indeed although the code is similar in structure, unifying it will likely produce more complex looking code.",
+      "parentUuid": "baa5c7e4_1a96c4f0",
+      "range": {
+        "startLine": 1232,
+        "startChar": 0,
+        "endLine": 1232,
+        "endChar": 91
+      },
+      "revId": "b3dd8b2f2356c36fc46a5d51de52be1979e4331a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
