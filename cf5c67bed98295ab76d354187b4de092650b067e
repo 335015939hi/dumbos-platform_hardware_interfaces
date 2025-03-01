@@ -63,6 +63,30 @@
       },
       "revId": "cf5c67bed98295ab76d354187b4de092650b067e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3409f9e6_879e7e41",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2025-03-01T00:18:41Z",
+      "side": 1,
+      "message": "You\u0027re right.  I got confused because I thought you were trying to describe the world as it is, rather than to prescribe the future.  Now I recall that you changed the text in December to prescribe a stricter future, so what you\u0027re doing now is backing away from that prescription a little, because we probably can\u0027t get all TEEs to comply.\n\nThis makes sense to me.  We probably should work toward making all TEEs comply, though.  Unfortunately that\u0027s hard because `deleteAllKeys()` is hard to test.",
+      "parentUuid": "b6582ef4_ae398ce5",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 560,
+        "endChar": 75
+      },
+      "revId": "cf5c67bed98295ab76d354187b4de092650b067e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
