@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cc8c379_e874c305",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/AndroidTestVendor.xml",
+        "patchSetId": 14
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T02:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c50755a2_0511947a",
+      "revId": "c9402f4f98cd1d302b2d9945e07be2453b79286e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31623f1f_9e5c133e",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-02-28T10:52:36Z",
       "side": 1,
       "message": "target preparer not needed in vendor, correct?",
+      "revId": "c9402f4f98cd1d302b2d9945e07be2453b79286e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "563b903e_ede5a5c4",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/AndroidTestVendor.xml",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T02:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31623f1f_9e5c133e",
       "revId": "c9402f4f98cd1d302b2d9945e07be2453b79286e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
