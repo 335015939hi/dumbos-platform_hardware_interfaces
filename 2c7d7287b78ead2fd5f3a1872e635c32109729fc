@@ -34,6 +34,24 @@
       "parentUuid": "8f2ceb3b_e6e2b54b",
       "revId": "2c7d7287b78ead2fd5f3a1872e635c32109729fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dcba1ba_369488a0",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T02:07:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "add5c43d_7fcc8ef5",
+      "revId": "2c7d7287b78ead2fd5f3a1872e635c32109729fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
