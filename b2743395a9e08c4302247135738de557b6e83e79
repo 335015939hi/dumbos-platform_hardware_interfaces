@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23fd101e_76c93a14",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T00:16:08Z",
+      "side": 1,
+      "message": "Thanks, I moved to use some templates but with a slightly different direction (because on this change the repeated code mostly went cpp \u003c--\u003e ndk instead of a single direction).",
+      "parentUuid": "5e50fccf_16f69d62",
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "578577ce_f07988dd",
         "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
         "patchSetId": 12
@@ -31,6 +49,24 @@
       "writtenOn": "2025-02-28T17:41:50Z",
       "side": 1,
       "message": "if it\u0027s a service-specific error, you would want to construct the service specific error (there are two types). (fromServiceSpecificError).",
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d554d5c9_38a2d2fa",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T00:16:08Z",
+      "side": 1,
+      "message": "Done (I think). Please let me know if this is correct now.",
+      "parentUuid": "578577ce_f07988dd",
       "revId": "b2743395a9e08c4302247135738de557b6e83e79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "242728b6_02c90955",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T00:16:08Z",
+      "side": 1,
+      "message": "I do have a lot of those, especially on aosp/3510632, so this would be extremely helpful.",
+      "parentUuid": "c6938466_92d500c6",
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "464d48db_beafd633",
         "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
         "patchSetId": 12
@@ -65,6 +119,30 @@
       "writtenOn": "2025-02-28T17:41:50Z",
       "side": 1,
       "message": "For an enum using the same AIDL interface and version, you can static/reinterpret cast. This is as safe as sending something over the NDK backend and reading it on the other side, and we have extensive tests for these over the years.\n\n(same for many below)\n\nAlso - you can make \u0027optional\u0027 separate.",
+      "range": {
+        "startLine": 135,
+        "startChar": 39,
+        "endLine": 135,
+        "endChar": 55
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54235bea_553a1e48",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T00:16:08Z",
+      "side": 1,
+      "message": "Thanks! Now the template `convertKeyPolicy` uses `static_cast` for everything but the permissions which for some reason I needed to use `reinterpret_cast` (if I didn\u0027t use the template I\u0027d have been able to only use `static_cast`",
+      "parentUuid": "464d48db_beafd633",
       "range": {
         "startLine": 135,
         "startChar": 39,
@@ -98,6 +176,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45d00c84_12c4c4ce",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T00:16:08Z",
+      "side": 1,
+      "message": "Thanks. I moved to use a template in this case for `convertKeyPointer` but not for this specific check becuase I dind\u0027t have many with this structure in this CL.",
+      "parentUuid": "1b572303_a266312b",
+      "range": {
+        "startLine": 474,
+        "startChar": 0,
+        "endLine": 478,
+        "endChar": 9
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6676ec1f_34a3cde5",
@@ -111,6 +213,30 @@
       "writtenOn": "2025-02-28T17:41:50Z",
       "side": 1,
       "message": "delete (maybe turn on warning for unreachable code)",
+      "range": {
+        "startLine": 522,
+        "startChar": 0,
+        "endLine": 522,
+        "endChar": 40
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4713e98_5720d634",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T00:16:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6676ec1f_34a3cde5",
       "range": {
         "startLine": 522,
         "startChar": 0,
@@ -144,6 +270,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08f5e00a_e6af5e10",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T00:16:08Z",
+      "side": 1,
+      "message": "fixed on template.",
+      "parentUuid": "3350a98e_9c1dea62",
+      "range": {
+        "startLine": 532,
+        "startChar": 29,
+        "endLine": 532,
+        "endChar": 57
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f90d2de0_a8327937",
@@ -157,6 +307,30 @@
       "writtenOn": "2025-02-28T17:41:50Z",
       "side": 1,
       "message": "what if it is already in the map?",
+      "range": {
+        "startLine": 537,
+        "startChar": 4,
+        "endLine": 537,
+        "endChar": 14
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc779e84_2dc1ed51",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-01T00:16:08Z",
+      "side": 1,
+      "message": "I don\u0027t think that can ever happen because I am creating the key object inside this function. Also in general, with the API that I am currently adding to the delegator the cpp object (which is the value of each key/value entry) should not be part of the map either becuase a new object is created on the server side of the binder call that uses `insertWrappedXXXXXIntoMap`. If the cpp was on the map (because of a future API change) though, that should be fine as well, shouldn\u0027t it (\"just\" inefficient)?",
+      "parentUuid": "f90d2de0_a8327937",
       "range": {
         "startLine": 537,
         "startChar": 4,
