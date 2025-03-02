@@ -23,10 +23,9 @@
 #include <renderengine/RenderEngine.h>
 #include <ui/GraphicBuffer.h>
 #include <memory>
-#include "GraphicsComposerCallback.h"
-#include "VtsComposerClient.h"
+#include "ComposerClientWrapper.h"
 
-namespace aidl::android::hardware::graphics::composer3::vts {
+namespace aidl::android::hardware::graphics::composer3::libhwc_aidl_test {
 
 using ::android::renderengine::LayerSettings;
 using common::Dataspace;
@@ -50,7 +49,7 @@ class TestRenderEngine;
 
 class TestLayer {
   public:
-    TestLayer(const std::shared_ptr<VtsComposerClient>& client, int64_t display,
+    TestLayer(const std::shared_ptr<ComposerClientWrapper>& client, int64_t display,
               ComposerClientWriter& writer)
         : mDisplay(display) {
         const auto& [status, layer] = client->createLayer(display, kBufferSlotCount, &writer);
@@ -60,7 +59,7 @@ class TestLayer {
 
     // ComposerClient will take care of destroying layers, no need to explicitly
     // call destroyLayers here
-    virtual ~TestLayer(){};
+    virtual ~TestLayer() {};
 
     virtual void write(ComposerClientWriter& writer);
     virtual LayerSettings toRenderEngineLayerSettings();
@@ -109,7 +108,7 @@ class TestLayer {
 
 class TestColorLayer : public TestLayer {
   public:
-    TestColorLayer(const std::shared_ptr<VtsComposerClient>& client, int64_t display,
+    TestColorLayer(const std::shared_ptr<ComposerClientWrapper>& client, int64_t display,
                    ComposerClientWriter& writer)
         : TestLayer{client, display, writer} {}
 
@@ -125,7 +124,7 @@ class TestColorLayer : public TestLayer {
 
 class TestBufferLayer : public TestLayer {
   public:
-    TestBufferLayer(const std::shared_ptr<VtsComposerClient>& client,
+    TestBufferLayer(const std::shared_ptr<ComposerClientWrapper>& client,
                     TestRenderEngine& renderEngine, int64_t display, uint32_t width,
                     uint32_t height, common::PixelFormat format, ComposerClientWriter& writer,
                     Composition composition = Composition::DEVICE);
@@ -201,8 +200,9 @@ class ReadbackHelper {
 
 class ReadbackBuffer {
   public:
-    ReadbackBuffer(int64_t display, const std::shared_ptr<VtsComposerClient>& client, int32_t width,
-                   int32_t height, common::PixelFormat pixelFormat, common::Dataspace dataspace);
+    ReadbackBuffer(int64_t display, const std::shared_ptr<ComposerClientWrapper>& client,
+                   int32_t width, int32_t height, common::PixelFormat pixelFormat,
+                   common::Dataspace dataspace);
 
     void setReadbackBuffer();
 
@@ -219,7 +219,7 @@ class ReadbackBuffer {
     Dataspace mDataspace;
     int64_t mDisplay;
     ::android::sp<::android::GraphicBuffer> mGraphicBuffer;
-    std::shared_ptr<VtsComposerClient> mComposerClient;
+    std::shared_ptr<ComposerClientWrapper> mComposerClient;
     ::android::Rect mAccessRegion;
     native_handle_t mBufferHandle;
 
@@ -227,4 +227,4 @@ class ReadbackBuffer {
     ::android::sp<::android::GraphicBuffer> allocateBuffer();
 };
 
-}  // namespace aidl::android::hardware::graphics::composer3::vts
+}  // namespace aidl::android::hardware::graphics::composer3::libhwc_aidl_test
