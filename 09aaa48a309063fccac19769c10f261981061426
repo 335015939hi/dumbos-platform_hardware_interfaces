@@ -69,6 +69,23 @@
       "message": "How could I overcome the latest error? \nAs I have uploaded the patches according to google guidance and the approval is by google team.",
       "revId": "09aaa48a309063fccac19769c10f261981061426",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edc4106f_18139c69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3883038
+      },
+      "writtenOn": "2025-03-02T09:39:20Z",
+      "side": 1,
+      "message": "Hi @jreck@google.com - do I also need to upload the files that were updated after running the \"m android.hardware.graphics.common-update-api\" command ? (inside the aidl_api directory)",
+      "revId": "09aaa48a309063fccac19769c10f261981061426",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
