@@ -22,6 +22,30 @@
       },
       "revId": "2dcec9926bd380644e4c3e913e9543d4c28417b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca5eaf8c_436c2fff",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2025-03-03T01:53:37Z",
+      "side": 1,
+      "message": "\u003e implementation of the IStreamIn|Out may override and implement it.\n\nPer experience, this change is not working.\n\nSince the dump is called on `IStreamCommon` in `StreamHalAidl`, which should be implemeted by `StreamCommonDelegator` who inherited `BnStreamCommon`, and the `StreamCommonDelegator` is wraped as a variable inside `StreamCommonImpl ` which means it will be wraped in `StreamIn|Out`, then add dump into `StreamCommonInterface` seems inevitable.\nhttps://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/libaudiohal/impl/StreamHalAidl.h;drc\u003d90a4306d7e6b292c2797e601eb7de282f643efad;l\u003d346\nhttps://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/libaudiohal/impl/StreamHalAidl.cpp;drc\u003d98797c2e6739910998c05a4ec0bc835690dcc76f;l\u003d281\n\nFurthermore, since `IStreamIn|Out` are not aidl service, we also want to dump `StreamIn|Out` by dumping `Module` who can access them by `Streams`.",
+      "parentUuid": "cae7850a_3365922f",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 82
+      },
+      "revId": "2dcec9926bd380644e4c3e913e9543d4c28417b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
