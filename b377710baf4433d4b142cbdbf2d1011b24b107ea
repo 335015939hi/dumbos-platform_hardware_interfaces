@@ -1,0 +1,91 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d83191c_2dced4cb",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-03T18:59:52Z",
+      "side": 1,
+      "message": "Why `float`?",
+      "range": {
+        "startLine": 156,
+        "startChar": 22,
+        "endLine": 156,
+        "endChar": 27
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "87bf5d05_056ad2c6",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 156,
+                "startChar": 0,
+                "endLine": 157,
+                "endChar": 0
+              },
+              "replacement": "    const std::vector\u003cbool\u003e kTestEnableValues \u003d {true, false};\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b377710baf4433d4b142cbdbf2d1011b24b107ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d0bfbb9_61a321a8",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-03T18:59:52Z",
+      "side": 1,
+      "message": "`static` constant should be declared before non-static. Please move it up one line.",
+      "range": {
+        "startLine": 1273,
+        "startChar": 4,
+        "endLine": 1273,
+        "endChar": 44
+      },
+      "revId": "b377710baf4433d4b142cbdbf2d1011b24b107ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a5ba666_bd3c9d54",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-03T18:59:52Z",
+      "side": 1,
+      "message": "Why do we have to do it at all since the gain is always fixed to `kEqTestGainDb`? Usually we have to re-generate the input if we change the processing parameters.",
+      "range": {
+        "startLine": 1299,
+        "startChar": 0,
+        "endLine": 1303,
+        "endChar": 9
+      },
+      "revId": "b377710baf4433d4b142cbdbf2d1011b24b107ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
