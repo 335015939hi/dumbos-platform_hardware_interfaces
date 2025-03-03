@@ -87,6 +87,30 @@
       },
       "revId": "cf5c67bed98295ab76d354187b4de092650b067e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcb05cca_c211be97",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/IKeyMintDevice.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2025-03-03T16:39:55Z",
+      "side": 1,
+      "message": "Right.  There are both problems on technical side (mostly the ability to test, to enforce the latter) and non-technical side (RPMB BOM cost if not already exists).",
+      "parentUuid": "3409f9e6_879e7e41",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 560,
+        "endChar": 75
+      },
+      "revId": "cf5c67bed98295ab76d354187b4de092650b067e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
