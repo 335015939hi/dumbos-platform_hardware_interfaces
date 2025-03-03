@@ -70,6 +70,42 @@
       "parentUuid": "71555ec7_a0429b2e",
       "revId": "8f28f8b8ea715ade3e62a0a0c0ce6ed94eaf97a7",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7d0821a_429be627",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2025-03-03T13:48:21Z",
+      "side": 0,
+      "message": "@mnaganov,\n\ncan you please update the AIDL interface",
+      "parentUuid": "484a054b_38dc32d3",
+      "revId": "8f28f8b8ea715ade3e62a0a0c0ce6ed94eaf97a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0e857c8_2f99e4d5",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 2020342
+      },
+      "writtenOn": "2025-03-03T13:48:21Z",
+      "side": 0,
+      "message": "@mnaganov@google.com,\n\ncan you please update AIDL interface comments?",
+      "parentUuid": "484a054b_38dc32d3",
+      "revId": "8f28f8b8ea715ade3e62a0a0c0ce6ed94eaf97a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
