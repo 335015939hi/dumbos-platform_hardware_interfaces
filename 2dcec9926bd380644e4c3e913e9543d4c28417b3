@@ -46,6 +46,30 @@
       },
       "revId": "2dcec9926bd380644e4c3e913e9543d4c28417b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37fc2c63_75eb9569",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-03T19:21:24Z",
+      "side": 1,
+      "message": "I see, thanks for pointing out this problem! I think, a proper solution is to actually change the code in `StreamHalAidl` (of `libaudiohal`) to override `dump` in `Stream{In|Out}HalAidl` so that it can use the specific `IStreamIn|Out` instead of `IStreamCommon`. Could you please do that? I can then clarify the use of `dump` in the AIDL interface specification.\n\n\u003e Furthermore, since IStreamIn|Out are not aidl service, we also want to dump StreamIn|Out by dumping Module who can access them by Streams.\n\nAudioflinger does that already. It actually does even a better job by storing and displaying \"historical\" dumps so you can see dumps even for streams that have already been closed, which is very useful. If you want to dump streams yourself from the IModule implementation, you will lack this functionality, or you will have to re-implement it.",
+      "parentUuid": "ca5eaf8c_436c2fff",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 82
+      },
+      "revId": "2dcec9926bd380644e4c3e913e9543d4c28417b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
