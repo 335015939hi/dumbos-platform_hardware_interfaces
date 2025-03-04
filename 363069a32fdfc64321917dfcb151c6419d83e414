@@ -1,0 +1,109 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9dbc14_eef9d7a4",
+        "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-04T21:26:22Z",
+      "side": 1,
+      "message": "Shouldn\u0027t the first parameter be mandatory? The class is not useful if these are not provided.",
+      "range": {
+        "startLine": 63,
+        "startChar": 24,
+        "endLine": 63,
+        "endChar": 86
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5c8b05b3_87c30522",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+              "range": {
+                "startLine": 63,
+                "startChar": 0,
+                "endLine": 64,
+                "endChar": 0
+              },
+              "replacement": "    EqualizerTestHelper(std::pair\u003cstd::shared_ptr\u003cIFactory\u003e, Descriptor\u003e descPair,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "363069a32fdfc64321917dfcb151c6419d83e414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3f9f2e1_70b6f53b",
+        "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-04T21:26:22Z",
+      "side": 1,
+      "message": "I would advocate for extracting the fields from the pair in the constructor\u0027s field initialization list (see the AI suggestion). Then they can be made const.",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 51
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a96cccd8_d552a14f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+              "range": {
+                "startLine": 68,
+                "startChar": 0,
+                "endLine": 71,
+                "endChar": 0
+              },
+              "replacement": "        : mFactory(descPair.first), mDescriptor(descPair.second), mPresetIndex(presetIndex),\n          mBandLevel(bandLevel) {}\n"
+            }
+          ]
+        }
+      ],
+      "revId": "363069a32fdfc64321917dfcb151c6419d83e414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a922f81_e8c03a0b",
+        "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-04T21:26:22Z",
+      "side": 1,
+      "message": "Please make `const` fields that do not change during the lifetime of the class.",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 0
+      },
+      "revId": "363069a32fdfc64321917dfcb151c6419d83e414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
