@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6203af6c_5b7aab8c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-04T18:34:57Z",
+      "side": 1,
+      "message": "I think you meant something like `atest --test-mapping hardware/interfaces/audio/aidl` to refer to all tests from TEST_MAPPING",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "8c2038bd273355511ff711ab23696858ca2c45ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5ec98629_1b2b87cf",
