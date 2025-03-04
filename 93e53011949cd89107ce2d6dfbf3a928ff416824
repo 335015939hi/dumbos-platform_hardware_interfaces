@@ -189,6 +189,30 @@
       },
       "revId": "93e53011949cd89107ce2d6dfbf3a928ff416824",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7841e49_65458146",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-04T20:19:20Z",
+      "side": 1,
+      "message": "Thanks, I am looking into it but it seems that the [linked implementation always retuns unsupported](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/native/libs/binder/Binder.cpp;l\u003d444):",
+      "parentUuid": "fd6ed448_8f05176b",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 23
+      },
+      "revId": "93e53011949cd89107ce2d6dfbf3a928ff416824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
