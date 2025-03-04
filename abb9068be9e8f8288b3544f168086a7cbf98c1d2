@@ -1,0 +1,133 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73a9704e_a6c5b5b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-04T21:19:10Z",
+      "side": 1,
+      "message": "The approach looks good, just some notes on the implementation.",
+      "revId": "abb9068be9e8f8288b3544f168086a7cbf98c1d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd34bc26_682f0ae0",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-04T21:19:10Z",
+      "side": 1,
+      "message": "Please encapsulate this into a method called `bool readMmap` so that the call and result handling looks similar to the call to `read` below.\n\nSame for the output case.",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 90
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f5d66a66_2303d746",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 185,
+                "startChar": 0,
+                "endLine": 185,
+                "endChar": 0
+              },
+              "replacement": "\nbool StreamWorkerCommonLogic::readMmap(StreamDescriptor::Reply* reply) {\n    if (::android::status_t status \u003d mDriver-\u003etransferMmap(); status \u003d\u003d ::android::OK) {\n        populateReply(reply, mIsConnected);\n        return true;\n    } else {\n        LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \": transferMmap failed: \" \u003c\u003c status;\n        return false;\n    }\n}\n"
+            },
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 256,
+                "startChar": 0,
+                "endLine": 260,
+                "endChar": 0
+              },
+              "replacement": "                        if (!readMmap(\u0026reply)) {\n"
+            },
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 438,
+                "startChar": 0,
+                "endLine": 438,
+                "endChar": 0
+              },
+              "replacement": "\nbool StreamOutWorkerLogic::readMmap(StreamDescriptor::Reply* reply) {\n    if (::android::status_t status \u003d mDriver-\u003etransferMmap(); status \u003d\u003d ::android::OK) {\n        populateReply(reply, mIsConnected);\n        return true;\n    } else {\n        LOG(ERROR) \u003c\u003c __func__ \u003c\u003c \": transferMmap failed: \" \u003c\u003c status;\n        return false;\n    }\n}\n"
+            },
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 532,
+                "startChar": 0,
+                "endLine": 536,
+                "endChar": 0
+              },
+              "replacement": "                        if (!readMmap(\u0026reply)) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "abb9068be9e8f8288b3544f168086a7cbf98c1d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a2e82a6_88da597c",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-04T21:19:10Z",
+      "side": 1,
+      "message": "Please just use `transfer` with default-initialized parameter values for `buffer`, `frameCount`, and `actualFrameCount`. And `latencyMs` can actually still be used for getting the current latency from the driver.",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 48
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ee7a19e6_2a9bebe3",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/include/core-impl/Stream.h",
+              "range": {
+                "startLine": 200,
+                "startChar": 0,
+                "endLine": 209,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "abb9068be9e8f8288b3544f168086a7cbf98c1d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
