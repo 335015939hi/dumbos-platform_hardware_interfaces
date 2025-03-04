@@ -94,6 +94,30 @@
       },
       "revId": "2dcec9926bd380644e4c3e913e9543d4c28417b3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed45bef6_37231add",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-04T22:23:00Z",
+      "side": 1,
+      "message": "\u003e Please check https://android-review.googlesource.com/c/platform/frameworks/av/+/3522154.\n\nThanks! That makes sense.\n\n\u003e We want to add some debug mechanism(not just print log) that can be trigger by dump and it\u0027s not aviliable through dumpsys.\n\nIf I understand it correctly, you want to be able to dump streams when an instance of `IModule` receives a dump request during BR generation. Agree, this is a valid scenario, and in fact the module knows whether the request for the dump comes from the audioflinger or not by checking the presence of `kDumpFromAudioServerArgument` argument for the `dump` command. This way, for the standalone dump request you can generate more information that would otherwise pollute the audioflinger dump.\n\nIn order to implement that, I would recommend adding a default `dump` implementation to `Module` which uses `Streams` list to send this command to each currently registered stream. But since the dump for the stream is implemented for the particular stream implementation, not for the `StreamCommon`, we will need to change the `StreamWrapper` slightly to hold a weak pointer to `StreamIn` or `StreamOut` instance (as a `variant` maybe) in addition to `StreamCommonInterface` which it currently holds. So it\u0027s similar to what you were trying to do except that we do not modify `StreamCommonInterface`.",
+      "parentUuid": "fbd06790_f3775ffe",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 82
+      },
+      "revId": "2dcec9926bd380644e4c3e913e9543d4c28417b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
