@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ec98629_1b2b87cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1956242
+      },
+      "writtenOn": "2025-03-04T18:30:34Z",
+      "side": 1,
+      "message": "Can we add more information in the commit msg?\nLike \"Wrap subroutine calls with ASSERT_NO_FATAL_FAILURE\"?",
+      "revId": "8c2038bd273355511ff711ab23696858ca2c45ac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
