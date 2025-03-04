@@ -253,7 +253,9 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
                     mState == StreamDescriptor::State::PAUSED ||
                     mState == StreamDescriptor::State::DRAINING) {
                     if (hasMmapFlag(mContext->getFlags())) {
-                        populateReply(&reply, mIsConnected);
+                        if (!readMmap(&reply)) {
+                            mState = StreamDescriptor::State::ERROR;
+                        }
                     } else if (!read(fmqByteCount, &reply)) {
                         mState = StreamDescriptor::State::ERROR;
                     }
@@ -381,6 +383,22 @@ bool StreamInWorkerLogic::read(size_t clientSize, StreamDescriptor::Reply* reply
     }
     reply->latencyMs = latency;
     return !fatal;
+}
+
+bool StreamInWorkerLogic::readMmap(StreamDescriptor::Reply* reply) {
+    void* buffer = nullptr;
+    size_t frameCount = 0;
+    size_t actualFrameCount = 0;
+    int32_t latency = mContext->getNominalLatencyMs();
+    //use default-initialized parameter values for mmap stream.
+    if (::android::status_t status = mDriver->transfer(buffer,frameCount,&actualFrameCount,&latency);
+        status == ::android::OK) {
+        populateReply(reply, mIsConnected);
+        return true;
+    } else {
+        LOG(ERROR) << __func__ << ": readMmap failed: " << status;
+        return false;
+    }
 }
 
 const std::string StreamOutWorkerLogic::kThreadName = "writer";
@@ -524,7 +542,9 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
                     mState != StreamDescriptor::State::TRANSFERRING &&
                     mState != StreamDescriptor::State::TRANSFER_PAUSED) {
                     if (hasMmapFlag(mContext->getFlags())) {
-                        populateReply(&reply, mIsConnected);
+                        if (!writeMmap(&reply)) {
+                            mState = StreamDescriptor::State::ERROR;
+                        }
                     } else if (!write(fmqByteCount, &reply)) {
                         mState = StreamDescriptor::State::ERROR;
                     }
@@ -698,6 +718,22 @@ bool StreamOutWorkerLogic::write(size_t clientSize, StreamDescriptor::Reply* rep
     }
     reply->latencyMs = latency;
     return !fatal;
+}
+
+bool StreamOutWorkerLogic::writeMmap(StreamDescriptor::Reply* reply) {
+    void* buffer = nullptr;
+    size_t frameCount = 0;
+    size_t actualFrameCount = 0;
+    int32_t latency = mContext->getNominalLatencyMs();
+    //use default-initialized parameter values for mmap stream.
+    if (::android::status_t status = mDriver->transfer(buffer,frameCount,&actualFrameCount,&latency);
+        status == ::android::OK) {
+        populateReply(reply, mIsConnected);
+        return true;
+    } else {
+        LOG(ERROR) << __func__ << ": writeMmap failed: " << status;
+        return false;
+    }
 }
 
 StreamCommonImpl::~StreamCommonImpl() {
