@@ -202,6 +202,10 @@ struct DriverInterface {
                                                           int32_t* /*latency*/) {
         return ::android::OK;
     }
+    // Just inform the driver that the client has started data transmission.
+    virtual ::android::status_t transferMmap() {
+          return ::android::OK;
+    }
     virtual void shutdown() = 0;  // This function is only called once.
 };
 
