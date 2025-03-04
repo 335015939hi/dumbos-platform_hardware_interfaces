@@ -253,7 +253,12 @@ StreamInWorkerLogic::Status StreamInWorkerLogic::cycle() {
                     mState == StreamDescriptor::State::PAUSED ||
                     mState == StreamDescriptor::State::DRAINING) {
                     if (hasMmapFlag(mContext->getFlags())) {
-                        populateReply(&reply, mIsConnected);
+                        if (::android::status_t status = mDriver->transferMmap(); status == ::android::OK) {
+                            populateReply(&reply, mIsConnected);
+                        } else {
+                            LOG(ERROR) << __func__ << ": transferMmap failed: " << status;
+                            mState = StreamDescriptor::State::ERROR;
+                        }
                     } else if (!read(fmqByteCount, &reply)) {
                         mState = StreamDescriptor::State::ERROR;
                     }
@@ -524,7 +529,12 @@ StreamOutWorkerLogic::Status StreamOutWorkerLogic::cycle() {
                     mState != StreamDescriptor::State::TRANSFERRING &&
                     mState != StreamDescriptor::State::TRANSFER_PAUSED) {
                     if (hasMmapFlag(mContext->getFlags())) {
-                        populateReply(&reply, mIsConnected);
+                        if (::android::status_t status = mDriver->transferMmap(); status == ::android::OK) {
+                            populateReply(&reply, mIsConnected);
+                        } else {
+                            LOG(ERROR) << __func__ << ": transferMmap failed: " << status;
+                            mState = StreamDescriptor::State::ERROR;
+                        }
                     } else if (!write(fmqByteCount, &reply)) {
                         mState = StreamDescriptor::State::ERROR;
                     }
