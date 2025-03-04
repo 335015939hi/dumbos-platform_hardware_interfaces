@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ff6285f_94bb1c82",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-04T11:56:16Z",
+      "side": 1,
+      "message": "Changed it to bool.",
+      "parentUuid": "4d83191c_2dced4cb",
+      "range": {
+        "startLine": 156,
+        "startChar": 22,
+        "endLine": 156,
+        "endChar": 27
+      },
+      "revId": "b377710baf4433d4b142cbdbf2d1011b24b107ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5d0bfbb9_61a321a8",
@@ -65,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78c13753_e697ced7",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-04T11:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d0bfbb9_61a321a8",
+      "range": {
+        "startLine": 1273,
+        "startChar": 4,
+        "endLine": 1273,
+        "endChar": 44
+      },
+      "revId": "b377710baf4433d4b142cbdbf2d1011b24b107ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a5ba666_bd3c9d54",
@@ -78,6 +126,30 @@
       "writtenOn": "2025-03-03T18:59:52Z",
       "side": 1,
       "message": "Why do we have to do it at all since the gain is always fixed to `kEqTestGainDb`? Usually we have to re-generate the input if we change the processing parameters.",
+      "range": {
+        "startLine": 1299,
+        "startChar": 0,
+        "endLine": 1303,
+        "endChar": 9
+      },
+      "revId": "b377710baf4433d4b142cbdbf2d1011b24b107ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbb55a6a_40f9fe13",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-04T11:56:16Z",
+      "side": 1,
+      "message": "When ```isEnabled``` is set to ```true```, the equalizers add gain to the input signal. Therefore, we regenerate the sine input based on the gain dB to prevent it from exceeding the full-scale dB level.",
+      "parentUuid": "7a5ba666_bd3c9d54",
       "range": {
         "startLine": 1299,
         "startChar": 0,
