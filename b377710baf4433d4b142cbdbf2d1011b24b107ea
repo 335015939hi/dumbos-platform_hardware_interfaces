@@ -158,6 +158,30 @@
       },
       "revId": "b377710baf4433d4b142cbdbf2d1011b24b107ea",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfd504a2_895094e0",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1303,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-04T18:52:08Z",
+      "side": 1,
+      "message": "I see. So we use the value of 10 dB which we actually pass to the effect as the \"eq gain\". But in that case, is there any difference between the `isEnabled \u003d\u003d true` vs. `IncreasingPre/PostEqGain` tests? If there is none, apart from the gain value (I don\u0027t see `10` in `kTestGainDbValues`), then we should just add it thesre and for these new tests only leave disabled case.",
+      "parentUuid": "fbb55a6a_40f9fe13",
+      "range": {
+        "startLine": 1299,
+        "startChar": 0,
+        "endLine": 1303,
+        "endChar": 9
+      },
+      "revId": "b377710baf4433d4b142cbdbf2d1011b24b107ea",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
