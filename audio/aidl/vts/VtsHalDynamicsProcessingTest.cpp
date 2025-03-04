@@ -624,7 +624,7 @@ class DynamicsProcessingTestEngineArchitecture
         fillEngineArchConfig(mCfg, GetParam());
     };
 
-    void SetUp() override { SetUpDynamicsProcessingEffect(); }
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpDynamicsProcessingEffect()); }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
 
@@ -676,7 +676,7 @@ class DynamicsProcessingTestInputGain
         : DynamicsProcessingTestHelper(std::get<INPUT_GAIN_INSTANCE_NAME>(GetParam())),
           mInputGain(std::get<INPUT_GAIN_PARAM>(GetParam())) {};
 
-    void SetUp() override { SetUpDynamicsProcessingEffect(); }
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpDynamicsProcessingEffect()); }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
 
@@ -715,7 +715,10 @@ class DynamicsProcessingInputGainDataTest
         mInput.resize(kFrameCount * mChannelCount);
     }
 
-    void SetUp() override { setUpDataTest({static_cast<int>(kInputFrequency)}, kSineFullScaleDb); }
+    void SetUp() override {
+        ASSERT_NO_FATAL_FAILURE(
+                setUpDataTest({static_cast<int>(kInputFrequency)}, kSineFullScaleDb));
+    }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
 
@@ -793,7 +796,7 @@ class DynamicsProcessingTestLimiterConfig
         fillLimiterConfig(mLimiterConfigList, GetParam());
     }
 
-    void SetUp() override { SetUpDynamicsProcessingEffect(); }
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpDynamicsProcessingEffect()); }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
 
@@ -843,7 +846,10 @@ class DynamicsProcessingLimiterConfigDataTest
         mInput.resize(mBufferSize);
     }
 
-    void SetUp() override { setUpDataTest({static_cast<int>(kInputFrequency)}, kSineFullScaleDb); }
+    void SetUp() override {
+        ASSERT_NO_FATAL_FAILURE(
+                setUpDataTest({static_cast<int>(kInputFrequency)}, kSineFullScaleDb));
+    }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
 
@@ -1011,7 +1017,7 @@ class DynamicsProcessingTestChannelConfig
         : DynamicsProcessingTestHelper(std::get<BAND_CHANNEL_TEST_INSTANCE_NAME>(GetParam())),
           mCfg(std::get<BAND_CHANNEL_TEST_CHANNEL_CONFIG>(GetParam())) {}
 
-    void SetUp() override { SetUpDynamicsProcessingEffect(); }
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpDynamicsProcessingEffect()); }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
 
@@ -1087,7 +1093,7 @@ class DynamicsProcessingTestEqBandConfig : public ::testing::TestWithParam<EqBan
         fillEqBandConfig(mCfgs, GetParam());
     }
 
-    void SetUp() override { SetUpDynamicsProcessingEffect(); }
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpDynamicsProcessingEffect()); }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
 
@@ -1368,7 +1374,7 @@ class DynamicsProcessingTestMbcBandConfig
         fillMbcBandConfig(mCfgs, GetParam());
     }
 
-    void SetUp() override { SetUpDynamicsProcessingEffect(); }
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpDynamicsProcessingEffect()); }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
 
