@@ -22,6 +22,30 @@
       },
       "revId": "052d662a047438016d5bf496ef77258c14857227",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b06f4f9d_835de989",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 9141,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-03-04T11:45:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48df4905_f08d6055",
+      "range": {
+        "startLine": 9141,
+        "startChar": 40,
+        "endLine": 9141,
+        "endChar": 63
+      },
+      "revId": "052d662a047438016d5bf496ef77258c14857227",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
