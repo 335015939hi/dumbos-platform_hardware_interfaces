@@ -213,6 +213,30 @@
       },
       "revId": "93e53011949cd89107ce2d6dfbf3a928ff416824",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80643fca_68fc8fa1",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-05T00:19:43Z",
+      "side": 1,
+      "message": "The implementation returns unsupported always becuase the object is on the same process, this is intended to work only when it is on a different process. I put a possible alternative cleanup implementation in aosp/3524997",
+      "parentUuid": "c7841e49_65458146",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 23
+      },
+      "revId": "93e53011949cd89107ce2d6dfbf3a928ff416824",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
