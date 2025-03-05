@@ -1,5 +1,245 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c88ed0c4_322195fb",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/lib.rs",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-03-05T18:26:38Z",
+      "side": 1,
+      "message": "I think a common pattern is to put both of these into a `mod` so that you don\u0027t have to repeat the `cfg` so many times:\n\n```rust\n![cfg(target_arch \u003d \"x86_64\")]\nmod x86_64 { ... }\n\n![cfg(target_arch \u003d \"aarch64\")]\nmod aarch64 { ... }\n\n// There\u0027s a std::cfg_match on nightly that makes this easier; I\u0027m\n// not sure if we have a crate that does the same thing\n![cfg(target_arch \u003d \"x86_64\")]\nuse x86_64 as arch;\n![cfg(target_arch \u003d \"aarch64\")]\nuse aarch64 as arch;\n\n// Might not need this cfg attribute if this code is only ever compiled\n// for x86_64 and aarch64\n![cfg(or(target_arch \u003d \"x86_64\", target_arch \u003d \"aarch64\"))]\npub fn get_hwcryptokey() -\u003e Result\u003cbinder::Strong\u003cdyn IHwCryptoKey\u003e, binder::Status\u003e {\n    arch:: get_hwcryptokey()\n}\n```",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "0b4ed0bcf389b1003265c25ee01f42d64f3af20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5928a48a_7550afed",
+        "filename": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-03-05T18:26:38Z",
+      "side": 1,
+      "message": "This and below are all impls of virtual methods from IHwCryptoKey, right? Can you mark them `override`?",
+      "range": {
+        "startLine": 47,
+        "startChar": 23,
+        "endLine": 47,
+        "endChar": 54
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "54f084f8_1e1aa540",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+              "range": {
+                "startLine": 49,
+                "startChar": 0,
+                "endLine": 50,
+                "endChar": 0
+              },
+              "replacement": "            ndk_hwcrypto::IHwCryptoKey::DiceCurrentBoundKeyResult* aidl_return) override;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+              "range": {
+                "startLine": 54,
+                "startChar": 0,
+                "endLine": 55,
+                "endChar": 0
+              },
+              "replacement": "            ndk_hwcrypto::IHwCryptoKey::DiceBoundKeyResult* aidl_return) override;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+              "range": {
+                "startLine": 56,
+                "startChar": 0,
+                "endLine": 57,
+                "endChar": 0
+              },
+              "replacement": "                                 ndk_hwcrypto::IHwCryptoKey::DerivedKey* aidl_return) override;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+              "range": {
+                "startLine": 59,
+                "startChar": 0,
+                "endLine": 60,
+                "endChar": 0
+              },
+              "replacement": "            std::shared_ptr\u003cndk_hwcrypto::IHwCryptoOperations\u003e* aidl_return) override;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+              "range": {
+                "startLine": 63,
+                "startChar": 0,
+                "endLine": 64,
+                "endChar": 0
+              },
+              "replacement": "                                      std::shared_ptr\u003cndk_hwcrypto::IOpaqueKey\u003e* aidl_return) override;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+              "range": {
+                "startLine": 65,
+                "startChar": 0,
+                "endLine": 66,
+                "endChar": 0
+              },
+              "replacement": "    ndk::ScopedAStatus getCurrentDicePolicy(std::vector\u003cuint8_t\u003e* aidl_return) override;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+              "range": {
+                "startLine": 69,
+                "startChar": 0,
+                "endLine": 70,
+                "endChar": 0
+              },
+              "replacement": "                                      std::shared_ptr\u003cndk_hwcrypto::IOpaqueKey\u003e* aidl_return) override;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+              "range": {
+                "startLine": 72,
+                "startChar": 0,
+                "endLine": 73,
+                "endChar": 0
+              },
+              "replacement": "                                      std::shared_ptr\u003cndk_hwcrypto::IOpaqueKey\u003e* aidl_return) override;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "0b4ed0bcf389b1003265c25ee01f42d64f3af20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bede8d5a_f3df9cdc",
+        "filename": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-03-05T18:26:38Z",
+      "side": 1,
+      "message": "Nit: we know the size `policy.keyPermissions` will end up at, so we can `reserve` it beforehand.",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 60
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "acc07079_84fec930",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+              "range": {
+                "startLine": 82,
+                "startChar": 0,
+                "endLine": 82,
+                "endChar": 0
+              },
+              "replacement": "    policy.keyPermissions.reserve(policyToConvert.keyPermissions.size());\n"
+            }
+          ]
+        }
+      ],
+      "revId": "0b4ed0bcf389b1003265c25ee01f42d64f3af20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb1e1dd_826f92f1",
+        "filename": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-03-05T18:26:38Z",
+      "side": 1,
+      "message": "Is this working? IIUC, `decltype(policy.keyPermissions[0])` is `KeyPermissions\u0026`, not `KeyPermissions` itself. `decltype(policy.keyPermissions)::value_type` should give you `KeyPermissions`.",
+      "range": {
+        "startLine": 84,
+        "startChar": 52,
+        "endLine": 84,
+        "endChar": 76
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0e89d408_019cbbaa",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+              "range": {
+                "startLine": 84,
+                "startChar": 0,
+                "endLine": 85,
+                "endChar": 0
+              },
+              "replacement": "                std::move(reinterpret_cast\u003cdecltype(policy.keyPermissions)::value_type\u003e(permission)));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "0b4ed0bcf389b1003265c25ee01f42d64f3af20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ee669ca_00be5da6",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 16
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-03-05T18:26:38Z",
+      "side": 1,
+      "message": "Was this coming up? IIUC, binder shouldn\u0027t ever pass you null outparams.",
+      "range": {
+        "startLine": 236,
+        "startChar": 8,
+        "endLine": 236,
+        "endChar": 37
+      },
+      "revId": "0b4ed0bcf389b1003265c25ee01f42d64f3af20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
