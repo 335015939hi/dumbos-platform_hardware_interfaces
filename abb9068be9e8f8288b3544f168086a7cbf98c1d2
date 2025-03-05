@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91483db4_e961c7a4",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 3705885
+      },
+      "writtenOn": "2025-03-05T11:46:09Z",
+      "side": 1,
+      "message": "The transfer method has been wrapped using the readMmap and writeMmap methods, and default parameters have been provided for the transfer method.",
+      "parentUuid": "cd34bc26_682f0ae0",
+      "range": {
+        "startLine": 256,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 90
+      },
+      "revId": "abb9068be9e8f8288b3544f168086a7cbf98c1d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a2e82a6_88da597c",
         "filename": "audio/aidl/default/include/core-impl/Stream.h",
         "patchSetId": 2
@@ -126,6 +150,30 @@
           ]
         }
       ],
+      "revId": "abb9068be9e8f8288b3544f168086a7cbf98c1d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b79733b_c1c2a0b6",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 3705885
+      },
+      "writtenOn": "2025-03-05T11:46:09Z",
+      "side": 1,
+      "message": "I have removed the transferMmap method and are using the existing transfer method. I have added readMmap and writeMmap methods.",
+      "parentUuid": "0a2e82a6_88da597c",
+      "range": {
+        "startLine": 206,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 48
+      },
       "revId": "abb9068be9e8f8288b3544f168086a7cbf98c1d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
