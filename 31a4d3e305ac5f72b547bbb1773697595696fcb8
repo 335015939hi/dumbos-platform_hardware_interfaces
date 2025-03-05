@@ -1,0 +1,192 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e8a9951_d1e03e09",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-05T20:32:48Z",
+      "side": 1,
+      "message": "Thank you! Some more notes on the implementation.",
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "512d7d52_f9ae0d47",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-05T20:32:48Z",
+      "side": 1,
+      "message": "Thank you! We can actually now simplify this to the following:\n\n```\nif (bool success \u003d hasMmapFlag(mContext-\u003egetFlags()) ?\n        readMmap(\u0026reply) : read(fmqByteCount, \u0026reply); !success) {\n    mState \u003d StreamDescriptor::State::ERROR;\n}\n```\n\n(and same for write).",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 21
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d26e5cf8_57cf1cee",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-05T20:32:48Z",
+      "side": 1,
+      "message": "Missing spaces after commas. Please make sure you run the clang formatter (via `repo upload` hooks) to get proper formatting automatically.",
+      "range": {
+        "startLine": 394,
+        "startChar": 62,
+        "endLine": 394,
+        "endChar": 63
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "56f00f29_e3a6064b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 394,
+                "startChar": 0,
+                "endLine": 395,
+                "endChar": 0
+              },
+              "replacement": "    if (::android::status_t status \u003d\n            mDriver-\u003etransfer(buffer, frameCount, \u0026actualFrameCount, \u0026latency);\n"
+            },
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 729,
+                "startChar": 0,
+                "endLine": 730,
+                "endChar": 0
+              },
+              "replacement": "    if (::android::status_t status \u003d\n            mDriver-\u003etransfer(buffer, frameCount, \u0026actualFrameCount, \u0026latency);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d11c7f36_666b9407",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-05T20:32:48Z",
+      "side": 1,
+      "message": "We should also put `latency` into the reply, see the line `384`.",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 43
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a2aa9353_51ed038c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 397,
+                "startChar": 0,
+                "endLine": 397,
+                "endChar": 0
+              },
+              "replacement": "        reply-\u003elatencyMs \u003d latency;\n"
+            },
+            {
+              "path": "audio/aidl/default/Stream.cpp",
+              "range": {
+                "startLine": 732,
+                "startChar": 0,
+                "endLine": 732,
+                "endChar": 0
+              },
+              "replacement": "        reply-\u003elatencyMs \u003d latency;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90bcd0cb_c6afe13f",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-05T20:32:48Z",
+      "side": 1,
+      "message": "transfer",
+      "range": {
+        "startLine": 399,
+        "startChar": 37,
+        "endLine": 399,
+        "endChar": 45
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6b6b3a9_a2b56d08",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-05T20:32:48Z",
+      "side": 1,
+      "message": "Same comments as for `readMMap`",
+      "range": {
+        "startLine": 723,
+        "startChar": 27,
+        "endLine": 723,
+        "endChar": 36
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
