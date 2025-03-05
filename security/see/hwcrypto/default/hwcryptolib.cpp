@@ -115,10 +115,17 @@ static std::optional<cpp_hwcrypto::types::ExplicitKeyMaterial> convertExplicitKe
 class HwCryptoOperationContextNdk : public ndk_hwcrypto::BnCryptoOperationContext {
   private:
     sp<cpp_hwcrypto::ICryptoOperationContext> mContext;
+    std::weak_ptr<ndk_hwcrypto::ICryptoOperationContext> mContextKey;
 
   public:
     HwCryptoOperationContextNdk(sp<cpp_hwcrypto::ICryptoOperationContext> operations)
         : mContext(std::move(operations)) {}
+
+    ~HwCryptoOperationContextNdk() {
+        contextMapping.erase(mContextKey);
+        // mContextKey should have expired for the destructor to be called, so not calling reset
+        mContext = nullptr;
+    }
 
     static std::shared_ptr<HwCryptoOperationContextNdk> Create(
             sp<cpp_hwcrypto::ICryptoOperationContext> operations) {
@@ -132,6 +139,7 @@ class HwCryptoOperationContextNdk : public ndk_hwcrypto::BnCryptoOperationContex
             LOG(ERROR) << "failed to allocate HwCryptoOperationContext";
             return nullptr;
         }
+        contextNdk->mContextKey = contextNdk;
         return contextNdk;
     }
 };
@@ -592,9 +600,16 @@ class HwCryptoOperationsNdk : public ndk_hwcrypto::BnHwCryptoOperations {
 class OpaqueKeyNdk : public ndk_hwcrypto::BnOpaqueKey {
   private:
     sp<cpp_hwcrypto::IOpaqueKey> mOpaqueKey;
+    std::weak_ptr<ndk_hwcrypto::IOpaqueKey> mKey;
 
   public:
     OpaqueKeyNdk(sp<cpp_hwcrypto::IOpaqueKey> opaqueKey) : mOpaqueKey(std::move(opaqueKey)) {}
+
+    ~OpaqueKeyNdk() {
+        keyMapping.erase(mKey);
+        // mKey should have expired for the destructor to be called, so not calling reset
+        mOpaqueKey = nullptr;
+    }
 
     static std::shared_ptr<OpaqueKeyNdk> Create(sp<cpp_hwcrypto::IOpaqueKey> opaqueKey) {
         if (opaqueKey == nullptr) {
@@ -607,6 +622,7 @@ class OpaqueKeyNdk : public ndk_hwcrypto::BnOpaqueKey {
             LOG(ERROR) << "failed to allocate HwCryptoKey";
             return nullptr;
         }
+        opaqueKeyNdk->mKey = opaqueKeyNdk;
         return opaqueKeyNdk;
     }
 
