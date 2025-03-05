@@ -1,0 +1,85 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7a4707f_c06a93e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-05T20:43:18Z",
+      "side": 1,
+      "message": "Thank you Kuowei! I think we are close to completion.",
+      "revId": "9379e6b0f376884f937043bb0dc162c1514a7676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23d829e4_a1d92cea",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-05T20:43:18Z",
+      "side": 1,
+      "message": "You likely don\u0027t even need to cast. Since `dump` is a method of `ICInterface` (https://cs.android.com/android/platform/superproject/main/+/main:frameworks/native/libs/binder/ndk/include_cpp/android/binder_interface_utils.h;l\u003d153;drc\u003d9bfdbe8ee2a8ed1b37eb29794949ad4b42ea5439), you should be able call it on `s` directly (assuming `s` is non-null of course).",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 9
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "46682ff9_258284e3",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/include/core-impl/Stream.h",
+              "range": {
+                "startLine": 656,
+                "startChar": 0,
+                "endLine": 661,
+                "endChar": 0
+              },
+              "replacement": "        if (s) s-\u003edump(fd, args, numArgs);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9379e6b0f376884f937043bb0dc162c1514a7676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7907fb5b_a6a66a3b",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-05T20:43:18Z",
+      "side": 1,
+      "message": "And we should have a call to this from a default implementation of `IModule::dump` in the `Module` class.",
+      "range": {
+        "startLine": 706,
+        "startChar": 9,
+        "endLine": 706,
+        "endChar": 13
+      },
+      "revId": "9379e6b0f376884f937043bb0dc162c1514a7676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
