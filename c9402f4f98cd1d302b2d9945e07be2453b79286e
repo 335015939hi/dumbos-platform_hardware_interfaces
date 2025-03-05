@@ -104,6 +104,24 @@
       "parentUuid": "8a740ba7_ea91bc3f",
       "revId": "c9402f4f98cd1d302b2d9945e07be2453b79286e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff648f5f_b396c9e2",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/hwcryptokey_tests.rs",
+        "patchSetId": 14
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2025-03-05T01:58:06Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bd6f4f6c_09269525",
+      "revId": "c9402f4f98cd1d302b2d9945e07be2453b79286e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

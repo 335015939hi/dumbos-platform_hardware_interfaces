@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d33528b_b5ef818b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1856745
+      },
+      "writtenOn": "2025-03-05T01:58:06Z",
+      "side": 1,
+      "message": "shouldn\u0027t the system test be scrapped all together and thus we would remove the .xml)?\n\nAlso why no AndroidTest.xml for the VTS?\nsee: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/security/secretkeeper/aidl/vts/AndroidTest.xml",
+      "revId": "004256c3e025a38bf6fa0a398311dea8b907a4b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
