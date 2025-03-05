@@ -10,7 +10,6 @@ package {
 cc_library_shared {
     name: "android.hardware.bluetooth.audio-impl",
     vendor: true,
-    vintf_fragments: ["bluetooth_audio.xml"],
     defaults: [
         "latest_android_hardware_bluetooth_audio_ndk_shared",
     ],
