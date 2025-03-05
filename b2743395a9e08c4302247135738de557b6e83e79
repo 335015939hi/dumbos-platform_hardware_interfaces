@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76dcf0c2_254043c4",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-05T17:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23fd101e_76c93a14",
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "578577ce_f07988dd",
@@ -71,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db7df350_2b3cd6a0",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-05T17:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d554d5c9_38a2d2fa",
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6938466_92d500c6",
@@ -102,6 +138,24 @@
       "side": 1,
       "message": "I do have a lot of those, especially on aosp/3510632, so this would be extremely helpful.",
       "parentUuid": "c6938466_92d500c6",
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3567bcf7_72142d9f",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-05T17:13:07Z",
+      "side": 1,
+      "message": "I am opening a bug to create templates for unions.",
+      "parentUuid": "242728b6_02c90955",
       "revId": "b2743395a9e08c4302247135738de557b6e83e79",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -331,6 +385,30 @@
       "side": 1,
       "message": "I don\u0027t think that can ever happen because I am creating the key object inside this function. Also in general, with the API that I am currently adding to the delegator the cpp object (which is the value of each key/value entry) should not be part of the map either becuase a new object is created on the server side of the binder call that uses `insertWrappedXXXXXIntoMap`. If the cpp was on the map (because of a future API change) though, that should be fine as well, shouldn\u0027t it (\"just\" inefficient)?",
       "parentUuid": "f90d2de0_a8327937",
+      "range": {
+        "startLine": 537,
+        "startChar": 4,
+        "endLine": 537,
+        "endChar": 14
+      },
+      "revId": "b2743395a9e08c4302247135738de557b6e83e79",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "690db77a_190b1090",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 12
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-05T17:13:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc779e84_2dc1ed51",
       "range": {
         "startLine": 537,
         "startChar": 4,
