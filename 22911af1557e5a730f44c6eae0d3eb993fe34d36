@@ -1,0 +1,236 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74bc2900_1cf3e4f9",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-03-05T18:03:25Z",
+      "side": 1,
+      "message": "Nit: Maybe call these something like `self` so it\u0027s clear that it\u0027s a weak pointer to itself?",
+      "range": {
+        "startLine": 118,
+        "startChar": 57,
+        "endLine": 118,
+        "endChar": 68
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "62d6edf4_d3173297",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 118,
+                "startChar": 0,
+                "endLine": 119,
+                "endChar": 0
+              },
+              "replacement": "    std::weak_ptr\u003cndk_hwcrypto::ICryptoOperationContext\u003e mSelf;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 125,
+                "startChar": 0,
+                "endLine": 127,
+                "endChar": 0
+              },
+              "replacement": "        contextMapping.erase(mSelf);\n        // mSelf should have expired for the destructor to be called, so not calling reset\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 142,
+                "startChar": 0,
+                "endLine": 143,
+                "endChar": 0
+              },
+              "replacement": "        contextNdk-\u003emSelf \u003d contextNdk;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 603,
+                "startChar": 0,
+                "endLine": 604,
+                "endChar": 0
+              },
+              "replacement": "    std::weak_ptr\u003cndk_hwcrypto::IOpaqueKey\u003e mSelf;\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 609,
+                "startChar": 0,
+                "endLine": 611,
+                "endChar": 0
+              },
+              "replacement": "        keyMapping.erase(mSelf);\n        // mSelf should have expired for the destructor to be called, so not calling reset\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 625,
+                "startChar": 0,
+                "endLine": 626,
+                "endChar": 0
+              },
+              "replacement": "        opaqueKeyNdk-\u003emSelf \u003d opaqueKeyNdk;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "22911af1557e5a730f44c6eae0d3eb993fe34d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f373956e_066b293e",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1962190
+      },
+      "writtenOn": "2025-03-05T18:03:25Z",
+      "side": 1,
+      "message": "You don\u0027t need to do either of these. `Foo`\u0027s destructor runs whatever code was defined in `~Foo`, then calls all of `Foo`\u0027s member\u0027s destructors (in revserse  declaration order).",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 27
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "7be028a4_a18fb060",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 117,
+                "startChar": 0,
+                "endLine": 118,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 121,
+                "startChar": 0,
+                "endLine": 123,
+                "endChar": 0
+              },
+              "replacement": "    HwCryptoOperationContextNdk(sp\u003ccpp_hwcrypto::ICryptoOperationContext\u003e operations) {}\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 126,
+                "startChar": 0,
+                "endLine": 128,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 386,
+                "startChar": 0,
+                "endLine": 387,
+                "endChar": 0
+              },
+              "replacement": "    sp\u003ccpp_hwcrypto::IHwCryptoOperations\u003e mHwCryptoOperations;  // This is the only member that\n                                                                // needs to be kept alive because it\n                                                                // is the one that holds the\n                                                                // connection to the server\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 602,
+                "startChar": 0,
+                "endLine": 603,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 606,
+                "startChar": 0,
+                "endLine": 607,
+                "endChar": 0
+              },
+              "replacement": "    OpaqueKeyNdk(sp\u003ccpp_hwcrypto::IOpaqueKey\u003e opaqueKey) {}\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 610,
+                "startChar": 0,
+                "endLine": 612,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 640,
+                "startChar": 0,
+                "endLine": 641,
+                "endChar": 0
+              },
+              "replacement": "        status \u003d mHwCryptoServer-\u003eexportWrappedKey(wrappingKeyNdk, aidl_return);\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 652,
+                "startChar": 0,
+                "endLine": 653,
+                "endChar": 0
+              },
+              "replacement": "        status \u003d mHwCryptoServer-\u003egetKeyPolicy(\u0026cppPolicy);\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 662,
+                "startChar": 0,
+                "endLine": 663,
+                "endChar": 0
+              },
+              "replacement": "        auto status \u003d mHwCryptoServer-\u003egetPublicKey(aidl_return);\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 674,
+                "startChar": 0,
+                "endLine": 675,
+                "endChar": 0
+              },
+              "replacement": "        status \u003d mHwCryptoServer-\u003egetShareableToken(sealingDicePolicy, \u0026binder_return);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "22911af1557e5a730f44c6eae0d3eb993fe34d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
