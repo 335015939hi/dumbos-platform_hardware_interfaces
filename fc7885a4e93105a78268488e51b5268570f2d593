@@ -43,6 +43,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7fe792f_1edc23c1",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-06T18:21:57Z",
+      "side": 1,
+      "message": "Also, using `if` here would be more concise.",
+      "range": {
+        "startLine": 617,
+        "startChar": 8,
+        "endLine": 617,
+        "endChar": 14
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f0b4fac5_42712200",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/default/Module.cpp",
+              "range": {
+                "startLine": 617,
+                "startChar": 0,
+                "endLine": 619,
+                "endChar": 0
+              },
+              "replacement": "        if (port.ext.getTag() \u003d\u003d AudioPortExt::Tag::mix) {\n"
+            },
+            {
+              "path": "audio/aidl/default/Module.cpp",
+              "range": {
+                "startLine": 620,
+                "startChar": 0,
+                "endLine": 623,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "fc7885a4e93105a78268488e51b5268570f2d593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dee81d48_4f84baf7",
         "filename": "audio/aidl/default/Module.cpp",
         "patchSetId": 4
