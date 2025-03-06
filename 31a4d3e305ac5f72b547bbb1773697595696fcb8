@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d39e0439_2a928343",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-06T17:28:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dad8a958_ffcff979",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 21
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d26e5cf8_57cf1cee",
@@ -130,6 +154,30 @@
       "side": 1,
       "message": "Sorry, I haven\u0027t used clang format yet, but I\u0027ve made the modifications as you suggested.",
       "parentUuid": "d26e5cf8_57cf1cee",
+      "range": {
+        "startLine": 394,
+        "startChar": 62,
+        "endLine": 394,
+        "endChar": 63
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "450b6fc0_0ae2933e",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-06T17:28:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dc3d3e00_d4574330",
       "range": {
         "startLine": 394,
         "startChar": 62,
@@ -215,6 +263,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63f50d71_cb3a75c7",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-06T17:28:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6dfcf743_73870092",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 43
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90bcd0cb_c6afe13f",
@@ -262,6 +334,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "280722f5_3e350c88",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-06T17:28:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6cf6c918_2bce9c7a",
+      "range": {
+        "startLine": 399,
+        "startChar": 37,
+        "endLine": 399,
+        "endChar": 45
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6b6b3a9_a2b56d08",
@@ -299,6 +395,30 @@
       "side": 1,
       "message": "done",
       "parentUuid": "f6b6b3a9_a2b56d08",
+      "range": {
+        "startLine": 723,
+        "startChar": 27,
+        "endLine": 723,
+        "endChar": 36
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65c10f4b_7c9c2fce",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-06T17:28:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5b6e8056_13043053",
       "range": {
         "startLine": 723,
         "startChar": 27,
