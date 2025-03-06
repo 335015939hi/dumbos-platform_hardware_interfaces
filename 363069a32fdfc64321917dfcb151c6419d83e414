@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20fc34db_b10a27d5",
+        "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-06T17:02:18Z",
+      "side": 1,
+      "message": "Of course. Looking at `EffectHelper`, it actually needs some updates. It has started as a class with static member functions only, but now it has got some fields:\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/vts/EffectHelper.h;l\u003d606;drc\u003d903c62041c5e017cebad74ee641d55e82b569062\n```\n    bool mIsSpatializer;\n    Descriptor mDescriptor;\n    size_t mInputFrameSize, mOutputFrameSize;\n    size_t mInputSamples, mOutputSamples;\n```\n\nAnd it lacks a proper constructor. I would suggest adding one, which takes the `Descriptor` as a parameter. It\u0027s not a good pattern to initialize the field of a parent class in a child class. And the remaining fields should have default values.\n\nI think this should be done as a separate CL because changing `EffectHelper` will affect other test classes that inherit from it.",
+      "parentUuid": "7c406213_33bdd228",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 51
+      },
+      "revId": "363069a32fdfc64321917dfcb151c6419d83e414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a922f81_e8c03a0b",
         "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
         "patchSetId": 2
