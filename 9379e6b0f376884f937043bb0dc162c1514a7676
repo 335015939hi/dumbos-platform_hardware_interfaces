@@ -59,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9868452b_b1c4682f",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 660,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2025-03-06T04:48:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23d829e4_a1d92cea",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 660,
+        "endChar": 9
+      },
+      "revId": "9379e6b0f376884f937043bb0dc162c1514a7676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7907fb5b_a6a66a3b",
@@ -72,6 +96,30 @@
       "writtenOn": "2025-03-05T20:43:18Z",
       "side": 1,
       "message": "And we should have a call to this from a default implementation of `IModule::dump` in the `Module` class.",
+      "range": {
+        "startLine": 706,
+        "startChar": 9,
+        "endLine": 706,
+        "endChar": 13
+      },
+      "revId": "9379e6b0f376884f937043bb0dc162c1514a7676",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d93b964e_f9b94d6a",
+        "filename": "audio/aidl/default/include/core-impl/Stream.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 706,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2025-03-06T04:48:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7907fb5b_a6a66a3b",
       "range": {
         "startLine": 706,
         "startChar": 9,
