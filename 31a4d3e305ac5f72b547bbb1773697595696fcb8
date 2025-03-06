@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dad8a958_ffcff979",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 3705885
+      },
+      "writtenOn": "2025-03-06T10:19:00Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "512d7d52_f9ae0d47",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 21
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d26e5cf8_57cf1cee",
         "filename": "audio/aidl/default/Stream.cpp",
         "patchSetId": 4
@@ -88,6 +112,30 @@
           ]
         }
       ],
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc3d3e00_d4574330",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 3705885
+      },
+      "writtenOn": "2025-03-06T10:19:00Z",
+      "side": 1,
+      "message": "Sorry, I haven\u0027t used clang format yet, but I\u0027ve made the modifications as you suggested.",
+      "parentUuid": "d26e5cf8_57cf1cee",
+      "range": {
+        "startLine": 394,
+        "startChar": 62,
+        "endLine": 394,
+        "endChar": 63
+      },
       "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -145,6 +193,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6dfcf743_73870092",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 3705885
+      },
+      "writtenOn": "2025-03-06T10:19:00Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "d11c7f36_666b9407",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 396,
+        "endChar": 43
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "90bcd0cb_c6afe13f",
         "filename": "audio/aidl/default/Stream.cpp",
         "patchSetId": 4
@@ -168,6 +240,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6cf6c918_2bce9c7a",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 3705885
+      },
+      "writtenOn": "2025-03-06T10:19:00Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "90bcd0cb_c6afe13f",
+      "range": {
+        "startLine": 399,
+        "startChar": 37,
+        "endLine": 399,
+        "endChar": 45
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6b6b3a9_a2b56d08",
         "filename": "audio/aidl/default/Stream.cpp",
         "patchSetId": 4
@@ -179,6 +275,30 @@
       "writtenOn": "2025-03-05T20:32:48Z",
       "side": 1,
       "message": "Same comments as for `readMMap`",
+      "range": {
+        "startLine": 723,
+        "startChar": 27,
+        "endLine": 723,
+        "endChar": 36
+      },
+      "revId": "31a4d3e305ac5f72b547bbb1773697595696fcb8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b6e8056_13043053",
+        "filename": "audio/aidl/default/Stream.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 3705885
+      },
+      "writtenOn": "2025-03-06T10:19:00Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "f6b6b3a9_a2b56d08",
       "range": {
         "startLine": 723,
         "startChar": 27,
