@@ -92,6 +92,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d5340a3_9512f5f7",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-07T19:21:23Z",
+      "side": 1,
+      "message": "makes sense, thanks!",
+      "parentUuid": "74bc2900_1cf3e4f9",
+      "range": {
+        "startLine": 118,
+        "startChar": 57,
+        "endLine": 118,
+        "endChar": 68
+      },
+      "revId": "22911af1557e5a730f44c6eae0d3eb993fe34d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f373956e_066b293e",
@@ -247,6 +271,30 @@
       "side": 1,
       "message": "See https://godbolt.org/z/Mv3Y77Ybs\n\nIgnore the AI fix; it\u0027s super wrong.",
       "parentUuid": "f373956e_066b293e",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 27
+      },
+      "revId": "22911af1557e5a730f44c6eae0d3eb993fe34d36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11381641_8bce1faf",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-07T19:21:23Z",
+      "side": 1,
+      "message": "Thanks! Done.",
+      "parentUuid": "a3dc25b8_45e648fc",
       "range": {
         "startLine": 126,
         "startChar": 0,
