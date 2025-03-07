@@ -16,6 +16,24 @@
       "message": "we want to remove the system to system tests",
       "revId": "b2b2947744df7af3f128c5ffa6c14b70688eea98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bec359d_1955282a",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/AndroidTestSystem.xml",
+        "patchSetId": 20
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-07T18:48:26Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "31ad6e34_cfbdd5e2",
+      "revId": "b2b2947744df7af3f128c5ffa6c14b70688eea98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
