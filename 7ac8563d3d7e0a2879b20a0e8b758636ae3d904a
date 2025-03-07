@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1f3726fa_7f1fdb66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 3705885
+      },
+      "writtenOn": "2025-03-07T06:32:42Z",
+      "side": 1,
+      "message": "Done.\nYes，I have verified that the VtsHalAudioCoreTargetTest passed",
+      "parentUuid": "e990b0ac_c243d7e9",
+      "revId": "7ac8563d3d7e0a2879b20a0e8b758636ae3d904a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ea80069e_56ad95a9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
