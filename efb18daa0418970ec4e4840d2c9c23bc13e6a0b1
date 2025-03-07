@@ -16,6 +16,24 @@
       "message": "to be removed",
       "revId": "efb18daa0418970ec4e4840d2c9c23bc13e6a0b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec366146_0f3cdd5a",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/AndroidTestSystem.xml",
+        "patchSetId": 19
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-07T19:21:36Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "1cbb8128_0627f97e",
+      "revId": "efb18daa0418970ec4e4840d2c9c23bc13e6a0b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
