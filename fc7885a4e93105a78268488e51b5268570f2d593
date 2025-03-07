@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63692362_93195fd8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2025-03-07T04:52:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70da6921_f54ed5bf",
+      "revId": "fc7885a4e93105a78268488e51b5268570f2d593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "947c97d3_4c32e744",
@@ -31,6 +49,30 @@
       "writtenOn": "2025-03-06T17:57:00Z",
       "side": 1,
       "message": "Should it be something like:\n\n```\nadb shell dumpsys media.audio_flinger\nadb shell dumpsys android.hardware.audio.core.IModule/default\n```",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 12
+      },
+      "revId": "fc7885a4e93105a78268488e51b5268570f2d593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd14083_0f755d3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2025-03-07T04:52:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "947c97d3_4c32e744",
       "range": {
         "startLine": 13,
         "startChar": 6,
@@ -92,6 +134,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35ea275a_0df98eb6",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2025-03-07T04:52:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7fe792f_1edc23c1",
+      "range": {
+        "startLine": 617,
+        "startChar": 8,
+        "endLine": 617,
+        "endChar": 14
+      },
+      "revId": "fc7885a4e93105a78268488e51b5268570f2d593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dee81d48_4f84baf7",
@@ -105,6 +171,30 @@
       "writtenOn": "2025-03-06T17:57:00Z",
       "side": 1,
       "message": "A mix port can have several streams associated with it (see https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/default/include/core-impl/Stream.h;l\u003d697;drc\u003d0f715415a10d385d144922692709c4461abf2c93). Thus if going by mix ports (instead of mix port **configs**) we will dump just one of streams associated with the mix port. So we likely want to use `portConfigs` instead.",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 620,
+        "endChar": 18
+      },
+      "revId": "fc7885a4e93105a78268488e51b5268570f2d593",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26922a78_97aeaee0",
+        "filename": "audio/aidl/default/Module.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1478901
+      },
+      "writtenOn": "2025-03-07T04:52:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dee81d48_4f84baf7",
       "range": {
         "startLine": 617,
         "startChar": 0,
