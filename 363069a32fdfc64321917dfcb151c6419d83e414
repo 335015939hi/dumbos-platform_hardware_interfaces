@@ -157,6 +157,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d87d7fe_ee0c7a40",
+        "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-07T16:56:30Z",
+      "side": 1,
+      "message": "Aayush, just to confirm—are you going to update `EffectHelper` in a separate CL?",
+      "parentUuid": "20fc34db_b10a27d5",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 51
+      },
+      "revId": "363069a32fdfc64321917dfcb151c6419d83e414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a922f81_e8c03a0b",
         "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
         "patchSetId": 2
