@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f339cd0c_1ee9e26a",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/lib.rs",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-07T19:46:43Z",
+      "side": 1,
+      "message": "Thanks, we are not supporting x86_64 anymore so I removed all the spurious code on aosp/3528302",
+      "parentUuid": "c88ed0c4_322195fb",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 30
+      },
+      "revId": "0b4ed0bcf389b1003265c25ee01f42d64f3af20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5928a48a_7550afed",
@@ -135,6 +159,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1960bf1c_62b53508",
+        "filename": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-07T19:46:43Z",
+      "side": 1,
+      "message": "done in aosp/3528302",
+      "parentUuid": "5928a48a_7550afed",
+      "range": {
+        "startLine": 47,
+        "startChar": 23,
+        "endLine": 47,
+        "endChar": 54
+      },
+      "revId": "0b4ed0bcf389b1003265c25ee01f42d64f3af20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bede8d5a_f3df9cdc",
@@ -176,6 +224,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4999885e_febddcf2",
+        "filename": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-07T19:46:43Z",
+      "side": 1,
+      "message": "Done in aosp/3528302.",
+      "parentUuid": "bede8d5a_f3df9cdc",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 60
+      },
+      "revId": "0b4ed0bcf389b1003265c25ee01f42d64f3af20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fb1e1dd_826f92f1",
@@ -213,6 +285,30 @@
           ]
         }
       ],
+      "revId": "0b4ed0bcf389b1003265c25ee01f42d64f3af20d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a961e366_e8768946",
+        "filename": "security/see/hwcrypto/default/hwcryptokeyimpl.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-07T19:46:43Z",
+      "side": 1,
+      "message": "Thanks! Fixed in aosp/3528302 and changed it now to a `static_cast`. Yes, it was working, I added a test on this CL (`HwCryptoHalDelegatorTests`) to make sure that it did",
+      "parentUuid": "3fb1e1dd_826f92f1",
+      "range": {
+        "startLine": 84,
+        "startChar": 52,
+        "endLine": 84,
+        "endChar": 76
+      },
       "revId": "0b4ed0bcf389b1003265c25ee01f42d64f3af20d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
