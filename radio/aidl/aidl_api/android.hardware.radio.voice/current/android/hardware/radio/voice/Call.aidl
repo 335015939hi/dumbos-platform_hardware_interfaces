@@ -42,6 +42,9 @@ parcelable Call {
   boolean isMT;
   byte als;
   boolean isVoice;
+  /**
+   * @deprecated Legacy CDMA is unsupported.
+   */
   boolean isVoicePrivacy;
   String number;
   int numberPresentation;

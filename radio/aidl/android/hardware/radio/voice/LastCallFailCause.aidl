@@ -142,18 +142,28 @@ enum LastCallFailCause {
      * Explicit network detach
      */
     NETWORK_DETACH = 261,
+    /** @deprecated Legacy CDMA is unsupported. */
     CDMA_LOCKED_UNTIL_POWER_CYCLE = 1000,
+    /** @deprecated Legacy CDMA is unsupported. */
     CDMA_DROP = 1001,
+    /** @deprecated Legacy CDMA is unsupported. */
     CDMA_INTERCEPT = 1002,
+    /** @deprecated Legacy CDMA is unsupported. */
     CDMA_REORDER = 1003,
+    /** @deprecated Legacy CDMA is unsupported. */
     CDMA_SO_REJECT = 1004,
+    /** @deprecated Legacy CDMA is unsupported. */
     CDMA_RETRY_ORDER = 1005,
+    /** @deprecated Legacy CDMA is unsupported. */
     CDMA_ACCESS_FAILURE = 1006,
+    /** @deprecated Legacy CDMA is unsupported. */
     CDMA_PREEMPTED = 1007,
     /**
      * For non-emergency number dialed during emergency callback mode
+     * @deprecated Legacy CDMA is unsupported.
      */
     CDMA_NOT_EMERGENCY = 1008,
+    /** @deprecated Legacy CDMA is unsupported. */
     CDMA_ACCESS_BLOCKED = 1009,
     /**
      * OEM specific error codes. Used to distinguish error from

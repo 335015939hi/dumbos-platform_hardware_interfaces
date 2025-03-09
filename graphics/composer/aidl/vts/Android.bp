@@ -60,6 +60,8 @@ cc_test {
         "libaidlcommonsupport",
         "libarect",
         "libbase",
+        "libfmq",
+        "libgmock",
         "libgtest",
         "libhwc_aidl_test",
         "librenderengine",

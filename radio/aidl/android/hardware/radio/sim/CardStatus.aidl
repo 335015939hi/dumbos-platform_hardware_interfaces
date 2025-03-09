@@ -54,7 +54,8 @@ parcelable CardStatus {
      */
     int gsmUmtsSubscriptionAppIndex;
     /**
-     * Value < RadioConst:CARD_MAX_APPS, -1 if none
+     * Value ignored.
+     * @deprecated Legacy CDMA is unsupported.
      */
     int cdmaSubscriptionAppIndex;
     /**
