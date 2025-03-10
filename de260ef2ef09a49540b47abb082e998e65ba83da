@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee583e4_6e211e84",
+        "filename": "security/see/hwcrypto/default/hwcryptolib.cpp",
+        "patchSetId": 19
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1644679
+      },
+      "writtenOn": "2025-03-10T22:37:33Z",
+      "side": 1,
+      "message": "nit: `pfd.reset(` is available for this",
+      "range": {
+        "startLine": 230,
+        "startChar": 18,
+        "endLine": 230,
+        "endChar": 52
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "6eb7a3f6_12929e68",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 230,
+                "startChar": 0,
+                "endLine": 231,
+                "endChar": 0
+              },
+              "replacement": "            pfd.reset(binder::unique_fd(ndkFd.release()));\n"
+            },
+            {
+              "path": "security/see/hwcrypto/default/hwcryptolib.cpp",
+              "range": {
+                "startLine": 238,
+                "startChar": 0,
+                "endLine": 239,
+                "endChar": 0
+              },
+              "replacement": "            pfd.reset(binder::unique_fd(ndkFd.release()));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "de260ef2ef09a49540b47abb082e998e65ba83da",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
