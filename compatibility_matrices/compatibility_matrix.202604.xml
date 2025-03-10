@@ -515,7 +515,7 @@
             <instance>nonsecure</instance>
         </interface>
     </hal>
-    <hal format="aidl">
+    <hal format="aidl" exclusive-to="virtual-machine">
         <name>android.hardware.security.see.hwcrypto</name>
         <version>1</version>
         <interface>
