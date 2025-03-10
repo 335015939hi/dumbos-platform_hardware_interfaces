@@ -181,6 +181,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1692834a_318bcb19",
+        "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 3538319
+      },
+      "writtenOn": "2025-03-10T04:27:03Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "4d87d7fe_ee0c7a40",
+      "range": {
+        "startLine": 69,
+        "startChar": 8,
+        "endLine": 69,
+        "endChar": 51
+      },
+      "revId": "363069a32fdfc64321917dfcb151c6419d83e414",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a922f81_e8c03a0b",
         "filename": "audio/aidl/vts/VtsHalEqualizerTargetTest.cpp",
         "patchSetId": 2
