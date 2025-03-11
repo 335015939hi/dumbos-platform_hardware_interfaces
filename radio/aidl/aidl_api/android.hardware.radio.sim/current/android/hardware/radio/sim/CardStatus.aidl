@@ -38,6 +38,9 @@ parcelable CardStatus {
   int cardState;
   android.hardware.radio.sim.PinState universalPinState = android.hardware.radio.sim.PinState.UNKNOWN;
   int gsmUmtsSubscriptionAppIndex;
+  /**
+   * @deprecated Legacy CDMA is unsupported.
+   */
   int cdmaSubscriptionAppIndex;
   int imsSubscriptionAppIndex;
   android.hardware.radio.sim.AppStatus[] applications;

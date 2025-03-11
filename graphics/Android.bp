@@ -35,9 +35,13 @@ rust_defaults {
 
 cc_defaults {
     name: "android.hardware.graphics.allocator-ndk_static",
-    static_libs: [
-        "android.hardware.graphics.allocator-V2-ndk",
-    ],
+    target: {
+        linux: {
+            static_libs: [
+                "android.hardware.graphics.allocator-V2-ndk",
+            ],
+        },
+    },
     defaults: [
         "android.hardware.graphics.common-ndk_static",
     ],
@@ -45,9 +49,13 @@ cc_defaults {
 
 cc_defaults {
     name: "android.hardware.graphics.allocator-ndk_shared",
-    shared_libs: [
-        "android.hardware.graphics.allocator-V2-ndk",
-    ],
+    target: {
+        linux: {
+            shared_libs: [
+                "android.hardware.graphics.allocator-V2-ndk",
+            ],
+        },
+    },
     defaults: [
         "android.hardware.graphics.common-ndk_shared",
     ],
@@ -69,16 +77,24 @@ rust_defaults {
 
 cc_defaults {
     name: "android.hardware.graphics.common-ndk_static",
-    static_libs: [
-        "android.hardware.graphics.common-V6-ndk",
-    ],
+    target: {
+        linux: {
+            static_libs: [
+                "android.hardware.graphics.common-V6-ndk",
+            ],
+        },
+    },
 }
 
 cc_defaults {
     name: "android.hardware.graphics.common-ndk_shared",
-    shared_libs: [
-        "android.hardware.graphics.common-V6-ndk",
-    ],
+    target: {
+        linux: {
+            shared_libs: [
+                "android.hardware.graphics.common-V6-ndk",
+            ],
+        },
+    },
 }
 
 aidl_interface_defaults {
@@ -90,16 +106,24 @@ aidl_interface_defaults {
 
 cc_defaults {
     name: "android.hardware.graphics.composer3-ndk_static",
-    static_libs: [
-        "android.hardware.drm.common-V1-ndk",
-        "android.hardware.graphics.composer3-V4-ndk",
-    ],
+    target: {
+        linux: {
+            static_libs: [
+                "android.hardware.drm.common-V1-ndk",
+                "android.hardware.graphics.composer3-V4-ndk",
+            ],
+        },
+    },
 }
 
 cc_defaults {
     name: "android.hardware.graphics.composer3-ndk_shared",
-    shared_libs: [
-        "android.hardware.drm.common-V1-ndk",
-        "android.hardware.graphics.composer3-V4-ndk",
-    ],
+    target: {
+        linux: {
+            shared_libs: [
+                "android.hardware.drm.common-V1-ndk",
+                "android.hardware.graphics.composer3-V4-ndk",
+            ],
+        },
+    },
 }

@@ -25,6 +25,7 @@ package {
 
 cc_defaults {
     name: "libnetdevice-common",
+    host_supported: true,
     vendor_available: true,
     cflags: [
         "-Wall",

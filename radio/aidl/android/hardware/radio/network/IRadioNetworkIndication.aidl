@@ -63,6 +63,7 @@ oneway interface IRadioNetworkIndication {
      *
      * @param type Type of radio indication
      * @param version PRL version after PRL changes
+     * @deprecated Legacy CDMA is unsupported.
      */
     void cdmaPrlChanged(in RadioIndicationType type, in int version);
 
