@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "156b13f2_776eedf9",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-11T13:39:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ec9e896_a736f6c8",
+      "range": {
+        "startLine": 842,
+        "startChar": 0,
+        "endLine": 843,
+        "endChar": 67
+      },
+      "revId": "356be840161d278c85e80195c22549d9022577fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fc3982c_bbdfe00f",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2c84746_710041b9",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1026,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-11T13:39:09Z",
+      "side": 1,
+      "message": "Yes they are stereo. Updated the test to compute the dB values of the individual channels.",
+      "parentUuid": "0fc3982c_bbdfe00f",
+      "range": {
+        "startLine": 1026,
+        "startChar": 0,
+        "endLine": 1026,
+        "endChar": 54
+      },
+      "revId": "356be840161d278c85e80195c22549d9022577fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92174fb4_a230d0de",
@@ -60,6 +108,30 @@
       "writtenOn": "2025-03-10T17:27:20Z",
       "side": 1,
       "message": "I think, the implementation can be shared between these two tests. As I can see, the only major differences are how we configure the limiter: `kDefaultLinkerGroup` vs. group per cnannel, and how we validate per-channel output dB: reduce it to minimum, or check independently. The first difference can be passed as a parameter to the common code, which will then return an array of dB values, and each test can apply its own validation procedure.",
+      "range": {
+        "startLine": 1060,
+        "startChar": 0,
+        "endLine": 1060,
+        "endChar": 1
+      },
+      "revId": "356be840161d278c85e80195c22549d9022577fa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e910454_9c85a62f",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-11T13:39:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92174fb4_a230d0de",
       "range": {
         "startLine": 1060,
         "startChar": 0,
