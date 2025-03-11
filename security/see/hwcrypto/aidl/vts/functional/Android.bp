@@ -56,6 +56,7 @@ rust_test {
     require_root: true,
     defaults: [
         "hw_crypto_hal_aidl_rust_defaults",
+        "rdroidtest.defaults",
     ],
     rustlibs: [
         "libhwcryptohal_vts_test",
@@ -72,6 +73,7 @@ rust_test {
     require_root: true,
     defaults: [
         "hw_crypto_hal_aidl_rust_defaults",
+        "rdroidtest.defaults",
     ],
     rustlibs: [
         "libhwcryptohal_vts_test",
