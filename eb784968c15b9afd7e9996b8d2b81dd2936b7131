@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b04208b1_fb7b57b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-11T23:15:29Z",
+      "side": 1,
+      "message": "That\u0027s better, thanks! Some more comments.",
+      "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e177efa_b0e9e120",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-11T23:15:29Z",
+      "side": 1,
+      "message": "It should already be an `int` (see line `146`), cast should not be needed.",
+      "range": {
+        "startLine": 719,
+        "startChar": 31,
+        "endLine": 719,
+        "endChar": 64
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "4ed8b6c2_b1d782ca",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 719,
+                "startChar": 0,
+                "endLine": 720,
+                "endChar": 0
+              },
+              "replacement": "                setUpDataTest({kInputFrequency}, kSineFullScaleDb));\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 848,
+                "startChar": 0,
+                "endLine": 849,
+                "endChar": 0
+              },
+              "replacement": "                setUpDataTest({kInputFrequency}, kSineFullScaleDb));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cb41a30_9f6a7d3b",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-11T23:15:29Z",
+      "side": 1,
+      "message": "`ratio` should be a float. Also, the fact that the order of threshold and ratio here is reverse to the order of parameters to `fillLimiterConfig` is confusing. It\u0027s better to preserve consistency.",
+      "range": {
+        "startLine": 1044,
+        "startChar": 37,
+        "endLine": 1044,
+        "endChar": 40
+      },
+      "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bef58565_d16d59a6",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-11T23:15:29Z",
+      "side": 1,
+      "message": "It seems insonsistent that in one case we assume that we know it\u0027s stereo and just use `[0]` and `[1]` and in another we go in a loop over the same 2 channels.\n\nSince we use `calculateStereoDb`, which implies there are two channels only, I think it will be more concise if we just manually check `[0]` and `[1]` everywhere.",
+      "range": {
+        "startLine": 1058,
+        "startChar": 0,
+        "endLine": 1061,
+        "endChar": 5
+      },
+      "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68e39173_0cc2fdf5",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-11T23:15:29Z",
+      "side": 1,
+      "message": "1. We can just use `EXPECT_NEAR(val1, val2, abs_error)` because the error is for the absolute value of the difference. This is better than using `EXPECT_GT` because in case of a mismatch both values will be printed.\n\n2. To align the code between these two tests, we can actually do this check for `expectedOutputDbValues` instead, and put it between the lines `1077` and `1078`.",
+      "range": {
+        "startLine": 1072,
+        "startChar": 4,
+        "endLine": 1072,
+        "endChar": 72
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "3f0a1d23_70703067",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1072,
+                "startChar": 0,
+                "endLine": 1073,
+                "endChar": 0
+              },
+              "replacement": "    EXPECT_NEAR(outputDbValues[0], outputDbValues[1], kToleranceDb);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
