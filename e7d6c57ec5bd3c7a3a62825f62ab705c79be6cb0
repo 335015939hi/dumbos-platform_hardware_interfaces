@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "723debb8_901f6a9b",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/AndroidKeyOperations.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-11T20:04:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e559b21_1aea91c4",
+      "range": {
+        "startLine": 16,
+        "startChar": 39,
+        "endLine": 16,
+        "endChar": 51
+      },
+      "revId": "e7d6c57ec5bd3c7a3a62825f62ab705c79be6cb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e19d1241_e087d6fc",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-03-11T20:01:43Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 16,
+        "startChar": 39,
+        "endLine": 16,
+        "endChar": 51
+      },
+      "revId": "e7d6c57ec5bd3c7a3a62825f62ab705c79be6cb0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbcef6a3_70a2ead2",
+        "filename": "security/see/hwcrypto/aidl/vts/functional/AndroidTestOperations.xml",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1942645
+      },
+      "writtenOn": "2025-03-11T20:04:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e19d1241_e087d6fc",
       "range": {
         "startLine": 16,
         "startChar": 39,
