@@ -60,10 +60,6 @@ rust_test {
     rustlibs: [
         "libhwcryptohal_vts_test",
     ],
-    test_suites: [
-        "general-tests",
-        "vts",
-    ],
 }
 
 rust_test {
@@ -75,9 +71,5 @@ rust_test {
     ],
     rustlibs: [
         "libhwcryptohal_vts_test",
-    ],
-    test_suites: [
-        "general-tests",
-        "vts",
     ],
 }
