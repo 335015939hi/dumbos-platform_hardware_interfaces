@@ -69,6 +69,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41dcb916_d47d2983",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-12T13:01:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e177efa_b0e9e120",
+      "range": {
+        "startLine": 719,
+        "startChar": 31,
+        "endLine": 719,
+        "endChar": 64
+      },
+      "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2cb41a30_9f6a7d3b",
@@ -92,6 +116,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a0575a6_3c0a9dad",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-12T13:01:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cb41a30_9f6a7d3b",
+      "range": {
+        "startLine": 1044,
+        "startChar": 37,
+        "endLine": 1044,
+        "endChar": 40
+      },
+      "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bef58565_d16d59a6",
@@ -105,6 +153,30 @@
       "writtenOn": "2025-03-11T23:15:29Z",
       "side": 1,
       "message": "It seems insonsistent that in one case we assume that we know it\u0027s stereo and just use `[0]` and `[1]` and in another we go in a loop over the same 2 channels.\n\nSince we use `calculateStereoDb`, which implies there are two channels only, I think it will be more concise if we just manually check `[0]` and `[1]` everywhere.",
+      "range": {
+        "startLine": 1058,
+        "startChar": 0,
+        "endLine": 1061,
+        "endChar": 5
+      },
+      "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a23a1e8b_241796bb",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-12T13:01:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bef58565_d16d59a6",
       "range": {
         "startLine": 1058,
         "startChar": 0,
@@ -152,6 +224,30 @@
           ]
         }
       ],
+      "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b942252e_6bd76701",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-12T13:01:35Z",
+      "side": 1,
+      "message": "This check verifies that the compression levels between the two channels are significantly different, and we use 5 as the minimum difference expected.\n\nI couldn\u0027t add this minmum difference check using ```EXPECT_NEAR```, so I\u0027m using ```EXPECT_GT``` instead. I\u0027ve made updates to print the values when the check fails.\n\nLet me if you have any suggestions.",
+      "parentUuid": "68e39173_0cc2fdf5",
+      "range": {
+        "startLine": 1072,
+        "startChar": 4,
+        "endLine": 1072,
+        "endChar": 72
+      },
       "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
