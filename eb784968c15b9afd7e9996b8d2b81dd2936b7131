@@ -250,6 +250,30 @@
       },
       "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "382ca57b_47561457",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 1072,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-12T15:56:50Z",
+      "side": 1,
+      "message": "Ah, sorry! Indeed, if you want to check that the values are different, then you can\u0027t use `EXPECT_NEAR` 😊 I have misread that line. Thanks for adding printing of unexpected values!",
+      "parentUuid": "b942252e_6bd76701",
+      "range": {
+        "startLine": 1072,
+        "startChar": 4,
+        "endLine": 1072,
+        "endChar": 72
+      },
+      "revId": "eb784968c15b9afd7e9996b8d2b81dd2936b7131",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
