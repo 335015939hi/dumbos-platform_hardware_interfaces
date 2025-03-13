@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "0971cac1_10492a73",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1315593
+      },
+      "writtenOn": "2025-03-13T22:58:47Z",
+      "side": 1,
+      "message": "Please change this text. The reason for changing the test is that for automotive devices sending raw gnss measurements is not a requirement.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 178
+      },
+      "revId": "cc03fea286881c22b6b5ea8208dba5a9b01fc1bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0b6788e8_7524dbc6",
