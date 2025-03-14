@@ -53,11 +53,9 @@ rust_library {
 rust_test {
     name: "VtsAidlHwCryptoTests",
     srcs: ["hwcryptokey_tests.rs"],
-    test_config: "AndroidKeyOperations.xml",
     require_root: true,
     defaults: [
         "hw_crypto_hal_aidl_rust_defaults",
-        "rdroidtest.defaults",
     ],
     rustlibs: [
         "libhwcryptohal_vts_test",
@@ -71,11 +69,9 @@ rust_test {
 rust_test {
     name: "VtsAidlHwCryptoOperationsTests",
     srcs: ["hwcrypto_operations_tests.rs"],
-    test_config: "AndroidTestOperations.xml",
     require_root: true,
     defaults: [
         "hw_crypto_hal_aidl_rust_defaults",
-        "rdroidtest.defaults",
     ],
     rustlibs: [
         "libhwcryptohal_vts_test",

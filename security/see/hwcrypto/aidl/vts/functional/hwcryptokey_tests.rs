@@ -26,17 +26,14 @@ use android_hardware_security_see_hwcrypto::aidl::android::hardware::security::s
 };
 use android_hardware_security_see_hwcrypto::aidl::android::hardware::security::see::hwcrypto::KeyPolicy::KeyPolicy;
 use hwcryptohal_common;
-use rdroidtest::{ignore_if, rdroidtest};
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_key_connection() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey();
     assert!(hw_crypto_key.is_ok(), "Couldn't get back a hwcryptokey binder object");
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_key_get_current_dice_policy() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -44,8 +41,7 @@ fn test_hwcrypto_key_get_current_dice_policy() {
     assert!(!dice_policy.is_empty(), "received empty dice policy");
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_get_keyslot_data() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -59,8 +55,7 @@ fn test_hwcrypto_get_keyslot_data() {
     );
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_import_clear_key() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -88,8 +83,7 @@ fn test_hwcrypto_import_clear_key() {
     assert!(key.is_err(), "imported keys should be of type PORTABLE");
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_token_export_import() {
     // This test is not representative of the complete flow because here the exporter and importer
     // are the same client, which is not something we would usually do
@@ -113,8 +107,7 @@ fn test_hwcrypto_token_export_import() {
     // TODO: Use operations to verify that the keys match
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_android_invalid_calls() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -170,5 +163,3 @@ fn test_hwcrypto_android_invalid_calls() {
         "wrong error type received"
     );
 }
-
-rdroidtest::test_main!();

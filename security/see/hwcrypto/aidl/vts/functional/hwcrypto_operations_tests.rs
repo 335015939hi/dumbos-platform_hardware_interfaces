@@ -27,10 +27,8 @@ use android_hardware_security_see_hwcrypto::aidl::android::hardware::security::s
     KeyPolicy::KeyPolicy,CryptoOperation::CryptoOperation,CryptoOperationSet::CryptoOperationSet,
     OperationParameters::OperationParameters, PatternParameters::PatternParameters,
 };
-use rdroidtest::{ignore_if, rdroidtest};
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_key_operations_connection() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -38,8 +36,7 @@ fn test_hwcrypto_key_operations_connection() {
     assert!(hw_crypto_operations.is_ok(), "Couldn't get back a hwcrypto operations binder object");
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_key_operations_simple_aes_test() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -126,8 +123,7 @@ fn test_hwcrypto_key_operations_simple_aes_test() {
     assert_eq!(decrypted_msg, "string to be encrypted", "couldn't retrieve original message");
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_key_operations_simple_hmac_test() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -187,8 +183,7 @@ fn test_hwcrypto_key_operations_simple_hmac_test() {
     assert_eq!(mac, mac2, "got a different mac");
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_key_operations_aes_simple_cbcs_test_non_block_multiple() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -285,8 +280,7 @@ fn test_hwcrypto_key_operations_aes_simple_cbcs_test_non_block_multiple() {
     );
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn test_hwcrypto_key_operations_aes_simple_all_encrypted_cbcs_test() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -408,8 +402,7 @@ fn test_hwcrypto_key_operations_aes_simple_all_encrypted_cbcs_test() {
     );
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn check_cbcs_wrong_key_types() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -480,8 +473,7 @@ fn check_cbcs_wrong_key_types() {
     assert!(process_result.is_err(), "Should not be able to use cbcs mode with this key type");
 }
 
-#[rdroidtest]
-#[ignore_if(hwcryptohal_vts_test::ignore_test())]
+#[test]
 fn aes_simple_cbcs_test() {
     let hw_crypto_key = hwcryptohal_vts_test::get_hwcryptokey()
         .expect("Couldn't get back a hwcryptokey binder object");
@@ -592,5 +584,3 @@ fn aes_simple_cbcs_test() {
         "couldn't retrieve original message"
     );
 }
-
-rdroidtest::test_main!();
