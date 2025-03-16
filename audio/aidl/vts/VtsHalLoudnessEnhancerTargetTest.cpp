@@ -133,7 +133,7 @@ class LoudnessEnhancerParamTest : public ::testing::TestWithParam<LoudnessEnhanc
         std::tie(mFactory, mDescriptor) = std::get<PARAM_INSTANCE_NAME>(GetParam());
     }
 
-    void SetUp() override { SetUpLoudnessEnhancer(); }
+    void SetUp() override { ASSERT_NO_FATAL_FAILURE(SetUpLoudnessEnhancer()); }
     void TearDown() override { TearDownLoudnessEnhancer(); }
     int mParamGainMb = 0;
 };
@@ -164,7 +164,7 @@ class LoudnessEnhancerDataTest : public ::testing::TestWithParam<LoudnessEnhance
 
     void SetUp() override {
         SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
-        SetUpLoudnessEnhancer();
+        ASSERT_NO_FATAL_FAILURE(SetUpLoudnessEnhancer());
 
         // Creating AidlMessageQueues
         mStatusMQ = std::make_unique<EffectHelper::StatusMQ>(mOpenEffectReturn.statusMQ);
@@ -255,13 +255,13 @@ class LoudnessEnhancerDataTest : public ::testing::TestWithParam<LoudnessEnhance
 TEST_P(LoudnessEnhancerDataTest, IncreasingGains) {
     static const std::vector<int> kIncreasingGains = {50, 100};
 
-    assertSequentialGains(kIncreasingGains, true /*isIncreasing*/);
+    ASSERT_NO_FATAL_FAILURE(assertSequentialGains(kIncreasingGains, true /*isIncreasing*/));
 }
 
 TEST_P(LoudnessEnhancerDataTest, DecreasingGains) {
     static const std::vector<int> kDecreasingGains = {-50, -100};
 
-    assertSequentialGains(kDecreasingGains, false /*isIncreasing*/);
+    ASSERT_NO_FATAL_FAILURE(assertSequentialGains(kDecreasingGains, false /*isIncreasing*/));
 }
 
 TEST_P(LoudnessEnhancerDataTest, MinimumGain) {

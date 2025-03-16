@@ -77,6 +77,7 @@ parcelable Call {
     boolean isVoice;
     /**
      * true if CDMA voice privacy mode is active
+     * @deprecated Legacy CDMA is unsupported.
      */
     boolean isVoicePrivacy;
     /**

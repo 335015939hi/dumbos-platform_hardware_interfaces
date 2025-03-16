@@ -28,9 +28,11 @@ package android.hardware.radio.voice;
 @JavaDerive(toString=true)
 @SuppressWarnings(value={"redundant-name"})
 parcelable CdmaDisplayInfoRecord {
+    /** @deprecated Legacy CDMA is unsupported. */
     const int CDMA_ALPHA_INFO_BUFFER_LENGTH = 64;
     /**
      * Max length = CDMA_ALPHA_INFO_BUFFER_LENGTH
+     * @deprecated Legacy CDMA is unsupported.
      */
     String alphaBuf;
 }

@@ -700,4 +700,11 @@ bool ComposerClientWrapper::destroyAllLayers(
     mDisplayResources.clear();
     return true;
 }
+
+std::pair<ScopedAStatus, int32_t> ComposerClientWrapper::getMaxLayerPictureProfiles(
+        int64_t display) {
+    int32_t outMaxProfiles = 0;
+    return {mComposerClient->getMaxLayerPictureProfiles(display, &outMaxProfiles), outMaxProfiles};
+}
+
 }  // namespace aidl::android::hardware::graphics::composer3::libhwc_aidl_test

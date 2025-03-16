@@ -25,6 +25,7 @@ package {
 
 cc_library_static {
     name: "libnl++",
+    host_supported: true,
     vendor_available: true,
     cflags: [
         "-Wall",

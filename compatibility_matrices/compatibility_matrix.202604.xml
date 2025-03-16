@@ -171,7 +171,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.broadcastradio</name>
-        <version>1-2</version>
+        <version>1-3</version>
         <interface>
             <name>IBroadcastRadio</name>
             <regex-instance>.*</regex-instance>
@@ -233,7 +233,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.gnss</name>
-        <version>2-4</version>
+        <version>2-5</version>
         <interface>
             <name>IGnss</name>
             <instance>default</instance>
@@ -257,7 +257,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.health</name>
-        <version>3</version>
+        <version>3-4</version>
         <interface>
             <name>IHealth</name>
             <instance>default</instance>
@@ -380,7 +380,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.power</name>
-        <version>5</version>
+        <version>5-6</version>
         <interface>
             <name>IPower</name>
             <instance>default</instance>
@@ -523,6 +523,14 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" exclusive-to="virtual-machine">
+        <name>android.hardware.security.see.storage</name>
+        <version>1</version>
+        <interface>
+            <name>ISecureStorage</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <hal format="aidl" updatable-via-apex="true">
         <name>android.hardware.security.secureclock</name>
         <version>1</version>
@@ -543,7 +551,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.sensors</name>
-        <version>2</version>
+        <version>2-3</version>
         <interface>
             <name>ISensors</name>
             <instance>default</instance>
@@ -567,7 +575,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.thermal</name>
-        <version>2</version>
+        <version>3</version>
         <interface>
             <name>IThermal</name>
             <instance>default</instance>
@@ -607,7 +615,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.tv.tuner</name>
-        <version>1-2</version>
+        <version>1-3</version>
         <interface>
             <name>ITuner</name>
             <instance>default</instance>
@@ -615,7 +623,7 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.tv.input</name>
-        <version>1-2</version>
+        <version>1-3</version>
         <interface>
             <name>ITvInput</name>
             <instance>default</instance>
@@ -671,7 +679,7 @@
     </hal>
     <hal format="aidl" updatable-via-apex="true">
         <name>android.hardware.wifi</name>
-        <version>1-2</version>
+        <version>2-3</version>
         <interface>
             <name>IWifi</name>
             <instance>default</instance>
@@ -698,6 +706,14 @@
         <version>3-4</version>
         <interface>
             <name>ISupplicant</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>android.hardware.tv.mediaquality</name>
+        <version>1</version>
+        <interface>
+            <name>IMediaQuality</name>
             <instance>default</instance>
         </interface>
     </hal>
