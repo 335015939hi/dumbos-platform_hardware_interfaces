@@ -16,6 +16,24 @@
       "message": "Sorry, I have still got no time to check this contribution.",
       "revId": "fd6a5a0d95ccb69c495c2581bd0db4ca2e2cd0ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e01de006_3bcbbc3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1497372
+      },
+      "writtenOn": "2025-03-17T08:27:19Z",
+      "side": 1,
+      "message": "Hi Mikhail,\nHave you got a chance to check this patch again?\nThanks",
+      "parentUuid": "cf9aa381_9715b1df",
+      "revId": "fd6a5a0d95ccb69c495c2581bd0db4ca2e2cd0ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
