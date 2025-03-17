@@ -63,6 +63,29 @@
       },
       "revId": "41b9434ea763b8060b0232f6c4cb6be9151926ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22fcfb27_ea535223",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1004,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-17T16:50:48Z",
+      "side": 1,
+      "message": "Since we are not tearing down the effect during the test, we effectively verify that the transition between \"enabled\" and \"disabled\" state works. It would also be helpful to check that the opposite transition works, too. So we can add another `true` to `kEnableValues` for that: `kEnableValues \u003d {true, false, true}`.",
+      "range": {
+        "startLine": 1004,
+        "startChar": 14,
+        "endLine": 1004,
+        "endChar": 45
+      },
+      "revId": "41b9434ea763b8060b0232f6c4cb6be9151926ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
