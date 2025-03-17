@@ -16,6 +16,29 @@
       "message": "I\u0027ll add a VTS later.",
       "revId": "5be511d35a6bb6782de8f4537fda5255776b35c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab033ff5_d073994c",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1833664
+      },
+      "writtenOn": "2025-03-17T23:59:59Z",
+      "side": 1,
+      "message": "I think specs normally use \"must\" not \"shall\", but semantically this seems fine.",
+      "range": {
+        "startLine": 42,
+        "startChar": 78,
+        "endLine": 42,
+        "endChar": 83
+      },
+      "revId": "5be511d35a6bb6782de8f4537fda5255776b35c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
