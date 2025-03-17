@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6af67a96_aefcaa48",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 894,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-17T16:46:50Z",
+      "side": 1,
+      "message": "`\u0026\u0026`",
+      "range": {
+        "startLine": 894,
+        "startChar": 33,
+        "endLine": 894,
+        "endChar": 34
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "feb07537_88cb2067",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 894,
+                "startChar": 0,
+                "endLine": 895,
+                "endChar": 0
+              },
+              "replacement": "            if (isLimiterEnabled \u0026\u0026 isEngineEnabled) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "41b9434ea763b8060b0232f6c4cb6be9151926ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e25c70dc_36673605",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-17T16:46:50Z",
+      "side": 1,
+      "message": "Looking at the line `876`:\n\n```\nmEngineConfigPreset.limiterInUse \u003d isEngineEnabled;\n```\n\nand the commit description, it seems that it\u0027s not the \"engine\" that is being \"disabled\" but rather it\u0027s \"limiter disabled via the engine configuration\".\n\nSo I would suggest clarifying that in test and variable names. For example, use the name `LimiterEnableDisableViaEngine`, or similar. Same for the variables used by `testEnableDisableConfiguration`.",
+      "range": {
+        "startLine": 1003,
+        "startChar": 48,
+        "endLine": 1003,
+        "endChar": 73
+      },
+      "revId": "41b9434ea763b8060b0232f6c4cb6be9151926ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
