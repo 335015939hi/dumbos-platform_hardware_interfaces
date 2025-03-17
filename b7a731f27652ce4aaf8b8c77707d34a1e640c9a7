@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ef218a7_c849b7ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 2067226
+      },
+      "writtenOn": "2025-03-17T17:03:33Z",
+      "side": 1,
+      "message": "Adding min_sdk_version here to be able to produce an APEX targeting Android 15 (within SDV Core project)",
+      "revId": "b7a731f27652ce4aaf8b8c77707d34a1e640c9a7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
