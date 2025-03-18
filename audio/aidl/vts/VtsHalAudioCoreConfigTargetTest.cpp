@@ -367,15 +367,8 @@ class AudioCoreConfig : public testing::TestWithParam<std::string> {
             auto criterionValue = criterionRule.criterionAndValue;
             auto matchesWhen = criterionRule.matchingRule;
             auto criteriaIt = find_if(criteria.begin(), criteria.end(), [&](const auto& criterion) {
-                auto getForceConfigTag = [](const AudioHalCapCriterionV2& forceConfig) {
-                    return forceConfig.get<AudioHalCapCriterionV2::forceConfigForUse>()
-                            .values[0].getTag();
-                };
                 return criterion.has_value() &&
-                       criterion.value().getTag() == selectionCriterion.getTag() &&
-                       (criterion.value().getTag() != AudioHalCapCriterionV2::forceConfigForUse ||
-                        getForceConfigTag(criterion.value()) ==
-                                getForceConfigTag(selectionCriterion));
+                       criterion.value().getTag() == selectionCriterion.getTag();
             });
             EXPECT_NE(criteriaIt, criteria.end())
                     << " Invalid rule criterion " << toString(selectionCriterion.getTag());
