@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7838a8e_0705af9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1135107
+      },
+      "writtenOn": "2025-03-18T20:38:21Z",
+      "side": 1,
+      "message": "I don\u0027t remember exactly what might have happened there, but I think this was my omission - while we don\u0027t support IRadio 1.4 (and that\u0027s why I cut these from the library), these are still used in IRadio 1.5.\n\nChange LGTM, but Telephony owners have to approve.",
+      "revId": "b3f6d47cd0220177a42db1a1cf8b1a885e6b8e56",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
