@@ -39,6 +39,30 @@
       },
       "revId": "5be511d35a6bb6782de8f4537fda5255776b35c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2468ee8_09cb5c3e",
+        "filename": "security/keymint/aidl/android/hardware/security/keymint/KeyMintHardwareInfo.aidl",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2025-03-18T00:12:03Z",
+      "side": 1,
+      "message": "Changed to must to be consistent with the existing languages.",
+      "parentUuid": "ab033ff5_d073994c",
+      "range": {
+        "startLine": 42,
+        "startChar": 78,
+        "endLine": 42,
+        "endChar": 83
+      },
+      "revId": "5be511d35a6bb6782de8f4537fda5255776b35c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
