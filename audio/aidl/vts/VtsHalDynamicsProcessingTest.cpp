@@ -120,7 +120,7 @@ class DynamicsProcessingTestHelper : public EffectHelper {
 
     void setParamsAndProcess(std::vector<float>& input, std::vector<float>& output);
 
-    float calculateDb(const std::vector<float>& input, size_t startSamplePos);
+    float calculateDb(const std::vector<float>& input, size_t startSamplePos, size_t endSamplePos);
 
     void getMagnitudeValue(const std::vector<float>& output, std::vector<float>& bufferMag);
 
@@ -430,9 +430,9 @@ bool DynamicsProcessingTestHelper::isAllParamsValid() {
 // This function calculates power for both and mono and stereo data as the total power for
 // interleaved multichannel data can be calculated by treating it as a continuous mono input.
 float DynamicsProcessingTestHelper::calculateDb(const std::vector<float>& input,
-                                                size_t startSamplePos = 0) {
+                                                size_t startSamplePos, size_t endSamplePos) {
     return audio_utils_compute_power_mono(input.data() + startSamplePos, AUDIO_FORMAT_PCM_FLOAT,
-                                          input.size() - startSamplePos);
+                                          endSamplePos - startSamplePos);
 }
 
 void DynamicsProcessingTestHelper::setParamsAndProcess(std::vector<float>& input,
@@ -456,8 +456,8 @@ void DynamicsProcessingTestHelper::checkInputAndOutputEquality(
     std::vector<float> inputMag(mBinOffsets.size());
     EXPECT_NO_FATAL_FAILURE(getMagnitudeValue(mInput, inputMag));
     for (size_t i = 0; i < inputMag.size(); i++) {
-        EXPECT_NEAR(calculateDb({inputMag[i] / mNormalizingFactor}),
-                    calculateDb({outputMag[i] / mNormalizingFactor}), kToleranceDb);
+        EXPECT_NEAR(calculateDb({inputMag[i] / mNormalizingFactor}, 0, 1),
+                    calculateDb({outputMag[i] / mNormalizingFactor}, 0, 1), kToleranceDb);
     }
 }
 
@@ -468,7 +468,7 @@ void DynamicsProcessingTestHelper::setUpDataTest(const std::vector<int>& testFre
     mInput.resize(kFrameCount * mChannelCount);
     ASSERT_NO_FATAL_FAILURE(
             generateSineWave(testFrequencies, mInput, 1.0, kSamplingFrequency, mChannelLayout));
-    mInputDb = calculateDb(mInput);
+    mInputDb = calculateDb(mInput, 0, mInput.size());
     ASSERT_NEAR(mInputDb, fullScaleSineDb, kToleranceDb);
 }
 
@@ -752,7 +752,7 @@ TEST_P(DynamicsProcessingInputGainDataTest, SetAndGetInputGain) {
         if (!isAllParamsValid()) {
             continue;
         }
-        float outputDb = calculateDb(output, kStartIndex);
+        float outputDb = calculateDb(output, kStartIndex, output.size());
         EXPECT_NEAR(outputDb, mInputDb + gainDb, kToleranceDb)
                 << "InputGain: " << gainDb << ", OutputDb: " << outputDb;
     }
@@ -889,7 +889,7 @@ class DynamicsProcessingLimiterConfigDataTest
                               -20 /*threshold*/, 5 /*postgain*/);
         }
         ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output, isEngineLimiterEnabled));
-        float outputdB = calculateDb(output, kStartIndex);
+        float outputdB = calculateDb(output, kStartIndex, output.size());
         if (isAllParamsValid()) {
             if (isLimiterEnabled && isEngineLimiterEnabled) {
                 EXPECT_GT(std::abs(mInputDb - outputdB), kMinDifferenceDb)
@@ -931,7 +931,7 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingThresholdDb) {
         if (!isAllParamsValid()) {
             continue;
         }
-        float outputDb = calculateDb(output, kStartIndex);
+        float outputDb = calculateDb(output, kStartIndex, output.size());
         if (threshold >= mInputDb || kDefaultRatio == 1) {
             EXPECT_NEAR(mInputDb, outputDb, kLimiterTestToleranceDb);
         } else {
@@ -957,7 +957,7 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingRatio) {
         if (!isAllParamsValid()) {
             continue;
         }
-        float outputDb = calculateDb(output, kStartIndex);
+        float outputDb = calculateDb(output, kStartIndex, output.size());
 
         if (kDefaultThreshold >= mInputDb) {
             EXPECT_NEAR(mInputDb, outputDb, kLimiterTestToleranceDb);
@@ -977,7 +977,7 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingPostGain) {
         cleanUpLimiterConfig();
         ASSERT_NO_FATAL_FAILURE(generateSineWave(kInputFrequency, mInput, dBToAmplitude(postGainDb),
                                                  kSamplingFrequency, mChannelLayout));
-        mInputDb = calculateDb(mInput);
+        mInputDb = calculateDb(mInput, 0, mInput.size());
         EXPECT_NEAR(mInputDb, kSineFullScaleDb - postGainDb, kLimiterTestToleranceDb);
         for (int i = 0; i < mChannelCount; i++) {
             fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
@@ -987,7 +987,7 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingPostGain) {
         if (!isAllParamsValid()) {
             continue;
         }
-        float outputDb = calculateDb(output, kStartIndex);
+        float outputDb = calculateDb(output, kStartIndex, output.size());
         EXPECT_NEAR(outputDb, mInputDb + postGainDb, kLimiterTestToleranceDb)
                 << "PostGain: " << postGainDb << ", OutputDb: " << outputDb;
     }
@@ -1004,6 +1004,75 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, LimiterEnableDisableViaEngine) {
     for (bool isEngineLimiterEnabled : kEnableValues) {
         ASSERT_NO_FATAL_FAILURE(
                 testEnableDisableConfiguration(true /*Limiter Enabled*/, isEngineLimiterEnabled));
+    }
+}
+
+TEST_P(DynamicsProcessingLimiterConfigDataTest, LimiterReleaseTime) {
+    /*Release time determines how quickly the compressor returns to normal after the input falls
+     * below the threshold. As the release time increases, it takes longer for the compressor to
+     * stop compressing, resulting in a decrease in output decibels as the release time increases*/
+    std::vector<float> releaseTimeMsValues = {0, 10, 20, 30, 40, 50};
+    std::vector<float> output(mInput.size());
+    float previousOutputDb = FLT_MAX;
+    for (size_t i = mInput.size() / 2; i < mInput.size(); i++) {
+        mInput[i] = mInput[i] / 2;
+    }
+
+    // Using a threshold dB value that compresses only the first half of the input.
+    float thresholdDb = -7;
+    float firstHalfDb = calculateDb(mInput, 0, mInput.size() / 2);
+    float secondHalfDb = calculateDb(mInput, mInput.size() / 2, mInput.size());
+
+    ASSERT_TRUE(thresholdDb < firstHalfDb && thresholdDb >= secondHalfDb)
+            << "Threshold level: " << thresholdDb << "First half level: " << firstHalfDb
+            << "Second half level: " << secondHalfDb;
+
+    for (float releaseTime : releaseTimeMsValues) {
+        cleanUpLimiterConfig();
+        for (int i = 0; i < mChannelCount; i++) {
+            fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
+                              releaseTime, kDefaultRatio, thresholdDb, kDefaultPostGain);
+        }
+        ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
+        if (!isAllParamsValid()) {
+            continue;
+        }
+        float outputDb = calculateDb(output, kStartIndex, output.size());
+        ASSERT_LT(outputDb, previousOutputDb) << "Release Time: " << releaseTime;
+        previousOutputDb = outputDb;
+    }
+}
+
+TEST_P(DynamicsProcessingLimiterConfigDataTest, LimiterNotEngagedReleaseTimeTest) {
+    std::vector<float> releaseTimeMsValues = {0, 10, 20, 30, 40, 50};
+    std::vector<float> output(mInput.size());
+    float previousOutputDb = FLT_MAX;
+    for (size_t i = mInput.size() / 2; i < mInput.size(); i++) {
+        mInput[i] = mInput[i] / 2;
+    }
+
+    // Using threshold value such that limiter does not engage with the input
+    float thresholdDb = -1;
+    float firstHalfDb = calculateDb(mInput, 0, mInput.size() / 2);
+    float secondHalfDb = calculateDb(mInput, mInput.size() / 2, mInput.size());
+    mInputDb = calculateDb(mInput, 0, mInput.size());
+
+    ASSERT_TRUE(thresholdDb > firstHalfDb && thresholdDb > secondHalfDb)
+            << "Threshold level: " << thresholdDb << "First half level: " << firstHalfDb
+            << "Second half level: " << secondHalfDb;
+
+    for (float releaseTime : releaseTimeMsValues) {
+        cleanUpLimiterConfig();
+        for (int i = 0; i < mChannelCount; i++) {
+            fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
+                              releaseTime, kDefaultRatio, thresholdDb, kDefaultPostGain);
+        }
+        ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
+        if (!isAllParamsValid()) {
+            continue;
+        }
+        float outputDb = calculateDb(output, kStartIndex, output.size());
+        EXPECT_NEAR(outputDb, mInputDb, kToleranceDb) << "Release Time: " << releaseTime;
     }
 }
 
@@ -1045,8 +1114,8 @@ class DynamicsProcessingLimiterLinkerDataTest : public DynamicsProcessingLimiter
                 rightChannel.push_back(input[i + 1]);
             }
         }
-        return {calculateDb(leftChannel, startSamplePos),
-                calculateDb(rightChannel, startSamplePos)};
+        return {calculateDb(leftChannel, startSamplePos, leftChannel.size()),
+                calculateDb(rightChannel, startSamplePos, rightChannel.size())};
     }
 
     void setLinkGroupAndProcess(std::vector<float>& output, bool hasSameLinkGroup) {
@@ -1657,7 +1726,7 @@ TEST_P(DynamicsProcessingMbcBandConfigDataTest, IncreasingPostGain) {
         ASSERT_NO_FATAL_FAILURE(generateSineWave(mMultitoneTestFrequencies, mInput,
                                                  dBToAmplitude(postGainDb), kSamplingFrequency,
                                                  mChannelLayout));
-        mInputDb = calculateDb(mInput);
+        mInputDb = calculateDb(mInput, 0, mInput.size());
         EXPECT_NEAR(mInputDb, kSineMultitoneFullScaleDb - postGainDb, kToleranceDb);
         cleanUpMbcConfig();
         for (int i = 0; i < mChannelCount; i++) {
@@ -1669,7 +1738,7 @@ TEST_P(DynamicsProcessingMbcBandConfigDataTest, IncreasingPostGain) {
         if (!isAllParamsValid()) {
             continue;
         }
-        float outputDb = calculateDb(output, kStartIndex);
+        float outputDb = calculateDb(output, kStartIndex, output.size());
         EXPECT_NEAR(outputDb, mInputDb + postGainDb, kToleranceDb)
                 << "PostGain: " << postGainDb << ", OutputDb: " << outputDb;
     }
@@ -1713,7 +1782,7 @@ TEST_P(DynamicsProcessingMbcBandConfigDataTest, IncreasingPreGain) {
             if (!isAllParamsValid()) {
                 continue;
             }
-            float outputDb = calculateDb(output, kStartIndex);
+            float outputDb = calculateDb(output, kStartIndex, output.size());
             EXPECT_NEAR(outputDb, expectedOutputDb, kToleranceDb)
                     << "PreGain: " << preGainDb << ", OutputDb: " << outputDb;
         }
