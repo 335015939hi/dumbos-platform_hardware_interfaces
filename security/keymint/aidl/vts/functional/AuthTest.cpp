@@ -540,6 +540,54 @@ TEST_P(AuthTest, AuthPerOperation) {
               Finish(message, {} /* signature */, &ciphertext, dodgy_hat.value()));
 }
 
+// Test use of a key with large message that requires an auth token for each action on the
+// operation, with a per-operation challenge value included.
+TEST_P(AuthTest, AuthPerOperationLargeMessage) {
+    if (!GatekeeperAvailable()) {
+        GTEST_SKIP() << "No Gatekeeper available";
+    }
+
+    // Create an AES key that requires authentication per-action.
+    auto builder = AuthorizationSetBuilder()
+                           .AesEncryptionKey(256)
+                           .BlockMode(BlockMode::CBC)
+                           .Padding(PaddingMode::PKCS7)
+                           .Authorization(TAG_USER_SECURE_ID, sid_)
+                           .Authorization(TAG_USER_AUTH_TYPE, HardwareAuthenticatorType::PASSWORD);
+    vector<uint8_t> keyblob;
+    vector<KeyCharacteristics> key_characteristics;
+    vector<Certificate> cert_chain;
+    ASSERT_EQ(ErrorCode::OK,
+              GenerateKey(builder, std::nullopt, &keyblob, &key_characteristics, &cert_chain));
+
+    string message(2048, static_cast<char>(0xff));
+    AuthorizationSet out_params;
+    auto params = AuthorizationSetBuilder().BlockMode(BlockMode::CBC).Padding(PaddingMode::PKCS7);
+    // Get a HAT with the challenge from an in-progress operation.
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, keyblob, params, &out_params));
+    auto hat = doVerify(challenge_, handle_, password_);
+    ASSERT_TRUE(hat.has_value());
+    ASSERT_EQ(hat->userId, sid_);
+    string ciphertext;
+    ASSERT_EQ(ErrorCode::OK, Finish(message, {} /* signature */, &ciphertext, hat.value()));
+
+    auto iv = out_params.GetTagValue(TAG_NONCE);
+    EXPECT_TRUE(iv);
+    auto params_iv =
+            AuthorizationSetBuilder().Authorizations(params).Authorization(TAG_NONCE, iv->get());
+    out_params.Clear();
+
+    // Decrypt
+    ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, keyblob, params_iv, &out_params));
+    hat = doVerify(challenge_, handle_, password_);
+    ASSERT_TRUE(hat.has_value());
+    ASSERT_EQ(hat->userId, sid_);
+    string plaintext;
+    ASSERT_EQ(ErrorCode::OK, Finish(ciphertext, {} /* signature */, &plaintext, hat.value()));
+
+    EXPECT_EQ(message.size(), plaintext.size());
+}
+
 // Test use of a key that requires an auth token for each action on the operation, with
 // a per-operation challenge value included, with multiple secure IDs allowed.
 TEST_P(AuthTest, AuthPerOperationMultiSid) {
