@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55f5cc1e_b8e31c17",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-03-19T14:02:19Z",
+      "side": 1,
+      "message": "If we think there are existing implementations that will fail this test, we should pre-emptively add a vendor API level gate here.",
+      "revId": "b6a5806bf33861dd611f72a34ecab9405d2f1026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7488550_fb63850a",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-03-19T14:02:19Z",
+      "side": 1,
+      "message": "Given that we\u0027re adding an extra test, why not make it a bit more thorough?\n\nHow about having a list of message chunk sizes, and for each one do update/update/finish appropriately?  E.g. something like:\n\n```\n    vector\u003cvector\u003csize_t\u003e\u003e chunk_sizes \u003d{\n        {2048},\n        {2048, 0},\n        {1024, 1024},\n        {1024, 1024, 0},\n        {512, 512, 512, 512},\n        {512, 512, 512, 512, 0},\n    };\n    for (const auto\u0026 chunks: chunk_sizes) {\n        // Start an operation.\n        AuthorizationSet out_params;\n        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::ENCRYPT, keyblob, params, \u0026out_params));\n        auto iv \u003d out_params.GetTagValue(TAG_NONCE);\n        EXPECT_TRUE(iv);\n\n        // Get a HAT with the challenge from an in-progress operation.\n        auto hat \u003d doVerify(challenge_, handle_, password_);\n        ASSERT_TRUE(hat.has_value());\n        ASSERT_EQ(hat-\u003euserId, sid_);\n\n        // Encrypt in the given chunk sizes.\n        string message;\n        string ciphertext;\n        for (int i \u003d 0; i \u003c chunks.size(); i++) {\n            SCOPED_TRACE(testing::Message() \u003c\u003c \"chunk[\" \u003c\u003c i \u003c\u003c \"] of \"\u003c\u003cchunks.size()\u003c\u003c\", size \" \u003c\u003c chunks[i]);\n            string msg_chunk \u003d string(chunks[i], \u0027A\u0027);\n            string ct_chunk;\n            if (i \u003c chunks.size() - 1) {\n                // Pass in n-1 chunks to `update()`\n                std::cerr \u003c\u003c \"Update(size\u003d\" \u003c\u003c chunks[i] \u003c\u003c \")\\n\";\n                ASSERT_EQ(ErrorCode::OK, Update(msg_chunk, \u0026ct_chunk, hat.value()));\n            } else {\n                // Pass the final chunk to `finish()`\n                std::cerr \u003c\u003c \"Finish(size\u003d\" \u003c\u003c chunks[i] \u003c\u003c \")\\n\";\n                ASSERT_EQ(ErrorCode::OK,\n                          Finish(msg_chunk, {} /* signature */, \u0026ct_chunk, hat.value()));\n            }\n            message +\u003d msg_chunk;\n            ciphertext +\u003d ct_chunk;\n        }\n\n        // Decrypt in one go.\n        auto params_iv \u003d AuthorizationSetBuilder().Authorizations(params).Authorization(TAG_NONCE,\n                                                                                        iv-\u003eget());\n        out_params.Clear();\n        ASSERT_EQ(ErrorCode::OK, Begin(KeyPurpose::DECRYPT, keyblob, params_iv, \u0026out_params));\n        hat \u003d doVerify(challenge_, handle_, password_);\n        ASSERT_TRUE(hat.has_value());\n        ASSERT_EQ(hat-\u003euserId, sid_);\n\n        string plaintext;\n        ASSERT_EQ(ErrorCode::OK, Finish(ciphertext, {} /* signature */, \u0026plaintext, hat.value()));\n\n        EXPECT_EQ(message, plaintext);\n    }\n```\n\n(Would need an extra `hat` param for `KeyMintAidlTestBase::Update` though)",
+      "revId": "b6a5806bf33861dd611f72a34ecab9405d2f1026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45e252c2_fc5073f0",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-03-19T14:02:19Z",
+      "side": 1,
+      "message": "Why just compare the sizes? Shouldn\u0027t the contents be equal too?",
+      "revId": "b6a5806bf33861dd611f72a34ecab9405d2f1026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
