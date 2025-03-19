@@ -1007,6 +1007,41 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, LimiterEnableDisableViaEngine) {
     }
 }
 
+TEST_P(DynamicsProcessingLimiterConfigDataTest, LimiterReleaseTime) {
+    std::vector<float> releaseTimeValues = {0, 10, 20, 30, 40, 50};
+    std::vector<float> output(mInput.size());
+    float previousOutputDb = FLT_MAX;
+    for (size_t i = mInput.size() / 2; i < mInput.size(); i++) {
+        mInput[i] = mInput[i] / 2;
+    }
+    std::vector<float> firstHalf(mInput.begin(), mInput.begin() + mInput.size() / 2);
+    std::vector<float> secondHalf(mInput.begin() + mInput.size() / 2, mInput.end());
+
+    float firstHalfDb = calculateDb(firstHalf);
+    float secondHalfDb = calculateDb(secondHalf);
+    mInputDb = calculateDb(mInput);
+    float threshold = -7;
+
+    for (float releaseTime : releaseTimeValues) {
+        cleanUpLimiterConfig();
+        for (int i = 0; i < mChannelCount; i++) {
+            fillLimiterConfig(mLimiterConfigList, i, true, kDefaultLinkerGroup, kDefaultAttackTime,
+                              releaseTime, kDefaultRatio, threshold, kDefaultPostGain);
+        }
+        ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
+        if (!isAllParamsValid()) {
+            continue;
+        }
+        float outputDb = calculateDb(output, kStartIndex);
+        if (threshold >= firstHalfDb && threshold >= secondHalfDb) {
+            EXPECT_NEAR(outputDb, mInputDb, kToleranceDb);
+        } else {
+            ASSERT_LT(outputDb, previousOutputDb);
+            previousOutputDb = outputDb;
+        }
+    }
+}
+
 INSTANTIATE_TEST_SUITE_P(DynamicsProcessingTest, DynamicsProcessingLimiterConfigDataTest,
                          testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
                                  IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
