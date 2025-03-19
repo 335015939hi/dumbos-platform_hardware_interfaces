@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5645f96c_ede7de6e",
+        "filename": "security/rkp/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1958315
+      },
+      "writtenOn": "2025-03-19T08:29:22Z",
+      "side": 1,
+      "message": "nit: Add link to VM attestation? \n\nhttps://android.googlesource.com/platform/packages/modules/Virtualization/+/main/docs/vm_remote_attestation.md",
+      "range": {
+        "startLine": 245,
+        "startChar": 73,
+        "endLine": 246,
+        "endChar": 11
+      },
+      "revId": "e693d99815ed62a3aeccd678b77623c1e73c3437",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
