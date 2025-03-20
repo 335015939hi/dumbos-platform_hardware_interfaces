@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46ef83aa_2de313cb",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2025-03-20T04:44:35Z",
+      "side": 1,
+      "message": "Skipping this test for devices having vendor_api_level \u003c ANDROID_API_V",
+      "parentUuid": "55f5cc1e_b8e31c17",
+      "revId": "b6a5806bf33861dd611f72a34ecab9405d2f1026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7488550_fb63850a",
         "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
         "patchSetId": 2
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d83b50e4_cfa39558",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2025-03-20T04:44:35Z",
+      "side": 1,
+      "message": "Updated the changes as suggested.",
+      "parentUuid": "d7488550_fb63850a",
+      "revId": "b6a5806bf33861dd611f72a34ecab9405d2f1026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45e252c2_fc5073f0",
         "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
         "patchSetId": 2
@@ -48,6 +84,24 @@
       "writtenOn": "2025-03-19T14:02:19Z",
       "side": 1,
       "message": "Why just compare the sizes? Shouldn\u0027t the contents be equal too?",
+      "revId": "b6a5806bf33861dd611f72a34ecab9405d2f1026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07488b70_74e19faf",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1887766
+      },
+      "writtenOn": "2025-03-20T04:44:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45e252c2_fc5073f0",
       "revId": "b6a5806bf33861dd611f72a34ecab9405d2f1026",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
