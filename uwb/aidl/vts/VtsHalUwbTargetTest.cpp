@@ -205,6 +205,9 @@ TEST_P(UwbAidl, ChipSendUciMessage_GetDeviceInfo) {
     const auto iuwb_chip = getAnyChipAndOpen();
     EXPECT_TRUE(iuwb_chip->coreInit().isOk());
 
+    // Should've waited for POST_INIT_CPLT, but that breaks this test for legacy devices.
+    sleep(1);
+
     std::vector<uint8_t> uciMessage = {0x20, 0x02, 0x00, 0x00}; /** CoreGetDeviceInfo */
     int32_t* return_status = new int32_t;
     EXPECT_TRUE(iuwb_chip->sendUciMessage(uciMessage, return_status).isOk());
