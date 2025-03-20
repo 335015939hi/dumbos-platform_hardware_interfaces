@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9813412e_837e964c",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-03-20T07:51:58Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "46ef83aa_2de313cb",
+      "revId": "b6a5806bf33861dd611f72a34ecab9405d2f1026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7488550_fb63850a",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Updated the changes as suggested.",
       "parentUuid": "d7488550_fb63850a",
+      "revId": "b6a5806bf33861dd611f72a34ecab9405d2f1026",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1c8a333_90c4b530",
+        "filename": "security/keymint/aidl/vts/functional/AuthTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-03-20T07:51:58Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d83b50e4_cfa39558",
       "revId": "b6a5806bf33861dd611f72a34ecab9405d2f1026",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
