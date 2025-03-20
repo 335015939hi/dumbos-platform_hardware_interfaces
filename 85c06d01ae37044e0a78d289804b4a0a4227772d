@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "613c539c_527fa2b5",
+        "filename": "virtualization/capabilities_service/default/android.hardware.virtualization.capabilities.vm_capabilities_service.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2025-03-20T13:24:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a30d678_fa7ae95f",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 12
+      },
+      "revId": "85c06d01ae37044e0a78d289804b4a0a4227772d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a161064_412973d5",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-03-10T23:38:16Z",
       "side": 1,
       "message": "don\u0027t forget to remove this",
+      "range": {
+        "startLine": 38,
+        "startChar": 11,
+        "endLine": 38,
+        "endChar": 19
+      },
+      "revId": "85c06d01ae37044e0a78d289804b4a0a4227772d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "110c2aa0_0c24932b",
+        "filename": "virtualization/capabilities_service/default/src/main.rs",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1432579
+      },
+      "writtenOn": "2025-03-20T13:24:51Z",
+      "side": 1,
+      "message": "Ooops, done :)",
+      "parentUuid": "7a161064_412973d5",
       "range": {
         "startLine": 38,
         "startChar": 11,
