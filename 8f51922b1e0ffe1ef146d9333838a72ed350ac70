@@ -16,6 +16,24 @@
       "message": "Just to avoid confusion, I think this CL should wait until Android 16 is done.\n\n(I\u0027d also prefer that the VTS test for a new requirement in the spec arrives in the same CL or topic.)",
       "revId": "8f51922b1e0ffe1ef146d9333838a72ed350ac70",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10d6477a_146f3fdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2025-03-20T21:47:13Z",
+      "side": 1,
+      "message": "PTAL\n\nI added a test, that has a version check.  IMHO the intention of this CL is sufficiently clear with low risk.  Actually, the vendor has fixed the bugs and rolling out to the OEMs (nevertheless, it\u0027s a new requirement, so there\u0027s the version check).",
+      "parentUuid": "3a47313e_d1c35676",
+      "revId": "8f51922b1e0ffe1ef146d9333838a72ed350ac70",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
