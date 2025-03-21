@@ -1,0 +1,412 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52188e9a_92955812",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-21T18:22:01Z",
+      "side": 1,
+      "message": "Please state your expectations in a comment here. In my understanding, it should be something like, \"with longer release times, it takes longer for the output signal to recover after its level has been reduced (limited), thus the energy of the output will progressively decrease as release times increase\".",
+      "range": {
+        "startLine": 1011,
+        "startChar": 43,
+        "endLine": 1011,
+        "endChar": 67
+      },
+      "revId": "d4a249330ceceee27cbe9c827bade453ca669c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e0334c7_123151fd",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-21T18:22:01Z",
+      "side": 1,
+      "message": "What are the units here? Milliseconds?",
+      "range": {
+        "startLine": 1011,
+        "startChar": 23,
+        "endLine": 1011,
+        "endChar": 40
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "82883eec_4b4f6ad0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1011,
+                "startChar": 0,
+                "endLine": 1012,
+                "endChar": 0
+              },
+              "replacement": "    std::vector\u003cfloat\u003e releaseTimeMsValues \u003d {0, 10, 20, 30, 40, 50};\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1025,
+                "startChar": 0,
+                "endLine": 1026,
+                "endChar": 0
+              },
+              "replacement": "    for (float releaseTimeMs : releaseTimeMsValues) {\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1029,
+                "startChar": 0,
+                "endLine": 1030,
+                "endChar": 0
+              },
+              "replacement": "                              releaseTimeMs, kDefaultRatio, threshold, kDefaultPostGain);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d4a249330ceceee27cbe9c827bade453ca669c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c4e601c_0d4905ed",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1022,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-21T18:22:01Z",
+      "side": 1,
+      "message": "Creating `secondHalf` is not needed because `calculateDb` should accept the start sample position: https://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp;l\u003d123;drc\u003ddfb50f55179f7d4319feebcb296a565919f80222  So it can be called on `mInput` directly.\n\nWe can also modify `calculateDb` to accept the end position instead of using the end of the input and get rid of `firstHalf`.",
+      "range": {
+        "startLine": 1022,
+        "startChar": 15,
+        "endLine": 1022,
+        "endChar": 35
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "754c57a8_01806851",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1017,
+                "startChar": 0,
+                "endLine": 1019,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1020,
+                "startChar": 0,
+                "endLine": 1023,
+                "endChar": 0
+              },
+              "replacement": "    float firstHalfDb \u003d calculateDb(mInput, 0);\n    float secondHalfDb \u003d calculateDb(mInput, mInput.size() / 2);\n    mInputDb \u003d calculateDb(mInput, 0);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d4a249330ceceee27cbe9c827bade453ca669c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "118d9acb_d3662e4e",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-21T18:22:01Z",
+      "side": 1,
+      "message": "Units? dB?",
+      "range": {
+        "startLine": 1023,
+        "startChar": 10,
+        "endLine": 1023,
+        "endChar": 19
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e317c082_0961bb45",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1023,
+                "startChar": 0,
+                "endLine": 1024,
+                "endChar": 0
+              },
+              "replacement": "    float thresholdDb \u003d -7;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1029,
+                "startChar": 0,
+                "endLine": 1030,
+                "endChar": 0
+              },
+              "replacement": "                              releaseTime, kDefaultRatio, thresholdDb, kDefaultPostGain);\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1036,
+                "startChar": 0,
+                "endLine": 1037,
+                "endChar": 0
+              },
+              "replacement": "        if (thresholdDb \u003e\u003d firstHalfDb \u0026\u0026 thresholdDb \u003e\u003d secondHalfDb) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d4a249330ceceee27cbe9c827bade453ca669c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb7b750_b24f7bed",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-21T18:22:01Z",
+      "side": 1,
+      "message": "Since we are testing the effect of the limiter release time, the cases when the limiter does not engage are probably not interesting to us here. It should really be a separate test to verify that the limiter release time does not affect anything when the limiter is not engaged.",
+      "range": {
+        "startLine": 1036,
+        "startChar": 0,
+        "endLine": 1037,
+        "endChar": 58
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "30725a99_9dea2df5",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 151,
+                "startChar": 0,
+                "endLine": 152,
+                "endChar": 0
+              },
+              "replacement": "    static constexpr size_t kStartIndex \u003d 15 * kSamplingFrequency / 1000;  // skip 15ms for\n                                                                           // processing delay\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 159,
+                "startChar": 0,
+                "endLine": 160,
+                "endChar": 0
+              },
+              "replacement": "    const std::vector\u003cint\u003e kCutoffFreqHz \u003d {200 /*0th band cutoff*/, 2000 /*1st band cutoff*/,\n                                            20000 /*2nd band cutoff*/};\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1015,
+                "startChar": 0,
+                "endLine": 1015,
+                "endChar": 0
+              },
+              "replacement": "        // Reduce the amplitude of the second half of the input signal to test the release time\n        // parameter.\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1023,
+                "startChar": 0,
+                "endLine": 1024,
+                "endChar": 0
+              },
+              "replacement": "    float threshold \u003d -10;\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1036,
+                "startChar": 0,
+                "endLine": 1036,
+                "endChar": 0
+              },
+              "replacement": "        // Verify that the output level of the second half of the signal is less than the output\n        // level of the first half of the signal.\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1103,
+                "startChar": 0,
+                "endLine": 1104,
+                "endChar": 0
+              },
+              "replacement": "    const std::vector\u003cstd::pair\u003cfloat, float\u003e\u003e kRatioThresholdPairValues \u003d {{2, -10}, {5, -20},\n                                                                           {10, -30}};\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1116,
+                "startChar": 0,
+                "endLine": 1117,
+                "endChar": 0
+              },
+              "replacement": "    // Verify that the actual output dB is same as the calculated maximum attenuation for both\n    // channels.\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1132,
+                "startChar": 0,
+                "endLine": 1133,
+                "endChar": 0
+              },
+              "replacement": "    // Verify that both channels have different compression levels.\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1137,
+                "startChar": 0,
+                "endLine": 1138,
+                "endChar": 0
+              },
+              "replacement": "    // Verify that the actual output and the calculated dB values are same for both channels.\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1397,
+                "startChar": 0,
+                "endLine": 1399,
+                "endChar": 0
+              },
+              "replacement": "            // For positive gain, current band\u0027s magnitude is greater than the other band\u0027s magnitude.\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1401,
+                "startChar": 0,
+                "endLine": 1402,
+                "endChar": 0
+              },
+              "replacement": "            // For negative gain, current band\u0027s magnitude is less than the other band\u0027s magnitude.\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1409,
+                "startChar": 0,
+                "endLine": 1410,
+                "endChar": 0
+              },
+              "replacement": "        // Set Equalizer values for two bands.\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1623,
+                "startChar": 0,
+                "endLine": 1624,
+                "endChar": 0
+              },
+              "replacement": "            // Current band\u0027s magnitude is less than the other band\u0027s magnitude.\n"
+            },
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1631,
+                "startChar": 0,
+                "endLine": 1632,
+                "endChar": 0
+              },
+              "replacement": "        // Set MBC values for two bands.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d4a249330ceceee27cbe9c827bade453ca669c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a348bf_410d81d5",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1037,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-03-21T18:22:01Z",
+      "side": 1,
+      "message": "Please also add the value of `releaseTime` to the printout, same for the assert below.",
+      "range": {
+        "startLine": 1037,
+        "startChar": 56,
+        "endLine": 1037,
+        "endChar": 58
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "dce262ad_3e755d53",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+              "range": {
+                "startLine": 1037,
+                "startChar": 0,
+                "endLine": 1038,
+                "endChar": 0
+              },
+              "replacement": "            EXPECT_NEAR(outputDb, mInputDb, kToleranceDb)\n                    \u003c\u003c \"ReleaseTime: \" \u003c\u003c releaseTime \u003c\u003c \", OutputDb: \" \u003c\u003c outputDb;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d4a249330ceceee27cbe9c827bade453ca669c65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
