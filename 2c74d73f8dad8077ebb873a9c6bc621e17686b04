@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df3971c1_198ac8ce",
+        "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1175853
+      },
+      "writtenOn": "2025-03-21T18:28:07Z",
+      "side": 1,
+      "message": "nit: Prefer camel case like sensorAll, sensor3d, etc.",
+      "range": {
+        "startLine": 619,
+        "startChar": 28,
+        "endLine": 619,
+        "endChar": 39
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "b0b47ba6_94230705",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+              "range": {
+                "startLine": 619,
+                "startChar": 0,
+                "endLine": 620,
+                "endChar": 0
+              },
+              "replacement": "    std::vector\u003cSensorInfo\u003e all_sensors \u003d getInjectEventSensors();\n"
+            },
+            {
+              "path": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+              "range": {
+                "startLine": 622,
+                "startChar": 0,
+                "endLine": 623,
+                "endChar": 0
+              },
+              "replacement": "    for (const auto\u0026 s : all_sensors) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "2c74d73f8dad8077ebb873a9c6bc621e17686b04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
