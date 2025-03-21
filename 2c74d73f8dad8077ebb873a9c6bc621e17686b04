@@ -50,6 +50,30 @@
       ],
       "revId": "2c74d73f8dad8077ebb873a9c6bc621e17686b04",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "916f7aca_8c6efa2d",
+        "filename": "sensors/aidl/vts/VtsAidlHalSensorsTargetTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1101616
+      },
+      "writtenOn": "2025-03-21T18:37:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df3971c1_198ac8ce",
+      "range": {
+        "startLine": 619,
+        "startChar": 28,
+        "endLine": 619,
+        "endChar": 39
+      },
+      "revId": "2c74d73f8dad8077ebb873a9c6bc621e17686b04",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
