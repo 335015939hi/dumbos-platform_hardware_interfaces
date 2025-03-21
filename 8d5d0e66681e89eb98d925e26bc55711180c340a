@@ -16,6 +16,24 @@
       "message": "You can\u0027t add a new requirement and test for 2025Q2 at this point -- this will need to be skip on \u003c\u003d 202504, applies \u003e 202504.",
       "revId": "8d5d0e66681e89eb98d925e26bc55711180c340a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c04cf47e_57258e70",
+        "filename": "security/keymint/aidl/vts/functional/KeyMintTest.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 8206,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2025-03-21T14:44:21Z",
+      "side": 1,
+      "message": "Done.  I should\u0027ve noticed 202504 is liternally \u003c 10 days away...",
+      "parentUuid": "e6187eea_4e0bbeaa",
+      "revId": "8d5d0e66681e89eb98d925e26bc55711180c340a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
