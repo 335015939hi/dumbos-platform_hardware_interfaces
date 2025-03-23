@@ -465,6 +465,7 @@ void DynamicsProcessingTestHelper::setUpDataTest(const std::vector<int>& testFre
                                                  float fullScaleSineDb) {
     ASSERT_NO_FATAL_FAILURE(SetUpDynamicsProcessingEffect());
     SKIP_TEST_IF_DATA_UNSUPPORTED(mDescriptor.common.flags);
+    mInput.resize(kFrameCount * mChannelCount);
     ASSERT_NO_FATAL_FAILURE(
             generateSineWave(testFrequencies, mInput, 1.0, kSamplingFrequency, mChannelLayout));
     mInputDb = calculateDb(mInput);
@@ -722,13 +723,10 @@ class DynamicsProcessingInputGainDataTest
       public DynamicsProcessingTestHelper {
   public:
     DynamicsProcessingInputGainDataTest()
-        : DynamicsProcessingTestHelper((GetParam()), AudioChannelLayout::LAYOUT_MONO) {
-        mInput.resize(kFrameCount * mChannelCount);
-    }
+        : DynamicsProcessingTestHelper((GetParam()), AudioChannelLayout::LAYOUT_MONO) {}
 
     void SetUp() override {
-        ASSERT_NO_FATAL_FAILURE(
-                setUpDataTest({static_cast<int>(kInputFrequency)}, kSineFullScaleDb));
+        ASSERT_NO_FATAL_FAILURE(setUpDataTest({kInputFrequency}, kSineFullScaleDb));
     }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
@@ -851,15 +849,12 @@ class DynamicsProcessingLimiterConfigDataTest
     : public ::testing::TestWithParam<LimiterConfigDataTestParams>,
       public DynamicsProcessingTestHelper {
   public:
-    DynamicsProcessingLimiterConfigDataTest()
-        : DynamicsProcessingTestHelper(GetParam(), AudioChannelLayout::LAYOUT_MONO) {
-        mBufferSize = kFrameCount * mChannelCount;
-        mInput.resize(mBufferSize);
-    }
+    DynamicsProcessingLimiterConfigDataTest(LimiterConfigDataTestParams param = GetParam(),
+                                            int32_t layout = AudioChannelLayout::LAYOUT_MONO)
+        : DynamicsProcessingTestHelper(param, layout) {}
 
     void SetUp() override {
-        ASSERT_NO_FATAL_FAILURE(
-                setUpDataTest({static_cast<int>(kInputFrequency)}, kSineFullScaleDb));
+        ASSERT_NO_FATAL_FAILURE(setUpDataTest({kInputFrequency}, kSineFullScaleDb));
     }
 
     void TearDown() override { TearDownDynamicsProcessingEffect(); }
@@ -876,10 +871,33 @@ class DynamicsProcessingLimiterConfigDataTest
         ratio = inputOverThreshold / outputOverThreshold;
     }
 
-    void setLimiterParamsAndProcess(std::vector<float>& input, std::vector<float>& output) {
+    void setLimiterParamsAndProcess(std::vector<float>& input, std::vector<float>& output,
+                                    bool isEngineLimiterEnabled = true) {
+        mEngineConfigPreset.limiterInUse = isEngineLimiterEnabled;
         addEngineConfig(mEngineConfigPreset);
         addLimiterConfig(mLimiterConfigList);
         EXPECT_NO_FATAL_FAILURE(setParamsAndProcess(input, output));
+    }
+
+    void testEnableDisableConfiguration(bool isLimiterEnabled, bool isEngineLimiterEnabled) {
+        cleanUpLimiterConfig();
+        std::vector<float> output(mInput.size());
+        for (int i = 0; i < mChannelCount; i++) {
+            // Set non-default values
+            fillLimiterConfig(mLimiterConfigList, i, isLimiterEnabled, kDefaultLinkerGroup,
+                              5 /*attack time*/, 5 /*release time*/, 10 /*ratio*/,
+                              -20 /*threshold*/, 5 /*postgain*/);
+        }
+        ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output, isEngineLimiterEnabled));
+        float outputdB = calculateDb(output, kStartIndex);
+        if (isAllParamsValid()) {
+            if (isLimiterEnabled && isEngineLimiterEnabled) {
+                EXPECT_GT(std::abs(mInputDb - outputdB), kMinDifferenceDb)
+                        << "Input level: " << mInputDb << " Output level: " << outputdB;
+            } else {
+                EXPECT_NEAR(mInputDb, outputdB, kLimiterTestToleranceDb);
+            }
+        }
     }
 
     void cleanUpLimiterConfig() {
@@ -892,8 +910,9 @@ class DynamicsProcessingLimiterConfigDataTest
     static constexpr float kDefaultRatio = 4;
     static constexpr float kDefaultThreshold = -10;
     static constexpr float kDefaultPostGain = 0;
-    static constexpr float kInputFrequency = 1000;
     static constexpr float kLimiterTestToleranceDb = 0.05;
+    static constexpr float kMinDifferenceDb = 5;
+    const std::vector<bool> kEnableValues = {true, false, true};
     std::vector<DynamicsProcessing::LimiterConfig> mLimiterConfigList;
     int mBufferSize;
 };
@@ -975,25 +994,16 @@ TEST_P(DynamicsProcessingLimiterConfigDataTest, IncreasingPostGain) {
 }
 
 TEST_P(DynamicsProcessingLimiterConfigDataTest, LimiterEnableDisable) {
-    std::vector<bool> limiterEnableValues = {false, true};
-    std::vector<float> output(mInput.size());
-    for (bool isEnabled : limiterEnableValues) {
-        cleanUpLimiterConfig();
-        for (int i = 0; i < mChannelCount; i++) {
-            // Set non-default values
-            fillLimiterConfig(mLimiterConfigList, i, isEnabled, kDefaultLinkerGroup,
-                              5 /*attack time*/, 5 /*release time*/, 10 /*ratio*/,
-                              -10 /*threshold*/, 5 /*postgain*/);
-        }
-        ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
-        if (!isAllParamsValid()) {
-            continue;
-        }
-        if (isEnabled) {
-            EXPECT_NE(mInputDb, calculateDb(output, kStartIndex));
-        } else {
-            EXPECT_NEAR(mInputDb, calculateDb(output, kStartIndex), kLimiterTestToleranceDb);
-        }
+    for (bool isLimiterEnabled : kEnableValues) {
+        ASSERT_NO_FATAL_FAILURE(
+                testEnableDisableConfiguration(isLimiterEnabled, true /*Engine Enabled*/));
+    }
+}
+
+TEST_P(DynamicsProcessingLimiterConfigDataTest, LimiterEnableDisableViaEngine) {
+    for (bool isEngineLimiterEnabled : kEnableValues) {
+        ASSERT_NO_FATAL_FAILURE(
+                testEnableDisableConfiguration(true /*Limiter Enabled*/, isEngineLimiterEnabled));
     }
 }
 
@@ -1009,6 +1019,103 @@ INSTANTIATE_TEST_SUITE_P(DynamicsProcessingTest, DynamicsProcessingLimiterConfig
                              return name;
                          });
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(DynamicsProcessingLimiterConfigDataTest);
+
+class DynamicsProcessingLimiterLinkerDataTest : public DynamicsProcessingLimiterConfigDataTest {
+  public:
+    DynamicsProcessingLimiterLinkerDataTest()
+        : DynamicsProcessingLimiterConfigDataTest(GetParam(), AudioChannelLayout::LAYOUT_STEREO) {}
+
+    void calculateExpectedOutputDb(std::vector<float>& expectedOutputDb) {
+        std::vector<float> inputDbValues = calculateStereoDb(mInput, kStartIndex);
+        ASSERT_EQ(inputDbValues.size(), kRatioThresholdPairValues.size());
+        EXPECT_NEAR(inputDbValues[0], inputDbValues[1], kToleranceDb);
+        for (size_t i = 0; i < kRatioThresholdPairValues.size(); i++) {
+            const auto& [ratio, threshold] = kRatioThresholdPairValues[i];
+            expectedOutputDb.push_back((inputDbValues[i] - threshold) / ratio + threshold);
+        }
+    }
+
+    std::vector<float> calculateStereoDb(const std::vector<float>& input,
+                                         size_t startSamplePos = 0) {
+        std::vector<float> leftChannel;
+        std::vector<float> rightChannel;
+        for (size_t i = 0; i < input.size(); i += 2) {
+            leftChannel.push_back(input[i]);
+            if (i + 1 < input.size()) {
+                rightChannel.push_back(input[i + 1]);
+            }
+        }
+        return {calculateDb(leftChannel, startSamplePos),
+                calculateDb(rightChannel, startSamplePos)};
+    }
+
+    void setLinkGroupAndProcess(std::vector<float>& output, bool hasSameLinkGroup) {
+        for (int i = 0; i < mChannelCount; i++) {
+            const auto& [ratio, threshold] = kRatioThresholdPairValues[i];
+            ASSERT_NE(ratio, 0);
+            int linkGroup = hasSameLinkGroup ? kDefaultLinkerGroup : i;
+            fillLimiterConfig(mLimiterConfigList, i, true, linkGroup, kDefaultAttackTime,
+                              kDefaultReleaseTime, ratio, threshold, kDefaultPostGain);
+        }
+
+        ASSERT_NO_FATAL_FAILURE(setLimiterParamsAndProcess(mInput, output));
+
+        if (!isAllParamsValid()) {
+            GTEST_SKIP() << "Invalid parameters. Skipping the test\n";
+        }
+    }
+
+    const std::vector<std::pair<float, float>> kRatioThresholdPairValues = {{2, -10}, {5, -20}};
+};
+
+TEST_P(DynamicsProcessingLimiterLinkerDataTest, SameLinkGroupDifferentConfigs) {
+    std::vector<float> output(mInput.size());
+
+    ASSERT_NO_FATAL_FAILURE(setLinkGroupAndProcess(output, true));
+
+    std::vector<float> outputDbValues = calculateStereoDb(output, kStartIndex);
+
+    std::vector<float> expectedOutputDbValues;
+    ASSERT_NO_FATAL_FAILURE(calculateExpectedOutputDb(expectedOutputDbValues));
+
+    // Verify that the actual output dB is same as the calculated maximum attenuation.
+    float expectedOutputDb = std::min(expectedOutputDbValues[0], expectedOutputDbValues[1]);
+    EXPECT_NEAR(outputDbValues[0], expectedOutputDb, kToleranceDb);
+    EXPECT_NEAR(outputDbValues[1], expectedOutputDb, kToleranceDb);
+}
+
+TEST_P(DynamicsProcessingLimiterLinkerDataTest, DifferentLinkGroupDifferentConfigs) {
+    std::vector<float> output(mInput.size());
+
+    ASSERT_NO_FATAL_FAILURE(setLinkGroupAndProcess(output, false));
+
+    std::vector<float> outputDbValues = calculateStereoDb(output, kStartIndex);
+
+    std::vector<float> expectedOutputDbValues;
+    ASSERT_NO_FATAL_FAILURE(calculateExpectedOutputDb(expectedOutputDbValues));
+
+    // Verify that both channels have different compression levels
+    EXPECT_GT(abs(expectedOutputDbValues[0] - expectedOutputDbValues[1]), kMinDifferenceDb)
+            << "Left channel level: " << expectedOutputDbValues[0]
+            << " Right channel level: " << expectedOutputDbValues[1];
+
+    // Verify that the actual output and the calculated dB values are same
+    EXPECT_NEAR(outputDbValues[0], expectedOutputDbValues[0], kToleranceDb);
+    EXPECT_NEAR(outputDbValues[1], expectedOutputDbValues[1], kToleranceDb);
+}
+
+INSTANTIATE_TEST_SUITE_P(DynamicsProcessingTest, DynamicsProcessingLimiterLinkerDataTest,
+                         testing::ValuesIn(EffectFactoryHelper::getAllEffectDescriptors(
+                                 IFactory::descriptor, getEffectTypeUuidDynamicsProcessing())),
+                         [](const auto& info) {
+                             auto descriptor = info.param;
+                             std::string name = getPrefix(descriptor.second);
+                             std::replace_if(
+                                     name.begin(), name.end(),
+                                     [](const char c) { return !std::isalnum(c); }, '_');
+                             return name;
+                         });
+GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(DynamicsProcessingLimiterLinkerDataTest);
 
 /**
  * Test DynamicsProcessing ChannelConfig
@@ -1215,7 +1322,6 @@ class DynamicsProcessingEqBandConfigDataTest
   public:
     DynamicsProcessingEqBandConfigDataTest()
         : DynamicsProcessingTestHelper(GetParam(), AudioChannelLayout::LAYOUT_MONO) {
-        mInput.resize(kFrameCount * mChannelCount);
         mBinOffsets.resize(mMultitoneTestFrequencies.size());
     }
 
@@ -1444,7 +1550,6 @@ class DynamicsProcessingMbcBandConfigDataTest
   public:
     DynamicsProcessingMbcBandConfigDataTest()
         : DynamicsProcessingTestHelper(GetParam(), AudioChannelLayout::LAYOUT_MONO) {
-        mInput.resize(kFrameCount * mChannelCount);
         mBinOffsets.resize(mMultitoneTestFrequencies.size());
     }
 
