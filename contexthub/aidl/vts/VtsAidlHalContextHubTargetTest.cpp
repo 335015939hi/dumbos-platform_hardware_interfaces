@@ -176,7 +176,10 @@ class QueryAppsCallback : public android::hardware::contexthub::BnContextHubCall
   public:
     Status handleNanoappInfo(const std::vector<NanoappInfo>& appInfo) override {
         ALOGD("Got app info callback with %zu apps", appInfo.size());
-        promise.set_value(appInfo);
+        if (!promise_set) {
+            promise.set_value(appInfo);
+            promise_set = true;
+        }
         return Status::ok();
     }
 
@@ -212,6 +215,7 @@ class QueryAppsCallback : public android::hardware::contexthub::BnContextHubCall
     }
 
     std::promise<std::vector<NanoappInfo>> promise;
+    bool promise_set = false;
 };
 
 // Calls queryApps() and checks the returned metadata
