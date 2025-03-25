@@ -503,6 +503,7 @@ TEST_P(WifiStaIfaceAidlTest, TwtSessionGetStats) {
     EXPECT_TRUE(status.isOk());
     if (!twt_capabilities.isTwtRequesterSupported) {
         GTEST_SKIP() << "TWT is not supported";
+<<<<<<< HEAD
     }
 
     // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
@@ -510,16 +511,53 @@ TEST_P(WifiStaIfaceAidlTest, TwtSessionGetStats) {
     EXPECT_TRUE(wifi_sta_iface_->twtSessionGetStats(1, 10).isOk());
 }
 
+=======
+    twtRequest.maxWakeDurationUs = twt_capabilities.maxWakeDurationUs;
+    twtRequest.minWakeIntervalUs = twt_capabilities.minWakeIntervalUs;
+    twtRequest.maxWakeIntervalUs = twt_capabilities.maxWakeIntervalUs;
+
+    status = wifi_sta_iface_->twtSessionSetup(1, twtRequest);
+    EXPECT_TRUE(status.isOk() || checkStatusCode(&status, WifiStatusCode::ERROR_NOT_SUPPORTED));
+}
+<<<<<<< HEAD
+
+/**
+>>>>>>> PATCH
 TEST_P(WifiStaIfaceAidlTest, TwtSessionTeardown) {
     if (interface_version_ < 2) {
         GTEST_SKIP() << "TwtSessionTeardown is available as of sta_iface V3";
     }
 
     TwtCapabilities twt_capabilities = {};
+=======
+        GTEST_SKIP() << "TWT is not supported";
+    }
+
+    auto status = wifi_sta_iface_->twtSessionGetStats(1, 10);
+    // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
+    // as the error code or the call returns WifiStatusCode::ERROR_INVALID_ARGS.
+<<<<<<< HEAD
+    EXPECT_TRUE(status.isOk() || checkStatusCode(&status, WifiStatusCode::ERROR_INVALID_ARGS));
+}
+
+/**
+>>>>>>> PATCH
     auto status = wifi_sta_iface_->twtGetCapabilities(&twt_capabilities);
     if (checkStatusCode(&status, WifiStatusCode::ERROR_NOT_SUPPORTED)) {
         GTEST_SKIP() << "twtGetCapabilities() is not supported by the vendor";
     }
+=======
+        GTEST_SKIP() << "TWT is not supported";
+    }
+
+    auto status = wifi_sta_iface_->twtSessionTeardown(1, 10);
+    // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
+    // as the error code or the call returns WifiStatusCode::ERROR_INVALID_ARGS.
+    EXPECT_TRUE(status.isOk() || checkStatusCode(&status, WifiStatusCode::ERROR_INVALID_ARGS));
+}
+
+/**
+>>>>>>> PATCH
     EXPECT_TRUE(status.isOk());
     if (!twt_capabilities.isTwtRequesterSupported) {
         GTEST_SKIP() << "TWT is not supported";
@@ -527,6 +565,7 @@ TEST_P(WifiStaIfaceAidlTest, TwtSessionTeardown) {
 
     // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
     // as  the error code.
+<<<<<<< HEAD
     EXPECT_TRUE(wifi_sta_iface_->twtSessionTeardown(1, 10).isOk());
 }
 
@@ -535,9 +574,41 @@ INSTANTIATE_TEST_SUITE_P(WifiTest, WifiStaIfaceAidlTest,
                          testing::ValuesIn(android::getAidlHalInstanceNames(IWifi::descriptor)),
                          android::PrintInstanceNameToString);
 
+=======
+        GTEST_SKIP() << "TwtSessionUpdate is not supported";
+    }
+    // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
+    // as the error code or the call returns WifiStatusCode::ERROR_INVALID_ARGS.
+    EXPECT_TRUE(status.isOk() || checkStatusCode(&status, WifiStatusCode::ERROR_INVALID_ARGS));
+}
+
+/**
+>>>>>>> PATCH
 int main(int argc, char** argv) {
+<<<<<<< HEAD
     ::testing::InitGoogleTest(&argc, argv);
     android::ProcessState::self()->setThreadPoolMaxThreadCount(1);
     android::ProcessState::self()->startThreadPool();
     return RUN_ALL_TESTS();
 }
+=======
+        GTEST_SKIP() << "TwtSessionSuspend is not supported";
+    }
+    // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
+    // as the error code or the call returns WifiStatusCode::ERROR_INVALID_ARGS.
+    EXPECT_TRUE(status.isOk() || checkStatusCode(&status, WifiStatusCode::ERROR_INVALID_ARGS));
+}
+
+/**
+>>>>>>> PATCH
+<<<<<<< HEAD
+=======
+        GTEST_SKIP() << "TwtSessionResume is not supported";
+    }
+    // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
+    // as the error code or the call returns WifiStatusCode::ERROR_INVALID_ARGS.
+    EXPECT_TRUE(status.isOk() || checkStatusCode(&status, WifiStatusCode::ERROR_INVALID_ARGS));
+}
+
+/*
+>>>>>>> PATCH
