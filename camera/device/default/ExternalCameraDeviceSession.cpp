@@ -1244,10 +1244,22 @@ std::unique_ptr<V4L2Frame> ExternalCameraDeviceSession::dequeueV4l2FrameLocked(n
         ATRACE_BEGIN("VIDIOC_DQBUF");
         buffer.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
         buffer.memory = V4L2_MEMORY_MMAP;
-        if (TEMP_FAILURE_RETRY(ioctl(mV4l2Fd.get(), VIDIOC_DQBUF, &buffer)) < 0) {
-            ALOGE("%s: DQBUF fails: %s", __FUNCTION__, strerror(errno));
+
+        fd_set read_fds;
+        FD_ZERO(&read_fds);
+        FD_SET(mV4l2Fd.get(), &read_fds);
+
+        if (select(mV4l2Fd.get() + 1, &read_fds, NULL, NULL, NULL) > 0
+                && FD_ISSET(mV4l2Fd.get(), &read_fds)) {
+            if (TEMP_FAILURE_RETRY(ioctl(mV4l2Fd.get(), VIDIOC_DQBUF, &buffer)) < 0) {
+                ALOGE("%s: DQBUF fails: %s", __FUNCTION__, strerror(errno));
+                return ret;
+            }
+        } else {
+            ALOGE("%s: camera device is not ready for read, error: %s", __FUNCTION__, strerror(errno));
             return ret;
         }
+
         ATRACE_END();
 
         if (buffer.index >= mV4L2BufferCount) {
