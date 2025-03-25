@@ -797,7 +797,7 @@ Status ExternalCameraDeviceSession::switchToOffline(
                 if (buffer.acquireFence >= 0) {
                     native_handle_t* handle = native_handle_create(/*numFds*/ 1, /*numInts*/ 0);
                     handle->data[0] = buffer.acquireFence;
-                    outputBuffer.releaseFence = android::dupToAidl(handle);
+                    outputBuffer.releaseFence = android::makeToAidl(handle);
                     native_handle_delete(handle);
                 }
             } else {
@@ -1761,7 +1761,7 @@ Status ExternalCameraDeviceSession::processCaptureRequestError(
         if (req->buffers[i].acquireFence >= 0) {
             // numFds = 0 for error
             native_handle_t* handle = native_handle_create(/*numFds*/ 0, /*numInts*/ 0);
-            result.outputBuffers[i].releaseFence = android::dupToAidl(handle);
+            result.outputBuffers[i].releaseFence = android::makeToAidl(handle);
             native_handle_delete(handle);
         }
     }
@@ -1808,7 +1808,7 @@ Status ExternalCameraDeviceSession::processCaptureResult(std::shared_ptr<HalRequ
             if (req->buffers[i].acquireFence >= 0) {
                 native_handle_t* handle = native_handle_create(/*numFds*/ 1, /*numInts*/ 0);
                 handle->data[0] = req->buffers[i].acquireFence;
-                result.outputBuffers[i].releaseFence = android::dupToAidl(handle);
+                result.outputBuffers[i].releaseFence = android::makeToAidl(handle);
                 native_handle_delete(handle);
             }
             notifyError(req->frameNumber, req->buffers[i].streamId, ErrorCode::ERROR_BUFFER);
@@ -1818,7 +1818,7 @@ Status ExternalCameraDeviceSession::processCaptureResult(std::shared_ptr<HalRequ
             if (req->buffers[i].acquireFence >= 0) {
                 native_handle_t* handle = native_handle_create(/*numFds*/ 1, /*numInts*/ 0);
                 handle->data[0] = req->buffers[i].acquireFence;
-                result.outputBuffers[i].releaseFence = android::dupToAidl(handle);
+                result.outputBuffers[i].releaseFence = android::makeToAidl(handle);
                 native_handle_delete(handle);
             }
         }
