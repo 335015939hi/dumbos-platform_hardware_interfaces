@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a78795d_40f91f08",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-26T15:28:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a63094d6_c02c3968",
+      "range": {
+        "startLine": 433,
+        "startChar": 78,
+        "endLine": 433,
+        "endChar": 90
+      },
+      "revId": "785261bfb8c0d1583d57cf0f60d09e78cebd2bf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49e90956_fee327fa",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-03-24T17:30:14Z",
       "side": 1,
       "message": "Thanks for providing a separate test case! However, the code looks very similar to the code of `LimiterReleaseTime`, with minimal changes. Can we please factor out all the common code for both tests and provide branching where needed?\n\nBasically, how I see it, is that we have a function which does the test and takes the threshold as a parameter, and based on that, has a different check logic. Then `LimiterReleaseTime` uses one threshold, while `LimiterNotEngagedReleaseTimeTest` uses another threshold.",
+      "range": {
+        "startLine": 1046,
+        "startChar": 0,
+        "endLine": 1046,
+        "endChar": 83
+      },
+      "revId": "785261bfb8c0d1583d57cf0f60d09e78cebd2bf4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbc19e9d_bc643027",
+        "filename": "audio/aidl/vts/VtsHalDynamicsProcessingTest.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 3376375
+      },
+      "writtenOn": "2025-03-26T15:28:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49e90956_fee327fa",
       "range": {
         "startLine": 1046,
         "startChar": 0,
