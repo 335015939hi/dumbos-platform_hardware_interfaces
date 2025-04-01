@@ -67,6 +67,12 @@ class WifiStaIfaceAidlTest : public testing::TestWithParam<std::string> {
         return features & static_cast<int32_t>(expected);
     }
 
+    bool isTwtSupported() {
+        TwtCapabilities twt_capabilities = {};
+        auto status = wifi_sta_iface_->twtGetCapabilities(&twt_capabilities);
+        return status.isOk() && twt_capabilities.isTwtRequesterSupported;
+    }
+
     ndk::ScopedAStatus createStaIface(std::shared_ptr<IWifiStaIface>* sta_iface) {
         std::shared_ptr<IWifiChip> wifi_chip = getWifiChip(getInstanceName());
         EXPECT_NE(nullptr, wifi_chip.get());
@@ -441,6 +447,9 @@ class WifiStaIfaceEventCallback : public BnWifiStaIfaceEventCallback {
     }
 };
 
+/**
+ * TwtGetCapabilities
+ */
 TEST_P(WifiStaIfaceAidlTest, TwtGetCapabilities) {
     if (interface_version_ < 2) {
         GTEST_SKIP() << "TwtGetCapabilities is available as of sta_iface V2";
@@ -462,6 +471,9 @@ TEST_P(WifiStaIfaceAidlTest, TwtGetCapabilities) {
     EXPECT_GT(twt_capabilities.maxWakeIntervalUs, 0);
 }
 
+/**
+ * TwtSessionSetup
+ */
 TEST_P(WifiStaIfaceAidlTest, TwtSessionSetup) {
     if (interface_version_ < 2) {
         GTEST_SKIP() << "TwtSessionSetup is available as of sta_iface V2";
@@ -490,18 +502,14 @@ TEST_P(WifiStaIfaceAidlTest, TwtSessionSetup) {
     EXPECT_TRUE(wifi_sta_iface_->twtSessionSetup(1, twtRequest).isOk());
 }
 
+/**
+ * TwtSessionGetStats
+ */
 TEST_P(WifiStaIfaceAidlTest, TwtSessionGetStats) {
     if (interface_version_ < 2) {
         GTEST_SKIP() << "TwtSessionGetStats is available as of sta_iface V2";
     }
-
-    TwtCapabilities twt_capabilities = {};
-    auto status = wifi_sta_iface_->twtGetCapabilities(&twt_capabilities);
-    if (checkStatusCode(&status, WifiStatusCode::ERROR_NOT_SUPPORTED)) {
-        GTEST_SKIP() << "twtGetCapabilities() is not supported by the vendor";
-    }
-    EXPECT_TRUE(status.isOk());
-    if (!twt_capabilities.isTwtRequesterSupported) {
+    if (!isTwtSupported()) {
         GTEST_SKIP() << "TWT is not supported";
     }
 
@@ -510,24 +518,87 @@ TEST_P(WifiStaIfaceAidlTest, TwtSessionGetStats) {
     EXPECT_TRUE(wifi_sta_iface_->twtSessionGetStats(1, 10).isOk());
 }
 
+/**
+ * TwtSessionTeardown
+ */
 TEST_P(WifiStaIfaceAidlTest, TwtSessionTeardown) {
     if (interface_version_ < 2) {
-        GTEST_SKIP() << "TwtSessionTeardown is available as of sta_iface V3";
+        GTEST_SKIP() << "TwtSessionTeardown is available as of sta_iface V2";
     }
-
-    TwtCapabilities twt_capabilities = {};
-    auto status = wifi_sta_iface_->twtGetCapabilities(&twt_capabilities);
-    if (checkStatusCode(&status, WifiStatusCode::ERROR_NOT_SUPPORTED)) {
-        GTEST_SKIP() << "twtGetCapabilities() is not supported by the vendor";
-    }
-    EXPECT_TRUE(status.isOk());
-    if (!twt_capabilities.isTwtRequesterSupported) {
+    if (!isTwtSupported()) {
         GTEST_SKIP() << "TWT is not supported";
     }
 
     // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
-    // as  the error code.
+    // as the error code.
     EXPECT_TRUE(wifi_sta_iface_->twtSessionTeardown(1, 10).isOk());
+}
+
+/**
+ * TwtSessionUpdate
+ */
+TEST_P(WifiStaIfaceAidlTest, TwtSessionUpdate) {
+    if (interface_version_ < 2) {
+        GTEST_SKIP() << "TwtSessionUpdate is available as of sta_iface V2";
+    }
+    if (!isTwtSupported()) {
+        GTEST_SKIP() << "TWT is not supported";
+    }
+
+    TwtRequest twtRequest;
+    twtRequest.mloLinkId = 0;
+    twtRequest.minWakeDurationUs = 1000;
+    twtRequest.maxWakeDurationUs = 10000;
+    twtRequest.minWakeIntervalUs = 10000;
+    twtRequest.maxWakeIntervalUs = 100000;
+
+    auto status = wifi_sta_iface_->twtSessionUpdate(1, 10, twtRequest);
+    if (checkStatusCode(&status, WifiStatusCode::ERROR_NOT_SUPPORTED)) {
+        GTEST_SKIP() << "TwtSessionUpdate is not supported";
+    }
+    // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
+    // as the error code.
+    EXPECT_TRUE(status.isOk());
+}
+
+/**
+ * TwtSessionSuspend
+ */
+TEST_P(WifiStaIfaceAidlTest, TwtSessionSuspend) {
+    if (interface_version_ < 2) {
+        GTEST_SKIP() << "TwtSessionSuspend is available as of sta_iface V2";
+    }
+    if (!isTwtSupported()) {
+        GTEST_SKIP() << "TWT is not supported";
+    }
+
+    auto status = wifi_sta_iface_->twtSessionSuspend(1, 10);
+    if (checkStatusCode(&status, WifiStatusCode::ERROR_NOT_SUPPORTED)) {
+        GTEST_SKIP() << "TwtSessionSuspend is not supported";
+    }
+    // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
+    // as the error code.
+    EXPECT_TRUE(status.isOk());
+}
+
+/**
+ * TwtSessionResume
+ */
+TEST_P(WifiStaIfaceAidlTest, TwtSessionResume) {
+    if (interface_version_ < 2) {
+        GTEST_SKIP() << "TwtSessionResume is available as of sta_iface V2";
+    }
+    if (!isTwtSupported()) {
+        GTEST_SKIP() << "TWT is not supported";
+    }
+
+    auto status = wifi_sta_iface_->twtSessionResume(1, 10);
+    if (checkStatusCode(&status, WifiStatusCode::ERROR_NOT_SUPPORTED)) {
+        GTEST_SKIP() << "TwtSessionResume is not supported";
+    }
+    // Expecting a IWifiStaIfaceEventCallback.onTwtFailure() with INVALID_PARAMS
+    // as the error code.
+    EXPECT_TRUE(status.isOk());
 }
 
 GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(WifiStaIfaceAidlTest);
