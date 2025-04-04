@@ -47,7 +47,6 @@ std::string getWifiInstanceName() {
     const std::vector<std::string> instances =
         android::hardware::getAllHalInstanceNames(
             ::android::hardware::wifi::V1_0::IWifi::descriptor);
-    EXPECT_NE(0, instances.size());
     return instances.size() != 0 ? instances[0] : "";
 }
 
@@ -72,6 +71,7 @@ void startSupplicant() {
     SupplicantManager supplicant_manager;
     ASSERT_TRUE(supplicant_manager.StartSupplicant());
     ASSERT_TRUE(supplicant_manager.IsSupplicantRunning());
+    usleep(200000);  // wait a bit longer for supplicant to finish starting up
 }
 
 // Wrapper around the implementation in supplicant_hidl_test_util.

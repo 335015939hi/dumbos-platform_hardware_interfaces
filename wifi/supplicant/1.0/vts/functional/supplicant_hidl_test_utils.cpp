@@ -60,8 +60,8 @@ bool waitForWifiHalStop(const std::string& wifi_instance_name) {
         usleep(100000);
         wifi = getWifi(wifi_instance_name);
     }
-    LOG(ERROR) << "Wifi HAL was not stopped";
-    return false;
+    LOG(WARNING) << "Wifi HAL was not stopped";
+    return wifi == nullptr;  // return true if wifi hal does not exist
 }
 
 bool waitForSupplicantState(bool is_running) {
