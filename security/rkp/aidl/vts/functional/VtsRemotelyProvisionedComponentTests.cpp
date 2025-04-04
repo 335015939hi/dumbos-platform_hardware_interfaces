@@ -57,12 +57,23 @@ constexpr uint8_t MIN_CHALLENGE_SIZE = 0;
 constexpr uint8_t MAX_CHALLENGE_SIZE = 64;
 const string DEFAULT_INSTANCE_NAME =
         "android.hardware.security.keymint.IRemotelyProvisionedComponent/default";
+<<<<<<< HEAD
 const string RKP_VM_INSTANCE_NAME =
         "android.hardware.security.keymint.IRemotelyProvisionedComponent/avf";
 const string KEYMINT_STRONGBOX_INSTANCE_NAME =
         "android.hardware.security.keymint.IKeyMintDevice/strongbox";
 
 #define INSTANTIATE_REM_PROV_AIDL_TEST(name)                                         \
+=======
+const string KEYMINT_STRONGBOX_INSTANCE_NAME =
+        "android.hardware.security.keymint.IKeyMintDevice/strongbox";
+
+const string FEATURE_AUTOMOTIVE = "android.hardware.type.automotive";
+
+constexpr std::string_view kVerifiedBootState = "ro.boot.verifiedbootstate";
+constexpr std::string_view kDeviceState = "ro.boot.vbmeta.device_state";
+constexpr std::string_view kDefaultValue = "";
+>>>>>>> PATCH
     GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(name);                             \
     INSTANTIATE_TEST_SUITE_P(                                                        \
             PerInstance, name,                                                       \
@@ -273,12 +284,26 @@ TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
 
 using GetHardwareInfoTests = VtsRemotelyProvisionedComponentTests;
 
+<<<<<<< HEAD
 INSTANTIATE_REM_PROV_AIDL_TEST(GetHardwareInfoTests);
 
 /**
  * Verify that a valid curve is reported by the implementation.
  */
 TEST_P(GetHardwareInfoTests, supportsValidCurve) {
+=======
+        GTEST_SKIP() << "Strongbox is not present on this device.";
+    }
+
+    // Skip on auto due to GAS requirement G-SH-917.
+    if (check_feature(FEATURE_AUTOMOTIVE)) {
+        GTEST_SKIP() << "This is an automotive device.";
+    }
+
+    auto rpc = getHandle<IRemotelyProvisionedComponent>(DEFAULT_INSTANCE_NAME);
+    ASSERT_NE(rpc, nullptr);
+
+>>>>>>> PATCH
     RpcHardwareInfo hwInfo;
     ASSERT_TRUE(provisionable_->getHardwareInfo(&hwInfo).isOk());
 
