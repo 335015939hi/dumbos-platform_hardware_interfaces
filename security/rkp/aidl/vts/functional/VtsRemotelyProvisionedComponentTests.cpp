@@ -62,6 +62,8 @@ const string RKP_VM_INSTANCE_NAME =
 const string KEYMINT_STRONGBOX_INSTANCE_NAME =
         "android.hardware.security.keymint.IKeyMintDevice/strongbox";
 
+const string FEATURE_AUTOMOTIVE = "android.hardware.type.automotive";
+
 #define INSTANTIATE_REM_PROV_AIDL_TEST(name)                                         \
     GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(name);                             \
     INSTANTIATE_TEST_SUITE_P(                                                        \
@@ -254,6 +256,11 @@ TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
 
     if (!AServiceManager_isDeclared(KEYMINT_STRONGBOX_INSTANCE_NAME.c_str())) {
         GTEST_SKIP() << "Strongbox is not present on this device.";
+    }
+
+    // Skip on auto due to GAS requirement G-SH-917.
+    if (check_feature(FEATURE_AUTOMOTIVE)) {
+        GTEST_SKIP() << "This is an automotive device.";
     }
 
     ::ndk::SpAIBinder binder(AServiceManager_waitForService(DEFAULT_INSTANCE_NAME.c_str()));
