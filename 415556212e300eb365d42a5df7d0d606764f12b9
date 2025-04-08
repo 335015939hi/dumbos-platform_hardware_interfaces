@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56304407_a9237bbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1206463
+      },
+      "writtenOn": "2025-04-08T07:06:32Z",
+      "side": 1,
+      "message": "android-vts-15.0_r3 vts tools mismatch with android-15.0.0_r20 code and cause some VTS modules can’t run normally. So we build the VTS tool from android-15.0.0_r20 and need this CL cherry-pick:\n\nIssue tracker: https://issuetracker.google.com/issues/404994445\n\n[android 15][VTS][ latest android-vts-15.0_r3 vts causes binder and graphic modules failures when test the latest android-15.0.0_r20 code]\n•\tbuild the android image with the latest android-15.0.0_r20 tag.\n•\tbuild the vts package with the latest android-vts-15.0_r3 tag\n•\trun vts to test android with the vts package and android image just build, test on these module and case:\no\tVtsHalGraphicsAllocatorAidl_TargetTest\no\tbinderRpcTestSingleThreaded, BinderRpc#Java",
+      "revId": "415556212e300eb365d42a5df7d0d606764f12b9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
