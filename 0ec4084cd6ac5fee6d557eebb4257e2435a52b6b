@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e36ecb2_affe3a3b",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2025-04-08T20:31:56Z",
+      "side": 1,
+      "message": "Let\u0027s undo the changes to these 2 lines.\n\nSee the proposed fix in the next comment below.",
+      "range": {
+        "startLine": 63,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 70
+      },
+      "revId": "0ec4084cd6ac5fee6d557eebb4257e2435a52b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e14c8536_48ce2d3a",
+        "filename": "wifi/supplicant/1.0/vts/functional/supplicant_hidl_test_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1882601
+      },
+      "writtenOn": "2025-04-08T20:31:56Z",
+      "side": 1,
+      "message": "Let\u0027s modify this line instead, since at this point we\u0027ll have an empty string if the Wifi Vendor HAL does not exist.\n\nMaybe we can replace this line with:\n\n```\nif (wifi_instance_name !\u003d \"\" \u0026\u0026 !waitForWifiHalStop(wifi_instance_name)) {\n    return false;\n}\nreturn waitForSupplicantStop();\n```",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 77
+      },
+      "revId": "0ec4084cd6ac5fee6d557eebb4257e2435a52b6b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
