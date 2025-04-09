@@ -91,6 +91,30 @@
       },
       "revId": "460bd6d9d2e1f43956db71bebf1348cbe63967c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63d048b8_db1808d1",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-04-09T17:03:15Z",
+      "side": 1,
+      "message": "And frameworks/av/services/audiopolicy/common/include/policy.h can\u0027t be included here because that\u0027s framework code.",
+      "parentUuid": "c90073c9_ad396a39",
+      "range": {
+        "startLine": 826,
+        "startChar": 38,
+        "endLine": 826,
+        "endChar": 39
+      },
+      "revId": "460bd6d9d2e1f43956db71bebf1348cbe63967c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
