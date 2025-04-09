@@ -163,6 +163,30 @@
       },
       "revId": "460bd6d9d2e1f43956db71bebf1348cbe63967c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439872dc_524e94bb",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-04-09T18:19:17Z",
+      "side": 1,
+      "message": "I think, things can be simplified if we move the enum from https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/services/audiopolicy/common/include/policy.h to `system/audio-hal-enums.h` so it becomes available both to the framework and the HAL code. Then indeed we can add a centralized conversion into https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/audioaidlconversion/AidlConversionCppNdk.cpp and avoid having multiple definitions. Filed b/409575356 for this.\n\nThis map seems to be needed for parsing `audio_policy_engine_configuration.xml` which as I understand can be used with the default engine as well.",
+      "parentUuid": "8059eee7_394a7926",
+      "range": {
+        "startLine": 826,
+        "startChar": 38,
+        "endLine": 826,
+        "endChar": 39
+      },
+      "revId": "460bd6d9d2e1f43956db71bebf1348cbe63967c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
