@@ -139,6 +139,30 @@
       },
       "revId": "460bd6d9d2e1f43956db71bebf1348cbe63967c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8059eee7_394a7926",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1003259
+      },
+      "writtenOn": "2025-04-09T17:14:19Z",
+      "side": 1,
+      "message": "We have the  mLegacyStrategyMap in the default audio policy engine so we don\u0027t need to do the mapping here.\nIs this needed only for the CAP engine?",
+      "parentUuid": "637d64ac_bfe5d81f",
+      "range": {
+        "startLine": 826,
+        "startChar": 38,
+        "endLine": 826,
+        "endChar": 39
+      },
+      "revId": "460bd6d9d2e1f43956db71bebf1348cbe63967c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
