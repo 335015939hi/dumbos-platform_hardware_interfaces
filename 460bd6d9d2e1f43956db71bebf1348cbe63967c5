@@ -67,6 +67,30 @@
       ],
       "revId": "460bd6d9d2e1f43956db71bebf1348cbe63967c5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c90073c9_ad396a39",
+        "filename": "audio/aidl/default/XsdcConversion.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-04-09T17:02:46Z",
+      "side": 1,
+      "message": "The AIDL enums unfortunately have values different from what we have in frameworks/av/services/audiopolicy/common/include/policy.h, compare https://cs.android.com/android/platform/superproject/main/+/main:system/hardware/interfaces/media/aidl/android/media/audio/common/AudioProductStrategyType.aidl and https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/services/audiopolicy/common/include/policy.h. Why is that? Probably a historical accident.",
+      "parentUuid": "4b5beebe_ecce10e2",
+      "range": {
+        "startLine": 826,
+        "startChar": 38,
+        "endLine": 826,
+        "endChar": 39
+      },
+      "revId": "460bd6d9d2e1f43956db71bebf1348cbe63967c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
