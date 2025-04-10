@@ -186,7 +186,7 @@ class BroadcastRadioHalTest : public testing::TestWithParam<string> {
 };
 
 MATCHER_P(InfoHasId, id, string(negation ? "does not contain" : "contains") + " " + id.toString()) {
-    vector<int> ids = bcutils::getAllIds(arg.selector, id.type);
+    vector<int64_t> ids = bcutils::getAllIds(arg.selector, id.type);
     return ids.end() != find(ids.begin(), ids.end(), id.value);
 }
 
@@ -668,7 +668,7 @@ TEST_P(BroadcastRadioHalTest, FmTune) {
     LOG(DEBUG) << "Current program info: " << infoCb.toString();
 
     // it should tune exactly to what was requested
-    vector<int> freqs = bcutils::getAllIds(infoCb.selector, IdentifierType::AMFM_FREQUENCY_KHZ);
+    vector<int64_t> freqs = bcutils::getAllIds(infoCb.selector, IdentifierType::AMFM_FREQUENCY_KHZ);
     EXPECT_NE(freqs.end(), find(freqs.begin(), freqs.end(), freq))
             << "FM freq " << freq << " kHz is not sent back by callback.";
 }
@@ -753,7 +753,7 @@ TEST_P(BroadcastRadioHalTest, DabTune) {
     LOG(DEBUG) << "Current program info: " << infoCb.toString();
 
     // it should tune exactly to what was requested
-    vector<int> sidExts = bcutils::getAllIds(infoCb.selector, IdentifierType::DAB_SID_EXT);
+    vector<int64_t> sidExts = bcutils::getAllIds(infoCb.selector, IdentifierType::DAB_SID_EXT);
     EXPECT_NE(sidExts.end(), find(sidExts.begin(), sidExts.end(), dabSidExt))
             << "DAB SID ext " << std::hex << dabSidExt << " is not sent back by callback.";
 }
@@ -1080,7 +1080,7 @@ TEST_P(BroadcastRadioHalTest, GetProgramListFromAmFmFilter) {
     int expectedResultSize = 0;
     uint64_t expectedFreq = 0;
     for (const auto& program : *completeList) {
-        vector<int> amfmIds =
+        vector<int64_t> amfmIds =
                 bcutils::getAllIds(program.selector, IdentifierType::AMFM_FREQUENCY_KHZ);
         EXPECT_LE(amfmIds.size(), 1u);
         if (amfmIds.size() == 0) {
@@ -1170,7 +1170,8 @@ TEST_P(BroadcastRadioHalTest, HdRadioStationNameId) {
     }
 
     for (const auto& program : *list) {
-        vector<int> nameIds = bcutils::getAllIds(program.selector, IdentifierType::HD_STATION_NAME);
+        vector<int64_t> nameIds =
+                bcutils::getAllIds(program.selector, IdentifierType::HD_STATION_NAME);
         EXPECT_LE(nameIds.size(), 1u);
         if (nameIds.size() == 0) {
             continue;
