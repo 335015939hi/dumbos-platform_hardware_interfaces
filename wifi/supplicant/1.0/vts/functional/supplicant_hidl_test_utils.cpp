@@ -132,7 +132,10 @@ bool startWifiFramework() {
 bool stopWifiFramework(const std::string& wifi_instance_name) {
     std::system("svc wifi disable");
     std::system("cmd wifi set-scan-always-available disabled");
-    return waitForSupplicantStop() && waitForWifiHalStop(wifi_instance_name);
+    if (wifi_instance_name != "" && !waitForWifiHalStop(wifi_instance_name)) {
+        return false;
+    }
+    return waitForSupplicantStop();
 }
 
 void stopSupplicant() { stopSupplicant(""); }
