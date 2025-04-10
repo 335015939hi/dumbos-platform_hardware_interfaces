@@ -16,6 +16,24 @@
       "message": "I would cherry-pick the original CL to this branch.",
       "revId": "8b58defaffcc97ee8698aefaa22eb836e89d015a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfb877c4_25e0bbe0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1945317
+      },
+      "writtenOn": "2025-04-10T19:49:40Z",
+      "side": 1,
+      "message": "Landed this fix by aosp/3583330",
+      "parentUuid": "19b660f6_d4d38d18",
+      "revId": "8b58defaffcc97ee8698aefaa22eb836e89d015a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
