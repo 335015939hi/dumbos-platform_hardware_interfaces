@@ -191,8 +191,14 @@ class BroadcastRadioHalTest : public testing::TestWithParam<std::string> {
     int32_t mAidlVersion;
 };
 
+<<<<<<< HEAD   (67b72d Exempt auto devices from 3.10-018 due to G-SH-917)
 MATCHER_P(InfoHasId, id,
           std::string(negation ? "does not contain" : "contains") + " " + id.toString()) {
+||||||| BASE
+MATCHER_P(InfoHasId, id, string(negation ? "does not contain" : "contains") + " " + id.toString()) {
+=======
+MATCHER_P(InfoHasId, id, string(negation ? "does not contain" : "contains") + " " + id.toString()) {
+>>>>>>> BRANCH (5df2ff Fix wrong integer type in AIDL bcradio utils lib)
     vector<int64_t> ids = bcutils::getAllIds(arg.selector, id.type);
     return ids.end() != find(ids.begin(), ids.end(), id.value);
 }
