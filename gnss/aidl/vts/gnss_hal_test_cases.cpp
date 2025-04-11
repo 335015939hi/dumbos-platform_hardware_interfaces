@@ -394,6 +394,10 @@ void CheckSatellitePvt(const SatellitePvt& satellitePvt, const int interfaceVers
  *    fields are valid.
  */
 TEST_P(GnssHalTest, TestGnssMeasurementExtensionAndSatellitePvt) {
+    if (!(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_MEASUREMENTS)) {
+        ALOGI("Test skipped. MEASUREMENTS capability not supported.");
+        return;
+    }
     const bool kIsSatellitePvtSupported =
             aidl_gnss_cb_->last_capabilities_ & (int)GnssCallbackAidl::CAPABILITY_SATELLITE_PVT;
     ALOGD("SatellitePvt supported: %s", kIsSatellitePvtSupported ? "true" : "false");
@@ -1215,6 +1219,10 @@ TEST_P(GnssHalTest, TestGnssVisibilityControlExtension) {
  * 2. Sets a GnssMeasurementCallback, waits for a measurement.
  */
 TEST_P(GnssHalTest, TestGnssAgcInGnssMeasurement) {
+    if (!(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_MEASUREMENTS)) {
+        ALOGI("Test skipped. MEASUREMENTS capability not supported.");
+        return;
+    }
     if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
         return;
     }
@@ -1412,6 +1420,10 @@ TEST_P(GnssHalTest, TestStopSvStatusAndNmea) {
  * 3. Verify status are reported at expected intervals
  */
 TEST_P(GnssHalTest, TestGnssMeasurementIntervals_WithoutLocation) {
+    if (!(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_MEASUREMENTS)) {
+        ALOGI("Test skipped. MEASUREMENTS capability not supported.");
+        return;
+    }
     if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
         return;
     }
@@ -1457,6 +1469,10 @@ TEST_P(GnssHalTest, TestGnssMeasurementIntervals_WithoutLocation) {
  * 3. Stop measurement. Stop location.
  */
 TEST_P(GnssHalTest, TestGnssMeasurementIntervals_LocationOnBeforeMeasurement) {
+    if (!(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_MEASUREMENTS)) {
+        ALOGI("Test skipped. MEASUREMENTS capability not supported.");
+        return;
+    }
     if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
         return;
     }
@@ -1496,6 +1512,10 @@ TEST_P(GnssHalTest, TestGnssMeasurementIntervals_LocationOnBeforeMeasurement) {
  * 4. Stop measurement
  */
 TEST_P(GnssHalTest, TestGnssMeasurementIntervals_LocationOnAfterMeasurement) {
+    if (!(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_MEASUREMENTS)) {
+        ALOGI("Test skipped. MEASUREMENTS capability not supported.");
+        return;
+    }
     if (aidl_gnss_hal_->getInterfaceVersion() <= 1) {
         return;
     }
@@ -1542,6 +1562,10 @@ TEST_P(GnssHalTest, TestGnssMeasurementIntervals_LocationOnAfterMeasurement) {
  *    Verify the measurements were received at 2s intervals.
  */
 TEST_P(GnssHalTest, TestGnssMeasurementIntervals_changeIntervals) {
+    if (!(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_MEASUREMENTS)) {
+        ALOGI("Test skipped. MEASUREMENTS capability not supported.");
+        return;
+    }
     if (aidl_gnss_hal_->getInterfaceVersion() <= 2) {
         return;
     }
@@ -1592,6 +1616,10 @@ TEST_P(GnssHalTest, TestGnssMeasurementIntervals_changeIntervals) {
  * 3. Do step 1 again.
  */
 TEST_P(GnssHalTest, TestGnssMeasurementIsFullTracking) {
+    if (!(aidl_gnss_cb_->last_capabilities_ & IGnssCallback::CAPABILITY_MEASUREMENTS)) {
+        ALOGI("Test skipped. MEASUREMENTS capability not supported.");
+        return;
+    }
     // GnssData.isFullTracking is added in the interface version 3
     if (aidl_gnss_hal_->getInterfaceVersion() <= 2) {
         return;
