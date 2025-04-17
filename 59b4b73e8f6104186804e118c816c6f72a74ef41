@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ee44488_9f8be16e",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 1254,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2025-04-17T22:29:03Z",
+      "side": 1,
+      "message": "IIUC this ioctl call should fail with `ENOTTY` if the underlying block device goes away, which will cause an `INTERNAL_ERROR` callback. Is the ioctl getting stuck indefinitely in your instance?",
+      "range": {
+        "startLine": 1254,
+        "startChar": 35,
+        "endLine": 1254,
+        "endChar": 77
+      },
+      "revId": "59b4b73e8f6104186804e118c816c6f72a74ef41",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
