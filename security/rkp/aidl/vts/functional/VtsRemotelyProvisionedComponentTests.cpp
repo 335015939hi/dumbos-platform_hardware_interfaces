@@ -273,6 +273,7 @@ TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
     auto status = rpc->generateCertificateRequestV2({} /* keysToSign */, challenge, &csr);
     EXPECT_TRUE(status.isOk()) << status.getDescription();
 
+<<<<<<< HEAD
     auto result = isCsrWithProperDiceChain(csr);
     ASSERT_TRUE(result) << result.message();
     ASSERT_TRUE(*result);
@@ -288,6 +289,23 @@ INSTANTIATE_REM_PROV_AIDL_TEST(GetHardwareInfoTests);
 TEST_P(GetHardwareInfoTests, supportsValidCurve) {
     RpcHardwareInfo hwInfo;
     ASSERT_TRUE(provisionable_->getHardwareInfo(&hwInfo).isOk());
+=======
+ */
+// @VsrTest = 3.10-015
+// @VsrTest = 3.10-018.001
+TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfProtectedVmSupported) {
+    int vendor_api_level = get_vendor_api_level();
+    if (vendor_api_level < __ANDROID_API_V__) {
+        GTEST_SKIP() << "Applies only to vendor API level >= 202404, but this device is: "
+                     << vendor_api_level;
+    }
+
+    if (!::android::base::GetBoolProperty("ro.boot.hypervisor.protected_vm.supported", false)) {
+        GTEST_SKIP() << "DICE is only required when protected VMs are supported";
+    }
+
+    // Skip on auto due to GAS requirement G-SH-917.
+>>>>>>> PATCH
 
     if (rpcHardwareInfo.versionNumber >= VERSION_WITHOUT_EEK) {
         ASSERT_EQ(hwInfo.supportedEekCurve, RpcHardwareInfo::CURVE_NONE)
