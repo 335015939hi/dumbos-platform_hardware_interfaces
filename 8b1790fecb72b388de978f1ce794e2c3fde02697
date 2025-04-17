@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34b33ed2_788c5ea2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2025-04-17T21:47:04Z",
+      "side": 1,
+      "message": "This change effectively undoes the changes in Ic406634de6f22a290abb, which led to double closes. I am curious why this causes a leak of file descriptors. `NativeHandle` should be closing the dup-ed handles when it goes out of scope, and FDs are recycled pretty aggressively. \n\nI notice that the commit message doesn\u0027t link a bug. Did you observe an actual error or was this meant to be preventative?",
+      "revId": "8b1790fecb72b388de978f1ce794e2c3fde02697",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47bd8ddb_18a616a9",
+        "filename": "camera/device/default/ExternalCameraDeviceSession.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 1764,
+      "author": {
+        "id": 1900056
+      },
+      "writtenOn": "2025-04-17T21:47:04Z",
+      "side": 1,
+      "message": "This is a no-op anyway. There are no fds to dup (or transfer ownership of) here.",
+      "range": {
+        "startLine": 1764,
+        "startChar": 12,
+        "endLine": 1764,
+        "endChar": 79
+      },
+      "revId": "8b1790fecb72b388de978f1ce794e2c3fde02697",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
