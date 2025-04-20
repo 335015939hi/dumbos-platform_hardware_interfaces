@@ -247,15 +247,16 @@ TEST(NonParameterizedTests, eachRpcHasAUniqueId) {
  * on the device.
  */
 // @VsrTest = 3.10-015
-TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfStrongboxPresent) {
+// @VsrTest = 3.10-018.001
+TEST(NonParameterizedTests, requireDiceOnDefaultInstanceIfProtectedVmSupported) {
     int vsr_api_level = get_vsr_api_level();
     if (vsr_api_level < 35) {
         GTEST_SKIP() << "Applies only to VSR API level 35 or newer, this device is: "
                      << vsr_api_level;
     }
 
-    if (!AServiceManager_isDeclared(KEYMINT_STRONGBOX_INSTANCE_NAME.c_str())) {
-        GTEST_SKIP() << "Strongbox is not present on this device.";
+    if (!::android::base::GetBoolProperty("ro.boot.hypervisor.protected_vm.supported", false)) {
+        GTEST_SKIP() << "DICE is only required when protected VMs are supported";
     }
 
     // Skip on auto due to GAS requirement G-SH-917.
