@@ -52,6 +52,24 @@
       "parentUuid": "9ba53bc0_f429df23",
       "revId": "7943791fd37bd6b9eafb957eaadf5546f9d234c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "031259ad_1a82c00d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1244622
+      },
+      "writtenOn": "2025-04-24T23:24:44Z",
+      "side": 1,
+      "message": "VTS is not released from the `android15-qpr2-release` branch. Pls take the VTS from  `android15-tests-dev` branch in AOSP to validate the fixes for your test failures. This change should be cp\u0027d to the `android15-tests-dev` branch instead.",
+      "parentUuid": "968a4347_5652134f",
+      "revId": "7943791fd37bd6b9eafb957eaadf5546f9d234c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
