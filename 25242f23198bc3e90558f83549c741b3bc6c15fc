@@ -1,0 +1,65 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bcf5d08_cd0d9b0a",
+        "filename": "bluetooth/1.0/default/bluetooth_hci.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1076123
+      },
+      "writtenOn": "2025-04-25T16:40:24Z",
+      "side": 1,
+      "message": "What happens if this check is moved before line 65?  Maybe it would be better not to call linkToDeath if the interface was already initialized.\n\nIn the past, the best recovery was still to crash everyone.  There should not be more than one client trying to initialize the HAL, and if an old one is still around, it needs to be cleaned up at some point.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 65
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d816120c_00024de3",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "bluetooth/1.0/default/bluetooth_hci.cc",
+              "range": {
+                "startLine": 63,
+                "startChar": 0,
+                "endLine": 63,
+                "endChar": 0
+              },
+              "replacement": "\n  VendorInterface* old_vendor_interface \u003d VendorInterface::get();\n  if (old_vendor_interface !\u003d nullptr) {\n    ALOGE(\"VendorInterface already initialized, cannot initialize again\");\n    auto hidl_status \u003d cb-\u003einitializationComplete(Status::INITIALIZATION_ERROR);\n    if (!hidl_status.isOk()) {\n      ALOGE(\"VendorInterface -\u003e Unable to call initializationComplete(ERR)\");\n    }\n    return Void();\n  }\n"
+            },
+            {
+              "path": "bluetooth/1.0/default/bluetooth_hci.cc",
+              "range": {
+                "startLine": 67,
+                "startChar": 0,
+                "endLine": 68,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "bluetooth/1.0/default/bluetooth_hci.cc",
+              "range": {
+                "startLine": 98,
+                "startChar": 0,
+                "endLine": 102,
+                "endChar": 0
+              },
+              "replacement": "    cb-\u003eunlinkToDeath(death_recipient_);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "25242f23198bc3e90558f83549c741b3bc6c15fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
