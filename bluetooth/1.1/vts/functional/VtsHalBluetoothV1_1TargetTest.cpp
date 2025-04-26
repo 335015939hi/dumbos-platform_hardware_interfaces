@@ -15,18 +15,16 @@
  */
 
 #define LOG_TAG "bluetooth_hidl_hal_test"
+#include <VtsHalHidlTargetCallbackBase.h>
 #include <android-base/logging.h>
-
 #include <android/hardware/bluetooth/1.0/types.h>
 #include <android/hardware/bluetooth/1.1/IBluetoothHci.h>
 #include <android/hardware/bluetooth/1.1/IBluetoothHciCallbacks.h>
-#include <hardware/bluetooth.h>
-#include <utils/Log.h>
-
-#include <VtsHalHidlTargetCallbackBase.h>
 #include <gtest/gtest.h>
+#include <hardware/bluetooth.h>
 #include <hidl/GtestPrinter.h>
 #include <hidl/ServiceManagement.h>
+#include <utils/Log.h>
 
 #include <chrono>
 #include <queue>
@@ -545,8 +543,12 @@ void BluetoothHidlTest::sendAndCheckACL(int num_packets, size_t size,
     bluetooth->sendAclData(acl_vector);
 
     // Check the loopback of the ACL packet
-    EXPECT_TRUE(bluetooth_cb->WaitForCallback(kCallbackNameAclEventReceived)
-                    .no_timeout);
+    do {
+      ASSERT_TRUE(bluetooth_cb->WaitForCallback(kCallbackNameAclEventReceived)
+                      .no_timeout);
+      handle_no_ops();
+    } while (acl_queue.size() == 0);
+    ASSERT_LT(static_cast<size_t>(0), acl_queue.size());
     hidl_vec<uint8_t> acl_loopback = acl_queue.front();
     acl_queue.pop();
 
