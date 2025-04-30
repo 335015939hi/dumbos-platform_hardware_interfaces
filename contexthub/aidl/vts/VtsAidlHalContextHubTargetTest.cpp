@@ -359,3 +359,31 @@ int main(int argc, char** argv) {
     ProcessState::self()->startThreadPool();
     return RUN_ALL_TESTS();
 }
+<<<<<<< HEAD
+=======
+    hostEndpointInfo.type = HostEndpointInfo::Type::NATIVE;
+    hostEndpointInfo.hostEndpointId = kHostEndpointId;
+
+    Status status = mContextHub->onHostEndpointConnected(hostEndpointInfo);
+    if (status.exceptionCode() == Status::EX_UNSUPPORTED_OPERATION ||
+        status.transactionError() == android::UNKNOWN_TRANSACTION) {
+        GTEST_SKIP() << "Not supported -> old API; or not implemented";
+    } else {
+        ASSERT_TRUE(status.isOk());
+        ASSERT_TRUE(mContextHub->onHostEndpointDisconnected(kHostEndpointId).isOk());
+    }
+}
+
+TEST_P(ContextHubTransactionTest, TestInvalidHostConnection) {
+    constexpr char16_t kHostEndpointId = 1;
+    Status status = mContextHub->onHostEndpointConnected(HostEndpointInfo());
+    if (status.exceptionCode() == Status::EX_UNSUPPORTED_OPERATION ||
+        status.transactionError() == android::UNKNOWN_TRANSACTION) {
+        GTEST_SKIP() << "Not supported -> old API; or not implemented";
+    } else {
+      ASSERT_TRUE(status.isOk());
+    }
+}
+
+TEST_P(ContextHubTransactionTest, TestNanSessionStateChange) {
+>>>>>>> PATCH
