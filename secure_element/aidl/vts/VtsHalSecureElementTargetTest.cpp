@@ -21,6 +21,7 @@
 #include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_process.h>
+#include <binder/IServiceManager.h>
 #include <gmock/gmock.h>
 #include <gtest/gtest.h>
 
@@ -101,9 +102,8 @@ class MySecureElementCallback : public BnSecureElementCallback {
 class SecureElementAidl : public ::testing::TestWithParam<std::string> {
   public:
     void SetUp() override {
-        SpAIBinder binder = SpAIBinder(AServiceManager_waitForService(GetParam().c_str()));
-
-        secure_element_ = ISecureElement::fromBinder(binder);
+        secure_element_ = android::waitForDeclaredService<ISecureElement>(
+            android::String16(GetParam().c_str()));
         ASSERT_NE(secure_element_, nullptr);
 
         secure_element_callback_ = SharedRefBase::make<MySecureElementCallback>();
