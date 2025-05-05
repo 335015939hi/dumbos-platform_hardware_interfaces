@@ -16,6 +16,97 @@
       "message": "Gentle reminder.\nThanks.",
       "revId": "edb9d4e7e213c03e7cfccfc39e712257beb17cbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8989f149_0d027bca",
+        "filename": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2025-05-05T19:15:48Z",
+      "side": 1,
+      "message": "this came up during internal review -- does \"unused\" mean that the bottom bits are zero, or can they potentially be arbitrary (so clients should mask/shift out those unused bits)?",
+      "range": {
+        "startLine": 560,
+        "startChar": 49,
+        "endLine": 560,
+        "endChar": 55
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "996c623e_06085091",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+              "range": {
+                "startLine": 560,
+                "startChar": 0,
+                "endLine": 561,
+                "endChar": 0
+              },
+              "replacement": "     * of the 16-bit word with the bottom 4 bits undefined.\n"
+            },
+            {
+              "path": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+              "range": {
+                "startLine": 570,
+                "startChar": 0,
+                "endLine": 571,
+                "endChar": 0
+              },
+              "replacement": "     * of the 16-bit word with the bottom 2 bits undefined.\n"
+            },
+            {
+              "path": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+              "range": {
+                "startLine": 584,
+                "startChar": 0,
+                "endLine": 584,
+                "endChar": 0
+              },
+              "replacement": "     * The bottom 4 bits of each word are undefined.\n"
+            },
+            {
+              "path": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+              "range": {
+                "startLine": 597,
+                "startChar": 0,
+                "endLine": 597,
+                "endChar": 0
+              },
+              "replacement": "     * The bottom 2 bits of each word are undefined.\n"
+            },
+            {
+              "path": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+              "range": {
+                "startLine": 612,
+                "startChar": 0,
+                "endLine": 612,
+                "endChar": 0
+              },
+              "replacement": "     * The bottom 4 bits of each word are undefined.\n"
+            },
+            {
+              "path": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+              "range": {
+                "startLine": 627,
+                "startChar": 0,
+                "endLine": 627,
+                "endChar": 0
+              },
+              "replacement": "     * The bottom 2 bits of each word are undefined.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "edb9d4e7e213c03e7cfccfc39e712257beb17cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
