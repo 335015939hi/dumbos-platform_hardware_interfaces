@@ -107,6 +107,30 @@
       ],
       "revId": "edb9d4e7e213c03e7cfccfc39e712257beb17cbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f43d1601_47145c9d",
+        "filename": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1558734
+      },
+      "writtenOn": "2025-05-06T13:05:15Z",
+      "side": 1,
+      "message": "They are X bits. \nThe filling bits take the storage space such that the format is size compatible to other 16bits formats - you can enable mutable view with these formats.",
+      "parentUuid": "8989f149_0d027bca",
+      "range": {
+        "startLine": 560,
+        "startChar": 49,
+        "endLine": 560,
+        "endChar": 55
+      },
+      "revId": "edb9d4e7e213c03e7cfccfc39e712257beb17cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
