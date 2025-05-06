@@ -131,6 +131,30 @@
       },
       "revId": "edb9d4e7e213c03e7cfccfc39e712257beb17cbc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21d48744_c548bbec",
+        "filename": "graphics/common/aidl/android/hardware/graphics/common/PixelFormat.aidl",
+        "patchSetId": 3
+      },
+      "lineNbr": 560,
+      "author": {
+        "id": 1470474
+      },
+      "writtenOn": "2025-05-06T14:38:42Z",
+      "side": 1,
+      "message": "I guess my question is that we don\u0027t know what guarantees if any the X bits are supposed to provide.\n\nConcretely, if an app wants to map this format to the CPU, and they want to extract the integer value, can the app \"cast\" the 16 bits into an integer? Or does the app need to explicitly mask out the unused bits beforehand?\n\nI assume the answer is the latter -- the app can\u0027t assume the allocator or driver didn\u0027t fill the X bits with garbage, but wanted to double check here.",
+      "parentUuid": "f43d1601_47145c9d",
+      "range": {
+        "startLine": 560,
+        "startChar": 49,
+        "endLine": 560,
+        "endChar": 55
+      },
+      "revId": "edb9d4e7e213c03e7cfccfc39e712257beb17cbc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
