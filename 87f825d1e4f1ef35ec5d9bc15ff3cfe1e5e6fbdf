@@ -16,6 +16,23 @@
       "message": "@dplotnikov@google.com @mwachens@google.com FYI, you may want to add people from your team as the owner for these HAL interfaces instead of Pixel owners.",
       "revId": "87f825d1e4f1ef35ec5d9bc15ff3cfe1e5e6fbdf",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28165305_bb24e9ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2025-05-06T01:01:48Z",
+      "side": 1,
+      "message": "needs to move to internal branch to merge",
+      "revId": "87f825d1e4f1ef35ec5d9bc15ff3cfe1e5e6fbdf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
