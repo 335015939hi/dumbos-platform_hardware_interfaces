@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6773c0e4_450d3f70",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-05-07T16:23:44Z",
+      "side": 1,
+      "message": "That\u0027s not the audio server. That\u0027s the audio HAL service. The real audio server is here: https://cs.android.com/android/platform/superproject/main/+/main:frameworks/av/media/audioserver/. Please update the message as otherwise it looks confusing.",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "88d0fe7268a057870c7702b274e81f08a3878298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03808c49_aa0b2f36",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-05-07T16:23:44Z",
+      "side": 1,
+      "message": "Please file a partner bug for traceability and reference it here.",
+      "revId": "88d0fe7268a057870c7702b274e81f08a3878298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a81bb83_1a93c0d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-05-07T16:23:44Z",
+      "side": 1,
+      "message": "OK, since this is already in `vendor`, should be no problem exposing this configuration to other vendor modules.",
+      "revId": "88d0fe7268a057870c7702b274e81f08a3878298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
