@@ -33,6 +33,7 @@ android_hardware_audio_config_default {
             compile_multilib: "64",
         },
     },
+    visibility: ["//vendor:__subpackages__"],
 }
 
 cc_binary {
