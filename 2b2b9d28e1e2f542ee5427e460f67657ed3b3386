@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24b05eb5_85ff41fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1219061
+      },
+      "writtenOn": "2025-05-07T18:24:47Z",
+      "side": 1,
+      "message": "Please remove the other reviewers and just leave me and Tyler as reviewer. This CL LGTM but I need to land this in internal first and then cped to android15 branch.",
+      "revId": "2b2b9d28e1e2f542ee5427e460f67657ed3b3386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
