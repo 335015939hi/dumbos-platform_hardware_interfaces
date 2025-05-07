@@ -326,19 +326,30 @@ std::vector<std::tuple<std::string, int32_t>> generateContextHubMapping() {
     return tuples;
 }
 
-TEST_P(ContextHubAidl, TestHostConnection) {
-    constexpr char16_t kHostEndpointId = 1;
-    HostEndpointInfo hostEndpointInfo;
-    hostEndpointInfo.hostEndpointId = kHostEndpointId;
+TEST_P(ContextHubTransactionTest, TestHostConnection) {
+  constexpr char16_t kHostEndpointId = 1;
+  HostEndpointInfo hostEndpointInfo;
+  hostEndpointInfo.hostEndpointId = kHostEndpointId;
 
-    ASSERT_TRUE(contextHub->onHostEndpointConnected(hostEndpointInfo).isOk());
-    ASSERT_TRUE(contextHub->onHostEndpointDisconnected(kHostEndpointId).isOk());
+  Status status = contextHub->onHostEndpointConnected(hostEndpointInfo);
+  if (status.exceptionCode() == Status::EX_UNSUPPORTED_OPERATION ||
+      status.transactionError() == android::UNKNOWN_TRANSACTION) {
+      GTEST_SKIP() << "Not supported -> old API; or not implemented";
+  } else {
+      ASSERT_TRUE(status.isOk());
+      ASSERT_TRUE(contextHub->onHostEndpointDisconnected(kHostEndpointId).isOk());
+  }
 }
 
-TEST_P(ContextHubAidl, TestInvalidHostConnection) {
-    constexpr char16_t kHostEndpointId = 1;
-
-    ASSERT_TRUE(contextHub->onHostEndpointDisconnected(kHostEndpointId).isOk());
+TEST_P(ContextHubTransactionTest, TestInvalidHostConnection) {
+  constexpr char16_t kHostEndpointId = 1;
+  Status status = contextHub->onHostEndpointDisconnected(kHostEndpointId);
+  if (status.exceptionCode() == Status::EX_UNSUPPORTED_OPERATION ||
+      status.transactionError() == android::UNKNOWN_TRANSACTION) {
+      GTEST_SKIP() << "Not supported -> old API; or not implemented";
+  } else {
+    ASSERT_TRUE(status.isOk());
+  }
 }
 
 std::string PrintGeneratedTest(const testing::TestParamInfo<ContextHubAidl::ParamType>& info) {
