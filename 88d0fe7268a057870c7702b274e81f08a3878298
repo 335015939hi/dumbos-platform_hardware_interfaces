@@ -83,6 +83,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f062bb7_59caa766",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-05-08T17:59:15Z",
+      "side": 1,
+      "message": "Could you please ask your TAM? I can see \"Android \u003e Partner \u003e External \u003e Meta\" component which should be visible to your company.",
+      "parentUuid": "3c5cd17c_a6b05d46",
+      "revId": "88d0fe7268a057870c7702b274e81f08a3878298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4a81bb83_1a93c0d3",
