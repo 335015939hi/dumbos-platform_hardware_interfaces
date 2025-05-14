@@ -16,6 +16,23 @@
       "message": "Hello the team, can you please help review the patch? Thank you.",
       "revId": "0f117317f73e47b7cfb5da73bc1ab06af1917469",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dd9d240_cdb8bb91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-05-14T16:40:20Z",
+      "side": 1,
+      "message": "Note that `AUDIO_DEVICE_OUT_BLE_BROADCAST` did not exist in the Audio HAL HIDL v7.0 definition:\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/7.0/config/audio_policy_configuration.xsd;l\u003d277;drc\u003d9072e5f0db8c2354d1e029ea960647c9f6322c66\n\nit was added in the v7.1:\n\nhttps://cs.android.com/android/platform/superproject/main/+/main:hardware/interfaces/audio/7.1/config/audio_policy_configuration.xsd;l\u003d283;drc\u003da85cebb63e35005952c8245c832b7aaa8824d0bd\n\nSo technically, if you want to use this device, you actually need to use the 7.1 HAL. Then your device will be tested using `VtsHalAudioV7_1TargetTest` and it will pass.\n\nHowever, as I can see this enum defined in system/media for the Android 14 test, that\u0027s probably fine to add it retroactively to 7.0 tests:\n\nhttps://android.git.corp.google.com/platform/system/media/+/refs/heads/android14-tests-release/audio/include/system/audio-hal-enums.h#364",
+      "revId": "0f117317f73e47b7cfb5da73bc1ab06af1917469",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
