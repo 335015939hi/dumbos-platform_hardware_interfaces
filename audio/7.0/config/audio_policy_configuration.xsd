@@ -273,6 +273,7 @@
             <xs:enumeration value="AUDIO_DEVICE_OUT_USB_HEADSET"/>
             <xs:enumeration value="AUDIO_DEVICE_OUT_HEARING_AID"/>
             <xs:enumeration value="AUDIO_DEVICE_OUT_ECHO_CANCELLER"/>
+            <xs:enumeration value="AUDIO_DEVICE_OUT_BLE_BROADCAST"/>
             <xs:enumeration value="AUDIO_DEVICE_OUT_BLE_HEADSET"/>
             <xs:enumeration value="AUDIO_DEVICE_OUT_BLE_SPEAKER"/>
             <xs:enumeration value="AUDIO_DEVICE_OUT_DEFAULT"/>
