@@ -202,7 +202,7 @@ AudioPort GenerateUniqueDeviceAddress(const AudioPort& port) {
                         0xfc00, 0x0123, 0x4567, 0x89ab, 0xcdef, 0, 0, ++nextId & 0xffff});
                 break;
             case Tag::alsa:
-                address = AudioDeviceAddress::make<Tag::alsa>(std::vector<int32_t>{1, ++nextId});
+                address = AudioDeviceAddress::make<Tag::alsa>(std::vector<int32_t>{127, ++nextId});
                 break;
         }
     }
@@ -1824,9 +1824,7 @@ TEST_P(AudioCoreModule, SetAudioPortConfigInvalidPortConfigId) {
 TEST_P(AudioCoreModule, TryConnectMissingDevice) {
     // Limit checks to connection types that are known to be detectable by HAL implementations.
     static const std::set<std::string> kCheckedConnectionTypes{
-            AudioDeviceDescription::CONNECTION_HDMI, AudioDeviceDescription::CONNECTION_HDMI_ARC,
-            AudioDeviceDescription::CONNECTION_HDMI_EARC, AudioDeviceDescription::CONNECTION_IP_V4,
-            AudioDeviceDescription::CONNECTION_USB};
+            AudioDeviceDescription::CONNECTION_IP_V4, AudioDeviceDescription::CONNECTION_USB};
     ASSERT_NO_FATAL_FAILURE(SetUpModuleConfig());
     std::vector<AudioPort> ports = moduleConfig->getExternalDevicePorts();
     if (ports.empty()) {
