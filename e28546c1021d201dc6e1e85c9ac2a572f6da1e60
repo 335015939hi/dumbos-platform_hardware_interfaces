@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78dd537c_7e9e4e79",
+        "filename": "audio/policy/1.0/xml/audio_policy_engine_configuration.xsd",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1042638
+      },
+      "writtenOn": "2025-05-16T17:34:46Z",
+      "side": 1,
+      "message": "Please don\u0027t add these two because they are reserved for the framework use, thus they must never appear in the vendor configuration, see the AIDL definition here: https://cs.android.com/android/platform/superproject/main/+/main:system/hardware/interfaces/media/aidl/android/media/audio/common/AudioStreamType.aidl;l\u003d91;drc\u003d1fd893afe97a79069aa6b8dbf029b09a25fae8f2",
+      "range": {
+        "startLine": 319,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 56
+      },
+      "revId": "e28546c1021d201dc6e1e85c9ac2a572f6da1e60",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
