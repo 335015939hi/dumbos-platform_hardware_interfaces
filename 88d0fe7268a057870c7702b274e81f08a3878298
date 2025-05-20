@@ -101,6 +101,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "38f00eb7_9485377d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 3524514
+      },
+      "writtenOn": "2025-05-20T19:26:00Z",
+      "side": 1,
+      "message": "Update, I am in the process of getting access to the component, will update here as soon as I raise the partner bug 😊",
+      "parentUuid": "2f062bb7_59caa766",
+      "revId": "88d0fe7268a057870c7702b274e81f08a3878298",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4a81bb83_1a93c0d3",
