@@ -47,8 +47,6 @@ struct BroadcastRadio : public IBroadcastRadio {
 private:
     virtual     ~BroadcastRadio();
 
-    static const char * sClassModuleNames[];
-
     Result convertHalResult(int rc);
     void convertBandConfigFromHal(BandConfig *config,
             const radio_hal_band_config_t *halConfig);
