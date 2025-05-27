@@ -20,7 +20,7 @@
 #include "ConfirmationUITranslations.h"
 #include "string.h"
 
-static const char* ConfirmationUITranslations_language_ids[] = {
+static const char* const ConfirmationUITranslations_language_ids[] = {
   "en", /* untranslated */
   "af",
   "am",
@@ -1076,7 +1076,7 @@ static const struct {
 
 static int ConfirmationUITranslations_selected_lang_id_index = 0;
 
-static int ConfirmationUITranslations_find_str(const char** haystack, const char* needle) {
+static int ConfirmationUITranslations_find_str(const char* const* haystack, const char* needle) {
     for (int n = 0; haystack[n] != NULL; n++) {
         if (strcmp(needle, haystack[n]) == 0) {
             return n;
@@ -1088,7 +1088,7 @@ static int ConfirmationUITranslations_find_str(const char** haystack, const char
 #define MAX_LANG_ID_SIZE 256
 
 /* Non-static linkage to allow calling by the test. */
-int ConfirmationUITranslations_lang_id_match(const char** lang_ids, const char* lang_id) {
+int ConfirmationUITranslations_lang_id_match(const char* const* lang_ids, const char* lang_id) {
     int ret;
     char lang_id_buf[MAX_LANG_ID_SIZE + 1];
     size_t n;
@@ -1154,5 +1154,5 @@ const char* ConfirmationUITranslations_lookup(const char* translation_id) {
 }
 
 const char* const* ConfirmationUITranslations_get_languages(void) {
-    return (const char* const*) (ConfirmationUITranslations_language_ids);
+    return (ConfirmationUITranslations_language_ids);
 }

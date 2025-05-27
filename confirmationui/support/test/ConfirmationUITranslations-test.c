@@ -31,7 +31,7 @@
         } \
     } while (0)
 
-extern int ConfirmationUITranslations_lang_id_match(const char** lang_ids,
+extern int ConfirmationUITranslations_lang_id_match(const char* const* lang_ids,
                                                     const char* lang_id);
 
 static const char* test_lang_id_match(const char* lang_ids[], const char* lang_id) {
