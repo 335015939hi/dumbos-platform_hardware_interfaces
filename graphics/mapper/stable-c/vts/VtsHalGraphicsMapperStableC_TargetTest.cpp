@@ -589,6 +589,14 @@ TEST_P(GraphicsMapperStableCTests, AllV5CallbacksDefined) {
     EXPECT_TRUE(mapper()->v5.getReservedRegion);
 }
 
+TEST_P(GraphicsMapperStableCTests, AllV6CallbacksDefined) {
+    ASSERT_GE(mapper()->version, AIMAPPER_VERSION_6);
+
+    EXPECT_TRUE(mapper()->v6.getBaseView);
+    EXPECT_TRUE(mapper()->v6.importViewBuffer);
+    EXPECT_TRUE(mapper()->v6.getMultiViewInfo);
+}
+
 TEST_P(GraphicsMapperStableCTests, DualLoadIsIdentical) {
     ASSERT_GE(mapper()->version, AIMAPPER_VERSION_5);
     AIMapper* secondMapper;
@@ -608,6 +616,111 @@ TEST_P(GraphicsMapperStableCTests, DualLoadIsIdentical) {
     EXPECT_EQ(secondMapper->v5.listSupportedMetadataTypes, mapper()->v5.listSupportedMetadataTypes);
     EXPECT_EQ(secondMapper->v5.dumpBuffer, mapper()->v5.dumpBuffer);
     EXPECT_EQ(secondMapper->v5.getReservedRegion, mapper()->v5.getReservedRegion);
+}
+
+TEST_P(GraphicsMapperStableCTests, DualLoadV6IsIdentical) {
+    ASSERT_GE(mapper()->version, AIMAPPER_VERSION_6);
+    AIMapper* secondMapper;
+    ASSERT_EQ(AIMAPPER_ERROR_NONE, getIMapperLoader()(&secondMapper));
+
+    EXPECT_EQ(secondMapper->v6.getBaseView, mapper()->v6.getBaseView);
+    EXPECT_EQ(secondMapper->v6.importViewBuffer, mapper()->v6.importViewBuffer);
+    EXPECT_EQ(secondMapper->v6.getMultiViewInfo, mapper()->v6.getMultiViewInfo);
+}
+
+TEST_P(GraphicsMapperStableCTests, GetBaseView) {
+    ASSERT_GE(mapper()->version, AIMAPPER_VERSION_6);
+
+    auto buffer = allocate({
+            .name = {"VTS_TEMP"},
+            .format = PixelFormat::RGBA_8888,
+            .width = 2121,
+            .height = 1212,
+            .layerCount = 1,
+            .usage = BufferUsage::CPU_WRITE_OFTEN | BufferUsage::MULTI_VIEW_INFO,
+            .reservedSize = 0,
+    });
+
+    ASSERT_NE(nullptr, buffer.get());
+    EXPECT_GE(buffer->stride(), 64);
+
+    uint32_t base_view = 0;
+    auto bufferHandle = buffer->import();
+    ASSERT_TRUE(bufferHandle);
+
+    int result = mapper()->v6.getBaseView(*bufferHandle, &base_view);
+    EXPECT_EQ(AIMAPPER_ERROR_NONE, result);
+    EXPECT_EQ(base_view, 1);
+    ASSERT_EQ(AIMAPPER_ERROR_NONE, result);
+}
+
+TEST_P(GraphicsMapperStableCTests, ImportViewBuffer) {
+    ASSERT_GE(mapper()->version, AIMAPPER_VERSION_6);
+
+    auto buffer = allocate({
+            .name = {"VTS_TEMP"},
+            .format = PixelFormat::RGBA_8888,
+            .width = 2121,
+            .height = 1212,
+            .layerCount = 1,
+            .usage = BufferUsage::CPU_WRITE_OFTEN | BufferUsage::MULTI_VIEW_INFO,
+            .reservedSize = 0,
+    });
+
+    ASSERT_NE(nullptr, buffer.get());
+    EXPECT_GE(buffer->stride(), 64);
+
+    uint32_t base_view = 0;
+    buffer_handle_t hnd_1;
+    auto bufferHandle = buffer->import();
+    ASSERT_TRUE(bufferHandle);
+
+    int result = mapper()->v6.getBaseView(*bufferHandle, &base_view);
+    EXPECT_EQ(AIMAPPER_ERROR_NONE, result);
+    EXPECT_EQ(base_view, 1);
+    ASSERT_EQ(AIMAPPER_ERROR_NONE, result);
+
+    result = mapper()->v6.importViewBuffer(*bufferHandle, base_view, &hnd_1);
+    EXPECT_EQ(AIMAPPER_ERROR_NONE, result);
+    EXPECT_NE(nullptr, hnd_1);
+}
+
+TEST_P(GraphicsMapperStableCTests, GetMultiViewInfo) {
+    ASSERT_GE(mapper()->version, AIMAPPER_VERSION_6);
+
+    auto buffer = allocate({
+        .name = {"VTS_TEMP"},
+        .format = PixelFormat::RGBA_8888,
+        .width = 2121,
+        .height = 1212,
+        .layerCount = 1,
+        .usage = BufferUsage::CPU_WRITE_OFTEN | BufferUsage::MULTI_VIEW_INFO,
+        .reservedSize = 0,
+    });
+
+    ASSERT_NE(nullptr, buffer.get());
+    EXPECT_GE(buffer->stride(), 64);
+
+    size_t numberOfViews = 0;
+    const uint32_t* viewList = nullptr;
+
+    auto bufferHandle = buffer->import();
+    ASSERT_TRUE(bufferHandle);
+
+    int result = mapper()->v6.getMultiViewInfo(*bufferHandle, &viewList, &numberOfViews);
+    ASSERT_EQ(numberOfViews, 2);
+
+    viewList = new uint32_t[numberOfViews];
+
+    result = mapper()->v6.getMultiViewInfo(*bufferHandle, &viewList, &numberOfViews);
+    ASSERT_EQ(AIMAPPER_ERROR_NONE, result);
+    ASSERT_NE(nullptr, viewList);
+
+    // View Validation
+    EXPECT_EQ(viewList[0], 1);
+    EXPECT_EQ(viewList[1], 2);
+
+    delete[] viewList;
 }
 
 TEST_P(GraphicsMapperStableCTests, CanAllocate) {
