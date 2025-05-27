@@ -40,7 +40,7 @@ public:
     static int convertMetaDataFromHal(hidl_vec<MetaData>& metadata,
                                        radio_metadata_t *halMetadata);
 private:
-    static const char * sClassModuleNames[];
+    static const char *const sClassModuleNames[];
 
 };
 

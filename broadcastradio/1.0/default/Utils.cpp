@@ -28,7 +28,7 @@ namespace broadcastradio {
 namespace V1_0 {
 namespace implementation {
 
-const char *Utils::sClassModuleNames[] = {
+const char *const Utils::sClassModuleNames[] = {
     RADIO_HARDWARE_MODULE_ID_FM, /* corresponds to RADIO_CLASS_AM_FM */
     RADIO_HARDWARE_MODULE_ID_SAT,  /* corresponds to RADIO_CLASS_SAT */
     RADIO_HARDWARE_MODULE_ID_DT,   /* corresponds to RADIO_CLASS_DT */
