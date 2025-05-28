@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73883c6c_3d341e01",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/openssl_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1043663
+      },
+      "writtenOn": "2025-05-28T14:09:06Z",
+      "side": 1,
+      "message": "Nit:  If these aren\u0027t used in this header file, they should be removed and added in the appropriate .cpp file(s).",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "151e31edfd057a0f6a90400d2e767cf53d6504ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
