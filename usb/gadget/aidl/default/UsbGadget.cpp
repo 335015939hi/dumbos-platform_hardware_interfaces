@@ -25,6 +25,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <string_view>
 
 #include <aidl/android/frameworks/stats/IStats.h>
 
@@ -187,7 +188,7 @@ Status getI2cBusHelper(string *name) {
 
         while ((ep = readdir(dp))) {
             if (ep->d_type == DT_DIR) {
-                if (string::npos != string(ep->d_name).find("i2c-")) {
+                if (string_view::npos != string_view(ep->d_name).find("i2c-")) {
                     char *save
                     strtok_r(ep->d_name, "-", &save);
                     *name = strtok_r(NULL, "-", &save);
