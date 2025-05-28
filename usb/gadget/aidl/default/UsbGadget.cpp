@@ -188,8 +188,9 @@ Status getI2cBusHelper(string *name) {
         while ((ep = readdir(dp))) {
             if (ep->d_type == DT_DIR) {
                 if (string::npos != string(ep->d_name).find("i2c-")) {
-                    std::strtok(ep->d_name, "-");
-                    *name = std::strtok(NULL, "-");
+                    char *save
+                    strtok_r(ep->d_name, "-", &save);
+                    *name = strtok_r(NULL, "-", &save);
                 }
             }
         }
