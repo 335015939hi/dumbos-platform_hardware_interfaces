@@ -22,6 +22,30 @@
       },
       "revId": "151e31edfd057a0f6a90400d2e767cf53d6504ab",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b22243e_5662d184",
+        "filename": "keymaster/4.0/support/include/keymasterV4_0/openssl_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-05-28T16:46:22Z",
+      "side": 1,
+      "message": "Totally agree. But given it does no harm and I\u0027d rather not spend time patching the CL and lose the commit history (this commit number is linked in many places) by submitting my version instead of Tri\u0027s version since he\u0027s no longer as Google, I\u0027m going to leave it as is.",
+      "parentUuid": "73883c6c_3d341e01",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 25
+      },
+      "revId": "151e31edfd057a0f6a90400d2e767cf53d6504ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
