@@ -444,7 +444,8 @@ Status getTypeCPortNamesHelper(std::unordered_map<string, bool> *names) {
                         names->insert({ep->d_name, false});
                     }
                 } else {
-                    (*names)[std::strtok(ep->d_name, "-")] = true;
+                    char *save;
+                    (*names)[strtok_r(ep->d_name, "-", &save)] = true;
                 }
             }
         }
