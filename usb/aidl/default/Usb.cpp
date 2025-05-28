@@ -439,11 +439,7 @@ Status getTypeCPortNamesHelper(std::unordered_map<string, bool> *names) {
         while ((ep = readdir(dp))) {
             if (ep->d_type == DT_LNK) {
                 if (string_view::npos == string_view(ep->d_name).find("-partner")) {
-                    std::unordered_map<string, bool>::const_iterator portName =
-                        names->find(ep->d_name);
-                    if (portName == names->end()) {
-                        names->insert({ep->d_name, false});
-                    }
+                    names->insert({ep->d_name, false});
                 } else {
                     char *save;
                     (*names)[strtok_r(ep->d_name, "-", &save)] = true;
