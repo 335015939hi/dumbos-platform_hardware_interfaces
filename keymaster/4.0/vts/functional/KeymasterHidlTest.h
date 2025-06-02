@@ -22,7 +22,9 @@
 #include <hidl/GtestPrinter.h>
 #include <hidl/ServiceManagement.h>
 
+#include <keymasterV4_0/attestation_record.h>
 #include <keymasterV4_0/authorization_set.h>
+#include <keymasterV4_0/openssl_utils.h>
 
 namespace android {
 namespace hardware {
@@ -232,6 +234,12 @@ class KeymasterHidlTest : public ::testing::TestWithParam<std::string> {
     hidl_string name_;
     hidl_string author_;
 };
+
+X509* parse_cert_blob(const hidl_vec<uint8_t>& blob);
+
+// Extract attestation record from cert. Returned object is still part of cert; don't free it
+// separately.
+ASN1_OCTET_STRING* get_attestation_record(X509* certificate);
 
 #define INSTANTIATE_KEYMASTER_HIDL_TEST(name)                                      \
     INSTANTIATE_TEST_SUITE_P(PerInstance, name,                                    \
