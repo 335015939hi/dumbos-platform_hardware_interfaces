@@ -27,7 +27,12 @@ cc_test {
         "android.hardware.keymaster@4.0",
         "libavb_user",
         "libavb",
+<<<<<<< HEAD   (793784 KM 4: Add Root-of-Trust test cases)
         "libcrypto_static",
+||||||| BASE
+=======
+        "libcrypto",
+>>>>>>> BRANCH (151e31 KM 4: Add Root-of-Trust test cases)
         "libfs_mgr",
         "libkeymaster4support",
         "libkeymaster4vtstest",

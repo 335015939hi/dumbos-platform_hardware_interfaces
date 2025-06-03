@@ -22,6 +22,17 @@
 #include <hidl/GtestPrinter.h>
 #include <hidl/ServiceManagement.h>
 
+<<<<<<< HEAD   (793784 KM 4: Add Root-of-Trust test cases)
+||||||| BASE
+#include <VtsHalHidlTargetTestBase.h>
+
+#include <keymaster/keymaster_configuration.h>
+=======
+#include <VtsHalHidlTargetTestBase.h>
+
+#include <keymaster/keymaster_configuration.h>
+
+>>>>>>> BRANCH (151e31 KM 4: Add Root-of-Trust test cases)
 #include <keymasterV4_0/attestation_record.h>
 #include <keymasterV4_0/authorization_set.h>
 #include <keymasterV4_0/openssl_utils.h>
@@ -235,11 +246,15 @@ class KeymasterHidlTest : public ::testing::TestWithParam<std::string> {
     hidl_string author_;
 };
 
+<<<<<<< HEAD   (793784 KM 4: Add Root-of-Trust test cases)
 #define INSTANTIATE_KEYMASTER_HIDL_TEST(name)                                      \
     INSTANTIATE_TEST_SUITE_P(PerInstance, name,                                    \
                              testing::ValuesIn(KeymasterHidlTest::build_params()), \
                              android::hardware::PrintInstanceNameToString)
 
+||||||| BASE
+=======
+>>>>>>> BRANCH (151e31 KM 4: Add Root-of-Trust test cases)
 X509* parse_cert_blob(const hidl_vec<uint8_t>& blob);
 // Extract attestation record from cert. Returned object is still part of cert; don't free it
 // separately.
