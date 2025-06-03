@@ -282,7 +282,7 @@ TEST_P(HealthAidl, setChargingPolicy) {
     if (!status.isOk()) return;
     // the result of getChargingPolicy will be one of default(1), ADAPTIVE_AON(2)
     // ADAPTIVE_AC(3) or LONG_LIFE(4). default(1) means NOT_SUPPORT
-    ASSERT_THAT(static_cast<int>(value), AnyOf(Eq(1), Eq(4)));
+    ASSERT_THAT(static_cast<int>(value), AnyOf(Eq(BatteryChargingPolicy::DEFAULT), Eq(BatteryChargingPolicy::LONG_LIFE)));
 }
 
 MATCHER_P(IsValidHealthData, version, "") {
