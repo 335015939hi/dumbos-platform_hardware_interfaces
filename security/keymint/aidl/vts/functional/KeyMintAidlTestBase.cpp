@@ -98,27 +98,6 @@ bool KeyCharacteristicsBasicallyValid(SecurityLevel secLevel,
     return true;
 }
 
-// Extract attestation record from cert. Returned object is still part of cert; don't free it
-// separately.
-ASN1_OCTET_STRING* get_attestation_record(X509* certificate) {
-    ASN1_OBJECT_Ptr oid(OBJ_txt2obj(kAttestionRecordOid, 1 /* dotted string format */));
-    EXPECT_TRUE(!!oid.get());
-    if (!oid.get()) return nullptr;
-
-    int location = X509_get_ext_by_OBJ(certificate, oid.get(), -1 /* search from beginning */);
-    EXPECT_NE(-1, location) << "Attestation extension not found in certificate";
-    if (location == -1) return nullptr;
-
-    X509_EXTENSION* attest_rec_ext = X509_get_ext(certificate, location);
-    EXPECT_TRUE(!!attest_rec_ext)
-            << "Found attestation extension but couldn't retrieve it?  Probably a BoringSSL bug.";
-    if (!attest_rec_ext) return nullptr;
-
-    ASN1_OCTET_STRING* attest_rec = X509_EXTENSION_get_data(attest_rec_ext);
-    EXPECT_TRUE(!!attest_rec) << "Attestation extension contained no data";
-    return attest_rec;
-}
-
 bool avb_verification_enabled() {
     char value[PROPERTY_VALUE_MAX];
     return property_get("ro.boot.vbmeta.device_state", value, "") != 0;
@@ -1574,6 +1553,27 @@ AssertionResult ChainSignaturesAreValid(const vector<Certificate>& chain,
 X509_Ptr parse_cert_blob(const vector<uint8_t>& blob) {
     const uint8_t* p = blob.data();
     return X509_Ptr(d2i_X509(nullptr /* allocate new */, &p, blob.size()));
+}
+
+// Extract attestation record from cert. Returned object is still part of cert; don't free it
+// separately.
+ASN1_OCTET_STRING* get_attestation_record(X509* certificate) {
+    ASN1_OBJECT_Ptr oid(OBJ_txt2obj(kAttestionRecordOid, 1 /* dotted string format */));
+    EXPECT_TRUE(!!oid.get());
+    if (!oid.get()) return nullptr;
+
+    int location = X509_get_ext_by_OBJ(certificate, oid.get(), -1 /* search from beginning */);
+    EXPECT_NE(-1, location) << "Attestation extension not found in certificate";
+    if (location == -1) return nullptr;
+
+    X509_EXTENSION* attest_rec_ext = X509_get_ext(certificate, location);
+    EXPECT_TRUE(!!attest_rec_ext)
+            << "Found attestation extension but couldn't retrieve it?  Probably a BoringSSL bug.";
+    if (!attest_rec_ext) return nullptr;
+
+    ASN1_OCTET_STRING* attest_rec = X509_EXTENSION_get_data(attest_rec_ext);
+    EXPECT_TRUE(!!attest_rec) << "Attestation extension contained no data";
+    return attest_rec;
 }
 
 vector<uint8_t> make_name_from_str(const string& name) {
