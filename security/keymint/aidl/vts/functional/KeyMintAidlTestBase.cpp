@@ -108,6 +108,7 @@ bool KeyCharacteristicsBasicallyValid(SecurityLevel secLevel,
     return true;
 }
 
+<<<<<<< HEAD   (0e486f [automerger skipped] KM 4: Add Root-of-Trust test cases am: )
 void check_attestation_version(uint32_t attestation_version, int32_t aidl_version) {
     // Version numbers in attestation extensions should be a multiple of 100.
     EXPECT_EQ(attestation_version % 100, 0);
@@ -118,6 +119,30 @@ void check_attestation_version(uint32_t attestation_version, int32_t aidl_versio
     EXPECT_TRUE((attestation_version / 100) <= aidl_version);
 }
 
+||||||| BASE
+// Extract attestation record from cert. Returned object is still part of cert; don't free it
+// separately.
+ASN1_OCTET_STRING* get_attestation_record(X509* certificate) {
+    ASN1_OBJECT_Ptr oid(OBJ_txt2obj(kAttestionRecordOid, 1 /* dotted string format */));
+    EXPECT_TRUE(!!oid.get());
+    if (!oid.get()) return nullptr;
+
+    int location = X509_get_ext_by_OBJ(certificate, oid.get(), -1 /* search from beginning */);
+    EXPECT_NE(-1, location) << "Attestation extension not found in certificate";
+    if (location == -1) return nullptr;
+
+    X509_EXTENSION* attest_rec_ext = X509_get_ext(certificate, location);
+    EXPECT_TRUE(!!attest_rec_ext)
+            << "Found attestation extension but couldn't retrieve it?  Probably a BoringSSL bug.";
+    if (!attest_rec_ext) return nullptr;
+
+    ASN1_OCTET_STRING* attest_rec = X509_EXTENSION_get_data(attest_rec_ext);
+    EXPECT_TRUE(!!attest_rec) << "Attestation extension contained no data";
+    return attest_rec;
+}
+
+=======
+>>>>>>> BRANCH (91a7bd Merge "KeyMint: Add Root-of-Trust test cases" into android12)
 bool avb_verification_enabled() {
     char value[PROPERTY_VALUE_MAX];
     return property_get("ro.boot.vbmeta.device_state", value, "") != 0;

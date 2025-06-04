@@ -37,7 +37,13 @@ cc_defaults {
         "packagemanager_aidl-cpp",
     ],
     static_libs: [
+<<<<<<< HEAD   (0e486f [automerger skipped] KM 4: Add Root-of-Trust test cases am: )
         "android.hardware.security.secureclock-V1-ndk",
+||||||| BASE
+=======
+        "android.hardware.security.keymint-V1-ndk_platform",
+        "android.hardware.security.secureclock-V1-ndk_platform",
+>>>>>>> BRANCH (91a7bd Merge "KeyMint: Add Root-of-Trust test cases" into android12)
         "libavb_user",
         "libavb",
         "libcppbor_external",

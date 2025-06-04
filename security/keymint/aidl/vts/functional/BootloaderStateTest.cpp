@@ -24,6 +24,11 @@
 #include <android-base/properties.h>
 #include <android/binder_manager.h>
 #include <fstab/fstab.h>
+<<<<<<< HEAD   (0e486f [automerger skipped] KM 4: Add Root-of-Trust test cases am: )
+||||||| BASE
+=======
+#include <keymint_support/attestation_record.h>
+>>>>>>> BRANCH (91a7bd Merge "KeyMint: Add Root-of-Trust test cases" into android12)
 #include <libavb/libavb.h>
 #include <libavb_user/avb_ops_user.h>
 #include <remote_prov/remote_prov_utils.h>
