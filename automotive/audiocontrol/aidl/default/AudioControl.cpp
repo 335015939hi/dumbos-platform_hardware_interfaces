@@ -143,34 +143,6 @@ using ::aidl::android::media::audio::common::PcmType;
 const static std::string kAudioConfigFile = "/vendor/etc/car_audio_configuration.xml";
 const static std::string kFadeConfigFile = "/vendor/etc/car_audio_fade_configuration.xml";
 
-// reuse common code artifacts
-void fillProfile(const std::vector<int32_t>& channelLayouts,
-                 const std::vector<int32_t>& sampleRates, AudioProfile* profile) {
-    for (auto layout : channelLayouts) {
-        profile->channelMasks.push_back(
-                AudioChannelLayout::make<AudioChannelLayout::layoutMask>(layout));
-    }
-    profile->sampleRates.insert(profile->sampleRates.end(), sampleRates.begin(), sampleRates.end());
-}
-
-AudioProfile createProfile(PcmType pcmType, const std::vector<int32_t>& channelLayouts,
-                           const std::vector<int32_t>& sampleRates) {
-    AudioProfile profile;
-    profile.format.type = AudioFormatType::PCM;
-    profile.format.pcm = pcmType;
-    fillProfile(channelLayouts, sampleRates, &profile);
-    return profile;
-}
-
-AudioProfile createProfile(const std::string& encodingType,
-                           const std::vector<int32_t>& channelLayouts,
-                           const std::vector<int32_t>& sampleRates) {
-    AudioProfile profile;
-    profile.format.encoding = encodingType;
-    fillProfile(channelLayouts, sampleRates, &profile);
-    return profile;
-}
-
 AudioPortExt createDeviceExt(AudioDeviceType devType, int32_t flags,
                              const std::string& connection = "", const std::string& address = "") {
     AudioPortDeviceExt deviceExt;
