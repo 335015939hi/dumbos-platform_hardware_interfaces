@@ -37,6 +37,9 @@ static constexpr int kFmqReceiveTimeoutMs =
 static constexpr int kWritePollMs = 1;  // polled non-blocking interval
 static constexpr int kReadPollMs = 1;   // polled non-blocking interval
 
+static int logCount = 0;
+static constexpr int k10sec = 2520;
+
 static std::string toString(const std::vector<LatencyMode>& latencies) {
   std::stringstream latencyModesStr;
   for (LatencyMode mode : latencies) {
@@ -59,6 +62,7 @@ void BluetoothAudioSession::OnSessionStarted(
     const DataMQDesc* mq_desc, const AudioConfiguration& audio_config,
     const std::vector<LatencyMode>& latency_modes) {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
+  logCount = 0;
   if (stack_iface == nullptr) {
     LOG(ERROR) << __func__ << " - SessionType=" << toString(session_type_)
                << ", IBluetoothAudioPort Invalid";
@@ -77,6 +81,9 @@ void BluetoothAudioSession::OnSessionStarted(
               << " - All LatencyModes=" << toString(latency_modes)
               << ", AudioConfiguration=" << audio_config.toString();
     ReportSessionStatus();
+  }
+  if (session_type_ == SessionType::A2DP_SOFTWARE_DECODING_DATAPATH) {
+    log_underrun_1sec_ = 0;
   }
 }
 
@@ -101,6 +108,14 @@ void BluetoothAudioSession::OnSessionEnded() {
 const AudioConfiguration BluetoothAudioSession::GetAudioConfig() {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
   if (!IsSessionReady()) {
+    if (logCount < 10) {
+      LOG(INFO) << __func__ << " " << toString(session_type_) << " no session";
+    }
+    logCount++;
+    if (logCount > k10sec) {
+      logCount = 0;
+    }
+
     switch (session_type_) {
       case SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH:
       case SessionType::A2DP_HARDWARE_OFFLOAD_DECODING_DATAPATH:
@@ -116,6 +131,19 @@ const AudioConfiguration BluetoothAudioSession::GetAudioConfig() {
         return AudioConfiguration(PcmConfiguration{});
     }
   }
+
+  if (logCount < 10) {
+    if (audio_config_ == nullptr) {
+      LOG(INFO) << __func__ << " " << toString(session_type_) << " audio_config_ is nullptr";
+    } else {
+      LOG(INFO) << __func__ << " " << toString(session_type_) << " " << (*audio_config_).toString();
+    }
+  }
+  logCount++;
+  if (logCount > k10sec) {
+    logCount = 0;
+  }
+
   return *audio_config_;
 }
 
@@ -152,8 +180,21 @@ void BluetoothAudioSession::ReportAudioConfigChanged(
                    << toString(session_type_);
         return;
       }
+    } else if (session_type_ == SessionType::A2DP_SOFTWARE_DECODING_DATAPATH ||
+              session_type_ == SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH) {
+      if (audio_config.getTag() != AudioConfiguration::pcmConfig) {
+        LOG(ERROR) << __func__ << " invalid audio config type for SessionType ="
+                  << toString(session_type_);
+        return;
+      }
+    } else if (session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {
+      if (audio_config.getTag() != AudioConfiguration::a2dpConfig) {
+        LOG(ERROR) << __func__ << " invalid audio config type for SessionType ="
+                  << toString(session_type_);
+        return;
+      }
     } else {
-      LOG(ERROR) << __func__ << " invalid SessionType ="
+      LOG(ERROR) << __func__ << " leaudio_report_broadcast_ac_to_hal invalid SessionType ="
                  << toString(session_type_);
       return;
     }
@@ -180,9 +221,23 @@ void BluetoothAudioSession::ReportAudioConfigChanged(
                    << toString(session_type_);
         return;
       }
+    } else if (session_type_ == SessionType::A2DP_SOFTWARE_DECODING_DATAPATH ||
+              session_type_ == SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH) {
+      if (audio_config.getTag() != AudioConfiguration::pcmConfig) {
+        LOG(ERROR) << __func__ << " invalid audio config type for SessionType ="
+                   << toString(session_type_);
+        return;
+      }
+    } else if (session_type_ == SessionType::A2DP_HARDWARE_OFFLOAD_ENCODING_DATAPATH) {
+      if (audio_config.getTag() != AudioConfiguration::a2dpConfig) {
+        LOG(ERROR) << __func__ << " invalid audio config type for SessionType ="
+                   << toString(session_type_);
+        return;
+      }
     } else {
       LOG(ERROR) << __func__
-                 << " invalid SessionType =" << toString(session_type_);
+                 << " leaudio_report_broadcast_ac_to_hal is false invalid SessionType ="
+                 << toString(session_type_);
       return;
     }
   }
@@ -246,6 +301,10 @@ uint16_t BluetoothAudioSession::RegisterStatusCback(
                << " has " << observers_.size()
                << " observers already (No Resource)";
     return kObserversCookieUndefined;
+  } else {
+    LOG(INFO) << __func__ << " - SessionType=" << toString(session_type_)
+              << " has " << observers_.size()
+              << " observers";
   }
   std::shared_ptr<PortStatusCallbacks> cb =
       std::make_shared<PortStatusCallbacks>();
@@ -271,6 +330,7 @@ void BluetoothAudioSession::UnregisterStatusCback(uint16_t cookie) {
 
 bool BluetoothAudioSession::StartStream(bool is_low_latency) {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
+  logCount = 0;
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
                << " has NO session";
@@ -287,6 +347,7 @@ bool BluetoothAudioSession::StartStream(bool is_low_latency) {
 
 bool BluetoothAudioSession::SuspendStream() {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
+  logCount = 0;
   if (!IsSessionReady()) {
     LOG(DEBUG) << __func__ << " - SessionType=" << toString(session_type_)
                << " has NO session";
@@ -303,6 +364,7 @@ bool BluetoothAudioSession::SuspendStream() {
 
 void BluetoothAudioSession::StopStream() {
   std::lock_guard<std::recursive_mutex> guard(mutex_);
+  logCount = 0;
   if (!IsSessionReady()) {
     return;
   }
@@ -383,6 +445,9 @@ bool BluetoothAudioSession::UpdateAudioConfig(
       !is_le_audio_offload_broadcast_audio_config) {
     return false;
   }
+  LOG(INFO) << __func__ << " SessionType=" << toString(session_type_)
+                        << audio_config.toString();
+
   audio_config_ = std::make_unique<AudioConfiguration>(audio_config);
   return true;
 }
@@ -494,7 +559,9 @@ size_t BluetoothAudioSession::InReadPcmData(void* buffer, size_t bytes) {
 
 void BluetoothAudioSession::ReportControlStatus(bool start_resp,
                                                 BluetoothAudioStatus status) {
-  std::lock_guard<std::recursive_mutex> guard(mutex_);
+  if (status != BluetoothAudioStatus::RECONFIGURATION) {
+    std::lock_guard<std::recursive_mutex> guard(mutex_);
+  }
   if (observers_.empty()) {
     LOG(WARNING) << __func__ << " - SessionType=" << toString(session_type_)
                  << " has NO port state observer";
@@ -758,6 +825,90 @@ BluetoothAudioSessionInstance::GetSessionInstance(
       std::make_shared<BluetoothAudioSession>(session_type);
   sessions_map_[session_type] = session_ptr;
   return session_ptr;
+}
+
+static constexpr int kErrorMsgInReadAvailableDataSizeMqIsNullptr = -31;
+static constexpr int kErrorMsgInReadAvailableDataSizeMqInvalid = -32;
+
+int BluetoothAudioSession::InReadAvailableDataSize() {
+  std::unique_lock<std::recursive_mutex> lock(mutex_);
+  if (data_mq_ == nullptr) {
+    LOG(VERBOSE) << __func__ << " data_mq_ == nullptr";
+    return kErrorMsgInReadAvailableDataSizeMqIsNullptr;
+  } else if (!data_mq_->isValid()) {
+    LOG(VERBOSE) << __func__ << " !data_mq_->isValid()";
+    return kErrorMsgInReadAvailableDataSizeMqInvalid;
+  }
+  size_t avail_to_read = data_mq_->availableToRead();
+  LOG(VERBOSE) << __func__ << " avail_to_read " << avail_to_read;
+  return (int)avail_to_read;
+}
+
+// The control function reads stream to FMQ
+static constexpr int kDefaultDataReadTimeoutMs = 100; // 100 ms
+static constexpr int kDefaultDataReadPollIntervalMs = 1; // non-blocking poll
+static constexpr int kErrorMsgInReadPcmDataBufferIsNullptr = -35;
+static constexpr int kErrorMsgInReadPcmDataBytesIsZero = -36;
+static constexpr int kErrorMsgInReadPcmDataDataMqIsNullptr = -37;
+static constexpr int kErrorMsgInReadPcmDataDataMqInvalid = -38;
+static constexpr int kErrorMsgInReadPcmDataDataNoDataFromMq = -39;
+
+int BluetoothAudioSession::InReadA2dpSinkPcmData(void* buffer, size_t bytes) {
+  if (buffer == nullptr) {
+    LOG(VERBOSE) << __func__ << " buffer is nullptr";
+    return kErrorMsgInReadPcmDataBufferIsNullptr;
+  } else if (!bytes) {
+    LOG(VERBOSE) << __func__ << " bytes: " << bytes;
+    return kErrorMsgInReadPcmDataBytesIsZero;
+  }
+  size_t total_read = 0;
+  int timeout_ms = kDefaultDataReadTimeoutMs;
+  do {
+    std::unique_lock<std::recursive_mutex> lock(mutex_);
+    if (data_mq_ == nullptr) {
+      LOG(VERBOSE) << __func__ << " data_mq_ is nullptr";
+      return kErrorMsgInReadPcmDataDataMqIsNullptr;
+    } else if (!data_mq_->isValid()) {
+      LOG(VERBOSE) << __func__ << " !data_mq_->isValid()";
+      return kErrorMsgInReadPcmDataDataMqInvalid;
+    }
+
+    size_t num_bytes_to_read = data_mq_->availableToRead();
+    if (num_bytes_to_read) {
+      if (num_bytes_to_read > (bytes - total_read)) {
+        num_bytes_to_read = bytes - total_read;
+      }
+
+      if (!data_mq_->read(static_cast<MQDataType*>(buffer) + total_read,
+                         num_bytes_to_read)) {
+        LOG(ERROR) << __func__ << " bytes: " << bytes << " total_read: "
+                   << total_read << " failed";
+        break;
+      }
+      total_read += num_bytes_to_read;
+    } else if (timeout_ms >= kDefaultDataReadPollIntervalMs) {
+      lock.unlock();
+      usleep(kDefaultDataReadPollIntervalMs * 1000);
+      timeout_ms -= kDefaultDataReadPollIntervalMs;
+    } else { //max 100 ms
+      if (log_underrun_1sec_ > 10) {
+        LOG(ERROR) << __func__ << " bytes: " << bytes << " total_read: "
+                   << total_read << " no data " << (kDefaultDataReadTimeoutMs - timeout_ms)
+                   << " ms * 10";
+        log_underrun_1sec_ = 0;
+      } else {
+        LOG(INFO) << __func__ << " bytes: " << bytes << " total_read: " << total_read
+                 << " no data " << (kDefaultDataReadTimeoutMs - timeout_ms) << " ms(noship log)";
+      }
+      log_underrun_1sec_++;
+      return kErrorMsgInReadPcmDataDataNoDataFromMq;
+    }
+  } while (total_read < bytes);
+  if ((bytes - total_read) > 4) {
+    LOG(ERROR) << __func__ << "return bytes: " << bytes << " total_read: " << total_read
+               << " no data " << (kDefaultDataReadTimeoutMs - timeout_ms) << " ms";
+  }
+  return (int)total_read;
 }
 
 }  // namespace audio

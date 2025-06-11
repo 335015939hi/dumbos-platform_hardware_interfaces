@@ -222,6 +222,29 @@ class BluetoothAudioSessionControl {
     }
     return 0;
   }
+
+  static constexpr int kErrorMsgInReadAvailableDataSizeSessionIsNullptr = -21;
+  static constexpr int kErrorMsgInReadPcmDataSessionIsNullptr = -25;
+
+  static size_t InReadAvailableDataSize(const SessionType& sehSession_type) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(sehSession_type);
+    if (session_ptr != nullptr) {
+      return session_ptr->InReadAvailableDataSize();
+    }
+    return kErrorMsgInReadAvailableDataSizeSessionIsNullptr;
+  }
+
+  // The control API reads stream to FMQ
+  static size_t InReadA2dpSinkPcmData(const SessionType& sehSession_type,
+                                void* buffer, size_t bytes) {
+    std::shared_ptr<BluetoothAudioSession> session_ptr =
+        BluetoothAudioSessionInstance::GetSessionInstance(sehSession_type);
+    if (session_ptr != nullptr) {
+      return session_ptr->InReadA2dpSinkPcmData(buffer, bytes);
+    }
+    return kErrorMsgInReadPcmDataSessionIsNullptr;
+  }
 };
 
 }  // namespace audio

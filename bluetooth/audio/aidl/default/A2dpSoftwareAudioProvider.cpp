@@ -40,6 +40,15 @@ static constexpr uint32_t kBufferSize = kRtpFrameSize * kRtpFrameCount;
 static constexpr uint32_t kBufferCount = 2;  // double buffer
 static constexpr uint32_t kDataMqSize = kBufferSize * kBufferCount;
 
+static constexpr uint32_t kDecodingPcmFrameCount = 128;
+static constexpr uint32_t kDecodingRtpFrameSize = kPcmFrameSize * kPcmFrameCount;
+static constexpr uint32_t kDecodingRtpFrameCount = 7;  // max counts by 1 tick (20ms)
+static constexpr uint32_t kDecodingBufferSize = kDecodingRtpFrameSize * kDecodingRtpFrameCount;
+static constexpr uint32_t kDecodingBufferCount = 2;  // double buffer
+static constexpr uint32_t kDecodingEnoughBufferCount = 8;  // double buffer
+static constexpr uint32_t kDecodingDataMqSize = kDecodingBufferSize * kDecodingBufferCount * kDecodingEnoughBufferCount;
+//kDataMqSize = 4 * 128 * 7 * 2 = 7168
+
 A2dpSoftwareEncodingAudioProvider::A2dpSoftwareEncodingAudioProvider()
     : A2dpSoftwareAudioProvider() {
   session_type_ = SessionType::A2DP_SOFTWARE_ENCODING_DATAPATH;
@@ -53,9 +62,17 @@ A2dpSoftwareDecodingAudioProvider::A2dpSoftwareDecodingAudioProvider()
 A2dpSoftwareAudioProvider::A2dpSoftwareAudioProvider()
     : BluetoothAudioProvider(), data_mq_(nullptr) {
   LOG(INFO) << __func__ << " - size of audio buffer " << kDataMqSize
-            << " byte(s)";
+            << " byte(s) sessionType " << toString(session_type_);
+
+  uint32_t data_mq_size = 0;
+  if (session_type_ == SessionType::A2DP_SOFTWARE_DECODING_DATAPATH) {
+    data_mq_size = kDecodingDataMqSize;
+  } else {
+    data_mq_size = kDataMqSize;
+  }
+
   std::unique_ptr<DataMQ> data_mq(
-      new DataMQ(kDataMqSize, /* EventFlag */ true));
+      new DataMQ(data_mq_size, /* EventFlag */ true));
   if (data_mq && data_mq->isValid()) {
     data_mq_ = std::move(data_mq);
   } else {
@@ -82,9 +99,15 @@ ndk::ScopedAStatus A2dpSoftwareAudioProvider::startSession(
       audio_config.get<AudioConfiguration::pcmConfig>();
   if (!BluetoothAudioCodecs::IsSoftwarePcmConfigurationValid(pcm_config)) {
     LOG(WARNING) << __func__ << " - Unsupported PCM Configuration="
-                 << pcm_config.toString();
-    *_aidl_return = DataMQDesc();
-    return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+                 << pcm_config.toString() << " set default config";
+    AudioConfiguration default_audio_config;
+    PcmConfiguration default_config;
+    default_config.sampleRateHz = 44100;
+    default_config.channelMode = ChannelMode::STEREO;
+    default_config.bitsPerSample = 16;
+    default_audio_config.set<AudioConfiguration::pcmConfig>(default_config);
+    return BluetoothAudioProvider::startSession(
+        host_if, default_audio_config, latency_modes, _aidl_return);
   }
 
   return BluetoothAudioProvider::startSession(

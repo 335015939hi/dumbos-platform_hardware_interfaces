@@ -94,9 +94,18 @@ ndk::ScopedAStatus A2dpOffloadAudioProvider::startSession(
             session_type_,
             audio_config.get<AudioConfiguration::a2dpConfig>())) {
       LOG(WARNING) << __func__ << " - Invalid Audio Configuration="
-                   << audio_config.toString();
-      *_aidl_return = DataMQDesc();
-      return ndk::ScopedAStatus::fromExceptionCode(EX_ILLEGAL_ARGUMENT);
+                   << audio_config.toString() << " set default config";
+      AudioConfiguration default_audio_config;
+      CodecConfiguration default_config;
+      default_config.codecType = CodecType::SBC;
+      SbcConfiguration sbc_config;
+      sbc_config.sampleRateHz = 44100;
+      sbc_config.channelMode = SbcChannelMode::STEREO;
+      sbc_config.bitsPerSample = 16;
+      default_config.config.set<CodecConfiguration::CodecSpecific::sbcConfig>(sbc_config);
+      default_audio_config.set<AudioConfiguration::a2dpConfig>(default_config);
+      return BluetoothAudioProvider::startSession(
+          host_if, default_audio_config, latency_modes, _aidl_return);
     }
   } else {
     LOG(WARNING) << __func__ << " - Invalid Audio Configuration="

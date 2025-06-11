@@ -201,6 +201,9 @@ class BluetoothAudioSession {
   // Return if IBluetoothAudioProviderFactory implementation existed
   static bool IsAidlAvailable();
 
+  int InReadAvailableDataSize();
+  int InReadA2dpSinkPcmData(void* buffer, size_t bytes);
+
  private:
   // using recursive_mutex to allow hwbinder to re-enter again.
   std::recursive_mutex mutex_;
@@ -228,6 +231,7 @@ class BluetoothAudioSession {
   static inline std::atomic<bool> is_aidl_available = false;
   static inline const std::string kDefaultAudioProviderFactoryInterface =
       std::string() + IBluetoothAudioProviderFactory::descriptor + "/default";
+  int log_underrun_1sec_ = 0;
 };
 
 class BluetoothAudioSessionInstance {

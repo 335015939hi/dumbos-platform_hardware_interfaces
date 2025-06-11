@@ -45,7 +45,7 @@ namespace audio {
 static const PcmCapabilities kDefaultSoftwarePcmCapabilities = {
     .sampleRateHz = {8000, 16000, 24000, 32000, 44100, 48000, 88200, 96000},
     .channelMode = {ChannelMode::MONO, ChannelMode::STEREO},
-    .bitsPerSample = {16, 24, 32},
+    .bitsPerSample = {16, 24, 32, 34},
     .dataIntervalUs = {},
 };
 
@@ -84,6 +84,13 @@ static const AptxCapabilities kDefaultOffloadAptxHdCapability = {
     .bitsPerSample = {24},
 };
 
+static const PcmCapabilities kDefaultOffloadSscCapability = {
+    .sampleRateHz = {44100, 48000, 96000},
+    .channelMode = {ChannelMode::STEREO},
+    .bitsPerSample = {16, 24, 32},
+    .dataIntervalUs = {},
+};
+
 static const OpusCapabilities kDefaultOffloadOpusCapability = {
     .samplingFrequencyHz = {48000},
     .frameDurationUs = {10000, 20000},
@@ -96,6 +103,7 @@ const std::vector<CodecCapabilities> kDefaultOffloadA2dpCodecCapabilities = {
     {.codecType = CodecType::LDAC, .capabilities = {}},
     {.codecType = CodecType::APTX, .capabilities = {}},
     {.codecType = CodecType::APTX_HD, .capabilities = {}},
+    {.codecType = CodecType::VENDOR, .capabilities = {}},
     {.codecType = CodecType::OPUS, .capabilities = {}}};
 
 std::vector<LeAudioCodecCapabilitiesSetting> kDefaultOffloadLeAudioCapabilities;
@@ -267,6 +275,38 @@ bool BluetoothAudioCodecs::IsOffloadOpusConfigurationValid(
   return false;
 }
 
+bool BluetoothAudioCodecs::IsOffloadSscConfigurationValid(
+    const CodecConfiguration::CodecSpecific& codec_specific) {
+  if (codec_specific.getTag() !=
+      CodecConfiguration::CodecSpecific::vendorConfig) {
+    LOG(WARNING) << __func__
+                 << ": Invalid CodecSpecific=" << codec_specific.toString();
+    return false;
+  }
+  const CodecConfiguration::VendorConfiguration vendorCfg =
+      codec_specific.get<CodecConfiguration::CodecSpecific::vendorConfig>();
+
+  LOG(WARNING) << __func__<< ": vId " << static_cast<int>(vendorCfg.vendorId)
+                << " cId " << static_cast<int>(vendorCfg.codecId);
+
+  std::optional<PcmConfiguration> ssc_data_parcel;
+  vendorCfg.codecConfig.getParcelable(&ssc_data_parcel);
+  if (ssc_data_parcel.has_value()) {
+    PcmConfiguration ssc_data = *ssc_data_parcel;
+    if (ContainedInVector(kDefaultOffloadSscCapability.sampleRateHz,
+                          ssc_data.sampleRateHz) &&
+        ContainedInVector(kDefaultOffloadSscCapability.bitsPerSample,
+                          ssc_data.bitsPerSample) &&
+        ContainedInVector(kDefaultOffloadSscCapability.channelMode,
+                          ssc_data.channelMode)) {
+      return true;
+    }
+  }
+  LOG(WARNING) << __func__
+               << ": Unsupported CodecSpecific=" << codec_specific.toString();
+  return false;
+}
+
 std::vector<PcmCapabilities>
 BluetoothAudioCodecs::GetSoftwarePcmCapabilities() {
   return {kDefaultSoftwarePcmCapabilities};
@@ -281,6 +321,7 @@ BluetoothAudioCodecs::GetA2dpOffloadCodecCapabilities(
   }
   std::vector<CodecCapabilities> offload_a2dp_codec_capabilities =
       kDefaultOffloadA2dpCodecCapabilities;
+  CodecCapabilities::VendorCapabilities vendorCaps;
   for (auto& codec_capability : offload_a2dp_codec_capabilities) {
     switch (codec_capability.codecType) {
       case CodecType::SBC:
@@ -313,8 +354,13 @@ BluetoothAudioCodecs::GetA2dpOffloadCodecCapabilities(
             .set<CodecCapabilities::Capabilities::opusCapabilities>(
                 kDefaultOffloadOpusCapability);
         break;
-      case CodecType::UNKNOWN:
       case CodecType::VENDOR:
+        vendorCaps.extension.setParcelable(kDefaultOffloadSscCapability);
+        codec_capability.capabilities
+            .set<CodecCapabilities::Capabilities::vendorCapabilities>(
+                vendorCaps);
+        break;
+      case CodecType::UNKNOWN:
       case CodecType::LC3:
       case CodecType::APTX_ADAPTIVE:
       case CodecType::APTX_ADAPTIVE_LE:
@@ -383,12 +429,16 @@ bool BluetoothAudioCodecs::IsOffloadCodecConfigurationValid(
         return true;
       }
       break;
+    case CodecType::VENDOR:
+      if (IsOffloadSscConfigurationValid(codec_specific)) {
+        return true;
+      }
+      break;
     case CodecType::APTX_ADAPTIVE:
     case CodecType::APTX_ADAPTIVE_LE:
     case CodecType::APTX_ADAPTIVE_LEX:
     case CodecType::LC3:
     case CodecType::UNKNOWN:
-    case CodecType::VENDOR:
       break;
   }
   return false;
