@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "588d3272_f8043e3d",
         "filename": "/COMMIT_MSG",
@@ -20,8 +21,24 @@
         "endChar": 42
       },
       "revId": "53891ac2be47507d370868982c5de7ab9f51b6e0",
-      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889",
-      "unresolved": true
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71736213_add20599",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3674263
+      },
+      "writtenOn": "2025-06-23T05:05:59Z",
+      "side": 1,
+      "message": "CF",
+      "revId": "53891ac2be47507d370868982c5de7ab9f51b6e0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
