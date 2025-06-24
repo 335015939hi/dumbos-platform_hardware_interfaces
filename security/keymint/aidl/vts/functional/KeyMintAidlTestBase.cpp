@@ -326,6 +326,7 @@ void KeyMintAidlTestBase::SetUp() {
         ::ndk::SpAIBinder binder(AServiceManager_waitForService(GetParam().c_str()));
         InitializeKeyMint(IKeyMintDevice::fromBinder(binder));
     } else {
+<<<<<<< HEAD
         InitializeKeyMint(nullptr);
     }
 }
@@ -345,6 +346,28 @@ ErrorCode KeyMintAidlTestBase::GenerateKey(const AuthorizationSet& key_desc,
     //   `ATTEST_KEY` anyways.
     // - In the case that using an `ATTEST_KEY` is not supported
     //   (shouldSkipAttestKeyTest), assume the device has factory keys (so not RKP-only).
+=======
+}
+
+/**
+ * Returns whether support for device ID attestation is required, which is the case if the KeyMint
+ * version is >= 2 and the device first shipped with vendor API level 33+ (since support relies on
+ * ID provisioning done in the factory).
+ */
+bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
+    if (!is_gsi_image()) {
+        return AidlVersion() >= 2 && AVendorSupport_getFirstVendorApiLevel() >=
+                                             AVendorSupport_getVendorApiLevelOf(__ANDROID_API_T__);
+    } else {
+        // The device ID properties may not be set properly when testing earlier implementations
+        // under GSI, e.g. `ro.product.<id>` is overridden by the GSI image, but the
+        // `ro.product.vendor.<id>` value (which does survive GSI installation) was not set.
+        return AidlVersion() >= 2 && AVendorSupport_getFirstVendorApiLevel() >=
+                                             AVendorSupport_getVendorApiLevelOf(__ANDROID_API_U__);
+    }
+}
+
+>>>>>>> PATCH
     // - If the key being generated is a symmetric key (from test cases that check that the
     //   attestation parameters are correctly ignored), don't try to use an `ATTEST_KEY`.
     if (isRkpOnly().value_or(true) && key_desc.Contains(TAG_ATTESTATION_CHALLENGE) &&
