@@ -27,6 +27,11 @@ void RadioImsMediaTest::SetUp() {
     RadioServiceTest::SetUp();
     std::string serviceName = GetParam();
 
+    if (!isServiceValidForDeviceConfiguration(serviceName)) {
+        ALOGI("Skipped the test due to device configuration.");
+        GTEST_SKIP();
+    }
+
     radio_imsmedia = IImsMedia::fromBinder(
             ndk::SpAIBinder(AServiceManager_waitForService(GetParam().c_str())));
     ASSERT_NE(nullptr, radio_imsmedia.get());
