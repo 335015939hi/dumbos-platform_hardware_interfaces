@@ -593,8 +593,9 @@ enum Tag {
      * upgradeKey() for details.
      *
      * The value of the tag is an integer of the form YYYYMM, where YYYY is the four-digit year of
-     * the last update and MM is the two-digit month of the last update.  For example, for a key
-     * generated on an Android device last updated in December 2015, the value would be 201512.
+     * the last security patch and MM is the two-digit month of the last security patch.
+     * For example, for a key generated on an Android device compliant with the
+     * Android Security Bulletin December 2015 security patch, the value would be 201512.
      *
      * The IKeyMintDevice HAL must read the current system patchlevel from the system property
      * ro.build.version.security_patch and deliver it to the secure environment when the HAL is
@@ -789,9 +790,10 @@ enum Tag {
      * getKeyCharacteristics() or exportKey() to return ErrorCode::KEY_REQUIRES_UPGRADE.  See
      * upgradeKey() for details.
      *
-     * The value of the tag is an integer of the form YYYYMMDD, where YYYY is the four-digit year of
-     * the last update, MM is the two-digit month and DD is the two-digit day of the last
-     * update.  For example, for a key generated on an Android device last updated on June 5, 2018,
+     * The value of the tag is an integer of the form YYYYMMVV, where YYYY is the four-digit year of
+     * the last security patch level, MM is the two-digit month and VV is the two-digit version of
+     * the last security patch.  For example, for a key generated on an Android device last updated
+     * to be compliant with the Android Security Bulletin June 2018 version 05 security patch
      * the value would be 20180605.
      *
      * The IKeyMintDevice HAL must read the current vendor patchlevel from the system property
@@ -811,10 +813,11 @@ enum Tag {
      * cause begin(), getKeyCharacteristics() or exportKey() to return
      * ErrorCode::KEY_REQUIRES_UPGRADE.  See upgradeKey() for details.
      *
-     * The value of the tag is an integer of the form YYYYMMDD, where YYYY is the four-digit year of
-     * the last update, MM is the two-digit month and DD is the two-digit day of the last
-     * update.  For example, for a key generated on an Android device last updated on June 5, 2018,
-     * the value would be 20180605.  If the day is not known, 00 may be substituted.
+     * The value of the tag is an integer of the form YYYYMMVV, where YYYY is the four-digit year of
+     * the last security patch level, MM is the two-digit month and VV is the two-digit version of
+     * the last security patch.  For example, for a key generated on an Android device last updated
+     * to be compliant with the Android Security Bulletin June 2018 version 05 security patch
+     * the value would be 20180605.
      *
      * During each boot, the bootloader must provide the patch level of the boot image to the secure
      * environment (mechanism is implementation-defined).
