@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "419bff4c_d2d26fb8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-07-01T06:30:55Z",
+      "side": 1,
+      "message": "Just to check -- this has multiple Change-Id stanzas present (presumably due to merge conflict),  will that cause a problem?\n\nI _guess_ not, because there\u0027s currently no merge path from here \n(The `android16-tests-dev` version in pa/3319778 is on the partner-android host rather than the aosp host)",
+      "revId": "a3e7df086fa4fba2b2635c995d12253967814a9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
