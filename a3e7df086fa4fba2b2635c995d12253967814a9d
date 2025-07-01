@@ -16,6 +16,24 @@
       "message": "Just to check -- this has multiple Change-Id stanzas present (presumably due to merge conflict),  will that cause a problem?\n\nI _guess_ not, because there\u0027s currently no merge path from here \n(The `android16-tests-dev` version in pa/3319778 is on the partner-android host rather than the aosp host)",
       "revId": "a3e7df086fa4fba2b2635c995d12253967814a9d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fa0821d_77b9d817",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-07-01T10:00:01Z",
+      "side": 1,
+      "message": "Yeah it\u0027s the same thing with change IDs as the other cases we discussed with merge conflicts. And indeed there\u0027s no merge path to the Android 16 test branch since it\u0027s on another host.",
+      "parentUuid": "419bff4c_d2d26fb8",
+      "revId": "a3e7df086fa4fba2b2635c995d12253967814a9d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
