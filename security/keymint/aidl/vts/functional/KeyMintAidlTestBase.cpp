@@ -35,6 +35,7 @@
 #include <openssl/evp.h>
 #include <openssl/mem.h>
 #include <remote_prov/remote_prov_utils.h>
+#include <vendorsupport/api_level.h>
 
 #include <keymaster/cppcose/cppcose.h>
 #include <keymint_support/key_param_output.h>
@@ -245,17 +246,20 @@ uint32_t KeyMintAidlTestBase::boot_patch_level() {
 }
 
 /**
- * An API to determine device IDs attestation is required or not,
- * which is mandatory for KeyMint version 2 and first_api_level 33 or greater.
+ * Returns whether support for device ID attestation is required, which is the case if the KeyMint
+ * version is >= 2 and the device first shipped with vendor API level 33+ (since support relies on
+ * ID provisioning done in the factory).
  */
 bool KeyMintAidlTestBase::isDeviceIdAttestationRequired() {
     if (!is_gsi_image()) {
-        return AidlVersion() >= 2 && get_vsr_api_level() >= __ANDROID_API_T__;
+        return AidlVersion() >= 2 && AVendorSupport_getFirstVendorApiLevel() >=
+                                             AVendorSupport_getVendorApiLevelOf(__ANDROID_API_T__);
     } else {
         // The device ID properties may not be set properly when testing earlier implementations
         // under GSI, e.g. `ro.product.<id>` is overridden by the GSI image, but the
         // `ro.product.vendor.<id>` value (which does survive GSI installation) was not set.
-        return AidlVersion() >= 2 && get_vsr_api_level() >= __ANDROID_API_U__;
+        return AidlVersion() >= 2 && AVendorSupport_getFirstVendorApiLevel() >=
+                                             AVendorSupport_getVendorApiLevelOf(__ANDROID_API_U__);
     }
 }
 
