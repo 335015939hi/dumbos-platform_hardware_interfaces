@@ -272,6 +272,7 @@ TEST_P(HealthAidl, setChargingPolicy) {
 
 MATCHER(IsValidHealthData, "") {
     *result_listener << "value is " << arg.toString() << ".";
+<<<<<<< HEAD
     if (!ExplainMatchResult(Ge(-1), arg.batteryManufacturingDateSeconds, result_listener)) {
         *result_listener << " for batteryManufacturingDateSeconds.";
         return false;
@@ -287,6 +288,14 @@ MATCHER(IsValidHealthData, "") {
 
     return true;
 }
+=======
+    /* set ChargingPolicy*/
+    status = health->setChargingPolicy(BatteryChargingPolicy::LONG_LIFE);
+    ASSERT_THAT(status, AnyOf(IsOk(), ExceptionIs(EX_UNSUPPORTED_OPERATION)));
+}
+
+MATCHER_P(IsValidHealthData, version, "") {
+>>>>>>> PATCH
 
 /*
  * Tests the values returned by getBatteryHealthData() from interface IHealth.
