@@ -476,6 +476,10 @@ TEST_P(IdentityCredentialTests, verifyOneProfileAndEntryPass) {
 }
 
 TEST_P(IdentityCredentialTests, verifyManyProfilesAndEntriesPass) {
+    if (test_utils::isGsiImage()) {
+        GTEST_SKIP() << "Test not applicable because RKP-only status cannot be determined";
+    }
+
     Status result;
 
     HardwareInformation hwInfo;
@@ -637,6 +641,10 @@ TEST_P(IdentityCredentialTests, verifyManyProfilesAndEntriesPass) {
 }
 
 TEST_P(IdentityCredentialTests, verifyEmptyNameSpaceMixedWithNonEmptyWorks) {
+    if (test_utils::isGsiImage()) {
+        GTEST_SKIP() << "Test not applicable because RKP-only status cannot be determined";
+    }
+
     Status result;
 
     HardwareInformation hwInfo;
@@ -701,6 +709,10 @@ TEST_P(IdentityCredentialTests, verifyEmptyNameSpaceMixedWithNonEmptyWorks) {
 }
 
 TEST_P(IdentityCredentialTests, verifyInterleavingEntryNameSpaceOrderingFails) {
+    if (test_utils::isGsiImage()) {
+        GTEST_SKIP() << "Test not applicable because RKP-only status cannot be determined";
+    }
+
     Status result;
 
     HardwareInformation hwInfo;
