@@ -36,7 +36,6 @@ cc_defaults {
         "libcrypto",
         "libbase",
         "libgatekeeper",
-        "libvendorsupport",
         "packagemanager_aidl-cpp",
     ],
     static_libs: [
@@ -49,12 +48,22 @@ cc_defaults {
         "libcppbor",
         "libcppcose_rkp",
         "libfs_mgr",
+<<<<<<< HEAD
         "libjsoncpp",
         "libkeymint",
         "libkeymint_remote_prov_support",
         "libkeymint_support",
     ],
 }
+=======
+        "libjsoncpp",
+        "libkeymint_remote_prov_support",
+        "libkeymint_support",
+        "libvendorsupport",
+    ],
+}
+
+>>>>>>> PATCH
 
 cc_test {
     name: "VtsAidlKeyMintTargetTest",
