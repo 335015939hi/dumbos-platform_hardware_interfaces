@@ -16,6 +16,24 @@
       "message": "Commit message has merge conflict warning and double change-ID",
       "revId": "e7f639a15f3a610a3f0b5fae7276ebe9c49a7b89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00a5e63f_fb59ae7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-07-21T15:31:24Z",
+      "side": 1,
+      "message": "I addressed the merge conflict and don\u0027t know how to make the warning go away :/ The double ChangeId issue happens every time there\u0027s a merge conflict and I can\u0027t remove the ChangeId that is different from the original change...",
+      "parentUuid": "7ceff02c_71aa26e2",
+      "revId": "e7f639a15f3a610a3f0b5fae7276ebe9c49a7b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
