@@ -34,6 +34,24 @@
       "parentUuid": "7ceff02c_71aa26e2",
       "revId": "e7f639a15f3a610a3f0b5fae7276ebe9c49a7b89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffd2af79_3db40e46",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1836235
+      },
+      "writtenOn": "2025-07-21T16:30:07Z",
+      "side": 1,
+      "message": "I\u0027m not sure what we\u0027re supposed to do in these cases.  Maybe edit the commit message in Gerrit to remove the first Change-Id and warning?  Would end up like:\n\n```\nMerged-In: Ib114e91d066dca2c4d0918577b1ca0995e9f81a5\nChange-Id: I528bd11232ef58a320baf05d74c1b73947dd1aff\n```\n\n(go/merged-in-considered-harmful might be relevant here, but I don\u0027t entirely follow/understand it.)",
+      "parentUuid": "00a5e63f_fb59ae7a",
+      "revId": "e7f639a15f3a610a3f0b5fae7276ebe9c49a7b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
