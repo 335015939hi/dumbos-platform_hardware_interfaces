@@ -52,6 +52,24 @@
       "parentUuid": "00a5e63f_fb59ae7a",
       "revId": "e7f639a15f3a610a3f0b5fae7276ebe9c49a7b89",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60c88447_eb1c6e97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 2035397
+      },
+      "writtenOn": "2025-07-22T10:11:41Z",
+      "side": 1,
+      "message": "As discussed offline, the last ChangeId is the correct one since it\u0027s not a clean cherrypick, so I deleted the first ChangeId (which matches the original commit).",
+      "parentUuid": "ffd2af79_3db40e46",
+      "revId": "e7f639a15f3a610a3f0b5fae7276ebe9c49a7b89",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
