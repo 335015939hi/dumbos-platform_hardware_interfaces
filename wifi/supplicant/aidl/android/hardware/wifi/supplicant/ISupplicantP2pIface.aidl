@@ -17,6 +17,7 @@
 package android.hardware.wifi.supplicant;
 
 import android.hardware.wifi.common.OuiKeyedData;
+import android.hardware.wifi.supplicant.ConnectionCapabilities;
 import android.hardware.wifi.supplicant.FreqRange;
 import android.hardware.wifi.supplicant.ISupplicantP2pIfaceCallback;
 import android.hardware.wifi.supplicant.ISupplicantP2pNetwork;
@@ -1065,4 +1066,16 @@ interface ISupplicantP2pIface {
      *         |SupplicantStatusCode.FAILURE_IFACE_INVALID|
      */
     void reinvokePersistentGroup(in P2pReinvokePersistentGroupParams reinvokeGroupParams);
+    
+    /**
+     * Get Connection capabilities
+     *
+     * @param peerAddress Mac address of the client to get ConnectionCapabilities. 
+     *        If the device is a group client, can be null.
+     * @return Peer's connection capabilities if the device is a group owner, 
+     *         Group owner's connection capabilities otherwise.
+     * @throws ServiceSpecificException with one of the following values:
+     *         |SupplicantStatusCode.FAILURE_UNKNOWN|
+     */
+    ConnectionCapabilities getConnectionCapabilities(in byte[/*6*/] peerAddress);
 }
