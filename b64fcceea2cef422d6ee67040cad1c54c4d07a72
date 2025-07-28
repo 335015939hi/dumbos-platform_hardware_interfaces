@@ -16,6 +16,23 @@
       "message": "LGTM.",
       "revId": "b64fcceea2cef422d6ee67040cad1c54c4d07a72",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cf4fe3f_71e08793",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1121338
+      },
+      "writtenOn": "2025-07-28T17:49:18Z",
+      "side": 1,
+      "message": "Looks like a clean cp of aosp/3440720. Other camera team members for visibility.",
+      "revId": "b64fcceea2cef422d6ee67040cad1c54c4d07a72",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
