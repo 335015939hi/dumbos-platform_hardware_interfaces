@@ -49,4 +49,10 @@ enum BatteryChargingState {
      * improve battery cycle life, performances or both.
      */
     ADAPTIVE = 5,
+    /**
+     * Indicates that the charging policy is bypassing the "long life"
+     * charge limit (e.g., 80%) to charge to full, which recalibrates
+     * the battery's capacity estimation to maintain accuracy.
+     */
+    BYPASS_LIMIT = 6,
 }

@@ -40,4 +40,5 @@ enum BatteryChargingState {
   TOO_HOT = 3,
   LONG_LIFE = 4,
   ADAPTIVE = 5,
+  BYPASS_LIMIT = 6,
 }
