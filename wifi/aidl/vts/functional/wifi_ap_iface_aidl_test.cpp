@@ -20,6 +20,7 @@
 #include <aidl/Gtest.h>
 #include <aidl/Vintf.h>
 #include <aidl/android/hardware/wifi/BnWifi.h>
+#include <android-base/logging.h>
 #include <android/binder_manager.h>
 #include <android/binder_status.h>
 #include <binder/IServiceManager.h>
@@ -50,6 +51,7 @@ class WifiApIfaceAidlTest : public testing::TestWithParam<std::string> {
  * SetMacAddress
  */
 TEST_P(WifiApIfaceAidlTest, SetMacAddress) {
+<<<<<<< HEAD
     std::shared_ptr<IWifiApIface> wifi_ap_iface = getWifiApIface(getInstanceName());
     ASSERT_NE(nullptr, wifi_ap_iface.get());
     std::array<uint8_t, 6> mac = {0x12, 0x22, 0x33, 0x52, 0x10, 0x44};
@@ -63,6 +65,62 @@ TEST_P(WifiApIfaceAidlTest, SetCountryCode) {
     std::shared_ptr<IWifiApIface> wifi_ap_iface = getWifiApIface(getInstanceName());
     ASSERT_NE(nullptr, wifi_ap_iface.get());
 
+=======
+    bool isBridgedSupport_ = false;
+    std::shared_ptr<IWifiChip> wifi_chip_;
+    const char* getInstanceName() { return GetParam().c_str(); }
+
+    // Retrieve the AP interface, retrying if the initial retrieval fails.
+    std::shared_ptr<IWifiApIface> getApIfaceInternal() {
+        std::shared_ptr<IWifiApIface> wifi_ap_iface = getWifiApIface(wifi_chip_);
+        if (wifi_ap_iface == nullptr) {
+            LOG(INFO) << "Retrying AP interface retrieval";
+            sleep(2);
+            wifi_ap_iface = getWifiApIface(wifi_chip_);
+        }
+<<<<<<< HEAD
+        return wifi_ap_iface;
+    }
+};
+
+/*
+ * SetMacAddress
+ */
+=======
+ * SetCountryCode
+ */
+<<<<<<< HEAD
+TEST_P(WifiApIfaceAidlTest, SetCountryCode) {
+    std::shared_ptr<IWifiApIface> wifi_ap_iface = getApIfaceInternal();
+    ASSERT_NE(nullptr, wifi_ap_iface.get());
+
+    const std::array<uint8_t, 2> country_code = {0x55, 0x53};
+>>>>>>> PATCH
+TEST_P(WifiApIfaceAidlTest, SetMacAddress) {
+=======
+ * GetFactoryMacAddress
+ */
+TEST_P(WifiApIfaceAidlTest, GetFactoryMacAddress) {
+    std::shared_ptr<IWifiApIface> wifi_ap_iface = getApIfaceInternal();
+<<<<<<< HEAD
+    ASSERT_NE(nullptr, wifi_ap_iface.get());
+
+    std::array<uint8_t, 6> mac;
+>>>>>>> PATCH
+    std::shared_ptr<IWifiApIface> wifi_ap_iface = getApIfaceInternal();
+    ASSERT_NE(nullptr, wifi_ap_iface.get());
+    std::array<uint8_t, 6> mac = {0x12, 0x22, 0x33, 0x52, 0x10, 0x44};
+=======
+ * GetBridgedInstances - non-bridged mode
+ */
+TEST_P(WifiApIfaceAidlTest, GetBridgedInstances) {
+    std::shared_ptr<IWifiApIface> wifi_ap_iface = getApIfaceInternal();
+    ASSERT_NE(nullptr, wifi_ap_iface.get());
+
+    std::vector<std::string> instances;
+>>>>>>> PATCH
+    EXPECT_TRUE(wifi_ap_iface->setMacAddress(mac).isOk());
+>>>>>>> PATCH
     const std::array<uint8_t, 2> country_code = {0x55, 0x53};
     EXPECT_TRUE(wifi_ap_iface->setCountryCode(country_code).isOk());
 }
@@ -71,6 +129,7 @@ TEST_P(WifiApIfaceAidlTest, SetCountryCode) {
  * GetFactoryMacAddress
  */
 TEST_P(WifiApIfaceAidlTest, GetFactoryMacAddress) {
+<<<<<<< HEAD
     std::shared_ptr<IWifiApIface> wifi_ap_iface = getWifiApIface(getInstanceName());
     ASSERT_NE(nullptr, wifi_ap_iface.get());
 
@@ -78,6 +137,15 @@ TEST_P(WifiApIfaceAidlTest, GetFactoryMacAddress) {
     EXPECT_TRUE(wifi_ap_iface->getFactoryMacAddress(&mac).isOk());
     std::array<uint8_t, 6> all_zero_mac = {0, 0, 0, 0, 0, 0};
     EXPECT_NE(mac, all_zero_mac);
+=======
+ * ResetToFactoryMacAddress - non-bridged mode
+ */
+TEST_P(WifiApIfaceAidlTest, ResetToFactoryMacAddress) {
+    std::shared_ptr<IWifiApIface> wifi_ap_iface = getApIfaceInternal();
+    ASSERT_NE(nullptr, wifi_ap_iface.get());
+    EXPECT_TRUE(wifi_ap_iface->resetToFactoryMacAddress().isOk());
+}
+>>>>>>> PATCH
 }
 
 /**
