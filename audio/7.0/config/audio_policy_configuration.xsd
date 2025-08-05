@@ -275,6 +275,7 @@
             <xs:enumeration value="AUDIO_DEVICE_OUT_ECHO_CANCELLER"/>
             <xs:enumeration value="AUDIO_DEVICE_OUT_BLE_HEADSET"/>
             <xs:enumeration value="AUDIO_DEVICE_OUT_BLE_SPEAKER"/>
+            <xs:enumeration value="AUDIO_DEVICE_OUT_BLE_BROADCAST"/>
             <xs:enumeration value="AUDIO_DEVICE_OUT_DEFAULT"/>
             <xs:enumeration value="AUDIO_DEVICE_OUT_STUB"/>
 
